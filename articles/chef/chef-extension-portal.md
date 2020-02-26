@@ -1,107 +1,108 @@
 ---
-title: Instalar o cliente chefe do portal do Azure
-description: Saiba como implantar e configurar o cliente chefe no portal do Azure
-keywords: Azure, chefe, DevOps, cliente, instalar, portal
-ms.date: 05/15/2018
+title: Instale o cliente Chef do portal Azure
+description: Saiba como implementar e configurar o seu cliente Chef a partir do portal Azure
+keywords: azure, chef, devops, cliente, instalação, portal
+ms.date: 02/22/2020
 ms.topic: article
-ms.openlocfilehash: f8707c2fe39fb794381af298c24d27704b1ec255
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6e46133c598c44b314077f2d020852416d3d2745
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158271"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586364"
 ---
-# <a name="install-the-chef-client-from-the-azure-portal"></a>Instalar o cliente chefe do portal do Azure
-Você pode adicionar a extensão de cliente chefe diretamente em um computador Linux ou Windows da portal do Azure. Este artigo orienta você pelo processo usando uma nova máquina virtual do Linux.
+# <a name="install-the-chef-client-from-the-azure-portal"></a>Instale o cliente Chef do portal Azure
+Você pode adicionar a extensão do cliente Chef diretamente em uma máquina Linux ou Windows a partir do portal Azure. Este artigo acompanha-o através do processo usando uma nova máquina virtual Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Chefe**: se você não tiver uma conta do chefe ativo, Inscreva-se para uma [avaliação gratuita do chefe hospedado](https://manage.chef.io/signup). Para acompanhar as instruções neste artigo, você precisará dos seguintes valores de sua conta do chefe:
-  - chave de organization_validation
+- **Chef**: Se você não tem uma conta de Chef ativa, inscreva-se para um [teste gratuito de Chef Hospedado.](https://manage.chef.io/signup) Para acompanhar as instruções deste artigo, você precisará dos seguintes valores da sua conta chef:
+  - chave organization_validation
   - rb
   - run_list
 
-## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Instalar a extensão chefe em uma nova máquina virtual do Linux
-Nesta seção, você primeiro usará o portal do Azure para criar um computador Linux. Durante o processo, você também verá como instalar a extensão chefe na nova máquina virtual.
+## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Instale a extensão do Chef numa nova máquina virtual Linux
+Nesta secção, você primeiro usará o portal Azure para criar uma máquina Linux. Durante o processo, você também vai ver como instalar a extensão chef na nova máquina virtual.
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 
-1. No menu à esquerda, selecione a opção **máquinas virtuais** . Se a opção **máquinas virtuais** não estiver presente, selecione **todos os serviços** e, em seguida, selecione **máquinas virtuais**.
+1. A partir do menu à esquerda, selecione a opção **máquinas Virtuais.** Se a opção **máquinas Virtuais** não estiver presente, selecione Todos os **serviços** e, em seguida, selecione **máquinas Virtuais**.
 
-1. Na guia **máquinas virtuais** , selecione **Adicionar**.
+1. No separador **máquinas Virtuais,** selecione **Adicionar**.
 
-    ![Adicionar uma nova máquina virtual na portal do Azure](./media/chef-extension-portal/add-vm.png)
+    ![Adicione uma nova máquina virtual no portal Azure](./media/chef-extension-portal/add-vm.png)
 
-1. Na guia **computação** , selecione o sistema operacional desejado. Para esta demonstração, o **Ubuntu Server** está selecionado.
+1. No separador **Compute,** selecione o sistema operativo pretendido. Para esta demonstração, **o Ubuntu Server** é selecionado.
 
-1. Na guia **servidor do Ubuntu** , selecione **Ubuntu Server 16, 4 LTS**.
+1. No separador **Ubuntu Server,** selecione **Ubuntu Server 16.04 LTS**.
 
-    ![Ao criar uma máquina virtual do Ubuntu, especifique a versão de que você precisa](./media/chef-extension-portal/ubuntu-server-version.png)
+    ![Ao criar uma máquina virtual Ubuntu, especifique a versão de que necessita](./media/chef-extension-portal/ubuntu-server-version.png)
 
-1. Na guia **LTS do Ubuntu Server 16, 4** , selecione **criar**.
+1. No separador **Ubuntu Server 16.04 LTS,** **selecione Criar**.
 
-    ![O Ubuntu fornece informações adicionais sobre seus produtos](./media/chef-extension-portal/create-vm.png)
+    ![Ubuntu fornece informações adicionais sobre o seu produto](./media/chef-extension-portal/create-vm.png)
 
-1. Na guia **criar máquina virtual** , selecione **básico**.
+1. No separador **Criar máquina virtual,** selecione **Basics**.
 
-1. Na guia **noções básicas** , especifique os valores a seguir e selecione **OK**.
+1. No separador Basics, especifique os **seguintes valores** e, em seguida, selecione **OK**.
 
-   - **Nome** – Insira um nome para a nova máquina virtual.
-   - **Tipo de disco da VM** -especifique **SSD** ou **HDD** para o tipo de disco de armazenamento. Para obter mais informações sobre os tipos de disco de máquina virtual no Azure, consulte o artigo [selecionar um tipo de disco](../virtual-machines/windows/disks-types.md).
-   - **Nome de usuário** – Insira um nome de usuário que receba privilégios de administrador na máquina virtual.
-   - **Tipo de autenticação** – selecione **senha**. Você também pode selecionar a **chave pública SSH**e fornecer um valor de chave pública SSH. Para fins desta demonstração (e nas capturas de tela), a **senha** está selecionada.
-   - **Senha** e **Confirmar senha** – Insira uma senha para o usuário.
-   - **Faça logon com Azure Active Directory** -selecione **desabilitado**.
-   - **Assinatura** – selecione a assinatura do Azure desejada, se você tiver mais de uma.
-   - **Grupo de recursos** – Insira um nome para seu grupo de recursos.
-   - **Local** -selecione **leste dos EUA**.
+   - **Nome** - Introduza um nome para a nova máquina virtual.
+   - Tipo de **disco VM** - Especifique o **SSD** ou **o HDD** para o tipo de disco de armazenamento. Para obter mais informações sobre os tipos de discos de máquinas virtuais no Azure, consulte o artigo [Selecione um tipo](../virtual-machines/windows/disks-types.md)de disco .
+   - **Nome** do utilizador - Introduza um nome de utilizador que lhe seja concedido privilégios de administrador na máquina virtual.
+   - **Tipo de autenticação** - Selecione **Password**. Também pode selecionar **a chave pública SSH**e fornecer um valor-chave público ssh. Para efeitos desta demonstração (e nas imagens), a **palavra-passe** é selecionada.
+   - **Palavra-passe** e **palavra-passe Confirme** - Introduza uma palavra-passe para o utilizador.
+   - **Inicie sessão com o Diretório Ativo Azure** - Selecione **Desativado**.
+   - **Subscrição** - Selecione a subscrição desejada do Azure, se tiver mais de um.
+   - **Grupo de recursos** - Insira um nome para o seu grupo de recursos.
+   - **Localização** - Selecione **East US**.
 
-     ![Guia básico para criar uma máquina virtual](./media/chef-extension-portal/add-vm-basics.png)
+     ![Separador básico para criar uma máquina virtual](./media/chef-extension-portal/add-vm-basics.png)
 
-1. Na guia **escolher um tamanho** , selecione o tamanho da máquina virtual e selecione **selecionar**.
+1. No separador **Escolha um separador de tamanho,** selecione o tamanho da máquina virtual e, em seguida, selecione **Selecione**.
 
-1. Na guia **configurações** , a maioria dos valores será preenchida com base nos valores selecionados nas guias anteriores. Selecione **Extensions** (Extensões).
+1. No separador **Definições,** a maioria dos valores serão povoados para si com base nos valores selecionados nos separadores anteriores. Selecione **Extensions** (Extensões).
 
-     ![As extensões são adicionadas às máquinas virtuais por meio da guia Configurações](./media/chef-extension-portal/add-vm-select-extensions.png)
+     ![As extensões são adicionadas às máquinas virtuais através do separador Definições](./media/chef-extension-portal/add-vm-select-extensions.png)
 
-1. Na guia **extensões** , selecione **adicionar extensão**.
+1. No separador **Extensões,** selecione **Adicionar extensão**.
 
      ![Selecione Adicionar extensão para adicionar uma extensão a uma máquina virtual](./media/chef-extension-portal/add-vm-add-extension.png)
 
-1. Na guia **novo recurso** , selecione **extensão chefe do Linux (1.2.3)** .
+1. No **separador de recursos Novo,** selecione **Extensão do Chef Linux (1.2.3)** .
 
-     ![Chefe tem extensões para máquinas virtuais Linux e Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
+     ![Chef tem extensões para máquinas virtuais Linux e Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
 
-1. Na guia **extensão do chefe do Linux** , selecione **criar**.
+1. No separador de extensão do **Chef Linux,** selecione **Criar**.
 
-1. Na guia **extensão de instalação** , especifique os valores a seguir e selecione **OK**.
+1. No separador **de extensão Instalar,** especifique os seguintes valores e, em seguida, selecione **OK**.
 
-    - **URL do servidor chefe** -Insira a URL do servidor chefe que inclui o nome da organização, por exemplo, *https://api.chef.io/organization/mycompany* .
-    - **Nome do nó chefe** -Insira o nome do nó chefe. Pode ser qualquer valor.
-    - **Executar lista** – Insira a lista de execuções do chefe que é adicionada ao computador. Isso pode ser deixado em branco.
-    - **Nome do cliente de validação** – Insira o nome do cliente de validação do chefe. por exemplo, *Tarcher-Validator*.
-    - **Chave de validação** – selecione um arquivo que contém a chave de validação usada ao inicializar seus computadores.
-    - **Arquivo de configuração do cliente** – selecione um arquivo de configuração para o chefe-Client. Isso pode ser deixado em branco.
-    - **Versão do cliente chefe** – Insira a versão do cliente chefe a ser instalada. Isso pode ser deixado em branco. Um valor em branco instala a versão mais recente.
-    - **Modo de verificação de SSL** – selecione **nenhum** ou **par**. *Nenhum* foi selecionado para a demonstração.
-    - **Ambiente chefe** – Insira o ambiente chefe do qual este nó deve ser membro. Isso pode ser deixado em branco.
-    - **Segredo Databag criptografado** – selecione um arquivo que contenha o segredo para o Databag criptografado ao qual este computador deve ter acesso. Isso pode ser deixado em branco.
-    - **Certificado SSL do servidor chefe** -selecione o certificado SSL atribuído ao servidor chefe. Isso pode ser deixado em branco.
+    - **Chef Server URL** - Introduza o URL do Chef Server que inclui o nome da organização, por exemplo, *https://api.chef.io/organization/mycompany* .
+    - **Nome do Chef Node** - Insira o nome do Chef Node.
+    - Lista de **corridas** - Insira a lista de corridas do Chef que é adicionada à máquina. Este valor pode ser deixado em branco.
+    - **Validação nome do cliente** - Insira o Nome do Cliente de Validação do Chef. Por exemplo, `tarcher-validator`.
+    - **Chave de validação** - Selecione um ficheiro que contenha a chave de validação utilizada ao amarrar as suas máquinas.
+    - Arquivo de **configuração do cliente** - Selecione um ficheiro de configuração para chef-cliente. Este valor pode ser deixado em branco.
+    - **Versão chef Cliente** - Insira a versão do cliente chef para instalar. Este valor pode ser deixado em branco, que instala a versão mais recente.
+    - **Modo de Verificação SSL** - Selecione **nenhum** ou **par**. *Nenhum* foi selecionado para a demonstração.
+    - **Chef Ambiente** - Insira o ambiente chef este nó deve ser um membro de. Este valor pode ser deixado em branco.
+    - Segredo de saco de **dados encriptado** - Selecione um ficheiro que contenha o segredo para o saco de dados encriptado que esta máquina precisa de aceder. Este valor pode ser deixado em branco.
+    - **Certificado SSL chef Server** - Selecione o certificado SSL atribuído ao seu Chef Server. Este valor pode ser deixado em branco.
 
-      ![Instalando o servidor chefe em uma máquina virtual Linux](./media/chef-extension-portal/install-extension.png)
+      ![Instalação do Chef Server numa máquina virtual Linux](./media/chef-extension-portal/install-extension.png)
 
-1. Ao retornar para a guia **extensões** , selecione **OK**.
+1. Quando o separador **Extensões** se mostrar, selecione **OK**.
 
-1. Ao retornar para a guia **configurações** , selecione **OK**.
+1. Quando o separador **Definições** se leciona **OK**.
 
-1. Ao retornar para a guia **criar** (representa um resumo das opções que você selecionou e inseriu), verifique as informações, bem como a **termos de uso**e selecione **criar**.
+1. Quando o separador **Criar** aparece, vê um resumo das opções selecionadas e inseridas. Verifique as informações, bem como os **Termos de Utilização,** e selecione **Criar**.
 
-Quando o processo de criação e implantação da máquina virtual com a extensão chefe estiver concluído, uma notificação indicará o êxito ou a falha da operação. Além disso, a página de recursos para a nova máquina virtual é aberta automaticamente no portal do Azure assim que ela é criada.
+Quando o processo de criação e implantação da máquina virtual com a Extensão do Chef estiver concluído, uma notificação indica o sucesso ou falha da operação. Além disso, a página de recursos da nova máquina virtual abre automaticamente no portal Azure uma vez criada.
 
-![Instalando o servidor chefe em uma máquina virtual Linux](./media/chef-extension-portal/resource-created.png)
+![Instalação do Chef Server numa máquina virtual Linux](./media/chef-extension-portal/resource-created.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma máquina virtual do Windows no Azure usando o chefe](/azure/virtual-machines/windows/chef-automation)
+> [!div class="nextstepaction"] 
+> [Crie uma máquina virtual Windows em Azure usando chef](chef-automation.md)

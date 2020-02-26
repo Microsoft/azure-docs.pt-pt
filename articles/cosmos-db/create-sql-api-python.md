@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: compilar um aplicativo Python usando Azure Cosmos DB conta da API do SQL'
+title: 'Quickstart: Construa uma app Python utilizando a conta API Azure Cosmos DB SQL'
 description: Apresenta um exemplo de código Python que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API
 author: SnehaGunda
 ms.service: cosmos-db
@@ -12,14 +12,14 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 4b156ad12238e6ab33aaa40283cdd324bddce206
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: d73d85471269bafb6f6d2e080a68f0cab10e3962
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134446"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585973"
 ---
-# <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Início rápido: criar um aplicativo Python usando uma conta de API do SQL Azure Cosmos DB
+# <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma aplicação Python utilizando uma conta API Azure Cosmos DB SQL
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -45,7 +45,7 @@ Neste arranque rápido, cria-se e gere-se uma conta API Azure Cosmos DB SQL a pa
 
 ## <a name="add-a-container"></a>Adicione um recipiente
 
-Agora você pode usar a ferramenta Data Explorer no portal do Azure para criar um banco de dados e um contêiner. 
+Agora pode utilizar a ferramenta Data Explorer no portal Azure para criar uma base de dados e um recipiente. 
 
 1. Selecione **Data Explorer** > **Novo Recipiente**. 
     
@@ -62,7 +62,7 @@ Agora você pode usar a ferramenta Data Explorer no portal do Azure para criar u
     |**ID do contentor**|Itens|Introduza *itens* como o nome do seu novo recipiente. Os IDs de contentores têm os mesmos requisitos de caracteres que os nomes da base de dados.|
     |**Chave de partição**| /categoria| A amostra descrita neste artigo *utiliza/categoria* como chave de partição.|
     
-    Além das definições anteriores, pode adicionar **opcionalmente chaves Únicas** para o recipiente. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política de chave exclusiva ao criar um contêiner, você garante a exclusividade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
+    Além das definições anteriores, pode adicionar **opcionalmente chaves Únicas** para o recipiente. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política chave única ao criar um recipiente, você garante a singularidade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
     
     Selecione **OK**. O Data Explorer exibe a nova base de dados e o recipiente.
 
@@ -83,7 +83,7 @@ Agora vamos clonar uma aplicação API SQL a partir do GitHub, definir a cadeia 
     ```cmd
     md "git-samples"
     ```
-   Se você estiver usando um prompt do bash, deverá usar o seguinte comando:
+   Se estiver a utilizar um pedido de pancada, deve utilizar o seguinte comando:
 
    ```bash
    mkdir "git-samples"
@@ -107,7 +107,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. Na sua conta Azure Cosmos DB no [portal Azure,](https://portal.azure.com/)selecione **Keys** da navegação esquerda. Utilize os botões de cópia no lado direito do ecrã para copiar a chave **URI** e **Primary** no ficheiro *cosmos_get_started.py* no passo seguinte.
 
-    ![Obter uma chave de acesso e um URI nas configurações de chaves no portal do Azure](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
+    ![Obtenha uma chave de acesso e URI nas definições de Chaves no portal Azure](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
 
 2. No Visual Studio Code, abra o ficheiro *cosmos_get_started.py* em *\git-samples\azure-cosmos-db-python-getting-start.*
 
@@ -129,26 +129,27 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
 
 * O CosmosClient é inicializado. Certifique-se de atualizar os valores "ponto final" e "chave", conforme descrito na secção [de cordas de ligação Atualizada.](#update-your-connection-string) 
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_cosmos_client":::
 
 * É criada uma nova base de dados.
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_database_if_not_exists)]
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_database_if_not_exists":::
 
 * É criado um novo recipiente, com 400 RU/s de [entrada aprovisionada](request-units.md). Escolhemos `lastName` como [chave de partição,](partitioning-overview.md#choose-partitionkey)que nos permite fazer consultas eficientes que filtram nesta propriedade. 
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_container_if_not_exists)]
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_container_if_not_exists":::
 
-* Alguns itens são adicionados ao contentor. Contêineres são uma coleção de itens (documentos JSON) que podem ter um esquema variado. Os métodos de ajuda ```get_[name]_family_item``` devolver representações de uma família que são armazenadas em Azure Cosmos DB como documentos JSON.
+* Alguns itens são adicionados ao contentor. Os contentores são uma coleção de itens (documentos JSON) que podem ter esquemas variados. Os métodos de ajuda ```get_[name]_family_item``` devolver representações de uma família que são armazenadas em Azure Cosmos DB como documentos JSON.
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_item)]
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_item":::
 
 * As leituras de pontos (as aparências de valor chave) são realizadas utilizando o método `read_item`. Imprimimos a [carga da RU](request-units.md) de cada operação.
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=read_item)]
 
-* Uma consulta é executada usando A sintaxe de consulta SQL. Como estamos a usar valores-chave de divisórias de ```lastName``` na cláusula WHERE, o Azure Cosmos DB irá encaminhar eficientemente esta consulta para as divisórias relevantes, melhorando o desempenho.
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="read_item":::
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=query_items)]
+* Uma consulta é realizada usando sintaxe de consulta SQL. Como estamos a usar valores-chave de divisórias de ```lastName``` na cláusula WHERE, o Azure Cosmos DB irá encaminhar eficientemente esta consulta para as divisórias relevantes, melhorando o desempenho.
+
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="query_items":::
    
 ## <a name="run-the-app"></a>Executar a aplicação
 
@@ -174,13 +175,13 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
 
     Se obtiver um erro de acesso recusado quando tentar instalar o azure-cosmos, terá de [executar o VS Code como administrador](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
 
-6. Execute o comando a seguir para executar o exemplo e criar e armazenar novos documentos no Azure Cosmos DB.
+6. Executar o seguinte comando para executar a amostra e criar e armazenar novos documentos em Azure Cosmos DB.
 
     ```python
     python cosmos_get_started.py
     ```
 
-7. Para confirmar que os novos itens foram criados e guardados, no portal Azure, selecione **Data Explorer** > **AzureSampleFamilyDatabase** > **Itens.** Exiba os itens que foram criados. Por exemplo, aqui está um exemplo de documento JSON para a família Andersen:
+7. Para confirmar que os novos itens foram criados e guardados, no portal Azure, selecione **Data Explorer** > **AzureSampleFamilyDatabase** > **Itens.** Veja os itens que foram criados. Por exemplo, aqui está uma amostra do documento JSON para a família Andersen:
    
    ```json
    {

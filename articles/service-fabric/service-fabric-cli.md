@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b4ddc5bb52aeef622a33ace7b3ffad4694d7c072
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904832"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587622"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 
@@ -22,7 +22,7 @@ A interface de linha de comandos (CLI) do Azure Service Fabric é um utilitário
 
 Antes da instalação, certifique-se de que o seu ambiente tem o Python e o pip instalados. Para obter mais informações, veja a [documentação de início rápido do pip](https://pip.pypa.io/en/latest/quickstart/)e a [documentação de instalação do Python](https://wiki.python.org/moin/BeginnersGuide/Download) oficial.
 
-A CLI dá suporte às versões 2,7, 3,5, 3,6 e 3,7 do Python. O Python 3. x é a versão recomendada, pois o Python 2,7 atingirá o fim do suporte em breve.
+O CLI suporta as versões Python 2.7, 3.5, 3.6 e 3.7. Python 3.x é a versão recomendada, uma vez que Python 2.7 chegará ao fim do suporte em breve.
 
 ### <a name="service-fabric-target-runtime"></a>Runtime de destino do Service Fabric
 
@@ -41,7 +41,7 @@ A CLI do Service Fabric destina-se a suportar a versão de runtime mais recente 
 
 Opcionalmente, pode especificar uma versão de destino da CLI a instalar ao colocar no comando `pip install` o sufixo `==<version>`. Por exemplo, para a versão 1.1.0, a sintaxe seria:
 
-```
+```shell
 pip install -I sfctl==1.1.0
 ```
 
@@ -57,24 +57,24 @@ Existem muitas formas de instalar o pip e o Python na sua plataforma. Seguem-se 
 
 Para Windows 10, Windows Server 2016 e Windows Server 2012 R2, utilize as instruções de instalação oficiais padrão. O instalador do Python também instala o pip por predefinição.
 
-1. Acesse a [página de downloads](https://www.python.org/downloads/)oficial do Python e baixe a versão mais recente do Python 3,7.
+1. Vá à página oficial de [downloads](https://www.python.org/downloads/)python , e baixe o mais recente lançamento de Python 3.7.
 
 2. Inicie o instalador.
 
-3. Na parte inferior do prompt, selecione **Adicionar Python 3,7 ao caminho**.
+3. Na parte inferior da solicitação, **selecione Adicionar Python 3.7 ao PATH**.
 
 4. Selecione **Instalar Agora** e conclua a instalação.
 
 Agora, pode abrir uma janela de comandos nova e obter a versão, quer do Python, quer do pip.
 
-```bat
+```shell
 python --version
 pip --version
 ```
 
-Em seguida, execute o seguinte comando para instalar a CLI do Service Fabric do Azure (sfctl) e exibir a página de ajuda da CLI:
+Em seguida, execute o seguinte comando para instalar o Tecido de Serviço Azure CLI (sfctl) e veja a página de ajuda CLI:
 
-```bat
+```shell
 pip install sfctl
 sfctl -h
 ```
@@ -103,7 +103,7 @@ Certifique-se de que `~/.local/bin` está acessível a partir de `$PATH`:
 
 ```bash
 export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+echo "export PATH=$PATH:~/.local/bin" >> .shellrc
 ```
 
 Se a instalação no subsistema Windows para Linux falhar com permissões de pasta incorretas, pode ser necessário tentar novamente com permissões elevadas:
@@ -114,7 +114,7 @@ sudo pip3 install sfctl
 
 ### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (suporte de pré-visualização do Service Fabric)
 
-Para instalar Service Fabric CLI no Red Hat, execute os seguintes comandos:
+Para instalar o Tecido de Serviço CLI no Chapéu Vermelho, execute os seguintes comandos:
 
 ```bash
 sudo yum install -y python34
@@ -123,7 +123,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-Para testar a instalação, você pode consultar as etapas mencionadas na seção **Ubuntu e subsistema do Windows para Linux**
+Para testar a instalação, pode consultar os passos mencionados no **subsistema Ubuntu e Windows para** a secção Linux
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
@@ -134,7 +134,7 @@ Para MacOS, recomendamos utilizar o [Gestor de pacotes HomeBrew](https://brew.sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Em seguida, no terminal, instale o Python 3,7, Pip e a CLI Service Fabric executando os seguintes comandos:
+Em seguida, a partir do terminal, instale Python 3.7, pip, e o Tecido de Serviço CLI executando os seguintes comandos:
 
 ```bash
 brew install python3
@@ -148,7 +148,7 @@ Aos comandos é sempre adicionado o prefixo `sfctl`. Para obter informações ge
 
 Os comandos seguem uma estrutura repetível, com o destino do comando antes do verbo ou da ação.
 
-```azurecli
+```shell
 sfctl <object> <action>
 ```
 
@@ -161,7 +161,7 @@ Antes de executar qualquer operação, tem de selecionar um cluster ao qual se d
 > [!WARNING]
 > Não utilize clusters do Service Fabric não seguros em ambientes de produção.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint http://testcluster.com:19080
 ```
 
@@ -169,7 +169,7 @@ O ponto final do cluster tem de ter o prefixo `http` ou `https`. Tem de incluir 
 
 Para os clusters que estão protegidos por um certificado, pode especificar um certificado PEM codificado. O certificado pode ser especificado como um ficheiro individual ou como um certificado e par de chaves. Se for um certificado autoassinado que não esteja assinado por uma AC, pode transmitir a opção `--no-verify` para ignorar a verificação de AC.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
@@ -181,7 +181,7 @@ As informações de ligação do cluster estão presentes em diferentes sessões
 
 Por exemplo, para obter o estado de funcionamento do cluster do Service Fabric, utilize o comando seguinte:
 
-```azurecli
+```shell
 sfctl cluster health
 ```
 
@@ -218,13 +218,13 @@ Seguem-se algumas sugestões e dicas para resolver problemas comuns.
 
 A CLI do Service Fabric suporta ficheiros de certificados de cliente como PEM (extensão .pem). Se utilizar ficheiros PFX do Windows, tem de converter esses certificados no formato PEM. Para converter um ficheiro PFX para ficheiro PEM, utilize o comando seguinte:
 
-```bash
+```shell
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
 Da mesma forma, para converter um ficheiro PEM num ficheiro PFX, pode utilizar o seguinte comando (não é fornecida qualquer palavra-passe aqui):
 
-```bash
+```shell
 openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
 ```
 
@@ -240,19 +240,19 @@ Verifique se o ponto final do cluster especificado está disponível e à escuta
 
 ### <a name="detailed-logs"></a>Registos detalhados
 
-Muitas vezes, os registos detalhados são úteis para depurar ou comunicar problemas. O sinalizador de `--debug` aumenta o detalhamento da saída.
+Muitas vezes, os registos detalhados são úteis para depurar ou comunicar problemas. A bandeira `--debug` aumenta a verbosidade da saída.
 
 ### <a name="command-help-and-syntax"></a>Ajuda de comandos e sintaxe
 
 Para obter ajuda com um comando específico ou um grupo de comandos, utilize o sinalizador `-h`.
 
-```azurecli
+```shell
 sfctl application -h
 ```
 
 Segue-se outro exemplo:
 
-```azurecli
+```shell
 sfctl application create -h
 ```
 
@@ -260,7 +260,7 @@ sfctl application create -h
 
 Para atualizar a CLI do Service Fabric, execute os seguintes comandos (substitua `pip` por `pip3` consoante o que tiver escolhido durante a instalação original):
 
-```bash
+```shell
 pip uninstall sfctl
 pip install sfctl
 ```

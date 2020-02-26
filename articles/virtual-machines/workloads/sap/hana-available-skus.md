@@ -1,6 +1,6 @@
 ---
-title: SKUs para SAP HANA no Azure (instâncias grandes) | Microsoft Docs
-description: SKUs para SAP HANA no Azure (instâncias grandes).
+title: SKUs para SAP HANA on Azure (Grandes Instâncias)  Microsoft Docs
+description: SKUs para SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -10,19 +10,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5ed903eefea3a8c13bb9e43f5ef71063b453d93
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f31d742dc78e16d4786216259a8fce5349152c63
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806648"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591256"
 ---
 # <a name="available-skus-for-hli"></a>SKUs Disponíveis para HLI
 
-SAP HANA no serviço do Azure (instâncias grandes) com base em carimbos de revisão 3 está disponível em várias configurações nas regiões do Azure de:
+O serviço SAP HANA on Azure (Grandes Instâncias) com base em selos de Revisão 3 está disponível em várias configurações nas regiões de Azure de:
 
 - E.U.A. Oeste
 - E.U.A. Leste
@@ -33,9 +33,9 @@ SAP HANA no serviço do Azure (instâncias grandes) com base em carimbos de revi
 - Leste do Japão
 - Oeste do Japão
 
-SAP HANA no serviço do Azure (instâncias grandes) com base na revisão 4 carimbos está disponível em várias configurações nas regiões do Azure de:
+O serviço SAP HANA on Azure (Grandes Instâncias) com base nos selos da Revisão 4 está disponível em várias configurações nas regiões de Azure de:
 
-- E.U.A. Oeste 2
+- E.U.A.Oeste 2
 - E.U.A. Leste
 - E.U.A. Centro-Sul
 - Europa Ocidental
@@ -43,73 +43,74 @@ SAP HANA no serviço do Azure (instâncias grandes) com base na revisão 4 carim
 
 
 
-[SAP Hana SKUs certificados da lista de instâncias grandes do Hana](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) como:
+[SAP HANA certificada SKUs da lista de grandes instâncias HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) como:
 
 | Solução SAP | CPU | Memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- |
-| Otimizado para OLAP: SAP BW, BW/4HANA<br /> ou SAP HANA para carga de trabalho OLAP genérica | SAP HANA no Azure s72<br /> – 2 x Intel® Xeon® Processador E7-8890 v3<br /> 36 núcleos de CPU e 72 threads de CPU |  768 GB |  3 TB | Não é mais oferecido |
-| --- | SAP HANA no Azure S144<br /> – 4 x Intel® Xeon® Processador E7-8890 v3<br /> 72 núcleos de CPU e 144 threads de CPU |  1.5 TB |  6 TB | Não é mais oferecido |
-| --- | SAP HANA no Azure S192<br /> – 4 x Intel® Xeon® Processador E7-8890 v4<br /> 96 núcleos de CPU e 192 threads de CPU |  2,0 TB |  8 TB | Não é mais oferecido |
-| --- | SAP HANA no Azure S224<br /> – 4 x Intel® Xeon® Processador Platinum 8276 (também conhecido como Cascade Lake)<br /> 112 núcleos de CPU e 224 threads de CPU |  3,0 TB |  6,3 TB | Disponível nos carimbos Revision3 e Revision4  |
-| --- | SAP HANA no Azure S384<br /> – 8 x Intel® Xeon® Processador E7-8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  4,0 TB |  16 TB | Disponível em carimbos de Revision4 |
-| Otimizado para OLTP: SAP Business Suite<br /> em SAP HANA ou S/4HANA (OLTP),<br /> OLTP genérico | SAP HANA no Azure S72m<br /> – 2 x Intel® Xeon® Processador E7-8890 v3<br /> 36 núcleos de CPU e 72 threads de CPU |  1.5 TB |  6 TB | Não é mais oferecido |
-|---| SAP HANA no Azure S144m<br /> – 4 x Intel® Xeon® Processador E7-8890 v3<br /> 72 núcleos de CPU e 144 threads de CPU |  3,0 TB |  12 TB | Não é mais oferecido |
-|---| SAP HANA no Azure S192m<br /> – 4 x Intel® Xeon® Processador E7-8890 v4<br /> 96 núcleos de CPU e 192 threads de CPU  |  4,0 TB |  16 TB | Não é mais oferecido |
-|---| SAP HANA no Azure S384m<br /> – 8 x Intel® Xeon® Processador E7-8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  6,0 TB |  18 TB | Disponível em carimbos de Revision4|
-|---| SAP HANA no Azure S384xm<br /> – 8 x Intel® Xeon® Processador E7-8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  8,0 TB |  22 TB |  Disponível em carimbos de Revision4 |
-|---| SAP HANA no Azure S576m<br /> – 12 x Intel® Xeon® Processador E7-8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12,0 TB |  28 TB | Disponível em carimbos de Revision4|
-|---| SAP HANA no Azure S768m<br /> – 16 x Intel® Xeon® Processador E7-8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16,0 TB |  36 TB | Disponível em carimbos de Revision4|
-|---| SAP HANA no Azure S960m<br /> – 20 x Intel® Xeon® Processador E7-8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20,0 TB |  46 TB | Disponível em carimbos de Revision4|
+| Otimizado para OLAP: SAP BW, BW/4HANA<br /> ou SAP HANA para carga de trabalho genérica OLAP | SAP HANA no Azure S72<br /> – 2 x Intel® Xeon® Processador E7-8890 v3<br /> 36 núcleos CPU e 72 fios CPU |  768 GB |  3 TB | Não oferecido mais |
+| --- | SAP HANA em Azure S144<br /> – 4 x Intel® Xeon® Processador E7-8890 v3<br /> 72 núcleos cpu e 144 fios CPU |  1,5 TB |  6 TB | Não oferecido mais |
+| --- | SAP HANA em Azure S192<br /> – 4 x Intel® Xeon® Processador E7-8890 v4<br /> 96 núcleos cpu e 192 fios CPU |  2.0 TB |  8 TB | Não oferecido mais |
+| --- | SAP HANA no Azure S224<br /> – 4 x Intel® Xeon® processador Platinum 8276 (também conhecido como lago Cascade)<br /> 112 núcleos CPU e 224 fios CPU |  3.0 TB |  6.3 TB | Disponível nos selos Revision3 e Revision4  |
+| --- | SAP HANA em Azure S384<br /> – 8 x Intel® Xeon® Processador E7-8890 v4<br /> 192 núcleos cpu e 384 fios CPU |  4.0 TB |  16 TB | Disponível em selos Revision4 |
+| Otimizado para OLTP: SAP Business Suite<br /> em SAP HANA ou S/4HANA (OLTP),<br /> oLTP genérico | SAP HANA em Azure S72m<br /> – 2 x Intel® Xeon® Processador E7-8890 v3<br /> 36 núcleos CPU e 72 fios CPU |  1,5 TB |  6 TB | Não oferecido mais |
+|---| SAP HANA em Azure S144m<br /> – 4 x Intel® Xeon® Processador E7-8890 v3<br /> 72 núcleos cpu e 144 fios CPU |  3.0 TB |  12 TB | Não oferecido mais |
+|---| SAP HANA em Azure S192m<br /> – 4 x Intel® Xeon® Processador E7-8890 v4<br /> 96 núcleos cpu e 192 fios CPU  |  4.0 TB |  16 TB | Não oferecido mais |
+| --- | SAP HANA em Azure S224m<br /> – 4 x Intel® Xeon® processador Platinum 8276 (também conhecido como lago Cascade)<br /> 112 núcleos CPU e 224 fios CPU |  6.0 TB |  10,5 TB | Disponível nos selos Revision3 e Revision4  |
+|---| SAP HANA em Azure S384m<br /> – 8 x Intel® Xeon® Processador E7-8890 v4<br /> 192 núcleos cpu e 384 fios CPU |  6.0 TB |  18 TB | Disponível em selos Revision4|
+|---| SAP HANA em Azure S384xm<br /> – 8 x Intel® Xeon® Processador E7-8890 v4<br /> 192 núcleos cpu e 384 fios CPU |  8.0 TB |  22 TB |  Disponível em selos Revision4 |
+|---| SAP HANA em Azure S576m<br /> – 12 x Intel® Xeon® Processador E7-8890 v4<br /> 288 núcleos CPU e 576 fios CPU |  12.0 TB |  28 TB | Disponível em selos Revision4|
+|---| SAP HANA em Azure S768m<br /> – 16 x Intel® Xeon® Processador E7-8890 v4<br /> 384 núcleos CPU e 768 fios CPU |  16.0 TB |  36 TB | Disponível em selos Revision4|
+|---| SAP HANA em Azure S960m<br /> – 20 x Intel® Xeon® Processador E7-8890 v4<br /> 480 núcleos cpu e 960 fios CPU |  20.0 TB |  46 TB | Disponível em selos Revision4|
 
 
-Em SAP HANA TDIv5, o SAP permite o dimensionamento específico do cliente e projetos específicos do cliente, o que pode levar a configurações do servidor, que não estão listadas como certificadas no:
+No âmbito do SAP HANA TDIv5, o SAP permite o dimensionamento específico do cliente e projetos específicos para o cliente, o que pode levar a configurações de servidores, que não estão listadas como certificadas em:
 
-- [SAP HANA dispositivos certificados](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
-- [SAP HANA plataformas IaaS certificadas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+- [Eletrodomésticos Certificados SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
+- [Plataformas IaaS certificadas SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 
-Em muitos casos, essas configurações de servidor específicas do cliente carregam mais memória do que as unidades de servidor certificadas com o SAP. Ao trabalhar com o SAP, os clientes têm a possibilidade de obter suporte ao SAP e certificar para suas configurações de servidor dimensionadas específicas do cliente. No Azure, os SKUs padrão do SAP HANA em instâncias grandes estão disponíveis e na lista de preços da Microsoft para esses projetos de dimensionamento específicos do cliente TDIv5.
+Em muitos casos, estas configurações específicas do servidor têm mais memória do que as unidades de servidor certificadas com o SAP. Ao trabalhar com o SAP, os clientes têm a possibilidade de obter suporte SAP e certificar para as configurações do servidor de tamanho cliente específico. No Azure, estão disponíveis os seguintes SKUs padrão HANA Large Instance e na lista de preços da Microsoft para tais projetos de tamanho específicos para o cliente TDIv5.
 
 | SKU|CPU | Memória | Armazenamento | Disponibilidade |
 | ---| --- | --- | --- | --- |
-| S96 | SAP HANA no Azure S96<br /> – 2 x Intel® Xeon® Processador E7-8890 v4<br /> 48 núcleos de CPU e 96 threads de CPU |  768 GB |  3 TB | Disponível nos carimbos Revision3 e Revision4|
+| S96 | SAP HANA em Azure S96<br /> – 2 x Intel® Xeon® Processador E7-8890 v4<br /> 48 núcleos CPU e 96 fios CPU |  768 GB |  3 TB | Disponível nos selos Revision3 e Revision4|
 
 
-| SKU original que pode ser <br /> memória estendida | CPU | Memória | Armazenamento | Disponibilidade |
+| SKU original que pode ser <br /> estendido na memória | CPU | Memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- |
-| S192m pode ser estendido para | SAP HANA no Azure S192xm<br /> – 4 x Intel® Xeon® Processador E7-8890 v4<br /> 96 núcleos de CPU e 192 threads de CPU |  6,0 TB |  16 TB | Não é mais oferecido |
-| S384xm pode ser estendido para | SAP HANA no Azure S384xxm<br /> – 8 x Intel® Xeon® Processador E7-8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  12,0 TB |  28 TB | Disponível em carimbos de Revision4 |
-| S576m pode ser estendido para | SAP HANA no Azure S576xm<br /> – 12 x Intel® Xeon® Processador E7-8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  18,0 TB |  41 TB | Disponível em carimbos de Revision4|
-| S768m pode ser estendido para | SAP HANA no Azure S768xm<br /> – 16 x Intel® Xeon® Processador E7-8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  24,0 TB |  56 TB | Disponível em carimbos de Revision4 |
+| S192m pode ser estendido a | SAP HANA em Azure S192xm<br /> – 4 x Intel® Xeon® Processador E7-8890 v4<br /> 96 núcleos cpu e 192 fios CPU |  6.0 TB |  16 TB | Não oferecido mais |
+| S384xm pode ser estendido a | SAP HANA em Azure S384xxm<br /> – 8 x Intel® Xeon® Processador E7-8890 v4<br /> 192 núcleos cpu e 384 fios CPU |  12.0 TB |  28 TB | Disponível em selos Revision4 |
+| S576m pode ser estendido a | SAP HANA em Azure S576xm<br /> – 12 x Intel® Xeon® Processador E7-8890 v4<br /> 288 núcleos CPU e 576 fios CPU |  18.0 TB |  41 TB | Disponível em selos Revision4|
+| S768m pode ser estendido a | SAP HANA em Azure S768xm<br /> – 16 x Intel® Xeon® Processador E7-8890 v4<br /> 384 núcleos CPU e 768 fios CPU |  24.0 TB |  56 TB | Disponível em selos Revision4 |
 
-- Núcleos de CPU = soma de núcleos de CPU não hyper-threaded da soma dos processadores da unidade do servidor.
-- Threads de CPU = soma dos threads de computação fornecidos por núcleos de CPU Hyper-threaded da soma dos processadores da unidade do servidor. A maioria das unidades é configurada por padrão para usar a tecnologia Hyper-Threading.
-- Com base nas recomendações de fornecedor, o S768m, o S768xm e o S960m não estão configurados para usar o hyperthreading para execução de SAP HANA.
-
-
-As configurações específicas escolhidas dependem da carga de trabalho, dos recursos da CPU e da memória desejada. É possível que a carga de trabalho OLTP use as SKUs otimizadas para a carga de trabalho OLAP. 
-
-A base de hardware para as ofertas, exceto unidades para projetos de dimensionamento específicos do cliente, é SAP HANA certificados por TDI. Duas classes diferentes de hardware dividem as SKUs em:
-
-- S72, S72m, S96, S144, S144m, S192, S192m, S192xm e S224, que são chamados de "classe Type I" de SKUs.
-- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm e S960m, que são chamados de "classe do tipo II" de SKUs.
-- Se você estiver interessado em outras ofertas de S224 SKUs de 4,5 TB a 9TB com Optane, entre em contato com sua equipe de conta Microsoft para obter mais informações. 
+- Núcleos CPU = soma de núcleos CPU não-hiper-roscados da soma dos processadores da unidade de servidor.
+- Fios CPU = soma de fios computacionais fornecidos por núcleos de CPU hiper-roscados da soma dos processadores da unidade de servidor. A maioria das unidades são configuradas por padrão para usar a tecnologia Hyper-Threading.
+- Com base nas recomendações do fornecedor S768m, S768xm e S960m não estão configurados para utilizar hiper-threading para executar SAP HANA.
 
 
-Um carimbo de instância grande do HANA completo não é alocado exclusivamente para&#39;uso de um único cliente. Esse fato se aplica aos racks de recursos de computação e armazenamento conectados por meio de uma malha de rede implantada no Azure também. A infraestrutura do HANA em instâncias grandes, como o Azure, implanta diferentes locatários de &quot;de clientes&quot; isolados uns dos outros nos três níveis a seguir:
+As configurações específicas escolhidas dependem da carga de trabalho, dos recursos do CPU e da memória desejada. É possível que a carga de trabalho da OLTP utilize as SKUs otimizadas para a carga de trabalho oLAP. 
 
-- **Rede**: isolamento por meio de redes virtuais dentro do carimbo de instância grande do Hana.
-- **Armazenamento**: isolamento por meio de máquinas virtuais de armazenamento que têm volumes de armazenamento atribuídos e isolam volumes de armazenamento entre locatários.
-- **Computação**: atribuição dedicada de unidades de servidor a um único locatário. Nenhum particionamento de unidades de servidor ou hardware rígido. Nenhum compartilhamento de uma única unidade de host ou servidor entre locatários. 
+A base de hardware para as ofertas, com exceção das unidades para projetos de dimensionamento específicos do cliente, é certificada por SAP HANA TDI. Duas classes diferentes de hardware dividem as SKUs em:
 
-As implantações de unidades de instância grande do HANA entre locatários diferentes não são visíveis entre si. As unidades do HANA em instâncias grandes implantadas em locatários diferentes não podem se comunicar diretamente entre si no nível de carimbo de instância grande do HANA. Somente as unidades de instância grande do HANA dentro de um locatário podem se comunicar entre si no nível de carimbo de instância grande do HANA.
+- S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 e S224m que são referidos como a "classe Tipo I" das SKUs.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm e S960m, que são referidos como a "classe Tipo II" das SKUs.
+- Se estiver interessado noutras ofertas S224 SKUs de 4.5TB a 9TB com a Optane, contacte a sua equipa de conta microsoft para obter mais informações. 
 
-Um locatário implantado no carimbo de instância grande é atribuído a uma assinatura do Azure para fins de cobrança. Para uma rede, ela pode ser acessada de redes virtuais de outras assinaturas do Azure dentro do mesmo registro do Azure. Se você implantar com outra assinatura do Azure na mesma região do Azure, também poderá optar por solicitar um locatário de instância grande do HANA separado.
 
-Há diferenças significativas entre a execução de SAP HANA na instância grande do HANA e SAP HANA em execução em VMs implantadas no Azure:
+Um carimbo completo hana large instância não é atribuído&#39;exclusivamente para uso de um único cliente. Este facto aplica-se aos racks de recursos de computação e armazenamento ligados através de um tecido de rede implantado também no Azure. A infraestrutura HANA Large Instance, tal como a Azure, implanta diferentes clientes &quot;inquilinos&quot; que estão isolados uns dos outros nos seguintes três níveis:
 
-- Não há nenhuma camada de virtualização para SAP HANA no Azure (instâncias grandes). Você Obtém o desempenho do hardware bare-metal subjacente.
-- Ao contrário do Azure, o servidor de SAP HANA no Azure (instâncias grandes) é dedicado a um cliente específico. Não há nenhuma possibilidade de que uma unidade de servidor ou host seja particionado de maneira rígida ou flexível. Como resultado, uma unidade de instância grande do HANA é usada como sendo atribuída como um todo para um locatário e com isso para você. Uma reinicialização ou desligamento do servidor não leva automaticamente ao sistema operacional e SAP HANA implantado em outro servidor. (Para SKUs de classe do tipo I, a única exceção é se um servidor encontra problemas e a reimplantação precisa ser executada em outro servidor.)
-- Ao contrário do Azure, em que os tipos de processador de host são selecionados para a melhor taxa de preço/desempenho, os tipos de processador escolhidos para SAP HANA no Azure (instâncias grandes) são o mais alto desempenho da linha de processador Intel E7v3 e E7v4.
+- **Rede**: Isolamento através de redes virtuais dentro do carimbo HANA Large Instance.
+- **Armazenamento**: Isolamento através de máquinas virtuais de armazenamento que tenham volumes de armazenamento atribuídos e isoladovolumes de armazenamento entre inquilinos.
+- **Compute**: Atribuição dedicada de unidades de servidor a um único inquilino. Sem divisórias duras ou suaves de unidades de servidor. Sem partilha de um único servidor ou unidade de acolhimento entre inquilinos. 
+
+As implantações de unidades hana large instance entre diferentes inquilinos não são visíveis umas para as outras. As unidades hana Large Instance implantadas em diferentes inquilinos não podem comunicar diretamente uns com os outros no nível de selo hana large instância. Apenas unidades hana large instance dentro de um inquilino podem comunicar entre si no nível de carimbo de grande instância HANA.
+
+Um inquilino destacado no carimbo de Grande Instância é atribuído a uma assinatura Azure para efeitos de faturação. Para uma rede, pode ser acedida a partir de redes virtuais de outras subscrições do Azure dentro da mesma matrícula do Azure. Se você implementar com outra subscrição Azure na mesma região de Azure, você também pode optar por pedir um inquilino hana large instância separado.
+
+Existem diferenças significativas entre executar sAP HANA em HANA Large Instance e SAP HANA em execução em VMs implantados em Azure:
+
+- Não existe uma camada de virtualização para o SAP HANA em Azure (Grandes Instâncias). Obtém-se o desempenho do hardware de metal nu subjacente.
+- Ao contrário do Azure, o servidor SAP HANA on Azure (Grandes Instâncias) é dedicado a um cliente específico. Não existe a possibilidade de uma unidade de servidor ou hospedeiro ser dura ou suave mente dividida. Como resultado, uma unidade HANA Large Instance é usada como um todo para um inquilino e com isso para você. Um reboot ou desativação do servidor não conduz automaticamente ao sistema operativo e o SAP HANA está a ser implantado noutro servidor. (Para as SKUs da classe I, a única exceção é se um servidor encontrar problemas e reimplementação precisa ser realizado em outro servidor.)
+- Ao contrário do Azure, onde os tipos de processadores de anfitriões são selecionados para a melhor relação preço/desempenho, os tipos de processadores escolhidos para SAP HANA no Azure (Grandes Instâncias) são os mais bem-sucedidos da linha de processadorIntel E7v3 e E7v4.
 
 **Passos seguintes?**
-- Fazer referência ao [dimensionamento de HLI](hana-sizing.md)
+- Consulte [o tamanho hli](hana-sizing.md)

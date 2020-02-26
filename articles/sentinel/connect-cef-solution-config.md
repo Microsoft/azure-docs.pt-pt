@@ -1,9 +1,9 @@
 ---
-title: Configure sua solução de segurança para conectar dados de CEF à visualização do Azure Sentinel | Microsoft Docs
-description: Saiba como configurar sua solução de segurança para conectar dados de CEF ao Azure Sentinel.
+title: Configure a sua solução de segurança para ligar os dados do CEF à Pré-visualização do Azure Sentinel. Microsoft Docs
+description: Saiba como configurar a sua solução de segurança para ligar os dados do CEF ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,51 +13,51 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2513638be6f895598f93758d8d8dbdf04c9561e9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: bdb76954b1db8135d8a36d6658bb7fff274ac126
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615362"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588455"
 ---
-# <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>ETAPA 2: configurar sua solução de segurança para enviar mensagens CEF
+# <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>PASSO 2: Configure a sua solução de segurança para enviar mensagens CEF
 
-Nesta etapa, você executará as alterações de configuração necessárias na sua própria solução de segurança para enviar logs para o agente CEF.
+Neste passo, realizará as alterações de configuração necessárias na sua própria solução de segurança para enviar registos ao agente CEF.
 
-## <a name="configure-a-solution-with-a-connector"></a>Configurar uma solução com um conector
+## <a name="configure-a-solution-with-a-connector"></a>Configure uma solução com um conector
 
-Se sua solução de segurança já tiver um conector existente, use as instruções específicas do conector da seguinte maneira:
+Se a sua solução de segurança já tiver um conector existente, utilize as instruções específicas do conector da seguinte forma:
 
-- [Check Point](connect-checkpoint.md)
-- [Cisco](connect-cisco.md)
-- [ExtraHop Reveal(x)](connect-extrahop.md)
+- [Ponto de verificação](connect-checkpoint.md)
+- [Rio Cisco](connect-cisco.md)
+- [ExtraHop Reveal (x)](connect-extrahop.md)
 - [F5](connect-f5.md)  
 - [Fortinet](connect-fortinet.md)
-- [Uma proteção de identidade](connect-one-identity.md)
+- [Uma salvaguarda de identidade](connect-one-identity.md)
 - [Redes Palo Alto](connect-paloalto.md)
-- [Trend Micro Deep Security](connect-trend-micro.md)
-- [Zscaler](connect-zscaler.md)   
+- [Tendência Micro Segurança Profunda](connect-trend-micro.md)
+- [Rio Zscaler](connect-zscaler.md)   
 
-## <a name="configure-any-other-solution"></a>Configurar qualquer outra solução
-Se não existir um conector para sua solução de segurança específica, use as instruções genéricas a seguir para encaminhar logs para o agente CEF.
+## <a name="configure-any-other-solution"></a>Configure qualquer outra solução
+Se não existir um conector para a sua solução de segurança específica, utilize as seguintes instruções genéricas para encaminhar os registos para o agente CEF.
 
-1. Vá para o artigo de configuração específico para obter as etapas sobre como configurar sua solução para enviar mensagens CEF. Se sua solução não estiver listada, no dispositivo, você precisará definir esses valores para que o dispositivo envie os logs necessários no formato necessário para o agente de syslog do Sentinela do Azure, com base no agente de Log Analytics. Você pode modificar esses parâmetros em seu dispositivo, contanto que também os modifique no daemon do syslog no agente do Azure Sentinel.
+1. Vá ao artigo de configuração específico para ver como configurar a sua solução para enviar mensagens CEF. Se a sua solução não estiver listada, no aparelho é necessário definir estes valores de modo a que o aparelho envie os registos necessários no formato necessário ao agente Syslog Azure Sentinel, com base no agente Log Analytics. Pode modificar estes parâmetros no seu aparelho, desde que os modifique também no daemon Syslog no agente Azure Sentinel.
     - Protocolo = TCP
     - Porta = 514
     - Formato = CEF
-    - Endereço IP-certifique-se de enviar as mensagens CEF para o endereço IP da máquina virtual que você dedicaram para essa finalidade.
+    - Endereço IP - certifique-se de enviar as mensagens CEF para o endereço IP da máquina virtual que dedicou para o efeito.
 
    > [!NOTE]
-   > Esta solução oferece suporte a RFC 3164 ou a RFC 5424 do syslog.
+   > Esta solução suporta syslog RFC 3164 ou RFC 5424.
 
 
-1. Para usar o esquema relevante em Log Analytics para os eventos CEF, procure `CommonSecurityLog`.
+1. Para utilizar o esquema relevante no Log Analytics para os eventos CEF, procure `CommonSecurityLog`.
 
-1. Continue na etapa 3: [validar a conectividade](connect-cef-verify.md).
+1. Continuar a PASSO 3: [validar a conectividade.](connect-cef-verify.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, você aprendeu a conectar os dispositivos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
+Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
 

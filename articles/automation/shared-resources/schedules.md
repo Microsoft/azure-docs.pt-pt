@@ -1,6 +1,6 @@
 ---
-title: Agendas na automação do Azure
-description: Os agendamentos de automação são usados para agendar runbooks na automação do Azure para serem iniciados automaticamente. Descreve como criar e gerenciar uma agenda no para que você possa iniciar automaticamente um runbook em um horário específico ou em um agendamento recorrente.
+title: Horários na Automação Azure
+description: Os horários de automatização são usados para agendar livros de execução na Automatização Azure para iniciar automaticamente. Descreve como criar e gerir um horário para que possa iniciar automaticamente um livro de recortes num determinado momento ou num horário recorrente.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -9,74 +9,74 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8daa87eca74570f5b1fdf1537b83dae60d292128
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c4898ba62abdc42d95b77b9a77387bfe71fb4771
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849467"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592208"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Agendar um runbook na Automatização do Azure
 
-Para agendar um runbook na automação do Azure para iniciar em um horário especificado, vincule-o a um ou mais agendamentos. Uma agenda pode ser configurada para ser executada uma vez ou em um agendamento recorrente por hora ou diário para runbooks no portal do Azure. Você também pode agendá-los para dias semanais, mensais, específicos da semana ou dias do mês ou um dia específico do mês. Um runbook pode ser ligado a várias agendas e uma agenda pode ter vários runbooks a si ligados.
+Para agendar um livro de recortes na Automatização Azure para começar num determinado horário, ligue-o a um ou mais horários. Um horário pode ser configurado para funcionar uma vez ou em horário sem contar horário ou diário para livros de execução no portal Azure. Também pode agendar para dias semanais, mensais, específicos da semana ou dias do mês, ou um determinado dia do mês. Um runbook pode ser ligado a várias agendas e uma agenda pode ter vários runbooks a si ligados.
 
 > [!NOTE]
-> No momento, os agendamentos não dão suporte a configurações de DSC de Automação do Azure.
+> Os horários não suportam atualmente configurações de DSC de Automação Azure.
 
 ## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
 
-Os cmdlets na tabela a seguir são usados para criar e gerenciar agendas com o PowerShell na automação do Azure. Eles são fornecidos como parte do [módulo Azure PowerShell](/powershell/azure/overview).
+Os cmdlets na tabela seguinte são usados para criar e gerir horários com a PowerShell na Automação Azure. Eles enviam como parte do [módulo Azure PowerShell](/powershell/azure/overview).
 
 | Cmdlets | Descrição |
 |:--- |:--- |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Obtém uma agenda. |
-| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Cria uma nova agenda. |
-| [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Remove uma agenda. |
-| [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Define as propriedades de um agendamento existente. |
-| [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/get-azurermautomationscheduledrunbook) |Recupera runbooks agendados. |
-| [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Associa um runbook a uma agenda. |
-| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Dissocia um runbook de um agendamento. |
+| [Programa de Automação New-AzureRm](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Cria um novo horário. |
+| [Remover-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Remove um horário. |
+| [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Define as propriedades para um horário existente. |
+| [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/get-azurermautomationscheduledrunbook) |Recupera os livros de execução programados. |
+| [Registo-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Associa um livro com um horário. |
+| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Dissocia um livro de um horário. |
 
 ## <a name="creating-a-schedule"></a>Criar uma agenda
 
-Você pode criar um novo agendamento para runbooks no portal do Azure ou com o PowerShell.
+Pode criar uma nova programação para livros de execução no portal Azure ou com powerShell.
 
 > [!NOTE]
-> A automação do Azure usa os módulos mais recentes em sua conta de automação quando um novo trabalho agendado é executado.  Para evitar afetar seus runbooks e os processos que eles automatizam, primeiro você deve testar todos os runbooks que têm agendas vinculadas com uma conta de automação dedicada para teste.  Isso valida que seus runbooks agendados continuam funcionando corretamente e, caso contrário, você pode solucionar problemas e aplicar as alterações necessárias antes de migrar a versão atualizada do runbook para produção.
-> Sua conta de automação não obtém automaticamente nenhuma nova versão dos módulos, a menos que você os tenha atualizado manualmente selecionando a opção [Atualizar módulos do Azure](../automation-update-azure-modules.md) nos **módulos**.
+> A Azure Automation utiliza os módulos mais recentes na sua conta Automation quando um novo trabalho programado é executado.  Para evitar afetar os seus livros de execução e os processos que automatizam, deve primeiro testar quaisquer livros de execução que tenham ligado horários a uma conta de Automação dedicada aos testes.  Isto valida que os seus livros de execução programados continuem a funcionar corretamente e, caso contrário, poderá resolver mais problemas e aplicar quaisquer alterações necessárias antes de migrar a versão atualizada do livro de reprodução para a produção.
+> A sua conta Automation não obtém automaticamente quaisquer novas versões de módulos a menos que os tenha atualizado manualmente selecionando a opção [Módulos Update Azure](../automation-update-azure-modules.md) dos **Módulos**.
 
-### <a name="to-create-a-new-schedule-in-the-azure-portal"></a>Para criar uma nova agenda no portal do Azure
+### <a name="to-create-a-new-schedule-in-the-azure-portal"></a>Para criar uma nova programação no portal Azure
 
-1. Na portal do Azure, na sua conta de automação, selecione **agendas** na seção **recursos compartilhados** à esquerda.
-2. Clique em **Adicionar um agendamento** na parte superior da página.
-3. No painel **novo agendamento** , digite um **nome** e, opcionalmente, uma **Descrição** para o novo agendamento.
-4. Selecione se a agenda é executada uma vez ou em um agendamento recorrente selecionando **uma vez** ou **repetindo**. Se você selecionar **uma vez** , especifique uma **hora de início**e, em seguida, clique em **criar**. Se você selecionar **recorrência**, especifique uma **hora de início** e, para **repetir a cada**, selecione a frequência com que deseja que o runbook seja repetido-por **hora**, **dia**, **semana**ou **mês**.
-    1. Se você selecionar **semana**, será fornecida uma lista dos dias da semana para sua escolha. Selecione quantos dias desejar. A primeira execução da sua agenda ocorrerá no primeiro dia selecionado após a hora de início. Por exemplo, para escolher uma agenda de fim de semana, escolha **sábado** e **domingo**.
+1. No portal Azure, a partir da sua conta de automação, selecione **Horários** sob a secção **Recursos Partilhados** à esquerda.
+2. Clique em **Adicionar um horário** no topo da página.
+3. No painel de **horárionovo,** digite um **nome** e opcionalmente uma **Descrição** para a nova programação.
+4. Selecione se o horário funciona uma vez ou num horário recorrente selecionando **Uma ou** **Recorrente**. Se selecionar **Uma vez** especificado um tempo de **início,** e, em seguida, clique em **Criar**. Se selecionar **Recorrentes**, especificar um **tempo** de início e **para recur cada**um , selecione a frequência para a frequência com que pretende que o livro de corridas se repita - por **hora,** **dia,** **semana,** ou por **mês**.
+    1. Se selecionar **semana,** é-lhe fornecida uma lista dos dias da semana para escolher. Selecione quantos dias quiser. A primeira execução da sua agenda acontecerá no primeiro dia selecionado após a hora de início. Por exemplo, para escolher um horário de fim de semana, escolha **sábado** e **domingo.**
 
-       ![Definindo agendamento recorrente de fim de semana](../media/schedules/week-end-weekly-recurrence.png)
+       ![Definição de horário recorrente de fim de semana](../media/schedules/week-end-weekly-recurrence.png)
 
-    2. Se você selecionar **mês**, terá opções diferentes. Para a opção **ocorrências mensais** , selecione **dias do mês** ou **dias da semana**. Se você escolher **dias do mês**, será mostrado um calendário que permite que você escolha quantos dias desejar. Se você escolher uma data como o dia 31 que não ocorre no mês atual, a agenda não será executada. Se você quiser que a agenda seja executada no último dia, escolha **Sim** em **executar no último dia do mês**. Se você escolher **dias da semana**, a opção **repetir a cada** será apresentada. Escolha **primeiro**, **segundo**, **terceiro**, **quarto**ou **último**. Por fim, escolha um dia para repetir.
+    2. Se selecionar **mês,** tem diferentes opções. Para a opção **ocorrências mensais,** selecione dias **de mês** ou **dias de semana**. Se escolher **os dias**mensais , é mostrado um calendário que lhe permite escolher os dias que quiser. Se escolher uma data como a 31ª que não ocorre no mês em curso, o horário não será executado. Se quiser que o horário seja executado no último dia, escolha **Sim** sob **Corrida no último dia do mês.** Se escolher **os dias da Semana,** o **Recur é** apresentada todas as opções. Escolha **Primeiro,** **Segundo,** **Terceiro,** **Quarto**ou **Último.** Finalmente escolha um dia para repetir.
 
-       ![Agendamento mensal no primeiro, décimo-quinto e no último dia do mês](../media/schedules/monthly-first-fifteenth-last.png)
+       ![Horário mensal no primeiro, décimo quinto e último dia do mês](../media/schedules/monthly-first-fifteenth-last.png)
 
-5. Quando terminar, clique em **criar**.
+5. Quando terminar, clique em **Criar**.
 
-### <a name="to-create-a-new-schedule-with-powershell"></a>Para criar uma nova agenda com o PowerShell
+### <a name="to-create-a-new-schedule-with-powershell"></a>Para criar uma nova programação com a PowerShell
 
-Use o cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) para criar agendas. Você especifica a hora de início para o agendamento e a frequência que ele deve executar. Os exemplos a seguir mostram como criar vários cenários de agendamento diferentes.
+Utiliza o [cmdlet New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) para criar horários. Especifica a hora de início do horário e a frequência que deve funcionar. Os exemplos que se seguem mostram como criar muitos cenários de horários diferentes.
 
-#### <a name="create-a-one-time-schedule"></a>Criar um agendamento de uma vez
+#### <a name="create-a-one-time-schedule"></a>Criar um horário de uma vez
 
-Os comandos de exemplo a seguir criam um agendamento de uma vez.
+Os comandos de amostra seguintecriam um horário único.
 
 ```azurepowershell-interactive
 $TimeZone = ([System.TimeZoneInfo]::Local).Id
 New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Schedule01" -StartTime "23:00" -OneTime -ResourceGroupName "ResourceGroup01" -TimeZone $TimeZone
 ```
 
-#### <a name="create-a-recurring-schedule"></a>Criar um agendamento recorrente
+#### <a name="create-a-recurring-schedule"></a>Criar um horário recorrente
 
-Os comandos de exemplo a seguir mostram como criar uma agenda recorrente que é executada todos os dias em 1:13h por um ano.
+Os seguintes comandos de amostra mostram como criar um horário recorrente que funciona todos os dias às 13:00 pm durante um ano.
 
 ```azurepowershell-interactive
 $StartTime = Get-Date "13:00:00"
@@ -84,9 +84,9 @@ $EndTime = $StartTime.AddYears(1)
 New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Schedule02" -StartTime $StartTime -ExpiryTime $EndTime -DayInterval 1 -ResourceGroupName "ResourceGroup01"
 ```
 
-#### <a name="create-a-weekly-recurring-schedule"></a>Criar uma agenda recorrente semanal
+#### <a name="create-a-weekly-recurring-schedule"></a>Criar um horário semanal recorrente
 
-Os comandos de exemplo a seguir mostram como criar um agendamento semanal que é executado somente em dias da semana.
+Os comandos de amostra seguem mostram como criar um horário semanal que funciona apenas nos dias úteis.
 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "13:00:00").AddDays(1)
@@ -94,9 +94,9 @@ $StartTime = (Get-Date "13:00:00").AddDays(1)
 New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Schedule03" -StartTime $StartTime -WeekInterval 1 -DaysOfWeek $WeekDays -ResourceGroupName "ResourceGroup01"
 ```
 
-#### <a name="create-a-weekly-recurring-schedule-for-weekends"></a>Criar um agendamento recorrente semanal para fins de semana
+#### <a name="create-a-weekly-recurring-schedule-for-weekends"></a>Criar um horário semanal recorrente para fins de semana
 
-Os comandos de exemplo a seguir mostram como criar um agendamento semanal que é executado somente em fins de semana.
+Os comandos de amostra seguem mostram como criar um horário semanal que decorre apenas aos fins de semana.
 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
@@ -104,30 +104,30 @@ $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzureRmAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Weekends 6PM" -StartTime $StartTime -WeekInterval 1 -DaysOfWeek $WeekendDays -ResourceGroupName "ResourceGroup01"
 ```
 
-#### <a name="create-a-recurring-schedule-for-first-15th-and-last-days-of-the-month"></a>Criar um agendamento recorrente para o primeiro, o 15º e o último dia do mês
+#### <a name="create-a-recurring-schedule-for-first-15th-and-last-days-of-the-month"></a>Criar um horário recorrente para os primeiros, 15 e últimos dias do mês
 
-Os comandos de exemplo a seguir mostram como criar uma agenda recorrente que é executada no 1º, no 15º e no último dia de um mês.
+Os seguintes comandos de amostra mostram como criar um horário recorrente que decorre no dia 1, 15 e último dia de um mês.
 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzureRmAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
 ```
 
-## <a name="linking-a-schedule-to-a-runbook"></a>Vinculando uma agenda a um runbook
+## <a name="linking-a-schedule-to-a-runbook"></a>Ligando um horário a um livro de corridas
 
-Um runbook pode ser ligado a várias agendas e uma agenda pode ter vários runbooks a si ligados. Se um runbook tiver parâmetros, você poderá fornecer valores para eles. Você deve fornecer valores para quaisquer parâmetros obrigatórios e pode fornecer valores para quaisquer parâmetros opcionais. Esses valores são usados cada vez que o runbook é iniciado por essa agenda. Você pode anexar o mesmo runbook a outra agenda e especificar valores de parâmetro diferentes.
+Um runbook pode ser ligado a várias agendas e uma agenda pode ter vários runbooks a si ligados. Se um livro de execução tiver parâmetros, então pode fornecer-lhes valores. Deve fornecer valores para quaisquer parâmetros obrigatórios e pode fornecer valores para quaisquer parâmetros opcionais. Estes valores são usados cada vez que o livro de execução é iniciado por este horário. Pode anexar o mesmo livro de execução a outro horário e especificar diferentes valores de parâmetros.
 
-### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Para vincular um agendamento a um runbook com o portal do Azure
+### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Para ligar um horário a um livro de corridas com o portal Azure
 
-1. Na portal do Azure, na sua conta de automação, selecione **Runbooks** na seção **automação do processo** à esquerda.
-2. Clique no nome do runbook a agendar.
-3. Se o runbook não estiver atualmente vinculado a um agendamento, você terá a opção de criar uma nova agenda ou vincular a uma agenda existente.
-4. Se o runbook tiver parâmetros, você poderá selecionar a opção **Modificar configurações de execução (padrão: Azure)** e o painel de **parâmetros** será apresentado onde você pode inserir as informações.
+1. No portal Azure, a partir da sua conta de automação, selecione **Runbooks** sob a secção **Automation** process o lado esquerdo.
+2. Clique no nome do livro de execução para agendar.
+3. Se o livro de execução não estiver atualmente ligado a um horário, então é-lhe oferecida a opção de criar um novo horário ou link para um horário existente.
+4. Se o livro de execução tiver parâmetros, pode selecionar a opção Modificar as definições de **execução (Predefinido:Azure)** e o painel **de parâmetros** é apresentado onde pode introduzir a informação.
 
-### <a name="to-link-a-schedule-to-a-runbook-with-powershell"></a>Para vincular um agendamento a um runbook com o PowerShell
+### <a name="to-link-a-schedule-to-a-runbook-with-powershell"></a>Para ligar um horário a um livro de corridas com a PowerShell
 
-Você pode usar o cmdlet [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) para vincular uma agenda. Pode especificar os valores dos parâmetros do runbook através do parâmetro Parâmetros. Para obter mais informações sobre como especificar valores de parâmetro, consulte [iniciando um runbook na automação do Azure](../automation-starting-a-runbook.md).
-Os comandos de exemplo a seguir mostram como vincular uma agenda a um runbook usando um cmdlet Azure Resource Manager com parâmetros.
+Pode utilizar o [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet para ligar um horário. Pode especificar os valores dos parâmetros do runbook através do parâmetro Parâmetros. Para obter mais informações sobre a especificação dos valores dos parâmetros, consulte [Iniciar um Livro de Execução em Automação Azure](../automation-starting-a-runbook.md).
+Os comandos de amostra seguem mostrar como ligar um horário a um livro de execução utilizando um cmdlet do Gestor de Recursos Azure com parâmetros.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
@@ -139,32 +139,32 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 -ResourceGroupName "ResourceGroup01"
 ```
 
-## <a name="scheduling-runbooks-more-frequently"></a>Agendando runbooks com mais frequência
+## <a name="scheduling-runbooks-more-frequently"></a>Agendar livros com mais frequência
 
-O intervalo mais frequente que uma agenda na automação do Azure pode ser configurado por é de uma hora. Se você precisar que os agendamentos sejam executados com mais frequência do que isso, há duas opções:
+O intervalo mais frequente que um horário na Automatização Azure pode ser configurado é de uma hora. Se necessitar de horários para executar com mais frequência do que isso, existem duas opções:
 
-* Crie um [webhook](../automation-webhooks.md) para o runbook e use o [Agendador do Azure](../../scheduler/scheduler-get-started-portal.md) para chamar o webhook. O Agendador do Azure fornece granularidade mais refinada ao definir uma agenda.
+* Crie um [webhook](../automation-webhooks.md) para o livro de execução e use [as Aplicações Lógicas Azure](../../logic-apps/logic-apps-overview.md) para chamar o webhook. As Aplicações Lógicas Azure proporcionam uma granularidade mais fina ao definir um horário.
 
-* Crie quatro agendas, começando dentro de 15 minutos, em execução uma vez a cada hora. Esse cenário permite que o runbook seja executado a cada 15 minutos com os diferentes agendamentos.
+* Crie quatro horários todos a partir de 15 minutos um do outro correndo uma vez a cada hora. Este cenário permite que o livro de corridas seja executado a cada 15 minutos com os diferentes horários.
 
-## <a name="disabling-a-schedule"></a>Desabilitando uma agenda
+## <a name="disabling-a-schedule"></a>Desativar um horário
 
-Quando você desabilita uma agenda, qualquer runbook vinculado a ela não é mais executado nesse agendamento. Você pode desabilitar manualmente um agendamento ou definir um tempo de expiração para agendamentos com uma frequência ao criá-los. Depois que o tempo de expiração for atingido, o agendamento será desabilitado.
+Quando desativa um horário, qualquer livro de execução ligado a ele já não funciona nesse horário. Pode desativar manualmente um horário ou definir um prazo de validade para horários com frequência quando os criar. Uma vez atingido o prazo de validade, o horário é desativado.
 
-### <a name="to-disable-a-schedule-from-the-azure-portal"></a>Para desabilitar uma agenda do portal do Azure
+### <a name="to-disable-a-schedule-from-the-azure-portal"></a>Para desativar um horário do portal Azure
 
-1. Na portal do Azure, na sua conta de automação, selecione **agendas** na seção **recursos compartilhados** à esquerda.
-2. Clique no nome de um agendamento para abrir o painel de detalhes.
-3. Altere **habilitado** para **não**.
+1. No portal Azure, a partir da sua conta Automation, selecione **Horários** sob a secção **Recursos Partilhados** à esquerda.
+2. Clique no nome de um horário para abrir o painel de detalhes.
+3. Alteração **ativada** a **Nº**.
 
 > [!NOTE]
-> Se desejar desabilitar uma agenda que tenha uma hora de início no passado, você deverá alterar a data de início para uma hora no futuro antes de salvá-la.
+> Se quiser desativar um horário que tenha uma hora de início no passado, tem de alterar a data de início para uma hora no futuro antes de a guardar.
 
-### <a name="to-disable-a-schedule-with-powershell"></a>Para desabilitar uma agenda com o PowerShell
+### <a name="to-disable-a-schedule-with-powershell"></a>Para desativar um horário com a PowerShell
 
-Você pode usar o cmdlet [set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) para alterar as propriedades de uma agenda existente. Para desabilitar a agenda, especifique **false** para o parâmetro **IsEnabled** .
+Pode utilizar o [cmdlet Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) para alterar as propriedades de um horário existente. Para desativar o horário, especifique **falso** para o parâmetro **IsEnabled.**
 
-Os comandos de exemplo a seguir mostram como desabilitar uma agenda para um runbook usando um cmdlet Azure Resource Manager.
+Os comandos de amostra seguem mostrar como desativar um horário para um livro de execução utilizando um cmdlet do Gestor de Recursos Azure.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
@@ -175,5 +175,5 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para começar a usar runbooks na automação do Azure, consulte [Iniciar um runbook na automação do Azure](../automation-starting-a-runbook.md)
+* Para começar com livros de corridas na Azure Automation, veja [Starting a Runbook in Azure Automation](../automation-starting-a-runbook.md)
 

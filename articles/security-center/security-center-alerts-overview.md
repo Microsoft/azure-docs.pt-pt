@@ -1,6 +1,6 @@
 ---
-title: Alertas de segurança na central de segurança do Azure | Microsoft Docs
-description: Este tópico explica o que são os alertas de segurança e os diferentes tipos disponíveis na central de segurança do Azure.
+title: Alertas de segurança no Centro de Segurança Azure Microsoft Docs
+description: Este tópico explica quais são os alertas de segurança e os diferentes tipos disponíveis no Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,116 +10,116 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 6fc4b40e9b65f17b0af61b601826279e99410ed1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 826cc155bae037121ddc303a6e1bf300e2d50a27
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920762"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589305"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
-Na central de segurança do Azure, há uma variedade de alertas para vários tipos de recursos diferentes. A central de segurança gera alertas para recursos implantados no Azure e também para recursos implantados em ambientes de nuvem híbrida e locais.
+No Azure Security Center, existem uma variedade de alertas para vários tipos de recursos diferentes. O Centro de Segurança gera alertas para os recursos implantados no Azure, bem como para os recursos implantados em ambientes de nuvem no local e híbridos.
 
-Os alertas de segurança são disparados por detecções avançadas e estão disponíveis apenas na camada Standard da central de segurança do Azure. Está disponível uma avaliação gratuita. Pode atualizar a partir da seleção do Escalão de Preço na [Política de Segurança](security-center-pricing.md). Visite a [página do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre os preços.
+Os alertas de segurança são desencadeados por deteções avançadas e estão disponíveis apenas no Nível Padrão do Centro de Segurança Azure. Está disponível uma avaliação gratuita. Pode atualizar a partir da seleção do Escalão de Preço na [Política de Segurança](security-center-pricing.md). Visite a [página do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre os preços.
 
-## Respondendo às ameaças <a name="respond-threats"></a> atuais
+## Respondendo às ameaças <a name="respond-threats"></a> de hoje
 
 Nos últimos 20 anos, ocorreram alterações significativas no campo das ameaças. No passado, geralmente, as empresas só tinham de se preocupar com a desfiguração do site por parte de atacantes individuais que estavam interessados, sobretudo, em ver “o que podiam fazer”. Os atacantes de hoje são muito mais sofisticados e organizados. Têm, muitas vezes, objetivos financeiros e estratégicos específicos. Também têm mais recursos disponíveis, uma vez que podem ser financiados por Estados ou pelo crime organizado.
 
-Essas realidades em constante mudança levaram a um nível incomparável de profissionalismo nas classificações de invasor. Já não estão interessados na desfiguração dos sites. Agora eles estão interessados em roubar informações, contas financeiras e dados privados – todos eles podem usar para gerar dinheiro no mercado aberto ou para aproveitar uma posição empresarial, política ou militar específica. Ainda mais preocupante do que os atacantes com objetivos financeiros, temos os atacantes que entram ilegalmente em redes de forma a prejudicar infraestruturas e pessoas.
+Estas realidades em mudança levaram a um nível de profissionalismo sem precedentes nas fileiras dos agressores. Já não estão interessados na desfiguração dos sites. Estão agora interessados em roubar informação, contas financeiras e dados privados – tudo o que podem usar para gerar dinheiro no mercado aberto ou para alavancar uma determinada posição empresarial, política ou militar. Ainda mais preocupante do que os atacantes com objetivos financeiros, temos os atacantes que entram ilegalmente em redes de forma a prejudicar infraestruturas e pessoas.
 
 Como resposta, as organizações implementam frequentemente diversas soluções de pontos, as quais se concentram na defesa do perímetro ou dos pontos finais da empresa ao procurar a assinatura de ataques conhecidos. Estas soluções têm tendência a gerar um grande volume de alertas de baixa fidelidade, o que requer que um analista de segurança faça uma triagem e investigue. A maioria das organizações não tem o tempo e os conhecimentos necessários para responder a estes alertas e muitos deles não são sequer abordados.  
 
-Além disso, os invasores evoluíram seus métodos para subverter muitas defesas baseadas em assinatura e [adaptar-se a ambientes de nuvem](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/). São necessárias novas abordagem para identificar ameaças emergentes mais rapidamente e agilizar a deteção e a resposta.
+Além disso, os atacantes desenvolveram os seus métodos para subverter muitas defesas baseadas em assinaturas e [adaptar-se a ambientes em nuvem.](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/) São necessárias novas abordagem para identificar ameaças emergentes mais rapidamente e agilizar a deteção e a resposta.
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
 
-Os alertas são as notificações que o Centro de Segurança gera quando deteta ameaças nos seus recursos. A central de segurança prioriza e lista os alertas, juntamente com as informações necessárias para que você investigue rapidamente o problema. O Centro de Segurança também fornece recomendações sobre como pode remediar um ataque.
+Os alertas são as notificações que o Centro de Segurança gera quando deteta ameaças nos seus recursos. O Centro de Segurança prioriza e lista os alertas, juntamente com as informações necessárias para que investigue rapidamente o problema. O Centro de Segurança também fornece recomendações para como pode remediar um ataque.
 
-## Como a central de segurança detecta ameaças? <a name="detect-threats"> </a>
+## Como é que o Centro de Segurança deteta ameaças? <a name="detect-threats"> </a>
 
-Os investigadores de segurança da Microsoft estão constantemente atentos a ameaças. Devido à presença global da Microsoft na nuvem e no local, eles têm acesso a um conjunto extenso de telemetria. A coleção abrangente e diversificada de conjuntos de valores permite a descoberta de novos padrões de ataque e tendências em seus produtos de consumidores e empresas locais, bem como seu serviços online. Como resultado, o Centro de Segurança pode atualizar rapidamente os respetivos algoritmos de deteção à medida que os atacantes disponibilizam novas e cada vez mais sofisticadas explorações. Esta abordagem ajuda-o a estar a par do ritmo dinâmico dos ambientes de ameaças.
+Os investigadores de segurança da Microsoft estão constantemente atentos a ameaças. Devido à presença global da Microsoft na nuvem e no local, eles têm acesso a um conjunto expansivo de telemetria. A ampla e diversificada recolha de conjuntos de dados permite a descoberta de novos padrões de ataque e tendências em todo o seu local de consumo e produtos empresariais, bem como os seus serviços online. Como resultado, o Centro de Segurança pode atualizar rapidamente os respetivos algoritmos de deteção à medida que os atacantes disponibilizam novas e cada vez mais sofisticadas explorações. Esta abordagem ajuda-o a estar a par do ritmo dinâmico dos ambientes de ameaças.
 
-Para detectar ameaças reais e reduzir falsos positivos, a central de segurança coleta, analisa e integra dados de log de seus recursos do Azure e da rede. Ele também funciona com soluções de parceiros conectadas, como firewall e soluções de proteção de ponto de extremidade. A central de segurança analisa essas informações, geralmente correlacionando informações de várias fontes, para identificar ameaças.
+Para detetar ameaças reais e reduzir falsos positivos, o Security Center recolhe, analisa e integra dados de registo dos seus recursos Azure e da rede. Também trabalha com soluções de parceiros conectados, como soluções de proteção de firewall e endpoint. O Security Center analisa esta informação, muitas vezes correlacionado com informações de várias fontes, para identificar ameaças.
 
 ![Recolha e apresentação de dados do Centro de Segurança](./media/security-center-alerts-overview/security-center-detection-capabilities.png)
 
 O Centro de Segurança emprega análises de segurança avançadas, que ultrapassam as abordagens baseadas na assinatura. Os avanços nas tecnologias de macrodados e [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) são aproveitados para avaliar eventos em toda a nuvem, o que permite a deteção de ameaças que seriam impossíveis de identificar através da utilização de abordagens manuais e a previsão da evolução de ataques. Estas análises de segurança incluem:
 
-* **Inteligência contra ameaças integrada**: procura atores ruins, aproveitando a inteligência contra ameaças globais dos produtos e serviços da Microsoft, da DCU (unidade de crimes digitais) da Microsoft, do MSRC (Microsoft Security Response Center) e de feeds externos.
-* **Análise comportamental**: aplica padrões conhecidos para descobrir comportamentos mal-intencionados.
-* **Detecção de anomalias**: usa a criação de perfil estatística para criar uma linha de base histórica. Alerta sobre os desvios de linhas de base estabelecidos em conformidade com um potencial vetor de ataque.
+* **Inteligência integrada**de ameaças : Procura maus atores conhecidos, aproveitando a inteligência global de ameaças de produtos e serviços da Microsoft, a Unidade de Crimes Digitais da Microsoft (DCU), o Microsoft Security Response Center (MSRC) e feeds externos.
+* **Análise comportamental**: Aplica padrões conhecidos para descobrir comportamentos maliciosos.
+* **Deteção de anomalias**: Utiliza perfis estatísticos para construir uma linha de base histórica. Alerta sobre os desvios de linhas de base estabelecidos em conformidade com um potencial vetor de ataque.
 
-As seções a seguir discutem cada uma dessas análises com mais detalhes.
+As secções abaixo discutem cada uma destas análises mais detalhadamente.
 
-### <a name="integrated-threat-intelligence"></a>Inteligência de ameaças integrada
+### <a name="integrated-threat-intelligence"></a>Inteligência integrada de ameaças
 
-A Microsoft tem uma grande quantidade de informações sobre ameaças globais. A telemetria flui de várias fontes, como o Azure, o Office 365, o Microsoft CRM Online, o Microsoft Dynamics AX, o outlook.com, o MSN.com, a unidade de crimes digitais da Microsoft (DCU) e o Microsoft Security Response Center (MSRC). Os pesquisadores também recebem informações de inteligência contra ameaças que são compartilhadas entre os principais provedores de serviços de nuvem e os feeds de terceiros. O Centro de Segurança do Azure pode utilizar estas informações para alertá-lo de ameaças de pessoas mal-intencionadas conhecidas.
+A Microsoft tem uma grande quantidade de informações sobre ameaças globais. A telemetria flui de várias fontes, tais como Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, a Microsoft Digital Crimes Unit (DCU) e o Microsoft Security Response Center (MSRC). Os investigadores também recebem informações de inteligência de ameaças que são partilhadas entre os principais fornecedores de serviços na nuvem e feeds de outros terceiros. O Centro de Segurança do Azure pode utilizar estas informações para alertá-lo de ameaças de pessoas mal-intencionadas conhecidas.
 
 ### <a name="behavioral-analytics"></a>Análise comportamental
 
-A análise comportamental é uma técnica que analisa e compara os dados para uma coleção de padrões conhecidos. No entanto, estes padrões não são simples assinaturas. São determinados através de algoritmos complexos de machine learning aplicados a conjuntos de dados gigantescos. Também são determinados através de uma análise cuidada de comportamentos maliciosos pelos analistas especialistas. A central de segurança do Azure pode usar a análise comportamental para identificar recursos comprometidos com base na análise de logs de máquina virtual, logs de dispositivo de rede virtual, logs de malha, despejos de memória e outras fontes.
+A análise comportamental é uma técnica que analisa e compara os dados para uma coleção de padrões conhecidos. No entanto, estes padrões não são simples assinaturas. São determinados através de algoritmos complexos de machine learning aplicados a conjuntos de dados gigantescos. Também são determinados através de uma análise cuidada de comportamentos maliciosos pelos analistas especialistas. O Azure Security Center pode usar análises comportamentais para identificar recursos comprometidos com base na análise de registos de máquinas virtuais, registos de dispositivos de rede virtual, troncos de tecido, lixeiras de colisão e outras fontes.
 
-Além disso, há correlação com outros sinais para verificar a evidência de suporte de uma campanha generalizada. Esta correlação ajuda a identificar eventos que são consistentes com indicadores estabelecidos de comprometimento. 
+Além disso, há uma correlação com outros sinais para verificar se há provas de apoio de uma campanha generalizada. Esta correlação ajuda a identificar eventos que são consistentes com indicadores estabelecidos de comprometimento. 
 
 ### <a name="anomaly-detection"></a>Deteção de anomalias
 
 O Centro de Segurança do Azure utiliza também a deteção de anomalias para identificar ameaças. Contrariamente à análise comportamental (que depende de padrões conhecidos derivados de grandes conjuntos de dados), a deteção de anomalias é mais “personalizada” e concentra-se nas linhas de base específicas das suas implementações. O machine Learning é utilizado para determinar a atividade normal das suas implementações e, em seguida, são geradas regras para definir condições de valores atípicos que podem representar um evento de segurança.
 
-## <a name="how-are-alerts-classified"></a>Como os alertas são classificados?
+## <a name="how-are-alerts-classified"></a>Como são classificados os alertas?
 
-A central de segurança atribui uma severidade aos alertas, para ajudá-lo a priorizar a ordem em que você participa de cada alerta, para que, quando um recurso for comprometido, você possa acessá-lo imediatamente. A gravidade se baseia em quão confiante a central de segurança está na localização ou análise usada para emitir o alerta, bem como o nível de confiança de que houve uma intenção mal-intencionada por trás da atividade que levou ao alerta.
+O Centro de Segurança atribui uma severidade aos alertas, para ajudá-lo a priorizar a ordem em que atende a cada alerta, para que quando um recurso está comprometido, possa chegar lá imediatamente. A gravidade baseia-se na confiança do Centro de Segurança na descoberta ou na analítica usada para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
 > [!NOTE]
-> A severidade do alerta é exibida de forma diferente no portal e na API REST, as diferenças são indicadas na lista abaixo.
+> A gravidade do alerta é exibida de forma diferente no portal e versões da API REST que antecedem 01-01-2019. Se estiver a utilizar uma versão mais antiga da API, atualize para a experiência consistente descrita abaixo.
 
-* **Alta:** Há uma alta probabilidade de o recurso ser comprometido. Você deve vê-lo imediatamente. A central de segurança tem alta confiança tanto na intenção mal-intencionada quanto nas conclusões usadas para emitir o alerta. Por exemplo, um alerta que detecta a execução de uma ferramenta mal-intencionada conhecida, como Mimikatz, uma ferramenta comum usada para roubo de credenciais.
-* **Média (baixa na API REST)** : provavelmente, uma atividade suspeita pode indicar que um recurso está comprometido.
-A confiança da central de segurança na análise ou na localização é média e a confiança da intenção mal-intencionada é média a alta. Normalmente, elas seriam aprendizado de máquina ou detecções baseadas em anomalias. Por exemplo, uma tentativa de entrada de um local anormal.
-* **Baixo (informações na API REST)** : pode ser um ataque benigno positivo ou bloqueado.
-   * A central de segurança não tem confiança suficiente de que a intenção é mal-intencionada e a atividade pode ser inocente. Por exemplo, a limpeza de log é uma ação que pode ocorrer quando um invasor tenta ocultar suas faixas, mas em muitos casos é uma operação de rotina executada pelos administradores.
-   * A central de segurança normalmente não informa quando os ataques foram bloqueados, a menos que seja um caso interessante que sugerimos que você examine. 
-* **Informativo (silencioso na API REST)** : você verá apenas alertas informativos quando fizer uma busca detalhada em um incidente de segurança ou se usar a API REST com uma ID de alerta específica. Um incidente normalmente é composto por vários alertas, alguns dos quais podem aparecer por conta própria para que sejam apenas informativos, mas no contexto dos outros alertas podem ser mais valiosos. 
+- **Alto:** Há uma grande probabilidade de o seu recurso estar comprometido. Devia sonhá-lo imediatamente. O Centro de Segurança tem alta confiança tanto na intenção maliciosa como nas descobertas usadas para emitir o alerta. Por exemplo, um alerta que deteta a execução de uma ferramenta maliciosa conhecida como Mimikatz, uma ferramenta comum usada para roubo de credenciais.
+- **Médio:** Esta é provavelmente uma atividade suspeita pode indicar que um recurso está comprometido.
+A confiança do Centro de Segurança na analítica ou na descoberta é média e a confiança da intenção maliciosa é média a alta. Normalmente, trata-se de aprendizagem automática ou deteções baseadas em anomalias. Por exemplo, uma tentativa de inscrição de um local anómalo.
+- **Baixo:** Isto pode ser um ataque benigno positivo ou bloqueado.
+   * O Centro de Segurança não está confiante o suficiente para que a intenção seja maliciosa e a atividade pode ser inocente. Por exemplo, o registo claro é uma ação que pode acontecer quando um intruso tenta esconder os seus rastos, mas em muitos casos é uma operação de rotina realizada por administradores.
+   * O Centro de Segurança não costuma dizer-te quando os ataques foram bloqueados, a não ser que seja um caso interessante que sugerimos que procures. 
+- **Informação:** Só verá alertas informais quando se ajusta a um incidente de segurança, ou se utilizar a API REST com um ID de alerta específico. Um incidente é tipicamente composto por uma série de alertas, alguns dos quais podem aparecer por si só como apenas informativos, mas no contexto dos outros alertas podem ser dignos de um olhar mais atento. 
  
 
-## <a name="continuous-monitoring-and-assessments"></a>Monitoramento e avaliações contínuos
+## <a name="continuous-monitoring-and-assessments"></a>Monitorização e avaliações contínuas
 
-A central de segurança do Azure beneficia-se de ter equipes de pesquisa de segurança e ciência de dados em toda a Microsoft que monitoram continuamente as alterações no cenário de ameaças. Isto inclui as seguintes iniciativas:
+O Azure Security Center beneficia de ter equipas de pesquisa de segurança e ciência de dados em toda a Microsoft que monitorizam continuamente as mudanças no panorama das ameaças. Isto inclui as seguintes iniciativas:
 
-* **Monitoramento de inteligência contra ameaças**: a inteligência contra ameaças inclui mecanismos, indicadores, implicações e conselhos acionáveis sobre ameaças emergentes ou existentes. Esta informação é partilhada na comunidade de segurança e a Microsoft monitoriza continuamente os feeds de informações sobre ameaças de origens internas e externas.
+* **Monitorização da inteligência de ameaças**: A inteligência das ameaças inclui mecanismos, indicadores, implicações e conselhos atuais sobre ameaças existentes ou emergentes. Esta informação é partilhada na comunidade de segurança e a Microsoft monitoriza continuamente os feeds de informações sobre ameaças de origens internas e externas.
 * **Partilha de sinal**: os conhecimentos das equipas de segurança do amplo portefólio da Microsoft de serviços na nuvem e no local, servidores e dispositivos de ponto final de cliente são partilhados e analisados.
 * **Especialistas de segurança da Microsoft**: existe um envolvimento contínuo com equipas da Microsoft que trabalham em campos de segurança especializados, tal como a deteção de ataques da Web e forense.
 * **Otimização da deteção**: os algoritmos são executados em conjuntos de dados de clientes reais e os investigadores de segurança trabalham com os clientes para validar os resultados. Os verdadeiros e falsos positivos são utilizados para refinar os algoritmos do machine learning.
 
 Estes esforços combinados culminam em novas e melhoradas deteções das quais pode beneficiar de imediato, sem que seja precisa qualquer ação da sua parte.
 
-## Tipos <a name="security-alert-types"></a> de alertas de segurança
+## Tipos de <a name="security-alert-types"></a> alerta de segurança
 
-Os tópicos a seguir orientam você pelos diferentes alertas, de acordo com os tipos de recursos:
+Os seguintes tópicos guiam-no através dos diferentes alertas, de acordo com os tipos de recursos:
 
 * [Alertas de VMs e servidores IaaS](security-center-alerts-iaas.md)
-* [Alertas de computação nativos](security-center-alerts-compute.md)
+* [Alertas de computação nativa](security-center-alerts-compute.md)
 * [Alertas de serviços de dados](security-center-alerts-data-services.md)
 
-Os tópicos a seguir explicam como a central de segurança usa a telemetria diferente que ela coleta da integração com a infraestrutura do Azure, para aplicar camadas de proteção adicionais para recursos implantados no Azure:
+Os seguintes tópicos explicam como o Security Center utiliza a diferente telemetria que recolhe da integração com a infraestrutura Azure, de forma a aplicar camadas de proteção adicionais para os recursos implantados no Azure:
 
-* [Alertas da camada de serviço](security-center-alerts-service-layer.md)
-* [Detecção de ameaças para o Azure WAF e a proteção contra DDoS do Azure](security-center-alerts-integration.md)
+* [Alertas de camada de serviço](security-center-alerts-service-layer.md)
+* [Deteção de ameaças para a Proteção de DDoS Azure WAF e Azure](security-center-alerts-integration.md)
 
 ## <a name="what-are-security-incidents"></a>O que são incidentes de segurança?
 
-Um incidente de segurança é uma coleção de alertas relacionados, em vez de listar cada alerta individualmente. A central de segurança usa a [correlação de alertas inteligentes na nuvem](security-center-alerts-cloud-smart.md) para correlacionar diferentes alertas e sinais de baixa fidelidade em incidentes de segurança.
+Um incidente de segurança é uma coleção de alertas relacionados, em vez de enumerar cada alerta individualmente. O Centro de Segurança usa a [Correlação](security-center-alerts-cloud-smart.md) de Alerta Inteligente cloud para correlacionar diferentes alertas e sinais de baixa fidelidade em incidentes de segurança.
 
-Usando incidentes, a central de segurança fornece uma única exibição de uma campanha de ataque e todos os alertas relacionados. Essa exibição permite que você entenda rapidamente as ações tomadas pelo invasor e quais recursos foram afetados. Para obter mais informações, consulte [correlação de alertas inteligentes na nuvem](security-center-alerts-cloud-smart.md).
+Utilizando incidentes, o Security Center fornece-lhe uma única visão de uma campanha de ataque e de todos os alertas relacionados. Esta visão permite-lhe compreender rapidamente que ações o agressor tomou e que recursos foram afetados. Para mais informações, consulte cloud [smart alert correlation](security-center-alerts-cloud-smart.md).
 
-## <a name="security-alerts-in-azure-activity-log"></a>Alertas de segurança no log de atividades do Azure
+## <a name="security-alerts-in-azure-activity-log"></a>Alertas de segurança no Registo de Atividades do Azure
 
-Além de estar disponível no portal do Azure ou programaticamente, os alertas de segurança e os incidentes são auditados como eventos no [log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Para obter mais informações sobre o esquema de eventos, consulte [alertas de segurança no log de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
+Além de estarem disponíveis no portal Azure ou programáticamente, os alertas de segurança e incidentes são auditados como eventos no Registo de [Atividades do Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) Para obter mais informações sobre o esquema do evento, consulte Alertas de [Segurança no registo da Atividade Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis na central de segurança. Para obter mais informações, veja:
+Neste artigo, aprendeu sobre os diferentes tipos de alertas disponíveis no Centro de Segurança. Para obter mais informações, consulte:
 
 * [Guia de operações e planeamento do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 * [FAQ do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-faq)

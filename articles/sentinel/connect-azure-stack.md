@@ -1,9 +1,9 @@
 ---
-title: Integre suas máquinas virtuais Azure Stack ao Azure sentinela | Microsoft Docs
-description: Este artigo mostra como provisionar a extensão de máquina virtual de gerenciamento de Azure Monitor, atualização e configuração em Azure Stack máquinas virtuais e começar a monitorá-las com o sentinela.
+title: A bordo das suas máquinas virtuais Azure Stack para O Sentinela Azul  Microsoft Docs
+description: Este artigo mostra-lhe como fornecer a extensão virtual da máquina virtual Do Monitor, Atualização e Configuração do Azure Monitor, Update e Configuration Management nas máquinas virtuais do Azure Stack e começar a monitorizá-las com o Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -11,63 +11,63 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: fb306ec3f8abe2eedb97f83d01836745779db914
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.author: yelevin
+ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240763"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588523"
 ---
-# <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Conectar Azure Stack máquinas virtuais ao Azure Sentinel
+# <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Conecte máquinas virtuais Azure Stack a Azure Sentinel
 
 
 
 
-Com o Azure Sentinel, você pode monitorar suas VMs em execução no Azure e Azure Stack em um único local. Para integrar seus computadores Azure Stack ao Azure Sentinel, primeiro você precisa adicionar a extensão da máquina virtual às suas máquinas virtuais Azure Stack existentes. 
+Com o Azure Sentinel, pode monitorizar os seus VMs em funcionamento em Azure e Azure Stack num só local. Para embarcar nas suas máquinas Azure Stack ao Azure Sentinel, primeiro precisa de adicionar a extensão virtual da máquina às suas máquinas virtuais existentes no Azure Stack. 
 
-Depois de conectar Azure Stack computadores, escolha um de uma galeria de painéis que insights de superfície com base em seus dados. Esses painéis podem ser facilmente personalizados para suas necessidades.
+Depois de ligar as máquinas Azure Stack, escolha entre uma galeria de dashboards que superam os insights com base nos seus dados. Estes dashboards podem ser facilmente personalizados às suas necessidades.
 
 
 
-## <a name="add-the-virtual-machine-extension"></a>Adicionar a extensão da máquina virtual 
+## <a name="add-the-virtual-machine-extension"></a>Adicione a extensão da máquina virtual 
 
-Adicione a extensão de máquina virtual de **Gerenciamento de Azure monitor, atualização e configuração** para as máquinas virtuais em execução no seu Azure Stack. 
+Adicione a extensão virtual do **Monitor Azure, Atualização e Gestão** de Configuração às máquinas virtuais em funcionamento na sua Stack Azure. 
 
-1. Em uma nova guia do navegador, faça logon em seu [portal de Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal).
-2. Vá para a página **máquinas virtuais** , selecione a máquina virtual que você deseja proteger com o Azure Sentinel. Para obter informações sobre como criar uma máquina virtual em Azure Stack, consulte [criar uma VM do Windows Server com o portal do Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) ou [criar uma VM do servidor Linux usando o portal do Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
-3. Selecione **Extensions** (Extensões). A lista de extensões de máquina virtual instaladas nesta máquina virtual é mostrada.
-4. Clique na guia **Adicionar** . A folha do menu **novo recurso** é aberta e mostra a lista de extensões de máquina virtual disponíveis. 
-5. Selecione a extensão de **Gerenciamento de Azure monitor, atualização e configuração** e clique em **criar**. A janela instalar configuração de **extensão** é aberta.
+1. Num novo separador de navegador, inicie sessão no portal [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal).
+2. Vá à página de **máquinas Virtuais,** selecione a máquina virtual que pretende proteger com o Azure Sentinel. Para obter informações sobre como criar uma máquina virtual no Azure Stack, consulte Criar um VM de [servidor Windows com o portal Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) ou criar um VM de servidor [Linux utilizando o portal Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+3. Selecione **Extensions** (Extensões). A lista de extensões de máquinas virtuais instaladas nesta máquina virtual é mostrada.
+4. Clique no separador **Adicionar.** A lâmina do menu **New Resource** abre e mostra a lista de extensões de máquinavirtual disponíveis. 
+5. Selecione a extensão de **Monitor, Atualização e Gestão** de Configuração e clique em **Criar**. A janela de configuração de **extensão de instalação** abre-se.
 
-   ![Configurações de Azure Monitor, atualização e gerenciamento de configuração](./media/connect-azure-stack/azure-monitor-extension-fix.png)  
+   ![Definições de monitorização, atualização e configuração do Monitor, Atualização e Configuração](./media/connect-azure-stack/azure-monitor-extension-fix.png)  
 
    >[!NOTE]
-   > Se você não vir a extensão de **Azure monitor, atualização e gerenciamento de configuração** listada em seu Marketplace, entre em contato com seu operador de Azure Stack para disponibilizá-lo.
+   > Se não vir a extensão de **Monitorização, Atualização e Gestão** de Configurações e Monitorização de Configuração do Azure listada no seu mercado, contacte o operador do Azure Stack para o disponibilizar.
 
-6. No menu do Azure Sentinel, selecione **configurações do espaço de trabalho** seguido por **avançado**e copie a **ID do espaço** de trabalho e a **chave do espaço de trabalho (chave primária)** . 
-1. Na janela Azure Stack **instalar extensão** , Cole-os nos campos indicados e clique em **OK**.
-1. Depois que a instalação da extensão for concluída, seu status será exibido como **provisionamento bem-sucedido**. Pode levar até uma hora para a máquina virtual aparecer no portal do Azure Sentinel.
+6. No menu Azure Sentinel, selecione **as definições** do Espaço de Trabalho seguidas por **Advanced**, e copie o ID do **espaço de trabalho** e a chave **workspace (Chave Primária)** . 
+1. Na janela de extensão de **instalação** de pilhas azure, cola-as nos campos indicados e clica **EM OK**.
+1. Após o fim da instalação da extensão, o seu estado mostra como **o provisionamento foi bem sucedido**. Pode levar até uma hora para a máquina virtual aparecer no portal Azure Sentinel.
 
-Para obter mais informações sobre como instalar e configurar o agente para Windows, consulte [conectar computadores Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Para obter mais informações sobre a instalação e configuração do agente para windows, consulte [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
-Para a solução de problemas do agente para Linux, consulte [solucionar problemas do agente do Azure log Analytics Linux](../azure-monitor/platform/agent-linux-troubleshoot.md).
+Para problemas de resolução de problemas com o Linux, consulte [Troubleshoot Azure Log Analytics Linux Agent](../azure-monitor/platform/agent-linux-troubleshoot.md).
 
-No portal do Azure Sentinel no Azure, em **máquinas virtuais**, você tem uma visão geral de todas as VMs e computadores junto com seu status. 
+No portal Azure Sentinel em Azure, em **Máquinas Virtuais,** tem uma visão geral de todos os VMs e computadores, juntamente com o seu estado. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, você poderá remover a extensão da máquina virtual por meio do portal de Azure Stack.
+Quando já não for necessário, pode remover a extensão da máquina virtual através do portal Azure Stack.
 
 Para remover a extensão:
 
-1. Abra o **portal de Azure Stack**.
-2. Vá para a página **máquinas virtuais** , selecione a máquina virtual da qual você deseja remover a extensão.
-3. Selecione **extensões**, selecione a extensão **Microsoft. EnterpriseCloud. Monitoring**.
-4. Clique em **desinstalar**e confirme sua seleção.
+1. Abra o **Portal da Pilha Azure.**
+2. Vá à página de **máquinas virtuais,** selecione a máquina virtual a partir da qual pretende remover a extensão.
+3. **Selecione Extensões**, selecione a extensão **Microsoft.EnterpriseCloud.Monitoring**.
+4. Clique em **Desinstalar**e confirmar a sua seleção.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Transmita dados de [dispositivos de formato de erro comuns](connect-common-event-format.md) para o Azure Sentinel.
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
+- Transmita dados dos [aparelhos de formato](connect-common-event-format.md) de erro comum para o Azure Sentinel.

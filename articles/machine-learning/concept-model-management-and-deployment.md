@@ -9,27 +9,36 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486381"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589373"
 ---
-# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Gestão, implantação e monitorização de modelos com aprendizagem automática Azure
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Gestão de modelos, implantação e monitorização com Aprendizagem automática Azure
 
 Neste artigo, saiba como usar o Azure Machine Learning para gerir o ciclo de vida dos seus modelos. O Azure Machine Learning utiliza uma abordagem de Operações de Aprendizagem automática (MLOps). MlOps melhora a qualidade e consistência das suas soluções de aprendizagem automática. 
 
+## <a name="what-is-mlops"></a>O que é o MLOps?
+
+As Operações de Aprendizagem Automática (MLOps) baseiam-se em princípios e [práticas de DevOps](https://azure.microsoft.com/overview/what-is-devops/) que aumentam a eficiência dos fluxos de trabalho. Por exemplo, integração contínua, entrega e implantação. MlOps aplica estes principais ao processo de aprendizagem automática, com o objetivo de:
+
+* Experimentação e desenvolvimento mais rápidos de modelos
+* Implantação mais rápida de modelos em produção
+* Garantia de qualidade
+
 O Azure Machine Learning fornece as seguintes capacidades de MLOps:
 
-- **Criar gasodutos ML reprodutíveis.** Os gasodutos permitem definir passos reutilizáveis e reutilizáveis para os seus processos de preparação, treino e pontuação de dados.
-- **Registe, empreitada e implemente modelos de qualquer lugar** e rastreie metadados associados necessários para utilizar o modelo.
-- Capture os dados de **governação necessários para capturar o ciclo**de vida ml de ponta a ponta , incluindo quem está a publicar modelos, por que razão estão a ser feitas alterações e quando os modelos foram implantados ou utilizados na produção.
-- **Notifique e alerte sobre os eventos do ciclo** de vida ML, tais como a conclusão da experiência, o registo do modelo, a implementação do modelo e a deteção de dados à deriva.
+- **Criar gasodutos ML reprodutíveis.** Os gasodutos de Machine Learning permitem definir passos reutilizáveis e reutilizáveis para os seus processos de preparação, treino e pontuação de dados.
+- **Criar ambientes de software reutilizáveis** para treinar e implementar modelos.
+- **Registe, empreitada e implemente modelos de qualquer lugar**. Também pode rastrear metadados associados necessários para usar o modelo.
+- **Capture os dados de governação para o ciclo de vida ml final.** As informações registadas podem incluir quem está a publicar modelos, por que foram feitas alterações e quando os modelos foram implantados ou utilizados na produção.
+- **Notifique e alerte sobre os acontecimentos no ciclo de vida ML**. Por exemplo, a conclusão da experiência, o registo do modelo, a implementação do modelo e a deteção de dados à deriva.
 - **Monitorizar as aplicações ML para questões operacionais e relacionadas com o ML.** Compare as inputs do modelo entre formação e inferência, explore métricas específicas do modelo e forneça monitorização e alertas na sua infraestrutura ML.
-- Automatizar o ciclo de vida ml final com o **Azure Machine Learning e o Azure DevOps** para atualizar frequentemente os modelos, testar novos modelos e lançar continuamente novos modelos ML ao lado das outras aplicações e serviços.
+- **Automatizar o ciclo de vida ml de ponta a ponta com o Azure Machine Learning e os Gasodutos Azure**. A utilização de pipelines permite-lhe atualizar frequentemente os modelos, testar novos modelos e lançar continuamente novos modelos ML ao lado das outras aplicações e serviços.
 
 ## <a name="create-reproducible-ml-pipelines"></a>Criar gasodutos ML reprodutíveis
 
@@ -38,6 +47,12 @@ Utilize os gasodutos ML da Azure Machine Learning para coser todos os passos env
 Um gasoduto ML pode conter passos da preparação de dados para a extração de recursos até à sintonização do hiperparâmetro até à avaliação do modelo. Para mais informações, consulte [os gasodutos ML](concept-ml-pipelines.md).
 
 Se utilizar o [Designer](concept-designer.md) para criar os seus oleodutos ML, pode clicar no **"..."** no canto superior direito da página Designer e, em seguida, selecionar **Clone**. A clonagem do seu pipeline permite-lhe iterar o seu design de pipeline sem perder as suas versões antigas.  
+
+## <a name="create-reusable-software-environments"></a>Criar ambientes de software reutilizáveis
+
+Os ambientes de Aprendizagem automática Azure permitem-lhe acompanhar e reproduzir as dependências de software dos seus projetos à medida que evoluem. Os ambientes permitem-lhe garantir que as construções são reprodutíveis sem configurações de software manual.
+
+Os ambientes descrevem as dependências pip e Conda para os seus projetos, e podem ser usados tanto para a formação como para a implantação de modelos. Para mais informações, consulte os ambientes de [Aprendizagem automática Azure.](concept-environments.md)
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>Registar, embalar e implementar modelos de qualquer lugar
 
@@ -48,7 +63,7 @@ O registo do modelo permite-lhe armazenar e verizar os seus modelos na nuvem Azu
 > [!TIP]
 > Um modelo registado é um recipiente lógico para um ou mais ficheiros que compõem o seu modelo. Por exemplo, se tiver um modelo que está armazenado em vários ficheiros, pode registá-los como um único modelo no seu espaço de trabalho Azure Machine Learning. Após o registo, pode então descarregar ou implementar o modelo registado e receber todos os ficheiros registados.
 
-Os modelos registados são identificados por nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro incrementa a versão. Podem ser fornecidas etiquetas adicionais de metadados durante o registo. Estas etiquetas são então usadas quando se procura um modelo. O Azure Machine Learning suporta qualquer modelo que possa ser carregado com python 3.5.2 ou superior.
+Os modelos registados são identificados por nome e versão. Sempre que registar um modelo com o mesmo nome de um modelo já existente, o registo aumenta a versão. Podem ser fornecidas etiquetas adicionais de metadados durante o registo. Estas etiquetas são então usadas quando se procura um modelo. O Azure Machine Learning suporta qualquer modelo que possa ser carregado com python 3.5.2 ou superior.
 
 > [!TIP]
 > Também pode registar modelos treinados fora do Azure Machine Learning.
@@ -82,7 +97,7 @@ Ao utilizar um modelo como serviço web ou dispositivo IoT Edge, fornece os segu
 
 * Os modelos que são utilizados para obter dados submetidos ao serviço/dispositivo.
 * Um guião de entrada. Este script aceita pedidos, utiliza o(s) modelo(s) para marcar os dados e devolver uma resposta.
-* Um ficheiro de ambiente de condomínio que descreve as dependências exigidas pelo modelo(s) e pelo script de entrada.
+* Um ambiente azure machine learning que descreve as dependências pip e Conda exigidas pelo modelo(s) e script de entrada.
 * Quaisquer ativos adicionais, tais como texto, dados, etc. que sejam exigidos pelo modelo ou pelo script de entrada.
 
 Também fornece a configuração da plataforma de implementação do alvo. Por exemplo, o tipo de família VM, memória disponível e número de núcleos ao implantar para o Serviço Azure Kubernetes.
@@ -97,7 +112,7 @@ A pontuação do lote é suportada através de gasodutos ML. Para mais informaç
 Pode utilizar os seus modelos em **serviços web** com os seguintes alvos de cálculo:
 
 * Instância de Contentor do Azure
-* Serviço Kubernetes do Azure
+* Azure Kubernetes Service
 * Ambiente de desenvolvimento local
 
 Para implementar o modelo como um serviço web, deve fornecer os seguintes itens:
@@ -124,7 +139,7 @@ O Azure ML dá-lhe a capacidade de rastrear o rasto de auditoria de ponta a pont
 
 - O Azure ML [integra-se com](how-to-set-up-training-targets.md#gitintegration) a Git para rastrear informações sobre as quais veio o repositório/ramo/ comprometer o seu código.
 - [Os Conjuntos](how-to-create-register-datasets.md) de Dados Azure ML ajudam-no a rastrear, perfil e versão dados. 
-- O histórico azure ML Run armazena uma imagem instantânea do código, dados e computação usado para treinar um modelo.
+- O histórico azure ML Run armazena uma imagem instantânea do código, dados e cálculos usados para treinar um modelo.
 - O Registo do Modelo Azure ML captura todos os metadados associados ao seu modelo (que experiência o treinou, onde está a ser implantado, se as suas implementações forem saudáveis).
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notificar, automatizar e alertar sobre os acontecimentos no ciclo de vida ml
@@ -163,7 +178,9 @@ A [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?
 
 Para obter mais informações sobre a utilização de Pipelines Azure com Aprendizagem automática Azure, consulte a [integração contínua e implementação de modelos ML com artigo da Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) e o repositório [De Aprendizagem automática Azure.](https://aka.ms/mlops)
 
-## <a name="next-steps"></a>Passos Seguintes
+Também pode utilizar a Azure Data Factory para criar um pipeline de ingestão de dados que prepare dados para uso com formação. Para mais informações, consulte o pipeline de [ingestão](how-to-cicd-data-ingestion.md)de dados .
+
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais lendo e explorando os seguintes recursos:
 

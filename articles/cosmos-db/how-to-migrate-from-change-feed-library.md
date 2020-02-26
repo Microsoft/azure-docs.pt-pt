@@ -1,66 +1,66 @@
 ---
-title: Migrar da biblioteca do processador do feed de alterações para o SDK Azure Cosmos DB .NET v3
-description: Saiba como migrar seu aplicativo do usando a biblioteca do processador do feed de alterações para o SDK do Azure Cosmos DB v3
+title: Migrar da biblioteca de processadores de feed de mudança para o Azure Cosmos DB .NET V3 SDK
+description: Saiba como migrar a sua aplicação desde a utilização da biblioteca de processadores de feed de mudança para o Azure Cosmos DB SDK V3
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9570a8512e3437b12ecce2ef0c708a74a8806482
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: f651beb181430f65d0b4c86f285e74958f8366eb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077558"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588888"
 ---
-# <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca do processador do feed de alterações para o SDK Azure Cosmos DB .NET v3
+# <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca de processadores de feed de mudança para o Azure Cosmos DB .NET V3 SDK
 
-Este artigo descreve as etapas necessárias para migrar um código de aplicativo existente que usa a [biblioteca do processador do feed de alterações](https://github.com/Azure/azure-documentdb-changefeedprocessor-dotnet) para o recurso de feed de [alterações](change-feed.md) na versão mais recente do SDK do .net (também conhecido como SDK do .net v3).
+Este artigo descreve as etapas necessárias para migrar o código de uma aplicação existente que utiliza a biblioteca do [processador de feed](https://github.com/Azure/azure-documentdb-changefeedprocessor-dotnet) de mudança para a funcionalidade de [alimentação](change-feed.md) de mudanças na versão mais recente do .NET SDK (também referido como .NET V3 SDK).
 
 ## <a name="required-code-changes"></a>Alterações de código necessárias
 
-O SDK do .NET v3 tem várias alterações significativas, as seguintes são as principais etapas para migrar seu aplicativo:
+O .NET V3 SDK tem várias alterações de rutura, as seguintes são os passos-chave para migrar a sua aplicação:
 
-1. Converta `DocumentCollectionInfo` as instâncias `Container` em referências para os contêineres monitorado e concessões.
-1. As personalizações que `WithProcessorOptions` usam devem ser atualizadas `WithLeaseConfiguration` para `WithPollInterval` usar e para `WithStartTime` intervalos, [para hora de início](how-to-configure-change-feed-start-time.md)e `WithMaxItems` para definir a contagem máxima de itens.
-1. `ChangeFeedProcessorOptions.LeasePrefix` `string.Empty` Defina ativado para`GetChangeFeedProcessorBuilder` corresponder ao valor configurado em ou use o contrário. `processorName`
-1. As alterações não são mais entregues como um `IReadOnlyList<Document>`, em vez disso, é `IReadOnlyCollection<T>` um `T` onde é um tipo que você precisa definir, não há mais nenhuma classe de item base.
-1. Para lidar com as alterações, você não precisa mais de uma implementação, em vez disso, precisa [definir um delegado](change-feed-processor.md#implementing-the-change-feed-processor). O delegado pode ser uma função estática ou, se você precisar manter o estado entre execuções, poderá criar sua própria classe e passar um método de instância como delegado.
+1. Converter as `DocumentCollectionInfo` instâncias em referências `Container` para os contentores monitorizados e de arrendamento.
+1. As personalizações que utilizam `WithProcessorOptions` devem ser atualizadas para utilizar `WithLeaseConfiguration` e `WithPollInterval` para intervalos, `WithStartTime` para a hora de [início,](how-to-configure-change-feed-start-time.md)e `WithMaxItems` para definir a contagem máxima do artigo.
+1. Detete o `processorName` `GetChangeFeedProcessorBuilder` para corresponder ao valor configurado no `ChangeFeedProcessorOptions.LeasePrefix`, ou utilize `string.Empty` de outra forma.
+1. As alterações já não são entregues como `IReadOnlyList<Document>`, em vez disso, é um `IReadOnlyCollection<T>` em que `T` é um tipo que precisa definir, já não há classe de item base.
+1. Para lidar com as alterações, já não precisa de uma implementação, em vez disso precisa de [definir um delegado.](change-feed-processor.md#implementing-the-change-feed-processor) O delegado pode ser uma Função Estática ou, se precisar manter o estado através das execuções, pode criar a sua própria classe e passar um método de instância como delegado.
 
-Por exemplo, se o código original para criar o processador do feed de alterações for semelhante ao seguinte:
+Por exemplo, se o código original para construir o processador de feed de mudança for o seguinte:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorLibrary)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="ChangeFeedProcessorLibrary":::
 
-O código migrado terá a seguinte aparência:
+O código migrado vai parecer:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=ChangeFeedProcessorMigrated)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="ChangeFeedProcessorMigrated":::
 
-E o delegado, pode ser um método estático:
+E o delegado pode ser um método estático:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=Delegate)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="Delegate":::
 
-## <a name="state-and-lease-container"></a>Contêiner de estado e concessão
+## <a name="state-and-lease-container"></a>Contentor do Estado e do arrendamento
 
-Semelhante à biblioteca do processador do feed de alterações, o recurso de feed de alterações no SDK do .NET v3 usa um [contêiner de concessão](change-feed-processor.md#components-of-the-change-feed-processor) para armazenar o estado. No entanto, os esquemas são diferentes.
+À semelhança da biblioteca do processador de feed de mudanças, a funcionalidade de alimentação de mudanças em .NET V3 SDK utiliza um recipiente de [aluguer](change-feed-processor.md#components-of-the-change-feed-processor) para armazenar o estado. No entanto, os esquemas são diferentes.
 
-O processador do feed de alterações do SDK v3 detectará qualquer estado de biblioteca antigo e o migrará para o novo esquema automaticamente na primeira execução do código do aplicativo migrado. 
+O processador de reparação sDK V3 detetará qualquer estado antigo da biblioteca e migra-lo-á automaticamente para o novo esquema após a primeira execução do código de aplicação migrado. 
 
-Você pode parar com segurança o aplicativo usando o código antigo, migrar o código para a nova versão, iniciar o aplicativo migrado e todas as alterações ocorridas enquanto o aplicativo foi interrompido serão coletadas e processadas pela nova versão.
+Pode parar com segurança a aplicação utilizando o código antigo, migrar o código para a nova versão, iniciar a aplicação em migração, e quaisquer alterações que ocorreram durante a paragem da aplicação, serão recolhidas e processadas pela nova versão.
 
 > [!NOTE]
-> As migrações de aplicativos que usam a biblioteca para o SDK do .NET v3 são unidirecionais, pois o estado (concessões) será migrado para o novo esquema. A migração não é compatível com versões anteriores.
+> As migrações de aplicações que utilizam a biblioteca para o .NET V3 SDK são de sentido único, uma vez que o Estado (arrendamentos) será migrado para o novo esquema. A migração não é compatível para trás.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [SDK do Azure Cosmos DB](sql-api-sdk-dotnet.md)
-* [Exemplos de uso no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
-* [Exemplos adicionais no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
+* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Amostras de utilização no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Amostras adicionais no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora você pode continuar para saber mais sobre o processador do feed de alterações nos seguintes artigos:
+Pode agora proceder a mais informações sobre o processador de feed de mudança nos seguintes artigos:
 
-* [Visão geral do processador do feed de alterações](change-feed-processor.md)
-* [Usando o estimador do feed de alterações](how-to-use-change-feed-estimator.md)
-* [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)
+* [Visão geral do processador de feed de mudança](change-feed-processor.md)
+* [Utilização do estimador de alimentação de alteração](how-to-use-change-feed-estimator.md)
+* [Alterar a hora de início do processador de feed](how-to-configure-change-feed-start-time.md)

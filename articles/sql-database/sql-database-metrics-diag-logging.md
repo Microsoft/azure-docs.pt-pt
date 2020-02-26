@@ -10,23 +10,23 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 02/21/2020
-ms.openlocfilehash: 880967fd48d82aaa15c6e3c08d36ec02eee60ead
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.date: 02/24/2020
+ms.openlocfilehash: dead8b95446009880c36f97a095aee4aaae0579d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544305"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587367"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Extração de métricas de base de dados Azure SQL e diagnósticos
 
-Neste artigo, você aprenderá a configurar o registo de telemetria de diagnósticos para bases de dados Azure SQL através do portal Azure, PowerShell, Azure CLI, Azure Monitor REST API e modelo Azure Resource Manager. Estes diagnósticos podem ser usados para medir as estatísticas de utilização de recursos e de execução de consultas.
-
-Bases de dados únicas, bases de dados reunidas e bases de dados de instâncias geridas podem transmitir métricas e registos de diagnóstico para uma monitorização mais fácil do desempenho. Pode configurar uma base de dados Azure SQL para transmitir o uso de recursos, trabalhadores e sessões, e conectividade com um dos seguintes recursos Azure:
+Neste artigo, você aprenderá a ativar e configurar o registo de telemetria de diagnósticos para bases de dados Azure SQL através do portal Azure, PowerShell, Azure CLI, o modelo REST API e Azure Resource Manager. Bases de dados únicas, bases de dados reunidas, piscinas elásticas, instâncias geridas e bases de dados de instâncias podem transmitir métricas e registos de diagnóstico para um dos seguintes recursos Do Azure:
 
 - **Azure SQL Analytics**: Obtenha uma monitorização inteligente das suas bases de dados que inclua relatórios de desempenho, alertas e recomendações de mitigação
 - **Azure Event Hubs**: Integre a telemetria da base de dados com as suas soluções de monitorização personalizadas ou oleodutos quentes
 - **Armazenamento Azure**: Arquivo grandes quantidades de telemetria por uma fração do preço
+
+Estes diagnósticos podem ser utilizados para medir a utilização de recursos e as estatísticas de execução de consultas para uma monitorização mais fácil do desempenho.
 
 ![Arquitetura](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -34,8 +34,6 @@ Para obter mais informações sobre as métricas e categorias de registo suporta
 
 - [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - [Visão geral dos registos de diagnóstico sinuoso do Azure](../azure-monitor/platform/platform-logs-overview.md)
-
-Este artigo fornece orientações para ajudá-lo a ativar a telemetria de diagnósticos para todas as suas bases de dados Azure SQL.
 
 ## <a name="enable-logging-of-diagnostics-telemetry"></a>Ativar o registo da telemetria de diagnósticos
 
@@ -49,15 +47,15 @@ Pode ativar e gerir a exploração de telemetria de métricas e diagnósticos ut
 
 Quando ativa a exploração de métricas e diagnósticos, é necessário especificar o destino de recursos Azure para recolher a telemetria de diagnósticos. As opções disponíveis incluem:
 
-- Análise de SQL do Azure
-- Azure Event Hubs
-- Storage do Azure
+- [Análise SQL do Azure](#stream-diagnostic-telemetry-into-sql-analytics)
+- [Azure Event Hubs](#stream-diagnostic-telemetry-into-event-hubs)
+- [Armazenamento do Azure](#stream-diagnostic-telemetry-into-azure-storage)
 
 Pode fornecer um novo recurso Azure ou selecionar um recurso existente. Depois de escolher um recurso utilizando a opção definições de **Diagnóstico,** especifique quais os dados a recolher.
 
 ## <a name="supported-diagnostic-logging-for-azure-sql-databases"></a>Exploração de diagnóstico suportada para bases de dados Azure SQL
 
-Ative as métricas e diagnósticos de registo nas bases de dados SQL. O registo de diagnóstico não está ativado por defeito. Pode configurar bases de dados Azure SQL para recolher a seguinte telemetria de diagnóstico:
+Pode configurar bases de dados Azure SQL para recolher a seguinte telemetria de diagnóstico:
 
 | Monitorização da telemetria para bases de dados | Base de dados única e suporte de base de dados agréis | Suporte de base de dados de instância sonuosa |
 | :------------------- | ----- | ----- |
@@ -78,17 +76,18 @@ Ative as métricas e diagnósticos de registo nas bases de dados SQL. O registo 
 >
 > Para permitir o streaming de [registos](sql-database-auditing.md#subheading-2) de auditoria, consulte A auditoria da sua base de dados e [registos de auditoria nos registos do Monitor Azure e](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)nos Hubs de Eventos Azure .
 >
-> As definições de diagnóstico não podem ser configuradas para as bases de dados do **sistema**, tais são bases de dados master, msdb, model, resoure e tempdb.
+> As definições de diagnóstico não podem ser configuradas para as bases de dados do **sistema**, tais são bases de dados master, msdb, model, resource e tempdb.
 
-## <a name="configure-diagnostic-logging-by-using-the-azure-portal"></a>Configure a exploração de diagnóstico utilizando o portal Azure
+## <a name="configure-streaming-of-diagnostic-telemetry"></a>Configurar o streaming da telemetria de diagnóstico
 
-Pode utilizar o menu de **definições** de Diagnóstico para cada base de dados de instâncias únicas, reunidas ou geridas no portal Azure para configurar o streaming de telemetria de diagnósticos. Além disso, a telemetria de diagnóstico também pode ser configurada separadamente para recipientes de base de dados: piscinas elásticas e instâncias geridas. 
+Pode utilizar o menu de **definições** de Diagnóstico no portal Azure para ativar e configurar o streaming de telemetria de diagnósticos. Além disso, pode utilizar os [modelos](../azure-monitor/platform/diagnostic-settings-template.md) PowerShell, Azure CLI, [REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)e Resource Manager para configurar o streaming de telemetria de diagnóstico. Pode definir os seguintes destinos para transmitir a telemetria de diagnóstico: Armazenamento Azure, Hubs de Eventos Azure e registos do Monitor Azure.
 
-Pode definir os seguintes destinos para transmitir a telemetria de diagnóstico: Armazenamento Azure, Hubs de Eventos Azure e registos do Monitor Azure.
+> [!IMPORTANT]
+> O registo da telemetria de diagnóstico não é ativado por defeito.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Configurar o streaming de telemetria de diagnósticos para piscinas elásticas
+# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
-   ![Ícone de piscina elástica](./media/sql-database-metrics-diag-logging/icon-elastic-pool-text.png)
+### <a name="elastic-pools"></a>Conjuntos elásticos
 
 Você pode configurar um recurso de piscina elástica para recolher a seguinte telemetria de diagnóstico:
 
@@ -121,20 +120,24 @@ Para permitir o streaming de telemetria de diagnóstico para um recurso de pisci
 9. Além disso, configurar o streaming de telemetria de diagnóstico para cada base de dados dentro do pool elástico que pretende monitorizar seguindo os passos descritos na secção seguinte.
 
 > [!IMPORTANT]
-> Além de configurar a telemetria de diagnóstico para uma piscina elástica, também precisa de configurar a telemetria de diagnóstico para cada base de dados em piscina elástica.
+> Além de configurar a telemetria de diagnóstico para uma piscina elástica, também precisa de configurar a telemetria de diagnóstico para cada base de dados na piscina elástica.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-databases-and-pooled-database"></a>Configurar o streaming de telemetria de diagnósticos para bases de dados individuais e base de dados em conjunto
+### <a name="single-or-pooled-database"></a>Base de dados única ou agréu
 
-   ![Ícone de base de dados SQL](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
+Pode configurar um recurso de base de dados único ou agrupado para recolher a seguinte telemetria de diagnóstico:
 
-Para permitir o streaming de telemetria de diagnósticos para bases de dados individuais ou agrumos, siga estes passos:
+| Recurso | Telemetria de monitorização |
+| :------------------- | ------------------- |
+| **Base de dados única ou agréu** | [As métricas básicas](sql-database-metrics-diag-logging.md#basic-metrics) contêm percentagem de DTU, DTU usado, limite dTU, percentagem de CPU, percentagem de leitura de dados físicos, percentagem de log write, sucesso/falhado/bloqueado por ligações de firewall, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento, percentagem de armazenamento XTP e impasses. |
+
+Para permitir o streaming de telemetria de diagnóstico para uma única ou uma base de dados agrofada, siga estes passos:
 
 1. Vá ao recurso de base de dados Azure **SQL.**
 2. Selecione **definições de Diagnóstico**.
-3. Selecione **ligar os diagnósticos** se não existirem definições anteriores ou selecione **a definição editar** para editar uma definição anterior. Pode criar até três ligações paralelas para transmitir telemetria de diagnósticos. 
+3. Selecione **ligar os diagnósticos** se não existirem definições anteriores ou selecione **a definição editar** para editar uma definição anterior. Pode criar até três ligações paralelas para transmitir telemetria de diagnósticos.
 4. **Selecione Adicionar definição de diagnóstico** para configurar o streaming paralelo de dados de diagnóstico para vários recursos.
 
-   ![Ativar diagnósticos para bases de dados individuais, reunidas ou por exemplo](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
+   ![Ativar diagnósticos para bases de dados individuais e reunidas](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 
 5. Introduza um nome de definição para a sua própria referência.
 6. Selecione um recurso de destino para os dados de diagnóstico de streaming: **Archive para a conta de armazenamento,** Stream para um hub de **eventos,** ou Enviar para **Log Analytics**.
@@ -148,9 +151,7 @@ Para permitir o streaming de telemetria de diagnósticos para bases de dados ind
 > [!TIP]
 > Repita estes passos para cada base de dados individual e agr0éle que pretende monitorizar.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instances"></a>Configurar o streaming de telemetria de diagnósticos para casos geridos
-
-   ![Ícone de instância gerida](./media/sql-database-metrics-diag-logging/icon-managed-instance-text.png)
+### <a name="managed-instance"></a>Instância gerida
 
 Pode configurar um recurso de instância gerido para recolher a seguinte telemetria de diagnóstico:
 
@@ -186,11 +187,15 @@ Para permitir o streaming de telemetria de diagnóstico para um recurso de inst�
 > [!IMPORTANT]
 > Além de configurar a telemetria de diagnósticos para uma instância gerida, também precisa de configurar a telemetria de diagnóstico para cada base de dados de cada instância.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurar o streaming de telemetria de diagnósticos, por exemplo, bases de dados
+### <a name="instance-database"></a>Base de dados de instâncias
 
-   ![Base de dados de instância no ícone de instância gerida](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
+Pode configurar um recurso de base de dados de instância para recolher a seguinte telemetria de diagnóstico:
 
-Para permitir o streaming de telemetria de diagnósticos, por exemplo, bases de dados, siga estes passos:
+| Recurso | Telemetria de monitorização |
+| :------------------- | ------------------- |
+| **Base de dados de instâncias** | [O ResourceUsageStats](#resource-usage-stats-for-managed-instances) contém contagem vCores, percentagem média de CPU, pedidos de IO, bytes lidos/escritos, espaço de armazenamento reservado e espaço de armazenamento usado. |
+
+Para permitir o streaming de telemetria de diagnósticos para uma base de dados de exemplo, siga estes passos:
 
 1. Vá a recurso de base de **dados em caso de** gestão.
 2. Selecione **definições de Diagnóstico**.
@@ -210,7 +215,7 @@ Para permitir o streaming de telemetria de diagnósticos, por exemplo, bases de 
 > [!TIP]
 > Repita estes passos para cada base de dados de cada instância que pretende monitorizar.
 
-### <a name="configure-diagnostic-logging-by-using-powershell"></a>Configure a exploração de diagnóstico utilizando o PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -253,7 +258,7 @@ Pode ativar o registo de métricas e diagnósticos utilizando o PowerShell.
 
 Pode combinar estes parâmetros para ativar várias opções de saída.
 
-### <a name="to-configure-multiple-azure-resources"></a>Para configurar vários recursos Azure
+**Para configurar vários recursos Azure**
 
 Para suportar várias subscrições, utilize o script PowerShell a partir de métricas de [recursos Enable Azure utilizando powerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
 
@@ -268,7 +273,7 @@ Forneça o id de recursos do espaço de trabalho \<$WSID\> como parâmetro na ex
 
    Substitua \<\> subID pelo ID de subscrição, \<RG_NAME\> com o nome do grupo de recursos e \<WS_NAME\> com o nome do espaço de trabalho.
 
-### <a name="configure-diagnostic-logging-by-using-the-azure-cli"></a>Configure a exploração de diagnóstico utilizando o Azure CLI
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Pode ativar a exploração de métricas e diagnósticos utilizando o CLI Azure.
 
@@ -303,17 +308,11 @@ Pode ativar a exploração de métricas e diagnósticos utilizando o CLI Azure.
 
 Pode combinar estes parâmetros para ativar várias opções de saída.
 
-### <a name="configure-diagnostic-logging-by-using-the-rest-api"></a>Configure a exploração de diagnóstico utilizando a API REST
+---
 
-Leia sobre como alterar as definições de [diagnóstico utilizando a API REST Do Monitor Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
+## <a name="stream-diagnostic-telemetry-into-sql-analytics"></a>Transmitir telemetria de diagnóstico para SQL Analytics
 
-### <a name="resource-manager-template"></a>Modelo do Resource Manager
-
-Leia sobre como ativar as definições de [diagnóstico na criação](../azure-monitor/platform/diagnostic-settings-template.md)de recursos utilizando um modelo de Gestor de Recursos .
-
-## <a name="stream-metrics-and-diagnostic-logs-into-azure-sql-analytics"></a>Métricas de fluxo e registos de diagnóstico no Azure SQL Analytics
-
-O Azure SQL Analytics é uma solução em nuvem que monitoriza o desempenho de bases de dados únicas, piscinas elásticas, instâncias geridas e bases de dados de instâncias em escala e em várias subscrições. Pode ajudá-lo a recolher e visualizar as métricas de desempenho da Base de Dados Azure SQL, e tem inteligência incorporada para resolução de problemas de desempenho.
+O Azure SQL Analytics é uma solução em nuvem que monitoriza o desempenho de bases de dados individuais, piscinas elásticas e bases de dados reunidas, e casos geridos e bases de dados de instâncias em escala e em várias subscrições. Pode ajudá-lo a recolher e visualizar as métricas de desempenho da Base de Dados Azure SQL, e tem inteligência incorporada para resolução de problemas de desempenho.
 
 ![Descrição geral da análise SQL do Azure](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
@@ -354,7 +353,7 @@ Pode utilizar o SQL Analytics como um painel hierárquico para visualizar os seu
 - Para aprender a utilizar o Azure SQL Analytics, consulte [o Monitor SQL Database utilizando o SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 - Para aprender a configurar alertas no SQL Analytics, consulte Criar alertas para bases de [dados, piscinas elásticas e instâncias geridas](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
-## <a name="stream-into-event-hubs"></a>Transmitir em fluxo para os Hubs de Eventos
+## <a name="stream-diagnostic-telemetry-into-event-hubs"></a>Transmitir telemetria de diagnóstico em Centros de Eventos
 
 Pode transmitir métricas de base de dados E diagnósticos SQL em Centros de Eventos, utilizando o Fluxo incorporado para uma opção de hub de **eventos** no portal Azure. Também pode ativar o ID da regra do ônibus de serviço utilizando definições de diagnóstico através de cmdlets PowerShell, o Azure CLI ou o API REST Do Monitor Azure.
 
@@ -379,7 +378,7 @@ Pode utilizar métricas transmitidas em Centros de Eventos para:
 
    Já tem uma plataforma de telemetria personalizada ou está a considerar construir uma? A natureza altamente escalável de subscrição de registos de registos de eventos permite-lhe ingerir de forma flexível registos de diagnóstico. Consulte [o guia de Dan Rosanova para usar os Event Hubs numa plataforma de telemetria à escala global.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
-## <a name="stream-into-storage"></a>Fluxo para armazenamento
+## <a name="stream-diagnostic-telemetry-into-azure-storage"></a>Stream diagnostic telemetria para o Armazenamento Azure
 
 Pode armazenar registos de métricas e diagnósticos no Armazenamento Azure utilizando o Arquivo incorporado **para uma opção** de conta de armazenamento no portal Azure. Também pode ativar o Armazenamento utilizando definições de diagnóstico através de cmdlets PowerShell, do Azure CLI ou da API DO MONITOR Azure.
 
@@ -420,28 +419,28 @@ Se estiver a utilizar o Azure SQL Analytics, pode monitorizar o seu consumo de i
 
 ## <a name="metrics-and-logs-available"></a>Métricas e registos disponíveis
 
-A telemetria de monitorização disponível para bases de dados individuais, piscinas elásticas e instância gerida está documentada nesta secção do artigo. A telemetria de monitorização recolhida dentro do SQL Analytics pode ser usada para a sua própria análise personalizada e desenvolvimento de aplicações usando a linguagem de consultas de [log Do Monitor Azure.](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
+A telemetria de monitorização disponível para bases de dados individuais, bases de dados em conjunto, piscinas elásticas, instâncias geridas e bases de dados de instâncias está documentada nesta secção do artigo. A telemetria de monitorização recolhida dentro do SQL Analytics pode ser usada para a sua própria análise personalizada e desenvolvimento de aplicações usando a linguagem de consultas de [log Do Monitor Azure.](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 
-## <a name="basic-metrics"></a>Métricas básicas
+### <a name="basic-metrics"></a>Métricas básicas
 
 Consulte as tabelas seguintes para obter detalhes sobre métricas básicas por recurso.
 
 > [!NOTE]
 > A opção de métricas básicas era anteriormente conhecida como Todas as métricas. A alteração feita foi apenas para o nome e não houve alteração das métricas monitorizadas. Esta alteração foi iniciada para permitir a introdução de categorias métricas adicionais no futuro.
 
-### <a name="basic-metrics-for-elastic-pools"></a>Métricas básicas para piscinas elásticas
+#### <a name="basic-metrics-for-elastic-pools"></a>Métricas básicas para piscinas elásticas
 
 |**Recurso**|**Métricas**|
 |---|---|
 |Conjunto elástico|eDTU percentagem, eDTU usado, limite eDTU, percentagem de CPU, dados físicos ler percentagem, percentagem de log write, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento, limite de armazenamento, percentagem de armazenamento XTP |
 
-### <a name="basic-metrics-for-single-and-pooled-databases"></a>Métricas básicas para bases de dados individuais e reunidas
+#### <a name="basic-metrics-for-single-and-pooled-databases"></a>Métricas básicas para bases de dados individuais e reunidas
 
 |**Recurso**|**Métricas**|
 |---|---|
 |Base de dados única e agréu|Percentagem dTU, DTU usado, limite dTU, percentagem de CPU, percentagem de leitura de dados físicos, percentagem de log write, sucesso/falhado/bloqueado por ligações de firewall, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento, percentagem de armazenamento xtp e impasses |
 
-## <a name="advanced-metrics"></a>Métricas avançadas
+### <a name="advanced-metrics"></a>Métricas avançadas
 
 Consulte a tabela seguinte para obter detalhes sobre métricas avançadas.
 
@@ -451,11 +450,11 @@ Consulte a tabela seguinte para obter detalhes sobre métricas avançadas.
 |tempdb_log_size| Kilobytes de tamanho de ficheiro de log tempdb |Kilobytes de ficheiro de log tempdb. Não aplicável aos armazéns de dados. Esta métrica estará disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala.|
 |tempdb_log_used_percent| Log por cento temporário usado |Registo de percentagens temporárias usado. Não aplicável aos armazéns de dados. Esta métrica estará disponível para bases de dados utilizando o modelo de compra vCore com 2 vCores e mais alto, ou 200 DTU e superior para modelos de compra baseados em DTU. Esta métrica não está atualmente disponível para bases de dados de hiperescala.|
 
-## <a name="basic-logs"></a>Troncos básicos
+### <a name="basic-logs"></a>Troncos básicos
 
 Os detalhes da telemetria disponíveis para todos os registos estão documentados nas tabelas seguintes. Consulte o [registo de diagnóstico suportado](#supported-diagnostic-logging-for-azure-sql-databases) para entender quais os registos suportados para um determinado sabor de base de dados - Azure SQL single, pooled ou por exemplo database.
 
-### <a name="resource-usage-stats-for-managed-instances"></a>Estatísticas de utilização de recursos para casos geridos
+#### <a name="resource-usage-stats-for-managed-instances"></a>Estatísticas de utilização de recursos para casos geridos
 
 |Propriedade|Descrição|
 |---|---|
@@ -480,7 +479,7 @@ Os detalhes da telemetria disponíveis para todos os registos estão documentado
 |io_bytes_read_s|IOPS bytes lidos |
 |io_bytes_written_s|Bytes IOPS escritos |
 
-### <a name="query-store-runtime-statistics"></a>Estatísticas de tempo de execução da Loja de Consultas
+#### <a name="query-store-runtime-statistics"></a>Estatísticas de tempo de execução da Loja de Consultas
 
 |Propriedade|Descrição|
 |---|---|
@@ -531,7 +530,7 @@ Os detalhes da telemetria disponíveis para todos os registos estão documentado
 
 Saiba mais sobre os dados estatísticos do tempo de [execução da Consulta Store.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql)
 
-### <a name="query-store-wait-statistics"></a>Estatísticas de espera da Loja de Consultas
+#### <a name="query-store-wait-statistics"></a>Estatísticas de espera da Loja de Consultas
 
 |Propriedade|Descrição|
 |---|---|
@@ -569,7 +568,7 @@ Saiba mais sobre os dados estatísticos do tempo de [execução da Consulta Stor
 
 Saiba mais sobre [os dados estatísticos](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)de espera da Consulta Store.
 
-### <a name="errors-dataset"></a>Conjunto de dados de erros
+#### <a name="errors-dataset"></a>Conjunto de dados de erros
 
 |Propriedade|Descrição|
 |---|---|
@@ -598,7 +597,7 @@ Saiba mais sobre [os dados estatísticos](https://docs.microsoft.com/sql/relatio
 
 Saiba mais sobre as mensagens de [erro do Servidor SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
 
-### <a name="database-wait-statistics-dataset"></a>Conjunto de dados de estatísticas de espera de dados de espera de base de dados
+#### <a name="database-wait-statistics-dataset"></a>Conjunto de dados de estatísticas de espera de dados de espera de base de dados
 
 |Propriedade|Descrição|
 |---|---|
@@ -627,7 +626,7 @@ Saiba mais sobre as mensagens de [erro do Servidor SQL](https://docs.microsoft.c
 
 Saiba mais sobre as estatísticas de [espera da base de dados.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
 
-### <a name="time-outs-dataset"></a>Conjunto de dados de intervalos de tempo
+#### <a name="time-outs-dataset"></a>Conjunto de dados de intervalos de tempo
 
 |Propriedade|Descrição|
 |---|---|
@@ -650,7 +649,7 @@ Saiba mais sobre as estatísticas de [espera da base de dados.](https://docs.mic
 |query_hash_s|Hash de consulta, se disponível |
 |query_plan_hash_s|Plano de consulta hash, se disponível |
 
-### <a name="blockings-dataset"></a>Bloqueio sinteta do conjunto de dados
+#### <a name="blockings-dataset"></a>Bloqueio sinteta do conjunto de dados
 
 |Propriedade|Descrição|
 |---|---|
@@ -674,7 +673,7 @@ Saiba mais sobre as estatísticas de [espera da base de dados.](https://docs.mic
 |blocked_process_filtered_s|Relatório de processo bloqueado XML |
 |duration_d|Duração do bloqueio em microsegundos |
 
-### <a name="deadlocks-dataset"></a>Conjunto de dados de impasses
+#### <a name="deadlocks-dataset"></a>Conjunto de dados de impasses
 
 |Propriedade|Descrição|
 |---|---|
@@ -695,7 +694,7 @@ Saiba mais sobre as estatísticas de [espera da base de dados.](https://docs.mic
 |ResourceId|Recurso URI |
 |deadlock_xml_s|Relatório de impasse XML |
 
-### <a name="automatic-tuning-dataset"></a>Conjunto de dados de afinação automática
+#### <a name="automatic-tuning-dataset"></a>Conjunto de dados de afinação automática
 
 |Propriedade|Descrição|
 |---|---|
@@ -719,13 +718,13 @@ Saiba mais sobre as estatísticas de [espera da base de dados.](https://docs.mic
 |Schema_s|Esquema de base de dados |
 |Table_s|Tabela afetada |
 |IndexName_s|Nome do índice |
-|IndexColumns_s|nome da coluna |
+|IndexColumns_s|Nome da coluna |
 |IncludedColumns_s|Colunas incluídas |
 |EstimatedImpact_s|Impacto estimado da recomendação de afinação automática JSON |
 |Event_s|Tipo de evento de afinação automática |
 |Timestamp_t|Última marca de tempo atualizada |
 
-### <a name="intelligent-insights-dataset"></a>Conjunto de dados de Insights Inteligentes
+#### <a name="intelligent-insights-dataset"></a>Conjunto de dados de Insights Inteligentes
 
 Saiba mais sobre o formato de [log Insights Inteligentes.](sql-database-intelligent-insights-use-diagnostics-log.md)
 
@@ -738,7 +737,7 @@ Para aprender a permitir a exploração madeireira e compreender as métricas e 
 
 Para saber mais sobre os Centros de Eventos, leia:
 
-- [O que é Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [O que são os Hubs de Eventos do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Para aprender a configurar alertas baseados na telemetria a partir de análise de registo, consulte:

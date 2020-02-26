@@ -1,9 +1,9 @@
 ---
-title: Validar a conectividade com o Azure Sentinel | Microsoft Docs
-description: Valide a conectividade da solução de segurança para garantir que as mensagens CEF sejam encaminhadas para o Azure Sentinel.
+title: Validar a conectividade com o Azure Sentinel. Microsoft Docs
+description: Valide a conectividade da sua solução de segurança para garantir que as mensagens CEF estão a ser reencaminhadas para o Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,33 +13,33 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: e192f5db212faae9a8a93fbf3991f05b0adef0f8
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: e224f6d5cfd82dfc6cb1ce107d111ee0e031247b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615349"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588438"
 ---
-# <a name="step-3-validate-connectivity"></a>ETAPA 3: validar a conectividade
+# <a name="step-3-validate-connectivity"></a>PASSO 3: Validar a conectividade
 
 
 
-Depois de implantar o agente e configurar sua solução de segurança para encaminhar mensagens CEF, use este artigo para entender como verificar a conectividade entre o Azure Sentinel e sua solução de segurança. 
+Depois de ter implementado o agente e configurado a sua solução de segurança para enviar mensagens CEF, use este artigo para entender como verificar a conectividade entre o Azure Sentinel e a sua solução de segurança. 
 
 ## <a name="how-to-validate-connectivity"></a>Como validar a conectividade
 
-1. Abra Log Analytics para garantir que os logs sejam recebidos usando o esquema CommonSecurityLog.<br> Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics. 
+1. Abra o Log Analytics para se certificar de que os registos são recebidos utilizando o esquema CommonSecurityLog.<br> Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics. 
 
-1. Antes de executar o script, recomendamos que você envie mensagens de sua solução de segurança para certificar-se de que elas estão sendo encaminhadas para o computador proxy de syslog configurado. 
-1. Você deve ter permissões elevadas (sudo) em seu computador. Verifique se você tem o Python em seu computador usando o seguinte comando: `python –version`
-1. Execute o script a seguir para verificar a conectividade entre o agente, o Azure Sentinel e sua solução de segurança. Ele verifica se o encaminhamento do daemon está configurado corretamente, escuta as portas corretas e se nada está bloqueando a comunicação entre o daemon e o agente de Log Analytics. O script também envia as mensagens de simulação ' TestCommonEventFormat ' para verificar a conectividade de ponta a ponta. <br>
+1. Antes de executar o script, recomendamos que envie mensagens da sua solução de segurança para se certificar de que estão a ser reencaminhadas para a máquina de procuração Syslog que configura. 
+1. Deve ter permissões elevadas (sudo) na sua máquina. Certifique-se de que tem Python na sua máquina utilizando o seguinte comando: `python –version`
+1. Execute o seguinte script para verificar a conectividade entre o agente, Azure Sentinel, e a sua solução de segurança. Verifica se o encaminhamento da daemon está devidamente configurado, escuta as portas corretas, e que nada está bloqueando a comunicação entre o daemon e o agente Log Analytics. O script também envia mensagens falsas 'TestCommonEventFormat' para verificar a conectividade de ponta a ponta. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, você aprendeu a conectar os dispositivos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
-- [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
+Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
+- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.
 

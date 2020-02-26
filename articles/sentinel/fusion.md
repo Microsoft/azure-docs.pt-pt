@@ -3,7 +3,7 @@ title: Deteção avançada de ataques multiestágios em Azure Sentinel
 description: Utilize a tecnologia Fusion em Azure Sentinel para reduzir a fadiga de alerta e criar incidentes atores baseados na deteção avançada de ataques multiestágios.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
-ms.author: rkarlin
-ms.openlocfilehash: 5ab5d3c0fc1c37feaac2cc6b4b6837627c5a82df
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.author: yelevin
+ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500641"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587928"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Deteção avançada de ataques multiestágios em Azure Sentinel
 
@@ -332,7 +332,7 @@ Existem sete possíveis incidentes do Azure Sentinel que combinam atividade de l
     
     Este padrão de atividade é indicativo de um potencial ataque de ransomware.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu mais sobre a deteção avançada de ataques multipalco, pode estar interessado no seguinte início rápido para aprender a obter visibilidade nos seus dados e ameaças potenciais: [Comece com O Sentinel.](quickstart-get-visibility.md)
 

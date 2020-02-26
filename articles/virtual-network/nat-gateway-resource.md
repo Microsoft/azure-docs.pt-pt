@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 3ae1e3e595e9be9709e8a3d4808100d7f0e48eb8
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 9d9033689472fbc462eefd3d31c2b36a19add81a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526370"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589475"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Conceber redes virtuais com recursos de gateway NAT (Visualização Pública)
 
@@ -35,9 +35,6 @@ Os recursos de gateway NAT fazem parte da [Rede Virtual NAT](nat-overview.md) e 
 
 >[!NOTE] 
 >A Rede Virtual NAT está disponível como pré-visualização pública neste momento. Atualmente só está disponível num conjunto limitado de [regiões.](nat-overview.md#region-availability) Esta pré-visualização é fornecida sem um acordo de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) para obter mais informações.
-
-> [!IMPORTANT]
-> Depois de a [pré-visualização](./nat-overview.md#enable-preview) na Rede Virtual NAT estar ativada na sua subscrição, utilize https://aka.ms/natportal para aceder ao portal.
 
 ## <a name="how-to-deploy-nat"></a>Como implantar o NAT
 

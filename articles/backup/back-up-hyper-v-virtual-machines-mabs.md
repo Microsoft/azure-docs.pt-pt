@@ -3,12 +3,12 @@ title: Back up Máquinas virtuais Hyper-V com MABS
 description: Este artigo contém os procedimentos para o backup e recuperação de máquinas virtuais utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 69e415b5aef179c2b64bb04e933593010c8b47d3
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e23a3a5ad57e07f95958d8a21e091d663a5c1185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444065"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586517"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Backup máquinas virtuais Hyper-V com servidor de backup Azure
 
@@ -145,7 +145,7 @@ Para criar proteção para a migração viva:
 
 3. Atribuir a conta MABSMachineName$ como uma conta de administrador apenas de leitura no servidor de gestão VMM.
 
-4. Ligue todos os servidores de anfitriões Hyper-V a todos os servidores MABS com o cmdlet `Set-DPMGlobalProperty` PowerShell. O cmdlet aceita vários nomes de servidorEs MABS. Utilize o formato: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Para mais informações, consulte [Set-DPMGlobalProperty](https://technet.microsoft.com/library/hh881752.aspx).
+4. Ligue todos os servidores de anfitriões Hyper-V a todos os servidores MABS com o cmdlet `Set-DPMGlobalProperty` PowerShell. O cmdlet aceita vários nomes de servidorEs MABS. Utilize o formato: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Para mais informações, consulte [Set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
 
 5. Depois de todas as máquinas virtuais que correm nos anfitriões Hyper-V nas nuvens VMM são descobertas em VMM, configuram um grupo de proteção e adicionam as máquinas virtuais que pretende proteger. Devem ser ativados controlos automáticos de coerência ao nível do grupo de proteção para proteção em cenários de mobilidade virtual das máquinas.
 

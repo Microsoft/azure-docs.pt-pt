@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/17/2020
+ms.date: 2/24/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2f2940496682372b0d00d2b419aa941dcedd533c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444014"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586534"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -253,7 +253,7 @@ Guarde o json abaixo como simplestaticstaticalert.parameters.json e modifique-o 
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 
 ```powershell
 Connect-AzAccount
@@ -535,7 +535,7 @@ Guarde o json abaixo como simpledynamicmetricalert.parameters.json e modifique-o
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 
 ```powershell
 Connect-AzAccount
@@ -777,7 +777,7 @@ Guarde e modifique o json abaixo como advancedstaticalert.parameters.json para e
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI a partir do seu atual diretório de trabalho.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 ```powershell
 Connect-AzAccount
 
@@ -997,7 +997,7 @@ Guarde e modifique o json abaixo como multidimensionalstaticstaticalert.paramete
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI a partir do seu atual diretório de trabalho.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 ```powershell
 Connect-AzAccount
 
@@ -1217,7 +1217,7 @@ Guarde e modifique o json abaixo como advanceddynamicmetricalert.parameters.json
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI a partir do seu atual diretório de trabalho.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 ```powershell
 Connect-AzAccount
 
@@ -1251,7 +1251,7 @@ Pode usar o seguinte modelo para criar uma regra de alerta métrica estática ma
 
 Para saber mais sobre métricas personalizadas no Monitor Azure, consulte [métricas personalizadas no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
 
-Ao criar uma regra de alerta numa métrica personalizada, precisa especificar tanto o nome métrico como o espaço de nomemétrico.
+Ao criar uma regra de alerta numa métrica personalizada, precisa especificar tanto o nome métrico como o espaço de nomemétrico. Deve também certificar-se de que a métrica personalizada já está a ser reportada, uma vez que não pode criar uma regra de alerta sobre uma métrica personalizada que ainda não existe.
 
 Guarde o json abaixo como customstaticstaticalert.json para efeitos desta passagem.
 
@@ -1480,7 +1480,7 @@ Guarde e modifique o json abaixo como customstaticstaticalert.parameters.json pa
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI a partir do seu atual diretório de trabalho.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 ```powershell
 Connect-AzAccount
 
@@ -1809,7 +1809,7 @@ Guarde e modifique o json abaixo como all-vms-in-resource-group-static.parson pa
 
 Pode criar o alerta estático com o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI a partir do seu atual diretório de trabalho.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 
 ```powershell
 Connect-AzAccount
@@ -2144,7 +2144,7 @@ Guarde e modifique o json abaixo como all-vms-in-resource-group-dynamic.parson p
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI a partir do seu atual diretório de trabalho.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 
 ```powershell
 Connect-AzAccount
@@ -2454,7 +2454,7 @@ Guarde e modifique o json abaixo como all-vms-in-subscrição-static.parson para
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI a partir do seu atual diretório de trabalho.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 
 ```powershell
 Connect-AzAccount
@@ -2786,7 +2786,7 @@ Guarde e modifique o json abaixo como all-vms-in-subscrição-dynamic.parson par
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI a partir do seu atual diretório de trabalho.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 
 ```powershell
 Connect-AzAccount
@@ -3099,7 +3099,7 @@ Guarde e modifique o json abaixo como lista de vms-static.parameters.json para e
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI a partir do seu atual diretório de trabalho.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 
 ```powershell
 Connect-AzAccount
@@ -3434,7 +3434,7 @@ Guarde e modifique o json abaixo como lista de vms-dynamic.parson para efeitos d
 
 Pode criar o alerta métrico utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI a partir do seu atual diretório de trabalho.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 
 ```powershell
 Connect-AzAccount
@@ -3596,7 +3596,7 @@ Guarde o json abaixo como availabilityalert.parameters.json e modifique-o confor
 
 Pode criar o teste de disponibilidade e o alerta associado utilizando o modelo e o ficheiro de parâmetros utilizando o PowerShell ou o Azure CLI.
 
-Utilizar o Azure PowerShell
+Com o Azure PowerShell
 
 ```powershell
 Connect-AzAccount

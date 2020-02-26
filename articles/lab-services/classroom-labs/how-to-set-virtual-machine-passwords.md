@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: c01106bf7288e777e601c06558b1408960f4e49b
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 0af2b5f7d756060d463d2b4f3ef71bdd135710ee
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539438"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591528"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerir o conjunto de máquinas virtuais 
 Este artigo mostra-lhe como fazer as seguintes tarefas:
@@ -58,6 +58,9 @@ A segunda forma é selecionar um ou mais VMs na lista e alternar o botão na col
 ![Iniciar VMs selecionados](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
 Da mesma forma, pode parar um ou mais VMs tocando o botão na coluna **do Estado** ou selecionando **Parar** na barra de ferramentas. 
+
+> [!NOTE]
+> Quando um educador liga um Estudante VM, a quota para o aluno não é afetada. A quota para um utilizador especifica o número de horas de laboratório disponíveis para o utilizador fora do horário de aula programado. Para obter mais informações sobre quotas, consulte [As quotas definidas para os utilizadores.](how-to-configure-student-usage.md?#set-quotas-for-users)
 
 ## <a name="reset-vms"></a>Repor VMs
 Para redefinir um ou mais VMs, selecione-os na lista e, em seguida, selecione **Reset** na barra de ferramentas. 

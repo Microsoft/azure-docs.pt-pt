@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 02/17/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 7103daa4a943edfd8d05333f413245cebaf8f4af
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d9f6f015c210592d5d8053b1b34d5357bb357629
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524261"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586789"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação de emprego e libertação de emprego em nódos de computação batch
 
@@ -54,20 +54,23 @@ Num ambiente de "piscina partilhada", onde os nós de computação de uma piscin
 
 > [!TIP]
 > Outra forma de persistir registos e outros dados de saída de trabalho e tarefas é utilizar a biblioteca de Convenções de [Ficheiros de Lote Azure.](batch-task-output.md)
-> 
-> 
+>
+>
 
 ## <a name="job-preparation-task"></a>Tarefa de preparação de emprego
-Antes da execução das tarefas de um trabalho, o Batch executa a tarefa de preparação de trabalho em cada nó de cálculo que está programado para executar uma tarefa. Por padrão, o serviço De lote aguarda que a tarefa de preparação do trabalho seja concluída antes de executar as tarefas programadas para executar no nó. No entanto, pode configurar o serviço para não esperar. Se o nó recomeçar, a tarefa de preparação de trabalho volta a ser, mas também pode desativar este comportamento. Se tiver um trabalho com uma tarefa de preparação de emprego e uma tarefa de gestor de emprego configurada, a tarefa de preparação de emprego funciona antes da tarefa de gestor de emprego, tal como acontece com todas as outras tarefas. A tarefa de preparação de emprego é sempre a primeira.
+
+
+Antes da execução das tarefas de um trabalho, o Batch executa a tarefa de preparação de trabalho em cada nó de cálculo programado para executar uma tarefa. Por padrão, o Batch aguarda que a tarefa de preparação do trabalho esteja concluída antes de executar as tarefas programadas para executar no nó. No entanto, pode configurar o serviço para não esperar. Se o nó recomeçar, a tarefa de preparação de trabalho volta a ser. Também pode desativar este comportamento. Se tiver um trabalho com uma tarefa de preparação de emprego e uma tarefa de gestor de emprego configurada, a tarefa de preparação de emprego funciona antes da tarefa de gestor de emprego, tal como acontece com todas as outras tarefas. A tarefa de preparação de emprego é sempre a primeira.
 
 A tarefa de preparação de emprego é executada apenas em nódos os que estão programados para executar uma tarefa. Isto impede a execução desnecessária de uma tarefa de preparação no caso de não ser atribuída uma tarefa a um nó. Isto pode ocorrer quando o número de tarefas para um trabalho é menor do que o número de nós numa piscina. Também se aplica quando a [execução de tarefas simultânea](batch-parallel-node-tasks.md) é ativada, o que deixa alguns nós inativos se a contagem de tarefas for inferior ao total possível de tarefas simultâneas. Ao não executar a tarefa de preparação de emprego em nós inativos, pode gastar menos dinheiro em taxas de transferência de dados.
 
 > [!NOTE]
 > [JobPreparationTask][net_job_prep_cloudjob] difere de [CloudPool.StartTask][pool_starttask] nesse JobPreparationTask executa no início de cada trabalho, enquanto o StartTask executa apenas quando um nó de computação se junta primeiro a uma piscina ou reinicia.
-> 
-> 
+>
 
-## <a name="job-release-task"></a>Tarefa de libertação de emprego
+
+>## <a name="job-release-task"></a>Tarefa de libertação de emprego
+
 Uma vez que um trabalho é marcado como concluído, a tarefa de libertação de emprego é executada em cada nó na piscina que executou pelo menos uma tarefa. Marca um trabalho como concluído ao emitir um pedido de rescisão. O serviço Batch define então o estado de trabalho para *terminar,* encerra quaisquer tarefas ativas ou em execução associadas ao trabalho, e executa a tarefa de libertação de emprego. O trabalho passa-se então para o estado *completo.*
 
 > [!NOTE]

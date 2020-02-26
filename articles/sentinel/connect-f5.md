@@ -1,9 +1,9 @@
 ---
-title: Conectar dados F5 ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar dados do F5 ao Azure Sentinel.
+title: Ligue os dados de F5 ao Azure Sentinel. Microsoft Docs
+description: Saiba como ligar dados de F5 ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 0001cad6-699c-4ca9-b66c-80c194e439a5
@@ -14,35 +14,35 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: cf6dc6977ff066b646beac4db5562ae8d97ab066
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 6f33cecca1c67f91d0f2be64ab156f45ee500521
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610561"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588268"
 ---
-# <a name="connect-f5-to-azure-sentinel"></a>Conectar F5 ao Azure Sentinel
+# <a name="connect-f5-to-azure-sentinel"></a>Ligue F5 ao Sentinela Azure
 
-Este artigo explica como conectar seu dispositivo F5 ao Azure Sentinel. O conector de dados F5 permite que você conecte seus logs F5 com facilidade com o Azure Sentinel, exiba painéis, crie alertas personalizados e melhore a investigação. Usar F5 no Azure Sentinel fornecerá mais informações sobre o uso da Internet da sua organização e aprimorará seus recursos de operação de segurança. 
+Este artigo explica como ligar o seu aparelho F5 ao Azure Sentinel. O conector de dados F5 permite-lhe ligar facilmente os seus registos F5 com o Azure Sentinel, ver dashboards, criar alertas personalizados e melhorar a investigação. A utilização de F5 no Azure Sentinel irá fornecer-lhe mais informações sobre o uso da Internet da sua organização e aumentará as suas capacidades de operação de segurança. 
 
-## <a name="configure-your-f5-to-send-cef-messages"></a>Configurar o F5 para enviar mensagens CEF
+## <a name="configure-your-f5-to-send-cef-messages"></a>Configure o seu F5 para enviar mensagens CEF
 
-1. Acesse [F5 Configurando o log de eventos de segurança do aplicativo](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-11-5-0/12.html)e siga as instruções para configurar o log remoto, usando as seguintes diretrizes:
-   - Defina o **tipo de armazenamento remoto** como **CEF**.
-   - Defina o **protocolo** como **TCP**.
-   - Defina o **endereço IP** para o endereço IP do servidor syslog.
-   - Defina o **número da porta** como **514**ou a porta que você definiu o agente a ser usado.
-   - Você pode definir o **tamanho máximo da cadeia de caracteres de consulta** para o tamanho definido no agente.
+1. Vá ao Registo de Eventos de Segurança de [Aplicações de Configuração F5](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-11-5-0/12.html)e siga as instruções para configurar a exploração remota, utilizando as seguintes diretrizes:
+   - Delineie o tipo de **armazenamento remoto** para **CEF**.
+   - Definir o **Protocolo** para **a TCP**.
+   - Detete o **endereço IP** para o endereço IP do servidor Syslog.
+   - Detete o número da **porta** para **514**, ou a porta que definiu o seu agente para utilizar.
+   - Pode definir o tamanho máximo da **corda de consulta** para o tamanho que se define no seu agente.
 
-1. Para usar o esquema relevante em Log Analytics para os eventos CEF, procure `CommonSecurityLog`.
+1. Para utilizar o esquema relevante no Log Analytics para os eventos CEF, procure `CommonSecurityLog`.
 
-1. Continue na [etapa 3: validar a conectividade](connect-cef-verify.md).
+1. Continuar a [PASSO 3: Validar a conectividade.](connect-cef-verify.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, você aprendeu a conectar F5 ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
-- [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
+Neste documento, aprendeu a ligar F5 ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
+- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.
 

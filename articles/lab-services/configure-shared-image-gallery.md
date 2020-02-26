@@ -1,6 +1,6 @@
 ---
-title: Configurar uma galeria de imagens compartilhada no Azure DevTest Labs | Microsoft Docs
-description: Saiba como configurar uma galeria de imagens compartilhada no Azure DevTest Labs
+title: Configure uma galeria de imagens partilhada seletiva nos Laboratórios Azure DevTest  Microsoft Docs
+description: Saiba como configurar uma galeria de imagens partilhadas em Azure DevTest Labs
 services: devtest-lab
 documentationcenter: na
 author: spelluru
@@ -14,58 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 6e0c1419e5656f184d27dce8d185a86bea71d173
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 9593d60f76802cd515ca85616bce028cf3aa0d49
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389957"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589322"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurar uma galeria de imagem partilhada no Azure DevTest Labs
-O DevTest Labs agora dá suporte ao recurso da [Galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md) . Permite aos utilizadores do laboratório aceder a imagens de uma localização partilhada durante a criação de recursos de laboratório. Ajuda-o ainda a criar a estrutura e a organização em torno das imagens de VM com gestão personalizada. O recurso da Galeria de imagens compartilhadas dá suporte a:
+A DevTest Labs agora suporta a funcionalidade Da Galeria de [Imagem Partilhada.](../virtual-machines/windows/shared-image-galleries.md) Permite que os utilizadores de laboratório acedam a imagens de um local partilhado enquanto criam recursos laboratoriais. Também o ajuda a construir estrutura e organização em torno das suas imagens VM personalizadas. A galeria de imagens partilhadas apresenta suportes:
 
 - Replicação global gerida de imagens
-- Criação de versões e agrupamento de imagens para gestão mais fácil
-- Torne as suas imagens bastante disponíveis com contas de Armazenamento com Redundância entre Zonas (ZRS) que suportam zonas de disponibilidade. O ZRS oferece uma melhor resiliência em relação a falhas zonais.
-- Partilha entre subscrições e inquilinos com o controlo de acesso baseado em funções (RBAC).
+- Versão e agrupamento de imagens para uma gestão mais fácil
+- Disponibilize as suas imagens com contas de Armazenamento Redundante da Zona (ZRS) em regiões que suportem zonas de disponibilidade. O ZRS oferece uma melhor resiliência contra falhas zonais.
+- Partilha de subscrições, e até entre inquilinos, utilizando o controlo de acesso baseado em papéis (RBAC).
 
-Para obter mais informações, consulte a [documentação da Galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md). 
+Para mais informações, consulte a documentação da [Galeria de Imagens Partilhadas.](../virtual-machines/windows/shared-image-galleries.md) 
  
-Se tiver um elevado número de imagens geridas que precisa de manter e se quiser disponibilizá-las na sua empresa, pode utilizar uma galeria de imagens partilhadas como repositório que facilita a atualização e a partilha das suas imagens. Como proprietário do laboratório, pode anexar uma galeria de imagens partilhadas existente ao seu laboratório. Depois de a galeria estar anexada, os utilizadores do laboratório podem criar máquinas a partir das imagens mais recentes. Uma vantagem essencial desta funcionalidade é o DevTest Labs conseguir agora tirar partido da partilha de imagens entre laboratórios, subscrições e regiões. 
+Se tiver um grande número de imagens geridas que precisa de manter e gostaria de as disponibilizar em toda a sua empresa, pode utilizar uma galeria de imagens partilhada como um repositório que facilita a atualização e partilha das suas imagens. Como dono de laboratório, pode anexar uma galeria de imagens partilhadas existente ao seu laboratório. Uma vez anexada esta galeria, os utilizadores de laboratório podem criar máquinas a partir destas imagens mais recentes. Um dos principais benefícios desta funcionalidade é que a DevTest Labs pode agora aproveitar a partilha de imagens em laboratórios, através de subscrições e em todas as regiões. 
 
 > [!NOTE]
-> Para saber mais sobre os custos associados ao serviço da Galeria de imagens compartilhadas, consulte [cobrança da Galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md#billing).
+> Para saber sobre os custos associados ao serviço da Galeria de Imagem Partilhada, consulte [a Billing for Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md#billing).
 
 ## <a name="considerations"></a>Considerações
-- Você só pode anexar uma galeria de imagens compartilhadas a um laboratório por vez. Se desejar anexar outra galeria, você precisará desanexar a existente e anexar outra. 
-- Atualmente, o DevTest Labs não dá suporte ao carregamento de imagens para a Galeria por meio do laboratório. 
-- Ao criar uma máquina virtual usando uma imagem da Galeria de imagens compartilhada, o DevTest Labs sempre usa a versão mais recente publicada desta imagem. No entanto, se uma imagem tiver várias versões, o usuário poderá optar por criar um computador de uma versão anterior acessando a guia Configurações avançadas durante a criação da máquina virtual.  
-- Embora o DevTest Labs faça automaticamente uma melhor tentativa de garantir que a Galeria de imagens compartilhadas replique imagens para a região em que o laboratório existe, nem sempre é possível. Para evitar que os usuários tenham problemas para criar VMs a partir dessas imagens, verifique se as imagens já estão replicadas para a região do laboratório. "
+- Só se pode anexar uma galeria de imagens partilhada a um laboratório de cada vez. Se quiser anexar outra galeria, terá de separar a existente e anexar outra. 
+- ATualmente, a DevTest Labs suporta imagens generalizadas na galeria de imagens partilhadas.
+- A Tualmente, a DevTest Labs não suporta o envio de imagens para a galeria através do laboratório. 
+- Ao criar uma máquina virtual utilizando uma imagem partilhada de galeria de imagens, a DevTest Labs usa sempre a versão mais recente publicada desta imagem. No entanto, se uma imagem tiver várias versões, o utilizador pode optar por criar uma máquina a partir de uma versão anterior, indo para o separador de definições Avançadas durante a criação de máquinas virtuais.  
+- Embora a DevTest Labs faça automaticamente a melhor tentativa para garantir que a galeria de imagens partilhadas reproduz imagens para a região em que o Laboratório existe, nem sempre é possível. Para evitar que os utilizadores tenham problemas em criar VMs a partir destas imagens, certifique-se de que as imagens já estão replicadas para a região do laboratório."
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione **todos os serviços** no menu de navegação à esquerda.
+1. Selecione **Todos os Serviços** no menu de navegação à esquerda.
 1. Selecione **DevTest Labs** da lista.
-1. Na lista de laboratórios, selecione seu **laboratório**.
-1. Selecione **configuração e políticas** na seção **configurações** no menu à esquerda.
-1. Selecione **galerias de imagens compartilhadas** em **bases da máquina virtual** no menu à esquerda.
+1. Da lista de laboratórios, selecione o seu **laboratório.**
+1. Selecione **Configuração e políticas** na secção **Definições** no menu esquerdo.
+1. Selecione Galerias de Imagem Partilhada sob bases de **máquinas** **virtuais** no menu esquerdo.
 
-    ![Menu de galerias de imagens compartilhadas](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
-1. Anexe uma galeria de imagens compartilhada existente ao seu laboratório clicando no botão **anexar** e selecionando a galeria na lista suspensa.
+    ![Menu de Galerias de Imagem Partilhada](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
+1. Fixe uma galeria de imagens partilhadas existente ao seu laboratório clicando no botão **Attach** e selecionando a sua galeria no dropdown.
 
-    ![Anexar](./media/configure-shared-image-gallery/attach-options.png)
-1. Vá para a Galeria anexada e configure sua galeria para **habilitar ou desabilitar** imagens compartilhadas para a criação da VM. Selecione uma galeria de imagens na lista para configurá-la. 
+    ![Ligar](./media/configure-shared-image-gallery/attach-options.png)
+1. Vá à galeria anexa e configure a sua galeria para **permitir ou desativar** imagens partilhadas para a criação de VM. Selecione uma galeria de imagens da lista para configurá-la. 
 
-    Por padrão, **permitir que todas as imagens sejam usadas como bases da máquina virtual** é definido como **Sim**. Isso significa que todas as imagens disponíveis na Galeria de imagens compartilhada anexada estarão disponíveis para um usuário de laboratório durante a criação de uma nova VM de laboratório. Se o acesso a determinadas imagens precisar ser restrito, altere **permitir que todas as imagens sejam usadas como bases da máquina virtual** como **não**e selecione as imagens que você deseja permitir ao criar VMs e, em seguida, selecione o botão **salvar** .
+    Por predefinição, **permita que todas as imagens sejam utilizadas como bases** de máquinas virtuais estão definidas para **Sim**. Significa que todas as imagens disponíveis na galeria de imagens partilhadas anexas estarão disponíveis para um utilizador de laboratório ao criar um novo VM de laboratório. Se o acesso a determinadas imagens tiver de ser restringido, **altere Permitir que todas as imagens sejam utilizadas como bases** de máquinas virtuais para **Não**, e selecione as imagens que pretende permitir ao criar VMs e, em seguida, selecione o botão **Guardar.**
 
-    ![Habilitar ou desabilitar](./media/configure-shared-image-gallery/enable-disable.png)
-1. Os usuários do laboratório podem, então, criar uma máquina virtual usando as imagens habilitadas clicando em **+ Adicionar** e localizando a imagem na página **escolher sua base** .
+    ![Ativar ou desativar](./media/configure-shared-image-gallery/enable-disable.png)
+1. Os utilizadores do laboratório podem então criar uma máquina virtual utilizando as imagens ativadas clicando em **+Add** e encontrando a imagem na página **base de escolha.**
 
     ![Utilizadores de laboratório](./media/configure-shared-image-gallery/lab-users.png)
-## <a name="use-azure-resource-manager-template"></a>Utilizar o modelo do Azure Resource Manager
+## <a name="use-azure-resource-manager-template"></a>Use o modelo de Gestor de Recursos Azure
 
-### <a name="attach-a-shared-image-gallery-to-your-lab"></a>Anexar uma galeria de imagens compartilhadas ao seu laboratório
-Se você estiver usando um modelo de Azure Resource Manager para anexar uma galeria de imagens compartilhada ao laboratório, será necessário adicioná-lo na seção recursos do seu modelo do Resource Manager, conforme mostrado no exemplo a seguir:
+### <a name="attach-a-shared-image-gallery-to-your-lab"></a>Fixe uma galeria de imagens partilhadas ao seu laboratório
+Se estiver a usar um modelo do Gestor de Recursos Azure para anexar uma galeria de imagens partilhada ao seu laboratório, precisa adicioná-la sob a secção de recursos do seu modelo de Gestor de Recursos, como mostra o seguinte exemplo:
 
 ```json
 "resources": [
@@ -88,11 +89,11 @@ Se você estiver usando um modelo de Azure Resource Manager para anexar uma gale
 }
 ```
 
-Para obter um exemplo completo de modelo do Resource Manager, consulte estes exemplos de modelo do Resource Manager em nosso repositório GitHub público: [Configure uma galeria de imagens compartilhada ao criar um laboratório](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-lab-shared-gallery-configured).
+Para obter um exemplo completo do modelo do Gestor de Recursos, consulte estas amostras de modelo do Gestor de Recursos no nosso repositório público gitHub: Configure uma galeria de [imagens partilhadas enquanto cria um laboratório](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-lab-shared-gallery-configured).
 
-## <a name="use-api"></a>Usar API
+## <a name="use-api"></a>Utilizar API
 
-### <a name="shared-image-galleries---create-or-update"></a>Galerias de imagens compartilhadas – criar ou atualizar
+### <a name="shared-image-galleries---create-or-update"></a>Galerias de imagem partilhadas - criar ou atualizar
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version= 2018-10-15-preview
@@ -106,7 +107,7 @@ Body:
 
 ```
 
-### <a name="shared-image-galleries-images---list"></a>Imagens da galerias de imagens compartilhadas-lista 
+### <a name="shared-image-galleries-images---list"></a>Imagens de Galerias de Imagem Partilhada - Lista 
 
 ```rest
 GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version= 2018-10-15-preview
@@ -115,5 +116,5 @@ GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Consulte os artigos a seguir sobre como criar uma VM usando uma imagem da Galeria de imagens compartilhada anexada: [Criar uma VM usando uma imagem compartilhada da Galeria](add-vm-use-shared-image.md)
+## <a name="next-steps"></a>Passos seguintes
+Veja os seguintes artigos sobre a criação de um VM usando uma imagem da galeria de imagens partilhadas anexada: [Criar um VM usando uma imagem partilhada da galeria](add-vm-use-shared-image.md)

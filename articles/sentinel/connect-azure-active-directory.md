@@ -1,9 +1,9 @@
 ---
-title: Conectar dados do Azure AD ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar Azure Active Directory dados ao Azure Sentinel.
+title: Ligue os dados da AD Azure ao Azure Sentinel Microsoft Docs
+description: Saiba como ligar dados do Diretório Ativo Azure ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
@@ -14,43 +14,43 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: f08cd731e40b204d042e5df418b03626b9082c3b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.author: yelevin
+ms.openlocfilehash: be9241a6156621d3f90dbab2da5bebeb463b4232
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894662"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588625"
 ---
-# <a name="connect-data-from-azure-active-directory"></a>Conectar dados de Azure Active Directory
+# <a name="connect-data-from-azure-active-directory"></a>Conectar dados do Diretório Ativo azure
 
 
 
-O Azure Sentinel permite coletar dados de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) e transmiti-los para o Azure Sentinel. Você pode optar por transmitir [logs de entrada](../active-directory/reports-monitoring/concept-sign-ins.md) e [logs de auditoria](../active-directory/reports-monitoring/concept-audit-logs.md) .
+O Azure Sentinel permite-lhe recolher dados do [Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) e transmiti-lo para o Azure Sentinel. Pode optar por transmitir [registos de login](../active-directory/reports-monitoring/concept-sign-ins.md) e [registos](../active-directory/reports-monitoring/concept-audit-logs.md) de auditoria .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você quiser exportar dados de entrada do Active Directory, deverá ter uma licença do Azure AD P1 ou P2.
+- Se pretender exportar dados de inscrição a partir do Ative Directory, deve ter uma licença Azure AD P1 ou P2.
 
-- Usuário com permissões de administrador global ou de administrador de segurança no locatário do qual você deseja transmitir os logs.
+- Utilizador com permissões de administração ou administração de segurança globais no inquilino que deseja transmitir os registos de.
 
-- Para poder ver o status da conexão, você deve ter permissão para acessar os logs de diagnóstico do Azure AD. 
+- Para poder ver o estado de ligação, deve ter permissão para aceder aos registos de diagnóstico da AD Azure. 
 
 
 ## <a name="connect-to-azure-ad"></a>Ligar ao Azure AD
 
-1. No Azure Sentinel, selecione **conectores de dados** e, em seguida, clique no bloco **Azure Active Directory** .
+1. No Azure Sentinel, selecione **conectores de Dados** e, em seguida, clique no azulejo **Azure Ative Directory.**
 
-1. Ao lado dos logs que você deseja transmitir para o Azure Sentinel, clique em **conectar**.
+1. Ao lado dos registos que pretende transmitir para O Sentinel a dispor, clique em **Connect**.
 
-1. Você pode selecionar se deseja que os alertas do Azure AD gerem incidentes automaticamente no Azure Sentinel. Em **criar incidentes** , selecione **habilitar** para habilitar a regra analítica padrão que cria incidentes automaticamente a partir de alertas gerados no serviço de segurança conectado. Você pode editar essa regra em **análise** e em **regras ativas**.
+1. Pode selecionar se pretende que os alertas da AD Azure gerem automaticamente incidentes em Azure Sentinel. Em caso **de criar incidentes,** selecione **Ativar** para ativar a regra analítica padrão que cria incidentes automaticamente a partir de alertas gerados no serviço de segurança conectado. Em seguida, pode editar esta regra de acordo com **as regras** **Analytics** e, em seguida, Ative .
 
-1. Para usar o esquema relevante no Log Analytics para os alertas do Azure AD, procure **SigninLogs** e **AuditLogs**.
+1. Para utilizar o esquema relevante no Log Analytics para os alertas Da AD Azure, procure **SigninLogs** e **AuditLogs**.
 
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, você aprendeu a conectar o Azure AD ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
+Neste documento, aprendeu a ligar a Azure AD ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

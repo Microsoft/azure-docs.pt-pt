@@ -3,12 +3,12 @@ title: Modelo de dados para eventos de diagnóstico de backup azure
 description: Este modelo de dados está em referência ao modo específico de enviar eventos de diagnóstico para Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: d38c9dedba7111923fa4f823d348d0783ac36681
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 267753ee1647739e36d92b64f50d8a8be87537d9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500628"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583389"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de dados para eventos de diagnóstico de backup azure
 
@@ -55,7 +55,7 @@ Esta tabela fornece informações sobre entidades de backup principais, tais com
 | ResourceGroupName                 | Texto          | Grupo de recursos do recurso (por exemplo, cofre de Serviços de Recuperação) para dados que estão a ser recolhidos |
 | SchemaVersion                     | Texto          | Este campo denota a versão atual do esquema, é **V2** |
 | Estado de Proteção secundária de Backup    | Texto          | Se a proteção secundária está ativada para o item de reserva  |
-| State                             | Texto          | Estado do objeto de objeto de reserva. Por exemplo, Ativo, Eliminado |
+| Estado                             | Texto          | Estado do objeto de objeto de reserva. Por exemplo, Ativo, Eliminado |
 | StorageReplicationType            | Texto          | Tipo de replicação de armazenamento para o cofre. Por exemplo, GeoRedundant |
 | SubscriptionId                    | Texto          | Identificador de assinatura do recurso (por exemplo, cofre de Serviços de Recuperação) para o qual os dados são recolhidos |
 | VaultName                         | Texto          | Nome do cofre                                            |
@@ -78,17 +78,17 @@ Esta tabela fornece detalhes sobre campos relacionados com alerta.
 | Alertaraisedon                  | Texto          | Tipo de entidade em que o alerta é levantado                        |
 | AlertSeverity                  | Texto          | Gravidade do alerta. Por exemplo, Crítico                 |
 | Estado de alerta                    | Texto          | Estado do alerta. Por exemplo, Ativo                     |
-| Minutos de alerta    | Número        | Tempo necessário para resolver um alerta. Em branco para alertas ativos.     |
+| Minutos de alerta    | Number        | Tempo necessário para resolver um alerta. Em branco para alertas ativos.     |
 | Tipo de alerta                      | Texto          | Tipo de alerta. Por exemplo, Backup                           |
 | AlertUniqueId                  | Texto          | Identificador único do alerta gerado                    |
 | BackupItemUniqueId             | Texto          | Identificador único do item de reserva associado ao alerta |
 | BackupManagementServerUniqueid | Texto          | Campo para identificar exclusivamente o Servidor de Gestão de Backup o Item de Backup está protegido através, se aplicável |
 | BackupManagementType           | Texto          | Tipo de fornecedor para servidor que faz trabalho de backup, por exemplo, IaaSVM, FileFolder |
-| CondeOfAlertsConsolidado      | Número        | Número de alertas consolidados se se trata de um alerta consolidado  |
+| CondeOfAlertsConsolidado      | Number        | Número de alertas consolidados se se trata de um alerta consolidado  |
 | Recipiente protegidoUniqueId     | Texto          | Identificador único do servidor protegido associado ao alerta |
 | Ação Recomendada              | Texto          | Ação recomendada para resolver o alerta                      |
 | SchemaVersion                  | Texto          | Versão atual do esquema, por exemplo **V2**            |
-| State                          | Texto          | Estado atual do objeto de alerta, por exemplo, Ativo, Eliminado |
+| Estado                          | Texto          | Estado atual do objeto de alerta, por exemplo, Ativo, Eliminado |
 | ArmazenamentoUniqueId                | Texto          | Id único usado para identificar a entidade de armazenamento                |
 | AbóbadaUniqueid                  | Texto          | Identificação única usada para identificar o cofre relacionado com o alerta    |
 | SourceSystem                   | Texto          | Sistema fonte dos dados atuais - Azure                    |
@@ -108,7 +108,7 @@ Esta tabela fornece campos básicos protegidos relacionados com instâncias.
 | Recipiente protegidoUniqueId     | Texto          | Identificação única para identificar o recipiente protegido em que o trabalho é executado |
 | Contagem de casos protegidos         | Texto          | Contagem de instâncias protegidas para o item de reserva associado ou recipiente protegido nessa data-data |
 | SchemaVersion                  | Texto          | Versão atual do esquema, por exemplo **V2**            |
-| State                          | Texto          | Estado do objeto de cópia de segurança, por exemplo, Ativo, Eliminado |
+| Estado                          | Texto          | Estado do objeto de cópia de segurança, por exemplo, Ativo, Eliminado |
 | AbóbadaUniqueid                  | Texto          | Identificador único do cofre protegido associado à instância protegida |
 | SourceSystem                   | Texto          | Sistema fonte dos dados atuais - Azure                    |
 
@@ -125,8 +125,8 @@ Esta tabela fornece detalhes sobre campos relacionados com o trabalho.
 | BackupItemUniqueId             | Texto          | Id único usado para identificar o item de backup relacionado com a entidade de armazenamento |
 | BackupManagementServerUniqueid | Texto          | ID único usado para identificar o servidor de gestão de backup relacionado com a entidade de armazenamento |
 | BackupManagementType           | Texto          | Tipo de fornecedor para executar backup, por exemplo, IaaSVM, FileFolder a que este alerta pertence |
-| DataTransferInMB            | Número        | Dados transferidos em MB para este trabalho                          |
-| JobDurationInSecs              | Número        | Duração total do trabalho em segundos                                |
+| DataTransferInMB            | Number        | Dados transferidos em MB para este trabalho                          |
+| JobDurationInSecs              | Number        | Duração total do trabalho em segundos                                |
 | JobFailureCode                 | Texto          | Cadeia de código de falha por causa da falha de emprego aconteceu    |
 | JobOperation                   | Texto          | Operação para a qual o trabalho é executado, por exemplo, Backup, Restaurar, Configurar Backup |
 | JobOperationSubType            | Texto          | Sub Tipo da Operação de Trabalho. Por exemplo, 'Log', no caso do Log Backup Job |
@@ -139,7 +139,7 @@ Esta tabela fornece detalhes sobre campos relacionados com o trabalho.
 | RecoveryJobLocation            | Texto          | O local onde o ponto de recuperação que está a ser recuperado foi armazenado |
 | Tipo de Localização de Recuperação           | Texto          | Tipo de Local de Recuperação                                |
 | SchemaVersion                  | Texto          | Versão atual do esquema, por exemplo **V2**            |
-| State                          | Texto          | Estado atual do objeto de alerta, por exemplo, Ativo, Eliminado |
+| Estado                          | Texto          | Estado atual do objeto de alerta, por exemplo, Ativo, Eliminado |
 | AbóbadaUniqueid                  | Texto          | Identificador único do cofre protegido associado ao alerta |
 | SourceSystem                   | Texto          | Sistema fonte dos dados atuais - Azure                    |
 
@@ -177,7 +177,7 @@ Esta tabela fornece detalhes sobre os domínios relacionados com as políticas.
 | Duração da retenção               | Texto           | Duração da retenção para cópias de segurança configuradas                    |
 | RetentionType                   | Texto           | Tipo de retenção                                            |
 | SchemaVersion                   | Texto           | Este campo denota versão atual do esquema, é **V2** |
-| State                           | Texto           | Estado atual do objeto político. Por exemplo, Ativo, Eliminado |
+| Estado                           | Texto           | Estado atual do objeto político. Por exemplo, Ativo, Eliminado |
 | SincronizaçãoFrequênciaPerDay  | Número inteiro   | Número de vezes num dia uma cópia de segurança de ficheiros é sincronizada para SC DPM e MABS |
 | AbóbadaUniqueid                   | Texto           | Identificação única do cofre que esta política pertence a          |
 | WeeklyRetentionDaysOfTheWeek    | Texto           | Dias da semana selecionados para retenção semanal               |
@@ -207,9 +207,9 @@ Esta tabela fornece detalhes sobre campos relacionados com armazenamento.
 | PreferredWorkloadOnVolume      | Texto          | Carga de trabalho para a qual este volume é o armazenamento preferido      |
 | Recipiente protegidoUniqueId     | Texto          | Identificador único do servidor protegido associado ao alerta |
 | SchemaVersion                  | Texto          | Versão do esquema. Por exemplo, **V2**                   |
-| State                          | Texto          | Estado do objeto de objeto de reserva. Por exemplo, Ativo, Eliminado |
-| ArmazenamentoAllocatedInMBs          | Número        | Tamanho do armazenamento atribuído pelo produto de reserva correspondente no armazenamento correspondente do tipo Disk |
-| ArmazenamentoConsumidoInMBs           | Número        | Tamanho do armazenamento consumido pelo produto de reserva correspondente no armazenamento correspondente |
+| Estado                          | Texto          | Estado do objeto de objeto de reserva. Por exemplo, Ativo, Eliminado |
+| ArmazenamentoAllocatedInMBs          | Number        | Tamanho do armazenamento atribuído pelo produto de reserva correspondente no armazenamento correspondente do tipo Disk |
+| ArmazenamentoConsumidoInMBs           | Number        | Tamanho do armazenamento consumido pelo produto de reserva correspondente no armazenamento correspondente |
 | Nome de armazenamento                    | Texto          | Nome da entidade de armazenamento. Por exemplo, E:\                      |
 | ArmazenamentoTotalSizeInGBs          | Texto          | Tamanho total do armazenamento, em GB, consumido por entidade de armazenamento     |
 | Tipo de armazenamento                    | Texto          | Tipo de Armazenamento, por exemplo Cloud, Volume, Disco             |
@@ -218,7 +218,7 @@ Esta tabela fornece detalhes sobre campos relacionados com armazenamento.
 | VolumeFriendlyName             | Texto          | Nome amigável do volume de armazenamento                          |
 | SourceSystem                   | Texto          | Sistema fonte dos dados atuais - Azure                    |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba como enviar dados de diagnóstico para Log Analytics](https://aka.ms/AzureBackupDiagnosticsDocs)
+- [Saiba como enviar dados de diagnóstico para Log Analytics](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
 - [Saiba escrever consultas em tabelas específicas do Recurso](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)

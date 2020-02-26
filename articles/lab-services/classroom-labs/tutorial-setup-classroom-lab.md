@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 0f61a0968922d009b8ba60d80dde132fedaece29
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539090"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592225"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
 
-Neste tutorial, irá realizar as seguintes ações:
+Neste tutorial, vai realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Criar um laboratório de sala de aula
@@ -89,6 +89,9 @@ Neste passo, publica o modelo VM. Ao publicar o modelo VM, o Azure Lab Services 
 4. Aguarde até que a publicação esteja completa e, em seguida, mude para a página de **piscina de máquinas virtuais** selecionando **máquinas virtuais** no menu esquerdo ou selecionando azulejos de **máquinas virtuais.** Confirme que vê máquinas virtuais que estão em estado **não atribuído.** Estas VMs ainda não estão atribuídas a estudantes. Elas devem estar no estado **Parado**. Pode iniciar uma VM de estudante, ligar à VM, parar a VM e eliminar a VM nesta página. Pode iniciá-las nesta página ou permitir que os seus estudantes iniciem as VMs. 
 
     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)   
+
+    > [!NOTE]
+    > Quando um educador liga um Estudante VM, a quota para o aluno não é afetada. A quota para um utilizador especifica o número de horas de laboratório disponíveis para o utilizador fora do horário de aula programado. Para obter mais informações sobre quotas, consulte [As quotas definidas para os utilizadores.](how-to-configure-student-usage.md?#set-quotas-for-users)
 
 ## <a name="set-a-schedule-for-the-lab"></a>Estabeleça um horário para o laboratório
 Crie um evento programado para o laboratório para que os VMs no laboratório sejam automaticamente iniciados/parados em momentos específicos. A quota de utilizador (predefinido: 10 horas) especificada anteriormente é o tempo adicional atribuído a cada utilizador fora desta hora programada. 

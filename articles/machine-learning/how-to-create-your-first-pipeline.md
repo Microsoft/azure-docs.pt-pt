@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80f38f8bf323717693df70399ad982c51dda8f13
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 2f62be94c901b383e34608508baa87ea37c893af
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169807"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580721"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -340,6 +340,8 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 ### <a name="use-a-dataset"></a>Utilize um conjunto de dados 
 
 Para utilizar um `TabularDataset` ou `FileDataset` no seu oleoduto, é necessário transformá-lo num objeto [DatasetConsumptionConfig,](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py) chamando [as_named_input(nome)](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-). Passas este objeto `DatasetConsumptionConfig` como um dos `inputs` para o teu passo de oleoduto. 
+
+Conjuntos de dados criados a partir do armazenamento Azure Blob, Ficheiros Azure, Armazenamento de Lagos De dados Azure Gen1, Armazenamento de Lagos De dados Azure Gen2, Base de Dados Azure SQL e Base de Dados Azure para PostgreSQL podem ser usados como entrada para qualquer passo de pipeline. Com exceção da escrita da saída a [dataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) ou [DatabricksStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)os dados de saída[(PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)) só podem ser escritos para as lojas de dados de partilha de dados da Azure Blob e do Ficheiro Azure.
 
 ```python
 dataset_consuming_step = PythonScriptStep(

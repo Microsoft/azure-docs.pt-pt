@@ -2,17 +2,14 @@
 title: Crie nós virtuais utilizando o Azure CLI em Serviços Azure Kubernetes (AKS)
 description: Aprenda a usar o Azure CLI para criar um cluster Azure Kubernetes Services (AKS) que usa nós virtuais para executar cápsulas.
 services: container-service
-author: mlearned
 ms.topic: conceptual
-ms.service: container-service
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 2133d1aefe3363a2fb2af73c004e22ba0a0239ca
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2b726dff1e2c23b94118a11fb6b6ccf1f9622d4d
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901502"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592749"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Crie e configure um cluster Azure Kubernetes Services (AKS) para utilizar nós virtuais usando o Azure CLI
 
@@ -79,7 +76,7 @@ Para abrir a Cloud Shell, selecione **Experimente** a partir do canto superior d
 
 Se preferir instalar e utilizar o CLI localmente, este artigo requer a versão Azure CLI 2.0.49 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com o comando [az group create][az-group-create]. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *westus*.
 
@@ -87,9 +84,9 @@ Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure 
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-virtual-network"></a>Criar rede virtual
+## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual usando o comando [AZ Network vnet Create][az-network-vnet-create] . O exemplo seguinte cria um nome de rede virtual *myVnet* com um prefixo de endereço de *10.0.0.0.8*, e uma sub-rede chamada *myAKSSubnet*. A prefixação de endereço desta sub-rede não se aplica a *10.240.0.0/16:*
+Criar uma rede virtual utilizando a [rede az vnet criar][az-network-vnet-create] comando. O exemplo seguinte cria um nome de rede virtual *myVnet* com um prefixo de endereço de *10.0.0.0.8*, e uma sub-rede chamada *myAKSSubnet*. A prefixação de endereço desta sub-rede não se aplica a *10.240.0.0/16:*
 
 ```azurecli-interactive
 az network vnet create \
@@ -190,7 +187,7 @@ az aks enable-addons \
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-Para configurar `kubectl` para se conectar ao cluster kubernetes, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Este passo transfere credenciais e configura a CLI do Kubernetes para as utilizar.
+Para configurar `kubectl` para se ligar ao seu cluster Kubernetes, use o comando [az aks get-credentials.][az-aks-get-credentials] Este passo transfere credenciais e configura a CLI do Kubernetes para as utilizar.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster

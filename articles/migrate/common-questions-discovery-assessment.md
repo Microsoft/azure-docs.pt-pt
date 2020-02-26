@@ -3,12 +3,12 @@ title: Questões comuns - descoberta, avaliação e análise de dependência em 
 description: Obtenha respostas a perguntas comuns sobre descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 2ae534e50cbee3ebd17d703f957aa7200460dbfe
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 179be4f5b39806c717e94789c9fe52842d2a07d8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426297"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589237"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Questões comuns sobre descoberta, avaliação e análise de dependência
 
@@ -23,7 +23,7 @@ Este artigo responde a perguntas comuns sobre descoberta, avaliação e análise
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quantos VMs posso descobrir com um aparelho?
 
-Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 250 servidores com um único dispositivo. Se tiver mais máquinas no seu ambiente no local, leia sobre a escala [hyper-V,](scale-hyper-v-assessment.md) [VMware](scale-vmware-assessment.md) e avaliação [física.](scale-physical-assessment.md)
+Pode descobrir até 10.000 VMware VMware, até 5.000 VMs Hiper-V e até 250 servidores com um único aparelho. Se tiver mais máquinas no seu ambiente no local, leia sobre a escala [hyper-V,](scale-hyper-v-assessment.md) [VMware](scale-vmware-assessment.md) e avaliação [física.](scale-physical-assessment.md)
 
 
 
@@ -92,7 +92,7 @@ Não precisas destes agentes a não ser que estejas a usar a visualização da d
 
 ## <a name="can-i-use-an-existing-workspace"></a>Posso usar um espaço de trabalho existente?
 
-Sim, você pode anexar um espaço de trabalho existente ao projeto de migração e usá-lo para visualização de dependência. [Saiba mais](concepts-dependency-visualization.md#how-does-it-work).
+Sim, você pode anexar um espaço de trabalho existente ao projeto de migração e usá-lo para visualização de dependência. 
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>Posso exportar o relatório de visualização da dependência?
 

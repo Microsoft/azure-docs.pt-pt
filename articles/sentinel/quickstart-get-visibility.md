@@ -2,20 +2,20 @@
 title: 'Quickstart: Comece com Azure Sentinel'
 description: Azure Sentinel Quickstart - Comece com O Sentinela
 services: sentinel
-author: rkarlin
+author: yelevin
 manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: fasttrack-edit
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: d91567f10b33717b157bd0b839d2706996c5b591
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.author: yelevin
+ms.openlocfilehash: 2b83fc6231f590b3c0765ec647101b22920058da
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087195"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581672"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Quickstart: Comece com Azure Sentinel
 

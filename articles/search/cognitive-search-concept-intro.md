@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6d75e48443fd8622ca2ae7ff05fe81184c4b2b16
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472439"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586755"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introdução à IA na Pesquisa Cognitiva Azure
 
@@ -110,7 +110,7 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 | Extração de dados | Abrange uma ampla gama de processamento, mas relacionada com o enriquecimento de IA, a habilidade de reconhecimento da entidade é mais tipicamente usada para extrair dados (uma entidade) de uma fonte que não fornece essa informação de forma nativa. | Ver Habilidade de Reconhecimento de [Entidades](cognitive-search-skill-entity-recognition.md) e Habilidade de Extração de [Documentos (pré-visualização)](cognitive-search-skill-document-extraction.md)| 
 | Processamento de imagens | Infere texto a partir de uma imagem, como a capacidade de reconhecer um marco, ou extrai texto de uma imagem. Exemplos comuns incluem OCR para levantar caracteres de um ficheiro de documento digitalizado (JPEG) ou reconhecer um nome de rua numa fotografia que contenha um sinal de rua. | Ver [Habilidade de Análise](cognitive-search-skill-image-analysis.md) de Imagem ou Habilidade [OCR](cognitive-search-skill-ocr.md)
 | Processamento de linguagem natural | Processamento de texto para insights e informações sobre inputs de texto. Deteção de linguagem, análise de sentimentos e extração de frases-chave são competências que se enquadram no processamento de linguagem natural.  | Ver Habilidade de extração de [frases-chave,](cognitive-search-skill-keyphrases.md) [habilidade de deteção](cognitive-search-skill-language-detection.md)de linguagem, [habilidade de tradução](cognitive-search-skill-text-translation.md)de texto, habilidade de análise de [sentimentos,](cognitive-search-skill-sentiment.md)habilidade [de deteção de PII (pré-visualização)](cognitive-search-skill-pii-detection.md) |
-| Rachadura de documento | O processo de extração ou criação de conteúdo de texto a partir de fontes não-texto durante a indexação. O reconhecimento ótico de caracteres (OCR) é um exemplo, mas geralmente refere-se à funcionalidade do indexante central, uma vez que o indexador extrai conteúdo dos ficheiros de aplicação. A fonte de dados que fornece a localização do ficheiro de origem, e a definição do indexante que fornece mapeamentos de campo, são ambos fatores-chave na quebra de documentos. | Ver [visão geral dos Indexers](search-indexer-overview.md) |
+| rachadura de documento | O processo de extração ou criação de conteúdo de texto a partir de fontes não-texto durante a indexação. O reconhecimento ótico de caracteres (OCR) é um exemplo, mas geralmente refere-se à funcionalidade do indexante central, uma vez que o indexador extrai conteúdo dos ficheiros de aplicação. A fonte de dados que fornece a localização do ficheiro de origem, e a definição do indexante que fornece mapeamentos de campo, são ambos fatores-chave na quebra de documentos. | Ver [visão geral dos Indexers](search-indexer-overview.md) |
 | Moldar | Consolidar fragmentos de texto numa estrutura maior ou, inversamente, decompor pedaços de texto maiores num tamanho manejável para um processamento a jusante. | Ver [Habilidade shaper,](cognitive-search-skill-shaper.md) [habilidade de fusão de texto,](cognitive-search-skill-textmerger.md)habilidade de divisão de [texto](cognitive-search-skill-textsplit.md) |
 | Documentos enriquecidos | Uma estrutura interna transitória, gerada durante o processamento, com a saída final refletida num índice de pesquisa. Um skillset determina quais os enriquecimentos realizados. Os mapeamentos de campo determinam quais os elementos de dados adicionados ao índice. Opcionalmente, pode criar uma loja de conhecimentos para persistir e explorar documentos enriquecidos usando ferramentas como Storage Explorer, Power BI ou qualquer outra ferramenta que se ligue ao armazenamento do Blob Azure. | Ver [loja de conhecimento (pré-visualização)](knowledge-store-concept-intro.md) |
 | Indexante |  Um crawler que extrai dados e metadados pesquisáveis de uma fonte externa de dados e povoa um índice baseado em mapeamentos de campo para campo entre o índice e a sua fonte de dados para a cisão de documentos. Para enriquecimentos de IA, o indexante invoca um conjunto de habilidades, e contém os mapeamentos de campo que associam a saída de enriquecimento aos campos-alvo no índice. A definição do indexante contém todas as instruções e referências para as operações do gasoduto, e o gasoduto é invocado quando executa o indexante. Com uma configuração adicional, pode reutilizar o conteúdo processado existente e executar apenas os passos e competências que são alterados. | Consulte [indexadores](search-indexer-overview.md) e [enriquecimento incremental (pré-visualização)](cognitive-search-incremental-indexing-conceptual.md). |

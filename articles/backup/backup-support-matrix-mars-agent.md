@@ -1,58 +1,58 @@
 ---
 title: Matriz de suporte para o agente MARS
-description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
+description: Este artigo resume o suporte de backup Azure quando faz backup de máquinas que estejam a executar o agente microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f5ce33b5057b11caa33c0ae80cf72e1b13da5d0
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425022"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582641"
 ---
-# <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente de Serviços de Recuperação do Microsoft Azure (MARS)
+# <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente microsoft Azure Recovery Services (MARS)
 
-Pode utilizar o [serviço de backup Azure](backup-overview.md) para fazer backup de máquinas e aplicações no local e para fazer backup das máquinas virtuais Azure (VMs). Este artigo resume as configurações de suporte e as limitações quando você usa o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores.
+Pode utilizar o [serviço de backup Azure](backup-overview.md) para fazer backup de máquinas e aplicações no local e para fazer backup das máquinas virtuais Azure (VMs). Este artigo resume as definições e limitações de suporte quando utiliza o agente do Microsoft Azure Recovery Services (MARS) para fazer o back-up das máquinas.
 
 ## <a name="the-mars-agent"></a>O agente MARS
 
-O backup do Azure usa o agente MARS para fazer backup de dados de máquinas locais e VMs do Azure para um cofre de serviços de recuperação de backup no Azure. O agente MARS pode:
+A Azure Backup utiliza o agente MARS para fazer cópias de segurança dos dados das máquinas no local e dos VMs Azure para um cofre dos Serviços de Recuperação de Backup em Azure. O agente mars pode:
 
-- Execute em computadores Windows locais para que eles possam fazer backup diretamente em um cofre de serviços de recuperação de backup no Azure.
-- Execute em VMs do Windows para que eles possam fazer backup diretamente em um cofre.
-- Execute no Backup do Microsoft Azure Server (MABS) ou um servidor do System Center Data Protection Manager (DPM). Nesse cenário, as máquinas e as cargas de trabalho fazem backup em MABS ou no servidor DPM. O agente MARS faz o backup desse servidor para um cofre no Azure.
+- Faça o funcionar nas máquinas windows no local para que possam voltar diretamente para um cofre de serviços de recuperação de reserva em Azure.
+- Execute os VMs do Windows para que possam voltar diretamente para um cofre.
+- Executar no Microsoft Azure Backup Server (MABS) ou num servidor do System Center Data Protection Manager (DPM). Neste cenário, as máquinas e cargas de trabalho voltam ao MABS ou ao servidor DPM. O agente mars então apoia este servidor para um cofre em Azure.
 
 > [!NOTE]
->O backup do Azure não dá suporte ao ajuste automático do relógio para horário de Verão (DST). Modifique a política para garantir que a economia de horário de verão seja levada em conta para evitar discrepâncias entre a hora real e o horário de backup agendado.
+>A Cópia de Segurança Azure não suporta a regulação automática do relógio para o horário de verão (DST). Modificar a política para garantir que as economias de luz do dia sejam tidas em conta para evitar discrepâncias entre o tempo real e o tempo de backup programado.
 
-Suas opções de backup dependem de onde o agente está instalado. Para mais informações, consulte a [arquitetura Azure Backup utilizando o agente MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Para obter informações sobre a arquitetura de backup MABS e DPM, consulte [Back up to DPM ou MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Consulte também [os requisitos](backup-support-matrix-mabs-dpm.md) para a arquitetura de backup.
+As suas opções de backup dependem de onde o agente está instalado. Para mais informações, consulte a [arquitetura Azure Backup utilizando o agente MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Para obter informações sobre a arquitetura de backup MABS e DPM, consulte [Back up to DPM ou MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Consulte também [os requisitos](backup-support-matrix-mabs-dpm.md) para a arquitetura de backup.
 
 **Instalação** | **Detalhes**
 --- | ---
-Baixe o agente MARS mais recente | Pode descarregar a versão mais recente do agente a partir do cofre, ou [descarregá-la diretamente](https://aka.ms/azurebackup_agent).
-Instalar diretamente em um computador | Pode instalar o agente MARS diretamente num servidor Windows no local ou num VM Windows que esteja a executar qualquer um dos [sistemas operativos suportados](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
-Instalar em um servidor de backup | Ao configurar o DPM ou o MABS para fazer backup no Azure, você baixa e instala o agente MARS no servidor. Pode instalar o agente em [sistemas operativos suportados](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte do servidor de backup.
+Descarregue o mais recente agente mars | Pode descarregar a versão mais recente do agente a partir do cofre, ou [descarregá-la diretamente](https://aka.ms/azurebackup_agent).
+Instale diretamente numa máquina | Pode instalar o agente MARS diretamente num servidor Windows no local ou num VM Windows que esteja a executar qualquer um dos [sistemas operativos suportados](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Instalar num servidor de backup | Quando configurar O DPM ou O MABS para fazer o back-up para o Azure, descarrega e instala o agente MARS no servidor. Pode instalar o agente em [sistemas operativos suportados](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte do servidor de backup.
 
 > [!NOTE]
-> Por padrão, as VMs do Azure que estão habilitadas para backup têm uma instalação de extensão de backup do Azure. Esta extensão apoia todo o VM. Você pode instalar e executar o agente MARS em uma VM do Azure junto com a extensão se quiser fazer backup de pastas e arquivos específicos, em vez da VM completa.
-> Quando você executa o agente MARS em uma VM do Azure, ele faz backup de arquivos ou pastas que estão no armazenamento temporário na VM. Os backups falharão se os arquivos ou pastas forem removidos do armazenamento temporário ou se o armazenamento temporário for removido.
+> Por predefinição, os VMs Azure que estão ativados para cópia de segurança têm uma instalação de extensão de backup Azure. Esta extensão apoia todo o VM. Pode instalar e executar o agente MARS num VM Azure ao lado da extensão se pretender fazer o back-up de pastas e ficheiros específicos, em vez do VM completo.
+> Quando executa o agente MARS num VM Azure, ele faz back-up ficheiros ou pastas que estão em armazenamento temporário no VM. As cópias de segurança falham se os ficheiros ou pastas forem removidos do armazenamento temporário ou se o armazenamento temporário for removido.
 
-## <a name="cache-folder-support"></a>Suporte à pasta de cache
+## <a name="cache-folder-support"></a>Suporte da pasta Cache
 
-Quando você usa o agente MARS para fazer backup de dados, o agente tira um instantâneo dos dados e os armazena em uma pasta de cache local antes de enviar os dados para o Azure. A pasta cache (Scratch) tem vários requisitos:
+Quando utiliza o agente MARS para fazer o back-up dos dados, o agente tira uma fotografia dos dados e armazena-os numa pasta de cache local antes de enviar os dados para o Azure. A pasta cache (scratch) tem vários requisitos:
 
 **Cache** | **Detalhes**
 --- | ---
-Tamanho |  O espaço livre na pasta de cache deve ter pelo menos 5 a 10% do tamanho geral dos dados de backup.
-Localização | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
-Pasta | A pasta de cache não deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
-Alterações de local | Pode alterar a localização da cache parando o motor de reserva (`net stop bengine`) e copiando a pasta cache para uma nova unidade. (Certifique-se de que a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registo em **HKLM\SOFTWARE\Microsoft\Microsoft\Windows Azure Backup** **(Config/ScratchLocation** e **Config/CloudBackupProvider/ScratchLocation**) para a nova localização e reinicie o motor.
+Tamanho |  O espaço livre na pasta cache deve ser de pelo menos 5 a 10% do tamanho total dos seus dados de backup.
+Localização | A pasta cache deve ser armazenada localmente na máquina que está a ser apoiada, e deve estar online. A pasta cache não deve estar numa partilha de rede, em meios amovíveis ou num volume offline.
+Pasta | A pasta cache não deve ser encriptada num volume deduplicado ou numa pasta comprimido, que é escassa, ou que tenha um ponto de reparo.
+Mudanças de localização | Pode alterar a localização da cache parando o motor de reserva (`net stop bengine`) e copiando a pasta cache para uma nova unidade. (Certifique-se de que a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registo em **HKLM\SOFTWARE\Microsoft\Microsoft\Windows Azure Backup** **(Config/ScratchLocation** e **Config/CloudBackupProvider/ScratchLocation**) para a nova localização e reinicie o motor.
 
-## <a name="networking-and-access-support"></a>Suporte de rede e acesso
+## <a name="networking-and-access-support"></a>Suporte em rede e acesso
 
-### <a name="url-and-ip-access"></a>URL e acesso a IP
+### <a name="url-and-ip-access"></a>ACESSO URL e IP
 
-O agente MARS precisa de acesso a essas URLs:
+O agente MARS precisa de acesso a estes URLs:
 
 - <http://www.msftncsi.com/ncsi.txt>
 - *.Microsoft.com
@@ -60,43 +60,66 @@ O agente MARS precisa de acesso a essas URLs:
 - *.MicrosoftOnline.com
 - *.Windows.net
 
-E para estes endereços IP:
+E a estes endereços IP:
 
 - 20.190.128.0/18
 - 40.126.0.0/18
 
-O acesso a todas as URLs e endereços IP listados acima usa o protocolo HTTPS na porta 443.
+O acesso a todos os URLs e endereços IP listados acima utiliza o protocolo HTTPS na porta 443.
 
-### <a name="throttling-support"></a>Suporte à limitação
+### <a name="azure-expressroute-support"></a>Suporte Azure ExpressRoute
+
+Pode fazer o backup dos seus dados através do Azure ExpressRoute com o público (disponível para circuitos antigos) e o peering da Microsoft. O apoio ao epeering privado não é apoiado.
+
+Com o público: Garantir o acesso aos seguintes domínios/endereços:
+
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
+
+Com o peering da Microsoft, selecione os seguintes serviços/regiões e valores comunitários relevantes:
+
+- Diretório Ativo Azure (12076:5060)
+- Região do Microsoft Azure (de acordo com a localização do seu cofre de Serviços de Recuperação)
+- Armazenamento Azure (de acordo com a localização do seu cofre dos Serviços de Recuperação)
+
+Para mais detalhes, consulte os requisitos de [encaminhamento expressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>O Público está predestinado a novos circuitos.
+
+### <a name="throttling-support"></a>Apoio de estrangulamento
 
 **Funcionalidade** | **Detalhes**
 --- | ---
-Controle de largura de banda | Suportado. No agente MARS, utilize a **Change Properties** para ajustar a largura de banda.
-Estrangulamento da rede | Não disponível para computadores com backup que executam o Windows Server 2008 R2, o Windows Server 2008 SP2 ou o Windows 7.
+Controlo de largura de banda | Suportado. No agente MARS, utilize a **Change Properties** para ajustar a largura de banda.
+Estrangulamento da rede | Não disponível para máquinas de back-up que executam o Windows Server 2008 R2, Windows Server 2008 SP2 ou Windows 7.
 
 ## <a name="support-for-direct-backups"></a>Suporte para backups diretos
 
 >[!NOTE]
-> O agente MARS não dá suporte a SKUs do Windows Server Core.
+> O agente MARS não suporta o Windows Server Core SKUs.
 
-Você pode usar o agente MARS para fazer backup diretamente no Azure nos sistemas operacionais listados abaixo que são executados em:
+Pode utilizar o agente MARS para fazer o apoio direto ao Azure nos sistemas operativos listados abaixo que funcionam em:
 
-1. Servidores locais do Windows
-2. VMs do Azure executando o Windows
+1. Servidores windows no local
+2. VMs azure executando janelas
 
-Os sistemas operacionais devem ser de 64 bits e devem estar executando os serviços e atualizações mais recentes. A tabela a seguir resume estes sistemas operacionais:
+Os sistemas operativos devem ter 64 bits e devem estar a executar os mais recentes pacotes e atualizações de serviços. O quadro seguinte resume estes sistemas operativos:
 
 **Sistema operativo** | **Ficheiros/pastas** | **Estado do sistema** | **Requisitos de software/módulo**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Sim | Não |  Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 8.1 (Enterprise, Pro)| Sim |Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 8 (Enterprise, Pro) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 7 (Ultimate, Enterprise, pro, Home Premium/Basic, Starter) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
-Windows Server 2012 (Standard, Datacenter, Foundation) | Sim | Sim |-.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sim | Não | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
-Windows Server 2019 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows 10 (Enterprise, Pro, Home) | Sim | Não |  Verifique a versão correspondente do servidor para obter requisitos de software/módulo
+Windows 8.1 (Enterprise, Pro)| Sim |Não | Verifique a versão correspondente do servidor para obter requisitos de software/módulo
+Windows 8 (Enterprise, Pro) | Sim | Não | Verifique a versão correspondente do servidor para obter requisitos de software/módulo
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sim | Não | Verifique a versão correspondente do servidor para obter requisitos de software/módulo
+Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistribuível <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows Server 2012 R2 (Standard, Datacenter, Fundação, Essencial) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistribuível <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows Server 2012 (Standard, Datacenter, Foundation) | Sim | Sim |- .NET 4.5 <br> -Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistribuível <br> - Consola de Gestão da Microsoft (MMC) 3.0 <br> - Destacamento de Imagem de Manutenção e Gestão (DISM.exe)
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sim | Não | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistribuível <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows Server 2019 (Standard, Datacenter, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistribuível <br> - Consola de Gestão da Microsoft (MMC) 3.0
 
 Para mais informações, consulte [os sistemas operativos MABS suportados e DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
@@ -104,7 +127,7 @@ Para mais informações, consulte [os sistemas operativos MABS suportados e DPM]
 
 ### <a name="size-limits"></a>Limites de tamanho
 
-O backup do Azure limita o tamanho de uma fonte de dados de arquivo ou pasta cujo backup pode ser feito. Os itens que você faz backup de um único volume não podem exceder os tamanhos resumidos nesta tabela:
+A Cópia de Segurança Azure limita o tamanho de um ficheiro ou fonte de dados de pasta que pode ser apoiada. Os itens que você recua de um único volume não podem exceder os tamanhos resumidos nesta tabela:
 
 **Sistema operativo** | **Limite de tamanho**
 --- | ---
@@ -116,50 +139,50 @@ Windows 7| 1\.700 GB
 
 ### <a name="other-limitations"></a>Outras limitações
 
-- O MARS não oferece suporte à proteção de vários computadores com o mesmo nome para um único cofre.
+- Mars não suporta a proteção de várias máquinas com o mesmo nome para um único cofre.
 
-## <a name="supported-file-types-for-backup"></a>Tipos de arquivo com suporte para backup
+## <a name="supported-file-types-for-backup"></a>Tipos de ficheiros suportados para backup
 
 **Tipo** | **Suporte**
 --- | ---
 Encriptados| Suportado.
 Comprimidos | Suportado.
 Dispersos | Suportado.
-Compactados e esparsos |Suportado.
-Ligações fixas| Não suportado. Ignorada.
-Ponto reparse| Não suportado. Ignorada.
-Criptografado e esparso |Não suportado. Ignorada.
-Sequência comprimida| Não suportado. Ignorada.
-Sequência dispersa| Não suportado. Ignorada.
-OneDrive (arquivos sincronizados são fluxos esparsos)| Não suportado.
+Comprimido e escasso |Suportado.
+Ligações fixas| Não suportado. Saltou.
+Ponto reparse| Não suportado. Saltou.
+Encriptado e escasso |Não suportado. Saltou.
+Sequência comprimida| Não suportado. Saltou.
+Sequência dispersa| Não suportado. Saltou.
+OneDrive (ficheiros sincronizados são fluxos escassos)| Não suportado.
 Pastas com replicação DFS ativadas | Não suportado.
 
-## <a name="supported-drives-or-volumes-for-backup"></a>Unidades ou volumes com suporte para backup
+## <a name="supported-drives-or-volumes-for-backup"></a>Unidades ou volumes suportados para backup
 
 **Unidade/volume** | **Suporte** | **Detalhes**
 --- | --- | ---
-Volumes somente leitura| Não suportado | O VSS (serviço de cópias de sombra de volume) só funcionará se o volume for gravável.
-Volumes offline| Não suportado |O VSS só funcionará se o volume estiver online.
-Compartilhamento de rede| Não suportado |O volume deve ser local no servidor.
-Volumes bloqueados pelo BitLocker| Não suportado |O volume deve ser desbloqueado antes do início do backup.
-Identificação do sistema de arquivos| Não suportado |Há suporte apenas para NTFS.
+Volumes só de leitura| Não suportado | O Serviço sombra de cópia de volume (VSS) só funciona se o volume for repreensível.
+Volumes offline| Não suportado |O VSS só funciona se o volume estiver online.
+Partilha de rede| Não suportado |O volume deve ser local no servidor.
+Volumes bloqueados por BitLocker| Não suportado |O volume deve ser desbloqueado antes do início da cópia de segurança.
+Identificação do sistema de ficheiros| Não suportado |Apenas o NTFS é apoiado.
 Meios amovíveis| Não suportado |Todas as fontes de artigo de reserva devem ter um estado *fixo.*
-Unidades com eliminação de duplicação | Suportado | O backup do Azure converte dados com eliminação de duplicação em dados normais. Ele otimiza, criptografa, armazena e envia os dados para o cofre.
+Unidades desduplicadas | Suportado | O Azure Backup converte dados desduplicados em dados normais. Otimiza, encripta, armazena e envia os dados para o cofre.
 
-## <a name="support-for-initial-offline-backup"></a>Suporte para backup offline inicial
+## <a name="support-for-initial-offline-backup"></a>Suporte para cópia de segurança offline inicial
 
-O Azure Backup suporta *a sementeira offline* para transferir dados iniciais de backup para o Azure utilizando discos. Esse suporte será útil se o backup inicial provavelmente estiver na faixa de tamanho de terabytes (TBs). O backup offline tem suporte para:
+O Azure Backup suporta *a sementeira offline* para transferir dados iniciais de backup para o Azure utilizando discos. Este suporte é útil se o seu backup inicial for suscetível de estar na gama de tamanhos de terabytes (TBs). A cópia de segurança offline é suportada para:
 
-- Backup direto de arquivos e pastas em computadores locais que estão executando o agente MARS.
-- Backup de cargas de trabalho e arquivos de um servidor DPM ou MABS.
+- Cópia de segurança direta de ficheiros e pastas nas máquinas no local que estão a executar o agente MARS.
+- Cópia de segurança de cargas de trabalho e ficheiros de um servidor DPM ou MABS.
 
-O backup offline não pode ser usado para arquivos de estado do sistema.
+A cópia de segurança offline não pode ser usada para ficheiros do estado do sistema.
 
-## <a name="support-for-data-restoration"></a>Suporte para restauração de dados
+## <a name="support-for-data-restoration"></a>Apoio à restauração de dados
 
-Ao utilizar a funcionalidade [De restauro instantâneo](backup-instant-restore-capability.md) da Cópia de Segurança Azure, pode restaurar os dados antes de ser copiado para o cofre. O computador no qual você está fazendo backup deve estar em execução .NET Framework 4.5.2 ou superior.
+Ao utilizar a funcionalidade [De restauro instantâneo](backup-instant-restore-capability.md) da Cópia de Segurança Azure, pode restaurar os dados antes de ser copiado para o cofre. A máquina que está a apoiar deve estar a funcionar .NET Framework 4.5.2 ou superior.
 
-Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito de um computador que executa o Windows 7 pode ser restaurado no Windows 8 ou posterior. Mas um backup feito de um computador que executa o Windows 8 não pode ser restaurado em um computador que esteja executando o Windows 7.
+As cópias de segurança não podem ser restauradas a uma máquina-alvo que está a executar uma versão anterior do sistema operativo. Por exemplo, uma cópia de segurança retirada de um computador que está a executar o Windows 7 pode ser restaurada no Windows 8 ou posteriormente. Mas uma cópia de segurança tirada de um computador que está a executar o Windows 8 não pode ser restaurada num computador que está a executar o Windows 7.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3f4954b3a33cdd73c1e004ad1e643f9e24abf1e4
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 8bde9a9e9227f0c8715b38a9a376fad3015c7bf3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485238"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586262"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue as máquinas híbridas ao Azure a partir do portal Azure
 
@@ -180,13 +180,27 @@ Para desligar uma máquina do Azure Arc para servidores (pré-visualização), f
     ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
     ```
 
-1. Para desinstalar o agente Linux, execute o seguinte comando:
+1. Para desinstalar o agente Linux, o comando a utilizar depende do sistema operativo Linux.
+
+    - Para Ubuntu, executar o seguinte comando:
 
       ```bash
       sudo apt purge azcmagent
       ```
 
-## <a name="next-steps"></a>Passos Seguintes
+    - Para rhel, CentOS e Amazon Linux, executar o seguinte comando:
+
+      ```bash
+      sudo yum remove azcmagent
+      ```
+
+    - Para as SLES, executar o seguinte comando:
+
+      ```bash
+      sudo zypper remove azcmagent
+      ```
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como gerir a sua máquina utilizando a [Política Azure](../../governance/policy/overview.md), para coisas como a configuração de [hóspedes](../../governance/policy/concepts/guest-configuration.md)VM , verificando que a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Monitor Azure com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), e muito mais.
 

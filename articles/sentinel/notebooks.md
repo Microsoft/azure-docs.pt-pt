@@ -1,143 +1,143 @@
 ---
-title: Use blocos de anotações com o Azure Sentinel para a busca de segurança
-description: Este artigo descreve como usar blocos de anotações com os recursos de busca do Azure Sentinel.
+title: Use cadernos com Azure Sentinel para a caça à segurança
+description: Este artigo descreve como usar cadernos com as capacidades de caça Azure Sentinel.
 services: sentinel
-author: rkarlin
-ms.author: rkarlin
+author: yelevin
+ms.author: yelevin
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
-ms.openlocfilehash: 44a37fb8d06040b0d872f15ab25bdd2c7ff685b8
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 84b72a71ed2de910bce44b0c3f3309782f096680
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563705"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581842"
 ---
-# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Use blocos de anotações do Jupyter para procurar ameaças de segurança
+# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Use cadernos Jupyter para caçar ameaças à segurança
 
-A base do Azure Sentinel é o armazenamento de dados; Ele combina consultas de alto desempenho, esquema dinâmico e escalas para grandes volumes de dados. O portal do Azure e todas as ferramentas do Azure Sentinel usam uma API comum para acessar esse armazenamento de dados. A mesma API também está disponível para ferramentas externas, como notebooks [Jupyter](https://jupyter.org/) e Python. Embora muitas tarefas comuns possam ser executadas no portal, o Jupyter estende o escopo do que você pode fazer com esses dados. Ele combina programação completa com uma enorme coleção de bibliotecas para aprendizado de máquina, visualização e análise de dados. Esses atributos tornam o Jupyter uma ferramenta atraente para investigação de segurança e busca.
+A fundação do Azure Sentinel é a loja de dados; combina consultas de alto desempenho, esquemadinâmico e escalas a volumes de dados maciços. O portal Azure e todas as ferramentas Azure Sentinel utilizam uma API comum para aceder a esta loja de dados. A mesma API também está disponível para ferramentas externas como os cadernos [Jupyter](https://jupyter.org/) e Python. Embora muitas tarefas comuns possam ser executadas no portal, jupyter estende o âmbito do que pode fazer com estes dados. Combina programabilidade completa com uma enorme coleção de bibliotecas para machine learning, visualização e análise de dados. Estes atributos fazem de Jupyter uma ferramenta convincente para a investigação de segurança e caça.
 
-![bloco de anotações de exemplo](./media/notebooks/sentinel-notebooks-map.png)
+![portátil exemplo](./media/notebooks/sentinel-notebooks-map.png)
 
-Integramos a experiência do Jupyter à portal do Azure, facilitando a criação e a execução de notebooks para analisar seus dados. A biblioteca *Kqlmagic* fornece a cola que permite que você faça consultas do Azure Sentinel e execute-as diretamente dentro de um notebook. As consultas usam a [linguagem de consulta Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Vários notebooks, desenvolvidos por alguns dos analistas de segurança da Microsoft, são empacotados com o Azure Sentinel. Alguns desses notebooks são criados para um cenário específico e podem ser usados no estado em que se encontram. Outras são destinadas a exemplos para ilustrar técnicas e recursos que você pode copiar ou adaptar para uso em seus próprios blocos de anotações. Outros blocos de anotações também podem ser importados do GitHub da Comunidade do Azure Sentinel.
+Integrámos a experiência Jupyter no portal Azure, facilitando a criação e execução de cadernos para analisar os seus dados. A biblioteca *Kqlmagic* fornece a cola que permite pegar nas consultas do Azure Sentinel e executá-las diretamente dentro de um caderno. As consultas usam a [linguagem de consulta kusto](https://kusto.azurewebsites.net/docs/query/index.html). Vários cadernos, desenvolvidos por alguns dos analistas de segurança da Microsoft, são embalados com o Azure Sentinel. Alguns destes cadernos são construídos para um cenário específico e podem ser usados como está. Outros destinam-se a ilustrar técnicas e características que pode copiar ou adaptar para utilização nos seus próprios cadernos. Outros cadernos também podem ser importados da comunidade Azure Sentinel GitHub.
 
-A experiência de Jupyter integrada usa [Azure notebooks](https://notebooks.azure.com/) para armazenar, compartilhar e executar blocos de anotações. Você também pode executar esses blocos de anotações localmente se tiver um ambiente de Python e Jupyter em seu computador ou em outros ambientes de JupterHub, como Azure Databricks.
+A experiência jupyter integrada utiliza [cadernos Azure](https://notebooks.azure.com/) para armazenar, partilhar e executar cadernos. Você também pode executar estes cadernos localmente se você tem um ambiente Python e Jupyter no seu computador, ou em outros ambientes JupterHub, como Azure Databricks.
 
-Os notebooks têm dois componentes:
+Os cadernos têm dois componentes:
 
-- A interface baseada em navegador na qual você insere e executa consultas e código e onde os resultados da execução são exibidos.
-- Um *kernel* que é responsável por analisar e executar o próprio código. 
+- A interface baseada no navegador onde você entra e executa consultas e código, e onde os resultados da execução são apresentados.
+- Um *núcleo* que é responsável por analisar e executar o código em si. 
 
-Em Azure Notebooks, por padrão, esse kernel é executado no *armazenamento e computação de nuvem gratuita*do Azure. Se os seus notebooks incluírem modelos ou visualizações de aprendizado de máquina complexos, considere o uso de recursos de computação mais avançados e dedicados, como DSVM ( [máquinas virtuais de ciência de dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) ). Os blocos de anotações em sua conta são mantidos privados, a menos que você opte por compartilhá-los.
+Nos Cadernos Azure, por padrão, este núcleo funciona em Azure *Free Cloud Compute and Storage*. Se os seus cadernos incluirem modelos complexos de aprendizagem automática ou visualizações, considere usar recursos computacionais mais poderosos e [dedicados,](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) como máquinas virtuais de ciência de dados (DSVM). Os cadernos na sua conta são mantidos privados a menos que opte por partilhá-los.
 
-Os notebooks do Azure Sentinel usam muitas bibliotecas de Python populares, como pandas, matplotlib, bokeh e outros. Há muitos outros pacotes python para você escolher, cobrindo áreas como:
+Os cadernos Azure Sentinel usam muitas bibliotecas populares de Python, como pandas, matplotlib, bokeh, entre outros. Existem muitos outros pacotes Python para você escolher, cobrindo áreas como:
 
 - Visualizações e gráficos
 - Processamento e análise de dados
 - Estatísticas e computação numérica
-- Aprendizado de máquina e aprendizado profundo
+- Aprendizagem automática e aprendizagem profunda
 
-Também lançamos algumas ferramentas de segurança Jupyter de código aberto em um pacote chamado [msticpy](https://github.com/Microsoft/msticpy/). Esse pacote é usado em muitos dos Notebooks incluídos. As ferramentas Msticpy foram projetadas especificamente para ajudar na criação de notebooks para busca e investigação e estamos trabalhando ativamente em novos recursos e aprimoramentos.
+Também lançámos algumas ferramentas de segurança jupyter de código aberto num pacote chamado [Msticpy.](https://github.com/Microsoft/msticpy/) Este pacote é usado em muitos dos cadernos incluídos. As ferramentas Msticpy são projetadas especificamente para ajudar na criação de cadernos para a caça e investigação e estamos trabalhando ativamente em novas funcionalidades e melhorias.
 
-Os notebooks iniciais incluem:
+Os cadernos iniciais incluem:
 
-- **Investigação guiada-alertas de processo**: permite que você faça a triagem rapidamente de alertas analisando a atividade no host ou hosts afetados.
-- **Busca guiada – Gerenciador de host do Windows**: permite que você explore a atividade da conta, execuções de processo, atividade de rede e outros eventos em um host.
-- **Busca guiada-Office365-explorando**: busca por atividade suspeita do Office 365 em vários conjuntos de dados do Office 365.
+- **Investigação guiada - Alertas**de Processo : Permite-lhe triagem rápida alertas analisando atividade no hospedeiro ou hospedeiros afetados.
+- **Caça guiada - Explorador**de anfitriões windows : Permite-lhe explorar a atividade da conta, executar execuções de processos, atividade de rede e outros eventos num hospedeiro.
+- **Caça guiada - Office365-Exploreing**: Hunt for suspect Office 365 activity in multiple Office 365 data sets.
 
-O [repositório GitHub da Comunidade do Azure Sentinel](https://github.com/Azure/Azure-Sentinel) é o local para os notebooks futuros do Azure Sentinel criados pela Microsoft ou contribuídos pela Comunidade.
+O [repositório Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) é o local para quaisquer futuros cadernos Azure Sentinel construídos pela Microsoft ou contribuídos da comunidade.
 
-Para usar os notebooks, você deve ter uma conta de Azure Notebooks. Para obter mais informações, consulte [início rápido: entrar e definir uma ID de usuário](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) na documentação do Azure notebooks. Para criar essa conta, você pode usar a opção **inscrever-se no Azure notebooks** na barra de comandos no **Azure Sentinel-notebooks**:
+Para utilizar os cadernos, deve ter uma conta De Cadernos Azure. Para mais informações, consulte [Quickstart: Inicie o seu acesso e detete teime um id](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) do utilizador a partir da documentação dos Cadernos Azure. Para criar esta conta, pode utilizar a opção **'Sign up' para cadernos Azure** a partir da barra de comando **sintetizadora em Azure Sentinel - Notebooks:**
 
 > [!div class="mx-imgBorder"]
->![inscrever-se para Azure Notebooks opção](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
+>![Inscreva-se na opção Deporporna Azure](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
 
-Você pode executar um bloco de anotações direto do Sentinela do Azure ou clonar todos os notebooks do Azure Sentinel para um novo projeto Azure Notebooks.
+Você pode executar um caderno diretamente de Azure Sentinel, ou clonar todos os cadernos Azure Sentinel para um novo projeto Denotebooks Azure.
 
-## <a name="run-a-notebook-from-azure-sentinel"></a>Executar um bloco de anotações do Azure Sentinel
+## <a name="run-a-notebook-from-azure-sentinel"></a>Executar um caderno de Azure Sentinel
  
-1. No portal do Azure, navegue até **Azure Sentinel** > **gerenciamento de ameaças** > **notebooks**, onde você pode ver os blocos de anotações que o Azure Sentinel fornece. 
+1. Do portal Azure, navegue até > **à** **gestão** de > de  Desemposição de  **Cadernos,** onde pode ver cadernos que o Azure Sentinel fornece. 
 
-2. Selecione blocos de anotações individuais para ler suas descrições, tipos de dados necessários e fontes de dados. Por exemplo:
+2. Selecione cadernos individuais para ler as suas descrições, tipos de dados necessários e fontes de dados. Por exemplo:
     
     > [!div class="mx-imgBorder"]
-    > ![iniciar](./media/notebooks/sentinel-azure-notebooks-launch.png) do bloco de anotações
+    > ![lançamento de](./media/notebooks/sentinel-azure-notebooks-launch.png) de caderno
 
-3. Selecione o bloco de anotações que você deseja usar e, em seguida, selecione **Iniciar bloco de anotações (versão prévia)** para clonar e configurar o bloco de anotações em um novo projeto Azure notebooks que se conecta ao seu espaço de trabalho do Azure Sentinel. Quando o processo for concluído, o bloco de anotações será aberto dentro do Azure Notebooks para que você execute.
+3. Selecione o caderno que pretende utilizar e, em seguida, selecione **Launch Notebook (Preview)** para clonar e configurar o caderno num novo projeto de Cadernos Azure que se conecta ao seu espaço de trabalho Azure Sentinel. Quando o processo estiver concluído, o caderno abre dentro dos Cadernos Azure para que possa executar.
 
-## <a name="clone-azure-sentinel-notebooks-to-a-new-azure-notebooks-project"></a>Clonar blocos de anotações do Azure Sentinel para um novo projeto Azure Notebooks
+## <a name="clone-azure-sentinel-notebooks-to-a-new-azure-notebooks-project"></a>Cadernos Clone Azure Sentinel para um novo projeto de Cadernos Azure
 
-Este procedimento cria um projeto Azure Notebooks para você, que contém os notebooks do Azure Sentinel. Em seguida, você pode executar os blocos de anotações como estão, ou fazer alterações neles e executá-los.
+Este procedimento cria um projeto de Cadernos Azure para si, que contém os cadernos Azure Sentinel. Em seguida, pode executar os cadernos como está, ou fazer alterações neles e, em seguida, executá-los.
 
-1. No portal do Azure, navegue até **Azure Sentinel** > **gerenciamento de ameaças** > **notebooks** e, em seguida, selecione **clonar blocos de anotações** na barra de comandos:
+1. A partir do portal Azure, navegue até à **gestão** de > ameaça **do Azure Sentinel** > **Cadernos** e, em seguida, selecione **Cadernos Clone** da barra de comando:
   
     > [!div class="mx-imgBorder"]
-    >opção ![clonar blocos de anotações](./media/notebooks/sentinel-azure-clone-notebooks.png)
+    >![opção Cadernos Clone](./media/notebooks/sentinel-azure-clone-notebooks.png)
 
-2. Quando a caixa de diálogo a seguir for exibida, selecione **importar** para clonar o repositório do GitHub em seu projeto de Azure notebooks. Se você não tiver uma conta de Azure Notebooks existente, será solicitado que você crie uma e entre.
+2. Quando aparecer o seguinte diálogo, selecione **Import** para clonar o repo GitHub no seu projeto Deporporporna Azure. Se não tiver uma conta de Cadernos Azure existente, será solicitado a criar um e iniciar sessão.
 
-   ![Importar bloco de anotações](./media/notebooks/sentinel-notebooks-clone.png)
+   ![Caderno de importação](./media/notebooks/sentinel-notebooks-clone.png)
 
-3. Na caixa de diálogo **carregar repositório GitHub** , não selecione **clonar recursivamente** porque essa opção se refere a repositórios do GitHub vinculado. Para o nome do projeto, use o nome padrão ou digite um novo. Em seguida, clique em **importar** para iniciar a clonagem do conteúdo do GitHub, o que pode levar alguns minutos para ser concluído.
+3. Na caixa de diálogo **repositório Upload GitHub,** não selecione **Clone de forma recursiva** porque esta opção se refere a repos gitHub ligados. Para o nome do projeto, utilize o nome ou o tipo por defeito num novo. Em seguida, clique **em Importar** para começar a clonar o conteúdo GitHub, que pode demorar alguns minutos a concluir.
 
-   ![Importar bloco de anotações](./media/notebooks/sentinel-create-project.png)
+   ![Caderno de importação](./media/notebooks/sentinel-create-project.png)
 
-4. Abra o projeto que você acabou de criar e, em seguida, abra a pasta **blocos** de anotações para ver os blocos de anotações. Por exemplo:
+4. Abra o projeto que acabou de criar e, em seguida, abra a pasta **Cadernos** para ver os cadernos. Por exemplo:
 
-   ![Importar repositório](./media/notebooks/sentinel-open-notebook1.png)
+   ![Repo importa](./media/notebooks/sentinel-open-notebook1.png)
 
-Em seguida, você pode executar os blocos de anotações do Azure Notebooks. Para retornar a esses blocos de anotações do Azure Sentinel, selecione **ir para seus blocos** de anotações na barra de comandos no **Azure Sentinel-notebooks**:
+Em seguida, pode executar os cadernos dos Cadernos Azure. Para voltar a estes cadernos do Azure Sentinel, selecione **Ir aos seus Cadernos** a partir do bar de comandos em **Azure Sentinel - Notebooks:**
 
 > [!div class="mx-imgBorder"]
->![ir para a opção de seus blocos de anotações](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+>![vá à sua opção de Cadernos](./media/notebooks/sentinel-azure-to-go-notebooks.png)
 
 
-## <a name="using-notebooks-to-hunt"></a>Usando blocos de anotações para procurar
+## <a name="using-notebooks-to-hunt"></a>Usando cadernos para caçar
 
-Cada Notebook orienta você pelas etapas para realizar uma busca ou investigação. As bibliotecas e outras dependências necessárias para o notebook podem ser instaladas no próprio bloco de anotações ou por meio de um procedimento de configuração simples. A configuração que vincula o seu projeto de bloco de anotações à sua assinatura do Azure Sentinel é automaticamente provisionada nas etapas anteriores.
+Cada caderno acompanha-o através dos degraus para realizar uma caça ou investigação. As bibliotecas e outras dependências necessárias pelo caderno podem ser instaladas a partir do próprio caderno ou através de um simples procedimento de configuração. A configuração que liga o seu projeto de portátil à subscrição do Azure Sentinel é automaticamente disponibilizada nos passos anteriores.
 
-1. Se ainda não estiver no Azure Notebooks, você poderá usar a opção **ir para o bloco de anotações** na barra de comandos no **Azure Sentinel-notebooks**:
+1. Se ainda não estiver nos Cadernos Azure, pode utilizar a opção Ir para a sua opção **Deporporado** a partir do bar de comandos em **Azure Sentinel - Notebooks**:
     
     > [!div class="mx-imgBorder"]
-    >![ir para a opção de seus blocos de anotações](./media/notebooks/sentinel-azure-to-go-notebooks.png)
+    >![vá à sua opção de Cadernos](./media/notebooks/sentinel-azure-to-go-notebooks.png)
     
-    Em Azure Notebooks, selecione **meus projetos**, o projeto que contém os blocos de anotações do Azure Sentinel e, por fim, a pasta **blocos de anotações** .
+    Nos Cadernos Azure, selecione **My Projects**, depois o projeto que contém os cadernos Azure Sentinel e, finalmente, a pasta **Cadernos.**
     
-2. Antes de abrir um bloco de anotações, lembre-se de que, por padrão, a computação gratuita é selecionada para executar os blocos de anotações:
+2. Antes de abrir um caderno, esteja ciente de que, por padrão, a Computação Gratuita é selecionada para executar os cadernos:
     
-   ![selecionar bloco de anotações](./media/notebooks/sentinel-open-notebook2.png)
+   ![caderno selecionado](./media/notebooks/sentinel-open-notebook2.png)
     
-    Se você tiver configurado uma DSVM (máquinas virtuais de ciência de dados) para usar conforme explicado na introdução, selecione o DSVM e autenticar antes de abrir o primeiro bloco de anotações. 
+    Se configurar uma Máquina Virtual de Ciência de Dados (DSVM) para usar como explicado na introdução, selecione o DSVM e autenticar antes de abrir o primeiro caderno. 
 
-3. Selecione um bloco de anotações para abri-lo.
+3. Selecione um caderno para o abrir.
     
-    Na primeira vez que você abrir um bloco de anotações, você poderá ser solicitado a selecionar uma versão do kernel. Se não for solicitado, você poderá selecionar a **versão do kernel no kernel >  ** **alterar kernel**e, em seguida, selecionar uma versão que seja pelo menos 3,6. A versão do kernel selecionada é exibida no canto superior direito da janela do notebook:
+    A primeira vez que abrir um caderno, pode ser solicitado a selecionar uma versão kernel. Se não for solicitado, pode selecionar a versão kernel de **Kernel** >  **Alterar kernel**, e, em seguida, selecionar uma versão que seja pelo menos 3.6. A versão kernel selecionada é exibida na parte superior direita da janela do caderno:
     
-   ![selecionar bloco de anotações](./media/notebooks/sentinel-select-kernel.png)
+   ![caderno selecionado](./media/notebooks/sentinel-select-kernel.png)
 
-4. Antes de fazer alterações no notebook que você baixou, é uma boa ideia fazer uma cópia do notebook original e trabalhar na cópia. Para fazer isso, selecione **arquivo** > **fazer uma cópia**. Trabalhar em cópias permite que você atualize com segurança para versões futuras de blocos de anotações sem substituir nenhum dos seus dados.
+4. Antes de fazer qualquer alteração ao caderno que descarregou, é uma boa ideia fazer uma cópia do caderno original e trabalhar na cópia. Para isso, selecione **File** > **Fazer uma Cópia**. Trabalhar em cópias permite-lhe atualizar com segurança para futuras versões de cadernos sem sobrepor nenhum dos seus dados.
     
-    Agora você está pronto para executar ou editar o bloco de anotações selecionado.
+    Está agora pronto para executar ou editar o caderno selecionado.
 
-Recommendations
+Recomendações:
 
-- Para obter uma breve introdução à consulta de dados no Azure Sentinel, examine o bloco de anotações [getstarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) na pasta do **bloco de anotações** principal. 
+- Para uma rápida introdução aos dados de consulta no Azure Sentinel, veja o caderno [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) na pasta principal dos **Cadernos.** 
 
-- Você encontrará blocos de anotações de exemplo adicionais na subpasta de **blocos de anotações de exemplo** . Esses blocos de anotações de exemplo foram salvos com dados, para que seja mais fácil ver a saída pretendida. É recomendável exibir esses blocos de anotações no [nbviewer](https://nbviewer.jupyter.org/). 
+- Encontrará cadernos de amostra adicionais na subpasta **Sample-Notebooks.** Estes cadernos de amostraforam guardados com dados, de modo que é mais fácil ver a saída pretendida. Recomendamos visualizar estes cadernos no [nbviewer](https://nbviewer.jupyter.org/). 
 
-- A pasta **HOWTOs** contém blocos de anotações que descrevem, por exemplo: definir a versão padrão do Python, configurar um DSVM, criar indicadores do Azure Sentinel de um notebook e outros assuntos.
+- A pasta **HowTos** contém cadernos que descrevem, por exemplo: Definição da versão padrão python, configurando um DSVM, criando marcadores Azure Sentinel a partir de um caderno, e outros assuntos.
 
-Os notebooks fornecidos são destinados como ferramentas úteis, como ilustrações e exemplos de código que você pode usar no desenvolvimento de seus próprios blocos de anotações.
+Os cadernos fornecidos destinam-se tanto a ferramentas úteis como a ilustrações e amostras de código que pode utilizar no desenvolvimento dos seus próprios cadernos.
 
-Agradecemos comentários, sejam sugestões, solicitações de recursos, blocos de anotações contribuídos, relatórios de bugs ou melhorias e adições a blocos de anotações existentes. Acesse o [GitHub da Comunidade do Azure Sentinel](https://github.com/Azure/Azure-Sentinel) para criar um problema ou bifurcar e carregar uma contribuição.
+Congratulamo-nos com o feedback, sejam sugestões, pedidos de funcionalidades, cadernos contribuídos, relatórios de bugs ou melhorias e adições aos cadernos existentes. Vá ao [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) para criar um problema ou garfo e faça upload de uma contribuição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a começar a usar o Jupyter notebooks no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+Neste artigo, aprendeu a começar a usar cadernos Jupyter em Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 
-- [Busca de ameaças de forma proativa](hunting.md)
-- [Use indicadores para salvar informações interessantes durante a busca](bookmarks.md)
+- [Caça proativamente por ameaças](hunting.md)
+- [Use marcadores para guardar informações interessantes durante a caça](bookmarks.md)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/01/2020
-ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964775"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587299"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Escolha entre os modelos de compra vCore e DTU
 
@@ -33,7 +33,7 @@ Diferentes modelos de compra estão disponíveis para diferentes modelos de impl
 
 A tabela e o gráfico seguinte comparam e contrastam os modelos de compra baseados em VCore e os modelos de compra baseados em DTU:
 
-|**Modelo de compra**|**Descrição**|**Melhor para**|
+|**Modelo de compra**|**Descrição**|**O melhor para**|
 |---|---|---|
 |modelo baseado em DTU|Este modelo baseia-se numa medida agregada de recursos computacionais, de armazenamento e de I/O. Os tamanhos computacionais são expressos em DTUs para bases de dados únicas e em unidades de transação de base de dados elásticas (eDTUs) para piscinas elásticas. Para mais informações sobre DTUs e eDTUs, consulte [o que são DTUs e eDTUs?](sql-database-purchase-models.md#dtu-based-purchasing-model)|O melhor para os clientes que querem opções simples e de recursos reconfigurados.|
 |modelo baseado em vCore|Este modelo permite-lhe escolher de forma independente os recursos de computação e armazenamento. O modelo de compra baseado em vCore também permite utilizar o [Azure Hybrid Benefit para o SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para obter poupanças de custos.|O melhor para os clientes que valorizam a flexibilidade, o controlo e a transparência.|
@@ -77,7 +77,7 @@ O modelo de compra baseado em vCore permite-lhe escolher de forma independente o
 
 > [!IMPORTANT]
 > Os recursos computacionais, O/O, e os dados e armazenamento de registo são cobrados por base de dados ou piscina elástica. O armazenamento de cópia de segurança é cobrado por cada base de dados. Para obter mais informações sobre acusações de exemplo [geridas, consulte casos geridos](sql-database-managed-instance.md).
-> **Limitações da região:** Para a lista atual de regiões apoiadas, consulte [os produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all) Para criar uma instância gerida numa região que atualmente não é suportada, envie um pedido de [apoio através do portal Azure.](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance)
+> **Limitações da região:** Para a lista atual de regiões apoiadas, consulte [os produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all) Para criar uma instância gerida numa região que atualmente não é suportada, envie um pedido de [apoio através do portal Azure.](quota-increase-request.md)
 
 Se a sua única base de dados ou piscina elástica consumir mais de 300 DTUs, a conversão para o modelo de compra baseado em vCore pode reduzir os seus custos. Pode converter utilizando a sua API de eleição ou utilizando o portal Azure, sem tempo de inatividade. No entanto, a conversão não é necessária e não é feita automaticamente. Se o modelo de compra baseado em DTU cumprir os seus requisitos de desempenho e negócio, deverá continuar a utilizá-lo.
 
@@ -143,7 +143,7 @@ Os valores de entrada para esta fórmula podem ser obtidos a partir de [sys.dm_d
 
 As piscinas são adequadas para bases de dados com uma média de utilização de recursos baixa e picos de utilização relativamente pouco frequentes. Para mais informações, consulte [Quando deve considerar um elástico SQL Database?](sql-database-elastic-pool.md)
 
-## <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (FAQs)
+## <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (Perguntas Frequentes)
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-service-tier-to-a-vcore-based-service-tier"></a>Preciso de desligar a minha aplicação para me converter de um nível de serviço baseado em DTU para um nível de serviço baseado em VCore?
 

@@ -2,7 +2,7 @@
 title: Ligue o Ponto de Força DLP ao Sentinela Azul. Microsoft Docs
 description: Aprenda a ligar o Forcepoint DLP ao Azure Sentinel.
 services: sentinel
-author: rkarlin
+author: yelevin
 editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
-ms.author: rkarlin
-ms.openlocfilehash: bd3940af1553ec65731ed743fd23027403e9ec53
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.author: yelevin
+ms.openlocfilehash: 3bdb9d2b23ce05929ba5612e0c6a03fe1aab05de
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500955"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588251"
 ---
 # <a name="connect-your-forcepoint-dlp-to-azure-sentinel"></a>Ligue o seu Ponto de Força DLP ao Sentinela Azure
 
@@ -48,7 +48,7 @@ Para utilizar o esquema relevante no Log Analytics para O DLP do Forcepoint, pro
 
 Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar o Forcepoint DLP ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 

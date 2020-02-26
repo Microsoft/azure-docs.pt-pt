@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 64df1188692ae9f1b6200ad880a2bf1eafd98844
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b53405d199072211304e21b681de646c4e41243c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483232"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585633"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerir contas de utilizadores do Azure AD B2C com o Microsoft Graph
 
@@ -61,9 +61,9 @@ Na API do Microsoft Graph, as identidades locais e federadas são armazenadas no
 
 | Propriedade   | Tipo |Descrição|
 |:---------------|:--------|:----------|
-|signInType|Cadeia de caracteres| Especifica os tipos de sessão de sessão do utilizador no seu diretório. Para conta local: `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`, `userName`, ou qualquer outro tipo que queira. A conta social deve ser fixada para `federated`.|
-|emitente|Cadeia de caracteres|Especifica o emitente da identidade. Para contas locais (onde o **signInType** não é `federated`), esta propriedade é o nome de domínio padrão do inquilino B2C local, por exemplo `contoso.onmicrosoft.com`. Para a identidade social (onde o **signInType** é `federated`), o valor é o nome do emitente, por exemplo `facebook.com`|
-|emitenteAssignedId|Cadeia de caracteres|Especifica o identificador único atribuído ao utilizador pelo emitente. A combinação de **emitente** e **emitente AssignedId** deve ser única dentro do seu inquilino. Para a conta local, quando o **signInType** está definido para `emailAddress` ou `userName`, representa o nome de início de sessão para o utilizador.<br>Quando **o signInType** está definido para: <ul><li>`emailAddress` (ou começa com `emailAddress` como `emailAddress1`) **emitentes AsassignedId** deve ser um endereço de e-mail válido</li><li>`userName` (ou qualquer outro valor), o **emitente AssignedId** deve ser uma parte local válida [de um endereço de e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **emitenteAssignedId** representa o identificador único da conta federada</li></ul>|
+|signInType|string| Especifica os tipos de sessão de sessão do utilizador no seu diretório. Para conta local: `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`, `userName`, ou qualquer outro tipo que queira. A conta social deve ser fixada para `federated`.|
+|emitente|string|Especifica o emitente da identidade. Para contas locais (onde o **signInType** não é `federated`), esta propriedade é o nome de domínio padrão do inquilino B2C local, por exemplo `contoso.onmicrosoft.com`. Para a identidade social (onde o **signInType** é `federated`), o valor é o nome do emitente, por exemplo `facebook.com`|
+|emitenteAssignedId|string|Especifica o identificador único atribuído ao utilizador pelo emitente. A combinação de **emitente** e **emitente AssignedId** deve ser única dentro do seu inquilino. Para a conta local, quando o **signInType** está definido para `emailAddress` ou `userName`, representa o nome de início de sessão para o utilizador.<br>Quando **o signInType** está definido para: <ul><li>`emailAddress` (ou começa com `emailAddress` como `emailAddress1`) **emitentes AsassignedId** deve ser um endereço de e-mail válido</li><li>`userName` (ou qualquer outro valor), o **emitente AssignedId** deve ser uma parte local válida [de um endereço de e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **emitenteAssignedId** representa o identificador único da conta federada</li></ul>|
 
 Para identidades federadas, dependendo do fornecedor de identidade, o **emitenteAssignedId** é um valor único para um determinado utilizador por aplicação ou conta de desenvolvimento. Configure a política Azure AD B2C com o mesmo ID de aplicação que foi previamente atribuído pelo prestador social ou outra aplicação dentro da mesma conta de desenvolvimento.
 
@@ -180,9 +180,9 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Faça chamadas API utilizando os SDKs](https://docs.microsoft.comgraph/sdks/create-requests) do Microsoft Graph incluem informações sobre como ler e escrever informações do Microsoft Graph, usar `$select` para controlar as propriedades devolvidas, fornecer parâmetros de consulta personalizados e usar os parâmetros de consulta `$filter` e `$orderBy`.
+[Faça chamadas API utilizando os SDKs](https://docs.microsoft.com/graph/sdks/create-requests) do Microsoft Graph incluem informações sobre como ler e escrever informações do Microsoft Graph, usar `$select` para controlar as propriedades devolvidas, fornecer parâmetros de consulta personalizados e usar os parâmetros de consulta `$filter` e `$orderBy`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter um índice completo das operações da Microsoft Graph API suportadas pelos recursos Do Azure AD B2C, consulte as operações do [Microsoft Graph disponíveis para o Azure AD B2C](microsoft-graph-operations.md).
 

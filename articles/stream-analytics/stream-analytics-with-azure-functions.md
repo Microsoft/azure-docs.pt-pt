@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
-ms.openlocfilehash: 233edabed345cd9586647e5f430e6d3dc6a87192
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505705"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589458"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Run Azure Funções a partir de trabalhos da Azure Stream Analytics 
 
@@ -190,6 +190,9 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 ## <a name="error-handling-and-retries"></a>Processamento de erros e tentativas
 
 Se ocorrer uma falha ao enviar eventos para funções Azure, o Stream Analytics repete a maioria das operações. Todas as exceções http são novamente experimentadas até ao sucesso, com exceção do erro http 413 (entidade demasiado grande). Uma entidade demasiado grande erro é tratada como um erro de dados que é sujeito à política de [retry ou drop](stream-analytics-output-error-policy.md).
+
+> [!NOTE]
+> O tempo de tempo para pedidos http de Stream Analytics para Funções Azure está definido para 100 segundos. Se a sua aplicação Funções Azure demorar mais de 100 segundos a processar um lote, o Stream Analytics falha.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

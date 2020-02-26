@@ -1,6 +1,6 @@
 ---
 title: O que é o Azure IoT Central | Microsoft Docs
-description: O Azure IoT Central é uma plataforma de aplicativo IoT que simplifica a criação de soluções de IoT e ajuda a reduzir a carga e o custo das operações de gerenciamento de IoT e do desenvolvimento. Este artigo disponibiliza uma descrição geral do Azure IoT Central.
+description: A Azure IoT Central é uma plataforma de aplicação IoT que simplifica a criação de soluções IoT e ajuda a reduzir os encargos e os custos das operações de gestão de IoT, e desenvolvimento. Este artigo disponibiliza uma descrição geral do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/10/2019
@@ -9,58 +9,62 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: a16ed6ac942dd4a9fa521cc813a92e6767a98328
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 71d595ecb3a6900da3df79651ee2dddda594b9de
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024131"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589420"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
-IoT Central é uma plataforma de aplicativo IoT que reduz a carga e o custo de desenvolvimento, gerenciamento e manutenção de soluções de IoT de nível empresarial. Optar por criar com o IoT Central oferece a oportunidade de concentrar o tempo, o dinheiro e a energia ao transformar seus negócios com dados de IoT, em vez de apenas manter e atualizar uma infraestrutura de IoT complexa e continuamente em constante evolução.
+A IoT Central é uma plataforma de aplicação IoT que reduz os encargos e os custos de desenvolvimento, gestão e manutenção de soluções IoT de nível empresarial. Optar por construir com a IoT Central dá-lhe a oportunidade de concentrar o tempo, o dinheiro e a energia na transformação do seu negócio com dados IoT, em vez de apenas manter e atualizar uma infraestrutura ioT complexa e em constante evolução.
 
-A interface do usuário da Web permite que você monitore as condições do dispositivo, crie regras e gerencie milhões de dispositivos e seus dados ao longo de seu ciclo de vida. Além disso, ele permite que você atue em insights do dispositivo estendendo o IoT Intelligence em aplicativos de linha de negócios.
+A Web UI permite monitorizar as condições do dispositivo, criar regras e gerir milhões de dispositivos e seus dados ao longo do seu ciclo de vida. Além disso, permite-lhe agir sobre as informações do dispositivo, alargando a inteligência IoT a aplicações de linha de negócio.
 
-Este artigo descreve IoT Central:
+Este artigo descreve, para a IoT Central:
 
 - Pessoas fictícias típicas associadas um projeto.
 - Como criar a sua aplicação.
 - Como ligar os seus dispositivos à aplicação
 - Como gerir a sua aplicação.
-- Azure IoT Edge recursos no IoT Central.
-- Como conectar seus dispositivos com o Azure IoT Edge Runtime ao seu aplicativo.
+- Capacidades azure IoT Edge na IoT Central.
+- Como ligar os seus dispositivos de funcionamento Azure IoT Edge à sua aplicação.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-- A exportação de dados contínua não dá suporte ao formato Avro (incompatibilidade).
-- Não há suporte para geojson no momento.
-- O bloco de mapa não tem suporte no momento.
-- Os trabalhos não dão suporte a tipos complexos.
-- Não há suporte para tipos de esquema de matriz.
-- Somente o SDK do dispositivo C e os SDKs do dispositivo e do serviço node. js têm suporte.
-- Ele só está disponível nos locais Estados Unidos e Europa.
-- Os modelos de funcionalidade do dispositivo devem ter todas as interfaces definidas embutidas no mesmo arquivo.
+- A exportação contínua de dados não suporta o formato Avro (incompatibilidade).
+- A GeoJSON não é atualmente apoiada.
+- O azulejo do mapa não é suportado atualmente.
+- Os empregos não suportam tipos complexos.
+- Os tipos de esquemas matrizes não são suportados.
+- Apenas o dispositivo C SDK e o dispositivo Node.js e os SDKs de serviço são suportados.
+- Só está disponível nos estados unidos, Europa, Ásia-Pacífico e Austrália.
+- Os modelos de capacidade do dispositivo devem ter todas as interfaces definidas inline no mesmo ficheiro.
+- O suporte para [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) está em pré-visualização e só é suportado em regiões selecionadas.
+
+    > [!NOTE]
+    > Contacte o suporte técnico para aceder à criação de uma aplicação preview com suporte para dispositivos IoT Plug e Play.
 
 ## <a name="personas"></a>Pessoas fictícias
 
-A documentação IoT Central refere-se a quatro pessoas que interagem com um aplicativo IoT Central:
+A documentação IoT Central refere-se a quatro personalidades que interagem com uma aplicação IoT Central:
 
-- Um _Solution Builder_ é responsável por definir os tipos de dispositivos que se conectam ao aplicativo e personalizando o aplicativo para o operador.
+- Um construtor de _soluções_ é responsável por definir os tipos de dispositivos que se ligam à aplicação e personalizar a aplicação para o operador.
 - Um _operador_ gere os dispositivos ligados à aplicação.
-- Um _administrador_ é responsável por tarefas administrativas, como gerenciar [funções de usuário e permissões](howto-administer.md) no aplicativo.
-- Um _desenvolvedor de dispositivos_ cria o código que é executado em um dispositivo ou IOT Edge módulo conectado ao seu aplicativo.
+- Um _administrador_ é responsável por tarefas administrativas como a gestão das [funções e permissões](howto-administer.md) do utilizador no âmbito da aplicação.
+- Um desenvolvedor de _dispositivos_ cria o código que funciona num dispositivo ou módulo IoT Edge ligado à sua aplicação.
 
-## <a name="create-your-iot-central-application"></a>Criar seu aplicativo IoT Central
+## <a name="create-your-iot-central-application"></a>Crie a sua aplicação IoT Central
 
-Como um Solution Builder, você usa IoT Central para criar uma solução de IoT personalizada e hospedada na nuvem para sua organização. Normalmente, uma solução de IoT personalizada consiste em:
+Como construtor de soluções, você usa a IoT Central para criar uma solução IoT personalizada e hospedada em nuvem para a sua organização. Normalmente, uma solução de IoT personalizada consiste em:
 
 - Uma aplicação baseada na cloud que recebe a telemetria dos seus dispositivos e permite-lhe gerir esses dispositivos.
 - Vários dispositivos que executam o código personalizado ligado à sua aplicação baseada na cloud.
 
-Você pode implantar rapidamente um novo aplicativo IoT Central e, em seguida, personalizá-lo para seus requisitos específicos em seu navegador. Pode começar com um modelo de _aplicação_ genérico ou com um dos modelos de aplicação focados na indústria para [retalho,](../retail/overview-iot-central-retail-pnp.md) [energia,](../energy/overview-iot-central-energy.md) [governo](../government/overview-iot-central-government.md)ou cuidados de [saúde.](../healthcare/overview-iot-central-healthcare.md)
+Pode implementar rapidamente uma nova aplicação IoT Central e depois personalizá-la para os seus requisitos específicos no seu navegador. Pode começar com um modelo de _aplicação_ genérico ou com um dos modelos de aplicação focados na indústria para [retalho,](../retail/overview-iot-central-retail-pnp.md) [energia,](../energy/overview-iot-central-energy.md) [governo](../government/overview-iot-central-government.md)ou cuidados de [saúde.](../healthcare/overview-iot-central-healthcare.md)
 
-Como um construtor de soluções, você usa as ferramentas baseadas na Web para criar um _modelo de dispositivo_ para os dispositivos que se conectam ao seu aplicativo. Um modelo de dispositivo é o plano gráfico que define as características e o comportamento de um tipo de dispositivo, como:
+Como construtor de soluções, utiliza as ferramentas baseadas na Web para criar um modelo de _dispositivo_ para os dispositivos que se ligam à sua aplicação. Um modelo de dispositivo é a planta que define as características e o comportamento de um tipo de dispositivo como o:
 
 - Telemetria que envia.
 - As propriedades de negócio que um operador pode modificar.
@@ -69,9 +73,9 @@ Como um construtor de soluções, você usa as ferramentas baseadas na Web para 
 
 Este modelo de dispositivo inclui:
 
-- Um _modelo de funcionalidade de dispositivo_ que descreve os recursos que um dispositivo deve implementar, como a telemetria que ele envia e as propriedades que ele relata.
-- Propriedades de nuvem que não são armazenadas no dispositivo.
-- Personalizações, painéis e formulários que fazem parte do seu aplicativo IoT Central.
+- Um modelo de capacidade de _dispositivo_ que descreve as capacidades que um dispositivo deve implementar, como a telemetria que envia e as propriedades que reporta.
+- Propriedades em nuvem que não estão armazenadas no dispositivo.
+- Personalizações, dashboards e formas que fazem parte da sua aplicação IoT Central.
 
 
 ### <a name="pricing"></a>Preços
@@ -85,18 +89,18 @@ Você pode criar aplicação IoT Central usando um teste gratuito de 7 dias, ou 
 
 [IoT Plug and Play (pré-visualização)](../../iot-pnp/overview-iot-plug-and-play.md) permite ao IoT Central integrar dispositivos sem que escreva qualquer código de dispositivo incorporado. No centro do IoT Plug and Play (pré-visualização), está um esquema de modelo de capacidade de dispositivo que descreve as capacidades do dispositivo. Numa aplicação IoT Central, os modelos do dispositivo utilizam estes modelos de capacidade de dispositivo IoT Plug e Play (pré-visualização).
 
-Como um Solution Builder, você tem várias opções para criar modelos de dispositivo:
+Como construtor de soluções, tem várias opções para criar modelos de dispositivos:
 
 - Importe um modelo de capacidade de dispositivo do catálogo de [dispositivos Azure Certified para ioT](https://aka.ms/iotdevcat) e, em seguida, adicione quaisquer propriedades na nuvem, personalizações e dashboards que a sua aplicação IoT Central necessita.
-- Crie o modelo de dispositivo no IoT Central e, em seguida, implemente seu modelo de capacidade de dispositivo no código do dispositivo.
-- Crie um modelo de capacidade de dispositivo utilizando o código Visual Studio e publique o modelo num repositório. Implemente o código do dispositivo do modelo e conecte seu dispositivo ao seu aplicativo IoT Central. A IoT Central encontra o modelo de capacidade do dispositivo a partir do repositório e cria um modelo simples de dispositivo para si.
-- Crie um modelo de capacidade de dispositivo usando o Visual Studio Code. Implemente o código do dispositivo do modelo. Importe manualmente o modelo de capacidade do dispositivo para seu aplicativo IoT Central e, em seguida, adicione quaisquer propriedades de nuvem, personalizações e painéis de que seu aplicativo IoT Central precisa.
+- Desenhe o modelo do dispositivo na IoT Central e, em seguida, implemente o seu modelo de capacidade de dispositivo no código do seu dispositivo.
+- Crie um modelo de capacidade de dispositivo utilizando o código Visual Studio e publique o modelo num repositório. Implemente o código do seu dispositivo a partir do modelo e ligue o seu dispositivo à sua aplicação IoT Central. A IoT Central encontra o modelo de capacidade do dispositivo a partir do repositório e cria um modelo simples de dispositivo para si.
+- Crie um modelo de capacidade de dispositivo utilizando o código Visual Studio. Implemente o código do seu dispositivo a partir do modelo. Importe manualmente o modelo de capacidade do dispositivo para a sua aplicação IoT Central e, em seguida, adicione quaisquer propriedades na nuvem, personalizações e dashboards que a sua aplicação IoT Central necessita.
 
-Como um Solution Builder, você pode usar IoT Central para gerar código para dispositivos de teste para validar os modelos de dispositivo.
+Como construtor de soluções, pode utilizar a IoT Central para gerar código para dispositivos de teste para validar os modelos do seu dispositivo.
 
 ### <a name="customize-the-ui"></a>Personalizar a IU
 
-Como um Solution Builder, você também pode personalizar a interface do usuário do aplicativo IoT Central para os operadores responsáveis pelo uso diário do aplicativo. As personalizações que um Solution Builder pode fazer incluem:
+Como construtor de soluções, também pode personalizar a UI de aplicação IoT Central para os operadores responsáveis pela utilização diária da aplicação. As personalizações que um construtor de soluções pode fazer incluem:
 
 - Definir o esquema de propriedades e definições num modelo de dispositivo.
 - Configurar dashboards personalizados para ajudar os operadores a detetar informações e resolver os problemas mais rapidamente.
@@ -107,48 +111,48 @@ Como um Solution Builder, você também pode personalizar a interface do usuári
 Você pode criar aplicação IoT Central usando um teste gratuito de 7 dias, ou usar um plano de preços padrão.
 
 - As aplicações que cria utilizando o plano *gratuito* são gratuitas durante sete dias e suportam até cinco dispositivos. Pode convertê-los para usar um plano de preços padrão a qualquer momento antes de expirarem.
-- As aplicações que cria utilizando o plano *padrão* são faturadas por dispositivo, pode escolher o plano de preços **Standard 1** ou **Standard 2,** com os dois primeiros dispositivos gratuitos. Saiba mais sobre [preços de IOT central](https://aka.ms/iotcentral-pricing).
+- As aplicações que cria utilizando o plano *padrão* são faturadas por dispositivo, pode escolher o plano de preços **Standard 1** ou **Standard 2,** com os dois primeiros dispositivos gratuitos. Saiba mais sobre [os preços da IoT Central.](https://aka.ms/iotcentral-pricing)
 
-## <a name="connect-your-devices"></a>Ligue os seus dispositivos
+## <a name="connect-your-devices"></a>Ligar os dispositivos
 
-O Azure IoT Central usa o [DPS (serviço de provisionamento de dispositivos) do Hub IOT do Azure](../../iot-dps/about-iot-dps.md) para gerenciar todo o registro e a conexão do dispositivo.
+A Azure IoT Central utiliza o serviço de provisionamento de [dispositivos Hub Azure IoT (DPS)](../../iot-dps/about-iot-dps.md) para gerir todo o registo e ligação do dispositivo.
 
-O uso do DPS permite:
+A utilização de DPS permite:
 
-- IoT Central para dar suporte à integração e à conexão de dispositivos em escala.
-- Você deve gerar credenciais de dispositivo e configurar os dispositivos offline sem registrar os dispositivos por meio da interface do usuário do IoT Central.
+- IoT Central para apoiar dispositivos de embarque e ligação em escala.
+- Você gera credenciais de dispositivo e configurar os dispositivos offline sem registar os dispositivos através da IoT Central UI.
 - Dispositivos para se conectarem utilizando assinaturas de acesso partilhado.
-- Dispositivos para se conectar usando certificados X. 509 padrão do setor.
-- Você usa suas próprias IDs de dispositivo para registrar dispositivos no IoT Central. O uso de suas próprias IDs de dispositivo simplifica a integração com sistemas de Back-Office existentes.
-- Uma maneira única e consistente de conectar dispositivos a IoT Central.
+- Dispositivos para se conectarem utilizando certificados X.509 padrão da indústria.
+- Você usa as suas próprias iDs de dispositivo para registar dispositivos na IoT Central. A utilização dos seus próprios IDs de dispositivo simplifica a integração com os sistemas de back-office existentes.
+- Uma forma única e consistente de ligar os dispositivos à IoT Central.
 
 Para saber mais, consulte [Fique ligado à Central Azure IoT](./concepts-get-connected.md).
 
 ### <a name="azure-iot-edge-devices"></a>Dispositivos do IoT Edge do Azure
 
-Além de dispositivos criados usando os [SDKs do IOT do Azure](https://github.com/Azure/azure-iot-sdks), você também pode conectar [Azure IOT Edge dispositivos](../../iot-edge/about-iot-edge.md) a um aplicativo IOT central. Azure IoT Edge permite que você execute a inteligência de nuvem e a lógica personalizada diretamente em dispositivos IoT gerenciados pelo IoT Central. O tempo de execução do IoT Edge permite que você:
+Além de dispositivos criados com os [SDKs Azure IoT,](https://github.com/Azure/azure-iot-sdks)também pode ligar [os dispositivos Azure IoT Edge](../../iot-edge/about-iot-edge.md) a uma aplicação IoT Central. O Azure IoT Edge permite-lhe executar a inteligência em nuvem e a lógica personalizada diretamente em dispositivos IoT geridos pela IoT Central. O tempo de execução do IoT Edge permite::
 
-- Instalar e atualizar cargas de trabalho no dispositivo.
+- Instale e atualize as cargas de trabalho no dispositivo.
 - Mantenha os padrões de segurança Azure IoT Edge no dispositivo.
-- Verifique se os módulos IoT Edge estão sempre em execução.
-- Relate a integridade do módulo para a nuvem para monitoramento remoto.
-- Gerencie a comunicação entre dispositivos de folha downstream e um dispositivo IoT Edge, entre módulos em um dispositivo IoT Edge e entre um dispositivo IoT Edge e a nuvem.
+- Certifique-se de que os módulos IoT Edge estão sempre em funcionamento.
+- Informe a saúde do módulo na nuvem para monitorização remota.
+- Gerencie a comunicação entre dispositivos de folhas a jusante e um dispositivo IoT Edge, entre módulos num dispositivo IoT Edge, e entre um dispositivo IoT Edge e a nuvem.
 
-Para obter mais informações, consulte [Azure IOT Edge dispositivos e IOT central](concepts-architecture.md#azure-iot-edge-devices).
+Para mais informações, consulte [os dispositivos Azure IoT Edge e IoT Central](concepts-architecture.md#azure-iot-edge-devices).
 
-## <a name="stay-connected"></a>Mantenha-se ligado
+## <a name="stay-connected"></a>Manter-se ligado
 
-IoT Central aplicativos são totalmente hospedados pela Microsoft, o que reduz a sobrecarga de administração do gerenciamento de seus aplicativos.
+As aplicações IoT Central são totalmente hospedadas pela Microsoft, o que reduz a administração de gerir as suas aplicações.
 
-Como um operador, você usa o aplicativo IoT Central para gerenciar os dispositivos em sua solução de IoT Central. Os operadores executam tarefas como:
+Como operador, utiliza a aplicação IoT Central para gerir os dispositivos na sua solução IoT Central. Os operadores fazem tarefas como:
 
 - Monitorizar os dispositivos ligados à aplicação.
 - Resolver e remediar problemas dos dispositivos.
 - Aprovisionar novos dispositivos.
 
-Como um construtor de soluções, você pode definir regras e ações personalizadas que operam sobre o streaming de dados de dispositivos conectados. Um operador pode ativar ou desativar estas regras ao nível do dispositivo, para controlar e automatizar tarefas na aplicação.
+Como construtor de soluções, pode definir regras e ações personalizadas que operam através do streaming de dados a partir de dispositivos conectados. Um operador pode ativar ou desativar estas regras ao nível do dispositivo, para controlar e automatizar tarefas na aplicação.
 
-Os administradores gerenciam o acesso ao seu aplicativo com [funções e permissões de usuário](howto-administer.md).
+Os administradores gerem o acesso à sua aplicação com [funções e permissões](howto-administer.md)do utilizador.
 
 Com qualquer solução IoT projetada para funcionar em escala, é importante uma abordagem estruturada para a gestão do dispositivo. Não basta apenas ligar os seus dispositivos à nuvem, é necessário manter os seus dispositivos ligados e saudáveis. Um operador pode utilizar as seguintes capacidades IoT Central para gerir os seus dispositivos ao longo do ciclo de vida da aplicação:
 
@@ -164,7 +168,7 @@ Construa [regras personalizadas](tutorial-create-telemetry-rules.md) baseadas no
 
 [Os trabalhos](howto-run-a-job.md) permitem-lhe aplicar atualizações individuais ou a granel aos dispositivos, definindo propriedades ou comandos de chamada. 
 
-### <a name="user-roles-and-permissions"></a>Funções e permissões de usuário
+### <a name="user-roles-and-permissions"></a>Funções e permissões do utilizador
 
 [Funções e permissões](howto-manage-users-roles.md) permitem que um administrador adapte a experiência de cada utilizador. Um administrador usa a UI web para criar funções e atribuir permissões.
 
@@ -174,11 +178,11 @@ Como plataforma de aplicação, a IoT Central permite-lhe transformar os seus da
 
 ![Como a IoT Central pode transformar os seus dados ioT](media/overview-iot-central/transform.png)
 
-### <a name="monitor-device-health-and-operations-using-rules"></a>Monitorar a integridade e as operações do dispositivo usando regras
+### <a name="monitor-device-health-and-operations-using-rules"></a>Monitorizar a saúde e as operações dos dispositivos utilizando regras
 
 Quando os seus dispositivos estão conectados e enviam dados, as regras podem identificar dispositivos que sofrem de problemas ou enviar mensagens de erro para que possa corrigi-los com o mínimo de tempo de inatividade. Construa regras na sua aplicação IoT Central para monitorizar a telemetria dos seus dispositivos e alerte um operador quando uma métrica atravessa um limiar ou um dispositivo envia uma mensagem específica. As ações de e-mail e webhooks para as suas regras notificam as pessoas certas e os sistemas a jusante.
 
-### <a name="run-custom-analytics-and-processing-on-your-exported-data"></a>Executar análise personalizada e processamento em seus dados exportados
+### <a name="run-custom-analytics-and-processing-on-your-exported-data"></a>Executar análises personalizadas e processamento dos seus dados exportados
 
 Pode gerar insights de negócio, tais como determinar tendências de eficiência da máquina ou prever o uso futuro de energia num piso de fábrica, construindo oleodutos de análise personalizada para processar a telemetria a partir dos seus dispositivos e armazenar os resultados. Configure as exportações de dados na sua aplicação IoT Central para exportar telemetria, alterações na propriedade do dispositivo e alterações no modelo do dispositivo para outros serviços onde pode analisar, armazenar e visualizar os dados com as suas ferramentas preferidas.
 
@@ -192,13 +196,13 @@ Construir soluções IoT tais como:
 
 ## <a name="quotas"></a>Quotas
 
-Cada assinatura do Azure tem cotas padrão que podem afetar o escopo da sua solução de IoT. Atualmente, IoT Central limita o número de aplicativos que você pode implantar em uma assinatura para 10. Se você precisar aumentar esse limite, entre em contato com o [suporte da Microsoft](https://azure.microsoft.com/support/options/).
+Cada subscrição do Azure tem quotas padrão que podem afetar o âmbito da sua solução IoT. Atualmente, a IoT Central limita o número de aplicações que pode implementar numa subscrição de 10. Se precisar de aumentar este limite, contacte o [suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você tem uma visão geral de IoT Central, aqui estão as próximas etapas sugeridas:
+Agora que tem uma visão geral da IoT Central, aqui estão sugeridos os próximos passos:
 
-- Entenda as [tecnologias e os serviços do Azure disponíveis para a criação de soluções de IOT](../../iot-fundamentals/iot-services-and-technologies.md).
+- Compreenda as [tecnologias e serviços disponíveis do Azure para a criação de soluções IoT.](../../iot-fundamentals/iot-services-and-technologies.md)
 - Familiarizar-se com a [IU do Azure IoT Central](overview-iot-central-tour.md).
 - Começar por [criar uma aplicação do Azure IoT Central](quick-deploy-iot-central.md).
 - Saiba mais sobre [ioT Plug e Play (pré-visualização)](../../iot-pnp/overview-iot-plug-and-play.md).

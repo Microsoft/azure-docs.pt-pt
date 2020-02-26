@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: e1e19f985c9aa02759c6fff3c634c216c7ef42ef
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525554"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580633"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e eliminar recursos Do Azure ML utilizando o REST
 
@@ -401,6 +401,23 @@ providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
 ```
 
 Deve receber uma resposta `202 Accepted` e, nos cabeçalhos devolvidos, um `Location` URI. Pode obter este URI para obter informações sobre a implementação, incluindo informações úteis de depuração se houver algum problema com um dos seus recursos dependentes (por exemplo, se se esqueceu de permitir o acesso da administração no seu registo de contentores). 
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+### <a name="resource-provider-errors"></a>Erros do fornecedor de recursos
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### <a name="moving-the-workspace"></a>Movendo o espaço de trabalho
+
+> [!WARNING]
+> A mudança do seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou a mudança da subscrição própria para um novo inquilino, não é suportada. Fazê-lo pode causar erros.
+
+### <a name="deleting-the-azure-container-registry"></a>Apagando o Registo de Contentores Azure
+
+O espaço de trabalho Azure Machine Learning utiliza o Registo de Contentores Azure (ACR) para algumas operações. Criará automaticamente uma instância ACR quando precisar primeiro de uma.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

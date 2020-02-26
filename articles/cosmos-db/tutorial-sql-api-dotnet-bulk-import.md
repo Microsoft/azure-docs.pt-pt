@@ -1,62 +1,62 @@
 ---
-title: Importar dados em massa para Azure Cosmos DB conta da API do SQL usando o SDK do .net
-description: Saiba como importar ou ingerir dados para Azure Cosmos DB criando um aplicativo de console .NET que otimiza a taxa de transferência provisionada (RU/s) necessária para importar dados
+title: Dados de importação a granel para a conta API Da Azure Cosmos DB SQL utilizando o SDK .Net
+description: Saiba importar ou ingerir dados para o Azure Cosmos DB através da construção de uma aplicação de consola .NET que otimize a provisão (RU/s) necessária para importar dados
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 40dd7066d959b56f4554ea9d0390e8b1eb41e77f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896268"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587571"
 ---
-# <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importar dados em massa para Azure Cosmos DB conta da API do SQL usando o SDK do .NET
+# <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Dados de importação a granel para a conta API Da Azure Cosmos DB SQL utilizando o SDK .NET
 
-Este tutorial mostra como criar um aplicativo de console .NET que otimiza a taxa de transferência provisionada (RU/s) necessária para importar dados para Azure Cosmos DB. Neste artigo, você vai ler dados de uma fonte de dados de exemplo e importá-los para um contêiner Cosmos do Azure.
-Este tutorial usa a [versão 3.0 +](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do SDK do .net Azure Cosmos DB, que pode ser direcionado para .NET Framework ou .NET Core.
+Este tutorial mostra como construir uma aplicação de consola .NET que otimiza a entrada (RU/s) necessária para importar dados para o Azure Cosmos DB. Neste artigo, você vai ler dados de uma fonte de dados de amostra e importá-lo em um recipiente Azure Cosmos.
+Este tutorial utiliza a [versão 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do Azure Cosmos DB .NET SDK, que pode ser direcionada para .NET Framework ou .NET Core.
 
 Este tutorial aborda:
 
 > [!div class="checklist"]
 > * Criar uma conta do Cosmos do Azure
-> * Configurando seu projeto
-> * Conectando-se a uma conta do Azure cosmos com suporte em massa habilitado
-> * Executar uma importação de dados por meio de operações de criação simultânea
+> * Configurar o seu projeto
+> * Ligação a uma conta Azure Cosmos com suporte a granel ativado
+> * Realizar uma importação de dados através de operações de criação simultâneas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de seguir as instruções neste artigo, verifique se você tem os seguintes recursos:
+Antes de seguir as instruções deste artigo, certifique-se de que tem os seguintes recursos:
 
 * Uma conta ativa do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [SDK do NET Core 3](https://dotnet.microsoft.com/download/dotnet-core). Você pode verificar qual versão está disponível em seu ambiente executando `dotnet --version`.
+* [Núcleo NET 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). Pode verificar qual a versão disponível no seu ambiente, executando `dotnet --version`.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passo 1: Criar uma conta do Azure Cosmos DB
 
-[Crie um Azure Cosmos DB conta da API do SQL](create-cosmosdb-resources-portal.md) no portal do Azure ou você pode criar a conta usando o [emulador Azure Cosmos DB](local-emulator.md).
+[Crie uma conta API Azure Cosmos DB SQL](create-cosmosdb-resources-portal.md) a partir do portal Azure ou pode criar a conta utilizando o [Emulador DB Azure Cosmos.](local-emulator.md)
 
-## <a name="step-2-set-up-your-net-project"></a>Etapa 2: configurar seu projeto do .NET
+## <a name="step-2-set-up-your-net-project"></a>Passo 2: Configurar o seu projeto .NET
 
-Abra o prompt de comando do Windows ou uma janela de terminal do computador local. Você executará todos os comandos nas próximas seções do prompt de comando ou do terminal. Execute o seguinte comando dotnet New para criar um novo aplicativo com o nome *Bulk-Import-demo*. O parâmetro `--langVersion` define a propriedade *langversion* no arquivo de projeto criado.
+Abra o pedido de comando do Windows ou uma janela terminal a partir do seu computador local. Executará todos os comandos nas próximas secções a partir do pedido de comando ou terminal. Executar o novo comando do dotnet seguinte para criar uma nova app com o nome *granel-import-demo*. O parâmetro `--langVersion` define a propriedade *LangVersion* no ficheiro criado do projeto.
 
    ```bash
    dotnet new console –langVersion:8 -n bulk-import-demo
    ```
 
-Altere o diretório para a pasta de aplicativos recém-criada. Você pode criar o aplicativo com:
+Mude o seu diretório para a pasta de aplicações recém-criada. Pode construir a aplicação com:
 
    ```bash
    cd bulk-import-demo
    dotnet build
    ```
 
-A saída esperada da compilação deve ser semelhante a esta:
+A saída esperada da construção deve ser algo assim:
 
    ```bash
    Restore completed in 100.37 ms for C:\Users\user1\Downloads\CosmosDB_Samples\bulk-import-demo\bulk-import-demo.csproj.
@@ -69,29 +69,29 @@ A saída esperada da compilação deve ser semelhante a esta:
    Time Elapsed 00:00:34.17
    ```
 
-## <a name="step-3-add-the-azure-cosmos-db-package"></a>Etapa 3: Adicionar o pacote de Azure Cosmos DB
+## <a name="step-3-add-the-azure-cosmos-db-package"></a>Passo 3: Adicione o pacote Azure Cosmos DB
 
-Ainda no diretório do aplicativo, instale a biblioteca de cliente do Azure Cosmos DB para .NET Core usando o comando dotnet adicionar pacote.
+Ainda no diretório de aplicações, instale a biblioteca de clientes Azure Cosmos DB para .NET Core utilizando o comando de pacote de adição de dotnet.
 
    ```bash
    dotnet add package Microsoft.Azure.Cosmos
    ```
 
-## <a name="step-4-get-your-azure-cosmos-account-credentials"></a>Etapa 4: obter suas credenciais de conta do Azure Cosmos
+## <a name="step-4-get-your-azure-cosmos-account-credentials"></a>Passo 4: Obtenha as credenciais da sua conta Azure Cosmos
 
-O aplicativo de exemplo precisa se autenticar na sua conta do Azure Cosmos. Para autenticar, você deve passar as credenciais da conta do Azure Cosmos para o aplicativo. Obtenha suas credenciais de conta do Azure Cosmos seguindo estas etapas:
+A aplicação da amostra precisa de autenticar na sua conta Azure Cosmos. Para autenticar, deverá passar as credenciais da conta Azure Cosmos para a aplicação. Obtenha as credenciais da sua conta Azure Cosmos seguindo estes passos:
 
 1.  Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1.  Navegue até sua conta do Azure Cosmos.
-1.  Abra o painel **chaves** e copie o **URI** e a **chave primária** da sua conta.
+1.  Navegue para a sua conta Azure Cosmos.
+1.  Abra o painel **de Teclas** e copie a CHAVE **URI** e **PRIMÁRIA** da sua conta.
 
-Se você estiver usando o emulador de Azure Cosmos DB, obtenha as [credenciais do emulador neste artigo](local-emulator.md#authenticating-requests).
+Se estiver a utilizar o Emulador Db Azure Cosmos, obtenha as [credenciais do emulador deste artigo.](local-emulator.md#authenticating-requests)
 
-## <a name="step-5-initialize-the-cosmosclient-object-with-bulk-execution-support"></a>Etapa 5: inicializar o objeto CosmosClient com suporte de execução em massa
+## <a name="step-5-initialize-the-cosmosclient-object-with-bulk-execution-support"></a>Passo 5: Inicializar o objeto CosmosClient com suporte à execução a granel
 
-Abra o arquivo `Program.cs` gerado em um editor de código. Você criará uma nova instância de CosmosClient com a execução em massa habilitada e a usará para realizar operações em relação a Azure Cosmos DB. 
+Abra o ficheiro `Program.cs` gerado num editor de código. Criará uma nova instância de CosmosClient com execução a granel habilitada e usá-la-á para fazer operações contra o Azure Cosmos DB. 
 
-Vamos começar substituindo o método de `Main` padrão e definindo as variáveis globais. Essas variáveis globais incluirão o ponto de extremidade e as chaves de autorização, o nome do banco de dados, o contêiner que você criará e o número de itens que serão inseridos em massa. Certifique-se de substituir os valores de chave de autorização e endpointURL de acordo com seu ambiente. 
+Vamos começar por sobrepor o método padrão `Main` e definir as variáveis globais. Estas variáveis globais incluirão as chaves de ponta e autorização, o nome da base de dados, o recipiente que irá criar e o número de itens que irá inserir a granel. Certifique-se de que substitui os valores-chave do ponto final e da autorização de acordo com o seu ambiente. 
 
 
    ```csharp
@@ -120,61 +120,61 @@ Vamos começar substituindo o método de `Main` padrão e definindo as variávei
 
 Dentro do método `Main`, adicione o seguinte código para inicializar o objeto CosmosClient:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="CreateClient":::
 
-Depois que a execução em massa é habilitada, o CosmosClient agrupa internamente as operações simultâneas em chamadas de serviço único. Dessa forma, ele otimiza a utilização da taxa de transferência distribuindo chamadas de serviço entre partições e, finalmente, atribuindo resultados individuais aos chamadores originais.
+Após a execução a granel ser ativada, o CosmosClient agrupa internamente operações simultâneas em chamadas de serviço únicos. Desta forma, otimiza a utilização da entrada distribuindo chamadas de serviço através de divisórias e, finalmente, atribuindo resultados individuais aos chamadores originais.
 
-Em seguida, você pode criar um contêiner para armazenar todos os nossos itens.  Defina `/pk` como a chave de partição, 50000 RU/s como taxa de transferência provisionada e uma política de indexação personalizada que excluirá todos os campos para otimizar a taxa de transferência de gravação. Adicione o seguinte código após a instrução de inicialização CosmosClient:
+Em seguida, pode criar um recipiente para armazenar todos os nossos itens.  Defina `/pk` como a chave de partição, 50000 RU/s como entrada provisionada, e uma política de indexação personalizada que excluirá todos os campos para otimizar a entrada de escrita. Adicione o seguinte código após a declaração de inicialização cosmosClient:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Initialize)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Initialize":::
 
-## <a name="step-6-populate-a-list-of-concurrent-tasks"></a>Etapa 6: preencher uma lista de tarefas simultâneas
+## <a name="step-6-populate-a-list-of-concurrent-tasks"></a>Passo 6: Povoar uma lista de tarefas simultâneas
 
-Para aproveitar o suporte à execução em massa, crie uma lista de tarefas assíncronas com base na fonte de dados e nas operações que você deseja executar e use `Task.WhenAll` para executá-las simultaneamente.
-Vamos começar usando dados "falsos" para gerar uma lista de itens de nosso modelo de dados. Em um aplicativo do mundo real, os itens seriam provenientes da fonte de dados desejada.
+Para tirar partido do suporte de execução a granel, crie uma lista de tarefas assíncronas com base na fonte de dados e nas operações que pretende realizar e utilize `Task.WhenAll` para executá-las simultaneamente.
+Vamos começar por usar dados "Falsos" para gerar uma lista de itens do nosso modelo de dados. Numa aplicação no mundo real, os itens viriam da sua fonte de dados desejada.
 
-Primeiro, adicione o pacote falso à solução usando o comando dotnet adicionar pacote.
+Em primeiro lugar, adicione o pacote Falso à solução utilizando o comando de pacote de adição de dotnet.
 
    ```bash
    dotnet add package Bogus
    ```
 
-Defina a definição dos itens que você deseja salvar. Você precisa definir a classe `Item` dentro do arquivo `Program.cs`:
+Defina a definição dos itens que pretende guardar. Precisa definir a classe `Item` dentro do ficheiro `Program.cs`:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Model)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Model":::
 
-Em seguida, crie uma função auxiliar dentro da classe `Program`. Essa função auxiliar obterá o número de itens que você definiu para inserir e gera dados aleatórios:
+Em seguida, crie uma função de ajudante dentro da classe `Program`. Esta função de ajudante obterá o número de itens definidos para inserir e gera dados aleatórios:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Bogus":::
 
-Leia os itens e Serialize-os em instâncias de fluxo usando a classe `System.Text.Json`. Devido à natureza dos dados gerados automaticamente, você está serializando os dados como fluxos. Você também pode usar a instância de item diretamente, mas convertendo-as em fluxos, você pode aproveitar o desempenho de APIs de fluxo no CosmosClient. Normalmente, você pode usar os dados diretamente desde que conheça a chave de partição. 
+Leia os itens e serialize-os em instâncias de streaming utilizando a classe `System.Text.Json`. Devido à natureza dos dados autogerados, está a serializar os dados como fluxos. Também pode utilizar a instância do item diretamente, mas ao convertê-los em streams, pode aproveitar o desempenho das APIs stream no CosmosClient. Normalmente, pode utilizar os dados diretamente desde que conheça a chave de partição. 
 
 
-Para converter os dados em instâncias de fluxo, dentro do método `Main`, adicione o código a seguir logo após a criação do contêiner:
+Para converter os dados em instâncias stream, dentro do método `Main`, adicione o seguinte código logo após a criação do recipiente:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Operations":::
 
-Em seguida, use os fluxos de dados para criar tarefas simultâneas e preencher a lista de tarefas para inserir os itens no contêiner. Para executar essa operação, adicione o seguinte código à classe `Program`:
+Em seguida, utilize os fluxos de dados para criar tarefas simultâneas e povoar a lista de tarefas para inserir os itens no recipiente. Para efetuar esta operação, adicione o seguinte código à classe `Program`:
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="ConcurrentTasks":::
 
-Todas essas operações de ponto simultâneas serão executadas juntas (isto é, em massa), conforme descrito na seção Introdução.
+Todas estas operações de pontos simultâneos serão executadas em conjunto (isto é, a granel), conforme descrito na secção de introdução.
 
-## <a name="step-7-run-the-sample"></a>Etapa 7: executar o exemplo
+## <a name="step-7-run-the-sample"></a>Passo 7: Executar a amostra
 
-Para executar o exemplo, você pode fazer isso simplesmente pelo comando `dotnet`:
+Para executar a amostra, pode fazê-lo simplesmente pelo comando `dotnet`:
 
    ```bash
    dotnet run
    ```
 
-## <a name="get-the-complete-sample"></a>Obter o exemplo completo
+## <a name="get-the-complete-sample"></a>Obtenha a amostra completa
 
 Se não tiver tempo de completar os passos deste tutorial, ou apenas pretender transferir os exemplos de código, pode obtê-los a partir do [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer).
 
-Depois de clonar o projeto, certifique-se de atualizar as credenciais desejadas dentro de [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25).
+Depois de clonar o projeto, certifique-se de atualizar as credenciais desejadas no interior [Program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25).
 
-O exemplo pode ser executado alterando para o diretório do repositório e usando `dotnet`:
+A amostra pode ser executada alterando-se para o diretório de repositórios e utilizando `dotnet`:
 
    ```bash
    cd cosmos-dotnet-bulk-import-throughput-optimizer
@@ -183,15 +183,15 @@ O exemplo pode ser executado alterando para o diretório do repositório e usand
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você fez as seguintes etapas:
+Neste tutorial, já fez os seguintes passos:
 
 > [!div class="checklist"]
 > * Criar uma conta do Cosmos do Azure
-> * Configurando seu projeto
-> * Conectando-se a uma conta do Azure cosmos com suporte em massa habilitado
-> * Executar uma importação de dados por meio de operações de criação simultânea
+> * Configurar o seu projeto
+> * Ligação a uma conta Azure Cosmos com suporte a granel ativado
+> * Realizar uma importação de dados através de operações de criação simultâneas
 
-Agora você pode prosseguir para o próximo tutorial:
+Agora pode passar para o próximo tutorial:
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB de consulta usando a API do SQL](tutorial-query-sql-api.md)
+>[Consulta Azure Cosmos DB usando a API SQL](tutorial-query-sql-api.md)

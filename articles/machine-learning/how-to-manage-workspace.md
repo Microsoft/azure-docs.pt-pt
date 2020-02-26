@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a1d3753dfec673338bdde67656afd9c5f413ef0
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 4f31c5583671ed3441e1a3f0f53c8518e550080a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137595"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580734"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerir espaços de trabalho azure machine learning no portal Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -119,6 +119,12 @@ Utilize o botão de eliminação na parte superior da área de trabalho que pret
 
 > [!WARNING]
 > A mudança do seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou a mudança da subscrição própria para um novo inquilino, não é suportada. Fazê-lo pode causar erros.
+
+### <a name="deleting-the-azure-container-registry"></a>Apagando o Registo de Contentores Azure
+
+O espaço de trabalho Azure Machine Learning utiliza o Registo de Contentores Azure (ACR) para algumas operações. Criará automaticamente uma instância ACR quando precisar primeiro de uma.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

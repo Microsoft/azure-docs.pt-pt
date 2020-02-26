@@ -4,32 +4,35 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: a306a05899a644f2ee8ea738789b84ee98221531
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b8d60da507aa1eb312d1a8505f756ff337085ff
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392261"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592437"
 ---
-A tabela a seguir lista os limites que se aplicam aos recursos do serviço de provisionamento de dispositivos no Hub IoT do Azure.
+A tabela que se segue enumera os limites aplicáveis aos recursos do Serviço de Provisionamento de Dispositivos Hub Azure IoT.
 
 | Recurso | Limite |
 | --- | --- |
-| Serviços de provisionamento máximo de dispositivos por assinatura do Azure | 10 |
-| Número máximo de registros | 1 000 000 |
-| Número máximo de registros | 1 000 000 |
-| Número máximo de grupos de registro | 100 |
-| Número máximo de CAs | 25 |
-| Número máximo de hubs IoT vinculados | 50 |
+| Serviços máximos de fornecimento de dispositivos por subscrição do Azure | 10 |
+| Número máximo de matrículas | 1 000 000 |
+| Número máximo de inscrições | 1 000 000 |
+| Número máximo de grupos de matrícula | 100 |
+| Número máximo de AE | 25 |
+| Número máximo de centros ioT ligados | 50 |
 | Tamanho máximo da mensagem | 96 KB|
 
 > [!NOTE]
-> Para aumentar o número de registros e inscrições no serviço de provisionamento, entre em contato com [suporte da Microsoft](https://azure.microsoft.com/support/options/).
+> Para aumentar o número de inscrições e inscrições no seu serviço de provisionamento, contacte o [Microsoft Support](https://azure.microsoft.com/support/options/).
 
-O serviço de provisionamento de dispositivos limita as solicitações quando as seguintes cotas são excedidas.
+> [!NOTE]
+> O aumento do número máximo de AE não é suportado.
+
+O Serviço de Fornecimento de Dispositivos acelera os pedidos quando as seguintes quotas são excedidas.
 
 | Limitação | Valor por unidade |
 | --- | --- |
-| Operations | 200/min/serviço |
+| Operações | 200/min/serviço |
 | Registos de dispositivos | 200/min/serviço |
-| Operação de sondagem de dispositivo | 5/10 s/dispositivo |
+| Operação de sondagem de dispositivos | 5/10 seg/dispositivo |

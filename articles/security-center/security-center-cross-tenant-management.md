@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento entre locatários na central de segurança do Azure | Microsoft Docs
-description: Saiba como configurar o gerenciamento entre locatários para gerenciar a postura de segurança de vários locatários na central de segurança usando o gerenciamento de recursos delegado do Azure.
+title: Gestão de inquilinos cruzados no Centro de Segurança Azure Microsoft Docs
+description: Saiba como criar a gestão de inquilinos cruzados para gerir a postura de segurança de vários inquilinos no Centro de Segurança usando a gestão de recursos delegados do Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,48 +13,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 3dc7ebe224f1edb1b0fabc40441bd399fda6c133
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 482154a37334b056719a18355f87b467d4fe95c7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355580"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604249"
 ---
-# <a name="cross-tenant-management-in-security-center"></a>Gerenciamento entre locatários na central de segurança
+# <a name="cross-tenant-management-in-security-center"></a>Gestão de inquilinos cruzados no Centro de Segurança
 
-O gerenciamento entre locatários permite exibir e gerenciar a postura de segurança de vários locatários na central de segurança, aproveitando o [Gerenciamento de recursos delegados do Azure](../lighthouse/concepts/azure-delegated-resource-management.md) . Gerencie vários locatários com eficiência, de uma única exibição, sem precisar entrar no diretório de cada locatário.
+A gestão de inquilinos cruzados permite-lhe visualizar e gerir a postura de segurança de vários inquilinos no Centro de Segurança, alavancando a [gestão de recursos delegados do Azure.](../lighthouse/concepts/azure-delegated-resource-management.md) Gerencie eficientemente vários inquilinos, de uma única vista, sem ter de assinar no diretório de cada inquilino.
 
-- Os provedores de serviços podem gerenciar a postura de segurança dos recursos, para vários clientes, de dentro de seu próprio locatário.
+- Os prestadores de serviços podem gerir a postura de segurança dos recursos, para vários clientes, a partir de dentro do seu próprio inquilino.
 
-- As equipes de segurança de organizações com vários locatários podem exibir e gerenciar sua postura de segurança em um único local.
+- Equipas de segurança de organizações com vários inquilinos podem ver e gerir a sua postura de segurança a partir de um único local.
 
-## <a name="set-up-cross-tenant-management"></a>Configurar o gerenciamento de locatários cruzados
+## <a name="set-up-cross-tenant-management"></a>Criar gestão de inquilinos cruzados
 
-Configure o gerenciamento de locatários cruzados delegando acesso a recursos de locatários gerenciados para seu próprio locatário usando o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md).
+Instale a gestão de inquilinos cruzados, delegando acesso aos recursos de inquilinos geridos ao seu próprio inquilino utilizando a [gestão de recursos delegados do Azure.](../lighthouse/concepts/azure-delegated-resource-management.md)
 
 > [!NOTE]
-> O gerenciamento de recursos delegado do Azure é um dos principais componentes do Azure Lighthouse.
+> A gestão de recursos delegados da Azure é um dos componentes-chave do Farol Azure.
 
-## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Como o gerenciamento entre locatários funciona na central de segurança
+## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Como funciona a gestão de inquilinos transintisos no Centro de Segurança
 
-Você pode revisar e gerenciar assinaturas em vários locatários da mesma maneira que gerencia várias assinaturas em um único locatário.
+Você é capaz de rever e gerir subscrições em vários inquilinos da mesma forma que você gere várias subscrições em um único inquilino.
 
-Na barra de menus superior, clique no ícone de filtro e selecione as assinaturas, no diretório de cada locatário, que você gostaria de exibir.
+A partir da barra de menu superior, clique no ícone do filtro e selecione as subscrições, a partir do diretório de cada inquilino, você gostaria de ver.
 
-  ![Filtrar locatários](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
+  ![Filtrar inquilinos](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-As exibições e ações são basicamente as mesmas. Eis alguns exemplos:
+Os pontos de vista e as ações são basicamente os mesmos. Eis alguns exemplos:
 
-- **Gerenciar políticas de segurança**: em uma exibição, gerencie a postura de segurança de muitos recursos com [políticas](tutorial-security-policy.md), execute ações com recomendações de segurança e colete e gerencie dados relacionados à segurança.
-- **Aprimore a pontuação segura e a postura de conformidade**: a visibilidade entre locatários permite que você veja a postura geral de segurança de todos os seus locatários e onde e como melhorar melhor a [Pontuação segura](security-center-secure-score.md) e a [postura de conformidade](security-center-compliance-dashboard.md) para cada um deles.
-- **Corrigir recomendações**: monitore e corrija uma [recomendação](security-center-recommendations.md) para muitos recursos de vários locatários ao mesmo tempo. Você pode então lidar imediatamente com as vulnerabilidades que apresentam o maior risco em todos os locatários.
-- **Gerenciar alertas**: detectar [alertas](security-center-alerts-overview.md) em vários locatários diferentes. Execute ações em recursos que estão fora de conformidade com etapas de [correção](security-center-managing-and-responding-alerts.md)acionáveis.
+- **Gerir políticas**de segurança : De uma forma, gerir a postura de segurança de muitos recursos com [políticas,](tutorial-security-policy.md)tomar ações com recomendações de segurança e recolher e gerir dados relacionados com a segurança.
+- Melhorar a **pontuação segura e a postura**de conformidade : A visibilidade entre inquilinos permite-lhe visualizar a postura de segurança global de todos os seus inquilinos e onde e como melhor melhorar a [Pontuação Segura](security-center-secure-score.md) e a postura de [conformidade](security-center-compliance-dashboard.md) para cada um deles.
+- **Recomendações de reparação**: Monitorize e remediar uma [recomendação](security-center-recommendations.md) para muitos recursos de vários inquilinos de uma só vez. Pode então enfrentar imediatamente as vulnerabilidades que apresentam o maior risco em todos os inquilinos.
+- **Gerir Alertas**: Detetar [alertas](security-center-alerts-overview.md) em todos os diferentes inquilinos. Tome medidas sobre recursos que estão fora do cumprimento das medidas de [reparação](security-center-managing-and-responding-alerts.md)atodáveis.
 
-- **Gerencie recursos avançados de defesa de nuvem e muito mais**: Gerencie os vários serviços de detecção e proteção de ameaças, como [acesso à VM JIT (just-in-time)](security-center-just-in-time.md), [proteção de rede adaptável](security-center-adaptive-network-hardening.md), [controles de aplicativos adaptáveis](security-center-adaptive-application.md)e muito mais.
+- **Gerir funcionalidades avançadas**de defesa em nuvem e muito mais: Gerir os vários serviços de deteção e proteção de ameaças, tais como [acesso vM just-in-time (JIT)](security-center-just-in-time.md), [Adaptive Network Hardening,](security-center-adaptive-network-hardening.md)controlos de [aplicações adaptativos,](security-center-adaptive-application.md)e muito mais.
  
 ## <a name="next-steps"></a>Passos seguintes
-Este artigo explica como o gerenciamento entre locatários funciona na central de segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
+Este artigo explica como funciona a gestão de inquilinos no Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Fortaleça sua postura de segurança com a central de segurança do Azure](security-center-monitoring.md) -saiba como monitorar a integridade dos recursos do Azure.
-* [Perguntas frequentes da central de segurança do Azure](security-center-faq.md) -encontre perguntas frequentes sobre como usar o serviço.
-* [Saiba mais sobre o Azure Lighthouse em cenários empresariais](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) – Descubra como o Azure Lighthouse pode simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.
+* [Fortaleça a sua postura de segurança com](security-center-monitoring.md) o Azure Security Center - Aprenda a monitorizar a saúde dos seus recursos Azure.
+* [Azure Security Center FAQ](faq-general.md) - Encontre perguntas frequentes sobre a utilização do serviço.
+* [Conheça o Farol Azure em cenários empresariais](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) - Descubra como o Farol Azure pode simplificar a gestão de inquilinos transversais dentro de uma empresa que utiliza vários inquilinos da Azure AD.

@@ -1,6 +1,6 @@
 ---
-title: Opções de cloud para dispositivo IoT Hub do Azure | Documentos da Microsoft
-description: Guia de desenvolvedor – documentação de orientação sobre quando utilizar métodos diretos, dispositivo duplo as propriedades pretendidas ou mensagens na cloud para o dispositivo para as comunicações da cloud para o dispositivo.
+title: Opções azure IoT Hub cloud-to-device [ Azure IoT Hub cloud-to-device] Microsoft Docs
+description: Guia de desenvolvedores - orientação sobre quando usar métodos diretos, propriedades de dispositivo sinuosas ou mensagens cloud-to-device para comunicações cloud-to-device.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -8,39 +8,39 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 4b738f34ae75478c0120832e7ad2b6a6a83dbf69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2ca9a167d50619ed2963b13515c0a772d712570
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61224783"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591273"
 ---
-# <a name="cloud-to-device-communications-guidance"></a>Orientações de comunicações da cloud para dispositivo
+# <a name="cloud-to-device-communications-guidance"></a>Orientação de comunicações cloud-to-device
 
-O IoT Hub fornece três opções para aplicações de dispositivos para expor a funcionalidade para uma aplicação de back-end:
+O IoT Hub oferece três opções para aplicações de dispositivos exporem funcionalidades a uma aplicação de back-end:
 
-* [Métodos diretos](iot-hub-devguide-direct-methods.md) para comunicações que necessitam de confirmação imediata do resultado. Os métodos diretos são frequentemente utilizados para controlo interativo de dispositivos como ativar um fã.
+* [Métodos diretos](iot-hub-devguide-direct-methods.md) para comunicações que requerem confirmação imediata do resultado. Os métodos diretos são frequentemente utilizados para o controlo interativo de dispositivos como ligar um ventilador.
 
-* [Propriedades pretendidas duplo](iot-hub-devguide-device-twins.md) para comandos de execução longa se destina a colocar o dispositivo numa determinada o estado pretendido. Por exemplo, defina o intervalo de envio de telemetria para 30 minutos.
+* As [propriedades desejadas pela Twin](iot-hub-devguide-device-twins.md) para comandos de longa duração destinados a colocar o dispositivo num certo estado desejado. Por exemplo, detete teto de telemetria enviar intervalo para 30 minutos.
 
-* [Mensagens da cloud para dispositivo](iot-hub-devguide-messages-c2d.md) para notificações unidirecionais para a aplicação de dispositivo.
+* [Mensagens cloud-to-device](iot-hub-devguide-messages-c2d.md) para notificações de ida para a aplicação do dispositivo.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Aqui está uma comparação detalhada das várias opções de comunicação de cloud-para-dispositivo.
+Aqui está uma comparação detalhada das várias opções de comunicação cloud-to-device.
 
-|  | Métodos diretos | Propriedades de pretendidas do duplo | Mensagens da cloud para dispositivo |
+|  | Métodos diretos | Propriedades desejadas de Twin | Mensagens da cloud para dispositivo |
 | ---- | ------- | ---------- | ---- |
-| Cenário | Comandos que necessitam de confirmação imediata, como ativar um fã. | Comandos de execução longa que se destina a colocar o dispositivo num determinado estado pretendido. Por exemplo, defina o intervalo de envio de telemetria para 30 minutos. | Obter notificações unidirecionais para a aplicação de dispositivo. |
-| Fluxo de dados | Bidirecional. A aplicação de dispositivo pode responder ao método imediatamente. A solução de back-end recebe o resultado contextualmente para o pedido. | Unidirecional. A aplicação de dispositivo recebe uma notificação com a alteração de propriedade. | Unidirecional. A aplicação de dispositivo recebe a mensagem
-| Durabilidade | Dispositivos desligados não estão a ser contactados. O back-end de solução é notificado de que o dispositivo não está ligado. | Valores de propriedade são mantidos no dispositivo duplo. Dispositivo será lê-lo no próximo restabelecimento de ligação. Valores de propriedade são recuperáveis com o [linguagem de consulta do IoT Hub](iot-hub-devguide-query-language.md). | As mensagens podem ser mantidas pelo IoT Hub até 48 horas. |
-| Destinos | Dispositivo único usando **deviceId**, ou múltiplos dispositivos usando [tarefas](iot-hub-devguide-jobs.md). | Dispositivo único usando **deviceId**, ou múltiplos dispositivos usando [tarefas](iot-hub-devguide-jobs.md). | Dispositivo único por **deviceId**. |
-| Tamanho | Tamanho de payload do método direto máximo é 128 KB. | Máximo pretendido do tamanho de propriedades é de 8 KB. | Até 64 KB mensagens. |
-| Frequência | Elevada. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). | Média. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). | Baixo. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). |
-| Protocol | Disponível com MQTT ou AMQP. | Disponível com MQTT ou AMQP. | Disponível em todos os protocolos. Dispositivo tem de inquirir ao utilizar o HTTPS. |
+| Cenário | Comandos que requerem confirmação imediata, como ligar um ventilador. | Comandos de longa duração destinados a colocar o dispositivo num certo estado desejado. Por exemplo, detete teto de telemetria enviar intervalo para 30 minutos. | Notificações de ida para a aplicação do dispositivo. |
+| Fluxo de dados | Nos dois sentidos. A aplicação do dispositivo pode responder imediatamente ao método. A solução de fundo recebe o resultado contexicamente ao pedido. | Só de ida. A aplicação do dispositivo recebe uma notificação com a alteração da propriedade. | Só de ida. A aplicação do dispositivo recebe a mensagem
+| Durabilidade | Os dispositivos desligados não são contactados. A extremidade traseira da solução é notificada de que o dispositivo não está ligado. | Os valores da propriedade são preservados no dispositivo twin. O dispositivo irá lê-lo na próxima reconexão. Os valores da propriedade são recuperáveis com a linguagem de [consulta IoT Hub.](iot-hub-devguide-query-language.md) | As mensagens podem ser retidas pelo IoT Hub até 48 horas. |
+| Alvos | Dispositivo único utilizando **dispositivoId**, ou vários dispositivos utilizando [trabalhos](iot-hub-devguide-jobs.md). | Dispositivo único utilizando **dispositivoId**, ou vários dispositivos utilizando [trabalhos](iot-hub-devguide-jobs.md). | Dispositivo único por **dispositivoId**. |
+| Tamanho | O tamanho máximo da carga direta do método é de 128 KB. | O tamanho máximo das propriedades desejadas é de 32 KB. | Até 64 mensagens KB. |
+| Frequência | Elevada. Para mais informações, consulte [os limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Média. Para mais informações, consulte [os limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Baixo. Para mais informações, consulte [os limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). |
+| Protocolo | Disponível através de MQTT ou AMQP. | Disponível através de MQTT ou AMQP. | Disponível em todos os protocolos. O dispositivo deve fazer sondagens ao utilizar HTTPS. |
 
-Saiba como utilizar métodos diretos, as propriedades pretendidas e mensagens da cloud para dispositivo nos tutoriais seguintes:
+Saiba como utilizar métodos diretos, propriedades desejadas e mensagens cloud-to-device nos seguintes tutoriais:
 
 * [Utilizar métodos diretos](quickstart-control-device-node.md)
-* [Utilize as propriedades pretendidas para configurar dispositivos](tutorial-device-twins.md) 
-* [Enviar mensagens da cloud para dispositivo](iot-hub-node-node-c2d.md)
+* [Utilize as propriedades desejadas para configurar dispositivos](tutorial-device-twins.md) 
+* [Enviar mensagens cloud-to-device](iot-hub-node-node-c2d.md)

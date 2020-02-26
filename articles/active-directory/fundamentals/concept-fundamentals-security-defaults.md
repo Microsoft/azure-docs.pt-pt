@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 023a52f373844e026de0e588e9cd46323abdcf34
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 73de446513915bbc5cba9d8b9cf23d08d18cc362
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149835"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585990"
 ---
 # <a name="what-are-security-defaults"></a>O que são incumprimentos de segurança?
 
@@ -29,7 +29,7 @@ A Microsoft está a disponibilizar falhas de segurança a todos. O objetivo é g
 ![Screenshot do portal Azure com o toggle para permitir falhas de segurança](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
 > [!TIP]
-> Se seu locatário foi criado em ou após 22 de outubro de 2019, é possível que você esteja experimentando o novo comportamento seguro por padrão e já tenha os padrões de segurança habilitados em seu locatário. Em um esforço para proteger todos os nossos usuários, os padrões de segurança estão sendo distribuídos para todos os novos locatários criados.
+> Se o seu inquilino foi criado em ou depois de 22 de outubro de 2019, é possível que esteja a experimentar o novo comportamento seguro por defeito e já tenha incumprimentos de segurança no seu inquilino. Num esforço para proteger todos os nossos utilizadores, os incumprimentos de segurança estão a ser lançados a todos os novos inquilinos criados.
 
 Mais detalhes sobre o porquê de falhas de segurança estarem a ser disponibilizadas podem ser encontrados no post de blog de Alex Weinert, [introduzindo incumprimentos](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414)de segurança .
 
@@ -95,7 +95,8 @@ Depois de ativar falhas de segurança no seu inquilino, qualquer utilizador que 
 
 Se o utilizador não estiver registado para autenticação multi-factor, o utilizador será obrigado a registar-se utilizando a aplicação Autenticadora Microsoft para proceder. Será fornecido o período de registo de autenticação multifactor de 14 dias.
 
-Os inquilinos do Exchange Online pré-2017 têm a autenticação moderna desativada por defeito. Para evitar a possibilidade de um laço de login ao autenticar através destes inquilinos, deve permitir a [autenticação moderna.](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)
+> [!NOTE]
+> Os inquilinos do Exchange Online pré-2017 têm a autenticação moderna desativada por defeito. Para evitar a possibilidade de um laço de login ao autenticar através destes inquilinos, deve permitir a [autenticação moderna.](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)
 
 > [!NOTE]
 > A conta de sincronização Azure AD Connect está excluída de incumprimentos de segurança e não será solicitada a registar-se ou a realizar a autenticação de vários fatores. As organizações não devem utilizar esta conta para outros fins.

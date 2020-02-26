@@ -3,12 +3,12 @@ title: Modelo de dados de logs do Azure Monitor
 description: Neste artigo, conheça os detalhes do modelo de dados Do Log Analytics do Azure Monitor para os dados de Backup Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 121117d20f5b9eb6e53da1b8884557fcfb46ff76
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: d14634c5e317682462e77e0549f064c75059f15c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501007"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586381"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics modelo de dados para dados de backup do Azure
 
@@ -18,7 +18,7 @@ Utilize o modelo de dados Log Analytics para criar alertas personalizados a part
 
 > [!NOTE]
 >
-> Este modelo de dados está em referência ao Modo de Diagnóstico Azure de enviar eventos de diagnóstico para Log Analytics (LA). Para conhecer o modelo de dados do novo Modo Específico de Recursos, pode consultar o seguinte artigo: Modelo de [dados para Eventos](https://aka.ms/diagnosticsdatamodel) de Diagnóstico de Backup Azure
+> Este modelo de dados está em referência ao Modo de Diagnóstico Azure de enviar eventos de diagnóstico para Log Analytics (LA). Para conhecer o modelo de dados do novo Modo Específico de Recursos, pode consultar o seguinte artigo: Modelo de [dados para Eventos](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) de Diagnóstico de Backup Azure
 
 ## <a name="using-azure-backup-data-model"></a>Utilização do modelo de dados de backup Azure
 
@@ -35,9 +35,9 @@ Esta tabela fornece detalhes sobre campos relacionados com alerta.
 | AlertStatus_s |Texto |Estado do alerta, por exemplo, Ativo |
 | AlertOccurrenceDateTime_s |Data/hora |Data e hora em que o alerta foi criado |
 | AlertSeverity_s |Texto |Gravidade do alerta, por exemplo, Crítico |
-|AlertTimeToResolveInMinutes_s    | Número        |Tempo necessário para resolver um alerta. Em branco para alertas ativos.         |
+|AlertTimeToResolveInMinutes_s    | Number        |Tempo necessário para resolver um alerta. Em branco para alertas ativos.         |
 |AlertConsolidationStatus_s   |Texto         |Identifique se o alerta é um alerta consolidado ou não         |
-|CountOfAlertsConsolidated_s     |Número         |Número de alertas consolidados se se trata de um alerta consolidado          |
+|CountOfAlertsConsolidated_s     |Number         |Número de alertas consolidados se se trata de um alerta consolidado          |
 |AlertRaisedOn_s     |Texto         |Tipo de entidade em que o alerta é levantado         |
 |AlertCode_s     |Texto         |Código para identificar exclusivamente um tipo de alerta         |
 |RecommendedAction_s   |Texto         |Ação recomendada para resolver o alerta         |
@@ -155,8 +155,8 @@ Esta tabela fornece detalhes sobre campos relacionados com o trabalho.
 | JobStartDateTime_s |Data/hora |Data e hora quando o trabalho começou a funcionar |
 | BackupStorageDestination_s |Texto |Destino de armazenamento de backup, por exemplo, Cloud, Disk  |
 | AdHocOrScheduledJob_s |Texto | Campo para especificar se o trabalho é Ad Hoc ou Agendado |
-| JobDurationInSecs_s | Número |Duração total do trabalho em segundos |
-| DataTransferredInMB_s | Número |Dados transferidos em MB para este trabalho|
+| JobDurationInSecs_s | Number |Duração total do trabalho em segundos |
+| DataTransferredInMB_s | Number |Dados transferidos em MB para este trabalho|
 | JobUniqueId_g |Texto |Identificação única para identificar o trabalho |
 | RecoveryJobDestination_s |Texto | Destino de um trabalho de recuperação, onde os dados são recuperados |
 | RecoveryJobRPDateTime_s |DateTime | A data, hora em que o ponto de recuperação que está sendo recuperado foi criado |
@@ -297,8 +297,8 @@ Esta tabela fornece campos básicos relacionados com o armazenamento que ligam o
 | BackupItemUniqueId_s |Texto |Id único usado para identificar o item de backup relacionado com a entidade de armazenamento |
 | BackupManagementServerUniqueId_s |Texto |ID único usado para identificar o servidor de gestão de backup relacionado com a entidade de armazenamento|
 | VaultUniqueId_s |Texto |Identificação única usada para identificar o cofre relacionado com a entidade de armazenamento|
-| StorageConsumedInMBs_s |Número|Tamanho do armazenamento consumido pelo produto de reserva correspondente no armazenamento correspondente |
-| StorageAllocatedInMBs_s |Número |Tamanho do armazenamento atribuído pelo produto de reserva correspondente no armazenamento correspondente do tipo Disk|
+| StorageConsumedInMBs_s |Number|Tamanho do armazenamento consumido pelo produto de reserva correspondente no armazenamento correspondente |
+| StorageAllocatedInMBs_s |Number |Tamanho do armazenamento atribuído pelo produto de reserva correspondente no armazenamento correspondente do tipo Disk|
 
 ### <a name="vault"></a>Cofre
 
@@ -460,6 +460,6 @@ Abaixo estão algumas amostras para ajudá-lo a escrever consultas sobre os dado
     | project-away Resource
     ````
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que rever o modelo de dados, pode começar a [criar consultas personalizadas](../azure-monitor/learn/tutorial-logs-dashboards.md) em registos do Monitor Azure para construir o seu próprio dashboard.

@@ -1,83 +1,83 @@
 ---
-title: Configurar Azure AD B2C como um IdP do SAML para seus aplicativos
+title: Configure Azure AD B2C como um IdP SAML para as suas aplicações
 title-suffix: Azure AD B2C
-description: Como configurar Azure AD B2C para fornecer asserções de protocolo SAML para seus aplicativos (provedores de serviço). Azure AD B2C atuará como o IdP (provedor de identidade única) para seu aplicativo SAML.
+description: Como configurar o Azure AD B2C para fornecer afirmações protocolares SAML às suas aplicações (prestadores de serviços). O Azure AD B2C funcionará como o fornecedor de identidade única (IdP) à sua aplicação SAML.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09c704237e3c1fde8a7591d610d1b801dd016c46
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7ccc5fe314d49ea65aaa8750937170ab79a8c04f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836665"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581468"
 ---
-# <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar um aplicativo SAML no Azure AD B2C
+# <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registe uma aplicação SAML no Azure AD B2C
 
-Neste artigo, você aprenderá a configurar o Azure Active Directory B2C (Azure AD B2C) para atuar como um provedor de identidade (IdP) Security Assertion Markup Language (SAML) para seus aplicativos.
+Neste artigo, aprende a configurar o Azure Ative Directory B2C (Azure AD B2C) para atuar como fornecedor de identidade de Marcação de Afirmação de Segurança (SAML) nas suas aplicações.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="scenario-overview"></a>Descrição geral do cenário
 
-As organizações que usam Azure AD B2C como sua solução de gerenciamento de acesso e identidade do cliente podem exigir interação com provedores de identidade ou aplicativos configurados para autenticar usando o protocolo SAML.
+As organizações que utilizam o Azure AD B2C como a sua identidade de cliente e solução de gestão de acesso podem exigir interação com fornecedores de identidade ou aplicações configuradas para autenticar usando o protocolo SAML.
 
-Azure AD B2C Obtém a interoperabilidade SAML de uma das duas maneiras:
+Azure AD B2C obtém interoperabilidade SAML de uma de duas formas:
 
-* Agindo como um IDP ( *provedor de identidade* ) e obter SSO (logon único) com provedores de serviços baseados em SAML (seus aplicativos)
-* Agindo como um *provedor de serviços* (SP) e interagir com provedores de identidade baseados em SAML, como SALESFORCE e ADFS
+* Atuando como fornecedor de *identidade* (IdP) e alcançando um único sign-on (SSO) com prestadores de serviços baseados em SAML (as suas aplicações)
+* Atuando como prestador de *serviços* (SP) e interagindo com fornecedores de identidade baseados na SAML, como a Salesforce e a ADFS
 
-![Diagrama com B2C como provedor de identidade à esquerda e B2C como provedor de serviços à direita](media/saml-identity-provider/saml-idp-diagram-01.jpg)
+![Diagrama com B2C como fornecedor de identidade à esquerda e B2C como prestador de serviços à direita](media/saml-identity-provider/saml-idp-diagram-01.jpg)
 
-Resumindo os dois cenários de núcleo não exclusivos com SAML:
+Resumindo os dois cenários centrais não exclusivos com a SAML:
 
-| Cenário | Azure AD B2C função | Procedimento |
+| Cenário | Função Azure AD B2C | Procedimentos |
 | -------- | ----------------- | ------- |
-| Meu aplicativo espera que uma Asserção SAML conclua uma autenticação. | **Azure AD B2C atua como o IdP (provedor de identidade)**<br />Azure AD B2C atua como um IdP do SAML para os aplicativos. | Este artigo. |
-| Meus usuários precisam de logon único com um provedor de identidade compatível com SAML, como ADFS, Salesforce ou Shibboleth.  | **Azure AD B2C atua como o provedor de serviços (SP)**<br />Azure AD B2C atua como um provedor de serviços ao se conectar ao provedor de identidade SAML. É um proxy de federação entre seu aplicativo e o provedor de identidade SAML.  | <ul><li>[Configurar a entrada com o ADFS como um IdP do SAML usando políticas personalizadas](identity-provider-adfs2016-custom.md)</li><li>[Configurar a entrada com um provedor SAML do Salesforce usando políticas personalizadas](identity-provider-salesforce-custom.md)</li></ul> |
+| A minha aplicação espera que uma afirmação da SAML complete uma autenticação. | **Azure AD B2C atua como fornecedor de identidade (IdP)**<br />O Azure AD B2C atua como um IdP SAML para as aplicações. | Este artigo. |
+| Os meus utilizadores precisam de um único sinal com um fornecedor de identidade compatível com a SAML, como a ADFS, a Salesforce ou a Shibboleth.  | **O Azure AD B2C atua como prestador de serviços (SP)**<br />O Azure AD B2C atua como prestador de serviços ao ligar-se ao fornecedor de identidade SAML. É um representante da federação entre a sua candidatura e o fornecedor de identidade SAML.  | <ul><li>[Configurar o início de sessão com a ADFS como um IdP SAML utilizando políticas personalizadas](identity-provider-adfs2016-custom.md)</li><li>[Configurar o início de sessão com um fornecedor SAML Salesforce utilizando políticas personalizadas](identity-provider-salesforce-custom.md)</li></ul> |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua as etapas em introdução [às políticas personalizadas no Azure ad B2C](custom-policy-get-started.md). Você precisa da política personalizada *SocialAndLocalAccounts* do pacote de início de política personalizada abordado no artigo.
-* Noções básicas sobre o protocolo SAML (Security Assertion Markup Language).
-* Um aplicativo Web configurado como um provedor de serviços SAML (SP). Para este tutorial, você pode usar um [aplicativo de teste do SAML][samltest] que fornecemos.
+* Complete os passos em [Get started com políticas personalizadas em Azure AD B2C](custom-policy-get-started.md). Você precisa da política personalizada *SocialAndLocalAccounts* do pacote de iniciação de política personalizada discutido no artigo.
+* Compreensão básica do protocolo de linguagem de marcação de afirmação de segurança (SAML).
+* Uma aplicação web configurada como prestador de serviços SAML (SP). Para este tutorial, pode utilizar uma aplicação de [teste SAML][samltest] que fornecemos.
 
 ## <a name="components-of-the-solution"></a>Componentes da solução
 
-Há três componentes principais necessários para este cenário:
+São necessários três componentes principais para este cenário:
 
-* O **provedor de serviços** SAML com a capacidade de enviar solicitações SAML e receber, decodificar e responder a asserções saml de Azure ad B2C. Isso também é conhecido como a terceira parte confiável.
-* **Ponto de extremidade de metadados** SAML disponível publicamente para seu provedor de serviços.
-* [Azure AD B2C locatário](tutorial-create-tenant.md)
+* Prestador de **serviços** SAML com a capacidade de enviar pedidos SAML, receber, descodificar e responder às afirmações da SAML do Azure AD B2C. Isto também é conhecido como o partido que confia.
+* Ponto final de **metadados** SAML disponível publicamente para o seu prestador de serviços.
+* [Inquilino Azure AD B2C](tutorial-create-tenant.md)
 
-Se você ainda não tiver um provedor de serviços SAML e um ponto de extremidade de metadados associado, poderá usar este aplicativo SAML de exemplo que disponibilizamos para teste:
+Se ainda não tiver um prestador de serviços SAML e um ponto final de metadados associados, pode utilizar esta aplicação SAML da amostra que disponibilizámos para testes:
 
-[Aplicativo de teste do SAML][samltest]
+[Aplicação de teste SAML][samltest]
 
-## <a name="1-set-up-certificates"></a>1. configurar certificados
+## <a name="1-set-up-certificates"></a>1. Configurar certificados
 
-Para criar uma relação de confiança entre seu provedor de serviços e Azure AD B2C, você precisa fornecer certificados X509 e suas chaves privadas.
+Para construir uma relação de confiança entre o seu prestador de serviços e o Azure AD B2C, é necessário fornecer certificados X509 e suas chaves privadas.
 
-* **Certificados do provedor de serviços**
-  * Certificado com uma chave privada armazenada em seu aplicativo Web. Esse certificado é usado pelo seu provedor de serviços para assinar a solicitação SAML enviada para Azure AD B2C. Azure AD B2C lê a chave pública dos metadados do provedor de serviços para validar a assinatura.
-  * Adicional Certificado com uma chave privada armazenada em seu aplicativo Web. Azure AD B2C lê a chave pública dos metadados do provedor de serviços para criptografar a Asserção SAML. Em seguida, o provedor de serviço usa a chave privada para descriptografar a asserção.
-* **Azure AD B2C certificados**
-  * Certificado com uma chave privada em Azure AD B2C. Esse certificado é usado pelo Azure AD B2C para assinar a resposta SAML enviada ao seu provedor de serviços. Seu provedor de serviços lê a chave pública de metadados Azure AD B2C para validar a assinatura da resposta SAML.
+* **Certificados de prestador de serviços**
+  * Certificado com chave privada armazenada na sua Web App. Este certificado é utilizado pelo seu prestador de serviços para assinar o pedido DaSL enviado ao Azure AD B2C. O Azure AD B2C lê a chave pública dos metadados do prestador de serviços para validar a assinatura.
+  * (Opcional) Certificado com chave privada armazenada na sua Web App. O Azure AD B2C lê a chave pública dos metadados do prestador de serviços para encriptar a afirmação do SAML. O prestador de serviços utiliza então a chave privada para desencriptar a afirmação.
+* **Certificados Azure AD B2C**
+  * Certificado com chave privada em Azure AD B2C. Este certificado é utilizado pelo Azure AD B2C para assinar a resposta SAML enviada ao seu prestador de serviços. O seu prestador de serviços lê a chave pública de metadados Azure AD B2C para validar a assinatura da resposta SAML.
 
-Você pode usar um certificado emitido por uma autoridade de certificação pública ou, para este tutorial, um certificado autoassinado.
+Pode utilizar um certificado emitido por uma autoridade de certificados públicos ou, para este tutorial, um certificado auto-assinado.
 
-### <a name="11-prepare-a-self-signed-certificate"></a>1,1 preparar um certificado autoassinado
+### <a name="11-prepare-a-self-signed-certificate"></a>1.1 Preparar um certificado auto-assinado
 
-Se você ainda não tiver um certificado, poderá usar um certificado autoassinado para este tutorial. No Windows, você pode usar o cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) do PowerShell para gerar um certificado.
+Se ainda não tiver um certificado, pode usar um certificado auto-assinado para este tutorial. No Windows, pode utilizar o cmdlet [New SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) da PowerShell para gerar um certificado.
 
-1. Execute este comando do PowerShell para gerar um certificado autoassinado. Modifique o argumento `-Subject` conforme apropriado para seu aplicativo e Azure AD B2C nome do locatário. Você também pode ajustar a data de `-NotAfter` para especificar uma expiração diferente para o certificado.
+1. Execute este comando PowerShell para gerar um certificado auto-assinado. Modifique o argumento `-Subject` conforme apropriado para a sua candidatura e nome de inquilino Azure AD B2C. Também pode ajustar a data `-NotAfter` para especificar uma expiração diferente para o certificado.
 
     ```PowerShell
     New-SelfSignedCertificate `
@@ -90,36 +90,36 @@ Se você ainda não tiver um certificado, poderá usar um certificado autoassina
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```
 
-1. Abrir **gerenciar certificados de usuário** > **usuário atual** > **certificados** de > **pessoais** > *yourappname.yourtenant.onmicrosoft.com*
-1. Selecione a **ação** de > de certificado > **todas as tarefas** > **Exportar**
-1. Selecione **sim** > **próximo** > **Sim, exportar a chave privada** > **Avançar**
-1. Aceitar os padrões para o **formato de arquivo de exportação**
-1. Forneça uma senha para o certificado
+1. **Open Manage certificados** de utilizador > **Atual Utilizador** > **Certificados** de > **Pessoais** > *yourappname.yourtenant.onmicrosoft.com*
+1. Selecione o certificado > **Action** > **todas as tarefas** > **Exportação**
+1. **Selecione Yes** > **Next** > **Yes, exporte a chave privada** > **Seguinte**
+1. Aceitar os incumprimentos do formato de ficheiro de **exportação**
+1. Fornecer uma senha para o certificado
 
-### <a name="12-upload-the-certificate"></a>1,2 carregar o certificado
+### <a name="12-upload-the-certificate"></a>1.2 Carregar o certificado
 
-Em seguida, carregue a declaração SAML e o certificado de assinatura de resposta para Azure AD B2C.
+Em seguida, faça o upload do certificado de assinatura de afirmação e resposta SAML para O Azure AD B2C.
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o locatário do Azure ad B2C.
-1. Em **políticas**, selecione **estrutura de experiência de identidade** e **chaves de política**.
-1. Selecione **Adicionar**e, em seguida, selecione **Opções** > **carregar**.
-1. Insira um **nome**, por exemplo *SamlIdpCert*. O prefixo *B2C_1A_* é automaticamente adicionado ao nome da sua chave.
-1. Carregue seu certificado usando o controle carregar arquivo.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue ao seu inquilino Azure AD B2C.
+1. No âmbito **das Políticas,** selecione Quadro de **Experiência de Identidade** e, em **seguida, teclas políticas**.
+1. **Selecione Adicionar**, e, em seguida, selecione **Opções** > **carregar**.
+1. Introduza um **nome**, por *exemplo, SamlIdpCert*. O prefixo *B2C_1A_* é automaticamente adicionado ao nome da sua chave.
+1. Faça upload do seu certificado utilizando o controlo de ficheiros de upload.
 1. Insira a senha do certificado.
 1. Selecione **Criar**.
 1. Verifique se a chave aparece como esperado. Por exemplo, *B2C_1A_SamlIdpCert.*
 
-## <a name="2-prepare-your-policy"></a>2. Prepare sua política
+## <a name="2-prepare-your-policy"></a>2. Prepare a sua política
 
-### <a name="21-create-the-saml-token-issuer"></a>2,1 criar o emissor do token SAML
+### <a name="21-create-the-saml-token-issuer"></a>2.1 Criar o emitente de token SAML
 
-Agora, adicione a capacidade do seu locatário para emitir tokens SAML.
+Agora, adicione a capacidade para o seu inquilino emitir fichas SAML.
 
-Abra `SocialAndLocalAccounts\` **`TrustFrameworkExtensions.xml`** no pacote de início de política personalizada.
+Abra `SocialAndLocalAccounts\` **`TrustFrameworkExtensions.xml`** no pacote de iniciação de política personalizada.
 
-Localize a seção `<ClaimsProviders>` e adicione o trecho de código XML a seguir.
+Localize a secção `<ClaimsProviders>` e adicione o seguinte corte XML.
 
-Você pode alterar o valor dos metadados de `IssuerUri`. Esse é o URI do emissor que é retornado na resposta SAML de Azure AD B2C. Seu aplicativo de terceira parte confiável deve ser configurado para aceitar um URI de emissor durante a validação de Asserção SAML.
+Pode alterar o valor dos metadados `IssuerUri`. Este é o emitente URI que é devolvido na resposta SAML do Azure AD B2C. A sua aplicação de parte de base deve ser configurada para aceitar um emitente URI durante a validação da afirmação do SAML.
 
 ```XML
 <ClaimsProvider>
@@ -155,15 +155,15 @@ Você pode alterar o valor dos metadados de `IssuerUri`. Esse é o URI do emisso
 </ClaimsProvider>
 ```
 
-## <a name="3-add-the-saml-relying-party-policy"></a>3. adicionar a política de terceira parte confiável SAML
+## <a name="3-add-the-saml-relying-party-policy"></a>3. Adicione a política partidária de base saml
 
-Agora que seu locatário pode emitir asserções SAML, você precisa criar a política de terceira parte confiável SAML e modificar o percurso do usuário para que ele emita uma Asserção SAML em vez de um JWT.
+Agora que o seu inquilino pode emitir afirmações saml, você precisa criar a política do partido de base SAML, e modificar a jornada do utilizador para que emita uma afirmação SAML em vez de um JWT.
 
-### <a name="31-create-sign-up-or-sign-in-policy"></a>3,1 criar política de inscrição ou entrada
+### <a name="31-create-sign-up-or-sign-in-policy"></a>3.1 Criar política de inscrição ou inscrição
 
-1. Crie uma cópia do arquivo *SignUpOrSignin. xml* no diretório de trabalho do pacote inicial e salve-o com um novo nome. Por exemplo, *SignUpOrSigninSAML. xml*. Este é o arquivo de política de terceira parte confiável.
+1. Crie uma cópia do ficheiro *SignUpOrSignin.xml* no seu diretório de trabalho de pack inicial e guarde-o com um novo nome. Por exemplo, *SignUpOrSigninSAML.xml*. Este é o seu arquivo político do partido.
 
-1. Abra o arquivo *SignUpOrSigninSAML. xml* em seu editor preferido.
+1. Abra o ficheiro *SignUpOrSigninSAML.xml* no seu editor preferido.
 
 1. Mude a `PolicyId` e `PublicPolicyUri` da política para _B2C_1A_signup_signin_saml_ e `http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml` como se vê abaixo.
 
@@ -178,7 +178,7 @@ Agora que seu locatário pode emitir asserções SAML, você precisa criar a pol
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Adicione o seguinte trecho XML logo antes do elemento `<RelyingParty>`. Esse XML substitui o número 7 da etapa de orquestração da jornada do usuário _SignUpOrSignIn_ . Se você iniciou a partir de uma pasta diferente no pacote de início, ou personalizado o percurso do usuário adicionando ou removendo etapas de orquestração, verifique se o número (no elemento `order`) está alinhado com aquele especificado no percurso do usuário para a etapa do emissor do token (por exemplo, nas outras pastas do pacote de início, é a etapa 4 da `LocalAccounts`, 6 para `SocialAccounts` e 9 para `SocialAndLocalAccountsWithMfa`).
+1. Adicione o seguinte corte XML pouco antes do elemento `<RelyingParty>`. Este XML substitui a etapa de orquestração número 7 da jornada de utilizador _SignUpOrSignIn._ Se tiver começado a partir de uma pasta diferente no pacote de arranque, ou personalizar a sua jornada de utilizador adicionando ou removendo passos de orquestração, certifique-se de que o número (no elemento `order`) está alinhado com o especificado na viagem do utilizador para o passo do emitente do token (por exemplo, nas outras pastas de arranque é passo 4 para `LocalAccounts`, 6 para `SocialAccounts` e 9 para `SocialAndLocalAccountsWithMfa`).
 
     ```XML
     <UserJourneys>
@@ -190,7 +190,7 @@ Agora que seu locatário pode emitir asserções SAML, você precisa criar a pol
     </UserJourneys>
     ```
 
-1. Substitua todo o elemento `<TechnicalProfile>` no elemento `<RelyingParty>` pelo seguinte XML de perfil técnico.
+1. Substitua todo o elemento `<TechnicalProfile>` no elemento `<RelyingParty>` pelo perfil técnico XML seguinte.
 
     ```XML
     <TechnicalProfile Id="PolicyProfile">
@@ -208,9 +208,9 @@ Agora que seu locatário pode emitir asserções SAML, você precisa criar a pol
     </TechnicalProfile>
     ```
 
-1. Atualize `tenant-name` com o nome do seu locatário Azure AD B2C.
+1. Atualização `tenant-name` com o nome do seu inquilino Azure AD B2C.
 
-O arquivo de política de terceira parte confiável final deve ser semelhante ao seguinte:
+O seu ficheiro político do partido de base final deve parecer o seguinte:
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -255,62 +255,62 @@ O arquivo de política de terceira parte confiável final deve ser semelhante ao
 </TrustFrameworkPolicy>
 ```
 
-### <a name="32-upload-and-test-your-policy-metadata"></a>3,2 carregar e testar seus metadados de política
+### <a name="32-upload-and-test-your-policy-metadata"></a>3.2 Carregar e testar os metadados da sua política
 
-Salve as alterações e carregue o novo arquivo de política. Depois de carregar ambas as políticas (a extensão e os arquivos de terceira parte confiável), abra um navegador da Web e navegue até os metadados da política.
+Guarde as suas alterações e carregue o novo ficheiro de política. Depois de ter carregado ambas as políticas (a extensão e os ficheiros do partido que dependem), abra um navegador web e navegue para os metadados da política.
 
-Os metadados da política de Azure AD B2C estão disponíveis na URL a seguir. Substitua `tenant-name` pelo nome do seu locatário do Azure AD B2C e `policy-name` pelo nome (ID) da política:
+Os metadados IDP da política Azure AD B2C são informações utilizadas no protocolo SAML para expor a configuração de um fornecedor de identidade SAML. Os metadados definem a localização dos serviços, tais como inscrição e inscrição, certificados, método de inscrição e muito mais. Os metadados da política Azure AD B2C estão disponíveis no seguinte URL. Substitua `tenant-name` pelo nome do seu inquilino Azure AD B2C e `policy-name` com o nome (ID) da apólice:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
-Sua política personalizada e o locatário de Azure AD B2C agora estão prontos. Em seguida, crie um registro de aplicativo no Azure AD B2C.
+Sua política personalizada e inquilino Azure AD B2C estão agora prontos. Em seguida, crie um registo de candidatura no Azure AD B2C.
 
-## <a name="4-setup-application-in-the-azure-ad-b2c-directory"></a>4. aplicativo de instalação no diretório Azure AD B2C
+## <a name="4-setup-application-in-the-azure-ad-b2c-directory"></a>4. Aplicação de configuração no Diretório Azure AD B2C
 
-### <a name="41-register-your-application-in-azure-active-directory"></a>4,1 registrar seu aplicativo no Azure Active Directory
+### <a name="41-register-your-application-in-azure-active-directory"></a>4.1 Registe a sua candidatura no Diretório Ativo do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
-1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione **novo registro**.
-1. Insira um **nome** para o aplicativo. Por exemplo, *SAMLApp1*.
-1. Em **tipos de conta com suporte**, selecione **contas neste diretório organizacional somente**
-1. Em **URI de redirecionamento**, selecione **Web**e, em seguida, insira `https://localhost`. Você modificará esse valor posteriormente no manifesto do registro do aplicativo.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
+1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
+1. Selecione **registos de aplicativos (Pré-visualização)** e, em seguida, selecione **Nova inscrição**.
+1. Insira um **Nome** para a aplicação. Por exemplo, *SAMLApp1*.
+1. Sob os tipos de **conta suportada,** selecione **Contas apenas neste diretório organizacional**
+1. Em **Redirecione o URI,** selecione **Web**e, em seguida, introduza `https://localhost`. Modifica este valor mais tarde no manifesto do registo de candidaturas.
 1. Selecione **o consentimento do administrador grant para permissões abertas e offline_access**.
 1. Selecione **Registar**.
 
-### <a name="42-update-the-app-manifest"></a>4,2 atualizar o manifesto do aplicativo
+### <a name="42-update-the-app-manifest"></a>4.2 Atualizar o manifesto da aplicação
 
-Para aplicativos SAML, há várias propriedades que você precisa configurar no manifesto do registro do aplicativo.
+Para aplicações SAML, existem várias propriedades que precisa de configurar no manifesto do registo de aplicações.
 
-1. No [portal do Azure](https://portal.azure.com), navegue até o registro do aplicativo que você criou na seção anterior.
-1. Em **gerenciar**, selecione **manifesto** para abrir o editor de manifesto. Você modifica várias propriedades nas seções a seguir.
+1. No [portal Azure,](https://portal.azure.com)navegue para o registo de candidatura que criou na secção anterior.
+1. Under **Manage**, selecione **Manifesto** para abrir o editor manifesto. Modifica várias propriedades nas seguintes secções.
 
-#### <a name="identifieruris"></a>identifierUris
+#### <a name="identifieruris"></a>identificadorUris
 
-O `identifierUris` é uma coleção de cadeia de caracteres que contém os URIS definidos pelo usuário que identificam exclusivamente um aplicativo Web dentro de seu locatário Azure AD B2C. Seu provedor de serviços deve definir esse valor no elemento `Issuer` de uma solicitação SAML.
+O `identifierUris` é uma coleção de cordas que contém URI(s) definidos pelo utilizador que identifica uma aplicação Web exclusivamente dentro do seu inquilino Azure AD B2C. O seu prestador de serviços deve definir este valor no elemento `Issuer` de um pedido SAML.
 
 #### <a name="samlmetadataurl"></a>samlMetadataUrl
 
-Essa propriedade representa a URL de metadados publicamente disponível do provedor de serviços. A URL de metadados pode apontar para um arquivo de metadados carregado para qualquer ponto de extremidade acessível anonimamente, por exemplo, armazenamento de BLOBs.
+Esta propriedade representa o URL de metadados disponível publicamente pelo fornecedor de serviços. O URL de metadados pode apontar para um ficheiro de metadados enviado para qualquer ponto final acessível anonimamente, por exemplo, armazenamento de blob.
 
-Os metadados são informações usadas no protocolo SAML para expor a configuração de uma entidade SAML, como um provedor de serviços. Os metadados definem o local dos serviços, como entrada e saída, certificados, método de entrada e muito mais. Azure AD B2C lê os metadados do provedor de serviços e age de acordo. Os metadados não são necessários. Você também pode especificar alguns atributos, como o URI de resposta e o URI de logout diretamente no manifesto do aplicativo.
+Os metadados são informações utilizadas no protocolo SAML para expor a configuração de uma parte SAML, como um prestador de serviços. Os metadados definem a localização dos serviços como inscrição e inscrição, certificados, método de inscrição e muito mais. O Azure AD B2C lê os metadados do prestador de serviços e atua em conformidade. Os metadados não são necessários. Também pode especificar alguns atributos como a resposta URI e logout URI diretamente no manifesto da aplicação.
 
-Se houver propriedades *especificadas na URL* de metadados SAML e no manifesto do registro do aplicativo, elas serão **mescladas**. As propriedades especificadas na URL de metadados são processadas primeiro e têm precedência.
+Se existirem propriedades especificadas *tanto* no URL de metadados SAML como no manifesto do registo de aplicação, são **fundidas**. As propriedades especificadas no URL dos metadados são processadas primeiro e têm precedência.
 
-Para este tutorial que usa o aplicativo de teste do SAML, use o seguinte valor para `samlMetadataUrl`:
+Para este tutorial que utiliza a aplicação de teste SAML, utilize o seguinte valor para `samlMetadataUrl`:
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
-#### <a name="replyurlswithtype-optional"></a>replyUrlsWithType (opcional)
+#### <a name="replyurlswithtype-optional"></a>respostaUrlsWithType (Opcional)
 
-Se você não fornecer um URI de metadados, poderá especificar explicitamente a URL de resposta. Essa propriedade opcional representa o `AssertionConsumerServiceUrl` (`SingleSignOnService` URL nos metadados do provedor de serviços) e o `BindingType` é considerado `HTTP POST`.
+Se não fornecer um URI de metadados, pode especificar explicitamente o URL de resposta. Esta propriedade opcional representa o `AssertionConsumerServiceUrl` (URL`SingleSignOnService` nos metadados do prestador de serviços) e o `BindingType` é assumido como `HTTP POST`.
 
-Se você optar por configurar a URL de resposta e a URL de logout no manifesto do aplicativo sem usar os metadados do provedor de serviço, Azure AD B2C não validará a assinatura de solicitação SAML nem criptografará a resposta SAML.
+Se optar por configurar o URL de resposta e iniciar sessão no manifesto de aplicação sem utilizar os metadados do prestador de serviços, o Azure AD B2C não validará a assinatura de pedido saml nem encriptará a resposta SAML.
 
-Para este tutorial, no qual você usa o aplicativo de teste do SAML, defina a propriedade `url` de `replyUrlsWithType` como o valor mostrado no trecho de JSON a seguir.
+Para este tutorial, no qual utiliza a aplicação de teste SAML, delineie a propriedade `url` de `replyUrlsWithType` ao valor mostrado no seguinte corte JSON.
 
 ```JSON
 "replyUrlsWithType":[
@@ -321,62 +321,62 @@ Para este tutorial, no qual você usa o aplicativo de teste do SAML, defina a pr
 ],
 ```
 
-#### <a name="logouturl-optional"></a>logoutUrl (opcional)
+#### <a name="logouturl-optional"></a>logoutUrl (Opcional)
 
-Essa propriedade opcional representa a URL de `Logout` (`SingleLogoutService` URL nos metadados de terceira parte confiável) e o `BindingType` para isso é considerado `Http-Redirect`.
+Esta propriedade opcional representa o URL `Logout` ( URL`SingleLogoutService` nos metadados partidários), e o `BindingType` para isso é assumido como `Http-Redirect`.
 
-Para este tutorial que usa o aplicativo de teste do SAML, deixe `logoutUrl` definido como `https://samltestapp2.azurewebsites.net/logout`:
+Para este tutorial que utiliza a aplicação de teste SAML, deixe `logoutUrl` definido para `https://samltestapp2.azurewebsites.net/logout`:
 
 ```JSON
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
 ```
 
-## <a name="5-update-your-application-code"></a>5. atualizar o código do aplicativo
+## <a name="5-update-your-application-code"></a>5. Atualizar o seu código de candidatura
 
-A última etapa é habilitar Azure AD B2C como um IdP SAML em seu aplicativo de terceira parte confiável SAML. Cada aplicativo é diferente e as etapas para fazer isso variam. Consulte a documentação do aplicativo para obter detalhes.
+O último passo é ativar o Azure AD B2C como um IdP SAML na sua aplicação de partido fiada saml. Cada aplicação é diferente e os passos para fazê-lo variam. Consulte a documentação da sua aplicação para obter mais detalhes.
 
-Algumas ou todas as seguintes são normalmente necessárias:
+Alguns ou todos os seguintes são normalmente necessários:
 
 * **Metadados**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Emissor**: `https://tenant-name.onmicrosoft.com/policy-name`
-* **URL de logon/ponto de extremidade SAML/URL SAML**: Verifique o valor no arquivo de metadados
+* **Emitente**: `https://tenant-name.onmicrosoft.com/policy-name`
+* **Url de login/saml endpoint/Url SAML**: Verifique o valor no ficheiro de metadados
 * **Certificado**: Este é *B2C_1A_SamlIdpCert,* mas sem a chave privada. Para obter a chave pública do certificado:
 
-    1. Vá para a URL de metadados especificada acima.
+    1. Vá ao URL dos metadados acima especificado.
     1. Copie o valor no elemento `<X509Certificate>`.
-    1. Cole-o em um arquivo de texto.
-    1. Salve o arquivo de texto como um arquivo *. cer* .
+    1. Cola-o num ficheiro de texto.
+    1. Guarde o ficheiro de texto como ficheiro *.cer.*
 
-### <a name="51-test-with-the-saml-test-app-optional"></a>5,1 teste com o aplicativo de teste do SAML (opcional)
+### <a name="51-test-with-the-saml-test-app-optional"></a>5.1 Teste com a aplicação de teste SAML (opcional)
 
-Para concluir este tutorial usando nosso [aplicativo de teste do SAML][samltest]:
+Para completar este tutorial utilizando a nossa [Aplicação de Teste SAML:][samltest]
 
-* Atualizar o nome do locatário
+* Atualize o nome do inquilino
 * Atualizar o nome da política, por *exemplo, B2C_1A_signup_signin_saml*
-* Especifique este URI do emissor: `https://contoso.onmicrosoft.com/app-name`
+* Especifique este emitente URI: `https://contoso.onmicrosoft.com/app-name`
 
-Selecione **logon** e você deverá receber uma tela de entrada do usuário final. Após a entrada, uma Asserção SAML é emitida de volta para o aplicativo de exemplo.
+Selecione **Login** e deverá ser apresentado com um ecrã de início de sessão do utilizador final. Após o inessão, uma afirmação SAML é emitida de volta para o pedido de amostra.
 
 ## <a name="sample-policy"></a>Política de exemplo
 
-Fornecemos uma política de exemplo completa que você pode usar para testar com o aplicativo de teste do SAML.
+Fornecemos uma política completa de amostras que pode utilizar para testar com a App de Teste SAML.
 
-1. Baixar a [política de exemplo de logon iniciada pelo SAML-SP](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
-1. Atualize `TenantId` para corresponder ao nome do locatário, por exemplo *contoso.b2clogin.com*
+1. Descarregue a [política de amostrade login iniciada pela SAML-SP](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
+1. Atualize `TenantId` para combinar com o nome do seu inquilino, por exemplo *contoso.b2clogin.com*
 1. Mantenha o nome da política de *B2C_1A_SAML2_signup_signin*
 
-## <a name="supported-and-unsupported-saml-modalities"></a>Modalidades SAML com e sem suporte
+## <a name="supported-and-unsupported-saml-modalities"></a>Modalidades SAML apoiadas e não apoiadas
 
-Os seguintes cenários de RP (terceira parte confiável) do SAML têm suporte por meio de seu próprio ponto de extremidade de metadados:
+Os seguintes cenários de fiação SAML (RP) são suportados através do seu próprio ponto final de metadados:
 
-* Várias URLs de logout ou pós-Associação para URL de logout no objeto de aplicativo/entidade de serviço.
-* Especifique a chave de assinatura para verificar as solicitações de RP no objeto de aplicativo/entidade de serviço.
-* Especifique a chave de criptografia de token no objeto de aplicativo/entidade de serviço.
-* Atualmente, não há suporte para logons iniciados pelo provedor de identidade na versão de visualização.
+* UrLs de logout múltiplos ou encadernação POST para URL de logout no objeto principal de aplicação/serviço.
+* Especifique a chave de assinatura para verificar os pedidos de RP no objeto principal de aplicação/serviço.
+* Especifique a chave de encriptação token no objeto principal de aplicação/serviço.
+* Os logins iniciados pelo fornecedor de identidade não são atualmente suportados no lançamento de pré-visualização.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você pode encontrar mais informações sobre o [protocolo SAML no site da Oasis](https://www.oasis-open.org/).
+Pode encontrar mais informações sobre o [protocolo SAML no site da OASIS.](https://www.oasis-open.org/)
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp

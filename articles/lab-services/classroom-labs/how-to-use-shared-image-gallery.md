@@ -1,6 +1,6 @@
 ---
-title: Usar uma galeria de imagens compartilhadas no Azure Lab Services | Microsoft Docs
-description: Saiba como configurar uma conta de laboratório para usar uma galeria de imagens compartilhadas para que um usuário possa compartilhar uma imagem com outra e outro usuário possa usar a imagem para criar uma VM de modelo no laboratório.
+title: Utilize uma galeria de imagens partilhada nos Serviços de Laboratório Azure  Microsoft Docs
+description: Aprenda a configurar uma conta de laboratório para usar uma galeria de imagens partilhada para que um utilizador possa partilhar uma imagem com outro e outro utilizador possa usar a imagem para criar um Modelo VM no laboratório.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,45 +11,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 02/24/2020
 ms.author: spelluru
-ms.openlocfilehash: f438c32deb7e923f08396b0580d807d6e5b5e69a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 79aea7d8a4a969e0ccd42ef94d77a9aa396ab91c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585057"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591324"
 ---
-# <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usar uma galeria de imagens compartilhadas no Azure Lab Services
-Este artigo mostra como os professores/administrador de laboratório podem salvar uma imagem de máquina virtual de modelo para que ela seja reutilizada por outras pessoas. Essas imagens são salvas em uma [Galeria de imagens compartilhadas](../../virtual-machines/windows/shared-image-galleries.md)do Azure. Como uma primeira etapa, o administrador do laboratório anexa uma galeria de imagens compartilhada existente à conta do laboratório. Depois que a Galeria de imagens compartilhada é anexada, os laboratórios criados na conta de laboratório podem salvar imagens na Galeria de imagens compartilhadas. Outros professores podem selecionar essa imagem na Galeria de imagens compartilhadas para criar um modelo para suas classes. 
+# <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Use uma galeria de imagens partilhada nos Serviços de Laboratório Azure
+Este artigo mostra como professores/administrador de laboratório podem guardar uma imagem de máquina virtual modelo para que seja reutilizada por outros. Estas imagens são guardadas numa galeria de [imagens partilhada selada](../../virtual-machines/windows/shared-image-galleries.md)em Azure. Como primeiro passo, o administrador do laboratório anexa uma galeria de imagens partilhadas existente à conta do laboratório. Uma vez anexada a galeria de imagens partilhadas, os laboratórios criados na conta de laboratório podem guardar imagens para a galeria de imagens partilhada. Outros professores podem selecionar esta imagem a partir da galeria de imagens partilhadas para criar um modelo para as suas aulas. 
+
+> [!NOTE]
+> Atualmente, a Azure Lab Services apoia a criação de VMs com base apenas em imagens **VM generalizadas** (imagens não especializadas) numa galeria de imagens partilhadas. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Crie uma galeria de imagens compartilhada usando [Azure PowerShell](../../virtual-machines/windows/shared-images.md) ou [CLI do Azure](../../virtual-machines/linux/shared-images.md).
-- Você anexou a Galeria de imagens compartilhadas à conta do laboratório. Para obter as instruções passo a passo, consulte [como anexar ou desanexar a Galeria de imagens compartilhadas](how-to-attach-detach-shared-image-gallery.md).
+- Crie uma galeria de imagens partilhada utilizando o [Azure PowerShell](../../virtual-machines/windows/shared-images.md) ou [o Azure CLI](../../virtual-machines/linux/shared-images.md).
+- Anexou a galeria de imagens partilhada à conta do laboratório. Para instruções passo a passo, consulte Como anexar ou separar a galeria de [imagens partilhadas](how-to-attach-detach-shared-image-gallery.md).
 
 
-## <a name="save-an-image-to-the-shared-image-gallery"></a>Salvar uma imagem na Galeria de imagens compartilhadas
-Depois que uma galeria de imagens compartilhadas é anexada, um administrador de conta de laboratório ou um professor pode salvar uma imagem na Galeria de imagens compartilhadas para que possa ser reutilizada por outros professores. 
+## <a name="save-an-image-to-the-shared-image-gallery"></a>Guarde uma imagem para a galeria de imagens partilhadas
+Depois de anexar uma galeria de imagens partilhadas, um administrador de uma conta de laboratório ou um professor pode guardar uma imagem para a galeria de imagens partilhada para que possa ser reutilizada por outros professores. 
 
-1. Na página **modelo** do laboratório, selecione **exportar para a Galeria de imagens compartilhadas** na barra de ferramentas.
+1. Na página **Modelo** para o laboratório, selecione **Export to Shared Image Gallery** na barra de ferramentas.
 
-    ![Botão Salvar imagem](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-button.png)
-2. Na caixa de diálogo **exportar para a Galeria de imagens compartilhadas** , insira um **nome para a imagem**e, em seguida, selecione **Exportar**. 
+    ![Guardar botão de imagem](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-button.png)
+2. No diálogo **exportado para a Galeria** de Imagem Partilhada, introduza um **nome para a imagem**, e, em seguida, selecione **Export .** 
 
-    ![Caixa de diálogo Exportar para Galeria de imagens compartilhadas](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png)
-3. Você pode ver o progresso dessa operação na página **modelo** . Esta operação pode levar algum tempo. 
+    ![Exportação para diálogo da Galeria de Imagem Partilhada](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png)
+3. Pode ver o progresso desta operação na página **'Modelo'.** Esta operação pode demorar algum dia. 
 
-    ![Exportação em andamento](../media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
-4. Quando a operação de exportação for bem-sucedida, você verá a seguinte mensagem:
+    ![Exportação em curso](../media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
+4. Quando a operação de exportação for bem sucedida, consulte a seguinte mensagem:
 
     ![Exportação concluída](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
 
-Você também pode carregar uma imagem na Galeria de imagens compartilhadas fora do contexto de um laboratório. Para obter mais informações, consulte [visão geral da Galeria de imagens compartilhadas](../../virtual-machines/windows/shared-images.md). 
+Também pode enviar uma imagem para a galeria de imagens partilhada fora do contexto de um laboratório. Para mais informações, consulte a visão geral da galeria de [imagens partilhadas.](../../virtual-machines/windows/shared-images.md) 
 
-## <a name="use-an-image-from-the-shared-image-gallery"></a>Usar uma imagem da Galeria de imagens compartilhadas
-Um professor/professor pode escolher uma imagem personalizada disponível na Galeria de imagens compartilhadas para o modelo durante a criação do novo laboratório.
+## <a name="use-an-image-from-the-shared-image-gallery"></a>Use uma imagem da galeria de imagens partilhadas
+Um professor/professor pode escolher uma imagem personalizada disponível na galeria de imagens partilhadas para o modelo durante a criação de um novo laboratório.
 
-![Usar a imagem de máquina virtual da Galeria](../media/how-to-use-shared-image-gallery/use-shared-image.png)
+![Use imagem de máquina virtual da galeria](../media/how-to-use-shared-image-gallery/use-shared-image.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre galerias de imagens compartilhadas, consulte [Galeria de imagens compartilhadas](../../virtual-machines/windows/shared-image-galleries.md).
+Para obter mais informações sobre galerias de imagem partilhadas, consulte a galeria de [imagens partilhadas.](../../virtual-machines/windows/shared-image-galleries.md)

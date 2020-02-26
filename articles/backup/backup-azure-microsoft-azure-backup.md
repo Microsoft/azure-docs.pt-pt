@@ -3,12 +3,12 @@ title: Use o Servidor de Backup Azure para fazer backup das cargas de trabalho
 description: Neste artigo, aprenda a preparar o seu ambiente para proteger e fazer backup de cargas de trabalho utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: efa54eac2e3e134fb285d38242ca1b59727c2c86
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e601328a09ece54eb1c678310f76c7999c69f24c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425192"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586432"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup Azure
 
@@ -45,7 +45,7 @@ O primeiro passo para pôr o Servidor de Backup Azure a funcionar é configurar 
 
 Ao escolher um servidor para executar o Servidor de Backup Azure, recomenda-se que comece com uma imagem de galeria do Datacenter Do Windows Server 2016 ou do Windows Server 2019 Datacenter. O artigo, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), fornece um tutorial para começar com a máquina virtual recomendada em Azure, mesmo que nunca tenha usado Azure antes. Os requisitos mínimos recomendados para a máquina virtual do servidor (VM) devem ser: Standard_A4_v2 com quatro núcleos e RAM de 8-GB.
 
-Proteger cargas de trabalho com o Azure Backup Server tem muitas nuances. O artigo, [Instalar dPM como uma máquina virtual Azure,](https://technet.microsoft.com/library/jj852163.aspx)ajuda a explicar estas nuances. Antes de colocar a máquina, leia completamente este artigo.
+Proteger cargas de trabalho com o Azure Backup Server tem muitas nuances. O artigo, [Instalar dPM como uma máquina virtual Azure,](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))ajuda a explicar estas nuances. Antes de colocar a máquina, leia completamente este artigo.
 
 ### <a name="using-an-on-premises-server"></a>Usando um servidor no local
 
@@ -56,7 +56,7 @@ Se não quiser executar o servidor base em Azure, pode executar o servidor num V
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2016 e os mais recentes SPs |64 bits |Standard, Datacenter, Essentials  |
 
-Pode duplicar o armazenamento de DPM utilizando a Deduplicação do Servidor windows. Saiba mais sobre como o DPM e a [desduplicação](https://technet.microsoft.com/library/dn891438.aspx) funcionam em conjunto quando implantados em VMs Hiper-V.
+Pode duplicar o armazenamento de DPM utilizando a Deduplicação do Servidor windows. Saiba mais sobre como o DPM e a [desduplicação](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn891438(v=sc.12)) funcionam em conjunto quando implantados em VMs Hiper-V.
 
 > [!NOTE]
 > O Azure Backup Server foi concebido para funcionar num servidor dedicado e unipropósito. Não é possível instalar o Servidor de Backup Azure em:
@@ -92,7 +92,7 @@ Para editar a definição de replicação de armazenamento:
 
 ### <a name="downloading-the-software-package"></a>Descarregar o pacote de software
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Se já tem um cofre dos Serviços de Recuperação aberto, proceda ao passo 3. Se não tiver um cofre dos Serviços de Recuperação aberto, mas estiver no portal Azure, no menu principal, clique em **Navegar**.
 
    * Na lista de recursos, escreva **Serviços de Recuperação**.
@@ -196,7 +196,7 @@ Uma vez concluído o processo de extração, verifique a caixa para lançar a *c
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    A localização do risco é um requisito para voltar a Azure. Certifique-se de que a localização do risco é de pelo menos 5% dos dados previstos para serem apoiados até à nuvem. Para a proteção do disco, os discos separados devem ser configurados assim que a instalação estiver concluída. Para mais informações sobre piscinas de armazenamento, consulte [piscinas de armazenamento configure e armazenamento em disco](https://technet.microsoft.com/library/hh758075.aspx).
+    A localização do risco é um requisito para voltar a Azure. Certifique-se de que a localização do risco é de pelo menos 5% dos dados previstos para serem apoiados até à nuvem. Para a proteção do disco, os discos separados devem ser configurados assim que a instalação estiver concluída. Para mais informações sobre piscinas de armazenamento, consulte [piscinas de armazenamento configure e armazenamento em disco](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
 5. Forneça uma senha forte para contas restritas de utilizadores locais e clique em **Next**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -305,6 +305,14 @@ Se tiver uma firewall ou um proxy que esteja a impedir o acesso ao Azure, tem de
 * \*.microsoftonline.com
 * \*.windows.net
 
+Se estiver a utilizar o peering expressRoute Microsoft, selecione os seguintes serviços/regiões:
+
+* Diretório Ativo Azure (12076:5060)
+* Região do Microsoft Azure (de acordo com a localização do seu cofre de Serviços de Recuperação)
+* Armazenamento Azure (de acordo com a localização do seu cofre de Serviços de Recuperação)
+
+Para mais detalhes, visite os requisitos de [encaminhamento expressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
 Uma vez que a conectividade com o Azure tenha sido restaurada à máquina do Servidor de Backup Azure, as operações que podem ser realizadas são determinadas pelo estado de subscrição do Azure. A tabela acima tem detalhes sobre as operações permitidas uma vez que a máquina está "Conectada".
 
 ### <a name="handling-subscription-states"></a>Manipulação de estados de subscrição
@@ -351,7 +359,7 @@ Também pode consultar [as FAQs relacionadas](backup-azure-backup-faq.md) com o 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode obter informações detalhadas sobre [a preparação do seu ambiente para DPM](https://technet.microsoft.com/library/hh758176.aspx) no site da Microsoft TechNet. Também contém informações sobre configurações suportadas nas quais o Servidor de Backup Do Azure pode ser implantado e utilizado. Pode utilizar uma série de [cmdlet PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) para realizar várias operações.
+Pode obter informações detalhadas sobre [a preparação do seu ambiente para o DPM](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758176(v=sc.12)). Também contém informações sobre configurações suportadas nas quais o Servidor de Backup Do Azure pode ser implantado e utilizado. Pode utilizar uma série de [cmdlet PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) para realizar várias operações.
 
 Pode utilizar estes artigos para obter uma compreensão mais profunda da proteção da carga de trabalho utilizando o servidor de backup do Microsoft Azure.
 

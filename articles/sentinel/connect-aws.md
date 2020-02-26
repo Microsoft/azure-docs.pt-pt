@@ -1,9 +1,9 @@
 ---
-title: Conectar o AWS CloudTrail ao Azure sentinela | Microsoft Docs
-description: Saiba como conectar dados do AWS CloudTrail ao Azure Sentinel.
+title: Ligue a CloudTrail a Azure Sentinel Microsoft Docs
+description: Saiba como ligar os dados da AWS CloudTrail ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,75 +13,75 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2913ef93d610b1d6a0ea57d79b27aee329838d25
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.author: yelevin
+ms.openlocfilehash: 5cbef1f31ea7088d4fab4888f5630af1b765a910
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75610748"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588659"
 ---
-# <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Conectar o Azure Sentinel ao AWS CloudTrail
+# <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Ligue o Sentinela Azure ao AWS CloudTrail
 
-Use o conector do AWS para transmitir todos os eventos do AWS CloudTrail para o Azure Sentinel. Esse processo de conexão delega o acesso para o Azure Sentinel aos logs de recursos do AWS, criando uma relação de confiança entre o AWS CloudTrail e o Azure sentinela. Isso é feito em AWS criando uma função que concede permissão ao Azure Sentinel para acessar seus logs do AWS.
+Utilize o conector AWS para transmitir todos os seus eventos AWS CloudTrail para O Sentinel. Este processo de ligação delega o acesso do Azure Sentinel aos seus registos de recursos AWS, criando uma relação de confiança entre a AWS CloudTrail e o Azure Sentinel. Isto é realizado na AWS criando uma função que dá permissão ao Azure Sentinel para aceder aos seus registos AWS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ter permissão de gravação no espaço de trabalho do Azure Sentinel.
+Deve ter permissão para escrever no espaço de trabalho do Azure Sentinel.
 
 > [!NOTE]
-> O Azure Sentinel coleta eventos CloudTrail de todas as regiões. É recomendável que você não transmita eventos de uma região para outra.
+> O Azure Sentinel recolhe eventos CloudTrail de todas as regiões. Recomenda-se que não transmita eventos de uma região para outra.
 
 ## <a name="connect-aws"></a>Ligar AWS 
 
 
-1. No Azure Sentinel, selecione **conectores de dados** e, em seguida, selecione a linha de **Amazon Web Services** na tabela e, no painel AWS à direita, clique em **abrir página de conector**.
+1. No Azure Sentinel, selecione **conectores de dados** e, em seguida, selecione a linha **Amazon Web Services** na tabela e no painel AWS à direita, clique na página do **conector Open**.
 
-1. Siga as instruções em **configuração** usando as etapas a seguir.
+1. Siga as instruções sob **configuração** utilizando os seguintes passos.
  
-1.  No console do Amazon Web Services, em **segurança, identidade & conformidade**, selecione **iam**.
+1.  Na sua consola Amazon Web Services, sob **Segurança, Identidade e Conformidade,** selecione **IAM**.
 
     ![AWS1](./media/connect-aws/aws-1.png)
 
-1.  Escolha **funções** e selecione **criar função**.
+1.  Escolha **funções** e selecione **Criar o papel**.
 
     ![AWS2](./media/connect-aws/aws-2.png)
 
-1.  Escolha **outra conta do AWS.** No campo **ID da conta** , insira a **ID da conta da Microsoft** (**123412341234**) que pode ser encontrada na página conector do AWS no portal do Azure Sentinel.
+1.  Escolha **outra conta AWS.** No campo ID da **conta,** introduza o ID da **conta microsoft** **(123412341234**) que pode ser encontrado na página do conector AWS no portal Azure Sentinel.
 
     ![AWS3](./media/connect-aws/aws-3.png)
 
-1.  Certifique-se de que **exigir ID externa** esteja selecionado e insira a ID externa (ID do espaço de trabalho) que pode ser encontrada na página conector do AWS no portal do Azure Sentinel.
+1.  Certifique-se de **que o ID externo** é selecionado e, em seguida, e introduza o ID externo (ID do espaço de trabalho) que pode ser encontrado na página do conector AWS no portal Azure Sentinel.
 
     ![AWS4](./media/connect-aws/aws-4.png)
 
-1.  Em **anexar política de permissões** , selecione **AWSCloudTrailReadOnlyAccess**.
+1.  Sob **a política de permissões anexas,** selecione **AWSCloudTrailReadOnlyAccess**.
 
     ![AWS5](./media/connect-aws/aws-5.png)
 
-1.  Insira uma marca (opcional).
+1.  Introduza uma etiqueta (Opcional).
 
     ![AWS6](./media/connect-aws/aws-6.png)
 
-1.  Em seguida, insira um **nome de função** e selecione o botão **criar função** .
+1.  Em seguida, introduza um **nome de função** e selecione o botão **de função Criar.**
 
     ![AWS7](./media/connect-aws/aws-7.png)
 
-1.  Na lista funções, escolha a função que você criou.
+1.  Na lista de Papéis, escolha o papel que criou.
 
     ![AWS8](./media/connect-aws/aws-8.png)
 
-1.  Copie a **função ARN**. No portal do Azure Sentinel, na tela do conector do Amazon Web Services, Cole-o na **função para adicionar** o campo e clique em **Adicionar**.
+1.  Copiar o **papel ARN**. No portal Azure Sentinel, no ecrã do conector Amazon Web Services, cola-o na **Função para adicionar** campo e clicar em **Adicionar**.
 
     ![AWS9](./media/connect-aws/aws-9.png)
 
-1. Para usar o esquema relevante em Log Analytics para eventos AWS, pesquise **AWSCloudTrail**.
+1. Para utilizar o esquema relevante no Log Analytics para eventos AWS, procure a **AWSCloudTrail**.
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, você aprendeu a conectar o AWS CloudTrail ao Azure sentinela. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
+Neste documento, aprendeu a ligar o AWS CloudTrail ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
+- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.
 

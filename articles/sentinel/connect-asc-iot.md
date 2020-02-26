@@ -3,7 +3,7 @@ title: Ligue o Centro de Segurança Azure para IoT a Azure Sentinel  Microsoft D
 description: Saiba como ligar o Azure Security Center para dados IoT ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
-ms.author: rkarlin
-ms.openlocfilehash: b68745f04a49565090b0f9b14331036f76e5f132
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.author: yelevin
+ms.openlocfilehash: 3af51110a4c4604444573f62be65077c786db606
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501293"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588642"
 ---
 # <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel"></a>Ligue os seus dados do Azure Security Center para IoT ao Azure Sentinel 
 
@@ -66,7 +66,7 @@ SecurityAlert | where ProductName == "Azure Security Center for IoT"
 Depois de ligar um Hub IoT, os dados do hub estão disponíveis no Azure Sentinel aproximadamente 15 minutos depois.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar o Azure Security Center para dados IoT ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)

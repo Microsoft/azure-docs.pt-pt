@@ -1,6 +1,6 @@
 ---
-title: Pools de instâncias (visualização)
-description: Este artigo descreve os pools da instância do banco de dados SQL do Azure (versão prévia).
+title: Piscinas de instância (pré-visualização)
+description: Este artigo descreve piscinas de instâncias de base de dados Azure SQL (pré-visualização).
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,150 +11,150 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552785"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587401"
 ---
-# <a name="what-are-sql-database-instance-pools-preview"></a>O que são os pools de instâncias do banco de dados SQL (versão prévia)?
+# <a name="what-are-sql-database-instance-pools-preview"></a>O que são piscinas de instâncias de base de dados SQL (pré-visualização)?
 
-Os pools de instância são um novo recurso no banco de dados SQL do Azure que fornece uma maneira conveniente e econômica de migrar instâncias SQL menores para a nuvem em escala.
+As piscinas de instâncias são um novo recurso na Base de Dados Azure SQL que fornece uma forma conveniente e rentável de migrar casos SQL menores para a nuvem em escala.
 
-Os conjuntos de instâncias permitem aprovisionar previamente os recursos de computação de acordo com os seus requisitos de migração totais. Em seguida, pode implementar várias instâncias geridas individuais até ao seu nível de computação aprovisionado previamente. Por exemplo, se você pré-provisionar 8 vCores, poderá implantar duas instâncias VCORE e 4 VCORE e, em seguida, migrar bancos de dados para essas instâncias. Antes dos pools de instância estarem disponíveis, as cargas de trabalho menores e menos intensivas de computação geralmente teriam de ser consolidadas em uma instância gerenciada maior ao migrar para a nuvem. A necessidade de migrar grupos de bancos de dados para uma instância grande normalmente exigiu um planejamento de capacidade cuidadoso e governança de recursos, considerações de segurança adicionais e alguma consolidação de dados extra funciona no nível da instância.
+Os conjuntos de instâncias permitem aprovisionar previamente os recursos de computação de acordo com os seus requisitos de migração totais. Em seguida, pode implementar várias instâncias geridas individuais até ao seu nível de computação aprovisionado previamente. Por exemplo, se fornecer 8 vCores pre-provisiona, pode implementar duas instâncias vCore e uma 4 vCore e, em seguida, migrar bases de dados para estas instâncias. Antes de estarem disponíveis piscinas, as cargas de trabalho mais pequenas e menos intensivas em termos de cálculo teriam muitas vezes de ser consolidadas numa instância gerida maior quando migravam para a nuvem. A necessidade de migrar grupos de bases de dados para um grande caso exigia normalmente um planeamento cuidadoso da capacidade e a governação dos recursos, considerações adicionais de segurança e alguns trabalhos extra de consolidação de dados a nível das instâncias.
 
-Além disso, os pools de instância dão suporte à integração VNet nativa para que você possa implantar vários pools de instância e várias instâncias únicas na mesma sub-rede.
-
-
-## <a name="key-capabilities-of-instance-pools"></a>Principais recursos de pools de instância
-
-Os pools de instância oferecem os seguintes benefícios:
-
-1. Capacidade de hospedar duas instâncias vCore. *\*apenas para instâncias em pools de instância*.
-2. Tempo de implantação previsível e de instância rápida (até 5 minutos).
-3. Alocação mínima de endereço IP.
-
-O diagrama a seguir ilustra um pool de instâncias com várias instâncias implantadas em uma sub-rede de rede virtual.
-
-![pool de instâncias com várias instâncias](./media/sql-database-instance-pools/instance-pools1.png)
-
-Os pools de instância habilitam a implantação de várias instâncias na mesma máquina virtual em que o tamanho de computação da máquina virtual se baseia no número total de vCores alocadas para o pool. Essa arquitetura permite o *particionamento* da máquina virtual em várias instâncias, que pode ter qualquer tamanho com suporte, incluindo 2 vCores (2 instâncias vCore estão disponíveis somente para instâncias em pools).
-
-As operações de gerenciamento em instâncias em um pool são muito mais rápidas quando o pool é inicialmente implantado. Essas operações são mais rápidas porque a implantação ou a extensão de um [cluster virtual](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) (conjunto dedicado de máquinas virtuais) não faz parte do provisionamento da instância gerenciada.
-
-Como todas as instâncias em um pool compartilham a mesma máquina virtual, a alocação de IP total não depende do número de instâncias implantadas, o que é conveniente para a implantação em sub-redes com um intervalo de IP estreito.
-
-Cada pool tem uma alocação de IP fixa de apenas nove endereços IP (não incluindo os cinco endereços IP na sub-rede que são reservados para suas próprias necessidades). Para obter detalhes, consulte [requisitos de tamanho de sub-rede para instâncias únicas](sql-database-managed-instance-determine-size-vnet-subnet.md).
-
-## <a name="application-scenarios-for-instance-pools"></a>Cenários de aplicativo para pools de instância
-
-A lista a seguir fornece os principais casos de uso em que os pools de instância devem ser considerados:
-
-- Migração de *um grupo de instâncias SQL* ao mesmo tempo, em que a maioria é um tamanho menor (por exemplo, 2 ou 4 vCores).
-- Cenários em que a *criação ou o dimensionamento de instância curta e previsível* é importante. Por exemplo, a implantação de um novo locatário em um ambiente de aplicativo SaaS multilocatário que requer recursos de nível de instância.
-- Cenários nos quais um limite de *custo fixo* ou de *gastos* é importante. Por exemplo, a execução de ambientes compartilhados de desenvolvimento/teste ou de demonstração de um tamanho fixo (ou raramente alterado), no qual você implanta periodicamente instâncias gerenciadas quando necessário.
-- Cenários em que a *alocação de endereço IP mínima* em uma sub-rede VNet é importante. Todas as instâncias em um pool estão compartilhando uma máquina virtual, portanto, o número de endereços IP alocados é menor do que no caso de instâncias únicas.
+Além disso, piscinas de exemplo suportam integração vnet nativa para que você possa implementar várias piscinas de instâncias e múltiplas instâncias individuais na mesma subnet.
 
 
-## <a name="architecture-of-instance-pools"></a>Arquitetura de pools de instâncias
+## <a name="key-capabilities-of-instance-pools"></a>Principais capacidades de piscinas de instâncias
 
-Os pools de instância têm arquitetura semelhante a instâncias gerenciadas regulares (*instâncias únicas*). Para dar suporte a [implantações nas redes virtuais do Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e fornecer isolamento e segurança para clientes, os pools de instância também dependem de [clusters virtuais](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede da rede virtual do cliente.
+As piscinas de instâncias proporcionam os seguintes benefícios:
 
-A principal diferença entre os dois modelos de implantação é que os pools de instância permitem várias implantações de processo de SQL Server no mesmo nó de máquina virtual, que são recursos controlados com o uso de [objetos de trabalho do Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), enquanto as instâncias únicas sempre são sozinhas em um nó de máquina virtual.
+1. Capacidade de acolher 2 instâncias vCore. *\*Apenas por exemplo, por exemplo, piscinas.*
+2. Tempo de implantação previsível e rápido (até 5 minutos).
+3. Atribuição mínima de endereço IP.
 
-O diagrama a seguir mostra um pool de instâncias e duas instâncias individuais implantadas na mesma sub-rede e ilustra os principais detalhes de arquitetura para os dois modelos de implantação:
+O diagrama seguinte ilustra um conjunto de instâncias com múltiplas instâncias implantadas dentro de uma subnet de rede virtual.
 
-![pool de instâncias e duas instâncias individuais](./media/sql-database-instance-pools/instance-pools2.png)
+![piscina de instância com múltiplas instâncias](./media/sql-database-instance-pools/instance-pools1.png)
 
-Cada pool de instâncias cria um cluster virtual separado abaixo. Instâncias dentro de um pool e instâncias únicas implantadas na mesma sub-rede não compartilham recursos de computação alocados para SQL Server processos e componentes de gateway, isso garante a previsibilidade de desempenho.
+As piscinas de instâncias permitem a implementação de múltiplas instâncias na mesma máquina virtual onde o tamanho da computação da máquina virtual é baseado no número total de vCores atribuídos para a piscina. Esta arquitetura permite *a divisão* da máquina virtual em várias instâncias, que podem ser de qualquer tamanho suportado, incluindo 2 vCores (2 instâncias vCore só estão disponíveis para casos em piscinas).
 
-## <a name="instance-pools-resource-limitations"></a>Limitações de recursos de pools de instância
+As operações de gestão em casos numa piscina são muito mais rápidas quando a piscina é inicialmente implantada. Estas operações são mais rápidas porque a implantação ou extensão de um [cluster virtual](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) (conjunto dedicado de máquinas virtuais) não faz parte do fornecimento da instância gerida.
+
+Uma vez que todos os casos de uma piscina partilham a mesma máquina virtual, a atribuição total de IP não depende do número de instâncias implementadas, o que é conveniente para a implantação em subredes com uma gama de IP estreita.
+
+Cada piscina tem uma atribuição fixa de IP de apenas nove endereços IP (sem incluir os cinco endereços IP na subnet que são reservados para as suas próprias necessidades). Para mais detalhes, consulte os requisitos de tamanho da [subnet para instâncias individuais](sql-database-managed-instance-determine-size-vnet-subnet.md).
+
+## <a name="application-scenarios-for-instance-pools"></a>Cenários de aplicação, por exemplo, piscinas
+
+A seguinte lista fornece os principais casos de utilização em que as piscinas de instâncias devem ser consideradas:
+
+- Migração de *um grupo de instâncias SQL* ao mesmo tempo, onde a maioria é de tamanho menor (por exemplo 2 ou 4 vCores).
+- Cenários em que a criação ou a escala de *instâncias previsíveis e de curta duração* são importantes. Por exemplo, a implantação de um novo inquilino num ambiente de aplicação saaS multi-inquilino que requer capacidades de nível de exemplo.
+- Cenários em que é importante ter um *custo fixo* ou um limite de *despesas.* Por exemplo, executar ambientes de dev-test ou demo partilhados de tamanho fixo (ou pouco frequentemente alterado), onde você periodicamente implementa instâncias geridas periodicamente quando necessário.
+- Cenários em que a atribuição mínima de *endereçoip* numa subnet VNet é importante. Todos os casos numa piscina estão a partilhar uma máquina virtual, pelo que o número de endereços IP atribuídos é inferior ao caso de instâncias individuais.
+
+
+## <a name="architecture-of-instance-pools"></a>Arquitetura de piscinas de instância
+
+As piscinas de exemplo têm arquitetura semelhante a instâncias regulares*geridas (instâncias individuais).* Para apoiar as implementações dentro das [Redes Virtuais Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e para fornecer isolamento e segurança aos clientes, por exemplo, os pools também dependem de [clusters virtuais.](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture) Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da subnet virtual da rede do cliente.
+
+A principal diferença entre os dois modelos de implementação é que as piscinas de instâncias permitem várias implementações de processos do SQL Server no mesmo nó de máquina virtual, que são repartidos por recursos utilizando [objetos de trabalho do Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), enquanto as instâncias individuais estão sempre sozinhas num nó de máquina virtual.
+
+O diagrama seguinte mostra uma piscina de instâncias e duas instâncias individuais implantadas na mesma subnet e ilustra os principais detalhes arquitetónicos para ambos os modelos de implantação:
+
+![piscina de instância e duas instâncias individuais](./media/sql-database-instance-pools/instance-pools2.png)
+
+Cada piscina de instâncias cria um aglomerado virtual separado por baixo. As instâncias dentro de um pool e instâncias únicas implantadas na mesma subnet não partilham recursos computacionais atribuídos aos processos do SQL Server e componentes de gateway, o que garante a previsibilidade do desempenho.
+
+## <a name="instance-pools-resource-limitations"></a>Por exemplo, agréns limitações de recursos
 
 Existem várias limitações de recursos em relação a conjuntos de instâncias e a instâncias dentro de conjuntos:
 
-- Os pools de instância estão disponíveis somente no hardware Gen5.
-- As instâncias dentro de um pool têm CPU e RAM dedicados, portanto, o número agregado de vCores em todas as instâncias deve ser menor ou igual ao número de vCores alocados para o pool.
-- Todos os [limites de nível de instância](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) se aplicam a instâncias criadas dentro de um pool.
-- Além dos limites em nível de instância, também há dois limites impostos *no nível do pool de instâncias*:
-  - Tamanho total do armazenamento por pool (8 TB).
-  - Número total de bancos de dados por pool (100).
+- As piscinas de instâncias estão disponíveis apenas no hardware gen5.
+- As instâncias dentro de uma piscina têm CPU e RAM dedicados, pelo que o número agregado de vCores em todas as instâncias deve ser inferior ou igual ao número de vCores atribuídos à piscina.
+- Todos os limites de [nível](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) de instância aplicam-se a instâncias criadas dentro de uma piscina.
+- Para além dos limites de nível de exemplo, existem também dois limites impostos *ao nível do pool:*
+  - Tamanho total de armazenamento por piscina (8 TB).
+  - Número total de bases de dados por piscina (100).
 
-A alocação de armazenamento total e o número de bancos de dados em todas as instâncias devem ser menores ou iguais aos limites expostos por pools de instância.
+A atribuição total de armazenamento e o número de bases de dados em todas as instâncias devem ser inferiores ou iguais aos limites expostos por piscinas por exemplo.
 
-- Os pools de instâncias dão suporte a 8, 16, 24, 32, 40, 64 e 80 vCores.
-- As instâncias gerenciadas dentro de pools dão suporte a 2, 4, 8, 16, 24, 32, 40, 64 e 80 vCores.
-- Instâncias gerenciadas dentro de pools dão suporte a tamanhos de armazenamento entre 32 GB e 8 TB, exceto:
-  - 2 instâncias de vCore dão suporte a tamanhos entre 32 GB e 640 GB
-  - 4 instâncias de vCore dão suporte a tamanhos entre 32 GB e 2 TB
+- Piscinas de exemplo suportam 8, 16, 24, 32, 40, 64 e 80 vCores.
+- As instâncias geridas dentro das piscinas suportam 2, 4, 8, 16, 24, 32, 40, 64 e 80 vCores.
+- As instâncias geridas no interior das piscinas suportam tamanhos de armazenamento entre 32 GB e 8 TB, exceto:
+  - 2 casos vCore suportam tamanhos entre 32 GB e 640 GB
+  - 4 vCore tamanhos de suporte entre 32 GB e 2 TB
 
-A [propriedade da camada de serviço](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) é associada ao recurso de pool de instâncias para que todas as instâncias em um pool devam ser a mesma camada de serviço que a camada de serviço do pool. Neste momento, somente a camada de serviço Uso Geral está disponível (consulte a seção a seguir sobre limitações na visualização atual).
+A [propriedade de nível de serviço](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) está associada com o recurso de piscina, por isso todos os casos numa piscina devem ser o mesmo nível de serviço que o nível de serviço da piscina. Neste momento, apenas está disponível o nível de serviço Para fins gerais (ver a seguinte secção sobre limitações na pré-visualização atual).
 
 ### <a name="public-preview-limitations"></a>Limitações da pré-visualização pública
 
-A visualização pública tem as seguintes limitações:
+A pré-visualização pública tem as seguintes limitações:
 
-- Atualmente, apenas a camada de serviço Uso Geral está disponível.
-- Os pools de instâncias não podem ser dimensionados durante a visualização pública, portanto, tome cuidado com o planejamento da capacidade Antes da implantação.
-- Portal do Azure suporte para criação e configuração do pool de instâncias ainda não está disponível. Todas as operações em pools de instância têm suporte apenas por meio do PowerShell. A implantação de instância inicial em um pool pré-criado também tem suporte somente por meio do PowerShell. Uma vez implantado em um pool, as instâncias gerenciadas podem ser atualizadas usando o portal do Azure.
-- Instâncias gerenciadas criadas fora do pool não podem ser movidas para um pool existente e as instâncias criadas dentro de um pool não podem ser movidas para fora como uma única instância ou para outro pool.
-- O preço da instância reservada (licença incluída ou com Benefício Híbrido do Azure) não está disponível.
+- Atualmente, apenas o nível de serviço de Propósito Geral está disponível.
+- As piscinas por exemplo não podem ser dimensionadas durante a pré-visualização do público, pelo que é importante um planeamento cuidadoso da capacidade antes da implantação.
+- O suporte do portal Azure, por exemplo, à criação e configuração do pool ainda não está disponível. Todas as operações em piscinas de instâncias são suportadas apenas através da PowerShell. A implementação de instâncias iniciais numa piscina pré-criada também é suportada apenas através da PowerShell. Uma vez implantados numa piscina, as instâncias geridas podem ser atualizadas através do portal Azure.
+- Os casos geridos criados fora da piscina não podem ser movidos para uma piscina existente e as instâncias criadas dentro de uma piscina não podem ser movidas para fora como uma única instância ou para outra piscina.
+- Os preços reservados por exemplo (licença incluída ou com Benefício Híbrido Azure) não estão disponíveis.
 
-## <a name="sql-features-supported"></a>Recursos do SQL com suporte
+## <a name="sql-features-supported"></a>Recursos SQL suportados
 
-As instâncias criadas em pools dão suporte aos mesmos [níveis de compatibilidade e recursos com suporte em instâncias gerenciadas únicas](sql-database-managed-instance.md#sql-features-supported).
+As instâncias criadas em piscinas suportam os mesmos níveis de [compatibilidade e características suportadas em casos geridos únicos.](sql-database-managed-instance.md#sql-features-supported)
 
-Cada instância gerenciada implantada em um pool tem uma instância separada do SQL Agent.
+Cada instância gerida implantada numa piscina tem uma instância separada de Agente SQL.
 
-Recursos opcionais ou recursos que exigem a escolha de valores específicos (como agrupamento em nível de instância, fuso horário, ponto de extremidade público para tráfego de dados, grupos de failover) são configurados em nível de instância e podem ser diferentes para cada instância em um pool.
+As funcionalidades ou funcionalidades opcionais que exigem que escolha valores específicos (como a colagem de nível de exemplo, fuso horário, ponto final público para o tráfego de dados, grupos failover) são configurados ao nível de instância e podem ser diferentes para cada instância numa piscina.
 
 ## <a name="performance-considerations"></a>Considerações de desempenho
 
-Embora as instâncias gerenciadas nos pools tenham vCore e RAM dedicados, elas compartilham o disco local (para uso de tempdb) e os recursos de rede. Não é provável, mas é possível experimentar o efeito *vizinho ruidosa* se várias instâncias no pool tiverem alto consumo de recursos ao mesmo tempo. Se você observar esse comportamento, considere implantar essas instâncias em um pool maior ou como instâncias únicas.
+Embora as instâncias geridas dentro das piscinas tenham dedicado vCore e RAM, partilham o disco local (para uso temporário) e recursos de rede. Não é provável, mas é possível experimentar o efeito *ruidoso* do vizinho se várias instâncias na piscina tiverem um alto consumo de recursos ao mesmo tempo. Se observar este comportamento, considere implementar estes casos para uma piscina maior ou como instâncias individuais.
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
-Como as instâncias implantadas em um pool compartilham a mesma máquina virtual, convém considerar a desabilitação de recursos que introduzem riscos mais altos de segurança ou a controlar firmemente as permissões de acesso a esses recursos. Por exemplo, integração CLR, backup e restauração nativos, email de banco de dados, etc.
+Como os casos implantados numa piscina partilham a mesma máquina virtual, é melhor considerar funcionalidades incapacitantes que introduzam riscos de segurança mais elevados ou controlar firmemente as permissões de acesso a estas funcionalidades. Por exemplo, integração CLR, backup nativo e restauro, e-mail de base de dados, etc.
 
-## <a name="instance-pool-support-requests"></a>Solicitações de suporte do pool de instâncias
+## <a name="instance-pool-support-requests"></a>Pedidos de apoio à piscina de exemplo
 
-Crie e gerencie solicitações de suporte para pools de instância no [portal do Azure](https://portal.azure.com).
+Crie e gere a solicitação de apoio, por exemplo, piscinas no [portal Azure.](https://portal.azure.com)
 
-Se você estiver tendo problemas relacionados à implantação do pool de instâncias (criação ou exclusão), certifique-se de especificar **pools de instância** no campo **subtipo de problema** .
+Se estiver a ter problemas relacionados com a implantação de piscinas por exemplo (criação ou eliminação), certifique-se de que especifica **Piscinas de Instância** no campo **do subtipo Problema.**
 
-![solicitação de suporte a pools de instâncias](./media/sql-database-instance-pools/support-request.png)
+![caso supor pedido de apoio](./media/sql-database-instance-pools/support-request.png)
 
-Se você estiver tendo problemas relacionados a instâncias ou bancos de dados individuais em um pool, deverá criar um tíquete de suporte regular para instâncias gerenciadas do banco de dados SQL do Azure.
+Se estiver a ter problemas relacionados com instâncias individuais ou bases de dados dentro de uma piscina, deverá criar um bilhete de apoio regular para casos geridos pela Base de Dados Azure SQL.
 
-Para criar implantações de instância gerenciada maiores (com ou sem pools de instância), talvez seja necessário obter uma cota regional maior. Use o [procedimento de instância gerenciada padrão para solicitar uma cota maior](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), mas observe que, se você estiver usando pools de instância, a lógica de implantação compara o consumo de vCore total *no nível do pool* em relação à sua cota para determinar se você tem permissão para criar novos recursos sem aumentar ainda mais sua cota.
+Para criar maiores implantações de instâncias geridas (com ou sem piscinas de instância), poderá ter de obter uma quota regional maior. Para mais informações, consulte o pedido de aumento da quota para a Base de [Dados SQL azure](quota-increase-request.md). Note que se estiver a usar piscinas de instâncias, a lógica de implementação compara o consumo total de vCore *ao nível da piscina* com a sua quota para determinar se está autorizado a criar novos recursos sem aumentar ainda mais a sua quota.
 
-## <a name="instance-pool-billing"></a>Cobrança do pool de instâncias
+## <a name="instance-pool-billing"></a>Faturação da piscina de exemplo
 
-Os pools de instância permitem o dimensionamento da computação e do armazenamento independentemente. Os clientes pagam pela computação associada ao recurso de pool medido em vCores e o armazenamento associado a cada instância medida em gigabytes (os primeiros 32 GB são gratuitos para cada instância).
+As piscinas de exemplo permitem a escala e armazenamento de forma independente. Os clientes pagam por uma computação associada ao recurso da piscina medido em vCores, e armazenamento associado a cada instância medida em gigabytes (os primeiros 32 GB são gratuitos para cada instância).
 
-o preço vCore de um pool é cobrado independentemente de quantas instâncias são implantadas nesse pool.
+o preço vCore para uma piscina é cobrado independentemente de quantas instâncias são implementadas nessa piscina.
 
-Para o preço de computação (medido em vCores), há duas opções de preço disponíveis:
+Para o preço Compute (medido em vCores), estão disponíveis duas opções de preços:
 
-  1. *Licença incluída*: o preço das licenças do SQL está incluído. Isso é para os clientes que optam por não aplicar as licenças de SQL Server existentes com o Software Assurance.
-  2. *Benefício híbrido do Azure*: um preço reduzido que inclui Benefício Híbrido do Azure para SQL Server. Os clientes podem optar por esse preço usando suas licenças de SQL Server existentes com o Software Assurance. Para elegibilidade e outros detalhes, consulte [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Licença incluída*: O preço das licenças SQL está incluído. Isto é para os clientes que optam por não aplicar as licenças sQL Server existentes com garantia de software.
+  2. *Benefício Híbrido Azure*: Um preço reduzido que inclui o Benefício Híbrido Azure para o Servidor SQL. Os clientes podem optar por este preço utilizando as licenças sQL Server existentes com garantia de software. Para obter elegibilidade e outros detalhes, consulte [O Benefício Híbrido Azure.](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
-A definição de diferentes opções de preço não é possível para instâncias individuais em um pool. Todas as instâncias no pool pai devem estar no preço ou Benefício Híbrido do Azure preço incluído na licença. O modelo de licença para o pool pode ser alterado após a criação do pool.
+A definição de diferentes opções de preços não é possível para instâncias individuais numa piscina. Todas as instâncias na piscina dos pais devem estar a preço incluído na Licença ou no Preço do Benefício Híbrido Azure. O modelo de licença para a piscina pode ser alterado após a criação da piscina.
 
 > [!IMPORTANT]
-> Se você especificar um modelo de licença para a instância diferente de no pool, o preço do pool será usado e o valor do nível da instância será ignorado.
+> Se especificar um Modelo de Licença para o caso diferente do da piscina, o preço da piscina é usado e o valor de nível de instância é ignorado.
 
-Se você criar pools de instância em [assinaturas qualificadas para o benefício de desenvolvimento/teste](https://azure.microsoft.com/pricing/dev-test/), receberá automaticamente taxas com desconto de até 55% na instância gerenciada do SQL do Azure.
+Se criar piscinas de instâncias em [subscrições elegíveis para benefício](https://azure.microsoft.com/pricing/dev-test/)de teste de v, recebe automaticamente tarifas descontadas até 55% em instância gerida pelo Azure SQL.
 
-Para obter detalhes completos sobre o preço do pool de instâncias, consulte a seção *pools de instâncias* na [página de preços da instância gerenciada](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+Para obter mais detalhes sobre os preços do pool, consulte a secção de *piscinas* de exemplo na página de preços de [instância gerida](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para começar a usar os pools de instância, consulte [Guia de instruções de pool de instâncias do banco de dados SQL](sql-database-instance-pools-how-to.md).
-- Para saber como criar sua primeira instância gerenciada, consulte [Guia de início rápido](sql-database-managed-instance-get-started.md).
-- Para obter uma lista de recursos e comparação, consulte [recursos comuns do SQL](sql-database-features.md).
-- Para obter mais informações sobre a configuração de VNet, consulte [configuração de vnet de instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).
-- Para obter um início rápido que cria uma instância gerenciada e restaura um banco de dados de um arquivo de backup, consulte [criar uma instância gerenciada](sql-database-managed-instance-get-started.md).
-- Para obter um tutorial usando o serviço de migração de banco de dados do Azure (DMS) para migração, consulte [migração de instância gerenciada usando DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Para monitoramento avançado do desempenho do banco de dados de instância gerenciada com inteligência de solução de problemas interna, consulte [monitorar o banco de dados SQL do Azure usando análise de SQL do Azure](../azure-monitor/insights/azure-sql.md).
-- Para obter informações sobre preços, consulte [preços da instância gerenciada do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+- Para começar com piscinas de instância, consulte [a instância de dados de dados SQL piscinas como guiar](sql-database-instance-pools-how-to.md).
+- Para aprender a criar a sua primeira instância gerida, consulte [o guia Quickstart](sql-database-managed-instance-get-started.md).
+- Para obter uma lista de funcionalidades e comparação, consulte [as características comuns da SQL](sql-database-features.md).
+- Para obter mais informações sobre a configuração vNet, consulte a [configuração VNet de instância gerida](sql-database-managed-instance-connectivity-architecture.md).
+- Para um arranque rápido que cria uma instância gerida e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância gerida](sql-database-managed-instance-get-started.md).
+- Para um tutorial utilizando o Serviço de Migração de Bases de Dados Azure (DMS) para migração, consulte a migração por [exemplo gerida utilizando DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Para uma monitorização avançada do desempenho da base de dados de instâncias geridas com inteligência incorporada de resolução de problemas, consulte a Base de [Dados Monitor Azure SQL utilizando o Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
+- Para obter informações sobre preços, consulte a Base de [Dados SQL gerida por preços](https://azure.microsoft.com/pricing/details/sql-database/managed/)de instância .

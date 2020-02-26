@@ -1,34 +1,34 @@
 ---
-title: Registrar e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário em SDKs de Azure Cosmos DB
-description: Saiba como registrar e chamar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando os SDKs de Azure Cosmos DB
+title: Registe e utilize procedimentos, gatilhos e funções definidas pelo utilizador em SDKs DB Azure Cosmos
+description: Saiba como registar e ligar procedimentos, gatilhos e funções definidas pelo utilizador utilizando os SDKs DB Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 02/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: f914d4f61a746aa3c87ee2c67f096c01b75e378e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 00740bc2255962089789682e3227ce414fd0ce64
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719709"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582505"
 ---
-# <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como registrar e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
+# <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como registar e utilizar procedimentos, gatilhos e funções definidas pelo utilizador no Azure Cosmos DB
 
 A API de SQL no Azure Cosmos DB suporta o registo e a invocação de procedimentos armazenados, acionadores e funções definidas pelo utilizador (UDFs) escritos em linguagem JavaScript. Pode utilizar os SQL API [.NET](sql-api-sdk-dotnet.md), [.NET Core,](sql-api-sdk-dotnet-core.md) [Java,](sql-api-sdk-java.md) [JavaScript,](sql-api-sdk-node.md) [Node.js](sql-api-sdk-node.md)ou [Python](sql-api-sdk-python.md) SDKs para registar e invocar os procedimentos armazenados. Depois de ter definido um ou mais procedimentos armazenados, gatilhos e funções definidas pelo utilizador, pode carregá-los e vê-los no [portal Azure](https://portal.azure.com/) utilizando o Data Explorer.
 
 ## <a id="stored-procedures"></a>Como executar procedimentos armazenados
 
-Os procedimentos armazenados são escritos usando JavaScript. Eles podem criar, atualizar, ler, consultar e excluir itens em um contêiner Cosmos do Azure. Para obter mais informações sobre como escrever procedimentos armazenados em Azure Cosmos DB, consulte [Como escrever procedimentos armazenados no artigo da Azure Cosmos DB.](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures)
+Os procedimentos armazenados são escritos usando javaScript. Podem criar, atualizar, ler, consultar e apagar itens dentro de um contentor Azure Cosmos. Para obter mais informações sobre como escrever procedimentos armazenados em Azure Cosmos DB, consulte [Como escrever procedimentos armazenados no artigo da Azure Cosmos DB.](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures)
 
-Os exemplos a seguir mostram como registrar e chamar um procedimento armazenado usando os SDKs de Azure Cosmos DB. Consulte a [Create a Document,](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) uma vez que a fonte deste procedimento armazenado é guardada de acordo com `spCreateToDoItem.js`.
+Os seguintes exemplos mostram como registar e chamar um procedimento armazenado utilizando os SDKs DB Azure Cosmos. Consulte a [Create a Document,](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) uma vez que a fonte deste procedimento armazenado é guardada de acordo com `spCreateToDoItem.js`.
 
 > [!NOTE]
-> Para contêineres particionados, ao executar um procedimento armazenado, um valor de chave de partição deve ser fornecido nas opções de solicitação. Os procedimentos armazenados sempre estão no escopo de uma chave de partição. Os itens que têm um valor de chave de partição diferente não serão visíveis para o procedimento armazenado. Isso também se aplica a gatilhos.
+> Para os recipientes divididos, ao executar um procedimento armazenado, deve ser fornecido um valor-chave de partição nas opções de pedido. Os procedimentos armazenados são sempre remetos a uma chave de partição. Os itens que tenham um valor-chave de divisória diferente não serão visíveis ao procedimento armazenado. Isto também se aplica aos gatilhos.
 
-### <a name="stored-procedures---net-sdk-v2"></a>Procedimentos armazenados-SDK do .NET v2
+### <a name="stored-procedures---net-sdk-v2"></a>Procedimentos armazenados - .NET SDK V2
 
-O exemplo a seguir mostra como registrar um procedimento armazenado usando o SDK do .NET v2:
+O exemplo que se segue mostra como registar um procedimento armazenado utilizando o .NET SDK V2:
 
 ```csharp
 string storedProcedureId = "spCreateToDoItem";
@@ -42,7 +42,7 @@ var response = await client.CreateStoredProcedureAsync(containerUri, newStoredPr
 StoredProcedure createdStoredProcedure = response.Resource;
 ```
 
-O código a seguir mostra como chamar um procedimento armazenado usando o SDK do .NET v2:
+O seguinte código mostra como chamar um procedimento armazenado utilizando o .NET SDK V2:
 
 ```csharp
 dynamic newItem = new
@@ -58,9 +58,9 @@ RequestOptions options = new RequestOptions { PartitionKey = new PartitionKey("P
 var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, newItem);
 ```
 
-### <a name="stored-procedures---net-sdk-v3"></a>Procedimentos armazenados-SDK do .NET v3
+### <a name="stored-procedures---net-sdk-v3"></a>Procedimentos armazenados - .NET SDK V3
 
-O exemplo a seguir mostra como registrar um procedimento armazenado usando o SDK do .NET V3:
+O exemplo que se segue mostra como registar um procedimento armazenado utilizando o .NET SDK V3:
 
 ```csharp
 StoredProcedureResponse storedProcedureResponse = await client.GetContainer("database", "container").Scripts.CreateStoredProcedureAsync(new StoredProcedureProperties
@@ -70,23 +70,25 @@ StoredProcedureResponse storedProcedureResponse = await client.GetContainer("dat
 });
 ```
 
-O código a seguir mostra como chamar um procedimento armazenado usando o SDK do .NET V3:
+O seguinte código mostra como chamar um procedimento armazenado utilizando o .NET SDK V3:
 
 ```csharp
-dynamic newItem = new
+dynamic[] newItems = new dynamic[]
 {
-    category = "Personal",
-    name = "Groceries",
-    description = "Pick up strawberries",
-    isComplete = false
+    new {
+        category = "Personal",
+        name = "Groceries",
+        description = "Pick up strawberries",
+        isComplete = false
+    }
 };
 
-var result = await client.GetContainer("database", "container").Scripts.ExecuteStoredProcedureAsync<string>("spCreateToDoItem", new PartitionKey("Personal"), newItem);
+var result = await client.GetContainer("database", "container").Scripts.ExecuteStoredProcedureAsync<string>("spCreateToDoItem", new PartitionKey("Personal"), newItems);
 ```
 
-### <a name="stored-procedures---java-sdk"></a>Procedimentos armazenados-SDK do Java
+### <a name="stored-procedures---java-sdk"></a>Procedimentos armazenados - Java SDK
 
-O exemplo a seguir mostra como registrar um procedimento armazenado usando o SDK do Java:
+O exemplo que se segue mostra como registar um procedimento armazenado utilizando o Java SDK:
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
@@ -100,7 +102,7 @@ StoredProcedure createdStoredProcedure = asyncClient.createStoredProcedure(conta
     .toBlocking().single().getResource();
 ```
 
-O código a seguir mostra como chamar um procedimento armazenado usando o SDK do Java:
+O seguinte código mostra como chamar um procedimento armazenado utilizando o Java SDK:
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
@@ -138,9 +140,9 @@ asyncClient.executeStoredProcedure(sprocLink, requestOptions, storedProcedureArg
 successfulCompletionLatch.await();
 ```
 
-### <a name="stored-procedures---javascript-sdk"></a>Procedimentos armazenados-SDK do JavaScript
+### <a name="stored-procedures---javascript-sdk"></a>Procedimentos armazenados - JavaScript SDK
 
-O exemplo a seguir mostra como registrar um procedimento armazenado usando o SDK do JavaScript
+O exemplo seguinte mostra como registar um procedimento armazenado utilizando o JavaScript SDK
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
@@ -151,7 +153,7 @@ await container.scripts.storedProcedures.create({
 });
 ```
 
-O código a seguir mostra como chamar um procedimento armazenado usando o SDK do JavaScript:
+O seguinte código mostra como chamar um procedimento armazenado utilizando o JavaScript SDK:
 
 ```javascript
 const newItem = [{
@@ -165,9 +167,9 @@ const sprocId = "spCreateToDoItem";
 const {body: result} = await container.scripts.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
 ```
 
-### <a name="stored-procedures---python-sdk"></a>Procedimentos armazenados-SDK do Python
+### <a name="stored-procedures---python-sdk"></a>Procedimentos armazenados - Python SDK
 
-O exemplo a seguir mostra como registrar um procedimento armazenado usando o SDK do Python
+O exemplo que se segue mostra como registar um procedimento armazenado utilizando o Python SDK
 
 ```python
 with open('../js/spCreateToDoItem.js') as file:
@@ -180,7 +182,7 @@ sproc_definition = {
 sproc = client.CreateStoredProcedure(container_link, sproc_definition)
 ```
 
-O código a seguir mostra como chamar um procedimento armazenado usando o SDK do Python
+O código seguinte mostra como chamar um procedimento armazenado utilizando o Python SDK
 
 ```python
 sproc_link = 'dbs/myDatabase/colls/myContainer/sprocs/spCreateToDoItem'
@@ -195,16 +197,16 @@ client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
 
 ## <a id="pre-triggers"></a>Como executar pré-gatilhos
 
-Os exemplos a seguir mostram como registrar e chamar um pré-gatilho usando os SDKs de Azure Cosmos DB. Consulte o [exemplo do pré-gatilho,](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers) uma vez que a fonte para este pré-gatilho é guardada como `trgPreValidateToDoItemTimestamp.js`.
+Os exemplos seguintes mostram como registar e chamar um pré-gatilho utilizando os SDKs DB Azure Cosmos. Consulte o [exemplo do pré-gatilho,](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers) uma vez que a fonte para este pré-gatilho é guardada como `trgPreValidateToDoItemTimestamp.js`.
 
 Ao executar, os pré-gatilhos são passados no objeto RequestOptions especificando `PreTriggerInclude` e, em seguida, passando o nome do gatilho num objeto de Lista.
 
 > [!NOTE]
-> Embora o nome do gatilho seja passado como uma lista, você ainda pode executar apenas um gatilho por operação.
+> Mesmo que o nome do gatilho seja passado como Lista, ainda pode executar apenas um gatilho por operação.
 
-### <a name="pre-triggers---net-sdk-v2"></a>Pré-gatilhos-SDK do .NET v2
+### <a name="pre-triggers---net-sdk-v2"></a>Pré-gatilhos - .NET SDK V2
 
-O código a seguir mostra como registrar um pré-gatilho usando o SDK do .NET v2:
+O seguinte código mostra como registar um pré-gatilho utilizando o .NET SDK V2:
 
 ```csharp
 string triggerId = "trgPreValidateToDoItemTimestamp";
@@ -219,7 +221,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-O código a seguir mostra como chamar um pré-gatilho usando o SDK do .NET v2:
+O seguinte código mostra como ligar para um pré-gatilho utilizando o .NET SDK V2:
 
 ```csharp
 dynamic newItem = new
@@ -235,9 +237,9 @@ RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new Lis
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
 ```
 
-### <a name="pre-triggers---net-sdk-v3"></a>Pré-gatilhos-SDK do .NET v3
+### <a name="pre-triggers---net-sdk-v3"></a>Pré-gatilhos - .NET SDK V3
 
-O código a seguir mostra como registrar um pré-gatilho usando o SDK do .NET V3:
+O seguinte código mostra como registar um pré-gatilho utilizando o .NET SDK V3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
@@ -249,7 +251,7 @@ await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(ne
 });
 ```
 
-O código a seguir mostra como chamar um pré-gatilho usando o SDK do .NET V3:
+O seguinte código mostra como ligar para um pré-gatilho utilizando o .NET SDK V3:
 
 ```csharp
 dynamic newItem = new
@@ -263,9 +265,9 @@ dynamic newItem = new
 await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PreTriggers = new List<string> { "trgPreValidateToDoItemTimestamp" } });
 ```
 
-### <a name="pre-triggers---java-sdk"></a>Pré-gatilhos-SDK do Java
+### <a name="pre-triggers---java-sdk"></a>Pré-gatilhos - Java SDK
 
-O código a seguir mostra como registrar um pré-gatilho usando o SDK do Java:
+O seguinte código mostra como registar um pré-gatilho utilizando o Java SDK:
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
@@ -279,7 +281,7 @@ trigger.setTriggerType(TriggerType.Pre);
 Trigger createdTrigger = asyncClient.createTrigger(containerLink, trigger, new RequestOptions()).toBlocking().single().getResource();
 ```
 
-O código a seguir mostra como chamar um pré-gatilho usando o SDK do Java:
+O seguinte código mostra como chamar um pré-gatilho usando o Java SDK:
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
@@ -296,9 +298,9 @@ requestOptions.setPreTriggerInclude(Arrays.asList("trgPreValidateToDoItemTimesta
 asyncClient.createDocument(containerLink, item, requestOptions, false).toBlocking();
 ```
 
-### <a name="pre-triggers---javascript-sdk"></a>Pré-gatilhos-SDK do JavaScript
+### <a name="pre-triggers---javascript-sdk"></a>Pré-gatilhos - JavaScript SDK
 
-O código a seguir mostra como registrar um pré-gatilho usando o SDK do JavaScript:
+O seguinte código mostra como registar um pré-gatilho utilizando o JavaScript SDK:
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
@@ -311,7 +313,7 @@ await container.triggers.create({
 });
 ```
 
-O código a seguir mostra como chamar um pré-gatilho usando o SDK do JavaScript:
+O seguinte código mostra como ligar para um pré-gatilho utilizando o JavaScript SDK:
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
@@ -324,9 +326,9 @@ await container.items.create({
 }, {preTriggerInclude: [triggerId]});
 ```
 
-### <a name="pre-triggers---python-sdk"></a>Pré-gatilhos – SDK do Python
+### <a name="pre-triggers---python-sdk"></a>Pré-gatilhos - Python SDK
 
-O código a seguir mostra como registrar um pré-gatilho usando o SDK do Python:
+O seguinte código mostra como registar um pré-gatilho utilizando o Python SDK:
 
 ```python
 with open('../js/trgPreValidateToDoItemTimestamp.js') as file:
@@ -341,7 +343,7 @@ trigger_definition = {
 trigger = client.CreateTrigger(container_link, trigger_definition)
 ```
 
-O código a seguir mostra como chamar um pré-gatilho usando o SDK do Python:
+O seguinte código mostra como chamar um pré-gatilho usando o Python SDK:
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
@@ -353,11 +355,11 @@ client.CreateItem(container_link, item, {
 
 ## <a id="post-triggers"></a>Como executar pós-gatilhos
 
-Os exemplos a seguir mostram como registrar um post-Trigger usando o Azure Cosmos DB SDKs. Consulte o [exemplo pós-gatilho,](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) uma vez que a fonte para este pós-gatilho é guardada como `trgPostUpdateMetadata.js`.
+Os exemplos seguintes mostram como registar um pós-gatilho utilizando os SDKs DB Azure Cosmos. Consulte o [exemplo pós-gatilho,](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) uma vez que a fonte para este pós-gatilho é guardada como `trgPostUpdateMetadata.js`.
 
-### <a name="post-triggers---net-sdk-v2"></a>Pós-gatilhos-SDK do .NET v2
+### <a name="post-triggers---net-sdk-v2"></a>Pós-gatilhos - .NET SDK V2
 
-O código a seguir mostra como registrar um post-Trigger usando o SDK do .NET v2:
+O seguinte código mostra como registar um pós-gatilho utilizando o .NET SDK V2:
 
 ```csharp
 string triggerId = "trgPostUpdateMetadata";
@@ -372,7 +374,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-O código a seguir mostra como chamar um post-Trigger usando o SDK do .NET v2:
+O seguinte código mostra como ligar para um pós-gatilho utilizando o .NET SDK V2:
 
 ```csharp
 var newItem = { 
@@ -386,9 +388,9 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.createDocumentAsync(containerUri, newItem, options);
 ```
 
-### <a name="post-triggers---net-sdk-v3"></a>Pós-gatilhos-SDK do .NET v3
+### <a name="post-triggers---net-sdk-v3"></a>Pós-gatilhos - .NET SDK V3
 
-O código a seguir mostra como registrar um post-Trigger usando o SDK do .NET V3:
+O seguinte código mostra como registar um pós-gatilho utilizando o .NET SDK V3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
@@ -400,7 +402,7 @@ await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(ne
 });
 ```
 
-O código a seguir mostra como chamar um post-Trigger usando o SDK do .NET V3:
+O seguinte código mostra como ligar para um pós-gatilho utilizando o .NET SDK V3:
 
 ```csharp
 var newItem = { 
@@ -412,9 +414,9 @@ var newItem = {
 await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PostTriggers = new List<string> { "trgPostUpdateMetadata" } });
 ```
 
-### <a name="post-triggers---java-sdk"></a>Pós-gatilhos-SDK do Java
+### <a name="post-triggers---java-sdk"></a>Pós-gatilhos - Java SDK
 
-O código a seguir mostra como registrar um post-Trigger usando o SDK do Java:
+O seguinte código mostra como registar um pós-gatilho utilizando o Java SDK:
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
@@ -427,7 +429,7 @@ trigger.setTriggerType(TriggerType.Post);
 Trigger createdTrigger = asyncClient.createTrigger(containerLink, trigger, new RequestOptions()).toBlocking().single().getResource();
 ```
 
-O código a seguir mostra como chamar um post-Trigger usando o SDK do Java:
+O seguinte código mostra como ligar para um pós-gatilho usando o Java SDK:
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
@@ -443,9 +445,9 @@ requestOptions.setPostTriggerInclude(Arrays.asList("trgPostUpdateMetadata"));
 asyncClient.createDocument(containerLink, item, requestOptions, false).toBlocking();
 ```
 
-### <a name="post-triggers---javascript-sdk"></a>Pós-gatilhos-SDK do JavaScript
+### <a name="post-triggers---javascript-sdk"></a>Pós-gatilhos - JavaScript SDK
 
-O código a seguir mostra como registrar um post-Trigger usando o SDK do JavaScript:
+O seguinte código mostra como registar um pós-gatilho utilizando o JavaScript SDK:
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
@@ -458,7 +460,7 @@ await container.triggers.create({
 });
 ```
 
-O código a seguir mostra como chamar um post-Trigger usando o SDK do JavaScript:
+O seguinte código mostra como ligar para um pós-gatilho utilizando o JavaScript SDK:
 
 ```javascript
 const item = {
@@ -471,9 +473,9 @@ const triggerId = "trgPostUpdateMetadata";
 await container.items.create(item, {postTriggerInclude: [triggerId]});
 ```
 
-### <a name="post-triggers---python-sdk"></a>Pós-gatilhos-SDK do Python
+### <a name="post-triggers---python-sdk"></a>Pós-gatilhos - Python SDK
 
-O código a seguir mostra como registrar um post-Trigger usando o SDK do Python:
+O seguinte código mostra como registar um pós-gatilho utilizando o Python SDK:
 
 ```python
 with open('../js/trgPostUpdateMetadata.js') as file:
@@ -488,7 +490,7 @@ trigger_definition = {
 trigger = client.CreateTrigger(container_link, trigger_definition)
 ```
 
-O código a seguir mostra como chamar um post-Trigger usando o SDK do Python:
+O seguinte código mostra como ligar para um pós-gatilho usando o Python SDK:
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
@@ -500,11 +502,11 @@ client.CreateItem(container_link, item, {
 
 ## <a id="udfs"></a>Como trabalhar com funções definidas pelo utilizador
 
-Os exemplos a seguir mostram como registrar uma função definida pelo usuário usando os SDKs de Azure Cosmos DB. Consulte este [exemplo de função definido pelo Utilizador](how-to-write-stored-procedures-triggers-udfs.md#udfs) como a fonte para este pós-gatilho é guardada como `udfTax.js`.
+Os exemplos seguintes mostram como registar uma função definida pelo utilizador utilizando os SDKs DB Azure Cosmos. Consulte este [exemplo de função definido pelo Utilizador](how-to-write-stored-procedures-triggers-udfs.md#udfs) como a fonte para este pós-gatilho é guardada como `udfTax.js`.
 
-### <a name="user-defined-functions---net-sdk-v2"></a>Funções definidas pelo usuário – SDK do .NET v2
+### <a name="user-defined-functions---net-sdk-v2"></a>Funções definidas pelo utilizador - .NET SDK V2
 
-O código a seguir mostra como registrar uma função definida pelo usuário usando o SDK do .NET v2:
+O seguinte código mostra como registar uma função definida pelo utilizador utilizando o .NET SDK V2:
 
 ```csharp
 string udfId = "Tax";
@@ -519,7 +521,7 @@ await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```
 
-O código a seguir mostra como chamar uma função definida pelo usuário usando o SDK do .NET v2:
+O seguinte código mostra como ligar para uma função definida pelo utilizador utilizando o .NET SDK V2:
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -531,9 +533,9 @@ foreach (var result in results)
 }
 ```
 
-### <a name="user-defined-functions---net-sdk-v3"></a>Funções definidas pelo usuário – SDK do .NET v3
+### <a name="user-defined-functions---net-sdk-v3"></a>Funções definidas pelo utilizador - .NET SDK V3
 
-O código a seguir mostra como registrar uma função definida pelo usuário usando o SDK do .NET V3:
+O seguinte código mostra como registar uma função definida pelo utilizador utilizando o .NET SDK V3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunctionAsync(new UserDefinedFunctionProperties
@@ -543,7 +545,7 @@ await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunc
 });
 ```
 
-O código a seguir mostra como chamar uma função definida pelo usuário usando o SDK do .NET V3:
+O seguinte código mostra como ligar para uma função definida pelo utilizador utilizando o .NET SDK V3:
 
 ```csharp
 var iterator = client.GetContainer("database", "container").GetItemQueryIterator<dynamic>("SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000");
@@ -557,9 +559,9 @@ while (iterator.HasMoreResults)
 }
 ```
 
-### <a name="user-defined-functions---java-sdk"></a>Funções definidas pelo usuário – SDK do Java
+### <a name="user-defined-functions---java-sdk"></a>Funções definidas pelo utilizador - Java SDK
 
-O código a seguir mostra como registrar uma função definida pelo usuário usando o SDK do Java:
+O seguinte código mostra como registar uma função definida pelo utilizador utilizando o Java SDK:
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
@@ -571,7 +573,7 @@ udf.setBody(new String(Files.readAllBytes(Paths.get(String.format("..\\js\\%s.js
 UserDefinedFunction createdUDF = client.createUserDefinedFunction(containerLink, udf, new RequestOptions()).toBlocking().single().getResource();
 ```
 
-O código a seguir mostra como chamar uma função definida pelo usuário usando o SDK do Java:
+O seguinte código mostra como ligar para uma função definida pelo utilizador utilizando o Java SDK:
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
@@ -595,9 +597,9 @@ queryObservable.subscribe(
 completionLatch.await();
 ```
 
-### <a name="user-defined-functions---javascript-sdk"></a>Funções definidas pelo usuário – SDK do JavaScript
+### <a name="user-defined-functions---javascript-sdk"></a>Funções definidas pelo utilizador - JavaScript SDK
 
-O código a seguir mostra como registrar uma função definida pelo usuário usando o SDK do JavaScript:
+O seguinte código mostra como registar uma função definida pelo utilizador utilizando o JavaScript SDK:
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
@@ -607,7 +609,7 @@ await container.userDefinedFunctions.create({
     body: require(`../js/${udfId}`)
 ```
 
-O código a seguir mostra como chamar uma função definida pelo usuário usando o SDK do JavaScript:
+O seguinte código mostra como ligar para uma função definida pelo utilizador utilizando o JavaScript SDK:
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
@@ -615,9 +617,9 @@ const sql = "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000";
 const {result} = await container.items.query(sql).toArray();
 ```
 
-### <a name="user-defined-functions---python-sdk"></a>Funções definidas pelo usuário – SDK do Python
+### <a name="user-defined-functions---python-sdk"></a>Funções definidas pelo utilizador - Python SDK
 
-O código a seguir mostra como registrar uma função definida pelo usuário usando o SDK do Python:
+O seguinte código mostra como registar uma função definida pelo utilizador utilizando o Python SDK:
 
 ```python
 with open('../js/udfTax.js') as file:
@@ -630,7 +632,7 @@ udf_definition = {
 udf = client.CreateUserDefinedFunction(container_link, udf_definition)
 ```
 
-O código a seguir mostra como chamar uma função definida pelo usuário usando o SDK do Python:
+O seguinte código mostra como ligar para uma função definida pelo utilizador utilizando o Python SDK:
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
@@ -638,9 +640,9 @@ results = list(client.QueryItems(
     container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os conceitos e como escrever ou usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
+Saiba mais conceitos e como escrever ou utilizar procedimentos, gatilhos e funções definidas pelo utilizador no Azure Cosmos DB:
 
 - [Trabalhar com a Azure Cosmos DB procedimentos, gatilhos e funções definidas pelo utilizador no Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 - [Trabalhar com a api integrada de consulta integrada em língua JavaScript em Azure Cosmos DB](javascript-query-api.md)

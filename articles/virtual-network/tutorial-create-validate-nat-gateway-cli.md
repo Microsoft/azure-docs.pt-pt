@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: bc815281a005f750072176015a937547ff6d4670
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 26a427baddc99fa702b638c36b5378750364c849
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429664"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587027"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Criar um portal NAT utilizando o Azure CLI e testar o serviço NAT
 
@@ -34,8 +34,6 @@ Pode completar este tutorial utilizando a Azure Cloud Shell ou executar os respe
 
 Se optar por executar estes comandos localmente, tem de instalar o CLI.  Este tutorial requer que esteja a executar uma versão da versão Azure CLI 2.0.71 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-> [!IMPORTANT]
-> Depois de a [pré-visualização](./nat-overview.md#enable-preview) na Rede Virtual NAT estar ativada na sua subscrição, utilize https://aka.ms/natportal para aceder ao portal.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 

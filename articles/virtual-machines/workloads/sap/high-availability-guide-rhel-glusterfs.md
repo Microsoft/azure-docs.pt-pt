@@ -1,10 +1,10 @@
 ---
-title: GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver | Microsoft Docs
+title: GlusterFS em VMs Azure no RHEL para SAP NetWeaver / Microsoft Docs
 description: GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: timlt
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
-ms.author: sedusch
-ms.openlocfilehash: 2ae9a1419232cca051f7cab4e9bd8c70f885df73
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.author: radeltch
+ms.openlocfilehash: 388a2db2c888be541d89c5f4274bd38b37e4ca28
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749043"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591919"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver
 
@@ -29,12 +29,12 @@ ms.locfileid: "73749043"
 
 [2002167]: https://launchpad.support.sap.com/#/notes/2002167
 [2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533,]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
 [2178632]: https://launchpad.support.sap.com/#/notes/2178632
 [2191498]: https://launchpad.support.sap.com/#/notes/2191498
 [2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[SAP 1999351]: https://launchpad.support.sap.com/#/notes/1999351
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
@@ -42,88 +42,88 @@ ms.locfileid: "73749043"
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 
-Este artigo descreve como implantar as máquinas virtuais, configurar as máquinas virtuais e instalar um cluster GlusterFS que pode ser usado para armazenar os dados compartilhados de um sistema SAP altamente disponível.
-Este guia descreve como configurar o GlusterFS que é usado por dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo pressupõem que você usou o [modelo de servidor de arquivos SAP][template-file-server] com o prefixo de recurso **glust**.
+Este artigo descreve como implementar as máquinas virtuais, configurar as máquinas virtuais e instalar um cluster GlusterFS que pode ser usado para armazenar os dados partilhados de um sistema SAP altamente disponível.
+Este guia descreve como configurar o GlusterFS que é usado por dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo assumem que utilizou o modelo do servidor de [ficheiros SAP][template-file-server] com **cola**de prefixo de recursos .
 
-Leia as seguintes notas e documentos SAP primeiro
+Leia as seguintes Notas e papéis SAP primeiro
 
-* Nota SAP [1928533], que tem:
-  * Lista de tamanhos de VM do Azure com suporte para a implantação de software SAP
-  * Informações de capacidade importantes para tamanhos de VM do Azure
-  * Software SAP com suporte e combinações de so (sistema operacional) e banco de dados
-  * Versão de kernel do SAP necessária para Windows e Linux em Microsoft Azure
+* Nota SAP [1928533,]que tem:
+  * Lista de tamanhos De VM Azure que são suportados para a implementação de software SAP
+  * Informações importantes sobre a capacidade para tamanhos de VM Azure
+  * Software SAP suportado e sistema operativo (OS) e combinações de bases de dados
+  * Versão necessária do kernel SAP para Windows e Linux no Microsoft Azure
 
-* O SAP Note [2015553] lista os pré-requisitos para implantações de software SAP com suporte no SAP no Azure.
-* A observação do SAP [2002167] tem as configurações do sistema operacional recomendadas para Red Hat Enterprise Linux
-* A observação do SAP [2009879] tem diretrizes SAP HANA para Red Hat Enterprise Linux
-* A nota SAP [2178632] tem informações detalhadas sobre todas as métricas de monitoramento relatadas para SAP no Azure.
-* A nota SAP [2191498] tem a versão do agente de host do SAP necessária para Linux no Azure.
-* A nota SAP [2243692] tem informações sobre o licenciamento SAP no Linux no Azure.
-* A nota SAP [1999351] tem informações adicionais para solução de problemas para a extensão de monitoramento avançado do Azure para SAP.
-* O [SAP Community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas SAP necessárias para o Linux.
-* [Planejamento e implementação de máquinas virtuais do Azure para SAP no Linux][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
-* [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
-* [Documentação do produto para o armazenamento Red Hat Gluster](https://access.redhat.com/documentation/red_hat_gluster_storage/)
-* Documentação geral do RHEL
-  * [Visão geral do complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-* Documentação do RHEL específica do Azure:
-  * [Políticas de suporte para clusters de alta disponibilidade RHEL-Máquinas Virtuais do Microsoft Azure como membros do cluster](https://access.redhat.com/articles/3131341)
-  * [Instalando e configurando um cluster de alta disponibilidade Red Hat Enterprise Linux 7,4 (e posterior) no Microsoft Azure](https://access.redhat.com/articles/3252491)
+* O SAP Note [2015553] lista os pré-requisitos para implementações de software SAP suportadas pela SAP em Azure.
+* SAP Note [2002167] recomendou definições de OS para Red Hat Enterprise Linux
+* SAP Nota [2009879] tem Diretrizes SAP HANA para Red Hat Enterprise Linux
+* O SAP Note [2178632] tem informações detalhadas sobre todas as métricas de monitorização reportadas para o SAP em Azure.
+* O SAP Note [2191498] tem a versão necessária do Agente anfitrião SAP para o Linux em Azure.
+* SAP Nota [2243692] tem informações sobre licenciamento SAP em Linux em Azure.
+* A Nota [SAP 1999351] tem informações adicionais de resolução de problemas para a extensão de monitorização avançada do Azure para sAP.
+* [A SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) exigiu todas as notas SAP para linux.
+* [Planeamento e implementação de Máquinas Virtuais Azure para SAP em Linux][planning-guide]
+* [Implantação de Máquinas Virtuais Azure para SAP em Linux (este artigo)][deployment-guide]
+* [Implantação de DBMS de Máquinas Virtuais Azure para SAP em Linux][dbms-guide]
+* [Documentação do produto para armazenamento de gluster de chapéu vermelho](https://access.redhat.com/documentation/red_hat_gluster_storage/)
+* Documentação Geral RHEL
+  * [Visão geral de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Administração add-on de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Referência addon de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* Documentação RHEL específica do Azure:
+  * [Políticas de suporte para clusters de alta disponibilidade RHEL - Máquinas Virtuais Microsoft Azure como Membros do Cluster](https://access.redhat.com/articles/3131341)
+  * [Instalação e Configuração de um Cluster de Alta Disponibilidade do Red Hat Enterprise Linux 7.4 (e mais tarde) no Microsoft Azure](https://access.redhat.com/articles/3252491)
 
 ## <a name="overview"></a>Descrição geral
 
-Para obter alta disponibilidade, o SAP NetWeaver requer armazenamento compartilhado. O GlusterFS é configurado em um cluster separado e pode ser usado por vários sistemas SAP.
+Para alcançar uma elevada disponibilidade, o SAP NetWeaver requer armazenamento partilhado. O GlusterFS está configurado num cluster separado e pode ser utilizado por vários sistemas SAP.
 
-![Visão geral de alta disponibilidade do SAP NetWeaver](./media/high-availability-guide-rhel-glusterfs/rhel-glusterfs.png)
+![Visão geral de alta disponibilidade da SAP NetWeaver](./media/high-availability-guide-rhel-glusterfs/rhel-glusterfs.png)
 
-## <a name="set-up-glusterfs"></a>Configurar o GlusterFS
+## <a name="set-up-glusterfs"></a>Configurar glusterFS
 
-Você pode usar um modelo do Azure do GitHub para implantar todos os recursos do Azure necessários, incluindo as máquinas virtuais, o conjunto de disponibilidade e as interfaces de rede, ou você pode implantar os recursos manualmente.
+Pode utilizar um modelo Azure do github para implementar todos os recursos necessários do Azure, incluindo as máquinas virtuais, o conjunto de disponibilidade e as interfaces de rede ou pode implementar os recursos manualmente.
 
-### <a name="deploy-linux-via-azure-template"></a>Implantar o Linux por meio do modelo do Azure
+### <a name="deploy-linux-via-azure-template"></a>Implementar linux via modelo Azure
 
-O Azure Marketplace contém uma imagem para Red Hat Enterprise Linux que você pode usar para implantar novas máquinas virtuais.
-Você pode usar um dos modelos de início rápido no GitHub para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o conjunto de disponibilidade, etc. Siga estas etapas para implantar o modelo:
+O Azure Marketplace contém uma imagem para red hat enterprise linux que você pode usar para implementar novas máquinas virtuais.
+Você pode usar um dos modelos de arranque rápido no github para implementar todos os recursos necessários. O modelo implanta as máquinas virtuais, conjunto de disponibilidade, etc. Siga estes passos para implementar o modelo:
 
-1. Abra o [modelo de servidor de arquivos SAP][template-file-server] no portal do Azure
+1. Abra o modelo do servidor de [ficheiros SAP][template-file-server] no portal Azure
 1. Insira os seguintes parâmetros
    1. Prefixo de recurso  
-      Insira o prefixo que você deseja usar. O valor é usado como um prefixo para os recursos que são implantados.
-   2. Contagem de sistema SAP Insira o número de sistemas SAP que usarão esse servidor de arquivos. Isso implantará o número necessário de discos, etc.
-   3. Tipo de so  
-      Selecione uma das distribuições do Linux. Para este exemplo, selecione RHEL 7
-   4. Nome de usuário de administrador, senha de administrador ou chave SSH  
-      Um novo usuário é criado e pode ser usado para fazer logon no computador.
-   5. ID da sub-rede  
-      Se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida, a VM deve ser atribuída, nomear a ID dessa sub-rede específica. A ID geralmente é semelhante a/subscriptions/ **&lt;ID da assinatura&gt;** /resourceGroups/ **&lt;nome do grupo de recursos&gt;** /Providers/Microsoft.Network/virtualNetworks/ **&lt;nome da rede virtual&gt;** /subnets/ **&lt;nome da sub-rede&gt;**
+      Introduza o prefixo que pretende utilizar. O valor é usado como prefixo para os recursos que são implantados.
+   2. Contagem do sistema SAP Introduza o número de sistemas SAP que utilizarão este servidor de ficheiros. Isto irá implantar o número necessário de discos, etc.
+   3. Tipo Os  
+      Selecione uma das distribuições linux. Para este exemplo, selecione RHEL 7
+   4. Nome de utilizador de administrador, senha de administrador ou chave SSH  
+      É criado um novo utilizador que pode ser utilizado para iniciar sessão na máquina.
+   5. Id da sub-rede  
+      Se pretender implantar o VM numa VNet existente onde tem uma sub-rede definida a VM deve ser atribuída, diga o nome da identificação dessa sub-rede específica. O ID geralmente parece /subscrições/ **&lt;id de subscrição&gt;** /recursosGroups/&lt;nome de grupo de recursos **&gt;** /fornecedores/Microsoft.Network/virtualNetworks/&lt;nome de rede **virtual&gt;** /subnets/&lt;nome **da sub-rede&gt;**
 
-### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio de portal do Azure
+### <a name="deploy-linux-manually-via-azure-portal"></a>Implementar o Linux manualmente através do portal Azure
 
-Primeiro, você precisa criar as máquinas virtuais para esse cluster. Posteriormente, você criará um balanceador de carga e usará as máquinas virtuais nos pools de back-end. Recomendamos o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+Primeiro é necessário criar as máquinas virtuais para este cluster. Depois, cria-se um equilibrador de carga e utiliza as máquinas virtuais nas piscinas de backend. Recomendamos um [equilíbrio de carga padrão.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)  
 
 1. Criar um Grupo de Recursos
-1. Criar uma rede virtual
+1. Criar uma Rede Virtual
 1. Criar um conjunto de disponibilidade  
-   Definir domínio de atualização máx.
+   Definir domínio de atualização max
 1. Criar máquina virtual 1  
-   Use pelo menos RHEL 7, neste exemplo, a imagem Red Hat Enterprise Linux 7,4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
-   Selecionar conjunto de disponibilidade criado anteriormente  
+   Utilize pelo menos RHEL 7, neste exemplo a imagem Da Empresa de Chapéu Vermelho Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Criar máquina virtual 2  
-   Use pelo menos RHEL 7, neste exemplo, a imagem Red Hat Enterprise Linux 7,4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
-   Selecionar conjunto de disponibilidade criado anteriormente  
+   Utilize pelo menos RHEL 7, neste exemplo a imagem Da Empresa de Chapéu Vermelho Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Adicione um disco de dados para cada sistema SAP a ambas as máquinas virtuais.
 
-### <a name="configure-glusterfs"></a>Configurar o GlusterFS
+### <a name="configure-glusterfs"></a>Configurar GlusterFS
 
-Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]** -aplicável somente ao nó 1, **[2]** – aplicável somente ao nó 2, **[3]** – aplicável somente ao nó 3.
+Os seguintes itens são pré-fixados com qualquer um **[A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1, **[2]** - apenas aplicável ao nó 2, **[3]** - apenas aplicável ao nó 3.
 
-1. **[A]**  Configurar a resolução de nomes de anfitrião
+1. **[A]** Configuração resolução de nome de anfitrião
 
    Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome do host nos comandos a seguir
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
@@ -136,35 +136,35 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    <b>10.0.0.42 glust-2</b>
    </code></pre>
 
-1. **[A]** registrar
+1. **[A]** Registo
 
-   Registrar suas máquinas virtuais e anexá-la a um pool que contém repositórios para RHEL 7 e GlusterFS
+   Registe as suas máquinas virtuais e prenda-as a uma piscina que contenha repositórios para RHEL 7 e GlusterFS
 
    <pre><code>sudo subscription-manager register
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-1. **[A]** habilitar GlusterFS repositórios
+1. **[A]** Ativar glusterFS repos
 
-   Para instalar os pacotes necessários, habilite os seguintes repositórios.
+   Para instalar as embalagens necessárias, ative os seguintes repositórios.
 
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
    sudo subscription-manager repos --enable=rh-gluster-3-for-rhel-7-server-rpms
    </code></pre>
   
-1. **[A]** instalar pacotes do GlusterFS
+1. **[A]** Instalar pacotes GlusterFS
 
-   Instalar esses pacotes em todos os nós do GlusterFS
+   Instale estes pacotes em todos os nós GlusterFS
 
    <pre><code>sudo yum -y install redhat-storage-server
    </code></pre>
 
-   Reinicialize os nós após a instalação.
+   Reinicie os nódosos após a instalação.
 
-1. **[A]** modificar firewall
+1. **[A]** Modificar firewall
 
-   Adicione regras de firewall para permitir o tráfego de cliente para os nós GlusterFS.
+   Adicione regras de firewall para permitir o tráfego do cliente aos nódosos GlusterFS.
 
    <pre><code># list the available zones
    firewall-cmd --get-active-zones
@@ -173,7 +173,7 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    sudo firewall-cmd --zone=public --add-service=glusterfs
    </code></pre>
 
-1. **[A]** habilitar e iniciar o serviço GlusterFS
+1. **[A]** Ativar e iniciar o serviço GlusterFS
 
    Inicie o serviço GlusterFS em todos os nós.
 
@@ -181,9 +181,9 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    sudo systemctl enable glusterd
    </code></pre>
 
-1. **[1]** criar GluserFS
+1. **[1]** Criar GluserFS
 
-   Execute os comandos a seguir para criar o cluster GlusterFS
+   Executar os seguintes comandos para criar o cluster GlusterFS
 
    <pre><code>sudo gluster peer probe glust-1
    sudo gluster peer probe glust-2
@@ -202,9 +202,9 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    # State: Accepted peer request (Connected)
    </code></pre>
 
-1. **[2]** status do par de teste
+1. **[2]** Estado dos pares de teste
 
-   Testar o status do par no segundo nó
+   Teste o estado dos pares no segundo nó
 
    <pre><code>sudo gluster peer status
    # Number of Peers: 2
@@ -218,9 +218,9 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    # State: Peer in Cluster (Connected)
    </code></pre>
 
-1. **[3]** status do par de teste
+1. **[3]** Estado dos pares de teste
 
-   Testar o status do par no terceiro nó
+   Teste o estado dos pares no terceiro nó
 
    <pre><code>sudo gluster peer status
    # Number of Peers: 2
@@ -234,9 +234,9 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    # State: Peer in Cluster (Connected)
    </code></pre>
 
-1. **[A]** criar LVM
+1. **[A]** Criar LVM
 
-   Neste exemplo, o GlusterFS é usado para dois sistemas SAP, NW1 e NW2. Use os comandos a seguir para criar configurações LVM para esses sistemas SAP.
+   Neste exemplo, o GlusterFS é utilizado para dois sistemas SAP, NW1 e NW2. Utilize os seguintes comandos para criar configurações LVM para estes sistemas SAP.
 
    Use estes comandos para NW1
 
@@ -316,9 +316,9 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    sudo mount -a
    </code></pre>
 
-1. **[1]** criar o volume distribuído
+1. **[1]** Criar o volume distribuído
 
-   Use os comandos a seguir para criar o volume GlusterFS para NW1 e iniciá-lo.
+   Utilize os seguintes comandos para criar o volume GlusterFS para NW1 e iniciá-lo.
 
    <pre><code>sudo gluster vol create <b>NW1</b>-sapmnt replica 3 glust-0:/rhs/<b>NW1</b>/sapmnt glust-1:/rhs/<b>NW1</b>/sapmnt glust-2:/rhs/<b>NW1</b>/sapmnt force
    sudo gluster vol create <b>NW1</b>-trans replica 3 glust-0:/rhs/<b>NW1</b>/trans glust-1:/rhs/<b>NW1</b>/trans glust-2:/rhs/<b>NW1</b>/trans force
@@ -333,7 +333,7 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
    sudo gluster volume start <b>NW1</b>-aers
    </code></pre>
 
-   Use os comandos a seguir para criar o volume GlusterFS para NW2 e iniciá-lo.
+   Utilize os seguintes comandos para criar o volume GlusterFS para NW2 e iniciá-lo.
 
    <pre><code>sudo gluster vol create <b>NW2</b>-sapmnt replica 3 glust-0:/rhs/<b>NW2</b>/sapmnt glust-1:/rhs/<b>NW2</b>/sapmnt glust-2:/rhs/<b>NW2</b>/sapmnt force
    sudo gluster vol create <b>NW2</b>-trans replica 3 glust-0:/rhs/<b>NW2</b>/trans glust-1:/rhs/<b>NW2</b>/trans glust-2:/rhs/<b>NW2</b>/trans force
@@ -350,9 +350,9 @@ Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]*
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Instalar o SAP ASCS e o banco de dados](high-availability-guide-rhel.md)
-* [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
-* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
-* Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA no Azure (instâncias grandes), consulte [alta disponibilidade e recuperação de desastre do SAP Hana (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
-* Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA em VMs do Azure, consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha]
+* [Instale o SAP ASCS e a base de dados](high-availability-guide-rhel.md)
+* [Planeamento e implementação de Máquinas Virtuais Azure para SAP][planning-guide]
+* [Implantação de Máquinas Virtuais Azure para SAP][deployment-guide]
+* [Implantação de DBMS de Máquinas Virtuais Azure para SAP][dbms-guide]
+* Para aprender a estabelecer alta disponibilidade e plano para a recuperação de desastres do SAP HANA em Azure (grandes instâncias), consulte a alta disponibilidade do [SAP HANA (grandes instâncias) e a recuperação de desastres em Azure.](hana-overview-high-availability-disaster-recovery.md)
+* Para aprender como estabelecer alta disponibilidade e plano para a recuperação de desastres de SAP HANA em VMs Azure, consulte [Alta Disponibilidade de SAP HANA em Máquinas Virtuais Azure (VMs)][sap-hana-ha]

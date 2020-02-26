@@ -1,9 +1,9 @@
 ---
-title: Investigue incidentes com o Azure Sentinel | Microsoft Docs
-description: Use este tutorial para aprender a investigar incidentes com o Azure Sentinel.
+title: Investigar incidentes com O Sentinela Microsoft Docs
+description: Use este tutorial para aprender a investigar incidentes com Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,104 +13,104 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: fbab3eff3d7f742c2542e4264ef1b2124c5f15e5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.author: yelevin
+ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024622"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587197"
 ---
-# <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: investigar incidentes com o Azure Sentinel
+# <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigar incidentes com Azure Sentinel
 
 > [!IMPORTANT]
-> O grafo de investigação está atualmente em visualização pública.
-> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção.
+> O gráfico de investigação está atualmente em pré-visualização pública.
+> Esta funcionalidade é fornecida sem um acordo de nível de serviço, e não é recomendada para cargas de trabalho de produção.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-Este tutorial ajuda você a investigar incidentes com o Azure Sentinel. Depois de conectar suas fontes de dados ao Azure Sentinel, você deseja ser notificado quando algo suspeito acontecer. Para permitir que você faça isso, o Azure Sentinel permite que você crie regras de alerta avançadas, que geram incidentes que você pode atribuir e investigar.
+Este tutorial ajuda-o a investigar incidentes com O Sentinel. Depois de ligar as suas fontes de dados ao Azure Sentinel, pretende ser notificado quando algo suspeito acontecer. Para que possa fazê-lo, o Azure Sentinel permite-lhe criar regras avançadas de alerta, que geram incidentes que pode atribuir e investigar.
 
-Este artigo aborda:
+Este artigo abrange:
 > [!div class="checklist"]
 > * Investigar incidentes
-> * Usar o grafo de investigação
+> * Use o gráfico de investigação
 > * Responder a ameaças
 
-Um incidente pode incluir vários alertas. É uma agregação de todas as evidências relevantes para uma investigação específica. Um incidente é criado com base em regras analíticas que você criou na página **análise** . As propriedades relacionadas aos alertas, como severidade e status, são definidas no nível do incidente. Depois de permitir que o Azure Sentinel saiba quais tipos de ameaças você está procurando e como encontrá-las, você pode monitorar ameaças detectadas investigando incidentes.
+Um incidente pode incluir vários alertas. É uma agregação de todas as provas relevantes para uma investigação específica. Um incidente é criado com base em regras analíticas que criou na página **Analytics.** As propriedades relacionadas com os alertas, como a gravidade e o estado, são definidas ao nível do incidente. Depois de avisar o Azure Sentinel sobre que tipo de ameaças procura e como encontrá-las, pode monitorizar as ameaças detetadas investigando incidentes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você só poderá investigar o incidente se tiver usado os campos de mapeamento de entidade ao configurar sua regra analítica. O grafo de investigação requer que seu incidente original inclua entidades.
+Só poderá investigar o incidente se usou os campos de mapeamento da entidade quando estabeleceu a sua regra analítica. O gráfico de investigação requer que o seu incidente original inclua entidades.
 
 ## <a name="how-to-investigate-incidents"></a>Como investigar incidentes
 
-1. Selecione **incidentes**. A página **incidentes** permite que você saiba quantos incidentes você tem, quantas estão abertas, quantos você definiu **em andamento**e quantas estão fechadas. Para cada incidente, você pode ver a hora em que ocorreu e o status do incidente. Examine a severidade para decidir quais incidentes tratar primeiro.
+1. Selecione **Incidentes**. A página **Incidents** permite-lhe saber quantos incidentes tem, quantos estão abertos, quantos se propôs **em progresso**, e quantos estão fechados. Para cada incidente, você pode ver a hora que ocorreu, e o estado do incidente. Olhe para a gravidade para decidir quais incidentes lidar primeiro.
 
-    ![Exibir severidade do incidente](media/tutorial-investigate-cases/incident-severity.png)
+    ![Ver gravidade do incidente](media/tutorial-investigate-cases/incident-severity.png)
 
-1. Você pode filtrar os incidentes conforme necessário, por exemplo, por status ou severidade.
+1. Pode filtrar os incidentes conforme necessário, por exemplo, por estado ou gravidade.
 
-1. Para iniciar uma investigação, selecione um incidente específico. À direita, você pode ver informações detalhadas para o incidente, incluindo sua gravidade, o resumo do número de entidades envolvidas, os eventos brutos que dispararam esse incidente e a ID exclusiva do incidente.
+1. Para iniciar uma investigação, selecione um incidente específico. À direita, pode ver informações detalhadas sobre o incidente, incluindo a sua gravidade, resumo do número de entidades envolvidas, os eventos brutos que desencadearam este incidente, e a identificação única do incidente.
 
-1. Para exibir mais detalhes sobre os alertas e entidades no incidente, selecione **Exibir detalhes completos** na página incidente e examine as guias relevantes que resumem as informações do incidente. Na guia **alertas** , examine o próprio alerta. Você pode ver todas as informações relevantes sobre o alerta – a consulta que disparou o alerta, o número de resultados retornados por consulta e a capacidade de executar guias estratégicos nos alertas. Para detalhar ainda mais o incidente, selecione o número de **eventos**. Isso abre a consulta que gerou os resultados e os eventos que dispararam o alerta no Log Analytics. Na guia **entidades** , você pode ver todas as entidades que você mapeou como parte da definição da regra de alerta.
+1. Para ver mais detalhes sobre os alertas e entidades do incidente, selecione **Ver todos os detalhes** na página do incidente e rever os separadores relevantes que resumem as informações do incidente. No separador **Alertas,** reveja o alerta em si. Pode ver todas as informações relevantes sobre o alerta – a consulta que desencadeou o alerta, o número de resultados devolvidos por consulta e a capacidade de executar playbooks nos alertas. Para aprofundar ainda mais o incidente, selecione o número de **Eventos**. Isto abre a consulta que gerou os resultados e os eventos que desencadearam o alerta no Log Analytics. No separador **Entidades,** pode ver todas as entidades que mapeou como parte da definição de regra de alerta.
 
-    ![Exibir detalhes do alerta](media/tutorial-investigate-cases/alert-details.png)
+    ![Visualizar os detalhes do alerta](media/tutorial-investigate-cases/alert-details.png)
 
-1. Se você estiver investigando um incidente ativamente, é uma boa ideia definir o status do incidente como **em andamento** até fechá-lo.
+1. Se está a investigar ativamente um incidente, é uma boa ideia definir o estado do incidente **até** que o feche.
 
-1. Os incidentes podem ser atribuídos a um usuário específico. Para cada incidente, você pode atribuir um proprietário, definindo o campo **proprietário do incidente** . Todos os incidentes começam como não atribuídos. Você também pode adicionar comentários para que outros analistas possam entender o que você investigou e quais são suas preocupações em relação ao incidente.
+1. Incidentes podem ser atribuídos a um utilizador específico. Para cada incidente pode atribuir um proprietário, definindo o campo do proprietário do **Incidente.** Todos os incidentes começam como não atribuídos. Também pode adicionar comentários para que outros analistas possam compreender o que investigou e quais as suas preocupações em torno do incidente.
 
-    ![Atribuir incidente ao usuário](media/tutorial-investigate-cases/assign-incident-to-user.png)
+    ![Atribuir incidente ao utilizador](media/tutorial-investigate-cases/assign-incident-to-user.png)
 
-1. Selecione **investigar** para exibir o mapa de investigação.
+1. Selecione **Investigar** para ver o mapa de investigação.
 
-## <a name="use-the-investigation-graph-to-deep-dive"></a>Use o grafo de investigação para aprofundar-se
+## <a name="use-the-investigation-graph-to-deep-dive"></a>Use o gráfico de investigação para mergulhar profundamente
 
-O grafo de investigação permite que os analistas façam as perguntas certas para cada investigação. O grafo de investigação ajuda você a entender o escopo e a identificar a causa raiz de uma possível ameaça à segurança correlacionando os dados relevantes com qualquer entidade envolvida. Você pode aprofundar-se e investigar qualquer entidade apresentada no grafo selecionando-a e escolhendo entre diferentes opções de expansão.  
+O gráfico de investigação permite que os analistas façam as perguntas certas para cada investigação. O gráfico de investigação ajuda-o a compreender o âmbito, e a identificar a causa principal, de uma potencial ameaça à segurança, correlacionar dados relevantes com qualquer entidade envolvida. Pode mergulhar mais fundo e investigar qualquer entidade apresentada no gráfico selecionando-a e escolhendo entre diferentes opções de expansão.  
   
-O grafo de investigação fornece:
+O gráfico de investigação fornece-lhe:
 
-- **Contexto visual de dados brutos**: o Visual Graph dinâmico exibe as relações de entidade extraídas automaticamente dos dados brutos. Isso permite que você veja facilmente as conexões entre diferentes fontes de dados.
+- **Contexto visual a partir de dados brutos**: O gráfico visual ao vivo exibe relações de entidades extraídas automaticamente dos dados brutos. Isto permite-lhe ver facilmente ligações através de diferentes fontes de dados.
 
-- **Descoberta completa de escopo de investigação**: expanda seu escopo de investigação usando consultas de exploração internas para trazer o escopo completo de uma violação.
+- **Descoberta completa do âmbito**da investigação : Expanda o seu âmbito de investigação utilizando consultas de exploração incorporadas para emergir todo o âmbito de uma violação.
 
-- **Etapas de investigação internas**: Use opções de exploração predefinidas para verificar se você está fazendo as perguntas certas diante de uma ameaça.
+- **Etapas de investigação incorporadas**: Use opções de exploração predefinidas para se certificar de que está a fazer as perguntas certas face a uma ameaça.
 
-Para usar o grafo de investigação:
+Para utilizar o gráfico de investigação:
 
-1. Selecione um incidente e, em seguida, selecione **investigar**. Isso levará você ao grafo de investigação. O grafo fornece um mapa ilustrativo das entidades conectadas diretamente ao alerta e a cada recurso conectado.
+1. Selecione um incidente e, em seguida, selecione **Investigar**. Isto leva-o ao gráfico da investigação. O gráfico fornece um mapa ilustrativo das entidades diretamente ligadas ao alerta e cada recurso conectado mais.
 
    > [!IMPORTANT] 
-   > Você só poderá investigar o incidente se tiver usado os campos de mapeamento de entidade ao configurar sua regra analítica. O grafo de investigação requer que seu incidente original inclua entidades.
+   > Só poderá investigar o incidente se usou os campos de mapeamento da entidade quando estabeleceu a sua regra analítica. O gráfico de investigação requer que o seu incidente original inclua entidades.
 
    ![Ver mapa](media/tutorial-investigate-cases/map1.png)
 
-1. Selecione uma entidade para abrir o painel **entidades** para que você possa examinar as informações sobre essa entidade.
+1. Selecione uma entidade para abrir o painel de **Entidades** para que possa rever informações sobre essa entidade.
 
-    ![Exibir entidades no mapa](media/tutorial-investigate-cases/map-entities.png)
+    ![Ver entidades no mapa](media/tutorial-investigate-cases/map-entities.png)
   
-1. Expanda sua investigação passando o mouse sobre cada entidade para revelar uma lista de perguntas projetadas por nossos especialistas em segurança e analistas por tipo de entidade para aprofundar sua investigação. Chamamos essas consultas de **exploração**de opções.
+1. Expanda a sua investigação pairando sobre cada entidade para revelar uma lista de questões que foram desenhadas pelos nossos especialistas de segurança e analistas por tipo de entidade para aprofundar a sua investigação. Chamamos a estas opções consultas de **exploração.**
 
-    ![Explorar mais detalhes](media/tutorial-investigate-cases/exploration-cases.png)
+    ![Explore mais detalhes](media/tutorial-investigate-cases/exploration-cases.png)
 
-   Por exemplo, em um computador, você pode solicitar alertas relacionados. Se você selecionar uma consulta de exploração, os direitos resultantes serão adicionados de volta ao grafo. Neste exemplo, a seleção de **alertas relacionados** retornou os seguintes alertas para o grafo:
+   Por exemplo, num computador pode solicitar alertas relacionados. Se selecionar uma consulta de exploração, as legendas resultantes são adicionadas ao gráfico. Neste exemplo, a seleção de **alertas relacionados** devolveu os seguintes alertas ao gráfico:
 
-    ![Exibir alertas relacionados](media/tutorial-investigate-cases/related-alerts.png)
+    ![Ver alertas relacionados](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Para cada consulta de exploração, você pode selecionar a opção para abrir os resultados do evento bruto e a consulta usada em Log Analytics, selecionando **eventos\>** .
+1. Para cada consulta de exploração, pode selecionar a opção de abrir os resultados do evento bruto e a consulta utilizada no Log Analytics, selecionando **Eventos\>** .
 
-1. Para entender o incidente, o grafo fornece uma linha do tempo paralela.
+1. Para compreender o incidente, o gráfico dá-lhe uma linha temporal paralela.
 
-    ![Exibir linha do tempo no mapa](media/tutorial-investigate-cases/map-timeline.png)
+    ![Ver linha do tempo no mapa](media/tutorial-investigate-cases/map-timeline.png)
 
-1. Passe o mouse sobre a linha do tempo para ver quais coisas no grafo ocorreram em que ponto no tempo.
+1. Pairar sobre a linha do tempo para ver quais as coisas no gráfico ocorreram em que ponto no tempo.
 
-    ![Usar linha do tempo no mapa para investigar alertas](media/tutorial-investigate-cases/use-timeline.png)
+    ![Use a linha do tempo no mapa para investigar alertas](media/tutorial-investigate-cases/use-timeline.png)
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, você aprendeu como começar a investigar incidentes usando o Azure Sentinel. Continue no tutorial sobre [como responder a ameaças usando guias estratégicos automatizados](tutorial-respond-threats-playbook.md).
+Neste tutorial, aprendeu a investigar incidentes usando O Sentinel a Pino. Continue ao tutorial sobre [como responder a ameaças usando playbooks automatizados](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
-> [Responda às ameaças](tutorial-respond-threats-playbook.md) para automatizar suas respostas a ameaças.
+> [Responda às ameaças](tutorial-respond-threats-playbook.md) para automatizar as suas respostas a ameaças.
 

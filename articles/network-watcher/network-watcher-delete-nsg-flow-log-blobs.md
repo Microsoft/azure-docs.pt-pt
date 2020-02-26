@@ -1,6 +1,6 @@
 ---
-title: Excluir blobs de armazenamento para logs de fluxo do grupo de segurança de rede no observador de rede do Azure | Microsoft Docs
-description: Este artigo explica como excluir os blobs de armazenamento de log de fluxo do grupo de segurança de rede que estão fora do período da política de retenção no observador de rede do Azure.
+title: Eliminar bolhas de armazenamento para registos de fluxo de grupos de segurança de rede no Vigilante da Rede Azure  Microsoft Docs
+description: Este artigo explica como eliminar as bolhas de armazenamento de registo de fluxo do grupo de segurança da rede que estão fora do seu período de política de retenção no Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: 6898bed0645146af9c0131307459e31bad661329
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6d535bcc2e0831baae658796f76c8087d74c6a85
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036299"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587214"
 ---
-# <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Excluir blobs de armazenamento de log de fluxo do grupo de segurança de rede no observador de rede
+# <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Eliminar bolhas de armazenamento de registo de fluxo de fluxo do grupo de segurança da rede no Observador da Rede
 
-Atualmente, há um problema em que [os logs de fluxo do NSG (grupo de segurança de rede)](network-watcher-nsg-flow-logging-overview.md) para o observador de rede não são automaticamente excluídos do armazenamento de BLOBs com base nas configurações da política de retenção. Agora você deve executar um script do PowerShell para excluir manualmente os logs de fluxo da sua conta de armazenamento, conforme descrito neste artigo.
+Atualmente, existe um problema em que os registos de fluxo do grupo de segurança de [rede (NSG)](network-watcher-nsg-flow-logging-overview.md) para O Observador de Rede não são automaticamente eliminados do armazenamento blob com base em definições de política de retenção. Tem agora de executar um script PowerShell para eliminar manualmente os registos de fluxo da sua conta de armazenamento, tal como descrito neste artigo.
 
-## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>Executar script do PowerShell para excluir logs de fluxo NSG
+## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>Executar script PowerShell para eliminar registos de fluxo NSG
  
-Copie e salve o script a seguir em um local como o diretório de trabalho atual. 
+Copie e guarde o seguinte guião para um local como o seu diretório de trabalho atual. 
 
 ```powershell
 # This powershell script deletes all NSG flow log blobs that should not be retained anymore as per configured retention policy.
@@ -124,17 +124,17 @@ foreach ($Psflowlog in $FlowLogsList)
 Write-Output ('Retention policy for all NSGs evaluated and completed successfully')
 ```
 
-1. Insira os seguintes parâmetros no script, conforme necessário:
-   - **SubscriptionId** [Obrigatório]: A ID da assinatura de onde você gostaria de excluir blobs de log de fluxo NSG.
-   - **Local** do [Obrigatório]: A _cadeia de caracteres de localização_ da região do NSGs para o qual você gostaria de excluir blobs de log de fluxo do NSG. Você pode exibir essas informações no portal do Azure ou no [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
-   - **Confirmar** [Opcional]: Passe o sinalizador Confirm se quiser confirmar manualmente a exclusão de cada blob de armazenamento.
+1. Introduza os seguintes parâmetros no script conforme necessário:
+   - **Subscrição Id** [Obrigatório]: O ID de subscrição de onde deseja eliminar as bolhas nsg Flow Log.
+   - **Localização** [Obrigatória]: A cadeia de _localização_ da região dos NSGs para a qual deseja eliminar as bolhas nsg flow log. Pode ver esta informação no portal Azure ou no [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
+   - **Confirme** [Opcional]: Passe a bandeira de confirmação se quiser confirmar manualmente a eliminação de cada bolha de armazenamento.
 
-1. Execute o script salvo, conforme mostrado no exemplo a seguir, em que o arquivo de script foi salvo como **delete-NsgFlowLogsBlobs. ps1**:
+1. Executar o script guardado como mostrado no seguinte exemplo, onde o ficheiro script foi guardado como **Delete-NsgFlowLogsBlobs.ps1**:
    ```
    .\Delete-NsgFlowLogsBlobs.ps1 -SubscriptionId <subscriptionId> -Location  <location> -Confirm
    ```
     
-## <a name="next-steps"></a>Passos Seguintes
-- Os clientes podem automatizar a execução do script usando o [Agendador do Azure](https://azure.microsoft.com/services/scheduler/) ou a [automação do Azure](https://azure.microsoft.com/services/automation/)
-- Para saber mais sobre o log de NSG, consulte [logs de Azure monitor para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+## <a name="next-steps"></a>Passos seguintes
+- Os clientes podem automatizar executar o script usando [aplicações da Azure Logic](../logic-apps/logic-apps-overview.md) ou [da Automação Azure](https://azure.microsoft.com/services/automation/)
+- Para saber mais sobre a exploração madeireira NSG, consulte [os registos do Monitor Azure para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 

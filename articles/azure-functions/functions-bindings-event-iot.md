@@ -1,41 +1,32 @@
 ---
-title: Associações do Hub IoT do Azure para Azure Functions
-description: Entenda como usar as associações do Hub IoT no Azure Functions.
+title: Ligações azure IoT Hub para funções azure
+description: Aprenda a utilizar o gatilho ioT Hub e a ligação em Funções Azure.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 03/05/2019
+ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 2940f9e2adff82c100ed347431e8c1d27c30202e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c25543b16c3486a8f6a445427346382faaaa09a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924427"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586139"
 ---
-# <a name="azure-iot-hub-bindings-for-azure-functions"></a>Associações do Hub IoT do Azure para Azure Functions
+# <a name="azure-iot-hub-bindings-for-azure-functions"></a>Ligações azure IoT Hub para funções azure
 
-Este artigo explica como trabalhar com associações de Azure Functions para o Hub IoT. O suporte ao Hub IoT é baseado na [Associação de hubs de eventos do Azure](functions-bindings-event-hubs.md).
-
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
-
-## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
-
-Para Azure Functions versão 1. x, as associações do Hub IoT são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) , versão 2. x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) repositório do GitHub.
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
-## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
-
-Para o Functions 2. x e superior, use o pacote [Microsoft. Azure. webjobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) , versão 3. x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) repositório do GitHub.
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+Este conjunto de artigos explica como trabalhar com as ligações das Funções Azure para o IoT Hub. O suporte ioT Hub baseia-se na [Ligação de Hubs de Eventos Azure.](functions-bindings-event-hubs.md)
 
 > [!IMPORTANT]
-> Embora os exemplos de código a seguir usem a API do hub de eventos, a sintaxe fornecida é aplicável a funções do Hub IoT.
+> Enquanto as seguintes amostras de código utilizam a API do Hub de Eventos, a sintaxe dada é aplicável às funções do Hub IoT.
+
+| Ação | Tipo |
+|--------|------|
+| Responda a eventos enviados para um fluxo de eventos ioT hub. | [Acionador](./functions-bindings-event-iot-trigger.md) |
+| Escreva eventos para um fluxo de eventos IoT | [Encadernação de saída](./functions-bindings-event-iot-output.md) |
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
+- [Responda a eventos enviados para um fluxo de eventos de eventos (Trigger)](./functions-bindings-event-iot-trigger.md)
+- [Escreva eventos para um fluxo de eventos (encadernação de saída)](./functions-bindings-event-iot-output.md)

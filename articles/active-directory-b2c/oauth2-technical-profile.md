@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d0fc5e6b5cafa22da6707a8f34675dcbdf5af8cc
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f9db8fd0865b7dba869795526cf6b68f4ad3ffb9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198025"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585786"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth2 numa política personalizada do Diretório Ativo Azure B2C
 
@@ -97,8 +97,9 @@ O perfil técnico também devolve reclamações que não são devolvidas pelo fo
 | ExtraParamsInAccessTokenEndpointResponse | Não | Contém os parâmetros extra que podem ser devolvidos na resposta do **AccessTokenEndpoint** por alguns fornecedores de identidade. Por exemplo, a resposta do **AccessTokenEndpoint** contém um parâmetro extra como `openid`, que é um parâmetro obrigatório além do access_token numa cadeia de consulta de pedido **de ReclamaçõesEndpoint.** Vários nomes de parâmetros devem ser escapados e separados pela vírposta '', delimitador. |
 | ExtraParamsInClaimsEndpointRequest | Não | Contém os parâmetros extra que podem ser devolvidos no pedido **de ClaimsEndpoint** por alguns fornecedores de identidade. Vários nomes de parâmetros devem ser escapados e separados pela vírposta '', delimitador. |
 | Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`, ou `false` (predefinido). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
+| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve os caminhos da JSON. Valores possíveis: `true`ou `false` (predefinido). Utilize estes metadados para ler dados de um elemento JSON aninhado. Num [OutputClaim,](technicalprofiles.md#outputclaims)detete a `PartnerClaimType` para o elemento de caminho JSON que pretende ser saída. Por exemplo: `firstName.localized`, ou `data.0.to.0.email`.|
 
-## <a name="cryptographic-keys"></a>Chaves de criptografia
+## <a name="cryptographic-keys"></a>Chaves criptográficas
 
 O elemento **CryptographicKeys** contém o seguinte atributo:
 

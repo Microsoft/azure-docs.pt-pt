@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: e2b61b87707a732d3b7c27f97b9ca5fcf82b4bf3
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: bfbae282f9c383c19aae84a70dfc53f754bd9367
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483058"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592616"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Inicie-se com o Azure WebJobs SDK para processamento de fundo orientado por eventos
 
@@ -322,7 +322,7 @@ Nesta secção, você faz as seguintes tarefas para configurar a registo de Insi
 
    |Nome  |conexão String  |Tipo de Base de Dados|
    |---------|---------|------|
-   |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizar|
+   |AzureWebJobsStorage | {a cadeia de ligação de armazenamento que copiou anteriormente}|Personalizado|
 
 1. Se a caixa de Definições de **Aplicação** não tiver uma chave de instrumentação De Insights de Aplicação, adicione a que copiou anteriormente. (A chave de instrumentação pode já estar lá, dependendo da forma como criou a app App Service.)
 
@@ -382,7 +382,7 @@ Para tirar partido da registo de Informação sobre [a Aplicação](../azure-mon
                     string instrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
                     if (!string.IsNullOrEmpty(instrumentationKey))
                     {
-                        b.AddApplicationInsights(o => o.InstrumentationKey = instrumentationKey);
+                        b.AddApplicationInsightsWebJobs(o => o.InstrumentationKey = instrumentationKey);
                     }
                 });
         var host = builder.Build();
@@ -538,7 +538,7 @@ As encadernações de saída simplificam o código que escreve os dados. Este ex
  
 1. Verifique a função em Azure, enviando novamente um ficheiro para o recipiente blob e adicionando uma mensagem à fila que é o nome do ficheiro carregado. Vê a mensagem ser removida da fila e uma cópia do ficheiro criado no recipiente de bolhas. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como criar, executar e implementar um projeto WebJobs SDK 3.x.
 

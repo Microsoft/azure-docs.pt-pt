@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 55c7e2f30324fe7878e38f1129c63c6e0c51a75f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a1a3e62646fedd468a02eac7b1a48d0b2d00fd74
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134842"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591987"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Acompanhar a utilização de um laboratório no Azure Lab Services
 Este tutorial mostra-lhe como é que os criadores/proprietários de laboratórios podem acompanhar a utilização dos laboratórios.
 
-Neste tutorial, irá realizar as seguintes ações:
+Neste tutorial, vai realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Ver utilizadores registados no laboratório
@@ -41,7 +41,7 @@ Neste tutorial, irá realizar as seguintes ações:
 
     ![Utilizadores registados](../media/tutorial-track-usage/registered-users.png)
 
-    Para mais detalhes sobre a adição e gestão de utilizadores para o laboratório, consulte Adicionar e gerir utilizadores de [laboratório.](how-to-configure-student-usage.md)
+    Para obter mais informações sobre a adição e gestão de utilizadores para o laboratório, consulte Adicionar e gerir utilizadores de [laboratório.](how-to-configure-student-usage.md)
 
 ## <a name="view-the-usage-of-vms"></a>Ver o uso de VMs
 
@@ -53,9 +53,12 @@ Neste tutorial, irá realizar as seguintes ações:
 ## <a name="manage-student-vms"></a>Gerir VMs de alunos 
 Nesta página, pode iniciar, parar ou repor os VMs dos estudantes utilizando controlos na coluna **do Estado** ou na barra de ferramentas.
 
-![Controlos de VMs](../media/tutorial-track-usage/vm-controls.png)
+![Ações VM](../media/tutorial-track-usage/vm-controls.png)
 
-Para mais detalhes sobre a gestão do pool de máquinas virtuais para o laboratório, consulte Configurar e gerir a [piscina de máquinas virtuais.](how-to-set-virtual-machine-passwords.md)
+Para obter mais informações sobre a gestão do pool de máquinas virtuais para o laboratório, consulte Configurar e gerir a [piscina de máquinas virtuais.](how-to-set-virtual-machine-passwords.md)
+
+> [!NOTE]
+> Quando um educador liga um Estudante VM, a quota para o aluno não é afetada. A quota para um utilizador especifica o número de horas de laboratório disponíveis para o utilizador fora do horário de aula programado. Para obter mais informações sobre quotas, consulte [As quotas definidas para os utilizadores.](how-to-configure-student-usage.md?#set-quotas-for-users)
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre laboratórios de sala de aula, consulte artigos sob [guias de Como fazer](how-to-manage-lab-accounts.md).

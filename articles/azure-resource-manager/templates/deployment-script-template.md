@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: jgao
-ms.openlocfilehash: d8212fb55b20f051c6479071010ef4f828792baa
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 19ef5a08b66b8d1a09ddf9a6b73a3856f745485d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561158"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586711"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -42,7 +42,12 @@ Os benefícios do script de implantação:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma identidade gerida atribuída ao **utilizador com o papel do contribuinte ao nível da subscrição**. Esta identidade é usada para executar scripts de implantação. Para criar uma, consulte Criar uma identidade gerida atribuída pelo [utilizador utilizando o portal Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), ou utilizando o [Azure CLI,](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)ou utilizando o [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
+- Uma identidade gerida atribuída ao **utilizador com o papel do contribuinte para o grupo-recurso-alvo**. Esta identidade é usada para executar scripts de implantação. Para realizar operações fora do grupo de recursos, é necessário conceder permissões adicionais. Por exemplo, atribuir a identidade ao nível de subscrição se quiser criar um novo grupo de recursos.
+
+  > [!NOTE]
+  > O motor de script de implantação precisa de criar uma conta de armazenamento e uma instância de contentores em segundo plano.  É necessária uma identidade gerida atribuída ao utilizador com o papel do contribuinte ao nível da subscrição se a subscrição não tiver registado o recurso de armazenamento Azure (Microsoft.Storage) e azure (Microsoft.ContainerInstance) fornecedores.
+
+  Para criar uma identidade, consulte Criar uma identidade gerida atribuída pelo [utilizador utilizando o portal Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), ou utilizando o [Azure CLI,](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)ou utilizando o [Azure PowerShell.](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) Precisa da identificação de identidade quando implementar o modelo. O formato da identidade é:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -99,8 +104,7 @@ O seguinte json é um exemplo.  O mais recente esquema de modelo pode ser encont
       Write-Output $output
       $DeploymentScriptOutputs = @{}
       $DeploymentScriptOutputs['text'] = $output
-    ",
-    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
+    ", // or "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
     "supportingScriptUris":[],
     "timeout": "PT30M",
     "cleanupPreference": "OnSuccess",
@@ -208,6 +212,12 @@ As saídas de scriptde de implantação devem ser guardadas na localização AZ_
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
 
 [jq](https://stedolan.github.io/jq/) é usado na amostra anterior. Vem com as imagens do contentor. Ver Ambiente de [desenvolvimento configure](#configure-development-environment).
+
+## <a name="handle-non-terminating-errors"></a>Lidar com erros não terminadores
+
+Pode controlar a forma como o PowerShell reage a erros não terminadores utilizando a [**variável $ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
+) no seu script de implementação. O motor de script de implantação não define/altera o valor.  Apesar do valor que definiu para $ErrorActionPreference, o script de implementação define o estado de fornecimento de recursos para *Failed* quando o script encontra um erro.
+
 
 ## <a name="debug-deployment-scripts"></a>Scripts de implementação de depurados
 

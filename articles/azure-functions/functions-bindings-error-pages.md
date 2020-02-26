@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: 0da8322a57d925608f7b52054c7a52e6cb3e5d06
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: befdb4a8cceaef18961c1e9297e23ed5d405ff50
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484660"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586194"
 ---
 # <a name="azure-functions-error-handling"></a>Manipulação de erros das Funções Azure
 
@@ -26,11 +26,13 @@ Este artigo descreve estratégias gerais de manipulação de erros juntamente co
 
 Ao integrar os serviços Azure, os erros podem ter origem nas APIs dos serviços subjacentes. As informações relativas a erros específicos de ligação estão disponíveis na secção **exceções e códigos** de devolução dos seguintes artigos:
 
-+ [BD do Cosmos para o Azure](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
++ [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
 + [Armazenamento de blobs](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
-+ [Hubs de Eventos](functions-bindings-event-hubs.md#exceptions-and-return-codes)
++ [Hubs de Eventos](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
+
++ [IoT Hubs](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
 
 + [Hubs de Notificação](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 

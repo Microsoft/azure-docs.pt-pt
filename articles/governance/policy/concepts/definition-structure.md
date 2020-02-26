@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 1e90009a0c34bf166a18659a19988ea5a0c9ab07
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462007"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587129"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -328,7 +328,7 @@ As condições também podem ser formadas usando **o valor**. **verificações d
 **o valor** é emparelhado com qualquer [condição](#conditions)suportada.
 
 > [!WARNING]
-> Se o resultado de uma _função_ de modelo for um erro, a avaliação da política falha. Uma avaliação falhada é um **negação**implícito. Para mais informações, consulte [evitar falhas](#avoiding-template-failures)no modelo .
+> Se o resultado de uma _função_ de modelo for um erro, a avaliação da política falha. Uma avaliação falhada é um **negação**implícito. Para mais informações, consulte [evitar falhas](#avoiding-template-failures)no modelo . Utilize o modo de [execução](./assignment-structure.md#enforcement-mode) **DoNotEnforce** para evitar o impacto de uma avaliação falhada em recursos novos ou atualizados enquanto testa e valida uma nova definição de política.
 
 #### <a name="value-examples"></a>Exemplos de valor
 
@@ -580,13 +580,22 @@ Todas as [funções](../../../azure-resource-manager/templates/template-function
 
 As seguintes funções estão disponíveis para utilização numa regra de política, mas diferem da utilização num modelo de Gestor de Recursos Azure:
 
-- addDays (dataTime, numberOfDaysToAdd)
+- `addDays(dateTime, numberOfDaysToAdd)`
   - **dataTempo**: [Obrigatório] string - String in the Universal ISO 8601 DateTime formato 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
   - **númeroOfDaysToAdd**: [Obrigatório] inteiro - Número de dias para adicionar
-- utcNow() - Ao contrário de um modelo de Gestor de Recursos, este pode ser usado fora do padrãoValue.
+- `utcNow()` - Ao contrário de um modelo de Gestor de Recursos, este pode ser usado fora do padrãoValue.
   - Devolve uma corda que está definida para a data e hora atuais no formato DataTime universal 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
-Além disso, a função `field` está disponível para as regras políticas. `field` é usado principalmente com **AuditIfNotExists** e **DeployIfNotExists** para campos de referência no recurso que estão a ser avaliados. Um exemplo desta utilização pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
+As seguintes funções só estão disponíveis nas regras políticas:
+
+- `field(fieldName)`
+  - **nome**de campo : [Obrigatório] string - Nome do [campo](#fields) para recuperar
+  - Devolve o valor desse campo a partir do recurso que está a ser avaliado pela condição Se
+  - `field` é usado principalmente com **AuditIfNotExists** e **DeployIfNotExists** para campos de referência no recurso que estão a ser avaliados. Um exemplo desta utilização pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
+- `requestContext().apiVersion`
+  - Devolve a versão API do pedido que desencadeou a avaliação política (exemplo: `2019-09-01`). Esta será a versão API que foi utilizada no pedido de avaliação PUT/PATCH sobre criação/atualização de recursos. A versão Mais recente da API é sempre utilizada durante a avaliação de conformidade dos recursos existentes.
+  
+
 
 #### <a name="policy-function-example"></a>Exemplo de função de política
 

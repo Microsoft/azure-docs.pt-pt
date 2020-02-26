@@ -1,17 +1,17 @@
 ---
-title: Meu primeiro runbook gráfico na automação do Azure
+title: O meu primeiro livro gráfico na Automação Azure
 description: Este tutorial orienta-o ao longo da criação, do teste e da publicação de um runbook gráfico simples.
 keywords: runbook, modelo do runbook, automatização do runbook, runbook do azure
 services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: a93263cf968fc4804d7bbc59e15121d6061dd40a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e208982145f0c3178a26526c73af81ab009a8d46
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366537"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605208"
 ---
 # <a name="my-first-graphical-runbook"></a>O meu primeiro runbook gráfico
 
@@ -19,10 +19,13 @@ ms.locfileid: "75366537"
 > * [Gráficos](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-> * [Python](automation-first-runbook-textual-python2.md)
+> * [python](automation-first-runbook-textual-python2.md)
 > 
 
-Este tutorial explica como criar um [ runbook gráfico](automation-runbook-types.md#graphical-runbooks) na Automatização do Azure. Comece com um runbook simples que testa e publica, enquanto aprende como controlar o estado da tarefa de runbook. Em seguida, modifique o runbook para gerir recursos do Azure, neste caso, iniciar uma máquina virtual do Azure. Em seguida, conclui o tutorial, tornando o runbook mais robusto ao adicionar parâmetros do runbook e ligações condicionais.
+Este tutorial explica como criar um [ runbook gráfico](automation-runbook-types.md#graphical-runbooks) na Automatização do Azure. Comece com um simples livro de corridas que testa e publique, enquanto aprende a rastrear o estado do trabalho do livro de corridas. Em seguida, modifique o livro de execução para realmente gerir os recursos do Azure, neste caso iniciando uma máquina virtual Azure. Complete o tutorial para tornar o livro de corridas mais robusto adicionando parâmetros de livro e ligações condicionais.
+
+>[!NOTE]
+>Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,170 +33,193 @@ Para concluir este tutorial, precisa do seguinte:
 
 * Subscrição do Azure. Se ainda não tiver uma, pode [ativar as vantagens de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Conta de automatização](automation-offering-get-started.md) para manter o runbook e autenticar-se nos recursos do Azure. Esta conta tem de ter permissão para iniciar e parar a máquina virtual.
-* Uma máquina virtual do Azure. O utilizador para e inicia esta máquina, pelo que não deve ser uma VM de produção.
+* Uma máquina virtual do Azure. Já que paraste e começas esta máquina, não devia ser um VM de produção.
 
-## <a name="create-runbook"></a>Criar runbook
+## <a name="step-1---create-runbook"></a>Passo 1 – Criar runbook
 
-Comece por criar um runbook simples que produz o texto *Hello World*.
+Comece por criar um livro simples que produz o texto "Hello World".
 
-1. No portal do Azure, abra a sua conta da Automatização.
+1. No portal do Azure, abra a sua conta da Automatização. 
 
-   A página da conta da Automatização dá-lhe uma vista rápida dos recursos nesta conta. Já deverá ter alguns Recursos. A maioria destes ativos são os módulos que estão incluídos automaticamente na nova conta da Automatização. Também deverá ter o recurso da Credencial que está mencionado nos [Pré-requisitos](#prerequisites).
-
-2. Selecione **Runbooks** em **GESTÃO DE PROCESSOS** para abrir a lista de runbooks.
-3. Crie um novo runbook selecionando **+ Adicionar um runbook**e, em seguida, clique em **criar um novo runbook**.
-4. Atribua ao runbook o nome *MyFirstRunbook-Graphical*.
-5. Neste caso, irá criar um [runbook gráfico](automation-graphical-authoring-intro.md), pelo que deve selecionar **Gráfico** para o **Tipo de runbook**.<br> ![Novo runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
+    A página da conta da Automatização dá-lhe uma vista rápida dos recursos nesta conta. Já deverá ter alguns recursos. A maioria desses ativos são os módulos automaticamente incluídos numa nova conta Automation. Também deve ter o ativo credencial associado à sua subscrição.
+2. Selecione **Runbooks** em **Process Automation** para abrir a lista de livros de execução.
+3. Crie um novo livro de corridas selecionando **+ Crie um livro de corridas**.
+4. Dê ao livro de recortes o nome "MyFirstRunbook-Graphical".
+5. Neste caso, vai criar um [livro gráfico.](automation-graphical-authoring-intro.md) **Selecione Gráfico** para **o tipo Derbook**.<br> ![Novo runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
 6. Clique em **Criar** para criar o runbook e abrir o editor gráfico.
 
-## <a name="add-activities"></a>Adicionar atividades
+## <a name="step-2---add-activities"></a>Passo 2 - Adicionar atividades
 
 O controlo da Biblioteca no lado esquerdo do editor permite-lhe selecionar as atividades a adicionar ao runbook. Irá adicionar um cmdlet **Write-Output** para apresentar texto a partir do runbook.
 
-1. No controlo da Biblioteca, clique na caixa de texto de pesquisa e escreva **Write-Output**. Os resultados da pesquisa são apresentados na imagem seguinte: <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
-1. Desloque-se para baixo até à parte inferior da lista. Pode clicar com o botão direito do rato em **Write-Output** e selecionar **Adicionar à tela** ou clicar na elipse junto ao cmdlet e, em seguida, selecionar **Adicionar à tela**.
-1. Clique na atividade **Write-Output** na tela. Essa ação abre a página controle de configuração, que permite que você configure a atividade.
-1. O campo **Etiqueta** utiliza o nome do cmdlet por predefinição, mas pode alterá-lo para algo mais amigável. Altere-o para *Escrever Olá, Mundo para a saída*.
+1. No controlo da Biblioteca, clique no campo de pesquisa e digite "write-output". Os resultados da pesquisa são mostrados na seguinte imagem: <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
+1. Desloque-se para baixo até à parte inferior da lista. Clique no direito **Write-Output** e **selecione Adicionar a tela**. Em alternativa, pode clicar na elipse (...) ao lado do nome cmdlet e, em seguida, selecionar **Adicionar a tela**.
+1. Clique na atividade **Write-Output** na tela. Esta ação abre a página de controlo de Configuração, que lhe permite configurar a atividade.
+1. O campo **Label** predefinido para o nome do cmdlet, mas pode mudá-lo para algo mais amigável. Mude-o para "Write Hello World to output".
 1. Clique em **Parâmetros** para fornecer valores para os parâmetros do cmdlet.
 
-   Alguns cmdlets têm vários conjuntos de parâmetros e tem de selecionar o que irá utilizar. Neste caso, **Write-Output** tem apenas um conjunto de parâmetros, pelo que não precisa de selecionar um.
+   Alguns cmdlets têm vários conjuntos de parâmetros, e você precisa selecionar qual usar. Neste caso, a **Write-Output** tem apenas um parâmetro definido.
 
-1. Selecione o parâmetro **InputObject**. Este é o parâmetro onde especifica o texto a enviar para o fluxo de saída.
-1. Na lista pendente **Origem de dados**, selecione **Expressão do PowerShell**. A lista pendente **Origem de dados** fornece diferentes origens que utiliza para preencher um valor do parâmetro.
+1. Selecione o parâmetro *InputObject*. Este é o parâmetro que utiliza especificar o texto para enviar para o fluxo de saída.
+1. O menu de dropdown **de fonte de dados** fornece fontes que pode usar para preencher um valor de parâmetro. Neste menu, selecione **powerShell expressão**. 
 
-   Pode utilizar a saída de origens como outra atividade, um recurso de Automatização ou uma expressão do PowerShell. Neste caso, o resultado é apenas *Hello World*. Pode utilizar uma expressão do PowerShell e especificar uma cadeia.<br>
+   Pode utilizar a saída de fontes como outra atividade, um ativo Automation ou uma expressão PowerShell. Neste caso, a saída é apenas "Hello World". Pode utilizar uma expressão do PowerShell e especificar uma cadeia.<br>
 
-1. Na caixa **Expressão**, escreva *“Olá, Mundo”* e, em seguida, clique duas vezes em **OK** para voltar à tela.
+1. No campo **Expression,** digite "Hello World" e clique em **OK** duas vezes para voltar à tela.
 1. Guarde o runbook ao clicar em **Guardar**.
 
-## <a name="test-the-runbook"></a>Testar o runbook
+## <a name="step-3---test-the-runbook"></a>Passo 3 – testar o runbook
 
-Antes de publicar o runbook para o disponibilizar na produção, deve testá-lo para garantir que funciona corretamente. Quando testa um runbook, executa a versão de **Rascunho** e vê o resultado de forma interativa.
+Antes de publicar o livro de execução para o disponibilizar em produção, deve testá-lo para se certificar de que funciona corretamente. Testar um livro de execução executa a sua versão Draft e permite-lhe visualizar a sua saída interativamente.
 
-1. Selecione o **painel de teste** para abrir a página de teste.
+1. Selecione painel de **teste** para abrir o painel de teste.
 1. Clique em **Iniciar** para iniciar o teste. Esta deve ser a única opção ativada.
-1. Uma [tarefa do runbook](automation-runbook-execution.md) é criada e o respetivo estado é apresentado no painel.
+1. Note que é criado um trabalho de livro de [rés](automation-runbook-execution.md) e o seu estado é apresentado no painel.
 
-   O estado da tarefa começa como *Em fila* com a indicação de que está à espera que uma função de trabalho de runbook na cloud fique disponível. Irá então mudar para *A iniciar* quando uma função de trabalho reivindicar a tarefa e, em seguida, *A executar* quando o runbook começar a ser executado.
+   O estado de trabalho começa como fila, indicando que o trabalho está à espera que um trabalhador do livro na nuvem fique disponível. O estado muda para Começar quando um trabalhador reclama o trabalho. Finalmente, o estado torna-se Running quando o livro de corridas realmente começa a funcionar.
 
-1. Quando a tarefa de runbook tiver concluído, o resultado é apresentado. Neste caso, verá *Hello World*.<br> ![Olá Mundo](media/automation-first-runbook-graphical/runbook-test-results.png)
-1. Feche a página de teste para retornar à tela.
+1. Quando o trabalho do livro de execução estiver concluído, o teste pagn exibe a sua saída. Neste caso, vês "Hello World".<br> ![Olá, Mundo](media/automation-first-runbook-graphical/runbook-test-results.png)
+1. Feche o painel de Teste para voltar à tela.
 
-## <a name="publish-and-start-the-runbook"></a>Publicar e iniciar o runbook
+## <a name="step-4---publish-and-start-the-runbook"></a>Passo 4 – publicar e iniciar o runbook
 
-O runbook que criou ainda está no modo de Rascunho. Tem de ser publicado antes de poder executá-lo em produção. Quando publica um runbook, substitui a versão Publicada existente pela versão de Rascunho. Neste caso, ainda não tem uma versão Publicada porque acabou de criar o runbook.
+O livro de execução que criou ainda está em modo Draft. Tem de ser publicado antes de poder executá-lo em produção. Quando publica um runbook, substitui a versão Publicada existente pela versão de Rascunho. Neste caso, ainda não tem uma versão Publicada porque acabou de criar o runbook.
 
-1. Selecione **publicar** para publicar o runbook e, em seguida, **Sim** quando solicitado.
-1. Se você rolar para a esquerda para exibir o runbook na página **Runbooks** , ele mostrará um **status de criação** **publicado**.
-1. Role de volta à direita para exibir a página para **MyFirstRunbook-Graphical**.
+1. **Selecione Publicar** para publicar o livro de execução e, em seguida, **sim** quando solicitado.
+1. Percorra à esquerda para ver o livro de execução na página Runbooks e note que o valor do **Estado de Autor** está definido para Publicado.
+1. Percorra para a direita para ver a página myFirstRunbook-Graphical.
 
-   As opções na parte superior permitem-nos iniciar o runbook, agendar o seu início num momento futuro ou criar um [webhook](automation-webhooks.md) para que possa ser iniciado através de uma chamada HTTP.
+   As opções em toda a parte superior permitem-lhe iniciar o livro de corridas agora, agendar um futuro início ou criar um [webhook](automation-webhooks.md) para que o livro de execução possa ser iniciado através de uma chamada HTTP.
 
-1. Selecione **Iniciar** e **Sim** quando solicitado a iniciar o runbook.
-1. Uma página de trabalho é aberta para o trabalho de runbook que foi criado. Certifique-se de que o **Estado da tarefa** mostra **Concluído**.
-1. Quando o estado de runbook mostrar *Concluído*, clique em **Resultado**. A página **saída** é aberta e você pode ver a *Olá, mundo* no painel.
-1. Feche a página saída.
-1. Clique em **todos os logs** para abrir a página fluxos para o trabalho de runbook. Apenas deve conseguir ver *Hello World* no fluxo de saída, mas isto pode mostrar outros fluxos de uma tarefa de runbook, tais como Verboso e Erro se o runbook escrever nos mesmos.
-1. Feche a página todos os logs e a página do trabalho para retornar à página MyFirstRunbook-Graphical.
-1. Para exibir todos os trabalhos do runbook, feche a página do **trabalho** e selecione **trabalhos** em **recursos**. Isto apresenta uma lista de todas as tarefas criadas por este runbook. Apenas deve conseguir ver uma tarefa listada, uma vez que apenas executou a tarefa uma vez.
-1. Pode clicar nesta tarefa para abrir o mesmo painel Tarefas que visualizou quando iniciou o runbook. Isto permite-lhe voltar atrás no tempo e ver os detalhes de qualquer tarefa que foi criada para um determinado runbook.
+1. Selecione **Iniciar** e, **em seguida, Sim** quando solicitado para iniciar o livro de execução.
+1. Um painel de trabalho é aberto para o trabalho de livro que foi criado. Verifique se o estado de **trabalho** mostra concluído.
+1. Clique em **Saída** para abrir a página Output, onde pode ver "Hello World" exibido.
+1. Feche a página de saída.
+1. Clique em **Todos os Registos** para abrir o painel Fluxos da tarefa de runbook. só se deve ver "Hello World" no fluxo de saída. 
 
-## <a name="create-variable-assets"></a>Criar ativos de variável
+    Note que o painel streams pode mostrar outros fluxos para um trabalho de livro de corridas, tais como fluxos de verbosa e erro, se o livro de execução lhes escrever.
+1. Feche o painel de Streams e o painel de trabalho para voltar à página MyFirstRunbook-Graphical.
+1. Para ver todos os trabalhos para o livro de corridas, selecione **Jobs** under **Resources**. A página Jobs lista todos os empregos criados pelo seu livro de corridas. Só devias ver um emprego na lista, já que só geriste o trabalho uma vez.
+1. Clique no nome do trabalho para abrir o mesmo painel de trabalho que viu quando iniciou o livro de corridas. Utilize este painel para ver os detalhes de qualquer trabalho criado para o livro de corridas.
 
-Testou e publicou o seu runbook, mas, até ao momento, não faz nada de útil. Deve fazer com que gira os recursos do Azure. Antes de configurar o runbook para realizar a autenticação, crie uma variável para conter o ID de subscrição e referenciá-lo depois de configurar a atividade para realizar a autenticação no passo 6 abaixo. A inclusão de uma referência ao contexto de subscrição permite-lhe trabalhar facilmente entre várias subscrições. Antes de continuar, copie o seu ID de subscrição da opção Subscrições fora do Painel de navegação.
+## <a name="step-5---create-variable-assets"></a>Passo 5 – criar recursos de variável
 
-1. Na página contas de automação, selecione **variáveis** em **recursos compartilhados**.
-1. Selecione **Adicionar uma variável**.
-1. Na página nova variável, na caixa **nome** , digite **AzureSubscriptionId** e, na caixa **valor** , insira sua ID de assinatura. Mantenha *cadeia* para o **Tipo** e o valor predefinido para **Encriptação**.
+Testou e publicou o seu livro de corridas, mas até agora não faz nada de útil para gerir os recursos do Azure. Antes de configurar o livro de execução para autenticar, deve criar uma variável para manter o ID de subscrição, configurar uma atividade para autenticar e, em seguida, fazer referência à variável. Incluir uma referência ao contexto de subscrição permite-lhe trabalhar facilmente com várias subscrições.
+
+1. Copie o seu ID de subscrição a partir da opção **Subscrições** no painel Navegante.
+1. Na página Contas de Automação, selecione **Variáveis** em **Recursos Partilhados.**
+1. Selecione **+ Adicione uma variável**.
+1. Na nova página variável, faça as seguintes definições nos campos fornecidos.
+
+    * **Nome** - introduza "AzureSubscriptionId".
+    * **Valor** - introduza o seu ID de subscrição. 
+    * **Tipo** - mantenha a corda selecionada.
+    * **Encriptação-** Use o valor padrão.
 1. Clique em **Criar** para criar a variável.
 
-## <a name="add-authentication"></a>Adicionar autenticação
+## <a name="step-6---add-authentication"></a>Passo 6 - Adicionar autenticação
 
-Agora que tem uma variável para conter o ID de subscrição, pode configurar o runbook para se autenticar com as credenciais Run As que são mencionadas nos [pré-requisitos](#prerequisites). Você faz isso adicionando o **ativo** de conexão executar como do Azure e o cmdlet **Connect-AzureRmAccount** à tela.
+Agora que tem uma variável para segurar o ID de subscrição, pode configurar o livro de execução para autenticar com as credenciais Run As para a sua subscrição. Faça isto adicionando o Azure Run Como ligação como um ativo. Também deve adicionar o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) e o [cmdlet Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) à tela.
 
-1. Navegue de volta para o runbook e selecione **Editar** na página MyFirstRunbook-gráfico.
-1. Você não precisa mais do **Olá, mundo de gravação para** obter mais resultados, portanto, clique nas reticências (...) e selecione **excluir**.
-1. No controlo da Biblioteca, expanda **ATIVOS**, **Ligações** e adicione **AzureRunAsConnection** à tela ao selecionar **Adicionar à tela**.
-1. No controle biblioteca, digite **Connect-AzureRmAccount** na caixa de texto de pesquisa.
+>[!NOTE]
+>Para os livros de execução PowerShell, **Add-AzAccount** e **Add-AzureRMAccount** são pseudónimos de **Connect-AzAccount**. Note que estes pseudónimos não estão disponíveis para os seus livros gráficos. Um livro de execução gráfico só pode usar o **próprio Connect-AzAccount.**
 
-   > [!IMPORTANT]
-   > **Add-AzureRmAccount** agora é um alias para **Connect-AzureRmAccount**. Ao pesquisar os itens de biblioteca, se você não vir **Connect-AzureRMAccount**, poderá usar **Add-AzureRMAccount**ou poderá atualizar seus módulos na sua conta de automação.
+1. Navegue para o seu livro de execução e selecione **Editar** na página MyFirstRunbook-Graphical.
+1. Já não precisas da entrada "Escreve o Hello World para a saída". Basta clicar na elipse e selecionar **Apagar**.
+1. No controlo da Biblioteca, expandir **ATIVOS,** depois **Ligações**. Adicione "AzureRunAsConnection" à tela selecionando **Adicionar à tela**.
+1. No controlo da Biblioteca, digite "Connect-AzAccount" no campo de pesquisa.
+1. Adicione **Connect-AzAccount** à tela.
+1. Coloque o cursor sobre **Obter Ligação Run As** até aparecer um círculo na parte inferior da forma. Clique no círculo e arraste a seta para **Connect-AzAccount** para formar um link. O livro de execução começa com **Get Run As Connection** e, em seguida, executa **Connect-AzAccount**.<br> ![Criar ligação entre atividades](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
+1. Na tela, selecione **Connect-AzAccount**. No painel de controlo de configuração, digite "Login to Azure" no campo **Label.**
+1. Clique em **Parâmetros**, e aparece a página de Configuração do Parâmetro de Atividade.
+1. O cmdlet **Connect-AzAccount** tem vários parâmetros e precisa selecionar um antes de fornecer valores de parâmetros. Clique no **conjunto de parâmetros** e, em seguida, selecione o conjunto de parâmetros ServicePrincipalCertificate.
+1. Os parâmetros para este conjunto de parâmetros são apresentados na página de Configuração do Parâmetro de Atividade. Clique em **APPLICATIONID**.<br> ![Adicionar parâmetros da conta Azure](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
+1. Na página Valor do Parâmetro, faça as seguintes definições e, em seguida, clique em **OK**.
 
-1. Adicione **Connect-AzureRmAccount** à tela.
-1. Coloque o cursor sobre **Obter Ligação Run As** até aparecer um círculo na parte inferior da forma. Clique no círculo e arraste a seta para **Connect-AzureRmAccount**. A seta que criou é uma *ligação*. O runbook começa com **Get execute as Connection** e, em seguida, executa **Connect-AzureRmAccount**.<br> ![Criar ligação entre atividades](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
-1. Na tela, selecione **Connect-AzureRmAccount** e, no painel de controle de configuração, digite **logon no Azure** na caixa de texto **rótulo** .
-1. Clique em **parâmetros** e a página configuração de parâmetro de atividade será exibida.
-1. O **Connect-AzureRmAccount** tem vários conjuntos de parâmetros, portanto, você precisa selecionar um antes de poder fornecer valores de parâmetro. Clique em **Conjunto de Parâmetros** e, em seguida, selecione o conjunto de parâmetros **ServicePrincipalCertificate**.
-1. Depois de selecionar o conjunto de parâmetros, os parâmetros são exibidos na página configuração do parâmetro de atividade. Clique em **APPLICATIONID**.<br> ![Adicionar parâmetros de conta do Azure RM](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
-1. Na página valor do parâmetro, selecione **saída da atividade** para **a fonte de dados** e selecione **obter conexão executar como** na lista, na caixa de texto **caminho do campo** , digite **ApplicationId**e clique em **OK**. Está a especificar o nome da propriedade para o Caminho do campo porque a atividade produz um objeto com várias propriedades.
-1. Clique em **CERTIFICATETHUMBPRINT**e, na página valor do parâmetro, selecione **saída da atividade** para a fonte de **dados**. Selecione **Obter Executar como Ligação** a partir da lista, no **Caminho do campo** tipo caixa de texto **CertificateThumbrprint** e, em seguida, clique em **OK**.
-1. Clique em **servicePrincipalName**e, na página valor do parâmetro, selecione **constante** para a **fonte de dados**, clique na opção **verdadeiro**e, em seguida, clique em **OK**.
-1. Clique em **tenantid**e, na página valor do parâmetro, selecione **saída da atividade** para a fonte de **dados**. Selecione **Obter Ligação Run As** na lista, na caixa de texto **Caminho do campo** escreva **TenantId** e, em seguida, clique duas vezes em **OK**.
-1. No controlo da Biblioteca, escreva **Set-AzureRmContext** na caixa de texto de pesquisa.
-1. Adicione **Set-AzureRmContext** à tela.
-1. Na tela, selecione **Set-AzureRmContext** e, no painel de controlo de Configuração, escreva **Especificar Id de Subscrição** na caixa de texto **Etiqueta**.
-1. Clique em **parâmetros** e a página configuração de parâmetro de atividade será exibida.
-1. **Set-AzureRmContext** tem vários conjuntos de parâmetros, pelo que deve selecionar um antes de poder apresentar valores de parâmetros. Clique em **Conjunto de Parâmetros** e, em seguida, selecione o conjunto de parâmetros **SubscriptionId**.
-1. Depois de selecionar o conjunto de parâmetros, os parâmetros são exibidos na página configuração do parâmetro de atividade. Clique em **SubscriptionID**
-1. Na página valor do parâmetro, selecione **ativo variável** para a **fonte de dados** e selecione **AzureSubscriptionId** na lista e clique em **OK** duas vezes.
-1. Coloque o cursor sobre **Iniciar sessão no Azure** até aparecer um círculo na parte inferior da forma. Clique no círculo e arraste a seta para **Especificar Id de Subscrição**.
+   * **Fonte de dados** - selecione **Saída de Atividade**.
+   * Lista de fonte de dados - **selecione Get Run As Connection**.
+   * **Caminho de campo** - tipo "ApplicationId". Está a especificar o nome da propriedade para o caminho de campo porque a atividade produz um objeto com múltiplas propriedades.
+1. Clique em **CERTIFICATETHUMBPRINT**, e na página Valor do Parâmetro, faça as seguintes definições e, em seguida, clique **OK**.
+
+    * **Fonte de dados** - selecione **Saída de Atividade**.
+    * Lista de fonte de dados - **selecione Get Run As Connection**.
+    * **Caminho de campo** - tipo "CertificateThumbprint".
+1. Clique em **SERVICEPRINCIPAL**, e na página Valor do Parâmetro, selecione ConstantValue para o campo **fonte de dados;** clique na opção **True;** e, em seguida, clicar **OK**.
+1. Clique em **TENANTID**e faça as seguintes definições na página Valor do Parâmetro. Quando terminar, clique **ok** duas vezes.
+
+    * **Fonte de dados** - selecione **Saída de Atividade**. 
+    * Lista de fonte de dados - **selecione Get Run As Connection**.
+    * **Caminho de campo** - tipo "TenantId". 
+1. No controlo da Biblioteca, digite "Set-AzContext" no campo de pesquisa.
+1. Adicione **set-AzContext** à tela.
+1. Selecione **Set-AzContext** na tela. No painel de controlo de configuração, escreva "Especificar id de subscrição" no campo **etiqueta.**
+1. Clique em **Parâmetros** e aparece a página de Configuração do Parâmetro de Atividade.
+1. O **cmdlet Set-AzContext** tem vários conjuntos de parâmetros, e você precisa selecionar um antes de fornecer valores de parâmetro. Clique no **conjunto de parâmetros** e, em seguida, selecione o conjunto de parâmetros SubscriptionId.
+1. Os parâmetros para este conjunto de parâmetros são apresentados na página de Configuração do Parâmetro de Atividade. Clique em **SubscriptionID**.
+1. Na página Valor do Parâmetro, selecione **Variable Asset** para o campo fonte **de dados** e selecione **AzureSubscriptionId** da lista de origem. Quando terminar, clique **ok** duas vezes.
+1. Coloque o cursor sobre **Iniciar sessão no Azure** até aparecer um círculo na parte inferior da forma. Clique no círculo e arraste a seta para **Especificar Id de Subscrição**. 
 
 O runbook deve ter o seguinte aspeto neste momento: <br>![Configuração de autenticação de runbook](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
-## <a name="add-activity-to-start-a-vm"></a>Adicionar atividade para iniciar uma VM
+## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Passo 7 – adicionar atividade para iniciar uma máquina virtual
 
-Aqui, adiciona uma atividade **Start-AzureRmVM** para iniciar uma máquina virtual. Pode escolher qualquer máquina virtual na sua subscrição do Azure e, por agora, iremos codificar esse nome para o cmdlet.
+Agora tem de adicionar uma atividade **start-AzVM** para iniciar uma máquina virtual. Pode escolher qualquer VM na sua subscrição Azure e, por enquanto, está a codificar esse nome no cmdlet [Start-AzVM.](https://docs.microsoft.com/powershell/module/az.compute/start-azvm?view=azps-3.5.0)
 
-1. No controlo da Biblioteca, escreva **Start-AzureRm** na caixa de texto de pesquisa.
-2. Adicione **Start-AzureRmVM** à tela e, em seguida, clique e arraste-a para baixo de **Especificar Id de Subscrição**.
-1. Coloque o cursor sobre **Especificar Id de Subscrição** até aparecer um círculo na parte inferior da forma. Clique no círculo e arraste a seta para **Start-AzureRmVM**.
-1. Selecione **Start-AzureRmVM**. Clique em **Parâmetros** e, em seguida, em **Conjunto de Parâmetros** para ver os conjuntos de **Start-AzureRmVM**. Selecione o conjunto de parâmetros **ResourceGroupNameParameterSetName**. Existem pontos de exclamação junto a **ResourceGroupName** e **Name**. Isto indica que são parâmetros obrigatórios. Tenha também em atenção que ambos esperam valores de cadeia.
-1. Selecione **Name**. Selecione **Expressão do PowerShell** para a **Origem de dados** e escreva o nome da máquina virtual entre aspas duplas com a qual começou este runbook. Clique em **OK**.
-1. Selecione **ResourceGroupName**. Utilize **Expressão do PowerShell** para a **Origem de dados** e escreva o nome do grupo de recursos entre aspas duplas. Clique em **OK**.
-1. Clique em Painel de teste para que possa testar o runbook.
-1. Clique em **Iniciar** para iniciar o teste. Depois de terminar, verifique se a máquina virtual foi iniciada.
+1. No controlo da Biblioteca, **digite Start-Az** no campo de pesquisa.
+2. Adicione o **Start-AzVM** à tela e, em seguida, clique e arraste-o por baixo do Id de **subscrição Especificado**.
+1. Coloque o cursor sobre **Especificar Id de Subscrição** até aparecer um círculo na parte inferior da forma. Clique no círculo e arraste a seta para **Start-AzVM**.
+1. Selecione **Start-AzVM**. Clique em **Parâmetros** e, **em seguida, parameter set** para ver os conjuntos para a atividade.
+1. Selecione o conjunto de parâmetros **ResourceGroupNameParameterSetName**. Os campos **ResourceGroupName** e **Nome** têm pontos de exclamação ao lado deles para indicar que são parâmetros necessários. Note que ambos os campos esperam valores de cordas.
+1. Selecione **Name**. Selecione **a expressão PowerShell** para o campo **fonte de dados.** Para o VM que utiliza para iniciar este livro de execução, digite o nome da máquina rodeado de cotações duplas. Clique em **OK**.
+1. Selecione **ResourceGroupName**. Utilize a expressão de valor PowerShell para o campo fonte de **dados** e escreva em nome do grupo de recursos rodeado de cotações duplas. Clique em **OK**.
+1. Clique no **painel de teste** para que possa testar o livro de corridas.
+1. Clique em **Iniciar** para iniciar o teste. Uma vez concluído, certifique-se de que o VM começou. 
 
 O runbook deve ter o seguinte aspeto neste momento: <br>![Configuração de autenticação de runbook](media/automation-first-runbook-graphical/runbook-startvm.png)
 
-## <a name="add-additional-input-parameters"></a>Adicionar parâmetros de entrada adicionais
+## <a name="step-8---add-additional-input-parameters"></a>Passo 8 - Adicionar parâmetros adicionais de entrada
 
-Atualmente, o nosso runbook inicia a máquina virtual no grupo de recursos que especificou no cmdlet **Start-AzureRmVM**. O runbook poderia ser mais útil se pudéssemos especificar os dois quando o runbook é iniciado. Agora, irá adicionar parâmetros de entrada ao runbook para oferecer essa funcionalidade.
+O seu livro de execução inicia atualmente o VM no grupo de recursos que especificou para o cmdlet **Start-AzVM.** O livro de execução será mais útil se especificar tanto o nome como o grupo de recursos quando o livro de execução for iniciado. Vamos adicionar parâmetros de entrada ao livro de execução para fornecer essa funcionalidade.
 
-1. Abra o editor gráfico clicando em **Editar** no painel **MyFirstRunbook-Graphical** .
-1. Selecione **entrada e saída** e, em seguida, **Adicionar entrada** para abrir o painel parâmetro de entrada do runbook.
-1. Especifique *VMName* para o **Nome**. Mantenha *cadeia* para o **Tipo**, mas pode alterar **Obrigatório** para *Sim*. Clique em **OK**.
-1. Crie um segundo parâmetro de entrada obrigatório denominado *ResourceGroupName* e, em seguida, clique em **OK** para fechar o painel **Entrada e saída**.<br> ![Parâmetros de Entrada do Runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
-1. Selecione a atividade **Start-AzureRmVM** e, em seguida, clique em **Parâmetros**.
-1. Altere a **Origem de dados** de **Nome** para **Entrada do runbook** e, em seguida, selecione **VMName**.
-1. Altere a **Origem de dados** de **ResourceGroupName** para **Entrada do runbook** e, em seguida, selecione **ResourceGroupName**.<br> ![Parâmetros de Start-AzureVM](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
+1. Abra o editor gráfico clicando em **Editar** no painel MyFirstRunbook-Graphical.
+1. Selecione **entrada e saída** **e,** em seguida, adicione a entrada para abrir o painel de parâmetro de entrada de saída do livro de execução.
+1. Faça as seguintes definições nos campos fornecidos **e,** em seguida, clique OK .
+   * **Nome** - especificar *VMName*.
+   * **Tipo** - mantenha a definição de corda.
+   * **Obrigatório,** alterar o valor para Sim.
+1. Crie um segundo parâmetro de entrada obrigatório chamado *ResourceGroupName* e, em seguida, clique em **OK** para fechar o painel de entrada e saída.<br> ![Parâmetros de Entrada do Runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
+1. Selecione a atividade **Start-AzVM** e, em seguida, clique em **Parâmetros**.
+1. Altere o campo de **origem de dados** para a entrada de **Nome** para Livro **de Execução**. Em seguida, selecione **VMName**.
+1. Altere o campo de **origem de dados** para o **ResourceGroupName** para a entrada do Livro de **Execução** e, em seguida, selecione **ResourceGroupName**.<br> ![parâmetros Start-AzVM](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
 1. Guarde o runbook e abra o painel de Teste. Agora pode apresentar valores para as duas variáveis de entrada que utiliza no teste.
 1. Feche o painel de Teste.
 1. Clique em **Publicar** para publicar a nova versão do runbook.
-1. Pare a máquina virtual que iniciou no passo anterior.
-1. Clique em **Iniciar** para iniciar o runbook. Escreva **VMName** e **ResourceGroupName** na máquina virtual que vai iniciar.
-1. Depois de o runbook terminar, verifique se a máquina virtual foi iniciada.
+1. Pare o VM que começou anteriormente.
+1. Clique em **Iniciar** para iniciar o runbook. Digite os valores para **VMName** e **ResourceGroupName** para o VM que vai iniciar.
+1. Quando o livro de execução estiver concluído, certifique-se de que o VM foi iniciado.
 
-## <a name="create-a-conditional-link"></a>Criar um link condicional
+## <a name="step-9---create-a-conditional-link"></a>Passo 9 – criar uma ligação condicional
 
-Agora modifique o runbook para que apenas tente iniciar a máquina virtual se esta ainda não tiver iniciado. Para tal, irá adicionar um cmdlet **Get-AzureRmVM** ao runbook, que obtém o estado de nível de instância da máquina virtual. Irá então adicionar um módulo de código de Fluxo de Trabalho do PowerShell chamado **Obter Estado** com um fragmento de código do PowerShell para determinar se o estado da máquina virtual está em execução ou parado. Uma ligação condicional do módulo **Obter Estado** apenas executa **Start-AzureRmVM** se o estado de execução atual estiver parado. Por último, gere uma mensagem a informar se a VM foi iniciada com êxito ou não, com o cmdlet Write-Output do PowerShell.
+Agora modifica o livro de execução para que só tente iniciar o VM se ainda não estiver iniciado. Faça-o adicionando um cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) que recupera o estado de nível de instância do VM. Em seguida, pode adicionar um módulo de código powerShell workflow chamado Get Status com um excerto de código PowerShell para determinar se o estado VM está em execução ou parado. Uma ligação condicional do módulo Get Status só executa **start-AzVM** se o estado de funcionamento atual for interrompido. No final deste procedimento, o seu livro de execução utiliza o cmdlet **write-output** para enviar uma mensagem para informá-lo se o VM foi iniciado com sucesso.
 
-1. Abra **MyFirstRunbook-Graphical** no editor gráfico.
-1. Remova a ligação entre **Especificar Id de Subscrição** e **Start-AzureRmVM** ao clicar na mesma e, em seguida, premir a tecla *Eliminar*.
-1. No controlo da Biblioteca, escreva **Get-AzureRm** na caixa de texto de pesquisa.
-1. Adicione **Get-AzureRmVM** à tela.
-1. Selecione **Get-AzureRmVM** e, em seguida, **Conjunto de Parâmetros** para ver os conjuntos de **Get-AzureRmVM**. Selecione o conjunto de parâmetros **GetVirtualMachineInResourceGroupNameParamSet**. Existem pontos de exclamação junto a **ResourceGroupName** e **Name**. Isto indica que são parâmetros obrigatórios. Tenha também em atenção que ambos esperam valores de cadeia.
-1. Em **Origem de dados** para **Nome**, selecione **Entrada do runbook** e, em seguida, selecione **VMName**. Clique em **OK**.
-1. Em **Origem de dados** para **ResourceGroupName**, selecione **Entrada do runbook** e, em seguida, selecione **ResourceGroupName**. Clique em **OK**.
-1. Em **Origem de dados** para **Estado**, selecione **Valor constante** e, em seguida, clique em **Verdadeiro**. Clique em **OK**.
-1. Crie uma ligação de **Especificar Id de Subscrição** para **Get-AzureRmVM**.
-1. No controlo da biblioteca, expanda **Controlo do Runbook** e adicione **Código** à tela.  
-1. Crie uma ligação de **Get-AzureRmVM** para **Código**.  
-1. Clique em **Código** e, no painel de Configuração, altere a etiqueta para **Obter Estado**.
-1. Selecione o parâmetro de **código** e a página **Editor de código** será exibida.  
-1. No editor de código, cole o fragmento de código seguinte:
+1. Abra myFirstRunbook-Graphical no editor gráfico.
+1. Remova o link entre **especificar o Id de subscrição** e o **Start-AzVM** clicando nele e, em seguida, premindo **Delete**.
+1. No controlo da Biblioteca, escreva "Get-Az" no campo de pesquisa.
+1. Adicione **Get-AzVM** à tela.
+1. Selecione **Get-AzVM** e, em seguida, **parameter set** para visualizar os conjuntos para **Get-AzVM**. 
+1. Selecione o conjunto de parâmetros GetVirtualMachineInResourceGroupNameParamSet. Os campos **ResourceGroupName** e **Name** têm pontos de exclamação ao lado deles, indicando que especificam os parâmetros necessários. Note que ambos os campos esperam valores de cordas.
+1. Em fonte **de dados** para **Nome**, selecione a entrada do Livro de **Execução**e, **em seguida, VMName**. Clique em **OK**.
+1. Sob **a fonte de dados** do **ResourceGroupName**, selecione a entrada do Livro de **Execução,** em **seguida, ResourceGroupName**. Clique em **OK**.
+1. Sob **a fonte de Dados** para o **Estado,** selecione **valor constante,** em **seguida, Verdadeiro**. Clique em **OK**.
+1. Crie um link do Id de **Subscrição Especificado** para **Get-AzVM**.
+1. No controlo da Biblioteca, expanda o Controlo do Livro de **Execução** e adicione **Código** à tela.  
+1. Criar um link de **Get-AzVM** a **Code**.  
+1. Clique em **Código** e, no painel de configuração, mude a etiqueta para **obter o estado**.
+1. **Aparecerá** código e a página Do Editor de Código.  
+1. No editor de código, cola o seguinte código snippet.
 
     ```powershell-interactive
-     $StatusesJson = $ActivityOutput['Get-AzureRmVM'].StatusesText
+     $StatusesJson = $ActivityOutput['Get-AzVM'].StatusesText
      $Statuses = ConvertFrom-Json $StatusesJson
      $StatusOut =""
      foreach ($Status in $Statuses){
@@ -203,27 +229,25 @@ Agora modifique o runbook para que apenas tente iniciar a máquina virtual se es
      $StatusOut
      ```
 
-1. Crie uma ligação de **Obter Estado** para **Start-AzureRmVM**.<br> ![Runbook com Módulo de Código](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
-1. Selecione a ligação e, no painel de Configuração, altere **Aplicar condição** para **Sim**. Tenha em atenção que a ligação muda para uma linha tracejada que indica que a atividade de destino apenas é executada se a condição for resolvida como verdadeira.  
-1. Para **Expressão de condição**, escreva *$ActivityOutput['Get Status'] -eq "Stopped"* . Agora, **Start-AzureRmVM** só é executado se a máquina virtual estiver parada.
+1. Crie um link de **Get Status** para **Start-AzVM**.<br> ![Runbook com Módulo de Código](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
+1. Selecione o link e, no painel de configuração, mude a **condição de aplicar** a Sim. Note que a ligação se torna uma linha tracejada, indicando que a atividade alvo só funciona se a condição se resolver verdadeiramente.  
+1. Para **expressão condição,** escreva `$ActivityOutput['Get Status'] -eq "Stopped"`. **O Start-AzVM** só funciona agora se o VM for parado.
 1. No controlo da Biblioteca, expanda **Cmdlets** e, em seguida, **Microsoft.PowerShell.Utility**.
 1. Adicione **Write-Output** à tela duas vezes.
-1. No primeiro controlo **Write-Output**, clique em **Parâmetros** e altere o valor de **Etiqueta** para *Notify VM Started*.
-1. Para **InputObject**, altere **Origem de dados** para **Expressão do PowerShell** e escreva a expressão *"$VMName successfully started."* .
-1. No primeiro controlo **Write-Output**, clique em **Parâmetros** e altere o valor de **Etiqueta** para *Notify VM Started*
-1. Para **InputObject**, altere **Origem de dados** para **Expressão do PowerShell** e escreva a expressão *"$VMName could not start."* .
-1. Crie uma ligação de **Start-AzureRmVM** para **Notify VM Started** e **Notify VM Start Failed**.
-1. Selecione a ligação para **Notify VM Started** e altere **Aplicar condição** para **True**.
-1. Para a **Expressão de condição**, escreva *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*. Agora, este controlo Write-Output apenas é executado se a máquina virtual for iniciada com êxito.
-1. Selecione a ligação para **Notify VM Start Failed** e altere **Aplicar condição** para **True**.
-1. Para a **Expressão de condição**, escreva *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -ne $true*. Agora, este controlo Write-Output apenas é executado se a máquina virtual não for iniciada com êxito. Seu runbook deve ser semelhante à imagem a seguir: <br> ![Runbook com Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
+1. Para o primeiro controlo **de saída de escrita,** clique em **Parâmetros** e altere o valor do **rótulo** para notificar o **VM iniciado**.
+1. Para **inputObject**, altere a **fonte de dados** para a expressão **PowerShell**, e digite a expressão "$VMName iniciado com sucesso.".
+1. No segundo controlo **de saída de escrita,** clique em **Parâmetros** e altere o valor do **rótulo** para notificar o arranque **do VM falhado**.
+1. Para **inputObject**, altere a **fonte de dados** para a expressão **PowerShell**, e digite a expressão "$VMName não podia iniciar".
+1. Criar links desde **start-AzVM** para notificar o **VM iniciado** e notificar o **arranque do VM falhado**.
+1. Selecione o link para **Notificar vM iniciado** e alterar **condição de aplicação** para True.
+1. Para a **expressão Condição,** escreva `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`. Este controlo **de saída de escrita** funciona agora apenas se o VM começar com sucesso.
+1. Selecione o link para **notificar o VM Iniciar falhado** e alterar **condição de aplicação** para true.
+1. Para o campo de **expressão condição,** digite `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true`. Este controlo **de saída de escrita** funciona agora apenas se o VM não for iniciado com sucesso. O seu livro de corridas deve parecer a seguinte imagem: <br> ![Runbook com Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
 1. Guarde o runbook e abra o painel de Teste.
-1. Inicie o runbook com a máquina virtual parada e este deve iniciar.
+1. Inicie o livro de corridas com o VM parado e a máquina deve arrancar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre a Criação de Gráficos, consulte [Criação de gráficos na Automatização do Azure](automation-graphical-authoring-intro.md)
-* Para começar com runbooks do PowerShell, consulte [O meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
-* Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
-
-
+* Para obter mais informações sobre a Criação de Gráficos, veja [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md) (Criação de gráficos na Automatização do Azure).
+* Para começar com runbooks do PowerShell, consulte [My first PowerShell runbook (O meu primeiro runbook do PowerShell)](automation-first-runbook-textual-powershell.md).
+* Para começar com runbooks do fluxo de trabalho do PowerShell, veja [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).

@@ -1,9 +1,9 @@
 ---
-title: Conectar dados de atividade do Azure ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar os dados de atividade do Azure ao Azure Sentinel.
+title: Ligue os dados da Atividade Azure ao Azure Sentinel  Microsoft Docs
+description: Saiba como ligar os dados da Atividade Azure ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 8c25baa8-b93b-41da-9e6c-15bb7b5c5511
@@ -14,40 +14,40 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 107bbed8aea692a76f6d5bf6bbf1da26277b2c85
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.author: yelevin
+ms.openlocfilehash: 28d5acd80deef193c7d2fea46f682f26abd756aa
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156578"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588608"
 ---
-# <a name="connect-data-from-azure-activity-log"></a>Conectar dados do log de atividades do Azure
+# <a name="connect-data-from-azure-activity-log"></a>Ligar dados do registo da Atividade Azure
 
 
 
-Você pode transmitir logs do [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) para o Azure Sentinel com um único clique. O log de atividades é um log de assinatura que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Tal inclui um intervalo de dados, desde dados operacionais do Azure Resource Manager a atualizações em eventos de Service Health. Usando o log de atividades, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, DELETE) realizada nos recursos em sua assinatura. Também é possível compreender o estado da operação e outras propriedades relevantes. O log de atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo clássico/"RDFE". 
+Pode transmitir registos a partir do [Azure Activity](../azure-monitor/platform/platform-logs-overview.md) para o Azure Sentinel com um único clique. O registo de atividadeé um registo de subscrição que fornece informações sobre eventos de nível de subscrição que ocorreram no Azure. Isto inclui uma gama de dados, desde dados operacionais do Gestor de Recursos do Azure até atualizações sobre eventos de Saúde de Serviço. Utilizando o registo de Atividades, pode determinar o "quê, quem e quando" para qualquer operação de escrita (PUT, POST, DELETE) assumido sondar os recursos da sua subscrição. Também é possível compreender o estado da operação e outras propriedades relevantes. O registo de atividadenão inclui operações ou operações de leitura (GET) para recursos que utilizem o modelo Classic/"RDFE". 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Usuário com permissões de colaborador para Log Analytics espaço de trabalho 
+- Utilizador com permissões contributivas para log Analytics espaço de trabalho 
 
 
-## <a name="connect-to-azure-activity-log"></a>Conectar-se ao log de atividades do Azure
+## <a name="connect-to-azure-activity-log"></a>Ligue-se ao registo de atividades do Azure
 
-1. No Azure Sentinel, selecione **conectores de dados** e clique no bloco **log de atividades do Azure** .
+1. No Azure Sentinel, selecione **conectores de dados** e, em seguida, clique no azulejo de **log da Atividade Azure.**
 
-2. No painel log de atividades do Azure, selecione as assinaturas que você deseja transmitir para o Azure Sentinel. 
+2. No painel de log Da Atividade Azure, selecione as subscrições que pretende transmitir para o Azure Sentinel. 
 
 3. Clique em **Ligar**.
 
-4. Para usar o esquema relevante no Log Analytics para os alertas de atividade do Azure, procure **AzureActivity**.
+4. Para utilizar o esquema relevante no Log Analytics para os alertas de Atividade Azure, procure o **AzureActivity**.
 
 
  
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, você aprendeu a conectar o log de atividades do Azure ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
+Neste documento, aprendeu a ligar o registo da Atividade Azure ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
