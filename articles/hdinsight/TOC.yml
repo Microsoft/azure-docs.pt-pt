@@ -15,7 +15,7 @@
           href: ./hdinsight-administer-use-command-line.md
         - name: Gerir clusters do HDInsight - SDK de .NET
           href: ./hdinsight-administer-use-dotnet-sdk.md
-        - name: Gerir clusters do HDInsight - Powershell
+        - name: Gerir clusters do HDInsight - PowerShell
           href: ./hdinsight-administer-use-powershell.md
         - name: Criar clusters com Runbooks
           href: ./manage-clusters-runbooks.md
@@ -71,7 +71,7 @@
               href: ./hdinsight-hadoop-create-linux-clusters-arm-templates.md
             - name: Criar clusters com a linha de comandos
               href: ./hdinsight-hadoop-create-linux-clusters-azure-cli.md
-            - name: Criar clusters com o Powershell
+            - name: Criar clusters com o PowerShell
               href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
             - name: Criar clusters com a API REST
               href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
@@ -810,6 +810,8 @@
           href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
     - name: Conceitos
       items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
         - name: Diretrizes gerais sobre segurança empresarial
           href: ./domain-joined/general-guidelines.md
         - name: Plano para os clusters do ESP
