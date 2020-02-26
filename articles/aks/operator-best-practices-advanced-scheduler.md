@@ -1,50 +1,47 @@
 ---
-title: Práticas recomendadas do operador-recursos do Agendador avançado nos serviços Kubernetess do Azure (AKS)
-description: Conheça as práticas recomendadas do operador de cluster para usar recursos avançados do Agendador, como os tolerationss, seletores de nó e afinidade ou afinidade entre pod e antiafinidade no serviço de kubernetes do Azure (AKS)
+title: Práticas do operador - Funcionalidades avançadas de programadores nos Serviços Azure Kubernetes (AKS)
+description: Aprenda as melhores práticas do operador de cluster para utilizar funcionalidades avançadas de programadores, tais como manchas e tolerâncias, selecionadores de nós e afinidade, ou afinidade inter-pod e anti-afinidade no Serviço Azure Kubernetes (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: mlearned
-ms.openlocfilehash: 2ac66e46d449100fcdd004627820252473f6e2f3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 546c1d6ae25a33c6df93469ccf8c230b4b1c474b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293662"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594996"
 ---
-# <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos avançados do Agendador no serviço de kubernetes do Azure (AKS)
+# <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Boas práticas para funcionalidades avançadas de programadores no Serviço Azure Kubernetes (AKS)
 
-Ao gerenciar clusters no AKS (serviço kubernetes do Azure), muitas vezes você precisa isolar equipes e cargas de trabalho. O Agendador kubernetes fornece recursos avançados que permitem controlar quais pods podem ser agendados em determinados nós ou como os aplicativos multipod podem ser distribuídos adequadamente pelo cluster. 
+Como gere clusters no Serviço Azure Kubernetes (AKS), muitas vezes precisa de isolar equipas e cargas de trabalho. O programador Kubernetes fornece funcionalidades avançadas que permitem controlar quais as cápsulas que podem ser programadas em certos nós, ou como as aplicações multi-cápsula podem ser distribuídas adequadamente pelo cluster. 
 
-Este artigo de práticas recomendadas se concentra em recursos avançados de agendamento de kubernetes para operadores de cluster. Neste artigo, vai aprender a:
+Este artigo de boas práticas centra-se nas funcionalidades avançadas de agendamento de Kubernetes para operadores de cluster. Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Use os conteúdo e os Tolerations para limitar o que os pods podem ser agendados nos nós
-> * Dar preferência ao pods para executar em determinados nós com seletores de nó ou afinidade de nó
-> * Separar ou agrupar os pods com afinidade entre Pod ou antiafinidade
+> * Use manchas e tolerâncias para limitar o que as cápsulas podem ser programadas em nódosos
+> * Dê preferência a casulos para correr em certos nódosos com seledores de nó ou afinidade de nó
+> * Dividam ou agrupam cápsulas com afinidade inter-pod ou anti-afinidade
 
-## <a name="provide-dedicated-nodes-using-taints-and-tolerations"></a>Fornecer nós dedicados usando os e Tolerations
+## <a name="provide-dedicated-nodes-using-taints-and-tolerations"></a>Fornecer nóeiros dedicados usando manchas e tolerâncias
 
-**Diretrizes de práticas recomendadas** -limite o acesso para aplicativos com uso intensivo de recursos, como controladores de entrada, para nós específicos. Mantenha os recursos de nó disponíveis para cargas de trabalho que os exigem e não permita o agendamento de outras cargas de trabalho nos nós.
+**Orientação de boas práticas** - Limitar o acesso a aplicações intensivas de recursos, tais como controladores de ingressos, a nós específicos. Mantenha os recursos do nó disponíveis para cargas de trabalho que as exijam, e não permita o agendamento de outras cargas de trabalho nos nós.
 
-Ao criar o cluster AKS, você pode implantar nós com suporte de GPU ou um grande número de CPUs poderosas. Esses nós são frequentemente usados para cargas de trabalho de processamento de dados grandes, como o aprendizado de máquina (ML) ou a inteligência artificial (ia). Como esse tipo de hardware é normalmente um recurso de nó caro para implantar, limite as cargas de trabalho que podem ser agendadas nesses nós. Em vez disso, talvez você queira dedicar alguns nós no cluster para executar serviços de entrada e evitar outras cargas de trabalho.
+Quando cria o seu cluster AKS, pode implantar nós com suporte de GPU ou um grande número de CPUs poderosos. Estes nós são frequentemente utilizados para grandes cargas de processamento de dados, tais como machine learning (ML) ou inteligência artificial (IA). Como este tipo de hardware é tipicamente um recurso caro para implantar, limite as cargas de trabalho que podem ser programadas nestes nós. Em vez disso, pode querer dedicar alguns nós no cluster para executar serviços de ingresso, e evitar outras cargas de trabalho.
 
-Esse suporte para nós diferentes é fornecido usando vários pools de nó. Um cluster AKS fornece um ou mais pools de nós.
+Este suporte para diferentes nós é fornecido usando várias piscinas de nós. Um cluster AKS fornece uma ou mais piscinas de nós.
 
-O Agendador kubernetes pode usar os conteúdo e os Tolerations para restringir quais cargas de trabalho podem ser executadas em nós.
+O programador Kubernetes pode usar manchas e tolerâncias para restringir o que as cargas de trabalho podem ser executadas em nódosos.
 
-* Um seu **pods é aplicado** a um nó que indica que apenas um inconsistente específico pode ser agendado neles.
-* Em seguida, um **toleration** é aplicado a um pod que permite *tolerar* o de um nó.
+* Uma **mancha** é aplicada a um nó que indica que apenas podem ser programadas cápsulas específicas.
+* Uma **tolerância** é então aplicada a uma vagem que lhes permite *tolerar* a mancha de um nó.
 
-Quando você implanta um pod em um cluster AKS, o kubernetes só agenda pods em nós em que um toleration é alinhado com o o seu erro. Como exemplo, suponha que você tenha um pool de nós no cluster AKS para nós com suporte a GPU. Você define o nome, como *GPU*, e um valor para agendamento. Se você definir esse valor como *NoSchedule*, o Agendador kubernetes não poderá agendar pods no nó se o Pod não definir o toleration apropriado.
+Quando se implanta uma cápsula para um cluster AKS, a Kubernetes apenas programa cápsulas em nós onde uma tolerância está alinhada com a mancha. Como exemplo, assuma que tem um nó no seu cluster AKS para nós com suporte de GPU. Define o nome, como *o GPU,* e depois um valor para agendamento. Se definir este valor para *NoSchedule,* o programador Kubernetes não pode agendar cápsulas no nó se a cápsula não definir a toleração apropriada.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Com um toleration aplicado a nós, você definirá um submeio na especificação Pod que permite o agendamento nos nós. O exemplo a seguir define o `sku: gpu` e `effect: NoSchedule` para tolerar o o o o seu que é aplicado ao nó na etapa anterior:
+Com uma mancha aplicada aos nós, define-se então uma tolerância na especificação da cápsula que permite agendar os nós. O exemplo que se segue define o `sku: gpu` e `effect: NoSchedule` tolerar a mancha aplicada ao nó no passo anterior:
 
 ```yaml
 kind: Pod
@@ -69,44 +66,44 @@ spec:
     effect: "NoSchedule"
 ```
 
-Quando esse pod é implantado, como usar `kubectl apply -f gpu-toleration.yaml`, kubernetes pode agendar com êxito o pod nos nós com o seu Esse isolamento lógico permite controlar o acesso a recursos em um cluster.
+Quando esta cápsula é implantada, como a utilização de `kubectl apply -f gpu-toleration.yaml`, os Kubernetes podem agendar com sucesso a cápsula nos nós com a mancha aplicada. Este isolamento lógico permite controlar o acesso aos recursos dentro de um aglomerado.
 
-Quando você aplica os seus aplicativos, trabalhe com os desenvolvedores e os proprietários de seu aplicativo para permitir que eles definam o Tolerations necessário em suas implantações.
+Quando aplicar manchas, trabalhe com os desenvolvedores e proprietários de aplicações para permitir que definam as tolerâncias necessárias nas suas implementações.
 
-Para obter mais informações sobre o Tolerations e o Tolerations, consulte [aplicando][k8s-taints-tolerations]os seus
+Para obter mais informações sobre manchas e tolerâncias, consulte a aplicação de [manchas e tolerâncias][k8s-taints-tolerations].
 
-Para obter mais informações sobre como usar vários pools de nós no AKS, consulte [criar e gerenciar vários pools de nós para um cluster no AKs][use-multiple-node-pools].
+Para obter mais informações sobre como usar várias piscinas de nós em AKS, consulte [Create e gerencie várias piscinas][use-multiple-node-pools]de nós para um cluster em AKS .
 
-### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento de e Tolerations no AKs
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento de manchas e tolerâncias em AKS
 
-Quando você atualiza um pool de nós em AKS, os tolerationss seguem um padrão definido à medida que são aplicados a novos nós:
+Ao atualizar uma piscina de nó em AKS, manchas e tolerâncias seguem um padrão definido à medida que são aplicadas a novos nós:
 
-- **Clusters padrão que usam conjuntos de dimensionamento de máquinas virtuais**
-  - Vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Você atualiza o pool de nós.
-  - Dois nós adicionais são criados, *Node3* e *Nó4*, e os são passados em respectivamente.
-  - Os *Node1* e *NODE2* originais são excluídos.
+- **Clusters padrão que usam conjuntos de escala de máquina virtual**
+  - Vamos supor que tem um aglomerado de dois nós - *nó1* e *nó2*. Melhora a piscina do nó.
+  - São criados dois nós adicionais, *nó3* e *nó4,* e as manchas são transmitidas respectivamente.
+  - O *nó* original 1 e *o nó2* são apagados.
 
-- **Clusters sem suporte ao conjunto de dimensionamento de máquinas virtuais**
-  - Novamente, vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Quando você atualiza, um nó adicional (*Node3*) é criado.
-  - Os de *Node1* são aplicados ao *Node3*, então *Node1* é excluído.
-  - Outro novo nó é criado (chamado *Node1*, uma vez que o *Node1* anterior foi excluído) e *os* os seus Em seguida, *NODE2* é excluído.
-  - Em essência, *Node1* se torna *Node3*e *NODE2* se torna *Node1*.
+- **Aglomerados sem suporte de conjunto de escala de máquina virtual**
+  - Mais uma vez, vamos supor que tem um aglomerado de dois nós - *nó1* e *nó2*. Ao atualizar, é criado um nó adicional *(nó3).*
+  - As manchas do *nó1* são aplicadas ao *nó3,* então o *nó1* é então apagado.
+  - Outro nó novo é criado (nomeado *nó1*, desde que o *nó 1* anterior foi apagado), e as manchas *nó2* são aplicadas ao novo *nó1*. Então, o *nó2* é apagado.
+  - Na essência, *o nó1* torna-se *nó3*, e *o nó2* torna-se *nó1*.
 
-Quando você dimensiona um pool de nós em AKS, os projetos e Tolerations não são transferidos por design.
+Quando escala uma piscina de nó em AKS, manchas e tolerâncias não são sobreportadas por design.
 
-## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Controlar o agendamento de Pod usando seletores de nó e afinidade
+## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Controlo de agendamento de cápsulas utilizando selecionadores de nó e afinidade
 
-**Diretrizes de práticas recomendadas** -controle o agendamento de pods em nós usando seletores de nó, afinidade de nó ou afinidade entre Pod. Essas configurações permitem que o Agendador de kubernetes Isole as cargas de trabalho logicamente, como por hardware no nó.
+**Orientação das melhores práticas** - Controle o agendamento de casulos em nós utilizando selecionadores de nó, afinidade do nó ou afinidade inter-pod. Estas definições permitem ao programador Kubernetes isolar logicamente cargas de trabalho, como por hardware no nó.
 
-Os resíduos e os Tolerations são usados para isolar logicamente os recursos com um desligamento fixo. se o Pod não tolerar um de nó, ele não estará agendado no nó. Uma abordagem alternativa é usar seletores de nó. Você rotula nós, como para indicar o armazenamento SSD localmente anexado ou uma grande quantidade de memória e, em seguida, define na especificação de pod um seletor de nó. Kubernetes, em seguida, agenda esses pods em um nó correspondente. Ao contrário de Tolerations, pods sem um seletor de nó correspondente pode ser agendado em nós rotulados. Esse comportamento permite que recursos não utilizados nos nós consumam, mas dá prioridade a pods que definem o seletor de nó correspondente.
+Manchas e tolerâncias são usadas logicamente para isolar recursos com um corte duro - se a cápsula não tolerar a mancha de um nó, não está agendada no nó. Uma abordagem alternativa é usar seletores de nó. Rotula nós, de modo a indicar armazenamento SSD ligado localmente ou uma grande quantidade de memória, e depois defina na especificação do pod um seletor de nó. Kubernetes então marca as cápsulas em um nó correspondente. Ao contrário das tolerações, as cápsulas sem um seletor de nó correspondente podem ser programadas em nós etiquetados. Este comportamento permite que recursos não utilizados nos nós consumam, mas dá prioridade a pods que definem o seletor de nó correspondente.
 
-Vejamos um exemplo de nós com uma grande quantidade de memória. Esses nós podem dar preferência a pods que solicitam uma grande quantidade de memória. Para certificar-se de que os recursos não ficam ociosos, eles também permitem que outros pods sejam executados.
+Vejamos um exemplo de nódosos com uma alta quantidade de memória. Estes nódosos podem dar preferência a pods que pedem uma elevada quantidade de memória. Para garantir que os recursos não ficam inativos, também permitem que outras cápsulas corram.
 
 ```console
 kubectl label node aks-nodepool1 hardware:highmem
 ```
 
-Uma especificação de Pod adiciona a propriedade `nodeSelector` para definir um seletor de nó que corresponde ao conjunto de rótulos em um nó:
+Uma especificação de casulo adiciona então a propriedade `nodeSelector` para definir um seletor de nó que corresponda ao rótulo definido num nó:
 
 ```yaml
 kind: Pod
@@ -128,15 +125,15 @@ spec:
       hardware: highmem
 ```
 
-Quando você usa essas opções de Agendador, trabalhe com os desenvolvedores e os proprietários de seu aplicativo para permitir que eles definam corretamente suas especificações de Pod.
+Quando utilizar estas opções de programadores, trabalhe com os desenvolvedores e proprietários das suas aplicações para permitir que definam corretamente as especificações do seu casulo.
 
-Para obter mais informações sobre como usar seletores de nó, consulte [atribuindo pods a nós][k8s-node-selector].
+Para obter mais informações sobre a utilização de seletores de nó, consulte [Asatribui pods a nós][k8s-node-selector].
 
-### <a name="node-affinity"></a>Afinidade de nó
+### <a name="node-affinity"></a>Afinidade do nó
 
-Um seletor de nó é uma maneira básica de atribuir pods a um determinado nó. Mais flexibilidade está disponível usando a *afinidade de nó*. Com a afinidade de nó, você define o que acontece se o Pod não puder ser correspondido com um nó. Você pode *exigir* que o Agendador do kubernetes corresponda a um pod com um host rotulado. Ou você pode *preferir* uma correspondência, mas permitir que o Pod seja agendado em um host diferente se a correspondência não estiver disponível.
+Um seletor de nó é uma forma básica de atribuir cápsulas a um determinado nó. Mais flexibilidade está disponível usando a finção do *nó.* Com afinidade no nó, define-se o que acontece se a cápsula não puder ser igualada com um nó. Você pode *exigir* que o programador Kubernetes corresponda a uma cápsula com um hospedeiro rotulado. Ou, você pode *preferir* um fósforo, mas permitir que o casulo seja agendado em um anfitrião diferente se não estiver disponível.
 
-O exemplo a seguir define a afinidade de nó como *requiredDuringSchedulingIgnoredDuringExecution*. Essa afinidade requer que a agenda kubernetes use um nó com um rótulo correspondente. Se nenhum nó estiver disponível, o Pod precisará aguardar até que o agendamento continue. Para permitir que o Pod seja agendado em um nó diferente, você pode definir o valor como *preferredDuringScheduledIgnoreDuringExecution*:
+O exemplo seguinte define a afinidade do nó ao *necessárioDurante agendamentoIgnoredDuringExecution*. Esta afinidade requer que o calendário kubernetes use um nó com um rótulo correspondente. Se não houver nó disponível, a cápsula tem de esperar que o agendamento continue. Para permitir que a cápsula seja programada num nó diferente, pode, em vez disso, definir o valor para *preferencialmenteDuranteOProgramaDurante execução:*
 
 ```yaml
 kind: Pod
@@ -164,29 +161,29 @@ spec:
             values: highmem
 ```
 
-A parte *IgnoredDuringExecution* da configuração indica que, se os rótulos de nó forem alterados, o Pod não deverá ser removido do nó. O Agendador kubernetes usa somente os rótulos de nó atualizados para que novos pods sejam agendados, e não os pods já agendados nos nós.
+A parte ignorada durante a *execução* da definição indica que se as etiquetas do nó mudarem, a cápsula não deve ser despejada do nó. O programador Kubernetes apenas usa as etiquetas de nó atualizadas para novas cápsulas que estão sendo programadas, e não cápsulas já agendadas nos nós.
 
-Para obter mais informações, consulte [afinidade e antiafinidade][k8s-affinity].
+Para mais informações, consulte [a Affinity e a anti-afinidade.][k8s-affinity]
 
-### <a name="inter-pod-affinity-and-anti-affinity"></a>Afinidade entre pod e antiafinidade
+### <a name="inter-pod-affinity-and-anti-affinity"></a>Afinidade inter-pod e anti-afinidade
 
-Uma abordagem final para o Agendador de kubernetes isolar logicamente as cargas de trabalho está usando afinidade ou antiafinidade entre Pod. As configurações definem que pods não *deve* ser agendado em um nó que tenha um pod correspondente existente ou que eles *devam* ser agendados. Por padrão, o Agendador kubernetes tenta agendar vários pods em um conjunto de réplicas entre nós. Você pode definir regras mais específicas sobre esse comportamento.
+Uma abordagem final para o programador kubernetes isolar logicamente cargas de trabalho é usar afinidade inter-pod ou anti-afinidade. As definições definem que as cápsulas *não devem* ser programadas num nó que tenha uma cápsula correspondente existente, ou que *devem* ser programadas. Por padrão, o programador kubernetes tenta agendar várias cápsulas numa réplica definida em nós. Pode definir regras mais específicas em torno deste comportamento.
 
-Um bom exemplo é um aplicativo Web que também usa um cache do Azure para Redis. Você pode usar regras de antiafinidade de pod para solicitar que o Agendador de kubernetes distribua réplicas entre nós. Você pode usar as regras de afinidade para garantir que cada componente de aplicativo Web esteja agendado no mesmo host que um cache correspondente. A distribuição de pods entre nós é semelhante ao exemplo a seguir:
+Um bom exemplo é uma aplicação web que também usa um Azure Cache para Redis. Você pode usar regras anti-afinidade pod para solicitar que o programador Kubernetes distribua réplicas em nódosos. Em seguida, pode utilizar regras de afinidade para garantir que cada componente de aplicação web está agendado no mesmo anfitrião que um cache correspondente. A distribuição de cápsulas através de nódosos parece ser o seguinte exemplo:
 
 | **Nó 1** | **Nó 2** | **Nó 3** |
 |------------|------------|------------|
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Este exemplo é uma implantação mais complexa do que o uso de seletores de nó ou afinidade de nó. A implantação lhe dá controle sobre como o kubernetes agenda pods em nós e pode isolar os recursos logicamente. Para obter um exemplo completo deste aplicativo Web com o cache do Azure para Redis exemplo, consulte [co-localizar pods no mesmo nó][k8s-pod-affinity].
+Este exemplo é uma implantação mais complexa do que a utilização de seletores de nó ou afinidade nó. A implementação dá-lhe controlo sobre como kubernetes programa matos em nódosos e pode logicamente isolar recursos. Para um exemplo completo desta aplicação web com azure cache para exemplo Redis, consulte [Co-localizar cápsulas no mesmo nó][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo se concentrou nos recursos avançados do Agendador de kubernetes. Para obter mais informações sobre as operações de cluster no AKS, consulte as seguintes práticas recomendadas:
+Este artigo focou-se nas funcionalidades avançadas do programador kubernetes. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes boas práticas:
 
-* [Multilocação e isolamento de cluster][aks-best-practices-scheduler]
-* [Recursos básicos do Agendador do kubernetes][aks-best-practices-scheduler]
+* [Multi-arrendamento e isolamento de clusters][aks-best-practices-scheduler]
+* [Funcionalidades básicas do programador Kubernetes][aks-best-practices-scheduler]
 * [Autenticação e autorização][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

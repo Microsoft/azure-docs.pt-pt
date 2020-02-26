@@ -1,114 +1,113 @@
 ---
-title: Sobre malhas de serviço
-description: Obtenha uma visão geral das malhas de serviço, sua arquitetura e seus recursos e quais critérios você deve considerar ao selecionar um para implantar.
+title: Sobre malshes de serviço
+description: Obtenha uma visão geral das malshes de serviço, da sua arquitetura e capacidades, e que critérios deve considerar ao selecionar um para implementar.
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 226a4e5cf97be2e23ef13a95b80be07b7fbf5d7a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530709"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594316"
 ---
-# <a name="about-service-meshes"></a>Sobre malhas de serviço
+# <a name="about-service-meshes"></a>Sobre malshes de serviço
 
-Uma malha de serviço fornece recursos como gerenciamento de tráfego, resiliência, política, segurança, identidade forte e capacidade de observação para suas cargas de trabalho. Seu aplicativo é dissociado desses recursos operacionais e a malha de serviço os move para fora da camada de aplicativo e para a camada de infraestrutura.
+Uma malha de serviço fornece capacidades como gestão de tráfego, resiliência, política, segurança, identidade forte e observabilidade às suas cargas de trabalho. A sua aplicação é dissociada destas capacidades operacionais e a malha de serviço move-as para fora da camada de aplicação, e para baixo para a camada de infraestrutura.
 
 ## <a name="scenarios"></a>Cenários
 
-Estes são alguns dos cenários que podem ser habilitados para suas cargas de trabalho quando você usa uma malha de serviço:
+Estes são alguns dos cenários que podem ser ativados para as suas cargas de trabalho quando utiliza uma malha de serviço:
 
-- **Criptografar todo o tráfego no cluster** – habilite o TLS mútuo entre os serviços especificados no cluster. Isso pode ser estendido para entrada e saída no perímetro da rede. Fornece uma opção segura por padrão sem alterações necessárias para o código do aplicativo e a infraestrutura.
+- **Criptografe todo o tráfego em cluster** - Ative TLS mútuo entre serviços especificados no cluster. Isto pode ser estendido à entrada e à saída no perímetro da rede. Fornece uma opção segura por padrão sem necessidade de alterações para código de aplicação e infraestrutura.
 
-- **Canário e distribuições em fases** – especifique as condições para um subconjunto de tráfego a ser roteado para um conjunto de novos serviços no cluster. No teste bem-sucedido da versão do canário, remova o roteamento condicional e a fase aumentando gradualmente o% de todo o tráfego para o novo serviço. Eventualmente, todo o tráfego será direcionado para o novo serviço.
+- **Saídas canárias e faseadas** - Especifique as condições para que um subconjunto de tráfego seja encaminhado para um conjunto de novos serviços no cluster. No teste bem sucedido da libertação de canários, remova o encaminhamento condicional e a fase aumente gradualmente % de todo o tráfego para um novo serviço. Eventualmente todo o tráfego será direcionado para um novo serviço.
 
-- **Gerenciamento e manipulação de tráfego** – crie uma política em um serviço que classificará o limite de todo o tráfego para uma versão de um serviço de uma origem específica. Ou uma política que aplica uma estratégia de repetição a classes de falhas entre os serviços especificados. Espelhe o tráfego ao vivo para novas versões de serviços durante uma migração ou para depurar problemas. Injetar falhas entre serviços em um ambiente de teste para testar a resiliência.
+- **Gestão e manipulação** de tráfego - Crie uma política sobre um serviço que limite todo o tráfego a uma versão de um serviço de origem específica. Ou uma política que aplica uma estratégia de retenção às classes de falhas entre serviços especificados. Mirror tráfego ao vivo para novas versões de serviços durante uma migração ou para depurar problemas. Injetar falhas entre serviços num ambiente de teste para testar a resiliência.
 
-- **Observação** -tenha informações sobre como os serviços estão conectados ao tráfego que flui entre eles. Obtenha métricas, logs e rastreamentos para todo o tráfego no cluster e entrada/saída. Adicione recursos de rastreamento distribuído aos seus aplicativos.
+- **Observabilidade** - Obtenha informações sobre como os seus serviços estão conectados o tráfego que flui entre eles. Obtenha métricas, registos e vestígios para todo o tráfego em cluster, e ingress/egress. Adicione habilidades de rastreio distribuídas às suas aplicações.
 
 ## <a name="architecture"></a>Arquitetura
 
-Uma malha de serviço normalmente é composta por um plano de controle e o plano de dados.
+Uma malha de serviço é tipicamente composta por um plano de controlo e o plano de dados.
 
-O **plano de controle** tem vários componentes que dão suporte ao gerenciamento da malha de serviço. Normalmente, isso incluirá uma interface de gerenciamento que pode ser uma interface do usuário ou uma API. Normalmente, também há componentes que gerenciam as definições de regra e política que definem como a malha de serviço deve implementar recursos específicos. Também há componentes que gerenciam aspectos de segurança, como identidade forte e certificados para mTLS. As malhas de serviço normalmente também terão uma métrica ou um componente de observação que coleta e agrega métricas e telemetria das cargas de trabalho.
+O plano de **controlo** tem uma série de componentes que suportam a gestão da malha de serviço. Isto incluirá normalmente uma interface de gestão que pode ser uma UI ou uma API. Normalmente, haverá componentes que gerem a regra e definições políticas que definem como a malha de serviço deve implementar capacidades específicas. Existem também componentes que gerem aspetos de segurança como identidade forte e certificados para mTLS. As malsheas de serviço também terão normalmente uma componente métrica ou observabilidade que recolhe e agrega métricas e telemetria das cargas de trabalho.
 
-O **plano de dados** normalmente consiste em um proxy que é injetado de forma transparente como um sidecar para suas cargas de trabalho. Esse proxy é configurado para controlar todo o tráfego de rede dentro e fora do pod que contém sua carga de trabalho. Isso permite que o proxy seja configurado para proteger o tráfego via mTLS, rotear o tráfego dinamicamente, aplicar políticas ao tráfego e coletar métricas e informações de rastreamento. 
+O plano de **dados** consiste tipicamente de um proxy que é injetado de forma transparente como um sidecar para as suas cargas de trabalho. Este proxy está configurado para controlar todo o tráfego de rede dentro e fora da cápsula que contém a sua carga de trabalho. Isto permite que o representante seja configurado para proteger o tráfego através do mTLS, tráfego de rotas dinâmicas, aplicar políticas ao tráfego e recolher métricas e rastrear informações. 
 
-![Arquitetura de malha de serviço típica](media/servicemesh/typical-architecture.png)
+![Arquitetura típica de malha de serviço](media/servicemesh/typical-architecture.png)
 
-## <a name="capabilities"></a>Funções
+## <a name="capabilities"></a>Capacidades
 
-Cada uma das malhas de serviço tem um ajuste natural e se concentra no suporte a cenários específicos, mas normalmente você descobrirá que a maioria irá implementar um número de, se não todos, dos seguintes recursos.
+Cada uma das malshes de serviço tem um ajuste natural e foco em apoiar cenários específicos, mas você normalmente vai descobrir que a maioria implementará uma série de, se não todas, das seguintes capacidades.
 
-### <a name="traffic-management"></a>Gerenciamento de tráfego 
+### <a name="traffic-management"></a>Gestão de tráfego 
 
 - **Protocolo** – camada 7 (http, grpc)
-- **Roteamento dinâmico** – condicional, ponderação, espelhamento
-- **Resiliência** – tempos limite, repetições, separadores de circuito
-- **Política** – controle de acesso, limites de taxa, cotas
-- **Teste** -injeção de falha
+- **Encaminhamento Dinâmico** - condicional, ponderação, espelhamento
+- **Resiliência** - intervalos, repetições, disjuntores
+- **Política** – controlo de acessos, limites de taxas, quotas
+- **Teste** - injeção de falhas
 
 ### <a name="security"></a>Segurança
 
-- **Criptografia** – MTLS, gerenciamento de certificados, AC externa
-- **Identidade forte** – SPIFFE ou semelhante
-- **Auth** – autenticação, autorização
+- **Encriptação** - mTLS, gestão de certificados, CA externa
+- **Identidade Forte** – SPIFFE ou similar
+- **Auth** - autenticação, autorização
 
-### <a name="observability"></a>Observação
+### <a name="observability"></a>Observabilidade
 
-- **Métricas** – métricas de ouro, Prometheus, grafana
-- **Rastreamento** -rastreamentos entre cargas de trabalho
-- **Tráfego** – cluster, entrada/saída
+- **Métricas** - métricas douradas, prometheus, grafana
+- **Rastreio** - vestígios em cargas de trabalho
+- **Tráfego** – cluster, ingress/egress
 
-### <a name="mesh"></a>Integrada
+### <a name="mesh"></a>Malha
 
-- **Computação com suporte** -kubernetes, máquinas virtuais
-- Gateways de **vários clusters** , Federação
+- **Computação Suportada** - Kubernetes, máquinas virtuais
+- **Multi-cluster** - gateways, federação
 
 ## <a name="selection-criteria"></a>Critérios de seleção
 
-Antes de selecionar uma malha de serviço, verifique se você entendeu seus requisitos e os motivos para instalar uma malha de serviço. Tente fazer as perguntas a seguir.
+Antes de selecionar uma malha de serviço, certifique-se de que compreende os seus requisitos e as razões para instalar uma malha de serviço. Tente fazer as seguintes perguntas.
 
-- **Um controlador de entrada é suficiente para minhas necessidades?** -Às vezes, ter um recurso como teste a/b ou divisão de tráfego na entrada é suficiente para dar suporte ao cenário necessário. Não adicione complexidade ao seu ambiente sem nenhuma vantagem.
+- **Um Controlador de Ingress é suficiente para as minhas necessidades?** - Por vezes, ter uma capacidade como testes a/b ou divisão de tráfego na entrada é suficiente para suportar o cenário necessário. Não adicione complexidade ao seu ambiente sem nenhum lado positivo.
 
-- **Minhas cargas de trabalho e o ambiente podem tolerar sobrecargas adicionais?** -Todos os componentes adicionais necessários para dar suporte à malha de serviço exigem recursos adicionais, como CPU e memória. Além disso, todos os proxies e suas verificações de política associadas adicionam latência ao tráfego. Se você tiver cargas de trabalho muito sensíveis à latência ou não puder fornecer os recursos adicionais para cobrir os componentes de malha de serviço e, em seguida, considere novamente.
+- **As minhas cargas de trabalho e o meu ambiente podem tolerar as despesas adicionais?** - Todos os componentes adicionais necessários para suportar a malha de serviço requerem recursos adicionais como cpu e memória. Além disso, todos os proxies e os seus controlos políticos associados adicionam latência ao seu tráfego. Se tiver cargas de trabalho muito sensíveis à latência ou não puder fornecer os recursos adicionais para cobrir os componentes da malha de serviço, então reconsidere.
 
-- **Isso está adicionando mais complexidade desnecessariamente?** -Se o motivo da instalação de uma malha de serviço é obter um recurso que não seja necessariamente crítico para as equipes de negócios ou operacionais, considere se a complexidade adicional de instalação, manutenção e configuração vale a pena.
+- **Isto é adicionar complexidade adicional desnecessariamente?** - Se a razão para instalar uma malha de serviço é para ganhar uma capacidade que não é necessariamente crítica para as equipas de negócio ou operacionais, então considere se a complexidade adicional de instalação, manutenção e configuração vale a pena.
 
-- **Isso pode ser adotado em uma abordagem incremental?** -Algumas das malhas de serviço que fornecem muitos recursos podem ser adotadas em uma abordagem mais incremental. Instale apenas os componentes necessários para garantir seu sucesso. Quando você tiver mais confiança e recursos adicionais forem necessários, explore-os. Resista ao desejo de instalar *tudo* desde o início.
+- **Isto pode ser adotado numa abordagem incremental?** - Algumas das malshes de serviço que fornecem muitas capacidades podem ser adotadas numa abordagem mais incremental. Instale apenas os componentes necessários para garantir o seu sucesso. Uma vez mais confiante e são necessárias capacidades adicionais, então explore-as. Resista à vontade de instalar *tudo* desde o início.
 
-Se, após uma consideração cuidadosa, você decidir que precisa de uma malha de serviço para fornecer os recursos necessários, sua próxima decisão será qual é a *malha de serviço?*
+Se, após cuidadosa consideração, decidir que precisa de uma malha de serviço para fornecer as capacidades necessárias, então a sua próxima decisão é qual a malha de *serviço?*
 
-Considere as seguintes áreas e quais delas estão mais alinhadas com seus requisitos. Isso vai orientá-lo em direção ao melhor ajuste para seu ambiente e cargas de trabalho. A seção [próximas etapas](#next-steps) levará você a obter informações detalhadas sobre malhas de serviço específicas e como elas são mapeadas para essas áreas.
+Considere as seguintes áreas e quais delas estão mais alinhadas com os seus requisitos. Isto irá guiá-lo para o melhor para o seu ambiente e cargas de trabalho. A secção [de passos seguintes](#next-steps) irá levá-lo a mais informações detalhadas sobre malshes de serviço específicos e como eles mapeiam para estas áreas.
 
-- Gerenciamento de tráfego **técnico** , política, segurança, observação
+- **Técnica** - gestão do tráfego, política, segurança, observabilidade
 
-- **Business** -suporte comercial, Fundação (CNCF), licença do OSS, governança
+- **Negócios** - apoio comercial, fundação (CNCF), licença OSS, governação
 
-- **Operacional** – instalação/atualizações, requisitos de recursos, requisitos de desempenho, integrações (métricas, telemetria, painéis, ferramentas, SMI), cargas de trabalho mistas (pools de nós do Linux e do Windows), computação (kubernetes, máquinas virtuais), vários clusters
+- **Operacional** – instalação/upgrades, requisitos de recursos, requisitos de desempenho, integrações (métricas, telemetria, dashboards, ferramentas, SMI), cargas de trabalho mistas (piscinas de nólino e windows), computação (Kubernetes, máquinas virtuais), multi-cluster
 
-- **Segurança** -autenticação, identidade, gerenciamento de certificados e rotação, AC externa conectável
+- **Segurança** - auth, identidade, gestão de certificados e rotação, AC externo pluggable
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A documentação a seguir fornece mais informações sobre as malhas de serviço que você pode experimentar no serviço de kubernetes do Azure (AKS):
+A seguinte documentação fornece mais informações sobre maltratas de serviço que pode experimentar no Serviço Azure Kubernetes (AKS):
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o İSTİO...][istio-about]
+> [Saiba mais sobre Istio...][istio-about]
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o Linkerd...][linkerd-about]
+> [Saiba mais sobre Linkerd ...][linkerd-about]
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o Consul...][consul-about]
+> [Saiba mais sobre o Cônsul...][consul-about]
 
-Talvez você também queira explorar a interface de malha do serviço (SMI), uma interface padrão para malhas de serviço no kubernetes:
+Você também pode querer explorar service Mesh Interface (SMI), uma interface padrão para malhas de serviço em Kubernetes:
 
-- [SMI (interface de malha de serviço)][smi]
+- [Interface de malha de serviço (SMI)][smi]
 
 
 <!-- LINKS - external -->

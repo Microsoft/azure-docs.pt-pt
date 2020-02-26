@@ -3,7 +3,7 @@ title: O que é Azure Sentinel?. Microsoft Docs
 description: Conheça o Azure Sentinel, as suas principais capacidades e como funciona.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
@@ -15,13 +15,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
-ms.author: rkarlin
-ms.openlocfilehash: 5f3a8fa7b9619958db1d7213236e27d00b417c54
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: yelevin
+ms.openlocfilehash: 7d0f246a96072a6e433b0762256467f1c20a45fe
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939119"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581723"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
 
@@ -43,15 +43,15 @@ Com base em toda a gama de serviços Azure existentes, o Azure Sentinel incorpor
 
 ## <a name="connect-to-all-your-data"></a>Ligue-se a todos os seus dados
 
-Para embarcar no Azure Sentinel, primeiro precisa de [se ligar às suas fontes](connect-data-sources.md)de segurança. O Azure Sentinel vem com vários conectores para soluções da Microsoft, disponíveis prontos para uso e fornecimento de integração em tempo real, incluindo soluções de proteção contra ameaças da Microsoft e fontes de Microsoft 365, incluindo o Office 365, o Azure AD, o Azure ATP e o Microsoft Cloud App Security e muito mais. Além disso, há conectores internos para o ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar o formato de evento comum, syslog ou REST-API para conectar suas fontes de dados com o Azure Sentinel também.  
+Para embarcar no Azure Sentinel, primeiro precisa de [se ligar às suas fontes](connect-data-sources.md)de segurança. O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e proporcionando integração em tempo real, incluindo soluções de Proteção contra Ameaças da Microsoft, e fontes Microsoft 365, incluindo Office 365, Azure AD, Azure ATP, e Microsoft Cloud App Security, e muito mais. Além disso, existem conectores incorporados para o ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar o formato comum do evento, o Syslog ou o REST-API para ligar as suas fontes de dados ao Azure Sentinel.  
 
-![Coletores de dados](./media/collect-data/collect-data-page.png)
+![Colecionadores de dados](./media/collect-data/collect-data-page.png)
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="workbooks"></a>Livros
 
-Depois de [ligar as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pode monitorizar os dados utilizando a integração do Azure Sentinel com os Livros de Trabalho do Monitor Azure, que proporciona versatilidade na criação de livros personalizados. Embora os livros de trabalho sejam exibidos de forma diferente no Azure Sentinel, pode ser útil para si ver como [criar relatórios interativos com livros](../azure-monitor/app/usage-workbooks.md)de trabalho do Monitor Azure . O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter informações rapidamente em seus dados assim que você conectar uma fonte de dados.
+Depois de [ligar as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pode monitorizar os dados utilizando a integração do Azure Sentinel com os Livros de Trabalho do Monitor Azure, que proporciona versatilidade na criação de livros personalizados. Embora os livros de trabalho sejam exibidos de forma diferente no Azure Sentinel, pode ser útil para si ver como [criar relatórios interativos com livros](../azure-monitor/app/usage-workbooks.md)de trabalho do Monitor Azure . O Azure Sentinel permite-lhe criar livros personalizados através dos seus dados, e também vem com modelos de livro incorporados para permitir-lhe obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
 
 ![Dashboards](./media/tutorial-monitor-data/access-workbooks.png)
 
@@ -92,5 +92,5 @@ A comunidade Azure Sentinel é um recurso poderoso para deteção e automação 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para começar a usar o Azure Sentinel, você precisa de uma assinatura para Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
-- Saiba como integrar [seus dados ao Azure Sentinel](quickstart-onboard.md)e [obter visibilidade de seus dados e ameaças em potencial](quickstart-get-visibility.md).
+- Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
+- Aprenda a [bordo dos seus dados para o Azure Sentinel](quickstart-onboard.md)e obtenha visibilidade nos seus dados e ameaças [potenciais.](quickstart-get-visibility.md)

@@ -1,10 +1,10 @@
 ---
-title: Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server | Microsoft Docs
-description: Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server
+title: Alta disponibilidade para NFS em VMs Azure em SLES Microsoft Docs
+description: Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
-ms.author: sedusch
-ms.openlocfilehash: c20fc2142718d3cc49d4b80c6a5e22e26a350335
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: radeltch
+ms.openlocfilehash: efba617f9aeefa2e9374f5a7551338e003e70f56
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824868"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598736"
 ---
-# <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server
+# <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -29,13 +29,13 @@ ms.locfileid: "73824868"
 
 [2205917]: https://launchpad.support.sap.com/#/notes/2205917
 [1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533,]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
 [2178632]: https://launchpad.support.sap.com/#/notes/2178632
 [2191498]: https://launchpad.support.sap.com/#/notes/2191498
 [2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[SAP 1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -50,190 +50,190 @@ ms.locfileid: "73824868"
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
-Este artigo descreve como implantar as máquinas virtuais, configurar as máquinas virtuais, instalar a estrutura de cluster e instalar um servidor NFS altamente disponível que pode ser usado para armazenar os dados compartilhados de um sistema SAP altamente disponível.
-Este guia descreve como configurar um servidor NFS altamente disponível que é usado por dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo pressupõem que você usou o [modelo de servidor de arquivos SAP][template-file-server] com o prefixo de recurso **prod**.
+Este artigo descreve como implementar as máquinas virtuais, configurar as máquinas virtuais, instalar a estrutura de cluster e instalar um servidor NFS altamente disponível que pode ser usado para armazenar os dados partilhados de um sistema SAP altamente disponível.
+Este guia descreve como configurar um servidor NFS altamente disponível que é usado por dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo assumem que utilizou o modelo de servidor de [ficheiros SAP][template-file-server] com **profixo**de recursos prod .
 
-Leia as seguintes notas e documentos SAP primeiro
+Leia as seguintes Notas e papéis SAP primeiro
 
-* Nota SAP [1928533], que tem:
-  * Lista de tamanhos de VM do Azure com suporte para a implantação de software SAP
-  * Informações de capacidade importantes para tamanhos de VM do Azure
-  * Software SAP com suporte e combinações de so (sistema operacional) e banco de dados
-  * Versão de kernel do SAP necessária para Windows e Linux em Microsoft Azure
+* Nota SAP [1928533,]que tem:
+  * Lista de tamanhos De VM Azure que são suportados para a implementação de software SAP
+  * Informações importantes sobre a capacidade para tamanhos de VM Azure
+  * Software SAP suportado e sistema operativo (OS) e combinações de bases de dados
+  * Versão necessária do kernel SAP para Windows e Linux no Microsoft Azure
 
-* O SAP Note [2015553] lista os pré-requisitos para implantações de software SAP com suporte no SAP no Azure.
-* A observação do SAP [2205917] tem as configurações do sistema operacional recomendadas para SuSE Linux Enterprise Server para aplicativos SAP
-* O SAP Note [1944799] tem diretrizes SAP HANA para SuSE Linux Enterprise Server para aplicativos SAP
-* A nota SAP [2178632] tem informações detalhadas sobre todas as métricas de monitoramento relatadas para SAP no Azure.
-* A nota SAP [2191498] tem a versão do agente de host do SAP necessária para Linux no Azure.
-* A nota SAP [2243692] tem informações sobre o licenciamento SAP no Linux no Azure.
-* A nota SAP [1984787] tem informações gerais sobre o SuSE Linux Enterprise Server 12.
-* A nota SAP [1999351] tem informações adicionais para solução de problemas para a extensão de monitoramento avançado do Azure para SAP.
-* O [SAP Community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas SAP necessárias para o Linux.
-* [Planejamento e implementação de máquinas virtuais do Azure para SAP no Linux][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
-* [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
-* [Guias de práticas recomendadas da extensão de alta disponibilidade do SUSE Linux Enterprise 12 SP3][sles-hae-guides]
-  * Armazenamento NFS altamente disponível com DRBD e pacemaker
-* [Guias de práticas recomendadas do SUSE Linux Enterprise Server para aplicativos SAP 12 SP3][sles-for-sap-bp]
-* [Notas de versão da extensão de alta disponibilidade do SUSE 12 SP3][suse-ha-12sp3-relnotes]
+* O SAP Note [2015553] lista os pré-requisitos para implementações de software SAP suportadas pela SAP em Azure.
+* SAP Nota [2205917] recomendou definições de OS para SUSE Linux Enterprise Server para Aplicações SAP
+* SAP Nota [1944799] tem Diretrizes SAP HANA para SUSE Linux Enterprise Server para Aplicações SAP
+* O SAP Note [2178632] tem informações detalhadas sobre todas as métricas de monitorização reportadas para o SAP em Azure.
+* O SAP Note [2191498] tem a versão necessária do Agente anfitrião SAP para o Linux em Azure.
+* SAP Nota [2243692] tem informações sobre licenciamento SAP em Linux em Azure.
+* SAP Note [1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
+* A Nota [SAP 1999351] tem informações adicionais de resolução de problemas para a extensão de monitorização avançada do Azure para sAP.
+* [A SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) exigiu todas as notas SAP para linux.
+* [Planeamento e implementação de Máquinas Virtuais Azure para SAP em Linux][planning-guide]
+* [Implantação de Máquinas Virtuais Azure para SAP em Linux (este artigo)][deployment-guide]
+* [Implantação de DBMS de Máquinas Virtuais Azure para SAP em Linux][dbms-guide]
+* [SUSE Linux Enterprise High Availability Extension 12 SP3 guias de boas práticas][sles-hae-guides]
+  * Armazenamento NFS altamente disponível com DRBD e Pacemaker
+* [SUSE Linux Enterprise Server para Aplicações SAP 12 Guias de boas práticas SP3][sles-for-sap-bp]
+* [Extensão de alta disponibilidade sUSE 12 Notas de lançamento SP3][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Descrição geral
 
-Para obter alta disponibilidade, o SAP NetWeaver requer um servidor NFS. O servidor NFS é configurado em um cluster separado e pode ser usado por vários sistemas SAP.
+Para obter uma elevada disponibilidade, o SAP NetWeaver requer um servidor NFS. O servidor NFS está configurado num cluster separado e pode ser utilizado por vários sistemas SAP.
 
-![Visão geral de alta disponibilidade do SAP NetWeaver](./media/high-availability-guide-nfs/ha-suse-nfs.png)
+![Visão geral de alta disponibilidade da SAP NetWeaver](./media/high-availability-guide-nfs/ha-suse-nfs.png)
 
-O servidor NFS usa um nome de host virtual dedicado e endereços IP virtuais para cada sistema SAP que usa esse servidor NFS. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. A lista a seguir mostra a configuração do balanceador de carga.        
+O servidor NFS utiliza um nome de anfitrião virtual dedicado e endereços IP virtuais para cada sistema SAP que utiliza este servidor NFS. No Azure, é necessário utilizar um endereço IP virtual. A lista que se segue mostra a configuração do equilibrador de carga.        
 
-* Configuração de front-end
+* Configuração frontend
   * Endereço IP 10.0.0.4 para NW1
   * Endereço IP 10.0.0.5 para NW2
-* Configuração de back-end
-  * Conectado às interfaces de rede primárias de todas as máquinas virtuais que devem ser parte do cluster NFS
-* Porta de investigação
-  * Porta 61000 para NW1
-  * Porta 61001 para NW2
-* Regras de balanceamento de carga (se estiver usando o Load Balancer básico)
-  * 2049 TCP para NW1
-  * 2049 UDP para NW1
-  * 2049 TCP para NW2
-  * 2049 UDP para NW2
+* Configuração de backend
+  * Ligado às interfaces de rede primáriade todas as máquinas virtuais que devem fazer parte do cluster NFS
+* Porta sonda
+  * Porto 61000 para NW1
+  * Porto 61001 para NW2
+* Regras de equilíbrio de carga (se utilizar um equilíbrio de carga básico)
+  * TCP de 2049 para NW1
+  * UDP 2049 para NW1
+  * TCP de 2049 para NW2
+  * UDP 2049 para NW2
 
 ## <a name="set-up-a-highly-available-nfs-server"></a>Configurar um servidor NFS altamente disponível
 
-Você pode usar um modelo do Azure do GitHub para implantar todos os recursos do Azure necessários, incluindo as máquinas virtuais, o conjunto de disponibilidade e o balanceador de carga, ou você pode implantar os recursos manualmente.
+Pode utilizar um modelo Azure do GitHub para implementar todos os recursos necessários do Azure, incluindo as máquinas virtuais, o conjunto de disponibilidade e o equilibrador de carga ou pode implementar os recursos manualmente.
 
-### <a name="deploy-linux-via-azure-template"></a>Implantar o Linux por meio do modelo do Azure
+### <a name="deploy-linux-via-azure-template"></a>Implementar linux via modelo Azure
 
-O Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server para aplicativos SAP 12 que você pode usar para implantar novas máquinas virtuais.
-Você pode usar um dos modelos de início rápido no GitHub para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o balanceador de carga, o conjunto de disponibilidade, etc. Siga estas etapas para implantar o modelo:
+O Azure Marketplace contém uma imagem para o SUSE Linux Enterprise Server para aplicações SAP 12 que pode utilizar para implementar novas máquinas virtuais.
+Você pode usar um dos modelos de arranque rápido no GitHub para implementar todos os recursos necessários. O modelo implanta as máquinas virtuais, o equilibrador de carga, conjunto de disponibilidade, etc. Siga estes passos para implementar o modelo:
 
-1. Abra o [modelo de servidor de arquivos SAP][template-file-server] no portal do Azure   
+1. Abra o modelo do servidor de [ficheiros SAP][template-file-server] no portal Azure   
 1. Insira os seguintes parâmetros
    1. Prefixo de recurso  
-      Insira o prefixo que você deseja usar. O valor é usado como um prefixo para os recursos que são implantados.
-   2. Contagem de sistema SAP  
-      Insira o número de sistemas SAP que usarão esse servidor de arquivos. Isso implantará a quantidade necessária de configurações de front-end, regras de balanceamento de carga, portas de investigação, discos, etc.
-   3. Tipo de so  
-      Selecione uma das distribuições do Linux. Para este exemplo, selecione SLES 12
-   4. Nome de usuário do administrador e senha do administrador  
-      Um novo usuário é criado e pode ser usado para fazer logon no computador.
-   5. ID da sub-rede  
-      Se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida, a VM deve ser atribuída, nomear a ID dessa sub-rede específica. A ID geralmente é semelhante a/subscriptions/ **&lt;ID da assinatura&gt;** /resourceGroups/ **&lt;nome do grupo de recursos&gt;** /Providers/Microsoft.Network/virtualNetworks/ **&lt;nome da rede virtual&gt;** /subnets/ **&lt;nome da sub-rede&gt;**
+      Introduza o prefixo que pretende utilizar. O valor é usado como prefixo para os recursos que são implantados.
+   2. Contagem do sistema SAP  
+      Introduza o número de sistemas SAP que utilizarão este servidor de ficheiros. Isto irá implantar a quantidade necessária de configurações frontais, regras de equilíbrio de carga, portas de sonda, discos, etc.
+   3. Tipo Os  
+      Selecione uma das distribuições linux. Para este exemplo, selecione SLES 12
+   4. Nome de utilizador e senha de administrador  
+      É criado um novo utilizador que pode ser utilizado para iniciar sessão na máquina.
+   5. Id da sub-rede  
+      Se pretender implantar o VM numa VNet existente onde tem uma sub-rede definida a VM deve ser atribuída, diga o nome da identificação dessa sub-rede específica. O ID geralmente parece /subscrições/ **&lt;id de subscrição&gt;** /recursosGroups/&lt;nome de grupo de recursos **&gt;** /fornecedores/Microsoft.Network/virtualNetworks/&lt;nome de rede **virtual&gt;** /subnets/&lt;nome **da sub-rede&gt;**
 
-### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio de portal do Azure
+### <a name="deploy-linux-manually-via-azure-portal"></a>Implementar o Linux manualmente através do portal Azure
 
-Primeiro, você precisa criar as máquinas virtuais para esse cluster NFS. Posteriormente, você criará um balanceador de carga e usará as máquinas virtuais nos pools de back-end.
+Primeiro é necessário criar as máquinas virtuais para este cluster NFS. Depois, cria-se um equilibrador de carga e utiliza as máquinas virtuais nas piscinas de backend.
 
 1. Criar um Grupo de Recursos
-1. Criar uma rede virtual
+1. Criar uma Rede Virtual
 1. Criar um conjunto de disponibilidade  
-   Definir domínio de atualização máx.
-1. Criar máquina virtual 1 Use pelo menos o SLES4SAP 12 SP3, neste exemplo, a imagem do SLES4SAP 12 SP3 BYOS do SLES for SAP Applications 12 SP3 (BYOS) é usada  
-   Selecionar conjunto de disponibilidade criado anteriormente  
-1. Criar máquina virtual 2 Use pelo menos SLES4SAP 12 SP3, neste exemplo, a imagem de BYOS do SLES4SAP 12 SP3  
-   SLES for SAP Applications 12 SP3 (BYOS) é usado  
-   Selecionar conjunto de disponibilidade criado anteriormente  
+   Definir domínio de atualização max
+1. Criar Máquina Virtual 1 Utilize pelo menos SLES4SAP 12 SP3, neste exemplo é utilizada a imagem SLES4SAP 12 SP3 BYOS Para aplicações SAP 12 SP3 (BYOS)  
+   Selecione Conjunto de Disponibilidade criado anteriormente  
+1. Criar máquina virtual 2 Utilize pelo menos SLES4SAP 12 SP3, neste exemplo a imagem SLES4SAP 12 SP3 BYOS  
+   SLES Para Aplicações SAP 12 SP3 (BYOS) é usado  
+   Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Adicione um disco de dados para cada sistema SAP a ambas as máquinas virtuais.
-1. Crie um Load Balancer (interno). Recomendamos o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
-   1. Siga estas instruções para criar o balanceador de carga padrão:
-      1. Criar os endereços IP de front-end
+1. Criar um Balancer de Carga (interno). Recomendamos um [equilíbrio de carga padrão.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)  
+   1. Siga estas instruções para criar um equilíbrio de carga padrão:
+      1. Crie os endereços IP frontend
          1. Endereço IP 10.0.0.4 para NW1
-            1. Abra o balanceador de carga, selecione pool de IPS de front-end e clique em Adicionar
-            1. Insira o nome do novo pool de IPS de front-end (por exemplo **NW1-frontend**)
-            1. Defina a atribuição como estática e insira o endereço IP (por exemplo **10.0.0.4**)
+            1. Abra o equilibrador de carga, selecione pool IP frontend e clique em Adicionar
+            1. Introduza o nome do novo pool IP frontend (por exemplo **nw1-frontend)**
+            1. Definir a Atribuição à Estática e introduzir o endereço IP (por exemplo **10.0.0.4**)
             1. Clique em OK
          1. Endereço IP 10.0.0.5 para NW2
-            * Repita as etapas acima para NW2
-      1. Criar os pools de back-end
-         1. Conectado a interfaces de rede primárias de todas as máquinas virtuais que devem ser parte do cluster NFS para NW1
-            1. Abra o balanceador de carga, selecione pools de back-end e clique em Adicionar
-            1. Insira o nome do novo pool de back-end (por exemplo **, NW1-backend**)
-            1. Selecionar rede virtual
-            1. Clique em adicionar uma máquina virtual
-            1. Selecione as máquinas virtuais do cluster NFS e seus endereços IP.
+            * Repita os passos acima para NW2
+      1. Crie as piscinas de backend
+         1. Ligado às interfaces de rede primária de todas as máquinas virtuais que devem fazer parte do cluster NFS para NW1
+            1. Abra o equilibrador de carga, selecione piscinas de backend e clique em Adicionar
+            1. Introduza o nome da nova piscina de backend (por exemplo **nw1-backend)**
+            1. Selecione Rede Virtual
+            1. Clique em Adicionar uma máquina virtual
+            1. Selecione as máquinas virtuais do cluster NFS e os seus endereços IP.
             1. Clique em Adicionar.
-         1. Conectado a interfaces de rede primárias de todas as máquinas virtuais que devem ser parte do cluster NFS para NW2
-            * Repita as etapas acima para criar um pool de back-end para NW2
-      1. Criar as investigações de integridade
-         1. Porta 61000 para NW1
-            1. Abra o balanceador de carga, selecione investigações de integridade e clique em Adicionar
-            1. Insira o nome da nova investigação de integridade (por exemplo **NW1-HP**)
-            1. Selecione TCP como protocolo, porta 610**00**, manter intervalo 5 e limite não íntegro 2
+         1. Ligado às interfaces de rede primária de todas as máquinas virtuais que devem fazer parte do cluster NFS para NW2
+            * Repita os passos acima para criar uma piscina de backend para NW2
+      1. Criar as sondas de saúde
+         1. Porto 61000 para NW1
+            1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
+            1. Introduza o nome da nova sonda de saúde (por **exemplo, nw1-hp)**
+            1. Selecione TCP como protocolo, porta 610**00,** mantenha intervalo 5 e limiar insalubre 2
             1. Clique em OK
-         1. Porta 61001 para NW2
-            * Repita as etapas acima para criar uma investigação de integridade para NW2
-      1. Regras de balanceamento de carga
-         1. Abra o balanceador de carga, selecione regras de balanceamento de carga e clique em Adicionar
-         1. Insira o nome da nova regra do balanceador de carga (por exemplo **, NW1-lb**)
-         1. Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo **NW1-frontend**. **NW1-backend** e **NW1-HP**)
-         1. Selecione **portas de alta disponibilidade**.
-         1. Aumentar o tempo limite de ociosidade para 30 minutos
-         1. **Certifique-se de habilitar o IP flutuante**
+         1. Porto 61001 para NW2
+            * Repita os passos acima para criar uma sonda de saúde para a NW2
+      1. Regras de equilíbrio de carga
+         1. Abra o equilibrador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
+         1. Introduza o nome da nova regra do equilibrador de carga (por **exemplo, nw1-lb)**
+         1. Selecione o endereço IP frontend, a piscina de backend e a sonda de saúde que criou anteriormente (por **exemplo, nw1-frontend**. **nw1-backend** e **nw1-hp**)
+         1. Selecione **Portas HA**.
+         1. Aumente o tempo inativo para 30 minutos
+         1. **Certifique-se de ativar o IP flutuante**
          1. Clique em OK
-         * Repita as etapas acima para criar a regra de balanceamento de carga para NW2
-   1. Como alternativa, se seu cenário exigir o Load Balancer básico, siga estas instruções:
-      1. Criar os endereços IP de front-end
+         * Repita os passos acima para criar a regra de equilíbrio de carga para A NW2
+   1. Em alternativa, se o seu cenário necessitar de um equilíbrio básico de carga, siga estas instruções:
+      1. Crie os endereços IP frontend
          1. Endereço IP 10.0.0.4 para NW1
-            1. Abra o balanceador de carga, selecione pool de IPS de front-end e clique em Adicionar
-            1. Insira o nome do novo pool de IPS de front-end (por exemplo **NW1-frontend**)
-            1. Defina a atribuição como estática e insira o endereço IP (por exemplo **10.0.0.4**)
+            1. Abra o equilibrador de carga, selecione pool IP frontend e clique em Adicionar
+            1. Introduza o nome do novo pool IP frontend (por exemplo **nw1-frontend)**
+            1. Definir a Atribuição à Estática e introduzir o endereço IP (por exemplo **10.0.0.4**)
             1. Clique em OK
          1. Endereço IP 10.0.0.5 para NW2
-            * Repita as etapas acima para NW2
-      1. Criar os pools de back-end
-         1. Conectado a interfaces de rede primárias de todas as máquinas virtuais que devem ser parte do cluster NFS para NW1
-            1. Abra o balanceador de carga, selecione pools de back-end e clique em Adicionar
-            1. Insira o nome do novo pool de back-end (por exemplo **, NW1-backend**)
-            1. Clique em adicionar uma máquina virtual
-            1. Selecione o conjunto de disponibilidade que você criou anteriormente
-            1. Selecionar as máquinas virtuais do cluster NFS
+            * Repita os passos acima para NW2
+      1. Crie as piscinas de backend
+         1. Ligado às interfaces de rede primária de todas as máquinas virtuais que devem fazer parte do cluster NFS para NW1
+            1. Abra o equilibrador de carga, selecione piscinas de backend e clique em Adicionar
+            1. Introduza o nome da nova piscina de backend (por exemplo **nw1-backend)**
+            1. Clique em Adicionar uma máquina virtual
+            1. Selecione o Conjunto de Disponibilidade que criou anteriormente
+            1. Selecione as máquinas virtuais do cluster NFS
             1. Clique em OK
-         1. Conectado a interfaces de rede primárias de todas as máquinas virtuais que devem ser parte do cluster NFS para NW2
-            * Repita as etapas acima para criar um pool de back-end para NW2
-      1. Criar as investigações de integridade
-         1. Porta 61000 para NW1
-            1. Abra o balanceador de carga, selecione investigações de integridade e clique em Adicionar
-            1. Insira o nome da nova investigação de integridade (por exemplo **NW1-HP**)
-            1. Selecione TCP como protocolo, porta 610**00**, manter intervalo 5 e limite não íntegro 2
+         1. Ligado às interfaces de rede primária de todas as máquinas virtuais que devem fazer parte do cluster NFS para NW2
+            * Repita os passos acima para criar uma piscina de backend para NW2
+      1. Criar as sondas de saúde
+         1. Porto 61000 para NW1
+            1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
+            1. Introduza o nome da nova sonda de saúde (por **exemplo, nw1-hp)**
+            1. Selecione TCP como protocolo, porta 610**00,** mantenha intervalo 5 e limiar insalubre 2
             1. Clique em OK
-         1. Porta 61001 para NW2
-            * Repita as etapas acima para criar uma investigação de integridade para NW2
-      1. Regras de balanceamento de carga
-         1. 2049 TCP para NW1
-            1. Abra o balanceador de carga, selecione regras de balanceamento de carga e clique em Adicionar
-            1. Insira o nome da nova regra do balanceador de carga (por exemplo **, NW1-lb-2049**)
-            1. Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo **NW1-frontend**)
-            1. Mantenha o protocolo **TCP**, insira a porta **2049**
-            1. Aumentar o tempo limite de ociosidade para 30 minutos
-            1. **Certifique-se de habilitar o IP flutuante**
+         1. Porto 61001 para NW2
+            * Repita os passos acima para criar uma sonda de saúde para a NW2
+      1. Regras de equilíbrio de carga
+         1. TCP de 2049 para NW1
+            1. Abra o equilibrador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
+            1. Introduza o nome da nova regra do equilibrador de carga (por **exemplo, nw1-lb-2049)**
+            1. Selecione o endereço IP frontend, a piscina de backend e a sonda de saúde que criou anteriormente (por **exemplo, nw1-frontend)**
+            1. Manter o protocolo **TCP,** entrar na porta **2049**
+            1. Aumente o tempo inativo para 30 minutos
+            1. **Certifique-se de ativar o IP flutuante**
             1. Clique em OK
-         1. 2049 UDP para NW1
-            * Repita as etapas acima para a porta 2049 e UDP para NW1
-         1. 2049 TCP para NW2
-            * Repita as etapas acima para a porta 2049 e TCP para NW2
-         1. 2049 UDP para NW2
-            * Repita as etapas acima para a porta 2049 e UDP para NW2
+         1. UDP 2049 para NW1
+            * Repita os passos acima para o porto 2049 e UDP para NW1
+         1. TCP de 2049 para NW2
+            * Repita os passos acima para o porto 2049 e TCP para NW2
+         1. UDP 2049 para NW2
+            * Repita os passos acima para o porto 2049 e UDP para NW2
 
 > [!Note]
-> Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Quando os VMs sem endereços IP públicos forem colocados no conjunto de backend do interno (sem endereço IP público) O equilíbrio de carga Standard Azure não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para mais detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Equilíbrio de Carga Padrão Azure em cenários de alta disponibilidade SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
-> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Defina o parâmetro **net. IPv4. tcp_timestamps** como **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não permita os carimbos de tempo da TCP em VMs Azure colocados atrás do Equilíbrio de Carga Azure. Permitir os selos temporais da TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte as sondas de [saúde load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
-### <a name="create-pacemaker-cluster"></a>Criar cluster pacemaker
+### <a name="create-pacemaker-cluster"></a>Criar cluster Pacemaker
 
-Siga as etapas em [Configurando pacemaker em SuSE Linux Enterprise Server no Azure](high-availability-guide-suse-pacemaker.md) para criar um cluster pacemaker básico para este servidor NFS.
+Siga os passos na configuração do [Pacemaker no SUSE Linux Enterprise Server em Azure](high-availability-guide-suse-pacemaker.md) para criar um cluster pacemaker básico para este servidor NFS.
 
-### <a name="configure-nfs-server"></a>Configurar servidor NFS
+### <a name="configure-nfs-server"></a>Configurar o servidor NFS
 
-Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
+Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1 ou **[2]** - apenas aplicável ao nó 2.
 
-1. **[A]**  Configurar a resolução de nomes de anfitrião
+1. **[A]** Configuração resolução de nome de anfitrião
 
    Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome do host nos comandos a seguir
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
@@ -245,53 +245,53 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    <b>10.0.0.5 nw2-nfs</b>
    </code></pre>
 
-1. **[A]** habilitar servidor NFS
+1. **[A]** Ativar servidor NFS
 
-   Criar a entrada de exportação do NFS raiz
+   Criar a entrada de exportação nFS raiz
 
    <pre><code>sudo sh -c 'echo /srv/nfs/ *\(rw,no_root_squash,fsid=0\)>/etc/exports'
    
    sudo mkdir /srv/nfs/
    </code></pre>
 
-1. **[A]** instalar componentes do DRBD
+1. **[A]** Instalar componentes de drbd
 
    <pre><code>sudo zypper install drbd drbd-kmp-default drbd-utils
    </code></pre>
 
-1. **[A]** criar uma partição para os dispositivos DRBD
+1. **[A]** Criar uma partição para os dispositivos drbd
 
    Listar todos os discos de dados disponíveis
 
    <pre><code>sudo ls /dev/disk/azure/scsi1/
    </code></pre>
 
-   Exemplo de saída
+   Saída de exemplo
    
    ```
    lun0  lun1
    ```
 
-   Criar partições para cada disco de dados
+   Criar divisórias para cada disco de dados
 
    <pre><code>sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
    sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun1'
    </code></pre>
 
-1. **[A]** criar configurações LVM
+1. **[A]** Criar configurações LVM
 
-   Listar todas as partições disponíveis
+   Enumerar todas as divisórias disponíveis
 
    <pre><code>ls /dev/disk/azure/scsi1/lun*-part*
    </code></pre>
 
-   Exemplo de saída
+   Saída de exemplo
    
    ```
    /dev/disk/azure/scsi1/lun0-part1  /dev/disk/azure/scsi1/lun1-part1
    ```
 
-   Criar volumes LVM para cada partição
+   Crie volumes LVM para cada partição
 
    <pre><code>sudo pvcreate /dev/disk/azure/scsi1/lun0-part1  
    sudo vgcreate vg-<b>NW1</b>-NFS /dev/disk/azure/scsi1/lun0-part1
@@ -302,23 +302,23 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo lvcreate -l 100%FREE -n <b>NW2</b> vg-<b>NW2</b>-NFS
    </code></pre>
 
-1. **[A]** configurar o DRBD
+1. **[A]** Configure drbd
 
    <pre><code>sudo vi /etc/drbd.conf
    </code></pre>
 
-   Verifique se o arquivo DRBD. conf contém as duas linhas a seguir
+   Certifique-se de que o ficheiro drbd.conf contém as duas seguintes linhas
 
    <pre><code>include "drbd.d/global_common.conf";
    include "drbd.d/*.res";
    </code></pre>
 
-   Alterar a configuração global de DRBD
+   Alterar a configuração global de drbd
 
    <pre><code>sudo vi /etc/drbd.d/global_common.conf
    </code></pre>
 
-   Adicione as entradas a seguir à seção Handler e net.
+   Adicione as seguintes entradas à secção manipuladora e net.
 
    <pre><code>global {
         usage-count no;
@@ -357,12 +357,12 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    }
    </code></pre>
 
-1. **[A]** criar os dispositivos NFS DRBD
+1. **[A]** Criar os dispositivos de drbd NFS
 
    <pre><code>sudo vi /etc/drbd.d/<b>NW1</b>-nfs.res
    </code></pre>
 
-   Insira a configuração para o novo dispositivo DRBD e saia
+   Insira a configuração para o novo dispositivo e saída
 
    <pre><code>resource <b>NW1</b>-nfs {
         protocol     C;
@@ -387,7 +387,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    <pre><code>sudo vi /etc/drbd.d/<b>NW2</b>-nfs.res
    </code></pre>
 
-   Insira a configuração para o novo dispositivo DRBD e saia
+   Insira a configuração para o novo dispositivo e saída
 
    <pre><code>resource <b>NW2</b>-nfs {
         protocol     C;
@@ -409,7 +409,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    }
    </code></pre>
 
-   Criar o dispositivo DRBD e iniciá-lo
+   Crie o dispositivo drbd e ligue-o
 
    <pre><code>sudo drbdadm create-md <b>NW1</b>-nfs
    sudo drbdadm create-md <b>NW2</b>-nfs
@@ -417,25 +417,25 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo drbdadm up <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]** ignorar sincronização inicial
+1. **[1]** Sem sincronização inicial
 
    <pre><code>sudo drbdadm new-current-uuid --clear-bitmap <b>NW1</b>-nfs
    sudo drbdadm new-current-uuid --clear-bitmap <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]** definir o nó primário
+1. **[1]** Definir o nó principal
 
    <pre><code>sudo drbdadm primary --force <b>NW1</b>-nfs
    sudo drbdadm primary --force <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]** aguarde até que os novos dispositivos DRBD sejam sincronizados
+1. **[1]** Aguarde até que os novos dispositivos drbd sejam sincronizados
 
    <pre><code>sudo drbdsetup wait-sync-resource NW1-nfs
    sudo drbdsetup wait-sync-resource NW2-nfs
    </code></pre>
 
-1. **[1]** criar sistemas de arquivos nos dispositivos DRBD
+1. **[1]** Criar sistemas de ficheiros nos dispositivos drbd
 
    <pre><code>sudo mkfs.xfs /dev/drbd0
    sudo mkdir /srv/nfs/NW1
@@ -464,21 +464,21 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo umount /srv/nfs/NW2
    </code></pre>
 
-1. **[A]** instalação DRBD de detecção de divisão-Brain
+1. **[A]** Configuração drbd deteção de cérebro dividido
 
-   Ao usar DRBD para sincronizar dados de um host para outro, é possível que a chamada de divisão Brain possa ocorrer. Uma divisão Brain é um cenário em que ambos os nós de cluster promoveram o dispositivo DRBD para ser o primário e não foram sincronizados. Pode ser uma situação rara, mas você ainda deseja manipular e resolver uma divisão de cabeça o mais rápido possível. Portanto, é importante ser notificado quando ocorreu um cérebro de divisão.
+   Quando se usa o drbd para sincronizar dados de um hospedeiro para outro, pode ocorrer um chamado cérebro dividido. Um cérebro dividido é um cenário onde ambos os nós de cluster promoveram o dispositivo drbd para ser o principal e dessincronizado. Pode ser uma situação rara, mas ainda queres lidar com um cérebro dividido o mais rápido possível. Por isso, é importante ser notificado quando um cérebro dividido aconteceu.
 
-   Leia [a documentação oficial do DRBD](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) sobre como configurar uma notificação de divisão Brain.
+   Leia [a documentação oficial](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) sobre como configurar uma notificação cerebral dividida.
 
-   Também é possível recuperar automaticamente de um cenário de divisão Brain. Para obter mais informações, leia [políticas de recuperação de divisão Brain automáticas](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
+   Também é possível recuperar automaticamente de um cenário cerebral dividido. Para mais informações, leia as políticas automáticas de [recuperação cerebral divididas](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
    
-### <a name="configure-cluster-framework"></a>Configurar a estrutura do cluster
+### <a name="configure-cluster-framework"></a>Configurar quadro de cluster
 
-1. **[1]** adicionar os dispositivos NFS DRBD para o sistema SAP NW1 à configuração do cluster
+1. **[1]** Adicione os dispositivos de drbd NFS para o sistema SAP NW1 à configuração do cluster
 
    > [!IMPORTANT]
-   > Testes recentes revelaram situações em que o netcat para de responder às solicitações devido à pendência e sua limitação de manipular apenas uma conexão. O recurso netcat para de escutar as solicitações do Azure Load Balancer e o IP flutuante fica indisponível.  
-   > Para clusters pacemaker existentes, é recomendável substituir netcat por socat, seguindo as instruções em [proteção de detecção do balanceador de carga do Azure](https://www.suse.com/support/kb/doc/?id=7024128). Observe que a alteração exigirá um breve tempo de inatividade.  
+   > Testes recentes revelaram situações, em que o netcat deixa de responder aos pedidos devido a atrasos e à sua limitação de manuseamento apenas uma ligação. O recurso netcat para de ouvir os pedidos do balanceador de carga Azure e o IP flutuante fica indisponível.  
+   > Para os aglomerados Pacemaker existentes, recomendamos a substituição do netcat por socat, seguindo as instruções em Deteção de [Equilíbrio de Carga Azure](https://www.suse.com/support/kb/doc/?id=7024128). Note que a alteração exigirá um breve tempo de inatividade.  
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -529,7 +529,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
      g-<b>NW1</b>_nfs ms-drbd_<b>NW1</b>_nfs:Master
    </code></pre>
 
-1. **[1]** adicionar os dispositivos NFS DRBD para o sistema SAP NW2 à configuração do cluster
+1. **[1]** Adicione os dispositivos de drbd NFS para o sistema SAP NW2 à configuração do cluster
 
    <pre><code># Enable maintenance mode
    sudo crm configure property maintenance-mode=true
@@ -574,16 +574,16 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
 
-1. **[1]** desabilitar o modo de manutenção
+1. **[1]** Desativar o modo de manutenção
    
    <pre><code>sudo crm configure property maintenance-mode=false
    </code></pre>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Instalar o SAP ASCS e o banco de dados](high-availability-guide-suse.md)
-* [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
-* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
-* Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA no Azure (instâncias grandes), consulte [alta disponibilidade e recuperação de desastre do SAP Hana (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
-* Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA em VMs do Azure, consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha]
+* [Instale o SAP ASCS e a base de dados](high-availability-guide-suse.md)
+* [Planeamento e implementação de Máquinas Virtuais Azure para SAP][planning-guide]
+* [Implantação de Máquinas Virtuais Azure para SAP][deployment-guide]
+* [Implantação de DBMS de Máquinas Virtuais Azure para SAP][dbms-guide]
+* Para aprender a estabelecer alta disponibilidade e plano para a recuperação de desastres do SAP HANA em Azure (grandes instâncias), consulte a alta disponibilidade do [SAP HANA (grandes instâncias) e a recuperação de desastres em Azure.](hana-overview-high-availability-disaster-recovery.md)
+* Para aprender como estabelecer alta disponibilidade e plano para a recuperação de desastres de SAP HANA em VMs Azure, consulte [Alta Disponibilidade de SAP HANA em Máquinas Virtuais Azure (VMs)][sap-hana-ha]

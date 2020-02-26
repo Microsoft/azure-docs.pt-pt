@@ -1,5 +1,5 @@
 ---
-title: Validação de alerta (arquivo de teste EICAR) na central de segurança do Azure | Microsoft Docs
+title: Validação de alerta (arquivo de teste EICAR) no Centro de Segurança Do Azure Microsoft Docs
 description: Este documento ajuda-o a validar os alertas de segurança no Centro de Segurança do Azure.
 services: security-center
 documentationcenter: na
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 709ac3a9f5e7cf0bd13a6e387f0b80caf2608fe0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 10ea15168d61d5e73aff976ef641e07b6327dbca
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748458"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604579"
 ---
-# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validação de alerta (arquivo de teste EICAR) na central de segurança do Azure
+# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Validação de alerta (ficheiro de teste EICAR) no Centro de Segurança Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
-Alertas são as notificações que a central de segurança gera quando detecta ameaças em seus recursos. Ele prioriza e lista os alertas junto com as informações necessárias para investigar rapidamente o problema. A central de segurança também fornece recomendações sobre como você pode corrigir um ataque.
-Para obter mais informações, consulte [alertas de segurança na central de segurança](security-center-alerts-overview.md) e [Gerenciando e respondendo a alertas de segurança](security-center-managing-and-responding-alerts.md)
+Os alertas são as notificações que o Centro de Segurança gera quando deteta ameaças nos seus recursos. Prioriza e enumera os alertas juntamente com as informações necessárias para investigar rapidamente o problema. O Centro de Segurança também fornece recomendações para como pode remediar um ataque.
+Para mais informações, consulte [alertas](security-center-alerts-overview.md) de Segurança no Centro de Segurança e [Gestão e resposta a alertas](security-center-managing-and-responding-alerts.md) de segurança
 
 ## <a name="alert-validation"></a>Validação de alertas
 
@@ -33,51 +33,50 @@ Para obter mais informações, consulte [alertas de segurança na central de seg
 * [Linux](#validate-linux)
 * [Kubernetes](#validate-kubernetes)
 
-## Validar alertas em VMs do Windows<a name="validate-windows"></a>
+## Valide alertas em VMs do Windows<a name="validate-windows"></a>
 
-Depois que o agente da central de segurança estiver instalado no computador, siga estas etapas do computador no qual você deseja ser o recurso atacado do alerta:
+Depois de instalado o agente do Security Center no seu computador, siga estes passos do computador onde pretende ser o recurso atacado do alerta:
 
-1. Copie um executável (por exemplo, **Calc. exe**) na área de trabalho do computador ou em outro diretório de sua conveniência e renomeie-o como **ASC_AlertTest_662jfi039N. exe**.
-1. Abra o prompt de comando e execute esse arquivo com um argumento (apenas um nome de argumento falso), como: ```ASC_AlertTest_662jfi039N.exe -foo```
-1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Um alerta semelhante ao [exemplo](#alert-validate) abaixo deve ser exibido:
+1. Copie um executável (por exemplo **calc.exe)** para o ambiente de trabalho do computador, ou outro diretório da sua conveniência, e mude o nome como **ASC_AlertTest_662jfi039N.exe**.
+1. Abra o pedido de comando e execute este ficheiro com um argumento (apenas um nome de argumento falso), tais como: ```ASC_AlertTest_662jfi039N.exe -foo```
+1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Deve ser apresentado um alerta semelhante ao [exemplo](#alert-validate) abaixo:
 
 > [!NOTE]
-> Ao revisar este alerta de teste para o Windows, verifique se a auditoria de argumentos de campo **habilitada** é **verdadeira**. Se for **false**, você precisará habilitar a auditoria de argumentos de linha de comando. Para habilitá-lo, use o seguinte comando:
+> Ao rever este alerta de teste para windows, certifique-se de que o campo **Desativação** de Argumentos é **verdadeiro**. Se for **falso,** então tem de ativar a auditoria de argumentos de linha de comando. Para o ativar, utilize o seguinte comando:
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Validar alertas em VMs do Linux<a name="validate-linux"></a>
+## Validar alertas em VMs Linux<a name="validate-linux"></a>
 
-Depois que o agente da central de segurança estiver instalado no computador, siga estas etapas do computador no qual você deseja ser o recurso atacado do alerta:
-1. Copie um executável para um local conveniente e renomeie-o para **./asc_alerttest_662jfi039n**, por exemplo:
+Depois de instalado o agente do Security Center no seu computador, siga estes passos do computador onde pretende ser o recurso atacado do alerta:
+1. Copie um executável para um local conveniente e mude o nome para **./asc_alerttest_662jfi039n**, por exemplo:
 
     ```cp /bin/echo ./asc_alerttest_662jfi039n```
 
-1. Abra o prompt de comando e execute este arquivo:
+1. Abra o pedido de comando e execute este ficheiro:
 
     ```./asc_alerttest_662jfi039n testing eicar pipe```
 
-1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Um alerta semelhante ao [exemplo](#alert-validate) abaixo deve ser exibido:
+1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Deve ser apresentado um alerta semelhante ao [exemplo](#alert-validate) abaixo:
 
 ### Exemplo de alerta<a name="alert-validate"></a>
 
 ![Exemplo de validação de alerta](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
 
 
-## Validar alertas no kubernetes<a name="validate-kubernetes"></a>
+## Validar alertas em Kubernetes<a name="validate-kubernetes"></a>
 
-Se você estiver usando o recurso de visualização da central de segurança de integração do serviço kubernetes do Azure, execute o seguinte comando kubectl para testar se os alertas estão funcionando:
+Se estiver a utilizar a função de pré-visualização do Centro de Segurança de integrar o Serviço Azure Kubernetes, execute o seguinte comando kubectl para testar que os seus alertas estão a funcionar:
 
 ```kubectl get pods --namespace=asc-alerttest-662jfi039n```
 
-Para obter mais informações sobre a integração do serviço kubernetes do Azure e da central de segurança do Azure, consulte [Este artigo](azure-kubernetes-service-integration.md).
+Para mais informações sobre a integração do Serviço Azure Kubernetes e do Centro de Segurança Azure, consulte [este artigo](azure-kubernetes-service-integration.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 Este artigo apresentou-lhe o processo de validação de alertas. Agora que está familiarizado com a validação, experimente os seguintes artigos:
 
-* [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) -saiba como gerenciar alertas e responder a incidentes de segurança na central de segurança.
-* [Monitoramento de integridade de segurança na central de segurança do Azure](security-center-monitoring.md) -saiba como monitorar a integridade dos recursos do Azure.
-* [Noções básicas sobre alertas de segurança na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) -saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de solução de problemas da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide) -saiba como solucionar problemas comuns na central de segurança.
-* [Perguntas frequentes da central de segurança do Azure](security-center-faq.md) -encontre perguntas frequentes sobre como usar o serviço.
-* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) -encontre postagens no blog sobre a segurança e a conformidade do Azure.
+* [Gestão e resposta a alertas](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) de segurança no Azure Security Center - Saiba como gerir os alertas e responda a incidentes de segurança no Centro de Segurança.
+* [Monitorização da saúde de segurança no Azure Security Center](security-center-monitoring.md) - Saiba como monitorizar a saúde dos seus recursos Azure.
+* [Compreender alertas de segurança no Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) - Conheça os diferentes tipos de alertas de segurança.
+* Guia de resolução de [problemas do Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide) - Aprenda a resolver problemas comuns no Centro de Segurança.
+* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) - Encontre posts de blog sobre segurança e conformidade do Azure.

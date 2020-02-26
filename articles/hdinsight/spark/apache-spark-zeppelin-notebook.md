@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: c5c8a41aef92876ceaa66fb23c01c6ece1609f91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e313048986beca1991e38ce2e65ea12f954170d2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484813"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598277"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Use os cadernos Apache Zeppelin com o cluster Apache Spark no Azure HDInsight
 
@@ -151,6 +151,25 @@ Os cadernos Zeppelin são guardados para os cabeçados do cluster. Assim, se apa
 
 Isto guarda o caderno como um ficheiro JSON na sua localização de descarregamento.
 
+## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Use Shiro para configurar acesso a intérpretes zeppelin em clusters de pacotes de segurança empresarial (ESP)
+Como referido acima, `%sh` o intérprete não é suportado a partir do HDInsight 4.0. Além disso, uma vez que `%sh` intérprete introduz potenciais problemas de segurança, tais como chaves de acesso utilizando comandos de conchas, foi removido dos clusters HDInsight 3.6 ESP também. Significa que `%sh` intérprete não está disponível ao clicar **Criar uma nova nota** ou na UI intérprete por padrão. 
+
+Os utilizadores de domínio privilegiado podem utilizar o ficheiro `Shiro.ini` para controlar o acesso à UI intérprete. Assim, apenas estes utilizadores podem criar novos intérpretes `%sh` e definir permissões em cada novo intérprete `%sh`. Para controlar o acesso utilizando o ficheiro `shiro.ini`, utilize os seguintes passos:
+
+1. Defina uma nova função usando um nome de grupo de domínio existente. No exemplo seguinte, `adminGroupName` é um grupo de utilizadores privilegiados em AAD. Não utilize caracteres especiais ou espaços brancos no nome de grupo. Os personagens depois de `=` dar as permissões para este papel. `*` significa que o grupo tem permissões completas.
+
+    ```
+    [roles]
+    adminGroupName = *
+    ```
+
+2. Adicione o novo papel para o acesso aos intérpretes zeppelin. No exemplo seguinte, todos os utilizadores em `adminGroupName` têm acesso a intérpretes Zeppelin e são capazes de criar novos intérpretes. Pode colocar múltiplos papéis entre os suportes em `roles[]`, separados por vírgulas. Depois, os utilizadores que tenham as permissões necessárias podem aceder aos intérpretes zeppelin.
+
+    ```
+    [urls]
+    /api/interpreter/** = authc, roles[adminGroupName]
+    ```
+
 ## <a name="livy-session-management"></a>Gestão de sessões livy
 
 Quando executa o primeiro parágrafo de código no seu caderno Zeppelin, uma nova sessão Livy é criada no seu cluster HDInsight Spark. Esta sessão é partilhada em todos os cadernos Zeppelin que posteriormente cria. Se por alguma razão a sessão da Livy for morta (reinicialização do cluster, e assim por diante), não poderá gerir empregos a partir do caderno Zeppelin.
@@ -202,7 +221,7 @@ Para validar o serviço de uma linha de comando, SSH para o nó da cabeça. Mude
 
 1. Guarde alterações e reinicie o serviço.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

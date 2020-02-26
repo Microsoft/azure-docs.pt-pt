@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para backup azure usando Log Analytics e Livros de Trabalho Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 5c43efc8d61d7aa6c8fc94c6c39294d744cd6b87
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501124"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582709"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -41,11 +41,11 @@ Por padrão, os dados num espaço de trabalho de LA são conservados por 30 dias
 
 Os recursos do Gestor de Recursos Azure, tais como cofres de Serviços de Recuperação, gravam informações sobre operações programadas e operações desencadeadas pelo utilizador como dados de diagnóstico. 
 
-Na secção de monitorização do cofre dos Serviços de Recuperação, selecione **definições** de diagnóstico e especifique o alvo para os dados de diagnóstico do cofre do cofre dos Serviços de Recuperação. [Saiba mais sobre a utilização de eventos de diagnóstico.](https://aka.ms/AzureBackupDiagnosticDocs)
+Na secção de monitorização do cofre dos Serviços de Recuperação, selecione **definições** de diagnóstico e especifique o alvo para os dados de diagnóstico do cofre do cofre dos Serviços de Recuperação. [Saiba mais sobre a utilização de eventos de diagnóstico.](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
 
 ![Lâmina de definições de diagnóstico](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-O Azure Backup também fornece uma Política Azure incorporada, que automatiza a configuração de configurações de diagnóstico para todos os cofres num dado âmbito. Consulte o seguinte artigo para aprender a usar esta política: [Configure Configurações](https://aka.ms/AzureBackupDiagnosticsPolicyDocs) de Diagnóstico de Cofre em escala
+O Azure Backup também fornece uma Política Azure incorporada, que automatiza a configuração de configurações de diagnóstico para todos os cofres num dado âmbito. Consulte o seguinte artigo para aprender a usar esta política: [Configure Configurações](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) de Diagnóstico de Cofre em escala
 
 3. **Ver relatórios no portal Azure:**
 
@@ -53,7 +53,7 @@ Depois de configurar os seus cofres para enviar dados para LA, veja os seus rela
 
 ![Painel do Cofre](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-Clicar neste link abre o Livro de Relatórios de Cópia de Segurança. 
+Clicar neste link abre o Livro de Relatórios de Cópia de Segurança.
 
 > [!NOTE]
 > Atualmente, a carga inicial do relatório pode demorar até 1 minuto.
@@ -119,5 +119,5 @@ Os widgets no Relatório de Backup são alimentados por consultas Kusto, que fun
 
 * Além disso, o esquema V1 de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em uma rota de depreciação. Isto significa que se tiver escrito quaisquer consultas ou automatizações personalizadas com base no esquema V1, é aconselhável atualizar estas consultas para utilizar o esquema V2 atualmente suportado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre monitorização e reportagem com O Backup Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8b1e4c60e6054141e71d2509fe34c7ca9baf9ca6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163199"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598464"
 ---
 # <a name="import-data-module"></a>Módulo de Dados de Importação
 
@@ -48,9 +48,7 @@ Se os seus dados de origem forem alterações, pode atualizar o conjunto de dado
 
 1. Adicione o módulo **de Dados de Importação** ao seu pipeline. Pode encontrar este módulo na categoria **De Entrada e Saída** de Dados no designer.
 
-1. Clique no Assistente de Importação de Dados de **Lançamento** para configurar a fonte de dados utilizando um assistente.
-
-    O assistente obtém o nome da conta e credenciais, e ajuda-o a configurar outras opções. Se estiver a editar uma configuração existente, ele carrega primeiro os valores atuais.
+1. Selecione o módulo para abrir o painel direito.
 
 1. Selecione **fonte de dados**e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
 
@@ -60,6 +58,11 @@ Se os seus dados de origem forem alterações, pode atualizar o conjunto de dado
 
     ![importação-dados-pré-visualização](media/module/import-data.png)
 
+1. A caixa de verificação, regerar a **saída,** decide se executa o módulo para regenerar a saída no tempo de funcionamento. 
+
+    É por padrão não selecionado, o que significa que se o módulo tiver sido executado com os mesmos parâmetros anteriormente, o sistema reutilizará a saída da última execução para reduzir o tempo de funcionar. 
+
+    Se for selecionado, o sistema executará novamente o módulo para regenerar a saída. Por isso, selecione esta opção quando os dados subjacentes no armazenamento forem atualizados, pode ajudar a obter os dados mais recentes.
 
 
 1. Executar o pipeline.
@@ -74,7 +77,7 @@ Se os seus dados de origem forem alterações, pode atualizar o conjunto de dado
 
 Quando a importação estiver concluída, clique no conjunto de dados de saída e **selecione Visualize** para ver se os dados foram importados com sucesso.
 
-Se pretender guardar os dados para reutilização, em vez de importar um novo conjunto de dados sempre que o gasoduto for executado, selecione o ícone de conjunto de **dados Do Registo** sob o separador **Saídas** no painel certo do módulo. Escolha um nome para o conjunto de dados. O DataSet salvo preserva os dados no momento de salvá-los, o DataSet não é atualizado quando o pipeline é executado novamente, mesmo que o conjunto de dados no pipeline seja alterado. Isso pode ser útil para tirar instantâneos de dados.
+Se pretender guardar os dados para reutilização, em vez de importar um novo conjunto de dados sempre que o gasoduto for executado, selecione o ícone de conjunto de **dados Do Registo** sob o separador **Saídas** no painel certo do módulo. Escolha um nome para o conjunto de dados. O conjunto de dados guardado preserva os dados no momento da poupança, o conjunto de dados não é atualizado quando o gasoduto é reexecutado, mesmo que o conjunto de dados no pipeline mude. Isto pode ser útil para tirar fotos de dados.
 
 Após a importação dos dados, pode necessitar de alguns preparativos adicionais para modelação e análise:
 

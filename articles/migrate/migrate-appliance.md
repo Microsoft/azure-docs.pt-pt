@@ -3,12 +3,12 @@ title: Aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1b1e35c3b7a9d98e57ec4261f6f913c370bbb365
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425464"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597546"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -34,7 +34,7 @@ Máquina física |  Azure Migrate: Avaliação do servidor |  Descubra servidore
 **Licença** | O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver perto de expirar, recomendamos que descarregue e implante um novo aparelho, ou que ative a licença do sistema operativo do VM do aparelho.
 **Implementação** | Implanta o aparelho como VMware VM. Você precisa de recursos suficientes no vCenter Server para alocar um VM com RAM de 32 GB, 8 vCPUs, cerca de 80 GB de armazenamento de disco, e um interruptor virtual externo.<br/> O aparelho necessita de acesso à Internet, quer diretamente quer através de um representante.<br/> O aparelho pode ligar-se a um único vCenter Server.
 **Hardware** | Recursos no vCenter para alocar um VM com 32-GB RAM 8 vCPUs, cerca de 80 GB de armazenamento de disco, e um interruptor virtual externo. 
-**Valor de hash** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256: 4ce4faa3a78189a26bfa5b817c7afcf5b555eb4699c2fad9d2ebc808540c
+**Valor de hash** | Consulte [aqui](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security)
 **vCenter servidor/anfitrião** | O vM do aparelho deve ser implantado num hospedeiro ESXi que executa a versão 5.5 ou posterior.<br/><br/> vCenter Server executando 5.5, 6.0, 6.5 ou 6.7.
 **Projeto Azure Migrate** | Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Descoberta** | Um aparelho pode descobrir até 10.000 VMware VMware num servidor vCenter.<br/> Um aparelho pode ligar-se a um único servidor vCenter.
@@ -52,7 +52,7 @@ Máquina física |  Azure Migrate: Avaliação do servidor |  Descubra servidore
 **Licença** | O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver perto de expirar, recomendamos que descarregue e implante um novo aparelho, ou que ative a licença do sistema operativo do VM do aparelho.
 **Implantação de aparelhos**   |  Coloca o aparelho como um VM hiper-V.<br/> O vM do aparelho fornecido pela Azure Migrate é a versão 5.0 do Hyper-V VM.<br/> O hospedeiro Hyper-V deve estar a executar o Windows Server 2012 R2 ou mais tarde.<br/> O hospedeiro precisa de espaço suficiente para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento, e um interruptor externo para o VM do aparelho.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e acesso à Internet.
 **Hardware** | Recursos no hospedeiro Hyper-V para alocar RAM de 16 GB, 8 vCPUs, cerca de 80 GB de espaço de armazenamento, e um interruptor externo para o vm do aparelho.
-**Valor de hash** | MD5: 29a7531f32bcf69f32d964fa5ae950 a.c.<br/><br/> SHA256: 37b3f27bc4f475872e355f04fcb8f38606c8454c117d1609f2d1244569b31
+**Valor de hash** | Consulte [aqui](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)
 **Anfitrião Hyper-V** | Executar o Windows Server 2012 R2 ou mais tarde.
 **Projeto Azure Migrate** | Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Descoberta** | Um aparelho pode descobrir até 5000 VMs Hiper-V.<br/> Um aparelho pode ligar até 300 hospedeiros Hyper-V.
@@ -67,7 +67,7 @@ Máquina física |  Azure Migrate: Avaliação do servidor |  Descubra servidore
 **Link de descarregamento** | [Link de descarregamento](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Tamanho de download** | 59,7 MB
 **Hardware** | Máquina física dedicada, ou utilize uma Máquina Virtual. O aparelho de funcionamento da máquina necessita de RAM de 16 GB, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um interruptor externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e acesso à Internet.
-**Valor de hash** | MD5: 1e92ede3e87c03bd148e56a708cd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e666de7b9f475b6542beef114b20bfdac3c
+**Valor de hash** | Consulte [aqui](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security)
 **Sistema Operativo** | A máquina de aparelhos deve estar a funcionar no Windows Server 2016. 
 **Implantação de aparelhos**   |  O script do instalador do aparelho é descarregado do portal (numa pasta com fecho). <br/> Desaperta a pasta e executa o script PowerShell (AzureMigrateInstaller.ps1).
 **Descoberta** | Um aparelho pode descobrir até 250 servidores físicos.
@@ -84,7 +84,7 @@ O aparelho Azure Migrate precisa de conectividade com a internet.
 **URL** | **Detalhes**  
 --- | --- |
 *.portal.azure.com  | Navegue para o portal Azure.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Inscreva-se na sua assinatura Azure.
+\*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Inscreva-se na sua assinatura Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Crie aplicativos de Diretório Ativo para o aparelho comunicar com a Azure Migrate.
 management.azure.com | Crie aplicativos ative diretório para o aparelho comunicar com o serviço Azure Migrate.
 dc.services.visualstudio.com | Faça upload dos registos de aplicativos utilizados para monitorização interna.

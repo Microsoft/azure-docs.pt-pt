@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este quickstart mostra-lhe como usar o Azure Dev Spaces e a linha de comando para desenvolver uma aplicação no Serviço Azure Kubernetes
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 240d4817b507b4b47e0f022c2990c3da0d645e89
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 2d3a498d72264d3084e45202b7daa99806d45ce3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538435"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602622"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Quickstart: Desenvolver uma aplicação na Kubernetes - Azure Dev Spaces
 Neste guia, vai aprender a:
@@ -30,7 +30,7 @@ Neste guia, vai aprender a:
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Enable Azure Dev Spaces no seu cluster AKS

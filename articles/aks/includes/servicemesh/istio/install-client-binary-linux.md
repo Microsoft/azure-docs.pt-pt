@@ -1,19 +1,18 @@
 ---
 author: paulbouwer
-ms.service: container-service
 ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
-ms.openlocfilehash: e2dd45f778bd5e596b5bcc91c63984742237ad4c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b310de560f9791e1fc49d54dfbf0789c38d37f57
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170864"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594018"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Baixar e instalar o binário do cliente İSTİO istioctl
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Descarregue e instale o binário do cliente istioctl istioctl
 
-Em um shell baseado em bash no [subsistema Linux ou Windows para Linux][install-wsl], use `curl` para baixar a versão İSTİO e, em seguida, extrair com `tar` da seguinte maneira:
+Numa concha baseada em golpes no Linux ou [no Subsistema Windows para linux,][install-wsl]utilize `curl` para descarregar o lançamento istio e, em seguida, extrair com `tar` seguinte:
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -22,7 +21,7 @@ ISTIO_VERSION=1.4.0
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz" | tar xz
 ```
 
-O binário de cliente do `istioctl` é executado no computador cliente e permite que você interaja com a malha do serviço İSTİO. Use os comandos a seguir para instalar o binário do İSTİO `istioctl` Client em um shell baseado em bash no [subsistema Linux ou Windows para Linux][install-wsl]. Esses comandos copiam o binário do `istioctl` cliente para o local do programa de usuário padrão em seu `PATH`.
+O `istioctl` binário de cliente funciona na sua máquina cliente e permite-lhe interagir com a malha de serviço Istio. Utilize os seguintes comandos para instalar o istio `istioctl` binário do cliente numa concha baseada em golpes no Linux ou [no Subsistema Windows para Linux][install-wsl]. Estes comandos copiam o `istioctl` binário do cliente para a localização padrão do programa de utilizador na sua `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION
@@ -30,7 +29,7 @@ sudo cp ./bin/istioctl /usr/local/bin/istioctl
 sudo chmod +x /usr/local/bin/istioctl
 ```
 
-Se você quiser a conclusão da linha de comando para o binário do cliente do İSTİO `istioctl`, configure-o da seguinte maneira:
+Se quiser a conclusão da linha de comando para o istio `istioctl` binário de cliente, então configura-o da seguinte forma:
 
 ```bash
 # Generate the bash completion file and source it in your current shell

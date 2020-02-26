@@ -3,16 +3,15 @@ title: Problemas de resolução de problemas problemas comuns do serviço Azure 
 description: Aprenda a resolver problemas comuns ao utilizar o Serviço Azure Kubernetes (AKS)
 services: container-service
 author: sauryadas
-ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 663a1dc597493c7b534b54eab7ccc4bed0ff0e11
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b7aa90bd19e52059319570f1e7f6e64b90dee6e4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209227"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593352"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas da AKS
 

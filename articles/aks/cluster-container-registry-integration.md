@@ -1,36 +1,33 @@
 ---
-title: Integrar o registro de contêiner do Azure com o serviço kubernetes do Azure
-description: Saiba como integrar o AKS (serviço de kubernetes do Azure) com o ACR (registro de contêiner do Azure)
+title: Integrar o Registo de Contentores Azure com o Serviço Azure Kubernetes
+description: Saiba como integrar o Serviço Azure Kubernetes (AKS) com o Registo de Contentores Azure (ACR)
 services: container-service
-author: mlearned
 manager: gwallace
-ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: mlearned
-ms.openlocfilehash: ba52cac4ebe923b7217550ed90948d908d8daf7f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b1f4449728589eca4f64035d7e70d01dbc187bc4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73900656"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596203"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticação com Registo de Contentores Azure do Serviço Azure Kubernetes
 
-Quando você estiver usando o ACR (registro de contêiner do Azure) com o AKS (serviço kubernetes do Azure), um mecanismo de autenticação precisará ser estabelecido. Este artigo fornece exemplos para configurar a autenticação entre esses dois serviços do Azure.
+Quando estiver a utilizar o Registo de Contentores Azure (ACR) com o Serviço Azure Kubernetes (AKS), é necessário estabelecer um mecanismo de autenticação. Este artigo fornece exemplos para configurar a autenticação entre estes dois serviços Azure.
 
-Você pode configurar o AKS para a integração de ACR em alguns comandos simples com o CLI do Azure.
+Você pode configurar a integração AKS para ACR em alguns comandos simples com o Azure CLI.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Estes exemplos exigem:
+Estes exemplos requerem:
 
-* Função de **administrador da conta do Azure** ou **proprietário** na **assinatura do Azure**
-* CLI do Azure versão 2.0.73 ou posterior
+* **Papel de administrador de** conta Azure ou **Azure** na subscrição do **Azure**
+* Versão Azure CLI 2.0.73 ou mais tarde
 
-## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Criar um novo cluster AKS com integração com ACR
+## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Criar um novo cluster AKS com integração ACR
 
-Você pode configurar a integração de AKS e ACR durante a criação inicial do cluster AKS.  Para permitir que um cluster AKS interaja com o ACR, é usada uma **entidade de serviço** Azure Active Directory. O comando da CLI a seguir permite autorizar um ACR existente em sua assinatura e configurar a função **ACRPull** apropriada para a entidade de serviço. Forneça valores válidos para os parâmetros abaixo. 
+Você pode configurar a integração AKS e ACR durante a criação inicial do seu cluster AKS.  Para permitir que um cluster AKS interaja com a ACR, é utilizado um diretor de **serviço** de Diretório Ativo Azure. O seguinte comando CLI permite autorizar um ACR existente na sua subscrição e configura rumit a função **ACRPull** apropriada para o diretor de serviço. Forneça valores válidos para os seus parâmetros abaixo. 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
 MYACR=myContainerRegistry
@@ -42,29 +39,29 @@ az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
 
 ```
-Como alternativa, você pode especificar o nome do ACR usando uma ID de recurso ACR, que tem o seguinte formato:
+Em alternativa, pode especificar o nome ACR utilizando um ID de recurso ACR, que tem o seguinte formato:
 
-/subscriptions/\<Subscription-ID\>/resourceGroups/\<Resource-Group-Name\>/providers/Microsoft.ContainerRegistry/registries/\<Name\> 
+/subscrições/\<\>de subscrição/recursosGroups/\<nome de grupo de recursos\>/fornecedores/Microsoft.ContainerRegistry/registros/\<nome\> 
  
 ```azurecli
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
 ```
 
-Esta etapa pode levar vários minutos para ser concluída.
+Este passo pode levar alguns minutos para ser concluído.
 
-## <a name="configure-acr-integration-for-existing-aks-clusters"></a>Configurar a integração do ACR para clusters AKS existentes
+## <a name="configure-acr-integration-for-existing-aks-clusters"></a>Configure a integração aCR para os aglomerados AKS existentes
 
-Integre um ACR existente a clusters AKS existentes fornecendo valores válidos para **ACR-Name** ou **ACR-Resource-ID** como mostrado abaixo.
+Integre um ACR existente com os aglomerados AKS existentes, fornecendo valores válidos para **o nome acr** ou **acr-resource-id** como abaixo.
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
 ```
-or
+ou,
 ```
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
-Você também pode remover a integração entre um ACR e um cluster AKS com o seguinte
+Também pode remover a integração entre um ACR e um cluster AKS com o seguinte
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
 ```
@@ -73,26 +70,26 @@ ou
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
-## <a name="working-with-acr--aks"></a>Trabalhando com ACR & AKS
+## <a name="working-with-acr--aks"></a>Trabalhar com a ACR & AKS
 
-### <a name="import-an-image-into-your-acr"></a>Importar uma imagem para o ACR
+### <a name="import-an-image-into-your-acr"></a>Importe uma imagem para o seu ACR
 
-Importe uma imagem do Hub do Docker para o ACR executando o seguinte:
+Importe uma imagem do centro de estivador para o seu ACR executando o seguinte:
 
 
 ```azurecli
 az acr import  -n <myContainerRegistry> --source docker.io/library/nginx:latest --image nginx:v1
 ```
 
-### <a name="deploy-the-sample-image-from-acr-to-aks"></a>Implantar a imagem de exemplo do ACR para o AKS
+### <a name="deploy-the-sample-image-from-acr-to-aks"></a>Implementar a imagem da amostra de ACR para AKS
 
-Verifique se você tem as credenciais de AKS adequadas
+Certifique-se de que tem as credenciais AKS adequadas
 
 ```azurecli
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-Crie um arquivo chamado **ACR-nginx. YAML** que contenha o seguinte:
+Crie um ficheiro chamado **acr-nginx.yaml** que contenha o seguinte:
 
 ```
 apiVersion: apps/v1
@@ -118,16 +115,16 @@ spec:
         - containerPort: 80
 ```
 
-Em seguida, execute esta implantação em seu cluster AKS:
+Em seguida, execute esta implantação no seu cluster AKS:
 ```
 kubectl apply -f acr-nginx.yaml
 ```
 
-Você pode monitorar a implantação executando:
+Pode monitorizar a implantação executando:
 ```
 kubectl get pods
 ```
-Você deve ter dois pods em execução.
+Devias ter duas cápsulas de corrida.
 ```
 NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s

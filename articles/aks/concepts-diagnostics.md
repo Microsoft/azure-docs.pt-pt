@@ -1,85 +1,84 @@
 ---
-title: Visão geral de diagnóstico do AKS (serviço kubernetes do Azure)
-description: Saiba mais sobre clusters de diagnóstico automático no serviço kubernetes do Azure.
+title: Visão geral do Serviço Azure Kubernetes (AKS)
+description: Conheça os clusters auto-diagnóstico no Serviço Azure Kubernetes.
 services: container-service
 author: yunjchoi
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 2148c6c8c9d78355847b3240b54349f1e7789921
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 11b469425a80d588462e0332c973260cc3b56992
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291384"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596186"
 ---
-# <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Visão geral de diagnóstico do AKS (serviço kubernetes do Azure)
+# <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Visão geral do Serviço Azure Kubernetes (AKS)
 
-A solução de problemas de cluster do AKS (serviço de kubernetes do Azure) é uma parte importante da manutenção do cluster, especialmente se o cluster estiver executando cargas de trabalho de missão crítica. O diagnóstico de AKS é uma experiência de autodiagnóstico inteligente que ajuda você a identificar e resolver problemas em seu cluster. O diagnóstico de AKS é nativo de nuvem e você pode usá-lo sem nenhuma configuração extra ou custo de cobrança.
+Problemas de resolução de problemas O serviço Azure Kubernetes Service (AKS) é uma parte importante da manutenção do seu cluster, especialmente se o seu cluster estiver a executar cargas de trabalho críticas de missão. A AKS Diagnostics é uma experiência inteligente e auto-diagnóstico que o ajuda a identificar e resolver problemas no seu cluster. O AKS Diagnostics é nativo da nuvem, e você pode usá-lo sem configuração extra ou custo de faturação.
 
-## <a name="open-aks-diagnostics"></a>Abrir o diagnóstico do AKS
+## <a name="open-aks-diagnostics"></a>Diagnósticos AKS abertos
 
-Para acessar o diagnóstico do AKS:
+Para aceder aos Diagnósticos AKS:
 
-- Navegue até o cluster kubernetes no [portal do Azure](https://portal.azure.com).
-- Clique em **diagnosticar e resolver problemas** no painel de navegação esquerdo, que abre o diagnóstico de AKs.
-- Escolha uma categoria que melhor descreva o problema do cluster usando as palavras-chave no bloco de Home Page ou digite uma palavra-chave que melhor descreva seu problema na barra de pesquisa, por exemplo, _problemas de nó de cluster_.
+- Navegue para o seu cluster Kubernetes no [portal Azure.](https://portal.azure.com)
+- Clique em **Diagnosticar e resolver problemas** na navegação esquerda, o que abre o AKS Diagnostics.
+- Escolha uma categoria que melhor descreva a questão do seu cluster utilizando as palavras-chave no azulejo da página inicial, ou escreva uma palavra-chave que melhor descreva o seu problema na barra de pesquisa, por _exemplo, problemas_de nó cluster .
 
-![Home Page](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
+![Página inicial](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 
-## <a name="view-a-diagnostic-report"></a>Exibir um relatório de diagnóstico
+## <a name="view-a-diagnostic-report"></a>Ver um relatório de diagnóstico
 
-Depois de clicar em uma categoria, você pode exibir um relatório de diagnóstico específico para seu cluster. O relatório de diagnóstico chama de forma inteligente se há algum problema em seu cluster com ícones de status. Você pode fazer uma busca detalhada de cada tópico clicando em **mais informações** para ver uma descrição detalhada do problema, as ações recomendadas, links para documentos úteis, métricas relacionadas e dados de log. Os relatórios de diagnóstico são gerados de forma inteligente com base no estado atual do cluster após a execução de uma variedade de verificações. Os relatórios de diagnóstico podem ser uma ferramenta útil para identificar o problema do cluster e encontrar as próximas etapas para resolver o problema.
+Depois de clicar numa categoria, pode ver um relatório de diagnóstico específico do seu cluster. O relatório de diagnóstico chama inteligentemente se houver algum problema no seu cluster com ícones de estado. Pode aprofundar cada tópico clicando em **Mais Informações** para ver uma descrição detalhada do problema, ações recomendadas, links para documentos úteis, métricas relacionadas e dados de registo. Os relatórios de diagnóstico são gerados de forma inteligente com base no estado atual do seu cluster depois de executar uma variedade de verificações. Os relatórios de diagnóstico podem ser uma ferramenta útil para identificar o problema do seu cluster e encontrar os próximos passos para resolver o problema.
 
-![Relatório de diagnóstico](./media/concepts-diagnostics/diagnostic-report.png)
+![Relatório de Diagnóstico](./media/concepts-diagnostics/diagnostic-report.png)
 
-![Relatório de diagnóstico expandido](./media/concepts-diagnostics/node-issues.png)
+![Relatório de Diagnóstico Expandido](./media/concepts-diagnostics/node-issues.png)
 
-## <a name="cluster-insights"></a>Insights de cluster
+## <a name="cluster-insights"></a>Cluster Insights
 
-As verificações de diagnóstico a seguir estão disponíveis no **insights do cluster**.
+Os seguintes controlos de diagnóstico estão disponíveis no **Cluster Insights**.
 
-### <a name="cluster-node-issues"></a>Problemas de nó de cluster
+### <a name="cluster-node-issues"></a>Problemas do Nó de Cluster
 
-Problemas de nó de cluster verifica se há problemas relacionados a nós que podem fazer com que o cluster se comporte inesperadamente.
+Cluster Node Issues verifica por questões relacionadas com o nó que podem fazer com que o seu cluster se compore inesperadamente.
 
-- Problemas de preparação do nó
-- Falhas de nó
+- Problemas de prontidão do nó
+- Falhas no nó
 - Recursos insuficientes
-- Configuração de IP ausente no nó
-- Falhas de CNI de nó
+- Configuração IP desaparecida do nó
+- Falhas no Nó CNI
 - Nó não encontrado
-- Desligar nó
+- Desligando a energia do nó
 - Falha na autenticação do nó
-- Nó Kube-proxy obsoleto
+- Nó kube-proxy velho
 
-### <a name="create-read-update--delete-operations"></a>Criar, ler, atualizar & operações de exclusão
+### <a name="create-read-update--delete-operations"></a>Criar, ler, atualizar e eliminar operações
 
-As operações CRUD verificam as operações CRUD que podem causar problemas no cluster.
+A CRUD Operations verifica quaisquer operações crud que possam causar problemas no seu cluster.
 
-- Erro na operação de exclusão da sub-rede em uso
-- Erro na operação de exclusão do grupo de segurança de rede
-- Erro na operação de exclusão da tabela de rotas em uso
-- Erro de provisionamento de recurso referenciado
-- Erro na operação de exclusão do endereço IP público
-- Falha na implantação devido à cota de implantação
-- Erro de operação devido à política da organização
-- Registro de assinatura ausente
-- Erro de provisionamento de extensão de VM
-- Capacidade da sub-rede
-- Erro de Cota excedida
+- Sub-rede de utilização elimina erro de funcionamento
+- Grupo de segurança da rede elimina erro de operação
+- Tabela de rota de utilização elimina erro de funcionamento
+- Erro de fornecimento de recursos referenciado
+- Endereço IP público elimina erro de operação
+- Falha de implantação devido a quota de implantação
+- Erro de operação devido à política de organização
+- Falta de registo de assinaturas
+- Erro de provisionamento de extensão VM
+- Capacidade de sub-rede
+- Erro de quota ultrapassado
 
 ### <a name="identity-and-security-management"></a>Gestão de identidade e segurança
 
-O gerenciamento de identidades e segurança detecta erros de autenticação e autorização que podem impedir a comunicação com o cluster.
+A Gestão de Identidade e Segurança deteta erros de autenticação e autorização que podem impedir a comunicação ao seu cluster.
 
-- Falhas de autorização de nó
-- erros 401
-- Erros 403
+- Falhas na autorização do nó
+- 401 erros
+- 403 erros
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Colete logs para ajudá-lo a solucionar ainda mais os problemas de cluster usando o [AKs Periscope](https://aka.ms/aksperiscope).
+Colete registos para ajudá-lo a resolver ainda mais problemas com os seus problemas de cluster utilizando o [Periscópio AKS](https://aka.ms/aksperiscope).
 
-Poste suas perguntas ou comentários no [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) adicionando "[diag]" no título.
+Publique as suas perguntas ou feedback no [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) adicionando "[Diag]" no título.

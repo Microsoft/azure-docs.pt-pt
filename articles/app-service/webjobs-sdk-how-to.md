@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 715415929afaad36e4854e75a2b7b5360d22a6bf
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486347"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602932"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o Azure WebJobs SDK para processamento de fundo orientado por eventos
 
@@ -395,7 +395,7 @@ static async Task Main()
 }
 ```
 
-Para mais detalhes, consulte o artigo [de ligação azure CosmosDB.](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings)
+Para mais detalhes, consulte o artigo [de ligação azure CosmosDB.](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings)
 
 ### <a name="event-hubs-trigger-configuration-version-3x"></a>Configuração do gatilho do gatilho do Event Hubs (versão 3. *x*)
 
@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-Para mais detalhes, consulte o artigo vinculativo do [Event Hubs.](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings)
+Para mais detalhes, consulte o artigo vinculativo do [Event Hubs.](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings)
 
 ### <a name="queue-storage-trigger-configuration"></a>Configuração do gatilho de armazenamento de fila
 
@@ -824,7 +824,7 @@ Cada registo criado por um `ILogger` caso tem uma `Category` e `Level`associadas
 |LogLevel    |Código|
 |------------|---|
 |Rastreio       | 0 |
-|depurar       | 1 |
+|Depurar       | 1 |
 |Informações | 2 |
 |Aviso     | 3 |
 |Erro       | 4 |

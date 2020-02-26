@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b37b386273947f8c39fe182e4f29b7b080addf7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486398"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605620"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Aprendizagem automática Azure
 
@@ -37,7 +37,6 @@ A autenticação de vários fatores é suportada se o Azure Ative Directory (Azu
 [![Autenticação em Aprendizagem automática Azure](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
 Para mais informações, consulte [A autenticação configurar os recursos e fluxos de trabalho do Azure Machine Learning.](how-to-setup-authentication.md) Este artigo fornece informações e exemplos sobre a autenticação, incluindo a utilização de diretores de serviço e fluxos de trabalho automatizados.
-
 
 ### <a name="authentication-for-web-service-deployment"></a>Autenticação para implementação de serviço web
 
@@ -77,6 +76,9 @@ A tabela seguinte lista algumas das principais operações de Aprendizagem autom
 | Chamar serviço web | ✓ | ✓ | ✓ |
 
 Se os papéis incorporados não atenderem às suas necessidades, pode criar papéis personalizados. As funções personalizadas são suportadas apenas para operações no espaço de trabalho e na Computação de Aprendizagem automática. As funções personalizadas podem ter lido, escrito ou apagado permissões no espaço de trabalho e no recurso computacional nesse espaço de trabalho. Pode disponibilizar o papel a um nível específico do espaço de trabalho, a um nível específico de grupo de recursos ou a um nível de subscrição específico. Para mais informações, consulte [Gerir utilizadores e papéis num espaço](how-to-assign-roles.md)de trabalho azure machine learning .
+
+> [!WARNING]
+> A Azure Machine Learning não é atualmente apoiada com a colaboração azure Ative Directory business-to-business.
 
 ### <a name="securing-compute-targets-and-data"></a>Assegurar alvos e dados de computação
 
@@ -175,14 +177,14 @@ Para um exemplo de criação de um espaço de trabalho utilizando um registo de 
 
 A Instância de Contentores Azure não suporta encriptação do disco. Se precisar de encriptação de disco, recomendamos a implementação para uma instância de [Serviço Azure Kubernetes.](how-to-deploy-azure-kubernetes-service.md) Neste caso, também pode querer utilizar o suporte do Azure Machine Learning para controlos de acesso baseados em funções para evitar implementações numa Instância de Contentores Azure na sua subscrição.
 
-#### <a name="azure-kubernetes-service"></a>Serviço Kubernetes do Azure
+#### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
 Pode encriptar um recurso de serviço Azure Kubernetes implantado utilizando chaves geridas pelo cliente a qualquer momento. Para mais informações, consulte Traga as suas próprias chaves com o [Serviço Azure Kubernetes](../aks/azure-disk-customer-managed-keys.md). 
 
 Este processo permite-lhe encriptar tanto os Dados como o Disco OS das máquinas virtuais implantadas no cluster Kubernetes.
 
 > [!IMPORTANT]
-> Esse processo funciona apenas com o AKS K8s versão 1,17 ou superior. Azure Machine Learning adicionou suporte para AKS 1,17 em 13 de janeiro de 2020.
+> Este processo funciona apenas com a versão AKS K8s 1.17 ou superior. Azure Machine Learning adicionou suporte para AKS 1.17 em 13 de janeiro de 2020.
 
 #### <a name="machine-learning-compute"></a>Computação de Aprendizagem automática
 
@@ -256,7 +258,7 @@ Os detalhes do pedido de pontuação são armazenados em Insights de Aplicação
 * RequestUrl
 * StatusCode
 * Requestid
-* Duration
+* Duração
 
 > [!IMPORTANT]
 > Algumas ações no espaço de trabalho azure machine learning não registam informações para o registo de atividade. Por exemplo, o início de uma execução de formação e o registo de um modelo não estão registados.
@@ -334,7 +336,7 @@ Aqui estão os detalhes:
 
 [fluxo de trabalho de Inferência ![](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Serviços web Secure Azure Machine Learning com SSL](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implementado como um serviço web](how-to-consume-web-service.md)

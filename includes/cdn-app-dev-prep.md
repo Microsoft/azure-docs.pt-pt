@@ -4,64 +4,64 @@ ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: f21a768733456a6c00e5a87612f3055dd76d416c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594133"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77608717"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de escrever o código de gerenciamento de CDN, tem de fazer uma preparação para permitir que o código interagir com o Azure Resource Manager. Para fazer esta preparação, terá de:
+Antes de escrever o código de gestão da CDN, deve fazer alguma preparação para permitir que o código interaja com o Gestor de Recursos Azure. Para fazer esta preparação, precisa de:
 
-* Criar um grupo de recursos para conter o perfil CDN que criou neste tutorial
-* Configurar o Azure Active Directory para fornecer autenticação para a aplicação
-* Aplicar permissões ao grupo de recursos para que apenas os utilizadores autorizados no seu inquilino do Azure AD possam interagir com o perfil CDN
+* Crie um grupo de recursos para conter o perfil CDN criado neste tutorial
+* Configure Diretório Ativo Azure para fornecer autenticação para a aplicação
+* Aplicar permissões ao grupo de recursos para que apenas utilizadores autorizados do seu inquilino Azure AD possam interagir com o perfil de CDN
 
 ### <a name="creating-the-resource-group"></a>Criar o grupo de recursos
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Criar um recurso**.
-3. Procure **grupo de recursos** e no painel do grupo de recursos, clique em **criar**.
+3. Procure o **grupo Derecursos** e no painel do grupo Recursos, clique em **Criar**.
 
-    ![Criar um novo grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
-3. Nome do seu grupo de recursos *CdnConsoleTutorial*.  Selecione a sua subscrição e escolha uma localização perto de si.  Se desejar, pode clicar a **afixar ao dashboard** caixa de seleção para afixar o grupo de recursos para o dashboard no portal.  Afixar torna mais fácil encontrar mais tarde.  Depois de fazer as suas seleções, clique em **criar**.
+    ![Criação de um novo grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
+3. Nomeie o seu grupo de recursos *CdnConsoleTutorial*.  Selecione a sua subscrição e escolha um local perto de si.  Se desejar, pode clicar no **Pin para o painel de** verificação para fixar o grupo de recursos no painel de instrumentos do portal.  A fixação torna mais fácil encontrar mais tarde.  Depois de ter feito as suas seleções, clique em **Criar**.
 
-    ![O grupo de recursos de atribuição de nomes](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
-4. Depois de criar o grupo de recursos, se ele não tiver afixado ao dashboard, pode encontrá-lo ao clicar em **navegue**, em seguida, **grupos de recursos**.  Para abri-lo, clique no grupo de recursos.  Tome nota da sua **ID de subscrição**. Vamos precisar dele mais tarde.
+    ![Nomear o grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+4. Depois de criado o grupo de recursos, se não o tiver agarrado ao seu painel de instrumentos, pode encontrá-lo clicando em **Browse**, em seguida, **Grupos de Recursos**.  Para abri-la, clique no grupo de recursos.  Tome nota do seu ID de **subscrição**. Precisamos mais tarde.
 
-    ![O grupo de recursos de atribuição de nomes](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![Nomear o grupo de recursos](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
-### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Criar aplicação do Azure AD e aplicar permissões
-Existem duas abordagens para autenticação de aplicação com o Azure Active Directory: Utilizadores individuais ou um principal de serviço. Um principal de serviço é semelhante a uma conta de serviço no Windows.  Em vez de conceder permissões para interagir com os perfis CDN de um utilizador específico, em vez disso, são concedidas permissões ao principal de serviço.  Principais de serviço são normalmente utilizados para processos automatizados, não interativo.  Embora este tutorial é escrever uma aplicação de consola interativa, vamos nos concentrar na abordagem de principal de serviço.
+### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Criação do pedido de AD Azure e aplicação de permissões
+Existem duas abordagens para a autenticação de apps com o Diretório Ativo Azure: utilizadores individuais ou um diretor de serviço. Um diretor de serviço é semelhante a uma conta de serviço no Windows.  Em vez de conceder permissões específicas a um utilizador específico para interagir com os perfis da CDN, as permissões são concedidas ao diretor de serviço.  Os diretores de serviço são normalmente utilizados para processos automatizados e não interativos.  Mesmo que este tutorial esteja a escrever uma aplicação de consola interativa, vamos focar-nos na abordagem principal do serviço.
 
-Criar um principal de serviço consiste em várias etapas, incluindo a criação de uma aplicação do Azure Active Directory.  Para criá-lo, vamos [siga este tutorial](../articles/active-directory/develop/howto-create-service-principal-portal.md).
-
-> [!IMPORTANT]
-> Certifique-se de que siga todos os passos a [tutorial ligado](../articles/active-directory/develop/howto-create-service-principal-portal.md).  É *importante* que conclua-lo exatamente como descrito.  Certifique-se de observar seu **ID do inquilino**, **nome de domínio de inquilino** (normalmente um *. onmicrosoft.com* domínio, a menos que tiver especificado um domínio personalizado), **ID de cliente** , e **chave de autenticação de cliente**, porque temos essas informações mais tarde.  Tenha o cuidado de proteger sua **ID de cliente** e **chave de autenticação de cliente**, como estas credenciais podem ser utilizadas por qualquer pessoa para executar operações como o principal de serviço.
->
-> Quando para o passo com o nome configurar aplicações de multi-inquilino, selecione **não**.
->
-> Quando vai para o passo [atribuir a aplicação a uma função](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), utilize o grupo de recursos criado anteriormente, *CdnConsoleTutorial*, mas em vez do **leitor** função, atribuir a **Contribuidor de perfil de CDN** função.  Depois de atribuir a aplicação do **Contribuidor de perfil de CDN** função no seu grupo de recursos, retorno para este tutorial. 
->
->
-
-Depois de criado o seu principal de serviço e atribuído a **Contribuidor de perfil de CDN** função, o **utilizadores** painel para o grupo de recursos deve ter um aspeto semelhante à seguinte imagem.
-
-![Painel de utilizadores](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
-
-### <a name="interactive-user-authentication"></a>Autenticação de utilizador interativa
-Se, em vez de um principal de serviço, preferiria ter autenticação de utilizador individuais interativa, o processo é semelhante de um principal de serviço.  Na verdade, terá de seguir o mesmo procedimento, mas fazer algumas pequenas alterações.
+A criação de um diretor de serviço consiste em várias etapas, incluindo a criação de uma aplicação azure Ative Directory.  Para criá-lo, vamos [seguir este tutorial.](../articles/active-directory/develop/howto-create-service-principal-portal.md)
 
 > [!IMPORTANT]
-> Apenas se, siga estes passos são a escolha utilizar a autenticação de utilizador individuais em vez de um principal de serviço.
+> Certifique-se de seguir todos os passos do [tutorial ligado.](../articles/active-directory/develop/howto-create-service-principal-portal.md)  É *importante* que o complete exatamente como descrito.  Certifique-se de que nota o seu ID do **seu inquilino,** nome de **domínio do inquilino** (geralmente um domínio *.onmicrosoft.com,* a menos que tenha especificado um domínio personalizado), ID do **cliente,** e chave de autenticação do **cliente,** pois precisamos desta informação mais tarde.  Tenha cuidado para guardar o ID do **cliente** e a chave de autenticação do **cliente,** uma vez que estas credenciais podem ser usadas por qualquer pessoa para executar operações como diretor de serviço.
+>
+> Quando chegar ao passo denominado Configure aplicação multi-inquilino, selecione **No**.
+>
+> Quando chegar ao passo [Atribuir a aplicação a uma função](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), use o grupo de recursos criado anteriormente, *CdnConsoleTutorial,* mas em vez da função **de Leitor,** atribua a função de Colaborador de **Perfil CDN.**  Depois de atribuir a aplicação a função de Colaborador de **Perfil CDN** no seu grupo de recursos, volte a este tutorial. 
 >
 >
 
-1. Ao criar a sua aplicação, em vez de **aplicação Web**, escolha **aplicativo nativo**.
+Uma vez criado o seu diretor de serviço e atribuído a função de Colaborador de **Perfil CDN,** a lâmina **utilizadores** para o seu grupo de recursos deve ser semelhante à imagem seguinte.
+
+![Lâmina de utilizadores](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
+
+### <a name="interactive-user-authentication"></a>Autenticação interativa do utilizador
+Se, em vez de um diretor de serviço, preferir ter a autenticação individual interativa do utilizador, o processo é semelhante ao de um diretor de serviço.  Na verdade, é preciso seguir o mesmo procedimento, mas fazer algumas pequenas alterações.
+
+> [!IMPORTANT]
+> Siga apenas estes próximos passos se optar por utilizar a autenticação individual do utilizador em vez de um diretor de serviço.
+>
+>
+
+1. Ao criar a sua aplicação, em vez de **Aplicação Web,** escolha **a aplicação Nativa.**
 
     ![Aplicação nativa](./media/cdn-app-dev-prep/cdn-native-application-include.png)
-2. Na página seguinte, lhe for pedido para um **URI de redirecionamento**.  O URI não validados, mas lembre-se de que introduziu. Precisa dele mais tarde.
-3. Não é necessário para criar uma **chave de autenticação de cliente**.
-4. Em vez de atribuir um principal de serviço para o **Contribuidor de perfil de CDN** função, vamos atribuir utilizadores individuais ou grupos.  Neste exemplo, pode ver que que lhe *demonstração de utilizador de CDN* para o **Contribuidor de perfil de CDN** função.  
+2. Na página seguinte, é solicitado um **URI redirecionado.**  O URI não será validado, mas lembre-se do que entrou. Precisa mais tarde.
+3. Não há necessidade de criar uma chave de **autenticação do cliente.**
+4. Em vez de atribuir um principal de serviço à função de Colaborador de **Perfil CDN,** vamos atribuir utilizadores ou grupos individuais.  Neste exemplo, pode ver que atribuí o *CDN Demo User* à função de Colaborador de **Perfil CDN.**  
 
-    ![Acesso de utilizador individuais](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
+    ![Acesso individual ao utilizador](./media/cdn-app-dev-prep/cdn-aad-user-include.png)

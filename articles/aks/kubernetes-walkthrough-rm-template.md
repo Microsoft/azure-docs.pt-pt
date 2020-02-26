@@ -1,53 +1,50 @@
 ---
-title: Início rápido-criar um cluster do AKS (serviço kubernetes do Azure)
-description: Saiba como criar rapidamente um cluster kubernetes usando um modelo de Azure Resource Manager e implantar um aplicativo no AKS (serviço kubernetes do Azure)
+title: Quickstart - Criar um cluster azure Kubernetes Service (AKS)
+description: Aprenda a criar rapidamente um cluster Kubernetes usando um modelo de Gestor de Recursos Azure e implemente uma aplicação no Serviço Azure Kubernetes (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 307074618cae75ba57be219b4f975e2aec279682
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 5fe82dbce2069b0ae1a88599d020f4ba6b116027
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255513"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595336"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Início rápido: implantar um cluster do AKS (serviço kubernetes do Azure) usando um modelo de Azure Resource Manager
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Quickstart: Implemente um cluster azure Kubernetes Service (AKS) utilizando um modelo de Gestor de Recursos Azure
 
-O AKS (serviço kubernetes do Azure) é um serviço gerenciado kubernetes que permite implantar e gerenciar clusters rapidamente. Neste guia de início rápido, você implanta um cluster AKS usando um modelo de Azure Resource Manager. Um aplicativo de vários contêineres que inclui um front-end da Web e uma instância Redis é executado no cluster.
+O Azure Kubernetes Service (AKS) é um serviço gerido pela Kubernetes que permite implementar e gerir rapidamente clusters. Neste arranque rápido, você implementa um cluster AKS usando um modelo de Gestor de Recursos Azure. Uma aplicação multi-contentor que inclui uma extremidade frontal web e uma instância Redis é executada no cluster.
 
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
-Este guia de introdução parte do princípio de que possui conhecimentos básicos dos conceitos do Kubernetes. Para obter mais informações, consulte [kubernetes Core Concepts for Azure kubernetes Service (AKs)][kubernetes-concepts].
+Este guia de introdução parte do princípio de que possui conhecimentos básicos dos conceitos do Kubernetes. Para mais informações, consulte os [conceitos centrais da Kubernetes para o Serviço Azure Kubernetes (AKS)][kubernetes-concepts].
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá que você esteja executando o CLI do Azure versão 2.0.61 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Se optar por instalar e utilizar o CLI localmente, este quickstart requer que esteja a executar a versão 2.0.61 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para criar um cluster AKS usando um modelo do Resource Manager, você fornece uma chave pública SSH e Azure Active Directory entidade de serviço. Se você precisar de qualquer um desses recursos, consulte a seção a seguir; caso contrário, pule para a seção [criar um cluster AKs](#create-an-aks-cluster) .
+Para criar um cluster AKS utilizando um modelo de Gestor de Recursos, fornece uma chave pública SSH e um diretor de serviço de Diretório Ativo Azure. Se precisar de algum destes recursos, consulte a seguinte secção; caso contrário, salte para a secção [de agrupamento criar uma AKS.](#create-an-aks-cluster)
 
 ### <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 
-Para acessar os nós do AKS, você se conecta usando um par de chaves SSH. Use o comando `ssh-keygen` para gerar arquivos de chave pública e privada SSH. Por padrão, esses arquivos são criados no diretório *~/.ssh* Se um par de chaves SSH com o mesmo nome existir no local especificado, esses arquivos serão substituídos.
+Para aceder aos nós AKS, ligue-se utilizando um par de chaves SSH. Utilize o comando `ssh-keygen` para gerar ficheiros de chaves públicas e privadas SSH. Por padrão, estes ficheiros são criados no diretório *~/.ssh.* Se um par de chaves SSH com o mesmo nome existir no local dado, esses ficheiros são substituídos.
 
-O comando a seguir cria um par de chaves SSH usando a criptografia RSA e um comprimento de bit de 2048:
+O seguinte comando cria um par de chaves SSH usando encriptação RSA e um pouco de comprimento de 2048:
 
 ```azurecli-interactive
 ssh-keygen -t rsa -b 2048
 ```
 
-Para obter mais informações sobre como criar chaves SSH, consulte [criar e gerenciar chaves SSH para autenticação no Azure][ssh-keys].
+Para obter mais informações sobre a criação de chaves SSH, consulte [Criar e gerir as teclas SSH para autenticação em Azure][ssh-keys].
 
 ### <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-Para permitir que um cluster do AKS interaja com outros recursos do Azure, é utilizado um principal de serviço do Azure Active Directory. Crie um principal de serviço com o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. O parâmetro `--skip-assignment` limita a atribuição de permissões adicionais. Por padrão, essa entidade de serviço é válida por um ano.
+Para permitir que um cluster do AKS interaja com outros recursos do Azure, é utilizado um principal de serviço do Azure Active Directory. Crie um principal de serviço com o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. O parâmetro `--skip-assignment` limita a atribuição de permissões adicionais. Por predefinição, este diretor de serviço é válido por um ano.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -69,7 +66,7 @@ Anote o *appId* e a *palavra-passe*. São utilizados os seguintes valores nos pa
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-O modelo usado neste guia de início rápido é para [implantar um cluster do serviço kubernetes do Azure](https://azure.microsoft.com/resources/templates/101-aks/). Para obter mais exemplos de AKS, consulte o site de [modelos de início rápido do AKS][aks-quickstart-templates] .
+O modelo utilizado neste quickstart é implantar um cluster de [serviço Azure Kubernetes](https://azure.microsoft.com/resources/templates/101-aks/). Para mais amostras de AKS, consulte o site [de modelos de arranque rápido AKS.][aks-quickstart-templates]
 
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo.
 
@@ -77,34 +74,34 @@ O modelo usado neste guia de início rápido é para [implantar um cluster do se
 
 2. Selecione ou introduza os seguintes valores.  
 
-    Para este guia de início rápido, deixe os valores padrão para o *tamanho de disco do so GB*, *contagem de agentes*, tamanho da VM do *agente*, *tipo de so*e *versão kubernetes*. Forneça seus próprios valores para os seguintes parâmetros de modelo:
+    Para este arranque rápido, deixe os valores predefinidos para o *tamanho do disco OS GB,* Contagem de *Agentes,* *Tamanho do Agente VM,* *Tipo OS*e *versão Kubernetes*. Forneça os seus próprios valores para os seguintes parâmetros de modelo:
 
     * **Subscrição**: selecione uma subscrição do Azure.
-    * **Grupo de recursos**: selecione **criar novo**. Insira um nome exclusivo para o grupo de recursos, como *MyResource*Group e escolha **OK**.
-    * **Local**: selecione um local, como **leste dos EUA**.
-    * **Nome do cluster**: Insira um nome exclusivo para o cluster AKs, como *myAKSCluster*.
-    * **Prefixo DNS**: Insira um prefixo DNS exclusivo para o cluster, como *myakscluster*.
-    * **Nome de usuário do administrador do Linux**: Insira um nome de usuário para se conectar usando SSH, como *azureuser*.
-    * **Chave pública RSA SSH**: Copie e cole a parte *pública* do seu par de chaves SSH (por padrão, o conteúdo de *~/.ssh/id_rsa.pub*).
-    * **ID do cliente da entidade de serviço**: Copie e cole a *AppID* da sua entidade de serviço do comando `az ad sp create-for-rbac`.
-    * **Segredo do cliente da entidade de serviço**: Copie e cole a *senha* de sua entidade de serviço do comando `az ad sp create-for-rbac`.
-    * **Eu concordo com o estado dos termos e condições acima**: Marque esta caixa para concordar.
+    * **Grupo de recursos**: Selecione **Criar nova**. Introduza um nome único para o grupo de recursos, como o *myResourceGroup,* e depois escolha **OK**.
+    * **Localização**: Selecione uma localização, como **east us**.
+    * **Nome do cluster**: Introduza um nome único para o cluster AKS, como *myAKSCluster*.
+    * **Prefixo DNS**: Introduza um prefixo DNS único para o seu cluster, como *myakscluster*.
+    * **Nome de utilizador**do Administrador Linux : Introduza um nome de utilizador para se ligar utilizando o SSH, como *o azureuser*.
+    * **Chave Pública SSH RSA**: Copiar e colar a parte *pública* do seu par de teclas SSH (por padrão, o conteúdo de *~/.ssh/id_rsa.pub).*
+    * **Id principal de serviço Cliente:** Copie e cole a *appId* do seu diretor de serviço a partir do comando `az ad sp create-for-rbac`.
+    * **Serviço Principal Cliente Secreto**: Copie e cole a *palavra-passe* do seu diretor de serviço a partir do comando `az ad sp create-for-rbac`.
+    * **Concordo com os termos e condições acima referidos:** Verifique esta caixa para concordar.
 
-    ![Modelo do Resource Manager para criar um cluster do serviço kubernetes do Azure no portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
+    ![Modelo de Gestor de Recursos para criar um cluster de serviço Azure Kubernetes no portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
 3. Selecione **Comprar**.
 
-Leva alguns minutos para criar o cluster AKS. Aguarde até que o cluster seja implantado com êxito antes de passar para a próxima etapa.
+Leva alguns minutos para criar o aglomerado AKS. Aguarde que o cluster seja implantado com sucesso antes de passar para o próximo passo.
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-Para gerenciar um cluster kubernetes, você usa [kubectl][kubectl], o cliente de linha de comando kubernetes. Se você usar Azure Cloud Shell, o `kubectl` já estará instalado. Para instalar o `kubectl` localmente, use o comando [AZ AKs install-CLI][az-aks-install-cli] :
+Para gerir um cluster Kubernetes, você usa [kubectl,][kubectl]o cliente da linha de comando Kubernetes. Se utilizar a Azure Cloud Shell, já se `kubectl` instalada. Para instalar `kubectl` localmente, utilize o comando [az aks install-cli:][az-aks-install-cli]
 
 ```azurecli
 az aks install-cli
 ```
 
-Para configurar `kubectl` para se conectar ao cluster kubernetes, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Esse comando baixa as credenciais e configura a CLI do kubernetes para usá-las.
+Para configurar `kubectl` para se ligar ao seu cluster Kubernetes, use o comando [az aks get-credentials.][az-aks-get-credentials] Este comando descarrega credenciais e confunde o ClI Kubernetes para usá-las.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -116,7 +113,7 @@ Para verificar a ligação ao cluster, utilize o comando [kubectl get][kubectl-g
 kubectl get nodes
 ```
 
-A saída de exemplo a seguir mostra os nós criados nas etapas anteriores. Verifique se o status de todos os nós está *pronto*:
+A saída de exemplo seguinte mostra os nódosos criados nos passos anteriores. Certifique-se de que o estado de todos os nós está *pronto:*
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -127,12 +124,12 @@ aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Um arquivo de manifesto kubernetes define um estado desejado para o cluster, como quais imagens de contêiner executar. Neste início rápido, é utilizado um manifesto para criar todos os objetos necessários para executar a aplicação Azure Vote. Esse manifesto inclui duas [implantações de kubernetes][kubernetes-deployment] – uma para os aplicativos Python de exemplo do Azure e a outra para uma instância Redis. Dois [Serviços Kubernetess][kubernetes-service] também são criados – um serviço interno para a instância do Redis e um serviço externo para acessar o aplicativo Azure vote da Internet.
+Um ficheiro manifesto Kubernetes define um estado desejado para o cluster, como quais as imagens de contentores a executar. Neste início rápido, é utilizado um manifesto para criar todos os objetos necessários para executar a aplicação Azure Vote. Este manifesto inclui duas [implantações kubernetes][kubernetes-deployment] - uma para as aplicações azure vote Python, e outra para uma instância Redis. São também criados dois [Serviços Kubernetes][kubernetes-service] - um serviço interno para a instância Redis, e um serviço externo para aceder à aplicação Azure Vote a partir da internet.
 
 > [!TIP]
-> Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em cenários mais reais, você pode usar [Azure dev Spaces][azure-dev-spaces] para iterar e depurar rapidamente seu código diretamente no cluster AKs. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.
+> Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em cenários mais reais, você pode usar [O Azure Dev Spaces][azure-dev-spaces] para iterar rapidamente e desinchar o seu código diretamente no cluster AKS. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.
 
-Crie um arquivo chamado `azure-vote.yaml` e copie na seguinte definição de YAML. Se você usar o Azure Cloud Shell, esse arquivo poderá ser criado usando `vi` ou `nano` como se estiver trabalhando em um sistema físico ou virtual:
+Crie um ficheiro chamado `azure-vote.yaml` e copie na seguinte definição YAML. Se utilizar a Casca de Nuvem Azure, este ficheiro pode ser criado utilizando `vi` ou `nano` como se trabalhasse num sistema virtual ou físico:
 
 ```yaml
 apiVersion: apps/v1
@@ -219,13 +216,13 @@ spec:
     app: azure-vote-front
 ```
 
-Implante o aplicativo usando o comando [kubectl Apply][kubectl-apply] e especifique o nome do seu manifesto YAML:
+Implemente a aplicação utilizando o [kubectl aplique][kubectl-apply] o comando e especifique o nome do seu manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f azure-vote.yaml
 ```
 
-A saída de exemplo a seguir mostra as implantações e os serviços criados com êxito:
+A saída de exemplo a seguir mostra as Implantações e Serviços criados com sucesso:
 
 ```
 deployment "azure-vote-back" created
@@ -236,7 +233,7 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>Testar a aplicação
 
-Quando o aplicativo é executado, um serviço kubernetes expõe o front-end do aplicativo à Internet. Este processo pode demorar alguns minutos a concluir.
+Quando a aplicação é executado, um serviço Kubernetes expõe a extremidade frontal da aplicação à internet. Este processo pode demorar alguns minutos a concluir.
 
 Para monitorizar o progresso, utilize o comando [kubectl get service][kubectl-get] com o argumento `--watch`.
 
@@ -244,48 +241,48 @@ Para monitorizar o progresso, utilize o comando [kubectl get service][kubectl-ge
 kubectl get service azure-vote-front --watch
 ```
 
-Inicialmente, o *IP externo* para o serviço *Azure-vote-front* é mostrado como *pendente*.
+Inicialmente, o *IP EXTERNO* para o serviço de frente para *voto sinuoso* é apresentado como *pendente*.
 
 ```
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Quando o endereço *IP externo* for alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o processo de inspeção `kubectl`. A saída de exemplo a seguir mostra um endereço IP público válido atribuído ao serviço:
+Quando o endereço *EXTERNO-IP* passar de *pendente* para um endereço IP público real, utilize `CTRL-C` para parar o processo de observação `kubectl`. A saída de exemplo seguinte mostra um endereço IP público válido atribuído ao serviço:
 
 ```
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Para ver o aplicativo de voto do Azure em ação, abra um navegador da Web para o endereço IP externo do seu serviço.
+Para ver a aplicação Azure Vote em ação, abra um navegador web para o endereço IP externo do seu serviço.
 
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## <a name="delete-cluster"></a>Eliminar o cluster
 
-Quando o cluster não for mais necessário, use o comando [AZ Group Delete][az-group-delete] para remover o grupo de recursos, o serviço de contêiner e todos os recursos relacionados.
+Quando o cluster já não for necessário, utilize o [grupo AZ eliminar][az-group-delete] o comando para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter as etapas sobre como remover a entidade de serviço, consulte [considerações e exclusão da entidade de serviço AKs][sp-delete].
+> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter medidas sobre como remover o diretor de serviço, consulte as [principais considerações e a eliminação do serviço AKS.][sp-delete]
 
 ## <a name="get-the-code"></a>Obter o código
 
-Neste guia de início rápido, as imagens de contêiner criadas previamente foram usadas para criar uma implantação do kubernetes. O código da aplicação relacionado, o Dockerfile, e o ficheiro de manifesto do Kubernetes, estão disponíveis no GitHub.
+Neste arranque rápido, imagens de contentores pré-criadas foram usadas para criar uma implantação kubernetes. O código da aplicação relacionado, o Dockerfile, e o ficheiro de manifesto do Kubernetes, estão disponíveis no GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, implementou um cluster do Kubernetes e implementou uma aplicação de vários contentores no mesmo. [Acesse o painel da Web do kubernetes][kubernetes-dashboard] para o cluster que você criou.
+Neste guia de início rápido, implementou um cluster do Kubernetes e implementou uma aplicação de vários contentores no mesmo. [Aceda ao painel web da Kubernetes][kubernetes-dashboard] para o cluster que criou.
 
 Para saber mais sobre o AKS e ver um exemplo completo de código para implementação, avance para o tutorial dos clusters de Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Tutorial do AKS][aks-tutorial]
+> [Tutorial AKS][aks-tutorial]
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

@@ -2,17 +2,14 @@
 title: Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes
 description: Como criar clusters azure Ative Directory Service (AKS) habilitados para o Azure Ative Directory
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 02/02/2019
-ms.author: mlearned
-ms.openlocfilehash: 956cfbafeebadaa23ba3a48f7d38c6f95b412bd9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 0476acadf5af3a3e2c470fe6c08ebbd355653e22
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158218"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596594"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes
 
@@ -149,7 +146,7 @@ A segunda aplicação Azure AD é usada quando se inscreveu no Kubernetes CLI (k
 
    ![Obtenha o ID da aplicação](media/aad-integration/application-id-client.png)
 
-## <a name="get-the-tenant-id"></a>Obter a ID do locatário
+## <a name="get-the-tenant-id"></a>Obter a identificação do inquilino
 
 Em seguida, pegue a identificação do seu inquilino Azure. Este valor é usado quando se cria o cluster AKS.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157278"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597173"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
 
@@ -64,15 +64,15 @@ Na maioria dos casos, deve utilizar contas v2 de uso geral. Pode utilizar contas
 
 ### <a name="blockblobstorage-accounts"></a>Contas BlockBlobStorage
 
-Uma conta do BlockBlobStorage é uma conta de armazenamento especializada no nível de desempenho premium para armazenar dados de objeto não estruturado como BLOBs de blocos ou BLOBs de acréscimo. Em comparação com contas de uso geral V2 e BlobStorage, as contas BlockBlobStorage fornecem latência baixa, consistente e taxas de transações mais altas.
+Uma conta BlockBlobStorage é uma conta de armazenamento especializada no nível de desempenho premium para armazenar dados de objetos não estruturados como bolhas de bloco ou bolhas de apêndice. Em comparação com as contas v2 e BlobStorage de propósito geral, as contas BlockBlobStorage fornecem baixa, latência consistente e taxas de transação mais elevadas.
 
-As contas BlockBlobStorage não suportam atualmente níveis de acesso quentes, frescos ou de arquivo. Esse tipo de conta de armazenamento não dá suporte a blobs de página, tabelas ou filas.
+As contas BlockBlobStorage não suportam atualmente níveis de acesso quentes, frescos ou de arquivo. Este tipo de conta de armazenamento não suporta bolhas de página, mesas ou filas.
 
 ### <a name="filestorage-accounts"></a>Contas de FileStorage
 
 Uma conta fileStorage é uma conta de armazenamento especializada usada para armazenar e criar ações de ficheiropremium. Este tipo de conta de armazenamento suporta ficheiros, mas não bloqueia bolhas, bolhas de apêndice, bolhas de página, mesas ou filas.
 
-As contas de armazenamento de fileoferecem características de desempenho exclusivas, como a intermitência de IOPS. Para obter mais informações sobre estas características, consulte a secção de níveis de desempenho do Ficheiro share do guia de planeamento de [Ficheiros.](../files/storage-files-planning.md#file-share-performance-tiers)
+As contas de FileStorage oferecem características dedicadas ao desempenho únicas, como a explosão do IOPS. Para obter mais informações sobre estas características, consulte a secção de níveis de armazenamento de partilha de ficheiros do guia de planeamento de [Ficheiros.](../files/storage-files-planning.md#storage-tiers)
 
 ## <a name="naming-storage-accounts"></a>Contas de armazenamento de nomeação
 
@@ -83,20 +83,20 @@ Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em me
 
 ## <a name="performance-tiers"></a>Escalões de desempenho
 
-Dependendo do tipo de conta de armazenamento que você criar, você pode escolher entre as camadas de desempenho Standard e Premium.
+Dependendo do tipo de conta de armazenamento que cria, pode escolher entre os níveis de desempenho padrão e premium.
 
 ### <a name="general-purpose-storage-accounts"></a>Contas de armazenamento para fins gerais
 
 As contas de armazenamento para fins gerais podem ser configuradas para qualquer um dos seguintes níveis de desempenho:
 
 - Um nível de desempenho padrão para armazenar bolhas, ficheiros, mesas, filas e discos de máquinas virtuais Azure. Para obter mais informações sobre os objetivos de escalabilidade das contas de armazenamento padrão, consulte os objetivos de [escalabilidade para as contas de armazenamento padrão](scalability-targets-standard-account.md).
-- Um nível de desempenho premium para armazenar discos de máquina virtual não gerenciados. A Microsoft recomenda a utilização de discos geridos com máquinas virtuais Azure em vez de discos não geridos. Para obter mais informações sobre os objetivos de escalabilidade para o nível de desempenho premium, consulte os objetivos de escalabilidade para contas de [armazenamento de blob](../blobs/scalability-targets-premium-page-blobs.md)de página premium .
+- Um nível de desempenho premium para armazenar discos de máquinas virtuais não geridos. A Microsoft recomenda a utilização de discos geridos com máquinas virtuais Azure em vez de discos não geridos. Para obter mais informações sobre os objetivos de escalabilidade para o nível de desempenho premium, consulte os objetivos de escalabilidade para contas de [armazenamento de blob](../blobs/scalability-targets-premium-page-blobs.md)de página premium .
 
 ### <a name="blockblobstorage-storage-accounts"></a>Contas de armazenamento BlockBlobStorage
 
 As contas de armazenamento BlockBlobStorage fornecem um nível de desempenho premium para armazenar bolhas de blocos e bolhas de apêndice. Para obter mais informações, consulte os alvos de [escalabilidade para contas](../blobs/scalability-targets-premium-block-blobs.md)de armazenamento de blocos premium .
 
-### <a name="filestorage-storage-accounts"></a>Contas de armazenamento de armazenamento em
+### <a name="filestorage-storage-accounts"></a>Contas de armazenamento de arquivos
 
 As contas de armazenamento de fileStorage fornecem um nível de desempenho premium para as ações de ficheiros Azure. Para mais informações, consulte a escalabilidade e os alvos de desempenho do [Azure Files.](../files/storage-files-scale-targets.md)
 
@@ -108,7 +108,7 @@ Os níveis de acesso disponíveis são:
 
 - O nível de acesso **quente.** Este nível está otimizado para o acesso frequente de objetos na conta de armazenamento. O acesso aos dados no nível quente é mais rentável, enquanto os custos de armazenamento são mais elevados. Novas contas de armazenamento são criadas no nível quente por padrão.
 - O nível de acesso **Cool.** Este nível está otimizado para armazenar grandes quantidades de dados que são raramente acedidos e armazenados durante pelo menos 30 dias. Armazenar dados no nível cool é mais rentável, mas aceder a esses dados pode ser mais caro do que aceder a dados no nível quente.
-- O nível de **arquivo.** Essa camada está disponível apenas para BLOBs de blocos individuais e blobs de acréscimo. O nível de arquivo está otimizado para dados que podem tolerar várias horas de latência de recuperação e que permanecerão no nível de Arquivo por pelo menos 180 dias. O nível de arquivo é a opção mais rentável para armazenar dados. No entanto, aceder a esses dados é mais caro do que aceder a dados nos níveis quentes ou frescos.
+- O nível de **arquivo.** Este nível está disponível apenas para bolhas de bloco sinuosos individuais e bolhas de apêndice. O nível de arquivo está otimizado para dados que podem tolerar várias horas de latência de recuperação e que permanecerão no nível de Arquivo por pelo menos 180 dias. O nível de arquivo é a opção mais rentável para armazenar dados. No entanto, aceder a esses dados é mais caro do que aceder a dados nos níveis quentes ou frescos.
 
 Se houver uma alteração no padrão de utilização dos seus dados, pode alternar entre estes níveis de acesso a qualquer momento. Para obter mais informações sobre os níveis de acesso, consulte o [armazenamento do Azure Blob: hot, cool e archive access tiers](../blobs/storage-blob-storage-tiers.md).
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e01be0442f6d968613ffd800f076705d33e3e16e
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064823"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598209"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de encaminhamento de mensagens IoT Hub
 
@@ -62,7 +62,7 @@ Como descrito nas [Mensagens IoT Hub,](iot-hub-devguide-messages-construct.md)ex
 
 ### <a name="application-properties"></a>Propriedades da aplicação
 
-As propriedades do aplicativo são cadeias de caracteres definidas pelo usuário que podem ser adicionadas à mensagem. Esses campos são opcionais.  
+As propriedades da aplicação são cordas definidas pelo utilizador que podem ser adicionadas à mensagem. Estes campos são opcionais.  
 
 ### <a name="query-expressions"></a>Expressões de consulta
 
@@ -88,7 +88,7 @@ $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 
 Uma lista completa de operadores e funções suportadas é mostrada em [Expressão e condições](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
-## <a name="message-routing-query-based-on-message-body"></a>Consulta de encaminhamento de mensagens baseada no corpo da mensagem 
+## <a name="message-routing-query-based-on-message-body"></a>Consulta de encaminhamento de mensagens baseada no corpo da mensagem
 
 Para permitir a consulta no corpo da mensagem, a mensagem deve estar num JSON codificado em UTF-8, UTF-16 ou UTF-32. A `contentType` deve ser definida para `application/JSON` e `contentEncoding` a uma das codificações utf suportadas na propriedade do sistema. Se estas propriedades não forem especificadas, o IoT Hub não avaliará a expressão de consulta no corpo da mensagem. 
 
@@ -140,6 +140,10 @@ deviceClient.sendEvent(message, (err, res) => {
     if (res) console.log('status: ' + res.constructor.name);
 });
 ```
+
+> [!NOTE] 
+> Isto mostra como lidar com a codificação do corpo em javascript. Se quiser ver uma C#amostra, descarregue as [amostras Azure C# IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Desaperte o ficheiro master.zip. A solução Visual Studio *Simulado Program.cs*ficheiro do Estúdio mostra como codificar e enviar mensagens para um Hub IoT. Esta é a mesma amostra utilizada para testar o encaminhamento da mensagem, como explicado no tutorial de [Encaminhamento de Mensagens](tutorial-routing.md). Na parte inferior da Program.cs, também tem um método para ler num dos ficheiros codificados, descodificá-lo e escrevê-lo novamente como ASCII para que possa lê-lo. 
+
 
 ### <a name="query-expressions"></a>Expressões de consulta
 

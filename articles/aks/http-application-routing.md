@@ -1,53 +1,52 @@
 ---
-title: Complemento de roteamento de aplicativo HTTP no serviço kubernetes do Azure (AKS)
-description: Use o complemento de roteamento de aplicativo HTTP no serviço de kubernetes do Azure (AKS).
+title: Suplemento de encaminhamento de aplicações HTTP no Serviço Azure Kubernetes (AKS)
+description: Utilize o complemento de encaminhamento de aplicações HTTP no Serviço Azure Kubernetes (AKS).
 services: container-service
 author: lachie83
-ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: fc04e38c3d6933cde81d81d5569ed73e7506a745
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5794e46f10abec1ceef4c79a881f7f353e729634
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756441"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595693"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
 
-A solução de roteamento de aplicativos HTTP facilita o acesso a aplicativos implantados em seu cluster AKS (serviço kubernetes do Azure). Quando a solução estiver habilitada, ela configurará um [controlador de entrada](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) em seu cluster AKs. À medida que os aplicativos são implantados, a solução também cria nomes DNS acessíveis publicamente para pontos de extremidade de aplicativo.
+A solução de encaminhamento de aplicações HTTP facilita o acesso a aplicações que são implantadas para o seu cluster Azure Kubernetes Service (AKS). Quando a solução está ativada, ele confunde um [controlador Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) no seu cluster AKS. À medida que as aplicações são implementadas, a solução também cria nomes dNS acessíveis ao público para pontos finais de aplicação.
 
-Quando o complemento está habilitado, ele cria uma zona DNS em sua assinatura. Para obter mais informações sobre o custo DNS, consulte [preços de DNS][dns-pricing].
+Quando o addon está ativado, cria uma Zona DNS na sua subscrição. Para obter mais informações sobre o custo do DNS, consulte [os preços do DNS][dns-pricing].
 
 > [!CAUTION]
-> O complemento de roteamento de aplicativos HTTP foi projetado para permitir que você crie rapidamente um controlador de entrada e acesse seus aplicativos. Esse complemento não é recomendado para uso em produção. Para implantações de entrada prontas para produção que incluem várias réplicas e suporte a TLS, consulte [criar um controlador de entrada https](https://docs.microsoft.com/azure/aks/ingress-tls).
+> O addon de encaminhamento de aplicações HTTP foi concebido para permitir criar rapidamente um controlador de entrada e aceder às suas aplicações. Este complemento não é recomendado para a utilização da produção. Para implementações de ingressos prontos para a produção que incluam múltiplas réplicas e suporte TLS, consulte [Criar um controlador de entrada HTTPS](https://docs.microsoft.com/azure/aks/ingress-tls).
 
-## <a name="http-routing-solution-overview"></a>Visão geral da solução de roteamento HTTP
+## <a name="http-routing-solution-overview"></a>VISÃO geral da solução de encaminhamento http
 
-O complemento implanta dois componentes: um controlador de [entrada kubernetes][ingress] e um controlador [DNS externo][external-dns] .
+O addon implementa dois componentes: um [controlador Kubernetes Ingress][ingress] e um controlador [External-DNS.][external-dns]
 
-- **Controlador de entrada**: o controlador de entrada é exposto à Internet usando um serviço kubernetes do tipo Balancer. O controlador de entrada observa e implementa [recursos de entrada do kubernetes][ingress-resource], que cria rotas para pontos de extremidade do aplicativo.
-- **Controlador DNS externo**: observa os recursos de entrada do kubernetes e cria registros DNS a na zona DNS específica do cluster.
+- **Controlador de ingressos**: O controlador Ingress é exposto à internet utilizando um serviço Kubernetes do tipo LoadBalancer. O controlador Ingress observa e implementa [os recursos da Kubernetes Ingress,][ingress-resource]que cria rotas para pontos finais de aplicação.
+- **Controlador Externo-DNS**: Relógios para os recursos da Kubernetes Ingress e cria registos DNS A na zona DNS específica do cluster.
 
-## <a name="deploy-http-routing-cli"></a>Implantar roteamento HTTP: CLI
+## <a name="deploy-http-routing-cli"></a>Implementar encaminhamento HTTP: CLI
 
-O complemento de roteamento de aplicativo HTTP pode ser habilitado com o CLI do Azure ao implantar um cluster AKS. Para fazer isso, use o comando [AZ AKs Create][az-aks-create] com o argumento `--enable-addons`.
+O complemento de encaminhamento de aplicações HTTP pode ser ativado com o AZURE CLI ao implantar um cluster AKS. Para tal, use as [aks az criar][az-aks-create] comando com o argumento `--enable-addons`.
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
 > [!TIP]
-> Se você quiser habilitar vários Complementos, forneça-os como uma lista separada por vírgulas. Por exemplo, para permitir o encaminhamento e monitorização da aplicação HTTP, utilize o formato `--enable-addons http_application_routing,monitoring`.
+> Se quiser ativar múltiplos addons, forneça-os como uma lista separada da vírvia. Por exemplo, para permitir o encaminhamento e monitorização da aplicação HTTP, utilize o formato `--enable-addons http_application_routing,monitoring`.
 
-Você também pode habilitar o roteamento HTTP em um cluster AKS existente usando o comando [AZ AKs Enable-addons][az-aks-enable-addons] . Para permitir o encaminhamento http num cluster existente, adicione o parâmetro `--addons` e especifique *http_application_routing* conforme mostrado no seguinte exemplo:
+Também pode ativar o encaminhamento http num cluster AKS existente utilizando o comando [az aks enable-addons.][az-aks-enable-addons] Para permitir o encaminhamento http num cluster existente, adicione o parâmetro `--addons` e especifique *http_application_routing* conforme mostrado no seguinte exemplo:
 
 ```azurecli
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-Depois que o cluster for implantado ou atualizado, use o comando [AZ AKs show][az-aks-show] para recuperar o nome da zona DNS. Esse nome é necessário para implantar aplicativos no cluster AKS.
+Depois de o cluster ser implantado ou atualizado, utilize o comando [az aks para][az-aks-show] recuperar o nome da zona DNS. Este nome é necessário para implementar aplicações para o cluster AKS.
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
@@ -58,26 +57,26 @@ Resultado
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
 
 
-## <a name="deploy-http-routing-portal"></a>Implantar roteamento HTTP: Portal
+## <a name="deploy-http-routing-portal"></a>Implementar o encaminhamento HTTP: Portal
 
-O complemento de roteamento de aplicativo HTTP pode ser habilitado por meio do portal do Azure ao implantar um cluster AKS.
+O add-on de encaminhamento de aplicações HTTP pode ser ativado através do portal Azure ao implantar um cluster AKS.
 
-![Habilitar o recurso de roteamento HTTP](media/http-routing/create.png)
+![Ativar a função de encaminhamento HTTP](media/http-routing/create.png)
 
-Depois que o cluster for implantado, navegue até o grupo de recursos AKS criado automaticamente e selecione a zona DNS. Anote o nome da zona DNS. Esse nome é necessário para implantar aplicativos no cluster AKS.
+Depois de o cluster ser implantado, navegue para o grupo de recursos AKS criado automaticamente e selecione a zona DNS. Tome nota do nome da zona DNS. Este nome é necessário para implementar aplicações para o cluster AKS.
 
-![Obter o nome da zona DNS](media/http-routing/dns.png)
+![Obtenha o nome da zona DNS](media/http-routing/dns.png)
 
-## <a name="use-http-routing"></a>Usar roteamento HTTP
+## <a name="use-http-routing"></a>Utilizar o encaminhamento HTTP
 
-A solução de roteamento de aplicativos HTTP só pode ser disparada em recursos de entrada que são anotados da seguinte maneira:
+A solução de encaminhamento de aplicações HTTP só pode ser desencadeada em recursos Ingress que sejam anotados da seguinte forma:
 
 ```yaml
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-Crie um arquivo chamado **Samples-http-Application-Routing. YAML** e copie o YAML a seguir. Na linha 43, atualize `<CLUSTER_SPECIFIC_DNS_ZONE>` com o nome da zona DNS recolhido na fase anterior deste artigo.
+Crie um ficheiro chamado **samples-http-application-routing.yaml** e copie no seguinte YAML. Na linha 43, atualize `<CLUSTER_SPECIFIC_DNS_ZONE>` com o nome da zona DNS recolhido na fase anterior deste artigo.
 
 
 ```yaml
@@ -136,7 +135,7 @@ spec:
         path: /
 ```
 
-Use o comando [kubectl Apply][kubectl-apply] para criar os recursos.
+Use o [kubectl aplicar][kubectl-apply] o comando para criar os recursos.
 
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
@@ -146,7 +145,7 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-Use a rotação ou um navegador para navegar até o nome do host especificado na seção host do arquivo Samples-http-Application-Routing. YAML. O aplicativo pode levar até um minuto antes de estar disponível pela Internet.
+Utilize cURL ou um navegador para navegar para o nome de anfitrião especificado na secção anfitriã do ficheiro samples-http-application-routing.yaml. A aplicação pode demorar até um minuto antes de estar disponível através da internet.
 
 ```bash
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
@@ -169,17 +168,17 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
-## <a name="remove-http-routing"></a>Remover roteamento HTTP
+## <a name="remove-http-routing"></a>Remover o encaminhamento HTTP
 
-A solução de roteamento HTTP pode ser removida usando o CLI do Azure. Para fazer isso, execute o comando a seguir, substituindo o nome do grupo de recursos e do cluster AKS.
+A solução de encaminhamento HTTP pode ser removida utilizando o Azure CLI. Para tal, execute o seguinte comando, substituindo o seu cluster AKS e o nome do grupo de recursos.
 
 ```azurecli
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-Quando o complemento de roteamento de aplicativo HTTP está desabilitado, alguns recursos de kubernetes podem permanecer no cluster. Esses recursos incluem *configMaps* e *segredos*e são criados no namespace *Kube-System* . Para manter um cluster limpo, talvez você queira remover esses recursos.
+Quando o complemento de encaminhamento de aplicação HTTP é desativado, alguns recursos kubernetes podem permanecer no cluster. Estes recursos incluem *configMaps* e *segredos*, e são criados no espaço de nome *do sistema kube.* Para manter um cluster limpo, pode querer remover estes recursos.
 
-Procure recursos de *Roteamento de aplicativo e addon-http* usando os seguintes comandos [Get kubectl][kubectl-get] :
+Procure recursos *adicionais-http-aplicação-routing* utilizando os seguintes [comandos kubectl get:][kubectl-get]
 
 ```console
 kubectl get deployments --namespace kube-system
@@ -188,7 +187,7 @@ kubectl get configmaps --namespace kube-system
 kubectl get secrets --namespace kube-system
 ```
 
-A saída de exemplo a seguir mostra configMaps que deve ser excluído:
+A saída de exemplo a seguir mostra configMaps que deve ser eliminado:
 
 ```
 $ kubectl get configmaps --namespace kube-system
@@ -199,17 +198,17 @@ kube-system   addon-http-application-routing-tcp-services                0      
 kube-system   addon-http-application-routing-udp-services                0      9m7s
 ```
 
-Para excluir recursos, use o comando [kubectl Delete][kubectl-delete] . Especifique o tipo de recurso, o nome do recurso e o namespace. O exemplo a seguir exclui um dos configmaps anteriores:
+Para eliminar recursos, utilize o [comando de eliminação kubectl.][kubectl-delete] Especifique o tipo de recurso, o nome do recurso e o espaço de nome. O exemplo que se segue elimina um dos mapas anteriores:
 
 ```console
 kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
 ```
 
-Repita a etapa de `kubectl delete` anterior para todos os recursos de *Roteamento de aplicativo e http de complemento* que permaneceram em seu cluster.
+Repita o passo `kubectl delete` anterior para todos os recursos de *encaminhamento de aplicações addon-http-application* que permaneceram no seu cluster.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-Use o comando [kubectl logs][kubectl-logs] para exibir os logs de aplicativo para o aplicativo DNS externo. Os logs devem confirmar se um registro DNS A e TXT foram criados com êxito.
+Utilize o comando de [registos kubectl][kubectl-logs] para visualizar os registos de aplicação para a aplicação External-DNS. Os registos devem confirmar que um disco DNS A e TXT foi criado com sucesso.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -218,11 +217,11 @@ time="2018-04-26T20:36:19Z" level=info msg="Updating A record named 'party-clipp
 time="2018-04-26T20:36:21Z" level=info msg="Updating TXT record named 'party-clippy' to '"heritage=external-dns,external-dns/owner=default"' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
 ```
 
-Esses registros também podem ser vistos no recurso de zona DNS no portal do Azure.
+Estes registos também podem ser vistos no recurso da zona DNS no portal Azure.
 
-![Obter os registros DNS](media/http-routing/clippy.png)
+![Obtenha os registos do DNS](media/http-routing/clippy.png)
 
-Use o comando [kubectl logs][kubectl-logs] para exibir os logs de aplicativo para o controlador de entrada do nginx. Os logs devem confirmar a `CREATE` de um recurso de entrada e a recarga do controlador. Todas as atividades HTTP são registradas em log.
+Utilize o comando de [registos kubectl][kubectl-logs] para visualizar os registos de aplicação do controlador Nginx Ingress. Os registos devem confirmar a `CREATE` de um recurso Ingress e a recarga do controlador. Toda a atividade http está registada.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
@@ -275,7 +274,7 @@ ingress "party-clippy" deleted
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre como instalar um controlador de entrada protegido por HTTPS no AKS, consulte [entrada HTTPS no AKs (serviço kubernetes do Azure)][ingress-https].
+Para obter informações sobre como instalar um controlador De Entrada protegido em HTTPS no AKS, consulte [HTTPS Ingress no Serviço Azure Kubernetes (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

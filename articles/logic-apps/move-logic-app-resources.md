@@ -1,109 +1,111 @@
 ---
-title: Mover aplicativos lógicos entre assinaturas, grupos de recursos ou regiões
-description: Migrar aplicativos lógicos ou contas de integração para outras assinaturas do Azure, grupos de recursos ou locais (regiões)
+title: Migrar aplicativos lógicos através de subscrições, grupos de recursos ou regiões
+description: Migrar aplicações lógicas ou contas de integração para outras subscrições, grupos de recursos ou localizações do Azure (regiões)
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f5944accb185f1311c811cf65a8ea8348fd569db
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965897"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605601"
 ---
-# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Mover recursos do aplicativo lógico para outras assinaturas, grupos de recursos ou regiões do Azure
+# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Mover recursos de aplicações lógicas para outras subscrições do Azure, grupos de recursos ou regiões
 
-Para mover seu aplicativo lógico ou recursos relacionados para outra assinatura, grupo de recursos ou região do Azure, você tem várias maneiras de concluir essas tarefas, como o portal do Azure, Azure PowerShell, CLI do Azure e a API REST. Antes de mover os recursos, examine estas considerações: 
+Para migrar a sua aplicação lógica ou recursos relacionados para outra subscrição, grupo de recursos ou região do Azure, tem várias formas de completar estas tarefas, tais como o portal Azure, Azure PowerShell, Azure CLI e REST API. Antes de mover recursos, reveja estas considerações: 
 
-* Você pode mover apenas [tipos de recursos de aplicativo lógico específicos](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) entre assinaturas ou grupos de recursos do Azure.
+* Só pode mover [tipos específicos de recursos de aplicações lógicas](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) entre grupos de recursos Do Azure ou subscrições.
 
-* Verifique os [limites](../logic-apps/logic-apps-limits-and-config.md) no número de recursos do aplicativo lógico que você pode ter em sua assinatura do Azure e em cada região do Azure. Esses limites afetam se você pode mover tipos de recursos específicos quando a região permanece a mesma em assinaturas ou grupos de recursos. Por exemplo, você pode ter apenas uma conta de integração de camada gratuita para cada região do Azure em cada assinatura do Azure.
+* Verifique os [limites](../logic-apps/logic-apps-limits-and-config.md) do número de recursos de aplicações lógicas que pode ter na sua subscrição Azure e em cada região do Azure. Estes limites afetam se pode mover tipos de recursos específicos quando a região permanece a mesma entre subscrições ou grupos de recursos. Por exemplo, você pode ter apenas uma conta de integração de nível livre para cada região Azure em cada subscrição Azure.
 
-* Quando você move recursos, o Azure cria novas IDs de recurso. Portanto, certifique-se de usar as novas IDs em vez disso e atualizar quaisquer scripts ou ferramentas associadas aos recursos movidos. Depois de mover os aplicativos lógicos entre assinaturas, grupos de recursos ou regiões, você deve recriar ou reautorizar quaisquer conexões baseadas em OAuth.
+* Depois de migrar aplicações lógicas entre subscrições, grupos de recursos ou regiões, deve recriar ou reautorizar quaisquer ligações que exijam autenticação aberta (OAuth).
+
+* Sempre que movimenta recursos, o Azure cria novas identidades de recursos. Por isso, certifique-se de que utiliza os novos IDs e atualize quaisquer scripts ou ferramentas que estejam associadas aos recursos movidos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A mesma assinatura do Azure que foi usada para criar o aplicativo lógico ou a conta de integração que você deseja mover
+* A mesma subscrição azure que foi usada para criar a app lógica ou conta de integração que você quer mover
 
-* Permissões do proprietário do recurso para mover e configurar os recursos desejados. Saiba mais sobre o [RBAC (controle de acesso baseado em função)](../role-based-access-control/built-in-roles.md#owner).
+* O proprietário de recursos permissões para mover e configurar os recursos que você quer. Saiba mais sobre [o controlo de acesso baseado em papéis (RBAC)](../role-based-access-control/built-in-roles.md#owner).
 
 <a name="move-subscription"></a>
 
-## <a name="move-resources-between-subscriptions"></a>Mover recursos entre assinaturas
+## <a name="move-resources-between-subscriptions"></a>Mover recursos entre subscrições
 
-Para mover um recurso, como um aplicativo lógico ou uma conta de integração, para outra assinatura do Azure, você pode usar a API portal do Azure, Azure PowerShell, CLI do Azure ou REST. Estas etapas abrangem a portal do Azure, que você pode usar quando a região do recurso permanece a mesma. Para obter outras etapas e preparação geral, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Para mover um recurso, como uma app lógica ou uma conta de integração, para outra subscrição do Azure, pode utilizar o portal Azure, Azure PowerShell, Azure CLI ou REST API. Estes passos cobrem o portal Azure, que pode utilizar quando a região do recurso permanece a mesma. Para outras etapas e preparação geral, consulte [mover recursos para um novo grupo de recursos ou subscrição.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
-1. Na [portal do Azure](https://portal.azure.com), localize e selecione o recurso de aplicativo lógico que você deseja mover.
+1. No [portal Azure,](https://portal.azure.com)encontre e selecione o recurso de aplicações lógicas que pretende mover.
 
-1. Na página **visão geral** do recurso, ao lado de **assinatura**, selecione o link **alterar** .
+1. Na página **'Overview'** do recurso, junto à **Subscrição,** selecione o link **de alteração.**
 
-1. Na página **mover recursos** , selecione o recurso aplicativo lógico e todos os recursos relacionados que você deseja mover.
+1. Na página **de recursos Move,** selecione o recurso de aplicações lógicae quaisquer recursos relacionados que queira mover.
 
-1. Na lista **assinatura** , selecione a assinatura de destino.
+1. Na lista **de Subscrição,** selecione a subscrição do destino.
 
-1. Na lista **grupo de recursos** , selecione o grupo de recursos de destino. Ou, para criar um grupo de recursos diferente, selecione **criar um novo grupo**.
+1. A partir da lista de **grupos de Recursos,** selecione o grupo de recursos de destino. Ou, para criar um grupo de recursos diferente, selecione **Criar um novo grupo**.
 
-1. Para confirmar sua compreensão de que qualquer script ou ferramenta associada aos recursos movidos não funcionará até você atualizá-los com as novas IDs de recurso, selecione a caixa de confirmação e, em seguida, selecione **OK**.
+1. Para confirmar a sua compreensão de que quaisquer scripts ou ferramentas associadas aos recursos movidos não funcionarão até que os atualize com os novos IDs de recurso, selecione a caixa de confirmação e, em seguida, selecione **OK**.
 
 <a name="move-resource-group"></a>
 
 ## <a name="move-resources-between-resource-groups"></a>Mover recursos entre grupos de recursos
 
-Para mover um recurso, como um aplicativo lógico ou uma conta de integração, para outro grupo de recursos do Azure, você pode usar a API portal do Azure, Azure PowerShell, CLI do Azure ou REST. Estas etapas abrangem a portal do Azure, que você pode usar quando a região do recurso permanece a mesma. Para obter outras etapas e preparação geral, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Para mover um recurso, como uma app lógica ou uma conta de integração, para outro grupo de recursos Azure, pode utilizar o portal Azure, Azure PowerShell, Azure CLI ou REST API. Estes passos cobrem o portal Azure, que pode utilizar quando a região do recurso permanece a mesma. Para outras etapas e preparação geral, consulte [mover recursos para um novo grupo de recursos ou subscrição.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
-Antes de realmente mover recursos entre grupos, você pode testar se é possível mover o recurso com êxito para outro grupo. Para obter mais informações, consulte [validar sua movimentação](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
+Antes de realmente mover recursos entre grupos, você pode testar se você pode mover com sucesso o seu recurso para outro grupo. Para mais informações, consulte [Validar o seu movimento](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 
-1. Na [portal do Azure](https://portal.azure.com), localize e selecione o recurso de aplicativo lógico que você deseja mover.
+1. No [portal Azure,](https://portal.azure.com)encontre e selecione o recurso de aplicações lógicas que pretende mover.
 
-1. Na página **visão geral** do recurso, ao lado de **grupo de recursos**, selecione o link **alterar** .
+1. Na página **'Overview'** do recurso, junto ao **grupo Recurso,** selecione o link de **alteração.**
 
-1. Na página **mover recursos** , selecione o recurso aplicativo lógico e todos os recursos relacionados que você deseja mover.
+1. Na página **de recursos Move,** selecione o recurso de aplicações lógicae quaisquer recursos relacionados que queira mover.
 
-1. Na lista **grupo de recursos** , selecione o grupo de recursos de destino. Ou, para criar um grupo de recursos diferente, selecione **criar um novo grupo**.
+1. A partir da lista de **grupos de Recursos,** selecione o grupo de recursos de destino. Ou, para criar um grupo de recursos diferente, selecione **Criar um novo grupo**.
 
-1. Para confirmar sua compreensão de que qualquer script ou ferramenta associada aos recursos movidos não funcionará até você atualizá-los com as novas IDs de recurso, selecione a caixa de confirmação e, em seguida, selecione **OK**.
+1. Para confirmar a sua compreensão de que quaisquer scripts ou ferramentas associadas aos recursos movidos não funcionarão até que os atualize com os novos IDs de recurso, selecione a caixa de confirmação e, em seguida, selecione **OK**.
 
 <a name="move-location"></a>
 
-## <a name="move-resources-between-regions"></a>Mover recursos entre regiões
+## <a name="move-resources-between-regions"></a>Movimentar recursos entre regiões
 
-Quando você deseja mover um aplicativo lógico para uma região diferente, suas opções dependem da maneira como você criou seu aplicativo lógico. Com base na opção escolhida, você deve recriar ou reautorizar as conexões em seu aplicativo lógico.
+Quando pretende mover uma aplicação lógica para uma região diferente, as suas opções dependem da forma como criou a sua aplicação lógica. Com base na opção que escolher, deve recriar ou reautorizar as ligações na sua aplicação lógica.
 
-* No portal do Azure, recrie o aplicativo lógico na nova região e reconfigure as configurações de fluxo de trabalho. Para economizar tempo, você pode copiar a definição de fluxo de trabalho subjacente e as conexões do aplicativo de origem para o aplicativo de destino. Para exibir o "código" por trás de um aplicativo lógico, na barra de ferramentas do designer do aplicativo lógico, selecione **exibição de código**.
+* No portal Azure, recrie a aplicação lógica na nova região e reconfigure as definições de fluxo de trabalho. Para poupar tempo, pode copiar a definição de fluxo de trabalho subjacente e as ligações da aplicação de origem para a aplicação de destino. Para ver o "código" por trás de uma aplicação lógica, na barra de ferramentas Logic App Designer, selecione **a visão**de Código .
 
-* Usando o Visual Studio e as ferramentas de aplicativos lógicos do Azure para Visual Studio, você pode [abrir e baixar seu aplicativo lógico](../logic-apps/manage-logic-apps-with-visual-studio.md) do portal do Azure como um [modelo de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). Este modelo está quase sempre pronto para implantação e inclui as definições de recursos para seu aplicativo lógico, incluindo o próprio fluxo de trabalho e conexões. O modelo também declara parâmetros para os valores a serem usados na implantação. Dessa forma, você pode alterar mais facilmente onde e como implantar o aplicativo lógico, com base em suas necessidades. Para especificar o local e outras informações necessárias para a implantação, você pode usar um arquivo de parâmetros separado.
+* Ao utilizar o Visual Studio e as Ferramentas de Aplicações Lógicas Azure para Estúdio Visual, pode abrir e descarregar a [sua aplicação lógica](../logic-apps/manage-logic-apps-with-visual-studio.md) a partir do portal Azure como [modelo de Gestor de Recursos Azure.](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) Este modelo está maioritariamente pronto para ser implantado e inclui as definições de recursos para a sua aplicação lógica, incluindo o próprio fluxo de trabalho, e ligações. O modelo também declara parâmetros para os valores a utilizar na implantação. Dessa forma, pode mudar mais facilmente onde e como implementa a aplicação lógica, com base nas suas necessidades. Para especificar a localização e outras informações necessárias para a implementação, pode utilizar um ficheiro de parâmetros separados.
 
-* Se você criou e implantou seu aplicativo lógico usando ferramentas de CI (integração contínua) e CD (entrega contínua), como Azure Pipelines no Azure DevOps, você pode implantar seu aplicativo em outra região usando essas ferramentas.
+* Se criou e implementou a sua aplicação lógica utilizando ferramentas de integração contínua (CI) e entrega contínua (CD), como o Azure Pipelines em Azure DevOps, pode implementar a sua app para outra região utilizando essas ferramentas.
 
-Para obter mais informações sobre modelos de implantação para aplicativos lógicos, consulte estes tópicos:
+Para obter mais informações sobre modelos de implementação para aplicações lógicas, consulte estes tópicos:
 
-* [Visão geral: automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Localizar, abrir e baixar seu aplicativo lógico do portal do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
-* [Criar modelos de Azure Resource Manager para aplicativos lógicos do Azure](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
-* [Implantar modelos de Azure Resource Manager para aplicativos lógicos do Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
+* [Visão geral: Implementação automática para Aplicações Lógicas Azure utilizando modelos de Gestor de Recursos Azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Encontre, abra e descarregue a sua aplicação lógica do portal Azure para o Estúdio Visual](../logic-apps/manage-logic-apps-with-visual-studio.md)
+* [Crie modelos de Gestor de Recursos Azure para aplicações lógicas azure](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
+* [Implementar modelos de Gestor de Recursos Azure para aplicações lógicas azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 
 ### <a name="related-resources"></a>Recursos relacionados
 
-Alguns recursos do Azure, como recursos de gateway de dados locais no Azure, podem existir em uma região diferente dos aplicativos lógicos que usam esses recursos. No entanto, outros recursos do Azure, como contas de integração vinculadas, devem existir na mesma região que seus aplicativos lógicos. Com base em seu cenário, certifique-se de que seus aplicativos lógicos possam acessar os recursos que seus aplicativos esperam que existam na mesma região.
+Alguns recursos do Azure, como os recursos de gateway de dados no Local em Azure, podem existir numa região que difere das aplicações lógicas que utilizam esses recursos. No entanto, outros recursos do Azure, como contas de integração ligadas, devem existir na mesma região que as suas aplicações lógicas. Com base no seu cenário, certifique-se de que as suas aplicações lógicas podem aceder aos recursos que as suas apps esperam existir na mesma região.
 
-Por exemplo, para vincular um aplicativo lógico a uma conta de integração, ambos os recursos devem existir na mesma região. Em cenários como a recuperação de desastres, geralmente você deseja contas de integração que tenham a mesma configuração e artefatos. Em outros cenários, talvez seja necessário ter contas de integração com diferentes configurações e artefatos.
+Por exemplo, para ligar uma aplicação lógica a uma conta de integração, ambos os recursos devem existir na mesma região. Em cenários como a recuperação de desastres, normalmente quer contas de integração que tenham a mesma configuração e artefactos. Noutros cenários, poderá necessitar de contas de integração com diferentes configurações e artefactos.
 
-Os conectores personalizados nos aplicativos lógicos do Azure são visíveis para os autores e usuários dos conectores que têm a mesma assinatura do Azure e o mesmo locatário Azure Active Directory. Esses conectores estão disponíveis na mesma região em que os aplicativos lógicos são implantados. Para obter mais informações, veja [Partilhar conectores personalizados na sua organização](https://docs.microsoft.com/connectors/custom-connectors/share).
+Os conectores personalizados em Aplicações Lógicas Azure são visíveis para os autores e utilizadores dos conectores que têm a mesma subscrição Azure e o mesmo inquilino azure Ative Directory. Estes conectores estão disponíveis na mesma região onde são implementadas aplicações lógicas. Para obter mais informações, veja [Partilhar conectores personalizados na sua organização](https://docs.microsoft.com/connectors/custom-connectors/share).
 
-O modelo obtido do Visual Studio inclui apenas as definições de recurso para seu aplicativo lógico e suas conexões. Portanto, se seu aplicativo lógico usar outros recursos, por exemplo, uma conta de integração e artefatos B2B, como parceiros, contratos e esquemas, você deverá exportar o modelo da conta de integração usando o portal do Azure. Este modelo inclui as definições de recursos para a conta de integração e os artefatos. No entanto, o modelo não é totalmente parametrizado. Portanto, você deve parametrizar manualmente os valores que deseja usar para a implantação.
+O modelo que obtém do Visual Studio inclui apenas as definições de recursos para a sua aplicação lógica e as suas ligações. Assim, se a sua aplicação lógica utiliza outros recursos, por exemplo, uma conta de integração e artefactos B2B, como parceiros, acordos e esquemas, você deve exportar o modelo dessa conta de integração usando o portal Azure. Este modelo inclui as definições de recursos tanto para a conta de integração como para os artefactos. No entanto, o modelo não está totalmente parametrizado. Por isso, tem de parametrizar manualmente os valores que pretende utilizar para a sua implantação.
 
-### <a name="export-templates-for-integration-accounts"></a>Exportar modelos para contas de integração
+### <a name="export-templates-for-integration-accounts"></a>Modelos de exportação para contas de integração
 
-1. Na [portal do Azure](https://portal.azure.com), localize e abra sua conta de integração.
+1. No [portal Azure,](https://portal.azure.com)encontre e abra a sua conta de integração.
 
-1. No menu da sua conta de integração, em **configurações**, selecione **Exportar modelo**.
+1. No menu da sua conta de integração, em **Definições,** selecione modelo de **exportação**.
 
-1. Na barra de ferramentas, selecione **baixar**e salve o modelo.
+1. Na barra de ferramentas, selecione **Descarregar**e guardar o modelo.
 
 1. Abra e edite o modelo para parametrizar os valores necessários para a implantação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Mover recursos do Azure para novos grupos de recursos ou assinaturas](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+[Mover recursos do Azure para novos grupos de recursos ou subscrições](../azure-resource-manager/management/move-resource-group-and-subscription.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dcb0ffef0cf48a7bcbfbdb0107999f7e90333559
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77151994"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598576"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
 
@@ -51,8 +51,8 @@ Consulte a secção de metas de escala de conta de [armazenamento Azure](#azure-
 ### <a name="file-share-and-file-scale-targets"></a>Alvos de partilha de ficheiros e escala de ficheiros
 
 > [!NOTE]
-> As ações de ficheiros padrão superiores a 5 TiB têm certas limitações.
-> Para obter uma lista de limitações, informações regionais e instruções para permitir estes tamanhos maiores de partilha de ficheiros, consulte o [Bordo para maiores partilhas](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) de ficheiros do guia de planeamento.
+> As ações de ficheiros standard superiores a 5 TiB têm certas limitações e restrições regionais.
+> Para obter uma lista de limitações, informações regionais e instruções para permitir estes tamanhos maiores de partilha de ficheiros, consulte o [Bordo para maiores partilhas](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) de ficheiros do guia de planeamento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -111,7 +111,7 @@ Como um guia Geral para a sua implementação, deve manter algumas coisas em men
 - Aproximadamente dimensiona o débito de objeto forma proporcional, segundo o número de grupos de sincronização no servidor. Dividir dados em vários grupos de sincronização num servidor produz o melhor débito, também é limitado pela rede e do servidor.
 - O débito de objeto é inversamente proporcional ao MiB por segundo de débito. Para ficheiros mais pequenos, terá um débito mais elevado em termos de número de objetos processados por segundo, mas inferior MiB por segundo de débito. Por outro lado, para arquivos grandes, irá obter menos objetos processados por segundo, mas superior MiB por segundo de débito. O MiB por segundo de débito é limitado pelos alvos de dimensionamento de ficheiros do Azure.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)

@@ -1,106 +1,103 @@
 ---
-title: Configurar a rede kubenet no serviço kubernetes do Azure (AKS)
-description: Saiba como configurar a rede kubenet (básica) no AKS (serviço kubernetes do Azure) para implantar um cluster AKS em uma rede virtual e sub-rede existentes.
+title: Configure rede kubenet no Serviço Azure Kubernetes (AKS)
+description: Aprenda a configurar a rede kubenet (básica) no Serviço Azure Kubernetes (AKS) para implantar um cluster AKS numa rede virtual e subnet existentes.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 382895c1b5a4cb2bc88ff2371cec59267ea4e176
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9931c752d5ce33beb41dc00194c27d06b9469807
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442931"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595898"
 ---
-# <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usar a rede kubenet com seus próprios intervalos de endereços IP no serviço de kubernetes do Azure (AKS)
+# <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
-Por padrão, os clusters AKS usam [kubenet][kubenet]e uma rede virtual do Azure e uma sub-rede são criadas para você. Com o *kubenet*, os nós obtêm um endereço IP da sub-rede da rede virtual do Azure. Os pods recebem um endereço IP de um espaço de endereço logicamente diferente para a sub-rede da rede virtual do Azure dos nós. A conversão de endereços de rede (NAT) é então configurada para que o pods possa alcançar recursos na rede virtual do Azure. O endereço IP de origem do tráfego é NAT para o endereço IP primário do nó. Essa abordagem reduz consideravelmente o número de endereços IP que você precisa reservar em seu espaço de rede para que os pods usem.
+Por padrão, os clusters AKS usam [kubenet][kubenet], e uma rede virtual Azure e subnet são criados para si. Com *kubenet,* os nós obtêm um endereço IP da subnet da rede virtual Azure. As cápsulas recebem um endereço IP de um espaço de endereço logicamente diferente para a subnet de rede virtual Azure dos nódosos. A tradução de endereços de rede (NAT) é então configurada para que as cápsulas possam chegar a recursos na rede virtual Azure. O endereço IP de origem do tráfego é NAT'd para o endereço IP primário do nó. Esta abordagem reduz consideravelmente o número de endereços IP que precisa de reservar no seu espaço de rede para que as cápsulas possam utilizar.
 
-Com a [CNI (interface de rede de contêiner do Azure)][cni-networking], cada pod Obtém um endereço IP da sub-rede e pode ser acessado diretamente. Esses endereços IP devem ser exclusivos em todo o espaço de rede e devem ser planejados antecipadamente. Cada nó tem um parâmetro de configuração para o número máximo de pods que oferece suporte. O número equivalente de endereços IP por nó é então reservado antecipadamente para esse nó. Essa abordagem requer mais planejamento e, muitas vezes, leva a esgotamento de endereço IP ou a necessidade de recriar clusters em uma sub-rede maior conforme as demandas do seu aplicativo crescem.
+Com interface de rede de [contentores Azure (CNI),][cni-networking]cada cápsula recebe um endereço IP da subnet e pode ser acedida diretamente. Estes endereços IP devem ser únicos em todo o espaço da sua rede, e devem ser planeados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de cápsulas que suporta. O número equivalente de endereços IP por nó é então reservado à frente para esse nó. Esta abordagem requer mais planeamento, e muitas vezes leva à exaustão do endereço IP ou à necessidade de reconstruir clusters numa subrede maior à medida que a sua aplicação exige crescer.
 
-Este artigo mostra como usar a rede *kubenet* para criar e usar uma sub-rede de rede virtual para um cluster AKs. Para obter mais informações sobre opções e considerações de rede, consulte [conceitos de rede para kubernetes e AKs][aks-network-concepts].
+Este artigo mostra-lhe como usar a rede *kubenet* para criar e usar uma subnet de rede virtual para um cluster AKS. Para obter mais informações sobre opções e considerações de rede, consulte os conceitos de [rede para Kubernetes e AKS][aks-network-concepts].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A rede virtual para o cluster AKS deve permitir a conectividade de Internet de saída.
-* Não crie mais de um cluster AKS na mesma sub-rede.
-* Os clusters AKS não podem usar `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`ou `192.0.2.0/24` para o intervalo de endereços do serviço kubernetes.
-* A entidade de serviço usada pelo cluster AKS deve ter pelo menos permissões de [colaborador de rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede em sua rede virtual. Se você quiser definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de colaborador de rede interna, as seguintes permissões serão necessárias:
+* A rede virtual para o cluster AKS deve permitir a conectividade de acesso à Internet.
+* Não crie mais do que um aglomerado AKS na mesma sub-rede.
+* Os clusters AKS não podem utilizar `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`ou `192.0.2.0/24` para a gama de endereços de serviço Kubernetes.
+* O principal de serviço utilizado pelo cluster AKS deve ter pelo menos permissões de Colaborador de [Rede](../role-based-access-control/built-in-roles.md#network-contributor) na subrede dentro da sua rede virtual. Se desejar definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de utilizar a função de Colaborador de Rede incorporada, são necessárias as seguintes permissões:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 > [!WARNING]
-> Para usar pools de nós do Windows Server (atualmente em visualização no AKS), você deve usar o CNI do Azure. O uso de kubenet como o modelo de rede não está disponível para contêineres do Windows Server.
+> Para utilizar piscinas de nó do Windows Server (atualmente em pré-visualização no AKS), tem de utilizar o Azure CNI. A utilização do kubenet uma vez que o modelo de rede não está disponível para os recipientes do Windows Server.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.65 ou posterior instalado e configurado. Execute `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
+Precisa da versão Azure CLI 2.0.65 ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
-## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Visão geral da rede kubenet com sua própria sub-rede
+## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Visão geral da rede kubenet com a sua própria subnet
 
-Em muitos ambientes, você definiu redes virtuais e sub-redes com intervalos de endereços IP alocados. Esses recursos de rede virtual são usados para dar suporte a vários serviços e aplicativos. Para fornecer conectividade de rede, os clusters AKS podem usar o *kubenet* (rede básica) ou o Azure CNI (*rede avançada*).
+Em muitos ambientes, definiu redes virtuais e subredes com gamas de endereços IP atribuídos. Estes recursos de rede virtuais são utilizados para suportar múltiplos serviços e aplicações. Para fornecer conectividade de rede, os clusters AKS podem usar *kubenet* (networking básico) ou Azure CNI *(networking avançado).*
 
-Com o *kubenet*, somente os nós recebem um endereço IP na sub-rede da rede virtual. Os pods não podem se comunicar diretamente entre si. Em vez disso, o roteamento definido pelo usuário (UDR) e o encaminhamento de IP são usados para conectividade entre os pods entre os nós. Você também pode implantar pods atrás de um serviço que recebe um endereço IP atribuído e o tráfego de balanceamento de carga para o aplicativo. O diagrama a seguir mostra como os nós AKS recebem um endereço IP na sub-rede da rede virtual, mas não os pods:
+Com *kubenet*, apenas os nós recebem um endereço IP na subnet da rede virtual. As cápsulas não conseguem comunicar-se diretamente umas com as outras. Em vez disso, o encaminhamento definido pelo utilizador (UDR) e o encaminhamento IP são utilizados para a conectividade entre as cápsulas através dos nós. Também pode implantar cápsulas atrás de um serviço que receba um endereço IP atribuído e equilibra o tráfego de carga para a aplicação. O diagrama que se segue mostra como os nós AKS recebem um endereço IP na subnet da rede virtual, mas não as cápsulas:
 
 ![Modelo de rede Kubenet com um cluster AKS](media/use-kubenet/kubenet-overview.png)
 
-O Azure dá suporte a um máximo de 400 rotas em um UDR, portanto, você não pode ter um cluster AKS com mais de 400 nós. Não há suporte para [nós virtuais][virtual-nodes] AKs e políticas de rede do Azure com *kubenet*.  Você pode usar [as políticas de rede do Calico][calico-network-policies], pois elas têm suporte com o kubenet.
+O Azure suporta um máximo de 400 rotas num UDR, por isso não pode ter um cluster AKS superior a 400 nós. Os [nós virtuais aks][virtual-nodes] e as políticas de rede Azure não são suportados com *kubenet*.  Você pode usar [as Políticas de Rede Calico][calico-network-policies], pois são suportadas com kubenet.
 
-Com o *Azure CNI*, cada pod recebe um endereço IP na sub-rede IP e pode se comunicar diretamente com outros pods e serviços. Os clusters podem ser tão grandes quanto o intervalo de endereços IP que você especificar. No entanto, o intervalo de endereços IP deve ser planejado antecipadamente e todos os endereços IP são consumidos pelos nós AKS com base no número máximo de pods para os quais eles podem dar suporte. Recursos e cenários de rede avançados, como [nós virtuais][virtual-nodes] ou políticas de rede (Azure ou Calico), têm suporte com o *CNI do Azure*.
+Com o *Azure CNI,* cada cápsula recebe um endereço IP na subnet IP e pode comunicar diretamente com outras cápsulas e serviços. Os seus clusters podem ser tão grandes quanto o intervalo de endereçoIP que especifica. No entanto, a gama de endereços IP deve ser planeada com antecedência e todos os endereços IP são consumidos pelos nós AKS com base no número máximo de cápsulas que podem suportar. As funcionalidades e cenários avançados da rede, tais como [Nóes virtuais][virtual-nodes] ou políticas de rede (azure ou Calico) são suportados com *O Azure CNI*.
 
-### <a name="ip-address-availability-and-exhaustion"></a>Disponibilidade e esgotamento do endereço IP
+### <a name="ip-address-availability-and-exhaustion"></a>Disponibilidade e exaustão de endereçoIP
 
-Com o *Azure CNI*, um problema comum é que o intervalo de endereços IP atribuído é muito pequeno para, em seguida, adicionar mais nós ao dimensionar ou atualizar um cluster. A equipe de rede também pode não ser capaz de emitir um grande intervalo de endereços IP suficiente para dar suporte às demandas de aplicativos esperadas.
+Com *o Azure CNI,* uma questão comum é que a gama de endereços IP atribuído é demasiado pequena para depois adicionar nós adicionais quando escala ou atualiza um cluster. A equipa de rede também pode não ser capaz de emitir uma gama de endereços IP suficientemente grande para suportar as suas exigências de aplicação esperadas.
 
-Como um comprometimento, você pode criar um cluster AKS que usa o *kubenet* e conectar-se a uma sub-rede de rede virtual existente. Essa abordagem permite que os nós recebam endereços IP definidos, sem a necessidade de reservar um grande número de endereços IP antecipadamente para todo o pods potencial que poderia ser executado no cluster.
+Como um compromisso, você pode criar um cluster AKS que usa *kubenet* e conectar-se a uma subnet de rede virtual existente. Esta abordagem permite que os nós recebam endereços IP definidos, sem a necessidade de reservar um grande número de endereços IP na frente para todos os potenciais casulos que poderiam ser executados no cluster.
 
-Com o *kubenet*, você pode usar um intervalo de endereços IP muito menor e ser capaz de dar suporte a clusters grandes e demandas de aplicativos. Por exemplo, mesmo com um intervalo de endereços IP */27* , você pode executar um cluster de nó de 20-25 com espaço suficiente para dimensionar ou atualizar. Esse tamanho de cluster dá suporte a até *2200 2750* pods (com um máximo padrão de 110 pods por nó). O número máximo de pods por nó que você pode configurar com *kubenet* em AKS é 110.
+Com *kubenet,* você pode usar uma gama de endereços IP muito menor e ser capaz de suportar grandes clusters e exigências de aplicação. Por exemplo, mesmo com uma gama de endereços IP */27,* você poderia executar um cluster de nó de 20-25 com espaço suficiente para escalar ou atualizar. Este tamanho do cluster suportaria até *2.200-2.750* cápsulas (com um máximo de 110 cápsulas por nó). O número máximo de cápsulas por nó que pode configurar com *kubenet* em AKS é de 110.
 
 Os seguintes cálculos básicos comparam a diferença nos modelos de rede:
 
-- **kubenet** -um intervalo de endereços IP simples */24* pode dar suporte a até *251* nós no cluster (cada sub-rede da rede virtual do Azure reserva os três primeiros endereços IP para operações de gerenciamento)
-  - Esta contagem de nós pode dar suporte a até *27.610* pods (com um máximo padrão de 110 pods por nó com *kubenet*)
-- **Azure CNI** -esse mesmo intervalo de sub-rede básico */24* poderia dar suporte apenas a um máximo de *8* nós no cluster
-  - Essa contagem de nós só pode dar suporte a até *240* pods (com um máximo padrão de 30 pods por nó com o *Azure CNI*)
+- **kubenet** - uma gama de endereços IP simples */24* pode suportar até *251* nós no cluster (cada subnet de rede virtual Azure reserva os três primeiros endereços IP para operações de gestão)
+  - Esta contagem de nós poderia suportar até *27.610* cápsulas (com um máximo de 110 cápsulas por nó com *kubenet)*
+- **Azure CNI** - a mesma gama básica de sub-rede */24* só poderia suportar um máximo de *8* nós no cluster
+  - Esta contagem de nós só poderia suportar até *240* cápsulas (com um máximo de 30 cápsulas por nó com *Azure CNI)*
 
 > [!NOTE]
-> Esses máximos não levam em conta as operações de atualização ou de escala. Na prática, você não pode executar o número máximo de nós aos quais o intervalo de endereços IP de sub-rede dá suporte. Você deve deixar alguns endereços IP disponíveis para uso durante a escala de operações de atualização.
+> Estes máximos não têm em conta operações de atualização ou escala. Na prática, não é possível executar o número máximo de nós que a gama de endereços IP da sub-rede suporta. Deve deixar alguns endereços IP disponíveis para utilização durante a escala de operações de atualização.
 
-### <a name="virtual-network-peering-and-expressroute-connections"></a>Conexões de emparelhamento de rede virtual e ExpressRoute
+### <a name="virtual-network-peering-and-expressroute-connections"></a>Ligações de rede virtual e expressRoute
 
-Para fornecer conectividade local, as abordagens de rede *kubenet* e *Azure-CNI* podem usar o [emparelhamento de rede virtual do Azure][vnet-peering] ou [as conexões de ExpressRoute][express-route]. Planeje seus intervalos de endereços IP com cuidado para evitar sobreposição e roteamento de tráfego incorreto. Por exemplo, muitas redes locais usam um intervalo de endereços *10.0.0.0/8* que é anunciado na conexão do ExpressRoute. É recomendável criar seus clusters do AKS em sub-redes da rede virtual do Azure fora desse intervalo de endereços, como *172.16.0.0/16*.
+Para fornecer conectividade no local, tanto as abordagens da rede *Kubenet* como *da Rede Azure-CNI* podem utilizar ligações [de rede virtual Azure][vnet-peering] ou [ExpressRoute.][express-route] Planeie cuidadosamente os seus intervalos de endereçoIP para evitar sobreposições e encaminhamento de tráfego incorreto. Por exemplo, muitas redes no local utilizam uma gama de endereços *10.0.0.0/8* que é publicitada sobre a ligação ExpressRoute. É aconselhável criar os seus clusters AKS em subredes de rede virtual Azure fora desta gama de endereços, tais como *172.16.0.0.0/16*.
 
-### <a name="choose-a-network-model-to-use"></a>Escolha um modelo de rede a ser usado
+### <a name="choose-a-network-model-to-use"></a>Escolha um modelo de rede para usar
 
-A escolha de qual plug-in de rede usar para o cluster AKS é geralmente um equilíbrio entre a flexibilidade e as necessidades de configuração avançadas. As considerações a seguir ajudam a descrever quando cada modelo de rede pode ser o mais apropriado.
+A escolha do plugin de rede a utilizar para o seu cluster AKS é geralmente um equilíbrio entre flexibilidade e necessidades avançadas de configuração. As seguintes considerações ajudam a delinear quando cada modelo de rede pode ser o mais adequado.
 
 Use *kubenet* quando:
 
-- Você tem espaço de endereço IP limitado.
-- A maior parte da comunicação Pod está dentro do cluster.
-- Você não precisa de recursos avançados do AKS, como nós virtuais ou política de rede do Azure.  Use [as políticas de rede do Calico][calico-network-policies].
+- Tem espaço limitado de endereçoIP.
+- A maior parte da comunicação da cápsula está dentro do aglomerado.
+- Não precisa de funcionalidades avançadas de AKS, tais como nódos os virtuais ou a Política de Rede Azure.  Utilize as políticas de [rede Calico.][calico-network-policies]
 
-Use o *CNI do Azure* quando:
+Utilize *o Azure CNI* quando:
 
-- Você tem espaço de endereço IP disponível.
-- A maior parte da comunicação pod é para os recursos fora do cluster.
-- Você não deseja gerenciar o UDRs.
-- Você precisa de recursos avançados do AKS, como nós virtuais ou política de rede do Azure.  Use [as políticas de rede do Calico][calico-network-policies].
+- Tem espaço de endereço IP disponível.
+- A maior parte da comunicação da cápsula é para recursos fora do aglomerado.
+- Não queres gerir os UDRs.
+- Precisa de funcionalidades avançadas AKS, como nódos os virtuais ou a Política de Rede Azure.  Utilize as políticas de [rede Calico.][calico-network-policies]
 
-Para obter mais informações para ajudá-lo a decidir qual modelo de rede usar, consulte [comparar modelos de rede e seu escopo de suporte][network-comparisons].
+Para obter mais informações para o ajudar a decidir qual o modelo de rede a utilizar, consulte [a Compare os modelos de rede e o seu âmbito][network-comparisons]de suporte .
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e uma sub-rede
 
-Para começar a usar o *kubenet* e sua própria sub-rede de rede virtual, primeiro crie um grupo de recursos usando o comando [AZ Group Create][az-group-create] . O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Para começar com o uso de *kubenet* e sua própria rede virtual subnet, primeiro crie um grupo de recursos usando o [grupo az criar][az-group-create] comando. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Se você não tiver uma rede virtual e uma sub-rede existentes para usar, crie esses recursos de rede usando o comando [AZ Network vnet Create][az-network-vnet-create] . No exemplo a seguir, a rede virtual é nomeada *myVnet* com o prefixo de endereço de *192.168.0.0/16*. Uma sub-rede é criada chamada *myAKSSubnet* com o prefixo de endereço *192.168.1.0/24*.
+Se não tiver uma rede virtual e uma subrede existentes para utilizar, crie estes recursos de rede utilizando o comando da [rede az.][az-network-vnet-create] No exemplo seguinte, a rede virtual é nomeada *myVnet* com o prefixo de endereço de *192.168.0.0.0.0/16*. É criada uma sub-rede denominada *myAKSSubnet* com o prefixo de endereço *192.168.1.0/24*.
 
 ```azurecli-interactive
 az network vnet create \
@@ -111,15 +108,15 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-## <a name="create-a-service-principal-and-assign-permissions"></a>Criar uma entidade de serviço e atribuir permissões
+## <a name="create-a-service-principal-and-assign-permissions"></a>Criar um diretor de serviço e atribuir permissões
 
-Para permitir que um cluster do AKS interaja com outros recursos do Azure, é utilizado um principal de serviço do Azure Active Directory. A entidade de serviço precisa ter permissões para gerenciar a rede virtual e a sub-rede que os nós AKS usam. Para criar uma entidade de serviço, use o comando [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] :
+Para permitir que um cluster do AKS interaja com outros recursos do Azure, é utilizado um principal de serviço do Azure Active Directory. O diretor de serviço precisa de ter permissões para gerir a rede virtual e sub-rede que os nódosos AKS usam. Para criar um diretor de serviço, utilize o comando [az ad sp create-for-rbac:][az-ad-sp-create-for-rbac]
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
-A saída de exemplo a seguir mostra a ID do aplicativo e a senha para sua entidade de serviço. Esses valores são usados em etapas adicionais para atribuir uma função à entidade de serviço e, em seguida, criar o cluster AKS:
+A saída de exemplo seguinte mostra o ID da aplicação e a palavra-passe para o seu diretor de serviço. Estes valores são utilizados em passos adicionais para atribuir uma função ao diretor de serviço e, em seguida, criar o cluster AKS:
 
 ```console
 $ az ad sp create-for-rbac --skip-assignment
@@ -133,14 +130,14 @@ $ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-Para atribuir as delegações corretas nas etapas restantes, use os comandos [AZ Network vnet show][az-network-vnet-show] e [AZ Network vnet subnet show][az-network-vnet-subnet-show] para obter as IDs de recurso necessárias. Essas IDs de recurso são armazenadas como variáveis e referenciadas nas etapas restantes:
+Para atribuir as delegações corretas nas etapas restantes, utilize o [programa vnet da rede Az][az-network-vnet-show] e a [rede az vnet subnet mostrar][az-network-vnet-subnet-show] comandos para obter os IDs de recursos necessários. Estes IDs de recurso são armazenados como variáveis e referenciados nas etapas restantes:
 
 ```azurecli-interactive
 VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet --query id -o tsv)
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Agora, atribua a entidade de serviço para as permissões de *colaborador* do cluster AKs na rede virtual usando o comando [AZ role Assignment Create][az-role-assignment-create] . Forneça seu próprio *\<appId >* conforme mostrado na saída do comando anterior para criar a entidade de serviço:
+Agora atribua o principal de serviço para as permissões do seu cluster AKS *Colaborador* na rede virtual usando a atribuição de [funções az criar][az-role-assignment-create] comando. Forneça o seu próprio *\<appId>* como mostrado na saída do comando anterior para criar o principal de serviço:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -148,20 +145,20 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Criar um cluster AKS na rede virtual
 
-Agora você criou uma rede virtual e uma sub-rede, e criou e atribuiu permissões para uma entidade de serviço usar esses recursos de rede. Agora, crie um cluster AKS em sua rede virtual e sub-rede usando o comando [AZ AKs Create][az-aks-create] . Defina sua própria entidade de serviço *\<appId >* e *\<senha >* , conforme mostrado na saída do comando anterior para criar a entidade de serviço.
+Criou agora uma rede virtual e uma subnet, e criou e atribuiu permissões para um diretor de serviço utilizar esses recursos de rede. Agora crie um cluster AKS na sua rede virtual e subnet usando as [aks az criar][az-aks-create] comando. Defina o seu próprio serviço principal *\<appId>* e *\<password>* como mostra a saída do comando anterior para criar o principal de serviço.
 
-Os seguintes intervalos de endereços IP também são definidos como parte do processo de criação do cluster:
+As seguintes gamas de endereços IP são também definidas como parte do processo de criação do cluster:
 
-* O *--Service-CIDR* é usado para atribuir serviços internos no cluster AKs um endereço IP. Esse intervalo de endereços IP deve ser um espaço de endereço que não esteja em uso em outro lugar em seu ambiente de rede. Esse intervalo inclui todos os intervalos de rede local se você se conectar ou se pretende conectar-se a suas redes virtuais do Azure usando a rota expressa ou uma conexão VPN site a site.
+* O *--serviço-cidr* é usado para atribuir serviços internos no cluster AKS um endereço IP. Esta gama de endereços IP deve ser um espaço de endereço que não esteja a ser utilizado em outros lugares do ambiente da sua rede. Esta gama inclui quaisquer gamas de rede no local se ligar, ou planear ligar, as suas redes virtuais Azure utilizando a Rota Expresso ou uma ligação VPN site-to-site.
 
-* O endereço *--DNS-Service-IP* deve ser o endereço *.10* do intervalo de endereços IP do seu serviço.
+* O endereço *-dns-service-ip* deve ser o endereço *.10* do seu endereço IP de serviço.
 
-* O *--Pod-CIDR* deve ser um espaço de endereço grande que não está em uso em outro lugar em seu ambiente de rede. Esse intervalo inclui todos os intervalos de rede local se você se conectar ou se pretende conectar-se a suas redes virtuais do Azure usando a rota expressa ou uma conexão VPN site a site.
-    * Esse intervalo de endereços deve ser grande o suficiente para acomodar o número de nós que você espera escalar verticalmente. Você não poderá alterar esse intervalo de endereços depois que o cluster for implantado se precisar de mais endereços para nós adicionais.
-    * O intervalo de endereços IP de Pod é usado para atribuir um espaço de endereço */24* a cada nó no cluster. No exemplo a seguir, o *--Pod-CIDR* de *10.244.0.0/16* atribui o primeiro nó *10.244.0.0/24*, o segundo nó *10.244.1.0/24*e o terceiro nó *10.244.2.0/24*.
-    * À medida que o cluster é dimensionado ou atualizado, a plataforma do Azure continua a atribuir um intervalo de endereços IP de Pod a cada novo nó.
+* O *-pod-cidr* deve ser um grande espaço de endereço que não está a ser usado em outros lugares do ambiente da sua rede. Esta gama inclui quaisquer gamas de rede no local se ligar, ou planear ligar, as suas redes virtuais Azure utilizando a Rota Expresso ou uma ligação VPN site-to-site.
+    * Esta gama de endereços deve ser suficientemente grande para acomodar o número de nós que espera escalar. Não pode alterar esta gama de endereços uma vez que o cluster é implantado se precisar de mais endereços para nós adicionais.
+    * A gama de endereços IP da cápsula é utilizada para atribuir um espaço de endereço */24* a cada nó do cluster. No exemplo seguinte, o *--pod-cidr* de *10.244.0.0/16* atribui o primeiro nó *10.244.0.0.0/24*, o segundo nó *10.244.1.0/24*, e o terceiro nó *10.244.2.0/24*.
+    * À medida que o cluster escala ou atualiza, a plataforma Azure continua a atribuir uma gama de endereços IP a cada novo nó.
     
-* O *--Docker-Bridge-address* permite que os nós AKs se comuniquem com a plataforma de gerenciamento subjacente. Esse endereço IP não deve estar dentro do intervalo de endereços IP da rede virtual do cluster e não deve se sobrepor a outros intervalos de endereços em uso na sua rede.
+* O *endereço --docker-bridge* permite que os nódosos AKS se comuniquem com a plataforma de gestão subjacente. Este endereço IP não deve estar dentro da gama de endereços IP da rede virtual do seu cluster, e não deve sobrepor-se a outras gamas de endereços utilizadas na sua rede.
 
 ```azurecli-interactive
 az aks create \
@@ -179,7 +176,7 @@ az aks create \
 ```
 
 > [!Note]
-> Se você quiser habilitar um cluster AKS para incluir uma [política de rede Calico][calico-network-policies] , poderá usar o comando a seguir.
+> Se desejar permitir que um cluster AKS inclua uma política de [rede Calico,][calico-network-policies] pode utilizar o seguinte comando.
 
 ```azurecli-interactive
 az aks create \
@@ -196,11 +193,11 @@ az aks create \
     --client-secret <password>
 ```
 
-Quando você cria um cluster AKS, um grupo de segurança de rede e uma tabela de rotas são criados. Esses recursos de rede são gerenciados pelo plano de controle AKS. O grupo de segurança de rede é associado automaticamente às NICs virtuais em seus nós. A tabela de rotas é associada automaticamente à sub-rede da rede virtual. Regras de grupo de segurança de rede e tabelas de rotas e são atualizadas automaticamente conforme você cria e expõe serviços.
+Quando se cria um cluster AKS, é criado um grupo de segurança de rede e uma tabela de rotas. Estes recursos de rede são geridos pelo plano de controlo AKS. O grupo de segurança da rede está automaticamente associado aos NICs virtuais nos seus nódosos. A tabela de rotas está automaticamente associada à sub-rede virtual. As regras do grupo de segurança da rede e as tabelas de rotas são automaticamente atualizadas à medida que cria e expõe serviços.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Com um cluster AKS implantado em sua sub-rede de rede virtual existente, agora você pode usar o cluster normalmente. Introdução à [criação de aplicativos usando o Azure dev Spaces][dev-spaces] ou o uso de [rascunho][use-draft]ou a [implantação de aplicativos usando o Helm][use-helm].
+Com um cluster AKS implantado na sua subnet de rede virtual existente, pode agora usar o cluster normalmente. Inicie-se com aplicações de [construção utilizando espaços Azure Dev][dev-spaces] ou [usando O Draft,][use-draft]ou [implemente aplicações usando Helm][use-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/

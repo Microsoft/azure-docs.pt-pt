@@ -2,18 +2,15 @@
 title: Utilize zonas de disponibilidade no Serviço Azure Kubernetes (AKS)
 description: Saiba como criar um cluster que distribui nós através de zonas de disponibilidade no Serviço Azure Kubernetes (AKS)
 services: container-service
-author: mlearned
 ms.custom: fasttrack-edit
-ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: mlearned
-ms.openlocfilehash: b73cb09f95fa2b23fb23fb719fe57143e1731ceb
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5693d9e90de9ba68e7b76e0f2bd5b75141dbda71
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086518"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596815"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
 
@@ -25,7 +22,7 @@ Este artigo mostra-lhe como criar um cluster AKS e distribuir os componentes do 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.76 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
+Precisa da versão Azure CLI 2.0.76 ou posteriormente instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI][install-azure-cli].
 
 ## <a name="limitations-and-region-availability"></a>Limitações e disponibilidade da região
 
@@ -92,7 +89,7 @@ az aks create \
     --zones 1 2 3
 ```
 
-Leva alguns minutos para criar o cluster AKS.
+Leva alguns minutos para criar o aglomerado AKS.
 
 ## <a name="verify-node-distribution-across-zones"></a>Verifique a distribuição do nó através de zonas
 

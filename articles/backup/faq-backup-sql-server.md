@@ -1,105 +1,107 @@
 ---
-title: Perguntas frequentes-fazendo backup de bancos de dados SQL Server em VMs do Azure
-description: Encontre respostas para perguntas comuns sobre como fazer backup de bancos de dados SQL Server em VMs do Azure com o backup do Azure.
+title: FAQ - Backup SQL Server bases de dados em VMs Azure
+description: Encontre respostas a perguntas comuns sobre o backup das bases de dados do SQL Server em VMs Azure com Backup Azure.
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 73224164286e35f8c9447dd24cd81d7242fbb7b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172023"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597087"
 ---
-# <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas frequentes sobre SQL Server bancos de dados que estão em execução em um backup de VM do Azure
+# <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão em execução numa cópia de segurança Azure VM
 
-Este artigo responde a perguntas comuns sobre como fazer backup de bancos de dados SQL Server executados em VMs (máquinas virtuais) do Azure e usar o serviço de [backup do Azure](backup-overview.md) .
+Este artigo responde a perguntas comuns sobre o backup das bases de dados do SQL Server que funcionam em máquinas virtuais Azure (VMs) e usam o serviço [de backup Azure.](backup-overview.md)
 
-## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Posso usar o backup do Azure para VM IaaS, bem como SQL Server no mesmo computador?
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Posso usar cópias de segurança Azure para IaaS VM, bem como SQL Server na mesma máquina?
 
-Sim, você pode ter o backup de VM e o backup do SQL na mesma VM. Nesse caso, internamente disparamos o backup completo somente cópia na VM para não truncar os logs.
+Sim, pode ter backup VM e SQL no mesmo VM. In this case, we internally trigger copy-only full backup on the VM to not truncate the logs.
 
-## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>A solução tenta novamente ou repara automaticamente os backups?
+## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>A solução volta a tentar ou curar automaticamente as cópias de segurança?
 
-Em algumas circunstâncias, o serviço de backup do Azure dispara backups remediais. A detecção automática pode ocorrer para qualquer uma das seis condições mencionadas abaixo:
+Em algumas circunstâncias, o serviço de backup Azure aciona cópias de segurança corretivas. A cicatrização automática pode acontecer em qualquer uma das seis condições mencionadas abaixo:
 
-- Se o log ou backup diferencial falhar devido ao erro de validação LSN, o próximo log ou backup diferencial será convertido em um backup completo.
-- Se nenhum backup completo tiver ocorrido antes de um log ou backup diferencial, esse log ou backup diferencial será convertido em um backup completo.
-- Se o ponto no tempo do backup completo mais recente for anterior a 15 dias, o próximo log ou backup diferencial será convertido em um backup completo.
-- Todos os trabalhos de backup que são cancelados devido a uma atualização de extensão são disparados novamente depois que a atualização é concluída e a extensão é iniciada.
-- Se você optar por substituir o banco de dados durante a restauração, o próximo backup de log/diferencial falhará e um backup completo será disparado em vez disso.
-- Nos casos em que um backup completo é necessário para redefinir as cadeias de logs devido à alteração no modelo de recuperação de banco de dados, um completo é disparado automaticamente na próxima agenda.
+- Se a cópia de segurança de registo ou diferencial falhar devido ao Erro de Validação LSN, o próximo registo ou cópia de segurança diferencial é convertido para uma cópia de segurança completa.
+- Se não tiver ocorrido qualquer cópia de segurança antes de um registo ou cópia de segurança diferencial, esse registo ou cópia de segurança diferencial é convertido para uma cópia de segurança completa.
+- Se o mais recente ponto-a-tempo completo for superior a 15 dias, o próximo registo ou cópia de segurança diferencial é convertido para uma cópia de segurança completa.
+- Todos os trabalhos de backup que são cancelados devido a uma atualização de extensão são reaccionados após a atualização ser concluída e a extensão é iniciada.
+- Se optar por substituir a base de dados durante o Restauro, a próxima cópia de segurança de log/diferencial falha e é ativada uma cópia de segurança completa.
+- Nos casos em que é necessária uma cópia de segurança completa para redefinir as cadeias de registo devido à alteração do modelo de recuperação da base de dados, um completo é acionado automaticamente no próximo horário.
 
-A reparo automática como um recurso é habilitado para todos os usuários por padrão; No entanto, caso você opte por recusá-lo, execute o seguinte:
+A cicatrização automática como uma capacidade está ativada para todos os utilizadores por padrão; No entanto, caso opte por não o fazer, então execute o seguinte:
 
-- Na instância de SQL Server, na pasta *C:\Program Programas\azure Workload Backup\bin* , crie ou edite o arquivo **ExtensionSettingsOverrides. JSON** .
-- No **ExtensionSettingsOverrides. JSON**, defina *{"EnableAutoHealer": false}* .
-- Salve as alterações e feche o arquivo.
-- Na instância do SQL Server, abra **tarefa gerenciar** e reinicie o serviço **AzureWLBackupCoordinatorSvc** .
+- Na instância do Servidor SQL, na pasta *C:\Program Files\Azure Workload Backup\bin,* crie ou edite o ficheiro **ExtensionSettingsOverrides.json.**
+- No **ExtensionSettingsOverrides.json**, set *{"EnableAutoHealer": false}* .
+- Guarde as suas alterações e feche o ficheiro.
+- Na instância do Servidor SQL, abra a **Task Manage** e, em seguida, reinicie o serviço **AzureWLBackupCoordinatorSvc.**
 
-## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>Posso controlar como quantos backups simultâneos são executados no SQL Server?
+## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Posso controlar quantas cópias de segurança simultâneas funcionam no servidor SQL?
 
-Sim. Você pode limitar a taxa na qual a política de backup é executada para minimizar o impacto em uma instância de SQL Server. Para alterar a configuração:
+Sim. Pode acelerar a taxa a que a política de backup corre para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
 
-1. Na instância de SQL Server, na pasta *C:\Program Programas\azure Workload Backup\bin* , crie o arquivo *ExtensionSettingsOverrides. JSON* .
-2. No arquivo *ExtensionSettingsOverrides. JSON* , altere a configuração **DefaultBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
+1. Na instância do Servidor SQL, na pasta *C:\Program Files\Azure Workload Backup\bin,* crie o ficheiro *ExtensionSettingsOverrides.json.*
+2. No ficheiro *ExtensionSettingsOverrides.json,* altere a definição **Predefinido DeBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
+<br>
+O valor predefinido do DefaultBackupTasksThreshold é **de 20**.
 
-3. Salve as alterações e feche o arquivo.
-4. Na instância do SQL Server, abra o **Gerenciador de tarefas**. Reinicie o serviço **AzureWLBackupCoordinatorSvc** .<br/> <br/>
- Embora esse método ajude se o aplicativo de backup está consumindo uma grande quantidade de recursos, SQL Server [resource governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) é uma maneira mais genérica de especificar limites na quantidade de CPU, e/s física e memória que as solicitações de aplicativos de entrada podem usar.
+3. Guarde as suas alterações e feche o ficheiro.
+4. Na instância do Servidor SQL, **open Task Manager**. Reiniciar o serviço **AzureWLBackupCoordenadorSvc.**<br/> <br/>
+ Embora este método ajude se a aplicação de backup estiver a consumir uma grande quantidade de recursos, o SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) é uma forma mais genérica de especificar limites na quantidade de CPU, IO físico e memória que os pedidos de aplicação podem usar.
 
 > [!NOTE]
-> No UX, você ainda pode prosseguir e agendar quantos backups a qualquer momento, no entanto, eles serão processados em uma janela deslizante de digamos, 5, de acordo com o exemplo acima.
+> No UX ainda pode avançar e agendar o maior número de backups em qualquer momento, no entanto eles serão processados numa janela deslizante de digamos, 5, de acordo com o exemplo acima.
 
-## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Posso executar um backup completo de uma réplica secundária?
+## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Posso fazer um reforço completo de uma réplica secundária?
 
-De acordo com as limitações do SQL, você pode executar cópia somente backup completo na réplica secundária; no entanto, o backup completo não é permitido.
+De acordo com as limitações do SQL, pode executar cópia apenas cópia de cópia completa na Réplica Secundária; no entanto, o backup completo não é permitido.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Posso proteger os grupos de disponibilidade no local?
 
-Não. O backup do Azure protege SQL Server bancos de dados em execução no Azure. Se um AG (grupo de disponibilidade) for distribuído entre o Azure e os computadores locais, o AG poderá ser protegido somente se a réplica primária estiver em execução no Azure. Além disso, o backup do Azure protege somente os nós que são executados na mesma região do Azure que o cofre dos serviços de recuperação.
+Não. O Azure Backup protege as bases de dados do SQL Server em funcionamento no Azure. Se um grupo de disponibilidade (AG) estiver espalhado entre máquinas Azure e no local, a AG só pode ser protegida se a réplica primária estiver em funcionamento em Azure. Além disso, a Azure Backup protege apenas os nós que funcionam na mesma região de Azure que o cofre dos Serviços de Recuperação.
 
-## <a name="can-i-protect-availability-groups-across-regions"></a>Posso proteger grupos de disponibilidade entre regiões?
+## <a name="can-i-protect-availability-groups-across-regions"></a>Posso proteger grupos de disponibilidade em todas as regiões?
 
-O cofre dos serviços de recuperação de backup do Azure pode detectar e proteger todos os nós que estão na mesma região que o cofre. Se seu SQL Server Always On grupo de disponibilidade abrange várias regiões do Azure, configure o backup da região que tem o nó primário. O backup do Azure pode detectar e proteger todos os bancos de dados no grupo de disponibilidade de acordo com sua preferência de backup. Quando a preferência de backup não for atendida, os backups falharão e você receberá o alerta de falha.
+O cofre dos Serviços de Recuperação de Backup Azure pode detetar e proteger todos os nós que estão na mesma região que o cofre. Se o seu grupo SQL Server Always On disponibilidade abrange várias regiões Azure, configurar o backup da região que tem o nó principal. O Azure Backup pode detetar e proteger todas as bases de dados do grupo de disponibilidade de acordo com a sua preferência de cópia de segurança. Quando a sua preferência de reserva não é cumprida, os backups falham e recebe o alerta de falha.
 
-## <a name="do-successful-backup-jobs-create-alerts"></a>Os trabalhos de backup bem-sucedidos criam alertas?
+## <a name="do-successful-backup-jobs-create-alerts"></a>Os trabalhos de apoio bem sucedidos criam alertas?
 
-Não. Os trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup que falham. O comportamento detalhado para alertas do portal está documentado [aqui](backup-azure-monitoring-built-in-monitor.md). No entanto, caso você esteja interessado em ter alertas mesmo para trabalhos bem-sucedidos, você pode usar o [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
+Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](backup-azure-monitoring-built-in-monitor.md) No entanto, caso esteja interessado tem alertas mesmo para trabalhos bem sucedidos, pode utilizar [a Monitorização utilizando](backup-azure-monitoring-use-azuremonitor.md)o Monitor Azure .
 
-## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver os trabalhos de backup agendados no menu trabalhos de backup?
+## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva programados no menu Backup Jobs?
 
-O menu **trabalho de backup** mostrará apenas os trabalhos de backup sob demanda. Para o trabalho agendado, use [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
+O menu **Backup Job** só mostrará trabalhos de reserva a pedido. Para utilização programada de utilização de trabalho [Monitorização utilizando o Monitor Azure](backup-azure-monitoring-use-azuremonitor.md).
 
-## <a name="are-future-databases-automatically-added-for-backup"></a>Os bancos de dados futuros são adicionados automaticamente para backup?
+## <a name="are-future-databases-automatically-added-for-backup"></a>As futuras bases de dados são adicionadas automaticamente para cópia de segurança?
 
-Sim, você pode obter esse recurso com [proteção automática](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
+Sim, pode alcançar esta capacidade com [auto-proteção.](backup-sql-server-database-azure-vms.md#enable-auto-protection)  
 
-## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se eu excluir um banco de dados de uma instância autoprotegida, o que acontecerá com os backups?
+## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se eu apagar uma base de dados de uma instância autoprotegida, o que acontecerá com as cópias de segurança?
 
-Se um banco de dados for descartado de uma instância autoprotegida, os backups de banco de dados ainda serão tentados. Isso significa que o banco de dados excluído começa a aparecer como não íntegro em **itens de backup** e ainda está protegido.
+Se uma base de dados for retirada de uma instância autoprotegida, as cópias de dados ainda são tentadas. Isto implica que a base de dados eliminada começa a aparecer como pouco saudável em itens de **backup** e ainda está protegida.
 
-A maneira correta de interromper a proteção deste banco de dados é **interromper o backup** com **excluir os**  
+A forma correta de parar de proteger esta base de dados é fazer **Parar backup** com **eliminar dados** nesta base de dados.  
 
-## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Se eu parar a operação de backup de um banco de dados autoprotegido, qual será seu comportamento?
+## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>Se eu parar a operação de reserva de uma base de dados autoprotegida qual será o seu comportamento?
 
-Se você **parar o backup com reter dados**, não ocorrerá nenhum backup futuro e os pontos de recuperação existentes permanecerão intactos. O banco de dados ainda será considerado protegido e será mostrado nos **itens de backup**.
+Se parar de fazer backup com dados de **retenção,** não haverá futuras cópias de segurança e os pontos de recuperação existentes permanecerão intactos. A base de dados continuará a ser considerada protegida e mostrada nos itens de **backup**.
 
-Se você **parar o backup com excluir dados**, nenhum backup futuro será realizado e os pontos de recuperação existentes também serão excluídos. O banco de dados será considerado não protegido e será mostrado na instância no backup de configuração. No entanto, ao contrário de outros bancos de dados protegidos que podem ser selecionados manualmente ou que podem ser protegidos automaticamente, esse banco de dados aparece esmaecido e não pode ser selecionado. A única maneira de proteger novamente esse banco de dados é desabilitar a proteção automática na instância do. Agora você pode selecionar esse banco de dados e configurar a proteção nele ou reabilitar a proteção automática novamente na instância.
+Se parar de **fazer backup com dados de eliminação,** não haverá futuras cópias de segurança e os pontos de recuperação existentes também serão eliminados. A base de dados será considerada não protegida e será mostrada sob a instância na Cópia de Segurança configurada. No entanto, ao contrário de outras bases de dados protegidas que podem ser selecionadas manualmente ou que podem ser autoprotegidas, esta base de dados parece acinzentada e não pode ser selecionada. A única forma de proteger esta base de dados é desativar a proteção automática na caso. Pode agora selecionar esta base de dados e configurar a proteção na mesma ou voltar a ativar a proteção automática na instância.
 
-## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Se eu alterar o nome do banco de dados após ele ter sido protegido, qual será o comportamento?
+## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Se eu mudar o nome da base de dados depois de ter sido protegida, qual será o comportamento?
 
-Um banco de dados renomeado é tratado como um novo banco de dados. Portanto, o serviço tratará essa situação como se o banco de dados não fosse encontrado e com a falha dos backups.
+Uma base de dados renomeada é tratada como uma nova base de dados. Assim, o serviço tratará esta situação como se a base de dados não tivesse sido encontrada e com falhas nas cópias de segurança.
 
-Você pode selecionar o banco de dados, que agora é renomeado e configurar a proteção nele. Caso a proteção automática esteja habilitada na instância, o banco de dados renomeado será automaticamente detectado e protegido.
+Pode selecionar a base de dados, que agora é renomeada e configurar a proteção na sua base. No caso de a proteção automática estar ativada na instância, a base de dados renomeada será automaticamente detetada e protegida.
 
-## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Por que não consigo ver um banco de dados adicionado para uma instância autoprotegida?
+## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Por que não posso ver uma base de dados adicional para uma instância autoprotegida?
 
-Um banco de dados que você [adiciona a uma instância autoprotegida](backup-sql-server-database-azure-vms.md#enable-auto-protection) pode não aparecer imediatamente em itens protegidos. Isso ocorre porque a descoberta normalmente é executada a cada 8 horas. No entanto, você pode descobrir e proteger novos bancos de dados imediatamente se executar uma descoberta manualmente, selecionando **redescobrir bancos**, conforme mostrado na imagem a seguir:
+Uma base de dados que [se adiciona a uma instância autoprotegida](backup-sql-server-database-azure-vms.md#enable-auto-protection) pode não aparecer imediatamente em itens protegidos. Isto porque a descoberta normalmente funciona a cada 8 horas. No entanto, pode descobrir e proteger novas bases de dados imediatamente se executar manualmente uma descoberta selecionando **DBs redescobertos,** como mostra a seguinte imagem:
 
-  ![Descobrir manualmente um banco de dados recém-adicionado](./media/backup-azure-sql-database/view-newly-added-database.png)
+  ![Descubra manualmente uma base de dados recém-adicionada](./media/backup-azure-sql-database/view-newly-added-database.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [fazer backup de um banco de dados SQL Server](backup-azure-sql-database.md) em execução em uma VM do Azure.
+Aprenda a fazer o back up a uma base de [dados do SQL Server](backup-azure-sql-database.md) que está a funcionar num VM Azure.

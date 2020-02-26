@@ -1,48 +1,47 @@
 ---
-title: Instalar o Consul no serviço kubernetes do Azure (AKS)
-description: Saiba como instalar e usar o Consul para criar uma malha de serviço em um cluster do AKS (serviço kubernetes do Azure)
+title: Instalar cônsul no Serviço Azure Kubernetes (AKS)
+description: Aprenda a instalar e utilizar o Cônsul para criar uma malha de serviço num cluster do Serviço Azure Kubernetes (AKS)
 author: dstrebel
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: d5d0a575c3fb662df034b66a48135ac33393f95c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 06ca2327b2859ffb0f5b314d7b92082d5a83dc48
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885396"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594282"
 ---
-# <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instalar e usar o Consul no serviço kubernetes do Azure (AKS)
+# <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instalar e utilizar cônsul no Serviço Azure Kubernetes (AKS)
 
-O [Consul][consul-github] é uma malha de serviço de software livre que fornece um conjunto de chaves de funcionalidade em todos os microserviços em um cluster kubernetes. Esses recursos incluem descoberta de serviço, verificação de integridade, segmentação de serviço e observação. Para obter mais informações sobre Consul, consulte a documentação oficial [o que é o Consul?][consul-docs-concepts] .
+[O cônsul][consul-github] é uma malha de serviço de código aberto que fornece um conjunto chave de funcionalidades em todos os microserviços em um cluster Kubernetes. Estas funcionalidades incluem a descoberta do serviço, verificação de saúde, segmentação de serviços e observabilidade. Para mais informações sobre o Cônsul, consulte a documentação oficial [do Cônsul?][consul-docs-concepts]
 
-Este artigo mostra como instalar o Consul. Os componentes do Consul são instalados em um cluster kubernetes no AKS.
+Este artigo mostra-lhe como instalar o Cônsul. Os componentes do Cônsul são instalados num aglomerado de Kubernetes no AKS.
 
 > [!NOTE]
-> Estas instruções fazem referência à versão do Consul `1.6.0`e usam pelo menos a versão do Helm `2.14.2`.
+> Estas instruções referem a versão do Cônsul `1.6.0`, e utilizam pelo menos a versão Helm `2.14.2`.
 >
-> As versões de `1.6.x` do Consul podem ser executadas em versões do kubernetes `1.13+`. Você pode encontrar versões adicionais do Consul em [versões do GitHub-Consul][consul-github-releases] e informações sobre cada uma das versões em [Consul-Release Notes][consul-release-notes].
+> Os lançamentos do Cônsul `1.6.x` podem ser executados contra versões Kubernetes `1.13+`. Pode encontrar versões adicionais do Cônsul no [GitHub - Lançamentos do Cônsul][consul-github-releases] e informações sobre cada um dos lançamentos em [Notas de Lançamento do Cônsul][consul-release-notes].
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Instalar os componentes do Consul no AKS
-> * Validar a instalação do Consul
-> * Desinstalar o Consul do AKS
+> * Instale os componentes do Cônsul no AKS
+> * Validar a instalação do Cônsul
+> * Desinstalar cônsul da AKS
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-As etapas detalhadas neste artigo pressupõem que você criou um cluster AKS (kubernetes `1.13` e superior, com o RBAC habilitado) e estabeleceu uma conexão de `kubectl` com o cluster. Se precisar de ajuda com qualquer um desses itens, consulte o guia de [início rápido do AKS][aks-quickstart]. Verifique se o cluster tem pelo menos três nós no pool de nós do Linux.
+Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com RBAC habilitado) e estabeleceu uma ligação `kubectl` com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido do [AKS.][aks-quickstart] Certifique-se de que o seu cluster tem pelo menos 3 nós na piscina do nó Linux.
 
-Você precisará de [Helm][helm] para seguir estas instruções e instalar o Consul. É recomendável que você tenha a versão estável mais recente corretamente instalada e configurada em seu cluster. Se precisar de ajuda com a instalação do Helm, consulte as [diretrizes de instalação do AKS Helm][helm-install]. Todos os pods de Consul também devem ser agendados para serem executados em nós do Linux.
+Vai precisar do [Helm][helm] para seguir estas instruções e instalar o Cônsul. Recomenda-se que tenha a versão mais recente estável corretamente instalada e configurada no seu cluster. Se precisar de ajuda para instalar o Helm, consulte a orientação de [instalação AKS Helm][helm-install]. Todas as cápsulas de cônsul também devem ser programadas para correr em nós linux.
 
-Este artigo separa as diretrizes de instalação do Consul em várias etapas discretas. O resultado final é o mesmo na estrutura que as [diretrizes][consul-install-k8]de instalação oficial do Consul.
+Este artigo separa a orientação de instalação do Cônsul em vários passos discretos. O resultado final é o mesmo na estrutura que a orientação oficial de [instalação][consul-install-k8]do Cônsul.
 
-### <a name="install-the-consul-components-on-aks"></a>Instalar os componentes do Consul no AKS
+### <a name="install-the-consul-components-on-aks"></a>Instale os componentes do Cônsul no AKS
 
-Começaremos baixando a versão `v0.10.0` do gráfico Consul Helm. Esta versão do gráfico inclui a versão Consul `1.6.0`.
+Começaremos por descarregar a versão `v0.10.0` da tabela do Cônsul Helm. Esta versão do gráfico inclui a versão cônsul `1.6.0`.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -62,20 +61,20 @@ Começaremos baixando a versão `v0.10.0` do gráfico Consul Helm. Esta versão 
 
 ::: zone-end
 
-Use Helm e o gráfico de `consul-helm` baixado para instalar os componentes do Consul no namespace `consul` em seu cluster AKS. 
+Utilize o Helm e o gráfico de `consul-helm` descarregado para instalar os componentes do Cônsul no espaço de nome `consul` no seu cluster AKS. 
 
 > [!NOTE]
 > **Opções de instalação**
 > 
-> Estamos usando as seguintes opções como parte da nossa instalação:
-> - `connectInject.enabled=true`-permitir que os proxies sejam injetados em pods
-> - `client.enabled=true`-permitir que os clientes Consul sejam executados em cada nó
-> - `client.grpc=true`-habilitar ouvinte gRPC para connectInject
-> - `syncCatalog.enabled=true`-sincronizar serviços kubernetes e Consul
+> Estamos a usar as seguintes opções como parte da nossa instalação:
+> - `connectInject.enabled=true` - permitir que os proxies sejam injetados em cápsulas
+> - `client.enabled=true` - permitir que os clientes do Cônsul corram em todos os nódosos
+> - `client.grpc=true` - ativar o ouvinte gRPC para ligarInject
+> - `syncCatalog.enabled=true` - serviços de Kubernetes e Cônsul sincronizados
 >
-> **Seletores de nó**
+> **Selecionadores de nó**
 >
-> No momento, o Consul deve ser agendado para ser executado em nós do Linux. Se você tiver nós do Windows Server em seu cluster, deverá garantir que os pods Consul sejam agendados apenas para execução em nós do Linux. Usaremos [seletores de nó][kubernetes-node-selectors] para garantir que os pods estejam agendados para os nós corretos.
+> Cônsul deve estar programado para correr em nódoslinos Linux. Se tiver nós do Windows Server no seu cluster, tem de garantir que as cápsulas do Cônsul só estão programadas para serem executadas nos nós linux. Usaremos [selecionadores][kubernetes-node-selectors] de nós para garantir que as cápsulas estão programadas para os nós corretos.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -95,20 +94,20 @@ Use Helm e o gráfico de `consul-helm` baixado para instalar os componentes do C
 
 ::: zone-end
 
-O `Consul` gráfico Helm implanta vários objetos. Você pode ver a lista da saída do comando `helm install` acima. A implantação dos componentes Consul pode levar cerca de 3 minutos para ser concluída, dependendo do seu ambiente de cluster.
+O gráfico `Consul` Helm implanta uma série de objetos. Pode ver a lista a partir da saída do seu comando `helm install` acima. A implantação dos componentes do Cônsul pode demorar cerca de 3 minutos a ser concluída, dependendo do ambiente do cluster.
 
-Neste ponto, você implantou o Consul em seu cluster AKS. Para garantir que tenhamos uma implantação bem-sucedida do Consul, vamos passar para a próxima seção para validar a instalação do Consul.
+Neste momento, destacou o Cônsul para o seu aglomerado AKS. Para garantir que temos uma implantação bem sucedida do Cônsul, vamos passar à secção seguinte para validar a instalação do Cônsul.
 
-## <a name="validate-the-consul-installation"></a>Validar a instalação do Consul
+## <a name="validate-the-consul-installation"></a>Validar a instalação do Cônsul
 
-Confirme se os recursos foram criados com êxito. Use os comandos [kubectl Get svc][kubectl-get] e [kubectl Get Pod][kubectl-get] para consultar o namespace `consul`, em que os componentes do Consul foram instalados pelo comando `helm install`:
+Confirme que os recursos foram criados com sucesso. Utilize o [kubectl get svc][kubectl-get] e [kubectl obtenha][kubectl-get] comandos de casul para consultar o espaço de nome `consul`, onde os componentes do Cônsul foram instalados pelo comando `helm install`:
 
 ```console
 kubectl get svc --namespace consul --output wide
 kubectl get pod --namespace consul --output wide
 ```
 
-A saída de exemplo a seguir mostra os serviços e os pods (agendados em nós do Linux) que agora devem estar em execução:
+A saída de exemplo seguinte mostra os serviços e cápsulas (programados nos nós linux) que devem estar agora a funcionar:
 
 ```console
 NAME                                 TYPE           CLUSTER-IP    EXTERNAL-IP             PORT(S)                                                                   AGE     SELECTOR
@@ -129,28 +128,28 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-Todos os pods devem mostrar um status de `Running`. Se os pods não tiverem esses status, aguarde um ou dois minutos até que eles façam. Se qualquer pods relatar um problema, use o comando [kubectl para descrever o Pod][kubectl-describe] para revisar sua saída e status.
+Todas as cápsulas devem mostrar um estado de `Running`. Se as suas cápsulas não tiverem estes estatutos, aguarde um minuto ou dois até que o façam. Se alguma cápsula reportar um problema, use o comando de cápsula de [utilização kubectl][kubectl-describe] para rever a sua saída e estado.
 
-## <a name="accessing-the-consul-ui"></a>Acessando a interface do usuário do Consul
+## <a name="accessing-the-consul-ui"></a>Acesso ao Cônsul UI
 
-A interface do usuário do Consul foi instalada em nossa configuração acima e fornece a configuração baseada na interface do usuário do Consul. A interface do usuário para Consul não é exposta publicamente por meio de um endereço IP externo. Para acessar a interface do usuário do Consul, use o comando [kubectl Port-Forward][kubectl-port-forward] . Esse comando cria uma conexão segura entre o computador cliente e o Pod relevante no cluster AKS.
+O Cônsul UI foi instalado na nossa configuração acima e fornece configuração baseada em UI para cônsul. A UI para Cônsul não é exposta publicamente através de um endereço ip externo. Para aceder à interface de utilizador do Cônsul, utilize o comando [porta-frente kubectl.][kubectl-port-forward] Este comando cria uma ligação segura entre a sua máquina cliente e a cápsula relevante no seu cluster AKS.
 
 ```azurecli
 kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 ```
 
-Agora você pode abrir um navegador e apontar para `http://localhost:8080/ui` para abrir a interface do usuário do Consul. Você deve ver o seguinte ao abrir a interface do usuário:
+Agora pode abrir um navegador e apontá-lo para `http://localhost:8080/ui` para abrir o Cônsul UI. Deve ver o seguinte quando abrir a UI:
 
-![Interface do usuário do amConsul](./media/servicemesh/consul/consul-ui.png)
+![Cônsul UI](./media/servicemesh/consul/consul-ui.png)
 
-## <a name="uninstall-consul-from-aks"></a>Desinstalar o Consul do AKS
+## <a name="uninstall-consul-from-aks"></a>Desinstalar cônsul da AKS
 
 > [!WARNING]
-> Excluir Consul de um sistema em execução pode resultar em problemas relacionados ao tráfego entre seus serviços. Verifique se você fez provisões para que o seu sistema ainda opere corretamente sem Consul antes de continuar.
+> A desviação do Cônsul de um sistema de funcionamento pode resultar em problemas relacionados com o tráfego entre os seus serviços. Certifique-se de que fez provisões para que o seu sistema continue a funcionar corretamente sem cônsul antes de prosseguir.
 
-### <a name="remove-consul-components-and-namespace"></a>Remover componentes e namespace do Consul
+### <a name="remove-consul-components-and-namespace"></a>Remover componentes do Cônsul e espaço de nome
 
-Para remover o Consul do cluster do AKS, use os comandos a seguir. Os comandos de `helm delete` removerão o gráfico de `consul` e o comando `kubectl delete namespace` removerá o namespace `consul`.
+Para remover o Cônsul do seu cluster AKS, utilize os seguintes comandos. Os comandos `helm delete` removerão o gráfico de `consul`, e o comando `kubectl delete namespace` removerá o espaço de nome `consul`.
 
 ```azurecli
 helm delete --purge consul
@@ -159,14 +158,14 @@ kubectl delete namespace consul
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para explorar mais opções de instalação e configuração para o Consul, consulte os seguintes artigos oficiais do Consul:
+Para explorar mais opções de instalação e configuração para cônsul, consulte os seguintes artigos oficiais do Cônsul:
 
-- [Guia de instalação do Consul-Helm][consul-install-k8]
-- [Opções de instalação do Consul-Helm][consul-install-helm-options]
+- [Cônsul - Guia de instalação helm][consul-install-k8]
+- [Cônsul - Opções de instalação helm][consul-install-helm-options]
 
-Você também pode seguir cenários adicionais usando:
+Também pode seguir cenários adicionais usando:
 
-- [Aplicativo de exemplo Consul][consul-app-example]
+- [Pedido de exemplo do cônsul][consul-app-example]
 
 <!-- LINKS - external -->
 [Hashicorp]: https://hashicorp.com

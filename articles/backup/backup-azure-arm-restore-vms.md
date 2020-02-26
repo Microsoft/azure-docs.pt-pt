@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: d83c7dae65c214e546cf309bbefe507d3d591a2d
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 05ad6c4eab61ccf5bc0884da63ebda7ba76ac583
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371315"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597563"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados da VM Azure no portal Azure
 
@@ -217,7 +217,7 @@ Depois de acionar a operação de restauro, o serviço de reserva cria um trabal
 Há uma série de coisas a notar depois de restaurar um VM:
 
 - As extensões presentes durante a configuração de cópia de segurança são instaladas, mas não ativadas. Se vir algum problema, reinstale as extensões.
-- Se o VM apoiado tivesse um endereço IP estático, o VM restaurado terá um endereço IP dinâmico para evitar conflitos. Pode [adicionar um endereço IP estático ao VM restaurado](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip#how-to-add-a-static-internal-ip-to-an-existing-vm).
+- Se o VM apoiado tivesse um endereço IP estático, o VM restaurado terá um endereço IP dinâmico para evitar conflitos. Pode [adicionar um endereço IP estático ao VM restaurado](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description).
 - Um VM restaurado não tem um conjunto de disponibilidade. Se utilizar a opção restaurar o disco, pode [especificar um conjunto](../virtual-machines/windows/tutorial-availability-sets.md) de disponibilidade quando criar um VM a partir do disco utilizando o modelo fornecido ou powerShell.
 - Se utilizar uma distribuição linux baseada em nuvem, como o Ubuntu, por razões de segurança, a palavra-passe é bloqueada após a restauração. Utilize a extensão VMAccess no VM restaurado para [redefinir a palavra-passe](../virtual-machines/linux/reset-password.md). Recomendamos a utilização de chaves SSH nestas distribuições, para que não seja necessário redefinir a palavra-passe após a restauração.
 - Se não conseguir aceder ao VM uma vez restaurado devido à relação com o controlador de domínio, siga os passos abaixo para elevar o VM:

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 79e7f2a8dad59de4dc9d84a26d24c82889c14c2f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 6c002838d5a4f515a594d61e5137196c4d391795
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493322"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605433"
 ---
 # <a name="updated-ndv2-series-preview"></a>Série NDv2 atualizada (Pré-visualização)
 
@@ -24,13 +24,16 @@ Os casos NDv2 proporcionam um excelente desempenho para as cargas de trabalho de
 
 Criticamente, o NDv2 é construído para cargas de trabalho computacionalmente intensas (aproveitando 8 GPUs por VM) e scale-out (aproveitando vários VMs que trabalham em conjunto). A série NDv2 suporta agora a rede de backend 100-Gigabit InfiniBand EDR, semelhante à disponível na série HB de HPC VM, para permitir o agrupamento de alto desempenho para cenários paralelos, incluindo formação distribuída para IA e ML. Esta rede de backend suporta todos os principais protocolos InfiniBand, incluindo os empregados pelas bibliotecas NCCL2 da NVIDIA, permitindo um agrupamento sem emenda de GPUs.
 
+
+> [!NOTE]
 > Ao [ativar a InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) no ND40rs_v2 VM, utilize o condutor 4.7-1.1.0.0.1 Mellanox OFED.
-
+>
 > Devido ao aumento da memória gpu, o novo ND40rs_v2 VM requer a utilização de [VMs](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) de Geração 2 e imagens de mercado. 
-
+>
 > [Inscreva-se para solicitar acesso antecipado à pré-visualização da máquina virtual NDv2.](https://aka.ms/AzureNDrv2Preview)
-
+>
 > Nota: O ND40s_v2 com 16 GB de memória por GPU já não está disponível para pré-visualização e foi substituído pela ND40rs_v2 atualizada.
+
 <br>
 
 Armazenamento Premium: Suportado

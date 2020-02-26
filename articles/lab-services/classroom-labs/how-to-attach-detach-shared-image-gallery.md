@@ -11,22 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 02/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 1267487e44556a468db26a2ffaaa163dce540571
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 3e915c26e9469b37ac8bc345c4d5cd1712e7acdb
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443487"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597733"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou separar uma galeria de imagens partilhadas nos Serviços de Laboratório Azure
 Professores/administrador de laboratório podem guardar uma imagem VM modelo numa galeria de [imagens partilhada](../../virtual-machines/windows/shared-image-galleries.md) azure para que seja reutilizada por outros. Como primeiro passo, o administrador do laboratório anexa uma galeria de imagens partilhadas existente à conta do laboratório. Uma vez anexada a galeria de imagens partilhadas, os laboratórios criados na conta de laboratório podem guardar imagens para a galeria de imagens partilhada. Outros professores podem selecionar esta imagem a partir da galeria de imagens partilhadas para criar um modelo para as suas aulas. 
 
+Quando uma imagem é guardada numa galeria de imagens partilhada, a Azure Lab Services replica a imagem guardada para outras regiões disponíveis na mesma [geografia.](https://azure.microsoft.com/global-infrastructure/geographies/) Garante que a imagem está disponível para laboratórios criados noutras regiões na mesma geografia. Guardar imagens para uma galeria de imagens partilhadas incorre num custo adicional, que inclui o custo para todas as imagens replicadas. Este custo é separado do custo de utilização dos Serviços De Laboratório Azure. Para obter mais informações sobre os preços da Galeria de Imagem Partilhada, consulte [a Galeria de Imagem Partilhada – Faturação]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
+
 Este artigo mostra-lhe como anexar ou separar uma galeria de imagens partilhadas a uma conta de laboratório. 
 
 > [!NOTE]
-> Quando uma imagem é guardada numa galeria de imagens partilhada, a Azure Lab Services replica a imagem guardada para outras regiões disponíveis na mesma [geografia.](https://azure.microsoft.com/global-infrastructure/geographies/) Garante que a imagem está disponível para laboratórios criados noutras regiões na mesma geografia. Guardar imagens para uma galeria de imagens partilhadas incorre num custo adicional, que inclui o custo para todas as imagens replicadas. Este custo é separado do custo de utilização dos Serviços De Laboratório Azure. Para obter mais informações sobre os preços da Galeria de Imagem Partilhada, consulte [a Galeria de Imagem Partilhada – Faturação]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
+> Atualmente, a Azure Lab Services apoia a criação de VMs com base apenas em imagens **VM generalizadas** (imagens não especializadas) numa galeria de imagens partilhadas. 
 
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configure no momento da criação de conta de laboratório
@@ -42,7 +44,7 @@ Após a criação da conta de laboratório, pode fazer as seguintes tarefas:
 - Desaloque uma galeria de imagens partilhada da conta do laboratório
 
 ## <a name="create-and-attach-a-shared-image-gallery"></a>Criar e anexar uma galeria de imagens partilhadas
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** no menu esquerdo. Selecione **Serviços de Laboratório** na secção **DEVOPS.** Se selecionar estrela (`*`) ao lado dos Serviços de **Laboratório,** é adicionado à secção **FAVORITES** no menu esquerdo. A partir da próxima vez, selecione **Serviços** de Laboratório sob **OS FAVORITOS**.
 
     ![Todos os Serviços -> Serviços de Laboratório](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)

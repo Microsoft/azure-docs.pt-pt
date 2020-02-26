@@ -1,45 +1,43 @@
 ---
-title: Centro de implantação para kubernetes do Azure
-description: A central de implantação no Azure DevOps simplifica a configuração de um pipeline DevOps do Azure robusto para seu aplicativo
+title: Centro de Implantação de Azure Kubernetes
+description: Centro de Implantação em Azure DevOps simplifica a criação de um robusto oleoduto Azure DevOps para a sua aplicação
 ms.author: puagarw
-ms.prod: devops
-ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 5384180720d391c6b4ae830f9316a70e80003063
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 84e5533a17dc70fb5c835089f3a3cec1a86e35bf
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972982"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596084"
 ---
-# <a name="deployment-center-for-azure-kubernetes"></a>Centro de implantação para kubernetes do Azure
+# <a name="deployment-center-for-azure-kubernetes"></a>Centro de Implantação de Azure Kubernetes
 
-A central de implantação no Azure DevOps simplifica a configuração de um pipeline DevOps do Azure robusto para seu aplicativo. Por padrão, a central de implantação configura um pipeline de DevOps do Azure para implantar as atualizações do aplicativo no cluster kubernetes. Você pode estender o pipeline de DevOps do Azure configurado padrão e também adicionar recursos mais avançados: a capacidade de obter aprovação antes da implantação, provisionar recursos adicionais do Azure, executar scripts, atualizar seu aplicativo e até mesmo executar mais testes de validação.
+O Centro de Implantação em Azure DevOps simplifica a criação de um robusto oleoduto Azure DevOps para a sua aplicação. Por padrão, o Centro de Implantação configura um pipeline Azure DevOps para implementar as atualizações da sua aplicação para o cluster Kubernetes. Pode estender o pipeline configurado por predefinição do Azure DevOps e também adicionar capacidades mais ricas: a capacidade de obter aprovação antes de implementar, fornecer recursos adicionais do Azure, executar scripts, atualizar a sua aplicação e até realizar mais testes de validação.
 
 Neste tutorial, irá:
 
 > [!div class="checklist"]
-> * Configure um pipeline DevOps do Azure para implantar as atualizações do aplicativo no cluster kubernetes.
-> * Examine o pipeline de CI (integração contínua).
-> * Examine o pipeline de entrega contínua (CD).
+> * Configure um gasoduto Azure DevOps para implementar as atualizações da sua aplicação para o cluster Kubernetes.
+> * Examinar o gasoduto de integração contínua (CI).
+> * Examine o gasoduto de entrega contínua (CD).
 > * Limpe os recursos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Pode obter uma subscrição gratuita através do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-* Um cluster do AKS (serviço de kubernetes do Azure).
+* Um cluster azure Kubernetes Service (AKS).
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-1. Entre em seu [portal do Azure](https://portal.azure.com/).
+1. Inscreva-se no seu [portal Azure.](https://portal.azure.com/)
 
-1. Selecione a opção [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) no lado direito da barra de menus na portal do Azure.
+1. Selecione a opção [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) no lado direito da barra de menus no portal Azure.
 
-1. Para criar o cluster AKS, execute os seguintes comandos:
+1. Para criar o cluster AKS, executar os seguintes comandos:
 
     ```cmd
     # Create a resource group in the South India location:
@@ -51,95 +49,95 @@ Neste tutorial, irá:
     az aks create --resource-group azooaks --name azookubectl --node-count 1 --enable-addons monitoring --generate-ssh-keys
     ```
 
-## <a name="deploy-application-updates-to-a-kubernetes-cluster"></a>Implantar atualizações de aplicativo em um cluster kubernetes
+## <a name="deploy-application-updates-to-a-kubernetes-cluster"></a>Implementar atualizações de aplicações para um cluster Kubernetes
 
-1. Vá para o grupo de recursos que você criou na seção anterior.
+1. Vá ao grupo de recursos que criou na secção anterior.
 
-1. Selecione o cluster AKS e, em seguida, selecione **central de implantação (versão prévia)** na folha à esquerda. Selecione **introdução**.
+1. Selecione o cluster AKS e, em seguida, selecione **Centro de Implantação (pré-visualização)** na lâmina esquerda. Selecione **Começar**.
 
-   ![definições](media/deployment-center-launcher/settings.png)
+   ![settings](media/deployment-center-launcher/settings.png)
 
-1. Escolha o local do código e selecione **Avançar**. Em seguida, selecione um dos repositórios com suporte no momento: **[Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** ou **GitHub**.
+1. Escolha a localização do código e selecione **Seguinte**. Em seguida, selecione um dos repositórios atualmente suportados: **[Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** ou **GitHub**.
 
-    Azure Repos é um conjunto de ferramentas de controle de versão que ajudam a gerenciar seu código. Se o seu projeto de software é grande ou pequeno, usar o controle de versão o mais cedo possível é uma boa ideia.
+    O Azure Repos é um conjunto de ferramentas de controlo de versão que o ajudam a gerir o seu código. Se o seu projeto de software é grande ou pequeno, usar o controlo da versão o mais cedo possível é uma boa ideia.
 
-    - **Azure Repos**: Escolha um repositório de seu projeto e organização existentes.
+    - **Azure Repos**: Escolha um repositório do seu projeto e organização existentes.
 
         ![Azure Repos](media/deployment-center-launcher/azure-repos.gif)
 
-    - **GitHub**: Autorize e selecione o repositório para sua conta do GitHub.
+    - **GitHub**: Autorize e selecione o repositório para a sua conta GitHub.
 
         ![GitHub](media/deployment-center-launcher/github.gif)
 
 
-1. A central de implantação analisa o repositório e detecta seu Dockerfile. Se você quiser atualizar o Dockerfile, poderá editar o número da porta identificada.
+1. O Centro de Implantação analisa o repositório e deteta o seu Dockerfile. Se quiser atualizar o Dockerfile, pode editar o número de porta identificado.
 
-    ![Definições da Aplicação](media/deployment-center-launcher/application-settings.png)
+    ![Definições de aplicação](media/deployment-center-launcher/application-settings.png)
 
-    Se o repositório não contiver o Dockerfile, o sistema exibirá uma mensagem para confirmar uma.
+    Se o repositório não contiver o Dockerfile, o sistema exibe uma mensagem para cometer uma.
 
     ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
 
-1. Selecione um registro de contêiner existente ou crie um e, em seguida, selecione **concluir**. O pipeline é criado automaticamente e enfileira uma compilação em [Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops).
+1. Selecione um registo de contentores existente ou crie um e, em seguida, selecione **Terminar**. O gasoduto é criado automaticamente e faz fila para uma construção em [Pipelines Azure.](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops)
 
-    Azure Pipelines é um serviço de nuvem que você pode usar para criar e testar automaticamente seu projeto de código e torná-lo disponível para outros usuários. O Azure Pipelines combina integração contínua e entrega contínua para testar e criar seu código de forma constante e consistente e enviá-lo para qualquer destino.
+    O Azure Pipelines é um serviço na nuvem que pode utilizar para construir e testar automaticamente o seu projeto de código e disponibilizá-lo a outros utilizadores. Os Oleodutos Azure combinam integração contínua e entrega contínua para testar e construir constantemente e consistentemente o seu código e enviar-o para qualquer alvo.
 
     ![Registo de Contentor](media/deployment-center-launcher/container-registry.png)
 
-1. Selecione o link para ver o pipeline em andamento.
+1. Selecione o link para ver o gasoduto em curso.
 
-1. Você verá os logs bem-sucedidos após a conclusão da implantação.
+1. Verá os registos bem sucedidos após a implementação estar completa.
 
     ![Registos](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
 
-A central de implantação configura automaticamente o pipeline de CI/CD de sua organização do Azure DevOps. O pipeline pode ser explorado e personalizado.
+O Centro de Implantação configura automaticamente o oleoduto CI/CD da organização Azure DevOps. O oleoduto pode ser explorado e personalizado.
 
-1. Vá para o painel da central de implantação.  
+1. Vá ao painel do Centro de Implantação.  
 
-1. Selecione o número de Build na lista de logs bem-sucedidos para exibir o pipeline de compilação para seu projeto.
+1. Selecione o número de construção da lista de registos bem sucedidos para visualizar o pipeline de construção para o seu projeto.
 
-1. Selecione as reticências (...) no canto superior direito. Um menu mostra várias opções, como enfileirar uma nova compilação, reter uma compilação e editar o pipeline de compilação. Selecione **Editar pipeline**. 
+1. Selecione a elipse (...) no canto superior direito. Um menu mostra várias opções, como fazer fila de uma nova construção, manter uma construção e editar o pipeline de construção. Selecione **o pipeline Editar**. 
 
-1. Você pode examinar as diferentes tarefas para o pipeline de compilação neste painel. A compilação executa várias tarefas, como coletar fontes do repositório git, criar uma imagem, enviar uma imagem por push para o registro de contêiner e publicar saídas que são usadas para implantações.
+1. Você pode examinar as diferentes tarefas para o seu oleoduto de construção neste painel. A construção executa várias tarefas, tais como a recolha de fontes do repositório Git, a criação de uma imagem, o impulso de uma imagem para o registo de contentores e a publicação de saídas que são usadas para implantações.
 
-1. Selecione o nome do pipeline de compilação na parte superior do pipeline.
+1. Selecione o nome do gasoduto de construção na parte superior do gasoduto.
 
-1. Altere o nome do pipeline de compilação para algo mais descritivo, selecione **salvar & fila**e, em seguida, selecione **salvar**.
+1. Mude o nome do seu pipeline de construção para algo mais descritivo, selecione **Save & queue,** e, em seguida, selecione **Guardar**.
 
-1. Em seu pipeline de compilação, selecione **histórico**. Esse painel mostra uma trilha de auditoria de suas alterações de compilação recentes. O Azure DevOps monitora as alterações feitas no pipeline de compilação e permite que você compare as versões.
+1. Sob o seu oleoduto de construção, selecione **History**. Este painel mostra um rasto de auditoria das suas recentes mudanças de construção. O Azure DevOps monitoriza quaisquer alterações feitas no pipeline de construção e permite comparar versões.
 
-1. Selecione **Acionadores**. Você pode incluir ou excluir ramificações do processo de CI.
+1. Selecione **Acionadores**. Pode incluir ou excluir balcões do processo de CI.
 
-1. Selecione **Retenção**. Você pode especificar políticas para manter ou remover várias compilações, dependendo do seu cenário.
+1. Selecione **Retenção**. Pode especificar políticas para manter ou remover uma série de construções, dependendo do seu cenário.
 
 ## <a name="examine-the-cd-pipeline"></a>Examinar o pipeline de CD
 
-A central de implantação cria e configura automaticamente a relação entre sua organização do Azure DevOps e sua assinatura do Azure. As etapas envolvidas incluem a configuração de uma conexão de serviço do Azure para autenticar sua assinatura do Azure com o Azure DevOps. O processo automatizado também cria um pipeline de lançamento, que fornece entrega contínua ao Azure.
+O Centro de Implantação cria e confunde automaticamente a relação entre a sua organização Azure DevOps e a sua subscrição Azure. Os passos envolvidos incluem a criação de uma ligação de serviço Azure para autenticar a sua subscrição Azure com a Azure DevOps. O processo automatizado também cria um pipeline de libertação, que fornece entrega contínua ao Azure.
 
-1. Selecione **pipelines**e, em seguida, selecione **versões**.
+1. Selecione **Pipelines**, e, em seguida, selecione **Lançamentos**.
 
-1. Para editar o pipeline de liberação, selecione **Editar**.
+1. Para editar o gasoduto de lançamento, selecione **Editar**.
 
-1. Selecione **descartar** na lista **artefatos** . Nas etapas anteriores, o pipeline de construção que você examinou produz a saída usada para o artefato. 
+1. Selecione **Drop** da lista **de Artefactos.** Nos passos anteriores, o gasoduto de construção que examinou produz a saída utilizada para o artefacto. 
 
-1. Selecione o gatilho de **implantação contínua** à direita da opção **drop** . Este pipeline de lançamento tem um gatilho de CD habilitado que executa uma implantação sempre que um novo artefato de compilação está disponível. Você também pode desabilitar o gatilho para exigir a execução manual de suas implantações.
+1. Selecione o gatilho de **implantação Contínua** à direita da opção **Drop.** Este gasoduto de libertação tem um gatilho de CD ativado que executa uma implantação sempre que um novo artefacto de construção está disponível. Também pode desativar o gatilho para exigir a execução manual para as suas implementações.
 
-1. Para examinar todas as tarefas de seu pipeline, selecione **tarefas**. A versão define o ambiente do gaveta, configura o parâmetro `imagePullSecrets`, instala as ferramentas do Helm e implanta os gráficos do Helm no cluster kubernetes.
+1. Para examinar todas as tarefas do seu pipeline, selecione **Tasks**. O lançamento define o ambiente de leme, configura o parâmetro `imagePullSecrets`, instala ferramentas Helm e implanta as tabelas Helm para o cluster Kubernetes.
 
-1. Para exibir o histórico de versões, selecione **Exibir versões**.
+1. Para ver o histórico de lançamentos, selecione **ver lançamentos**.
 
-1. Para ver o resumo, selecione **liberar**. Selecione qualquer um dos estágios para explorar vários menus, como um resumo de lançamento, itens de trabalho associados e testes. 
+1. Para ver o resumo, selecione **Libertar**. Selecione qualquer uma das etapas para explorar vários menus, tais como um resumo de lançamento, itens de trabalho associados e testes. 
 
-1. Selecione **Consolidações**. Esta exibição mostra as confirmações de código relacionadas a essa implantação. Compare as versões para ver as diferenças de confirmação entre implantações.
+1. Selecione **Consolidações**. Esta visão mostra que o código se compromete com esta implantação. Compare os lançamentos para ver as diferenças de compromisso entre implementações.
 
-1. Selecionar **Registos**. Os logs contêm informações úteis de implantação, que você pode exibir durante e após as implantações.
+1. Selecione **Registos**. Os registos contêm informações úteis de implementação, que pode visualizar durante e após as implementações.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Você pode excluir os recursos relacionados que criou quando não precisa mais deles. Use a funcionalidade excluir no painel DevOps Projects.
+Pode eliminar os recursos relacionados que criou quando já não precisa deles. Utilize a funcionalidade de eliminar no painel de instrumentos de Projetos DevOps.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Ou você pode usar esse modelo de CI/CD como um modelo para seus outros pipelines.
+Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Ou, pode usar este modelo CI/CD como modelo para os outros oleodutos.

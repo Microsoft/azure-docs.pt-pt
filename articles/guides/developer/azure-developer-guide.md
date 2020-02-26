@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: af5399a6e1a76a6020448b2e91d76a1d2e1f0ed8
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186955"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598056"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Inicie guia para desenvolvedores do Azure
 
@@ -33,7 +33,7 @@ Este guia é uma introdução à plataforma Azure para desenvolvedores de aplica
 
 ## <a name="where-do-i-start"></a>Por onde devo começar?
 
-Com todos os serviços que o Azure oferece, pode ser uma tarefa intimidante descobrir quais os serviços que precisa para apoiar a sua arquitetura de solução. Esta secção destaca os serviços Azure que os desenvolvedores geralmente utilizam. Para obter uma lista de todos os serviços azure, consulte a [documentação azure](../../index.md).
+Com todos os serviços que o Azure oferece, pode ser uma tarefa intimidante descobrir quais os serviços que precisa para apoiar a sua arquitetura de solução. Esta secção destaca os serviços Azure que os desenvolvedores geralmente utilizam. Para obter uma lista de todos os serviços azure, consulte a [documentação azure](../../index.yml).
 
 Primeiro, deve decidir como hospedar a sua candidatura em Azure. Precisa de gerir toda a sua infraestrutura como uma máquina virtual (VM). Pode utilizar as instalações de gestão da plataforma que o Azure fornece? Talvez precise de um quadro sem servidores para acolher apenas a execução de código?
 

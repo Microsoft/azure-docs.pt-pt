@@ -1,5 +1,5 @@
 ---
-title: Tutorial-usar a central de segurança do Azure para VMs do Linux no Azure
+title: Tutorial - Use Azure Security Center para VMs Linux em Azure
 description: Neste tutorial, vai aprender sobre as funcionalidades do Centro de Segurança do Azure para ajudar a proteger as suas máquinas virtuais do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4046aac5e8362bf315eca11d9cd96a6e862e2c55
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 5c5a8bc06c676121c20f6e1f83a26dd9343e6847
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034596"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605521"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Utilizar o Centro de Segurança do Azure para monitorizar as máquinas virtuais do Linux
 
@@ -64,7 +64,7 @@ Para configurar uma política de segurança para toda a subscrição:
 
 1. No dashboard Centro de Segurança, selecione **Política de Segurança** e, em seguida, selecione a sua subscrição.
 2. No painel **Política de Segurança**, selecione **Política de segurança**. 
-3. Na folha **política de segurança – política de segurança** , ative ou desative os itens de política que você deseja aplicar à assinatura.
+3. Sobre a política de segurança - Lâmina de política de **segurança,** ligue ou desligue itens de política que pretende aplicar à subscrição.
 4. Quando tiver terminado de selecionar as definições, selecione **Guardar** na parte superior do painel. 
 
 ![Política exclusiva](./media/tutorial-azure-security/unique-policy.png)
@@ -103,9 +103,9 @@ Em muitos casos, o Centro de Segurança fornece passos acionáveis que pode segu
 
 ## <a name="view-detected-threats"></a>Ver as ameaças detetadas
 
-Além das recomendações de configuração de recursos, o Centro de Segurança apresenta os alertas de deteção de ameaças. A funcionalidade de alertas de segurança agrega os dados recolhidos de cada VM, os registos de rede do Azure e as soluções de parceiros ligadas para detetar ameaças de segurança relativamente aos recursos do Azure. Para obter informações detalhadas sobre os recursos de detecção de ameaças da central de segurança, consulte [como a central de segurança detecta ameaças?](../../security-center/security-center-alerts-overview.md#detect-threats).
+Além das recomendações de configuração de recursos, o Centro de Segurança apresenta os alertas de deteção de ameaças. A funcionalidade de alertas de segurança agrega os dados recolhidos de cada VM, os registos de rede do Azure e as soluções de parceiros ligadas para detetar ameaças de segurança relativamente aos recursos do Azure. Para obter informações aprofundadas sobre as capacidades de deteção de ameaças do Centro de Segurança, veja como é que o Centro de [Segurança deteta ameaças?](../../security-center/security-center-alerts-overview.md#detect-threats)
 
-A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. Uma **avaliação gratuita** está disponível quando você passa para esse tipo de preço mais alto. 
+A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. Um **teste gratuito** está disponível quando você se muda para este nível de preços mais alto. 
 
 Para alterar o escalão de preço:  
 
@@ -134,5 +134,5 @@ Neste tutorial, configurou o Centro de Segurança do Azure e, em seguida, reviu 
 Avance para o próximo tutorial para saber mais sobre como criar um pipeline de CI/CD com Jenkins, GitHub e Docker.
 
 > [!div class="nextstepaction"]
-> [Criar uma infraestrutura de CI/CD com Jenkins, GitHub, e Docker](tutorial-jenkins-github-docker-cicd.md)
+> [Criar uma infraestrutura de CI/CD com Jenkins, GitHub, e Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

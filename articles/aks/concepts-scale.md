@@ -1,109 +1,108 @@
 ---
-title: Conceitos – dimensionar aplicativos nos serviços Kubernetess do Azure (AKS)
-description: Saiba mais sobre o dimensionamento no AKS (serviço de kubernetes do Azure), incluindo o conector automático de Pod horizontal, o dimensionamento automático de cluster e o Azure container instances Connector.
+title: Conceitos - Aplicações de escala nos Serviços Azure Kubernetes (AKS)
+description: Aprenda sobre a escala no Serviço Azure Kubernetes (AKS), incluindo autoscaler de cápsula horizontal, autoscaler cluster e o conector De instâncias de contentores Azure.
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: aaa279596532d3a1d47a974b48a45bd67101fa95
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 396e5bc31723768ada334dd5043bca724af5e84f
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768627"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595863"
 ---
-# <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicativos no serviço kubernetes do Azure (AKS)
+# <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de escala para aplicações no Serviço Azure Kubernetes (AKS)
 
-Ao executar aplicativos no AKS (serviço kubernetes do Azure), talvez seja necessário aumentar ou diminuir a quantidade de recursos de computação. Como o número de instâncias de aplicativo que você precisa alterar, o número de nós kubernetes subjacentes também pode precisar ser alterado. Você também pode precisar provisionar rapidamente um grande número de instâncias de aplicativo adicionais.
+À medida que executa aplicações no Serviço Azure Kubernetes (AKS), poderá ter de aumentar ou diminuir a quantidade de recursos computacionais. Como o número de casos de aplicação que precisa de ser alterado, o número de nós kubernetes subjacentes também pode ter de mudar. Também poderá ter de fornecer rapidamente um grande número de casos adicionais de candidatura.
 
-Este artigo apresenta os principais conceitos que ajudam a dimensionar aplicativos no AKS:
+Este artigo introduz os conceitos fundamentais que o ajudam a escalar aplicações no AKS:
 
-- [Dimensionar manualmente](#manually-scale-pods-or-nodes)
-- [HPA (autodimensionamento de Pod horizontal)](#horizontal-pod-autoscaler)
-- [Autoescalar do cluster](#cluster-autoscaler)
-- [Integração de ACI (instância de contêiner do Azure) com AKS](#burst-to-azure-container-instances)
+- [Escala manual](#manually-scale-pods-or-nodes)
+- [Autoscaler de cápsula horizontal (HPA)](#horizontal-pod-autoscaler)
+- [Autoscaler cluster](#cluster-autoscaler)
+- [Integração da Instância de Contentores Azure (ACI) com a AKS](#burst-to-azure-container-instances)
 
-## <a name="manually-scale-pods-or-nodes"></a>Dimensionar manualmente os pods ou nós
+## <a name="manually-scale-pods-or-nodes"></a>Pods ou nósos de escala manual
 
-Você pode dimensionar manualmente as réplicas (PODS) e os nós para testar como seu aplicativo responde a uma alteração nos recursos e no estado disponíveis. O dimensionamento manual de recursos também permite que você defina uma quantidade definida de recursos a serem usados para manter um custo fixo, como o número de nós. Para dimensionar manualmente, você define a réplica ou a contagem de nós. A API kubernetes, em seguida, agenda a criação de pods adicionais ou a descarga de nós com base nessa réplica ou contagem de nós.
+Pode escalar manualmente réplicas (cápsulas) e nós para testar como a sua aplicação responde a uma mudança de recursos disponíveis e estado. Os recursos de escala manual também permitem definir uma quantidade fixa de recursos para usar para manter um custo fixo, como o número de nós. Para escalar manualmente, define a réplica ou a contagem do nó. A API kubernetes então programa a criação de cápsulas adicionais ou a drenagem de nódosos com base nessa réplica ou contagem de nó.
 
-Ao reduzir os nós verticalmente, a API kubernetes chama a API de computação do Azure relevante vinculada ao tipo de computação usado pelo cluster. Por exemplo, para clusters criados em escala de VM define a lógica para selecionar quais nós remover é determinada pela API dos conjuntos de dimensionamento de VM. Para saber mais sobre como os nós são selecionados para remoção na redução vertical, consulte as [perguntas frequentes do VMSS](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
+Ao escalonar os nós, a API kubernetes chama a API azure compute relevante ligada ao tipo de computação utilizado pelo seu cluster. Por exemplo, para os clusters construídos em escala VM define a lógica para selecionar quais os nós a remover é determinada pela API de Conjuntos de Escala VM. Para saber mais sobre como os nós são selecionados para remoção na escala para baixo, consulte o [VMSS FAQ](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
 
-Para começar a dimensionar manualmente os pods e os nós, consulte [dimensionar aplicativos em AKs][aks-scale].
+Para começar com cápsulas de escala manual e nótores ver [aplicações Scale em AKS][aks-scale].
 
-## <a name="horizontal-pod-autoscaler"></a>Autoescalar do pod horizontal
+## <a name="horizontal-pod-autoscaler"></a>Autoscaler de pod horizontal
 
-O kubernetes usa o HPA (dimensionamento automático de Pod horizontal) para monitorar a demanda de recursos e dimensionar automaticamente o número de réplicas. Por padrão, a escala automática de Pod horizontal verifica a API de métrica a cada 30 segundos em busca de quaisquer alterações necessárias na contagem de réplicas. Quando as alterações são necessárias, o número de réplicas aumenta ou diminui adequadamente. O autodimensionador de Pod horizontal funciona com clusters AKS que implantaram o servidor de métricas para kubernetes 1.8 +.
+Kubernetes utiliza o autoscaler horizontal da cápsula (HPA) para monitorizar a procura de recursos e escalar automaticamente o número de réplicas. Por predefinição, o autoescalador horizontal da cápsula verifica o API métrico a cada 30 segundos para quaisquer alterações necessárias na contagem de réplicas. Quando são necessárias alterações, o número de réplicas é aumentado ou diminuído em conformidade. O autoscaler horizontal da cápsula funciona com clusters AKS que implantaram o Servidor de Métricas para Kubernetes 1.8+.
 
-![Dimensionamento automático de Pod horizontal kubernetes](media/concepts-scale/horizontal-pod-autoscaling.png)
+![Autoscalcificação horizontal Kubernetes](media/concepts-scale/horizontal-pod-autoscaling.png)
 
-Ao configurar a escala automática de Pod horizontal para uma determinada implantação, você define o número mínimo e máximo de réplicas que podem ser executadas. Você também define a métrica para monitorar e basear as decisões de dimensionamento, como o uso da CPU.
+Quando configurar o autoescalador horizontal para uma determinada implantação, define o número mínimo e máximo de réplicas que podem ser executadas. Também define a métrica para monitorizar e basear quaisquer decisões de escala, como o uso de CPU.
 
-Para começar a usar o dimensionamento automático de Pod horizontal em AKS, confira autoescala [pods em AKs][aks-hpa].
+Para começar com o autoscaler horizontal em AKS, consulte [as cápsulas de escala automática em AKS][aks-hpa].
 
-### <a name="cooldown-of-scaling-events"></a>Cooldown de eventos de dimensionamento
+### <a name="cooldown-of-scaling-events"></a>Arrefecimento de eventos de escala
 
-Como a escala automática de Pod horizontal verifica a API de métrica a cada 30 segundos, os eventos de escala anterior podem não ter sido concluídos com êxito antes que outra verificação seja feita. Esse comportamento pode fazer com que a escala automática de Pod horizontal altere o número de réplicas antes que o evento de escala anterior pudesse receber a carga de trabalho do aplicativo e que as demandas de recursos se ajustem de acordo.
+À medida que o autoescalador horizontal da cápsula verifica o API métrico a cada 30 segundos, os eventos de escala anteriores podem não ter sido concluídos com sucesso antes de ser feito outro controlo. Este comportamento pode fazer com que o autoscaler horizontal da cápsula altere o número de réplicas antes que o evento de escala anterior possa receber carga de trabalho de aplicação e as exigências dos recursos se ajustarem em conformidade.
 
-Para minimizar esses eventos de corrida, cooldown ou valores de atraso são definidos. Esses valores definem por quanto tempo o dimensionador horizontal Pod deve aguardar após um evento de escala antes que outro evento de escala possa ser disparado. Esse comportamento permite que a nova contagem de réplica entre em vigor e a API de métricas reflita a carga de trabalho distribuída. Por padrão, o atraso em eventos de expansão é de 3 minutos e o atraso em eventos de redução vertical é de 5 minutos
+Para minimizar estes eventos de corrida, os valores de arrefecimento ou atraso são definidos. Estes valores definem quanto tempo o autoscaler horizontal da cápsula deve esperar após um evento de escala antes que outro evento de escala possa ser desencadeado. Este comportamento permite que a nova contagem de réplicas produza efeito e a API métricas reflita a carga de trabalho distribuída. Por padrão, o atraso na escala de eventos é de 3 minutos, e o atraso na escala para baixo eventos é de 5 minutos
 
-No momento, não é possível ajustar esses valores de cooldown do padrão.
+Atualmente, não é possível afinar estes valores de arrefecimento a partir do padrão.
 
-## <a name="cluster-autoscaler"></a>Autoescalar do cluster
+## <a name="cluster-autoscaler"></a>Autoscaler cluster
 
-Para responder à alteração das demandas de Pod, o kubernetes tem um conjunto de dimensionamento automática de cluster, que ajusta o número de nós com base nos recursos de computação solicitados no pool de nós. Por padrão, o dimensionador automática do cluster verifica o servidor de API de métrica a cada 10 segundos para todas as alterações necessárias na contagem de nós. Se o dimensionamento automático do cluster determinar que uma alteração é necessária, o número de nós no cluster AKS será aumentado ou diminuído adequadamente. O dimensionador de clusters em autoescalar funciona com clusters AKS habilitados para RBAC que executam o kubernetes 1.10. x ou superior.
+Para responder às exigências da pod em mudança, a Kubernetes tem um autoscaler cluster, que ajusta o número de nós com base nos recursos de computação solicitados na piscina do nó. Por predefinição, o autoescalador do cluster verifica o servidor API métrico a cada 10 segundos para quaisquer alterações necessárias na contagem de nós. Se a escala automática do cluster determinar que é necessária uma alteração, o número de nós no seu cluster AKS é aumentado ou diminuído em conformidade. O autoscaler cluster funciona com clusters AKS ativados por RBAC que executam Kubernetes 1.10.x ou superiores.
 
-![Autoescalar do cluster kubernetes](media/concepts-scale/cluster-autoscaler.png)
+![Autoscaler de cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
-O dimensionamento em escala geral do cluster normalmente é usado junto com o dimensionamento horizontal do pod. Quando combinado, o pod de dimensionamento horizontal aumenta ou diminui o número de pods com base na demanda do aplicativo e o dimensionamento automática do cluster ajusta o número de nós conforme necessário para executar os pods adicionais de forma adequada.
+O autoscaler cluster é normalmente utilizado ao lado do autoescalador horizontal da cápsula. Quando combinado, o autoescalador horizontal aumenta ou diminui o número de cápsulas com base na procura de aplicação, e o autoescalador do cluster ajusta o número de nós conforme necessário para executar essas cápsulas adicionais em conformidade.
 
-Para começar a usar o cluster de dimensionamento em AKS, consulte o [dimensionamento de cluster em AKs][aks-cluster-autoscaler].
+Para começar com o autoscaler cluster em AKS, consulte [Cluster Autoscaler em AKS][aks-cluster-autoscaler].
 
-### <a name="scale-up-events"></a>Escalar verticalmente os eventos
+### <a name="scale-up-events"></a>Escalar eventos
 
-Se um nó não tiver recursos de computação suficientes para executar um pod solicitado, esse Pod não poderá progredir pelo processo de agendamento. O Pod não pode iniciar, a menos que recursos de computação adicionais estejam disponíveis no pool de nós.
+Se um nó não tiver recursos de computação suficientes para executar uma cápsula solicitada, essa cápsula não pode progredir através do processo de agendamento. A cápsula não pode começar a menos que recursos de computação adicionais estejam disponíveis dentro da piscina do nó.
 
-Quando o dimensionador automática do cluster observa pods que não pode ser agendado devido a restrições de recursos do pool de nós, o número de nós dentro do pool de nós é aumentado para fornecer os recursos de computação adicionais. Quando esses nós adicionais são implantados com êxito e estão disponíveis para uso dentro do pool de nós, os pods são agendados para serem executados neles.
+Quando o autoscaler do cluster nota cápsulas que não podem ser programadas devido a restrições de recursos de piscina de nós, o número de nós dentro da piscina do nó é aumentado para fornecer os recursos de computação adicionais. Quando esses nós adicionais forem implantados com sucesso e disponíveis para uso dentro da piscina do nó, as cápsulas estão então programadas para funcionar neles.
 
-Se o seu aplicativo precisar ser dimensionado rapidamente, alguns pods podem permanecer em um estado aguardando para ser agendado até que os nós adicionais implantados pelo dimensionamento rápido do cluster possam aceitar os pods agendados. Para aplicativos que têm altas demandas de intermitência, você pode dimensionar com nós virtuais e instâncias de contêiner do Azure.
+Se a sua aplicação precisar de escala rápida, algumas cápsulas podem permanecer em estado à espera de serem programadas até que os nós adicionais implantados pelo autoscaler do cluster possam aceitar as cápsulas programadas. Para aplicações com elevadas exigências de explosão, pode escalar com nós virtuais e instâncias de contentores Azure.
 
-### <a name="scale-down-events"></a>Reduzir eventos de redução
+### <a name="scale-down-events"></a>Escala de eventos
 
-O autoescalar do cluster também monitora o status de agendamento do pod para nós que não receberam novas solicitações de agendamento recentemente. Esse cenário indica que o pool de nós tem mais recursos de computação que os necessários e o número de nós pode ser reduzido.
+O autoscaler do cluster também monitoriza o estado de agendamento do pod para nós que não receberam recentemente novos pedidos de agendamento. Este cenário indica que o conjunto do nó tem mais recursos computacionais do que os necessários, e o número de nós pode ser diminuído.
 
-Um nó que passa um limite para não ser mais necessário por 10 minutos por padrão é agendado para exclusão. Quando essa situação ocorre, os pods são agendados para serem executados em outros nós no pool de nós, e o dimensionamento automática do cluster diminui o número de nós.
+Um nó que passa um limiar por deixar de ser necessário por 10 minutos por defeito está agendado para a eliminação. Quando esta situação ocorre, as cápsulas estão programadas para correr em outros nós dentro da piscina do nó, e o autoescalador do cluster diminui o número de nós.
 
-Seus aplicativos podem experimentar algumas interrupções, pois os pods são agendados em nós diferentes quando o dimensionamento automática do cluster diminui o número de nós. Para minimizar a interrupção, evite aplicativos que usam uma única instância de Pod.
+As suas aplicações podem sofrer algumas perturbações, uma vez que as cápsulas são programadas em diferentes nós quando o autoescalador de cluster diminui o número de nós. Para minimizar a perturbação, evite aplicações que utilizem uma única instância de pod.
 
-## <a name="burst-to-azure-container-instances"></a>Disparo para instâncias de contêiner do Azure
+## <a name="burst-to-azure-container-instances"></a>Explosão para instâncias de contentores de Azure
 
-Para dimensionar rapidamente seu cluster AKS, você pode integrar com ACI (instâncias de contêiner do Azure). O kubernetes tem componentes internos para dimensionar a réplica e a contagem de nós. No entanto, se o seu aplicativo precisar ser dimensionado rapidamente, o pod de dimensionamento horizontal pode agendar mais pods do que pode ser fornecido pelos recursos de computação existentes no pool de nós. Se configurado, esse cenário acionaria o dimensionador automático do cluster para implantar nós adicionais no pool de nós, mas pode levar alguns minutos para que esses nós provisionem com êxito e permitam que o Agendador kubernetes execute pods neles.
+Para escalar rapidamente o seu cluster AKS, pode integrar-se com instâncias de contentores Azure (ACI). Kubernetes tem componentes incorporados para escalar a réplica e a contagem de nó. No entanto, se a sua aplicação precisar de uma escala rápida, o autoscaler horizontal pode agendar mais cápsulas do que pode ser fornecida pelos recursos computacionais existentes na piscina do nó. Se configurado, este cenário desencadearia então o autoescalador do cluster para implantar nós adicionais na piscina do nó, mas pode levar alguns minutos para que esses nós oprovisionem com sucesso e permitam que o programador kubernetes execute cápsulas neles.
 
-![Escala de intermitência kubernetes para ACI](media/concepts-scale/burst-scaling.png)
+![Kubernetes rebentou escalando para ACI](media/concepts-scale/burst-scaling.png)
 
-O ACI permite que você implante rapidamente instâncias de contêiner sem sobrecarga adicional de infraestrutura. Quando você se conecta com o AKS, o ACI se torna uma extensão lógica segura do seu cluster AKS. O componente de [nós virtuais][virtual-nodes-cli] , que se baseia em [Kubelet virtual][virtual-kubelet], é instalado em seu cluster AKs que apresenta ACI como um nó de kubernetes virtual. Kubernetes pode então agendar pods que executam como instâncias de ACI por meio de nós virtuais, não como pods nos nós de VM diretamente no cluster AKS. Nós virtuais estão atualmente em visualização no AKS.
+O ACI permite-lhe implementar rapidamente instâncias de contentores sem despesas adicionais de infraestruturas. Quando se conecta com AKS, o ACI torna-se uma extensão lógica segura do seu cluster AKS. O componente [de nós virtuais,][virtual-nodes-cli] que é baseado em [Virtual Kubelet,][virtual-kubelet]está instalado no seu cluster AKS que apresenta ACI como um nó virtual de Kubernetes. Os Kubernetes podem então agendar cápsulas que funcionam como instâncias ACI através de nós virtuais, e não como casulos em nós VM diretamente no seu cluster AKS. Os nódosos virtuais estão atualmente em pré-visualização no AKS.
 
-Seu aplicativo não requer nenhuma modificação para usar nós virtuais. As implantações podem ser dimensionadas entre AKS e ACI e sem atraso, pois o dimensionamento rápido de cluster implanta novos nós em seu cluster AKS.
+A sua aplicação não necessita de modificações para utilizar nódosos virtuais. As implementações podem escalar através de AKS e ACI e sem demora, uma vez que o cluster autoscaler implementa novos nós no seu cluster AKS.
 
-Os nós virtuais são implantados em uma sub-rede adicional na mesma rede virtual que o cluster AKS. Essa configuração de rede virtual permite que o tráfego entre ACI e AKS seja protegido. Como um cluster AKS, uma instância de ACI é um recurso de computação lógico seguro que é isolado de outros usuários.
+Os nós virtuais são implantados para uma subrede adicional na mesma rede virtual que o seu cluster AKS. Esta configuração de rede virtual permite que o tráfego entre ACI e AKS seja protegido. Como um cluster AKS, uma instância DeCI é um recurso de computação lógica e seguro que é isolado de outros utilizadores.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a dimensionar aplicativos, primeiro siga o guia de [início rápido para criar um cluster AKs com o CLI do Azure][aks-quickstart]. Em seguida, você pode começar a dimensionar manualmente ou automaticamente os aplicativos em seu cluster AKS:
+Para começar com aplicações de escala, siga primeiro o [quickstart para criar um cluster AKS com o Azure CLI][aks-quickstart]. Em seguida, pode começar a escalar aplicações manual ou automaticamente no seu cluster AKS:
 
-- Dimensionar manualmente os [pods][aks-manually-scale-pods] ou [nós][aks-manually-scale-nodes]
-- Usar o [dimensionamento de escalabilidade horizontal][aks-hpa]
-- Usar o [dimensionamento de cluster][aks-cluster-autoscaler]
+- Pods [][aks-manually-scale-pods] ou [nósos][aks-manually-scale-nodes] de escala manual
+- Utilize o [autoscaler horizontal da cápsula][aks-hpa]
+- Utilize o [autoscaler][aks-cluster-autoscaler] do cluster
 
-Para obter mais informações sobre os principais conceitos de kubernetes e AKS, consulte os seguintes artigos:
+Para obter mais informações sobre os conceitos core Kubernetes e AKS, consulte os seguintes artigos:
 
-- [Clusters e cargas de trabalho do kubernetes/AKS][aks-concepts-clusters-workloads]
-- [Acesso e identidade de kubernetes/AKS][aks-concepts-identity]
-- [Segurança do kubernetes/AKS][aks-concepts-security]
-- [Redes virtuais kubernetes/AKS][aks-concepts-network]
-- [Armazenamento kubernetes/AKS][aks-concepts-storage]
+- [Aglomerados kubernetes / AKS e cargas de trabalho][aks-concepts-clusters-workloads]
+- [Kubernetes / ACESSO aks e identidade][aks-concepts-identity]
+- [Kubernetes / Segurança AKS][aks-concepts-security]
+- [Redes virtuais Kubernetes / AKS][aks-concepts-network]
+- [Armazenamento Kubernetes / AKS][aks-concepts-storage]
 
 <!-- LINKS - external -->
 [virtual-kubelet]: https://virtual-kubelet.io/

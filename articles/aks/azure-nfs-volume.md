@@ -1,38 +1,37 @@
 ---
-title: Criar um servidor NFS (Network File System) Ubuntu para uso pelo pods do serviço kubernetes do Azure (AKS)
-description: Saiba como criar manualmente um volume do servidor de Ubuntu Linux NFS para uso com o pods no serviço kubernetes do Azure (AKS)
+title: Criar um Servidor Ubuntu NFS (Sistema de Ficheiros de Rede) para utilização por pods do Serviço Azure Kubernetes (AKS)
+description: Aprenda a criar manualmente um volume nfs Ubuntu Linux Server para uso com cápsulas no Serviço Azure Kubernetes (AKS)
 services: container-service
 author: ozboms
-ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 9b9c4b326596887774d9dfc0dd792052ec672be2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e5676710bc47557318f3e2adcf36ec0ed13d47de
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063820"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596628"
 ---
-# <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Criar e usar manualmente um volume de servidor NFS (Network File System) do Linux com o serviço de kubernetes do Azure (AKS)
-O compartilhamento de dados entre contêineres é geralmente um componente necessário de serviços e aplicativos baseados em contêiner. Normalmente, você tem vários pods que precisam acessar as mesmas informações em um volume persistente externo.    
-Embora os arquivos do Azure sejam uma opção, a criação de um servidor NFS em uma VM do Azure é outra forma de armazenamento compartilhado persistente. 
+# <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Crie e utilize manualmente um volume de servidor De NFS (Sistema de Ficheiros de Rede) com o Serviço Azure Kubernetes (AKS)
+A partilha de dados entre contentores é frequentemente um componente necessário dos serviços e aplicações baseados em contentores. Normalmente tem várias cápsulas que precisam de acesso à mesma informação num volume externo persistente.    
+Embora os ficheiros Azure sejam uma opção, criar um Servidor NFS num VM Azure é outra forma de armazenamento partilhado persistente. 
 
-Este artigo mostrará como criar um servidor NFS em uma máquina virtual Ubuntu. Além disso, dê acesso aos seus contêineres do AKS a esse sistema de arquivos compartilhado.
+Este artigo irá mostrar-lhe como criar um Servidor NFS numa máquina virtual Ubuntu. E também dê aos seus contentores AKS acesso a este sistema de ficheiros partilhados.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Este artigo pressupõe que você tenha um cluster AKS existente. Se precisar de um Cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
+Este artigo assume que você tem um aglomerado AKS existente. Se precisar de um Cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Seu cluster AKS precisará residir em redes virtuais iguais ou emparelhadas como o servidor NFS. O cluster deve ser criado em uma VNET existente, que pode ser a mesma VNET que a VM.
+O seu Cluster AKS terá de viver nas mesmas redes virtuais ou esparam como o Servidor NFS. O cluster deve ser criado num VNET existente, que pode ser o mesmo VNET que o seu VM.
 
 Os passos para configurar com um VNET existente são descritos na documentação: [criar cluster AKS em VNET existente][aks-virtual-network] e ligar redes virtuais com o [peering VNET][peer-virtual-networks]
 
-Ele também pressupõe que você criou uma máquina virtual Ubuntu Linux (por exemplo, 18, 4 LTS). As configurações e o tamanho podem ser de sua preferência e podem ser implantados por meio do Azure. Para o arranque rápido do Linux, consulte a [gestão da Linux VM.][linux-create]
+Também assume que criou uma Máquina Virtual Ubuntu Linux (por exemplo, 18.04 LTS). As definições e o tamanho podem ser do seu agrado e podem ser implantados através do Azure. Para o arranque rápido do Linux, consulte a [gestão da Linux VM.][linux-create]
 
-Se você implantar o cluster AKS primeiro, o Azure preencherá automaticamente o campo rede virtual ao implantar seu computador Ubuntu, tornando-os ativos na mesma VNET. Mas se você quiser trabalhar com redes emparelhadas, consulte a documentação acima.
+Se implementar primeiro o seu Cluster AKS, o Azure irá povoar automaticamente o campo de rede virtual ao implantar a sua máquina Ubuntu, fazendo-os viver dentro do mesmo VNET. Mas se quiser trabalhar com redes com pares, consulte a documentação acima.
 
-## <a name="deploying-the-nfs-server-onto-a-virtual-machine"></a>Implantando o servidor NFS em uma máquina virtual
-Este é o script para configurar um servidor NFS em sua máquina virtual Ubuntu:
+## <a name="deploying-the-nfs-server-onto-a-virtual-machine"></a>Implantação do Servidor NFS numa máquina virtual
+Aqui está o script para configurar um Servidor NFS dentro da sua máquina virtual Ubuntu:
 ```bash
 #!/bin/bash
 
@@ -79,27 +78,27 @@ O servidor reiniciará (por causa do script) e poderá montar o Servidor NFS par
 >[!IMPORTANT]  
 >Certifique-se de que substitui o **AKS_SUBNET** pelo correto do seu cluster ou então "*" abrirá o seu Servidor NFS a todas as portas e ligações.
 
-Depois de criar sua VM, copie o script acima em um arquivo. Em seguida, você pode movê-lo do computador local, ou onde quer que o script esteja, na VM usando: 
+Depois de criar o seu VM, copie o guião acima num ficheiro. Em seguida, pode movê-lo da sua máquina local, ou onde quer que o script esteja, para o VM usando: 
 ```console
 scp /path/to/script_file username@vm-ip-address:/home/{username}
 ```
-Depois que o script estiver em sua VM, você poderá realizar o ssh na VM e executá-lo por meio do comando:
+Uma vez que o seu script esteja no seu VM, pode entrar no VM e executá-lo através do comando:
 ```console
 sudo ./nfs-server-setup.sh
 ```
-Se sua execução falhar devido a um erro de permissão negada, defina a permissão de execução por meio do comando:
+Se a sua execução falhar devido a uma permissão negada erro, detetete a permissão de execução através do comando:
 ```console
 chmod +x ~/nfs-server-setup.sh
 ```
 
-## <a name="connecting-aks-cluster-to-nfs-server"></a>Conectando o cluster AKS ao servidor NFS
-Podemos conectar o servidor NFS ao nosso cluster provisionando um volume persistente e uma declaração de volume persistente que especifica como acessar o volume.
+## <a name="connecting-aks-cluster-to-nfs-server"></a>Ligação do Cluster AKS ao servidor NFS
+Podemos ligar o Servidor NFS ao nosso cluster, aprovisionando uma persistente reivindicação de volume e volume persistente que especifica como aceder ao volume.
 
-É necessário conectar os dois serviços nas mesmas ou nas redes virtuais emparelhadas. As instruções para a instalação do cluster no mesmo VNET estão aqui: [Criar cluster AKS no VNET existente][aks-virtual-network]
+É necessário ligar os dois serviços nas mesmas redes virtuais ou esparficadas. As instruções para a instalação do cluster no mesmo VNET estão aqui: [Criar cluster AKS no VNET existente][aks-virtual-network]
 
-Quando estiverem na mesma rede virtual (ou emparelhada), você precisará provisionar um volume persistente e uma declaração de volume persistente em seu cluster AKS. Os contêineres podem montar a unidade NFS em seu diretório local.
+Uma vez que estejam na mesma rede virtual (ou empares), é necessário fornecer um volume persistente e uma reivindicação persistente de volume no seu Cluster AKS. Os contentores podem então montar a unidade nFS para o seu diretório local.
 
-Aqui está um exemplo de definição de kubernetes para o volume persistente (essa definição assume que o cluster e a VM estão na mesma VNET):
+Aqui está um exemplo de definição kubernetes para o volume persistente (Esta definição pressupõe que o seu cluster e VM estão no mesmo VNET):
 
 ```yaml
 apiVersion: v1
@@ -119,7 +118,7 @@ spec:
 ```
 Substitua **NFS_INTERNAL_IP,** **NFS_NAME** e **NFS_EXPORT_FILE_PATH** por informações do Servidor NFS.
 
-Você também precisará de um arquivo de declaração de volume persistente. Aqui está um exemplo do que incluir:
+Também vai precisar de um ficheiro de reclamação de volume persistente. Aqui está um exemplo do que incluir:
 
 >[!IMPORTANT]  
 >**"storageClassName"** tem de permanecer uma corda vazia ou a reclamação não funcionará.
@@ -142,9 +141,9 @@ spec:
 ```
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Se você não puder se conectar ao servidor de um cluster, um problema poderá ser o diretório exportado, ou seu pai, não terá permissões suficientes para acessar o servidor.
+Se não conseguir ligar-se ao servidor a partir de um cluster, um problema pode ser o diretório exportado, ou o seu progenitor, não tem permissões suficientes para aceder ao servidor.
 
-Verifique se o diretório de exportação e seu diretório pai têm permissões de 777.
+Verifique se tanto o seu diretório de exportação como o seu directório-mãe têm 777 permissões.
 
 Pode verificar permissões executando o comando abaixo e os diretórios devem ter permissões *'drwxrwrwx':*
 ```console
@@ -152,7 +151,7 @@ ls -l
 ```
 
 ## <a name="more-information"></a>Mais informações
-Para obter uma explicação completa ou para ajudá-lo a depurar a configuração do servidor NFS, aqui está um tutorial detalhado:
+Para obter uma passagem completa ou para ajudá-lo a depurar a configuração do Seu Servidor NFS, aqui está um tutorial aprofundado:
   - [NFS Tutorial][nfs-tutorial]
 
 ## <a name="next-steps"></a>Passos seguintes

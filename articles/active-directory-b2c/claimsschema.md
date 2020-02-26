@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 2861b882d9b4c00a1c4db87b2dd49d49dfeb53a6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372984"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581111"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ O elemento **DataType** suporta os seguintes valores:
 |duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato é `PnYnMnDTnHnMnS`, onde `P` indica positivo, ou `N` para valor negativo. `nY` é o número de anos seguidos de uma `Y`literal. `nMo` é o número de meses seguido de uma `Mo`literal. `nD` é o número de dias seguidos de uma `D`literal. Exemplos: `P21Y` representa 21 anos. `P1Y2Mo` representa um ano e dois meses. `P1Y2Mo5D` representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S` representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
 |phoneNumber|Representa um número de telefone. |
 |int| Representa o número entre -2.147.483.648 e 2.147.483.647|
-|long| Representa o número entre -9.223.372.036.854.775.808 para 9.223.372.036.854.775.807 |
+|longa| Representa o número entre -9.223.372.036.854.775.808 para 9.223.372.036.854.775.807 |
 |string| Representa o texto como uma sequência de unidades de código UTF-16.|
 |stringCollection|Representa uma coleção de `string`.|
 |userIdentidade| Representa uma identidade de utilizador.|
@@ -175,6 +175,8 @@ O elemento **restrição** contém os seguintes elementos:
 
 #### <a name="enumeration"></a>Enumeração
 
+O elemento **Enumeração** define as opções disponíveis para o utilizador selecionar para uma reclamação na interface do utilizador, como um valor num `CheckboxMultiSelect`, `DropdownSingleSelect`ou `RadioSingleSelect`. Em alternativa, pode definir e localizar as opções disponíveis com o elemento [LocalizedCollections.](localization.md#localizedcollections) Para procurar um item de uma coleção de **enumeração** de reclamações, use [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) reivindica a transformação de reivindicações.
+
 O elemento **Enumeração** contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
@@ -209,7 +211,7 @@ O elemento **Padrão** pode conter os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Expressão regular | Sim | A expressão regular que reclama deste tipo deve coincidir para ser válida. |
-| Texto de Ajuda | Não | O padrão ou expressão regular para esta afirmação. |
+| Texto de Ajuda | Não | Uma mensagem de erro para os utilizadores se a verificação de expressão regular falhar. |
 
 O exemplo seguinte configura uma reclamação de **e-mail** com validação regular de entrada de expressão e texto de ajuda:
 
@@ -247,7 +249,7 @@ Os tipos de entrada do utilizador do elemento **UserInputType** disponíveis:
 |Parágrafo | `boolean`, `date`, `dateTime`, `duration``int`, `long`, `string`|Um campo que mostra texto apenas numa etiqueta de parágrafo. |
 |Palavra-passe | `string` |Caixa de texto de senha.|
 |RadioSingleSelect |`string` | Coleção de botões de rádio. O valor da reclamação é o valor selecionado.|
-|Leitura apenas | `boolean`, `date`, `dateTime`, `duration``int`, `long`, `string`| Leia apenas a caixa de texto. |
+|Leitura apenas | `boolean`, `date`, `dateTime`, `duration``int`, `long`, `string`| Caixa de texto só de leitura. |
 |TextBox |`boolean`, `int`, `string` |Caixa de texto de linha única. |
 
 
@@ -407,5 +409,3 @@ O tipo de entrada do **utilizador do parágrafo** é utilizado para fornecer um 
   </Restriction>
 </ClaimType>
 ```
-
-Para exibir um dos valores de **Enumeração** numa reivindicação **respostaMsg,** use `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim` transformação de reclamações. Para mais informações, consulte [String Claims Transformations](string-transformations.md)

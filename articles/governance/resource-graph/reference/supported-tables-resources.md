@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Gestor de Recursos Suportados
 description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e change History.
-ms.date: 02/20/2020
+ms.date: 02/25/2020
 ms.topic: reference
-ms.openlocfilehash: 130b11f0060f7f27091a21652aa481f0340b288f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: dc08c4a33ec9e0c20b865ffa4d7c6ff9d5248e90
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77530227"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602569"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos azure e referência do tipo de recurso
 
@@ -116,6 +116,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.compute/sharedvmimages
 - microsoft.compute/sharedvmimages/versões
 - microsoft.compute/snapshots
+- microsoft.compute/sshpublickeys
 - microsoft.compute/virtualmachines
 - microsoft.compute/virtualmachines/extensões
 - microsoft.compute/virtualmachinescalesets
@@ -277,6 +278,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.network/firewallpolicies
 - microsoft.network/frontdoors
 - microsoft.network/frontdoorwebapplicationapplicationfirewallpolicies
+- microsoft.network/ipallocations
 - microsoft.network/ipgroups
 - microsoft.network/loadbalancers
 - microsoft.network/localnetworkgateways

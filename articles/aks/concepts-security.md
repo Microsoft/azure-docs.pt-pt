@@ -1,93 +1,90 @@
 ---
-title: Conceitos-segurança nos serviços Kubernetess do Azure (AKS)
-description: Saiba mais sobre a segurança no AKS (serviço kubernetes do Azure), incluindo a comunicação mestre e de nó, as diretivas de rede e os segredos de kubernetes.
+title: Conceitos - Segurança nos Serviços Azure Kubernetes (AKS)
+description: Conheça a segurança no Serviço Azure Kubernetes (AKS), incluindo comunicação de mestres e nó, políticas de rede e segredos de Kubernetes.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: mlearned
-ms.openlocfilehash: e461f9de8b20e4f6c8f027b1ae81ae21e54ece86
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 7238e6cd7ab3625e2953a4408c82802d43372256
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547936"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595948"
 ---
-# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicativos e clusters no serviço de kubernetes do Azure (AKS)
+# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Serviço Azure Kubernetes (AKS)
 
-Para proteger os dados do cliente durante a execução de cargas de trabalho do aplicativo no AKS (serviço kubernetes do Azure), a segurança do cluster é uma consideração importante. O kubernetes inclui componentes de segurança, como *as diretivas de rede* e os *segredos*. Em seguida, o Azure adiciona componentes como grupos de segurança de rede e atualizações de cluster orquestradas. Esses componentes de segurança são combinados para manter o cluster AKS executando as atualizações de segurança do sistema operacional mais recentes e as versões do kubernetes e com o tráfego de Pod seguro e o acesso a credenciais confidenciais.
+Para proteger os dados dos seus clientes à medida que executa as cargas de trabalho de aplicação no Serviço Azure Kubernetes (AKS), a segurança do seu cluster é uma consideração fundamental. Kubernetes inclui componentes de segurança, tais como políticas de *rede* e *segredos.* O Azure adiciona então componentes como grupos de segurança de rede e atualizações de clusterorquestradas. Estes componentes de segurança são combinados para manter o seu cluster AKS a executar as mais recentes atualizações de segurança do OS e lançamentos de Kubernetes, e com tráfego de cápsulas seguras e acesso a credenciais sensíveis.
 
-Este artigo apresenta os principais conceitos que protegem seus aplicativos no AKS:
+Este artigo introduz os conceitos fundamentais que asseguram as suas aplicações no AKS:
 
-- [Segurança dos componentes mestres](#master-security)
+- [Segurança dos componentes principais](#master-security)
 - [Segurança do nó](#node-security)
-- [Atualizações de cluster](#cluster-upgrades)
+- [Upgrades de cluster](#cluster-upgrades)
 - [Segurança da rede](#network-security)
-- [Segredos do kubernetes](#kubernetes-secrets)
+- [Segredos de Kubernetes](#kubernetes-secrets)
 
-## <a name="master-security"></a>Segurança mestre
+## <a name="master-security"></a>Segurança principal
 
-No AKS, os componentes mestres do kubernetes fazem parte do serviço gerenciado fornecido pela Microsoft. Cada cluster AKS tem seu próprio mestre kubernetes dedicado de locatário único para fornecer o servidor de API, o Agendador, etc. Este mestre é gerenciado e mantido pela Microsoft.
+No AKS, os componentes principais da Kubernetes fazem parte do serviço gerido fornecido pela Microsoft. Cada cluster AKS tem o seu próprio mestre Kubernetes dedicado e dedicado para fornecer o Servidor API, Scheduler, etc. Este mestre é gerido e mantido pela Microsoft.
 
-Por padrão, o servidor de API kubernetes usa um endereço IP público e um FQDN (nome de domínio totalmente qualificado). Você pode controlar o acesso ao servidor de API usando controles de acesso baseado em função kubernetes e Azure Active Directory. Para obter mais informações, consulte [integração do Azure AD com o AKs][aks-aad].
+Por predefinição, o servidor Kubernetes API utiliza um endereço IP público e um nome de domínio totalmente qualificado (FQDN). Pode controlar o acesso ao servidor API utilizando controlos de acesso baseados em papéis kubernetes e Diretório Ativo Azure. Para mais informações, consulte a [integração da Azure AD com a AKS.][aks-aad]
 
 ## <a name="node-security"></a>Segurança do nó
 
-Os nós AKS são máquinas virtuais do Azure que você gerencia e mantém. Os nós do Linux executam uma distribuição otimizada do Ubuntu usando o tempo de execução do contêiner Moby. Os nós do Windows Server (atualmente em visualização no AKS) executam uma versão do Windows Server 2019 otimizada e também usam o tempo de execução do contêiner do Moby. Quando um cluster AKS é criado ou dimensionado, os nós são automaticamente implantados com as atualizações e configurações de segurança do sistema operacional mais recentes.
+Os nódosos AKS são máquinas virtuais Azure que gere e mantém. Os nódosos Linux executam uma distribuição Ubuntu otimizada usando o tempo de execução do contentor Moby. Os nós do Windows Server (atualmente em pré-visualização no AKS) executam um lançamento otimizado do Windows Server 2019 e também utilizam o tempo de execução do contentor Moby. Quando um cluster AKS é criado ou dimensionado, os nós são automaticamente implantados com as mais recentes atualizações e configurações de segurança do SISTEMA.
 
-A plataforma Azure aplica automaticamente OS patches de segurança do sistema operacional a nós do Linux em uma base noturna. Se uma atualização de segurança do SO Linux exigir uma reinicialização do host, essa reinicialização não será executada automaticamente. Você pode reinicializar manualmente os nós do Linux ou uma abordagem comum é usar o [Kured][kured], um daemon de reinicialização de código aberto para kubernetes. Kured é executado como um [daemonset][aks-daemonsets] e monitora cada nó para a presença de um arquivo que indica que uma reinicialização é necessária. As reinicializações são gerenciadas pelo cluster usando o mesmo [processo de Cordon e drenagem](#cordon-and-drain) como uma atualização de cluster.
+A plataforma Azure aplica automaticamente patches de segurança osso aos nódoslinos Linux todas as noites. Se uma atualização de segurança do Sistema Operativo Linux necessitar de um reboot do hospedeiro, essa reinicialização não é executada automaticamente. Você pode reiniciar manualmente os nós Linux, ou uma abordagem comum é usar [Kured][kured], um daemon de reboot de código aberto para Kubernetes. Kured funciona como um [DaemonSet][aks-daemonsets] e monitoriza cada nó para a presença de um ficheiro indicando que é necessário reiniciar. As reinicializações são geridas através do cluster utilizando o mesmo processo de [cordão e drenagem](#cordon-and-drain) que um upgrade de cluster.
 
-Para nós do Windows Server (atualmente em visualização no AKS), Windows Update não executa automaticamente e aplica as atualizações mais recentes. Em um cronograma regular em relação ao ciclo de liberação Windows Update e seu próprio processo de validação, você deve executar uma atualização nos pools de nó do Windows Server em seu cluster AKS. Esse processo de atualização cria nós que executam a imagem e os patches mais recentes do Windows Server e, em seguida, remove os nós mais antigos. Para obter mais informações sobre esse processo, consulte [atualizar um pool de nós no AKs][nodepool-upgrade].
+No caso dos nós do Windows Server (atualmente em pré-visualização no AKS), o Windows Update não é executado automaticamente e aplica as atualizações mais recentes. Numa programação regular em torno do ciclo de lançamento do Windows Update e do seu próprio processo de validação, deverá realizar uma atualização no conjunto de nós do Windows Server no seu cluster AKS. Este processo de upgrade cria nós que executam a mais recente imagem e patches do Windows Server e, em seguida, remove os nós mais antigos. Para obter mais informações sobre este processo, consulte [Atualização de um conjunto][nodepool-upgrade]de nós em AKS .
 
-Os nós são implantados em uma sub-rede de rede virtual privada, sem endereços IP públicos atribuídos. Para fins de solução de problemas e gerenciamento, o SSH está habilitado por padrão. Esse acesso SSH só está disponível usando o endereço IP interno.
+Os nós são implantados numa subnet de rede virtual privada, sem endereços IP públicos atribuídos. Para fins de resolução de problemas e gestão, o SSH está ativado por defeito. Este acesso SSH só está disponível utilizando o endereço IP interno.
 
-Para fornecer armazenamento, os nós usam Managed Disks do Azure. Para a maioria dos tamanhos de nó de VM, esses são discos Premium com suporte para SSDs de alto desempenho. Os dados armazenados em discos gerenciados são automaticamente criptografados em repouso na plataforma do Azure. Para melhorar a redundância, esses discos também são replicados com segurança no datacenter do Azure.
+Para fornecer armazenamento, os nós usam Discos Geridos Azure. Para a maioria dos tamanhos dos nós vm, estes são discos Premium apoiados por SSDs de alto desempenho. Os dados armazenados em discos geridos são automaticamente encriptados em repouso dentro da plataforma Azure. Para melhorar a redundância, estes discos também são replicados de forma segura dentro do datacenter Azure.
 
-Os ambientes kubernetes, no AKS ou em outro lugar, atualmente não são totalmente seguros para o uso hostil de vários locatários. Recursos de segurança adicionais, como *políticas de segurança Pod* ou RBAC (controles de acesso baseado em função) mais refinados para nós tornam as explorações mais difíceis. No entanto, para uma verdadeira segurança ao executar cargas de trabalho de multilocatário hostil, um hipervisor é o único nível de segurança que você deve confiar. O domínio de segurança para kubernetes se torna o cluster inteiro, não um nó individual. Para esses tipos de cargas de trabalho de vários locatários hostis, você deve usar clusters isolados fisicamente. Para obter mais informações sobre maneiras de isolar cargas de trabalho, consulte [práticas recomendadas para isolamento de cluster em AKs][cluster-isolation],
+Os ambientes kubernetes, em AKS ou em qualquer outro lugar, atualmente não são completamente seguros para o uso hostil de multi-inquilinos. Funcionalidades de segurança adicionais, tais como Políticas de Segurança do *Pod* ou controlos de acesso baseados em funções mais finos (RBAC) para nós dificultam as explorações. No entanto, para uma verdadeira segurança quando se executam cargas de trabalho hostis de multi-inquilinos, um hipervisor é o único nível de segurança em que se deve confiar. O domínio de segurança de Kubernetes torna-se todo o cluster, não um nó individual. Para este tipo de cargas de trabalho hostis multi-inquilinos, você deve usar clusters fisicamente isolados. Para obter mais informações sobre formas de isolar as cargas de trabalho, consulte [as melhores práticas para o isolamento de clusters em AKS,][cluster-isolation]
 
-## <a name="cluster-upgrades"></a>Atualizações de cluster
+## <a name="cluster-upgrades"></a>Upgrades de cluster
 
-Para segurança e conformidade, ou para usar os recursos mais recentes, o Azure fornece ferramentas para orquestrar a atualização de um cluster e componentes do AKS. Essa orquestração de atualização inclui os componentes mestre de kubernetes e agente. Você pode exibir uma [lista de versões do kubernetes disponíveis](supported-kubernetes-versions.md) para o cluster do AKS. Para iniciar o processo de atualização, você deve especificar uma dessas versões disponíveis. Em seguida, o Azure cordons e esvazia com segurança cada nó AKS e executa a atualização.
+Para segurança e conformidade, ou para usar as funcionalidades mais recentes, o Azure fornece ferramentas para orquestrar a atualização de um cluster e componentes AKS. Esta orquestração de upgrade inclui os componentes mestre e agente kubernetes. Pode ver uma [lista de versões Kubernetes disponíveis](supported-kubernetes-versions.md) para o seu cluster AKS. Para iniciar o processo de atualização, especifice uma destas versões disponíveis. Azure, em seguida, isola e drena com segurança cada nó AKS e executa a atualização.
 
-### <a name="cordon-and-drain"></a>Cordon e dreno
+### <a name="cordon-and-drain"></a>Cordão e drenagem
 
-Durante o processo de atualização, os nós AKS são isolados individualmente do cluster para que novos pods não sejam agendados neles. Os nós são então descarregados e atualizados da seguinte maneira:
+Durante o processo de atualização, os nós AKS são isolados individualmente do cluster para que novas cápsulas não estejam programadas neles. Os nódosos são então drenados e atualizados da seguinte forma:
 
-- Um novo nó é implantado no pool de nós. Esse nó executa a imagem do sistema operacional e os patches mais recentes.
-- Um dos nós existentes é identificado para atualização. Os pods nesse nó são encerrados e agendados em outros nós no pool de nós.
-- Esse nó existente é excluído do cluster AKS.
-- O próximo nó do cluster é isolados e drenado usando o mesmo processo até que todos os nós sejam substituídos com êxito como parte do processo de atualização.
+- Um novo nó é implantado na piscina do nó. Este nó executa a mais recente imagem e patches de SO.
+- Um dos nódosos existentes está identificado para atualização. As cápsulas neste nó são graciosamente terminadas e programadas nos outros nós na piscina do nó.
+- Este nó existente é eliminado do cluster AKS.
+- O próximo nó no cluster é isolado e drenado usando o mesmo processo até que todos os nós sejam substituídos com sucesso como parte do processo de atualização.
 
-Para obter mais informações, consulte [atualizar um cluster AKs][aks-upgrade-cluster].
+Para mais informações, consulte [Atualizar um cluster AKS][aks-upgrade-cluster].
 
 ## <a name="network-security"></a>Segurança da rede
 
-Para conectividade e segurança com redes locais, você pode implantar o cluster AKS em sub-redes de rede virtual do Azure existentes. Essas redes virtuais podem ter uma conexão VPN site a site do Azure ou de rota expressa de volta para sua rede local. Os controladores de entrada do kubernetes podem ser definidos com endereços IP internos e privados para que os serviços só possam ser acessados por essa conexão de rede interna.
+Para conectividade e segurança com redes no local, pode implantar o seu cluster AKS em subredes de rede virtual Azure existentes. Estas redes virtuais podem ter uma ligação Azure Site-to-Site VPN ou Express Route de volta à sua rede no local. Os controladores de ingressos Kubernetes podem ser definidos com endereços IP privados internos, pelo que os serviços só são acessíveis através desta ligação interna à rede.
 
-### <a name="azure-network-security-groups"></a>Grupos de segurança de rede do Azure
+### <a name="azure-network-security-groups"></a>Grupos de segurança da rede Azure
 
-Para filtrar o fluxo de tráfego em redes virtuais, o Azure usa regras de grupo de segurança de rede. Essas regras definem os intervalos de IP de origem e de destino, as portas e os protocolos que têm o acesso permitido ou negado aos recursos. Regras padrão são criadas para permitir o tráfego TLS para o servidor de API kubernetes. À medida que você cria serviços com balanceadores de carga, mapeamentos de porta ou rotas de entrada, o AKS modifica automaticamente o grupo de segurança de rede para que o tráfego flua adequadamente.
+Para filtrar o fluxo de tráfego em redes virtuais, o Azure utiliza regras do grupo de segurança da rede. Estas regras definem as gamas IP de origem e destino, portos e protocolos que são permitidos ou negados ao acesso aos recursos. São criadas regras predefinidas para permitir o tráfego de TLS para o servidor Kubernetes API. À medida que cria serviços com equilibradores de carga, mapeamentos portuários ou rotas de ingresso, o AKS modifica automaticamente o grupo de segurança da rede para que o tráfego flua adequadamente.
 
 ## <a name="kubernetes-secrets"></a>Segredos de Kubernetes
 
-Um *segredo* kubernetes é usado para injetar dados confidenciais em pods, como credenciais de acesso ou chaves. Primeiro, você cria um segredo usando a API kubernetes. Quando você define o Pod ou a implantação, um segredo específico pode ser solicitado. Os segredos são fornecidos apenas para nós que têm um pod agendado que o exige, e o segredo é armazenado em *tmpfs*, não gravado no disco. Quando o último pod em um nó que requer um segredo é excluído, o segredo é excluído do tmpfs do nó. Os segredos são armazenados em um namespace específico e só podem ser acessados por pods dentro do mesmo namespace.
+Um Kubernetes *Secret* é usado para injetar dados sensíveis em cápsulas, tais como credenciais de acesso ou chaves. Primeiro cria-se um Segredo usando a API kubernetes. Quando define a sua cápsula ou implantação, um segredo específico pode ser solicitado. Os segredos são fornecidos apenas a nós que tenham uma cápsula programada que o exija, e o Segredo é armazenado em *tmpfs,* não escrito em disco. Quando a última cápsula num nó que requer um segredo é apagada, o Segredo é apagado dos tmpfs do nó. Os segredos são armazenados dentro de um determinado espaço de nome e só podem ser acedidos por cápsulas dentro do mesmo espaço de nome.
 
-O uso de segredos reduz as informações confidenciais que são definidas no YAML de Pod ou no manifesto do serviço. Em vez disso, você solicita o segredo armazenado no servidor de API kubernetes como parte do seu manifesto do YAML. Essa abordagem fornece apenas o acesso Pod específico ao segredo. Observação: os arquivos de manifesto de segredo bruto contêm os dados secretos no formato Base64 (consulte a [documentação oficial][secret-risks] para obter mais detalhes). Portanto, esse arquivo deve ser tratado como informações confidenciais e nunca é confirmado no controle do código-fonte.
+O uso de Segredos reduz a informação sensível que é definida no manifesto YAML da cápsula ou do serviço. Em vez disso, solicita o Secret armazenado no Kubernetes API Server como parte do seu manifesto YAML. Esta abordagem apenas fornece o acesso específico do casulo ao Segredo. Por favor, note: os ficheiros de manifesto secretos em segredo bruto contêm os dados secretos no formato base64 (consulte a [documentação oficial][secret-risks] para mais detalhes). Portanto, este ficheiro deve ser tratado como informação sensível e nunca comprometido com o controlo de fontes.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a proteger os clusters do AKS, consulte [atualizar um cluster AKs][aks-upgrade-cluster].
+Para começar com a segurança dos seus clusters AKS, consulte [Atualização de um cluster AKS][aks-upgrade-cluster].
 
-Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para segurança e atualizações de cluster em AKs][operator-best-practices-cluster-security] e [práticas recomendadas para segurança de Pod no AKs][developer-best-practices-pod-security].
+Para obter as melhores práticas associadas, consulte [as melhores práticas para a segurança do cluster e upgrades em AKS][operator-best-practices-cluster-security] e [boas práticas para a segurança][developer-best-practices-pod-security]do pod em AKS .
 
-Para obter informações adicionais sobre os principais conceitos de kubernetes e AKS, consulte os seguintes artigos:
+Para obter informações adicionais sobre os conceitos core Kubernetes e AKS, consulte os seguintes artigos:
 
-- [Clusters e cargas de trabalho do kubernetes/AKS][aks-concepts-clusters-workloads]
-- [Identidade kubernetes/AKS][aks-concepts-identity]
-- [Redes virtuais kubernetes/AKS][aks-concepts-network]
-- [Armazenamento kubernetes/AKS][aks-concepts-storage]
-- [Escala de kubernetes/AKS][aks-concepts-scale]
+- [Aglomerados kubernetes / AKS e cargas de trabalho][aks-concepts-clusters-workloads]
+- [Identidade Kubernetes / AKS][aks-concepts-identity]
+- [Redes virtuais Kubernetes / AKS][aks-concepts-network]
+- [Armazenamento Kubernetes / AKS][aks-concepts-storage]
+- [Escala kubernetes / AKS][aks-concepts-scale]
 
 <!-- LINKS - External -->
 [kured]: https://github.com/weaveworks/kured

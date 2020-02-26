@@ -2,17 +2,14 @@
 title: Criar um cluster privado de serviço Azure Kubernetes
 description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.author: mlearned
-ms.openlocfilehash: 08929d5ec05fbeb80eddebfd667fe1e0fde9bff7
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: e59dccbcc7514f12e148bfb2f771593a53e85dc5
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544237"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594571"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Criar um cluster privado de serviço Azure Kubernetes (pré-visualização)
 

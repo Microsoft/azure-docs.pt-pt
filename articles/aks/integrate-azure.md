@@ -2,27 +2,26 @@
 title: Integração com serviços geridos pelo Azure com o Open Service Broker for Azure (OSBA)
 description: Integração com serviços geridos pelo Azure com o Open Service Broker for Azure (OSBA)
 author: zr-msft
-ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 131e767daa920f03db5ec9a3aac711fc850c7132
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 8d727256afbe152a4f7022d0fd2454c4677b023c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276795"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595608"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integração com serviços geridos pelo Azure com o Open Service Broker for Azure (OSBA)
 
 Juntamente com o [Catálogo de Serviços do Kubernetes][kubernetes-service-catalog], o Open Service Broker for Azure (OSBA) permite aos programadores utilizar serviços geridos pelo Azure no Kubernetes. Este guia foca-se na implementação do Catálogo de Serviços do Kubernetes, do Open Service Broker for Azure (OSBA) e de aplicações que utilizam serviços geridos pelo Azure com o Kubernetes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Uma subscrição do Azure.
+* Uma subscrição do Azure
 
-* CLI do Azure: [Instale-o localmente][azure-cli-install]ou use-o no [Azure cloud Shell][azure-cloud-shell].
+* Azure CLI: [instale-o localmente,][azure-cli-install]ou use-o na [Casca de Nuvem Azure][azure-cloud-shell].
 
-* Helm CLI 2.7 +: [Instale localmente][helm-cli-install]ou use-o no [Azure cloud Shell][azure-cloud-shell].
+* Leme CLI 2.7+: [instale-o localmente][helm-cli-install], ou use-o na Casca de [Nuvem Azure][azure-cloud-shell].
 
 * Permissões para criar um principal de serviço com a função de Contribuinte na sua subscrição do Azure
 
@@ -75,7 +74,7 @@ v1beta1.storage.k8s.io               10
 
 O passo seguinte é instalar o [Open Service Broker for Azure][open-service-broker-azure], que inclui o catálogo dos serviços geridos pelo Azure. Exemplos de serviços do Azure disponíveis: Base de Dados do Azure para PostgreSQL, Base de Dados do Azure para MySQL e Base de Dados SQL do Azure.
 
-Comece adicionando o Service Broker aberto para o repositório Helm do Azure:
+Comece por adicionar o Corretor de Serviço aberto para o repositório Azure Helm:
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 582646b6e1c50c8e6835fafaa8a27c7386b4695c
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: a314af3d53936a58f9dfb3694ec1114ecdc3d521
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429657"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587010"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutorial: Criar um Portal NAT utilizando o portal Azure e testar o serviço NAT
 
@@ -30,10 +30,7 @@ Neste tutorial, você vai criar uma porta de entrada NAT para fornecer conectivi
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-> [!IMPORTANT]
-> Depois de a [pré-visualização](./nat-overview.md#enable-preview) na Rede Virtual NAT estar ativada na sua subscrição, utilize https://aka.ms/natportal para aceder ao portal.
-
-Inicie sessão no [Portal do Azure](https://aka.ms/natportal).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-the-source-for-outbound-traffic"></a>Prepare a fonte para o tráfego de saída
 

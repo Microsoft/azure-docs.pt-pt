@@ -1,9 +1,9 @@
 ---
-title: Trabalhar com vários locatários para o Azure Sentinel para provedores de serviço MSSP | Microsoft Docs
-description: Como trabalhar com vários locatários para o Azure Sentinel para provedores de serviço MSSP.
+title: Trabalhar com vários inquilinos para o Azure Sentinel para prestadores de serviços da MSSP Microsoft Docs
+description: Como trabalhar com vários inquilinos para o Azure Sentinel para prestadores de serviços MSSP.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,38 +13,38 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 34997fb3cd91e4540c76ecdd781d21e2ed1bdb07
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.author: yelevin
+ms.openlocfilehash: caa79b572d0024b93abd2d32ca99d92cc2a8b4bb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240497"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582080"
 ---
-# <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Trabalhar com vários locatários no Azure Sentinel 
+# <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Trabalho com vários inquilinos em Azure Sentinel 
 
-Se você for um MSSP (provedor de serviços de segurança gerenciado) e estiver usando o [Azure Lighthouse](../lighthouse/overview.md) para gerenciar o SOC (Security Operations centers) dos seus clientes, poderá gerenciar os recursos do Azure Sentinel de seus clientes sem se conectar diretamente ao locatário do cliente, de seu próprio locatário do Azure. 
+Se é um prestador de serviços de segurança gerido (MSSP) e está a usar o [Farol Azure](../lighthouse/overview.md) para gerir os centros de operações de segurança dos seus clientes (SOC), poderá gerir os recursos azure Sentinel dos seus clientes sem se ligar diretamente ao inquilino do cliente, do seu próprio inquilino Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- [Integração do Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)
-- Para que isso funcione corretamente, seu locatário deve ser registrado no provedor de recursos do Azure Sentinel em pelo menos uma assinatura. Se você tiver um Sentinela do Azure registrado em seu locatário, você estará pronto para começar. Caso contrário, na portal do Azure, selecione **assinaturas** seguidas pelos provedores de **recursos** e `Microsoft.Security.Insights` , em seguida, pesquise e selecione **registrar**.
-   ![Verificar provedores de recursos](media/multiple-tenants-service-providers/check-resource-provider.png)
-## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>Como acessar o Azure Sentinel de outros locatários
-1. Em **diretório + assinatura**, selecione os diretórios delegados e as assinaturas nas quais os espaços de trabalho do Azure Sentinel do seu cliente estão localizados.
+- [Farol Azure a bordo](../lighthouse/how-to/onboard-customer.md)
+- Para que isto funcione corretamente, o seu inquilino deve estar registado no Azure Sentinel Resource Provider em pelo menos uma subscrição. Se tiver um Azure Sentinel registado no seu inquilino, está pronto para começar. Caso contrário, no portal Azure, selecione **Subscrições seguidas** por **fornecedores** de Recursos e, em seguida, procure `Microsoft.Security.Insights` e selecione **Register**.
+   ![Verificar os fornecedores de recursos](media/multiple-tenants-service-providers/check-resource-provider.png)
+## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>Como aceder ao Azure Sentinel de outros inquilinos
+1. No âmbito do **Diretório + subscrição,** selecione os diretórios delegados e as subscrições onde estão localizados os espaços de trabalho do seu cliente Azure Sentinel.
 
    ![Gerar incidentes de segurança](media/multiple-tenants-service-providers/directory-subscription.png)
 
-1. Abra o Azure Sentinel. Você verá todos os espaços de trabalho nas assinaturas selecionadas e poderá trabalhar com eles diretamente, como qualquer espaço de trabalho em seu próprio locatário.
+1. Open Azure Sentinel. Você verá todos os espaços de trabalho nas subscrições selecionadas, e você será capaz de trabalhar com eles perfeitamente, como qualquer espaço de trabalho no seu próprio inquilino.
 
 > [!NOTE]
-> Você não poderá implantar conectores no Azure Sentinel de dentro de um espaço de trabalho gerenciado. Para implantar um conector, você deve entrar diretamente no locatário no qual deseja implantar um conector e autenticar-se com as permissões necessárias.
+> Não poderá implantar conectores em Azure Sentinel dentro de um espaço de trabalho gerido. Para implementar um conector, deve assinar diretamente no inquilino no qual pretende implantar um conector e autenticar lá com as permissões necessárias.
 
 
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste documento, você aprendeu a gerenciar vários locatários do Azure Sentinel diretamente. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
+Neste documento, aprendeu a gerir vários inquilinos Azure Sentinel sem problemas. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)
 

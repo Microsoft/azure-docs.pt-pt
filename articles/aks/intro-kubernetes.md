@@ -1,21 +1,18 @@
 ---
-title: Introdução ao Azure Kubernetes Service
+title: Introdução ao Serviço Kubernetes do Azure
 description: Conheça as funcionalidades e os benefícios do Azure Kubernetes Service para implementar e gerir aplicações baseadas em contentores no Azure.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: c98e67d174c3c8b7fc426e1dd2c5ebafd6760969
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f78b65169899107bcd4626bbed65bd4fddd8af43
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932613"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595455"
 ---
-# <a name="azure-kubernetes-service-aks"></a>Serviço Kubernetes do Azure (AKS)
+# <a name="azure-kubernetes-service-aks"></a>Serviço de Kubernetes do Azure (AKS)
 
 O Azure Kubernetes Service (AKS) torna fácil implementar um cluster Kubernetes gerido no Azure. O AKS reduz a complexidade e a sobrecarga operacional de gerir o Kubernetes ao descarregar grande parte dessa responsabilidade para o Azure. Enquanto serviço alojado do Kubernetes, o Azure lida com tarefas críticas para si, como a monitorização do estado de funcionamento e a manutenção. Os mestres do Kubernetes são geridos pelo Azure. Pode apenas gerir e manter os nós dos agentes. Como serviço Kubernetes gerido, o AKS é gratuito, paga apenas os nós dos agentes dentro dos seus clusters, não paga os mestres.
 

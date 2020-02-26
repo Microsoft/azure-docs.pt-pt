@@ -1,5 +1,5 @@
 ---
-title: Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server para aplicações SAP  Microsoft Docs
+title: VMs azure alta disponibilidade para SAP NetWeaver em SLES Microsoft Docs
 description: Guia de alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server para aplicações SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: 77a26d229ddc4ce5f35fde3db010e3b7c146a563
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4dbce04df4a2542884f1f24b3207fe45fd4b26ae
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985522"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598243"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP
 
@@ -57,49 +57,49 @@ Nas configurações de exemplo, comandos de instalação etc. É utilizado o nú
 
 Leia as seguintes Notas e papéis SAP primeiro
 
-* Nota SAP [1928533][1928533], que tem:
-  * Lista de tamanhos de VM do Azure com suporte para a implantação de software SAP
-  * Informações de capacidade importantes para tamanhos de VM do Azure
-  * Software SAP com suporte e combinações de so (sistema operacional) e banco de dados
-  * Versão de kernel do SAP necessária para Windows e Linux em Microsoft Azure
+* Nota SAP [1928533,][1928533]que tem:
+  * Lista de tamanhos De VM Azure que são suportados para a implementação de software SAP
+  * Informações importantes sobre a capacidade para tamanhos de VM Azure
+  * Software SAP suportado e sistema operativo (OS) e combinações de bases de dados
+  * Versão necessária do kernel SAP para Windows e Linux no Microsoft Azure
 
-* O SAP Note [2015553][2015553] lista os pré-requisitos para implantações de software SAP com suporte no SAP no Azure.
-* A observação do SAP [2205917][2205917] tem as configurações do sistema operacional recomendadas para SuSE Linux Enterprise Server para aplicativos SAP
-* O SAP Note [1944799][1944799] tem diretrizes SAP HANA para SuSE Linux Enterprise Server para aplicativos SAP
-* A nota SAP [2178632][2178632] tem informações detalhadas sobre todas as métricas de monitoramento relatadas para SAP no Azure.
-* A nota SAP [2191498][2191498] tem a versão do agente de host do SAP necessária para Linux no Azure.
-* A nota SAP [2243692][2243692] tem informações sobre o licenciamento SAP no Linux no Azure.
-* A nota SAP [1984787][1984787] tem informações gerais sobre o SuSE Linux Enterprise Server 12.
-* A nota SAP [1999351][1999351] tem informações adicionais para solução de problemas para a extensão de monitoramento avançado do Azure para SAP.
-* O [SAP Community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas SAP necessárias para o Linux.
-* [Planejamento e implementação de máquinas virtuais do Azure para SAP no Linux][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide]
-* [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
-* [Guias de práticas recomendadas do SUSE SAP ha][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar o NetWeaver HA e a replicação de sistema SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
-* [Notas de versão da extensão de alta disponibilidade do SUSE 12 SP3][suse-ha-12sp3-relnotes]
+* O SAP Note [2015553][2015553] lista os pré-requisitos para implementações de software SAP suportadas pela SAP em Azure.
+* SAP Nota [2205917][2205917] recomendou definições de OS para SUSE Linux Enterprise Server para Aplicações SAP
+* SAP Nota [1944799][1944799] tem Diretrizes SAP HANA para SUSE Linux Enterprise Server para Aplicações SAP
+* O SAP Note [2178632][2178632] tem informações detalhadas sobre todas as métricas de monitorização reportadas para o SAP em Azure.
+* O SAP Note [2191498][2191498] tem a versão necessária do Agente anfitrião SAP para o Linux em Azure.
+* SAP Nota [2243692][2243692] tem informações sobre licenciamento SAP em Linux em Azure.
+* SAP Note [1984787][1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
+* A Nota [SAP 1999351][1999351] tem informações adicionais de resolução de problemas para a extensão de monitorização avançada do Azure para sAP.
+* [A SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) exigiu todas as notas SAP para linux.
+* [Planeamento e implementação de Máquinas Virtuais Azure para SAP em Linux][planning-guide]
+* [Implantação de Máquinas Virtuais Azure para SAP em Linux][deployment-guide]
+* [Implantação de DBMS de Máquinas Virtuais Azure para SAP em Linux][dbms-guide]
+* [Guias de boas práticas SUSE SAP HA][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar a Replicação do Sistema Netweaver HA e SAP HANA no local. Utilize estes guias como base geral. Fornecem informações muito mais detalhadas.
+* [Extensão de alta disponibilidade sUSE 12 Notas de lançamento SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 Para obter uma elevada disponibilidade, o SAP NetWeaver requer um servidor NFS. O servidor NFS está configurado num cluster separado e pode ser utilizado por vários sistemas SAP.
 
-![Visão geral de alta disponibilidade do SAP NetWeaver](./media/high-availability-guide-suse/ha-suse.png)
+![Visão geral de alta disponibilidade da SAP NetWeaver](./media/high-availability-guide-suse/ha-suse.png)
 
-O servidor NFS, o SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dados SAP HANA usam o nome de host virtual e endereços IP virtuais. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. É recomendável usar o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). A lista a seguir mostra a configuração do balanceador de carga (a) SCS e ERS.
+O servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados SAP HANA utilizam o nome de anfitrião virtual e os endereços IP virtuais. No Azure, é necessário utilizar um endereço IP virtual. Recomendamos a utilização do [equilíbrio de carga Standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). A lista seguinte mostra a configuração do (A)SCS e do equilibrador de carga ERS.
 
 > [!IMPORTANT]
-> **Não há suporte para**clustering de vários SIDs do SAP ASCS/ers com o SuSE Linux como sistema operacional convidado em VMs do Azure. Clustering de vários SIDs descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes em um cluster pacemaker
+> O agrupamento multi-SID do SAP ASCS/ERS com o SUSE Linux como sistema operativo convidado em VMs Azure NÃO é **suportado**. O clustering multi-SID descreve a instalação de múltiplas instâncias SAP ASCS/ERS com diferentes SIDs num cluster Pacemaker
 
-### <a name="ascs"></a>Um SCS
+### <a name="ascs"></a>A SCS
 
-* Configuração de front-end
+* Configuração frontend
   * Endereço IP 10.0.0.7
-* Configuração de back-end
-  * Conectado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A) SCS/ERS
-* Porta de investigação
-  * Porta 620<strong>&lt;nr&gt;</strong>
+* Configuração de backend
+  * Ligado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A)SCS/ERS
+* Porta sonda
+  * Porto 620<strong>&lt;nr&gt;</strong>
 * Regras de equilíbrio de carga
-  * Se estiver usando Standard Load Balancer, selecione **portas de alta disponibilidade**
-  * Se estiver usando Load Balancer básica, crie regras de balanceamento de carga para as seguintes portas
+  * Se utilizar o Balancer de Carga Padrão, selecione **portas HA**
+  * Se utilizar o Equilíbrio de Carga Básico, crie regras de equilíbrio de carga para as seguintes portas
     * 32<strong>&lt;nr&gt;</strong> TCP
     * 36<strong>&lt;nr&gt;</strong> TCP
     * 39<strong>&lt;nr&gt;</strong> TCP
@@ -110,15 +110,15 @@ O servidor NFS, o SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e
 
 ### <a name="ers"></a>ERS
 
-* Configuração de front-end
+* Configuração frontend
   * Endereço IP 10.0.0.8
-* Configuração de back-end
-  * Conectado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A) SCS/ERS
-* Porta de investigação
-  * Porta 621<strong>&lt;nr&gt;</strong>
-* Regras de balanceamento de carga
-  * Se estiver usando Standard Load Balancer, selecione **portas de alta disponibilidade**
-  * Se estiver usando Load Balancer básica, crie regras de balanceamento de carga para as seguintes portas
+* Configuração de backend
+  * Ligado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A)SCS/ERS
+* Porta sonda
+  * Porto 621<strong>&lt;nr&gt;</strong>
+* Regras de equilíbrio de carga
+  * Se utilizar o Balancer de Carga Padrão, selecione **portas HA**
+  * Se utilizar o Equilíbrio de Carga Básico, crie regras de equilíbrio de carga para as seguintes portas
     * 32<strong>&lt;nr&gt;</strong> TCP
     * 33<strong>&lt;nr&gt;</strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
@@ -127,9 +127,9 @@ O servidor NFS, o SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Configuração de um servidor NFS altamente disponível
 
-O SAP NetWeaver requer armazenamento compartilhado para o diretório de transporte e de perfil. Leia [alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server][nfs-ha] sobre como configurar um servidor NFS para SAP NetWeaver.
+A SAP NetWeaver requer armazenamento partilhado para o diretório de transporte e perfil. Leia [alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server][nfs-ha] sobre como configurar um servidor NFS para SAP NetWeaver.
 
-## <a name="setting-up-ascs"></a>Configurando o (A) SCS
+## <a name="setting-up-ascs"></a>Configuração (A)SCS
 
 Pode utilizar um modelo Azure do GitHub para implementar todos os recursos necessários do Azure, incluindo as máquinas virtuais, o conjunto de disponibilidade e o equilíbrio de carga ou pode implementar os recursos manualmente.
 
@@ -145,7 +145,7 @@ Você pode usar um dos modelos de arranque rápido no GitHub para implementar to
    1. Prefixo de recursos (apenas modelo DE SID ASCS/SCS)  
       Introduza o prefixo que pretende utilizar. O valor é usado como prefixo para os recursos que são implantados.
    3. ID do sistema de seiva (apenas modelo convergente)  
-      Introduza o ID do sistema SAP do sistema SAP que pretende instalar. A ID é usada como um prefixo para os recursos que são implantados.
+      Introduza o ID do sistema SAP do sistema SAP que pretende instalar. O ID é usado como prefixo para os recursos que são implantados.
    4. Tipo de pilha  
       Selecione o tipo de pilha SAP NetWeaver
    5. Tipo Os  
@@ -161,14 +161,14 @@ Você pode usar um dos modelos de arranque rápido no GitHub para implementar to
    10. Id da sub-rede  
    Se pretender implantar o VM numa VNet existente onde tem uma sub-rede definida a VM deve ser atribuída, diga o nome da identificação dessa sub-rede específica. O ID geralmente parece /subscrições/ **&lt;id de subscrição&gt;** /recursosGroups/&lt;nome de grupo de recursos **&gt;** /fornecedores/Microsoft.Network/virtualNetworks/&lt;nome de rede **virtual&gt;** /subnets/&lt;nome **da sub-rede&gt;**
 
-### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio de portal do Azure
+### <a name="deploy-linux-manually-via-azure-portal"></a>Implementar o Linux manualmente através do portal Azure
 
-Primeiro é necessário criar as máquinas virtuais para este cluster NFS. Posteriormente, você criará um balanceador de carga e usará as máquinas virtuais nos pools de back-end.
+Primeiro é necessário criar as máquinas virtuais para este cluster NFS. Depois, cria-se um equilibrador de carga e utiliza as máquinas virtuais nas piscinas de backend.
 
 1. Criar um Grupo de Recursos
 1. Criar uma Rede Virtual
 1. Criar um conjunto de disponibilidade  
-   Definir domínio de atualização máx.
+   Definir domínio de atualização max
 1. Criar máquina virtual 1  
    Utilize pelo menos SLES4SAP 12 SP1, neste exemplo a imagem SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
    SLES Para Aplicações SAP 12 SP1 é usado  
@@ -179,97 +179,97 @@ Primeiro é necessário criar as máquinas virtuais para este cluster NFS. Poste
    Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Adicione pelo menos um disco de dados a ambas as máquinas virtuais  
    Os discos de dados são utilizados para o #usr/seap/`<SAPSID`> diretório
-1. Criar balanceador de carga (interno, padrão):  
-   1. Criar os endereços IP de front-end
+1. Criar um equilibrador de carga (interno, standard):  
+   1. Crie os endereços IP frontend
       1. Endereço IP 10.0.0.7 para o ASCS
-         1. Abra o balanceador de carga, selecione pool de IPS de front-end e clique em Adicionar
+         1. Abra o equilibrador de carga, selecione pool IP frontend e clique em Adicionar
          1. Introduza o nome do novo pool IP frontend (por exemplo **nw1-ascs-frontend)**
          1. Definir a Atribuição à Estática e introduzir o endereço IP (por exemplo **10.0.0.7**)
-         1. Clique OK
+         1. Clique em OK
       1. Endereço IP 10.0.0.8 para a ASCS ERS
          * Repita os passos acima para criar um endereço IP para o ERS (por exemplo **10.0.0.8** e **nw1-aers-backend**)
-   1. Criar os pools de back-end
-      1. Criar um pool de back-end para o ASCS
-         1. Abra o balanceador de carga, selecione pools de back-end e clique em Adicionar
+   1. Crie as piscinas de backend
+      1. Crie uma piscina de backend para o ASCS
+         1. Abra o equilibrador de carga, selecione piscinas de backend e clique em Adicionar
          1. Introduza o nome da nova piscina de backend (por exemplo **nw1-ascs-backend)**
-         1. Clique em adicionar uma máquina virtual.
+         1. Clique em Adicionar uma máquina virtual.
          1. Selecione Máquina Virtual
-         1. Selecione as máquinas virtuais do cluster (A) SCS e seus endereços IP.
+         1. Selecione as máquinas virtuais do cluster (A)SCS e os seus endereços IP.
          1. Clique em Adicionar
       1. Crie uma piscina de backend para o ASCS ERS
          * Repita os passos acima para criar uma piscina de backend para o ERS (por **exemplo, nw1-aers-backend**)
-   1. Criar as investigações de integridade
+   1. Criar as sondas de saúde
       1. Porta 620**00** para ASCS
-         1. Abra o balanceador de carga, selecione investigações de integridade e clique em Adicionar
+         1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
          1. Introduza o nome da nova sonda de saúde (por exemplo **nw1-ascs-hp)**
-         1. Selecione TCP como protocolo, porta 620**00**, manter intervalo 5 e limite não íntegro 2
-         1. Clique OK
+         1. Selecione TCP como protocolo, porta 620**00,** mantenha intervalo 5 e limiar insalubre 2
+         1. Clique em OK
       1. Porto 621**02** para ASCS ERS
          * Repita os passos acima para criar uma sonda de saúde para a ERS (por exemplo 621**02** e **nw1-aers-hp**)
-   1. Regras de balanceamento de carga
-      1. Regras de balanceamento de carga para ASCS
+   1. Regras de equilíbrio de carga
+      1. Regras de equilíbrio de carga para asCS
          1. Abra o equilibrador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
          1. Introduza o nome da nova regra do equilibrador de carga (por **exemplo, nw1-lb-ascs)**
          1. Selecione o endereço IP frontend, o backend pool e a sonda de saúde que criou anteriormente (por **exemplo, nw1-ascs-frontend,** **nw1-ascs-backend** e **nw1-ascs-hp**)
-         1. Selecionar **portas de alta disponibilidade**
-         1. Aumentar o tempo limite de ociosidade para 30 minutos
-         1. **Certifique-se de habilitar o IP flutuante**
-         1. Clique OK
+         1. Selecione **portas HA**
+         1. Aumente o tempo inativo para 30 minutos
+         1. **Certifique-se de ativar o IP flutuante**
+         1. Clique em OK
          * Repita os passos acima para criar regras de equilíbrio de carga para a ERS (por **exemplo, nw1-lb-ers**)
-1. Como alternativa, se seu cenário exigir o Load Balancer básico (interno), siga estas etapas:  
-   1. Criar os endereços IP de front-end
+1. Alternativamente, se o seu cenário requer um equilíbrio básico de carga (interno), siga estes passos:  
+   1. Crie os endereços IP frontend
       1. Endereço IP 10.0.0.7 para o ASCS
-         1. Abra o balanceador de carga, selecione pool de IPS de front-end e clique em Adicionar
+         1. Abra o equilibrador de carga, selecione pool IP frontend e clique em Adicionar
          1. Introduza o nome do novo pool IP frontend (por exemplo **nw1-ascs-frontend)**
          1. Definir a Atribuição à Estática e introduzir o endereço IP (por exemplo **10.0.0.7**)
-         1. Clique OK
+         1. Clique em OK
       1. Endereço IP 10.0.0.8 para a ASCS ERS
          * Repita os passos acima para criar um endereço IP para o ERS (por exemplo **10.0.0.8** e **nw1-aers-backend**)
-   1. Criar os pools de back-end
-      1. Criar um pool de back-end para o ASCS
-         1. Abra o balanceador de carga, selecione pools de back-end e clique em Adicionar
+   1. Crie as piscinas de backend
+      1. Crie uma piscina de backend para o ASCS
+         1. Abra o equilibrador de carga, selecione piscinas de backend e clique em Adicionar
          1. Introduza o nome da nova piscina de backend (por exemplo **nw1-ascs-backend)**
-         1. Clique em adicionar uma máquina virtual.
+         1. Clique em Adicionar uma máquina virtual.
          1. Selecione o Conjunto de Disponibilidade que criou anteriormente
-         1. Selecione as máquinas virtuais do cluster (A) SCS
-         1. Clique OK
+         1. Selecione as máquinas virtuais do cluster (A)SCS
+         1. Clique em OK
       1. Crie uma piscina de backend para o ASCS ERS
          * Repita os passos acima para criar uma piscina de backend para o ERS (por **exemplo, nw1-aers-backend**)
-   1. Criar as investigações de integridade
+   1. Criar as sondas de saúde
       1. Porta 620**00** para ASCS
-         1. Abra o balanceador de carga, selecione investigações de integridade e clique em Adicionar
+         1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
          1. Introduza o nome da nova sonda de saúde (por exemplo **nw1-ascs-hp)**
-         1. Selecione TCP como protocolo, porta 620**00**, manter intervalo 5 e limite não íntegro 2
-         1. Clique OK
+         1. Selecione TCP como protocolo, porta 620**00,** mantenha intervalo 5 e limiar insalubre 2
+         1. Clique em OK
       1. Porto 621**02** para ASCS ERS
          * Repita os passos acima para criar uma sonda de saúde para a ERS (por exemplo 621**02** e **nw1-aers-hp**)
-   1. Regras de balanceamento de carga
+   1. Regras de equilíbrio de carga
       1. 32**00** TCP para ASCS
          1. Abra o equilibrador de carga, selecione regras de equilíbrio de carga e clique em Adicionar
          1. Introduza o nome da nova regra do equilibrador de carga (por **exemplo, nw1-lb-3200**)
          1. Selecione o endereço IP frontend, a piscina de backend e a sonda de saúde que criou anteriormente (por **exemplo, nw1-ascs-frontend)**
-         1. Mantenha o protocolo **TCP**, insira a porta **3200**
-         1. Aumentar o tempo limite de ociosidade para 30 minutos
-         1. **Certifique-se de habilitar o IP flutuante**
-         1. Clique OK
+         1. Manter o protocolo **TCP,** entrar na porta **3200**
+         1. Aumente o tempo inativo para 30 minutos
+         1. **Certifique-se de ativar o IP flutuante**
+         1. Clique em OK
       1. Portas adicionais para o ASCS
          * Repita os passos acima para os portos 36**00**, 39**00,** 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP para o ASCS
-      1. Portas adicionais para o ASCS ERS
+      1. Portas adicionais para a ASCS ERS
          * Repita os passos acima para os portos 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP para o ASCS ERS
 
 > [!Note]
-> Quando as VMs sem endereços IP públicos forem colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não haverá nenhuma conectividade com a Internet de saída, a menos que a configuração adicional seja executada para permitir o roteamento para pontos de extremidade públicos. Para obter detalhes sobre como obter conectividade de saída, consulte [conectividade de ponto de extremidade pública para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Quando os VMs sem endereços IP públicos forem colocados no conjunto de backend do interno (sem endereço IP público) O equilíbrio de carga Standard Azure não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para mais detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Equilíbrio de Carga Padrão Azure em cenários de alta disponibilidade SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
-> Não habilite carimbos de data/hora TCP em VMs do Azure colocadas por trás Azure Load Balancer. Habilitar carimbos de data/hora TCP fará com que as investigações de integridade falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para obter detalhes, consulte [Load Balancer investigações de integridade](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não permita os carimbos de tempo da TCP em VMs Azure colocados atrás do Equilíbrio de Carga Azure. Permitir os selos temporais da TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte as sondas de [saúde load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
-### <a name="create-pacemaker-cluster"></a>Criar cluster pacemaker
+### <a name="create-pacemaker-cluster"></a>Criar cluster Pacemaker
 
-Siga as etapas em [Configurando pacemaker em SuSE Linux Enterprise Server no Azure](high-availability-guide-suse-pacemaker.md) para criar um cluster pacemaker básico para esse servidor (a) SCS.
+Siga os passos na configuração do [Pacemaker no SUSE Linux Enterprise Server em Azure](high-availability-guide-suse-pacemaker.md) para criar um cluster pacemaker básico para este servidor (A)SCS.
 
 ### <a name="installation"></a>Instalação
 
-Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
+Os seguintes itens são pré-fixados com **[A]** - aplicável a todos os nós, **[1]** - apenas aplicável ao nó 1 ou **[2]** - apenas aplicável ao nó 2.
 
 1. **[A]** Instalar conector SUSE
 
@@ -277,9 +277,9 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    </code></pre>
 
    > [!NOTE]
-   > O problema conhecido com a utilização de um traço nos nomes do anfitrião é fixado com a versão **3.1.1** do **conector de conjunto sap-suse-suse.** Certifique-se de que está a utilizar pelo menos a versão 3.1.1 do conector de aglomerado de seiva-suse,se utilizar nós de cluster com traço no nome do hospedeiro. Caso contrário, o cluster não funcionará. 
+   > O problema conhecido com a utilização de um traço nos nomes do anfitrião é fixado com a versão **3.1.1** do **conector de conjunto sap-suse-suse.** Certifique-se de que está a utilizar pelo menos a versão 3.1.1 do conector de aglomerado de seiva-suse,se utilizar nós de cluster com traço no nome do hospedeiro. Caso contrário, o seu agrupamento não funcionará. 
 
-   Certifique-se de que você instalou a nova versão do conector de cluster do SAP SUSE. O antigo chamava-se sap_suse_cluster_connector e o novo **chama-se conector de aglomerado de sáb.**
+   Certifique-se de que instalou a nova versão do conector de cluster SAP SUSE. O antigo chamava-se sap_suse_cluster_connector e o novo **chama-se conector de aglomerado de sáb.**
 
    ```
    sudo zypper info sap-suse-cluster-connector
@@ -301,7 +301,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[A]** Atualizar agentes de recursos SAP  
    
-   Um patch para o pacote de agentes de recursos é necessário para usar a nova configuração, que é descrita neste artigo. Você pode verificar se o patch já está instalado com o comando a seguir
+   Um patch para o pacote de agentes de recursos é necessário para usar a nova configuração, que é descrita neste artigo. Pode verificar se o patch já está instalado com o seguinte comando
 
    <pre><code>sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
    </code></pre>
@@ -319,10 +319,10 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-1. **[A]**  Configurar a resolução de nomes de anfitrião
+1. **[A]** Configuração resolução de nome de anfitrião
 
    Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome do host nos comandos a seguir
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
@@ -339,7 +339,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    <b>10.0.0.13 nw1-db</b>
    </code></pre>
 
-## <a name="prepare-for-sap-netweaver-installation"></a>Preparar para a instalação do SAP NetWeaver
+## <a name="prepare-for-sap-netweaver-installation"></a>Prepare-se para a instalação SAP NetWeaver
 
 1. **[A]** Criar os diretórios partilhados
 
@@ -395,19 +395,19 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    ResourceDisk.SwapSizeMB=<b>2000</b>
    </code></pre>
 
-   Reiniciar o agente para ativar a alteração
+   Reiniciar o Agente para ativar a alteração
 
    <pre><code>sudo service waagent restart
    </code></pre>
 
 
-### <a name="installing-sap-netweaver-ascsers"></a>Instalando o SAP NetWeaver ASCS/ERS
+### <a name="installing-sap-netweaver-ascsers"></a>Instalação SAP NetWeaver ASCS/ERS
 
 1. **[1]** Criar um recurso IP virtual e uma sonda de saúde para a instância ASCS
 
    > [!IMPORTANT]
-   > Testes recentes revelaram situações em que o netcat para de responder às solicitações devido à pendência e sua limitação de manipular apenas uma conexão. O recurso netcat para de escutar as solicitações do Azure Load Balancer e o IP flutuante fica indisponível.  
-   > Para clusters pacemaker existentes, é recomendável substituir netcat por socat, seguindo as instruções em [proteção de detecção do balanceador de carga do Azure](https://www.suse.com/support/kb/doc/?id=7024128). Observe que a alteração exigirá um breve tempo de inatividade.  
+   > Testes recentes revelaram situações, em que o netcat deixa de responder aos pedidos devido a atrasos e à sua limitação de manuseamento apenas uma ligação. O recurso netcat para de ouvir os pedidos do balanceador de carga Azure e o IP flutuante fica indisponível.  
+   > Para os aglomerados Pacemaker existentes, recomendamos a substituição do netcat por socat, seguindo as instruções em Deteção de [Equilíbrio de Carga Azure](https://www.suse.com/support/kb/doc/?id=7024128). Note que a alteração exigirá um breve tempo de inatividade.  
 
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    
@@ -428,7 +428,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
       meta resource-stickiness=3000
    </code></pre>
 
-   Verifique se o status do cluster é OK e se todos os recursos foram iniciados. Não é importante em qual nó os recursos estão em execução.
+   Certifique-se de que o estado do cluster está ok e que todos os recursos são iniciados. Não é importante em que nó dos recursos estão a funcionar.
 
    <pre><code>sudo crm_mon -r
    
@@ -483,7 +483,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
    </code></pre>
 
-   Verifique se o status do cluster é OK e se todos os recursos foram iniciados. Não é importante em qual nó os recursos estão em execução.
+   Certifique-se de que o estado do cluster está ok e que todos os recursos são iniciados. Não é importante em que nó dos recursos estão a funcionar.
 
    <pre><code>sudo crm_mon -r
    
@@ -513,7 +513,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    </code></pre>
 
    > [!NOTE]
-   > Use SWPM SP 20 PL 05 ou superior. As versões inferiores não definem as permissões corretamente e a instalação falhará.
+   > Utilize SWPM SP 20 PL 05 ou superior. Versões inferiores não fixam corretamente as permissões e a instalação falhará.
 
    Se a instalação não criar uma subpasta em /usr/seiva/**NW1/ERS** **02**, tente configurar o proprietário e o grupo da pasta ERS**02** e voltar a tentar.
 
@@ -524,7 +524,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[1]** Adaptar os perfis de instância ASCS/SCS e ERS
  
-   * Perfil do ASCS/SCS
+   * Perfil ASCS/SCS
 
    <pre><code>sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_<b>ASCS00</b>_<b>nw1-ascs</b>
    
@@ -540,7 +540,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    enque/encni/set_so_keepalive = true
    </code></pre>
 
-   * Perfil de ERS
+   * Perfil ERS
 
    <pre><code>sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>
    
@@ -558,7 +558,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[A]** Configure Manter Vivo
 
-   A comunicação entre o servidor de aplicativos SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as configurações do sistema Linux. Leia a [Observação do SAP 1410736][1410736] para obter mais informações.
+   A comunicação entre o servidor de aplicação SAP NetWeaver e o ASCS/SCS é encaminhada através de um equilíbriode carga de software. O equilibrador de carga desliga ligações inativas após um tempo de tempo configurável. Para evitar isto, é necessário definir um parâmetro no perfil SAP NetWeaver ASCS/SCS e alterar as definições do sistema Linux. Leia [a Nota SAP 1410736][1410736] para mais informações.
 
    O parâmetro de perfil ASCS/SCS enque/ncni/set_so_keepalive já foi adicionado no último passo.
 
@@ -574,7 +574,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[1]** Adicione os serviços ASCS e ERS SAP ao ficheiro sapservice
 
-   Adicione a entrada de serviço ASCS ao segundo nó e copie a entrada de serviço ERS para o primeiro nó.
+   Adicione a entrada de serviço ASCS ao segundo nó e copie a entrada de serviço ERS no primeiro nó.
 
    <pre><code>cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nw1-cl-1</b> "cat >>/usr/sap/sapservices"
    sudo ssh <b>nw1-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
@@ -582,7 +582,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[1]** Criar os recursos de cluster SAP
 
-Se estiver usando a arquitetura do enqueue Server 1 (ENSA1), defina os recursos da seguinte maneira:
+Se utilizar a arquitetura enqueue server 1 (ENSA1), defina os recursos da seguinte forma:
 
    <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -610,8 +610,8 @@ Se estiver usando a arquitetura do enqueue Server 1 (ENSA1), defina os recursos 
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  O SAP introduziu o suporte para o enqueue Server 2, incluindo a replicação, a partir do SAP NW 7,52. A partir do ABAP Platform 1809, o enqueue Server 2 é instalado por padrão. Consulte o SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416) para suporte ao servidor de enfileiramento 2.
-Se estiver usando a arquitetura do enqueue Server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), defina os recursos da seguinte maneira:
+  O SAP introduziu suporte para o servidor de fila 2, incluindo replicação, a partir de SAP NW 7.52. A partir da Plataforma ABAP 1809, o servidor enfila 2 é instalado por padrão. Consulte a nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) para obter suporte ao servidor 2.
+Se utilizar a arquitetura enqueue server 2[(ENSA2),](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)defina os recursos da seguinte forma:
 
 <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -637,9 +637,9 @@ Se estiver usando a arquitetura do enqueue Server 2 ([ENSA2](https://help.sap.co
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  Se você estiver atualizando de uma versão mais antiga e alternando para o servidor de enfileiramento 2, consulte a observação do SAP [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+  Se estiver a atualizar a partir de uma versão mais antiga e a mudar para o servidor de fila 2, consulte a nota [SAP 2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
-   Verifique se o status do cluster é OK e se todos os recursos foram iniciados. Não é importante em qual nó os recursos estão em execução.
+   Certifique-se de que o estado do cluster está ok e que todos os recursos são iniciados. Não é importante em que nó dos recursos estão a funcionar.
 
 
    <pre><code>sudo crm_mon -r
@@ -661,15 +661,15 @@ Se estiver usando a arquitetura do enqueue Server 2 ([ENSA2](https://help.sap.co
    #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
    </code></pre>
 
-## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparação do servidor de aplicativos do SAP NetWeaver
+## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparação do servidor de aplicações SAP NetWeaver
 
-Alguns bancos de dados exigem que a instalação da instância do banco de dados seja executada em um servidor de aplicativos. Prepare as máquinas virtuais do servidor de aplicativos para poder usá-las nesses casos.
+Algumas bases de dados requerem que a instalação da instância de base de dados seja executada num servidor de aplicações. Prepare as máquinas virtuais do servidor de aplicação para poder utilizá-las nestes casos.
 
-As etapas abaixo pressupõem que você instale o servidor de aplicativos em um servidor diferente dos servidores ASCS/SCS e HANA. Caso contrário, algumas das etapas abaixo (como configurar a resolução de nome de host) não são necessárias.
+Os passos assumem que instala o servidor de aplicação num servidor diferente dos servidores ASCS/SCS e HANA. Caso contrário, alguns dos passos abaixo (como configurar a resolução de nome sinuoso) não são necessários.
 
 1. Configurar o sistema operativo
 
-   Reduza o tamanho da cache modificado. Para obter mais informações, consulte [desempenho de escrita de baixa no SLES 11/12 servidores com grandes RAM](https://www.suse.com/support/kb/doc/?id=7010287).
+   Reduza o tamanho da cache modificado. Para mais informações, consulte [o desempenho de Baixa escrita nos servidores SLES 11/12 com RAM grande](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>sudo vi /etc/sysctl.conf
 
@@ -681,7 +681,7 @@ As etapas abaixo pressupõem que você instale o servidor de aplicativos em um s
 1. Configurar resolução de nome de anfitrião
 
    Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome do host nos comandos a seguir
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos
 
    ```bash
    sudo vi /etc/hosts
@@ -749,16 +749,16 @@ As etapas abaixo pressupõem que você instale o servidor de aplicativos em um s
    ResourceDisk.SwapSizeMB=<b>2000</b>
    </code></pre>
 
-   Reiniciar o agente para ativar a alteração
+   Reiniciar o Agente para ativar a alteração
 
    <pre><code>sudo service waagent restart
    </code></pre>
 
 ## <a name="install-database"></a>Instalar base de dados
 
-Neste exemplo, o SAP NetWeaver está instalado em SAP HANA. Você pode usar cada banco de dados com suporte para esta instalação. Para obter mais informações sobre como instalar SAP HANA no Azure, consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha]. Para obter uma lista de bancos de dados com suporte, consulte a [Observação do SAP 1928533][1928533].
+Neste exemplo, o SAP NetWeaver está instalado no SAP HANA. Pode utilizar todas as bases de dados suportadas para esta instalação. Para obter mais informações sobre como instalar o SAP HANA em Azure, consulte [A Alta Disponibilidade de SAP HANA em Máquinas Virtuais Azure (VMs)][sap-hana-ha]. Para obter uma lista de bases de dados suportadas, consulte [SAP Nota 1928533][1928533].
 
-1. Executar a instalação da instância do banco de dados SAP
+1. Executar a instalação de instância de base de dados SAP
 
    Instale a instância de base de dados SAP NetWeaver como raiz utilizando um nome de anfitrião virtual que mapeie para o endereço IP da configuração frontal do equilíbrio de carga para a base de dados, por <b>exemplo, nw1-db</b> e <b>10.0.0.13</b>.
 
@@ -767,32 +767,32 @@ Neste exemplo, o SAP NetWeaver está instalado em SAP HANA. Você pode usar cada
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-## <a name="sap-netweaver-application-server-installation"></a>Instalação do servidor de aplicativos SAP NetWeaver
+## <a name="sap-netweaver-application-server-installation"></a>Instalação do servidor de aplicações SAP NetWeaver
 
-Siga estas etapas para instalar um servidor de aplicativos SAP.
+Siga estes passos para instalar um servidor de aplicação SAP.
 
-1. Preparar servidor de aplicativos
+1. Preparar servidor de aplicações
 
-   Siga as etapas no capítulo [preparação do servidor de aplicativos SAP NetWeaver](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) acima para preparar o servidor de aplicativos.
+   Siga os passos na preparação do servidor de [aplicações SAP NetWeaver](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) acima para preparar o servidor de aplicação.
 
-1. Instalar o servidor de aplicativos SAP NetWeaver
+1. Instalar servidor de aplicações SAP NetWeaver
 
-   Instale um servidor de aplicativos SAP NetWeaver primário ou adicional.
+   Instale um servidor de aplicações SAP NetWeaver primário ou adicional.
 
    Pode utilizar o parâmetro sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador sem raízes se coneca ao sapinst.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-1. Atualizar SAP HANA repositório seguro
+1. Atualizar loja segura SAP HANA
 
-   Atualize o SAP HANA repositório seguro para apontar para o nome virtual da configuração de replicação do sistema do SAP HANA.
+   Atualize a loja segura SAP HANA para apontar para o nome virtual da configuração de replicação do sistema SAP HANA.
 
-   Execute o comando a seguir para listar as entradas
+   Executar o seguinte comando para listar as entradas
    <pre><code>hdbuserstore List
    </code></pre>
 
-   Isso deve listar todas as entradas e deve ser semelhante a
+   Isto deve listar todas as entradas e deve ser semelhante a
    <pre><code>DATA FILE       : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.DAT
    KEY FILE        : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.KEY
    
@@ -802,7 +802,7 @@ Siga estas etapas para instalar um servidor de aplicativos SAP.
      DATABASE: <b>HN1</b>
    </code></pre>
 
-   A saída mostra que o endereço IP da entrada padrão está apontando para a máquina virtual e não para o endereço IP do balanceador de carga. Essa entrada precisa ser alterada para apontar para o nome de host virtual do balanceador de carga. Certifique-se de utilizar a mesma porta **(30313** na saída acima) e nome de base de dados **(HN1** na saída acima)!
+   A saída mostra que o endereço IP da entrada predefinida está a apontar para a máquina virtual e não para o endereço IP do equilibrador de carga. Esta entrada tem de ser alterada para indicar o nome de anfitrião virtual do equilibrador de carga. Certifique-se de utilizar a mesma porta **(30313** na saída acima) e nome de base de dados **(HN1** na saída acima)!
 
    <pre><code>su - <b>nw1</b>adm
    hdbuserstore SET DEFAULT <b>nw1-db:30313@HN1</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
@@ -810,11 +810,11 @@ Siga estas etapas para instalar um servidor de aplicativos SAP.
 
 ## <a name="test-the-cluster-setup"></a>Testar a configuração do cluster
 
-Os seguintes testes são uma cópia dos casos de teste nos guias de boas práticas da SUSE. Eles são copiados para sua conveniência. Sempre Leia também os guias de práticas recomendadas e execute todos os testes adicionais que podem ter sido adicionados.
+Os seguintes testes são uma cópia dos casos de teste nos guias de boas práticas da SUSE. São copiados para sua conveniência. Leia sempre também os guias de boas práticas e efetue todos os testes adicionais que possam ter sido adicionados.
 
 1. Teste HAGetFailoverConfig, HACheckConfig e HACheckFailoverConfig
 
-   Execute os comandos a seguir como \<sapsid > ADM no nó em que a instância ASCS está em execução no momento. Se os comandos falharem com falha: memória insuficiente, isso pode ser causado por traços em seu nome de host. Esse é um problema conhecido e será corrigido pelo SUSE no pacote SAP-SuSE-cluster-Connector.
+   Execute os seguintes comandos como \<sapsid>adm no nó onde a instância ASCS está atualmente em execução. Se os comandos falharem com FAIL: Memória insuficiente, pode ser causada por traços no seu nome de anfitrião. Esta é uma questão conhecida e será corrigida pela SUSE no pacote de conector de sáb-suse-cluster.
 
    <pre><code>nw1-cl-0:nw1adm 54> sapcontrol -nr <b>00</b> -function HAGetFailoverConfig
    
@@ -865,9 +865,9 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
    # SUCCESS, SAP CONFIGURATION, SAPInstance RA sufficient version, SAPInstance includes is-ers patch
    </code></pre>
 
-1. Migrar manualmente a instância de ASCS
+1. Migrar manualmente a instância ASCS
 
-   Estado do recurso antes de iniciar o teste:
+   Estado de recurso antes de iniciar o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -882,7 +882,7 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
 
-   Execute os comandos a seguir como raiz para migrar a instância de ASCS.
+   Executar os seguintes comandos como raiz para migrar a instância ASCS.
 
    <pre><code>nw1-cl-0:~ # crm resource migrate rsc_sap_NW1_ASCS00 force
    # INFO: Move constraint created for rsc_sap_NW1_ASCS00
@@ -894,7 +894,7 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 
-   Estado do recurso após o teste:
+   Estado de recurso após o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -909,9 +909,9 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-1. Testar HAFailoverToNode
+1. Teste HAFailoverToNode
 
-   Estado do recurso antes de iniciar o teste:
+   Estado de recurso antes de iniciar o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -926,7 +926,7 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Execute os comandos a seguir como \<sapsid > ADM para migrar a instância ASCS.
+   Executar os seguintes comandos como \<sapsid>adm para migrar a instância ASCS.
 
    <pre><code>nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm &lt;password&gt; -function HAFailoverToNode ""
    
@@ -938,7 +938,7 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
    #INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    </code></pre>
 
-   Estado do recurso após o teste:
+   Estado de recurso após o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -953,9 +953,9 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
 
-1. Simular falha de nó
+1. Simular a queda do nó
 
-   Estado do recurso antes de iniciar o teste:
+   Estado de recurso antes de iniciar o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -970,12 +970,12 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
 
-   Execute o seguinte comando como raiz no nó em que a instância ASCS está em execução
+   Executar o seguinte comando como raiz no nó onde a instância ASCS está em execução
 
    <pre><code>nw1-cl-0:~ # echo b > /proc/sysrq-trigger
    </code></pre>
 
-   Se você usar SBD, pacemaker não deverá iniciar automaticamente no nó eliminado. O status após o nó ser iniciado novamente deve ter a seguinte aparência.
+   Se utilizar o SBD, o Pacemaker não deve iniciar automaticamente o nó morto. O estado após o nó ser reiniciado deve ser assim.
 
    <pre><code>Online: [ nw1-cl-1 ]
    OFFLINE: [ nw1-cl-0 ]
@@ -999,7 +999,7 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
        last-rc-change='Wed Aug 15 14:38:38 2018', queued=0ms, exec=0ms
    </code></pre>
 
-   Use os comandos a seguir para iniciar o pacemaker no nó eliminado, limpar as mensagens SBD e limpar os recursos com falha.
+   Use os seguintes comandos para iniciar o Pacemaker no nó morto, limpe as mensagens SBD e limpe os recursos falhados.
 
    <pre><code># run as root
    # list the SBD device(s)
@@ -1013,7 +1013,7 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 
-   Estado do recurso após o teste:
+   Estado de recurso após o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1028,9 +1028,9 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-1. Testar a reinicialização manual da instância do ASCS
+1. Reiniciar manual de teste da instância ASCS
 
-   Estado do recurso antes de iniciar o teste:
+   Estado de recurso antes de iniciar o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1045,22 +1045,22 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Crie um bloqueio de enfileirar por, por exemplo, editar um usuário na transação su01. Execute os seguintes comandos como \<sapsid>adm no nó onde a instância ASCS está em execução. Os comandos irão parar a instância de ASCS e iniciá-la novamente. Se você estiver usando a arquitetura enqueue Server 1, espera-se que o bloqueio de enfileiramento seja perdido neste teste. Se estiver usando a arquitetura do Queue Server 2, o enfileiramento será retido. 
+   Crie um bloqueio de fila, por exemplo, editar um utilizador em transações su01. Execute os seguintes comandos como \<sapsid>adm no nó onde a instância ASCS está em execução. Os comandos pararão a instância ASCS e reiniciá-lo-ão. Se utilizar a arquitetura enqueue server 1, espera-se que o bloqueio de fila se perca neste teste. Se utilizar a arquitetura enqueue server 2, a fila será mantida. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
 
-   A instância ASCS agora deve ser desabilitada no pacemaker
+   A instância ASCS deve agora ser desativada no Pacemaker
 
    <pre><code>rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Stopped (disabled)
    </code></pre>
 
-   Inicie a instância ASCS novamente no mesmo nó.
+   Reinicie a instância ASCS no mesmo nó.
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   O bloqueio de transação su01 deve ser perdido e o back-end deveria ter sido reiniciado. Estado do recurso após o teste:
+   O bloqueio de transação su01 deve ser perdido e o back-end deveria ter sido reiniciado. Estado de recurso após o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1075,9 +1075,9 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-1. Eliminar processo do servidor de mensagens
+1. Matar o processo do servidor de mensagens
 
-   Estado do recurso antes de iniciar o teste:
+   Estado de recurso antes de iniciar o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1092,18 +1092,18 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Execute os seguintes comandos como raiz para identificar o processo do servidor de mensagens e desmatar.
+   Executar os seguintes comandos como raiz para identificar o processo do servidor de mensagem e matá-lo.
 
    <pre><code>nw1-cl-1:~ # pgrep ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   Se matar o servidor de mensagens uma vez, será reiniciado por sapstart. Se você o eliminar com frequência suficiente, o pacemaker eventualmente moverá a instância ASCS para o outro nó. Execute os comandos a seguir como raiz para limpar o estado do recurso da instância ASCS e ERS após o teste.
+   Se matar o servidor de mensagens uma vez, será reiniciado por sapstart. Se o matarcom frequência, o Pacemaker irá eventualmente mover a instância ASCS para o outro nó. Executar os seguintes comandos como raiz para limpar o estado de recurso da instância ASCS e ERS após o teste.
 
    <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 
-   Estado do recurso após o teste:
+   Estado de recurso após o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1118,9 +1118,9 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
 
-1. Processo do servidor de eliminação de enfileiramento
+1. Matar o processo do servidor enfila
 
-   Estado do recurso antes de iniciar o teste:
+   Estado de recurso antes de iniciar o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1135,18 +1135,18 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    </code></pre>
 
-   Execute os comandos a seguir como raiz no nó em que a instância ASCS está sendo executada para eliminar o servidor de enfileiramento.
+   Executar os seguintes comandos como raiz no nó onde a instância ASCS está a correr para matar o servidor de fila.
 
    <pre><code>nw1-cl-0:~ # pgrep en.sapNW1 | xargs kill -9
    </code></pre>
 
-   A instância ASCS deve fazer failover imediatamente para o outro nó. A instância ERS também deve fazer failover depois que a instância ASCS é iniciada. Execute os comandos a seguir como raiz para limpar o estado do recurso da instância ASCS e ERS após o teste.
+   A instância ASCS deve falhar imediatamente no outro nó. A instância ERS também deve falhar depois de iniciado o caso ASCS. Executar os seguintes comandos como raiz para limpar o estado de recurso da instância ASCS e ERS após o teste.
 
    <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 
-   Estado do recurso após o teste:
+   Estado de recurso após o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1161,9 +1161,9 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-1. Processo do servidor de replicação do Kill enqueue
+1. Matar processo de servidor de replicação de enfila
 
-   Estado do recurso antes de iniciar o teste:
+   Estado de recurso antes de iniciar o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1178,17 +1178,17 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Execute o seguinte comando como raiz no nó em que a instância ERS está em execução para eliminar o processo do servidor de replicação de enfileiramento.
+   Executar o seguinte comando como raiz no nó onde a instância ERS está a correr para matar o processo do servidor de replicação de fila.
 
    <pre><code>nw1-cl-0:~ # pgrep er.sapNW1 | xargs kill -9
    </code></pre>
 
-   Se só executar o comando uma vez, a sapstart reiniciará o processo. Se o executar com frequência, o sapstart não reiniciará o processo e o recurso estará em estado de paragem. Execute os comandos a seguir como raiz para limpar o estado do recurso da instância ERS após o teste.
+   Se só executar o comando uma vez, a sapstart reiniciará o processo. Se o executar com frequência, o sapstart não reiniciará o processo e o recurso estará em estado de paragem. Executar os seguintes comandos como raiz para limpar o estado de recurso da instância ERS após o teste.
 
    <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 
-   Estado do recurso após o teste:
+   Estado de recurso após o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1203,9 +1203,9 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-1. Eliminar enqueue sapstartsrv processo
+1. Kill enqueue sapstartsrv processo
 
-   Estado do recurso antes de iniciar o teste:
+   Estado de recurso antes de iniciar o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1220,7 +1220,7 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Execute os comandos a seguir como raiz no nó em que o ASCS está em execução.
+   Executar os seguintes comandos como raiz no nó onde o ASCS está em execução.
 
    <pre><code>nw1-cl-1:~ # pgrep -fl ASCS00.*sapstartsrv
    # 59545 sapstartsrv
@@ -1228,7 +1228,7 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
    nw1-cl-1:~ # kill -9 59545
    </code></pre>
 
-   O processo sapstartsrv sempre deve ser reiniciado pelo agente de recursos do pacemaker. Estado do recurso após o teste:
+   O processo sapstartsrv deve ser sempre reiniciado pelo agente de recursos Pacemaker. Estado de recurso após o teste:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1245,8 +1245,8 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de boas prátic
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
-* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
-* Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA no Azure (instâncias grandes), consulte [alta disponibilidade e recuperação de desastre do SAP Hana (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
-* Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA em VMs do Azure, consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha]
+* [Planeamento e implementação de Máquinas Virtuais Azure para SAP][planning-guide]
+* [Implantação de Máquinas Virtuais Azure para SAP][deployment-guide]
+* [Implantação de DBMS de Máquinas Virtuais Azure para SAP][dbms-guide]
+* Para aprender a estabelecer alta disponibilidade e plano para a recuperação de desastres do SAP HANA em Azure (grandes instâncias), consulte a alta disponibilidade do [SAP HANA (grandes instâncias) e a recuperação de desastres em Azure.](hana-overview-high-availability-disaster-recovery.md)
+* Para aprender como estabelecer alta disponibilidade e plano para a recuperação de desastres de SAP HANA em VMs Azure, consulte [Alta Disponibilidade de SAP HANA em Máquinas Virtuais Azure (VMs)][sap-hana-ha]

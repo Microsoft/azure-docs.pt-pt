@@ -1,148 +1,143 @@
 ---
-title: Configurar um dispositivo de migrações para Azure para servidores físicos
-description: Saiba como configurar um dispositivo de migrações para Azure para avaliação de servidor físico.
+title: Instale um aparelho Azure Migrate para servidores físicos
+description: Aprenda a configurar um aparelho Azure Migrate para avaliação física do servidor.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 99ccd00dbcea7f8eaed2e8e51a64b89c1e0b42a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028832"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598175"
 ---
-# <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um dispositivo para servidores físicos
+# <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um aparelho para servidores físicos
 
-Este artigo descreve como configurar o dispositivo de migrações para Azure se você estiver avaliando servidores físicos com a ferramenta migrações para Azure: Server Assessment.
+Este artigo descreve como configurar o aparelho Migratório Azure se estiver a avaliar servidores físicos com a ferramenta Azure Migrate: Server Assessment.
 
-> [!NOTE]
-> Se os recursos forem mencionados aqui que você ainda não vê no portal de migrações para Azure, aguarde. Eles serão exibidos na próxima semana ou assim.
+O aparelho Azure Migrate é um aparelho leve, utilizado pela Azure Migrate Server Assessment para fazer o seguinte:
 
-O dispositivo de migrações para Azure é um dispositivo leve, usado pela avaliação de servidor de migrações para Azure para fazer o seguinte:
+- Descubra servidores no local.
+- Envie metadados e dados de desempenho para servidores descobertos para a Avaliação do Servidor Migratório Azure.
 
-- Descobrir servidores locais.
-- Enviar dados de desempenho e metadados para servidores descobertos para avaliação do Azure migrar servidor.
-
-[Saiba mais](migrate-appliance.md) sobre o dispositivo migrações para Azure.
+[Saiba mais](migrate-appliance.md) sobre o aparelho Azure Migrate.
 
 
-## <a name="appliance-deployment-steps"></a>Etapas de implantação do dispositivo
+## <a name="appliance-deployment-steps"></a>Passos de implantação de aparelhos
 
-Para configurar o dispositivo, você:
-- Baixe um arquivo compactado com o script do instalador de migrações para Azure do portal do Azure.
-- Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
-- Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
-- Configure o dispositivo pela primeira vez e registre-o com o projeto de migrações para Azure.
+Para configurar o aparelho:
+- Descarregue um ficheiro com fecho com o script do instalador Azure Migrate a partir do portal Azure.
+- Extrair o conteúdo do ficheiro com fecho. Lance a consola PowerShell com privilégios administrativos.
+- Execute o script PowerShell para lançar a aplicação web do aparelho.
+- Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate.
 
-## <a name="download-the-installer-script"></a>Baixar o script do instalador
+## <a name="download-the-installer-script"></a>Descarregue o script do instalador
 
-Baixe o arquivo compactado para o dispositivo.
+Descarregue o ficheiro zipped para o aparelho.
 
-1. Em **metas de migração** > **servidores** > **migrações para Azure: avaliação do servidor**, clique em **descobrir**.
-2. No **Discover machines** > **seus computadores são virtualizados?** , clique em **não virtualizado/outro**.
-3. Clique em **baixar** para baixar o arquivo compactado.
+1. Em **Objetivos de Migração** > **servidores** > **Azure Migrate: Avaliação do servidor,** clique **em Descobrir**.
+2. Em **Discover machines** > **As suas máquinas estão virtualizadas?**
+3. Clique em **Baixar** para descarregar o ficheiro zipped.
 
-    ![Baixar VM](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
+    ![Baixar VM](./media/tutorial-assess-physical/download-appliance.png)
 
 
-### <a name="verify-security"></a>Verificar segurança
+### <a name="verify-security"></a>Verificar a segurança
 
-Verifique se o arquivo compactado é seguro, antes de implantá-lo.
+Verifique se o ficheiro com fecho está seguro, antes de o implantar.
 
 1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
-2. Execute o comando a seguir para gerar o hash para o VHD
+2. Executar o seguinte comando para gerar o hash para o VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Para a versão mais recente do dispositivo, o hash gerado deve corresponder a essas configurações.
-
-  **Algoritmo** | **Valor de hash**
-  --- | ---
-  MD5 | 96fd99581072c400aa605ab036a0a7c0
-  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+3.  Para a versão mais recente do aparelho, o hash gerado deve coincidir com estas [definições](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
 
 
 
-## <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de migrações para Azure
-= O script do instalador faz o seguinte:
+## <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalação Azure Migrate
+O script do instalador faz o seguinte:
 
-- Instala agentes e um aplicativo Web para avaliação e descoberta de servidor físico.
-- Instale as funções do Windows, incluindo o serviço de ativação do Windows, o IIS e o ISE do PowerShell.
-- Baixe e instale um módulo regravável do IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
-- Atualiza uma chave do registro (HKLM) com detalhes de configuração persistente para migrações para Azure.
-- Cria os seguintes arquivos no caminho:
-    - **Arquivos de configuração**:%ProgramData%\Microsoft Azure\Config
-    - **Arquivos de log**:%ProgramData%\Microsoft Azure\Logs
+- Instala agentes e uma aplicação web para descoberta e avaliação de servidores físicos.
+- Instale funções windows, incluindo o Windows Activation Service, IIS e PowerShell ISE.
+- Descarregue e instale um módulo rewritável IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
+- Atualiza uma chave de registo (HKLM) com detalhes de definição persistentes para o Azure Migrate.
+- Cria os seguintes ficheiros no caminho:
+    - **Ficheiros Config**: %Programdata%\Microsoft Azure\Config
+    - **Ficheiros de Registo**: %Programdata%\Microsoft Azure\Logs
 
-Execute o script da seguinte maneira:
+Executar o guião da seguinte forma:
 
-1. Extraia o arquivo compactado em uma pasta no servidor que hospedará o dispositivo.
-2. Inicie o PowerShell no servidor acima com privilégio administrativo (elevado).
-3. Altere o diretório do PowerShell para a pasta em que o conteúdo foi extraído do arquivo compactado baixado.
-4. Execute o script executando o seguinte comando:
+1. Extraio o ficheiro com fecho numa pasta no servidor que irá alojar o aparelho.
+2. Lance powerShell no servidor acima com privilégio administrativo (elevado).
+3. Mude o diretório PowerShell para a pasta onde os conteúdos foram extraídos do ficheiro com fecho descarregado.
+4. Executar o script chamado **AzureMigrateInstaller.ps1** executando o seguinte comando:
     ```
-    AzureMigrateInstaller.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-O script iniciará o aplicativo Web do dispositivo quando ele for concluído com êxito.
+O script lançará a aplicação web do aparelho quando terminar com sucesso.
 
+Em caso de problemas, pode aceder aos registos de scripts em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
+> [!NOTE]
+> Por favor, não execute o script do instalador Azure Migrate num aparelho de migração Azure existente.
 
-### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
+### <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
-Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access)necessárias.
+Certifique-se de que o VM do aparelho pode ligar-se aos [URLs Azure necessários](migrate-appliance.md#url-access).
 
-## <a name="configure-the-appliance"></a>Configurar o dispositivo
+## <a name="configure-the-appliance"></a>Configure o aparelho
 
-Configure o dispositivo pela primeira vez.
+Instale o aparelho pela primeira vez.
 
-1. Abra um navegador em qualquer computador que possa se conectar à VM e abra a URL do aplicativo Web do dispositivo: **https://*nome do dispositivo ou endereço IP*: 44368**.
+1. Abra um navegador em qualquer máquina que possa ligar-se ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
 
-   Como alternativa, você pode abrir o aplicativo na área de trabalho clicando no atalho do aplicativo.
-2. No aplicativo Web > **configurar os pré-requisitos**, faça o seguinte:
-    - **Licença**: aceite os termos de licença e leia as informações de terceiros.
-    - **Conectividade**: o aplicativo verifica se a VM tem acesso à Internet. Se a VM usar um proxy:
-        - Clique em **configurações de proxy**e especifique o endereço de proxy e a porta de escuta, no formato http://ProxyIPAddress ou http://ProxyFQDN.
+   Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho clicando no atalho da aplicação.
+2. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
+    - **Licença**: Aceite os termos da licença e leia as informações de terceiros.
+    - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um proxy:
+        - Clique em **definições proxy**, e especifique o endereço proxy e a porta de escuta, sob a forma http://ProxyIPAddress ou http://ProxyFQDN.
         - Especifique as credenciais se o proxy precisar de autenticação.
         - Apenas é suportado o proxy HTTP.
-    - **Sincronização de horário**: o tempo é verificado. O tempo no dispositivo deve ser sincronizado com o horário da Internet para que a descoberta da VM funcione corretamente.
-    - **Instalar atualizações**: avaliação do servidor de migrações para Azure verifica se o dispositivo tem as atualizações mais recentes instaladas.
+    - **Sincronização de tempo**: O tempo é verificado. O tempo no aparelho deve estar sincronizado com o tempo de internet para que a descoberta de VM funcione corretamente.
+    - **Instalar atualizações**: A Avaliação do Servidor Migratório Azure verifica se o aparelho tem as últimas atualizações instaladas.
 
-### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo com as migrações para Azure
+### <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 
-1. Clique em **fazer logon**. Se não aparecer, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-2. Na nova guia, entre usando suas credenciais do Azure.
-    - Entre com seu nome de usuário e senha.
-    - Não há suporte para a entrada com um PIN.
-3. Depois de entrar com êxito, volte para o aplicativo Web.
-4. Selecione a assinatura na qual o projeto de migração do Azure foi criado. Em seguida, selecione o projeto.
-5. Especifique um nome para o dispositivo. O nome deve ser alfanumérico com 14 caracteres ou menos.
-6. Clique em **registrar**.
+1. Clique **em iniciar sessão**. Se não aparecer, certifique-se de que desativou o bloqueador pop-up no navegador.
+2. No novo separador, inscreva-se utilizando as suas credenciais Azure.
+    - Inscreva-se com o seu nome de utilizador e senha.
+    - O sessão com um PIN não é suportado.
+3. Depois de iniciar sessão com sucesso, volte para a aplicação web.
+4. Selecione a subscrição em que foi criado o projeto Azure Migrate. Em seguida, selecione o projeto.
+5. Especifique um nome para o aparelho. O nome deve ser alfanumérico com 14 caracteres ou menos.
+6. Clique no **Registo**.
 
 
-## <a name="start-continuous-discovery"></a>Iniciar descoberta contínua
+## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
 
-Conecte-se do dispositivo a servidores físicos e inicie a descoberta.
+Ligue-se do aparelho aos servidores físicos e inicie a descoberta.
 
-1. Clique em **Adicionar credenciais** para especificar as credenciais de conta que o dispositivo usará para descobrir servidores.  
-2. Especifique o **sistema operacional**, o nome amigável para as credenciais, o **nome de usuário** e a **senha** e clique em **Adicionar**.
-Você pode adicionar um conjunto de credenciais para servidores Windows e Linux.
-4. Clique em **Adicionar servidor**e especifique os detalhes do servidor – endereço FQDN/IP e nome amigável das credenciais (uma entrada por linha) para se conectar ao servidor.
-3. Clique em **validar**. Após a validação, a lista de servidores que podem ser descobertos é mostrada.
-    - Se a validação falhar para um servidor, examine o erro passando o mouse sobre o ícone na coluna **status** . Corrija os problemas e valide novamente.
-    - Para remover um servidor, selecione > **excluir**.
-4. Após a validação, clique em **salvar e inicie a descoberta** para iniciar o processo de descoberta.
+1. Clique em **Adicionar Credenciais** para especificar as credenciais de conta que o aparelho utilizará para descobrir servidores.  
+2. Especifique o **Sistema Operativo**, nome amigável para as credenciais, **nome de utilizador** e **palavra-passe** e clique em **Adicionar**.
+Pode adicionar um conjunto de credenciais cada um para servidores Windows e Linux.
+4. Clique em **Adicionar servidor**, e especifique os detalhes do servidor - endereço FQDN/IP e nome amigável de credenciais (uma entrada por linha) para ligar ao servidor.
+3. Clique em **Validar**. Após validação, a lista de servidores que podem ser descobertos é mostrada.
+    - Se a validação falhar num servidor, reveja o erro pairando sobre o ícone na coluna **'Estado'.** Corrija os problemas e valide novamente.
+    - Para remover um servidor, selecione > **Delete**.
+4. Após validação, clique em **Guardar e iniciar** a descoberta para iniciar o processo de descoberta.
 
-Isso inicia a descoberta. Leva cerca de 15 minutos para que os metadados de VMs descobertas apareçam na portal do Azure.
+Isto começa a ser descoberto. Leva cerca de 15 minutos para que os metadados de VMs descobertos apareçam no portal Azure.
 
-## <a name="verify-servers-in-the-portal"></a>Verificar servidores no portal
+## <a name="verify-servers-in-the-portal"></a>Verifique os servidores no portal
 
-Após a conclusão da descoberta, você pode verificar se os servidores aparecem no Portal.
+Após a descoberta terminar, pode verificar se os servidores aparecem no portal.
 
-1. Abra o painel migrações para Azure.
-2. Na página **migrações para Azure – servidores** > **migrações para Azure: avaliação do servidor** , clique no ícone que exibe a contagem de **servidores descobertos**.
+1. Abra o painel de migração Azure.
+2. Em **Azure Migrate - Servidores** > **Azure Migrar:** Página de Avaliação do Servidor, clique no ícone que apresenta a contagem para **servidores descobertos**.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Experimente a [avaliação de servidores físicos](tutorial-assess-physical.md) com a avaliação de servidor de migrações para Azure.
+Experimente [a avaliação dos servidores físicos](tutorial-assess-physical.md) com a Avaliação do Servidor Migratório Azure.

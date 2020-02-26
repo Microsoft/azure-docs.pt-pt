@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: cd45d38759bcf41307ba42d68d504266719579d2
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 2d54c39577a359499cf6dc3aca84cebc4fa6e206
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493426"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598022"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -211,6 +211,24 @@ Caching de armazenamento premium: Não suportado
 
 <br>
 
+## <a name="preview-dc-series"></a>Pré-visualização: DC-series
+
+Armazenamento Premium: Suportado
+
+Caching de armazenamento premium: Suportado
+
+A série DC utiliza a última geração de processador Intel XEON E-2176G de 3.7GHz com tecnologia SGX, e com a Tecnologia Intel Turbo Boost pode ir até 4.7GHz. 
+
+| Tamanho          | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Max NICs / Largura de banda de rede esperada (Mbps) |
+|---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
+| Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2 / 1500                                     |
+| Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |
+
+> [!IMPORTANT]
+>
+> Os VMs da série DC são [VMs de geração 2](./linux/generation-2.md#creating-a-generation-2-vm) e apenas suportam `Gen2` imagens.
+
+
 ### <a name="ds-series"></a>Série DS  
 
 **Recomendação de tamanho mais recente**: Série [Dsv3](dv3-dsv3-series.md)
@@ -329,6 +347,6 @@ Caching de armazenamento premium: Não suportado
 * [GPU](sizes-gpu.md)
 * [Computação de elevado desempenho](sizes-hpc.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.

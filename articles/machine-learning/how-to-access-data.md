@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6d68599af644e5bb03fc850a880b07c6a4d262a9
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 54ad9109a23b0fb25470987c2bc863934864b83f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370477"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580683"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Dados de acesso nos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,7 +47,7 @@ Precisa de:
 
 ## <a name="supported-data-storage-service-types"></a>Tipos de serviços de armazenamento de dados suportados
 
-Atualmente, as lojas de dados suportam armazenar informações de ligação aos serviços de armazenamento listados na seguinte matriz. Neste momento, não há suporte para o Azure data warehouse. 
+Atualmente, as lojas de dados suportam armazenar informações de ligação aos serviços de armazenamento listados na seguinte matriz. Neste momento, o armazém Azure Data não é suportado. 
 
 | Tipo&nbsp;de armazenamento | Tipo&nbsp;de autenticação | [Estúdio Azure&nbsp;Machine&nbsp;Learning](https://ml.azure.com/) | [Máquina de&nbsp;&nbsp;máquina azure &nbsp; SDK Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Máquina&nbsp;Azure&nbsp;Aprendizagem CLI](reference-azure-machine-learning-cli.md) | [Máquina de&nbsp;&nbsp;Azure  Aprendizagem&nbsp; API de descanso](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
@@ -57,10 +57,10 @@ Atualmente, as lojas de dados suportam armazenar informações de ligação aos 
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Diretor de serviço| ✓ | ✓ | ✓ |✓
 Base de dados de&nbsp;Azure&nbsp;SQL| Autenticação do SQL <br>Diretor de serviço| ✓ | ✓ | ✓ |✓
 Azure&nbsp;PostgreSQL | Autenticação do SQL| ✓ | ✓ | ✓ |✓
-&nbsp;de Base de Dados&nbsp;Azure para&nbsp;MySQL | Autenticação do SQL|  | ✓ | ✓ |✓
-Sistema de&nbsp;de de ficheiros&nbsp;de tijolos de dados| Sem autenticação | | ✓* | ✓ * |✓* 
+&nbsp;de Base de Dados&nbsp;Azure para&nbsp;MySQL | Autenticação do SQL|  | ✓* | ✓* |✓*
+Sistema de&nbsp;de de ficheiros&nbsp;de tijolos de dados| Sem autenticação | | ✓** | ✓ ** |✓** 
 
-*apenas suportado em cenários-alvo de cálculo local
+*MySQL só é suportado para pipeline [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br> \** Databricks é suportado apenas para pipeline [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)
 
 ### <a name="storage-guidance"></a>Orientações de armazenamento
 
@@ -77,7 +77,7 @@ Ao registar uma solução de Armazenamento Azure como uma loja de dados, cria-se
 
 >[!IMPORTANT]
 > Como parte do atual processo de criação e registo da loja de dados, o Azure Machine Learning valida que o utilizador fornecido principal (nome de utilizador, diretor de serviço ou token SAS) tem acesso ao serviço de armazenamento subjacente. 
-<br>
+<br><br>
 No entanto, para as lojas de dados Azure Data Lake Storage Gen 1 e 2, esta validação ocorre mais tarde quando são chamados métodos de acesso a dados como [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) ou [`from_delimited_files()`.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) 
 
 ### <a name="python-sdk"></a>SDK Python
@@ -87,10 +87,13 @@ Todos os métodos de registo estão na classe [`Datastore`](https://docs.microso
 Pode encontrar a informação de que necessita para povoar o método `register()` utilizando o [portal Azure:](https://portal.azure.com)
 
 1. Selecione Contas de **Armazenamento** no painel esquerdo e escolha a conta de armazenamento que pretende registar. 
-2. Para obter informações como o nome da conta, o contentor e o nome da partilha de ficheiros, consulte a página **'Overview'.** Para obter informações de autenticação, como chave de conta ou ficha SAS, aceda às **Teclas** de acesso no painel **Definições.** 
+2. Para obter informações como o nome da conta, o contentor e o nome da partilha de ficheiros, consulte a página **'Overview'.** 
+3. Para obter informações de autenticação, como chave de conta ou ficha SAS, aceda às **Teclas** de acesso no painel **Definições.** 
+
+4. Para itens principais de serviço como, ID de inquilino e ID do cliente, vá à página **de visão geral** dos **registos**da sua App . 
 
 > [!IMPORTANT]
-> Se a sua conta de armazenamento estiver numa rede virtual, apenas é suportada a criação de uma loja de dados azure blob. Para conceder o acesso ao seu espaço de trabalho na sua conta de armazenamento, defina o parâmetro `grant_workspace_access` para `True`.
+> Se a sua conta de armazenamento estiver numa rede virtual, apenas é suportada a criação de blob, File share, ADLS Gen 1 e ADLS Gen 2 **através do SDK.** Para conceder o acesso ao seu espaço de trabalho na sua conta de armazenamento, defina o parâmetro `grant_workspace_access` para `True`.
 
 Os exemplos seguintes mostram como registar um contentor de blob Azure, uma partilha de ficheiros Azure, e Azure Data Lake Storage Generation 2 como uma loja de dados. Para outros serviços de armazenamento, consulte a [documentação de referência para os métodos `register_azure_*`.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods)
 
@@ -134,7 +137,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Geração de Armazenamento de Lagos De Dados Azure 2
 
-Para uma loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados credencial ligada a um armazenamento Azure DataLake Gen 2 com [permissões principais](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)de serviço. Saiba mais sobre o controlo de [acesso criado para ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Para uma loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados credencial ligada a um armazenamento Azure DataLake Gen 2 com [permissões principais](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)de serviço. Para utilizar o seu diretor de serviço, tem de registar a [sua candidatura.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) Saiba mais sobre o controlo de [acesso criado para ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 O código seguinte cria e regista a `adlsgen2_datastore_name` loja de dados para o espaço de trabalho `ws`. Esta loja de dados acede ao sistema de ficheiros `test` na conta de armazenamento `account_name`, utilizando as credenciais principais do serviço prestados.
 
@@ -162,12 +165,19 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 Crie uma nova datastore em alguns passos no estúdio Azure Machine Learning:
 
+> [!IMPORTANT]
+> Se a sua conta de armazenamento estiver numa rede virtual, apenas é suportada a criação de lojas de dados [através do SDK.](#python-sdk) 
+
 1. Inscreva-se no [estúdio Azure Machine Learning.](https://ml.azure.com/)
 1. Selecione **Datastores** no painel esquerdo em **Manage**.
 1. Selecione **+ Nova loja**de dados .
 1. Preencha o formulário para uma nova loja de dados. O formulário atualiza-se inteligentemente com base nas suas seleções para o tipo de armazenamento Azure e tipo de autenticação.
   
-Pode encontrar a informação de que necessita para preencher o formulário no [portal Azure.](https://portal.azure.com) Selecione Contas de **Armazenamento** no painel esquerdo e escolha a conta de armazenamento que pretende registar. A página **'Overview'** fornece informações como o nome da conta, o contentor e o nome da partilha de ficheiros. Para itens de autenticação, como chave de conta ou ficha SAS, vá para **As Teclas de Conta** no painel **Definições.**
+Pode encontrar a informação de que necessita para preencher o formulário no [portal Azure.](https://portal.azure.com) Selecione Contas de **Armazenamento** no painel esquerdo e escolha a conta de armazenamento que pretende registar. A página **'Overview'** fornece informações como o nome da conta, o contentor e o nome da partilha de ficheiros. 
+
+* Para itens de autenticação, como chave de conta ou ficha SAS, vá para **As Teclas de Conta** no painel **Definições.** 
+
+* Para itens principais de serviço como, ID de inquilino e ID do cliente, vá à página **de visão geral** dos **registos**da sua App . 
 
 O exemplo que se segue demonstra como é o formulário quando se cria uma loja de dados Azure blob: 
     

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19afaf743cc594ab17776b990687a442c339ed92
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: f07b37fffe61a6be62a72a0281e701b69167e95b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559016"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596764"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Diretório Ativo azure
 
@@ -45,14 +45,14 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 Criar diretórios Azure AD B2C | Todos os utilizadores não convidados[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Criar aplicações B2C | Administrador Global | 
 Criar aplicações empresariais | Administrador de aplicação em nuvem | Administrador da Aplicação
-Criar, ler, atualizar e eliminar políticas B2C | Administrador Global | 
-Criar, ler, atualizar e eliminar fornecedores de identidade | Administrador Global | 
-Criar, ler, atualizar e eliminar fluxos de utilizadores de redefinição de palavras-passe | Administrador Global | 
-Criar, ler, atualizar e eliminar fluxos de utilizadores de edição de perfis | Administrador Global | 
-Criar, ler, atualizar e eliminar fluxos de utilizador de entrada | Administrador Global | 
-Criar, ler, atualizar e eliminar o fluxo de utilizador de inscrição |Administrador Global | 
-Criar, ler, atualizar e eliminar atributos do utilizador | Administrador Global | 
-Criar, ler, atualizar e eliminar utilizadores | Administrador Global[(ver documentação)](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)
+Criar, ler, atualizar e eliminar políticas B2C | Administrador de Política B2C IEF | 
+Criar, ler, atualizar e eliminar fornecedores de identidade | Administrador de Fornecedor de Identidade Externa | 
+Criar, ler, atualizar e eliminar fluxos de utilizadores de redefinição de palavras-passe | Administrador de fluxo de utilizador B2C | 
+Criar, ler, atualizar e eliminar fluxos de utilizadores de edição de perfis | Administrador de fluxo de utilizador B2C | 
+Criar, ler, atualizar e eliminar fluxos de utilizador de entrada | Administrador de fluxo de utilizador B2C | 
+Criar, ler, atualizar e eliminar o fluxo de utilizador de inscrição |Administrador de fluxo de utilizador B2C | 
+Criar, ler, atualizar e eliminar atributos do utilizador | Administrador de atributo de fluxo de utilizador B2C | 
+Criar, ler, atualizar e eliminar utilizadores | Administrador de Utilizadores
 Leia todas as configurações | Leitor global | 
 Ler registos de auditoria B2C | Leitor global[(ver documentação)](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs) | 
 
@@ -127,7 +127,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Consentimento para quaisquer permissões delegadas | Administrador de aplicação em nuvem | Administrador de candidatura
 Consentimento para permissões de aplicação que não incluem o Microsoft Graph | Administrador de aplicação em nuvem | Administrador de candidatura
-Consentimento para permissões de aplicação para o Microsoft Graph | Administrador Global | 
+Consentimento para permissões de aplicação para o Microsoft Graph | Administrador privilegiado | 
 Consentimento para aplicações de acesso a dados próprios | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Criar aplicação empresarial | Administrador de aplicação em nuvem | Administrador de candidatura
 Gerir procuração de aplicação | Administrador de candidatura | 
@@ -156,7 +156,7 @@ Licença de atribuição | Administrador de utilizadores |
 Criar grupo | Administrador de utilizadores | 
 Criar, atualizar ou excluir a revisão de acesso de um grupo ou de uma aplicação | Administrador de utilizadores | 
 Gerir a expiração do grupo | Administrador de utilizadores | 
-Gerir definições do grupo | Administrador Global | 
+Gerir definições do grupo | Administrador de Grupos | Administrador de Utilizadores | 
 Ler todas as configurações (exceto membros ocultos) | Leitores de diretório | Função de utilizador padrão[(ver documentação)](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)
 Ler adesão escondida | Membro do grupo | Proprietário do grupo, administrador de passwords, administrador de troca, administrador do SharePoint, administrador de equipas, administrador de utilizador
 Leia a adesão a grupos com adesão oculta | Administrador de Helpdesk | Administrador de utilizadores, administrador de equipas
@@ -234,7 +234,7 @@ Ler estado do servidor | Leitor global |
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Gerir fornecedores de identidade | Administrador Global | 
+Gerir fornecedores de identidade | Administrador de Fornecedor de Identidade Externa | 
 Gerir definições | Administrador Global | 
 Gerir termos de utilização | Administrador Global | 
 Leia todas as configurações | Leitor global | 
@@ -330,11 +330,11 @@ Criar utilizador | Administrador de utilizadores |
 Excluir utilizadores | Administrador de utilizadores | 
 Invalidar fichas de atualização de administradores limitados (ver documentação) | Administrador de utilizadores | 
 Invalidar fichas de atualização de não administradores (ver documentação) | Administrador de palavras-passe | Administrador de utilizadores
-Invalidar fichas de atualização de administradores privilegiados (ver documentação) | Administrador Global | 
+Invalidar fichas de atualização de administradores privilegiados (ver documentação) | Administrador de Autenticação Privilegiada | 
 Ler configuração básica | Função de utilizador padrão[(ver documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Redefinir a palavra-passe para administradores limitados (ver documentação) | Administrador de utilizadores | 
 Repor a palavra-passe de não administradores (ver documentação) | Administrador de palavras-passe | Administrador de utilizadores
-Redefinir palavra-passe de administradores privilegiados | Administrador Global | 
+Redefinir palavra-passe de administradores privilegiados | Administrador de Autenticação Privilegiada | 
 Revogar licença | Administrador de licença | Administrador de utilizadores
 Atualizar todas as propriedades, exceto Nome Principal do Utilizador | Administrador de utilizadores | 
 Atualizar nome principal do utilizador para administradores limitados (ver documentação) | Administrador de utilizadores | 

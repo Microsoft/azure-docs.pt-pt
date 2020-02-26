@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: 0c6a712f1dfb4410f3eee0fbd0192c6147618f96
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: b926e651200a4ab23306b0ec2443cb64400b8f7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539591"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605246"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -24,7 +24,7 @@ Para solucionar problemas com mais eficiência, pode ajudar a criar logs mais de
 
 Para a extensão do Estúdio Visual, detete a variável ambiente `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` para 1. Certifique-se de que reinicie o Visual Studio para a variável de ambiente para entrar em vigor. Uma vez ativados, os registos detalhados são escritos ao seu diretório `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
 
-No CLI, pode obter mais informações durante a execução do comando utilizando o interruptor `--verbose`. Também pode navegar em registos mais detalhados em `%TEMP%\Azure Dev Spaces`. Num Mac, o diretório TEMP pode ser encontrado correndo `echo $TMPDIR` de uma janela terminal. Num computador Linux, o diretório TEMP costuma `/tmp`.
+No CLI, pode obter mais informações durante a execução do comando utilizando o interruptor `--verbose`. Também pode navegar em registos mais detalhados em `%TEMP%\Azure Dev Spaces`. Num Mac, o diretório *TEMP* pode ser encontrado executando `echo $TMPDIR` de uma janela terminal. Num computador Linux, o diretório *TEMP* costuma `/tmp`. Além disso, verifique se a exploração madeireira está ativada no ficheiro de [configuração DoClI Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 Azure Dev Spaces também funciona melhor ao depurar uma única instância ou Pod. O ficheiro `azds.yaml` contém uma definição, *réplicaCount,* que indica o número de cápsulas que a Kubernetes executa para o seu serviço. Se alterar a *réplicaCount* para configurar a sua aplicação para executar várias cápsulas para um determinado serviço, o debugger liga-se à primeira cápsula, quando listada alfabeticamente. O depurador é anexado a um pod diferente quando o Pod original é reciclado, possivelmente resultando em um comportamento inesperado.
 

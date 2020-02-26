@@ -1,101 +1,100 @@
 ---
-title: Visão geral do İSTİO
-description: Obtenha uma visão geral do İSTİO
+title: Visão geral de Istio
+description: Obtenha uma visão geral de Istio
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 3db2a3d75df08e7c668b1983ad9b4493446475df
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530514"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593905"
 ---
-# <a name="istio"></a>İSTİO
+# <a name="istio"></a>Istio
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-O [İSTİO][istio] é uma malha de serviço completa em destaque, personalizável e extensível.
+[Istio][istio] é uma malha de serviço totalmente em destaque, personalizável e extensível.
 
 ## <a name="architecture"></a>Arquitetura
 
-O İSTİO fornece um plano de dados composto por sidecars baseados em [Envoy][envoy-proxy]. Esses proxies inteligentes controlam todo o tráfego de rede dentro e fora de seus aplicativos e cargas de trabalho em malha.
+Istio fornece um avião de dados que é composto por sidecars baseados no [enviado.][envoy-proxy] Estes proxies inteligentes controlam todo o tráfego de rede dentro e fora das suas aplicações e cargas de trabalho.
 
-O plano de controle gerencia a configuração, a política e a telemetria por meio dos seguintes [componentes][what-is-istio]:
+O plano de controlo gere a configuração, a política e a telemetria através dos [seguintes componentes:][what-is-istio]
 
-- **Mixer** -impõe políticas de uso e controle de acesso. Coleta telemetria dos proxies que são enviados para o [Prometheus][prometheus].
+- **Mixer** - Aplica as políticas de controlo de acesso e utilização. Recolhe telemetria dos proxies que são empurrados para [Prometeu.][prometheus]
 
-- **Piloto** -fornece a política/configuração de descoberta de serviço e gerenciamento de tráfego para os proxies.
+- **Piloto** - Fornece a política/configuração de gestão de tráfego e deteção de serviços para os proxies.
 
-- **Citadel** -fornece recursos de identidade e segurança que permitem a MTLS entre serviços.
+- **A Cidadela** - Fornece capacidades de identidade e segurança que permitem o mTLS entre serviços.
 
-- **Galé** -abstrai e fornece configuração aos componentes.
+- **Galé** - Resumos e fornece configuração aos componentes.
 
-O diagrama de arquitetura a seguir demonstra como os vários componentes dentro do plano de dados e do plano de controle interagem.
+O diagrama de arquitetura seguinte demonstra como os vários componentes dentro do plano de dados e plano de controlo interagem.
 
 
-![Visão geral dos componentes e da arquitetura do İSTİO.](media/servicemesh/istio/about-architecture.png)
+![Visão geral dos componentes istio e arquitetura.](media/servicemesh/istio/about-architecture.png)
 
 
 ## <a name="selection-criteria"></a>Critérios de seleção
 
-É importante entender e considerar as seguintes áreas ao avaliar İSTİO para suas cargas de trabalho:
+É importante compreender e considerar as seguintes áreas ao avaliar istio para as suas cargas de trabalho:
 
-- [Metas de design](#design-goals)
-- [Técnicas](#capabilities)
+- [Objetivos de Design](#design-goals)
+- [Capacidades](#capabilities)
 - [Cenários](#scenarios)
 
 
-### <a name="design-goals"></a>Metas de design
+### <a name="design-goals"></a>Objetivos de design
 
-As metas de design a seguir [guiam][design-goals] o projeto İSTİO:
+Os seguintes objetivos de design [guiam][design-goals] o projeto Istio:
 
-- **Maximizar transparência** – permitir a adoção com a quantidade mínima de trabalho para obter o valor real do sistema.
+- **Maximizar transparência** - Permitir a adoção com a quantidade mínima de trabalho para obter valor real do sistema.
 
-- **Extensibilidade** -deve ser capaz de crescer e adaptar-se às necessidades em constante mudança.
+- **Extensibility** - Deve ser capaz de crescer e adaptar-se com necessidades em mudança.
 
-- **Portabilidade** -execute facilmente em diferentes tipos de ambientes – nuvem, local.
+- **Portabilidade** - Corra facilmente em diferentes tipos de ambientes - nuvem, no local.
 
-- **Uniformidade de política** -consistência na definição de política em vários recursos.
+- **Uniformidade política** - Coerência na definição de políticas entre a variedade de recursos.
 
 
-### <a name="capabilities"></a>Funções
+### <a name="capabilities"></a>Capacidades
 
-O İSTİO fornece o seguinte conjunto de recursos:
+Istio fornece o seguinte conjunto de capacidades:
 
-- **Malha** – gateways (vários clusters), máquinas virtuais (expansão de malha)
+- **Malha** – gateways (multi-cluster), máquinas virtuais (expansão da malha)
 
-- **Gerenciamento de tráfego** – roteamento, divisão, tempos limite, separadores de circuito, repetições, entrada, saída
+- **Gestão de Tráfego** – encaminhamento, divisão, intervalos, disjuntores, repetições, ingressos, saídas
 
-- **Política** – controle de acesso, limite de taxa, cota, adaptadores de política personalizada
+- **Política** – controlo de acesso, limite de tarifas, quota, adaptadores de políticas personalizadas
 
-- **Segurança** – autenticação (JWT), autorização, criptografia (MTLS), CA externa (cofre HashiCorp)
+- **Segurança** – autenticação (jwt), autorização, encriptação (mTLS), CA externa (Cofre HashiCorp)
 
-- **Observação** – métricas Golden, espelho, rastreamento, adaptadores personalizados, Prometheus, grafana
+- **Observabilidade** - métricas douradas, espelho, rastreio, adaptadores personalizados, prometheus, grafana
 
 ### <a name="scenarios"></a>Cenários
 
-O İSTİO é adequado e sugerido para os seguintes cenários:
+Istio é bem adequado e sugerido para os seguintes cenários:
 
-- Exigir extensibilidade e conjunto avançado de recursos
+- Requerem extebilidade e um conjunto rico de capacidades
 
-- Expansão de malha para incluir cargas de trabalho baseadas em VM
+- Expansão da malha para incluir cargas de trabalho baseadas em VM
 
-- Malha de serviço de vários clusters
+- Malha de serviço multi-cluster
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A documentação a seguir descreve como você pode instalar o İSTİO no AKS (serviço kubernetes do Azure):
+A seguinte documentação descreve como pode instalar o Istio no Serviço Azure Kubernetes (AKS):
 
 > [!div class="nextstepaction"]
-> [Instalar o İSTİO no serviço kubernetes do Azure (AKS)][istio-install]
+> [Instalar istio no Serviço Azure Kubernetes (AKS)][istio-install]
 
-Você também pode explorar ainda mais conceitos de İSTİO e modelos de implantação adicionais:
+Também pode explorar ainda mais conceitos Istio e modelos de implementação adicionais:
 
-- [Conceitos de İSTİO][what-is-istio]
-- [Modelos de implantação do İSTİO][deployment-models]
+- [Conceitos Istio][what-is-istio]
+- [Modelos de implantação istio][deployment-models]
 
 <!-- LINKS - external -->
 [istio]: https://istio.io

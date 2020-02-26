@@ -14,12 +14,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7d096f721869e43e9a860733d0f6893f224a6776
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: bd9622d3e34198402bc45e5d855d05b0c8e35eb8
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772575"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605454"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Mudança no lugar da edição do SQL Server no Azure VM
 
@@ -33,9 +33,9 @@ Uma vez que a edição do SQL Server tenha sido alterada internamente para o SQL
 
 Para fazer uma alteração na edição do SQL Server, precisa do seguinte: 
 
-- Uma [subscrição do Azure](https://azure.microsoft.com/free/).
+- Uma [subscrição Azure.](https://azure.microsoft.com/free/)
 - Um VM de [servidor SQL no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registado com o fornecedor de recursos [SQL VM](virtual-machines-windows-sql-register-with-resource-provider.md).
-- Configurar meios com a **edição desejada** do SQL Server. Os clientes que possuem [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter os seus meios de instalação a partir do Centro de Licenciamento de [Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não possuem Software Assurance podem utilizar os suportes de configuração a partir de uma imagem VM Do Servidor Azure Marketplace SQL que tem a sua edição desejada (tipicamente localizada em `c:\SQLInstalls`). 
+- Configurar meios com a **edição desejada** do SQL Server. Os clientes que possuem [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter os seus meios de instalação a partir do Centro de Licenciamento de [Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não possuem Software Assurance podem utilizar os suportes de configuração a partir de uma imagem VM Do Servidor Azure Marketplace SQL que tem a sua edição desejada (tipicamente localizada em `C:\SQLServerFull`). 
 
 
 ## <a name="upgrade-an-edition"></a>Atualizar uma edição
@@ -77,7 +77,7 @@ Depois da edição do SQL Server ser desvalorizada, modifique a propriedade da e
 
 Depois de ter mudado a edição do SQL Server utilizando os meios de instalação e ter registado o seu VM SQL Server com o fornecedor de [recursos SQL VM,](virtual-machines-windows-sql-register-with-resource-provider.md)pode então utilizar o portal Azure para modificar a propriedade Edition do SQL Server VM para efeitos de faturação. Para isso, siga estes passos: 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Vá ao seu recurso virtual SQL Server. 
 1. Em **definições,** **selecione Configurar**. Em seguida, selecione a sua edição desejada do SQL Server a partir da lista de lançamentos em **Edição**. 
 
@@ -91,16 +91,16 @@ Depois de ter mudado a edição do SQL Server utilizando os meios de instalaçã
 
 - A propriedade de edição para o SQL Server VM deve corresponder à edição da instância SQL Server instalada para todas as máquinas virtuais do SQL Server, incluindo tanto os tipos de licenças pay-as-you-go e bring-your-your-own-license.
 - Se deixar cair o seu recurso VM Do Servidor SQL, voltará à definição de edição codificada da imagem.
-- A capacidade de alterar a edição é uma característica do fornecedor de recursos SQL VM. A implantação de uma imagem do Azure Marketplace por meio do portal do Azure registra automaticamente uma VM SQL Server com o provedor de recursos. No entanto, os clientes que se auto-instalam no SQL Server terão de registar manualmente o seu VM do [Servidor SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
-- Adicionar uma VM SQL Server a um conjunto de disponibilidade requer a recriação da VM. Quaisquer VMs adicionados a um conjunto de disponibilidade sairá de volta à edição padrão, e a edição terá de ser modificada novamente.
+- A capacidade de alterar a edição é uma característica do fornecedor de recursos SQL VM. A implementação de uma imagem do Azure Marketplace através do portal Azure regista automaticamente um VM de Servidor SQL com o fornecedor de recursos. No entanto, os clientes que se auto-instalam no SQL Server terão de registar manualmente o seu VM do [Servidor SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
+- Adicionar um VM de servidor SQL a um conjunto de disponibilidade requer recriar o VM. Quaisquer VMs adicionados a um conjunto de disponibilidade sairá de volta à edição padrão, e a edição terá de ser modificada novamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os artigos seguintes: 
 
-* [Visão geral de SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
-* [Perguntas frequentes para SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-faq.md)
-* [Diretrizes de preços para SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-pricing-guidance.md)
-* [Notas de versão para SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-release-notes.md)
+* [Visão geral do Servidor SQL num VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
+* [FAQ para Servidor SQL em um VM do Windows](virtual-machines-windows-sql-server-iaas-faq.md)
+* [Orientação de preços para O Servidor SQL num VM do Windows](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [Notas de lançamento para SQL Server num VM do Windows](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 

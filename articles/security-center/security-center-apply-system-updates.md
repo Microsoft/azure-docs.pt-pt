@@ -1,6 +1,6 @@
 ---
-title: Aplicar atualizações do sistema na central de segurança do Azure | Microsoft Docs
-description: Este documento mostra como implementar as recomendações da central de segurança do Azure **aplicar atualizações do sistema** e **reinicializar após as atualizações do sistema**.
+title: Aplicar atualizações do sistema no Centro de Segurança Do Azure Microsoft Docs
+description: Este documento mostra-lhe como implementar as recomendações do Azure Security Center **Aplicar atualizações** do sistema e **reiniciar após atualizações**do sistema .
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,73 +13,72 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 1688e85c6e6ed57892ccdffdf0813c8628127cc5
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3f27753b0775f44cbdf9d4c478a19e423b8e1f19
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202460"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604552"
 ---
-# <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema na central de segurança do Azure
-A central de segurança do Azure monitora as VMs (máquinas virtuais) do Windows e Linux e os computadores com atualizações de sistema operacional ausentes. A central de segurança recupera uma lista de atualizações críticas e de segurança disponíveis do Windows Update ou do Windows Server Update Services (WSUS), dependendo de qual serviço está configurado em um computador com Windows. A central de segurança também verifica as atualizações mais recentes em sistemas Linux. Se sua VM ou computador não tiver uma atualização do sistema, a central de segurança recomendará que você aplique as atualizações do sistema.
+# <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema no Centro de Segurança Azure
+O Azure Security Center monitoriza diariamente as máquinas virtuais Windows e Linux (VMs) e computadores para as atualizações do sistema operativo em falta. O Security Center recupera uma lista de segurança disponível e atualizações críticas a partir de Windows Update ou Windows Server Update Services (WSUS), dependendo do serviço configurado num computador Windows. O Security Center também verifica as últimas atualizações nos sistemas Linux. Se o seu VM ou computador não tiver uma atualização do sistema, o Security Center recomendará que aplique atualizações do sistema.
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
-A aplicação de atualizações do sistema é apresentada como uma recomendação na central de segurança. Se sua VM ou computador não tiver uma atualização do sistema, essa recomendação será exibida em **recomendações** e em **computação**.  A seleção da recomendação abre o painel **aplicar atualizações do sistema** .
+Aplicar atualizações do sistema é apresentado como uma recomendação no Centro de Segurança. Se o seu VM ou computador estiver a faltar uma atualização do sistema, esta recomendação será apresentada de acordo com **recomendações** e no âmbito **da Compute**.  A seleção da recomendação abre o painel de atualizações do **sistema Apply.**
 
-Neste exemplo, usaremos a **computação**.
+Neste exemplo, usaremos a **Compute**.
 
-1. Selecione **computação** no menu principal da central de segurança.
+1. **Selecione Compute** sob o menu principal do Centro de Segurança.
 
-   ![Selecionar computação][1]
+   ![Selecione Compute][1]
 
-2. Em **computação**, selecione **atualizações do sistema ausentes**. O painel **aplicar atualizações do sistema** é aberto.
+2. Em **Compute, selecione** **as atualizações**do sistema Missing . O painel de **atualizações** do sistema Apply abre-se.
 
-   ![Aplicar painel de atualizações do sistema][2]
+   ![Aplicar o painel de atualizações do sistema][2]
 
    A parte superior do painel fornece:
 
-    - O número total de máquinas virtuais do Windows e Linux e computadores com atualizações do sistema ausentes.
-    - O número total de atualizações críticas ausentes em suas VMs e computadores.
-    - O número total de atualizações de segurança ausentes em suas VMs e computadores.
+    - O número total de VMs Windows e Linux e computadores em falta de atualizações do sistema.
+    - O número total de atualizações críticas em falta nos seus VMs e computadores.
+    - O número total de atualizações de segurança em falta nos seus VMs e computadores.
 
-   A parte inferior do painel lista todas as atualizações ausentes em suas VMs e computadores e a severidade da atualização ausente.  A lista inclui:
+   A parte inferior do painel de instrumentos lista todas as atualizações em falta nos seus VMs e computadores e a gravidade da atualização em falta.  A lista inclui:
 
-    - NOMES Nome da atualização ausente.
-    - NÃO. DE VMs & computadores: Número total de VMs e computadores sem esta atualização.
-    - STATUS O estado atual da recomendação:
+    - NOME: Nome da atualização em falta.
+    - Não. DE VMs & COMPUTADORES: Número total de VMs e computadores que estão a faltar nesta atualização.
+    - ESTADO: O estado atual da recomendação:
 
-      - Abrir A recomendação ainda não foi resolvida.
-      - Em andamento: A recomendação está sendo aplicada atualmente a esses recursos e nenhuma ação é exigida por você.
-      - Resolvido A recomendação já foi concluída. (Quando o problema for resolvido, a entrada fica a cinzento).
+      - Aberto: A recomendação ainda não foi abordada.
+      - Em curso: A recomendação está atualmente a ser aplicada a esses recursos, e não é necessária qualquer ação por si.
+      - Resolução: A recomendação já estava terminada. (Quando o problema for resolvido, a entrada fica a cinzento).
 
-    - SEVERITY Descreve a severidade dessa recomendação específica:
+    - Gravidade: Descreve a gravidade dessa recomendação em particular:
 
-      - Elevada Existe uma vulnerabilidade com um recurso significativo (aplicativo, máquina virtual ou grupo de segurança de rede) e requer atenção.
-      - Médio Etapas não críticas ou adicionais são necessárias para concluir um processo ou eliminar uma vulnerabilidade.
-      - Pequena Uma vulnerabilidade deve ser resolvida, mas não requer atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender visualizá-las).
+      - Alta: Existe uma vulnerabilidade com um recurso significativo (aplicação, máquina virtual ou grupo de segurança de rede) e requer atenção.
+      - Médio: São necessários passos não críticos ou adicionais para completar um processo ou eliminar uma vulnerabilidade.
+      - Baixo: Uma vulnerabilidade deve ser abordada, mas não requer atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender visualizá-las).
 
-3. Selecione uma atualização ausente na lista para exibir detalhes.
+3. Selecione uma atualização em falta na lista para visualizar detalhes.
 
-   ![Atualização de segurança ausente][3]
+   ![Falta de atualização de segurança][3]
 
-4. Selecione o ícone de **pesquisa** na faixa de opções superior.  Uma consulta de pesquisa de logs de Azure Monitor é aberta e filtrada para os computadores que não têm a atualização.
+4. Selecione o ícone **'Procurar'** na fita superior.  Uma consulta de pesquisa de registos do Monitor Azure abre-se filtrada para os computadores que não têm a atualização.
 
-   ![Pesquisa de logs de Azure Monitor][4]
+   ![Pesquisa de registos do Monitor Azure][4]
 
-5. Selecione um computador na lista para obter mais informações. Outro resultado da pesquisa é aberto com informações filtradas somente para esse computador.
+5. Selecione um computador da lista para obter mais informações. Outro resultado de pesquisa abre com informação filtrada apenas para esse computador.
 
-    ![Pesquisa de logs de Azure Monitor][5]
+    ![Pesquisa de registos do Monitor Azure][5]
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
-* [Gerenciando recomendações de segurança na central de segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger seus recursos do Azure.
-* [Monitoramento de integridade de segurança na central de segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
+* [Gerir recomendações](security-center-recommendations.md) de segurança no Azure Security Center -- Saiba como as recomendações ajudam a proteger os seus recursos Azure.
+* [Monitorização](security-center-monitoring.md) de saúde de segurança no Centro de Segurança Azure.- Aprenda a monitorizar a saúde dos seus recursos Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Monitorização de soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
-* [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) --encontre postagens no blog sobre a segurança e a conformidade do Azure.
+* [Blog Azure Security](https://blogs.msdn.com/b/azuresecurity/) -- Encontre posts de blog sobre segurança e conformidade do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-system-updates/missing-system-updates.png
