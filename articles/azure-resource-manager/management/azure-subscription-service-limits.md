@@ -3,13 +3,13 @@ title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço do Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 tags: billing
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 4b36fcf8d3630ffd9008ad9deee8d0945f901f9b
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/24/2020
+ms.openlocfilehash: 1987d444c49bb5e53950c26c43c1607c8a87be6d
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153898"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592436"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limites de subscrição e serviço do Azure, quotas e constrangimentos
 
@@ -19,7 +19,7 @@ Para saber mais sobre os preços do Azure, consulte a [visão geral dos preços 
 
 ## <a name="managing-limits"></a>Limites de gestão
 
-Se pretender elevar o limite ou quota acima do limite de incumprimento, abra um pedido de apoio ao [cliente online gratuitamente.](../templates/error-resource-quota.md) Os limites não podem ser elevados acima do valor-limite máximo indicado nas tabelas seguintes. Se não houver uma coluna de limite máximo, o recurso não terá limites ajustáveis.
+Se pretender elevar o limite ou quota acima do limite de incumprimento, abra um pedido de apoio ao [cliente online gratuitamente.](../templates/error-resource-quota.md) Os limites não podem ser elevados acima do valor-limite máximo indicado nas tabelas seguintes. Se não houver uma coluna de limite máximo, o recurso não tem limites ajustáveis.
 
 [As subscrições de Teste Gratuito](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou quotas. Se tiver uma [subscrição de Teste Gratuito,](https://azure.microsoft.com/offers/ms-azr-0044p)pode fazer upgrade para uma subscrição [Pay-As-You-Go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para mais informações, consulte [O upgrade da subscrição Do Teste Gratuito Do Azure para uma subscrição Pay-As-You-Go](../../billing/billing-upgrade-azure-subscription.md) e a faQ de [subscrição free Trial](https://azure.microsoft.com/free/free-account-faq).
 
@@ -97,7 +97,7 @@ Para saber mais sobre limites a um nível mais granular, como tamanho de documen
 
 Para os limites de DB da Azure Cosmos, consulte [Limits in Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
 
-## <a name="azure-data-explorer-limits"></a>Limites de Data Explorer do Azure
+## <a name="azure-data-explorer-limits"></a>Limites do Explorador de Dados Azure
 
 [!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
@@ -295,10 +295,6 @@ O quadro seguinte aplica-se às V1, v2, Standard e WAF SKUs, salvo indicação e
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 
-## <a name="scheduler-limits"></a>Limites de programadores
-
-[!INCLUDE [scheduler-limits-table](../../../includes/scheduler-limits-table.md)]
-
 ## <a name="service-bus-limits"></a>Limites de ônibus de serviço
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/service-bus-quotas-table.md)]
@@ -397,7 +393,7 @@ Existem limites, por subscrição, para a implantação de recursos utilizando g
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Compreender limites e aumentos de Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de serviço de máquina virtual e nuvem para Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

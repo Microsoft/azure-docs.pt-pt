@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente uma aplicação Java no Serviço Azure Kubernetes
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: cb79b60cdc1b9e417b402ffe8c29151f7790a390
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 2c086c952528d5521ace44d56eaf11c14ac1cabb
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538606"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602840"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Crie um espaço Kubernetes dev: Visual Studio Code e Java com Espaços Azure Dev
 
@@ -64,7 +64,7 @@ az group create --name MyResourceGroup --location <region>
 Crie um cluster do Kubernetes com o seguinte comando:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 A criação do cluster demora alguns minutos.

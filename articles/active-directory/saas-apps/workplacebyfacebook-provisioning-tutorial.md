@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Workplace by Facebook para fornecimento automático de utilizadores com Diretório Ativo Azure  Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Workplace by Facebook.
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Workplace pelo Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7d8a7881c00427023e5f174461b3d8b24d83444
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121458"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603217"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configure Local de Trabalho pelo Facebook para fornecimento automático de utilizadores
 
@@ -51,7 +51,7 @@ Bloqueámos a secção de credenciais de administração para os clientes existe
 
  
 #### <a name="when-will-these-changes-happen"></a>Quando é que estas mudanças vão acontecer?
-Todas as novas instâncias do Workplace já estarão a utilizar o novo método de integração/autorização. As integrações existentes serão migradas gradualmente em fevereiro. A migração estará concluída para todos os inquilinos até ao final do mês. 
+Todas as novas instâncias do Workplace já estarão a utilizar o novo método de integração/autorização. As integrações existentes serão migradas gradualmente até maio. A equipa de trabalho forneceu uma extensão do prazo de 28 de fevereiro para 1 de maio. 
 
 ## <a name="capabilities-supported"></a>Capacidades suportadas
 > [!div class="checklist"]
@@ -101,9 +101,9 @@ O serviço de provisionamento de AD Azure permite-lhe examinar quem será provis
 
 * Comece minúsculo. Teste com um pequeno conjunto de utilizadores e grupos antes de passar para todos. Quando o âmbito de fornecimento for definido para utilizadores e grupos atribuídos, pode controlá-lo atribuindo um ou dois utilizadores ou grupos à aplicação. Quando o âmbito é definido para todos os utilizadores e grupos, pode especificar um filtro de [deteção baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais**e, em seguida, selecione **Todas as aplicações**.
 
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
+    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Workplace by Facebook**.
 
@@ -135,28 +135,28 @@ O serviço de provisionamento de AD Azure permite-lhe examinar quem será provis
 
    |Atributo|Tipo|
    |---|---|
-   |userName|Cadeia|
-   |displayName|Cadeia|
+   |userName|String|
+   |displayName|String|
    |ativo|Booleano|
    |Título|Booleano|
-   |. Value de e-mails [tipo eq "trabalho"]|Cadeia|
-   |name.givenName|Cadeia|
-   |name.familyName|Cadeia|
-   |nome.formatado|Cadeia|
-   |endereços[tipo eq "trabalho"].formado|Cadeia|
-   |.streetAddress endereços [tipo eq "trabalho"]|Cadeia|
-   |endereços[tipo eq "trabalho"].localidade|Cadeia|
-   |endereços[tipo eq "trabalho"].região|Cadeia|
-   |endereços[tipo eq "trabalho"].país|Cadeia|
-   |.postalCode endereços [tipo eq "trabalho"]|Cadeia|
-   |endereços[tipo eq "outros"].formados|Cadeia|
-   |. Value de phoneNumbers [tipo eq "trabalho"]|Cadeia|
-   |. Value de phoneNumbers [tipo eq "móvel"]|Cadeia|
-   |. Value de phoneNumbers [tipo eq "fax"]|Cadeia|
-   |externalId|Cadeia|
-   |língua preferida|Cadeia|
-   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:manager|Cadeia|
-   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|Cadeia|
+   |. Value de e-mails [tipo eq "trabalho"]|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |nome.formatado|String|
+   |endereços[tipo eq "trabalho"].formado|String|
+   |.streetAddress endereços [tipo eq "trabalho"]|String|
+   |endereços[tipo eq "trabalho"].localidade|String|
+   |endereços[tipo eq "trabalho"].região|String|
+   |endereços[tipo eq "trabalho"].país|String|
+   |.postalCode endereços [tipo eq "trabalho"]|String|
+   |endereços[tipo eq "outros"].formados|String|
+   |. Value de phoneNumbers [tipo eq "trabalho"]|String|
+   |. Value de phoneNumbers [tipo eq "móvel"]|String|
+   |. Value de phoneNumbers [tipo eq "fax"]|String|
+   |externalId|String|
+   |língua preferida|String|
+   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:manager|String|
+   |urn:ietf:params:scim:schemas:extens:enterprise:2.0:User:department|String|
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro Descodificação](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 02/18/2020
-ms.openlocfilehash: 6e6d4ea6c96949a60677bcf3bf40a53ec3a251c7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/25/2020
+ms.openlocfilehash: 12d457d8d5e57dc4db16d9a191c7795a5f013574
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526863"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605007"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral Azure SQL Base de dados gerido limites de recursos de instância
 
@@ -74,7 +74,7 @@ A instância gerida tem dois níveis de serviço: [General Purpose](sql-database
 | Número máximo de ficheiros de base de dados por instância | Até 280, a menos que tenha sido atingido o tamanho do armazenamento da instância ou o limite de espaço de alocação de [armazenamento do Disco Premium Azure.](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) | 32.767 ficheiros por base de dados, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. |
 | Tamanho máximo do ficheiro de dados | Limitado ao tamanho de armazenamento de instâncias atualmente disponível (máx 2 TB - 8 TB) e espaço de alocação de [armazenamento de Disco Premium Azure.](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) | Limitado ao tamanho de armazenamento de instâncias atualmente disponível (até 1 TB - 4 TB). |
 | Tamanho máximo do ficheiro de registo | Limitado a 2 TB e atualmente disponível tamanho de armazenamento de instância. | Limitado a 2 TB e atualmente disponível tamanho de armazenamento de instância. |
-| IOPS de dados/registo (aproximação) | Até 30-40 K IOPS por instância*, 500 - 7500 por ficheiro<br/>\*[Aumentar o tamanho dos ficheiros para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 5.5 K - 110 K (1375 IOPS/vCore)<br/>Adicione mais vCores para obter um melhor desempenho iO. |
+| IOPS de dados/registo (aproximação) | Até 30-40 K IOPS por instância*, 500 - 7500 por ficheiro<br/>\*[Aumentar o tamanho dos ficheiros para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 K - 200 K (2500 IOPS/vCore)<br/>Adicione mais vCores para obter um melhor desempenho iO. |
 | Limite de entrada de escrita de registo (por exemplo) | 3 MB/s por vCore<br/>Max 22 MB/s | 4 MB/s por vCore<br/>Max 48 MB/s |
 | Entrada de dados (aproximada) | 100 - 250 MB/s por ficheiro<br/>\*[Aumentar o tamanho do ficheiro para obter um melhor desempenho de IO](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
 | Latência IO de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
@@ -107,7 +107,7 @@ Existem também limites de nível de instância, como o limite máximo de escrit
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-Os casos geridos só podem ser criados em [regiões apoiadas.](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all) Para criar uma instância gerida numa região que não é atualmente suportada, pode [enviar um pedido de apoio através do portal Azure.](#obtaining-a-larger-quota-for-sql-managed-instance)
+Os casos geridos só podem ser criados em [regiões apoiadas.](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all) Para criar uma instância gerida numa região que não é atualmente suportada, pode [enviar um pedido de apoio através do portal Azure.](quota-increase-request.md)
 
 ## <a name="supported-subscription-types"></a>Tipos de subscrições suportadas
 
@@ -122,13 +122,13 @@ A instância gerida suporta atualmente a implantação apenas nos seguintes tipo
 
 ## <a name="regional-resource-limitations"></a>Limitações regionais de recursos
 
-Os tipos de subscrição suportados podem conter um número limitado de recursos por região. A instância gerida tem dois limites de predefinição por região de Azure (que podem ser aumentados a pedido através da criação de um pedido especial de [apoio no portal Azure](#obtaining-a-larger-quota-for-sql-managed-instance)), dependendo de um tipo de tipo de subscrição:
+Os tipos de subscrição suportados podem conter um número limitado de recursos por região. A instância gerida tem dois limites de incumprimento por região de Azure (que podem ser aumentados a pedido através da criação de um pedido especial de [apoio no portal Azure,](quota-increase-request.md) dependendo de um tipo de tipo de subscrição:
 
 - **Limite de subrede**: O número máximo de subredes onde os casos geridos são implantados numa única região.
 - **vCore limite de unidade**: O número máximo de unidades vCore que podem ser implantadas em todas as instâncias de uma única região. Um GP vCore usa uma unidade vCore e um BC vCore leva 4 unidades vCore. O número total de casos não é limitado desde que esteja dentro do limite de unidade vCore.
 
 > [!Note]
-> Estes limites são definições predefinidas e não limitações técnicas. Os limites podem ser aumentados a pedido através da criação de um pedido especial de [apoio no portal Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se precisar de instâncias mais geridas na região atual. Como alternativa, pode criar novos casos geridos noutra região do Azure sem enviar pedidos de apoio.
+> Estes limites são definições predefinidas e não limitações técnicas. Os limites podem ser aumentados a pedido através da criação de um pedido especial de [apoio no portal Azure](quota-increase-request.md) se precisar de instâncias mais geridas na região atual. Como alternativa, pode criar novos casos geridos noutra região do Azure sem enviar pedidos de apoio.
 
 O quadro seguinte mostra os **limites regionais predefinidos** para os tipos de subscrição suportados (os limites de predefinição podem ser alargados através do pedido de apoio descrito abaixo):
 
@@ -146,39 +146,9 @@ O quadro seguinte mostra os **limites regionais predefinidos** para os tipos de 
 
 \*\* maiores limites de subnet e vCore estão disponíveis nas seguintes regiões: Austrália Leste, Leste dos EUA, Leste dos EUA 2, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Reino Unido Sul, Europa Ocidental, Oeste DOS EUA 2.
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtenção de uma quota maior para instância gerida pela SQL
+## <a name="request-a-quota-increase-for-sql-managed-instance"></a>Solicitar um aumento de quota para a instância gerida pela SQL
 
-Se precisar de instâncias mais geridas nas suas regiões atuais, envie um pedido de apoio para alargar a quota através do portal Azure.
-Para iniciar o processo de obtenção de uma quota maior:
-
-1. Open **Help + suporte,** e clique em Novo pedido de **suporte.**
-
-   ![Ajuda e Apoio](media/sql-database-managed-instance-resource-limits/help-and-support.png)
-2. No separador Basics para o novo pedido de apoio:
-   - Para **o tipo de emissão,** selecione limites de serviço e **subscrição (quotas)** .
-   - Em **Subscrição**, selecione a sua subscrição.
-   - Para **o tipo quota,** selecione **SQL Database Managed Instance**.
-   - Para plano de **suporte,** selecione o seu plano de suporte.
-
-     ![Quota tipo de emissão](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
-
-3. Clique em **Seguinte**.
-4. No **separador Problema** para o novo pedido de apoio:
-   - Para **a gravidade,** selecione o nível de gravidade do problema.
-   - Para **mais detalhes,** forneça informações adicionais sobre o seu problema, incluindo mensagens de erro.
-   - Para o upload do **Ficheiro,** fixe um ficheiro com mais informações (até 4 MB).
-
-     ![Detalhes do problema](media/sql-database-managed-instance-resource-limits/problem-details.png)
-
-     > [!IMPORTANT]
-     > Um pedido válido deve incluir:
-     > - Região em que é necessário aumentar o limite de subscrição.
-     > - Número exigido de vCores, por nível de serviço nas subredes existentes após o aumento da quota (se alguma das subredes existentes tiver de ser expandida.
-     > - Número necessário de novas subredes e número total de vCores por nível de serviço dentro das novas subredes (se precisar de implementar instâncias geridas em novas subredes).
-
-5. Clique em **Seguinte**.
-6. No separador Informação de Contacto para o novo pedido de suporte, introduza o método de contacto preferido (e-mail ou telefone) e os dados de contacto.
-7. Clique em **Criar**.
+Se precisar de instâncias mais geridas nas suas regiões atuais, envie um pedido de apoio para alargar a quota através do portal Azure. Para mais informações, consulte o pedido de aumento da quota para a Base de [Dados SQL azure](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

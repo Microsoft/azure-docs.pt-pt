@@ -3,16 +3,15 @@ title: Políticas de apoio ao Serviço Azure Kubernetes (AKS)
 description: Conheça as políticas de suporte do Serviço Azure Kubernetes (AKS), responsabilidade partilhada e funcionalidades que estão em pré-visualização (ou alfa ou beta).
 services: container-service
 author: jnoller
-ms.service: container-service
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: 9a68a0d0a288a27d67a9615385391c06be2b662d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a5d90106a85a61cbf499c4c08130392b922a45f0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767373"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593585"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de apoio ao Serviço Azure Kubernetes
 
@@ -47,9 +46,9 @@ A emissão de operações não apoiadas, tal como definida acima, como a desafet
 
 ## <a name="shared-responsibility"></a>Responsabilidade partilhada
 
-Quando um cluster é criado, o cliente define os nós de trabalhador kubernetes que a AKS cria. As cargas de trabalho do cliente são executadas nesses nós. Os clientes possuem e podem ver ou modificar os nódosos dos trabalhadores.
+Quando um cluster é criado, o cliente define os nós de trabalhador kubernetes que a AKS cria. As cargas de trabalho dos clientes são executadas nestes nódosos. Os clientes possuem e podem ver ou modificar os nódosos dos trabalhadores.
 
-Como os nós de cluster do cliente executam código particular e armazenam dados confidenciais, Suporte da Microsoft podem acessá-los apenas de uma maneira limitada. Suporte da Microsoft não pode entrar no, executar comandos no ou exibir logs para esses nós sem permissão ou assistência do cliente do Express.
+Uma vez que os nós do cluster de clientes executam código privado e armazenam dados sensíveis, o Microsoft Support pode acessá-los de forma limitada. O Microsoft Support não pode iniciar sessão, executar comandos ou ver registos para estes nós sem autorização ou assistência expressa do cliente.
 
 Como os nós dos trabalhadores são sensíveis, a Microsoft tem o cuidado de limitar a sua gestão de antecedentes. Em muitos casos, a sua carga de trabalho continuará a funcionar mesmo que os nós mestres Kubernetes, etcd, e outros componentes geridos pela Microsoft falhem. Os nós de trabalhadores descuidado modificados podem causar perdas de dados e cargas de trabalho e podem tornar o cluster insuportável.
 
@@ -70,14 +69,14 @@ A Microsoft fornece suporte técnico para o seguinte:
 
 A Microsoft não fornece suporte técnico para o seguinte:
 
-* Perguntas sobre como usar o kubernetes. Por exemplo, Suporte da Microsoft não fornece conselhos sobre como criar controladores de entrada personalizados, usar cargas de trabalho de aplicativo ou aplicar pacotes ou ferramentas de software de terceiros ou de código aberto.
+* Perguntas sobre como usar Kubernetes. Por exemplo, o Microsoft Support não fornece conselhos sobre como criar controladores de ingresso personalizados, usar cargas de trabalho de aplicação ou aplicar pacotes ou ferramentas de software de terceiros ou de código aberto.
   > [!NOTE]
   > O Microsoft Support pode aconselhar sobre a funcionalidade do cluster AKS, personalização e afinação (por exemplo, problemas e procedimentos de operações da Kubernetes).
 * Projetos de código aberto de terceiros que não são fornecidos como parte do plano de controlo Kubernetes ou implantados com clusters AKS. Estes projetos podem incluir Istio, Helm, Envoy, ou outros.
   > [!NOTE]
   > A Microsoft pode fornecer o melhor apoio para projetos de código aberto de terceiros, como Helm e Kured. Quando a ferramenta de código aberto de terceiros se integrar com o fornecedor de nuvem Kubernetes Azure ou outros bugs específicos da AKS, a Microsoft suporta exemplos e aplicações a partir da documentação da Microsoft.
-* Software de origem fechada de terceiros. Esse software pode incluir ferramentas de verificação de segurança e dispositivos de rede ou software.
-* Problemas sobre o desenvolvimento de multinuvem ou de vários fornecedores. Por exemplo, a Microsoft não dá suporte a problemas relacionados à execução de uma solução de fornecedor de nuvem multipública federada.
+* Software de origem fechada de terceiros. Este software pode incluir ferramentas de digitalização de segurança e dispositivos de networking ou software.
+* Questões sobre construções multicloud ou multi-fornecedores. Por exemplo, a Microsoft não suporta problemas relacionados com a execução de uma solução de fornecedor de nuvem multipública federada.
 * Personalizações de rede diferentes das listadas na [documentação AKS.](https://docs.microsoft.com/azure/aks/)
   > [!NOTE]
   > A Microsoft suporta problemas e bugs relacionados com grupos de segurança de rede (NSGs). Por exemplo, o Microsoft Support pode responder a perguntas sobre uma falha de atualização do NSG ou um comportamento de NSG ou balancer de carga inesperado.
@@ -108,9 +107,9 @@ Os clientes são responsáveis pela execução das atualizações da Kubernetes.
 > [!NOTE]
 > Como o AKS é um *serviço gerido*, os seus objetivos finais incluem a remoção da responsabilidade por patches, atualizações e recolha de registos para tornar a gestão do serviço mais completa e prática. À medida que a capacidade do serviço para a gestão de ponta a ponta aumenta, futuras libertações podem omitir algumas funções (por exemplo, reinicialização do nó e remendos automáticos).
 
-### <a name="security-issues-and-patching"></a>Problemas de segurança e aplicação de patch
+### <a name="security-issues-and-patching"></a>Questões de segurança e remendos
 
-Se for encontrada uma falha de segurança em um ou mais componentes do AKS, a equipa aks irá corrigir todos os clusters afetados para mitigar o problema. Como alternativa, a equipe dará aos usuários diretrizes de atualização.
+Se for encontrada uma falha de segurança em um ou mais componentes do AKS, a equipa aks irá corrigir todos os clusters afetados para mitigar o problema. Em alternativa, a equipa dará aos utilizadores orientação de upgrade.
 
 Para os nós dos trabalhadores que uma falha de segurança afeta, se estiver disponível um patch de tempo zero, a equipa aks aplicará esse patch e notificará os utilizadores da alteração.
 
@@ -142,13 +141,13 @@ Em dois cenários, as funcionalidades alfa ou beta podem ser lançadas antes de 
 
 ## <a name="preview-features-or-feature-flags"></a>Funcionalidades de pré-visualização ou bandeiras de características
 
-Para funcionalidades e funcionalidades que requerem testes alargados e feedback do utilizador, a Microsoft lança novas funcionalidades ou funcionalidades de pré-visualização por detrás de uma bandeira de funcionalidade. Considere esses recursos como recursos de pré-lançamento ou beta.
+Para funcionalidades e funcionalidades que requerem testes alargados e feedback do utilizador, a Microsoft lança novas funcionalidades ou funcionalidades de pré-visualização por detrás de uma bandeira de funcionalidade. Considere estas funcionalidades como funcionalidades pré-lançamento ou beta.
 
-Recursos de visualização ou recursos de sinalizador de recurso não são destinados para produção. Mudanças contínuas em APIs e comportamento, correções de bugs e outras alterações podem resultar em aglomerados instáveis e tempo de inatividade.
+As funcionalidades de pré-visualização ou as funcionalidades de bandeira não se destinam à produção. Mudanças contínuas em APIs e comportamento, correções de bugs e outras alterações podem resultar em aglomerados instáveis e tempo de inatividade.
 
 As funcionalidades na pré-visualização pública são enquadradas no apoio ao "melhor esforço", uma vez que estas funcionalidades estão em pré-visualização e não se destinam à produção e são apoiadas pelas equipas de suporte técnico da AKS apenas durante o horário comercial. Para mais informações, consulte:
 
-* [Perguntas frequentes do suporte do Azure](https://azure.microsoft.com/support/faq/)
+* [FaQ de suporte azure](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > As funcionalidades de pré-visualização entram em vigor ao nível de *subscrição* do Azure. Não instale funcionalidades de pré-visualização numa subscrição de produção. Numa subscrição de produção, as funcionalidades de pré-visualização podem alterar o comportamento padrão da API e afetar as operações regulares.

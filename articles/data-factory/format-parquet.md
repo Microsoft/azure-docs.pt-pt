@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 340f91fc926c155f95449f7cc49c214f46d1ff35
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 81bbd476cea0472647ca183fb188fc13725d1469
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423662"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597631"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato Parquet na Fábrica de Dados Azure
 
@@ -30,7 +30,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 | ---------------- | ------------------------------------------------------------ | -------- |
 | tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Parquet**. | Sim      |
 | localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location`. **Consulte detalhes no artigo do conector -> Secção**de propriedades do conjunto de dados . | Sim      |
-| compressãoCodec | O código de compressão para usar ao escrever para ficheiros Parquet. Ao ler os ficheiros Parquet, a Data Factory determina automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**", "**gzip**", "**snappy**" (padrão) e "**lzo**". Nota atualmente A atividade da Cópia não suporta a LZO ao ler/escrever ficheiros Parquet. | Não       |
+| compressãoCodec | O código de compressão para usar ao escrever para ficheiros Parquet. Ao ler os ficheiros Parquet, as Fábricas de Dados determinam automaticamente o código de compressão com base nos metadados do ficheiro.<br>Os tipos suportados são "**nenhum**", "**gzip**", "**snappy**" (padrão) e "**lzo**". Nota atualmente A atividade da Cópia não suporta a LZO ao ler/escrever ficheiros Parquet. | Não       |
 
 > [!NOTE]
 > O espaço branco em nome da coluna não é suportado para ficheiros Parquet.
@@ -92,19 +92,20 @@ Os tipos de dados complexos de Parquet não são atualmente suportados (por exem
 ## <a name="using-self-hosted-integration-runtime"></a>Utilização do Tempo de Integração Auto-Hospedado
 
 > [!IMPORTANT]
-> Para cópia sufiada por Tempo de Execução de Integração Auto-hospedado, por exemplo, entre as lojas de dados no local e as lojas de dados em nuvem, se não estiver a copiar os ficheiros Parquet **como está,** precisa de instalar o **JRE 8 de 64 bits (Java Runtime Environment) ou OpenJDK** na sua máquina de INFRAVERMELHOS. Consulte o parágrafo seguinte com mais detalhes.
+> Para cópias empoderadas por Tempo de Execução de Integração Auto-hospedado, por exemplo, entre as lojas de dados no local e as lojas de dados em nuvem, se não estiver a copiar os ficheiros Parquet **como está,** precisa de instalar o **JRE 8 de 64 bits (Java Runtime Environment) ou o OpenJDK** e o **Microsoft Visual C++ 2010 Redistribuable Package** na sua máquina de INFRAVERMELHOS. Consulte o parágrafo seguinte com mais detalhes.
 
 Para cópia sintetizada em IR auto-hospedado com serialização/desserialização de ficheiros Parquet, a ADF localiza o tempo de funcionamento de Java verificando primeiro o registo *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* para JRE, se não for encontrado, verificando em segundo lugar a variável do sistema *`JAVA_HOME`* para OpenJDK.
 
 - **Para utilizar JRE**: O IR de 64 bits requer 64 bits JRE. Pode encontrá-lo [daqui.](https://go.microsoft.com/fwlink/?LinkId=808605)
-- Para utilizar o **OpenJDK:** é suportado desde a versão 3.13 do IR. Emba o jvm.dll com todos os outros conjuntos necessários do OpenJDK em máquina de INFRAVERMELHOS auto-hospedada, e coloque a variável do ambiente do sistema JAVA_HOME em conformidade.
+- Para utilizar o **OpenJDK**: É suportado desde a versão 3.13 do IR. Emba o jvm.dll com todos os outros conjuntos necessários do OpenJDK em máquina de INFRAVERMELHOS auto-hospedada, e coloque a variável do ambiente do sistema JAVA_HOME em conformidade.
+- **Para instalar C++ o Pacote Redistribuível Visual 2010**: O Pacote Redistribuível Visual C++ 2010 não está instalado com instalações de INFRAVERMELHOS auto-hospedadas. Pode encontrá-lo [daqui.](https://www.microsoft.com/download/details.aspx?id=14632)
 
 > [!TIP]
 > Se copiar dados para/a partir do formato Parquet utilizando o Tempo de Execução de Integração Auto-hospedado e atingir um erro dizendo "Ocorreu um erro ao invocar java, mensagem: **java.lang.OutOfMemoryError:Java heap space",** pode adicionar uma variável ambiental `_JAVA_OPTIONS` na máquina que acolhe o IR auto-hospedado para ajustar o tamanho do monte min/max para jVM para capacitar essa cópia, em seguida, reexecutar o pipeline.
 
 ![Definir o tamanho da pilha JVM no IR auto-hospedado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Exemplo: definir `_JAVA_OPTIONS` variável com `-Xms256m -Xmx16g`de valor . O `Xms` da bandeira especifica o conjunto inicial de atribuição de memória para uma Máquina Virtual Java (JVM), enquanto `Xmx` especifica o conjunto máximo de atribuição de memória. Isto significa que o JVM será iniciado com `Xms` quantidade de memória e será capaz de usar um máximo de `Xmx` quantidade de memória. Por predefinição, a ADF utiliza min 64MB e máx.
+Exemplo: definir `_JAVA_OPTIONS` variável com `-Xms256m -Xmx16g`de valor . O `Xms` da bandeira especifica o conjunto inicial de atribuição de memória para uma Máquina Virtual Java (JVM), enquanto `Xmx` especifica o conjunto máximo de atribuição de memória. Isto significa que o JVM será iniciado com `Xms` quantidade de memória e será capaz de usar um máximo de `Xmx` quantidade de memória. Por predefinição, a ADF utiliza min 64 MB e máx.
 
 ## <a name="next-steps"></a>Passos seguintes
 

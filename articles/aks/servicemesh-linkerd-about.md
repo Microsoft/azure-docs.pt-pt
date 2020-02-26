@@ -1,98 +1,97 @@
 ---
-title: Visão geral do Linkerd
-description: Obtenha uma visão geral do Linkerd
+title: Visão geral de Linkerd
+description: Obtenha uma visão geral de Linkerd
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 9d0a65f2cf557120ec5a551494e697c876ad5c59
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 3181be62a14ec1b3450bd181172b5323ca176427
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530215"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593772"
 ---
 # <a name="linkerd"></a>Linkerd
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-O [Linkerd][linkerd] é uma malha de serviço leve e fácil de usar.
+[Linkerd][linkerd] é uma malha de serviço fácil de usar e leve.
 
 ## <a name="architecture"></a>Arquitetura
 
-O Linkerd fornece um plano de dados composto por UltraLight [Linkerd][linkerd-proxy] de proxy especializado. Esses proxies inteligentes controlam todo o tráfego de rede dentro e fora de seus aplicativos e cargas de trabalho em malha. Os proxies também expõem métricas por meio de pontos de extremidade de métricas do [Prometheus][prometheus] .
+A Linkerd fornece um plano de dados composto por carros de procuração especializados ultraleves [Linkerd.][linkerd-proxy] Estes proxies inteligentes controlam todo o tráfego de rede dentro e fora das suas aplicações e cargas de trabalho. Os proxies também expõem métricas através de pontos finais das métricas [de Prometeu.][prometheus]
 
-O plano de controle gerencia a configuração e a telemetria agregada por meio dos seguintes [componentes][linkerd-architecture]:
+O plano de controlo gere a configuração e a telemetria agregada através dos [seguintes componentes:][linkerd-architecture]
 
-- **Controlador** -fornece a API que orienta a CLI e o painel do Linkerd. Fornece configuração para proxies.
+- **Controlador** - Fornece api que conduz o Linkerd CLI e o Dashboard. Fornece configuração para proxies.
 
-- **Toque** – estabelecer inspeções em tempo real em solicitações e respostas.
+- **Toque** - Estabeleça relógios em tempo real sobre pedidos e respostas.
 
-- **Identidade** -fornece recursos de identidade e segurança que permitem a MTLS entre serviços.
+- **Identidade** - Fornece capacidades de identidade e segurança que permitem o mTLS entre serviços.
 
-- **Web** -fornece o painel do Linkerd.
-
-
-O diagrama de arquitetura a seguir demonstra como os vários componentes dentro do plano de dados e do plano de controle interagem.
+- **Web** - Fornece o painel linkerd.
 
 
-![Visão geral dos componentes e da arquitetura do Linkerd.](media/servicemesh/linkerd/about-architecture.png)
+O diagrama de arquitetura seguinte demonstra como os vários componentes dentro do plano de dados e plano de controlo interagem.
+
+
+![Visão geral dos componentes linkerd e arquitetura.](media/servicemesh/linkerd/about-architecture.png)
 
 
 ## <a name="selection-criteria"></a>Critérios de seleção
 
-É importante entender e considerar as seguintes áreas ao avaliar Linkerd para suas cargas de trabalho:
+É importante compreender e considerar as seguintes áreas ao avaliar linkerd para as suas cargas de trabalho:
 
-- [Princípios de design](#design-principles)
-- [Técnicas](#capabilities)
+- [Princípios de Design](#design-principles)
+- [Capacidades](#capabilities)
 - [Cenários](#scenarios)
 
 
 ### <a name="design-principles"></a>Princípios de conceção
 
-Os princípios de design a seguir [guiam][design-principles] o projeto Linkerd:
+Os seguintes princípios de conceção [orientam][design-principles] o projeto Linkerd:
 
-- **Mantenha a simplicidade** – deve ser fácil de usar e entender.
+- **Mantê-lo simples** - Deve ser fácil de usar e entender.
 
-- **Minimize os requisitos de recursos** -imponha o mínimo de desempenho e custo de recursos.
+- **Minimizar os Requisitos de Recursos** - Impor o mínimo de desempenho e custo de recursos.
 
-- **Basta trabalhar** – não interrompa os aplicativos existentes e não exija configuração complexa.
+- **Just Work** - Não quebre as aplicações existentes e não exija uma configuração complexa.
 
 
-### <a name="capabilities"></a>Funções
+### <a name="capabilities"></a>Capacidades
 
-O Linkerd fornece o seguinte conjunto de recursos:
+A Linkerd fornece o seguinte conjunto de capacidades:
 
-- **Malha** – opção de depuração interna
+- **Malha** – construída em opção de depuração
 
-- **Gerenciamento de tráfego** – divisão, tempos limite, novas tentativas, entrada
+- **Gestão de Tráfego** - divisão, intervalos, repetições, ingressos
 
-- **Segurança** – criptografia (MTLS), certificados autogirados a cada 24 horas
+- **Segurança** – encriptação (mTLS), certificados rodados automaticamente a cada 24 horas
 
-- **Observação** : métricas de ouro, toque, rastreamento, perfis de serviço e métricas por rota, painel da Web com grafos de topologia, Prometheus, grafana
+- **Observabilidade** - métricas douradas, toque, rastreio, perfis de serviço e por métricas de rota, painel web com gráficos de topologia, prometheus, grafana
 
 
 ### <a name="scenarios"></a>Cenários
 
-O Linkerd é adequado e sugerido para os seguintes cenários:
+Linkerd é adequado e sugerido para os seguintes cenários:
 
 - Simples de usar com apenas o conjunto essencial de requisitos de capacidade
 
-- Baixa latência, baixa sobrecarga, com foco na observação e gerenciamento de tráfego simples
+- Baixa latência, baixa sobrecarga, com foco na observabilidade e gestão simples do tráfego
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A documentação a seguir descreve como você pode instalar o Linkerd no AKS (serviço kubernetes do Azure):
+A seguinte documentação descreve como pode instalar o Linkerd no Serviço Azure Kubernetes (AKS):
 
 > [!div class="nextstepaction"]
-> [Instalar o Linkerd no serviço kubernetes do Azure (AKS)][linkerd-install]
+> [Instalar linkerd no Serviço Azure Kubernetes (AKS)][linkerd-install]
 
-Você também pode explorar ainda mais os recursos e a arquitetura do Linkerd:
+Também pode explorar ainda mais as funcionalidades e arquitetura linkerd:
 
-- [Recursos do Linkerd][linkerd-features]
-- [Arquitetura do Linkerd][linkerd-architecture]
+- [Funcionalidades de Linkerd][linkerd-features]
+- [Arquitetura Linkerd][linkerd-architecture]
 
 <!-- LINKS - external -->
 [linkerd]: https://linkerd.io/2/overview/

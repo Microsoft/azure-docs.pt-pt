@@ -1,6 +1,6 @@
 ---
-title: Conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
-description: Conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
+title: Conectividade de ponto final público para VMs E ILB Padrão Azure em cenários SAP HA
+description: Conectividade de ponto final público para máquinas virtuais usando o Equilíbrio de Carga Padrão Azure em cenários de alta disponibilidade SAP
 services: virtual-machines-windows,virtual-network,storage,
 documentationcenter: saponazure
 author: rdeltcheva
@@ -15,51 +15,51 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 52179f15829981d59ff060784a49eccef89bb186
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: e0bb959429786bf83be23b1374ef43ce553bf2c7
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083740"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598685"
 ---
-# <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto de extremidade público para máquinas virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
+# <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto final público para máquinas virtuais usando o Equilíbrio de Carga Padrão Azure em cenários de alta disponibilidade SAP
 
-O escopo deste artigo é descrever as configurações, que permitirão a conectividade de saída para pontos de extremidade públicos. As configurações estão principalmente no contexto de alta disponibilidade com pacemaker para SUSE/RHEL.  
+O âmbito deste artigo é descrever configurações que permitam a conectividade de saída ao ponto final público. As configurações são principalmente no contexto de Alta Disponibilidade com Pacemaker para SUSE/RHEL.  
 
-Se você estiver usando o pacemaker com o agente de isolamento do Azure em sua solução de alta disponibilidade, as VMs deverão ter conectividade de saída com a API de gerenciamento do Azure.  
-O artigo apresenta várias opções para permitir que você selecione a opção mais adequada para seu cenário.  
+Se estiver a usar o Pacemaker com o agente da vedação Azure na sua solução de alta disponibilidade, então os VMs devem ter conectividade de saída com a API de gestão Azure.  
+O artigo apresenta várias opções que lhe permitem selecionar a opção mais adequada para o seu cenário.  
 
 ## <a name="overview"></a>Descrição geral
 
-Ao implementar uma elevada disponibilidade para soluções SAP através de clustering, um dos componentes necessários é o [Equilíbrio de Carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). O Azure oferece dois SKUs do balanceador de carga: Standard e Basic.
+Ao implementar uma elevada disponibilidade para soluções SAP através de clustering, um dos componentes necessários é o [Equilíbrio de Carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). O Azure oferece dois Balanceadores de carga SKUs: standard e básico.
 
-O balanceador de carga do Azure padrão oferece algumas vantagens em relação ao balanceador de carga básico. Por exemplo, ele funciona em zonas de disponibilidade do Azure, tem recursos de monitoramento e de registro melhores para facilitar a solução de problemas, latência reduzida. O recurso "portas de HA" abrange todas as portas, ou seja, não é mais necessário listar todas as portas individuais.  
+O equilibrador de carga Standard Azure oferece algumas vantagens sobre o equilíbrio de carga Basic. Por exemplo, funciona em todas as zonas de Disponibilidade Azure, tem melhores capacidades de monitorização e registo para uma resolução mais fácil de problemas, redução da latência. A função "portas HA" abrange todas as portas, ou seja, já não é necessário enumerar todas as portas individuais.  
 
-Há algumas diferenças importantes entre o SKU básico e o padrão do Azure Load Balancer. Uma delas é a manipulação do tráfego de saída para o ponto de extremidade público. Para uma comparação completa de equilíbrio de carga Basic versus Standard SKU, consulte a [comparação SKU do Balancer de Carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
+Existem algumas diferenças importantes entre o sku básico e o sKU padrão do equilibrador de carga Azure. Um deles é o manuseamento do tráfego de saída para o ponto final público. Para uma comparação completa de equilíbrio de carga Basic versus Standard SKU, consulte a [comparação SKU do Balancer de Carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
  
-Quando as VMs sem endereços IP públicos são colocadas no pool de back-end do Azure Load Balancer padrão (sem endereço IP público), não há nenhuma conectividade de saída para pontos de extremidade públicos, a menos que a configuração adicional seja feita.  
+Quando os VMs sem endereços IP públicos são colocados no conjunto de backend do equilíbrio interno (sem endereço IP público) Standard Azure, não existe conectividade de saída para pontos finais públicos, a menos que seja feita uma configuração adicional.  
 
-Se uma VM for atribuída a um endereço IP público ou a VM estiver no pool de back-end de um balanceador de carga com endereço IP público, ela terá conectividade de saída para pontos de extremidade públicos.  
+Se for atribuído a um VM um endereço IP público, ou se o VM estiver no conjunto de backend de um equilibrista de carga com endereço IP público, terá conectividade de saída para pontos finais públicos.  
 
-Os sistemas SAP geralmente contêm dados comerciais confidenciais. Raramente é aceitável que as VMs que hospedam sistemas SAP tenham endereços IP públicos. Ao mesmo tempo, há cenários, o que exigiria conectividade de saída da VM para pontos de extremidade públicos.  
+Os sistemas SAP contêm frequentemente dados empresariais sensíveis. Raramente é aceitável que os VMs que hospedam sistemas SAP tenham endereços IP públicos. Ao mesmo tempo, existem cenários que exigiriam a conectividade de saída do VM para pontos finais públicos.  
 
-Exemplos de cenários, que exigem acesso ao ponto de extremidade público do Azure são:  
-- Usando o agente de isolamento do Azure como um mecanismo de isolamento em clusters pacemaker
+Exemplos de cenários, que exigem o acesso ao ponto final do Azure são:  
+- Usando o Agente de Cerca azure como mecanismo de esgrima em clusters Pacemaker
 - Azure Backup
 - Azure Site Recovery  
-- Usando o repositório público para aplicar patch no sistema operacional
-- O fluxo de dados do aplicativo SAP pode exigir conectividade de saída para o ponto de extremidade público
+- Utilização de repositório público para remendar o sistema operativo
+- O fluxo de dados de aplicação SAP pode exigir conectividade de saída para o ponto final público
 
-Se sua implantação do SAP não exigir conectividade de saída para pontos de extremidade públicos, você não precisará implementar a configuração adicional. É suficiente criar Azure Load Balancer de SKU padrão internos para seu cenário de alta disponibilidade, supondo que também não haja necessidade de conectividade de entrada de pontos de extremidade públicos.  
+Se a sua implementação sap não necessitar de conectividade de saída para pontos finais públicos, não precisa implementar a configuração adicional. É suficiente criar um Balancer de Carga SKU Azure padrão interno para o seu cenário de alta disponibilidade, assumindo que também não há necessidade de conectividade de entrada a partir de pontos finais públicos.  
 
 > [!Note]
 > Quando os VMs sem endereços IP públicos forem colocados no conjunto de backend do interno (sem endereço IP público) O equilíbrio de carga Standard Azure não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos.  
->Se as VMs tiverem endereços IP públicos ou já estiverem no pool de back-end do Azure Load Balancer com o endereço IP público, a VM já terá conectividade de saída para pontos de extremidade públicos.
+>Se os VMs tiverem endereços IP públicos ou já estiverem no backend pool do equilíbrio da Carga Azure com endereço IP público, o VM já terá conectividade de saída para pontos finais públicos.
 
 
-Leia os seguintes documentos primeiro:
+Leia primeiro os seguintes trabalhos:
 
-* Standard Load Balancer do Azure
+* Balanceador de carga padrão Azure
   * Visão geral do Equilíbrio de [Carga Padrão Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) - visão geral abrangente do equilíbrio de carga padrão Azure, princípios importantes, conceitos e tutoriais 
   * [Ligações de saída em Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios) - cenários sobre como alcançar a conectividade de saída em Azure
   * Regras de saída do [equilibrador](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)de carga - explica os conceitos de regras de saída do equilibrador de carga e como criar regras de saída
@@ -69,20 +69,20 @@ Leia os seguintes documentos primeiro:
 * [Redes Virtuais -Regras definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) - Conceitos e regras de encaminhamento do Azure  
 * [Etiquetas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de serviço de grupos de segurança - como simplificar os seus Grupos de Segurança de Rede e configuração firewall com etiquetas de serviço
 
-## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Standard Load Balancer adicionais externos do Azure para conexões de saída à Internet
+## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Balanceador de carga padrão azure adicional para ligações de saída à internet
 
 Uma opção para alcançar a conectividade de saída aos pontos finais públicos, sem permitir a conectividade de entrada com o VM a partir do ponto final público, é criar um segundo equilibrista de carga com endereço IP público, adicionar os VMs ao conjunto de backend do segundo equilibrador de carga e definir apenas regras de [saída.](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)  
 Utilize [grupos](https://docs.microsoft.com/azure/virtual-network/security-overview) de segurança de rede para controlar os pontos finais públicos, acessíveis para chamadas de saída do VM.  
 Para mais informações, consulte o Cenário 2 em [ligações](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios)de saída documentais .  
-A configuração teria a seguinte aparência:  
+A configuração seria como:  
 
-![Controlar a conectividade a pontos de extremidade públicos com grupos de segurança de rede](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-public.png)
+![Controlar a conectividade com pontos finais públicos com grupos de segurança da rede](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-public.png)
 
 ### <a name="important-considerations"></a>Considerações importantes
 
-- Você pode usar um Load Balancer público adicional para várias VMs na mesma sub-rede para obter conectividade de saída para o ponto de extremidade público e otimizar o custo  
-- Utilize [grupos](https://docs.microsoft.com/azure/virtual-network/security-overview) de segurança de rede para controlar quais os pontos finais públicos acessíveis a partir dos VMs. Você pode atribuir o grupo de segurança de rede à sub-rede ou a cada VM. Sempre que possível, utilize [etiquetas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de serviço para reduzir a complexidade das regras de segurança.  
-- O balanceador de carga standard do Azure com o endereço IP público e as regras de saída permite o acesso direto ao ponto de extremidade público. Se você tiver requisitos de segurança corporativa para que todo o tráfego de saída passe por meio da solução corporativa centralizada para auditoria e registro em log, talvez não seja possível atender ao requisito com esse cenário.  
+- Você pode usar um balancer de carga pública adicional para vários VMs na mesma subnet para alcançar conectividade de saída para ponto final público e otimizar o custo  
+- Utilize [grupos](https://docs.microsoft.com/azure/virtual-network/security-overview) de segurança de rede para controlar quais os pontos finais públicos acessíveis a partir dos VMs. Pode atribuir o Grupo de Segurança da Rede à sub-rede ou a cada VM. Sempre que possível, utilize [etiquetas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de serviço para reduzir a complexidade das regras de segurança.  
+- O equilíbrio de carga padrão Azure com endereço IP público e regras de saída permite o acesso direto ao ponto final público. Se tiver requisitos de segurança corporativa para ter todos os passes de tráfego de saída através de solução corporativa centralizada para auditoria e exploração madeireira, poderá não ser capaz de cumprir o requisito com este cenário.  
 
 >[!TIP]
 >Sempre que possível, utilize [etiquetas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de serviço para reduzir a complexidade do Grupo de Segurança da Rede . 
@@ -96,99 +96,99 @@ A configuração teria a seguinte aparência:
    1. Selecione **Público** como tipo, **Standard** as SKU  
    1. Selecione **Criar endereço IP público** e especificar como um nome **MyPublicILBFrondEndIP**  
    1. Selecione **Zona Redundante** como zona de disponibilidade  
-   1. Clique em revisar e criar e em criar  
+   1. Clique em Rever e Criar, em seguida, clique em Criar  
 2. Crie piscina de backend **MyBackendPoolOfPublicILB** e adicione os VMs.  
-   1. Selecionar a rede virtual  
-   1. Selecione as VMs e seus endereços IP e adicione-as ao pool de back-end  
-3. [Criar regras de saída.](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule) No momento, não é possível criar regras de saída do portal do Azure. Pode criar regras de saída com [o Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
+   1. Selecione a rede Virtual  
+   1. Selecione os VMs e os seus endereços IP e adicione-os à piscina de backend  
+3. [Criar regras de saída.](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule) Atualmente não é possível criar regras de saída a partir do portal Azure. Pode criar regras de saída com [o Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
 
    ```
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
    ```
 
-4. Crie regras de grupo de segurança de rede para restringir o acesso a pontos de extremidade públicos específicos. Se houver um grupo de segurança de rede existente, você poderá ajustá-lo. O exemplo abaixo mostra como permitir o acesso à API de gestão azure: 
-   1. Navegue até o grupo de segurança de rede
-   1. Clique em regras de segurança de saída
+4. Criar regras do grupo network security para restringir o acesso a pontos de fim público específicos. Se existir o Network Security Group existente, pode ajustá-lo. O exemplo abaixo mostra como permitir o acesso à API de gestão azure: 
+   1. Navegue para o Grupo de Segurança da Rede
+   1. Clique em Regras de Segurança de Saída
    1. Adicione uma regra a **Negar** todo o acesso à **Internet.**
    1. Adicione uma regra para **permitir** o acesso ao **AzureCloud,** com prioridade inferior à prioridade da regra para negar todo o acesso à Internet.
 
 
-   As regras de segurança de saída teriam a seguinte aparência: 
+   As regras de segurança de saída seriam: 
 
-   ![Conexão de saída com o segundo Load Balancer com IP público](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
+   ![Ligação de saída com Second Load Balancer com IP público](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
    Para obter mais informações sobre os grupos de segurança da Rede Azure, consulte [grupos de segurança ](https://docs.microsoft.com/azure/virtual-network/security-overview). 
 
-## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Firewall do Azure para conexões de saída com a Internet
+## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Firewall Azure para ligações de saída à internet
 
-Outra opção para obter a conectividade de saída para pontos de extremidade públicos, sem permitir a conectividade de entrada para a VM a partir de pontos de extremidade públicos, é com o Firewall do Azure. O Firewall do Azure é um serviço gerenciado, com alta disponibilidade interna e pode abranger vários Zonas de Disponibilidade.  
+Outra opção para alcançar a conectividade de saída para pontos finais públicos, sem permitir a conectividade de entrada para o VM a partir de pontos finais públicos, é com o Azure Firewall. O Azure Firewall é um serviço gerido, com alta disponibilidade incorporada e pode abranger várias Zonas de Disponibilidade.  
 Também terá de implementar a Rota Definida pelo [Utilizador,](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)associada à subrede onde estão implantados VMs e o equilibrador de carga Azure, apontando para a firewall Azure, para encaminhar o tráfego através da Firewall Azure.  
 Para mais detalhes sobre como implementar o Firewall Azure, consulte [implementar e configurar firewall Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal).  
 
-A arquitetura teria a seguinte aparência:
+A arquitetura seria como:
 
-![Conexão de saída com o Firewall do Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall.png)
+![Ligação de saída com Firewall Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall.png)
 
 ### <a name="important-considerations"></a>Considerações importantes
 
-- O Firewall do Azure é um serviço de nuvem nativo, com alta disponibilidade interna e oferece suporte à implantação zonal.
-- Requer sub-rede adicional que deve ser nomeada AzureFirewallSubnet. 
-- Se estiver transferindo grandes conjuntos de dados de saída da rede virtual em que as VMs SAP estão localizadas, para uma VM em outra rede virtual ou para o ponto de extremidade público, talvez não seja uma solução econômica. Um exemplo é copiar grandes backups entre redes virtuais. Para obter detalhes, consulte preços do firewall do Azure.  
-- Se a solução de firewall corporativo não for o Firewall do Azure e você tiver requisitos de segurança para fazer todo o tráfego de saída passar por uma solução corporativa centralizada, essa solução poderá não ser prática.  
+- A firewall Azure é um serviço nativo em nuvem, com alta disponibilidade incorporada e suporta a implantação zonal.
+- Requer uma sub-rede adicional que deve ser chamada De AzureFirewallSubnet. 
+- Se transferir grandes conjuntos de dados a saída da rede virtual onde estão localizados os VMs SAP, para um VM noutra rede virtual, ou para um ponto final público, pode não ser uma solução rentável. Um desses exemplos é copiar grandes cópias de backups através de redes virtuais. Para mais detalhes consulte os preços do Azure Firewall.  
+- Se a solução corporativa firewall não for Azure Firewall, e tiver requisitos de segurança para ter todo o passe de tráfego de saída, embora a solução corporativa centralizada, esta solução pode não ser prática.  
 
 >[!TIP]
 >Sempre que possível, utilize [etiquetas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) de serviço para reduzir a complexidade das regras da Firewall Azure.  
 
 ### <a name="deployment-steps"></a>Passos da implementação
 
-1. As etapas de implantação pressupõem que você já tenha a rede virtual e a sub-rede definidas para suas VMs.  
+1. Os passos de implementação assumem que já tem rede virtual e sub-rede definidas para os seus VMs.  
 2. Crie a Subnet **AzureFirewallSubnet** na mesma Rede Virtual, onde o VMS e o Standard Load Balancer são implantados.  
-   1. Em portal do Azure, navegue até a rede virtual: clique em todos os recursos, procure a rede virtual, clique na rede virtual, selecione sub-redes.  
-   1. Clique em Adicionar sub-rede. Insira **o AzureFirewallSubnet** como Nome. Insira o intervalo de endereços apropriado. Guarde.  
-3. Crie o Firewall do Azure.  
-   1. Em portal do Azure selecione todos os recursos, clique em Adicionar, firewall, criar. Selecione Grupo de recursos (selecione o mesmo grupo de recursos em que a rede virtual é).  
-   1. Insira o nome do recurso de firewall do Azure. Por exemplo, **MyAzureFirewall**.  
-   1. Selecione região e selecione pelo menos duas zonas de disponibilidade alinhadas com as zonas de disponibilidade nas quais suas VMs são implantadas.  
-   1. Selecione sua rede virtual, onde as VMs SAP e o balanceador de carga standard do Azure são implantados.  
-   1. Endereço IP público: clique em criar e insira um nome. Por **exemplo, MyFirewallPublicIP**.  
-4. Crie uma regra de firewall do Azure para permitir a conectividade de saída para pontos de extremidade públicos especificados. O exemplo mostra como permitir o acesso ao ponto de extremidade público da API de gerenciamento do Azure.  
-   1. Selecione regras, coleção de regras de rede e clique em Adicionar coleção de regras de rede.  
+   1. No portal Azure, navegue para a Rede Virtual: Clique em Todos os Recursos, Procure a Rede Virtual, Clique na Rede Virtual, selecione Subnets.  
+   1. Clique em Adicionar Subnet. Insira **o AzureFirewallSubnet** como Nome. Introduza o intervalo de endereçoapropriado. Guarde.  
+3. Crie firewall azure.  
+   1. No portal Azure selecione Todos os recursos, clique em Adicionar, Firewall, Criar. Selecione grupo De recursos (selecione o mesmo grupo de recursos, onde está a Rede Virtual).  
+   1. Introduza o nome para o recurso Azure Firewall. Por exemplo, **MyAzureFirewall**.  
+   1. Selecione Região e selecione pelo menos duas zonas de disponibilidade, alinhadas com as zonas de disponibilidade onde os seus VMs estão implantados.  
+   1. Selecione a sua Rede Virtual, onde estão implantados os VMs SAP e o equilíbrio de carga padrão Azure.  
+   1. Endereço IP público: Clique em criar e introduzir um nome. Por **exemplo, MyFirewallPublicIP**.  
+4. Crie a Regra de Firewall Azure para permitir a conectividade de saída a pontos finais públicos especificados. O exemplo mostra como permitir o acesso ao ponto final da API de Gestão Azure.  
+   1. Selecione Regras, Recolha de Regras de Rede e, em seguida, clique em Adicionar a recolha de regras de rede.  
    1. Nome: **MyOutboundRule**, introduza Prioridade, **Selecione**Action Allow .  
    1. Serviço: Nome **ToAzureAPI**.  Protocolo: Selecione **Qualquer**. Endereço fonte: introduza o intervalo para a sua sub-rede, onde os VMs e o Standard Load Balancer são implantados por exemplo: **11.97.0.0.0/24**. Portas de destino: insira <b>*</b>.  
    1. Guardar
-   1. Como você ainda está posicionado no firewall do Azure, selecione visão geral. Anote o endereço IP privado do firewall do Azure.  
-5. Criar rota para o Firewall do Azure  
-   1. Em portal do Azure selecione todos os recursos e clique em Adicionar, tabela de rotas, criar.  
-   1. Insira o nome myroteiatable, selecione assinatura, grupo de recursos e local (correspondendo ao local da rede virtual e do firewall).  
+   1. Como ainda está posicionado na Firewall Azure, selecione a visão geral. Anote o endereço IP privado da Firewall Azure.  
+5. Criar rota para o Firewall Azure  
+   1. No portal Azure selecione Todos os recursos, em seguida, clique em Adicionar, Tabela de Rota, Criar.  
+   1. Introduza o Nome MyRouteTable, selecione Subscrição, Grupo de Recursos e Localização (correspondendo à localização da sua rede Virtual e Firewall).  
    1. Guardar  
 
    A regra da firewall seria como: ![ligação de saída com o Azure Firewall](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Crie a Rota Definida do Utilizador desde a subnet a subnet dos seus VMs até ao IP privado do **MyAzureFirewall**.
-   1. Conforme você está posicionado na tabela de rotas, clique em rotas. Selecione Adicionar. 
-   1. Nome da rota: ToMyAzureFirewall, Prefixo de endereço: **0.0.0.0/0**. Tipo do próximo salto: selecione dispositivo virtual. Próximo endereço de lúpulo: introduza o endereço IP privado da firewall configurada: **11.97.1.4**.  
+   1. À medida que estiver posicionado na Tabela de Rotas, clique em Rotas. Selecione Adicionar. 
+   1. Nome da rota: ToMyAzureFirewall, Prefixo de endereço: **0.0.0.0/0**. Próximo tipo de lúpulo: Selecione Virtual Appliance. Próximo endereço de lúpulo: introduza o endereço IP privado da firewall configurada: **11.97.1.4**.  
    1. Guardar
 
-## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Usando proxy para chamadas pacemaker para a API de gerenciamento do Azure
+## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Utilização de Proxy para chamadas pacemaker saquea da API de Gestão Azure
 
-Você pode usar o proxy para permitir chamadas pacemaker para o ponto de extremidade público da API de gerenciamento do Azure.  
+Você poderia usar procuração para permitir chamadas pacemaker para o ponto final público da API de gestão Azure.  
 
 ### <a name="important-considerations"></a>Considerações importantes
 
-  - Se já houver um proxy corporativo em vigor, você poderá rotear chamadas de saída para pontos de extremidade públicos por meio dele. As chamadas de saída para pontos de extremidade públicos passarão pelo ponto de controle corporativo.  
+  - Se já houver procuração corporativa, pode encaminhar chamadas de saída para pontos finais públicos através dele. Chamadas de saída para pontos finais públicos passarão pelo ponto de controlo corporativo.  
   - Certifique-se de que a configuração proxy permite a conectividade de saída à API de gestão do Azure: https://management.azure.com  
-  - Verifique se há uma rota das VMs para o proxy  
-  - O proxy tratará apenas chamadas HTTP/HTTPS. Se houver necessidade adicional de fazer chamadas de saída para o ponto de extremidade público em protocolos diferentes (como a RFC), será necessária uma solução alternativa  
-  - A solução de proxy deve estar altamente disponível, para evitar instabilidade no cluster pacemaker  
-  - Dependendo do local do proxy, ele pode introduzir latência adicional nas chamadas do agente de isolamento do Azure para a API de gerenciamento do Azure. Se o seu proxy corporativo ainda estiver no local, enquanto o cluster pacemaker está no Azure, meça a latência e considere se essa solução é adequada para você  
-  - Se ainda não houver um proxy corporativo altamente disponível em vigor, não recomendamos essa opção, pois o cliente estaria incorrendo em custo e complexidade extras. No entanto, se você decidir implantar uma solução de proxy adicional, com a finalidade de permitir a conectividade de saída do pacemaker para a API pública de gerenciamento do Azure, verifique se o proxy está altamente disponível e se a latência das VMs para o proxy está baixa.  
+  - Certifique-se de que há uma rota dos VMs para o Proxy  
+  - Proxy tratará apenas de chamadas HTTP/HTTPS. Se houver necessidade adicional de fazer chamadas de saída para o ponto final público sobre diferentes protocolos (como o RFC), será necessária uma solução alternativa  
+  - A solução Proxy deve estar altamente disponível, para evitar instabilidade no cluster Pacemaker  
+  - Dependendo da localização do representante, pode introduzir latência adicional nas chamadas do Agente de Cerca azure para a API de Gestão Azure. Se o seu representante corporativo ainda estiver no local, enquanto o seu cluster Pacemaker estiver em Azure, meça a latência e considere, se esta solução for adequada para si  
+  - Se ainda não houver procuração corporativa altamente disponível, não recomendamos esta opção, uma vez que o cliente estaria a incorrer em custos e complexidade extra. No entanto, se decidir implementar uma solução adicional de procuração, com o objetivo de permitir a conectividade de saída do Pacemaker para a API pública da Azure Management, certifique-se de que o proxy está altamente disponível, e a latência dos VMs para o proxy é baixa.  
 
-### <a name="pacemaker-configuration-with-proxy"></a>Configuração do pacemaker com proxy 
+### <a name="pacemaker-configuration-with-proxy"></a>Configuração do pacemaker com Proxy 
 
-Há muitas opções de proxy diferentes disponíveis no setor. As instruções passo a passo para a implantação de proxy estão fora do escopo deste documento. No exemplo abaixo, assumimos que o seu representante está a responder ao **MyProxyService** e a ouvir a porta **MyProxyPort**.  
-Para permitir que o pacemaker se comunique com a API de gerenciamento do Azure, execute as seguintes etapas em todos os nós de cluster:  
+Existem muitas opções proxy diferentes disponíveis na indústria. As instruções passo a passo para a implantação por procuração estão fora do âmbito deste documento. No exemplo abaixo, assumimos que o seu representante está a responder ao **MyProxyService** e a ouvir a porta **MyProxyPort**.  
+Para permitir que o pacemaker se comunique com a API de gestão azure, execute os seguintes passos em todos os nós do cluster:  
 
-1. Edite o arquivo de configuração pacemaker/etc/sysconfig/pacemaker e adicione as seguintes linhas (todos os nós de cluster):  
+1. Editar o ficheiro de configuração do pacemaker /etc/sysconfig/pacemaker e adicionar as seguintes linhas (todos os nós do cluster):  
    ```
    sudo vi /etc/sysconfig/pacemaker
    # Add the following lines

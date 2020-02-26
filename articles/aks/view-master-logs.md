@@ -1,48 +1,45 @@
 ---
-title: Exibir logs do controlador do AKS (serviço de kubernetes do Azure)
-description: Saiba como habilitar e exibir os logs do nó mestre kubernetes no serviço kubernetes do Azure (AKS)
+title: Ver registos de controladores do Serviço Azure Kubernetes (AKS)
+description: Saiba como ativar e ver os registos do nó principal kubernetes no Serviço Azure Kubernetes (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: mlearned
-ms.openlocfilehash: dc72a8d448a189918def35da0250d83c81da7fa0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f759f15cf98546cb95ba0adb5890885f85ca6aa1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812808"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592793"
 ---
-# <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitar e examinar os logs do nó mestre do kubernetes no serviço kubernetes do Azure (AKS)
+# <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever os registos de nó mestre kubernetes no Serviço Azure Kubernetes (AKS)
 
-Com o AKS (serviço kubernetes do Azure), os componentes mestres, como *Kube-apiserver* e *Kube-Controller-Manager* , são fornecidos como um serviço gerenciado. Você cria e gerencia os nós que executam o tempo de execução de *kubelet* e contêiner e implanta seus aplicativos por meio do servidor de API kubernetes gerenciado. Para ajudar a solucionar problemas de aplicativos e serviços, talvez seja necessário exibir os logs gerados por esses componentes mestres. Este artigo mostra como usar os logs de Azure Monitor para habilitar e consultar os logs dos componentes mestres do kubernetes.
+Com o Serviço Azure Kubernetes (AKS), os principais componentes como o *kube-apiserver* e o gestor do *controlador kube* são fornecidos como um serviço gerido. Cria e gere os nós que executam o tempo de execução do *kubelet* e do contentor e implementa as suas aplicações através do servidor Kubernetes API gerido. Para ajudar a resolver problemas a sua aplicação e serviços, poderá ter de visualizar os registos gerados por estes componentes principais. Este artigo mostra-lhe como utilizar os registos do Monitor Azure para ativar e consultar os registos dos componentes principais kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer um cluster AKS existente em execução na sua conta do Azure. Se você ainda não tiver um cluster AKS, crie um usando o [CLI do Azure][cli-quickstart] ou [portal do Azure][portal-quickstart]. Azure Monitor logs funciona com clusters AKS e não habilitados para RBAC.
+Este artigo requer um cluster AKS existente na sua conta Azure. Se ainda não tiver um cluster AKS, crie um utilizando o portal [Azure CLI][cli-quickstart] ou [Azure][portal-quickstart]. Os registos do Monitor Azure funcionam com clusters AKS ativados por RBAC e não-RBAC.
 
-## <a name="enable-diagnostics-logs"></a>Habilitar logs de diagnóstico
+## <a name="enable-diagnostics-logs"></a>Ativar registos de diagnóstico
 
-Para ajudar a coletar e examinar dados de várias fontes, os logs de Azure Monitor fornecem uma linguagem de consulta e um mecanismo de análise que fornece informações ao seu ambiente. Um espaço de trabalho é usado para agrupar e analisar os dados e pode ser integrado a outros serviços do Azure, como o Application Insights e a central de segurança. Para usar uma plataforma diferente para analisar os logs, você pode optar por enviar logs de diagnóstico para uma conta de armazenamento do Azure ou Hub de eventos. Para obter mais informações, consulte [o que são Azure monitor logs?][log-analytics-overview].
+Para ajudar a recolher e rever dados de várias fontes, os registos do Azure Monitor fornecem um motor de linguagem e análise de consulta que fornece informações sobre o seu ambiente. Um espaço de trabalho é usado para coligir e analisar os dados, e pode integrar-se com outros serviços Azure, como O Insights de Aplicação e Centro de Segurança. Para utilizar uma plataforma diferente para analisar os registos, pode optar por enviar registos de diagnóstico para uma conta de armazenamento Azure ou um centro de eventos. Para mais informações, consulte os registos do [Monitor Azure?][log-analytics-overview]
 
-Os logs de Azure Monitor são habilitados e gerenciados no portal do Azure. Para habilitar a coleta de log para os componentes mestres do kubernetes no cluster do AKS, abra o portal do Azure em um navegador da Web e conclua as seguintes etapas:
+Os registos do Monitor Azure estão ativados e geridos no portal Azure. Para ativar a recolha de registos para os componentes principais kubernetes no seu cluster AKS, abra o portal Azure num navegador web e complete os seguintes passos:
 
-1. Selecione o grupo de recursos para o cluster AKS, como *MyResource*Group. Não selecione o grupo de recursos que contém os recursos de cluster AKS individuais, como *MC_myResourceGroup_myAKSCluster_eastus*.
-1. No lado esquerdo, escolha **configurações de diagnóstico**.
-1. Selecione o cluster AKS, como *myAKSCluster*, e escolha **Adicionar configuração de diagnóstico**.
-1. Insira um nome, como *myAKSClusterLogs*, e selecione a opção para **Enviar para log Analytics**.
-1. Selecione um espaço de trabalho existente ou crie um novo. Se você criar um espaço de trabalho, forneça um nome de espaço de trabalho, um grupo de recursos e um local.
-1. Na lista de logs disponíveis, selecione os logs que você deseja habilitar. Os logs comuns incluem *Kube-apiserver*, *Kube-Controller-Manager*e *Kube-Scheduler*. Você pode habilitar logs adicionais, como *Kube-Audit* e *cluster-* AutoScaler. Você pode retornar e alterar os logs coletados quando Log Analytics espaços de trabalho estiverem habilitados.
-1. Quando estiver pronto, selecione **salvar** para habilitar a coleta dos logs selecionados.
+1. Selecione o grupo de recursos para o seu cluster AKS, como *o myResourceGroup*. Não selecione o grupo de recursos que contém os seus recursos individuais de cluster AKS, como *MC_myResourceGroup_myAKSCluster_eastus*.
+1. No lado esquerdo, escolha **as definições**de diagnóstico .
+1. Selecione o seu cluster AKS, como *o myAKSCluster,* e depois opte por **adicionar a definição de diagnóstico**.
+1. Introduza um nome, como *myAKSClusterLogs,* e, em seguida, selecione a opção de **Enviar para Registar Analytics**.
+1. Selecione um espaço de trabalho existente ou crie um novo. Se criar um espaço de trabalho, forneça um nome de espaço de trabalho, um grupo de recursos e uma localização.
+1. Na lista de registos disponíveis, selecione os registos que pretende ativar. Os registos comuns incluem o *kube-apiserver,* *o kube-controller-manager*e o *programador kube.* Pode ativar registos adicionais, tais como *a auditoria de kube* e o *cluster-autoscaler*. Pode devolver e alterar os registos recolhidos assim que os espaços de trabalho do Log Analytics estiverem ativados.
+1. Quando estiver pronto, selecione **Guardar** para ativar a recolha dos registos selecionados.
 
-A captura de tela do portal de exemplo a seguir mostra a janela *configurações de diagnóstico* :
+A imagem do portal de exemplo seguinte mostra a janela de *definições de Diagnóstico:*
 
-![Habilitar Log Analytics espaço de trabalho para logs de Azure Monitor do cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
+![Ativar o espaço de trabalho de Log Analytics para registos do Monitor Azure do cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
-## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agendar um pod de teste no cluster AKS
+## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agende uma cápsula de teste no cluster AKS
 
-Para gerar alguns logs, crie um novo pod no cluster AKS. O exemplo de manifesto YAML a seguir pode ser usado para criar uma instância NGINX básica. Crie um arquivo chamado `nginx.yaml` em um editor de sua escolha e cole o seguinte conteúdo:
+Para gerar alguns registos, crie uma nova cápsula no seu cluster AKS. O seguinte exemplo de manifesto YAML pode ser usado para criar uma instância básica NGINX. Crie um ficheiro chamado `nginx.yaml` num editor à sua escolha e colhe o seguinte conteúdo:
 
 ```yaml
 apiVersion: v1
@@ -64,7 +61,7 @@ spec:
     - containerPort: 80
 ```
 
-Crie o Pod com o comando [kubectl Create][kubectl-create] e especifique o arquivo YAML, conforme mostrado no exemplo a seguir:
+Crie a cápsula com o [kubectl criar][kubectl-create] comando e especificar o seu ficheiro YAML, como mostra o seguinte exemplo:
 
 ```
 $ kubectl create -f nginx.yaml
@@ -72,13 +69,13 @@ $ kubectl create -f nginx.yaml
 pod/nginx created
 ```
 
-## <a name="view-collected-logs"></a>Exibir logs coletados
+## <a name="view-collected-logs"></a>Ver registos recolhidos
 
-Pode levar alguns minutos para que os logs de diagnóstico sejam habilitados e apareçam no espaço de trabalho Log Analytics. No portal do Azure, selecione o grupo de recursos para seu espaço de trabalho do Log Analytics, como MyResource Group, em seguida, escolha o recurso do log Analytics, como *myAKSLogs*.
+Pode levar alguns minutos para que os registos de diagnóstico estejam ativados e apareçam no espaço de trabalho do Log Analytics. No portal Azure, selecione o grupo de recursos para o seu espaço de trabalho Log Analytics, como o *myResourceGroup,* e depois escolha o seu recurso de análise de registo, como *myAKSLogs*.
 
-![Selecione o espaço de trabalho Log Analytics para o cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
+![Selecione o espaço de trabalho log Analytics para o seu cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
-No lado esquerdo, escolha **logs**. Para exibir o *Kube-apiserver*, insira a seguinte consulta na caixa de texto:
+Do lado esquerdo, escolha **Logs**. Para ver o *kube-apiserver,* introduza a seguinte consulta na caixa de texto:
 
 ```
 AzureDiagnostics
@@ -86,7 +83,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-Muitos logs são provavelmente retornados para o servidor de API. Para reduzir a consulta para exibir os logs sobre o Pod NGINX criado na etapa anterior, adicione uma instrução *Where* adicional para pesquisar *pods/Nginx* , conforme mostrado na seguinte consulta de exemplo:
+Muitos registos são provavelmente devolvidos para o servidor API. Para examinar a consulta para ver os registos sobre a cápsula NGINX criada no passo anterior, adicione um adicional *onde* a declaração para procurar *cápsulas/nginx,* como mostra a seguinte consulta de exemplo:
 
 ```
 AzureDiagnostics
@@ -95,40 +92,40 @@ AzureDiagnostics
 | project log_s
 ```
 
-Os logs específicos para seu Pod NGINX são exibidos, conforme mostrado no seguinte exemplo de captura de tela:
+Os registos específicos da sua cápsula NGINX são apresentados, como mostra a seguinte imagem de exemplo:
 
-![Resultados da consulta do log Analytics para o Pod NGINX de exemplo](media/view-master-logs/log-analytics-query-results.png)
+![Resultados da consulta de análise de log para a amostra ngINX pod](media/view-master-logs/log-analytics-query-results.png)
 
-Para exibir logs adicionais, você pode atualizar a consulta para o nome da *categoria* para *Kube-Controller-Manager* ou *Kube-Scheduler*, dependendo de quais logs adicionais você habilitar. Instruções *Where* adicionais podem ser usadas para refinar os eventos que você está procurando.
+Para visualizar registos adicionais, pode atualizar a consulta para o nome *categoria* para *kube-controller-manager* ou *kube-scheduler,* dependendo dos registos adicionais que ativar. Adicional *onde* as declarações podem então ser usadas para refinar os eventos que procura.
 
-Para obter mais informações sobre como consultar e filtrar os dados de log, consulte [Exibir ou analisar dados coletados com a pesquisa de logs do log Analytics][analyze-log-analytics].
+Para obter mais informações sobre como consultar e filtrar os seus dados de registo, consulte ['Ver' ou analisar dados recolhidos com pesquisa de registo slog analytics][analyze-log-analytics].
 
 ## <a name="log-event-schema"></a>Esquema de evento de log
 
-Para ajudar a analisar os dados de log, a tabela a seguir detalha o esquema usado para cada evento:
+Para ajudar a analisar os dados de registo, a tabela seguinte detalha o esquema utilizado para cada evento:
 
 | Nome do campo               | Descrição |
 |--------------------------|-------------|
-| *resourceId*             | Recurso do Azure que produziu o log |
-| *tempo*                   | Carimbo de data/hora de quando o log foi carregado |
-| *category*               | Nome do contêiner/componente que gera o log |
-| *operationName*          | Sempre *Microsoft. ContainerService/managedClusters/diagnosticLogs/Read* |
-| *properties.log*         | Texto completo do log do componente |
-| *properties.stream*      | *stderr* ou *stdout* |
-| *properties.pod*         | Nome do Pod do qual o log veio |
-| *properties.containerID* | ID do contêiner do Docker do qual este log veio |
+| *recursosId*             | Recurso azure que produziu o tronco |
+| *tempo*                   | Carimbo de tempo de quando o registo foi carregado |
+| *categoria*               | Nome do recipiente/componente que gera o tronco |
+| *operaçãoNome*          | Sempre *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
+| *propriedades.log*         | Texto completo do registo do componente |
+| *propriedades.stream*      | *stderr* ou *stdout* |
+| *propriedades.pod*         | Nome de pod de que o tronco veio |
+| *propriedades.containerID* | ID do recipiente de estivador este tronco veio de |
 
-## <a name="log-roles"></a>Funções de log
+## <a name="log-roles"></a>Papéis de log
 
-| Role                     | Descrição |
+| Função                     | Descrição |
 |--------------------------|-------------|
-| *aksService*             | O nome de exibição no log de auditoria para a operação do plano de controle (do hcpService) |
-| *masterclient*           | O nome de exibição no log de auditoria para MasterClientCertificate, o certificado obtido de AZ AKs Get-Credentials |
-| *nodeclient*             | O nome de exibição para ClientCertificate, que é usado por nós de agente |
+| *aksService*             | O nome do mostrador no registo de auditoria para a operação do plano de controlo (a partir do hcpService) |
+| *cliente mestre*           | O nome de exibição no registo de auditoria do MasterClientCertificate, o certificado que obtém das credenciais get-credenciais az aks |
+| *cliente de nó*             | O nome de exibição para ClientCertificate, que é usado por nós de agente |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a habilitar e a examinar os logs dos componentes mestres do kubernetes no cluster do AKS. Para monitorar e solucionar problemas adicionais, você também pode [exibir os logs do Kubelet][kubelet-logs] e [habilitar o acesso ao nó SSH][aks-ssh].
+Neste artigo, aprendeu a ativar e rever os registos dos componentes principais da Kubernetes no seu cluster AKS. Para monitorizar e resolver ainda mais os problemas, também pode [ver os registos kubelet][kubelet-logs] e ativar o [acesso ao nó SSH][aks-ssh].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

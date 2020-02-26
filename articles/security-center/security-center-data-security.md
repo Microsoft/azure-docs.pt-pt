@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 9dfed5ec14460c3c6213d528f59b86eda15aa1a7
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: a25bbd0f14d38a70624dbc58755c0e814753a181
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520885"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604172"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de Dados do Centro de Segurança do Azure
 Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Segurança do Azure recolhe e processa dados relacionados com segurança, incluindo informações de configuração, metadados, registos de eventos, ficheiros de informação de falha de sistema e mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
@@ -49,9 +49,9 @@ O Centro de Segurança do Azure analisa dados das origens seguintes para proporc
 |-------------------------------------|---------------|
 | Estados Unidos, Brasil, África do Sul | Estados Unidos |
 | Canadá                              | Canadá        |
-| Europa (excluindo o Reino Unido)   | Europa        |
+| Europa (excluindo Reino Unido)   | Europa        |
 | Reino Unido                      | Reino Unido |
-| Ásia (exceto Índia, Japão, Coreia, China)   | Ásia-Pacífico  |
+| Ásia (excluindo Índia, Japão, Coreia, China)   | Ásia-Pacífico  |
 | Coreia                              | Ásia-Pacífico  |
 | Índia                               | Índia         |
 | Japão                               | Japão         |
@@ -80,19 +80,18 @@ Se estiver a utilizar o Centro de Segurança do Azure gratuito, também pode des
 
 Os clientes podem consumir dados relacionados com o Centro de Segurança a partir de fluxos de dados diferentes, conforme mostrado abaixo:
 
-* **Atividade do Azure**: todos os alertas de segurança, solicitações [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) aprovadas da central de segurança e todos os alertas gerados por [controles de aplicativo adaptáveis](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Logs de Azure monitor**: todos os alertas de segurança.
+* **Atividade Azure**: todos os alertas de segurança, pedidos aprovados do Centro de Segurança [Just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) e todos os alertas gerados por controlos de [aplicação adaptativos](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Registos do Monitor Azure:** todos os alertas de segurança.
 
 
 > [!NOTE]
 > As recomendações de segurança também podem ser consumidas pela API REST. Leia [Security Resource Provider REST API Reference (Referência da API REST do Fornecedor de Recursos de Segurança)](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) para obter mais informações.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Através deste documento aprendeu como os dados são geridos e salvaguardados no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, veja:
 
 * [Guia de Operações e Planeamento do Centro de Segurança do Azure](security-center-planning-and-operations-guide.md) – Saiba como planear e compreender as considerações de conceção para adoção do Centro de Segurança do Azure.
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança
 * [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
-* [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço
 * [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure

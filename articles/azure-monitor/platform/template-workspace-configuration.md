@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 936008a074944c79b8b0bab3beaf3a5aaa5ecc12
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 5fb33a592601a0511fa2523ee0cf8114bc66ca99
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77151824"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591970"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure
 
@@ -77,52 +77,52 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada p
             }
         },
       "pricingTier": {
-      "type": "string",
-      "allowedValues": [
-        "pergb2018",
-        "Free",
-        "Standalone",
-        "PerNode",
-        "Standard",
-        "Premium"
-      ],
-      "defaultValue": "pergb2018",
-      "metadata": {
+        "type": "string",
+        "allowedValues": [
+          "pergb2018",
+          "Free",
+          "Standalone",
+          "PerNode",
+          "Standard",
+          "Premium"
+          ],
+        "defaultValue": "pergb2018",
+        "metadata": {
         "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
-           }
-       },
-        "location": {
-            "type": "String",
-            "allowedValues": [
-              "australiacentral", 
-              "australiaeast", 
-              "australiasoutheast", 
-              "brazilsouth",
-              "canadacentral", 
-              "centralindia", 
-              "centralus", 
-              "eastasia", 
-              "eastus", 
-              "eastus2", 
-              "francecentral", 
-              "japaneast", 
-              "koreacentral", 
-              "northcentralus", 
-              "northeurope", 
-              "southafricanorth", 
-              "southcentralus", 
-              "southeastasia", 
-              "uksouth", 
-              "ukwest", 
-              "westcentralus", 
-              "westeurope", 
-              "westus", 
-              "westus2" 
-            ],
-            "metadata": {
-              "description": "Specifies the location in which to create the workspace."
-            }
         }
+      },
+      "location": {
+        "type": "String",
+        "allowedValues": [
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2" 
+        ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+        }
+      }
     },
     "resources": [
         {
@@ -131,9 +131,8 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada p
             "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": { 
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                "sku": {
+          "name": "[parameters('pricingTier')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -146,6 +145,13 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada p
        ]
     }
     ```
+
+> [Informação] para configurações de reserva de capacidade, use estas propriedades em "sku":
+
+>   "nome": "CapacidadeReserva",
+
+>   "capacidadeReservationLevel": 100
+
 
 2. Edite o modelo para satisfazer os seus requisitos. Reveja a referência do [modelo Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais as propriedades e valores suportados. 
 3. Guarde este ficheiro como **modelo espaço de implantação.json** para uma pasta local.

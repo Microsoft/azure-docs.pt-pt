@@ -8,12 +8,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 02/04/2020
-ms.openlocfilehash: fb576b81adeec99e4080c744749097390d1add1d
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: ff2be6972bb4e8af266d0aa8a56d1879bc1b8b78
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77111101"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586160"
 ---
 # <a name="request-quota-increases-for-azure-sql-database"></a>Aumento das quotas de pedidos para base de dados Azure SQL
 
@@ -90,7 +90,7 @@ Utilize os seguintes passos para solicitar um aumento do número de servidores p
 
 Para mais informações, consulte os limites de recursos da Base de [Dados SQL e a governação dos recursos.](sql-database-resource-limits-database-server.md)
 
-### <a name="enable-subscription-access-to-a-region"></a>Permitir o acesso por subscrição a uma região
+### <a id="other"></a>Permitir o acesso por subscrição a uma região
 
 Alguns tipos de ofertas não estão disponíveis em todas as regiões. Pode ver um erro como o seguinte:
 

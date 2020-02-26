@@ -1,6 +1,6 @@
 ---
-title: Pontuação de confiança na central de segurança do Azure | Microsoft Docs
-description: A central de segurança gera pontuações de confiança para ajudar sua equipe a determinar se uma ameaça é legítima e como fazer a triagem e priorizar alertas.
+title: Pontuação de confiança no Centro de Segurança Azure Microsoft Docs
+description: O Security Center gera pontuações de confiança para ajudar a sua equipa a determinar se uma ameaça é legítima e como triagem e priorizar alertas.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,48 +13,40 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355633"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604378"
 ---
-# <a name="alert-confidence-score-preview"></a>Pontuação de confiança de alerta (visualização)
+# <a name="alert-confidence-score-preview"></a>Pontuação de confiança de alerta (Pré-visualização)
 
-A central de segurança do Azure fornece visibilidade sobre os recursos que você executa no Azure e o alerta quando detecta problemas em potencial. O volume de alertas pode ser desafiador para uma equipe de operações de segurança para endereçar individualmente e é necessário priorizar quais alertas investigar. A investigação de alertas pode ser complexa e demorada e, consequentemente, alguns alertas são ignorados.
+O Azure Security Center proporciona-lhe visibilidade através dos recursos que executa em Azure, e alerta-o quando deteta potenciais problemas. O volume de alertas pode ser um desafio para uma equipa de operações de segurança abordar individualmente, e torna-se necessário priorizar quais os alertas a investigar. Investigar alertas pode ser complexo e demorado, e como resultado, alguns alertas são ignorados.
 
-A pontuação de confiança (atualmente em visualização) na central de segurança pode ajudar sua equipe a fazer a triagem e priorizar alertas. A central de segurança aplica automaticamente práticas recomendadas do setor, algoritmos inteligentes e processos usados por analistas para determinar se uma ameaça é legítima e fornece informações significativas na forma de uma pontuação de confiança.
+A pontuação de confiança (atualmente em pré-visualização) no Centro de Segurança pode ajudar a sua equipa a triagem e priorizar alertas. O Security Center aplica automaticamente as melhores práticas da indústria, algoritmos inteligentes e processos usados pelos analistas para determinar se uma ameaça é legítima e fornece-lhe informações significativas sob a forma de uma pontuação de confiança.
 
-## <a name="how-the-confidence-score-is-triggered"></a>Como a pontuação de confiança é disparada
+## <a name="how-the-confidence-score-is-triggered"></a>Como a pontuação de confiança é desencadeada
 
-Os alertas são gerados quando processos suspeitos são detectados em execução em suas máquinas virtuais. A central de segurança revisa e analisa esses alertas em máquinas virtuais do Windows em execução no Azure. Ele executa verificações e correlações automatizadas usando algoritmos avançados em várias entidades e fontes de dados em toda a organização, além de todos os recursos do Azure e apresenta uma pontuação de confiança que é uma medida de quão confiante é a central de segurança Se o alerta é original e precisa ser investigado.
+Os alertas são gerados quando são detetados processos suspeitos a funcionar nas suas máquinas virtuais. O Security Center analisa e analisa estes alertas em máquinas virtuais do Windows em funcionamento em Azure. Realiza verificações e correlações automatizadas usando algoritmos avançados em várias entidades e fontes de dados em toda a organização, e todos os seus recursos Azure, e apresenta uma pontuação de confiança que é uma medida de quão confiante o Centro de Segurança é que o alerta é genuíno e precisa de ser investigado.
 
-## <a name="understanding-the-confidence-score"></a>Compreendendo a pontuação de confiança
+## <a name="understanding-the-confidence-score"></a>Compreender a pontuação da confiança
 
-A pontuação de confiança varia entre 1 e 100 e representa a central de segurança de confiança que o alerta precisa ser investigado. Quanto mais alta for a pontuação, mais segura será a central de segurança que o alerta indicará atividades mal-intencionadas autênticas. A pontuação de confiança inclui uma lista dos principais motivos pelos quais o alerta recebeu sua pontuação de confiança. A pontuação de confiança torna mais fácil para os analistas de segurança priorizar sua resposta a alertas e resolver os ataques mais urgentes primeiro, reduzindo, por fim, a quantidade de tempo que leva para responder a ataques e violações.
+A pontuação de confiança varia entre 1 e 100 e representa a confiança que o Centro de Segurança tem de que o alerta precisa de ser investigado. Quanto maior for a pontuação, mais confiante é o Centro de Segurança que o alerta indica atividade maliciosa genuína. A pontuação de confiança inclui uma lista das principais razões pelas quais o alerta recebeu a sua pontuação de confiança. A pontuação de confiança facilita que os analistas de segurança priorizem a sua resposta aos alertas e abordem primeiro os ataques mais prementes, reduzindo em última análise o tempo que leva para responder a ataques e violações.
 
-Para exibir a pontuação de confiança:
-- No portal da central de segurança, abra a folha alertas de segurança.
--  Os alertas e incidentes são organizados do mais alto para o mais baixo, o que significa que a central de segurança mais segura é que um alerta representa uma ameaça, quanto mais próximo ele está na parte superior da página. 
+Para ver a pontuação de confiança:
+- No portal do Centro de Segurança, abra a lâmina de alertas de segurança.
+-  Os alertas e incidentes são organizados do mais alto para o mais baixo, o que significa que o Centro de Segurança mais confiante é que um alerta representa uma ameaça, quanto mais perto está do topo da página. 
 
 
  ![Pontuação de confiança][1]
 
-Para exibir os dados que contribuíram para a confiança da central de segurança em um alerta:
-- Na folha alerta de segurança, em **confiança**, exiba as observações que contribuíram para a pontuação de confiança e obter informações relacionadas ao alerta. Isso fornece mais informações sobre a natureza das atividades que causaram o alerta.
+Para ver os dados que contribuíram para a confiança do Centro de Segurança num alerta:
+- Na lâmina de alerta de Segurança, sob **confiança,** veja as observações que contribuíram para a pontuação de confiança e obtenha insights relacionados com o alerta. Isto fornece-lhe mais informações sobre a natureza das atividades que causaram o alerta.
 
   ![Pontuação de confiança suspeita][2]
 
-Use a pontuação de confiança da central de segurança para priorizar a triagem de alerta em seu ambiente. A pontuação de confiança poupa tempo e esforço ao investigar automaticamente os alertas, aplicar práticas recomendadas do setor e algoritmos inteligentes e agir como analista virtual para determinar quais ameaças são reais e onde você precisa concentrar sua atenção.
-
-
-## <a name="next-steps"></a>Passos seguintes
-Este artigo explicou como usar a pontuação de confiança para priorizar a investigação de alertas. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
-
-* [FAQ do Centro de Segurança do Azure](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Monitorização do estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
-
+Use a pontuação de confiança do Centro de Segurança para priorizar a triagem de alerta no seu ambiente. A pontuação de confiança poupa-lhe tempo e esforço, investigando automaticamente alertas, aplicando as melhores práticas da indústria e algoritmos inteligentes, e agindo como um analista virtual para determinar quais ameaças são reais e onde precisa concentrar a sua atenção.
 
 
 <!--Image references-->

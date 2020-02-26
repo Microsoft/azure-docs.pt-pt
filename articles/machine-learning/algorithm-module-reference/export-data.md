@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 11f5bd7f01e142273509ae59ddc19a2557464bde
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 40d8e298237b6110fee04aefbb7b79c5f3bac6f0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152317"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598617"
 ---
 # <a name="export-data-module"></a>Módulo de Dados de Exportação
 
 Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
-Utilize este módulo para economizar resultados, dados intermédios e dados de trabalho dos seus oleodutos em destinos de armazenamento em nuvem fora do Azure Machine Learning. 
+Utilize este módulo para economizar resultados, dados intermédios e dados de trabalho dos seus oleodutos em destinos de armazenamento em nuvem. 
 
 Este módulo suporta a exportação dos seus dados para os seguintes serviços de dados na nuvem:
 
@@ -29,7 +29,7 @@ Este módulo suporta a exportação dos seus dados para os seguintes serviços d
 - Azure Data Lake
 - Lago de Dados Azure Gen2
 
-Antes de exportar os seus dados, primeiro tem de registar uma loja de dados no seu espaço de trabalho Azure Machine Learning. Para mais informações, consulte os dados do Access nos serviços de [armazenamento do Azure.](../how-to-access-data.md)
+Antes de exportar os seus dados, precisa primeiro de registar uma loja de dados no seu espaço de trabalho Azure Machine Learning. Para mais informações, consulte os dados do Access nos serviços de [armazenamento do Azure.](../how-to-access-data.md)
 
 ## <a name="how-to-configure-export-data"></a>Como configurar dados de exportação
 
@@ -41,7 +41,13 @@ Antes de exportar os seus dados, primeiro tem de registar uma loja de dados no s
 
 1. Para **datastore,** selecione uma loja de dados existente na lista de dropdown. Também pode criar uma nova loja de dados. Verifique como visitando dados do Access nos serviços de [armazenamento do Azure.](../how-to-access-data.md)
 
-1. Defina o caminho na loja de dados para escrever os dados. 
+1. A caixa de verificação, regerar a **saída,** decide se executa o módulo para regenerar a saída no tempo de funcionamento. 
+
+    É por padrão não selecionado, o que significa que se o módulo tiver sido executado com os mesmos parâmetros anteriormente, o sistema reutilizará a saída da última execução para reduzir o tempo de funcionar. 
+
+    Se for selecionado, o sistema executará novamente o módulo para regenerar a saída.
+
+1. Defina o caminho na loja de dados onde estão os dados. O caminho é um caminho relativo. Os caminhos vazios ou os caminhos de URL não são permitidos.
 
 
 1. Para **o formato Ficheiro,** selecione o formato em que os dados devem ser armazenados.

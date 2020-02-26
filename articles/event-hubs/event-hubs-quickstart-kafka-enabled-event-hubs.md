@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: dd3c7a55d1b3d39f8a16b1730d861edf0de84690
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 18976a29a716a0e5a627747d98edc0d3e1bf71e9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539574"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587146"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Quickstart: Streaming de dados com Hubs de Eventos usando o protocolo Kafka
 Este início rápido mostra como transmitir para Hubs de Eventos ativados pelo Kafka, sem alterar os clientes de protocolo nem a execução dos seus próprios clusters. Vai aprender a utilizar os seus produtores e consumidores para comunicar com Hubs de Eventos ativados pelo Kafka, com apenas uma alteração de configuração nas aplicações. Os Hubs de Eventos do Azure suportam o [Apache Kafka versão 1.0](https://kafka.apache.org/10/documentation.html)
@@ -33,7 +33,10 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos ativado para Kafka
-Quando cria um espaço de nome padrão do Event Hubs, o ponto final de Kafka para o espaço de nome está ativado automaticamente. Você pode transmitir eventos a partir das suas aplicações que usam o protocolo Kafka em centros de eventos de nível padrão. Não está ativado para o espaço de nome de nível básico do Event Hubs. Siga instruções passo a passo no [Create a event hub utilizando o portal Azure](event-hubs-create.md) para criar um espaço de nome de hubs de evento de nível **padrão.** 
+Quando cria **um** espaço de nome padrão do Event Hubs, o ponto final de Kafka para o espaço de nome está ativado automaticamente. Você pode transmitir eventos a partir das suas aplicações que usam o protocolo Kafka em centros de eventos de nível padrão. Siga instruções passo a passo no [Create a event hub utilizando o portal Azure](event-hubs-create.md) para criar um espaço de nome de hubs de evento de nível **padrão.** 
+
+> [!NOTE]
+> O Event Hubs para Kafka está disponível apenas em camadas **standard** e **dedicada.** O nível **básico** não suporta Kafka em Centros de Eventos.
 
 ## <a name="send-and-receive-messages-with-kafka-in-event-hubs"></a>Enviar e receber mensagens com Kafka em Hubs de Eventos
 

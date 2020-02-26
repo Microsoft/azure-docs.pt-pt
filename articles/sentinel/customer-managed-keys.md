@@ -3,7 +3,7 @@ title: Instale chaves geridas pelo cliente em Azure Sentinel. Microsoft Docs
 description: Saiba como configurar as chaves geridas pelo cliente (CMK) no Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4858e2099baa82226766ecfce32b39471c3b96cd
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.author: yelevin
+ms.openlocfilehash: bc2fa02925e7f5c671085eb87ca0431d3fca7691
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845314"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587962"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurar a chave gerida pelo cliente Azure Sentinel
 
@@ -52,7 +52,7 @@ Para fornecer CMK, siga estes passos: 
 
 5.  Ativar a CMK em Azure Sentinel.
 
-6.  Ativar o Azure Sentinel.
+6.  Ativar o Sentinela Azure.
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>PASSO 1: Criar um cofre de chaves Azure e armazenar a chave
 
@@ -91,7 +91,7 @@ Depois de obter aprovação, será-lhe pedido que forneça as seguintes informa�
 -  URL do cofre chave: Copie o "Identificador chave" da chave até ao último corte para a frente:  
     
 
-    ![Identificador de chave](./media/customer-managed-keys/key-identifier.png)
+    ![identificador chave](./media/customer-managed-keys/key-identifier.png)
 
     A equipa Azure Sentinel irá ativar a funcionalidade CMK Azure Sentinel para o seu espaço de trabalho fornecido.
 
@@ -128,7 +128,7 @@ Se utilizar a mesma tecla no Azure Sentinel e no Log Analytics, é necessário r
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a configurar uma chave gerida pelo cliente no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
-- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
-- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
-- [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
+- Aprenda a [obter visibilidade nos seus dados e ameaças potenciais.](quickstart-get-visibility.md)
+- Começar [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
+- [Utilize livros](tutorial-monitor-your-data.md) de trabalho para monitorizar os seus dados.
 

@@ -1,6 +1,6 @@
 ---
-title: Pontuação segura na central de segurança do Azure | Microsoft Docs
-description: " Priorize suas recomendações de segurança usando a pontuação segura na central de segurança do Azure. "
+title: Pontuação segura no Centro de Segurança Azure  Microsoft Docs
+description: " Priorize as suas recomendações de segurança utilizando a Pontuação Segura no Centro de Segurança Azure. "
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,80 +13,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: 79154a13722654ef5cbbe7ac99bb67d4b761fe60
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 15a94a9724fac29d36f6bb88ee4810b3bc7ca607
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903440"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603479"
 ---
-# <a name="improve-your-secure-score-in-azure-security-center"></a>Melhorar sua pontuação segura na central de segurança do Azure
+# <a name="improve-your-secure-score-in-azure-security-center"></a>Melhore a sua pontuação segura no Centro de Segurança Azure
 
 > [!NOTE]
-> Há uma pontuação segura aprimorada disponível na visualização. A pontuação segura aprimorada eventualmente substituirá a pontuação segura existente, mas, por um tempo, será executada lado a lado para facilitar a transição.
+> Há um Secure Score melhorado disponível na pré-visualização. O Secure Score melhorado irá eventualmente substituir o Secure Score existente, mas por um tempo estarão a correr lado a lado para facilitar a transição.
 >
-> Para obter detalhes sobre os benefícios da Pontuação segura aprimorada, consulte [aqui](secure-score-security-controls.md).
+> Para mais detalhes sobre os benefícios da pontuação segura melhorada, consulte [aqui](secure-score-security-controls.md).
 >
-> Para fazer parte da versão prévia, abra o portal do Azure, inicie a central de segurança do Azure e selecione Pontuação segura. A partir daí, você verá uma faixa na parte superior da página que oferece a nova experiência de Pontuação segura. Como alternativa, clique [aqui](https://aka.ms/ascnewscore).
+> Para participar na pré-visualização, abra o Portal Azure, lance o Azure Security Center e selecione Secure Score. A partir daí, você verá um banner no topo da página oferecendo a nova experiência Secure Score. Em alternativa, clique [aqui](https://aka.ms/ascnewscore).
 
-Com tantos serviços que oferecem benefícios de segurança, muitas vezes é difícil saber quais etapas tomar primeiro para proteger e proteger sua carga de trabalho. A pontuação segura do Azure revisa suas recomendações de segurança e as prioriza para você, para que você saiba quais recomendações executar primeiro. Isso ajuda a encontrar as vulnerabilidades de segurança mais sérias para que você possa priorizar a investigação. A classificação de segurança é uma ferramenta que o ajuda a avaliar a sua postura de segurança de carga de trabalho.
+Com tantos serviços que oferecem benefícios de segurança, muitas vezes é difícil saber que passos tomar primeiro para garantir e endurecer a sua carga de trabalho. O Secure Score analisa as suas recomendações de segurança e prioriza-as para si, para que saiba quais as recomendações a executar primeiro. Isto ajuda-o a encontrar as vulnerabilidades de segurança mais graves para que possa priorizar a investigação. Secure Score é uma ferramenta que o ajuda a avaliar a sua postura de segurança da carga de trabalho.
 
-## <a name="secure-score-calculation"></a>Cálculo de Pontuação segura
+## <a name="secure-score-calculation"></a>Cálculo de Pontuação Segura
 
-A central de segurança imita o trabalho de um analista de segurança, examinando suas recomendações de segurança e aplicando algoritmos avançados para determinar a crucialidade de cada recomendação.
-O Azure Security Center revê constantemente as suas recomendações ativas e calcula a sua pontuação segura com base nelas, a pontuação de uma recomendação deriva da sua gravidade e das melhores práticas de segurança que mais afetarão a sua segurança na carga de trabalho.
+O Security Center imita o trabalho de um analista de segurança, analisando as suas recomendações de segurança e aplicando algoritmos avançados para determinar o quão crucial cada recomendação é.
+O Azure Security Center revê constantemente as suas recomendações ativas e calcula a sua Pontuação Segura com base nelas, a pontuação de uma recomendação deriva da sua gravidade e das melhores práticas de segurança que mais afetarão a sua segurança na carga de trabalho.
 
-A central de segurança também fornece uma **Pontuação segura geral**. 
+O Security Center também lhe fornece uma **pontuação geral segura**. 
 
-A **Pontuação de segurança geral** é um acúmulo de todas as suas pontuações de recomendação. Você pode exibir sua pontuação de segurança geral em suas assinaturas ou grupos de gerenciamento, dependendo do que você selecionar. A pontuação variará com base na assinatura selecionada e nas recomendações ativas nessas assinaturas.
+**Overall Secure Score** é uma acumulação de todas as suas pontuações de recomendação. Pode ver o seu Secure Score geral através das suas subscrições ou grupos de gestão, dependendo do que selecionar. A pontuação variará em função da subscrição selecionada e das recomendações ativas sobre estas subscrições.
 
-Para verificar quais recomendações afetam a sua pontuação segura, você pode exibir as três principais recomendações mais impactantes no painel da central de segurança ou pode classificar as recomendações na folha da lista de recomendações usando a coluna de **impacto de Pontuação segura** .
+Para verificar quais as recomendações que mais impactam a sua Pontuação Segura, pode ver as três principais recomendações mais impactantes no painel do Centro de Segurança ou pode ordenar as recomendações na lâmina da lista de recomendações utilizando a coluna de **impacto Secure Score.**
 
-Para exibir sua pontuação de segurança geral:
+Para ver o seu Resultado Seguro geral:
 
-1. No painel do Azure, clique em **central de segurança** e em **classificação segura**.
+1. No painel azure, clique em **Security Center** e, em seguida, clique em **Secure Score**.
 
-2. Na parte superior, você pode ver os destaques de Pontuação segura:
-   - A **Classificação de segurança geral** representa a classificação por políticas, por subscrição selecionada
-   - A **classificação segura por categoria** mostra quais recursos precisam mais de atenção
-   - As **principais recomendações por impacto de Pontuação segura** fornecem uma lista das recomendações que melhorarão sua pontuação segura mais se você implementá-las.
+2. No topo pode ver os destaques do Secure Score:
+   - O **Overall Secure Score** representa a pontuação por políticas, por subscrição selecionada
+   - **Secure Score por categoria** mostra quais os recursos que mais precisam de atenção
+   - **As principais recomendações do impacto Secure Score** fornecem-lhe uma lista das recomendações que melhorarão mais a sua Pontuação Segura se as implementar.
  
-   ![Pontuação segura](./media/security-center-secure-score/secure-score-dashboard.png)
+   ![Pontuação Segura](./media/security-center-secure-score/secure-score-dashboard.png)
 
-3. Na tabela abaixo, você pode ver cada uma de suas assinaturas e a pontuação de segurança geral de cada uma.
+3. Na tabela abaixo pode ver cada uma das suas subscrições e a pontuação segura geral para cada um.
 
    > [!NOTE]
-   > A soma da classificação de segurança de cada subscrição não é igual à classificação de segurança geral. A classificação de segurança é um cálculo baseado na relação entre os seus recursos em bom estado de funcionamento e o total de recursos por recomendação, não uma soma das classificações de segurança nas suas subscrições. 
+   > A soma da Pontuação Segura de cada subscrição não é igual à pontuação segura global. O Secure Score é um cálculo baseado na relação entre os seus recursos saudáveis e os seus recursos totais por recomendação, e não uma soma de Pontuações Seguras em todas as suas subscrições. 
    >
-4. Clique em **Exibir recomendações** para ver as recomendações para a assinatura que você pode corrigir para melhorar sua pontuação segura.
-4. Na lista de recomendações, você pode ver que, para cada recomendação, há uma coluna que representa o **impacto de Pontuação segura**. Esse número representa o quanto sua pontuação de segurança geral será aprimorada se você seguir as recomendações. Por exemplo, na tela abaixo, se você **corrigir vulnerabilidades em configurações de segurança de contêiner**, sua pontuação segura aumentará em 35 pontos.
+4. Clique em **ver recomendações** para ver as recomendações para essa subscrição que pode remediar para melhorar a sua Pontuação Segura.
+4. Na lista de recomendações, pode ver que para cada recomendação existe uma coluna que representa o **impacto secure score**. Este número representa o quanto o seu Secure Score irá melhorar se seguir as recomendações. Por exemplo, no ecrã abaixo, se **remediar vulnerabilidades em configurações**de segurança de contentores, a sua Pontuação Segura aumentará em 35 pontos.
 
-   ![Pontuação segura](./media/security-center-secure-score/security-center-secure-score1.png)
-
-
-
-## <a name="individual-secure-score"></a>Pontuação segura individual
-
-Além disso, para exibir pontuações seguras individuais, você pode encontrá-las na folha de recomendação individual.  
-
-A **Classificação de segurança da recomendação** é um cálculo baseado na relação entre os recursos em bom estado de funcionamento e o total de recursos. Se o número de recursos em bom estado de funcionamento for igual ao número total de recursos, receberá a classificação de segurança máxima da recomendação de 50. Para tentar colocar a classificação de segurança mais próxima da classificação máxima, corrija os recursos em mau estado de funcionamento seguindo as recomendações.
-
-O **Impacto das recomendações** permite-lhe saber quanto é que a sua classificação de segurança melhorará se aplicar os passos de recomendação. Por exemplo, se classificação de segurança for de 42 e o **Impacto das recomendações** for +3, ao realizar os passos descritos na recomendação, melhora a classificação para 45.
-
-A recomendação mostra a quais ameaças sua carga de trabalho será exposta se as etapas de correção não forem executadas.
-
-![Pontuação segura de recomendação individual](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
+   ![Pontuação Segura](./media/security-center-secure-score/security-center-secure-score1.png)
 
 
 
+## <a name="individual-secure-score"></a>Pontuação individual segura
+
+Além disso, para visualizar pontuações seguras individuais, pode encontrá-las dentro da lâmina de recomendação individual.  
+
+A **Pontuação Segura** de Recomendação é um cálculo baseado na relação entre os seus recursos saudáveis e os seus recursos totais. Se o número de recursos saudáveis for igual ao número total de recursos, obtém-se a pontuação máxima segura da recomendação de 50. Para tentar aproximar o seu Secure Score da pontuação máxima, corrija os recursos pouco saudáveis seguindo as recomendações.
+
+O **impacto da Recomendação** permite-lhe saber quanto melhora a sua Pontuação Segura se aplicar os passos de recomendação. Por exemplo, se a sua Pontuação Segura for de 42 e o **impacto da Recomendação** for +3, executar os passos descritos na recomendação melhore a sua pontuação para se tornar 45.
+
+A recomendação mostra quais as ameaças a que a sua carga de trabalho está exposta se as medidas de reparação não forem tomadas.
+
+![recomendação individual Secure Score](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
 
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Este artigo mostrou como melhorar sua postura de segurança usando a **Pontuação segura** na central de segurança do Azure. Para saber mais sobre a central de segurança, consulte:
+Este artigo mostrou-lhe como melhorar a sua postura de segurança usando **secure score** no Azure Security Center. Para saber mais sobre o Centro de Segurança, consulte:
 
-* [FAQ do Centro de Segurança do Azure](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
+* [Azure Security Center FAQ](faq-general.md)--Encontre perguntas frequentes sobre o serviço e Secure Score.
 * [Monitorização do estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
-
-
+* [Secure Score - melhorado](secure-score-security-controls.md)-- Saiba sobre os benefícios da pontuação segura melhorada atualmente na pré-visualização.

@@ -2,17 +2,14 @@
 title: Crie nós virtuais utilizando o portal nos Serviços Azure Kubernetes (AKS)
 description: Aprenda a usar o portal Azure para criar um cluster Azure Kubernetes Services (AKS) que usa nós virtuais para executar cápsulas.
 services: container-service
-author: mlearned
 ms.topic: conceptual
-ms.service: container-service
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 6a50663fd0cc907e0dc97b50decd8b6edbaa42cb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 664bbdc94963b84e4fed6845dfd23d2407ca3898
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713217"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592565"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -217,7 +214,7 @@ $ curl -L 10.241.0.4
 
 Feche a sessão terminal na sua cápsula de teste com `exit`. Quando a sua sessão terminar, a cápsula é a eliminada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, uma cápsula foi programada no nó virtual e atribuiu um endereço IP privado e interno. Em vez disso, poderia criar uma implantação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para mais informações, consulte Criar um controlador básico de [ingresso no AKS][aks-basic-ingress].
 

@@ -2,17 +2,16 @@
 title: Instalar istio no Serviço Azure Kubernetes (AKS)
 description: Aprenda a instalar e utilizar a Istio para criar uma malha de serviço num cluster do Serviço Azure Kubernetes (AKS)
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 15b73380269c568977b524a63ca709e352485433
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 608eaaab9fb1e24b00d2aa2d4bfe393b5f17c9a1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485221"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594009"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e utilizar o Istio no Serviço Azure Kubernetes (AKS)
 
@@ -387,7 +386,7 @@ Os comandos acima eliminam todos os componentes istio e espaço de nome, mas ain
 
 ::: zone-end
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 A seguinte documentação descreve como pode usar istio para fornecer encaminhamento inteligente para lançar uma libertação canária:
 

@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 021941339bbbf72112628c54f5b05d5fd305bd0f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: ce0a170a629f347e2687a2e9f63fb3438fe2bd2f
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198586"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592531"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configure uma app de serviço de aplicações no portal Azure
 
@@ -168,6 +168,8 @@ Aqui, pode configurar algumas definições comuns para a aplicação. Algumas de
     - **Bitness**: 32-bit ou 64-bit.
     - **Protocolo WebSocket**: Para [sinal de ASP.NET] ou [socket.io,](https://socket.io/)por exemplo.
     - **Always On**: Mantenha a aplicação carregada mesmo quando não há trânsito. É necessário para WebJobs contínuos ou para WebJobs que são desencadeados usando uma expressão CRON.
+      > [!NOTE]
+      > Com a funcionalidade Always On, não se pode controlar o ponto final. Envia sempre um pedido para a raiz de aplicação.
     - **Versão gerida do gasoduto**: O [modo de gasoduto]IIS . Desloque-o para **Classic** se tiver uma aplicação antiga que requer uma versão mais antiga do IIS.
     - **Versão HTTP**: Definir para **2.0** para permitir o suporte ao protocolo [HTTPS/2.](https://wikipedia.org/wiki/HTTP/2)
     > [!NOTE]
@@ -225,7 +227,7 @@ Pode [adicionar armazenamento personalizado para a sua aplicação contentorizad
 - **Chave de acesso**: Para uma configuração avançada, a chave de acesso.
 - **Caminho do montagem**: O caminho absoluto no seu recipiente para montar o armazenamento personalizado.
 
-Para mais informações, consulte o conteúdo do Azure Storage no Serviço de [Aplicações no Linux](containers/how-to-serve-content-from-azure-storage.md).
+Para obter mais informações, veja [Fornecer conteúdo do Armazenamento do Microsoft Azure no Serviço de Aplicações no Linux](containers/how-to-serve-content-from-azure-storage.md).
 
 ## <a name="configure-language-stack-settings"></a>Configurar definições de pilha de idiomas
 

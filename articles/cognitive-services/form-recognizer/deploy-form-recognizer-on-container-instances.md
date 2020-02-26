@@ -1,34 +1,34 @@
 ---
-title: Executar contêiner do reconhecedor de formulário em instâncias de contêiner do Azure
+title: Executar recipiente de reconhecimento de formulário em instâncias de contentores azure
 titleSuffix: Azure Cognitive Services
-description: Implante o contêiner do reconhecedor de formulário em uma instância de contêiner do Azure e teste-o em um navegador da Web.
+description: Desloque o recipiente 'Reconhecimento de Formulários' para uma instância de contentores Azure e teste-o num navegador web.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 02/25/2020
 ms.author: dapine
-ms.openlocfilehash: 5d9ab7d12bd6c5fe59bf521aff2c07446ac2f038
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9a3456eb4d30aa8d163488f558b571dd97c73bf4
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717312"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605112"
 ---
-# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Implantar o contêiner do reconhecedor de formulário nas instâncias de contêiner do Azure
+# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Desloque o recipiente de reconhecimento de formulário para as instâncias do contentor de Azure
 
-Saiba como implantar o recipiente de reconhecimento de [formulários](form-recognizer-container-howto.md) de serviços cognitivos para as [instâncias](https://docs.microsoft.com/azure/container-instances/)do contentor azure . Este procedimento demonstra a criação de um recurso do reconhecedor do Azure Form. Em seguida, discutimos a extração da imagem de contêiner associada. Por fim, destacamos a capacidade de exercitar a orquestração dos dois em um navegador. O uso de contêineres pode mudar a atenção dos desenvolvedores para longe de gerenciar a infraestrutura para se concentrar no desenvolvimento de aplicativos.
+Saiba como implantar o recipiente de reconhecimento de [formulários](form-recognizer-container-howto.md) de serviços cognitivos para as [instâncias](https://docs.microsoft.com/azure/container-instances/)do contentor azure . Este procedimento demonstra a criação de um recurso De Reconhecimento de Formulários Azure. Depois discutimos a imagem do contentor associado. Finalmente, destacamos a capacidade de exercer a orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão da infraestrutura para, em vez disso, concentrar-se no desenvolvimento de aplicações.
 
 > [!IMPORTANT]
-> No momento, os contêineres do reconhecedor de formulário usam a versão 1,0 da API do reconhecedor de formulário. Você pode acessar a versão mais recente da API usando o serviço gerenciado em vez disso.
+> Os recipientes 'Reconhecimento de Formulários' utilizam atualmente a versão 1.0 da API do Reconhecimento de Formulários. Pode aceder à versão mais recente da API utilizando o serviço gerido.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registro de contêiner
+## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registo de contentores
 
-Primeiro deve completar e submeter o formulário de pedido de acesso aos recipientes de reconhecimento de formulários de [serviços cognitivos](https://aka.ms/FormRecognizerRequestAccess) para solicitar o acesso ao recipiente. Isso também se inscreve para Pesquisa Visual Computacional. Você não precisa se inscrever para o formulário de solicitação de Pesquisa Visual Computacional separadamente. 
+Primeiro deve completar e submeter o formulário de pedido de acesso aos recipientes de reconhecimento de formulários de [serviços cognitivos](https://aka.ms/FormRecognizerContainerRequestAccess) para solicitar o acesso ao recipiente. Ao fazê-lo também o inscreve para a Visão Computacional. Não precisa de se inscrever separadamente para o formulário de pedido de visão computacional. 
 
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
 

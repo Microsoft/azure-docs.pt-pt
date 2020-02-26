@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Este tutorial mostra-lhe como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente uma aplicação .NET Core no Serviço Azure Kubernetes
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: 353c8c1db5b5f7c6134388788799a6dccef69f9c
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: bcdae06af8c3f6314e94ba35f748a0b4352339ca
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538862"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605355"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Crie um espaço de v Kubernetes: Visual Studio Code e .NET Core com Espaços Azure Dev
 
@@ -61,7 +61,7 @@ az group create --name MyResourceGroup --location <region>
 Crie um cluster do Kubernetes com o seguinte comando:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 A criação do cluster demora alguns minutos.

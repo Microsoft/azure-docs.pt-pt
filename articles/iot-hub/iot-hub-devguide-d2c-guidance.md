@@ -1,6 +1,6 @@
 ---
-title: Opções de dispositivo-para-cloud do IoT Hub do Azure | Documentos da Microsoft
-description: Guia do desenvolvedor – documentação de orientação sobre quando utilizar mensagens de dispositivo para a cloud, as propriedades comunicadas ou carregamento de ficheiros para comunicações de cloud-para-dispositivo.
+title: Opções de dispositivo-para-nuvem Azure IoT Hub [ Azure IoT Hub] Microsoft Docs
+description: Guia de desenvolvedores - orientação sobre quando usar mensagens dispositivo-nuvem, propriedades reportadas ou upload de ficheiros para comunicações cloud-to-device.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -8,38 +8,38 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: fffa064b912a96b05feb901d1d2d44533c4681b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02dc1b55d85b7137a5c1f57999cc3b7e9b1efe29
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60885521"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591341"
 ---
-# <a name="device-to-cloud-communications-guidance"></a>Orientações de comunicações de dispositivo para a cloud
+# <a name="device-to-cloud-communications-guidance"></a>Orientação de comunicações dispositivo-nuvem
 
-Ao enviar informações a partir da aplicação de dispositivo para a solução de back-end, o IoT Hub expõe três opções:
+Ao enviar informações da aplicação do dispositivo para a extremidade traseira da solução, o IoT Hub expõe três opções:
 
-* [Mensagens do dispositivo para cloud](iot-hub-devguide-messages-d2c.md) de telemetria de série de tempo e alertas.
+* [Mensagens dispositivo-a-nuvem](iot-hub-devguide-messages-d2c.md) para telemetria e alertas da série de tempo.
 
-* [Dispositivo duplo do propriedades comunicadas](iot-hub-devguide-device-twins.md) por comunicarem as informações de estado do dispositivo, como recursos disponíveis, condições ou o estado dos fluxos de trabalho de longa execução. Por exemplo, configuração e atualizações de software.
+* [As propriedades reportadas pela Device Twin](iot-hub-devguide-device-twins.md) para reportar informações estatais do dispositivo, tais como capacidades disponíveis, condições ou o estado dos fluxos de trabalho de longo prazo. Por exemplo, configurações e atualizações de software.
 
-* [Carregamentos de ficheiros](iot-hub-devguide-file-upload.md) para suporte de dados de ficheiros e lotes de telemetria de grandes carregados por dispositivos ligados intermitentemente ou comprimido para poupar largura de banda.
+* [Uploads de ficheiros](iot-hub-devguide-file-upload.md) de ficheiros de ficheiros e grandes lotes de telemetria carregados por dispositivos intermitentemente ligados ou comprimidos para salvar a largura de banda.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Aqui está uma comparação detalhada das várias opções de comunicação do dispositivo para a cloud.
+Aqui está uma comparação detalhada das várias opções de comunicação dispositivo-nuvem.
 
-|  | Mensagens do dispositivo para a cloud | Propriedades comunicadas do dispositivo duplo | Carrega o ficheiro |
+|  | Mensagens do dispositivo para a cloud | Propriedades reportadas do dispositivo twin | Carrega o ficheiro |
 | ---- | ------- | ---------- | ---- |
-| Cenário | Série de tempo de telemetria e alertas. Por exemplo, os lotes de dados do sensor de 256 KB enviado a cada 5 minutos. | Funções disponíveis e condições. Por exemplo, o dispositivo conectividade modo atual, como rede móvel ou Wi-Fi. A sincronizar os fluxos de trabalho de longa execução, como atualizações de software e configuração. | Ficheiros de multimédia. Lotes grandes de telemetria (normalmente compactado). |
-| Armazenamento e recuperação | Temporariamente armazenada pelo IoT Hub, até 7 dias. Apenas leitura sequencial. | Armazenados pelo IoT Hub no dispositivo duplo. Recuperável utilizando o [linguagem de consulta do IoT Hub](iot-hub-devguide-query-language.md). | Armazenados na conta de armazenamento do Azure fornecidos pelo usuário. |
-| Tamanho | Até mensagens de 256 KB. | Tamanho de propriedades comunicadas máximo é de 8 KB. | Tamanho máximo suportado pelo armazenamento de Blobs do Azure. |
-| Frequência | Elevada. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). | Média. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). | Baixo. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). |
-| Protocol | Disponível em todos os protocolos. | Disponível com MQTT ou AMQP. | Estão disponíveis ao utilizar qualquer protocolo, mas requer HTTPS no dispositivo. |
+| Cenário | Telemetria série seleção e alertas. Por exemplo, os lotes de dados de sensores 256-KB enviados a cada 5 minutos. | Capacidades e condições disponíveis. Por exemplo, o atual modo de conectividade do dispositivo, como o telemóvel ou o WiFi. Sincronizar fluxos de trabalho de longo prazo, tais como configurações e atualizações de software. | Ficheiros da imprensa. Lotes de telemetria grandes (tipicamente comprimidos). |
+| Armazenamento e recuperação | Temporariamente armazenado pelo IoT Hub, até 7 dias. Só leitura sequencial. | Armazenado por IoT Hub no dispositivo twin. Recuperável utilizando a [linguagem de consulta IoT Hub](iot-hub-devguide-query-language.md). | Armazenado na conta de Armazenamento Azure fornecida pelo utilizador. |
+| Tamanho | Até 256-KB mensagens. | O tamanho máximo das propriedades reportadas é de 32 KB. | Tamanho máximo do ficheiro suportado pelo Armazenamento De Blob Azure. |
+| Frequência | Elevada. Para mais informações, consulte [os limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Média. Para mais informações, consulte [os limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Baixo. Para mais informações, consulte [os limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). |
+| Protocolo | Disponível em todos os protocolos. | Disponível através de MQTT ou AMQP. | Disponível quando utilizar qualquer protocolo, mas requer HTTPS no dispositivo. |
 
-Uma aplicação poderá ter de enviar informações tanto como um alerta ou uma série de tempo de telemetria e disponibilizá-la no dispositivo duplo. Neste cenário, pode escolher uma das seguintes opções:
+Uma aplicação pode ter de enviar informações tanto como uma série de horário sinuoso ou alerta e disponibilizá-la no dispositivo twin. Neste cenário, pode escolher uma das seguintes opções:
 
-* A aplicação de dispositivo envia uma mensagem de dispositivo para a cloud e relatórios uma alteração de propriedade.
-* A solução de back-end pode armazenar as informações de etiquetas do dispositivo duplo, ao receber a mensagem.
+* A aplicação do dispositivo envia uma mensagem de dispositivo para nuvem e reporta uma mudança de propriedade.
+* A extremidade traseira da solução pode armazenar a informação nas etiquetas do dispositivo twin quando recebe a mensagem.
 
-Uma vez que as mensagens do dispositivo para cloud ativar um débito mais elevado que as atualizações do dispositivo duplo de, por vezes, é desejável para evitar a atualizar o dispositivo duplo para todas as mensagens do dispositivo para a cloud.
+Uma vez que as mensagens dispositivo-nuvem permitem uma entrada muito mais elevada do que as atualizações gémeas do dispositivo, por vezes é desejável evitar atualizar o dispositivo twin para cada mensagem dispositivo-cloud.

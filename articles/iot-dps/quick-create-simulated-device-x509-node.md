@@ -1,6 +1,6 @@
 ---
-title: Provisionar o dispositivo X. 509 simulado no Hub IoT do Azure usando o Node. js
-description: Criar e provisionar um dispositivo X. 509 simulado usando o SDK do dispositivo node. js para o serviço de provisionamento de dispositivos do Hub IoT do Azure (DPS). Este guia de início rápido usa registros individuais.
+title: Provisão simulado dispositivo X.509 para O Hub Azure IoT usando Node.js
+description: Crie e forre um dispositivo SDK simulado com dispositivo Node.js para o Serviço de Provisionamento de Dispositivos Hub Azure IoT (DPS). Este quickstart usa matrículas individuais.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -9,25 +9,27 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 5a713018cb616fd1b82c253554932f6589185e0b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 746f4adbf616f95c21874d7c1c48881f88c38d34
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976473"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605403"
 ---
-# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Início rápido: criar e provisionar um dispositivo simulado X. 509 usando o SDK do dispositivo node. js para o serviço de provisionamento de dispositivos no Hub IoT
+# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e fornecer um dispositivo simulado X.509 utilizando o dispositivo Node.js SDK para o Serviço de Provisionamento de Dispositivos IoT Hub
+
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-Estes passos mostram como criar uma entrada de inscrição no Serviço de Aprovisionamento de Dispositivos, simular um dispositivo x.509 no seu computador de desenvolvimento, ligar o dispositivo simulado com o Serviço de Aprovisionamento de Dispositivos e registar o dispositivo no seu hub IoT com o [SDK de Dispositivo Node.js do Hub IoT](https://github.com/Azure/azure-iot-sdk-node).
+Neste arranque rápido, cria-se um dispositivo X.509 simulado num computador Windows. Utilize o código Node.js do dispositivo para ligar este dispositivo simulado ao seu hub IoT utilizando uma matrícula individual com o Serviço de Provisionamento de Dispositivos (DPS).
 
-Se não estiver familiarizado com o processo de aprovisionamento automático, reveja também [Conceitos de aprovisionamento automático](concepts-auto-provisioning.md). Certifique-se também de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
+## <a name="prerequisites"></a>Pré-requisitos
 
-O Serviço Aprovisionamento de Dispositivos no IoT do Azure suporta dois tipos de inscrição:
-- [Grupos de inscrição](concepts-service.md#enrollment-group): utilizados para inscrever vários dispositivos relacionados.
-- [Inscrições Individuais](concepts-service.md#individual-enrollment): utilizadas para inscrever um dispositivo individual.
-
-Este artigo irá demonstrar as inscrições individuais.
+- Revisão dos [conceitos de fornecimento automático.](concepts-auto-provisioning.md)
+- Conclusão do Serviço de Provisionamento de [Dispositivos IoT Hub com o portal Azure](./quick-setup-auto-provision.md).
+- Uma conta Azure com uma subscrição ativa. [Crie um de graça.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [Node.js v4.0+](https://nodejs.org).
+- [Git](https://git-scm.com/download/).
+- [Abre.](https://www.openssl.org/)
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -54,6 +56,12 @@ Nesta secção, vai utilizar um certificado X.509 autoassinado e é importante t
 
 Vai utilizar o código de exemplo do SDK do [Azure IoT para Node.js](https://github.com/Azure/azure-iot-sdk-node.git) para criar o certificado a ser utilizado na entrada de inscrição individual do dispositivo simulado.
 
+O Serviço Aprovisionamento de Dispositivos no IoT do Azure suporta dois tipos de inscrição:
+
+- [Grupos de inscrição](concepts-service.md#enrollment-group): utilizados para inscrever vários dispositivos relacionados.
+- [Inscrições individuais](concepts-service.md#individual-enrollment): Utilizado para inscrever um único dispositivo.
+
+Este artigo demonstra inscrições individuais.
 
 1. Abra uma linha de comandos. Clone o repositório do GitHub para os exemplos de código:
     
@@ -74,28 +82,28 @@ Vai utilizar o código de exemplo do SDK do [Azure IoT para Node.js](https://git
     node create_test_cert.js device {certificate-name}
     ```
 
-4. Entre no [portal do Azure](https://portal.azure.com), selecione o botão **todos os recursos** no menu esquerdo e abra a instância do serviço de provisionamento de dispositivos.
+4. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione o botão **Todos os recursos** no menu à esquerda e abra a sua instância de Serviço de Provisionamento de Dispositivos.
 
-5. No menu serviço de provisionamento de dispositivos, selecione **gerenciar registros**. Selecione a guia registros **individuais** e selecione o botão **adicionar registro individual** na parte superior. 
+5. A partir do menu do Serviço de Fornecimento de Dispositivos, selecione **Gerir as matrículas.** Selecione o separador **Individual Registrations** e selecione o botão **de inscrição individual Adicionar** na parte superior. 
 
-6. No painel **adicionar registro** , insira as seguintes informações:
+6. No painel **Adicionar Inscrições,** introduza as seguintes informações:
    - Selecione **X.509** como o *Mecanismo* de atestado de identidades.
-   - No *arquivo. PEM ou. cer do certificado primário*, escolha *selecionar um arquivo* para selecionar o arquivo de certificado **{nome-do-certificado} _cert. pem** criado nas etapas anteriores.  
+   - Sob o *certificado primário .pem ou .cer file,* escolha *Selecione um ficheiro* para selecionar o ficheiro de certificado **{nome de certificado}_cert.pem** criado nas etapas anteriores.  
    - Opcionalmente, pode fornecer as seguintes informações:
      - Selecione um hub IoT ligado ao seu serviço de aprovisionamento.
      - Introduza um ID de dispositivo exclusivo. Certifique-se de que evita dados confidenciais quando der o nome ao seu dispositivo. 
      - Atualize o **estado inicial do dispositivo duplo** com a configuração inicial pretendida para o dispositivo.
-     - Depois de concluído, pressione o botão **salvar** . 
+     - Uma vez concluído, prima o botão **Guardar.** 
 
      [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
-     Após o registro bem-sucedido, o dispositivo X. 509 aparece como **{CertificateName}** na coluna *ID de registro* na guia registros *individuais* . Observe esse valor para mais tarde.
+     Na inscrição bem sucedida, o seu dispositivo X.509 aparece como **{certificatename}** sob a coluna *de IDENTIFICAÇÃO de Registo* no separador Individual *Registration.*
 
 ## <a name="simulate-the-device"></a>Simular o dispositivo
 
 O [SDK de Dispositivo Node.js do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-node) fornece uma forma fácil de simular um dispositivo. Para leitura adicional, veja [Conceitos do dispositivo](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
-1. Na portal do Azure, selecione a folha **visão geral** para o serviço de provisionamento de dispositivos e anote os valores do **_ponto de extremidade do dispositivo GLobal_** e do **_escopo da ID_** .
+1. No portal Azure, selecione a lâmina **de visão geral** para o seu serviço de fornecimento de dispositivos e note os valores de Endpoint e Id **_Scope_** do **_dispositivo GLobal._**
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
 
@@ -115,8 +123,8 @@ O [SDK de Dispositivo Node.js do Hub IoT do Azure](https://github.com/Azure/azur
 
 4. Edite o ficheiro **register\_x509.js**. Guarde o ficheiro depois de efetuar as seguintes alterações.
     - Substitua `provisioning host` pelo **_Ponto Final do Dispositivo Global_** indicado no **Passo 1** acima.
-    - Substitua `id scope` pelo **_escopo da ID_** anotado na **etapa 1** acima. 
-    - Substitua `registration id` pela **_ID de registro_** anotada na seção anterior.
+    - Substitua `id scope` pelo âmbito de **_identificação_** indicado no **passo 1** acima. 
+    - Substitua `registration id` pelo ID de **_registo_** anotado na secção anterior.
     - Substitua `cert filename` e `key filename` pelos ficheiros que copiou no **Passo 2** acima. 
 
 5. Execute o script e verifique se o dispositivo foi aprovisionado com êxito.
@@ -125,7 +133,7 @@ O [SDK de Dispositivo Node.js do Hub IoT do Azure](https://github.com/Azure/azur
     node register_x509.js
     ```   
 
-6. No portal, navegue até o Hub IoT vinculado ao serviço de provisionamento e abra a folha **dispositivos IOT** . No provisionamento bem-sucedido do dispositivo X. 509 simulado para o Hub, sua ID de dispositivo aparecerá na folha **dispositivos IOT** , com *status* como **habilitado**. Talvez seja necessário pressionar o botão **Atualizar** na parte superior se você já abriu a folha antes de executar o aplicativo de dispositivo de exemplo. 
+6. No portal, navegue para o hub IoT ligado ao seu serviço de provisionamento e abra a lâmina dos **dispositivos IoT.** Ao fornecer com sucesso o dispositivo Simulado X.509 ao hub, o seu ID do dispositivo aparece na lâmina dos **dispositivos IoT,** com o *STATUS* tal como **está ativado**. Poderá ter de premir o botão **Refresh** na parte superior se já abriu a lâmina antes de executar a aplicação do dispositivo de amostra. 
 
     ![O dispositivo é registado no hub IoT](./media/quick-create-simulated-device-x509-node/hubregistration.png) 
 
@@ -134,16 +142,16 @@ O [SDK de Dispositivo Node.js do Hub IoT do Azure](https://github.com/Azure/azur
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você planeja continuar trabalhando e explorando o exemplo de cliente do dispositivo, não limpe os recursos criados neste guia de início rápido. Se você não planeja continuar, use as etapas a seguir para excluir todos os recursos criados por este guia de início rápido.
+Se pretende continuar a trabalhar e a explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste arranque rápido. Se não pretende continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
-2. No menu à esquerda na portal do Azure, selecione **todos os recursos** e, em seguida, selecione o serviço de provisionamento de dispositivos. Abra a folha **gerenciar registros** para seu serviço e, em seguida, selecione a guia registros **individuais** . Marque a caixa de seleção ao lado da *ID de registro* do dispositivo registrado neste guia de início rápido e pressione o botão **excluir** na parte superior do painel. 
-3. No menu à esquerda na portal do Azure, selecione **todos os recursos** e, em seguida, selecione o Hub IOT. Abra a folha **dispositivos IOT** para o Hub, marque a caixa de seleção ao lado da *ID do dispositivo* que você registrou neste guia de início rápido e pressione o botão **excluir** na parte superior do painel.
+2. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de fornecimento de dispositivos. Abra a lâmina **'Gerir as Matrículas'** para o seu serviço e, em seguida, selecione o separador Individual **Registration.** 
+3. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu hub IoT. Abra a lâmina dos **dispositivos IoT** para o seu hub, selecione a caixa de verificação ao lado do *DISPOSITIVO ID* do dispositivo que registou neste arranque rápido e, em seguida, pressione o botão **Apagar** na parte superior do painel.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou um dispositivo X. 509 simulado e o provisionou no Hub IoT usando o serviço de provisionamento de dispositivos no Hub IoT do Azure no Portal. Para saber como registrar seu dispositivo X. 509 de forma programática, continue no início rápido para o registro programático de dispositivos X. 509. 
+Neste arranque rápido, criou um dispositivo X.509 simulado e aprovisionou-o ao seu hub IoT utilizando o Serviço de Provisionamento de Dispositivos Azure IoT Hub no portal. Para aprender a inscrever o seu dispositivo X.509 programáticamente, continue a acelerar para a inscrição programática de dispositivos X.509. 
 
 > [!div class="nextstepaction"]
-> [Início rápido do Azure-registrar dispositivos X. 509 no serviço de provisionamento de dispositivos no Hub IoT do Azure](quick-enroll-device-x509-node.md)
+> [Azure quickstart - Inscreva dispositivos X.509 para o Serviço de Provisionamento de Dispositivos Hub Azure IoT](quick-enroll-device-x509-node.md)

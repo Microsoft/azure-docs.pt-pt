@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 990cb2eef7e0f575de3e510abc38bcc2e3172477
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 755ea3ea3c246a1fa9fb7d514569c6fcecc0c04c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485391"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598719"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos para máquinas virtuais Windows em Azure
 
-Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtuais Azure que pode utilizar para executar as suas aplicações e cargas de trabalho do Windows. Também fornece considerações de implantação para estar ciente de quando você está planejando usar estes recursos.  Este artigo também está disponível para [máquinas virtuais Linux.](/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtuais Azure que pode utilizar para executar as suas aplicações e cargas de trabalho do Windows. Também fornece considerações de implantação para estar ciente de quando você está planejando usar estes recursos.  Este artigo também está disponível para [máquinas virtuais Linux.](../linux/sizes.md)
 
 | Tipo | Tamanhos | Descrição |
 |------|-------|-------------|
@@ -55,7 +55,7 @@ Saiba mais sobre como as unidades de [computação Azure (ACU)](../acu.md) podem
 
 Saiba mais sobre o desempenho da computação para VMs windows utilizando as pontuações de [referência coreMark](compute-benchmark-scores.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os diferentes tamanhos vm que estão disponíveis:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 0c7ca6236adc5a476fbcf2bfbd54f4cc283bd607
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 7d382ace16305d38b9a65b3a857fd27dfa9e3a2b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201967"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603876"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Centro de Segurança do Azure e Máquinas Virtuais do Azure com Linux
 O [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/) ajuda-o a evitar, detetar e responder a ameaças. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
@@ -46,7 +46,7 @@ Para começar a utilizar o Centro de Segurança do Azure, terá de conhecer e co
 
 * Precisa de uma subscrição do Microsoft Azure. Consulte [Security Center Pricing (Preços do Centro de Segurança)](https://azure.microsoft.com/pricing/details/security-center/), para obter mais informações sobre as camadas gratuitas e standard do Centro de Segurança.
 * Planeie a adoção do Centro de Segurança, consulte [Azure Security Center planning and operations guide (Guia de planeamento e funcionamento do Centro de Segurança do Azure)](security-center-planning-and-operations-guide.md), para saber mais sobre as considerações de planeamento e funcionamento.
-* Para informações sobre a suportabilidade do sistema operativo, consulte [Azure Security Center frequently asked questions (FAQ) (Perguntas mais frequentes do Centro de Segurança do Azure (FAQ))](security-center-faq.md). 
+* Para informações sobre a suportabilidade do sistema operativo, consulte [Azure Security Center frequently asked questions (FAQ) (Perguntas mais frequentes do Centro de Segurança do Azure (FAQ))](faq-vms.md). 
 
 ## <a name="set-security-policy"></a>Definir política de segurança
 A recolha de dados tem de ser ativada para que o Centro de Segurança do Azure possa recolher as informações que necessita para fornecer recomendações e alertas que são gerados com base na política de segurança configurada por si. Na imagem abaixo, pode ver que a **Recolha de dados** foi **Ativada**.
@@ -70,7 +70,7 @@ Após definir uma política de segurança, o Centro de Segurança analisa o esta
 | Remediar vulnerabilidades do SO|Recomenda-se que alinhe as configurações do SO com as regras de configuração recomendadas, por exemplo, não permitir que as palavras-passe sejam guardadas. |
 | Aplicar atualizações do Sistema|Recomenda-se que implemente o sistema de segurança em falta e atualizações críticas nas VMs. |
 | Reiniciar após atualizações do sistema|Recomenda-se que reinicie uma VM para concluir o processo de aplicar atualizações do sistema. |
-| Ativar Agente VM|Permite-lhe ver as VMs que necessitam do Agente de VM. O Agente de VM tem de estar instalado em VMs para aprovisionar a análise de patch, a análise de linha de base e os programas de antimalware. O Agente de VM é instalado por predefinição em VMs que são implementadas a partir do Azure Marketplace. O artigo [VM Agent and Extensions – Part 2 (Agente de VM e Extensões – Parte 2)](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornece informações sobre como instalar o Agente de VM. |
+| Ativar o Agente de VM|Permite-lhe ver as VMs que necessitam do Agente de VM. O Agente de VM tem de estar instalado em VMs para aprovisionar a análise de patch, a análise de linha de base e os programas de antimalware. O Agente de VM é instalado por predefinição em VMs que são implementadas a partir do Azure Marketplace. O artigo [VM Agent and Extensions – Part 2 (Agente de VM e Extensões – Parte 2)](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornece informações sobre como instalar o Agente de VM. |
 | Aplicar encriptação de discos |Recomenda-se que encripte os discos da VM com o Azure Disk Encryption (VMs Windows e Linux). A encriptação é recomendada para o SO e os volumes de dados na sua VM. |
 
 
@@ -105,5 +105,5 @@ Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
-* [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
+* [FAQ - Máquinas Virtuais](faq-vms.md) -- Encontre perguntas frequentes sobre a utilização do serviço.
 

@@ -1,19 +1,18 @@
 ---
 author: paulbouwer
-ms.service: container-service
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: da4b56fb879ce108e00a40e5a26a441e330793c6
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: e8b94b4adc39de81dbdf17dfd24fcff39532b482
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530618"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594030"
 ---
-### <a name="add-grafana-secret"></a>Adicionar segredo Grafana
+### <a name="add-grafana-secret"></a>Adicionar Segredo de Grafana
 
-Substitua o token `REPLACE_WITH_YOUR_SECURE_PASSWORD` pela sua senha e execute os seguintes comandos:
+Substitua o símbolo `REPLACE_WITH_YOUR_SECURE_PASSWORD` pela sua palavra-passe e execute os seguintes comandos:
 
 ```bash
 GRAFANA_USERNAME=$(echo -n "grafana" | base64)
@@ -34,9 +33,9 @@ data:
 EOF
 ```
 
-### <a name="add-kiali-secret"></a>Adicionar segredo Kiali
+### <a name="add-kiali-secret"></a>Adicionar Segredo Kiali
 
-Substitua o token `REPLACE_WITH_YOUR_SECURE_PASSWORD` pela sua senha e execute os seguintes comandos:
+Substitua o símbolo `REPLACE_WITH_YOUR_SECURE_PASSWORD` pela sua palavra-passe e execute os seguintes comandos:
 
 ```bash
 KIALI_USERNAME=$(echo -n "kiali" | base64)

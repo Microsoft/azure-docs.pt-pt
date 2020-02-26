@@ -1,63 +1,60 @@
 ---
-title: Atualizar um cluster do AKS (serviço kubernetes do Azure)
-description: Saiba como atualizar um cluster do AKS (serviço kubernetes do Azure)
+title: Atualizar um cluster azure Kubernetes Service (AKS)
+description: Saiba como atualizar um cluster do Serviço Azure Kubernetes (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: mlearned
-ms.openlocfilehash: e1ef87471c81fbf0d242837bd94fdc17f686387f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 9acf08765ee42401229bc464b4513856127e9f66
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889407"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592990"
 ---
-# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do AKS (serviço kubernetes do Azure)
+# <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster azure Kubernetes Service (AKS)
 
-Como parte do ciclo de vida de um cluster AKS, você geralmente precisa atualizar para a versão mais recente do kubernetes. É importante que você aplique as últimas versões de segurança do kubernetes ou atualize para obter os recursos mais recentes. Este artigo mostra como atualizar os componentes mestres ou um único pool de nós padrão em um cluster AKS.
+Como parte do ciclo de vida de um cluster AKS, muitas vezes precisa de fazer upgrade para a versão mais recente da Kubernetes. É importante que aplique os mais recentes lançamentos de segurança da Kubernetes ou atualize para obter as funcionalidades mais recentes. Este artigo mostra-lhe como atualizar os componentes principais ou um único conjunto de nós padrão num cluster AKS.
 
-Para clusters AKS que usam vários pools de nó ou nós do Windows Server (atualmente em visualização no AKS), consulte [atualizar um pool de nós no AKs][nodepool-upgrade].
+Para os clusters AKS que utilizam várias piscinas de nós ou nós do Windows Server (atualmente em pré-visualização no AKS), consulte [Atualização de um conjunto][nodepool-upgrade]de nós em AKS .
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer que você esteja executando o CLI do Azure versão 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Este artigo requer que esteja a executar a versão Azure CLI 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 > [!WARNING]
-> Uma atualização do cluster AKS dispara um Cordon e dreno de seus nós. Se você tiver uma cota de computação baixa disponível, a atualização poderá falhar.  Consulte [aumentar cotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para obter mais informações.
-> Se você estiver executando sua própria implantação de autodimensionamento de cluster, desabilite-a (você pode dimensioná-la para zero réplicas) durante a atualização, pois há uma chance de que ela interfira no processo de atualização. O dimensionador automático gerenciado manipula isso automaticamente. 
+> Uma atualização do cluster AKS dispara um cordão e um dreno dos seus nós. Se tiver uma quota de cálculo baixa disponível, a atualização pode falhar.  Veja [o aumento das quotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para mais informações.
+> Se estiver a executar a sua própria implementação de autoescalar de cluster, desative-o (pode dimensioná-lo para réplicas zero) durante a atualização, uma vez que existe a possibilidade de interferir com o processo de atualização. O autoscaler gerido trata-o automaticamente. 
 
-## <a name="check-for-available-aks-cluster-upgrades"></a>Verificar atualizações de cluster do AKS disponíveis
+## <a name="check-for-available-aks-cluster-upgrades"></a>Verifique se há atualizações de cluster AKS disponíveis
 
-Para verificar quais versões do kubernetes estão disponíveis para o cluster, use o comando [AZ AKs Get-upgrades][az-aks-get-upgrades] . O exemplo a seguir verifica se há atualizações disponíveis para o cluster chamado *myAKSCluster* no grupo de recursos chamado *MyResource*Group:
+Para verificar quais os lançamentos da Kubernetes disponíveis para o seu cluster, utilize o comando de [atualizações az aks.][az-aks-get-upgrades] Verifica o seguinte exemplo das atualizações disponíveis para o cluster denominado *myAKSCluster* no grupo de recursos chamado *myResourceGroup:*
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 > [!NOTE]
-> Quando você atualiza um cluster AKS, as versões secundárias do kubernetes não podem ser ignoradas. Por exemplo, as atualizações *entre 1.12. x* -> *1.13.* x ou *1.13. x* -> *1.14. x* são permitidas; no entanto, *1.12. x* -> *1.14. x* não é.
+> Ao atualizar um cluster AKS, as versões menores da Kubernetes não podem ser ignoradas. Por exemplo, são permitidas atualizações entre *1.12.x* -> *1,13.x* ou *1,13.x* -> *1,14.x,* no entanto *1.12.x* -> *1,14.x* não é.
 >
-> Para atualizar, de *1.12. x* -> *1.14. x*, primeiro atualize de *1.12. x* -> *1.13. x*e, em seguida, atualize de *1.13. x* -> *1.14. x*.
+> Para atualizar, a partir de *1.12.x* -> *1.14.x*, primeira atualização de *1.12.x* -> *1,13.x*, em seguida, atualize de *1.13.x* -> *1,14.x*.
 
-A saída de exemplo a seguir mostra que o cluster pode ser atualizado para as versões *1.13.9* e *1.13.10*:
+A saída de exemplo seguinte mostra que o cluster pode ser atualizado para as versões *1.13.9* e *1.13.10:*
 
 ```console
 Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
 -------  ----------------  ---------------  -----------------  ---------------
 default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 ```
-Se nenhuma atualização estiver disponível, você receberá:
+Se não houver atualização disponível, obterá:
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>Atualizar um cluster do AKS
 
-Com uma lista de versões disponíveis para o cluster AKS, use o comando [AZ AKs upgrade][az-aks-upgrade] para atualizar. Durante o processo de atualização, o AKS adiciona um novo nó ao cluster que executa a versão especificada do kubernetes, depois cuidadosamente [Cordon e esvazia][kubernetes-drain] um dos nós antigos para minimizar a interrupção na execução de aplicativos. Quando o novo nó é confirmado como executando pods de aplicativo, o nó antigo é excluído. Esse processo se repete até que todos os nós no cluster tenham sido atualizados.
+Com uma lista de versões disponíveis para o seu cluster AKS, use o comando de [upgrade az aks][az-aks-upgrade] para atualizar. Durante o processo de atualização, o AKS adiciona um novo nó ao cluster que executa a versão especificada de Kubernetes, em seguida, [cuidadosamente cordon e drena][kubernetes-drain] um dos nódosos antigos para minimizar a perturbação nas aplicações de execução. Quando o novo nó é confirmado como cápsulas de aplicação em execução, o nó antigo é apagado. Este processo repete-se até que todos os nós do cluster tenham sido atualizados.
 
-O exemplo a seguir atualiza um cluster para a versão *1.13.10*:
+O exemplo seguinte atualiza um cluster para a versão *1.13.10:*
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
@@ -66,15 +63,15 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 Leva alguns minutos para atualizar o cluster, dependendo de quantos nós você tem. 
 
 > [!NOTE]
-> Há um tempo total permitido para a conclusão de uma atualização de cluster. Esse tempo é calculado por meio do produto de `10 minutes * total number of nodes in the cluster`. Por exemplo, em um cluster de 20 nós, as operações de atualização devem ter êxito em 200 minutos ou AKS falhará na operação para evitar um estado de cluster irrecuperável. Para recuperar em caso de falha de atualização, repita a operação de atualização depois que o tempo limite tiver sido atingido.
+> Há um tempo total permitido para que um upgrade de cluster seja concluído. Este tempo é calculado tomando o produto de `10 minutes * total number of nodes in the cluster`. Por exemplo, num cluster de 20 nós, as operações de atualização devem ter sucesso em 200 minutos ou o AKS falhará a operação para evitar um estado de cluster não recuperável. Para recuperar a falha de atualização, tente novamente a operação de atualização após o tempo de paragem.
 
-Para confirmar que a atualização foi bem-sucedida, use o comando [AZ AKs show][az-aks-show] :
+Para confirmar que a atualização foi bem sucedida, use o comando [do az aks show:][az-aks-show]
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-A saída de exemplo a seguir mostra que o cluster agora executa *1.13.10*:
+A saída de exemplo que se segue mostra que o cluster funciona agora em *1.13.10:*
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
@@ -84,10 +81,10 @@ myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded      
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo mostrou como atualizar um cluster AKS existente. Para saber mais sobre como implantar e gerenciar clusters AKS, confira o conjunto de tutoriais.
+Este artigo mostrou-lhe como atualizar um cluster AKS existente. Para saber mais sobre a implantação e gestão de clusters AKS, consulte o conjunto de tutoriais.
 
 > [!div class="nextstepaction"]
-> [Tutoriais do AKS][aks-tutorial-prepare-app]
+> [Tutoriais AKS][aks-tutorial-prepare-app]
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

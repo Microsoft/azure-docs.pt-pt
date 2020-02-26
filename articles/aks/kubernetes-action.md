@@ -3,22 +3,21 @@ title: Construir, testar e colocar contentores no Serviço Azure Kubernetes util
 description: Saiba como usar as Ações GitHub para implantar o seu contentor na Kubernetes
 services: container-service
 author: azooinmyluggage
-ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: 62fcdf01250728cf84726db7e9b39452a4d4e5ff
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046353"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595370"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Ações gitHub para implantação para o serviço Kubernetes
 
 [GitHub Actions](https://help.github.com/en/articles/about-github-actions) dá-lhe a flexibilidade para construir um fluxo de trabalho de ciclo de vida de desenvolvimento de software automatizado. A ação kubernetes [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) facilitar as implantações nos clusters do Serviço Azure Kubernetes. A ação define o contexto de cluster AKS alvo, que poderia ser usado por outras ações como [azure/k8s-deploy,](https://github.com/Azure/k8s-deploy/tree/master) [azure/k8s-create-secret](https://github.com/Azure/k8s-create-secret/tree/master) etc. ou executar quaisquer comandos kubectl.
 
-Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho `/.github/workflows/` no seu repositório. Essa definição contém as várias etapas e parâmetros que compõem o fluxo de trabalho.
+Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho `/.github/workflows/` no seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
 
 Para um fluxo de trabalho direcionado para aks, o ficheiro tem três secções:
 
@@ -49,7 +48,7 @@ No comando acima, substitua os espaços reservados pelo seu ID de subscrição e
     (...)
   }
 ```
-Copie esse objeto JSON, que você pode usar para autenticar do GitHub.
+Copie este objeto JSON, que pode usar para autenticar a partir do GitHub.
 
 ## <a name="configure-the-github-secrets"></a>Configure os segredos do GitHub
 
@@ -57,7 +56,7 @@ Siga os passos para configurar os segredos:
 
 1. No [GitHub,](https://github.com/)navegue até ao seu repositório, selecione **Definições > Secrets > Adicione um novo segredo**.
 
-    ![confidenciais](media/kubernetes-action/secrets.png)
+    ![segredos](media/kubernetes-action/secrets.png)
 
 2. Colar o conteúdo do comando `az cli` acima como o valor da variável secreta. Por exemplo, `AZURE_CREDENTIALS`.
 

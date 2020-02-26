@@ -1,6 +1,6 @@
 ---
-title: Aplicar a criptografia de disco na central de segurança do Azure | Microsoft Docs
-description: Este documento mostra como implementar a recomendação da central de segurança do Azure para **aplicar a criptografia de disco**.
+title: Aplicar encriptação de disco no Azure Security Center Microsoft Docs
+description: Este documento mostra-lhe como implementar a recomendação do Azure Security Center **Aplicar encriptação**de disco .
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,54 +13,53 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: aa4e8f165320327788255605470bda789047c347
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d0f96fe758966a435f8fb8e448e75cbb18b85122
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592500"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604522"
 ---
-# <a name="apply-disk-encryption-in-azure-security-center"></a>Aplicar a criptografia de disco na central de segurança do Azure
-A central de segurança do Azure recomenda que você aplique a criptografia de disco se tiver discos de VM do Windows ou Linux que não são criptografados usando Azure Disk Encryption. A criptografia de disco permite criptografar seus discos de VM IaaS Windows e Linux.  A encriptação é recomendada para o SO e os volumes de dados na sua VM.
+# <a name="apply-disk-encryption-in-azure-security-center"></a>Aplicar encriptação de disco no Centro de Segurança Azure
+O Azure Security Center recomenda que aplique encriptação de disco se tiver discos Windows ou Linux VM que não sejam encriptados utilizando encriptação do disco Azure. A Encriptação do Disco permite-lhe encriptar os discos VM Do Windows e do Linux IaaS.  A encriptação é recomendada para o SO e os volumes de dados na sua VM.
 
-A criptografia de disco usa o recurso padrão do setor [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux. Esses recursos fornecem sistema operacional e criptografia de dados para ajudar a proteger e proteger seus dados e atender aos compromissos de conformidade e segurança da organização. A criptografia de disco é integrada com [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e os segredos em sua assinatura do Key Vault, garantindo que todos os dados nos discos de VM sejam criptografados em repouso no [armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/).
+A Encriptação do Disco utiliza a funcionalidade [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão da indústria do Windows e a funcionalidade [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux. Estas funcionalidades fornecem os sistemas operativos e encriptação de dados para ajudar a proteger e salvaguardar os seus dados e cumprir os seus compromissos de segurança organizacional e conformidade. A encriptação do disco está integrada com o [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco na subscrição do Key Vault, garantindo ao mesmo tempo que todos os dados dos discos VM estão encriptados em repouso no seu [Armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/).
 
 > [!NOTE]
-> Há suporte para o Azure Disk Encryption nos seguintes sistemas operacionais Windows Server-Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. A criptografia de disco tem suporte nos seguintes sistemas operacionais de servidor Linux-Ubuntu, CentOS, SUSE e SUSE Linux Enterprise Server (SLES).
+> A Encriptação do Disco Azure é suportada nos seguintes sistemas operativos do servidor Windows - Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. A encriptação do disco é suportada nos seguintes sistemas operativos do servidor Linux - Ubuntu, CentOS, SUSE e SUSE Linux Enterprise Server (SLES).
 >
 >
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
-1. Na folha **recomendações** , selecione **aplicar criptografia de disco**.
-2. Na folha **aplicar criptografia de disco** , você verá uma lista de VMs para as quais a criptografia de disco é recomendada.
-3. Siga as instruções para aplicar a criptografia a essas VMs.
+1. Na lâmina **de recomendações,** selecione **Aplicar encriptação**do disco .
+2. Na lâmina de encriptação do **disco Apply,** vê-se uma lista de VMs para os quais é recomendada a encriptação do disco.
+3. Siga as instruções para aplicar a encriptação a estes VMs.
 
 ![][1]
 
-Para criptografar as máquinas virtuais do Azure que foram identificadas pela central de segurança como necessidade de criptografia, recomendamos as seguintes etapas:
+Para encriptar as Máquinas Virtuais Azure que foram identificadas pelo Security Center como necessitando de encriptação, recomendamos os seguintes passos:
 
-* Instalar e configurar o Azure PowerShell. Isso permite que você execute os comandos do PowerShell necessários para configurar os pré-requisitos necessários para criptografar as máquinas virtuais do Azure.
-* Obtenha e execute o script Azure Disk Encryption pré-requisitos Azure PowerShell.
-* Criptografe suas máquinas virtuais.
+* Instalar e configurar o Azure PowerShell. Isto permite-lhe executar os comandos PowerShell necessários para configurar os pré-requisitos necessários para encriptar as Máquinas Virtuais Azure.
+* Obtenha e execute o script de encriptação azure disk pré-requisitos Azure PowerShell.
+* Criptografe as suas máquinas virtuais.
 
-[Criptografar uma VM IaaS do Windows com o Azure PowerShell](../virtual-machines/windows/disk-encryption-powershell-quickstart.md) orienta você durante essas etapas. Este tópico pressupõe que você esteja usando um computador cliente Windows do qual você configura a criptografia de disco.
+[Criptografe um VM Windows IaaS com O PowerShell Azure](../virtual-machines/windows/disk-encryption-powershell-quickstart.md) percorre-o através destes passos. Este tópico pressupõe que está a utilizar uma máquina cliente do Windows a partir da qual configura a encriptação do disco.
 
-Há muitas abordagens que podem ser usadas para máquinas virtuais do Azure. Se já estiver bem familiarizado com o Azure PowerShell ou o CLI do Azure, pode preferir utilizar abordagens alternativas. Para saber mais sobre essas outras abordagens, consulte [Azure Disk Encryption](../security/fundamentals/encryption-overview.md).
+Existem muitas abordagens que podem ser usadas para máquinas virtuais Azure. Se já estiver bem familiarizado com o Azure PowerShell ou o CLI do Azure, pode preferir utilizar abordagens alternativas. Para conhecer estas outras abordagens, consulte a encriptação do [disco Azure.](../security/fundamentals/encryption-overview.md)
 
-## <a name="see-also"></a>Ver também
-Este documento mostrou como implementar a recomendação da central de segurança "aplicar criptografia de disco". Para saber mais sobre a criptografia de disco, consulte o seguinte:
+## <a name="see-also"></a>Consulte também
+Este documento mostrou-lhe como implementar a recomendação do Centro de Segurança "Aplicar encriptação de disco". Para saber mais sobre encriptação de disco, consulte o seguinte:
 
-* [Criptografia e gerenciamento de chaves com Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (vídeo, 36 min 39 s) – saiba como usar o gerenciamento de criptografia de disco para VMs de IaaS e Azure Key Vault para ajudar a proteger e proteger seus dados.
-* [Azure Disk Encryption](../security/fundamentals/encryption-overview.md) (documento) – saiba como habilitar a criptografia de disco para VMs Windows e Linux.
+* [Encriptação e gestão](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) de chaves com Cofre chave Azure (vídeo, 36 min 39 seg) -- Aprenda a usar a gestão de encriptação do disco para VMs IaaS e Cofre chave Azure para ajudar a proteger e proteger os seus dados.
+* [Encriptação](../security/fundamentals/encryption-overview.md) de disco azure (documento) -- Aprenda a ativar a encriptação do disco para VMs Windows e Linux.
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md) – saiba como configurar políticas de segurança.
-* [Monitoramento de integridade de segurança na central de segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
+* Definir políticas de segurança no Centro de [Segurança Azure.](tutorial-security-policy.md)
+* [Monitorização](security-center-monitoring.md) de saúde de segurança no Centro de Segurança Azure.- Aprenda a monitorizar a saúde dos seus recursos Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
-* [Gerenciando recomendações de segurança na central de segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger seus recursos do Azure.
-* [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) --encontre postagens no blog sobre a segurança e a conformidade do Azure.
+* [Gerir recomendações](security-center-recommendations.md) de segurança no Azure Security Center -- Saiba como as recomendações ajudam a proteger os seus recursos Azure.
+* [Blog Azure Security](https://blogs.msdn.com/b/azuresecurity/) -- Encontre posts de blog sobre segurança e conformidade do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png

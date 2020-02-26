@@ -3,12 +3,12 @@ title: referência host.json para funções Azure 2.x
 description: Documentação de referência para o ficheiro host.json funções azure com o tempo de funcionamento v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: b9c57378df1510179c5a45b6aa669bab804aca5e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 949d4f2c5d8c1d8034ccc392915bc40f1f2fddda
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484439"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605131"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência host.json para funções Azure 2.x e mais tarde 
 
@@ -184,7 +184,7 @@ Para obter mais informações sobre instantâneos, consulte [as imagens do Debug
 |Propriedade | Predefinição | Descrição |
 | --------- | --------- | --------- | 
 | agenteEndpoint | nulo | O ponto final usado para ligar ao serviço Application Insights Snapshot Debugger. Se nulidade, é utilizado um ponto final predefinido. |
-| capturarSnapshotMemoryWeight | 0.5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar uma foto. O valor esperado é de uma fração superior a 0 (0 < CaptureSnapshotMemoryWeight < 1). |
+| capturarSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar uma foto. O valor esperado é de uma fração superior a 0 (0 < CaptureSnapshotMemoryWeight < 1). |
 | falhadoRequestLimit | 3 | O limite do número de pedidos falhados para solicitar instantâneos antes de o processador de telemetria ser desativado.|
 | handleUntrackedExceps | true | Permite ou desativa o rastreio de exceções que não são rastreadas pela telemetria Application Insights. |
 | isEnabled | true | Permite ou desativa a recolha de instantâneos | 
@@ -208,7 +208,7 @@ Para obter mais informações sobre instantâneos, consulte [as imagens do Debug
 
 ## <a name="cosmosdb"></a>cosmosDb
 
-A configuração de configuração pode ser encontrada em [gatilhos e encadernações Cosmos DB](functions-bindings-cosmosdb-v2.md#host-json).
+A configuração de configuração pode ser encontrada em [gatilhos e encadernações Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
 
 ## <a name="durabletask"></a>tarefa durável
 
@@ -216,7 +216,7 @@ A definição de configuração pode ser encontrada em [encadernações para fun
 
 ## <a name="eventhub"></a>eventHub
 
-As definições de configuração podem ser encontradas em [gatilhos e encadernações do Event Hub](functions-bindings-event-hubs.md#host-json). 
+As definições de configuração podem ser encontradas em [gatilhos e encadernações do Event Hub](functions-bindings-event-hubs-output.md#host-json). 
 
 ## <a name="extensions"></a>extensões
 
@@ -304,10 +304,10 @@ Controla os comportamentos de registo da aplicação de função, incluindo os I
 |---------|---------|---------|
 |fileLoggingMode|debugsó|Define o nível de registo de ficheiros ativado.  As opções são `never`, `always`, `debugOnly`. |
 |logLevel|n/d|Objeto que define a categoria de log filtrando funções na aplicação. Versões 2.x e, posteriormente, siga o layout ASP.NET Core para filtragem da categoria de log. Esta definição permite filtrar o registo para funções específicas. Para mais informações, consulte a [filtragem](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) de Registo na documentação do Núcleo de ASP.NET. |
-|console|n/d| A definição de registo da [consola.](#console) |
+|consola|n/d| A definição de registo da [consola.](#console) |
 |applicationInsights|n/d| A definição [de applicationInsights.](#applicationinsights) |
 
-## <a name="console"></a>console
+## <a name="console"></a>consola
 
 Esta definição é uma criança de [exploração madeireira.](#logging) Controla o registo da consola quando não está em modo de depuração.
 
@@ -375,7 +375,7 @@ Definições de configuração para o comportamento de bloqueio de Singleton. Pa
 |lockAcquisitionTimeout|00:01:00|O tempo máximo de tempo que o tempo de execução tentará adquirir um cadeado.| 
 |lockAcquisitionPollingInterval|n/d|O intervalo entre tentativas de aquisição de fechaduras.| 
 
-## <a name="version"></a>versão
+## <a name="version"></a>version
 
 Este valor indica a versão schema do host.json. A versão `"version": "2.0"` é necessária para uma aplicação de função que se direcione para o tempo de execução v2, ou uma versão posterior. Não há mudanças de esquema son.json entre v2 e v3.
 
@@ -389,7 +389,7 @@ Um conjunto de [diretórios](functions-reference-csharp.md#watched-directories) 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como atualizar o ficheiro host.json](functions-reference.md#fileupdate)

@@ -1,6 +1,6 @@
 ---
-title: Formato ORC no Azure Data Factory
-description: Este tópico descreve como lidar com o formato ORC no Azure Data Factory.
+title: Formato ORC na Fábrica de Dados Azure
+description: Este tópico descreve como lidar com o formato ORC na Azure Data Factory.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
@@ -9,29 +9,29 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 5f83e9bbcdfffdd9b19786012295ff5643116551
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e104c4c8e976207859b75212d5406558f04c6377
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927374"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597495"
 ---
-# <a name="orc-format-in-azure-data-factory"></a>Formato ORC no Azure Data Factory
+# <a name="orc-format-in-azure-data-factory"></a>Formato ORC na Fábrica de Dados Azure
 
-Siga este artigo quando desejar **analisar os arquivos orc ou gravar os dados no formato Orc**. 
+Siga este artigo quando pretender **analisar os ficheiros ORC ou escrever os dados em formato ORC**. 
 
-O formato ORC tem suporte para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [blob do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [armazenamento de arquivos do Azure](connector-azure-file-storage.md), [sistema de arquivos](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md).
+O formato ORC é suportado para os seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage,](connector-azure-file-storage.md) [File System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de ORC.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados ORC.
 
-| Propriedade         | Descrição                                                  | Obrigatório |
+| Propriedade         | Descrição                                                  | Necessário |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade Type do conjunto de conjuntos deve ser definida como **Orc**. | Sim      |
-| localização         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
+| tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Orc**. | Sim      |
+| localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location`. **Consulte detalhes no artigo do conector -> Secção**de propriedades do conjunto de dados . | Sim      |
 
-Veja abaixo um exemplo de conjunto de ORC no armazenamento de BLOBs do Azure:
+Abaixo está um exemplo de conjunto de dados ORC no Armazenamento de Blob Azure:
 
 ```json
 {
@@ -56,51 +56,52 @@ Veja abaixo um exemplo de conjunto de ORC no armazenamento de BLOBs do Azure:
 
 Tenha em atenção os seguintes pontos:
 
-* Não há suporte para tipos de dados complexos (STRUCT, MAP, LIST, UNION).
-* Não há suporte para o espaço em branco no nome da coluna.
+* Não são suportados tipos de dados complexos (STRUCT, MAP, LIST, UNION).
+* Espaço branco em nome da coluna não é suportado.
 * O ficheiro ORC tem três [opções relacionadas com a compressão](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NENHUM, ZLIB, SNAPPY. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro ORC, o Data Factory escolhe a opção ZLIB, que é a predefinição para ORC. De momento, não existem opções para contornar este comportamento.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem e pelo coletor do ORC.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte orc e pia.
 
 ### <a name="orc-as-source"></a>ORC como fonte
 
-As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade de cópia\*.
+As seguintes propriedades são suportadas na atividade de cópia ***\*secção\*fonte.***
 
-| Propriedade      | Descrição                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade Type da fonte da atividade de cópia deve ser definida como **OrcSource**. | Sim      |
-| storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **OrcSource**. | Sim      |
+| storeSettings | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings`. **Consulte os detalhes no artigo do conector -> Secção de propriedades**de atividadede cópia . | Não       |
 
-### <a name="orc-as-sink"></a>ORC como coletor
+### <a name="orc-as-sink"></a>ORC como pia
 
-As propriedades a seguir têm suporte na seção de ***\*do coletor*** de atividade de cópia\*.
+As seguintes propriedades são suportadas na atividade de cópia ***\*pia\**** secção.
 
-| Propriedade      | Descrição                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade Type da fonte da atividade de cópia deve ser definida como **OrcSink**. | Sim      |
-| storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+| tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **OrcSink**. | Sim      |
+| storeSettings | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings`. **Consulte os detalhes no artigo do conector -> Secção de propriedades**de atividadede cópia . | Não       |
 
-## <a name="using-self-hosted-integration-runtime"></a>Usando Integration Runtime auto-hospedados
+## <a name="using-self-hosted-integration-runtime"></a>Utilização do Tempo de Integração Auto-Hospedado
 
 > [!IMPORTANT]
-> Para cópia habilitada pelo Integration Runtime autohospedado, por exemplo, entre armazenamentos de dados locais e na nuvem, se você não estiver copiando arquivos ORC **como estão**, será necessário instalar o **JRE 8 de 64 bits (Java Runtime Environment) ou o OpenJDK** em seu computador ir. Consulte o parágrafo a seguir com mais detalhes.
+> Para cópia sufiada por Tempo de Execução de Integração Auto-hospedado, por exemplo, entre as lojas de dados no local e as lojas de dados em nuvem, se não estiver a copiar os ficheiros ORC **como está,** precisa de instalar o **JRE 8 de 64 bits (Java Runtime Environment) ou o OpenJDK** e o **Microsoft Visual C++ 2010 Redistribuable Package** na sua máquina de INFRAVERMELHOS. Consulte o parágrafo seguinte com mais detalhes.
 
-Para a cópia em execução no IR auto-hospedado com serialização/desserialização de arquivo ORC, o ADF localiza o tempo de execução do Java verificando primeiro o registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* para o JRE, se não for encontrado, verificando a variável do sistema *`JAVA_HOME`* para OpenJDK.
+Para cópia sintetizada em IR auto-hospedado com serialização/desserialização de ficheiros ORC, a ADF localiza o tempo de funcionamento de Java verificando primeiro o registo *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* para JRE, se não for encontrado, verificando em segundo lugar a variável do sistema *`JAVA_HOME`* para OpenJDK.
 
-- **Para usar o JRE**: o IR de 64 bits requer o jre de 64 bits. Você pode encontrá-lo [aqui](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Para usar OpenJDK**: tem suporte desde a versão de ir 3,13. Empacote o JVM. dll com todos os outros assemblies necessários do OpenJDK no computador IR auto-hospedado e defina a variável de ambiente do sistema JAVA_HOME de acordo.
+- **Para utilizar JRE**: O IR de 64 bits requer 64 bits JRE. Pode encontrá-lo [daqui.](https://go.microsoft.com/fwlink/?LinkId=808605)
+- Para utilizar o **OpenJDK**: É suportado desde a versão 3.13 do IR. Emba o jvm.dll com todos os outros conjuntos necessários do OpenJDK em máquina de INFRAVERMELHOS auto-hospedada, e coloque a variável do ambiente do sistema JAVA_HOME em conformidade.
+- **Para instalar C++ o Pacote Redistribuível Visual 2010**: O Pacote Redistribuível Visual C++ 2010 não está instalado com instalações de INFRAVERMELHOS auto-hospedadas. Pode encontrá-lo [daqui.](https://www.microsoft.com/download/details.aspx?id=14632)
 
 > [!TIP]
-> Se você copiar dados de/para o formato ORC usando o autohospedado Integration Runtime e erro de ocorrência indicando "ocorreu um erro ao invocar Java, mensagem: **Java. lang. OutOfMemoryError: espaço de heap Java**", você pode adicionar uma variável de ambiente `_JAVA_OPTIONS` no computador que hospeda o ir do modo auto-hospedado para ajustar o tamanho de heap mínimo/máximo para a JVM para capacitar tal cópia e
+> Se copiar dados para/a partir do formato ORC utilizando o Tempo de Execução de Integração Auto-hospedado e atingir um erro dizendo "Ocorreu um erro ao invocar java, mensagem: **java.lang.OutOfMemoryError:Java heap space",** pode adicionar uma variável ambiente `_JAVA_OPTIONS` na máquina que acolhe o IR auto-hospedado para ajustar o tamanho do monte min/max para jVM para capacitar essa cópia, em seguida, reexecutar o pipeline.
 
-![Definir o tamanho do heap JVM no IR auto-hospedado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+![Definir o tamanho da pilha JVM no IR auto-hospedado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Exemplo: definir a variável `_JAVA_OPTIONS` com o valor `-Xms256m -Xmx16g`. O sinalizador `Xms` especifica o pool de alocação de memória inicial para um Máquina Virtual Java (JVM), enquanto `Xmx` especifica o pool de alocação de memória máximo. Isso significa que a JVM será iniciada com `Xms` quantidade de memória e poderá usar um máximo de `Xmx` quantidade de memória. Por padrão, o ADF usa mín. de 64MB e Max 1G.
+Exemplo: definir `_JAVA_OPTIONS` variável com `-Xms256m -Xmx16g`de valor . O `Xms` da bandeira especifica o conjunto inicial de atribuição de memória para uma Máquina Virtual Java (JVM), enquanto `Xmx` especifica o conjunto máximo de atribuição de memória. Isto significa que o JVM será iniciado com `Xms` quantidade de memória e será capaz de usar um máximo de `Xmx` quantidade de memória. Por predefinição, a ADF utiliza min 64 MB e máx.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+- [Visão geral da atividade de cópia](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
-- [Atividade GetMetadata](control-flow-get-metadata-activity.md)
+- [Obtenha atividade de Metadados](control-flow-get-metadata-activity.md)

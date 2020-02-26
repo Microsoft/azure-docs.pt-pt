@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b05eefb2a0e516772390f898c22e723b08973338
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 3f07105c14d4dafeb689eaaf7d679f93e5f235fe
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484456"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605345"
 ---
 # <a name="protected-web-api-code-configuration"></a>API da web protegida: Configuração de código
 
@@ -109,7 +109,7 @@ O middleware é adicionado à Web API por esta instrução:
 
 ```csharp
  services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
-         .AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
+         .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Atualmente, os modelos ASP.NET Core criam APIs web Azure Ative Directory (Azure AD) que assinam utilizadores dentro da sua organização ou de qualquer organização. Não assinam utilizadores com contas pessoais. Mas pode alterar os modelos para utilizar o ponto final da plataforma de identidade da Microsoft adicionando este código à Startup.cs:
@@ -171,7 +171,7 @@ Na maioria dos casos, não é preciso mudar os parâmetros. Aplicativos que não
 
 Também pode validar fichas de acesso de entrada em Funções Azure. Pode encontrar exemplos de tal validação na [Microsoft .NET,](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)e [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Verifique os âmbitos e as funções da aplicação no seu código](scenario-protected-web-api-verification-scope-app-roles.md)

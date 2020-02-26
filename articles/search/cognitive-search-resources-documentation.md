@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e73e69f90b1228154d7f209c54c6b52cc03d5eb4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9f8a14c348f4f8eddcd60c6946c831c90262757b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837795"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588999"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentação para enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -25,10 +25,10 @@ Os seguintes artigos são a documentação completa para o enriquecimento de IA.
 + [Introdução à IA na Pesquisa Cognitiva Azure](cognitive-search-concept-intro.md)
 + [Quickstart: Criar uma habilidade cognitiva no portal Azure](cognitive-search-quickstart-blob.md)
 + [Tutorial: Indexação enriquecida com IA](cognitive-search-tutorial-blob.md)
-+ [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md)
++ [Exemplo: Criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Como orientar
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
 + [Como referenciar anotações num conjunto de competências](cognitive-search-concept-annotations-syntax.md)
 + [Como mapear campos para um índice](cognitive-search-output-field-mapping.md)
 + [Como processar e extrair informações a partir de imagens](cognitive-search-concept-image-scenarios.md)
@@ -38,7 +38,7 @@ Os seguintes artigos são a documentação completa para o enriquecimento de IA.
 
 ## <a name="reference"></a>Referência
 
-+ [Habilidades internas](cognitive-search-predefined-skills.md)
++ [Competências incorporadas](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
@@ -60,10 +60,10 @@ Os seguintes artigos são a documentação completa para o enriquecimento de IA.
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
 + [API REST](https://docs.microsoft.com/rest/api/searchservice/)
-  + [Criar Qualificable (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Criar indexador (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+  + [Criar Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Criar Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [API de pesquisa cognitiva azure](https://docs.microsoft.com/rest/api/searchservice/)
 + [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)

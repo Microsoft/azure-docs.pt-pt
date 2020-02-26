@@ -1,23 +1,23 @@
 ---
 title: Introdução à API para Cassandra do Azure Cosmos DB
-description: Saiba como você pode usar Azure Cosmos DB para "mover e deslocar" aplicativos existentes e criar novos aplicativos usando os drivers Cassandra e CQL
+description: Saiba como pode usar o Azure Cosmos DB para "levantar e mudar" as aplicações existentes e construir novas aplicações utilizando os condutores cassandra e cQL
 author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 05/21/2019
-ms.author: govindk
-ms.reviewer: sngun
-ms.openlocfilehash: 9cd3703881de1600a4b151d855fff832d041ca54
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 075b55b5a798924b55ef9d901e4d2e9ecfc9dc1e
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717944"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597580"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introdução à API para Cassandra do Azure Cosmos DB
 
-A API para Cassandra do Azure Cosmos DB pode ser utilizada como o arquivo de dados para as aplicações escritas para [Apache Cassandra](https://cassandra.apache.org). Isto significa que, ao utilizar os [controladores do Apache](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) compatíveis com CQLv4, a sua aplicação do Cassandra existente pode agora comunicar com a API para Cassandra do Azure Cosmos DB. Em muitos casos, pode alternar entre utilizar o Apache Cassandra ou a API para Cassandra do Azure Cosmos DB ao mudar simplesmente uma cadeia de ligação. 
+A API para Cassandra do Azure Cosmos DB pode ser utilizada como o arquivo de dados para as aplicações escritas para [Apache Cassandra](https://cassandra.apache.org). Isto significa que, ao utilizar os [controladores do Apache](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) compatíveis com CQLv4, a sua aplicação do Cassandra existente pode agora comunicar com a API para Cassandra do Azure Cosmos DB. Em muitos casos, pode mudar de usar Apache Cassandra para usar a Cassandra API de Azure Cosmos DB, mudando apenas uma cadeia de ligação. 
 
 A API para Cassandra permite-lhe interagir com os dados armazenados no Azure Cosmos DB ao utilizar a Linguagem de Consultas do Cassandra (CQL), ferramentas baseadas no Cassandra (como o cqlsh) e controladores de cliente do Cassandra que já conhece.
 
@@ -37,7 +37,7 @@ A API para Cassandra permite-lhe interagir com os dados armazenados no Azure Cos
 
 **Nível empresarial**: o Azure Cosmos DB fornece [certificações de conformidade](https://www.microsoft.com/trustcenter) para garantir que os utilizadores podem utilizar a plataforma de forma segura. Também oferece encriptação inativa e em movimento, firewall de IPs e registos de auditorias para atividades do plano de controlo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Pode começar a criar rapidamente as seguintes aplicações específicas de linguagens para criar e gerir dados da API para Cassandra:
   - [Aplicação Node.js](create-cassandra-nodejs.md)

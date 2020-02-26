@@ -6,19 +6,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/21/2020
 ms.author: rogarana
-ms.openlocfilehash: 3a9a2a903bd9979cd0f9a09b7589edc6d4fd8962
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 673bf3be59d72b2cc62b9f92af353fee235c5ddc
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565094"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598821"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-support-for-smb-access"></a>Visão geral do suporte de autenticação baseado na identidade do Azure Files para acesso a SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Para saber como ativar a autenticação de AD para ações de ficheiros Azure, consulte a [autenticação Ativa do Diretório Ativo sobre sMB para partilhas de ficheiros Azure](storage-files-active-directory-domain-services-enable.md).
+Para saber como ativar a autenticação de AD para ações de ficheiros Azure, consulte a [autenticação Ativa do Diretório Ativo sobre sMB para partilhas de ficheiros Azure](storage-files-identity-auth-active-directory-enable.md).
 
-Para saber como ativar a autenticação Azure AD DS para ações de ficheiros Azure, consulte a autenticação do serviço de domínio ativo [do Diretório Ativo Enable Azure sobre sMB para Ficheiros Azure](storage-files-active-directory-enable.md).
+Para saber como ativar a autenticação Azure AD DS para ações de ficheiros Azure, consulte a autenticação enable [Azure Ative Directory Domain Services em Ficheiros Azure](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
 ## <a name="glossary"></a>Glossário 
 É útil compreender alguns termos-chave relativos à autenticação do Serviço de Domínio Azure AD sobre SMB para ações de ficheiros Azure:
@@ -98,7 +98,7 @@ Quando uma identidade associada a uma aplicação em execução de um VM tenta a
 
 ### <a name="enable-identity-based-authentication"></a>Ativar a autenticação baseada na identidade
 
-Pode ativar a autenticação baseada na identidade com o Azure AD DS (GA) ou AD (pré-visualização) para as ações de ficheiros Azure nas suas novas contas de armazenamento existentes. Apenas um serviço de domínio pode ser utilizado para autenticação de acesso de ficheiros na conta de armazenamento, o que se aplica a todas as ações de ficheiro sinuosas da conta. Orientação detalhada passo a passo na configuração de ficheiros para autenticação com o Azure AD DS (GA) no nosso artigo [Enable Azure Ative Directory Domain Services autenticação sobre SMB para Ficheiros Azure](storage-files-active-directory-enable.md) e orientação para AD (pré-visualização) no nosso outro artigo, [Enable Ative Directory sobre SMB para ações de ficheiros Azure](storage-files-active-directory-domain-services-enable.md).
+Pode ativar a autenticação baseada na identidade com o Azure AD DS (GA) ou AD (pré-visualização) para as ações de ficheiros Azure nas suas novas contas de armazenamento existentes. Apenas um serviço de domínio pode ser utilizado para autenticação de acesso de ficheiros na conta de armazenamento, o que se aplica a todas as ações de ficheiro sinuosas da conta. Orientação detalhada passo a passo na configuração do seu ficheiro de ações para autenticação com o Azure AD DS (GA) no nosso artigo [Enable Azure Ative Directory Domain Services autenticação em Ficheiros Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) e orientação para AD (pré-visualização) no nosso outro artigo, [Enable Ative Directory autenticação sobre SMB para ações de ficheiros Azure](storage-files-identity-auth-active-directory-enable.md).
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configure permissões de nível de partilha para Ficheiros Azure
 
@@ -126,6 +126,6 @@ Não existe nenhuma taxa adicional de serviço para permitir a autenticação ba
 Para obter mais informações sobre ficheiros Azure e autenticação baseada na identidade através de SMB, consulte estes recursos:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
-- [Ativar a autenticação de Diretório Ativo sobre SMB para ações de ficheiros Azure](storage-files-active-directory-domain-services-enable.md)
-- [Ativar a autenticação dos Serviços de Domínio de Diretório Ativo azure em ficheiros Azure](storage-files-active-directory-enable.md)
+- [Ativar a autenticação de Diretório Ativo sobre SMB para ações de ficheiros Azure](storage-files-identity-auth-active-directory-enable.md)
+- [Ativar a autenticação dos Serviços de Domínio de Diretório Ativo azure em ficheiros Azure](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [FAQ](storage-files-faq.md)

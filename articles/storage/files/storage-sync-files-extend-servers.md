@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e3154b9635da889ed7f0484fc04c565c27e9241b
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: eb00234fb7522c763dbaa910bee99cf327bebaf1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031514"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597903"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Expandir os servidores de ficheiros do Windows com o Azure File Sync
 
@@ -27,8 +27,6 @@ O artigo demonstra os passos básicos para alargar a capacidade de armazenamento
 > * Criar um ponto final de servidor
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -57,11 +55,11 @@ Depois de implementar uma conta de armazenamento Azure, cria uma partilha de fic
 1. No portal Azure, selecione **Ir para recurso**.
 1. Selecione **Ficheiros** do painel da conta de armazenamento.
 
-    ![Selecionar arquivos](./media/storage-sync-files-extend-servers/click-files.png)
+    ![Selecione Ficheiros](./media/storage-sync-files-extend-servers/click-files.png)
 
 1. Selecione **+ Partilha de Ficheiros**.
 
-    ![Selecione o botão Adicionar compartilhamento de arquivos](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
+    ![Selecione o botão de partilha de ficheiros adicionais](./media/storage-sync-files-extend-servers/create-file-share-portal2.png)
 
 1. Nomeie o novo ficheiro share _afsfileshare_. Introduza "1" para a **Quota**e, em seguida, selecione **Criar**. A quota pode ter um máximo de 5 TiB, mas só precisa de 1 GB neste tutorial.
 

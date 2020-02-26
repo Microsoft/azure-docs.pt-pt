@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9ff446bae0a010b12e84172d5af60c6ca81c0e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896897"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586058"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para aplicações no Diretório Ativo do Azure
 
@@ -32,11 +32,11 @@ Qual o(s) método que escolhe s implementar na sua organização é a sua discri
 
 ## <a name="azure-ad-access-panel"></a>Painel de acesso Azure AD
 
-O Painel de Acesso da https://myapps.microsoft.com é um portal baseado na web que permite a um utilizador final com uma conta organizacional no Azure Ative Directory visualizar e lançar aplicações baseadas na nuvem a que foi concedido acesso pelo administrador da AD Azure. Se for um utilizador final com [o Azure Ative Directory Premium,](https://azure.microsoft.com/pricing/details/active-directory/)também pode utilizar capacidades de gestão de grupos de self-service através do Painel de Acesso.
+O Painel de Acesso da https://myapps.microsoft.com é um portal baseado na web que permite a um utilizador final com uma conta organizacional no Azure Ative Directory visualizar e lançar aplicações às quais foi concedido acesso pelo administrador da AD Azure. Se for um utilizador final com [o Azure Ative Directory Premium,](https://azure.microsoft.com/pricing/details/active-directory/)também pode utilizar capacidades de gestão de grupos de self-service através do Painel de Acesso.
 
 ![Screenshot mostra o portal do Painel de Acesso AD Azure](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
-Por padrão, todos os aplicativos são listados juntos em uma única página. Mas pode usar coleções para agrupar aplicações relacionadas e apresentá-las num separador, tornando-as mais fáceis de encontrar. Por exemplo, pode utilizar coleções para criar agrupamentos lógicos de candidaturas para funções específicas de trabalho, tarefas, projetos, e assim por diante. Para obter informações, consulte [como utilizar as coleções das Minhas Apps para personalizar os painéis](access-panel-collections.md)de acesso ao utilizador. 
+Por padrão, todas as aplicações estão listadas numa única página. Mas pode usar coleções para agrupar aplicações relacionadas e apresentá-las num separador, tornando-as mais fáceis de encontrar. Por exemplo, pode utilizar coleções para criar agrupamentos lógicos de candidaturas para funções específicas de trabalho, tarefas, projetos, e assim por diante. Para obter informações, consulte [como utilizar as coleções das Minhas Apps para personalizar os painéis](access-panel-collections.md)de acesso ao utilizador. 
 
 O Painel de Acesso é separado do portal Azure e não exige que os utilizadores tenham uma subscrição Azure ou uma subscrição do Office 365.
 

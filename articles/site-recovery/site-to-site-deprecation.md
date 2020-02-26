@@ -1,0 +1,73 @@
+---
+title: Depreciação da recuperação de desastres entre sites geridos pelo cliente (com VMM) utilizando a Recuperação do Site Azure  Microsoft Docs
+description: Detalhes sobre a próxima depreciação de DR entre sites pertencentes ao cliente usando Hyper-V e entre sites geridos pela SCVMM para Azure e opções alternativas
+services: site-recovery
+author: rajani-janaki-ram
+manager: rochakm
+ms.service: site-recovery
+ms.topic: article
+ms.date: 02/25/2020
+ms.author: rajanaki
+ms.openlocfilehash: 29a939452d9b90bd8afda7db4e115d10956ee5e5
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77606636"
+---
+# <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Depreciação da recuperação de desastres entre sites geridos pelo cliente (com VMM) utilizando a Recuperação do Site Azure
+
+Este artigo descreve o próximo plano de depreciação, as implicações correspondentes e as opções alternativas disponíveis para os clientes para o seguinte cenário:
+
+DR entre sites de propriedade de clientes geridos pelo System Center Virtual Machine Manager (SCVMM) usando a Recuperação do Site
+
+> [!IMPORTANT]
+> Os clientes são aconselhados a tomar as medidas de reparação o mais cedo possível para evitar qualquer perturbação no seu ambiente. 
+
+## <a name="what-changes-should-you-expect"></a>Que mudanças deve esperar?
+
+- A partir de novembro de 2019, não serão permitidos novos utilizadores de embarque para estes cenários. **As replicações e as operações de gestão existentes,** incluindo a falha, a falha do teste, a monitorização, etc. **não serão afetadas.**
+
+- Se tiver uma configuração existente, não poderá registar novos VMMs.
+
+- Uma vez que os cenários são depreciados a menos que o cliente siga as abordagens alternativas, as replicações existentes podem ser interrompidas. Os clientes não poderão visualizar, gerir ou realizar quaisquer operações relacionadas com dr através da experiência azure de recuperação do site no portal Azure.
+ 
+## <a name="alternatives"></a>Alternativas 
+
+Abaixo estão as alternativas que o cliente pode escolher para garantir que a sua estratégia de DR não seja impactada uma vez que o cenário é depreciado. 
+
+- Opção 1 (Recomendado): Opte por começar a [utilizar o Azure como alvo DR para VMs em anfitriões hiper-V](hyper-v-azure-tutorial.md).
+
+    > [!IMPORTANT]
+    > Note que o seu ambiente no local ainda pode ter SCVMMM, mas irá configurar a ASR com referências apenas aos anfitriões hyper-V.
+
+- Opção 2: Opte por continuar com a replicação site-to-site utilizando a solução de [réplica hiper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)subjacente, mas não poderá gerir as configurações de DR utilizando a Recuperação do Site Azure no portal Azure. 
+
+
+## <a name="remediation-steps"></a>Passos de reparação
+
+Se optar por seguir a Opção 1, execute os seguintes passos:
+
+1. [Desative a proteção de todas as máquinas virtuais associadas aos VMMs](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario). Utilize a **replicação desativar e remova** a opção ou executar as scripts mencionadas para garantir que as definições de replicação no local estão limpas. 
+
+2. [Desregistre todos os servidores VMM](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server)
+
+3. [Prepare os recursos azure](tutorial-prepare-azure-for-hyperv.md) para permitir a replicação dos seus VMs.
+4. [Prepare no local servidores Hiper-V](hyper-v-prepare-on-premises-tutorial.md)
+
+> [!IMPORTANT]
+> Note que não precisa executar os passos sob prepare mMm.
+
+5. [Configurar a replicação para os VMs](hyper-v-azure-tutorial.md)
+6. Opcional mas recomendado: [Executar um berbequim DR](tutorial-dr-drill-azure.md)
+
+Se optar por optar pela Opção 2 de utilizar a réplica Hyper-V, execute os seguintes passos:
+
+1. Em **itens protegidos** > **itens replicados,** clique à direita na máquina > **Desative**a replicação .
+2. Na **replicação de sactivar,** selecione **Remover**.
+
+    Isto remove o item replicado da Recuperação do Sítio Azure (a faturação está parada). A configuração de replicação na máquina virtual no local **não será** limpa. 
+
+## <a name="next-steps"></a>Passos seguintes
+Planeie a depreciação e escolha uma opção alternativa que seja mais adequada para a sua infraestrutura e negócio. Caso tenha alguma dúvida sobre isso, contacte o Microsoft Support
+

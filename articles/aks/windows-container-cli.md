@@ -2,21 +2,18 @@
 title: Pré-visualização - Crie um recipiente do Windows Server num cluster do Serviço Azure Kubernetes (AKS)
 description: Aprenda a criar rapidamente um cluster Kubernetes, implemente uma aplicação num recipiente do Windows Server no Serviço Azure Kubernetes (AKS) utilizando o Azure CLI.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.author: mlearned
-ms.openlocfilehash: 0583e773a344a6786d13a5da30be24369d75f11f
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 3a3374ea8e88b2494bb48c6835b4c22f1256ec84
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251707"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592701"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Pré-visualização - Crie um recipiente de Servidor Windows num cluster do Serviço Azure Kubernetes (AKS) utilizando o Azure CLI
 
-O AKS (serviço kubernetes do Azure) é um serviço gerenciado kubernetes que permite implantar e gerenciar clusters rapidamente. Neste artigo, você implanta um cluster AKS usando o Azure CLI. Também implementa uma aplicação de amostra ASP.NET num recipiente do Windows Server para o cluster.
+O Azure Kubernetes Service (AKS) é um serviço gerido pela Kubernetes que permite implementar e gerir rapidamente clusters. Neste artigo, você implanta um cluster AKS usando o Azure CLI. Também implementa uma aplicação de amostra ASP.NET num recipiente do Windows Server para o cluster.
 
 Esta funcionalidade encontra-se em pré-visualização.
 
@@ -201,7 +198,7 @@ aksnpwin987654                      Ready    agent   108s   v1.15.7
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Um arquivo de manifesto kubernetes define um estado desejado para o cluster, como quais imagens de contêiner executar. Neste artigo, é utilizado um manifesto para criar todos os objetos necessários para executar a aplicação de amostra ASP.NET num recipiente do Windows Server. Este manifesto inclui uma [implementação de Kubernetes][kubernetes-deployment] para a aplicação de amostra seletiva ASP.NET e um [serviço externo de Kubernetes][kubernetes-service] para aceder à aplicação a partir da internet.
+Um ficheiro manifesto Kubernetes define um estado desejado para o cluster, como quais as imagens de contentores a executar. Neste artigo, é utilizado um manifesto para criar todos os objetos necessários para executar a aplicação de amostra ASP.NET num recipiente do Windows Server. Este manifesto inclui uma [implementação de Kubernetes][kubernetes-deployment] para a aplicação de amostra seletiva ASP.NET e um [serviço externo de Kubernetes][kubernetes-service] para aceder à aplicação a partir da internet.
 
 A aplicação ASP.NET amostra é fornecida como parte das [Amostras de Quadro .NET][dotnet-samples] e funciona num recipiente do Windows Server. O AKS exige que os recipientes do Windows Server sejam baseados em imagens do *Windows Server 2019* ou superior. O ficheiro manifesto Kubernetes também deve definir um [seletor][node-selector] de nó para dizer ao seu cluster AKS para executar o seu casulo de ASP.NET aplicação de amostra num nó que pode executar recipientes do Windows Server.
 
@@ -268,7 +265,7 @@ service/sample created
 
 ## <a name="test-the-application"></a>Testar a aplicação
 
-Quando o aplicativo é executado, um serviço kubernetes expõe o front-end do aplicativo à Internet. Este processo pode demorar alguns minutos a concluir. Ocasionalmente, o serviço pode demorar mais do que alguns minutos a fornecer. Deixe até 10 minutos nestes casos.
+Quando a aplicação é executado, um serviço Kubernetes expõe a extremidade frontal da aplicação à internet. Este processo pode demorar alguns minutos a concluir. Ocasionalmente, o serviço pode demorar mais do que alguns minutos a fornecer. Deixe até 10 minutos nestes casos.
 
 Para monitorizar o progresso, utilize o comando [kubectl get service][kubectl-get] com o argumento `--watch`.
 
@@ -283,7 +280,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Quando o endereço *EXTERNO-IP* passar de *pendente* para um endereço IP público real, utilize `CTRL-C` para parar o processo de observação `kubectl`. A saída de exemplo a seguir mostra um endereço IP público válido atribuído ao serviço:
+Quando o endereço *EXTERNO-IP* passar de *pendente* para um endereço IP público real, utilize `CTRL-C` para parar o processo de observação `kubectl`. A saída de exemplo seguinte mostra um endereço IP público válido atribuído ao serviço:
 
 ```
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m

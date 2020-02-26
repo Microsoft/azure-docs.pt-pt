@@ -1,187 +1,187 @@
 ---
-title: Solucionar problemas SQL Server backup de banco de dados
-description: Informações de solução de problemas para fazer backup de SQL Server bancos de dados em execução em VMs do Azure com o backup do Azure.
+title: Backup da base de dados do Servidor SQL de resolução de problemas
+description: Informações de resolução de problemas para o backup das bases de dados do SQL Server em execução em VMs Azure com Backup Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 57630749b53224032c763481d12e33366274f13f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 69cae196e7fad70d75fb12709e5bf0d618bbc81c
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978777"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602318"
 ---
-# <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
+# <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Backup da base de dados Do Servidor SQL de sessão de problemas utilizando a cópia de segurança do Azure
 
-Este artigo fornece informações de solução de problemas para SQL Server bancos de dados em execução em máquinas virtuais do Azure.
+Este artigo fornece informações de resolução de problemas para bases de dados do SQL Server em execução em máquinas virtuais Azure.
 
-Para obter mais informações sobre o processo e as limitações de backup, consulte [about SQL Server Backup in Azure VMs](backup-azure-sql-database.md#feature-consideration-and-limitations).
+Para obter mais informações sobre o processo de backup e limitações, consulte [a cópia de segurança do SQL Server em VMs Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
-## <a name="sql-server-permissions"></a>SQL Server permissões
+## <a name="sql-server-permissions"></a>Permissões do Servidor SQL
 
-Para configurar a proteção para um banco de dados SQL Server em uma máquina virtual, você deve instalar a extensão **AzureBackupWindowsWorkload** nessa máquina virtual. Se você receber o erro **UserErrorSQLNoSysadminMembership**, isso significa que sua instância de SQL Server não tem as permissões de backup necessárias. Para corrigir esse erro, siga as etapas em [definir permissões de VM](backup-azure-sql-database.md#set-vm-permissions).
+Para configurar a proteção de uma base de dados do SQL Server numa máquina virtual, tem de instalar a extensão **AzureBackupWindowsWorkload** nessa máquina virtual. Se obtém o erro **UserErrorSQLNoSysadminMembership,** significa que a sua instância do Servidor SQL não tem as permissões de backup necessárias. Para corrigir este erro, siga os passos nas [permissões VM definidas](backup-azure-sql-database.md#set-vm-permissions).
 
-## <a name="troubleshoot-discover-and-configure-issues"></a>Solucionar problemas de descoberta e configuração
-Depois de criar e configurar um cofre dos serviços de recuperação, descobrir bancos de dados e configurar o backup é um processo de duas etapas.<br>
+## <a name="troubleshoot-discover-and-configure-issues"></a>Problemas descobrem e configuram problemas
+Depois de criar e configurar um cofre de Serviços de Recuperação, descobrir bases de dados e configurar cópias de segurança é um processo em duas etapas.<br>
 
 ![sql](./media/backup-azure-sql-database/sql.png)
 
-Durante a configuração de backup, se a VM do SQL e suas instâncias não estiverem visíveis nos bancos de entrada de **descoberta em VMs** e **Configurar o backup** (consulte a imagem acima), verifique se:
+Durante a configuração de backup, se o VM SQL e as suas instâncias não forem visíveis nos **DBs Discovery em VMs** e **Configurar Backup** (consulte a imagem acima) certifique-se de que:
 
-### <a name="step-1-discovery-dbs-in-vms"></a>Etapa 1: bancos de entrada de descoberta em VMs
+### <a name="step-1-discovery-dbs-in-vms"></a>Passo 1: DBs de descoberta em VMs
 
-- Se a VM não estiver listada na lista de VMs descobertas e também não estiver registrada para backup do SQL em outro cofre, siga as etapas de [backup de SQL Server de descoberta](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) .
+- Se o VM não estiver listado na lista de VM descoberta e também não estiver registado para cópia de segurança SQL noutro cofre, siga os passos de backup do [Discovery SQL Server.](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases)
 
-### <a name="step-2-configure-backup"></a>Etapa 2: configurar o backup
+### <a name="step-2-configure-backup"></a>Passo 2: Configurar cópia de segurança
 
-- Se o cofre no qual a VM do SQL está registrada no mesmo cofre usado para proteger os bancos de dados, siga as etapas [Configurar backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) .
+- Se o cofre em que o SQL VM está registado no mesmo cofre utilizado para proteger as bases de dados, siga os passos de [Backup configure.](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup)
 
-Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro cancelado do cofre antigo.  O cancelamento do registro de uma VM do SQL do cofre exige que todas as fontes de dados protegidas sejam interrompidas e, em seguida, você pode excluir os dados de backup. A exclusão de dados de backup é uma operação destrutiva.  Depois de examinar e tomar todas as precauções para cancelar o registro da VM do SQL, registre essa mesma VM com um novo cofre e repita a operação de backup.
+Se o SQL VM precisa de ser registado no novo cofre, então deve não estar registado no cofre antigo.  O não registo de um VM SQL do cofre requer que todas as fontes de dados protegidas sejam protegidas e, em seguida, pode eliminar os dados de backup. Apagar dados de apoio é uma operação destrutiva.  Depois de ter revisto e tomado todas as precauções para desregistar o VM SQL, em seguida, registe este mesmo VM com um novo cofre e tente novamente a operação de backup.
 
 
 
 ## <a name="error-messages"></a>Mensagens de erro
 
-### <a name="backup-type-unsupported"></a>Tipo de backup sem suporte
+### <a name="backup-type-unsupported"></a>Tipo de cópia de segurança não suportado
 
 | Gravidade | Descrição | Possíveis causas | Ação recomendada |
 |---|---|---|---|
-| Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. Nenhum backup diferencial nem backup de log de transações é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modifique as configurações do banco de dados de modo que haja suporte para todos os tipos de backup na política. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
+| Aviso | As definições atuais desta base de dados não suportam certos tipos de backup presentes na política associada. | <li>Apenas uma operação de backup de base de dados completa pode ser realizada na base de dados principal. Nem a cópia de segurança diferencial nem a cópia de segurança do registo de transações são possíveis. </li> <li>Qualquer base de dados do modelo de recuperação simples não permite a cópia de segurança dos registos de transações.</li> | Modifique as definições da base de dados de modo a que todos os tipos de backup da política sejam suportados. Ou, alterar a política atual para incluir apenas os tipos de backup suportados. Caso contrário, os tipos de backup não suportados serão ignorados durante o backup programado ou o trabalho de backup falhará para o backup a pedido.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| Esta base de dados SQL não suporta o tipo de cópia de segurança pedido | Ocorre quando o modelo de recuperação de banco de dados não permite o tipo de backup solicitado. O erro pode ocorrer nas seguintes situações: <br/><ul><li>Um banco de dados que está usando um modelo de recuperação simples não permite o backup de log.</li><li>Backups diferenciais e de log não são permitidos para um banco de dados mestre.</li></ul>Para obter mais detalhes, consulte a documentação dos [modelos de recuperação do SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) . | Se o backup de log falhar para o banco de dados no modelo de recuperação simples, tente uma destas opções:<ul><li>Se o banco de dados estiver no modo de recuperação simples, desabilite os backups de log.</li><li>Use a [documentação SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) para alterar o modelo de recuperação de banco de dados para bulk-logged ou completo. </li><li> Se você não quiser alterar o modelo de recuperação e tiver uma política padrão para fazer backup de vários bancos de dados que não podem ser alterados, ignore o erro. Seus backups completos e diferenciais funcionarão por agendamento. Os backups de log serão ignorados, o que é esperado nesse caso.</li></ul>Se for um banco de dados mestre e tiver configurado o backup diferencial ou de log, use uma das seguintes etapas:<ul><li>Use o portal para alterar o agendamento da política de backup do banco de dados mestre para completo.</li><li>Se você tiver uma política padrão para fazer backup de vários bancos de dados que não podem ser alterados, ignore o erro. O backup completo funcionará por agendamento. Os backups diferenciais ou de log não acontecerão, o que é esperado nesse caso.</li></ul> |
-| A operação foi cancelada porque uma operação conflitante já estava em execução no mesmo banco de dados. | Consulte a [entrada de blog sobre as limitações de backup e restauração](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) que são executadas simultaneamente.| [Use o SQL Server Management Studio (SSMS) para monitorar os trabalhos de backup](manage-monitor-sql-database-backup.md). Depois que a operação conflitante falhar, reinicie a operação.|
+| Esta base de dados SQL não suporta o tipo de cópia de segurança pedido | Ocorre quando o modelo de recuperação da base de dados não permite o tipo de cópia de segurança solicitada. O erro pode acontecer nas seguintes situações: <br/><ul><li>Uma base de dados que está a usar um modelo de recuperação simples não permite a cópia de segurança de registo.</li><li>As cópias de segurança diferenciais e de registo não são permitidas para uma base de dados principal.</li></ul>Para mais detalhes, consulte a documentação dos modelos de recuperação do [Servidor SQL.](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) | Se a cópia de segurança de registo falhar na base de dados no modelo de recuperação simples, experimente uma destas opções:<ul><li>Se a base de dados estiver em modo de recuperação simples, desative as cópias de segurança.</li><li>Utilize a documentação do [SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) para alterar o modelo de recuperação da base de dados para registo completo ou a granel. </li><li> Se não quiser alterar o modelo de recuperação, e tiver uma política padrão para fazer o backup de várias bases de dados que não podem ser alteradas, ignore o erro. Os seus backups completos e diferenciais funcionarão por horário. As cópias de segurança de registo serão ignoradas, o que é esperado neste caso.</li></ul>Se for uma base de dados principal e tiver configurado o diferencial ou a cópia de segurança de registo, utilize qualquer uma das seguintes etapas:<ul><li>Use o portal para alterar o calendário de política de backup para a base de dados principal, para o completo.</li><li>Se tiver uma política padrão para fazer o apoio a várias bases de dados que não podem ser alteradas, ignore o erro. O seu reforço completo funcionará por horário. As cópias de segurança diferenciais ou de registo não vão acontecer, o que é esperado neste caso.</li></ul> |
+| A operação cancelada como operação conflituosa já estava a decorrer na mesma base de dados. | Consulte a entrada do [blog sobre backup e restaure as limitações](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) que funcionam simultaneamente.| Utilize o Estúdio de [Gestão de Servidores SQL (SSMS) para monitorizar os trabalhos](manage-monitor-sql-database-backup.md)de backup . Depois de a operação conflituosa falhar, reinicie a operação.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| A base de dados SQL não existe. | O banco de dados foi excluído ou renomeado. | Verifique se o banco de dados foi acidentalmente excluído ou renomeado.<br/><br/> Se o banco de dados tiver sido acidentalmente excluído, para continuar backups, restaure o banco de dados para o local original.<br/><br/> Se você excluiu o banco de dados e não precisa de backups futuros, no cofre dos serviços de recuperação, selecione **parar backup** com **manter dados de backup** ou **excluir dados de backup**. Para obter mais informações, consulte [gerenciar e monitorar bancos de dados SQL Server de backup](manage-monitor-sql-database-backup.md).
+| A base de dados SQL não existe. | A base de dados foi apagada ou renomeada. | Verifique se a base de dados foi acidentalmente eliminada ou renomeada.<br/><br/> Se a base de dados tiver sido acidentalmente eliminada, para continuar as cópias de segurança, restaure a base de dados para a localização original.<br/><br/> Se apagou a base de dados e não precisar de cópias de segurança futuras, em seguida, no cofre dos Serviços de Recuperação, selecione Parar de **reserva** com dados de **backup** ou eliminar dados de **backup**. Para mais informações, consulte gerir e monitorizar bases de dados do [SQL Server .](manage-monitor-sql-database-backup.md)
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| A cadeia de registos está quebrada. | O backup do banco de dados ou da VM é feito por meio de outra solução de backup, que trunca a cadeia de logs.|<ul><li>Verifique se outra solução ou script de backup está em uso. Nesse caso, pare a outra solução de backup. </li><li>Se o backup foi um backup de log sob demanda, dispare um backup completo para iniciar uma nova cadeia de logs. Para backups de log agendados, nenhuma ação é necessária porque o serviço de backup do Azure irá disparar automaticamente um backup completo para corrigir esse problema.</li>|
+| A cadeia de registos está quebrada. | A base de dados ou o VM são apoiados através de outra solução de reserva, que trunca a cadeia de registos.|<ul><li>Verifique se outra solução de reserva ou script está a ser utilizada. Em caso afirmativo, pare a outra solução de reserva. </li><li>Se a cópia de segurança for uma cópia de segurança a pedido, inicie uma cópia de segurança completa para iniciar uma nova cadeia de registos. Para cópias de segurança de registo programadas, não é necessária qualquer ação porque o serviço de backup Azure irá automaticamente acionar uma cópia de segurança completa para corrigir este problema.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| O backup do Azure não é capaz de se conectar à instância do SQL. | O backup do Azure não pode se conectar à instância de SQL Server. | Use os detalhes adicionais no menu portal do Azure erro para restringir as causas raiz. Consulte [solução de problemas de backup do SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) para corrigir o erro.<br/><ul><li>Se as configurações padrão do SQL não permitirem conexões remotas, altere as configurações. Consulte os seguintes artigos para obter informações sobre como alterar as configurações:<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Se houver problemas de logon, use estes links para corrigi-los:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| O Azure Backup não é capaz de se ligar à instância SQL. | A Cópia de Segurança Azure não pode ligar-se à instância do Servidor SQL. | Utilize os detalhes adicionais no menu de erro do portal Azure para reduzir as causas da raiz. Consulte a resolução de problemas de [backup SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) para corrigir o erro.<br/><ul><li>Se as definições SQL padrão não permitirem ligações remotas, altere as definições. Consulte os seguintes artigos para obter informações sobre a alteração das definições:<ul><li>[MSSQLSERVER_-1](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error?view=sql-server-ver15)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Se houver problemas de login, utilize estes links para os corrigir:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| O primeiro backup completo está ausente para esta fonte de dados. | O backup completo está ausente para o banco de dados. Backups diferenciais e de log são pais para um backup completo, portanto, certifique-se de fazer backups completos antes de disparar backups diferenciais ou de log. | Disparar um backup completo sob demanda.   |
+| Falta a primeira cópia de segurança para esta fonte de dados. | Falta cópia de segurança para a base de dados. As cópias de segurança de log e diferencial são os pais de uma cópia de segurança completa, por isso certifique-se de que aceita cópias de segurança completas antes de desencadear backups diferenciais ou de registo. | Desencadeie um reforço completo a pedido.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| Não é possível fazer backup, pois o log de transações da fonte de dados está cheio. | O espaço de log transacional do banco de dados está cheio. | Para corrigir esse problema, consulte a [documentação do SQL Server](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
+| Não é possível aceitar a cópia de segurança, uma vez que o registo de transações para a fonte de dados está cheio. | O espaço de registo transacional da base de dados está cheio. | Para corrigir este problema, consulte a documentação do [Servidor SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
 
 ### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| Já existe um banco de dados com o mesmo nome no local de destino | O destino da restauração de destino já tem um banco de dados com o mesmo nome.  | <ul><li>Altere o nome do banco de dados de destino.</li><li>Ou use a opção forçar substituição na página restaurar.</li> |
+| Base de dados com o mesmo nome já existe no local-alvo | O destino de restauro alvo já tem uma base de dados com o mesmo nome.  | <ul><li>Mude o nome da base de dados do alvo.</li><li>Ou, use a opção de sobreutilização da força na página de restauro.</li> |
 
 ### <a name="usererrorrestorefaileddatabasecannotbeofflined"></a>UserErrorRestoreFailedDatabaseCannotBeOfflined
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| O restauro falhou, porque não foi possível colocar a base de dados offline. | Enquanto você estiver fazendo uma restauração, o banco de dados de destino precisará ser colocado offline. O backup do Azure não pode colocar esses dados offline. | Use os detalhes adicionais no menu portal do Azure erro para restringir as causas raiz. Para obter mais informações, veja a [documentação do SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
+| O restauro falhou, porque não foi possível colocar a base de dados offline. | Enquanto estás a fazer um restauro, a base de dados do alvo tem de ser desligada. O Azure Backup não pode desativar estes dados. | Utilize os detalhes adicionais no menu de erro do portal Azure para reduzir as causas da raiz. Para obter mais informações, veja a [documentação do SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| Não é possível localizar o certificado do servidor com impressão digital no destino. | O banco de dados mestre na instância de destino não tem uma impressão digital de criptografia válida. | Importe a impressão digital de certificado válida usada na instância de origem para a instância de destino. |
+| Não é possível encontrar o certificado do servidor com impressão digital no alvo. | A base de dados principal na instância de destino não tem uma impressão digital de encriptação válida. | Importar a impressão digital do certificado válido utilizada na instância de origem, para a instância-alvo. |
 
 ### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| A cópia de segurança do registo utilizada para recuperação contém alterações registadas em massa. Não pode ser utilizada para parar num ponto no tempo arbitrário de acordo com as diretrizes SQL. | Quando um banco de dados está no modo de recuperação bulk-logged, os dados entre uma transação bulk-logged e a próxima transação de log não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
+| A cópia de segurança do registo utilizada para recuperação contém alterações registadas em massa. Não pode ser utilizada para parar num ponto no tempo arbitrário de acordo com as diretrizes SQL. | Quando uma base de dados está em modo de recuperação a granel, os dados entre uma transação a granel e a próxima transação de registo não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| Não é possível respeitar a preferência de cópia de segurança do Grupo de Disponibilidade AlwaysOn do SQL, uma vez que alguns nós do Grupo de Disponibilidade não estão registados. | Os nós necessários para executar backups não estão registrados ou estão inacessíveis. | <ul><li>Verifique se todos os nós necessários para executar backups deste banco de dados estão registrados e íntegros e repita a operação.</li><li>Altere a preferência de backup para o SQL Server Always On grupo de disponibilidade.</li></ul> |
+| Não é possível respeitar a preferência de cópia de segurança do Grupo de Disponibilidade AlwaysOn do SQL, uma vez que alguns nós do Grupo de Disponibilidade não estão registados. | Os nós necessários para executar cópias de segurança não estão registados ou são inacessíveis. | <ul><li>Certifique-se de que todos os nós necessários para executar cópias de segurança desta base de dados estão registados e saudáveis e, em seguida, tente novamente a operação.</li><li>Altere a preferência de cópia de segurança para o grupo de disponibilidade do SQL Server Always On.</li></ul> |
 
 ### <a name="vmnotinrunningstateusererror"></a>VMNotInRunningStateUserError
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| A VM do SQL Server está desligada e não está acessível para o serviço de backup do Azure. | A VM está desligada. | Verifique se a instância de SQL Server está em execução. |
+| O VM do servidor SQL é desligado e não é acessível ao serviço de backup Azure. | O VM está desligado. | Certifique-se de que a instância do Servidor SQL está a funcionar. |
 
 ### <a name="guestagentstatusunavailableusererror"></a>GuestAgentStatusUnavailableUserError
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| O serviço de backup do Azure usa o agente convidado de VM do Azure para fazer backup, mas o agente convidado não está disponível no servidor de destino. | O agente convidado não está habilitado ou não está íntegro. | [Instale o agente convidado da VM](../virtual-machines/extensions/agent-windows.md) manualmente. |
+| O serviço De backup Azure utiliza o agente convidado Azure VM para fazer backup, mas o agente convidado não está disponível no servidor alvo. | O agente convidado não está ativado ou não é saudável. | [Instale manualmente o agente convidado VM.](../virtual-machines/extensions/agent-windows.md) |
 
 ### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| A intenção de proteção automática foi removida ou não é mais válida. | Ao habilitar a proteção automática em uma instância do SQL Server, **Configure** os trabalhos de backup executados para todos os bancos de dados nessa instância. Se você desabilitar a proteção automática enquanto os trabalhos estiverem em execução, os trabalhos **em andamento** serão cancelados com esse código de erro. | Habilite a proteção automática mais uma vez para ajudar a proteger todos os bancos de dados restantes. |
+| A proteção automática Intenção foi removida ou não é mais válida. | Quando ativa a proteção automática numa instância do Servidor SQL, os trabalhos de **backup configuram** todas as bases de dados nesse caso. Se desativar a auto-protecção enquanto os postos de trabalho estão em funcionamento, os postos de trabalho **em curso** são cancelados com este código de erro. | Ativar a proteção automática mais uma vez para ajudar a proteger todas as bases de dados restantes. |
 
 ### <a name="clouddosabsolutelimitreached"></a>CloudDosAbsoluteLimitReached
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A operação está bloqueada, pois você atingiu o limite de número de operações permitidas em 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. <br> Por exemplo: se você atingiu o limite do número de trabalhos de backup de configuração que podem ser disparados por dia e tentar configurar o backup em um novo item, você verá esse erro. | Normalmente, repetir a operação após 24 horas resolve esse problema. No entanto, se o problema persistir, você poderá entrar em contato com o suporte da Microsoft para obter ajuda.
+A operação está bloqueada, uma vez que atingiu o limite de operações permitidas em 24 horas. | Quando atingiu o limite máximo admissível para uma operação num espaço de 24 horas, este erro surge. <br> Por exemplo: Se atingir o limite para o número de trabalhos de backup configurados que podem ser desencadeados por dia, e tentar configurar a cópia de segurança num novo item, verá este erro. | Normalmente, tentar a operação após 24 horas resolve este problema. No entanto, se o problema persistir, pode contactar o suporte da Microsoft para obter ajuda.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A operação está bloqueada porque o cofre atingiu seu limite máximo para essas operações permitidas em um intervalo de 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. Esse erro geralmente é exibido quando há operações em escala, como modificar política ou proteção automática. Ao contrário do caso do CloudDosAbsoluteLimitReached, não há muito que você possa fazer para resolver esse estado. na verdade, o serviço de backup do Azure tentará novamente as operações internamente para todos os itens em questão.<br> Por exemplo: se você tiver um grande número de fontes de fonte protegidas por uma política e tentar modificar essa política, ela irá disparar configurar trabalhos de proteção para cada um dos itens protegidos e, às vezes, poderá atingir o limite máximo permitido para essas operações por dia.| O serviço de backup do Azure repetirá essa operação automaticamente após 24 horas.
+A operação está bloqueada, uma vez que o cofre atingiu o seu limite máximo para tais operações permitidas num espaço de 24 horas. | Quando atingiu o limite máximo admissível para uma operação num espaço de 24 horas, este erro surge. Este erro geralmente ocorre quando há operações à escala, tais como modificar a política ou a auto-protecção. Ao contrário do que acontece com cloudDosAbsoluteLimitReached, não há muito que possa fazer para resolver este estado, na verdade, o serviço de backup Azure irá rejulgar as operações internamente para todos os itens em questão.<br> Por exemplo: Se tiver um grande número de fontes de dados protegidas com uma política e tentar modificar essa política, irá desencadear trabalhos de proteção configurados para cada um dos itens protegidos e, por vezes, pode atingir o limite máximo permitido para tais operações por dia.| O serviço de backup Azure irá automaticamente voltar a tentar esta operação após 24 horas.
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou serviços de Azure Active Directory.| -Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao backup do Azure para o serviço de backup do Azure, armazenamento do Azure ou serviços de Azure Active Directory. Siga estas [etapas](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) para conceder acesso.<br>-Verifique se o DNS está resolvendo os pontos de extremidade do Azure.<br>-Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará.<br>-Verifique se não há firewall/antivírus/proxy que esteja bloqueando chamadas para os três serviços de destino acima.
+O VM não é capaz de contactar o serviço Azure Backup devido a problemas de conectividade na Internet. | O VM necessita de conectividade de saída para o Serviço de Backup Azure, armazenamento Azure ou serviços de Diretório Ativo Azure.| - Se utilizar o NSG para restringir a conectividade, deverá utilizar a etiqueta de serviço AzureBackup para permitir o acesso de saída ao Serviço de Backup Azure, ao Azure Storage ou aos serviços de Diretório Ativo Azure. Siga estes [passos](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) para conceder acesso.<br>- Certifique-se de que o DNS está a resolver os pontos finais do Azure.<br>- Verifique se o VM está por detrás de um equilibrista de carga que bloqueia o acesso à Internet. Ao atribuir IP público aos VMs, a descoberta funcionará.<br>- Verifique se não existe firewall/antivírus/proxy que esteja a bloquear chamadas para os três serviços-alvo acima.
 
 
-## <a name="re-registration-failures"></a>Falhas de novo registro
+## <a name="re-registration-failures"></a>Falhas de reregisto
 
-Verifique se há um ou mais dos seguintes sintomas antes de disparar a operação de novo registro:
+Verifique se há um ou mais dos seguintes sintomas antes de desencadear a operação de reregisto:
 
-* Todas as operações (como backup, restauração e configuração de backup) estão falhando na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
-* Se a área **status de backup** do item de backup estiver mostrando **não acessível**, descartar todas as outras causas que podem resultar no mesmo status:
+* Todas as operações (tais como backup, restauro e cópia de segurança configurada) estão a falhar no VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable,** **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent,** **WorkloadExtensionDidntDequeueMsg**.
+* Se a área de Estado de **Reserva** para o item de reserva estiver a mostrar **não alcançável,** exclua todas as outras causas que possam resultar no mesmo estado:
 
-  * Falta de permissão para executar operações relacionadas ao backup na VM.
-  * Desligamento da VM, portanto, os backups não podem ocorrer.
+  * Falta de autorização para realizar operações relacionadas com backup no VM.
+  * Encerramento do VM, por isso não podem ocorrer reforços.
   * Problemas de rede.
 
-   ![Registrando novamente a VM](./media/backup-azure-sql-database/re-register-vm.png)
+   ![re-registar vM](./media/backup-azure-sql-database/re-register-vm.png)
 
 
 
-* No caso de um grupo de disponibilidade Always On, os backups começaram a falhar após a alteração da preferência de backup ou após um failover.
+* No caso de um grupo de disponibilidade Always On, os backups começaram a falhar depois de ter alterado a preferência de backup ou após uma falha.
 
-Esses sintomas podem surgir por um ou mais dos seguintes motivos:
+Estes sintomas podem surgir por uma ou mais das seguintes razões:
 
-* Uma extensão foi excluída ou desinstalada do Portal.
-* Uma extensão foi desinstalada do **painel de controle** na VM em **desinstalar ou alterar um programa**.
-* A VM foi restaurada de volta no tempo por meio da restauração de disco in-loco.
-* A VM foi desligada por um período estendido, portanto, a configuração de extensão nela expirou.
-* A VM foi excluída e outra VM foi criada com o mesmo nome e no mesmo grupo de recursos que a VM excluída.
-* Um dos nós do grupo de disponibilidade não recebeu a configuração de backup completa. Isso pode acontecer quando o grupo de disponibilidade é registrado no cofre ou quando um novo nó é adicionado.
+* Uma extensão foi eliminada ou desinstalada a partir do portal.
+* Uma extensão foi desinstalada do Painel de **Controlo** no VM em **Desinstalar ou Alterar um Programa**.
+* O VM foi restaurado no tempo através da restauração do disco no local.
+* O VM foi desligado por um período prolongado, pelo que a configuração da extensão expirou.
+* O VM foi eliminado, e outro VM foi criado com o mesmo nome e no mesmo grupo de recursos que o VM eliminado.
+* Um dos nós do grupo de disponibilidade não recebeu a configuração completa de backup. Isto pode acontecer quando o grupo de disponibilidade está registado no cofre ou quando um novo nó é adicionado.
 
-Nos cenários anteriores, recomendamos que você dispare uma operação de novo registro na VM. Consulte [aqui](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) para obter instruções sobre como executar essa tarefa no PowerShell.
+Nos cenários anteriores, recomendamos que desencadeie uma nova operação de registo no VM. Consulte [aqui](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) as instruções sobre como executar esta tarefa no PowerShell.
 
-## <a name="size-limit-for-files"></a>Limite de tamanho para arquivos
+## <a name="size-limit-for-files"></a>Limite de tamanho para ficheiros
 
-O tamanho total da cadeia de caracteres de arquivos depende não apenas do número de arquivos, mas também de seus nomes e caminhos. Para cada arquivo de banco de dados, obtenha o nome de arquivo lógico e o caminho físico. Você pode usar esta consulta SQL:
+O tamanho total das cordas dos ficheiros depende não só do número de ficheiros, mas também dos seus nomes e caminhos. Para cada ficheiro de base de dados, obtenha o nome lógico do ficheiro e o caminho físico. Pode utilizar esta consulta SQL:
 
 ```sql
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
@@ -201,13 +201,13 @@ Segue-se um exemplo:
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
 ```
 
-Se o tamanho da cadeia de caracteres do conteúdo exceder 20.000 bytes, os arquivos do banco de dados serão armazenados de maneira diferente. Durante a recuperação, você não poderá definir o caminho do arquivo de destino para restauração. Os arquivos serão restaurados para o caminho SQL padrão fornecido pelo SQL Server.
+Se o tamanho da cadeia do conteúdo exceder 20.000 bytes, os ficheiros de base de dados são armazenados de forma diferente. Durante a recuperação, não poderá definir o caminho do ficheiro alvo para restaurar. Os ficheiros serão restaurados ao caminho SQL predefinido fornecido pelo SQL Server.
 
-### <a name="override-the-default-target-restore-file-path"></a>Substituir o caminho de arquivo de restauração de destino padrão
+### <a name="override-the-default-target-restore-file-path"></a>Anular a trajetória de ficheiro de restauro do alvo padrão
 
-Você pode substituir o caminho do arquivo de restauração de destino durante a operação de restauração, colocando um arquivo JSON que contém o mapeamento do arquivo de banco de dados para o caminho de restauração de destino. Crie um arquivo de `database_name.json` e coloque-o no local *C:\Program Programas\azure Workload Backup\bin\plugins\SQL*.
+Pode substituir o caminho de ficheiro de restauro do alvo durante a operação de restauro, colocando um ficheiro JSON que contém o mapeamento do ficheiro base de dados para o caminho de restauro do alvo. Crie um ficheiro `database_name.json` e coloque-o no local *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
 
-O conteúdo do arquivo deve estar neste formato:
+O conteúdo do ficheiro deve estar neste formato:
 
 ```json
 [
@@ -241,7 +241,7 @@ Segue-se um exemplo:
 ]
 ```
 
-No conteúdo anterior, você pode obter o nome lógico do arquivo de banco de dados usando a seguinte consulta SQL:
+No conteúdo anterior, pode obter o nome lógico do ficheiro base de dados utilizando a seguinte consulta SQL:
 
 ```sql
 SELECT mf.name AS LogicalName FROM sys.master_files mf
@@ -249,8 +249,8 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
                 WHERE db.name = N'<Database Name>'"
   ```
 
-Esse arquivo deve ser colocado antes de você disparar a operação de restauração.
+Este ficheiro deve ser colocado antes de acionar a operação de restauro.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o backup do Azure para VMs SQL Server (visualização pública), consulte [backup do Azure para VMs do SQL](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+Para mais informações sobre o Backup Azure para VMs de servidor SQL (pré-visualização pública), consulte [o Backup Azure para VMs SQL](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).

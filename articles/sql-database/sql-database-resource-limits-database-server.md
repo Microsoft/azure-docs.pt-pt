@@ -1,6 +1,6 @@
 ---
-title: Limites de recursos do banco de dados SQL do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral dos limites de recursos do banco de dados SQL do Azure para bancos de dados individuais e pools elásticos. Ele também fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou ultrapassados.
+title: Limites de recursos da Base de Dados Azure SQL Microsoft Docs
+description: Este artigo fornece uma visão geral dos limites de recursos da Base de Dados Azure SQL para bases de dados únicas e piscinas elásticas. Também fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou ultrapassados.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,129 +11,129 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638260"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587248"
 ---
-# <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de recursos do banco de dados SQL e governança de recursos
+# <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de recursos da Base de Dados SQL e governação de recursos
 
-Este artigo fornece uma visão geral dos limites de recursos do banco de dados SQL para um servidor de banco de dados SQL que gerencia bancos de dados individuais e pools elásticos. Ele fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou ultrapassados e descreve os mecanismos de governança de recursos usados para impor esses limites.
+Este artigo fornece uma visão geral dos limites de recursos da Base de Dados SQL para um servidor de base de dados SQL que gere bases de dados únicas e piscinas elásticas. Fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou ultrapassados, e descreve os mecanismos de governação dos recursos utilizados para impor estes limites.
 
 > [!NOTE]
-> Para limites de Instância Gerenciada, consulte [limites de recursos do banco de dados SQL para instâncias gerenciadas](sql-database-managed-instance-resource-limits.md).
+> Para os limites de instância gerida, consulte os limites de recursos da [Base de Dados SQL para instâncias geridas](sql-database-managed-instance-resource-limits.md).
 
 ## <a name="maximum-resource-limits"></a>Limites máximos de recursos
 
 | Recurso | Limite |
 | :--- | :--- |
-| Bancos de dados por servidor | 5000 |
-| Número padrão de servidores por assinatura em qualquer região | 20 |
-| Número máximo de servidores por assinatura em qualquer região | 200 |  
-| Cota de DTU/eDTU por servidor | 54,000 |  
-| cota vCore por servidor/instância | 540 |
-| Máximo de pools por servidor | Limitado pelo número de DTUs ou vCores. Por exemplo, se cada pool for 1000 DTUs, um servidor poderá dar suporte a pools de 54.|
+| Bases de dados por servidor | 5000 |
+| Número padrão de servidores por subscrição em qualquer região | 20 |
+| Número máximo de servidores por subscrição em qualquer região | 200 |  
+| Quota DTU / eDTU por servidor | 54,000 |  
+| quota vCore por servidor/instância | 540 |
+| Piscinas max por servidor | Limitado por número de DTUs ou vCores. Por exemplo, se cada piscina for de 1000 DTUs, então um servidor pode suportar 54 piscinas.|
 |||
 
-> [!NOTE]
-> Para obter mais cota de DTU/eDTU, cota de vCore ou mais servidores do que o valor padrão, uma nova solicitação de suporte pode ser enviada no portal do Azure para a assinatura com o tipo de problema "cota". A cota de DTU/eDTU e o limite de banco de dados por servidor restringem o número de pools elásticos por servidor.
-
 > [!IMPORTANT]
-> À medida que o número de bancos de dados se aproxima do limite por servidor do SQL Database, pode ocorrer o seguinte:
+> À medida que o número de bases de dados se aproxima do limite por servidor de base de dados SQL, podem ocorrer os seguintes:
 >
-> - Aumento da latência na execução de consultas no banco de dados mestre.  Isso inclui exibições de estatísticas de utilização de recursos, como sys. resource_stats.
-> - Aumento da latência em operações de gerenciamento e pontos de vista do portal de renderização que envolvem a enumeração de bancos de dados no servidor.
+> - Aumentando a latência na execução de consultas contra a base de dados principal.  Isto inclui pontos de vista sobre estatísticas de utilização de recursos, tais como sys.resource_stats.
+> - Aumento da latência nas operações de gestão e na renderização de pontos de vista portais que envolvem enumerar bases de dados no servidor.
+
+> [!NOTE]
+> Para obter mais quota DTU/eDTU, quota vCore ou mais servidores do que o valor padrão, submeta um novo pedido de suporte no portal Azure. Para mais informações, consulte o pedido de aumento da quota para a Base de [Dados SQL azure](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Tamanho do armazenamento
 
-Para tamanhos de armazenamento de recursos de bancos de dados únicos, consulte [limites de recursos baseados em DTU](sql-database-dtu-resource-limits-single-databases.md) ou limites de [recursos baseados em vCore](sql-database-vcore-resource-limits-single-databases.md) para os limites de tamanho de armazenamento por tipo de preço.
+Para obter bases de dados únicas tamanhos de armazenamento de recursos, consulte [os limites de recursos baseados em DTU](sql-database-dtu-resource-limits-single-databases.md) ou [os limites de recursos baseados em vCore](sql-database-vcore-resource-limits-single-databases.md) para os limites de tamanho de armazenamento por nível de preços.
 
-## <a name="what-happens-when-database-resource-limits-are-reached"></a>O que acontece quando os limites de recursos do banco de dados são atingidos
+## <a name="what-happens-when-database-resource-limits-are-reached"></a>O que acontece quando os limites de recursos da base de dados são atingidos
 
-### <a name="compute-dtus-and-edtus--vcores"></a>Computação (DTUs e eDTUs/vCores)
+### <a name="compute-dtus-and-edtus--vcores"></a>Cálculo (DTUs e eDTUs / vCores)
 
-Quando a utilização de computação de banco de dados (medida por DTUs e eDTUs ou vCores) se torna alta, a latência de consulta aumenta e as consultas podem até mesmo atingir o tempo limite. Sob essas condições, as consultas podem ser enfileiradas pelo serviço e são fornecidas recursos para execução à medida que os recursos são liberados.
-Ao encontrar alta utilização de computação, as opções de mitigação incluem:
+Quando a utilização da base de dados computada (medida por DTUs e eDTUs, ou vCores) se torna elevada, a latência da consulta aumenta e as consultas podem mesmo esgotar-se. Nestas condições, as consultas podem ser submetidas à fila pelo serviço e são fornecidos recursos para a execução à medida que os recursos se tornam gratuitos.
+Ao encontrar uma alta utilização de cálculo, as opções de mitigação incluem:
 
-- Aumentar o tamanho de computação do banco de dados ou do pool elástico para fornecer ao banco de dados mais recursos de computação. Consulte [dimensionar recursos de banco de dados individual](sql-database-single-database-scale.md) e [dimensionar recursos de pool elástico](sql-database-elastic-pool-scale.md).
-- Otimização de consultas para reduzir a utilização de recursos de cada consulta. Para obter mais informações, consulte [ajuste/dicas de consulta](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Aumentar o tamanho da computação da base de dados ou do pool elástico para fornecer à base de dados mais recursos computacionais. Consulte os recursos de base de [dados individuais scale](sql-database-single-database-scale.md) e [scale elásticos recursos de piscina.](sql-database-elastic-pool-scale.md)
+- Otimizar consultas para reduzir a utilização de recursos de cada consulta. Para mais informações, consulte [Afinação/Insinuação](sql-database-performance-guidance.md#query-tuning-and-hinting)de Consulta.
 
 ### <a name="storage"></a>Armazenamento
 
-Quando o espaço de banco de dados usado atinge o limite de tamanho máximo, as inserções e atualizações de banco de dados que aumentam a falha de tamanho e os clientes recebem uma [mensagem de erro](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). As instruções SELECT e DELETE continuam a ter sucesso.
+Quando o espaço de base de dados utilizado atinge o limite máximo de tamanho, a base de dados insere e atualiza ções que aumentam a falha do tamanho dos dados e os clientes recebem uma [mensagem de erro](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). As declarações SELECT e DELETE continuam a ter sucesso.
 
-Ao encontrar alta utilização de espaço, as opções de mitigação incluem:
+Ao encontrar uma utilização de espaço elevado, as opções de mitigação incluem:
 
-- Aumentar o tamanho máximo do banco de dados ou do pool elástico ou adicionar mais armazenamento. Consulte [dimensionar recursos de banco de dados individual](sql-database-single-database-scale.md) e [dimensionar recursos de pool elástico](sql-database-elastic-pool-scale.md).
-- Se o banco de dados estiver em um pool elástico, como alternativa, o banco de dados poderá ser movido para fora do pool para que seu espaço de armazenamento não seja compartilhado com outros bancos de dados.
-- Reduza um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md)
+- Aumentar o tamanho máximo da base de dados ou piscina elástica, ou adicionar mais armazenamento. Consulte os recursos de base de [dados individuais scale](sql-database-single-database-scale.md) e [scale elásticos recursos de piscina.](sql-database-elastic-pool-scale.md)
+- Se a base de dados estiver num pool elástico, então, em alternativa, a base de dados pode ser movida para fora da piscina para que o seu espaço de armazenamento não seja partilhado com outras bases de dados.
+- Encolher uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md)
 
-### <a name="sessions-and-workers-requests"></a>Sessões e trabalhadores (solicitações)
+### <a name="sessions-and-workers-requests"></a>Sessões e trabalhadores (pedidos)
 
-O número máximo de sessões e trabalhos é determinado pela camada de serviço e pelo tamanho da computação (DTUs/eDTUs ou vCores. Novas solicitações são rejeitadas quando os limites de sessão ou de trabalho são atingidos e os clientes recebem uma mensagem de erro. Embora o número de conexões disponíveis possa ser controlado pelo aplicativo, o número de trabalhos simultâneos geralmente é mais difícil de estimar e controlar. Isso é especialmente verdadeiro durante períodos de pico de carga quando os limites de recursos do banco de dados são atingidos e os trabalhadores se acumulam devido a consultas em execução mais longas, cadeias de bloqueio grandes ou paralelismo de consulta excessivo.
+O número máximo de sessões e trabalhadores é determinado pelo nível de serviço e dimensão do cálculo (DTUs/eDTUs ou vCores. Os novos pedidos são rejeitados quando a sessão ou os limites dos trabalhadores são atingidos, e os clientes recebem uma mensagem de erro. Embora o número de ligações disponíveis possa ser controlado pela aplicação, o número de trabalhadores simultâneos é muitas vezes mais difícil de estimar e controlar. Isto é especialmente verdade durante os períodos de pico de carga quando os limites de recursos da base de dados são atingidos e os trabalhadores acumulam-se devido a consultas de funcionamento mais longas, grandes cadeias de bloqueio ou paralelismo de consulta excessiva.
 
-Ao encontrar alta utilização de sessão ou de trabalho, as opções de mitigação incluem:
+Ao encontrar uma sessão alta ou utilização do trabalhador, as opções de mitigação incluem:
 
-- Aumentando a camada de serviço ou o tamanho de computação do banco de dados ou do pool elástico. Consulte [dimensionar recursos de banco de dados individual](sql-database-single-database-scale.md) e [dimensionar recursos de pool elástico](sql-database-elastic-pool-scale.md).
-- Otimizar consultas para reduzir a utilização de recursos de cada consulta se a causa da maior utilização do trabalhador for devido à contenção de recursos de computação. Para obter mais informações, consulte [ajuste/dicas de consulta](sql-database-performance-guidance.md#query-tuning-and-hinting).
+- Aumentar o nível de serviço ou calcular o tamanho da base de dados ou da piscina elástica. Consulte os recursos de base de [dados individuais scale](sql-database-single-database-scale.md) e [scale elásticos recursos de piscina.](sql-database-elastic-pool-scale.md)
+- Otimizar consultas para reduzir a utilização de recursos de cada consulta se a causa do aumento da utilização dos trabalhadores for devido à contenção dos recursos computacionais. Para mais informações, consulte [Afinação/Insinuação](sql-database-performance-guidance.md#query-tuning-and-hinting)de Consulta.
 
 ## <a name="resource-governance"></a>Governação de recursos
 
-Para impor limites de recursos, o banco de dados SQL do Azure usa uma implementação de governança de recursos baseada em SQL Server [resource governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor), modificado e estendido para executar um serviço de banco de dados SQL Server no Azure. Em cada instância de SQL Server no serviço, há vários [pools de recursos](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-resource-pool) e [grupos de carga de trabalho](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-workload-group), com limites de recursos definidos no pool e nos níveis de grupo para fornecer um banco de [dados como serviço equilibrado](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/). Carga de trabalho do usuário e cargas de trabalho internas são classificadas em pools de recursos e grupos de carga de trabalho separados. A carga de trabalho do usuário nas réplicas secundárias primárias e legíveis, incluindo réplicas geográficas, é classificada no pool de recursos `SloSharedPool1` e `UserPrimaryGroup.DBId[N]` grupo de carga de trabalho, em que `N` representa o valor da ID do banco de dados. Além disso, há vários pools de recursos e grupos de carga de trabalho para várias cargas de trabalho internas.
+Para impor limites de recursos, a Base de Dados Azure SQL utiliza uma implementação de governação de recursos baseada no SQL Server [Resource Governor,](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor)modificado e estendido para executar um serviço de base de dados SQL Server em Azure. Em cada instância do SQL Server no serviço, existem múltiplos [conjuntos](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-resource-pool) de recursos e [grupos](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-workload-group)de carga de trabalho, com limites de recursos definidos tanto a nível de pool como de grupo para fornecer uma [base de dados equilibrada como um serviço.](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/) A carga de trabalho dos utilizadores e as cargas de trabalho internas são classificadas em conjuntos de recursos separados e grupos de carga de trabalho. A carga de trabalho dos utilizadores nas réplicas secundárias primárias e legíveis, incluindo georéplicas, está classificada no conjunto de recursos `SloSharedPool1` e `UserPrimaryGroup.DBId[N]` grupo de carga de trabalho, onde `N` representa o valor de ID da base de dados. Além disso, existem múltiplos conjuntos de recursos e grupos de carga de trabalho para várias cargas de trabalho internas.
 
-Além de usar Resource Governor para controlar os recursos dentro do processo de SQL Server, o banco de dados SQL do Azure também usa [objetos de trabalho](https://docs.microsoft.com/windows/win32/procthread/job-objects) do Windows para governança de recursos de nível de processo e o [FSRM (Gerenciador de recursos de servidor de arquivos)](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) do Windows para gerenciamento de cota de armazenamento.
+Além de usar o Governor de Recursos para governar recursos dentro do processo do Servidor SQL, a Base de Dados Azure SQL também utiliza [objetos](https://docs.microsoft.com/windows/win32/procthread/job-objects) de trabalho do Windows para a governação de recursos de nível de processo, e o Gestor de Recursos do Servidor de Ficheiros do Windows [(FSRM)](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) para a gestão de quotas de armazenamento.
 
-A governança de recursos do banco de dados SQL do Azure é hierárquica por natureza. De cima para baixo, os limites são impostos no nível do sistema operacional e no nível do volume de armazenamento usando mecanismos de governança de recursos do sistema operacional e Resource Governor, em seguida, no nível do pool de recursos usando Resource Governor e, em seguida, no nível do grupo de carga de trabalho usando Resource Governor. Os limites de governança de recursos em vigor para o banco de dados atual ou pool elástico são exibidos na exibição [Sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . 
+A governação de recursos da Base de Dados Azure SQL é de natureza hierárquica. De cima para baixo, os limites são aplicados ao nível do OS e ao nível do volume de armazenamento utilizando mecanismos de governação de recursos do sistema operativo e governador de recursos, em seguida, ao nível do conjunto de recursos usando o Governor de Recursos, e, em seguida, ao nível do grupo de carga de trabalho usando Governador de Recursos. Os limites de governação dos recursos em vigor para a base de dados atual ou o pool elástico são surgidos na visão [sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 
 
-### <a name="data-io-governance"></a>Governança de e/s de dados
+### <a name="data-io-governance"></a>Governação da IO de dados
 
-A governança de e/s de dados é um processo no banco de dados SQL do Azure usado para limitar a e/s física de leitura e gravação em arquivos de data de um banco. Os limites de IOPS são definidos para cada nível de serviço para minimizar o efeito de "vizinho ruidosa", para fornecer a integridade de alocação de recursos no serviço multilocatário e para permanecer dentro dos recursos do hardware e do armazenamento subjacentes.
+A governação da IO de dados é um processo na Base de Dados Azure SQL usado para limitar tanto a leitura como a escrita de IO físico contra ficheiros de dados de uma base de dados. Os limites do IOPS são definidos para cada nível de serviço para minimizar o efeito "vizinho barulhento", fornecer equidade na alocação de recursos no serviço multi-inquilino, e permanecer dentro das capacidades do hardware e armazenamento subjacentes.
 
-Para bancos de dados individuais, os limites de grupo de carga de trabalho são aplicados a todas as e/s de armazenamento em relação ao banco de dados, enquanto os limites do pool de recursos se aplicam a todas as e/s de armazenamento em todos os bancos na mesma instância de SQL Server, incluindo `tempdb` o Para pools elásticos, os limites de grupo de carga de trabalho se aplicam a cada banco de dados no pool, enquanto o limite do pool de recursos se aplica a todo o pool elástico, incluindo o banco de dados `tempdb`, que é compartilhado entre todos os bancos de dados no pool. Em geral, os limites do pool de recursos podem não ser obtidos pela carga de trabalho em relação a um banco de dados (único ou em pool), pois os limites do grupo de carga de trabalho são menores do que os limites do pool de recursos e limitam o IOPS/taxa No entanto, os limites de pool podem ser alcançados pela carga de trabalho combinada em vários bancos de dados na mesma instância de SQL Server.
+Para bases de dados únicas, os limites do grupo de carga de trabalho são aplicados a todos os IO de armazenamento na base de dados, enquanto os limites do conjunto de recursos aplicam-se a todos os IO de armazenamento contra todas as bases de dados na mesma instância do Servidor SQL, incluindo a base de dados `tempdb`. Para piscinas elásticas, os limites do grupo de trabalho aplicam-se a cada base de dados da piscina, enquanto o limite do conjunto de recursos se aplica a todo o pool elástico, incluindo a base de dados `tempdb`, que é partilhada entre todas as bases de dados da piscina. Em geral, os limites do conjunto de recursos podem não ser alcançáveis pela carga de trabalho contra uma base de dados (única ou reunida), porque os limites do grupo de carga de trabalho são inferiores aos limites do conjunto de recursos e limitam o IOPS/produção mais cedo. No entanto, os limites de piscina podem ser atingidos pela carga de trabalho combinada contra várias bases de dados na mesma instância do Servidor SQL.
 
-Por exemplo, se uma consulta gerar 1000 IOPS sem nenhuma governança de recursos de e/s, mas o limite máximo de IOPS do grupo de carga de trabalho for definido como 900 IOPS, a consulta não poderá gerar mais de 900 IOPS. No entanto, se o limite máximo de IOPS do pool de recursos for definido como 1500 IOPS e a e/s total de todos os grupos de carga de trabalho associados ao pool de recursos exceder 1500 IOPS, a e/s da mesma consulta poderá ser reduzida abaixo do limite do grupo de trabalhos de 900 IOPS.
+Por exemplo, se uma consulta gerar 1000 IOPS sem qualquer governação de recursos IO, mas o limite máximo de IOPS do grupo de carga é fixado para 900 IOPS, a consulta não será capaz de gerar mais de 900 IOPS. No entanto, se o limite máximo de IOPS do conjunto de recursos for fixado para 1500 IOPS, e o total de IO de todos os grupos de carga de trabalho associados ao conjunto de recursos exceder 1500 IOPS, então o IO da mesma consulta pode ser reduzido abaixo do limite de grupo de trabalho de 900 IOPS.
 
-Os valores mínimo/máximo de IOPS e taxa de transferência retornados pela exibição [Sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) atuam como limites/Caps, não como garantias. Além disso, a governança de recursos não garante nenhuma latência de armazenamento específica. A melhor latência, IOPS e taxa de transferência atingíveis para uma determinada carga de trabalho de usuário dependem não apenas dos limites de governança de recursos de e/s, mas também da combinação de tamanhos de e/s usados e dos recursos do armazenamento subjacente. O SQL Server usa o IOs que varia de tamanho entre 512 KB e 4 MB. Para fins de imposição de limites de IOPS, cada e/s é contabilizada independentemente de seu tamanho, com a exceção de bancos de dados com arquivos de data no armazenamento do Azure. Nesse caso, IOs com mais de 256 KB são contabilizados como vários 256 KB de IOs, para alinhar com a contabilidade de e/s do armazenamento do Azure.
+Os iOPS e os valores de min/max de entrada devolvidos pelo [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) vêem como limites/tampas, e não como garantias. Além disso, a governação dos recursos não garante qualquer latência específica de armazenamento. A melhor latência alcançável, iopS, e a entrada para uma determinada carga de trabalho dos utilizadores dependem não só dos limites de governação dos recursos da OI, mas também da mistura de tamanhos IO utilizados, e das capacidades do armazenamento subjacente. O SQL Server utiliza IOs que variam de tamanho entre 512 KB e 4 MB. Para efeitos de aplicação dos limites iops, cada IO é contabilizada independentemente da sua dimensão, com exceção das bases de dados com ficheiros de dados no Armazenamento Azure. Nesse caso, os IOs superiores a 256 KB são contabilizados como múltiplos 256 KB IOs, para alinhar com a contabilidade Azure Storage IO.
 
-Para bancos de dados Basic, Standard e Uso Geral, que usam arquivos de dado no armazenamento do Azure, o valor de `primary_group_max_io` pode não ser atingível se um banco de dados não tiver arquivos suficientes para fornecer esse número de IOPS, ou se os dados não forem distribuídos uniformemente entre arquivos ou se o nível de desempenho dos BLOBs subjacentes limitar IOPS/taxa de transferência abaixo do limite de governança de recursos Da mesma forma, com o IOs de log pequeno gerado pela confirmação de transação frequente, o valor `primary_max_log_rate` pode não ser atingível por uma carga de trabalho devido ao limite de IOPS no blob de armazenamento do Azure subjacente.
+Para bases de dados Básicas, Standard e General Purpose, que utilizam ficheiros de dados no Armazenamento Do Azure, o valor `primary_group_max_io` pode não ser alcançável se uma base de dados não tiver ficheiros de dados suficientes para fornecer cumulativamente este número de IOPS, ou se os dados não forem distribuídos uniformemente através de ficheiros, ou se o nível de desempenho das bolhas subjacentes limitar o IOPS/ato abaixo do limite de governação dos recursos. Da mesma forma, com os pequenos IOs de log gerados por transações frequentes, o valor `primary_max_log_rate` pode não ser alcançável por uma carga de trabalho devido ao limite iopS na bolha de armazenamento Azure subjacente.
 
-Valores de utilização de recursos, como `avg_data_io_percent` e `avg_log_write_percent`, relatados nas exibições [Sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [Sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) , são calculados como porcentagens de limites máximos de governança de recursos. Portanto, quando fatores diferentes da governança de recursos limitam o IOPS/taxa de transferência, é possível ver o aumento de taxa de transferência e as latências aumentadas à medida que a carga de trabalho aumenta, embora a utilização de recursos relatada permaneça abaixo de 100%. 
+Os valores de utilização de recursos, como `avg_data_io_percent` e `avg_log_write_percent`, reportados nas [visões sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [sys.elastic_pool_resource_stats,](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) são calculados como percentagens dos limites máximos de governação dos recursos. Por conseguinte, quando os fatores que não o limite de governação dos recursos IOPS/adcto, é possível ver o IOPS/ato/achatamento e as tardios a aumentarem à medida que a carga de trabalho aumenta, embora a utilização reportada de recursos permaneça abaixo de 100%. 
 
-Para ver a leitura e gravação de IOPS, taxa de transferência e latência por arquivo de banco de dados, use a função [Sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Essa função faz a superfície de todas as e/s no banco de dados, incluindo a e/s de plano de fundo que não é contabilizada em `avg_data_io_percent`, mas usa IOPS e taxa de transferência do armazenamento subjacente e pode afetar a latência de armazenamento observada. A função também apresenta uma latência adicional que pode ser introduzida pela governança de recursos de e/s para leituras e gravações, nas colunas `io_stall_queued_read_ms` e `io_stall_queued_write_ms`, respectivamente.
+Para ver ler e escrever IOPS, entrada e latência por ficheiro de base de dados, utilize a função [sys.dm_io_virtual_file_stats().](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) Esta função encontra toda a IO contra a base de dados, incluindo o fundo IO que não é contabilizado para `avg_data_io_percent`, mas utiliza IOPS e a sua entrada do armazenamento subjacente, e pode impactar a latência de armazenamento observada. A função também surge em termos de latência adicional que pode ser introduzida pela governação dos recursos da OI para leituras e escritos, nas colunas `io_stall_queued_read_ms` e `io_stall_queued_write_ms`, respectivamente.
 
-### <a name="transaction-log-rate-governance"></a>Governança de taxa de log de transações
+### <a name="transaction-log-rate-governance"></a>Governação da taxa de registo de transações
 
-A governança de taxa do log de transações é um processo no banco de dados SQL do Azure usado para limitar altas taxas de ingestão para cargas de trabalho, como inserção em massa, seleção INTO e compilações de índice. Esses limites são rastreados e aplicados no nível de subsegundos à taxa de geração de registro de log, limitando a taxa de transferência, independentemente de quantos IOs podem ser emitidos em relação aos arquivos de dados.  As taxas de geração de log de transações atualmente são dimensionadas linearmente até um ponto que é dependente de hardware, com a taxa de log máxima permitida de 96 MB/s com o modelo de compra vCore. 
+A governação da taxa de registo de transações é um processo na Base de Dados Azure SQL usado para limitar altas taxas de ingestão para cargas de trabalho como inserção a granel, SELECT INTO e construções de índices. Estes limites são rastreados e aplicados ao nível do subsegundo à taxa de produção de registo, limitando a produção independentemente do número de IOs que possam ser emitidos contra ficheiros de dados.  As taxas de geração de registos de transações atualmente escalam linearmente até um ponto que é dependente de hardware, com a taxa de registo máxima permitida ser de 96 MB/s com o modelo de compra vCore. 
 
 > [!NOTE]
-> O IOs físico real para os arquivos de log de transações não são governados ou limitados.
+> Os IOs físicos reais aos ficheiros de registo de transações não são regidos ou limitados.
 
-As taxas de log são definidas de modo que elas possam ser alcançadas e mantidas em vários cenários, enquanto o sistema geral pode manter sua funcionalidade com impacto minimizado na carga do usuário. A governança de taxa de log garante que os backups de log de transações permaneçam dentro dos SLAs de recuperação publicados.  Essa governança também impede uma pendência excessiva em réplicas secundárias.
+As taxas de registo são definidas de modo a que possam ser alcançadas e sustentadas em vários cenários, enquanto o sistema global pode manter a sua funcionalidade com um impacto minimizado na carga do utilizador. A governação da taxa de registo garante que os backups de registo de transações permanecem dentro dos SLAs de recuperabilidade publicados.  Esta governação também impede um atraso excessivo nas réplicas secundárias.
 
-À medida que os registros de log são gerados, cada operação é avaliada e avaliada se deve ser atrasada para manter uma taxa máxima de log desejada (MB/s por segundo). Os atrasos não são adicionados quando os registros de log são liberados para armazenamento, em vez disso, a governança de taxa de log é aplicada durante a própria geração de taxa de log.
+À medida que os registos de registo são gerados, cada operação é avaliada e avaliada para saber se deve ser adiada para manter uma taxa de registo máxima desejada (MB/s por segundo). Os atrasos não são adicionados quando os registos de registo são lavados ao armazenamento, em vez de a governação da taxa de registo ser aplicada durante a própria geração de taxas de registo.
 
-As taxas de geração de log reais impostas em tempo de execução também podem ser influenciadas por mecanismos de comentários, reduzindo temporariamente as taxas de log permitidas para que o sistema possa se estabilizar. Gerenciamento de espaço de arquivo de log, evitando a execução de condições de espaço de log e os mecanismos de replicação de grupo de disponibilidade podem diminuir temporariamente os limites gerais do sistema.
+As taxas reais de produção de registo impostas no tempo de funcionamento também podem ser influenciadas por mecanismos de feedback, reduzindo temporariamente as taxas de registo admissíveis para que o sistema possa estabilizar. A gestão do espaço de ficheiros de log, evitando o esgotamento das condições de espaço de registo e os mecanismos de replicação do Grupo de Disponibilidade podem reduzir temporariamente os limites globais do sistema.
 
-A modelagem de tráfego do administrador da taxa de log é apresentada por meio dos seguintes tipos de espera (expostos na DMV [Sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ):
+A modelação de tráfego do governador da taxa de registo é emergida através dos seguintes tipos de espera (expostos no [DMV sys.dm_db_wait_stats):](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)
 
 | Tipo de espera | Notas |
 | :--- | :--- |
-| LOG_RATE_GOVERNOR | Limitação de banco de dados |
-| POOL_LOG_RATE_GOVERNOR | Limitação de pool |
-| INSTANCE_LOG_RATE_GOVERNOR | Limitação de nível de instância |  
-| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controle de comentários, replicação física do grupo de disponibilidade em Premium/Comercialmente Crítico não está acompanhando |  
-| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controle de comentários, limitando as taxas para evitar uma condição de espaço de log insuficiente |
+| LOG_RATE_GOVERNOR | Limitação da base de dados |
+| POOL_LOG_RATE_GOVERNOR | Limitação da piscina |
+| INSTANCE_LOG_RATE_GOVERNOR | Limitação do nível de instância |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controlo de feedback, replicação física do grupo de disponibilidade em Premium/Business Critical não se mantendo |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controlo de feedback, limitando as taxas para evitar uma condição de espaço de registo |
 |||
 
-Ao encontrar um limite de taxa de log que está atrasando a escalabilidade desejada, considere as seguintes opções:
-- Escale verticalmente para um nível de serviço superior para obter a taxa máxima de logs de 96 MB/s. 
-- Se os dados que estão sendo carregados forem transitórios, como dados de preparo em um processo de ETL, eles poderão ser carregados em tempdb (que é minimamente registrado). 
-- Para cenários analíticos, carregue em uma tabela coberta por columnstore clusterizado. Isso reduz a taxa de log necessária devido à compactação. Essa técnica aumenta a utilização da CPU e só é aplicável a conjuntos de dados que se beneficiam de índices columnstore clusterizados. 
+Ao encontrar um limite de taxa de registo que esteja a dificultar a escalabilidade desejada, considere as seguintes opções:
+- Aumentar até um nível de serviço mais elevado para obter a taxa máxima de 96 MB/s. 
+- Se os dados que estão a ser carregados forem transitórios, como a encenação de dados num processo ETL, podem ser carregados em tempdb (que é minimamente registado). 
+- Para cenários analíticos, carregue numa mesa coberta de colunas agrupada. Isto reduz a taxa de registo exigida devido à compressão. Esta técnica aumenta a utilização do CPU e só é aplicável a conjuntos de dados que beneficiam de índices de lojas de colunas agrupadas. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter informações sobre limites gerais do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Para obter informações sobre os limites gerais do Azure, consulte [os limites de subscrição e serviço do Azure, quotas e restrições.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Para obter informações sobre DTUs e eDTUs, consulte [DTUs e eDTUs](sql-database-purchase-models.md#dtu-based-purchasing-model).
-- Para obter informações sobre os limites de tamanho do tempdb, consulte [tempdb no banco de dados SQL do Azure](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+- Para obter informações sobre os limites de tamanho temporário, consulte [TempDB na Base de Dados Azure SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

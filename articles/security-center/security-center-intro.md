@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 759cc3f22d8b57036bad48326ffec1d6fca42696
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 884f5ab6fa57b201e1a9105729bf96e10931dca1
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939441"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604060"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -81,9 +81,9 @@ Uma das ferramentas mais poderosas que o Security Center fornece para monitoriza
 
 ![Mapa da rede do Centro de Segurança](media/security-center-intro/sc-net-map.png)
 
-O Centro de Segurança facilita a mitigação dos alertas de segurança um passo mais fácil, adicionando uma **pontuação Secure**. As pontuações seguras estão agora associadas a cada recomendação que recebe para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral. Isto é crucial para lhe permitir **priorizar o seu trabalho**de segurança.
+O Centro de Segurança facilita a mitigação dos alertas de segurança um passo mais fácil, adicionando uma **Pontuação Segura**. As Pontuações Seguras estão agora associadas a cada recomendação que recebe para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral. Isto é crucial para lhe permitir **priorizar o seu trabalho**de segurança.
 
-![Pontuação segura do Centro de Segurança](media/security-center-intro/sc-secure-score.png)
+![Pontuação segura do centro de segurança](media/security-center-intro/sc-secure-score.png)
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Otimize e melhore a segurança configurando controlos recomendados
 

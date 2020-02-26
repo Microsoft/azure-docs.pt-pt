@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 4f41f4996f230a373245633b9449e93c403a1dfc
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430300"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603585"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança no Centro de Segurança do Azure 
 Este tópico explica como ver e compreender as recomendações no Azure Security Center para ajudá-lo a proteger os seus recursos Azure.
@@ -38,7 +38,7 @@ Cada recomendação fornece-lhe:
 - Uma breve descrição do que está a ser recomendado.
 - As medidas de reparação a executar para implementar a recomendação. <!-- In some cases, Quick Fix remediation is available. -->
 - Que recursos precisam que faça a ação recomendada neles.
-- O **impacto da pontuação segura**, que é o valor que a sua pontuação segura irá subir se implementar esta recomendação.
+- O **impacto Secure Score**, que é o valor que a sua Pontuação Segura irá subir se implementar esta recomendação.
 
 ## Monitorizar recomendações<a name="monitor-recommendations"></a>
 
@@ -53,7 +53,7 @@ O Centro de Segurança analisa o estado de segurança dos seus recursos para ide
     Pode filtrar recomendações. Para filtrar as recomendações, selecione **Filter** na lâmina **de recomendações.** A lâmina **do Filtro** abre-se e seleciona a gravidade e os valores de estado que deseja ver.
 
    * **RECOMENDAÇÕES**: A recomendação.
-   * **IMPACTO DE PONTUAÇÃO SEGURA**: Uma pontuação gerada pelo Security Center utilizando as suas recomendações de segurança e aplicando algoritmos avançados para determinar o quão crucial é cada recomendação. Para mais informações, consulte o cálculo da [pontuação secure](security-center-secure-score.md#secure-score-calculation).
+   * **IMPACTO DE PONTUAÇÃO SEGURA**: Uma pontuação gerada pelo Security Center utilizando as suas recomendações de segurança e aplicando algoritmos avançados para determinar o quão crucial é cada recomendação. Para mais informações, consulte o [cálculo Secure Score](security-center-secure-score.md#secure-score-calculation).
    * **RECURSO**: Lista os recursos a que esta recomendação se aplica.
    * **BARRAS DE ESTATUTO**: Descreve a gravidade dessa recomendação específica:
        * **Alta (Vermelha)** : Existe uma vulnerabilidade com um recurso significativo (como uma aplicação, um VM ou um grupo de segurança de rede) e requer atenção.

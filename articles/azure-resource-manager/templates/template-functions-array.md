@@ -3,12 +3,12 @@ title: Funções do modelo - matrizes e objetos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com matrizes e objetos.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: a38ab0fb2ddb15c3e853ae1b249df9a8364c6910
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207371"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591188"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos de Gestor de Recursos Azure
 
@@ -95,9 +95,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| intOutput | Matriz | [1] |
-| stringOutput | Matriz | ["efgh"] |
-| objectOutput | Matriz | [{"a": "b", "c": "d"}] |
+| intOutput | Array | [1] |
+| stringOutput | Array | ["efgh"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -180,10 +180,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | Cadeia | predefinição |
+| stringOutput | String | predefinição |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
-| arrayOutput | Matriz | [1] |
+| arrayOutput | Array | [1] |
 | emptyOutput | Bool | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
@@ -258,7 +258,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| Devolução | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| Devolução | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -298,7 +298,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| concatOutput | Cadeia | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -467,10 +467,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringArray | Matriz | ["a", "b", "c"] |
-| intArray | Matriz | [1, 2, 3] |
-| objetoArray | Matriz | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | Matriz | [["one", "two", "three"]] |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objetoArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Array | [["one", "two", "three"]] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -610,8 +610,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Cadeia | um |
-| stringOutput | Cadeia | O |
+| arrayOutput | String | um |
+| stringOutput | String | O |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -689,7 +689,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
-| arrayOutput | Matriz | ["dois", "três"] |
+| arrayOutput | Array | ["dois", "três"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -825,8 +825,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Cadeia | três |
-| stringOutput | Cadeia | e |
+| arrayOutput | String | três |
+| stringOutput | String | e |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -1067,7 +1067,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## <a name="range"></a>alcance
 
-`range(startingInteger, numberOfElements)`
+`range(startIndex, count)`
 
 Cria uma variedade de inteiros a partir de um inteiro inicial e contendo uma série de itens.
 
@@ -1075,8 +1075,8 @@ Cria uma variedade de inteiros a partir de um inteiro inicial e contendo uma sé
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Sim |int |O primeiro inteiro na matriz. |
-| numberofElements |Sim |int |O número de inteiros na matriz. |
+| startIndex |Sim |int |O primeiro inteiro na matriz. A soma do startIndex e da contagem não deve ser superior a 2147483647. |
+| count |Sim |int |O número de inteiros na matriz. Deve ser um inteiro não negativo até 10000. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1114,7 +1114,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| rangeOutput | Matriz | [5, 6, 7] |
+| rangeOutput | Array | [5, 6, 7] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -1193,8 +1193,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["three"] |
-| stringOutput | Cadeia | dois três |
+| arrayOutput | Array | ["three"] |
+| stringOutput | String | dois três |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -1273,8 +1273,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["um", "dois"] |
-| stringOutput | Cadeia | em |
+| arrayOutput | Array | ["um", "dois"] |
+| stringOutput | String | em |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -1352,7 +1352,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
-| arrayOutput | Matriz | ["um", "dois", "três", "quatro"] |
+| arrayOutput | Array | ["um", "dois", "três", "quatro"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: memildin
-ms.openlocfilehash: 32cc4b01d68ee7a15ae7cfa2259d234cbcd143c4
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: ef1684f11349696c22a290c90469a8d94f922e58
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202058"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603992"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Investigar incidentes e alertas na central de segurança do Azure (desativado)
-Este documento ajuda você a usar o recurso de investigação (versão prévia) na central de segurança do Azure para investigar incidentes de segurança e alertas.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Investigar Incidentes e Alertas no Centro de Segurança Azure (Aposentado)
+Este documento ajuda-o a usar a funcionalidade de investigação (Preview) no Centro de Segurança Azure para investigar incidentes e alertas de segurança.
 
 > [!NOTE]
-> A experiência de investigação de alertas e incidentes (versão prévia) foi desativada em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [aposentadoria dos recursos da central de segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_investigate).
+> A experiência de alertas e incidentes (Pré-visualização) foi retirada no dia 31 de julho de 2019. Para mais informações e serviços alternativos, consulte [funcionalidades do Centro de Aposentações (julho 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>O que é a investigação no Centro de Segurança?
 A funcionalidade Investigação do Centro de Segurança permite-lhe triar, compreender o âmbito e acompanhar a origem de potenciais [incidentes de segurança](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -33,8 +33,8 @@ O objetivo é facilitar o processo de investigação ao ligar todas as entidades
 
 
 > [!NOTE]
-> * Não há suporte para [alertas personalizados](security-center-custom-alert.md) no recurso de investigação da central de segurança.
-> * A investigação só tem suporte para alertas baseados em dados coletados de servidores Windows.
+> * [Os alertas personalizados](security-center-custom-alert.md) não são suportados na funcionalidade de investigação do Security Center.
+> * A investigação só é suportada para alertas com base em dados recolhidos a partir de servidores do Windows.
 
 
 ## <a name="how-investigation-works"></a>Como funciona a Investigação?
@@ -72,7 +72,7 @@ O separador **Pesquisa** apresenta todos os tipos de registos que estão dispon�
 
 ### <a name="exploration"></a>Exploração
 
-O separador **Exploração** permite ao investigador examinar os dados associados a vários problemas relacionados com a entidade. Por exemplo, quando é investigado um computador, a lista de processos executados no mesmo é apresentada neste separador. Em alguns casos, o separador Exploração apresenta dados que podem indicar um problema suspeito. O investigador pode examinar os dados no separador ou abri-los no ecrã de pesquisa para examinar grandes conjuntos de dados e para utilizar as opções de pesquisa avançadas, como a filtragem e a exportação para Excel.
+O separador **Exploração** permite ao investigador examinar os dados associados a vários problemas relacionados com a entidade. Por exemplo, quando uma máquina é investigada, a lista de processos executados nela é apresentada no separador de exploração. Em alguns casos, o separador de exploração apresenta dados que podem indicar um problema suspeito. O investigador pode examinar os dados no separador ou abri-los no ecrã de pesquisa para examinar grandes conjuntos de dados e para utilizar as opções de pesquisa avançadas, como a filtragem e a exportação para Excel.
 
 ![Exploração](./media/security-center-investigation/security-center-investigation-fig6.png)
 
@@ -98,7 +98,7 @@ Os itens seguintes vão ser apresentados, independentemente do âmbito de tempo 
 
 ## <a name="how-to-perform-an-investigation"></a>Como fazer uma investigação?
 
-Pode começar a investigação a partir de um incidente de segurança ou a partir de um alerta. A opção que escolher irá variar consoante as suas necessidades. As etapas a seguir são usadas para iniciar uma investigação de um alerta:
+Pode começar a investigação a partir de um incidente de segurança ou a partir de um alerta. A opção que escolher irá variar consoante as suas necessidades. Os passos que se seguem são usados para iniciar uma investigação a partir de um alerta:
 
 1.  Abra o dashboard do **Centro de Segurança**.
 2.  Clique em **Alertas de Segurança** e selecione o incidente que quer investigar.
@@ -118,6 +118,3 @@ Neste documento, aprendeu a utilizar a funcionalidade Investigação do Centro d
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
 * [Compreender os alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de Resolução de Problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança.
-* [Centro de Segurança do Azure FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md). Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.

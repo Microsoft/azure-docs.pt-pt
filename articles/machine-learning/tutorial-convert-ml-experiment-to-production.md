@@ -7,12 +7,12 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: b929dd8979ecf587872092af2fa44e5ae03626d1
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 7f5e24261fd5d006004a51186e22f6bfe1b8ab32
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472490"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589186"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Tutorial: Converter código experimental ML para código de produção
 
@@ -368,7 +368,7 @@ class TestTrain:
                      "test": {"X": [[4, 5, 6]], "y": [0]}}
         test_alpha = 0.5
         mock_ridge_fit = mocker.patch('Ridge.fit')
-        mock_ridge_predict = mocker.patch(Ridge.predict')
+        mock_ridge_predict = mocker.patch('Ridge.predict')
 
         # Act
         train_model(test_data, test_alpha)
