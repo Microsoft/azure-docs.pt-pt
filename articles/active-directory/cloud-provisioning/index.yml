@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentação do aprovisionamento na cloud do Azure AD Connect
-summary: O aprovisionamento na cloud ajuda a simplificar e a automatizar a gestão dos utilizadores no local ao manter tudo na cloud.
+summary: O aprovisionamento na cloud ajuda a simplificar e a automatizar a gestão dos utilizadores do Azure AD através de regras geridas na cloud que sincronizam esses utilizadores das florestas do AD existentes.
 metadata:
   author: billmath
   description: O aprovisionamento na cloud ajuda a simplificar e a automatizar a gestão dos utilizadores do Azure AD através de regras geridas na cloud que sincronizam esses utilizadores das florestas do AD existentes.
@@ -11,12 +11,12 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: 89f3cf397322be65166e05c20b2e1d978a837581
-  ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+  ms.openlocfilehash: 83beffa0c0eb035c9cd5e30ec4644200b940dd6c
+  ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/03/2019
-  ms.locfileid: "74795246"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77620913"
 landingContent:
 - title: Sobre o aprovisionamento na cloud
   linkLists:

@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/18/2020
-  ms.openlocfilehash: 2c6708ec408780d492fbef073f3a61591cc2fd21
-  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+  ms.openlocfilehash: 507c2be217fa799d170963ba0f722af2878793e4
+  ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/21/2020
-  ms.locfileid: "77524324"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77623431"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:
@@ -39,6 +39,8 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
+    - text: Ligar um dispositivo
+      url: tutorial-connect-device.md
     - text: Ligar um dispositivo Plug and Play IoT (pré-visualização)
       url: tutorial-connect-pnp-device.md
   - linkListType: how-to-guide

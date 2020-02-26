@@ -31,7 +31,7 @@
         - name: AKS
           items:
             - name: CI/CD para o Kubernetes
-              href: /azure/aks/jenkins-continuous-deployment
+              href: jenkins-continuous-deployment.md
               maintainContext: true
             - name: Implementar para o AKS com o padrão azul/verde
               href: jenkins-aks-blue-green-deployment.md
@@ -49,7 +49,7 @@
         - name: Implementar para as Funções do Azure
           href: jenkins-azure-functions-deploy.md
         - name: Publicar no Armazenamento do Azure
-          href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+          href: storage-java-jenkins-continuous-integration-solution.md
           maintainContext: true
         - name: CI/CD para as VMs do Linux
           href: tutorial-jenkins-github-docker-cicd.md

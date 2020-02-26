@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 416d4a1eee6f3fe89fbe697bda896b30c8441756
-  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+  ms.openlocfilehash: 70d7924f1a7767db393faccf98d3a9250de049ec
+  ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/05/2020
-  ms.locfileid: "77020816"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77621418"
 landingContent:
 - title: Criar soluções de comércio
   linkLists:
@@ -47,6 +47,8 @@ landingContent:
     links:
     - text: Configurar um modelo de dispositivo
       url: ../core/howto-set-up-template.md
+    - text: Ligar um dispositivo
+      url: ../core/tutorial-connect-device.md
     - text: Ligar um dispositivo Plug and Play IoT (pré-visualização)
       url: ../core/tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
