@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 02/25/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 86224508b9f24906abce157b92a77c0a2f24d882
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 13d12bfbf64af9e19b66e63c88c9d7e0534571f3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605726"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617270"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Apoio à língua e à região para o serviço da Fala
 
@@ -37,8 +37,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
  Região | Idioma | Suportado | Personalizações
 ------|------------|-----------|-------------
 `ar-AE` | Árabe (EAU) | Sim | Não
-`ar-BH` | Árabe (Bahrein) | Sim | Modelo de linguagem
-`ar-EG` | Árabe (Egito), standard moderna | Sim | Modelo de linguagem
+`ar-BH` | Árabe (Bahrein), padrão moderno | Sim | Modelo de linguagem
+`ar-EG` | Árabe (Egito) | Sim | Modelo de linguagem
 `ar-KW` | Árabe (Kuwait) | Sim | Não
 `ar-QA` | Árabe (Qatar) | Sim | Não
 `ar-SA` | Árabe (Arábia Saudita) | Sim | Não

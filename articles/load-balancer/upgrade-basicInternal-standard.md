@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 543227ac9c07207112177dfaccbd00723b61a314
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 8d3f4294a5c8b09a132d56cd72ccb36ce766e0dd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566403"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616709"
 ---
-# <a name="upgrade-azure-internal-load-balancer-from-basic-sku-to-standard-sku"></a>Upgrade Azure Internal Load Balancer de Basic SKU para Standard SKU
+# <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Sem necessidade de ligação de saída
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto rico de funcionalidades e alta disponibilidade através de redundância de zona. Para saber mais sobre o Load Balancer SKU, consulte a [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 Há duas fases numa atualização:
@@ -28,12 +28,12 @@ Este artigo abrange a migração de configuração. Adicionar VMs a piscinas de 
 
 Está disponível um script Azure PowerShell que faz o seguinte:
 
-* Cria um Balancer de carga SKU Interno Padrão no grupo de recursos e localização o que especifica.
-* Copia perfeitamente as configurações do Equilíbrio de Carga Interna SKU Básico para o recém-criado Equilíbrio de Carga Interna Padrão.
+* Cria um Balancer de carga SKU Interno Padrão no local que especifica. Note que nenhuma [ligação](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) de saída não será fornecida pelo Balancer De carga Interna Padrão.
+* Copia perfeitamente as configurações do Equilíbrio de Carga SKU Básico para o recém-criado Equilíbrio de Carga Standard.
 
 ### <a name="caveatslimitations"></a>Ressalvas\Limitações
 
-* O script apenas suporta a atualização do Balancer de Carga Interna. Para a atualização interna do balancer de carga básica, crie um Balancer de Carga Interna Padrão se não for desejada conectividade de saída e crie um Balancer de Carga Interna Padrão e Um Equilíbrio de Carga Interna Padrão se for necessária conectividade de saída.
+* O script apenas suporta a atualização do Balancer de Carga Interna onde não é necessária nenhuma ligação de saída. Se necessitar de [ligação de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para alguns dos seus VMs, consulte esta [página](upgrade-InternalBasic-To-PublicStandard.md) para obter instruções. 
 * O Standard Load Balancer tem novos endereços públicos. É impossível mover os endereços IP associados ao equilíbrio de carga básico existente sem problemas para o Standard Load Balancer, uma vez que têm SKUs diferentes.
 * Se o equilibrador de carga Standard for criado numa região diferente, não poderá associar os VMs existentes na região antiga ao recém-criado Standard Load Balancer. Para contornar esta limitação, certifique-se de criar um novo VM na nova região.
 * Se o seu Balancer de Carga não tiver qualquer configuração IP frontal ou piscina de backend, é provável que acerte um erro ao executar o script. Por favor, certifique-se de que não estão vazios.

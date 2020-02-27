@@ -4,12 +4,12 @@ description: Saiba como atualizar um cluster do Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 9acf08765ee42401229bc464b4513856127e9f66
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592990"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621984"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Para os clusters AKS que utilizam várias piscinas de nós ou nós do Windows Se
 Este artigo requer que esteja a executar a versão Azure CLI 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 > [!WARNING]
-> Uma atualização do cluster AKS dispara um cordão e um dreno dos seus nós. Se tiver uma quota de cálculo baixa disponível, a atualização pode falhar.  Veja [o aumento das quotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para mais informações.
+> Uma atualização do cluster AKS dispara um cordão e um dreno dos seus nós. Se tiver uma quota de cálculo baixa disponível, a atualização pode falhar. Veja [o aumento das quotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para mais informações.
 > Se estiver a executar a sua própria implementação de autoescalar de cluster, desative-o (pode dimensioná-lo para réplicas zero) durante a atualização, uma vez que existe a possibilidade de interferir com o processo de atualização. O autoscaler gerido trata-o automaticamente. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Verifique se há atualizações de cluster AKS disponíveis

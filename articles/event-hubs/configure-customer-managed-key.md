@@ -1,6 +1,6 @@
 ---
-title: Configure sua própria chave para criptografar dados de hubs de eventos do Azure em repouso
-description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST dos hubs de eventos do Azure.
+title: Configure a sua própria chave para encriptar dados do Azure Event Hubs em repouso
+description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o descanso de dados do Azure Event Hubs.
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -8,111 +8,111 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903292"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621995"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
-Os hubs de eventos do Azure fornecem criptografia de dados em repouso com o Criptografia do Serviço de Armazenamento do Azure (Azure SSE). Os hubs de eventos dependem do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
+O Azure Event Hubs fornece encriptação de dados em repouso com encriptação do Serviço de Armazenamento Azure (Azure SSE). O Event Hubs conta com o Armazenamento Azure para armazenar os dados e, por padrão, todos os dados armazenados com o Armazenamento Azure são encriptados utilizando chaves geridas pela Microsoft. 
 
-## <a name="overview"></a>Visão geral
-Os hubs de eventos do Azure agora dão suporte à opção de criptografar dados em repouso com chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente (Bring Your Own Key – BYOK). Esse recurso permite que você crie, gire, desabilite e revogue o acesso às chaves gerenciadas pelo cliente que são usadas para criptografar dados de hubs de eventos do Azure em repouso.
+## <a name="overview"></a>Descrição geral
+O Azure Event Hubs suporta agora a opção de encriptar dados em repouso com chaves geridas pela Microsoft ou chaves geridas pelo cliente (Bring Your Own Key – BYOK). Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às chaves geridas pelo cliente que são usadas para encriptar dados do Azure Event Hubs em repouso.
 
-Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
+Ativar a funcionalidade BYOK é um processo de configuração de uma vez no seu espaço de nome.
 
 > [!NOTE]
-> O recurso BYOK tem suporte dos clusters de [locatário único dedicados aos hubs de eventos](event-hubs-dedicated-overview.md) . Ele não pode ser habilitado para namespaces de hubs de eventos padrão.
+> A capacidade BYOK é apoiada por [Event Hubs dedicados agrupamentos de inquilinos únicos.](event-hubs-dedicated-overview.md) Não pode ser ativado para espaços de nome padrão do Event Hubs.
 
-Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../key-vault/key-vault-overview.md)
+Pode utilizar o Cofre de Chaves Azure para gerir as suas chaves e auditar o seu uso da chave. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre chave Azure?](../key-vault/key-vault-overview.md)
 
-Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal do Azure. Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../key-vault/quick-create-portal.md).
+Este artigo mostra como configurar um cofre chave com chaves geridas pelo cliente utilizando o portal Azure. Para aprender a criar um cofre chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault utilizando o portal Azure](../key-vault/quick-create-portal.md).
 
 > [!IMPORTANT]
-> O uso de chaves gerenciadas pelo cliente com os hubs de eventos do Azure requer que o cofre de chaves tenha duas propriedades necessárias configuradas. Eles são: **exclusão reversível** e **não limpeza**. Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal do Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, deverá usar o PowerShell ou CLI do Azure.
+> A utilização de chaves geridas pelo cliente com hubs de eventos Azure requer que o cofre chave tenha duas propriedades necessárias configuradas. São: **Soft Delete** and **Not Purpur**. Estas propriedades são ativadas por padrão quando cria um novo cofre chave no portal Azure. No entanto, se precisar de ativar estas propriedades num cofre de chaves existente, deve utilizar o PowerShell ou o Azure CLI.
 
-## <a name="enable-customer-managed-keys"></a>Habilitar chaves gerenciadas pelo cliente
-Para habilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas etapas:
+## <a name="enable-customer-managed-keys"></a>Ativar chaves geridas pelo cliente
+Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
 
-1. Navegue até o cluster Hubs de Eventos Dedicados.
-1. Selecione o namespace no qual você deseja habilitar BYOK.
-1. Na página **configurações** do seu namespace de hubs de eventos, selecione **criptografia**. 
-1. Selecione a **criptografia de chave gerenciada pelo cliente em repouso** , conforme mostrado na imagem a seguir. 
+1. Navegue para o seu cluster dedicado ao Event Hubs.
+1. Selecione o espaço de nome no qual pretende ativar o BYOK.
+1. Na página **Definições** do espaço de nome sinuoso do seu Event Hubs, **selecione Encriptação**. 
+1. Selecione a encriptação da **chave gerida pelo Cliente em repouso,** como mostrado na imagem seguinte. 
 
-    ![Habilitar chave gerenciada pelo cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
+    ![Ativar a chave gerida pelo cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
-## <a name="set-up-a-key-vault-with-keys"></a>Configurar um cofre de chaves com chaves
-Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a chave gerenciada pelo cliente ao namespace de hubs de eventos do Azure. Os hubs de eventos oferecem suporte apenas a Azure Key Vault. Se você habilitar a opção **criptografia com chave gerenciada pelo cliente** na seção anterior, precisará ter a chave importada para Azure Key Vault. Além disso, as chaves devem ter **exclusão reversível** e **não limpar** configuradas para a chave. Essas configurações podem ser configuradas usando o [PowerShell](../key-vault/key-vault-soft-delete-powershell.md) ou a [CLI](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection).
+## <a name="set-up-a-key-vault-with-keys"></a>Configurar um cofre com chaves
+Depois de ativar as chaves geridas pelo cliente, precisa de associar a chave gerida pelo cliente ao seu espaço de nome Sem Nome Azure Event Hubs. O Event Hubs suporta apenas o Cofre chave Azure. Se ativar a **Encriptação com** a opção chave gerida pelo cliente na secção anterior, precisa de ter a chave importada para o Cofre chave Azure. Além disso, as teclas devem ter **Soft Delete** e **Não Purgar** configuradas para a tecla. Estas definições podem ser configuradas utilizando [powerShell](../key-vault/key-vault-soft-delete-powershell.md) ou [CLI](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection).
 
-1. Para criar um novo cofre de chaves, siga o guia de [início rápido](../key-vault/key-vault-overview.md)do Azure Key Vault. Para obter mais informações sobre como importar chaves existentes, consulte [sobre chaves, segredos e certificados](../key-vault/about-keys-secrets-and-certificates.md).
-1. Para ativar a exclusão reversível e limpar a proteção ao criar um cofre, use o comando [AZ keyvault Create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) .
+1. Para criar um novo cofre chave, siga o Cofre de Chaves Azure [Quickstart](../key-vault/key-vault-overview.md). Para obter mais informações sobre a importação de chaves existentes, consulte [chaves, segredos e certificados.](../key-vault/about-keys-secrets-and-certificates.md)
+1. Para ligar a proteção suave de eliminação e purga quando criar um cofre, utilize o [cofre az criar](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando.
 
     ```azurecli-interactive
     az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. Para adicionar a proteção de limpeza a um cofre existente (que já tem a exclusão reversível habilitada), use o comando [AZ keyvault Update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) .
+1. Para adicionar proteção de purga a um cofre existente (que já tem soft delete ativado), utilize o comando de [atualização az keyvault.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update)
 
     ```azurecli-interactive
     az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
     ```
-1. Crie chaves seguindo estas etapas:
-    1. Para criar uma nova chave, selecione **gerar/importar** no menu **chaves** em **configurações**.
+1. Crie chaves seguindo estes passos:
+    1. Para criar uma nova tecla, selecione **Generate/Import** a partir do menu **Chaves** em **Definições**.
         
-        ![Selecionar botão gerar/importar](./media/configure-customer-managed-key/select-generate-import.png)
-    1. Defina **as opções** para **gerar** e dar um nome à chave.
+        ![Selecione botão Geração/Importação](./media/configure-customer-managed-key/select-generate-import.png)
+    1. Definir **Opções** para **Gerar** e dar um nome à chave.
 
         ![Criar uma chave](./media/configure-customer-managed-key/create-key.png) 
-    1. Agora você pode selecionar essa chave para associar ao namespace de hubs de eventos para criptografia na lista suspensa. 
+    1. Agora pode selecionar esta chave para associar o espaço de nome do Event Hubs para encriptar a partir da lista de drop-down. 
 
-        ![Selecionar chave do Key Vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
-    1. Preencha os detalhes da chave e clique em **selecionar**. Isso habilitará a criptografia de dados em repouso no namespace com uma chave gerenciada pelo cliente. 
+        ![Selecione chave do cofre da chave](./media/configure-customer-managed-key/select-key-from-key-vault.png)
+    1. Preencha os detalhes para a chave e clique em **Selecionar**. Isto permitirá a encriptação de dados em repouso no espaço de nome com uma chave gerida pelo cliente. 
 
 
-## <a name="rotate-your-encryption-keys"></a>Girar suas chaves de criptografia
-Você pode girar sua chave no cofre de chaves usando o mecanismo de rotação do Azure Key Vaults. Para obter mais informações, consulte [Configurar a rotação de chaves e a auditoria](../key-vault/key-vault-key-rotation-log-monitoring.md). As datas de ativação e expiração também podem ser definidas para automatizar a rotação de chaves. O serviço de hubs de eventos detectará novas versões de chave e começará a usá-las automaticamente.
+## <a name="rotate-your-encryption-keys"></a>Rode as suas chaves de encriptação
+Pode rodar a chave no cofre da chave utilizando o mecanismo de rotação dos Cofres de Chaves Azure. Para mais informações, consulte [Configurar a rotação da chave e a auditoria](../key-vault/key-vault-key-rotation-log-monitoring.md). As datas de ativação e expiração também podem ser definidas para automatizar a rotação da chave. O serviço Event Hubs detetará novas versões-chave e começará a utilizá-las automaticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revogar o acesso às chaves
-Revogar o acesso às chaves de criptografia não limpará os dados dos hubs de eventos. No entanto, os dados não podem ser acessados no namespace de hubs de eventos. Você pode revogar a chave de criptografia por meio da política de acesso ou excluindo a chave. Saiba mais sobre as políticas de acesso e proteger o cofre de chaves de [acesso seguro a um cofre de chaves](../key-vault/key-vault-secure-your-key-vault.md).
+Revogar o acesso às chaves de encriptação não vai expurgar os dados dos Centros de Eventos. No entanto, os dados não podem ser acedidos a partir do espaço de nome sinuoso do Event Hubs. Pode revogar a chave de encriptação através da política de acesso ou apagando a chave. Saiba mais sobre as políticas de acesso e assegurando o seu cofre chave a partir do [acesso seguro a um cofre chave](../key-vault/key-vault-secure-your-key-vault.md).
 
-Depois que a chave de criptografia for revogada, o serviço de hubs de eventos no namespace criptografado se tornará inoperável. Se o acesso à chave estiver habilitado ou a chave de exclusão for restaurada, o serviço de hubs de eventos escolherá a chave para que você possa acessar os dados do namespace de hubs de eventos criptografados.
+Uma vez revogada a chave de encriptação, o serviço De Eventos Hubs no espaço de nome encriptado tornar-se-á inoperável. Se o acesso à chave estiver ativado ou a chave de exclusão for restaurada, o serviço Event Hubs escolherá a chave para que possa aceder aos dados a partir do espaço de nome sinuoso do Event Hubs encriptado.
 
 ## <a name="set-up-diagnostic-logs"></a>Configurar os registos de diagnóstico 
-A configuração de logs de diagnóstico para namespaces habilitados para BYOK fornece as informações necessárias sobre as operações quando um namespace é criptografado com chaves gerenciadas pelo cliente. Esses logs podem ser habilitados e transmitidos posteriormente para um hub de eventos ou analisados por meio do log Analytics ou transmitidos para o armazenamento para executar análises personalizadas. Para saber mais sobre os logs de diagnóstico, consulte [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+A definição de registos de diagnóstico para espaços de nome satisonizados BYOK dá-lhe as informações necessárias sobre as operações quando um espaço de nome é encriptado com chaves geridas pelo cliente. Estes registos podem ser ativados e posteriormente transmitidos para um hub de eventos ou analisados através de análise de log ou transmitidos para armazenamento para realizar análises personalizadas. Para saber mais sobre os registos de diagnóstico, consulte a [visão geral dos registos de Diagnóstico Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-## <a name="enable-user-logs"></a>Habilitar logs do usuário
-Siga estas etapas para habilitar logs para chaves gerenciadas pelo cliente.
+## <a name="enable-user-logs"></a>Ativar os registos dos utilizadores
+Siga estes passos para ativar os registos das chaves geridas pelo cliente.
 
-1. Na portal do Azure, navegue até o namespace que tem BYOK habilitado.
-1. Selecione **configurações de diagnóstico** em **monitoramento**.
+1. No portal Azure, navegue para o espaço de nome que tem BYOK habilitado.
+1. Selecione **as definições** de diagnóstico sob **monitorização**.
 
-    ![Selecionar configurações de diagnóstico](./media/configure-customer-managed-key/select-diagnostic-settings.png)
-1. Selecione **+ Adicionar configuração de diagnóstico**. 
+    ![Selecione definições de diagnóstico](./media/configure-customer-managed-key/select-diagnostic-settings.png)
+1. Selecione **+Adicione a definição de diagnóstico**. 
 
-    ![Selecione Adicionar configuração de diagnóstico](./media/configure-customer-managed-key/select-add-diagnostic-setting.png)
-1. Forneça um **nome** e selecione para onde deseja transmitir os logs.
-1. Selecione **CustomerManagedKeyUserLogs** e **salvar**. Essa ação habilita os logs para BYOK no namespace.
+    ![Selecione adicionar definição de diagnóstico](./media/configure-customer-managed-key/select-add-diagnostic-setting.png)
+1. Forneça um **nome** e selecione para onde pretende transmitir os registos.
+1. Selecione **CustomerManagedKeyUserLogs** e **Save**. Esta ação permite os registos de BYOK no espaço de nome.
 
-    ![Selecione a opção de logs de usuário de chave gerenciada pelo cliente](./media/configure-customer-managed-key/select-customer-managed-key-user-logs.png)
+    ![Selecione a opção de registo de registos de utilizadores de chaves gerida pelo cliente](./media/configure-customer-managed-key/select-customer-managed-key-user-logs.png)
 
 ## <a name="log-schema"></a>Esquema de registo 
-Todos os registos são armazenados no formato de JavaScript Object Notation (JSON). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito na tabela a seguir. 
+Todos os registos são armazenados no formato de JavaScript Object Notation (JSON). Cada entrada tem campos de cordas que utilizam o formato descrito na tabela seguinte. 
 
 | Nome | Descrição |
 | ---- | ----------- | 
 | TaskName | Descrição da tarefa que falhou. |
-| ActivityId | ID interna que é usada para acompanhamento. |
-| categoria | Define a classificação da tarefa. Por exemplo, se a chave do cofre de chaves estiver sendo desabilitada, ela seria uma categoria de informações ou, se uma chave não puder ser desativada, ela poderá ficar com erro. |
-| resourceId | ID do recurso de Azure Resource Manager |
-| keyVault | Nome completo do cofre de chaves. |
-| key | O nome da chave que é usado para criptografar o namespace de hubs de eventos. |
-| versão | A versão da chave que está sendo usada. |
-| operation | A operação executada na chave em seu cofre de chaves. Por exemplo, desabilitar/habilitar a chave, encapsular ou desencapsular |
-| code | O código associado à operação. Exemplo: código de erro 404 significa que a chave não foi encontrada. |
+| ActivityId | Identificação interna que é usada para rastrear. |
+| categoria | Define a classificação da tarefa. Por exemplo, se a chave do seu cofre chave estiver a ser desativada, então seria uma categoria de informação ou se uma chave não pode ser desembrulhada, pode cair por engano. |
+| resourceId | ID de recurso do Gestor de Recursos Azure |
+| keyVault | Nome completo do cofre da chave. |
+| key | O nome chave que é usado para encriptar o espaço de nome do Event Hubs. |
+| version | A versão da chave que está a ser usada. |
+| operation | A operação que foi realizada na chave do seu cofre chave. Por exemplo, desativar/ativar a chave, embrulhar ou desembrulhar |
+| code | O código que está associado à operação. Exemplo: Código de erro, 404 significa que a chave não foi encontrada. |
 | message | Qualquer mensagem de erro associada à operação |
 
-Aqui está um exemplo do log para uma chave gerenciada pelo cliente:
+Aqui está um exemplo do registo para uma chave gerida pelo cliente:
 
 ```json
 {
@@ -144,30 +144,286 @@ Aqui está um exemplo do log para uma chave gerenciada pelo cliente:
 }
 ```
 
+## <a name="use-resource-manager-template-to-enable-encryption"></a>Use o modelo do Gestor de Recursos para ativar a encriptação
+Esta secção mostra como fazer as seguintes tarefas utilizando modelos de **Gestor de Recursos Azure**. 
+
+1. Crie um espaço de **nome sinuoso** do Event Hubs com uma identidade de serviço gerida.
+2. Crie um **cofre chave** e conceda o acesso à identidade de serviço ao cofre chave. 
+3. Atualize o espaço de nome sinuoso do Event Hubs com a informação do cofre chave (chave/valor). 
+
+
+### <a name="create-an-event-hubs-cluster-and-namespace-with-managed-service-identity"></a>Criar um cluster de Hubs de Eventos e espaço de nome com identidade de serviço gerida
+Esta secção mostra-lhe como criar um espaço de nome do Azure Event Hubs com identidade de serviço gerida utilizando um modelo de Gestor de Recursos Azure e PowerShell. 
+
+1. Crie um modelo de Gestor de Recursos Azure para criar um espaço de nome de Event Hubs com uma identidade de serviço gerida. Nomeie o ficheiro: **CreateEventHubClusterAndNamespace.json**: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/clusters",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('clusterName')]",
+             "location":"[parameters('location')]",
+             "sku":{
+                "name":"Dedicated",
+                "capacity":1
+             }
+          },
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             },
+             "dependsOn":[
+                "[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             ]
+          }
+       ],
+       "outputs":{
+          "EventHubNamespaceId":{
+             "type":"string",
+             "value":"[resourceId('Microsoft.EventHub/namespaces',parameters('namespaceName'))]"
+          }
+       }
+    }
+    ```
+2. Crie um ficheiro de parâmetro de modelo nomeado: **CreateEventHubClusterAndNamespaceParams.json**. 
+
+    > [!NOTE]
+    > Substitua os seguintes valores: 
+    > - `<EventHubsClusterName>` - Nome do seu cluster De Hubs de Eventos    
+    > - `<EventHubsNamespaceName>` - Nome do seu espaço de nome Sem Nome do Evento Hubs
+    > - `<Location>` - Localização do seu espaço de nome Sem Nome Do seu Evento Hubs
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          }
+       }
+    }
+    
+    ```
+3. Executar o seguinte comando PowerShell para implementar o modelo para criar um espaço de nome de Event Hubs. Em seguida, recupere a identificação do espaço de nome do Event Hubs para usá-lo mais tarde. Substitua `{MyRG}` com o nome do grupo de recursos antes de executar o comando.  
+
+    ```powershell
+    $outputs = New-AzResourceGroupDeployment -Name CreateEventHubClusterAndNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateEventHubClusterAndNamespace.json -TemplateParameterFile ./CreateEventHubClusterAndNamespaceParams.json
+
+    $EventHubNamespaceId = $outputs.Outputs["eventHubNamespaceId"].value
+    ```
+ 
+### <a name="grant-event-hubs-namespace-identity-access-to-key-vault"></a>Grant Event Hubs nomespace acesso de identidade ao cofre chave
+
+1. Executar o seguinte comando para criar um cofre chave com **proteção** de purga e **eliminação suave** ativado. 
+
+    ```powershell
+    New-AzureRmKeyVault -Name {keyVaultName} -ResourceGroupName {RGName}  -Location {location} -EnableSoftDelete -EnablePurgeProtection    
+    ```     
+    
+    (OU)    
+    
+    Executar o seguinte comando para atualizar um **cofre de chaves existente**. Especifique valores para grupo de recursos e nomes de cofre sinuoso antes de executar o comando. 
+    
+    ```powershell
+    ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
+    ``` 
+2. Desestabeleça a política de acesso ao cofre chave para que a identidade gerida do espaço de nome do Event Hubs possa aceder ao valor-chave no cofre chave. Utilize o espaço de identificação do espaço de nome sinuoso do Event Hubs da secção anterior. 
+
+    ```powershell
+    $identity = (Get-AzureRmResource -ResourceId $EventHubNamespaceId -ExpandProperties).Identity
+    
+    Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
+    ```
+
+### <a name="encrypt-data-in-event-hubs-namespace-with-customer-managed-key-from-key-vault"></a>Criptografe dados no espaço de nome do Event Hubs com chave gerida pelo cliente a partir do cofre chave
+Fez os seguintes passos até agora: 
+
+1. Criou um espaço de nome premium com uma identidade gerida.
+2. Crie um cofre chave e conceda o acesso de identidade gerido ao cofre chave. 
+
+Neste passo, irá atualizar o espaço de nome do Event Hubs com informações sobre o cofre chave. 
+
+1. Crie um ficheiro JSON chamado **CreateEventHubClusterAndNamespace.json** com o seguinte conteúdo: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          },
+          "keyVaultUri":{
+             "type":"string",
+             "metadata":{
+                "description":"URI of the KeyVault."
+             }
+          },
+          "keyName":{
+             "type":"string",
+             "metadata":{
+                "description":"KeyName."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
+                "encryption":{
+                   "keySource":"Microsoft.KeyVault",
+                   "keyVaultProperties":[
+                      {
+                         "keyName":"[parameters('keyName')]",
+                         "keyVaultUri":"[parameters('keyVaultUri')]"
+                      }
+                   ]
+                }
+             }
+          }
+       ]
+    }
+    ``` 
+
+2. Crie um ficheiro de parâmetro de modelo: **UpdateEventHubClusterAndNamespaceParams.json**. 
+
+    > [!NOTE]
+    > Substitua os seguintes valores: 
+    > - `<EventHubsClusterName>` - Nome do seu cluster De Eventos Hubs.        
+    > - `<EventHubsNamespaceName>` - Nome do seu espaço de nome Sem Nome do Evento Hubs
+    > - `<Location>` - Localização do seu espaço de nome Sem Nome Do seu Evento Hubs
+    > - `<KeyVaultName>` - Nome do seu cofre chave
+    > - `<KeyName>` - Nome da chave no cofre da chave
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          },
+          "keyName":{
+             "value":"<KeyName>"
+          },
+          "keyVaultUri":{
+             "value":"https://<KeyVaultName>.vault.azure.net"
+          }
+       }
+    }
+    ```             
+3. Executar o seguinte comando PowerShell para implementar o modelo de Gestor de Recursos. Substitua `{MyRG}` com o nome do seu grupo de recursos antes de executar o comando. 
+
+    ```powershell
+    New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
+    ```
+
 ## <a name="troubleshoot"></a>Resolução de problemas
-Como prática recomendada, sempre habilite logs como mostrado na seção anterior. Ele ajuda a controlar as atividades quando a criptografia BYOK está habilitada. Ele também ajuda a definir o escopo dos problemas.
+Como uma boa prática, ative sempre os registos como mostrado na secção anterior. Ajuda a rastrear as atividades quando a encriptação BYOK está ativada. Também ajuda a detetar os problemas.
 
-Veja a seguir os códigos de erros comuns a serem procurados quando a criptografia BYOK estiver habilitada.
+Seguem-se os códigos de erros comuns a procurar quando a encriptação BYOK está ativada.
 
-| Ação | Código de erro | Estado resultante dos dados |
+| Ação | Código de erro | Estado de dados resultante |
 | ------ | ---------- | ----------------------- | 
-| Remover a permissão de encapsulamento/desencapsulamento de um cofre de chaves | 403 |    Inacessível |
-| Remover a associação de função do AAD de uma entidade de segurança do AAD que concedeu a permissão de encapsulamento/desencapsulamento | 403 |  Inacessível |
-| Excluir uma chave de criptografia do cofre de chaves | 404 | Inacessível |
-| Excluir o cofre de chaves | 404 | Inacessível (pressupõe que a exclusão reversível esteja habilitada, que é uma configuração necessária.) |
-| Alterando o período de validade na chave de criptografia, de modo que já tenha expirado | 403 |   Inacessível  |
-| Alterar o NBF (não antes) de tal chave de criptografia de chave não está ativa | 403 | Inacessível  |
-| Selecionando a opção **permitir serviços MSFT** para o Firewall do cofre de chaves ou bloqueando o acesso à rede para o cofre de chaves que tem a chave de criptografia | 403 | Inacessível |
-| Movendo o cofre de chaves para um locatário diferente | 404 | Inacessível |  
-| Problema de rede intermitente ou interrupção de DNS/AAD/MSI |  | Acessível usando a chave de criptografia de dados em cache |
+| Remova a permissão de embrulho/desembrulhar de um cofre chave | 403 |    Inacessível |
+| Remover a adesão ao papel aAD de um diretor da AAD que concedeu a permissão de embrulho/desembrulhar | 403 |  Inacessível |
+| Eliminar uma chave de encriptação do cofre da chave | 404 | Inacessível |
+| Apague o cofre da chave | 404 | Inacessível (pressupõe que o soft-delete está ativado, que é uma definição necessária.) |
+| Alterar o período de validade na chave de encriptação de tal forma que já expirou | 403 |   Inacessível  |
+| Mudar a NBF (não antes) de tal forma que a chave de encriptação não está ativa | 403 | Inacessível  |
+| Selecionando a opção **Permitir serviços MSFT** para a firewall do cofre chave ou bloquear o acesso da rede ao cofre chave que tem a chave de encriptação | 403 | Inacessível |
+| Movendo o cofre chave para um inquilino diferente | 404 | Inacessível |  
+| Problema de rede intermitente ou interrupção dNS/AAD/MSI |  | Acessível usando a chave de encriptação de dados em cache |
 
 > [!IMPORTANT]
-> Para habilitar o geo-DR em um namespace que está usando a criptografia BYOK, o namespace secundário para emparelhamento deve estar em um cluster dedicado e deve ter uma identidade gerenciada atribuída ao sistema habilitada nele. Para saber mais, confira [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+> Para ativar o Geo-DR num espaço de nome que esteja a usar a encriptação BYOK, o espaço de nome secundário para emparelhamento deve estar num cluster dedicado e deve ter um sistema de identidade gerida ativado nele. Para saber mais, consulte [Identidades Geridas para recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
-- [Event Hubs Overview (Descrição Geral dos Hubs de Eventos)](event-hubs-about.md)
-- [Visão geral de Key Vault](../key-vault/key-vault-overview.md)
+- [Descrição geral dos Hubs de Eventos](event-hubs-about.md)
+- [Visão geral do cofre da chave](../key-vault/key-vault-overview.md)
 
 
 
