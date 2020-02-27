@@ -1,6 +1,6 @@
 ---
 title: Copiar uma Base de Dados
-description: Crie uma cópia transacionalmente consistente de um banco de dados SQL do Azure existente no mesmo servidor ou em um servidor diferente.
+description: Crie uma cópia transaccionalmente consistente de uma base de dados Azure SQL existente no mesmo servidor ou num servidor diferente.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -10,120 +10,124 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 11/14/2019
-ms.openlocfilehash: e1df345fb9a89972ad1857a937c22d6e10ad1fba
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 02/24/2020
+ms.openlocfilehash: f27042679280581dc3a03113d75c5fb787bbf711
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289412"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616009"
 ---
-# <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados SQL do Azure
+# <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transaccionalmente consistente de uma base de dados Azure SQL
 
-O banco de dados SQL do Azure fornece vários métodos para criar uma cópia transacionalmente consistente de um banco de dados SQL do Azure existente ([banco de dados individual](sql-database-single-database.md)) no mesmo servidor ou em um servidor diferente. Você pode copiar um banco de dados SQL usando o portal do Azure, o PowerShell ou o T-SQL.
+A Base de Dados Azure SQL fornece vários métodos para criar uma cópia transacionalmente consistente de uma base de dados Azure SQL existente[(base](sql-database-single-database.md)de dados única ) no mesmo servidor ou num servidor diferente. Pode copiar uma base de dados SQL utilizando o portal Azure, PowerShell ou T-SQL.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
-Uma cópia de banco de dados é um instantâneo do banco de dados de origem a partir do momento da solicitação de cópia. Você pode selecionar o mesmo servidor ou um servidor diferente. Além disso, você pode optar por manter sua camada de serviço e o tamanho da computação ou usar um tamanho de computação diferente dentro da mesma camada de serviço (edição). Depois que a cópia for concluída, ela se tornará um banco de dados totalmente funcional e independente. Neste ponto, você pode atualizar ou fazer downgrade dele para qualquer edição. Os logons, os usuários e as permissões podem ser gerenciados de forma independente. A cópia é criada usando a tecnologia de replicação geográfica e, após a conclusão da propagação, o link de replicação geográfica é encerrado automaticamente. Todos os requisitos para usar a replicação geográfica se aplicam à operação de cópia do banco de dados. Consulte [visão geral da replicação geográfica ativa](sql-database-active-geo-replication.md) para obter detalhes.
+Uma cópia da base de dados é uma imagem instantânea da base de dados de origem a partir da hora do pedido de cópia. Pode selecionar o mesmo servidor ou um servidor diferente. Também pode optar por manter o seu nível de serviço e tamanho de computação, ou utilizar um tamanho de computação diferente dentro do mesmo nível de serviço (edição). Após a cópia estar completa, torna-se uma base de dados totalmente funcional e independente. Neste ponto, você pode atualitá-lo ou desclassificá-lo para qualquer edição. Os logins, utilizadores e permissões podem ser geridos de forma independente. A cópia é criada utilizando a tecnologia de geo-replicação e uma vez concluída a sementeação, a ligação de geo-replicação é automaticamente terminada. Todos os requisitos para a utilização da geo-replicação aplicam-se à operação de cópia da base de dados. Consulte a visão geral da [geo-replicação ativa](sql-database-active-geo-replication.md) para obter mais detalhes.
 
 > [!NOTE]
-> [Backups de banco de dados automatizados](sql-database-automated-backups.md) são usados quando você cria uma cópia de banco de dados.
+> [As cópias](sql-database-automated-backups.md) de dados automatizadas são utilizadas quando cria uma cópia da base de dados.
 
-## <a name="logins-in-the-database-copy"></a>Logons na cópia do banco de dados
+## <a name="logins-in-the-database-copy"></a>Logins na cópia da base de dados
 
-Quando você copia um banco de dados para o mesmo servidor de banco de dados SQL, os mesmos logons podem ser usados em ambos os bancos. A entidade de segurança usada para copiar o banco de dados torna-se o proprietário do banco de dados no novo banco de dados. Todos os usuários do banco de dados, suas permissões e seus SIDs (identificadores de segurança) são copiados para a cópia do banco de dados.  
+Quando copia uma base de dados para o mesmo servidor de base de dados SQL, os mesmos logins podem ser utilizados em ambas as bases de dados. O diretor de segurança que usa para copiar a base de dados torna-se o dono da base de dados na nova base de dados. 
 
-Quando você copia um banco de dados para um servidor de banco de dados SQL diferente, a entidade de segurança no novo servidor torna-se o proprietário do banco de dados no novo banco de dados. Se você usar [os usuários de banco](sql-database-manage-logins.md) de dados independente para acesso ao dado, certifique-se de que os bancos de dados primário e secundário sempre tenham as mesmas credenciais de usuário, de modo que depois que a cópia for concluída, você poderá acessá-la imediatamente com as mesmas credenciais.
+Quando copia uma base de dados para um servidor de base de dados SQL diferente, o diretor de segurança que iniciou a operação de cópia no servidor alvo torna-se o proprietário da nova base de dados. 
 
-Se você usar [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), poderá eliminar completamente a necessidade de gerenciar credenciais na cópia. No entanto, quando você copia o banco de dados para um novo servidor, o acesso baseado em logon pode não funcionar, pois os logons não existem no novo servidor. Para saber mais sobre como gerenciar logons ao copiar um banco de dados para um servidor de banco de dados SQL diferente, consulte [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
+Independentemente do servidor-alvo, todos os utilizadores da base de dados, as suas permissões e os seus identificadores de segurança (SIDs) são copiados para a cópia da base de dados. A utilização de [utilizadores de bases de dados contidos](sql-database-manage-logins.md) para acesso a dados garante que a base de dados copiada tem as mesmas credenciais de utilizador, para que, após a conclusão da cópia, possa aceder imediatamente a ela com as mesmas credenciais.
 
-Depois que a cópia for realizada com sucesso e antes que outros usuários sejam remapeados, somente o logon que iniciou a cópia, o proprietário do banco de dados, poderá fazer logon no novo banco de dados. Para resolver logons após a conclusão da operação de cópia, consulte [resolver logons](#resolve-logins).
+Se utilizar os logins do nível do servidor para acesso a dados e copiar a base de dados para um servidor diferente, o acesso baseado em login pode não funcionar. Isto pode acontecer porque os logins não existem no servidor alvo, ou porque as suas palavras-passe e identificadores de segurança (SIDs) são diferentes. Para aprender sobre a gestão de logins quando copia uma base de dados para um servidor de base de dados SQL diferente, consulte como gerir a segurança da [base de dados Azure SQL após](sql-database-geo-replication-security-config.md)a recuperação de desastres . Após a operação de cópia para um servidor diferente, e antes de outros utilizadores serem remapeados, apenas o login associado ao proprietário da base de dados, ou o administrador do servidor pode iniciar sessão na base de dados copiada. Para resolver os logins e estabelecer o acesso aos dados após a conclusão da operação de cópia, consulte [os logins resolve.](#resolve-logins)
 
-## <a name="copy-a-database-by-using-the-azure-portal"></a>Copiar um banco de dados usando o portal do Azure
+## <a name="copy-a-database-by-using-the-azure-portal"></a>Copiar uma base de dados utilizando o portal Azure
 
-Para copiar um banco de dados usando o portal do Azure, abra a página do banco de dados e clique em **copiar**.
+Para copiar uma base de dados utilizando o portal Azure, abra a página para a sua base de dados e, em seguida, clique em **Copiar**.
 
-   ![Cópia do banco de dados](./media/sql-database-copy/database-copy.png)
+   ![Cópia da base de dados](./media/sql-database-copy/database-copy.png)
 
-## <a name="copy-a-database-by-using-powershell"></a>Copiar um banco de dados usando o PowerShell
+## <a name="copy-a-database-by-using-powershell-or-azure-cli"></a>Copiar uma base de dados utilizando powerShell ou Azure CLI
 
-Para copiar um banco de dados, use os exemplos a seguir.
+Para copiar uma base de dados, utilize os seguintes exemplos.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para o PowerShell, use o cmdlet [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) .
+Para o PowerShell, utilize o [cmdlet New-AzSqlDatabaseCopy.](/powershell/module/az.sql/new-azsqldatabasecopy)
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell (RM) ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
+> O módulo PowerShell Azure Resource Manager (RM) ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para mais informações sobre a sua compatibilidade, consulte [A introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
     -CopyResourceGroupName "myResourceGroup" -CopyServerName $targetserver -CopyDatabaseName "CopyOfMySampleDatabase"
 ```
 
-A cópia do banco de dados é uma operação assíncrona, mas o banco de dados de destino é criado imediatamente depois que a solicitação é aceita. Se você precisar cancelar a operação de cópia enquanto ainda estiver em andamento, remova o banco de dados de destino usando o cmdlet [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .
+A cópia da base de dados é uma operação assíncrona, mas a base de dados do alvo é criada imediatamente após a aceitação do pedido. Se precisar cancelar a operação de cópia ainda em curso, deixe cair a base de dados do alvo utilizando o cmdlet de base de [dados Remove-AzSql.](/powershell/module/az.sql/new-azsqldatabase)
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+Para obter um script powerShell de amostra completa, consulte [Copiar uma base de dados para um novo servidor](scripts/sql-database-copy-database-to-new-server-powershell.md).
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azure-cli
 az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myResourceGroup" --dest-server $targetserver `
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```
 
-A cópia do banco de dados é uma operação assíncrona, mas o banco de dados de destino é criado imediatamente depois que a solicitação é aceita. Se você precisar cancelar a operação de cópia enquanto ainda estiver em andamento, remova o banco de dados de destino usando o comando [AZ SQL DB Delete](/cli/azure/sql/db#az-sql-db-delete) .
+A cópia da base de dados é uma operação assíncrona, mas a base de dados do alvo é criada imediatamente após a aceitação do pedido. Se precisar cancelar a operação de cópia ainda em curso, deixe cair a base de dados do alvo utilizando o comando [de eliminação az sql db.](/cli/azure/sql/db#az-sql-db-delete)
 
 * * *
 
-Para obter um script de exemplo completo, consulte [copiar um banco de dados para um novo servidor](scripts/sql-database-copy-database-to-new-server-powershell.md).
+## <a name="rbac-roles-to-manage-database-copy"></a>Funções RBAC para gerir cópia de base de dados
 
-## <a name="rbac-roles-to-manage-database-copy"></a>Funções de RBAC para gerenciar cópia de banco de dados
+Para criar uma cópia da base de dados, terá de estar nas seguintes funções
 
-Para criar uma cópia de banco de dados, você precisará estar nas seguintes funções
+- Proprietário de subscrição ou
+- Função de Colaborador do Servidor SQL ou
+- Papel personalizado nas bases de dados de origem e alvo com a seguinte permissão:
 
-- Proprietário da assinatura ou
-- SQL Server função colaborador ou
-- Função personalizada nos bancos de dados de origem e de destino com a seguinte permissão:
+   Microsoft.Sql/servidores/bases de dados/ler Microsoft.Sql/servidores/bases de dados/escrita
 
-   Microsoft. SQL/servidores/bancos de dados/ler Microsoft. SQL/servidores/bancos de dados/gravar
+Para cancelar uma cópia da base de dados, terá de estar nas seguintes funções
 
-Para cancelar uma cópia de banco de dados, você precisará estar nas seguintes funções
+- Proprietário de subscrição ou
+- Função de Colaborador do Servidor SQL ou
+- Papel personalizado nas bases de dados de origem e alvo com a seguinte permissão:
 
-- Proprietário da assinatura ou
-- SQL Server função colaborador ou
-- Função personalizada nos bancos de dados de origem e de destino com a seguinte permissão:
+   Microsoft.Sql/servidores/bases de dados/ler Microsoft.Sql/servidores/bases de dados/escrita
 
-   Microsoft. SQL/servidores/bancos de dados/ler Microsoft. SQL/servidores/bancos de dados/gravar
+Para gerir a cópia da base de dados utilizando o portal Azure, também necessitará das seguintes permissões:
 
-Para gerenciar a cópia de banco de dados usando portal do Azure, você também precisará das seguintes permissões:
+   Microsoft.Resources/subscrições/recursos/read Microsoft.Resources/subscrições/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
 
-   Microsoft. Resources/subscriptions/Resources/Read Microsoft. Resources/subscriptions/Resources/inscrições/Write Microsoft. Resources/Implantations/Read Microsoft. Resources/Implantations/Write Microsoft. Resources/Implantations/operationstatuses/Read
+Se quiser ver as operações em implementação no grupo de recursos no portal, operações em vários fornecedores de recursos, incluindo operações SQL, necessitará destas funções rBAC adicionais:
 
-Se você quiser ver as operações em implantações no grupo de recursos no portal, operações em vários provedores de recursos, incluindo operações SQL, você precisará dessas funções RBAC adicionais:
+   Microsoft.Resources/subscrições/resourcegroups/deployments/operations/read Microsoft.Resources/subscrições/resourcegroups/deployments/operationstatuses/read
 
-   Microsoft. Resources/subscriptions/resourcegroups/implantações/operações/ler Microsoft. Resources/subscriptions/resourcegroups/Implantations/operationstatuses/Read
+## <a name="copy-a-database-by-using-transact-sql"></a>Copiar uma base de dados utilizando a Transact-SQL
 
-## <a name="copy-a-database-by-using-transact-sql"></a>Copiar um banco de dados usando Transact-SQL
+Inicie sessão na base de dados principal com o administrador do servidor ou o login que criou a base de dados que pretende copiar. Para que a cópia da base de dados tenha sucesso, os logins que não são o administrador do servidor devem ser membros da função `dbmanager`. Para obter mais informações sobre logins e ligação ao servidor, consulte [Gerir logins](sql-database-manage-logins.md).
 
-Faça logon no banco de dados mestre com o logon da entidade de segurança no nível do servidor ou o logon que criou o banco de dados que você deseja copiar. Para que a cópia de banco de dados tenha sucesso, os logons que não são a entidade de segurança no nível do servidor devem ser membros da função dbmanager. Para obter mais informações sobre logons e conexão com o servidor, consulte [Manage logons](sql-database-manage-logins.md).
+Comece a copiar a base de dados de origem com a [BASE DE DADOS CREATE ... COMO CÓPIA DA](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) DECLARAÇÃO. A declaração T-SQL continua a funcionar até que a operação de cópia da base de dados esteja concluída.
 
-Comece a copiar o banco de dados de origem com a instrução [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) . A execução desta instrução inicia o processo de cópia do banco de dados. Como a cópia de um banco de dados é um processo assíncrono, a instrução CREATE DATABASE retorna antes de a cópia do banco de dados ser concluída.
+> [!NOTE]
+> A cessação da declaração T-SQL não termina a operação de cópia da base de dados. Para terminar a operação, deixe cair a base de dados do alvo.
+>
 
-### <a name="copy-a-sql-database-to-the-same-server"></a>Copiar um banco de dados SQL para o mesmo servidor
+### <a name="copy-a-sql-database-to-the-same-server"></a>Copiar uma base de dados SQL para o mesmo servidor
 
-Faça logon no banco de dados mestre com o logon da entidade de segurança no nível do servidor ou o logon que criou o banco de dados que você deseja copiar. Para que a cópia de banco de dados tenha sucesso, os logons que não são a entidade de segurança no nível do servidor devem ser membros da função dbmanager.
+Inicie sessão na base de dados principal com o administrador do servidor ou o login que criou a base de dados que pretende copiar. Para que a cópia da base de dados tenha sucesso, os logins que não são o administrador do servidor devem ser membros da função `dbmanager`.
 
-Esse comando copia Database1 para um novo banco de dados chamado Database2 no mesmo servidor. Dependendo do tamanho do banco de dados, a operação de cópia pode levar algum tempo para ser concluída.
+Este comando copia base de dados 1 para uma nova base de dados chamada Database2 no mesmo servidor. Dependendo do tamanho da sua base de dados, a operação de cópia pode demorar algum tempo a ser concluída.
 
    ```sql
    -- execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
    ```
 
-### <a name="copy-a-sql-database-to-a-different-server"></a>Copiar um banco de dados SQL para um servidor diferente
+### <a name="copy-a-sql-database-to-a-different-server"></a>Copiar uma base de dados SQL para um servidor diferente
 
-Faça logon no banco de dados mestre do servidor de destino, o servidor do banco de dados SQL no qual o novo banco de dados deve ser criado. Use um logon que tenha o mesmo nome e senha que o proprietário do banco de dados de origem no servidor do banco de dados SQL de origem. O logon no servidor de destino também deve ser um membro da função dbmanager ou ser o logon da entidade de segurança no nível do servidor.
+Inicie sessão na base de dados principal do servidor alvo onde será criada a nova base de dados. Utilize um login com o mesmo nome e senha que o dono da base de dados da base de dados de origem no servidor de origem. O login no servidor alvo também deve ser um membro da função `dbmanager`, ou ser o administrador do servidor iniciar sessão.
 
-Esse comando copia Database1 no Server1 para um novo banco de dados chamado Database2 no Server2. Dependendo do tamanho do banco de dados, a operação de cópia pode levar algum tempo para ser concluída.
+Este comando copia base de dados 1 no servidor1 para uma nova base de dados chamada Database2 no servidor2. Dependendo do tamanho da sua base de dados, a operação de cópia pode demorar algum tempo a ser concluída.
 
 ```sql
 -- Execute on the master database of the target server (server2) to start copying from Server1 to Server2
@@ -131,57 +135,57 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 ```
 
 > [!IMPORTANT]
-> Os firewalls de servidores devem ser configurados para permitir a conexão de entrada do IP do cliente que emite o comando de cópia T-SQL.
+> As firewalls de ambos os servidores devem ser configuradas para permitir a ligação de entrada a partir do IP do cliente que emite a BASE DE DADOS DE CRIAÇÃO T-SQL... COMO CÓPIA DO comando.
 
-### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiar um banco de dados SQL para uma assinatura diferente
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiar uma base de dados SQL para uma subscrição diferente
 
-Você pode usar as etapas descritas na seção anterior para copiar seu banco de dados para um servidor de banco de dados SQL em uma assinatura diferente. Certifique-se de usar um logon que tenha o mesmo nome e senha que o proprietário do banco de dados de origem e ele é membro da função dbmanager ou é o logon da entidade de segurança no nível do servidor. 
-
-> [!NOTE]
-> O [portal do Azure](https://portal.azure.com) não oferece suporte à cópia para uma assinatura diferente porque o portal chama a API do ARM e usa os certificados de assinatura para acessar os dois servidores envolvidos na replicação geográfica.  
-
-### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorar o progresso da operação de cópia
-
-Monitore o processo de cópia consultando as exibições sys. databases e sys. dm_database_copies. Enquanto a cópia estiver em andamento, a coluna **state_desc** da exibição sys. databases para o novo banco de dados será definida como **copiando**.
-
-* Se a cópia falhar, a coluna **state_desc** da exibição sys. databases para o novo banco de dados será definida como **suspeita**. Execute a instrução DROP no novo banco de dados e tente novamente mais tarde.
-* Se a cópia for realizada com sucesso, a coluna **state_desc** da exibição sys. databases para o novo banco de dados será definida como **online**. A cópia está concluída e o novo banco de dados é um banco de dados normal que pode ser alterado independentemente do banco de dados de origem.
+Pode utilizar os passos na [base de dados Copy a SQL para uma](#copy-a-sql-database-to-a-different-server) secção de servidor diferente para copiar a sua base de dados para um servidor de base de dados SQL numa subscrição diferente utilizando o T-SQL. Certifique-se de que utiliza um login com o mesmo nome e senha que o dono da base de dados da base de dados fonte. Além disso, o login deve ser um membro da função `dbmanager` ou um administrador de servidor, tanto nos servidores de origem como nos servidores-alvo.
 
 > [!NOTE]
-> Se você decidir cancelar a cópia enquanto ela estiver em andamento, execute a instrução [drop Database](https://msdn.microsoft.com/library/ms178613.aspx) no novo banco de dados. Como alternativa, a execução da instrução DROP DATABASE no banco de dados de origem também cancela o processo de cópia.
+> O [portal Azure,](https://portal.azure.com)PowerShell e Azure CLI não suportam cópia de base de dados para uma subscrição diferente.
+
+### <a name="monitor-the-progress-of-the-copying-operation"></a>Acompanhar o progresso da operação de cópia
+
+Monitorize o processo de cópia consultando as bases de [dados sys.,](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database.md)e [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database.md) vistas. Enquanto a cópia estiver em andamento, a coluna **state_desc** da visão de bases de dados sys.para a nova base de dados está definida para **COPYING**.
+
+* Se a cópia falhar, **a** state_desc coluna das bases de dados sys.base de dados para a nova base de dados está definida como **SUSPEITA**. Execute a declaração DROP na nova base de dados e tente novamente mais tarde.
+* Se a cópia for bem sucedida, **a** state_desc coluna da visão sys.bases de dados para a nova base de dados está definida para **ONLINE**. A cópia está completa e a nova base de dados é uma base de dados regular que pode ser alterada independentemente da base de dados de origem.
+
+> [!NOTE]
+> Se decidir cancelar a cópia enquanto estiver em curso, execute a declaração drop [DATABASE](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) na nova base de dados.
 
 > [!IMPORTANT]
-> Se você precisar criar uma cópia com um SLO substancialmente menor do que a origem, o banco de dados de destino poderá não ter recursos suficientes para concluir o processo de propagação e isso poderá fazer com que a operação de cópia falhe. Nesse cenário, use uma solicitação de restauração geográfica para criar uma cópia em um servidor diferente e/ou em uma região diferente. Consulte [recuperar um banco de dados SQL do Azure usando backups de banco de dados](sql-database-recovery-using-backups.md#geo-restore) para obter mais informações.
+> Se precisar de criar uma cópia com um objetivo de serviço substancialmente menor do que a fonte, a base de dados-alvo pode não ter recursos suficientes para completar o processo de sementeire e pode fazer com que a ópera da cópia falhe. Neste cenário, utilize um pedido de geo-restauro para criar uma cópia num servidor diferente e/ou numa região diferente. Consulte A Recuperação de uma base de [dados Azure SQL utilizando cópias](sql-database-recovery-using-backups.md#geo-restore) de dados para obter mais informações.
 
-## <a name="resolve-logins"></a>Resolver logons
+## <a name="resolve-logins"></a>Resolver logins
 
-Depois que o novo banco de dados estiver online no servidor de destino, use a instrução [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) para remapear os usuários do novo banco de dados para os logons no servidor de destino. Para resolver usuários órfãos, consulte [solucionar problemas de usuários órfãos](https://msdn.microsoft.com/library/ms175475.aspx). Consulte também [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
+Depois de a nova base de dados estar on-line no servidor alvo, utilize a declaração [do UTILIZADOR ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current) para remapear os utilizadores da nova base de dados para iniciar sessão no servidor alvo. Para resolver utilizadores órfãos, consulte [Utilizadores Órfãos de Resolução de Problemas](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Veja também como gerir a segurança da base de [dados Azure SQL após a recuperação](sql-database-geo-replication-security-config.md)de desastres .
 
-Todos os usuários no novo banco de dados retêm as permissões que tinham no banco de dados de origem. O usuário que iniciou a cópia do banco de dados se torna o proprietário do novo banco de dados e recebe um novo SID (identificador de segurança). Depois que a cópia for realizada com sucesso e antes que outros usuários sejam remapeados, somente o logon que iniciou a cópia, o proprietário do banco de dados, poderá fazer logon no novo banco de dados.
+Todos os utilizadores da nova base de dados retêm as permissões que tinham na base de dados de origem. O utilizador que iniciou a cópia da base de dados torna-se o proprietário da base de dados da nova base de dados. Após o sucesso da cópia e antes de outros utilizadores serem remapeados, apenas o proprietário da base de dados pode iniciar sessão na nova base de dados.
 
-Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de dados para um servidor de banco de dados SQL diferente, consulte [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastres](sql-database-geo-replication-security-config.md).
+Para saber sobre a gestão de utilizadores e logins quando copia uma base de dados para um servidor de base de dados SQL diferente, consulte como gerir a segurança da [base de dados Azure SQL após](sql-database-geo-replication-security-config.md)a recuperação de desastres .
 
-## <a name="database-copy-errors"></a>Erros de cópia do banco de dados
+## <a name="database-copy-errors"></a>Erros de cópia de base de dados
 
-Os erros a seguir podem ser encontrados ao copiar um banco de dados no banco de dados SQL do Azure. Para mais informações, consulte [Copiar uma Base de Dados SQL do Azure](sql-database-copy.md).
+Os seguintes erros podem ser encontrados enquanto copiamos uma base de dados na Base de Dados Azure SQL. Para mais informações, consulte [Copiar uma Base de Dados SQL do Azure](sql-database-copy.md).
 
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
 | 40635 |16 |Cliente com o endereço IP '%.&#x2a;ls' está temporariamente desativada. |
-| 40637 |16 |A cópia do banco de dados de criação está desabilitada no momento. |
-| 40561 |16 |Falha na cópia do banco de dados. O banco de dados de origem ou de destino não existe. |
-| 40562 |16 |Falha na cópia do banco de dados. O banco de dados de origem foi Descartado. |
-| 40563 |16 |Falha na cópia do banco de dados. O banco de dados de destino foi Descartado. |
-| 40564 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente. |
-| 40565 |16 |Falha na cópia do banco de dados. Não é permitida mais de uma cópia de banco de dados simultânea da mesma fonte. Remova o banco de dados de destino e tente novamente mais tarde. |
-| 40566 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente. |
-| 40567 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente. |
-| 40568 |16 |Falha na cópia do banco de dados. O banco de dados de origem tornou-se indisponível. Remova o banco de dados de destino e tente novamente. |
-| 40569 |16 |Falha na cópia do banco de dados. O banco de dados de destino tornou-se indisponível. Remova o banco de dados de destino e tente novamente. |
-| 40570 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente mais tarde. |
-| 40571 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova o banco de dados de destino e tente novamente mais tarde. |
+| 40637 |16 |Criar cópia de base de dados está atualmente desativada. |
+| 40561 |16 |A cópia da base de dados falhou. Ou a base de dados de origem ou alvo não existe. |
+| 40562 |16 |A cópia da base de dados falhou. A base de dados de origem foi retirada. |
+| 40563 |16 |A cópia da base de dados falhou. A base de dados do alvo foi retirada. |
+| 40564 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo. |
+| 40565 |16 |A cópia da base de dados falhou. Não é permitida uma cópia de base de dados simultânea da mesma fonte. Por favor, largue a base de dados do alvo e tente novamente mais tarde. |
+| 40566 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo. |
+| 40567 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo. |
+| 40568 |16 |A cópia da base de dados falhou. A base de dados de origem tornou-se indisponível. Por favor, largue a base de dados do alvo e tente de novo. |
+| 40569 |16 |A cópia da base de dados falhou. A base de dados do alvo tornou-se indisponível. Por favor, largue a base de dados do alvo e tente de novo. |
+| 40570 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente novamente mais tarde. |
+| 40571 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente novamente mais tarde. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter informações sobre logons, consulte [gerenciar logons](sql-database-manage-logins.md) e [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
-- Para exportar um banco de dados, consulte [exportar o banco de dados para um BACPAC](sql-database-export.md).
+- Para obter informações sobre logins, consulte [Gerir logins](sql-database-manage-logins.md) e como gerir a segurança da [base de dados Azure SQL após a recuperação](sql-database-geo-replication-security-config.md)de desastres .
+- Para exportar uma base de dados, consulte [Exportar a base de dados para um BACPAC](sql-database-export.md).

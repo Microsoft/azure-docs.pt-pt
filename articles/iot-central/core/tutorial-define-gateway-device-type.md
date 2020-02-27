@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8020abf3f8ab153d0143ff50d837ebcfbf5bdfba
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: ec84d3804c24766c6344e9909ba10089e186599c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423747"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623464"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
 
@@ -105,8 +105,8 @@ Para adicionar propriedades em nuvem ao modelo de dispositivo de **gateway Smart
 
     | Nome a apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhuma          | Data   |
-    | Nome do cliente     | Nenhuma          | Cadeia |
+    | Data da Última Assistência | Nenhum          | Data   |
+    | Nome do cliente     | Nenhum          | String |
 
 2. Selecione **Guardar**.
 
@@ -207,4 +207,4 @@ Neste tutorial, ficou a saber como:
 Em seguida, pode:
 
 > [!div class="nextstepaction"]
-> [Ligar um dispositivo](tutorial-connect-pnp-device.md)
+> [Ligar um dispositivo](tutorial-connect-device.md)

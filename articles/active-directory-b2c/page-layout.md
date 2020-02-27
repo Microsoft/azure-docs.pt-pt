@@ -1,5 +1,5 @@
 ---
-title: Versões de layout de página
+title: Versões do esquema de página
 titleSuffix: Azure AD B2C
 description: Histórico de versão de layout de página para personalização de UI em políticas personalizadas.
 services: active-directory-b2c
@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2a0a786d3e2135467c7279c76bae273bff0ba2d0
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: b24e8cc5f6bb6213bf021362c5654afd4d5266fb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149512"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620601"
 ---
-# <a name="page-layout-versions"></a>Versões de layout de página
+# <a name="page-layout-versions"></a>Versões do esquema de página
 
 Os pacotes de layout da página são periodicamente atualizados para incluir correções e melhorias nos seus elementos de página. O seguinte registo de alteração especifica as alterações introduzidas em cada versão.
 
@@ -33,7 +33,7 @@ Os pacotes de layout da página são periodicamente atualizados para incluir cor
 
 - Todas as páginas
   - Correções de acessibilidade
-  - Agora pode adicionar o atributo `data-preload="true"` nas suas tags HTML para controlar a ordem de carga para CSS e JavaScript.
+  - Agora pode adicionar o `data-preload="true"` atributo [nas suas tags HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) para controlar a ordem de carga para CSS e JavaScript.
     - Carregue os ficheiros CSS ligados ao mesmo tempo que o seu modelo HTML para que não 'cintile' entre carregar os ficheiros.
     - Controle a ordem em que as suas etiquetas de `script` são recolhidas e executadas antes da carga da página.
   - O campo de e-mail está agora `type=email` e os teclados móveis fornecerão as sugestões corretas

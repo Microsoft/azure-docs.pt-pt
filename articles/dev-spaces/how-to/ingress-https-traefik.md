@@ -5,12 +5,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Saiba como configurar o Azure Dev Spaces para utilizar um controlador de ingresso de traefik personalizado e configurar HTTPS utilizando esse controlador de ingresso
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: 4fc9dfbb4c437210de3ab9a88aafca2680dd363c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9e0c726d97fc87a25d559ecc3478d3f85df4eeb8
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486190"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623169"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Utilize um controlador de ingresso de traefik personalizado e configure HTTPS
 
@@ -49,15 +49,18 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 Crie um espaço de nome Kubernetes para o controlador de entrada traefik e instale-o utilizando `helm`.
 
+> [!NOTE]
+> Se o seu AKS não tiver RBAC ativado, remova o *rbac.enabled=verdadeiro* parâmetro.
+
 ```console
 kubectl create ns traefik
-helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --version 1.85.0
+helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set fullnameOverride=customtraefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --version 1.85.0
 ```
 
 > [!NOTE]
 > O exemplo acima cria um ponto final público para o seu controlador de ingresso. Se precisar de utilizar um ponto final privado para o seu controlador de ingresso, adicione o *serviço .-set.anotações." serviço\\.beta\\.kubernetes\\.io/azure-load-balancer-internal"=verdadeiro* parâmetro para o comando de instalação do *leme.*
 > ```console
-> helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
+> helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set fullnameOverride=customtraefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
 > ```
 > Este ponto final privado está exposto dentro da rede virtual onde o cluster AKS é implantado.
 
@@ -95,7 +98,11 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-Abra [os valores.yaml][values-yaml] e substitua todas as instâncias de *<REPLACE_ME_WITH_HOST_SUFFIX>* por *traefik. MY_CUSTOM_DOMAIN* usar o seu domínio para *MY_CUSTOM_DOMAIN*. Substitua também *kubernetes.io/ingress.class: traefik-azds # Dev Spaces-specific* com *kubernetes.io/ingress.class: traefik # Custom Ingress*. Abaixo está um exemplo de um ficheiro `values.yaml` atualizado:
+Abra [os valores.yaml][values-yaml] e faça as seguintes atualizações:
+* Substitua todas as instâncias de *<REPLACE_ME_WITH_HOST_SUFFIX>* por *traefik. MY_CUSTOM_DOMAIN* usar o seu domínio para *MY_CUSTOM_DOMAIN*. 
+* Substitua *kubernetes.io/ingress.class: traefik-azds # Dev Spaces-specific* com *kubernetes.io/ingress.class: traefik # Custom Ingress*. 
+
+Abaixo está um exemplo de um ficheiro `values.yaml` atualizado:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -148,6 +155,9 @@ http://dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
 Navegue para o serviço *bikesharingweb* abrindo o URL público a partir do comando `azds list-uris`. No exemplo acima, o URL público para o serviço *bikesharingweb* é `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`.
+
+> [!NOTE]
+> Se vir uma página de erro em vez do serviço *bikesharingweb,* verifique se atualizou tanto a *anotação kubernetes.io/ingress.class* **como** o anfitrião no ficheiro *values.yaml.*
 
 Utilize o comando `azds space select` para criar um espaço para crianças em *dev* e enumere os URLs para aceder ao espaço de dev infantil.
 
@@ -307,7 +317,7 @@ azds up
 
 Navegue para a aplicação da amostra no espaço infantil *dev/azureuser1* e note que é redirecionado para utilizar HTTPS sem erros.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas em vários recipientes e como pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou ramos do seu código em diferentes espaços.
 

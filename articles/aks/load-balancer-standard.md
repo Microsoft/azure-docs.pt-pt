@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3fe4de2b8b85e603bc200b27fa15c67f6cc05dd4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595166"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622174"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um balancedor de carga SKU Standard no Serviço Azure Kubernetes (AKS)
 
@@ -39,7 +39,7 @@ Se tiver um cluster existente com o Equilíbrio de Carga SKU Básico, existem di
 
 Por exemplo, fazer implantações azuis/verdes para migrar aglomerados é uma prática comum dado que o tipo `load-balancer-sku` de um cluster só pode ser definido em cluster criar tempo. No entanto, os equilibradores básicos de carga *SKU* utilizam endereços IP *Básicos SKU* que não são compatíveis com os Balanceadores de Carga *SKU Padrão,* uma vez que requerem endereços IP *Padrão SKU.* Ao migrar clusters para atualizar o Balancer SKUs, será necessário um novo endereço IP com um Endereço IP compatível SKU.
 
-Para obter mais considerações sobre como migrar aglomerados, visite a [nossa documentação sobre considerações migratórias](acs-aks-migration.md) para ver uma lista de tópicos importantes a considerar na migração. As limitações abaixo são também importantes diferenças comportamentais a notar ao utilizar os Equilibradores de Carga SKU Padrão em AKS.
+Para obter mais considerações sobre como migrar aglomerados, visite a [nossa documentação sobre considerações migratórias](aks-migration.md) para ver uma lista de tópicos importantes a considerar na migração. As limitações abaixo são também importantes diferenças comportamentais a notar ao utilizar os Equilibradores de Carga SKU Padrão em AKS.
 
 ### <a name="limitations"></a>Limitações
 

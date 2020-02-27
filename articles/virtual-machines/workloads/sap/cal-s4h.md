@@ -1,10 +1,10 @@
 ---
-title: Implantar SAP S/4HANA ou BW/4HANA em uma VM do Azure | Microsoft Docs
-description: Implantar o SAP S/4HANA ou BW/4HANA em uma VM do Azure
+title: Implante SAP S/4HANA ou BW/4HANA num Azure VM  Microsoft Docs
+description: Implementar SAP S/4HANA ou BW/4HANA num VM Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,151 +15,151 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 2fa68d9dc3052263b5354086ee802cc31fa35ace
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c110a4e0429ba52e01c472097a2241f91d504cf5
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101447"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616208"
 ---
-# <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implantar o SAP S/4HANA ou BW/4HANA no Azure
-Este artigo descreve como implantar S/4HANA no Azure usando o SAP CAL (SAP Cloud Appliance Library) 3,0. Para implantar outras soluções baseadas em SAP HANA, como BW/4HANA, siga as mesmas etapas.
+# <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementar SAP S/4HANA ou BW/4HANA em Azure
+Este artigo descreve como implantar S/4HANA em Azure utilizando a Biblioteca de Eletrodomésticos SAP Cloud (SAP CAL) 3.0. Para implementar outras soluções baseadas em SAP HANA, como a BW/4HANA, siga os mesmos passos.
 
 > [!NOTE]
-> Para obter mais informações sobre o SAP CAL, vá para o site do [SAP Cloud Appliance library](https://cal.sap.com/) . O SAP também tem um blog sobre a [SAP Cloud Appliance Library 3,0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> Para mais informações sobre o SAP CAL, vá ao site da Biblioteca de Aparelhos De [Nuvem SAP.](https://cal.sap.com/) A SAP também tem um blog sobre a [Biblioteca de Eletrodomésticos SAP Cloud 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 > 
 > [!NOTE]
-> A partir de 29 de maio de 2017, você pode usar o modelo de implantação Azure Resource Manager além do modelo de implantação clássico menos preferido para implantar o SAP CAL. Recomendamos que você use o novo modelo de implantação do Gerenciador de recursos e Desconsidere o modelo de implantação clássico.
+> A partir de 29 de maio de 2017, pode utilizar o modelo de implementação do Gestor de Recursos Azure, além do modelo de implantação clássico menos preferido para implementar o SAP CAL. Recomendamos que utilize o novo modelo de implementação do Gestor de Recursos e ignore o modelo de implementação clássico.
 
-## <a name="step-by-step-process-to-deploy-the-solution"></a>Processo passo a passo para implantar a solução
+## <a name="step-by-step-process-to-deploy-the-solution"></a>Processo passo a passo para implementar a solução
 
-A sequência de capturas de tela a seguir mostra como implantar o S/4HANA no Azure usando o SAP CAL. O processo funciona da mesma maneira para outras soluções, como BW/4HANA.
+A seguinte sequência de imagens mostra-lhe como implantar S/4HANA em Azure utilizando o SAP CAL. O processo funciona da mesma forma para outras soluções, como a BW/4HANA.
 
-A página **soluções** mostra algumas das soluções baseadas no SAP Cal Hana disponíveis no Azure. O **aplicativo SAP S/4HANA 1610 fps01 Users, totalmente ativado,** está na linha intermediária:
+A página Solutions mostra **algumas** das soluções baseadas em SAP CAL HANA disponíveis no Azure. **SAP S/4HANA 1610 FPS01, Aparelho totalmente ativado** está na linha média:
 
-![Soluções da SAP CAL](./media/cal-s4h/s4h-pic-1c.png)
+![Soluções SAP CAL](./media/cal-s4h/s4h-pic-1c.png)
 
-### <a name="create-an-account-in-the-sap-cal"></a>Criar uma conta na SAP CAL
-1. Para entrar no SAP CAL pela primeira vez, use o SAP S-User ou outro usuário registrado com o SAP. Em seguida, defina uma conta da SAP CAL que é usada pela SAP CAL para implantar dispositivos no Azure. Na definição de conta, você precisa:
+### <a name="create-an-account-in-the-sap-cal"></a>Criar uma conta no SAP CAL
+1. Para iniciar sessão no SAP CAL pela primeira vez, utilize o seu S-User SAP ou outro utilizador registado no SAP. Em seguida, defina uma conta SAP CAL que é utilizada pelo SAP CAL para implantar aparelhos no Azure. Na definição de conta, é necessário:
 
-    a. Selecione o modelo de implantação no Azure (Resource Manager ou clássico).
+    a. Selecione o modelo de implantação no Azure (Gestor de Recursos ou clássico).
 
-    b. Insira sua assinatura do Azure. Uma conta da SAP CAL pode ser atribuída somente a uma assinatura. Se precisar de mais de uma assinatura, você precisará criar outra conta da SAP CAL.
+    b. Insira a sua assinatura Azure. Uma conta SAP CAL só pode ser atribuída a uma subscrição. Se precisa de mais do que uma subscrição, precisa de criar outra conta SAP CAL.
 
-    c. Conceda à permissão SAP CAL para implantar em sua assinatura do Azure.
+    c. Dê permissão ao SAP CAL para se instalar na sua subscrição Azure.
 
    > [!NOTE]
-   >  As próximas etapas mostram como criar uma conta da SAP CAL para implantações do Gerenciador de recursos. Se você já tiver uma conta da SAP CAL vinculada ao modelo de implantação clássico, você *precisará* seguir estas etapas para criar uma nova conta da SAP Cal. A nova conta da SAP CAL precisa ser implantada no modelo do Resource Manager.
+   >  Os próximos passos mostram como criar uma conta SAP CAL para implementações do Gestor de Recursos. Se já tem uma conta SAP CAL ligada ao modelo de implementação clássico, *precisa seguir* estes passos para criar uma nova conta SAP CAL. A nova conta SAP CAL precisa de ser implementada no modelo de Gestor de Recursos.
 
-1. Crie uma nova conta da SAP CAL. A página **contas** mostra três opções para o Azure: 
+1. Crie uma nova conta SAP CAL. A página **Contas** mostra três opções para Azure: 
 
-    a. **Microsoft Azure (clássico)** é o modelo de implantação clássico e não é mais preferencial.
+    a. O **Microsoft Azure (clássico)** é o modelo clássico de implementação e já não é preferido.
 
-    b. **Microsoft Azure** é o novo modelo de implantação do Gerenciador de recursos.
+    b. O **Microsoft Azure** é o novo modelo de implementação do Gestor de Recursos.
 
-    c. O **Windows Azure operado pela 21vianet** é uma opção na China que usa o modelo de implantação clássico.
+    c. O **Windows Azure operado pela 21Vianet** é uma opção na China que utiliza o modelo de implementação clássico.
 
-    Para implantar no modelo do Resource Manager, selecione **Microsoft Azure**.
+    Para implementar no modelo Degestor de Recursos, selecione **Microsoft Azure**.
 
-    ![Detalhes da conta da SAP CAL](./media/cal-s4h/s4h-pic-2a.png)
+    ![Detalhes da conta SAP CAL](./media/cal-s4h/s4h-pic-2a.png)
 
-1. Insira a **ID de assinatura** do Azure que pode ser encontrada no portal do Azure.
+1. Introduza o ID de **subscrição** Azure que pode ser encontrado no portal Azure.
 
-   ![Contas da SAP CAL](./media/cal-s4h/s4h-pic3c.png)
+   ![Contas SAP CAL](./media/cal-s4h/s4h-pic3c.png)
 
-1. Para autorizar o SAP CAL a implantar na assinatura do Azure que você definiu, clique em **autorizar**. A página a seguir aparece na guia navegador:
+1. Para autorizar o SAP CAL a ser implantado na subscrição Azure que definiu, clique **em Autorizar**. A página seguinte aparece no separador do navegador:
 
-   ![Entrada de serviços de nuvem do Internet Explorer](./media/cal-s4h/s4h-pic4c.png)
+   ![Sessão de serviços de nuvem do Internet Explorer](./media/cal-s4h/s4h-pic4c.png)
 
-1. Se mais de um usuário estiver listado, escolha o conta Microsoft que está vinculado a ser o coadministrador da assinatura do Azure que você selecionou. A página a seguir aparece na guia navegador:
+1. Se estiver listado mais de um utilizador, escolha a conta Microsoft que está ligada a ser o coadministrador da subscrição Azure selecionada. A página seguinte aparece no separador do navegador:
 
-   ![Confirmação dos serviços de nuvem do Internet Explorer](./media/cal-s4h/s4h-pic5a.png)
+   ![Confirmação de serviços na nuvem do Internet Explorer](./media/cal-s4h/s4h-pic5a.png)
 
-1. Clique em **aceitar**. Se a autorização for bem-sucedida, a definição de conta da SAP CAL será exibida novamente. Após um curto período de tempo, uma mensagem confirma que o processo de autorização foi bem-sucedido.
+1. Clique em **Aceitar**. Se a autorização for bem sucedida, a definição de conta SAP CAL volta a ser demonstrada. Após um curto período de tempo, uma mensagem confirma que o processo de autorização foi bem sucedido.
 
-1. Para atribuir a conta do SAP CAL recém-criada ao usuário, insira sua **ID de usuário** na caixa de texto à direita e clique em **Adicionar**.
+1. Para atribuir a conta SAP CAL recém-criada ao seu utilizador, introduza o ID do **utilizador** na caixa de texto à direita e clique em **Adicionar**.
 
-   ![Conta para associação de usuário](./media/cal-s4h/s4h-pic8a.png)
+   ![Conta à associação de utilizadores](./media/cal-s4h/s4h-pic8a.png)
 
-1. Para associar sua conta ao usuário que você usa para entrar na SAP CAL, clique em **examinar**. 
+1. Para associar a sua conta ao utilizador que utiliza para iniciar sessão no SAP CAL, clique em **Rever**. 
  
-1. Para criar a associação entre o usuário e a conta do SAP CAL recém-criada, clique em **criar**.
+1. Para criar a associação entre o utilizador e a recém-criada conta SAP CAL, clique em **Criar**.
 
-   ![Usuário para associação de conta do SAP CAL](./media/cal-s4h/s4h-pic9b.png)
+   ![Utilizador da associação de conta SAP CAL](./media/cal-s4h/s4h-pic9b.png)
 
-Você criou com êxito uma conta da SAP CAL que é capaz de:
+Criou com sucesso uma conta SAP CAL capaz de:
 
-- Use o modelo de implantação do Gerenciador de recursos.
-- Implante sistemas SAP em sua assinatura do Azure.
+- Utilize o modelo de implementação do Gestor de Recursos.
+- Implemente sistemas SAP na sua subscrição Azure.
 
-Agora você pode começar a implantar S/4HANA em sua assinatura de usuário no Azure.
+Agora pode começar a implementar S/4HANA na subscrição do seu utilizador no Azure.
 
 > [!NOTE]
-> Antes de continuar, determine se você tem cotas do Azure vCPU para VMs da série H do Azure. No momento, a SAP CAL usa as VMs da série H do Azure para implantar algumas das soluções baseadas em SAP HANA. Sua assinatura do Azure pode não ter nenhuma cota de vCPU da série H para a série H. Nesse caso, talvez seja necessário entrar em contato com o suporte do Azure para obter uma cota de pelo menos 16 vCPUs da série H.
+> Antes de continuar, determine se tem quotas Azure vCPU para VMs da série H. Neste momento, o SAP CAL utiliza VMs de Série H do Azure para implementar algumas das soluções baseadas em SAP HANA. A sua subscrição Azure pode não ter quaisquer quotas vCPU da Série H para série H. Em caso afirmativo, poderá ter de contactar o suporte do Azure para obter uma quota de, pelo menos, 16 VCPUs da Série H.
 > 
 > [!NOTE]
-> Ao implantar uma solução no Azure na SAP CAL, você pode descobrir que pode escolher apenas uma região do Azure. Para implantar em regiões do Azure diferentes da sugerida pela SAP CAL, você precisa comprar uma assinatura do CAL da SAP. Você também pode precisar abrir uma mensagem com o SAP para que sua conta CAL seja habilitada para entrega em regiões do Azure que não sejam as inicialmente sugeridas.
+> Quando implementar uma solução em Azure no SAP CAL, poderá descobrir que só pode escolher uma região azure. Para se implantar em regiões de Azure que não a sugerida pelo SAP CAL, precisa de adquirir uma subscrição CAL da SAP. Também poderá ter de abrir uma mensagem com o SAP para ter a sua conta CAL habilitada a entregar em regiões Azure que não as inicialmente sugeridas.
 
-### <a name="deploy-a-solution"></a>Implantar uma solução
+### <a name="deploy-a-solution"></a>Implementar uma solução
 
-Vamos implantar uma solução na página **soluções** da SAP Cal. A SAP CAL tem duas sequências para implantar:
+Vamos implementar uma solução a partir da página **Soluções** do SAP CAL. O SAP CAL tem duas sequências para implementar:
 
 - Uma sequência básica que usa uma página para definir o sistema a ser implantado
-- Uma sequência avançada que fornece certas opções de tamanhos de VM 
+- Uma sequência avançada que lhe dá certas escolhas em tamanhos VM 
 
 Demonstramos o caminho básico para a implantação aqui.
 
-1. Na página de **detalhes da conta** , você precisa:
+1. Na página dados da **Conta,** é necessário:
 
-    a. Selecione uma conta da SAP CAL. (Use uma conta que esteja associada à implantação com o modelo de implantação do Resource Manager.)
+    a. Selecione uma conta SAP CAL. (Utilize uma conta associada a implantar com o modelo de implementação do Gestor de Recursos.)
 
-    b. Insira um **nome**de instância.
+    b. Introduza uma instância **Nome**.
 
-    c. Selecione uma **região**do Azure. A SAP CAL sugere uma região. Se você precisar de outra região do Azure e não tiver uma assinatura da SAP CAL, será necessário solicitar uma assinatura do CAL com o SAP.
+    c. Selecione uma **região**azure . O SAP CAL sugere uma região. Se precisa de outra região do Azure e não tem uma subscrição SAP CAL, precisa encomendar uma subscrição CAL com SAP.
 
-    d. Insira uma **senha** mestra para a solução de oito ou nove caracteres. A senha é usada para os administradores dos diferentes componentes.
+    d. Introduza uma **palavra-passe** principal para a solução de oito ou nove caracteres. A palavra-passe é utilizada para os administradores dos diferentes componentes.
 
-   ![Modo básico da SAP CAL: Criar Instância](./media/cal-s4h/s4h-pic10a.png)
+   ![Modo Básico SAP CAL: Criar instância](./media/cal-s4h/s4h-pic10a.png)
 
-1. Clique em **criar**e, na caixa de mensagem exibida, clique em **OK**.
+1. Clique em **Criar**, e na caixa de mensagens que aparece, clique **OK**.
 
-   ![Tamanhos de VM compatíveis com SAP CAL](./media/cal-s4h/s4h-pic10b.png)
+   ![Tamanhos VM suportados SAP CAL](./media/cal-s4h/s4h-pic10b.png)
 
-1. Na caixa de diálogo **chave privada** , clique em **armazenar** para armazenar a chave privada na SAP Cal. Para usar a proteção por senha para a chave privada, clique em **baixar**. 
+1. Na caixa de diálogo **Private Key,** clique em **Armazenar** para armazenar a chave privada no SAP CAL. Para utilizar a proteção de palavra-passe para a chave privada, clique em **Baixar**. 
 
-   ![Chave privada SAP CAL](./media/cal-s4h/s4h-pic10c.png)
+   ![Chave Privada SAP CAL](./media/cal-s4h/s4h-pic10c.png)
 
-1. Leia a mensagem de **aviso** do SAP Cal e clique em **OK**.
+1. Leia a mensagem de **aviso** SAP CAL e clique **ok**.
 
-   ![Aviso do SAP CAL](./media/cal-s4h/s4h-pic10d.png)
+   ![Aviso SAP CAL](./media/cal-s4h/s4h-pic10d.png)
 
-    Agora, a implantação ocorre. Após algum tempo, dependendo do tamanho e da complexidade da solução (a SAP CAL fornece uma estimativa), o status é mostrado como ativo e pronto para uso.
+    Agora o destacamento acontece. Após algum tempo, dependendo da dimensão e complexidade da solução (o SAP CAL fornece uma estimativa), o estado é mostrado como ativo e pronto para ser utilizado.
 
-1. Para localizar as máquinas virtuais coletadas com os outros recursos associados em um grupo de recursos, vá para o portal do Azure: 
+1. Para encontrar as máquinas virtuais recolhidas com os outros recursos associados num grupo de recursos, vá ao portal Azure: 
 
-   ![Objetos da SAP CAL implantados no novo portal](./media/cal-s4h/sapcaldeplyment_portalview.png)
+   ![Objetos SAP CAL implantados no novo portal](./media/cal-s4h/sapcaldeplyment_portalview.png)
 
-1. No portal do SAP CAL, o status aparece como **ativo**. Para se conectar à solução, clique em **conectar**. Opções diferentes para se conectar a diferentes componentes são implantadas nessa solução.
+1. No portal SAP CAL, o estado aparece como **Ativo**. Para se ligar à solução, clique em **Ligar**. Diferentes opções para se conectar aos diferentes componentes são implementadas dentro desta solução.
 
-   ![Instâncias do SAP CAL](./media/cal-s4h/active_solution.png)
+   ![Instâncias SAP CAL](./media/cal-s4h/active_solution.png)
 
-1. Para poder usar uma das opções para se conectar aos sistemas implantados, clique **introdução guia**. 
+1. Antes de poder utilizar uma das opções para se ligar aos sistemas implantados, clique no **Guia iniciar**a partida . 
 
-   ![Conectar-se à instância](./media/cal-s4h/connect_to_solution.png)
+   ![Ligar à Instância](./media/cal-s4h/connect_to_solution.png)
 
-    A documentação nomeia os usuários para cada um dos métodos de conectividade. As senhas para esses usuários são definidas com a senha mestra que você definiu no início do processo de implantação. Na documentação, outros usuários mais funcionais são listados com suas senhas, que você pode usar para entrar no sistema implantado. 
+    A documentação dá nomes aos utilizadores para cada um dos métodos de conectividade. As palavras-passe para esses utilizadores são definidas para a palavra-passe principal que definiu no início do processo de implementação. Na documentação, outros utilizadores mais funcionais estão listados com as suas palavras-passe, que pode utilizar para iniciar sessão no sistema implementado. 
 
-    Por exemplo, se você usar a GUI do SAP que é pré-instalado no computador Windows Área de Trabalho Remota, o sistema S/4 poderá ser assim:
+    Por exemplo, se utilizar o SAP GUI pré-instalado na máquina de desktop remoto do Windows, o sistema S/4 pode parecer o seguinte:
 
-   ![SM50 na GUI do SAP pré-instalado](./media/cal-s4h/gui_sm50.png)
+   ![SM50 no SAP GUI pré-instalado](./media/cal-s4h/gui_sm50.png)
 
-    Ou, se você usar o DBACockpit, a instância poderá ser parecida com esta:
+    Ou se usar o DBACockpit, a instância pode parecer assim:
 
-   ![SM50 na GUI SAP DBACockpit](./media/cal-s4h/dbacockpit.png)
+   ![SM50 no DBACockpit SAP GUI](./media/cal-s4h/dbacockpit.png)
 
-Em algumas horas, um dispositivo SAP S/4 íntegro é implantado no Azure.
+Dentro de algumas horas, um aparelho SAP S/4 saudável é implantado em Azure.
 
-Se você comprou uma assinatura da SAP CAL, o SAP dá suporte total a implantações por meio do SAP CAL no Azure. A fila de suporte é BC-VCM-CAL.
+Se comprou uma subscrição SAP CAL, o SAP suporta totalmente as implementações através do SAP CAL em Azure. A fila de apoio é BC-VCM-CAL.
 
 
 

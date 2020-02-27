@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: b2a1bcedcc459a21bbc8a461ba9c8d9a8d65aebe
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132194"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612926"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Como objetos e credenciais são sincronizados num domínio gerido pelo Azure AD Domain Services
 
@@ -47,9 +47,9 @@ A tabela seguinte lista alguns atributos comuns e como são sincronizados com O 
 | Histórico sid para utilizadores e grupos | No local, o utilizador primário e o grupo SID | O atributo *SidHistory* para utilizadores e grupos em Azure AD DS está definido para corresponder ao utilizador primário correspondente ou grupo SID em um ambiente AD DS no local. Esta funcionalidade ajuda a tornar mais fácil o levantamento e a mudança de aplicações no local para o Azure AD DS, uma vez que não precisa de re-ACL recursos. |
 
 > [!TIP]
-> **Inscreva-se no domínio gerido utilizando o formato UPN** O atributo *SAMAccountName,* como `CONTOSO\driley`, pode ser gerado automaticamente para algumas contas de utilizador num domínio gerido pelo Azure AD DS. O *SAMAccountName* gerado automaticamente pelos utilizadores pode diferir do prefixo UPN, pelo que nem sempre é uma forma fiável de iniciar sessão.
+> **Inscreva-se no domínio gerido utilizando o formato UPN** O atributo *SAMAccountName,* como `AADDSCONTOSO\driley`, pode ser gerado automaticamente para algumas contas de utilizador num domínio gerido pelo Azure AD DS. O *SAMAccountName* gerado automaticamente pelos utilizadores pode diferir do prefixo UPN, pelo que nem sempre é uma forma fiável de iniciar sessão.
 >
-> Por exemplo, se vários utilizadores tiverem o mesmo *atributo de mailNickname* ou utilizadores tiverem prefixos UPN excessivamente longos, o *Nome SAMAccountName* para estes utilizadores pode ser gerado automaticamente. Utilize o formato UPN, como `driley@contoso.com`, para iniciar sessão fiavelmente num domínio gerido pelo Azure AD DS.
+> Por exemplo, se vários utilizadores tiverem o mesmo *atributo de mailNickname* ou utilizadores tiverem prefixos UPN excessivamente longos, o *Nome SAMAccountName* para estes utilizadores pode ser gerado automaticamente. Utilize o formato UPN, como `driley@aaddscontoso.com`, para iniciar sessão fiavelmente num domínio gerido pelo Azure AD DS.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mapeamento de atributos para contas de utilizador
 
@@ -78,7 +78,7 @@ A tabela que se segue ilustra como os atributos específicos para os objetos de 
 | state |St |
 | streetAddress |streetAddress |
 | Apelido |sn |
-| telephoneNumber |telephoneNumber |
+| telefoneNúmero |telefoneNúmero |
 | userPrincipalName |userPrincipalName |
 
 ### <a name="attribute-mapping-for-groups"></a>Mapeamento de atributos para grupos
@@ -100,7 +100,7 @@ A tabela que se segue ilustra como os atributos específicos para objetos de gru
 O Azure AD Connect é utilizado para sincronizar contas de utilizadores, membros do grupo e hashes credenciais de um ambiente AD DS no local para a AD Azure. Os atributos das contas de utilizador, tais como o UPN e o identificador de segurança no local (SID) são sincronizados. Para iniciar a utilização do Azure AD DS, as hashes de senha antigas necessárias para a autenticação NTLM e Kerberos também são sincronizadas para a AD Azure.
 
 > [!IMPORTANT]
-> Azure AD Connect só devem ser instalados e configurados para sincronização com ambientes de AD DS locais. Não há suporte para instalar Azure AD Connect em um domínio gerenciado do Azure AD DS para sincronizar objetos de volta para o Azure AD.
+> O Azure AD Connect só deve ser instalado e configurado para sincronização com ambientes AD DS no local. Não é suportado para instalar o Azure AD Connect num domínio gerido pelo Azure AD DS para sincronizar objetos de volta ao Azure AD.
 
 Se configurar a redação, as alterações do Azure AD são sincronizadas de volta ao ambiente AD DS no local. Por exemplo, se um utilizador alterar a sua palavra-passe utilizando a gestão de passwords auto-service Daa Azure, a palavra-passe é atualizada de volta no ambiente AD DS no local.
 

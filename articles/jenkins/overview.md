@@ -4,12 +4,12 @@ description: Hospedar o servidor de automação de construção e implantação 
 keywords: jenkins, azure, devops, overview
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 5991505dac0cf6f7ff2cac5dfabd06f4c90dc20f
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: a9297ebc116d75cfe1d4f37d4e9ada7d5198beae
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605687"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620173"
 ---
 # <a name="azure-and-jenkins"></a>Azure e Jenkins
 
@@ -33,7 +33,7 @@ Adicione agentes de compilação à sua implementação do Jenkins existente par
 
 Quando configurados com um [principal de serviço do Azure](/azure/azure-resource-manager/resource-group-overview), os trabalhos e os pipelines do Jenkins podem utilizar esta credencial para:
 
-- Armazene e arquivo de forma segura construir artefactos em [Armazenamento Azure](/azure/storage/common/storage-introduction) utilizando o [plug-in de armazenamento Azure](https://plugins.jenkins.io/windows-azure-storage). Reveja [Jenkins storage how-to](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) (Instruções de armazenamento do Jenkins) para saber mais.
+- Armazene e arquivo de forma segura construir artefactos em [Armazenamento Azure](/azure/storage/common/storage-introduction) utilizando o [plug-in de armazenamento Azure](https://plugins.jenkins.io/windows-azure-storage). Reveja [Jenkins storage how-to](storage-java-jenkins-continuous-integration-solution.md) (Instruções de armazenamento do Jenkins) para saber mais.
 - Gerir e configurar os recursos do Azure com a [CLI do Azure](/azure/jenkins/execute-cli-jenkins-pipeline).
 
 ## <a name="deploy-your-code-into-azure-services"></a>Implementar o seu código nos serviços do Azure

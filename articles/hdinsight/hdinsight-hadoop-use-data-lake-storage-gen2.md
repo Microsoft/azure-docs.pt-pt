@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/03/2020
-ms.openlocfilehash: aeb86823ddb25bbe0340630b55360806faef59e9
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/20/2020
+ms.openlocfilehash: d711cc7e58fb055eda62cfc364a5552a7d10f7bd
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186889"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623127"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize o Azure Data Lake Storage Gen2 com clusters Azure HDInsight
 
@@ -36,7 +36,7 @@ Para criar um cluster HDInsight que utiliza data lake storage Gen2 para armazena
 
 Crie uma identidade gerida atribuída ao utilizador, se ainda não tiver uma.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No clique superior esquerdo **Criar um recurso**.
 1. Na caixa de pesquisa, digite **o utilizador atribuído** e clique em Identidade Gerida Atribuída pelo **Utilizador**.
 1. Clique em **Criar**.
@@ -51,13 +51,13 @@ Para obter mais informações sobre como as identidades geridas funcionam no Azu
 
 Crie uma conta de armazenamento de Gen2 de armazenamento de lago de dados Azure.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No clique superior esquerdo **Criar um recurso**.
 1. Na caixa de pesquisa, digite **o armazenamento** e clique na conta **de armazenamento**.
 1. Clique em **Criar**.
 1. No ecrã da **conta de armazenamento Criar:**
     1. Selecione o grupo de subscrição e recursos correto.
-    1. Insira um nome para a sua conta Data Lake Storage Gen2. Para obter mais informações sobre as convenções de nomeação de contas de armazenamento, consulte [convenções de nomeação para os recursos do Azure.](/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage)
+    1. Insira um nome para a sua conta Data Lake Storage Gen2. Para obter mais informações sobre as convenções de nomeação de contas de armazenamento, consulte [as convenções de nomeação para os recursos do Azure.](/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage)
     1. Clique no separador **Avançado.**
     1. Clique **ativado** ao lado do espaço de **nome hierárquico** sob data **lake storage Gen2**.
     1. Clique em **Rever + criar**.
@@ -82,20 +82,18 @@ Atribuir a identidade gerida à função de Proprietário de **Dados blob** de a
     ![Screenshot mostrando como atribuir uma função RBAC](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
 1. Selecione **Guardar**. A identidade atribuída ao utilizador que selecionou está agora listada no âmbito da função selecionada.
-1. Depois de concluída esta configuração inicial, pode criar um cluster através do portal. O cluster deve estar na mesma região de Azure que a conta de armazenamento. Na secção **de Armazenamento** do menu de criação de cluster, selecione as seguintes opções:
+1. Depois de concluída esta configuração inicial, pode criar um cluster através do portal. O cluster deve estar na mesma região de Azure que a conta de armazenamento. No separador **de armazenamento** do menu de criação de cluster, selecione as seguintes opções:
 
     * Para **o tipo de armazenamento primário,** selecione **Azure Data Lake Storage Gen2**.
-    * Em **selecione uma conta de Armazenamento,** procure e selecione a recém-criada conta de armazenamento de Data Lake Gen2.
+    * Sob **a conta de Armazenamento Primário,** procure e selecione a recém-criada conta de armazenamento de Data Lake Gen2.
 
-        ![Definições de armazenamento para utilização de Data Lake Storage Gen2 com Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
+    * Em **Identidade**, selecione a identidade gerida recém-criada pelo utilizador.
 
-    * Em **Identidade**, selecione a subscrição correta e a identidade gerida recém-criada pelo utilizador.
+        ![Definições de armazenamento para utilização de Data Lake Storage Gen2 com Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-portal-cluster-storage-gentwo.png)
 
-        ![Definições de identidade para usar Data Lake Storage Gen2 com HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
-
-> [!NOTE]
-> * Para adicionar uma conta secundária de Data Lake Storage Gen2, ao nível da conta de armazenamento, simplesmente atribuir a identidade gerida criada anteriormente à nova conta de armazenamento de Data Lake Storage Gen2 que pretende adicionar. Por favor, informamos que a adição de uma conta secundária de Data Lake Storage Gen2 através da lâmina "Contas de armazenamento adicionais" no HDInsight não é suportada.
-> * Pode ativar RA-GRS ou RA-ZRS na conta de armazenamento Azure que o HDInsight utiliza. No entanto, a criação de um cluster contra o ponto final secundário RA-GRS ou RA-ZRS não é suportada.
+    > [!NOTE]
+    > * Para adicionar uma conta secundária de Data Lake Storage Gen2, ao nível da conta de armazenamento, simplesmente atribuir a identidade gerida criada anteriormente à nova conta de armazenamento de Data Lake Storage Gen2 que pretende adicionar. Por favor, informamos que a adição de uma conta secundária de Data Lake Storage Gen2 através da lâmina "Contas de armazenamento adicionais" no HDInsight não é suportada.
+    > * Pode ativar RA-GRS ou RA-ZRS na conta de armazenamento Azure que o HDInsight utiliza. No entanto, a criação de um cluster contra o ponto final secundário RA-GRS ou RA-ZRS não é suportada.
 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Crie um cluster com Data Lake Storage Gen2 através do Azure CLI
@@ -151,7 +149,7 @@ az group deployment create --name HDInsightADLSGen2Deployment \
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-azure-powershell"></a>Crie um cluster com Data Lake Storage Gen2 através do Azure PowerShell
 
-A utilização da PowerShell para criar um cluster HDInsight com o Azure Data Lake Storage Gen2 não é suportado atualmente.
+O uso do PowerShell para criar um cluster HDInsight com o Azure Data Lake Storage Gen2 não é suportado atualmente.
 
 ## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>Controlo de acesso para Data Lake Storage Gen2 em HDInsight
 
@@ -159,7 +157,7 @@ A utilização da PowerShell para criar um cluster HDInsight com o Azure Data La
 
 Data Lake Storage Gen2 usa um modelo de controlo de acesso que suporta tanto o controlo de acesso baseado em papéis (RBAC) como as listas de controlo de acesso semelhantes a POSIX (ACLs). Data Lake Storage Gen1 suporta listas de controlo de acesso apenas para controlar o acesso aos dados.
 
-O RBAC utiliza atribuições de funções para aplicar efetivamente conjuntos de permissões a utilizadores, grupos e diretores de serviço para recursos Azure. Tipicamente, esses recursos Azure estão limitados a recursos de alto nível (por exemplo, contas de armazenamento Azure). Para o Armazenamento Azure, e também data Lake Storage Gen2, este mecanismo foi estendido ao recurso do sistema de ficheiros.
+O RBAC utiliza atribuições de funções para aplicar efetivamente conjuntos de permissões a utilizadores, grupos e diretores de serviço para recursos Azure. Tipicamente, esses recursos Azure estão limitados a recursos de alto nível (por exemplo, contas de Armazenamento Azure). Para o Armazenamento Azure, e também data Lake Storage Gen2, este mecanismo foi estendido ao recurso do sistema de ficheiros.
 
  Para obter mais informações sobre permissões de ficheiros com RBAC, consulte o [controlo de acesso baseado em funções azure (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
@@ -205,7 +203,7 @@ Exemplos são baseados numa [ligação ssh](./hdinsight-hadoop-linux-use-ssh-uni
 
 #### <a name="a-few-hdfs-commands"></a>Alguns comandos hdfs
 
-1. Crie um simples arquivo sobre o armazenamento local.
+1. Crie um ficheiro sobre o armazenamento local.
 
     ```bash
     touch testFile.txt

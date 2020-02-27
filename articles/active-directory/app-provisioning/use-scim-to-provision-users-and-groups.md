@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9ebeb0db14a42f090a629e379d88e00867bda65
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 3dbe5871a78634d2866ec1a3d1455492762ff2aa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538180"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619234"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Construir um ponto final SCIM e configurar o fornecimento de utilizadores com o Azure Ative Directory (Azure AD)
 
@@ -966,6 +966,9 @@ Para hospedar o serviço dentro dos Serviços de Informação da Internet, um de
 
 Pedidos do Azure Active Directory incluem um token de portador do OAuth 2.0.   Qualquer serviço que receba o pedido deve autenticar o emitente como sendo o Azure Ative Directory para o esperado inquilino do Azure Ative Directory, para acesso ao serviço Microsoft Graph API.  No símbolo, o emitente é identificado por uma reivindicação do ISS, como "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor da reclamação, https://sts.windows.net, identifica o Azure Ative Directory como emitente, enquanto o segmento de endereço relativo, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, é um identificador único do inquilino do Azure Ative Directory para o qual o símbolo foi emitido. O público para o símbolo será o ID do modelo de aplicação para a aplicação na galeria. O ID do modelo de aplicação para todas as aplicações personalizadas é 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. O ID do modelo de aplicação para cada aplicação na galeria varia. Contacte ProvisioningFeedback@microsoft.com para obter dúvidas sobre o ID do modelo de aplicação para uma aplicação de galeria. Cada um dos pedidos registados num único inquilino pode receber o mesmo pedido de `iss` com pedidos sCIM.
 
+   > [!NOTE]
+   > Não ***é*** aconselhável deixar este campo em branco e contar com um símbolo gerado pela Azure AD. Esta opção está disponível principalmente para fins de teste.
+
 Os desenvolvedores que utilizam as bibliotecas CLI fornecidas pela Microsoft para a construção de um serviço SCIM podem autenticar pedidos do Azure Ative Directory utilizando o pacote Microsoft.Owin.Security.ActiveDirectory seguindo estas etapas: 
 
 Primeiro, num fornecedor, implemente a propriedade Microsoft.SystemForCrossDomainIdentityManagement.iProvider.StartupBehavior, mantendo-a devolver um método a ser chamado sempre que o serviço é iniciado: 
@@ -1450,6 +1453,8 @@ Siga a lista de verificação abaixo para garantir que a sua aplicação está a
 > [!div class="checklist"]
 > * Suporte um utilizador [SCIM 2.0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) e ponto final do grupo (apenas um é necessário, mas ambos são recomendados)
 > * Apoio de pelo menos 25 pedidos por segundo por inquilino (Obrigatório)
+> * Estabelecer contactos de engenharia e suporte para orientar clientes post gallery onboarding (Obrigatório)
+> * 3 Credenciais de teste sem validade para a sua aplicação (Necessária)
 > * Apoiar a concessão do código de autorização da OAuth ou um token de longa duração, como descrito abaixo (Exigido)
 > * Estabeleça um ponto de contacto de engenharia e suporte para apoiar clientes post gallery onboarding (Obrigatório)
 > * Suporte a atualizar vários membros do grupo com um único PATCH (Recomendado) 

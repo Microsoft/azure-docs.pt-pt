@@ -2,13 +2,13 @@
 title: Estrutura do modelo e sintaxe
 description: Descreve a estrutura e as propriedades dos modelos do Gestor de Recursos Azure usando a sintaxe declarativa da JSON.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 9cd602644ecf803e97254189cfc157d60713cc6c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/25/2020
+ms.openlocfilehash: 08c688da3e812a4a67070c926cf11512bfc60667
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209465"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622888"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure
 
@@ -260,10 +260,14 @@ O exemplo seguinte mostra a estrutura de uma definição de saída:
 
 ```json
 "outputs": {
-  "<output-name>" : {
+  "<output-name>": {
     "condition": "<boolean-value-whether-to-output-value>",
-    "type" : "<type-of-output-value>",
-    "value": "<output-value-expression>"
+    "type": "<type-of-output-value>",
+    "value": "<output-value-expression>",
+    "copy": {
+      "count": <number-of-iterations>,
+      "input": <values-for-the-variable>
+    }
   }
 }
 ```
@@ -273,7 +277,8 @@ O exemplo seguinte mostra a estrutura de uma definição de saída:
 | nome de saída |Sim |Nome do valor de saída. Tem de ser um identificador de JavaScript válido. |
 | condition |Não | Valor booleano que indica se este valor de saída é devolvido. Quando `true`, o valor é incluído na saída para a implantação. Quando `false`, o valor de saída é ignorado para esta implantação. Quando não especificado, o valor predefinido é `true`. |
 | tipo |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. Se especificar o **securestring** para o tipo de saída, o valor não é apresentado no histórico de implementação e não pode ser recuperado de outro modelo. Para usar um valor secreto em mais de um modelo, guarde o segredo num Cofre chave e faça referência ao segredo no ficheiro do parâmetro. Para mais informações, consulte [o Cofre chave Azure para passar](key-vault-parameter.md)o valor do parâmetro seguro durante a implementação . |
-| valor |Sim |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. |
+| valor |Não |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. Especifique o **valor** ou **a cópia**. |
+| cópia |Não | Usado para devolver mais do que um valor para uma saída. Especificar **valor** ou **cópia**. Para mais informações, consulte a [iteração de saída nos modelos do Gestor](copy-outputs.md)de Recursos Azure . |
 
 Por exemplo, como utilizar saídas, consulte [saídas no modelo do Gestor](template-outputs.md)de Recursos Azure .
 
@@ -379,7 +384,7 @@ Não é possível adicionar um objeto de metadados a funções definidas pelo ut
 
 ## <a name="multi-line-strings"></a>Cordas multi-linhas
 
-Pode quebrar uma corda em várias linhas. Por exemplo, a propriedade de localização e um dos comentários no exemplo json seguinte.
+Pode quebrar uma corda em várias linhas. Por exemplo, consulte a propriedade de localização e um dos comentários no exemplo json seguinte.
 
 ```json
 {

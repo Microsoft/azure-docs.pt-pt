@@ -3,12 +3,12 @@ title: Ficheiros SharePoint - QnA Maker
 description: Adicione fontes de dados seguras do SharePoint à sua base de conhecimentos para enriquecer a base de conhecimentos com perguntas e respostas que possam ser protegidas com O Diretório Ativo.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: ec77d3ac217991ff191d80249bc86805e7c8ba35
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 402d8239ee9fbac01e64e3624a7e4d8a13f2e7d8
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544169"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650440"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicione uma fonte de dados segura do SharePoint à sua base de conhecimentos
 
@@ -20,7 +20,8 @@ Se o gestor de base de conhecimento do QnA Maker não for o gestor de Diretório
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O QnA Maker usa o Microsoft Graph para obter permissões. Se o seu SharePoint estiver no local, não poderá extrair do SharePoint porque o Microsoft Graph não será capaz de determinar permissões.
+* SharePoint baseado em nuvem - QnA Maker usa o Microsoft Graph para permissões. Se o seu SharePoint estiver no local, não poderá extrair do SharePoint porque o Microsoft Graph não será capaz de determinar permissões.
+* Formato URL - QnA Maker apenas suporta urls SharePoint que são gerados para partilha e são de formato https://*.sharepoint.com
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Adicione tipos de ficheiros suportados à base de conhecimentos
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: ee44dda7a7ca2f7e1ad386498798191fe792cef0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 47d927f9f17580767526ec6683e819256fc5e994
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840847"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619919"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler registos do fluxo do NSG
 
@@ -31,7 +31,7 @@ Os registos de fluxo NSG são armazenados numa conta de armazenamento em [blocos
 
 No seguinte cenário, tem um registo de fluxo de exemplo que é armazenado numa conta de armazenamento. Aprende-se a ler seletivamente os últimos eventos nos registos de fluxo da NSG. Neste artigo utiliza-se o PowerShell, no entanto, os conceitos discutidos no artigo não se limitam à linguagem de programação, e aplicam-se a todas as línguas suportadas pelas APIs de Armazenamento Azure.
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Configurar
 
 Antes de começar, deve ter o Fluxo de Registo do Grupo de Segurança da Rede ativado num ou muitos Grupos de Segurança de Rede na sua conta. Para obter instruções sobre a ativação dos registos de fluxo de segurança da rede, consulte o seguinte artigo: [Introdução à exploração de fluxos de registo para grupos](network-watcher-nsg-flow-logging-overview.md)de segurança da rede .
 
@@ -186,6 +186,9 @@ Este cenário é um exemplo de como ler entradas em registos de fluxo nsg sem te
 
 ## <a name="next-steps"></a>Passos seguintes
 
+
 Visite [Use Elástico Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), Use [Grafana](network-watcher-nsg-grafana.md)e [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre formas de ver os registos de fluxo nsg. Uma abordagem da Função Open Source Azure para consumir as bolhas diretamente e emitir a vários consumidores de análise de registo pode ser encontrada aqui: [Azure Network Watcher NSG Flow Logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+
+Pode utilizar o [Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) para obter informações sobre os seus fluxos de tráfego. O Traffic Analytics utiliza [o Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) para tornar o seu fluxo de tráfego consultado.
 
 Para saber mais sobre a visita de blobs de armazenamento: [Azure Functions Blob encaderna](../azure-functions/functions-bindings-storage-blob.md)

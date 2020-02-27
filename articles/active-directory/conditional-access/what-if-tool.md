@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb2e98ad9bbd35f3ec507e36e958c5ce6ad2198
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185871"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620690"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Resolução de problemas utilizando a ferramenta What If no Acesso Condicional
 
@@ -98,7 +98,7 @@ Inicia-se uma avaliação clicando no **What If**. O resultado da avaliação fo
 
 Se existirem [políticas clássicas](policy-migration.md#classic-policies) para as aplicações em nuvem selecionadas, é-lhe apresentado um indicador. Ao clicar no indicador, é redirecionado para a página de políticas clássicas. Na página de políticas clássicas, pode migrar uma política clássica ou simplesmente desativá-la. Pode voltar ao resultado da sua avaliação fechando esta página.
 
-Na lista de políticas aplicáveis ao utilizador selecionado, também pode encontrar uma lista de controlos de [subvenções](controls.md#grant-controls) e controlos de [sessão](controls.md#session-controls) que o utilizador deve satisfazer.
+Na lista de políticas aplicáveis ao utilizador selecionado, também pode encontrar uma lista de controlos de [subvenções](concept-conditional-access-grant.md) e controlos de [sessão](concept-conditional-access-session.md) que o utilizador deve satisfazer.
 
 Na lista de políticas que não se aplicam ao seu utilizador, pode e também encontra as razões pelas quais estas políticas não se aplicam. Para cada política enumerada, a razão representa a primeira condição que não foi satisfeita. Uma possível razão para uma política que não é aplicada é uma política de deficientes, porque não são mais avaliadas.   
 

@@ -1,53 +1,53 @@
 ---
-title: Monitoramento de SAP HANA no Azure (instâncias grandes) | Microsoft Docs
-description: Monitorar SAP HANA em um Azure (instâncias grandes).
+title: Monitorização do SAP HANA em Azure (Grandes Instâncias)  Microsoft Docs
+description: Monitor SAP HANA em um Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0aea4dddef65600fe30f36499d4ad2a4f461245
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 50a6b4f15a7de02533e3bb51e5659f7b4c078b40
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077940"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617296"
 ---
-# <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Como monitorar SAP HANA (instâncias grandes) no Azure
+# <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Como monitorizar o SAP HANA (grandes instâncias) no Azure
 
-SAP HANA no Azure (instâncias grandes) não é diferente de qualquer outra implantação de IaaS, você precisa monitorar o que o sistema operacional e o aplicativo estão fazendo e como os aplicativos consomem os seguintes recursos:
+O SAP HANA on Azure (Grandes Instâncias) não é diferente de qualquer outra implantação do IaaS — é necessário monitorizar o que o SISTEMA e a aplicação estão a fazer e como as aplicações consomem os seguintes recursos:
 
 - CPU
 - Memória
 - Largura de banda da rede
 - Espaço em disco
 
-Com as máquinas virtuais do Azure, você precisa descobrir se as classes de recurso nomeadas acima são suficientes ou ficam esgotadas. Aqui está mais detalhes sobre cada uma das diferentes classes:
+Com as Máquinas Virtuais Azure, você precisa descobrir se as classes de recursos acima referidas são suficientes ou se ficam esgotadas. Aqui está mais detalhes sobre cada uma das diferentes classes:
 
-**Consumo de recursos de CPU:** A proporção que o SAP definiu para determinadas cargas de trabalho em relação ao HANA é imposta para garantir que deve haver recursos suficientes de CPU disponíveis para trabalhar com os dados armazenados na memória. No entanto, pode haver casos em que o HANA consome muitas CPUs executando consultas devido a índices ausentes ou problemas semelhantes. Isso significa que você deve monitorar o consumo de recursos de CPU da unidade de instância grande do HANA, bem como os recursos de CPU consumidos pelos serviços específicos do HANA.
+**Consumo de recursos cpu:** O rácio que o SAP definiu para determinada carga de trabalho contra a HANA é aplicado para garantir que devem existir recursos cpu suficientes disponíveis para trabalhar através dos dados armazenados na memória. No entanto, pode haver casos em que a HANA consome muitas CPUs executando consultas devido a índices em falta ou questões semelhantes. Isto significa que deve monitorizar o consumo de recursos da CPU da unidade de grandes instâncias HANA, bem como os recursos cpu consumidos pelos serviços específicos da HANA.
 
-**Consumo de memória:** É importante monitorar de dentro do HANA, bem como fora do HANA na unidade. No HANA, monitore como os dados estão consumindo a memória alocada HANA para permanecer dentro das diretrizes de dimensionamento necessárias do SAP. Você também deseja monitorar o consumo de memória no nível de instância grande para garantir que o software não HANA adicional instalado não consuma muita memória e, portanto, concorra com o HANA para memória.
+**Consumo de memória:** É importante monitorizar de dentro da HANA, bem como fora de HANA na unidade. Dentro da HANA, monitorize como os dados estão a consumir a memória atribuída à HANA para se manter dentro das diretrizes de dimensionamento exigidas do SAP. Também pretende monitorizar o consumo de memória no nível de Instância Grande para se certificar de que o software adicional não HANA instalado não consome muita memória e, portanto, competir com hana para memória.
 
-**Largura de banda da rede:** O gateway de VNet do Azure é limitado na largura de banda dos dados que se movem para a VNet do Azure, portanto, é útil monitorar os dados recebidos por todas as VMs do Azure em uma VNet para descobrir o quão perto você é para os limites do SKU do gateway do Azure selecionado. Na unidade de instância grande do HANA, faz sentido monitorar o tráfego de rede de entrada e saída também e controlar os volumes que são manipulados ao longo do tempo.
+**Largura de banda da rede:** O gateway Azure VNet é limitado na largura de banda dos dados que se deslocam para o Azure VNet, pelo que é útil monitorizar os dados recebidos por todos os VMs Azure dentro de um VNet para descobrir a sua proximidade com os limites do portal Azure SKU selecionado. Na unidade HANA Large Instance, faz sentido monitorizar também o tráfego de rede de entrada e saída e acompanhar os volumes que são tratados ao longo do tempo.
 
-**Espaço em disco:** O consumo de espaço em disco geralmente aumenta com o passar do tempo. As causas mais comuns são: o volume de dados aumenta, a execução de backups de log de transações, o armazenamento de arquivos de rastreamento e a execução de instantâneos de armazenamento. Portanto, é importante monitorar o uso do espaço em disco e gerenciar o espaço em disco associado à unidade de instância grande do HANA.
+**Espaço em disco:** O consumo de espaço em disco geralmente aumenta com o tempo. As causas mais comuns são: aumento do volume de dados, execução de cópias de segurança de registo de transações, armazenamento de ficheiros de vestígios e realização de instantâneos de armazenamento. Por isso, é importante monitorizar o uso do espaço do disco e gerir o espaço do disco associado à unidade HANA Large Instance.
 
-Para os **SKUs do tipo II** das instâncias grandes do Hana, o servidor vem com as ferramentas de diagnóstico de sistema pré-carregadas. Você pode utilizar essas ferramentas de diagnóstico para executar a verificação de integridade do sistema. Execute o comando a seguir para gerar o arquivo de log de verificação de integridade em/var/log/health_check.
+Para as **SKUs tipo II** das Grandes Instâncias HANA, o servidor vem com as ferramentas de diagnóstico do sistema pré-carregada. Pode utilizar estas ferramentas de diagnóstico para efetuar a verificação de saúde do sistema. Executar o seguinte comando para gerar o ficheiro de registo de verificação de saúde em /var/log/health_check.
 ```
 /opt/sgi/health_check/microsoft_tdi.sh
 ```
-Ao trabalhar com a equipe de Suporte da Microsoft para solucionar um problema, você também pode ser solicitado a fornecer os arquivos de log usando essas ferramentas de diagnóstico. Você pode compactar o arquivo usando o comando a seguir.
+Quando trabalha com a equipa de Suporte do Microsoft para resolver um problema, também pode ser solicitado que forneça os ficheiros de registo utilizando estas ferramentas de diagnóstico. Pode fechar o ficheiro utilizando o seguinte comando.
 ```
 tar  -czvf health_check_logs.tar.gz /var/log/health_check
 ```
 
 **Passos seguintes?**
 
-- Consulte [como monitorar SAP Hana (instâncias grandes) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot).
+- Consulte [como monitorizar o SAP HANA (grandes instâncias) no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot).

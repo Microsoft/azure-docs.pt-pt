@@ -9,16 +9,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: bd20bb008c52b7d99416aed7a0599a6e78d2acf2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 114a460b3db67af278f813de2e7a18d571cf3c28
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161652"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613430"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrate Azure AD Domain Services do modelo clássico de rede virtual para Gestor de Recursos
 
-O Azure Ative Directory Domain Services (AD DS) suporta um movimento único para os clientes que utilizam atualmente o modelo de rede virtual Classic para o modelo de rede virtual Do Gestor de Recursos. Os domínios gerenciados do Azure AD DS que usam o modelo de implantação do Gerenciador de recursos fornecem recursos adicionais, como política de senha refinada, logs de auditoria e proteção de bloqueio de conta.
+O Azure Ative Directory Domain Services (AD DS) suporta um movimento único para os clientes que utilizam atualmente o modelo de rede virtual Classic para o modelo de rede virtual Do Gestor de Recursos. Os domínios geridos pela Azure AD DS que utilizam o modelo de implementação do Gestor de Recursos fornecem funcionalidades adicionais, tais como a política de passwords de grãos finos, registos de auditoria e proteção de bloqueio de conta.
 
 Este artigo descreve os benefícios e considerações para a migração, em seguida, os passos necessários para migrar com sucesso uma instância Azure AD DS existente.
 
@@ -106,7 +106,7 @@ Os passos de alto nível envolvidos neste cenário de migração incluem as segu
 
 ### <a name="ip-addresses"></a>Endereços IP
 
-Os endereços IP do controlador de domínio para uma mudança de domínio gerida pelo Azure AD DS após a migração. Essa alteração inclui o endereço IP público para o ponto de extremidade LDAP seguro. Os novos endereços IP estão dentro da gama de endereços para a nova subnet na rede virtual do Gestor de Recursos.
+Os endereços IP do controlador de domínio para uma mudança de domínio gerida pelo Azure AD DS após a migração. Esta alteração inclui o endereço IP público para o ponto final lDAP seguro. Os novos endereços IP estão dentro da gama de endereços para a nova subnet na rede virtual do Gestor de Recursos.
 
 No caso de retrocesso, os endereços IP podem mudar após a reversão.
 
@@ -122,7 +122,7 @@ Os domínios geridos pela Azure AD DS que funcionam em redes virtuais clássicas
 
 Por predefinição, 5 tentativas de senha em 2 minutos bloqueiam uma conta durante 30 minutos.
 
-Uma conta bloqueada não pode ser usada para entrar, o que pode interferir na capacidade de gerenciar o domínio gerenciado do Azure AD DS ou os aplicativos gerenciados pela conta. Depois de um domínio gerido pela AD DS azure ser migrado, as contas podem experimentar o que parece ser um bloqueio permanente devido a tentativas falhadas repetidas de iniciar sessão. Dois cenários comuns após a migração incluem:
+Uma conta bloqueada não pode ser usada para iniciar sessão, o que pode interferir com a capacidade de gerir o domínio gerido pelo Azure AD DS ou aplicações geridas pela conta. Depois de um domínio gerido pela AD DS azure ser migrado, as contas podem experimentar o que parece ser um bloqueio permanente devido a tentativas falhadas repetidas de iniciar sessão. Dois cenários comuns após a migração incluem:
 
 * Uma conta de serviço que está a usar uma senha expirada.
     * A conta de serviço tenta insinserir-se repetidamente com uma senha caducada, que bloqueia a conta. Para corrigir isto, localize a aplicação ou VM com credenciais caducadas e atualize a palavra-passe.
@@ -164,7 +164,7 @@ A migração para o modelo de implantação do Gestor de Recursos e rede virtual
 
 ## <a name="update-and-verify-virtual-network-settings"></a>Atualizar e verificar as definições de rede virtual
 
-Antes de começar o processo de migração, conclua as seguintes verificações e atualizações iniciais. Estes passos podem acontecer a qualquer momento antes da migração e não afetam o funcionamento do domínio gerido pela AD DS azure.
+Antes de iniciar o processo de migração, complete as seguintes verificações e atualizações iniciais. Estes passos podem acontecer a qualquer momento antes da migração e não afetam o funcionamento do domínio gerido pela AD DS azure.
 
 1. Atualize o ambiente Azure PowerShell local para a versão mais recente. Para completar os passos de migração, precisa de pelo menos a versão *2.3.2*.
 
@@ -206,12 +206,12 @@ Para preparar o domínio gerido pela AD DS Azure para migração, complete os se
     $creds = Get-Credential
     ```
 
-1. Agora, execute o `Migrate-Aadds` cmdlet utilizando o parâmetro *-Prepare.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido pelo Azure AD DS, *como*contoso.com:
+1. Agora, execute o `Migrate-Aadds` cmdlet utilizando o parâmetro *-Prepare.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido pelo Azure AD DS, como *aaddscontoso.com:*
 
     ```powershell
     Migrate-Aadds `
         -Prepare `
-        -ManagedDomainFqdn contoso.com `
+        -ManagedDomainFqdn aaddscontoso.com `
         -Credentials $creds
     ```
 
@@ -219,7 +219,7 @@ Para preparar o domínio gerido pela AD DS Azure para migração, complete os se
 
 Com o domínio gerido pela AD DS Azure preparado e apoiado, o domínio pode ser migrado. Este passo recria os VMs do controlador de domínio Azure AD Domain Services utilizando o modelo de implementação do Gestor de Recursos. Este passo pode levar 1 a 3 horas para ser concluído.
 
-Executar o `Migrate-Aadds` cmdlet utilizando o parâmetro *-Cometer.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido azure AD DS preparado na secção anterior, tais como *contoso.com:*
+Executar o `Migrate-Aadds` cmdlet utilizando o parâmetro *-Cometer.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido azure AD DS preparado na secção anterior, tais como *aaddscontoso.com:*
 
 Especifique o grupo de recursos-alvo que contém a rede virtual para a qual pretende migrar o Azure AD DS, como o *myResourceGroup*. Fornecer a rede virtual alvo, como o *myVnet,* e a subnet, como *domainServices*.
 
@@ -228,7 +228,7 @@ Depois deste comando, não podes voltar atrás:
 ```powershell
 Migrate-Aadds `
     -Commit `
-    -ManagedDomainFqdn contoso.com `
+    -ManagedDomainFqdn aaddscontoso.com `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
@@ -265,7 +265,7 @@ Agora teste a ligação virtual da rede e a resolução de nomes. Num VM que est
 
 1. Verifique se pode verificar o endereço IP de um dos controladores de domínio, como `ping 10.1.0.4`
     * Os endereços IP dos controladores de domínio são mostrados na página **Propriedades** para o domínio gerido azure AD DS no portal Azure.
-1. Verifique a resolução de nomes do domínio gerido, como `nslookup contoso.com`
+1. Verifique a resolução de nomes do domínio gerido, como `nslookup aaddscontoso.com`
     * Especifique o nome DNS para o seu próprio domínio gerido pelo Azure AD DS para verificar se as definições de DNS estão corretas e resolvem.
 
 O segundo controlador de domínio deve estar disponível 1-2 horas após o acabamento do cmdlet migratório. Para verificar se o segundo controlador de domínio está disponível, consulte a página **Propriedades** do domínio gerido pelo Azure AD DS no portal Azure. Se dois endereços IP mostrados, o segundo controlador de domínio está pronto.
@@ -291,7 +291,7 @@ Se necessário, pode atualizar a política de palavra-passe de grãos finos para
 1. [Configure a política de palavra-passe][password-policy] para menos restrições no domínio gerido pelo Azure AD DS e observe os eventos nos registos de auditoria.
 1. Se alguma conta de serviço estiver a utilizar senhas caducadas identificadas nos registos de auditoria, atualize essas contas com a palavra-passe correta.
 1. Se um VM for exposto à internet, reveja os nomes genéricos de contas como *administrador,* *utilizador*ou *hóspede* com tentativas de insessão elevadas. Sempre que possível, atualize esses VMs para utilizar contas menos genericamente nomeadas.
-1. Use um rastreamento de rede na VM para localizar a origem dos ataques e impedir que esses endereços IP sejam capazes de tentar entrar.
+1. Utilize um vestígio de rede no VM para localizar a origem dos ataques e bloquear que os endereços IP sejam capazes de tentar iniciar sessão.
 1. Quando houver problemas mínimos de bloqueio, atualize a política de senhas de grãos finos para ser tão restritiva quanto necessário.
 
 ### <a name="creating-a-network-security-group"></a>Criação de um grupo de segurança de rede
@@ -303,18 +303,18 @@ O Azure AD DS precisa de um grupo de segurança de rede para proteger os portos 
 
 ## <a name="roll-back-and-restore-from-migration"></a>Recue e restaure da migração
 
-Até um determinado ponto no processo de migração, você pode optar por reverter ou restaurar o domínio gerenciado AD DS do Azure.
+Até um certo ponto no processo de migração, pode optar por reverter ou restaurar o domínio gerido pelo Azure AD DS.
 
 ### <a name="roll-back"></a>Rolar para trás
 
 Se houver um erro quando executa o cmdlet PowerShell para se preparar para a migração no passo 2 ou para a migração em si no passo 3, o domínio gerido pelo Azure AD DS pode voltar à configuração original. Este retrocesso requer a rede virtual clássica original. Note que os endereços IP podem ainda mudar após a reversão.
 
-Executar o `Migrate-Aadds` cmdlet utilizando o parâmetro *-Abortar.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido azure AD DS preparado numa secção anterior, como *contoso.com,* e o nome clássico da rede virtual, como o *myClassicVnet:*
+Executar o `Migrate-Aadds` cmdlet utilizando o parâmetro *-Abortar.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido azure AD DS preparado numa secção anterior, como *aaddscontoso.com,* e o nome clássico da rede virtual, como o *myClassicVnet:*
 
 ```powershell
 Migrate-Aadds `
     -Abort `
-    -ManagedDomainFqdn contoso.com `
+    -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```

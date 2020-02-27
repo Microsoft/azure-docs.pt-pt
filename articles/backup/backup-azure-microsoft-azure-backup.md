@@ -3,12 +3,12 @@ title: Use o Servidor de Backup Azure para fazer backup das cargas de trabalho
 description: Neste artigo, aprenda a preparar o seu ambiente para proteger e fazer backup de cargas de trabalho utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: e601328a09ece54eb1c678310f76c7999c69f24c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586432"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617618"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup Azure
 
@@ -56,7 +56,7 @@ Se não quiser executar o servidor base em Azure, pode executar o servidor num V
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2016 e os mais recentes SPs |64 bits |Standard, Datacenter, Essentials  |
 
-Pode duplicar o armazenamento de DPM utilizando a Deduplicação do Servidor windows. Saiba mais sobre como o DPM e a [desduplicação](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn891438(v=sc.12)) funcionam em conjunto quando implantados em VMs Hiper-V.
+Pode duplicar o armazenamento de DPM utilizando a Deduplicação do Servidor windows. Saiba mais sobre como o DPM e a [desduplicação](https://docs.microsoft.com/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) funcionam em conjunto quando implantados em VMs Hiper-V.
 
 > [!NOTE]
 > O Azure Backup Server foi concebido para funcionar num servidor dedicado e unipropósito. Não é possível instalar o Servidor de Backup Azure em:
@@ -359,7 +359,7 @@ Também pode consultar [as FAQs relacionadas](backup-azure-backup-faq.md) com o 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode obter informações detalhadas sobre [a preparação do seu ambiente para o DPM](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758176(v=sc.12)). Também contém informações sobre configurações suportadas nas quais o Servidor de Backup Do Azure pode ser implantado e utilizado. Pode utilizar uma série de [cmdlet PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) para realizar várias operações.
+Pode obter informações detalhadas sobre [a preparação do seu ambiente para o DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). Também contém informações sobre configurações suportadas nas quais o Servidor de Backup Do Azure pode ser implantado e utilizado. Pode utilizar uma série de [cmdlet PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) para realizar várias operações.
 
 Pode utilizar estes artigos para obter uma compreensão mais profunda da proteção da carga de trabalho utilizando o servidor de backup do Microsoft Azure.
 

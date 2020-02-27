@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 54ad9109a23b0fb25470987c2bc863934864b83f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b31d0237f04ef535fa6528d5b3a04e5ee7256e22
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580683"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623684"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Dados de acesso nos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,13 +84,12 @@ No entanto, para as lojas de dados Azure Data Lake Storage Gen 1 e 2, esta valid
 
 Todos os métodos de registo estão na classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) e têm o formulário `register_azure_*`.
 
-Pode encontrar a informação de que necessita para povoar o método `register()` utilizando o [portal Azure:](https://portal.azure.com)
+Pode encontrar a informação de que necessita para povoar o método `register()` no [portal Azure.](https://portal.azure.com)
+Selecione Contas de **Armazenamento** no painel esquerdo e escolha a conta de armazenamento que pretende registar. A página **'Overview'** fornece informações como o nome da conta, o contentor e o nome da partilha de ficheiros. 
 
-1. Selecione Contas de **Armazenamento** no painel esquerdo e escolha a conta de armazenamento que pretende registar. 
-2. Para obter informações como o nome da conta, o contentor e o nome da partilha de ficheiros, consulte a página **'Overview'.** 
-3. Para obter informações de autenticação, como chave de conta ou ficha SAS, aceda às **Teclas** de acesso no painel **Definições.** 
+* Para itens de autenticação, como chave de conta ou ficha SAS, vá para **As Teclas de Conta** no painel **Definições.** 
 
-4. Para itens principais de serviço como, ID de inquilino e ID do cliente, vá à página **de visão geral** dos **registos**da sua App . 
+* Para itens principais de serviço como, ID de inquilino e ID do cliente, vá às **suas inscrições** da App e selecione qual a aplicação que pretende utilizar. A sua página **de visão geral** correspondente conterá estes itens.
 
 > [!IMPORTANT]
 > Se a sua conta de armazenamento estiver numa rede virtual, apenas é suportada a criação de blob, File share, ADLS Gen 1 e ADLS Gen 2 **através do SDK.** Para conceder o acesso ao seu espaço de trabalho na sua conta de armazenamento, defina o parâmetro `grant_workspace_access` para `True`.
@@ -137,7 +136,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Geração de Armazenamento de Lagos De Dados Azure 2
 
-Para uma loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados credencial ligada a um armazenamento Azure DataLake Gen 2 com [permissões principais](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)de serviço. Para utilizar o seu diretor de serviço, tem de registar a [sua candidatura.](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) Saiba mais sobre o controlo de [acesso criado para ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Para uma loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados credencial ligada a um armazenamento Azure DataLake Gen 2 com [permissões principais](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)de serviço. Para utilizar o seu principal de serviço, é necessário registar a [sua aplicação](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e definir atribuições de funções ao acesso ao Leitor e aos Dados. Saiba mais sobre o controlo de [acesso criado para ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 O código seguinte cria e regista a `adlsgen2_datastore_name` loja de dados para o espaço de trabalho `ws`. Esta loja de dados acede ao sistema de ficheiros `test` na conta de armazenamento `account_name`, utilizando as credenciais principais do serviço prestados.
 
@@ -177,7 +176,7 @@ Pode encontrar a informação de que necessita para preencher o formulário no [
 
 * Para itens de autenticação, como chave de conta ou ficha SAS, vá para **As Teclas de Conta** no painel **Definições.** 
 
-* Para itens principais de serviço como, ID de inquilino e ID do cliente, vá à página **de visão geral** dos **registos**da sua App . 
+* Para itens principais de serviço como, ID de inquilino e ID do cliente, vá às **suas inscrições** da App e selecione qual a aplicação que pretende utilizar. A sua página **de visão geral** correspondente conterá estes itens. 
 
 O exemplo que se segue demonstra como é o formulário quando se cria uma loja de dados Azure blob: 
     

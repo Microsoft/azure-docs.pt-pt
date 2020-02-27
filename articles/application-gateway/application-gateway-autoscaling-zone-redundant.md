@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/09/2019
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 8fe38870f593dd57d8e4dad5601ea404e99c3d10
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 39b7e94747f556b61f661968f7126d122156d9cf
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031565"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622005"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -26,8 +26,8 @@ O novo V2 SKU inclui as seguintes melhorias:
   O despedimento da zona só está disponível quando as Zonas Azure estiverem disponíveis. Noutras regiões, todas as outras características são apoiadas. Para mais informações, consulte [O que são Zonas de Disponibilidade em Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **VIP estático**: O Gateway v2 SKU suporta exclusivamente o tipo VIP estático. Isto garante que o VIP associado ao gateway de aplicação não se altere para o ciclo de vida da implementação, mesmo após um reinício.  Não existe um VIP estático em v1, por isso deve utilizar o URL de gateway da aplicação em vez do endereço IP para o encaminhamento de nome de domínio para Serviços de Aplicação através do gateway da aplicação.
 - **Cabeçalho Reescrever**: O Gateway da aplicação permite-lhe adicionar, remover ou atualizar os cabeçalhos de pedido e resposta http com v2 SKU. Para mais informações, consulte [cabeçalhos http reescrever com Gateway de aplicação](rewrite-http-headers.md)
-- **Integração do cofre chave (pré-visualização)** : O Gateway v2 suporta a integração com o Key Vault (na pré-visualização pública) para os certificados de servidor que estão anexados aos ouvintes ativados por HTTPS. Para mais informações, consulte a [rescisão do SSL com certificados key vault](key-vault-certs.md).
-- Controlador de entrada de **serviço Azure Kubernetes (pré-visualização)** : O controlador de entrada de aplicações v2 Ingress permite que o Gateway de Aplicações Azure seja utilizado como entrada para um Serviço Azure Kubernetes (AKS) conhecido como Cluster AKS. Para mais informações, consulte a página de [documentação](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Integração do cofre chave**: O Gateway de aplicação v2 suporta a integração com o Key Vault para certificados de servidor que estão ligados aos ouvintes ativados por HTTPS. Para mais informações, consulte a [rescisão do SSL com certificados key vault](key-vault-certs.md).
+- Controlador de **ingresso de serviço Azure Kubernetes**: O controlador de entrada de aplicações v2 Ingress permite que o Portal de Aplicações Azure seja utilizado como entrada para um Serviço Azure Kubernetes (AKS) conhecido como Cluster AKS. Para mais informações, consulte [o que é o Controlador de Ingress ingresso de Gateway de aplicação?](ingress-controller-overview.md)
 - **Melhorias de desempenho**: O V2 SKU oferece até 5X melhor desempenho de descarga SSL em comparação com o SKU Standard/WAF.
 - Tempo de **implementação e atualização mais rápido** O V2 SKU fornece um tempo de implementação e atualização mais rápido em comparação com o Standard/WAF SKU. Isto também inclui alterações de configuração WAF.
 
@@ -42,9 +42,9 @@ A Standard_v2 e WAF_v2 SKU estão disponíveis nas seguintes regiões: North Cen
 Com o V2 SKU, o modelo de preços é impulsionado pelo consumo e já não está ligado a contagens ou tamanhos de instância. O preço v2 SKU tem dois componentes:
 
 - **Preço fixo** - Este é o preço de hora (ou hora parcial) para fornecer um Standard_v2 ou WAF_v2 Gateway. Por favor, note que 0 instâncias mínimas adicionais ainda garantem uma elevada disponibilidade do serviço que está sempre incluído com preço fixo.
-- **Preço unitário** de capacidade - Este é um custo baseado no consumo que é cobrado para além do custo fixo. A carga da unidade de capacidade também é calculada de hora em hora ou parcialmente. Existem três dimensões para a unidade de capacidade - unidade de computação, conexões persistentes e entrada. A unidade computacional é uma medida da capacidade do processador consumida. Fatores que afetam a unidade de computação são conexões TLS/s, computações de regravação de URL e processamento de regra WAF. A ligação persistente é uma medida de conexões TCP estabelecidas à porta de aplicação num determinado intervalo de faturação. A produção é megabits/seg média processada pelo sistema num determinado intervalo de faturação.  A faturação é feita a nível da Unidade de Capacidade para qualquer coisa acima da contagem de instâncias reservada.
+- **Preço unitário** de capacidade - Este é um custo baseado no consumo que é cobrado para além do custo fixo. A carga da unidade de capacidade também é calculada de hora em hora ou parcialmente. Existem três dimensões para a unidade de capacidade - unidade de computação, conexões persistentes e entrada. A unidade computacional é uma medida da capacidade do processador consumida. Os fatores que afetam a unidade computacional são ligações TLS/seg, computações de reescrita de URL e processamento de regras WAF. A ligação persistente é uma medida de conexões TCP estabelecidas à porta de aplicação num determinado intervalo de faturação. A produção é megabits/seg média processada pelo sistema num determinado intervalo de faturação.  A faturação é feita a nível da Unidade de Capacidade para qualquer coisa acima da contagem de instâncias reservada.
 
-Cada unidade de capacidade é composta de no máximo: 1 unidade de computação ou 2500 conexões persistentes ou taxa de transferência de 2,22 Mbps.
+Cada unidade de capacidade é composta no máximo por: 1 unidade de cálculo, ou 2500 ligações persistentes, ou 2,22 Mbps de potência.
 
 Orientação da unidade computacional:
 
@@ -142,7 +142,7 @@ A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 |                                                   | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
 | Dimensionamento automático                                       |          | &#x2713; |
-| Redundância de zona                                   |          | &#x2713; |
+| Redundância da zona                                   |          | &#x2713; |
 | VIP estático                                        |          | &#x2713; |
 | Controlador de ingresso do Serviço Azure Kubernetes (AKS) |          | &#x2713; |
 | Integração do Cofre de Chaves do Azure                       |          | &#x2713; |
@@ -174,7 +174,7 @@ A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 |Registos de desempenho em diagnósticos Azure|Não suportado.<br>As métricas azure devem ser utilizadas.|
 |Faturação|Faturação prevista para começar a 1 de julho de 2019.|
 |Modo FIPS|Estes não são atualmente apoiados.|
-|Modo iLB|Não há suporte para isso no momento. O modo público e iLB em conjunto é apoiado.|
+|Modo iLB|Isto não é atualmente apoiado. O modo público e iLB em conjunto é apoiado.|
 |Integração netwatcher|Não suportado.|
 |Integração do Azure Security Center|Ainda não está disponível.
 

@@ -4,12 +4,12 @@ description: Saiba como fazer backup de um servidor de troca para o Backup Azure
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 051e33e9340a5ee788011254bb2cf88029ba1505
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: dbd37bbb7418560a0426ed47d7869bf9d949d2e2
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583848"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617571"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Faça backup de um servidor de troca para Azure com o Servidor de Backup Azure
 
@@ -23,8 +23,8 @@ Antes de continuar, certifique-se de que o Servidor de Backup Azure está [insta
 
 Para instalar o agente de proteção MABS no servidor Exchange, siga estes passos:
 
-1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte as exceções à [firewall configurar para o agente](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758204(v=sc.12)).
-2. Instale o agente no servidor Exchange clicando em **Management > Agents > Instale** na Consola de Administrador MABS. Consulte [a instalação do agente de proteção MABS](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12)) para obter passos detalhados.
+1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte as exceções à [firewall configurar para o agente](h https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+2. Instale o agente no servidor Exchange clicando em **Management > Agents > Instale** na Consola de Administrador MABS. Consulte [a instalação do agente de proteção MABS](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para obter passos detalhados.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Criar um grupo de proteção para o servidor De troca
 

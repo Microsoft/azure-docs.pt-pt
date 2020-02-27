@@ -1,6 +1,6 @@
 ---
-title: Como marcar uma máquina virtual Linux do Azure
-description: Saiba mais sobre como marcar uma máquina virtual Linux do Azure criada no Azure usando o modelo de implantação do Resource Manager.
+title: Como marcar uma máquina virtual Azure Linux
+description: Aprenda a marcar uma máquina virtual Azure Linux criada em Azure utilizando o modelo de implementação do Gestor de Recursos.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mmccrory
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: cb8ec68ac0be4cf4480f5d75f987707cf7393003
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3dd46f0c1c1e36e0373311ce6dcbf5d2f155dacc
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973206"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616281"
 ---
-# <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Linux no Azure
-Este artigo descreve diferentes maneiras de marcar uma máquina virtual do Linux no Azure por meio do modelo de implantação do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou em um grupo de recursos. Atualmente, o Azure dá suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas têm suporte apenas para recursos criados por meio do modelo de implantação do Resource Manager.
+# <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Como marcar uma máquina virtual Linux em Azure
+Este artigo descreve diferentes formas de marcar uma máquina virtual Linux em Azure através do modelo de implementação do Gestor de Recursos. As etiquetas são pares de chaves/valor definidos pelo utilizador que podem ser colocados diretamente num recurso ou num grupo de recursos. O Azure suporta atualmente até 50 tags por grupo de recursos e recursos. As etiquetas podem ser colocadas num recurso no momento da criação ou adicionadas a um recurso existente. Por favor, note que as tags são suportadas apenas para recursos criados apenas através do modelo de implementação do Gestor de Recursos.
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
-## <a name="tagging-with-azure-cli"></a>Marcação com CLI do Azure
+## <a name="tagging-with-azure-cli"></a>Marcação com Azure CLI
 
-Para começar, você precisa das [CLI do Azure](/cli/azure/install-azure-cli) mais recentes instaladas e conectadas a uma conta do Azure usando [AZ login](/cli/azure/reference-index#az-login).
+Para começar, precisa do mais recente [Azure CLI](/cli/azure/install-azure-cli) instalado e registado numa conta Azure utilizando [login az](/cli/azure/reference-index#az-login).
 
-Você pode exibir todas as propriedades de uma determinada máquina virtual, incluindo as marcas, usando este comando:
+Pode visualizar todas as propriedades para uma determinada Máquina Virtual, incluindo as etiquetas, utilizando este comando:
 
 ```azurecli
 az vm show --resource-group MyResourceGroup --name MyTestVM
 ```
 
-Para adicionar uma nova marca de VM por meio do CLI do Azure, você pode usar o comando `azure vm update` junto com o parâmetro de marca **--set**:
+Para adicionar uma nova etiqueta VM através do ClI Azure, pode utilizar o comando `azure vm update` juntamente com o parâmetro de etiqueta **-set**:
 
 ```azurecli
 az vm update \
@@ -45,19 +45,19 @@ az vm update \
     --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 ```
 
-Para remover marcas, você pode usar o parâmetro **--Remove** no comando `azure vm update`.
+Para remover as etiquetas, pode utilizar o parâmetro **-remover** o comando `azure vm update`.
 
 ```azurecli
 az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
 ```
 
-Agora que aplicamos marcas aos nossos recursos CLI do Azure e ao portal, vamos dar uma olhada nos detalhes de uso para ver as marcas no portal de cobrança.
+Agora que aplicámos etiquetas aos nossos recursos Azure CLI e portal, vamos dar uma olhada nos detalhes de utilização para ver as etiquetas no portal de faturação.
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para saber mais sobre como marcar os recursos do Azure, confira [Azure Resource Manager visão geral][Azure Resource Manager Overview] e [usando marcas para organizar os recursos do Azure][Using Tags to organize your Azure Resources].
-* Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [noções básicas sobre sua fatura do Azure][Understanding your Azure Bill] e [obter informações sobre o consumo de recursos Microsoft Azure][Gain insights into your Microsoft Azure resource consumption].
+* Para saber mais sobre a marcação dos seus recursos Azure, consulte a [visão geral do Gestor de Recursos Azure][Azure Resource Manager Overview] e usando [tags para organizar os seus Recursos Azure.][Using Tags to organize your Azure Resources]
+* Para ver como as tags podem ajudá-lo a gerir o seu uso de recursos Azure, consulte [Understanding your Azure Bill][Understanding your Azure Bill] e Gain insights sobre o seu consumo de recursos Microsoft [Azure][Gain insights into your Microsoft Azure resource consumption].
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md

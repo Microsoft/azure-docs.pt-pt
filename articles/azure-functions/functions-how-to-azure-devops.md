@@ -1,37 +1,37 @@
 ---
-title: Atualizar continuamente o código do aplicativo de funções usando o Azure DevOps
-description: Saiba como configurar um pipeline DevOps do Azure que tem como destino Azure Functions.
-author: ahmedelnably
+title: Atualizar continuamente código de aplicação de função usando Azure DevOps
+description: Aprenda a montar um oleoduto Azure DevOps que visa as Funções Azure.
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: aelnably
-ms.openlocfilehash: e6ea7edb16aa28428754cbe920e1d350aded0cff
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.author: cshoe
+ms.openlocfilehash: 1d627329a6d5f4c283a4480c1b0b1077a8e856cf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834030"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649947"
 ---
-# <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua usando o Azure DevOps
+# <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua utilizando O Azure DevOps
 
-Você pode implantar automaticamente sua função em um aplicativo Azure Functions usando [Azure pipelines](/azure/devops/pipelines/).
+Pode implementar automaticamente a sua função numa aplicação De Funções Azure utilizando [pipelines Azure](/azure/devops/pipelines/).
 
-Você tem duas opções para definir seu pipeline:
+Tem duas opções para definir o seu oleoduto:
 
-- **Arquivo YAML**: um arquivo YAML descreve o pipeline. O arquivo pode ter uma seção de etapas de compilação e uma seção de versão. O arquivo YAML deve estar no mesmo repositório que o aplicativo.
-- **Modelo**: modelos são tarefas prontas que criam ou implantam seu aplicativo.
+- **Ficheiro YAML**: Um ficheiro YAML descreve o gasoduto. O ficheiro pode ter uma secção de passos de construção e uma secção de libertação. O ficheiro YAML deve estar no mesmo repo que a aplicação.
+- **Modelo**: Os modelos são tarefas prontas que constroem ou implementam a sua aplicação.
 
-## <a name="yaml-based-pipeline"></a>Pipeline baseado em YAML
+## <a name="yaml-based-pipeline"></a>Gasoduto baseado em YAML
 
-Para criar um pipeline baseado em YAML, primeiro crie seu aplicativo e, em seguida, implante o aplicativo.
+Para criar um pipeline baseado em YAML, primeiro construa a sua aplicação e, em seguida, implemente a aplicação.
 
-### <a name="build-your-app"></a>Criar a sua aplicação
+### <a name="build-your-app"></a>Construa a sua app
 
-A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para implantar seu aplicativo de funções no Azure.
+A forma como constrói a sua aplicação em Pipelines Azure depende da linguagem de programação da sua aplicação. Cada idioma tem passos específicos de construção que criam um artefacto de implantação. Um artefacto de implantação é usado para implementar a sua aplicação de função em Azure.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
-Você pode usar o exemplo a seguir para criar um arquivo YAML para compilar um aplicativo .NET:
+Pode utilizar a seguinte amostra para criar um ficheiro YAML para construir uma aplicação .NET:
 
 ```yaml
 pool:
@@ -60,9 +60,9 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Você pode usar o exemplo a seguir para criar um arquivo YAML para criar um aplicativo JavaScript:
+Pode utilizar a seguinte amostra para criar um ficheiro YAML para construir uma aplicação JavaScript:
 
 ```yaml
 pool:
@@ -88,11 +88,11 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
-Você pode usar um dos exemplos a seguir para criar um arquivo YAML para criar um aplicativo para uma versão específica do Python. O Python tem suporte apenas para aplicativos de funções em execução no Linux.
+Pode utilizar uma das seguintes amostras para criar um ficheiro YAML para construir uma aplicação para uma versão específica da Python. Python é suportado apenas para aplicações de funções em linux.
 
-**Versão 3,7**
+**Versão 3.7**
 
 ```yaml
 pool:
@@ -121,7 +121,7 @@ steps:
     artifactName: 'drop'
 ```
 
-**Versão 3,6**
+**Versão 3.6**
 
 ```yaml
 pool:
@@ -150,9 +150,9 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Você pode usar o exemplo a seguir para criar um arquivo YAML para empacotar um aplicativo PowerShell. O PowerShell só tem suporte para o Windows Azure Functions.
+Pode utilizar a seguinte amostra para criar um ficheiro YAML para embalar uma aplicação PowerShell. O PowerShell é suportado apenas para funções Windows Azure.
 
 ```yaml
 pool:
@@ -172,13 +172,13 @@ steps:
 
 ---
 
-### <a name="deploy-your-app"></a>Implantar seu aplicativo
+### <a name="deploy-your-app"></a>Implementar a sua aplicação
 
-Você deve incluir um dos exemplos de YAML a seguir no arquivo YAML, dependendo do sistema operacional de hospedagem.
+Deve incluir uma das seguintes amostras yAML no seu ficheiro YAML, dependendo do sistema operativo de hospedagem.
 
-#### <a name="windows-function-app"></a>Aplicativo de funções do Windows
+#### <a name="windows-function-app"></a>Aplicativo de função windows
 
-Você pode usar o trecho a seguir para implantar um aplicativo de funções do Windows:
+Pode utilizar o seguinte corte para implementar uma aplicação de função Windows:
 
 ```yaml
 steps:
@@ -193,9 +193,9 @@ steps:
     #slotName: '<Slot name>'
 ```
 
-#### <a name="linux-function-app"></a>Aplicativo de funções do Linux
+#### <a name="linux-function-app"></a>Aplicativo de função Linux
 
-Você pode usar o trecho a seguir para implantar um aplicativo de funções do Linux:
+Pode utilizar o seguinte corte para implementar uma aplicação de função Linux:
 
 ```yaml
 steps:
@@ -211,61 +211,61 @@ steps:
     #slotName: '<Slot name>'
 ```
 
-## <a name="template-based-pipeline"></a>Pipeline baseado em modelo
+## <a name="template-based-pipeline"></a>Gasoduto baseado em modelo
 
-Os modelos no Azure DevOps são grupos predefinidos de tarefas que criam ou implantam um aplicativo.
+Os modelos em Azure DevOps são grupos predefinidos de tarefas que constroem ou implementam uma aplicação.
 
-### <a name="build-your-app"></a>Criar a sua aplicação
+### <a name="build-your-app"></a>Construa a sua app
 
-A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para atualizar seu aplicativo de funções no Azure.
+A forma como constrói a sua aplicação em Pipelines Azure depende da linguagem de programação da sua aplicação. Cada idioma tem passos específicos de construção que criam um artefacto de implantação. Um artefacto de implementação é usado para atualizar a sua aplicação de funções em Azure.
 
-Para usar modelos de compilação internos, ao criar um novo pipeline de compilação, selecione **usar o editor clássico** para criar um pipeline usando modelos de designer.
+Para utilizar modelos de construção incorporados, quando criar um novo pipeline de construção, selecione **Use o editor clássico** para criar um pipeline usando modelos de design.
 
-![Selecione o editor clássico Azure Pipelines](media/functions-how-to-azure-devops/classic-editor.png)
+![Selecione o editor clássico do Azure Pipelines](media/functions-how-to-azure-devops/classic-editor.png)
 
-Depois de configurar a origem do seu código, pesquise Azure Functions modelos de compilação. Selecione o modelo que corresponde ao idioma do aplicativo.
+Depois de configurar a fonte do seu código, procure modelos de construção de funções Azure. Selecione o modelo que corresponde ao idioma da sua aplicação.
 
-![Selecionar um modelo de compilação Azure Functions](media/functions-how-to-azure-devops/build-templates.png)
+![Selecione um modelo de construção de funções azure](media/functions-how-to-azure-devops/build-templates.png)
 
-Em alguns casos, os artefatos de compilação têm uma estrutura de pastas específica. Talvez seja necessário selecionar a caixa de seleção **nome da pasta raiz para caminhos de arquivo** .
+Em alguns casos, os artefactos de construção têm uma estrutura específica de pasta. Pode ser necessário selecionar o nome da pasta raiz **Prepend para arquivar os caminhos** de verificação da caixa.
 
-![A opção para preceder o nome da pasta raiz](media/functions-how-to-azure-devops/prepend-root-folder.png)
+![A opção de preparar o nome da pasta raiz](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 #### <a name="javascript-apps"></a>Aplicativos JavaScript
 
-Se seu aplicativo JavaScript tiver uma dependência em módulos nativos do Windows, você deverá atualizar a versão do pool do agente para o **VS2017 hospedado**.
+Se a sua aplicação JavaScript tiver uma dependência dos módulos nativos do Windows, tem de atualizar a versão do grupo de agentes para **o Hosted VS2017**.
 
-![Atualizar a versão do pool de agentes](media/functions-how-to-azure-devops/change-agent.png)
+![Atualize a versão do grupo de agentes](media/functions-how-to-azure-devops/change-agent.png)
 
-### <a name="deploy-your-app"></a>Implantar seu aplicativo
+### <a name="deploy-your-app"></a>Implementar a sua aplicação
 
-Ao criar um novo pipeline de lançamento, pesquise o modelo de versão Azure Functions.
+Quando criar um novo pipeline de lançamento, procure o modelo de libertação das Funções Azure.
 
-![Pesquisar o modelo de versão Azure Functions](media/functions-how-to-azure-devops/release-template.png)
+![Pesquisar o modelo de lançamento de Funções Azure](media/functions-how-to-azure-devops/release-template.png)
 
-Não há suporte para a implantação em um slot de implantação no modelo de versão.
+A implantação para uma ranhura de implantação não é suportada no modelo de libertação.
 
-## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Criar um pipeline de compilação usando o CLI do Azure
+## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Criar um oleoduto de construção utilizando o Azure CLI
 
-Para criar um pipeline de compilação no Azure, use o [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create)`az functionapp devops-pipeline create`. O pipeline de compilação é criado para compilar e liberar quaisquer alterações de código feitas em seu repositório. O comando gera um novo arquivo YAML que define o pipeline de compilação e versão e, em seguida, o confirma para seu repositório. Os pré-requisitos para esse comando dependem do local do seu código.
+Para criar um oleoduto de construção em Azure, utilize o [comando](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create)`az functionapp devops-pipeline create`. O pipeline de construção é criado para construir e libertar quaisquer alterações de código que sejam feitas no seu repo. O comando gera um novo ficheiro YAML que define o oleoduto de construção e libertação e depois compromete-o com o seu repo. Os pré-requisitos para este comando dependem da localização do seu código.
 
 - Se o seu código estiver no GitHub:
 
-    - Você deve ter permissões de **gravação** para sua assinatura.
+    - Deve **ter** permissões para a sua subscrição.
 
-    - Você deve ser o administrador do projeto no Azure DevOps.
+    - Deve ser o administrador do projeto na Azure DevOps.
 
-    - Você deve ter permissões para criar um PAT (token de acesso pessoal) do GitHub que tenha permissões suficientes. Para obter mais informações, consulte [requisitos de permissão do GITHUB Pat.](https://aka.ms/azure-devops-source-repos)
+    - Você deve ter permissões para criar um token de acesso pessoal GitHub (PAT) que tenha permissões suficientes. Para mais informações, consulte os requisitos de [permissão gitHub PAT.](https://aka.ms/azure-devops-source-repos)
 
-    - Você deve ter permissões para confirmar o Branch mestre em seu repositório do GitHub, para que você possa confirmar o arquivo YAML gerado automaticamente.
+    - Você deve ter permissões para se comprometer com o ramo principal no seu repositório GitHub para que você possa cometer o ficheiro YAML autogerado.
 
-- Se seu código estiver em Azure Repos:
+- Se o seu código estiver em Azure Repos:
 
-    - Você deve ter permissões de **gravação** para sua assinatura.
+    - Deve **ter** permissões para a sua subscrição.
 
-    - Você deve ser o administrador do projeto no Azure DevOps.
+    - Deve ser o administrador do projeto na Azure DevOps.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Examine a [Azure Functions visão geral](functions-overview.md).
-- Examine a [visão geral do Azure DevOps](/azure/devops/pipelines/).
+- Reveja a visão geral das [Funções Azure.](functions-overview.md)
+- Reveja a visão geral do [Azure DevOps.](/azure/devops/pipelines/)

@@ -1,84 +1,86 @@
 ---
-title: Backup e restauração-banco de dados do Azure para MySQL
-description: Saiba mais sobre backups automáticos e como restaurar seu banco de dados do Azure para servidor MySQL.
+title: Backup e restauro - Base de Dados Azure para MySQL
+description: Saiba mais sobre cópias de segurança automáticas e restaurar a sua Base de Dados Azure para o servidor MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d5941ef7ac2236137fada7202a8dd3cf2ebcc120
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 47fa4083c26f18149b0b69b05f2cfd0b227de868
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776295"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619578"
 ---
-# <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no banco de dados do Azure para MySQL
+# <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para MySQL
 
-O banco de dados do Azure para MySQL cria automaticamente backups de servidor e os armazena em armazenamento com redundância geográfica ou local configurado pelo usuário. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. O backup e a restauração são uma parte essencial de qualquer estratégia de continuidade de negócios, pois eles protegem seus dados contra a corrupção ou exclusão acidental.
+A Base de Dados Azure para MySQL cria automaticamente cópias de segurança do servidor e armazena-as em armazenamento localmente redundante ou geo-redundante. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. Backup e restauro são uma parte essencial de qualquer estratégia de continuidade do negócio porque protegem os seus dados de corrupção acidental ou eliminação.
 
 ## <a name="backups"></a>Cópias de segurança
 
-O banco de dados do Azure para MySQL faz backups dos arquivos de data e do log de transações. Dependendo do tamanho máximo de armazenamento com suporte, pegamos backups completos e diferenciais (servidores de armazenamento máximo de 4 TB) ou backups de instantâneo (até 16 TB de servidores de armazenamento máximo). Esses backups permitem que você restaure um servidor para qualquer ponto no tempo em seu período de retenção de backup configurado. O período de retenção de backup padrão é de sete dias. Opcionalmente, você pode [configurá-lo](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits.
+A Base de Dados Azure para o MySQL retira cópias de segurança dos ficheiros de dados e do registo de transações. Dependendo do tamanho máximo de armazenamento suportado, ou tomamos backups completos e diferenciais (4 tb max storage servers) ou backups instantâneos (até 16-TB servidores de armazenamento max). Estas cópias de segurança permitem restaurar um servidor em qualquer ponto-a-tempo dentro do período de retenção de cópia de segurança configurado. O período de retenção de reserva padrão é de sete dias. Pode [configurá-lo opcionalmente](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
+
+Estes ficheiros de reserva não podem ser exportados. As cópias de segurança só podem ser utilizadas para restaurar as operações na Base de Dados Azure para o MySQL. Pode usar [mysqldump](concepts-migrate-dump-restore.md) para copiar uma base de dados.
 
 ### <a name="backup-frequency"></a>Frequência de cópia de segurança
 
-Geralmente, os backups completos ocorrem semanalmente, os backups diferenciais ocorrem duas vezes por dia para servidores com um armazenamento máximo com suporte de 4 TB. As cópias de segurança de instantâneos ocorrem pelo menos uma vez por dia para os servidores que suportem até 16 TB de armazenamento. Em ambos os casos, as cópias de segurança de registo de transações ocorrem a cada cinco minutos. O primeiro instantâneo do backup completo é agendado imediatamente após a criação de um servidor. O backup completo inicial pode levar mais tempo em um servidor restaurado grande. O ponto mais antigo no tempo no qual um novo servidor pode ser restaurado é a hora em que o backup completo inicial é concluído. Como os instantâneos são instantanious, os servidores com suporte para até 16 TB de armazenamento podem ser restaurados até o momento da criação.
+Geralmente, as cópias de segurança completas ocorrem semanalmente, as cópias de segurança diferenciais ocorrem duas vezes por dia para servidores com um armazenamento max suportado de 4 TB. As cópias de segurança de instantâneos ocorrem pelo menos uma vez por dia para os servidores que suportem até 16 TB de armazenamento. Em ambos os casos, as cópias de segurança de registo de transações ocorrem a cada cinco minutos. O primeiro instantâneo de cópia de segurança completa é agendado imediatamente após a criação de um servidor. A cópia de segurança completa inicial pode demorar mais tempo num grande servidor restaurado. O ponto mais cedo em que um novo servidor pode ser restaurado é o momento em que a cópia de segurança completa inicial está completa. Como as imagens são instantâneas, os servidores com suporte até 16 TB de armazenamento podem ser restaurados todo o caminho de volta ao tempo de criação.
 
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
-O banco de dados do Azure para MySQL fornece a flexibilidade para escolher entre o armazenamento de backup com redundância local ou com redundância geográfica nas camadas de Uso Geral e com otimização de memória. Quando os backups são armazenados no armazenamento de backup com redundância geográfica, eles não são armazenados apenas na região em que o servidor está hospedado, mas também são replicados em um [Data Center emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece melhor proteção e capacidade de restaurar o servidor em uma região diferente em caso de desastre. A camada básica oferece apenas armazenamento de backup com redundância local.
+A Base de Dados Azure para mySQL proporciona a flexibilidade para escolher entre armazenamento de backup redundante localmente redundante ou geo-redundante nos níveis geral de propósito e memória otimizados. Quando as cópias de segurança são armazenadas num armazenamento de backup geo-redundante, não são apenas armazenadas na região em que o seu servidor está hospedado, como também são replicadas para um centro de [dados emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isto proporciona uma melhor proteção e capacidade de restaurar o seu servidor numa região diferente em caso de desastre. O nível Básico apenas oferece armazenamento de reserva redundante localmente.
 
 > [!IMPORTANT]
-> Configurar o armazenamento com redundância local ou com redundância geográfica para backup só é permitido durante a criação do servidor. Depois que o servidor for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup.
+> A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Depois de aprovisionado o servidor você não pode alterar a opção de redundância do armazenamento de backup.
 
-### <a name="backup-storage-cost"></a>Custo de armazenamento de backup
+### <a name="backup-storage-cost"></a>Custo de armazenamento de reserva
 
-O banco de dados do Azure para MySQL fornece até 100% de seu armazenamento de servidor provisionado como armazenamento de backup sem custo adicional. Normalmente, isso é adequado para uma retenção de backup de sete dias. Qualquer armazenamento de backup adicional usado é cobrado em GB-mês.
+A Base de Dados Azure para MySQL fornece até 100% do armazenamento do seu servidor provisionado como armazenamento de backup sem custos adicionais. Tipicamente, isto é adequado para uma retenção de reserva de sete dias. Qualquer armazenamento adicional de reserva utilizado é carregado em gb-month.
 
-Por exemplo, se você tiver provisionado um servidor com 250 GB, terá 250 GB de armazenamento de backup sem custo adicional. O armazenamento que excede 250 GB é cobrado.
+Por exemplo, se tiver aprovisionado um servidor com 250 GB, tem 250 GB de armazenamento de reserva sem custos adicionais. É cobrado um armazenamento superior a 250 GB.
 
 ## <a name="restore"></a>Restauro
 
-No banco de dados do Azure para MySQL, a execução de uma restauração cria um novo servidor a partir dos backups do servidor original.
+Na Base de Dados Azure para MySQL, a realização de um restauro cria um novo servidor a partir das cópias de segurança do servidor original.
 
-Há dois tipos de restauração disponíveis:
+Existem dois tipos de restauro disponíveis:
 
-- A **restauração pontual** está disponível com a opção de redundância de backup e cria um novo servidor na mesma região que o servidor original.
-- A **restauração geográfica** só estará disponível se você tiver configurado o servidor para o armazenamento com redundância geográfica e ele permitir que você restaure o servidor para uma região diferente.
+- **O restauro** pontual está disponível com a opção de redundância de reserva e cria um novo servidor na mesma região que o seu servidor original.
+- **A Geo-restore** só está disponível se configurar o seu servidor para armazenamento geo-redundante e permite-lhe restaurar o seu servidor para uma região diferente.
 
-O tempo estimado de recuperação depende de vários fatores, incluindo os tamanhos de banco de dados, o tamanho do log de transações, a largura de banda da rede e o número total de bancos de dados recuperados na mesma região ao mesmo tempo. O tempo de recuperação geralmente é inferior a 12 horas.
+O tempo estimado de recuperação depende de vários fatores, incluindo o tamanho da base de dados, o tamanho do registo de transações, a largura de banda da rede e o número total de bases de dados que se recuperam na mesma região ao mesmo tempo. O tempo de recuperação é geralmente inferior a 12 horas.
 
 > [!IMPORTANT]
-> Os servidores excluídos **não podem** ser restaurados. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Para proteger os recursos do servidor, após a implantação, da exclusão acidental ou de alterações inesperadas, os administradores podem aproveitar os [bloqueios de gerenciamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Os servidores eliminados **não podem** ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Para proteger os recursos do servidor, a implementação de postais, de eliminação acidental ou alterações inesperadas, os administradores podem alavancar bloqueios de [gestão](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
-Independentemente da sua opção de redundância de backup, você pode executar uma restauração para qualquer ponto no tempo dentro do período de retenção de backup. Um novo servidor é criado na mesma região do Azure que o servidor original. Ele é criado com a configuração do servidor original para o tipo de preço, geração de computação, número de vCores, tamanho do armazenamento, período de retenção de backup e opção de redundância de backup.
+Independentemente da sua opção de redundância de reserva, pode efetuar um restauro em qualquer ponto dentro do seu período de retenção de backup. Um novo servidor é criado na mesma região do Azure que o servidor original. É criado com a configuração do servidor original para o nível de preços, geração de cálculo, número de vCores, tamanho de armazenamento, período de retenção de backup e opção de redundância de backup.
 
-A restauração pontual é útil em vários cenários. Por exemplo, quando um usuário acidentalmente exclui dados, descarta uma tabela ou um banco de dado importante, ou se um aplicativo substitui acidentalmente dados bons por dados incorretos devido a um defeito do aplicativo.
+A restauração pontual é útil em vários cenários. Por exemplo, quando um utilizador acidentalmente elimina dados, deixa cair uma tabela ou base de dados importante, ou se uma aplicação acidentalmente substitui bons dados com dados maus devido a um defeito de aplicação.
 
-Talvez seja necessário aguardar até que o próximo backup de log de transações seja realizado antes que você possa restaurar para um ponto no tempo nos últimos cinco minutos.
+Poderá ter de esperar que o próximo backup de registo de transações seja feito antes de poder restaurar a um ponto no tempo dentro dos últimos cinco minutos.
 
 ### <a name="geo-restore"></a>Georrestauro
 
-Você pode restaurar um servidor para outra região do Azure em que o serviço estará disponível se você tiver configurado o servidor para backups com redundância geográfica. Os servidores que dão suporte a até 4 TB de armazenamento podem ser restaurados para a região emparelhada geograficamente ou para qualquer região que ofereça suporte a até 16 TB de armazenamento. Para servidores que dão suporte a até 16 TB de armazenamento, os backups geográficos podem ser restaurados em qualquer região que dê suporte a servidores de 16 TB também. Examine os [tipos de preço do banco de dados do Azure para MySQL](concepts-pricing-tiers.md) para a lista de regiões com suporte.
+Pode restaurar um servidor para outra região do Azure onde o serviço está disponível se tiver configurado o seu servidor para cópias de segurança georedundantes. Os servidores que suportam até 4 TB de armazenamento podem ser restaurados na região geo-emparelhada, ou em qualquer região que suporte até 16 TB de armazenamento. Para servidores que suportem até 16 TB de armazenamento, as geo-backups podem ser restauradas em qualquer região que suporte 16 servidores de TB também. Reveja a Base de Dados Azure para os níveis de [preços MySQL](concepts-pricing-tiers.md) para a lista de regiões apoiadas.
 
-A restauração geográfica é a opção de recuperação padrão quando o servidor não está disponível devido a um incidente na região em que o servidor está hospedado. Se um incidente de grande escala em uma região resultar na indisponibilidade do seu aplicativo de banco de dados, você poderá restaurar um servidor de backups com redundância geográfica para um servidor em qualquer outra região. Há um atraso entre o momento em que um backup é feito e quando ele é replicado em uma região diferente. Esse atraso pode ser de até uma hora, portanto, se ocorrer um desastre, pode haver uma perda de dados de até uma hora.
+A geo-restauração é a opção de recuperação padrão quando o servidor está indisponível devido a um incidente na região onde o servidor está hospedado. Se um incidente em larga escala numa região resultar na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor das cópias de segurança georedundantes para um servidor em qualquer outra região. Há um atraso entre quando um backup é tomado e quando é replicado para diferentes regiões. Este atraso pode chegar a uma hora, por isso, se ocorrer um desastre, pode haver até uma hora de perda de dados.
 
-Durante a restauração geográfica, as configurações de servidor que podem ser alteradas incluem geração de computação, vCore, período de retenção de backup e opções de redundância de backup. A alteração do tipo de preço (básico, Uso Geral ou otimizado para memória) ou o tamanho do armazenamento durante a restauração geográfica não tem suporte.
+Durante a geo-restauração, as configurações do servidor que podem ser alteradas incluem geração de cálculo, vCore, período de retenção de backup e opções de redundância de backup. Não é suportado o nível de alteração dos preços (Básico, Propósito Geral ou Otimização da Memória) ou o tamanho do armazenamento durante a geo-restauração.
 
-### <a name="perform-post-restore-tasks"></a>Executar tarefas após a restauração
+### <a name="perform-post-restore-tasks"></a>Executar tarefas pós-restauro
 
-Após uma restauração de qualquer mecanismo de recuperação, você deve executar as seguintes tarefas para fazer com que os usuários e aplicativos façam backup e execução:
+Após um restauro de qualquer mecanismo de recuperação, deverá executar as seguintes tarefas para que os seus utilizadores e aplicações voltem a funcionar:
 
-- Se o novo servidor for destinado a substituir o servidor original, redirecionar clientes e aplicativos cliente para o novo servidor
-- Verifique se as regras apropriadas de firewall no nível de servidor estão em vigor para que os usuários se conectem
-- Verifique se os logons apropriados e as permissões no nível do banco de dados estão em vigor
+- Se o novo servidor se destina restar o servidor original, redirecione os clientes e as aplicações do cliente para o novo servidor
+- Certifique-se de que estão em vigor regras de firewall adequadas para os utilizadores se conectarem
+- Certifique-se de que estão em vigor logins apropriados e permissões de nível de base de dados
 - Configurar alertas, conforme adequado
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre continuidade de negócios, consulte [visão geral da continuidade de negócios](concepts-business-continuity.md).
-- Para restaurar para um ponto no tempo usando o portal do Azure, consulte [restaurar banco de dados para um ponto no tempo usando o portal do Azure](howto-restore-server-portal.md).
-- Para restaurar para um ponto no tempo usando CLI do Azure, consulte [restaurar banco de dados para um ponto no tempo usando a CLI](howto-restore-server-cli.md).
+- Para saber mais sobre a continuidade do negócio, consulte a visão geral da continuidade do [negócio.](concepts-business-continuity.md)
+- Para restaurar a um ponto no tempo utilizando o portal Azure, consulte restaurar a base de [dados a um ponto no tempo utilizando o portal Azure](howto-restore-server-portal.md).
+- Para restaurar a um ponto no tempo utilizando o Azure CLI, consulte restaurar a base de [dados a um ponto no tempo utilizando o CLI](howto-restore-server-cli.md).

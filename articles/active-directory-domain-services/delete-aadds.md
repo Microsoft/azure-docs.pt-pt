@@ -1,6 +1,6 @@
 ---
-title: Excluir Azure Active Directory Domain Services | Microsoft Docs
-description: Saiba como desabilitar, ou excluir, um Azure Active Directory Domain Services domínio gerenciado usando o portal do Azure
+title: Eliminar serviços de domínio de diretório ativo azure  Microsoft Docs
+description: Saiba como desativar ou eliminar, um domínio gerido pelo Azure Ative Directory Domain Services utilizando o portal Azure
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,40 +11,40 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: ee4c41ca3179eead0e4fd470a02a5cdfa4a6d43a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e1836f91b8afc1bb4f5b7e141949f3724c57c857
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705242"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614047"
 ---
-# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Excluir um Azure Active Directory Domain Services domínio gerenciado usando o portal do Azure
+# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Eliminar um domínio gerido por serviços de domínio de diretório ativo Azure utilizando o portal Azure
 
-Se você não precisar mais de um domínio gerenciado, poderá excluir uma instância do Azure Active Directory Domain Services (AD DS do Azure). Não há nenhuma opção para desativar ou desabilitar temporariamente um domínio gerenciado AD DS do Azure. Excluir o domínio gerenciado AD DS do Azure não exclui ou, de outra forma, afeta negativamente o locatário do Azure AD. Este artigo mostra como usar o portal do Azure para excluir um domínio gerenciado do Azure AD DS.
+Se já não necessitar de um domínio gerido, pode eliminar uma instância de Serviços de Domínio de Diretório Ativo Azure (Azure AD DS). Não há opção de desligar ou desativar temporariamente um domínio gerido pelo Azure AD DS. A eliminação do domínio gerido pela AD DS Azure não elimina ou de outra forma afeta negativamente o inquilino da AD Azure. Este artigo mostra-lhe como usar o portal Azure para eliminar um domínio gerido pelo Azure AD DS.
 
 > [!WARNING]
-> **A exclusão é permanente e não pode ser revertida.**
-> Quando você exclui um domínio gerenciado do Azure AD DS, ocorrem as seguintes etapas:
->   * Os controladores de domínio para o domínio gerenciado são desprovisionados e removidos da rede virtual.
->   * Os dados no domínio gerenciado são excluídos permanentemente. Esses dados incluem UOs personalizadas, GPOs, registros DNS personalizados, entidades de serviço, GMSAs, etc. que você criou.
->   * Os computadores ingressados no domínio gerenciado perdem sua relação de confiança com o domínio e precisam ser retirados do domínio.
->       * Você não pode entrar nesses computadores usando credenciais corporativas do AD. Em vez disso, você deve usar as credenciais de administrador local para o computador.
+> **A eliminação é permanente e não pode ser invertida.**
+> Quando elimina um domínio gerido pelo Azure AD DS, ocorrem os seguintes passos:
+>   * Os controladores de domínio para o domínio gerido são desprovisionados e removidos da rede virtual.
+>   * Os dados sobre o domínio gerido são eliminados permanentemente. Estes dados incluem OUs personalizados, GPOs, registos dNS personalizados, diretores de serviço, GMSAs, etc. que criou.
+>   * As máquinas unidas ao domínio gerido perdem a sua relação de confiança com o domínio e precisam de ser desacompanhadas do domínio.
+>       * Não podes inscrever-te nestas máquinas usando credenciais de anúncios corporativos. Em vez disso, deve utilizar as credenciais do administrador local para a máquina.
 
-## <a name="delete-the-managed-domain"></a>Excluir o domínio gerenciado
+## <a name="delete-the-managed-domain"></a>Eliminar o domínio gerido
 
-Para excluir um domínio gerenciado AD DS do Azure, conclua as seguintes etapas:
+Para eliminar um domínio gerido pelo Azure AD DS, complete os seguintes passos:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**.
-1. Selecione o nome do seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*.
-1. Na página **Descrição geral**, selecione **Eliminar**. Para confirmar a exclusão, digite o nome de domínio do domínio gerenciado novamente e, em seguida, selecione **excluir**.
+1. No portal Azure, procure e selecione Serviços de **Domínio Azure AD**.
+1. Selecione o nome do seu domínio gerido azure AD DS, como *aaddscontoso.com*.
+1. Na página **Descrição geral**, selecione **Eliminar**. Para confirmar a eliminação, digite novamente o nome de domínio do domínio gerido e, em seguida, selecione **Delete**.
 
-Pode levar de 15-20 minutos ou mais para excluir o domínio gerenciado AD DS do Azure.
+Pode levar 15-20 minutos ou mais para eliminar o domínio gerido pelo Azure AD DS.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Considere [compartilhar comentários][feedback] para os recursos que você gostaria de ver no Azure AD DS.
+Considere [partilhar feedback][feedback] para as funcionalidades que gostaria de ver no Azure AD DS.
 
-Se você quiser começar a usar o Azure AD DS novamente, consulte [criar e configurar uma instância de Azure Active Directory Domain Services][create-instance].
+Se quiser começar com o Azure AD DS novamente, consulte Create e configure uma instância de Serviços de [Domínio de Diretório Ativo Azure][create-instance].
 
 <!-- INTERNAL LINKS -->
 [feedback]: contact-us.md

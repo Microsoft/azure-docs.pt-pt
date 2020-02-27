@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 084c1b4163ac7f0f595fadba93a7905ea7f96dd0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.date: 02/25/2020
+ms.openlocfilehash: e8f2b2661a07da43e924929df7666cfd970372b1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485459"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623892"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de Dados Azure para níveis de preços MariaDB
 
@@ -79,7 +79,7 @@ Lembre-se que o armazenamento só pode ser dimensionado para cima, não para bai
 
 ## <a name="backup"></a>Cópia de segurança
 
-O serviço recebe automaticamente cópias de segurança do seu servidor. O período mínimo de retenção para cópias de segurança é de sete dias. Pode definir um período de retenção de até 35 dias. A retenção pode ser ajustada em qualquer ponto durante a vida útil do servidor. Pode escolher entre backups locais redundantes e geo-redundantes. Os backups geo-redundantes também são armazenados na [região geo-emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) da região onde o seu servidor é criado. Esta redundância proporciona um nível de proteção em caso de catástrofe. Também ganha a capacidade de restaurar o seu servidor em qualquer outra região do Azure em que o serviço esteja disponível com backups georedundantes. Não é possível alterar entre as duas opções de armazenamento de reserva após a criação do servidor.
+O serviço recebe automaticamente cópias de segurança do seu servidor. Pode selecionar um período de retenção entre um intervalo de 7 a 35 dias. Os servidores otimizados para fins gerais e memória podem optar por ter armazenamento geo-redundante para cópias de segurança. Saiba mais sobre backups no [artigo conceitos.](concepts-backup.md)
 
 ## <a name="scale-resources"></a>Dimensionar recursos
 
@@ -95,7 +95,7 @@ O armazenamento de escala e a alteração do período de retenção de cópias d
 
 Para obter as informações mais atualizadas sobre preços, consulte a página de [preços](https://azure.microsoft.com/pricing/details/mariadb/)do serviço . Para ver o custo da configuração que deseja, o [portal Azure](https://portal.azure.com/#create/Microsoft.MariaDBServer) mostra o custo mensal no separador **de nível** de preços com base nas opções que selecionar. Se não tiver uma subscrição Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da calculadora de [preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens,** expandir a categoria Bases de **Dados** e escolher a Base de **Dados Azure para o MariaDB** personalizar as opções.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Conheça as limitações do [serviço.](concepts-limits.md)
 - Aprenda a [criar um servidor MariaDB no portal Azure.](quickstart-create-mariadb-server-database-using-azure-portal.md)
 

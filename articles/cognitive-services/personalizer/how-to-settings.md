@@ -1,107 +1,82 @@
 ---
 title: Configurar o Personalizador
-titleSuffix: Azure Cognitive Services
-description: A configuração do serviço inclui como o serviço trata as recompensas, com que frequência o serviço explora, com que frequência o modelo é retreinado e a quantidade de dados armazenados.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+description: A configuração do serviço inclui como o serviço trata recompensas, quantas vezes o serviço explora, quantas vezes o modelo é retreinado e quanto dados são armazenados.
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.author: diberry
-ms.openlocfilehash: d20f81bf7db2e098f2bca674c5540bc067577f30
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.date: 02/19/2020
+ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833915"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623708"
 ---
-# <a name="configure-personalizer"></a>Configurar o Personalizador
+# <a name="configure-personalizer-learning-loop"></a>Configure ciclo de aprendizagem personalizador
 
-A configuração do serviço inclui como o serviço trata as recompensas, com que frequência o serviço explora, com que frequência o modelo é retreinado e a quantidade de dados armazenados.
+A configuração do serviço inclui como o serviço trata recompensas, quantas vezes o serviço explora, quantas vezes o modelo é retreinado e quanto dados são armazenados.
 
-## <a name="create-personalizer-resource"></a>Criar recurso personalizado
-
-Crie um recurso personalizado para cada loop de comentários.
-
-1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). O link anterior leva você para a página **criar** para o serviço personalizador.
-1. Insira o nome do serviço, selecione uma assinatura, um local, um tipo de preço e um grupo de recursos.
-1. Selecione a confirmação e selecione **criar**.
+Configure o ciclo de aprendizagem na página **de Configuração,** no portal Azure para esse recurso Personalizer.
 
 <a name="configure-service-settings-in-the-azure-portal"></a>
-
-## <a name="configure-service-in-the-azure-portal"></a>Configurar o serviço no portal do Azure
-
-1. Inicie sessão no [Portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
-1. Encontre seu recurso personalizador.
-1. Na seção **Gerenciamento de recursos** , selecione **configuração**.
-
-    Antes de deixar o portal do Azure, copie uma das suas chaves de recurso da página **chaves** . Você precisará disso para usar o [SDK do personalizador](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
-
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
 
-### <a name="configure-reward-for-the-feedback-loop-based-on-use-case"></a>Configurar recompensa para o loop de comentários com base no caso de uso
+## <a name="configure-rewards-for-the-feedback-loop"></a>Configure recompensas para o ciclo de feedback
 
-Configure o serviço para o uso de recompensas do seu loop de comentários. As alterações nos seguintes valores redefinirão o modelo personalizado atual e o treinarão novamente com os últimos 2 dias de dados:
+Configure o serviço para o uso de recompensas do seu ciclo de aprendizagem. As alterações aos seguintes valores redefinirão o atual modelo Personalizer e retreiná-lo-ão com os últimos 2 dias de dados.
 
-![Configurar os valores de recompensa para o loop de comentários](media/settings/configure-model-reward-settings.png)
+> [!div class="mx-imgBorder"]
+> ![Configure os valores de recompensa para o ciclo de feedback](media/settings/configure-model-reward-settings.png)
 
-|Valor|Finalidade|
+|Valor|Objetivo|
 |--|--|
-|Tempo de espera de recompensa|Define o período durante o qual o personalizador coletará valores de recompensa para uma chamada de classificação, a partir do momento em que a chamada de classificação ocorrer. Esse valor é definido perguntando: "quanto tempo o personalizador deve esperar por chamadas de recompensas?" Qualquer recompensa chegando após essa janela será registrada, mas não usada para aprendizado.|
-|Recompensa padrão|Se nenhuma chamada de recompensa for recebida pelo personalizador durante a janela de tempo de espera da recompensa associada a uma chamada de classificação, o personalizador atribuirá a recompensa padrão. Por padrão, e na maioria dos cenários, a recompensa padrão é zero.|
-|Recompensar agregação|Se várias recompensas forem recebidas para a mesma chamada à API de classificação, esse método de agregação será usado: **sum** ou mais **antigo**. O primeiro escolhe a pontuação mais antiga recebida e descarta o restante. Isso será útil se você quiser um recompensa exclusivo entre chamadas possivelmente duplicadas. |
+|Tempo de espera de recompensa|Define o tempo durante o qual o Personalizer irá recolher valores de recompensa para uma chamada de Rank, a partir do momento em que a chamada de Rank acontece. Este valor é definido perguntando: "Quanto tempo deve personalizar esperar por chamadas de recompensas?" Qualquer recompensa que chegue depois desta janela será registada, mas não usada para aprender.|
+|Recompensa por defeito|Se nenhuma chamada de recompensa for recebida pelo Personalizer durante a janela Reward Wait Time associada a uma chamada Rank, o Personalizer atribuirá a Recompensa Padrão. Por padrão, e na maioria dos cenários, a Recompensa Padrão é zero (0).|
+|Agregação de recompensas|Se forem recebidas várias recompensas para a mesma chamada API de rank, este método de agregação é utilizado: **soma** ou **mais cedo**. As primeiras escolhas da partitura mais antiga recebida e descartam o resto. Isto é útil se você quiser uma recompensa única entre chamadas possivelmente duplicadas. |
 
-Depois de alterar esses valores, certifique-se de selecionar **salvar**.
+Depois de alterar estes valores, certifique-se de selecionar **Guardar**.
 
-### <a name="configure-exploration"></a>Configurar a exploração
+## <a name="configure-exploration-to-allow-the-learning-loop-to-adapt"></a>Configure a exploração para permitir que o ciclo de aprendizagem se adapte
 
-A personalização é capaz de descobrir novos padrões e adaptar-se às alterações de comportamento do usuário ao longo do tempo explorando alternativas. O valor de **exploração** determina qual porcentagem de chamadas de classificação são respondidas com a exploração.
+A personalização é capaz de descobrir novos padrões e adaptar-se às mudanças de comportamento do utilizador ao longo do tempo, explorando alternativas em vez de usar a previsão do modelo treinado. O valor **de Exploração** determina qual a percentagem de chamadas de Rank que são respondidas com a exploração.
 
-As alterações nesse valor redefinirão o modelo personalizado atual e o treinarão novamente com os últimos 2 dias de dados.
+As alterações a este valor redefinirão o atual modelo Personalizer e retreiná-lo-ão com os últimos 2 dias de dados.
 
-![O valor de exploração determina qual porcentagem de chamadas de classificação são respondidas com a exploração](media/settings/configure-exploration-setting.png)
+![O valor de exploração determina que percentagem de chamadas de Rank são respondidas com exploração](media/settings/configure-exploration-setting.png)
 
-Depois de alterar esse valor, certifique-se de selecionar **salvar**.
+Depois de alterar este valor, certifique-se de selecionar **Guardar**.
 
-### <a name="model-update-frequency"></a>Frequência de atualização do modelo
+<a name="model-update-frequency"></a>
 
-O modelo mais recente, treinado a partir de recompensar chamadas de API de cada evento ativo, não é usado automaticamente pela chamada de classificação do personalizador. A **frequência de atualização do modelo** define com que frequência o modelo usado pela chamada de classificação é atualizado.
+## <a name="configure-model-update-frequency-for-model-training"></a>Configure a frequência de atualização do modelo para o treino de modelos
 
-As frequências de atualização de modelo alto são úteis para situações em que você deseja controlar com mais precisão as alterações nos comportamentos do usuário. Os exemplos incluem sites que são executados em notícias ao vivo, conteúdo viral ou oferta de produtos ao vivo. Você pode usar uma frequência de 15 minutos nesses cenários. Para a maioria dos casos de uso, uma frequência de atualização mais baixa é eficaz. As frequências de atualização de um minuto são úteis ao depurar o código de um aplicativo usando o personalizador, fazer demonstrações ou testar interativamente aspectos de aprendizado de máquina.
+A frequência de **atualização** do Modelo define a frequência com que o modelo é treinado.
 
-![Frequência de atualização de modelo define com que frequência um novo modelo personalizado é retreinado.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
+|Definição de frequência|Objetivo|
+|--|--|
+|1 minuto|As frequências de atualização de um minuto são úteis ao **depurar** o código de uma aplicação usando o Personalizer, fazendo demos ou testando interativamente aspetos de aprendizagem automática.|
+|15 minutos|As frequências de atualização de modelos elevados são úteis para situações em que pretende **acompanhar de perto as mudanças** nos comportamentos dos utilizadores. Exemplos incluem sites que funcionam em notícias ao vivo, conteúdo viral ou licitação de produtos ao vivo. Precisa de uma frequência de 15 minutos nestes cenários. |
+|1 hora|Para a maioria dos casos de utilização, uma frequência de atualização mais baixa é eficaz.|
 
-Depois de alterar esse valor, certifique-se de selecionar **salvar**.
+![A frequência de atualização do modelo define a frequência com que um novo modelo Personalizer é retreinado.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 
-### <a name="data-retention"></a>Retenção de dados
+Depois de alterar este valor, certifique-se de selecionar **Guardar**.
 
-**Período de retenção de dados** define quantos dias o personalizador mantém logs de dados. Os logs de dados anteriores são necessários para executar [avaliações offline](concepts-offline-evaluation.md), que são usadas para medir a eficácia do personalizador e otimizar a política de aprendizado.
+## <a name="data-retention"></a>Retenção de dados
 
-Depois de alterar esse valor, certifique-se de selecionar **salvar**.
+**O período de retenção** de dados define quantos dias o Personalizer mantém os registos de dados. Os registos de dados anteriores são necessários para realizar [avaliações offline](concepts-offline-evaluation.md), que são usadas para medir a eficácia do Personalizer e otimizar a Política de Aprendizagem.
 
-## <a name="export-the-personalizer-model"></a>Exportar o modelo personalizador
+Depois de alterar este valor, certifique-se de selecionar **Guardar**.
 
-Na seção do gerenciamento de recursos para **configurações de modelo e aprendizado**, reveja criação de modelo e data da última atualização e exporte o modelo atual. Você pode usar o portal do Azure ou as APIs personalizadas para exportar um arquivo de modelo para fins de arquivamento.
+<a name="clear-data-for-your-learning-loop"></a>
 
-![Exportar modelo personalizado atual](media/settings/export-current-personalizer-model.png)
+## <a name="settings-that-include-resetting-the-model"></a>Definições que incluem redefinir o modelo
 
-## <a name="clear-data-for-your-learning-loop"></a>Limpar dados para seu loop de aprendizado
+As seguintes ações incluem uma reconversão imediata do modelo com os últimos 2 dias de dados.
 
-1. Na portal do Azure, para o recurso personalizador, na página **configurações de modelo e aprendizado** , selecione **limpar dados**.
-1. Para limpar todos os dados e redefinir o loop de aprendizagem para o estado original, marque todas as 3 caixas de seleção.
+* Recompensa
+* Exploração
 
-    ![Em portal do Azure, desmarque dados do recurso Personalizar.](./media/settings/clear-data-from-personalizer-resource.png)
-
-    |Valor|Finalidade|
-    |--|--|
-    |Personalização registrada e dados de recompensa.|Esses dados de log são usados em avaliações offline. Limpe os dados se você estiver redefinindo seu recurso.|
-    |Redefina o modelo personalizador.|Esse modelo é alterado em cada novo treinamento. Essa frequência de treinamento é especificada na **frequência do modelo de carregamento** na página de **configuração** . |
-    |Defina a política de aprendizado como padrão.|Se você alterou a política de aprendizado como parte de uma avaliação offline, isso redefinirá a política de aprendizado original.|
-
-1. Selecione **limpar dados selecionados** para iniciar o processo de limpeza. O status é relatado nas notificações do Azure, na navegação superior direita.
+Para [limpar](how-to-manage-model.md) todos os seus dados, utilize a página **Model e learning **
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Saiba como gerenciar uma política de aprendizado](how-to-learning-policy.md)
+[Saiba como gerir o seu modelo](how-to-manage-model.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 203e3718cedca693dc029a4ba20a86ca50ab3e32
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 5c199d074a6655ad14a0c66925e4302f70424970
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603854"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615990"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerir e responder a alertas de segurança no Centro de Segurança Azure
 
@@ -65,19 +65,27 @@ O Centro de Segurança recolhe, analisa e integra automaticamente dados de regis
     > [!NOTE]
     >Em alguns casos, o endereço IP de origem não está disponível, alguns registos de eventos de segurança do Windows não incluem o endereço IP.
 
-1. As medidas de reparação sugeridas pelo Centro de Segurança variam de acordo com o alerta de segurança. Siga-os para cada alerta. Em alguns casos, para mitigar um alerta de deteção de ameaças, poderá ter de utilizar outros controlos ou serviços do Azure para implementar a reparação recomendada. 
+1. As medidas de reparação sugeridas pelo Centro de Segurança variam de acordo com o alerta de segurança. Siga-os para cada alerta. 
+
+    Em alguns casos, para mitigar um alerta de deteção de ameaças, poderá ter de utilizar outros controlos ou serviços do Azure para implementar a reparação recomendada. 
 
     Os seguintes tópicos guiam-no através dos diferentes alertas, de acordo com os tipos de recursos:
     
-    * [Alertas de VMs e servidores IaaS](security-center-alerts-iaas.md)
-    * [Alertas de computação nativa](security-center-alerts-compute.md)
-    * [Alertas de serviços de dados](security-center-alerts-data-services.md)
-    
+    * [Alertas para máquinas IaaS Windows](threat-protection.md#windows-machines)
+    * [Alertas para máquinas IaaS Linux](threat-protection.md#linux-machines)
+    * [Alertas para o Serviço de Aplicações Azure](threat-protection.md#app-services)
+    * [Alertas para contentores Azure](threat-protection.md#azure-containers)
+    * [Alertas para Base de Dados SQL e Armazém de Dados SQL](threat-protection.md#data-sql)
+    * [Alertas para armazenamento azure](threat-protection.md#azure-storage)
+    * [Alertas para Cosmos DB](threat-protection.md#cosmos-db)
+
     Os seguintes tópicos explicam como o Security Center utiliza a diferente telemetria que recolhe da integração com a infraestrutura Azure, de forma a aplicar camadas de proteção adicionais para os recursos implantados no Azure:
     
-    * [Alertas de camada de serviço](security-center-alerts-service-layer.md)
-    * [Deteção de ameaças para a Proteção de DDoS Azure WAF e Azure](security-center-alerts-integration.md)
-    
+    * [Alertas para camada de gestão Azure (Gestor de Recursos Azure) (Pré-visualização)](threat-protection.md#management-layer)
+    * [Alertas para cofre de chaves Azure (Pré-visualização)](threat-protection.md#azure-keyvault)
+    * [Alertas para camada de rede Azure](threat-protection.md#network-layer)
+    * [Alertas de outros serviços](threat-protection.md#alerts-other)    
+
 ## <a name="see-also"></a>Consulte também
 
 Neste documento, aprendeu a configurar as políticas de segurança no Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:

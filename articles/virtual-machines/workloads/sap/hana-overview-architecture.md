@@ -1,10 +1,10 @@
 ---
-title: Visão geral de SAP HANA no Azure (instâncias grandes) | Microsoft Docs
-description: Visão geral de como implantar SAP HANA no Azure (instâncias grandes).
+title: Visão geral do SAP HANA em Azure (Grandes Instâncias) / Microsoft Docs
+description: Visão geral de como implantar o SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,49 +13,49 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea337101a5fe44e42ce85c17fec32028c75d3b85
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101174"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616959"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA nas Instâncias Grandes do Azure?
 
-SAP HANA no Azure (instâncias grandes) é uma solução exclusiva para o Azure. Além de fornecer máquinas virtuais para implantação e execução de SAP HANA, o Azure oferece a possibilidade de executar e implantar SAP HANA em servidores bare-metal dedicados a você. O SAP HANA na solução do Azure (instâncias grandes) baseia-se no hardware bare-metal de host/servidor não compartilhado que é atribuído a você. O hardware do servidor é inserido em carimbos maiores que contêm infraestrutura de computação/servidor, rede e armazenamento. Como uma combinação, ela é certificada pelo HANA com certificação de data center (TDI). SAP HANA no Azure (instâncias grandes) oferece diferentes SKUs ou tamanhos de servidor. As unidades podem ter 36 núcleos de CPU Intel e 768 GB de memória e vão até unidades com até 480 núcleos de CPU Intel e até 24 TB de memória.
+SAP HANA on Azure (Grandes Instâncias) é uma solução única para o Azure. Além de fornecer máquinas virtuais para a implementação e execução do SAP HANA, o Azure oferece-lhe a possibilidade de executar e implantar o SAP HANA em servidores de metal nu que lhe são dedicados. A solução SAP HANA on Azure (Grandes Instâncias) baseia-se em hardware de suporte/servidor não partilhado que lhe é atribuído. O hardware do servidor está incorporado em selos maiores que contêm computação/servidor, networking e infraestrutura de armazenamento. Como combinação, é certificada a integração de centros de dados (TDI) à medida da HANA. O SAP HANA no Azure (Grandes Instâncias) oferece diferentes SKUs ou tamanhos do servidor. As unidades podem ter 36 núcleos intel CPU e 768 GB de memória e ir até unidades que têm até 480 núcleos de CPU Intel e até 24 TB de memória.
 
-O isolamento do cliente dentro do selo da infraestrutura é executado em locatários, que se parece com o seguinte:
+O isolamento do cliente dentro do carimbo de infraestrutura é realizado em inquilinos, que parece:
 
-- **Rede**: Isolamento de clientes na pilha de infraestrutura por meio de redes virtuais por locatário atribuído pelo cliente. Um locatário é atribuído a um único cliente. Um cliente pode ter vários locatários. O isolamento de rede de locatários proíbe a comunicação de rede entre locatários no nível de carimbo de infraestrutura, mesmo que os locatários pertençam ao mesmo cliente.
-- **Componentes de armazenamento**: Isolamento por meio de máquinas virtuais de armazenamento que têm volumes de armazenamento atribuídos a elas. Os volumes de armazenamento podem ser atribuídos a apenas uma máquina virtual de armazenamento. Uma máquina virtual de armazenamento é atribuída exclusivamente a um único locatário na pilha de infraestrutura certificado SAP HANA TDI. Como resultado, os volumes de armazenamento atribuídos a uma máquina virtual de armazenamento podem ser acessados somente em um locatário específico e relacionado. Eles não são visíveis entre os diferentes locatários implantados.
-- **Servidor ou host**: Uma unidade de host ou servidor não é compartilhada entre clientes ou locatários. Um servidor ou host implantado em um cliente é uma unidade de computação bare-metal atômica que é atribuída a um único locatário. *Não* é usado nenhum particionamento de hardware ou particionamento flexível que possa resultar no compartilhamento de um host ou de um servidor com outro cliente. Os volumes de armazenamento atribuídos à máquina virtual de armazenamento do locatário específico são montados em um servidor desse tipo. Um locatário pode ter uma ou várias unidades de servidor de SKUs diferentes atribuídas exclusivamente.
-- Dentro de um SAP HANA no selo de infraestrutura do Azure (instâncias grandes), muitos locatários diferentes são implantados e isolados entre si por meio dos conceitos de locatário em nível de rede, armazenamento e computação. 
+- **Networking**: Isolamento dos clientes dentro da pilha de infraestruturas através de redes virtuais por cliente designado inquilino. Um inquilino é designado para um único cliente. Um cliente pode ter vários inquilinos. O isolamento da rede de inquilinos proíbe a comunicação em rede entre inquilinos ao nível do selo de infraestrutura, mesmo que os inquilinos pertençam ao mesmo cliente.
+- **Componentes de armazenamento**: Isolamento através de máquinas virtuais de armazenamento que tenham volumes de armazenamento atribuídos a eles. Os volumes de armazenamento só podem ser atribuídos a uma máquina virtual de armazenamento. Uma máquina virtual de armazenamento é atribuída exclusivamente a um único inquilino na pilha de infraestrutura certificada SAP HANA TDI. Como resultado, os volumes de armazenamento atribuídos a uma máquina virtual de armazenamento podem ser acedidos apenas num inquilino específico e relacionado. Não são visíveis entre os diferentes inquilinos destacados.
+- **Servidor ou anfitrião**: Um servidor ou unidade de hospedar não é partilhado entre clientes ou inquilinos. Um servidor ou hospedeiro implantado num cliente, é uma unidade de computação de metal nu atómico que é atribuída a um único inquilino. *Não* é utilizada qualquer partilha de hardware ou divisória seletiva que possa resultar na partilha de um anfitrião ou de um servidor com outro cliente. Os volumes de armazenamento atribuídos à máquina virtual de armazenamento do inquilino específico são montados a tal servidor. Um inquilino pode ter uma a muitas unidades de servidorde diferentes SKUs exclusivamente atribuídos.
+- Dentro de um selo de infraestrutura SAP HANA em Azure (Grandes Instâncias), muitos inquilinos diferentes são implantados e isolados uns contra os outros através dos conceitos de inquilino em rede, armazenamento e nível de computação. 
 
 
-Essas unidades de servidor bare-metal têm suporte para execução somente SAP HANA. A camada de aplicativo SAP ou a camada de meio de carga de trabalho é executada em máquinas virtuais. Os carimbos de infraestrutura que executam o SAP HANA em unidades do Azure (instâncias grandes) são conectados aos backbones dos serviços de rede do Azure. Dessa forma, a conectividade de baixa latência entre SAP HANA em unidades do Azure (instâncias grandes) e máquinas virtuais é fornecida.
+Estas unidades de servidores de metal são suportadas apenas para executar SAP HANA. A camada de aplicação SAP ou a camada de utensílios médios de carga funciona em máquinas virtuais. Os selos de infraestrutura que gerem as unidades SAP HANA em Azure (Grandes Instâncias) estão ligados às espinhas dos serviços da rede Azure. Desta forma, é fornecida conectividade de baixa latência entre unidades SAP HANA em Unidades Azure (Grandes Instâncias) e máquinas virtuais.
 
-A partir de julho de 2019, diferenciamos entre duas revisões diferentes de carimbos de instância grande do HANA e localização de implantações:
+A partir de julho de 2019, diferenciamos entre duas revisões diferentes dos selos de grande instância hana e a localização das implantações:
 
-- "Revisão 3" (Rev. 3): Os carimbos foram disponibilizados para que o cliente seja implantado antes de julho de 2019
-- "Revisão 4" (Rev 4): Novo design de carimbo que é implantado em proximidade com os hosts de VM do Azure e que até agora são lançados nas regiões do Azure de:
+- "Revisão 3" (Rev 3): São os selos que foram disponibilizados para o cliente a implantar antes de julho de 2019
+- "Revisão 4" (Rev 4): Novo design de selos que é implantado nas proximidades dos anfitriões Azure VM e que até agora são lançados nas regiões de Azure de:
     -  E.U.A. Oeste 2 
-    -  East US 
+    -  E.U.A. Leste 
     -  Europa Ocidental
     -  Europa do Norte
 
 
-Este documento é um dos vários documentos que abrangem SAP HANA no Azure (instâncias grandes). Este documento apresenta a arquitetura básica, as responsabilidades e os serviços fornecidos pela solução. Os recursos de alto nível da solução também são discutidos. Para a maioria das outras áreas, como rede e conectividade, quatro outros documentos abrangem detalhes e informações de busca detalhada. A documentação do SAP HANA no Azure (instâncias grandes) não abrange aspectos da instalação do SAP NetWeaver ou das implantações do SAP NetWeaver em VMs. O SAP NetWeaver no Azure é abordado em documentos separados encontrados no mesmo contêiner de documentação do Azure. 
+Este documento é um dos vários documentos que abrangem a SAP HANA em Azure (Grandes Instâncias). Este documento introduz a arquitetura básica, responsabilidades e serviços prestados pela solução. Também são discutidas capacidades de alto nível da solução. Para a maioria das outras áreas, como a rede e a conectividade, quatro outros documentos cobrem detalhes e informações de perfuração. A documentação do SAP HANA sobre o Azure (Grandes Instâncias) não abrange aspetos da instalação ou implantação da SAP NetWeaver em VMs. O SAP NetWeaver em Azure está coberto por documentos separados encontrados no mesmo recipiente de documentação Azure. 
 
 
-Os diferentes documentos das diretrizes do SAP HANA em instâncias grandes abrangem as seguintes áreas:
+Os diferentes documentos de orientação de grandes instâncias hana abrangem as seguintes áreas:
 
-- [Visão geral e arquitetura do SAP HANA (instâncias grandes) no Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Infraestrutura e conectividade do SAP HANA (instâncias grandes) no Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Instalar e configurar SAP HANA (instâncias grandes) no Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Alta disponibilidade e recuperação de desastres do SAP HANA (grandes instâncias) no Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Solução de problemas e monitoramento do SAP HANA (instâncias grandes) no Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Configuração de alta disponibilidade no SUSE usando o STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [Backup e restauração do so para SKUs do tipo II de carimbos de revisão 3](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [Visão geral e arquitetura SAP HANA (Grandes Instâncias) em Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Infraestrutura e conectividade SAP HANA (Grandes Instâncias) em Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Instale e configure SAP HANA (Grandes Instâncias) no Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (Grandes Instâncias) alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (Grandes Instâncias) resolução e monitorização de problemas em Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Elevada disponibilidade criada em SUSE utilizando o STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [Backup osS e restauro para SKUs tipo II de carimbos de Revisão 3](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 **Passos seguintes?**
-- Consulte [conhecer os termos](hana-know-terms.md)
+- Consulte [os termos](hana-know-terms.md)

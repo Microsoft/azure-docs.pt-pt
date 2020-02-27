@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 37f2f98e594f558a9cd3c3e5994bf17a71ff1899
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 09c976f3076ea41a0441ea62a14ba4d45395a1d4
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191263"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648296"
 ---
 # <a name="tutorial-create-a-logistic-regression-model-in-r-with-azure-machine-learning"></a>Tutorial: Criar um modelo de regressão logística em R com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Se não tiver uma subscrição Azure, crie uma conta gratuita antes de começar.
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de aprendizado de máquina. Liga o seu grupo de subscrição e recursos Azure a um objeto facilmente consumido no serviço. 
+Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implementar modelos de aprendizagem automática. Liga o seu grupo de subscrição e recursos Azure a um objeto facilmente consumido no serviço. 
 
 Cria um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure. 
 
@@ -51,7 +51,7 @@ Cria um espaço de trabalho através do portal Azure, uma consola baseada na web
 
 ## <a name="azure"></a>Clone uma pasta de caderno
 
-Este exemplo utiliza o servidor de portátil em nuvem no seu espaço de trabalho para uma experiência sem instalação e pré-configurada. Use [o seu próprio ambiente](how-to-configure-environment.md#local) se preferir ter controlo sobre o seu ambiente, pacotes e dependências.
+Este exemplo utiliza o servidor de portátil em nuvem no seu espaço de trabalho para uma experiência sem instalação e pré-configurada. Use [o seu próprio ambiente](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) se preferir ter controlo sobre o seu ambiente, pacotes e dependências.
 
 Completa as seguintes etapas de experimentação no estúdio Azure Machine Learning, uma interface consolidada que inclui ferramentas de machine learning para realizar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade.
 
@@ -122,7 +122,7 @@ exp <- experiment(ws, experiment_name)
 ```
 
 ### <a name="create-a-compute-target"></a>Criar um destino de computação
-Ao utilizar a Azure Machine Learning Compute (AmlCompute), um serviço gerido, os cientistas de dados podem treinar modelos de aprendizagem automática em clusters de máquinas virtuais Azure. Exemplos incluem VMs com suporte a GPU. Neste tutorial, você cria um cluster AmlCompute de nó único como seu ambiente de treino. O código abaixo cria o cluster de cálculo para si se já não existir no seu espaço de trabalho.
+Ao utilizar a Azure Machine Learning Compute (AmlCompute), um serviço gerido, os cientistas de dados podem treinar modelos de aprendizagem automática em clusters de máquinas virtuais Azure. Exemplos incluem VMs com suporte de GPU. Neste tutorial, você cria um cluster AmlCompute de nó único como seu ambiente de treino. O código abaixo cria o cluster de cálculo para si se já não existir no seu espaço de trabalho.
 
 Poderá ter de esperar alguns minutos para que o seu cluster de cálculo seja provisionado se já não existir.
 
@@ -223,7 +223,7 @@ Pode ver os detalhes da corrida no RStudio Viewer. Clicar no link "Web View" for
 view_run_details(run)
 ```
 
-O treino de modelos acontece em segundo plano. Aguarde até que o modelo tenha concluído o treinamento antes de executar mais código.
+O treino de modelos acontece em segundo plano. Espere até que o modelo termine o treino antes de executar mais código.
 
 ```R
 wait_for_run_completion(run, show_output = TRUE)
@@ -286,7 +286,7 @@ newdata <- data.frame( # valid values shown below
 as.numeric(predict(accident_model,newdata, type="response")*100)
 ```
 
-## <a name="deploy-as-a-web-service"></a>Implantar como um serviço Web
+## <a name="deploy-as-a-web-service"></a>Implementar como um serviço web
 
 Com o seu modelo, pode prever o perigo de morte de uma colisão. Utilize o Azure ML para implementar o seu modelo como serviço de previsão. Neste tutorial, irá implementar o serviço web em Casos de [Contentores Azure](https://docs.microsoft.com/azure/container-instances/) (ACI).
 

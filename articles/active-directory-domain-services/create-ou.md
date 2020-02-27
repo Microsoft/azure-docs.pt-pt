@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 4db6ad83c44e0c811df0a3b91a473861e4e1ab87
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367156"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614071"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Criar uma Unidade Organizacional (OU) num domínio gerido pela Azure AD Domain Services
 
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como criar um OU no seu domínio gerido pelo Azure AD DS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
+Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
 * Uma subscrição ativa do Azure.
     * Se não tiver uma assinatura Azure, [crie uma conta.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -40,7 +40,7 @@ Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
     * Se necessário, crie um inquilino do [Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Um Azure Ative Directory Domain Services gerido domínio habilitado e configurado no seu inquilino Azure AD.
     * Se necessário, complete o tutorial para criar e configurar uma instância de Serviços de [Domínio de Diretório Ativo Azure.][create-azure-ad-ds-instance]
-* Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado AD DS do Azure.
+* Um VM de gestão do Servidor Windows que se junta ao domínio gerido pelo Azure AD DS.
     * Se necessário, complete o tutorial para criar um VM de [gestão.][tutorial-create-management-vm]
 * Uma conta de utilizador que é membro do grupo de administradores da *Azure AD DC* no seu inquilino Azure AD.
 
@@ -58,7 +58,7 @@ Quando cria OUs personalizadonum domínio gerido pelo Azure AD DS, ganha-se flex
 
 ## <a name="create-a-custom-ou"></a>Criar um OU personalizado
 
-Para criar um OU personalizado, utilize as Ferramentas Administrativas de Diretório Ativo a partir de um VM filiado em domínios. O Centro Administrativo do Active Directory permite exibir, editar e criar recursos em um domínio gerenciado do Azure AD DS, incluindo UOs.
+Para criar um OU personalizado, utilize as Ferramentas Administrativas de Diretório Ativo a partir de um VM filiado em domínios. O Ative Directory Administrative Center permite-lhe visualizar, editar e criar recursos num domínio gerido pela Azure AD DS, incluindo OUs.
 
 > [!NOTE]
 > Para criar um OU personalizado num domínio gerido pelo Azure AD DS, deve ser inscrito numa conta de utilizador que seja membro do grupo de administradores da *AAD DC.*
@@ -66,11 +66,11 @@ Para criar um OU personalizado, utilize as Ferramentas Administrativas de Diret�
 1. Inscreva-se na sua VM de gestão. Para obter passos sobre como se conectar utilizando o portal Azure, consulte [Connect to a Windows Server VM][connect-windows-server-vm].
 1. A partir do ecrã Iniciar, selecione **Ferramentas Administrativas**. É mostrada uma lista de ferramentas de gestão disponíveis que foram instaladas no tutorial para criar um VM de [gestão.][tutorial-create-management-vm]
 1. Para criar e gerir as OUs, selecione **Ative Directory Administrative Center** a partir da lista de ferramentas administrativas.
-1. No painel esquerdo, escolha o seu domínio gerido azure AD DS, como *aadds.contoso.com*. É apresentada uma lista das OUs e recursos existentes:
+1. No painel esquerdo, escolha o seu domínio gerido azure AD DS, como *aaddscontoso.com*. É apresentada uma lista das OUs e recursos existentes:
 
     ![Selecione o seu domínio gerido azure AD DS no Ative Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-1. O painel **Tasks** é mostrado no lado direito do Centro Administrativo de Diretório Ativo. Sob o domínio, como *aadds.contoso.com,* selecione **New > Unidade Organizacional**.
+1. O painel **Tasks** é mostrado no lado direito do Centro Administrativo de Diretório Ativo. Sob o domínio, tais como *aaddscontoso.com,* selecione **New > Unidade Organizacional**.
 
     ![Selecione a opção de criar um novo OU no Ative Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 

@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/15/2020
+ms.date: 02/24/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: b95f7fd14239b258fe1b501fdf71cf0dfe2beacf
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 81d69f2274abf075be2f97b0edc67af2eea62327
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77590817"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614484"
 ---
 <a name="HOLTop"></a>
 
@@ -49,6 +49,7 @@ Abra o ficheiro *program.cs* e adicione as seguintes diretivas `using`:
 
 ```csharp
 using System;
+using System.Globalization;
 using Azure.AI.TextAnalytics;
 ```
 

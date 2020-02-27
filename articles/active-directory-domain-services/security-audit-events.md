@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 42ab32e80ef0a1a7f3c02d8a8eedbb8ab13c4b88
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 89fa2297c50b6f28045f6f934092de3fd5d6c879
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132256"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613069"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Ativar auditorias de segurança para serviços de domínio de diretório ativo Azure
 
@@ -53,10 +53,10 @@ Estão disponíveis as seguintes categorias de eventos de auditoria:
 |:---|:---|
 |Segurança logon de conta|4767, 4774, 4775, 4776, 4777|
 |Segurança na Gestão de Conta|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Segurança de rastreio de detalhes|Nenhuma|
+|Segurança de rastreio de detalhes|Nenhum|
 |Segurança de acesso dS|5136, 5137, 5138, 5139, 5141|
 |Segurança Logon-Logoff|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Segurança de Acesso a Objetos|Nenhuma|
+|Segurança de Acesso a Objetos|Nenhum|
 |Segurança de Mudança de Política|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Privilégio Usar segurança|4985|
 |Segurança do sistema|4612, 4621|
@@ -84,7 +84,7 @@ Para permitir eventos de auditoria de segurança Azure AD DS utilizando o portal
 > As auditorias de segurança da AD DS azure não são retroativas. Não se pode recuperar ou reproduzir eventos do passado. O Azure AD DS só pode enviar eventos que ocorram após a ativação das auditorias de segurança.
 
 1. Inicie sessão no portal do Azure em https://portal.azure.com.
-1. No topo do portal Azure, procure e selecione Serviços de **Domínio Azure AD.** Escolha o seu domínio gerido, como *aadds.contoso.com*.
+1. No topo do portal Azure, procure e selecione Serviços de **Domínio Azure AD.** Escolha o seu domínio gerido, como *aaddscontoso.com*.
 1. Na janela Azure AD DS, selecione **as definições** de diagnóstico no lado esquerdo.
 1. Nenhum diagnóstico é configurado por padrão. Para começar, selecione **Adicionar definição de diagnóstico**.
 

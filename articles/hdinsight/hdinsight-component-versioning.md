@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/02/2020
-ms.openlocfilehash: 13c064701a5ecae2090a99980249f5daaa8d5395
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/26/2020
+ms.openlocfilehash: 9c801f5c039996ac36c4f4479318d64cccdd204d
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198961"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649998"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões Apache Hadoop disponíveis com o HDInsight?
 
@@ -62,6 +62,12 @@ As versões de componentes do ecossistema Hadoop associadas às versões de clus
 Consulte [as notas de lançamento do HDInsight](hdinsight-release-notes.md) para obter notas de lançamento adicionais nas versões mais recentes do HDInsight.
 
 ## <a name="supported-hdinsight-versions"></a>Versões HDInsight suportadas
+
+### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>Expiração de suporte e aposentadoria para versões HDInsight
+
+**A expiração** do suporte significa que a Microsoft deixará de fornecer suporte para a versão HDInsight especificada e deixará de ser viável através do portal Azure para criação de clusters. No entanto, estas versões ainda podem ser criadas utilizando o Azure CLI ou os vários SDKs. 
+
+**A retirada** de uma versão HDInsight significa que os clusters existentes continuarão a funcionar como está. No entanto, novos clusters desta versão não podem ser criados através de quaisquer meios (incluindo CLI e SDKs). Outras características do plano de controlo (como a escala manual e a autoscalcificação) também podem não funcionar após a reforma da versão. O suporte não está disponível para versões reformadas.
 
 As tabelas seguintes listam as versões do HDInsight. A data de validade do apoio e da reforma também são fornecidas, quando são conhecidas.
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2020
+ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 5453793c7e1bb1ef766939d2e7fdf32a1ac1ec72
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 01397ad078bc741977c4928f67d1834f05e1db8d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499934"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623959"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança - um guia de referência
 
@@ -27,13 +27,13 @@ Para saber como responder a estes alertas, consulte [Gerir e responder a alertas
 
 Para saber como exportar alertas (e recomendações) consulte [alertas e recomendações de segurança para exportação (Pré-visualização)](continuous-export.md).
 
-Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminação da central de segurança do Azure que é usada para categorizar as intenções desses alertas. 
+Abaixo das tabelas de alertas está uma tabela descrevendo a cadeia de morte do Azure Security Center que é usada para categorizar as intenções destes alertas. 
 
 
 
 ## <a name="alerts-windows"></a>Alertas para máquinas Windows
 
-[Mais detalhes e notas](security-center-alerts-iaas.md#windows-)
+[Mais detalhes e notas](threat-protection.md#windows-machines)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -124,7 +124,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-linux"></a>Alertas para máquinas Linux
 
-[Mais detalhes e notas](security-center-alerts-iaas.md#linux-)
+[Mais detalhes e notas](threat-protection.md#linux-machines)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -213,7 +213,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azureappserv"></a>Alertas para o Serviço de Aplicações Azure
 
-[Mais detalhes e notas](security-center-alerts-compute.md#azure-app-service-)
+[Mais detalhes e notas](threat-protection.md#app-services)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -238,7 +238,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-akscluster"></a>Alertas para contentores - Clusters de Serviço Azure Kubernetes
 
-[Mais detalhes e notas](security-center-alerts-compute.md#azure-containers-)
+[Mais detalhes e notas](threat-protection.md#azure-containers)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -253,7 +253,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-containerhost"></a>Alertas para contentores - nível de hospedeiro
 
-[Mais detalhes e notas](security-center-alerts-compute.md#azure-containers-)
+[Mais detalhes e notas](threat-protection.md#azure-containers)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -269,7 +269,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alertas para Base de Dados SQL e Armazém de Dados SQL
 
-[Mais detalhes e notas](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+[Mais detalhes e notas](threat-protection.md#data-sql)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -287,7 +287,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azurestorage"></a>Alertas para armazenamento azure
 
-[Mais detalhes e notas](security-center-alerts-data-services.md#azure-storage-)
+[Mais detalhes e notas](threat-protection.md#azure-storage)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -308,7 +308,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azurecosmos"></a>Alertas para Azure Cosmos DB (Pré-visualização)
 
-[Mais detalhes e notas](security-center-alerts-data-services.md#azure-cosmos-db)
+[Mais detalhes e notas](threat-protection.md#cosmos-db)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -319,7 +319,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azurenetlayer"></a>Alertas para camada de rede Azure
 
-[Mais detalhes e notas](security-center-alerts-service-layer.md#azure-network-layer)
+[Mais detalhes e notas](threat-protection.md#network-layer)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -344,7 +344,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azureresourceman"></a>Alertas para Gestor de Recursos Azure (Pré-visualização)
 
-[Mais detalhes e notas](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+[Mais detalhes e notas](threat-protection.md#management-layer)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -363,7 +363,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azurekv"></a>Alertas para cofre de chaves Azure (Pré-visualização)
 
-[Mais detalhes e notas](security-center-alerts-service-layer.md#azure-keyvault)
+[Mais detalhes e notas](threat-protection.md#azure-keyvault)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -381,7 +381,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 
 ## <a name="alerts-azureddos"></a>Alertas para proteção de DDoS Azure
 
-[Mais detalhes e notas](security-center-alerts-integration.md#azure-ddos)
+[Mais detalhes e notas](threat-protection.md#azure-ddos)
 
 |Alerta|Descrição|Intenção ([Saiba mais)](#intentions)|
 |----|----|:----:|
@@ -415,9 +415,10 @@ As intençãos suportadas pela cadeia de morte suportadas do Security Center bas
 ||||
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre alertas, consulte o seguinte:
 
+* [Proteção contra ameaças no Centro de Segurança Azure](threat-protection.md)
 * [Alertas de segurança no Centro de Segurança do Azure](security-center-alerts-overview.md)
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Alertas e recomendações de segurança para exportação (Pré-visualização)](continuous-export.md)

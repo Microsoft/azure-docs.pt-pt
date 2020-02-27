@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 038e53251bd81552fd3379f2d7645570fbcda4ef
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 6b36694c2fe1bf264c876944b054d39371db616c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471351"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614284"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento azure
 
@@ -66,7 +66,7 @@ O quadro seguinte mostra quais os tipos de contas de armazenamento que suportam 
 |    FileStorage    | Europa Ocidental<br /> E.U.A Leste    |    Apenas ficheiros Azure    |
 
 <sup>1</sup> O nível de arquivo não é atualmente suportado para contas ZRS.<br />
-<sup>2</sup> Discos Azure para máquinas virtuais, incluindo discos geridos e não geridos, suportam apenas LRS. Não suportam ZRS ou GZRS. Para obter mais informações sobre discos geridos, consulte [Preços para discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/)pelo Azure .
+<sup>2</sup> As contas de armazenamento que contêm discos geridos pelo Azure para máquinas virtuais usam sempre LRS. Os discos não geridos azure também devem utilizar LRS. É possível criar uma conta de armazenamento para discos não geridos Azure que usam GRS, mas não é recomendado devido a potenciais problemas com consistência sobre geo-replicação assíncrona. Nem discos geridos nem não geridos suportam ZRS ou GZRS. Para obter mais informações sobre discos geridos, consulte [Preços para discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/)pelo Azure .
 
 Para obter informações sobre quais as regiões que suportam o ZRS, consulte **o suporte de serviços por região** em [Que São As Zonas de Disponibilidade do Azure?](../../availability-zones/az-overview.md)
 
@@ -169,7 +169,7 @@ Para obter informações sobre preços para cada opção de despedimento, consul
 
 O Armazenamento Azure verifica regularmente a integridade dos dados armazenados com controlos cíclicos de despedimento (CRCs). Se for detetada corrupção de dados, é reparado utilizando dados redundantes. O Azure Storage também calcula verificações em todo o tráfego da rede para detetar corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Verifique a propriedade Do Último Tempo sincronizado para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

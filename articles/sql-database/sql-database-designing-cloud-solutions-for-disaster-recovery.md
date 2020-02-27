@@ -1,7 +1,7 @@
 ---
-title: Projetar serviços disponíveis globalmente
-description: Saiba mais sobre o design de aplicativos para serviços altamente disponíveis usando o banco de dados SQL do Azure.
-keywords: recuperação de desastre na nuvem, soluções de recuperação de desastre, backup de dados de aplicativo, replicação geográfica, planejamento de continuidade de negócios
+title: Design de serviços disponíveis globalmente
+description: Conheça o design de aplicações para serviços altamente disponíveis utilizando a Base de Dados Azure SQL.
+keywords: recuperação de desastres em nuvem,soluções de recuperação de desastres,backup de dados de aplicações, geo-replicação, planeamento de continuidade de negócios
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,157 +12,157 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 8eb115497427338599db08e8c7bbdd55c5a158fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 348bd2b92801217a5aea2ef4d1426c020085e4c1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807956"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624157"
 ---
-# <a name="designing-globally-available-services-using-azure-sql-database"></a>Projetando serviços disponíveis globalmente usando o banco de dados SQL do Azure
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Conceber serviços disponíveis globalmente utilizando base de dados Azure SQL
 
-Ao criar e implantar serviços de nuvem com o banco de dados SQL do Azure, você usa a [replicação geográfica ativa](sql-database-active-geo-replication.md) ou [grupos de failover automático](sql-database-auto-failover-group.md) para fornecer resiliência a interrupções regionais e falhas catastróficas. O mesmo recurso permite que você crie aplicativos distribuídos globalmente otimizados para acesso local aos dados. Este artigo discute os padrões de aplicativo comuns, incluindo os benefícios e as compensações de cada opção.
-
-> [!NOTE]
-> Se você estiver usando bancos de dados Premium ou Comercialmente Crítico e pools elásticos, poderá torná-los resilientes a interrupções regionais, convertendo-os para a configuração de implantação com redundância de zona. Consulte [bancos de dados com redundância de zona](sql-database-high-availability.md).  
-
-## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: usando duas regiões do Azure para continuidade dos negócios com tempo de inatividade mínimo
-
-Nesse cenário, os aplicativos têm as seguintes características:
-
-* O aplicativo está ativo em uma região do Azure
-* Todas as sessões de banco de dados exigem acesso de leitura e gravação (RW) aos dados
-* A camada da Web e a camada de dados devem ser posicionadas para reduzir o custo de latência e tráfego
-* Fundamentalmente, o tempo de inatividade é um risco comercial maior para esses aplicativos do que a perda de dados
-
-Nesse caso, a topologia de implantação do aplicativo é otimizada para lidar com desastres regionais quando todos os componentes do aplicativo precisam fazer failover juntos. O diagrama a seguir mostra essa topologia. Para redundância geográfica, os recursos do aplicativo são implantados na região A e B. No entanto, os recursos na região B não são utilizados até a região A falhar. Um grupo de failover é configurado entre as duas regiões para gerenciar conectividade de banco de dados, replicação e failover. O serviço Web em ambas as regiões é configurado para acessar o banco de dados por meio do ouvinte de leitura/gravação **&lt;failover-Group-name&gt;. Database.Windows.net** (1). O Gerenciador de tráfego é configurado para usar o [método de roteamento de prioridade](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+Ao construir e implantar serviços em nuvem com base de dados Azure SQL, você usa [geo-replicação ativa](sql-database-active-geo-replication.md) ou [grupos de auto-falha](sql-database-auto-failover-group.md) para fornecer resiliência a interrupções regionais e falhas catastróficas. A mesma funcionalidade permite criar aplicações distribuídas globalmente otimizadas para o acesso local aos dados. Este artigo discute padrões comuns de aplicação, incluindo os benefícios e as compensações de cada opção.
 
 > [!NOTE]
-> O [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) é usado em todo este artigo apenas para fins ilustrativos. Você pode usar qualquer solução de balanceamento de carga que dê suporte ao método de roteamento de prioridade.
+> Se estiver a utilizar bases de dados Premium ou Business Critical e piscinas elásticas, pode torná-las resilientes a interrupções regionais, convertendo-as em configuração de implantação redundante da zona. Consulte [bases de dados redundantes](sql-database-high-availability.md)da Zona .  
 
-O diagrama a seguir mostra essa configuração antes de uma interrupção:
+## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: Utilização de duas regiões azure para continuidade de negócios com o mínimo de tempo de paragem
 
-![Cenário 1. Configuração antes da interrupção.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
+Neste cenário, as aplicações têm as seguintes características:
 
-Após uma interrupção na região primária, o serviço do banco de dados SQL detecta que o banco de dados primário não está acessível e dispara o failover para a região secundária com base nos parâmetros da política de failover automático (1). Dependendo do SLA do seu aplicativo, você pode configurar um período de carência que controla o tempo entre a detecção da interrupção e o próprio failover. É possível que o Gerenciador de tráfego inicie o failover do ponto de extremidade antes que o grupo de failover dispare o failover do banco de dados. Nesse caso, o aplicativo Web não pode se reconectar imediatamente ao banco de dados. Mas as reconexões serão automaticamente bem sucedidos assim que o failover de banco de dados for concluído. Quando a região com falha é restaurada e novamente online, a primária antiga se reconecta automaticamente como um novo secundário. O diagrama a seguir ilustra a configuração após o failover.
+* Aplicação está ativa numa região do Azure
+* Todas as sessões de base de dados requerem acesso a leitura e escrita (RW) aos dados
+* O nível web e o nível de dados devem ser coocados para reduzir a latência e os custos de tráfego
+* Fundamentalmente, o tempo de inatividade é um risco de negócio maior para estas aplicações do que a perda de dados
 
-> [!NOTE]
-> Todas as transações confirmadas após o failover são perdidas durante a reconexão. Após a conclusão do failover, o aplicativo na região B é capaz de reconectar e reiniciar o processamento das solicitações do usuário. O aplicativo Web e o banco de dados primário agora estão na região B e permanecem colocalizados.
-
-![Cenário 1. Configuração após o failover](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
-
-Se ocorrer uma interrupção na região B, o processo de replicação entre o banco de dados primário e o secundário será suspenso, mas o link entre os dois permanecerá intacto (1). O tráfego gerenciado detecta que a conectividade com a região B está quebrada e marca o aplicativo Web do ponto de extremidade 2 como degradado (2). O desempenho do aplicativo não é afetado nesse caso, mas o banco de dados torna-se exposto e, portanto, com um risco maior de perda de dado no caso de A região A falhar em sucessão.
+Neste caso, a topologia de implementação de aplicações é otimizada para lidar com desastres regionais quando todos os componentes da aplicação precisam de falhar em conjunto. O diagrama abaixo mostra esta topologia. Para redundância geográfica, os recursos da aplicação são distribuídos para a região A e B. No entanto, os recursos na região B não são utilizados até que a região A falhe. Um grupo failover está configurado entre as duas regiões para gerir a conectividade da base de dados, replicação e falha. O serviço web em ambas as regiões está configurado para aceder à base de dados através do ouvinte de leitura&lt;nome de **grupo failover-name&gt;.database.windows.net** (1). O gestor de tráfego está criado para utilizar o método de [encaminhamento prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
-> Para a recuperação de desastres, recomendamos a configuração com a implantação de aplicativo limitada a duas regiões. Isso ocorre porque a maioria das geografias do Azure tem apenas duas regiões. Essa configuração não protege seu aplicativo contra uma falha catastrófica simultânea de ambas as regiões. Em um evento improvável de tal falha, você pode recuperar seus bancos de dados em uma terceira região usando [a operação de restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> [O gestor de tráfego azure](../traffic-manager/traffic-manager-overview.md) é usado em todo este artigo apenas para fins de ilustração. Pode utilizar qualquer solução de equilíbrio de carga que suporte o método de encaminhamento prioritário.
+
+O diagrama seguinte mostra esta configuração antes de uma paragem:
+
+![Cenário 1. Configuração antes da paragem.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
+
+Após uma paragem na região primária, o serviço de base de dados SQL deteta que a base de dados primária não está acessível e dispara falhas na região secundária com base nos parâmetros da política de failover automática (1). Dependendo da sua aplicação SLA, pode configurar um período de carência que controla o tempo entre a deteção da paragem e a falha em si. É possível que o gestor de tráfego inicie a falha do ponto final antes que o grupo failover desencadeie a falha da base de dados. Nesse caso, a aplicação web não pode voltar imediatamente a ligar-se à base de dados. Mas as reconexões serão automaticamente bem sucedidas assim que a base de dados falhar. Quando a região falhada é restaurada e novamente on-line, a antiga primária reconecta-se automaticamente como uma nova secundária. O diagrama abaixo ilustra a configuração após a falha.
+
+> [!NOTE]
+> Todas as transações cometidas após a falha são perdidas durante a reconexão. Após a conclusão da falha, a aplicação na região B é capaz de reconectar e reiniciar o processamento dos pedidos do utilizador. Tanto a aplicação web como a base de dados primária estão agora na região B e permanecem co-localizadas.
+
+![Cenário 1. Configuração após falha](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
+
+Se ocorrer uma paragem na região B, o processo de replicação entre a base de dados primária e secundária é suspenso, mas a ligação entre os dois permanece intacta (1). O tráfego gerido deteta que a conectividade com a região B está quebrada e marca a aplicação web de ponto final 2 como Degradada (2). O desempenho da aplicação não é impactado neste caso, mas a base de dados fica exposta e, portanto, em maior risco de perda de dados caso a região A falhe sucessivamente.
+
+> [!NOTE]
+> Para a recuperação de desastres, recomendamos a configuração com implantação de aplicações limitada a duas regiões. Isto porque a maioria das geografias azure têm apenas duas regiões. Esta configuração não protege a sua aplicação de uma falha catastrófica simultânea de ambas as regiões. Num caso improvável de tal falha, pode recuperar as suas bases de dados numa terceira região utilizando a [operação de georestauro](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
- Depois que a interrupção for atenuada, o banco de dados secundário será ressincronizado automaticamente com o primário. Durante a sincronização, o desempenho do primário pode ser afetado. O impacto específico depende da quantidade de dados que o novo primário adquiriu desde o failover. O diagrama a seguir ilustra uma interrupção na região secundária:
+ Uma vez atenuada a paragem, a base de dados secundária resincroniza-se automaticamente com a primária. Durante a sincronização, o desempenho da primária pode ser impactado. O impacto específico depende da quantidade de dados que a nova primária adquiriu desde o fracasso. O diagrama que se segue ilustra uma paragem na região secundária:
 
-![Cenário 1. Configuração após uma interrupção na região secundária.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
+![Cenário 1. Configuração após uma paragem na região secundária.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 
-As principais **vantagens** desse padrão de design são:
+As **principais vantagens** deste padrão de design são:
 
-* O mesmo aplicativo Web é implantado em ambas as regiões sem nenhuma configuração específica de região e não requer lógica adicional para gerenciar o failover.
-* O desempenho do aplicativo não é afetado pelo failover, pois o aplicativo Web e o banco de dados estão sempre colocalizados.
+* A mesma aplicação web é implementada em ambas as regiões sem qualquer configuração específica da região e não requer lógica adicional para gerir o failover.
+* O desempenho da aplicação não é impactado por falhas, uma vez que a aplicação web e a base de dados estão sempre co-localizadas.
 
-A principal **desvantagem** é que os recursos do aplicativo na região B são subutilizados na maior parte do tempo.
+A principal **contrapartida** é que os recursos de aplicação na região B são subutilizados na maior parte do tempo.
 
-## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Cenário 2: regiões do Azure para continuidade de negócios com preservação máxima de dados
+## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Cenário 2: Regiões azure para continuidade de negócios com a máxima preservação de dados
 
-Essa opção é mais adequada para aplicativos com as seguintes características:
+Esta opção é mais adequada para aplicações com as seguintes características:
 
-* Qualquer perda de dados é de alto risco para os negócios. O failover de banco de dados só poderá ser usado como último recurso se a interrupção for causada por uma falha catastrófica.
-* O aplicativo dá suporte aos modos somente leitura e leitura/gravação de operações e pode operar em "modo somente leitura" por um período de tempo.
+* Qualquer perda de dados é um alto risco para o negócio. A falha na base de dados só pode ser usada como último recurso se a paralisação for causada por uma falha catastrófica.
+* A aplicação suporta modos de funcionamento apenas de leitura e leitura e pode funcionar em "modo de leitura apenas" por um período de tempo.
 
-Nesse padrão, o aplicativo alterna para o modo somente leitura quando as conexões de leitura/gravação começam a obter erros de tempo limite. O aplicativo Web é implantado em ambas as regiões e inclui uma conexão com o ponto de extremidade do ouvinte de leitura/gravação e uma conexão diferente com o ponto de extremidade de ouvinte somente leitura (1). O perfil do Gerenciador de tráfego deve usar o [Roteamento de prioridade](../traffic-manager/traffic-manager-configure-priority-routing-method.md). O [monitoramento do ponto de extremidade](../traffic-manager/traffic-manager-monitoring.md) deve ser habilitado para o ponto de extremidade do aplicativo em cada região (2).
+Neste padrão, a aplicação muda para o modo de leitura apenas quando as ligações de leitura-escrita começam a obter erros de tempo-out. A Aplicação Web é implantada em ambas as regiões e inclui uma ligação ao ponto final do ouvinte de leitura e ligação diferente ao ponto final do ouvinte de leitura (1). O perfil do gestor de tráfego deve utilizar [o encaminhamento prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md). [O controlo](../traffic-manager/traffic-manager-monitoring.md) do ponto final deve ser ativado para o ponto final da aplicação em cada região (2).
 
-O diagrama a seguir ilustra essa configuração antes de uma interrupção:
+O diagrama seguinte ilustra esta configuração antes de uma paragem:
 
-![Cenário 2. Configuração antes da interrupção.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-a.png)
+![Cenário 2. Configuração antes da paragem.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-a.png)
 
-Quando o Gerenciador de tráfego detecta uma falha de conectividade na região A, ele alterna automaticamente o tráfego do usuário para a instância do aplicativo na região B. Com esse padrão, é importante que você defina o período de carência com perda de dados com um valor suficientemente alto, por exemplo, 24 horas. Isso garante que a perda de dados seja evitada se a interrupção for atenuada dentro desse período. Quando o aplicativo Web na região B é ativado, as operações de leitura/gravação começam a falhar. Nesse ponto, ele deve mudar para o modo somente leitura (1). Nesse modo, as solicitações são roteadas automaticamente para o banco de dados secundário. Se a interrupção for causada por uma falha catastrófica, provavelmente ela não poderá ser atenuada dentro do período de carência. Quando ele expira, o grupo de failover dispara o failover. Depois disso, o ouvinte de leitura/gravação fica disponível e as conexões com ele param de falhar (2). O diagrama a seguir ilustra os dois estágios do processo de recuperação.
-
-> [!NOTE]
-> Se a interrupção na região primária for atenuada dentro do período de carência, o Gerenciador de tráfego detectará a restauração da conectividade na região primária e alternará o tráfego do usuário para a instância do aplicativo na região A. Essa instância do aplicativo é retomada e opera no modo de leitura/gravação usando o banco de dados primário na região A, conforme ilustrado pelo diagrama anterior.
-
-![Cenário 2. Estágios de recuperação de desastre.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
-
-Se ocorrer uma interrupção na região B, o Gerenciador de tráfego detectará a falha do ponto de extremidade Web-App-2 na região B e a marca degradada (1). Enquanto isso, o grupo de failover alterna o ouvinte somente leitura para a região A (2). Essa interrupção não afeta a experiência do usuário final, mas o banco de dados primário é exposto durante a interrupção. O diagrama a seguir ilustra uma falha na região secundária:
-
-![Cenário 2. Interrupção da região secundária.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-c.png)
-
-Depois que a interrupção for atenuada, o banco de dados secundário será imediatamente sincronizado com o primário e o ouvinte somente leitura será revertido para o banco de dados secundário na região B. Durante a sincronização, o desempenho do primário pode ser ligeiramente afetado dependendo da quantidade de dados que precisam ser sincronizados.
-
-Esse padrão de design tem várias **vantagens**:
-
-* Isso evita a perda de dados durante as interrupções temporárias.
-* O tempo de inatividade depende apenas da rapidez com que o Gerenciador de tráfego detecta a falha de conectividade, que é configurável.
-
-A **desvantagem** é que o aplicativo deve ser capaz de operar no modo somente leitura.
-
-## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Cenário 3: realocação de aplicativo para uma geografia diferente sem perda de dados e tempo de inatividade quase zero
-
-Nesse cenário, o aplicativo tem as seguintes características:
-
-* Os usuários finais acessam o aplicativo de geografias diferentes
-* O aplicativo inclui cargas de trabalho somente leitura que não dependem da sincronização completa com as atualizações mais recentes
-* O acesso de gravação aos dados deve ter suporte na mesma geografia para a maioria dos usuários
-* A latência de leitura é crítica para a experiência do usuário final
-
-Para atender a esses requisitos, você precisa garantir que o dispositivo de usuário **sempre** se conecte ao aplicativo implantado na mesma geografia para as operações somente leitura, como procurar dados, análises, etc. Enquanto isso, as operações de OLTP são processadas na mesma geografia na **maior parte do tempo**. Por exemplo, durante o dia, as operações OLTP são processadas na mesma geografia, mas, durante as horas de folga, elas poderiam ser processadas em uma geografia diferente. Se a atividade do usuário final ocorrer principalmente durante o horário de trabalho, você poderá garantir o desempenho ideal para a maioria dos usuários na maior parte do tempo. O diagrama a seguir mostra essa topologia.
-
-Os recursos do aplicativo devem ser implantados em cada geografia em que você tem demanda de uso substancial. Por exemplo, se seu aplicativo for usado ativamente no Estados Unidos, União Europeia e Sul Ásia Oriental o aplicativo deverá ser implantado em todas essas regiões geográficas. O banco de dados primário deve ser alternado dinamicamente de uma geografia para a próxima no final do horário de trabalho. Esse método é chamado de "Siga o sol". A carga de trabalho OLTP sempre se conecta ao banco de dados por meio do ouvinte de leitura/gravação **&lt;o nome do grupo de failover&gt;. Database.Windows.net** (1). A carga de trabalho somente leitura se conecta diretamente ao banco de dados local usando o ponto de extremidade do servidor databases **&lt;Server-name&gt;. Database.Windows.net** (2). O Gerenciador de tráfego é configurado com o [método de roteamento de desempenho](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Ele garante que o dispositivo do usuário final esteja conectado ao serviço Web na região mais próxima. O Gerenciador de tráfego deve ser configurado com o monitoramento de ponto de extremidade habilitado para cada ponto de extremidade do serviço Web (3).
+Quando o gestor de tráfego deteta uma falha de conectividade na região A, muda automaticamente o tráfego do utilizador para a instância de aplicação na região B. Com este padrão, é importante que você coloque o período de graça com perda de dados para um valor suficientemente elevado, por exemplo 24 horas. Garante que a perda de dados é evitada se a interrupção for atenuada dentro desse tempo. Quando a aplicação Web na região B é ativada, as operações de leitura-escrita começam a falhar. Nessa altura, deve mudar para o modo de leitura (1). Neste modo, os pedidos são automaticamente encaminhados para a base de dados secundária. Se a paralisação for causada por uma falha catastrófica, o mais provável é que não possa ser atenuada dentro do período de carência. Quando expira, o grupo failover desencadeia a falha. Depois disso, o ouvinte de leitura-escrita fica disponível e as ligações ao mesmo deixam de falhar (2). O diagrama seguinte ilustra as duas fases do processo de recuperação.
 
 > [!NOTE]
-> A configuração do grupo de failover define qual região é usada para failover. Como o novo primário está em uma geografia diferente, o failover resulta em latência mais longa para cargas de trabalho OLTP e somente leitura até que a região afetada fique online novamente.
+> Se a paralisação na região primária for atenuada no período de carência, o gestor de tráfego deteta o restabelecimento da conectividade na região primária e muda o tráfego de utilizadores de volta para a instância de aplicação na região A. Esta instância de aplicação retoma e funciona em modo de leitura-escrita utilizando a base de dados primária na região A, como ilustrado pelo diagrama anterior.
 
-![Cenário 3. Configuração com primário no leste dos EUA.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
+![Cenário 2. Fases de recuperação de desastres.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
 
-No final do dia (por exemplo, em horário local 23h), os bancos de dados ativos devem ser alternados para a próxima região (Europa Setentrional). Essa tarefa pode ser totalmente automatizada usando o [serviço de agendamento do Azure](../scheduler/scheduler-intro.md).  A tarefa envolve as seguintes etapas:
+Se ocorrer uma paragem na região B, o gestor de tráfego deteta a falha do ponto final web-app-2 na região B e marca-o degradado (1). Entretanto, o grupo failover muda o ouvinte apenas para a região A (2). Esta paragem não afeta a experiência do utilizador final, mas a base de dados primária é exposta durante a interrupção. O diagrama que se segue ilustra uma falha na região secundária:
 
-* Alterne o servidor primário no grupo de failover para Europa Setentrional usando o failover amigável (1)
-* Remover o grupo de failover entre Leste dos EUA e Europa Setentrional
-* Crie um novo grupo de failover com o mesmo nome, mas entre Europa Setentrional e Ásia Oriental (2).
-* Adicione o primário em Europa Setentrional e secundário em Ásia Oriental a esse grupo de failover (3).
+![Cenário 2. Paralisação da região secundária.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-c.png)
 
-O diagrama a seguir ilustra a nova configuração após o failover planejado:
+Uma vez atenuada a paragem, a base de dados secundária é imediatamente sincronizada com o principal e o ouvinte só de leitura é recolocado para a base de dados secundária na região B. Durante a sincronização, o desempenho do primário pode ser ligeiramente impactado dependendo da quantidade de dados que precisam de ser sincronizados.
 
-![Cenário 3. Transição do primário para o Europa Setentrional.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
+Este padrão de design tem **várias vantagens:**
 
-Se ocorrer uma interrupção em Europa Setentrional por exemplo, o failover automático do banco de dados será iniciado pelo grupo de failover, o que efetivamente resultará na movimentação do aplicativo para a próxima região à frente da agenda (1).  Nesse caso, o leste dos EUA é a única região secundária restante até que Europa Setentrional esteja online novamente. As duas regiões restantes atendem aos clientes em todas as três geografias alternando funções. O Agendador do Azure precisa ser ajustado de acordo. Como as regiões restantes recebem tráfego de usuário adicional da Europa, o desempenho do aplicativo é afetado não apenas pela latência adicional, mas também por um número maior de conexões de usuário final. Quando a interrupção é atenuada no Europa Setentrional, o banco de dados secundário é imediatamente sincronizado com o primário atual. O diagrama a seguir ilustra uma interrupção no Europa Setentrional:
+* Evita a perda de dados durante as interrupções temporárias.
+* O tempo de inatividade depende apenas da rapidez com que o gestor de tráfego deteta a falha de conectividade, que é configurável.
 
-![Cenário 3. Interrupção no Europa Setentrional.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+A **contrapartida** é que a aplicação deve poder funcionar em modo de leitura.
+
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Cenário 3: Deslocalização de candidaturas para uma geografia diferente sem perda de dados e quase zero tempo de inatividade
+
+Neste cenário, a aplicação tem as seguintes características:
+
+* Os utilizadores finais acedem à aplicação a partir de diferentes geografias
+* A aplicação inclui cargas de trabalho apenas de leitura que não dependem da sincronização completa com as últimas atualizações
+* O acesso aos dados de escrita deve ser suportado na mesma geografia para a maioria dos utilizadores
+* Ler latência é fundamental para a experiência do utilizador final
+
+Para satisfazer estes requisitos é necessário garantir que o dispositivo utilizador se liga **sempre** à aplicação implementada na mesma geografia para as operações de leitura, tais como dados de navegação, análises, etc. Considerando que as operações oLTP são processadas na mesma geografia na **maior parte do tempo.** Por exemplo, durante o dia as operações oLTP são processadas na mesma geografia, mas durante as horas de folga podem ser processadas numa geografia diferente. Se a atividade do utilizador final ocorrer maioritariamente durante o horário de trabalho, pode garantir o desempenho ideal para a maioria dos utilizadores na maior parte do tempo. O diagrama que se segue mostra esta topologia.
+
+Os recursos da aplicação devem ser implantados em cada geografia onde você tem uma procura de utilização substancial. Por exemplo, se a sua aplicação for ativamente utilizada nos Estados Unidos, união europeia e Sudeste Asiático, a aplicação deve ser implementada em todas estas geografias. A base de dados primária deve ser dinamicamente alterada de uma geografia para outra no final do horário de trabalho. Este método chama-se "siga o sol". A carga de trabalho OLTP liga-se sempre à base de dados através do ouvinte de leitura&lt;nome de grupo de **falha&gt;.database.windows.net** (1). A carga de trabalho apenas para leitura liga-se à base de dados local utilizando diretamente o ponto final do servidor **&lt;o nome do servidor&gt;.database.windows.net** (2). O gestor de tráfego está configurado com o método de [encaminhamento](../traffic-manager/traffic-manager-configure-performance-routing-method.md)de desempenho . Garante que o dispositivo do utilizador final está ligado ao serviço web na região mais próxima. O gestor de tráfego deve ser criado com uma monitorização do ponto final ativada para cada ponto final do serviço web (3).
 
 > [!NOTE]
-> Você pode reduzir o tempo em que a experiência do usuário final na Europa é degradada pela latência longa. Para fazer isso, você deve implantar proativamente uma cópia de aplicativo e criar os bancos de dados secundários em outra região local (Europa Ocidental) como uma substituição da instância do aplicativo offline no Europa Setentrional. Quando o último estiver online novamente, você poderá decidir se deseja continuar usando Europa Ocidental ou remover a cópia do aplicativo e voltar a usar Europa Setentrional.
+> A configuração do grupo failover define qual a região que é usada para a falha. Como a nova primária está numa geografia diferente, o failover resulta em latência mais longa tanto para o OLTP como para as cargas de trabalho apenas para leitura até que a região impactada volte a estar online.
 
-Os principais **benefícios** desse design são:
+![Cenário 3. Configuração com primária nos EUA Orientais.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-* A carga de trabalho de aplicativo somente leitura acessa os dados na região do armário em todos os momentos.
-* A carga de trabalho do aplicativo de leitura/gravação acessa os dados na região mais próxima durante o período da atividade mais alta em cada Geografia
-* Como o aplicativo é implantado em várias regiões, ele pode sobreviver a uma perda de uma das regiões sem nenhum tempo de inatividade significativo.
+No final do dia, por exemplo, às 23:00 locais, as bases de dados ativas devem ser transferidas para a região seguinte (Norte da Europa). Esta tarefa pode ser totalmente automatizada utilizando [aplicações lógicas do Azure.](../logic-apps/logic-apps-overview.md) A tarefa envolve os seguintes passos:
 
-Mas há algumas **compensações**:
+* Altere o servidor primário no grupo failover para a Europa do Norte usando failover amigável (1)
+* Remova o grupo de falhas entre os EUA Orientais e o Norte da Europa
+* Crie um novo grupo de failover com o mesmo nome, mas entre a Europa do Norte e a Ásia Oriental (2).
+* Adicione as primárias no Norte da Europa e secundária na Ásia Oriental a este grupo de failover (3).
 
-* Uma interrupção regional resulta na geografia a ser afetada por latência mais longa. As cargas de trabalho de leitura/gravação e somente leitura são servidas pelo aplicativo em uma geografia diferente.
-* As cargas de trabalho somente leitura devem se conectar a um ponto de extremidade diferente em cada região.
+O diagrama que se segue ilustra a nova configuração após a falha planeada:
 
-## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planejamento de continuidade de negócios: escolha um design de aplicativo para recuperação de desastre na nuvem
+![Cenário 3. Transição primária para o Norte da Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Sua estratégia específica de recuperação de desastre na nuvem pode combinar ou estender esses padrões de design para atender melhor às necessidades do seu aplicativo.  Conforme mencionado anteriormente, a estratégia escolhida é baseada no SLA que você deseja oferecer aos seus clientes e à topologia de implantação do aplicativo. Para ajudar a orientar sua decisão, a tabela a seguir compara as opções com base no objetivo de ponto de recuperação (RPO) e no tempo de recuperação estimado (ERT).
+Se uma paralisação ocorrer no Norte da Europa, por exemplo, a falha da base de dados automática é iniciada pelo grupo failover, o que resulta efetivamente na mudança da aplicação para a próxima região antes do previsto (1).  Nesse caso, o Leste dos EUA é a única região secundária restante até que o Norte da Europa volte a funcionar. As restantes duas regiões servem os clientes nas três geografias, mudando de funções. As Aplicações Lógicas Azure têm de ser ajustadas em conformidade. Dado que as restantes regiões obtêm tráfego adicional de utilizadores da Europa, o desempenho da aplicação é impactado não só pela latência adicional, mas também por um aumento do número de ligações ao utilizador final. Uma vez atenuada a paralisação no Norte da Europa, a base de dados secundária é imediatamente sincronizada com as primárias atuais. O diagrama que se segue ilustra uma paragem no Norte da Europa:
+
+![Cenário 3. Paralisação no Norte da Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+
+> [!NOTE]
+> Pode reduzir o tempo em que a experiência do utilizador final na Europa é degradada pela longa latência. Para tal, deve implantar proactivamente uma cópia de aplicação e criar a base de dados secundária de outra região local (Europa Ocidental) como substituto da instância de aplicação offline no Norte da Europa. Quando este último estiver de volta à internet, pode decidir se continua a utilizar a Europa Ocidental ou a remover a cópia da aplicação e voltar a utilizar o Norte da Europa.
+
+Os principais **benefícios** deste design são:
+
+* A carga de trabalho de aplicação apenas de leitura acede a dados na região dos armários em todos os momentos.
+* A carga horária de leitura-escrita acede aos dados da região mais próxima durante o período da maior atividade em cada geografia
+* Como a aplicação é implantada em várias regiões, pode sobreviver a uma perda de uma das regiões sem qualquer tempo de inatividade significativo.
+
+Mas há **algumas trocas:**
+
+* Uma paralisação regional resulta na geografia a ser impactada por uma latência mais longa. Tanto as cargas de trabalho de leitura como de leitura são servidas pela aplicação numa geografia diferente.
+* As cargas de trabalho apenas de leitura devem ligar-se a um ponto final diferente em cada região.
+
+## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planeamento de continuidade de negócios: Escolha um projeto de aplicação para recuperação de desastres na nuvem
+
+A sua estratégia específica de recuperação de desastres em nuvem pode combinar ou estender estes padrões de design para melhor atender às necessidades da sua aplicação.  Como mencionado anteriormente, a estratégia que escolheu baseia-se no SLA que pretende oferecer aos seus clientes e na topologia de implementação de aplicações. Para ajudar a orientar a sua decisão, a tabela seguinte compara as escolhas com base no objetivo do ponto de recuperação (RPO) e no tempo estimado de recuperação (ERT).
 
 | Padrão | RPO | ERT |
 |:--- |:--- |:--- |
-| Implantação ativa-passiva para recuperação de desastre com acesso ao banco de dados colocalizado |Acesso de leitura/gravação < 5 s |Tempo de detecção de falha + TTL do DNS |
-| Implantação ativa-ativa para balanceamento de carga de aplicativo |Acesso de leitura/gravação < 5 s |Tempo de detecção de falha + TTL do DNS |
-| Implantação ativa-passiva para preservação de dados |Acesso somente leitura < 5 s | Acesso somente leitura = 0 |
-||Acesso de leitura/gravação = zero | Acesso de leitura/gravação = tempo de detecção de falha + período de carência com perda de dados |
+| Implantação ativa passiva para recuperação de desastres com acesso a base de dados co-localizada |Acesso de leitura e escrita < 5 seg |Tempo de deteção de falhas + DNS TTL |
+| Implantação ativa para o equilíbrio da carga de aplicação |Acesso de leitura e escrita < 5 seg |Tempo de deteção de falhas + DNS TTL |
+| Implantação passiva ativa para a preservação de dados |Acesso apenas de leitura < 5 seg | Acesso apenas de leitura = 0 |
+||Acesso de leitura-escrita = zero | Acesso de leitura-escrita = Tempo de deteção de falhas + período de carência com perda de dados |
 |||
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)
-* Para saber mais sobre a replicação geográfica ativa, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md).
-* Para saber mais sobre grupos de failover automático, consulte [grupos de failover automático](sql-database-auto-failover-group.md).
-* Para obter informações sobre a replicação geográfica ativa com pools elásticos, consulte [estratégias de recuperação de desastres do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Para uma visão geral da continuidade do negócio e cenários, consulte a [visão geral da continuidade do Negócio](sql-database-business-continuity.md)
+* Para aprender sobre geo-replicação ativa, consulte [a geo-replicação ativa.](sql-database-active-geo-replication.md)
+* Para conhecer os grupos de auto-failover, consulte [os grupos de falha automática](sql-database-auto-failover-group.md).
+* Para obter informações sobre geo-replicação ativa com piscinas elásticas, consulte estratégias de recuperação de desastres de [piscina elástica.](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)

@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 179d0ff8143b526e100b89cffbbac0bbc29ca3e1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 83cac961eb3cd700451f16c684c64185b35e9bd3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776667"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616753"
 ---
-# <a name="upgrade-azure-public-load-balancer-from-basic-sku-to-standard-sku"></a>Upgrade Azure Public Load Balancer de Basic SKU para Standard SKU
+# <a name="upgrade-azure-public-load-balancer"></a>Upgrade Azure Public Load Balancer
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto rico de funcionalidades e alta disponibilidade através de redundância de zona. Para saber mais sobre o Load Balancer SKU, consulte a [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 Há duas fases numa atualização:
@@ -28,8 +28,8 @@ Este artigo abrange a migração de configuração. Adicionar VMs a piscinas de 
 
 Está disponível um script Azure PowerShell que faz o seguinte:
 
-* Cria um Balancer de Carga SKU Público Padrão no grupo de recursos e localização o que especifica.
-* Copia perfeitamente as configurações do Equilíbrio de Carga Pública SKU Básico para o recém-criado Balancer de Carga Pública Padrão.
+* Cria um Balancer de Carga SKU Padrão no grupo de recursos e localização o que especifica.
+* Copia perfeitamente as configurações do Equilíbrio de Carga SKU Básico para o recém-criado Equilíbrio de Carga Standard.
 
 ### <a name="caveatslimitations"></a>Ressalvas\Limitações
 
@@ -38,7 +38,7 @@ Está disponível um script Azure PowerShell que faz o seguinte:
 * Se o equilibrador de carga Standard for criado numa região diferente, não poderá associar os VMs existentes na região antiga ao recém-criado Standard Load Balancer. Para contornar esta limitação, certifique-se de criar um novo VM na nova região.
 * Se o seu Balancer de Carga não tiver qualquer configuração IP frontal ou piscina de backend, é provável que acerte um erro ao executar o script. Por favor, certifique-se de que não estão vazios.
 
-## <a name="download-the-script"></a>Baixar o script
+## <a name="download-the-script"></a>Descarregue o script
 
 Descarregue o script de migração da [Galeria PowerShell.](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0)
 ## <a name="use-the-script"></a>Use o script
@@ -54,7 +54,7 @@ Para determinar se tem os módulos Azure Az instalados, faça `Get-InstalledModu
 
 Para utilizar esta opção, não deve ter os módulos Azure Az instalados no seu computador. Se estiverem instalados, o comando seguinte apresenta um erro. Pode desinstalar os módulos Azure Az ou utilizar a outra opção para descarregar o script manualmente e executá-lo.
   
-Execute o script com o seguinte comando:
+Executar o script com o seguinte comando:
 
 `Install-Script -Name AzurePublicLBUpgrade`
 
@@ -70,18 +70,9 @@ Para executar o script:
 
 1. Utilize `Import-Module Az` para importar os módulos Az.
 
-1. Executar `Get-Help AzureLBUpgrade.ps1` examinar os parâmetros necessários:
+1. Examinar os parâmetros necessários:
 
-   ```
-   AzurePublicLBUpgrade.ps1
-    -oldRgName <name of the Resource Group where Basic Load Balancer exists>
-    -oldLBName <name of existing Basic Load Balancer>
-    -newrgName <Name of the Resource Group where the new Standard Load Balancer will be created>
-    -newlocation <Name of the location where the new Standard Load Balancer will be created>
-    -newLBName <Name of the Standard Load Balancer to be created>
-   ```
-   Parâmetros para o guião:
-   * **oldRgName: [String]: Required** – Este é o grupo de recursos para o seu equilíbrio básico de carga existente que pretende atualizar. Para encontrar este valor de cadeia, navegue para o Portal Azure, selecione a sua fonte de Equilíbrio de Carga Básica e clique na **visão geral** para o equilibrador de carga. O Grupo de Recursos está localizado nessa página.
+   * **oldRgName: [String]: Required** – Este é o grupo de recursos para o seu equilíbrio básico de carga existente que pretende atualizar. Para encontrar este valor de cadeia, navegue para o portal Azure, selecione a sua fonte de Equilíbrio de Carga Básica e clique na **visão geral** para o equilibrador de carga. O Grupo de Recursos está localizado nessa página.
    * **oldLBName: [String]: Required** – Este é o nome do seu Equilíbrio Básico existente que pretende atualizar. 
    * **newrgName: [String]: Required** – Este é o grupo de recursos no qual será criado o Balancer de Carga Padrão. Pode ser um novo grupo de recursos ou um existente. Se escolher um grupo de recursos existente, note que o nome do Balancer de Carga tem de ser único dentro do grupo de recursos. 
    * **newlocation: [String]: Required** – Este é o local em que o Balancer de Carga Padrão será criado. Recomenda-se herdar a mesma localização do Equilibrador básico de carga escolhido para o Equilíbrio de Carga Padrão para uma melhor associação com outros recursos existentes.
@@ -103,7 +94,7 @@ Certifique-se de enviar uma pequena quantidade de tráfego através do Balancer 
 Aqui estão alguns cenários de como você adiciona VMs para backend piscinas do recém-criado Standard Public Load Balancer pode ser configurado, e nossas recomendações para cada um:
 
 * Movendo os **VMs existentes de piscinas de backend do antigo Equilibrante básico de carga pública para backend piscinas de recém-criado Standard Public Load Balancer**.
-    1. Para fazer as tarefas neste início rápido, inicie sessão para o [portal do Azure](https://portal.azure.com).
+    1. Para fazer as tarefas neste arranque rápido, inicie sessão no [portal Azure](https://portal.azure.com).
  
     1. **Selecione todos os recursos** no menu esquerdo e, em seguida, selecione o **recém-criado Standard Load Balancer** da lista de recursos.
    
@@ -134,4 +125,4 @@ Pode enviar um e-mail para slbupgradesupport@microsoft.com, abrir um caso de sup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre o Balanceador de carga Standard](load-balancer-overview.md)
+[Saiba mais sobre o Balancer de Carga Padrão](load-balancer-overview.md)

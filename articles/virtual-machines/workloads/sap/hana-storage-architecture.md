@@ -3,8 +3,8 @@ title: Arquitetura de armazenamento da SAP HANA em Azure (Grandes Instâncias)  
 description: Arquitetura de armazenamento de como implantar SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d25201c8195fa6c4c36e159904b5b71a20a45ea
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: a12c454906d6c6ff702b7f635a91361bbe3994c1
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598498"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616892"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitetura de armazenamento SAP HANA (Grandes Instâncias)
 

@@ -2,13 +2,13 @@
 title: Descrição geral das Tarefas do ACR
 description: Uma introdução às Tarefas ACR, um conjunto de funcionalidades no Registo de Contentores Azure que fornece construção de imagem de contentores, gestão e remendos seguros e automatizados na nuvem.
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 01/22/2020
+ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938886"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615957"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar construções e manutenção de contentores com Tarefas ACR
 
@@ -56,7 +56,7 @@ Desencadear uma construção de imagem de recipiente ou tarefa em várias etapas
 
 A Cr Tasks suporta os seguintes gatilhos quando define um repo Git como contexto da tarefa:
 
-| Acionador | Ativado por padrão |
+| Acionador | Ativado por predefinição |
 | ------- | ------------------ |
 | Consolidação | Sim |
 | Pedido de puxar | Não |
@@ -70,26 +70,12 @@ Aprenda a desencadear as construções no código fonte cometido no segundo tuto
 
 ## <a name="automate-os-and-framework-patching"></a>Automatizar os os e patching de quadro
 
-O poder das Tarefas ACR para melhorar verdadeiramente o fluxo de trabalho de construção do seu recipiente provém da sua capacidade de detetar uma atualização para uma imagem base. Quando a imagem de base atualizada é empurrada para o seu registo, ou uma imagem base é atualizada num repo público como no Docker Hub, as Tarefas ACR podem automaticamente construir quaisquer imagens de aplicação com base no mesmo.
+O poder das Tarefas ACR para melhorar verdadeiramente o fluxo de trabalho de construção do seu recipiente provém da sua capacidade de detetar uma atualização para uma *imagem base*. Uma característica da maioria das imagens de contentores, uma imagem base é uma imagem dos pais na qual se baseiam uma ou mais imagens de aplicação. As imagens base normalmente contêm o sistema operativo, e às vezes os quadros de aplicação. 
 
-As imagens do recipiente podem ser amplamente categorizadas em imagens *base* e imagens de *aplicação.* As imagens base incluem normalmente o sistema operativo e os quadros de aplicação em que a sua aplicação é construída, juntamente com outras personalizações. Estas imagens base são, por si só, tipicamente baseadas em imagens públicas a montante, por exemplo: [Alpine Linux,][base-alpine] [Windows,][base-windows] [.NET][base-dotnet]ou [Node.js][base-node]. Várias das suas imagens de aplicação podem partilhar uma imagem de base comum.
+Pode configurar uma tarefa ACR para rastrear uma dependência de uma imagem base quando constrói uma imagem de aplicação. Quando a imagem de base atualizada é empurrada para o seu registo, ou uma imagem base é atualizada num repo público como no Docker Hub, as Tarefas ACR podem automaticamente construir quaisquer imagens de aplicação com base no mesmo.
+Com esta deteção e reconstrução automáticas, as Tarefas ACR poupam-lhe o tempo e o esforço normalmente necessários para rastrear e atualizar manualmente cada imagem de aplicação que refere a sua imagem base atualizada.
 
-Quando uma imagem de imagem de si ou de aplicação é atualizada pelo mantenho a montante, por exemplo, com um patch de segurança de OS crítico, também deve atualizar as imagens base para incluir a correção crítica. Cada imagem de aplicação deve então ser reconstruída para incluir estas correções a montante agora incluídas na sua imagem base.
-
-Uma vez que as Tarefas ACR descobrem dinamicamente dependências de imagem base quando constrói uma imagem de contentor, pode detetar quando a imagem base de uma imagem de aplicação é atualizada. Com uma tarefa de [construção](container-registry-tutorial-base-image-update.md#create-a-task)preconfigurada, as Tarefas ACR **reconstroem automaticamente todas as imagens** de aplicação para si. Com esta deteção e reconstrução automáticas, as Tarefas ACR poupam-lhe o tempo e o esforço normalmente necessários para rastrear e atualizar manualmente cada imagem de aplicação que refere a sua imagem base atualizada.
-
-Para a imagem construída a partir de um Dockerfile, uma tarefa ACR rastreia uma atualização de imagem base quando a imagem base está num dos seguintes locais:
-
-* O mesmo registo de contentores Azure onde a tarefa é executado
-* Outro registo de contentores Azure na mesma região 
-* Um repo público em Docker Hub
-* Um repo público no Registo de Contentores da Microsoft
-
-> [!NOTE]
-> * O gatilho de atualização de imagem base é ativado por padrão numa tarefa ACR. 
-> * Atualmente, as Tarefas ACR apenas rastreiam atualizações de imagem base para imagens de aplicação (tempo de*execução).* A Cr Tasks não rastreia as atualizações de imagem base para imagens intermédias (tempo de*construção)* utilizadas em ficheiros Destivadores em várias fases. 
-
-Saiba mais sobre o OS e o patching de quadros no terceiro tutorial de Tarefas ACR, a [imagem automate baseia-se na atualização de imagem base com as Tarefas de Registo de Contentores Azure](container-registry-tutorial-base-image-update.md).
+Saiba mais sobre [os gatilhos](container-registry-tasks-base-images.md) de atualização de imagem base para tarefas ACR. E aprender a desencadear uma construção de imagem quando uma imagem de base é empurrada para um registo de contentores no tutorial [automate imagem do contentor constrói quando uma imagem base é atualizada num registo de contentores Azure](container-registry-tutorial-base-image-update.md)
 
 ## <a name="schedule-a-task"></a>Agendar uma tarefa
 
@@ -101,12 +87,12 @@ As tarefas em várias etapas fornecem definição e execução de tarefas basead
 
 Por exemplo, pode criar uma tarefa em várias etapas que automatiza o seguinte:
 
-1. Criar uma imagem de aplicativo Web
-1. Executar o contêiner do aplicativo Web
-1. Criar uma imagem de teste de aplicativo Web
+1. Construir uma imagem de aplicação web
+1. Executar o recipiente de aplicação web
+1. Construir uma imagem de teste de aplicação web
 1. Executar o recipiente de teste de aplicação web, que realiza testes contra o recipiente de aplicação em execução
-1. Se os testes forem aprovados, crie um pacote de arquivo gráfico do Helm
-1. Executar um `helm upgrade` usando o novo pacote de arquivo de gráfico Helm
+1. Se os testes passarem, construa um pacote de arquivo de gráfico helm
+1. Execute uma `helm upgrade` usando o novo pacote de arquivo de gráficos Helm
 
 Tarefas em várias etapas permitem dividir o edifício, correr e testar uma imagem em passos mais comportáveis, com suporte inter-passo de dependência. Com tarefas em várias etapas em Tarefas ACR, você tem mais controlo granular sobre a construção de imagem, testes e SISTEMA e fluxos de trabalho de correção de quadros.
 
@@ -152,7 +138,7 @@ az acr task update-run --registry myregistry --run-id cf11 --no-archive false
 
 Quando estiver pronto para automatizar a imagem do contentor e a manutenção na nuvem, confira a [série tutorial ACR Tasks](container-registry-tutorial-quick-task.md).
 
-Opcionalmente, instale a [extensão do Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e a extensão de [conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) para trabalhar com seus registros de contêiner do Azure. Efetuar pull e enviar imagens por push para um registro de contêiner do Azure ou executar tarefas de ACR, tudo no Visual Studio Code.
+Instale opcionalmente a [extensão do Docker para código](https://code.visualstudio.com/docs/azure/docker) de estúdio visual e a extensão [da Conta Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) para trabalhar com os registos de contentores Azure. Puxe e empurre as imagens para um registo de contentores Azure, ou execute tarefas ACR, todas dentro do Código do Estúdio Visual.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

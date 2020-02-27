@@ -3,14 +3,14 @@ author: mmacy
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 02/26/2020
 ms.author: marsma
-ms.openlocfilehash: 9612abbe078ab8d9e8c10c2da923a9a9b233d094
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 4cf8eba9632c51ce9b5bcc42feae2446348890c2
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373116"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77651735"
 ---
 ## <a name="use-custom-page-content"></a>Use conteúdo de página personalizado
 
@@ -61,7 +61,7 @@ Ao utilizar os seus próprios ficheiros HTML e CSS para personalizar o UI, apres
 ## <a name="guidelines-for-using-custom-page-content"></a>Diretrizes para usar conteúdo de página personalizada
 
 - Utilize um URL absoluto quando incluir recursos externos como ficheiros de mídia, CSS e JavaScript no seu ficheiro HTML.
-- Adicione o atributo `data-preload="true"` nas suas tags HTML para controlar a ordem de carga para CSS e JavaScript. Com `data-preload=true`, a página é construída antes de ser mostrada ao utilizador. Este atributo ajuda a evitar que a página "cintile" pré-carregando o ficheiro CSS, sem que o HTML não-estilo seja mostrado ao utilizador. O seguinte código HTML mostra a utilização da etiqueta `data-preload`.
+- Utilizando a versão de layout da [página](../articles/active-directory-b2c/page-layout.md) 1.2.0 ou superior, pode adicionar o `data-preload="true"` atributo nas suas tags HTML para controlar a ordem de carga para CSS e JavaScript. Com `data-preload=true`, a página é construída antes de ser mostrada ao utilizador. Este atributo ajuda a evitar que a página "cintile" pré-carregando o ficheiro CSS, sem que o HTML não-estilo seja mostrado ao utilizador. O seguinte código HTML mostra a utilização da etiqueta `data-preload`.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
@@ -113,7 +113,7 @@ Neste artigo, usamos o armazenamento de BLOBs do Azure para hospedar nosso conte
 
 Para alojar o seu conteúdo HTML no armazenamento blob, execute os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No menu **Hub,** selecione **new** > **Storage** > **Storage .**
 1. Selecione uma **Subscrição** para a sua conta de armazenamento.
 1. Crie um **grupo de Recursos** ou selecione um existente.

@@ -8,12 +8,12 @@ ms.date: 2/10/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5f576d28d30907f3834600d0a6a5c152025cf912
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a5c754373ba9437c631e62acbb5d6d246db4c862
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133446"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650763"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treine e implante um modelo de Aprendizagem automática Azure
 
@@ -83,7 +83,7 @@ Vamos rever os ficheiros que fez no seu projeto Decadernos Azure. As atividades 
 * **01-turbofan\_regressão.ipynb:** Este caderno utiliza o espaço de trabalho do serviço machine learning para criar e executar uma experiência de aprendizagem automática. Em termos gerais, o caderno faz os seguintes passos:
 
   1. Descarrega dados da conta De armazenamento azure que foi gerado pelo arnês do dispositivo.
-  1. Explora e prepara dados para formação e o modelo de anúncio sinuoso.
+  1. Explora e prepara os dados, depois utiliza os dados para treinar o modelo de classificação.
   1. Avalie o modelo a partir da experiência utilizando um conjunto de dados de teste (Teste\_FD003.txt).
   1. Publica o melhor modelo de classificação para o espaço de trabalho do serviço de Aprendizagem automática.
 

@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de conexão no Azure AD Domain Services | Microsoft Docs
-description: Saiba como solucionar problemas e erros comuns de entrada de usuário no Azure Active Directory Domain Services.
+title: Sinal de resolução de problemas em problemas nos Serviços de Domínio da AD Azure  Microsoft Docs
+description: Saiba como resolver o sinal de utilizador comum em problemas e erros nos Serviços de Domínio de Diretório Ativo Azure.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -10,69 +10,69 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: aa03e388019bf696324ea7af6062ec98386df5fa
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0585ced3bc53f216ab203b4686b5800b5e14bbbd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827056"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612739"
 ---
-# <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solucionar problemas de conexão de conta com um Azure AD Domain Services domínio gerenciado
+# <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Problemas de entrada na conta com um domínio gerido pelos Serviços de Domínio Da Azure AD
 
-Os motivos mais comuns para uma conta de usuário que não podem entrar em um domínio gerenciado do Azure AD DS incluem os seguintes cenários:
+As razões mais comuns para uma conta de utilizador que não pode iniciar sessão num domínio gerido pelo Azure AD DS incluem os seguintes cenários:
 
-* [A conta ainda não está sincronizada com o Azure AD DS.](#account-isnt-synchronized-into-azure-ad-ds-yet)
-* [O Azure AD DS não tem os hashes de senha para permitir que a conta entre.](#azure-ad-ds-doesnt-have-the-password-hashes)
+* [A conta ainda não está sincronizada no Azure AD DS.](#account-isnt-synchronized-into-azure-ad-ds-yet)
+* [O Azure AD DS não tem a palavra-passe hashes para deixar a conta entrar.](#azure-ad-ds-doesnt-have-the-password-hashes)
 * [A conta está bloqueada.](#the-account-is-locked-out)
 
 > [!TIP]
-> O Azure AD DS não pode sincronizar em credenciais para contas externas ao locatário do Azure AD. Os usuários externos não podem entrar no domínio gerenciado AD DS do Azure.
+> A Azure AD DS não pode sincronizar em credenciais para contas externas ao inquilino da AD Azure. Os utilizadores externos não podem iniciar sessão no domínio gerido pelo Azure AD DS.
 
 ## <a name="account-isnt-synchronized-into-azure-ad-ds-yet"></a>A conta ainda não está sincronizada no Azure AD DS
 
-Dependendo do tamanho do seu diretório, pode levar algum tempo para que as contas de usuário e os hashes de credenciais estejam disponíveis no Azure AD DS. Para diretórios grandes, essa sincronização unidirecional inicial do Azure AD pode levar algumas horas e até um ou dois dias. Certifique-se de Aguardar tempo suficiente antes de tentar novamente a autenticação.
+Dependendo do tamanho do seu diretório, pode demorar algum tempo para que as contas dos utilizadores e hashes credenciais estejam disponíveis no Azure AD DS. Para grandes diretórios, esta sincronização inicial de ida do Azure AD pode demorar algumas horas, e até um dia ou dois. Certifique-se de que espera o suficiente para voltar a tentar a autenticação.
 
-Para ambientes híbridos que o usuário Azure AD Connect para sincronizar dados do diretório local no Azure AD, certifique-se de executar a versão mais recente do Azure AD Connect e ter [configurado o Azure ad Connect para executar uma sincronização completa depois de habilitar o Azure AD DS][azure-ad-connect-phs]. Se você desabilitar o Azure AD DS e, em seguida, reabilitar, será necessário seguir estas etapas novamente.
+Para ambientes híbridos que o utilizador Azure AD Connect sincronize os dados de diretório no local no Azure AD, certifique-se de que executa a versão mais recente do Azure AD Connect e configurou o [Azure AD Connect para realizar uma sincronização completa após ativar o Azure AD DS][azure-ad-connect-phs]. Se desativar o Azure AD DS e, em seguida, voltar a ativar, tem de seguir estes passos novamente.
 
-Se você continuar tendo problemas com as contas que não estão sincronizando por meio do Azure AD Connect, reinicie o serviço Azure AD Sync. No computador com Azure AD Connect instalado, abra uma janela de prompt de comando e execute os seguintes comandos:
+Se continuar a ter problemas com contas que não sincronizam através do Azure AD Connect, reinicie o Serviço de Sincronização Azure AD. A partir do computador com Azure AD Connect instalado, abra uma janela de comando rápida e execute os seguintes comandos:
 
 ```console
 net stop 'Microsoft Azure AD Sync'
 net start 'Microsoft Azure AD Sync'
 ```
 
-## <a name="azure-ad-ds-doesnt-have-the-password-hashes"></a>O Azure AD DS não tem os hashes de senha
+## <a name="azure-ad-ds-doesnt-have-the-password-hashes"></a>Azure AD DS não tem as hashes de senha
 
-O Azure AD não gera ou armazena hashes de senha no formato necessário para a autenticação NTLM ou Kerberos até que você habilite o Azure AD DS para seu locatário. Por motivos de segurança, o Azure AD também não armazena nenhuma credencial de senha no formato de texto não criptografado. Portanto, o Azure AD não pode gerar automaticamente esses hashes de senha NTLM ou Kerberos com base nas credenciais existentes dos usuários.
+A Azure AD não gera nem armazena hashes de senha no formato necessário para a autenticação NTLM ou Kerberos até ativar o Azure AD DS para o seu inquilino. Por razões de segurança, a Azure AD também não armazena credenciais de senha em formato de texto claro. Portanto, a Azure AD não pode gerar automaticamente estas hashes de senha NTLM ou Kerberos com base nas credenciais existentes dos utilizadores.
 
-### <a name="hybrid-environments-with-on-premises-synchronization"></a>Ambientes híbridos com sincronização local
+### <a name="hybrid-environments-with-on-premises-synchronization"></a>Ambientes híbridos com sincronização no local
 
-Para ambientes híbridos que usam Azure AD Connect para sincronizar de um ambiente de AD DS local, você pode gerar e sincronizar localmente os hashes de senha NTLM ou Kerberos necessários no Azure AD. Depois de criar o domínio gerenciado AD DS do Azure, [habilite a sincronização de hash de senha para Azure Active Directory Domain Services][azure-ad-connect-phs]. Sem concluir esta etapa de sincronização de hash de senha, você não pode entrar em uma conta usando o Azure AD DS. Se você desabilitar o Azure AD DS e, em seguida, reabilitar, será necessário seguir essas etapas novamente.
+Para ambientes híbridos que utilizam o Azure AD Connect para sincronizar a partir de um ambiente AD DS no local, pode gerar e sincronizar localmente as hashes de senha NTLM ou Kerberos necessárias para o Azure AD. Depois de criar o seu domínio gerido pelo Azure AD DS, ative a sincronização de hash de [palavra-passe para os Serviços de Domínio de Diretório Ativo Azure][azure-ad-connect-phs]. Sem completar este passo de sincronização de hash de palavra-passe, não pode iniciar sessão numa conta utilizando O DS Azure. Se desativar o Azure AD DS e, em seguida, voltar a ativar, terá de seguir esses passos novamente.
 
-Para obter mais informações, consulte [como funciona a sincronização de hash de senha para o Azure AD DS][phs-process].
+Para mais informações, consulte como funciona a [sincronização de hash de palavra-passe para O DS Azure AD][phs-process].
 
-### <a name="cloud-only-environments-with-no-on-premises-synchronization"></a>Ambientes somente de nuvem sem sincronização local
+### <a name="cloud-only-environments-with-no-on-premises-synchronization"></a>Ambientes só para nuvens sem sincronização no local
 
-O Azure AD DS domínios gerenciados sem sincronização local, somente contas no Azure AD, também precisam gerar os hashes de senha NTLM ou Kerberos necessários. Se uma conta somente em nuvem não puder entrar, um processo de alteração de senha será concluído com êxito para a conta depois de habilitar o Azure AD DS?
+O Azure AD DS geriu domínios sem sincronização no local, apenas contas em Azure AD, também precisam de gerar os hashes de senha NTLM ou Kerberos necessários. Se uma conta apenas na nuvem não conseguir iniciar sessão, tem um processo de alteração de senha concluído com sucesso para a conta depois de ativar o Azure ADS?
 
 * **Não, a senha não foi alterada.**
-    * [Altere a senha da conta][enable-user-accounts] para gerar os hashes de senha necessários e aguarde 15 minutos antes de tentar entrar novamente.
-    * Se você desabilitar o Azure AD DS e, em seguida, reabilitar, cada conta deverá seguir as etapas novamente para alterar a senha e gerar os hashes de senha necessários.
+    * [Altere a palavra-passe para a conta][enable-user-accounts] para gerar as hashes de senha necessárias e, em seguida, aguarde 15 minutos antes de tentar iniciar sessão novamente.
+    * Se desativar o Azure AD DS e, em seguida, voltar a ativar, cada conta deve seguir novamente os passos para alterar a sua palavra-passe e gerar as hashes de senha necessárias.
 * **Sim, a senha foi alterada.**
-    * Tente entrar usando o formato *UPN* , como `driley@contoso.com`, em vez do formato *sAMAccountName* como `CONTOSO\deeriley`.
-    * O *sAMAccountName* pode ser gerado automaticamente para usuários cujo prefixo UPN é muito longo ou é o mesmo que outro usuário no domínio gerenciado. É garantido que o formato *UPN* seja exclusivo em um locatário do Azure AD.
+    * Tente iniciar sessão utilizando o formato *UPN,* como `driley@aaddscontoso.com`, em vez do formato *SAMAccountName* como `AADDSCONTOSO\deeriley`.
+    * O *Nome SAMAccountPode* ser gerado automaticamente para utilizadores cujo prefixo UPN seja excessivamente longo ou seja o mesmo que outro utilizador no domínio gerido. O formato *UPN* é garantido ser único dentro de um inquilino Azure AD.
 
-## <a name="the-account-is-locked-out"></a>A conta está bloqueada
+## <a name="the-account-is-locked-out"></a>A conta está bloqueada.
 
-Uma conta de usuário no Azure AD DS será bloqueada quando um limite definido para tentativas de entrada malsucedidas for atingido. Esse comportamento de bloqueio de conta foi projetado para protegê-lo de tentativas de entrada de força bruta repetidas que podem indicar um ataque digital automatizado.
+Uma conta de utilizador em Azure AD DS é bloqueada quando um limiar definido para tentativas de entrada mal sucedidas foi cumprido. Este comportamento de bloqueio de conta foi concebido para protegê-lo de tentativas repetidas de sinal de força bruta que podem indicar um ataque digital automatizado.
 
-Por padrão, se houver 5 tentativas de senha inadequadas em 2 minutos, a conta será bloqueada por 30 minutos.
+Por predefinição, se houver 5 tentativas de senha em 2 minutos, a conta fica bloqueada durante 30 minutos.
 
-Para obter mais informações e como resolver problemas de bloqueio de conta, consulte [solucionar problemas de bloqueio de conta no Azure AD DS][troubleshoot-account-lockout].
+Para obter mais informações e como resolver problemas de bloqueio de conta, consulte problemas de bloqueio de [conta troubleshoot em Azure AD DS][troubleshoot-account-lockout].
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você ainda tiver problemas para ingressar sua VM no domínio gerenciado AD DS do Azure, [Encontre ajuda e abra um tíquete de suporte para Azure Active Directory][azure-ad-support].
+Se ainda tiver problemas em juntar o seu VM ao domínio gerido pelo Azure AD DS, encontre ajuda e abra um bilhete de apoio para o [Azure Ative Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md

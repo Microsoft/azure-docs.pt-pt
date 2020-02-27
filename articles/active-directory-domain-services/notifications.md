@@ -1,6 +1,6 @@
 ---
-title: Notificações por email para Azure AD Domain Services | Microsoft Docs '
-description: Saiba como configurar notificações por email para alertar sobre problemas em um domínio gerenciado Azure Active Directory Domain Services
+title: Notificações por e-mail para Serviços de Domínio Azure AD  Microsoft Docs'
+description: Saiba configurar notificações de e-mail para alertá-lo sobre questões num domínio gerido pelo Azure Ative Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,78 +11,78 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 140edb3162d4f76c741a5692faa19325581a3ba7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5507579338ad0d87bc6223b56283fe7ed46af7d8
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704497"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613293"
 ---
-# <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurar notificações por email para problemas no Azure Active Directory Domain Services
+# <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configure notificações de e-mail para problemas em Serviços de Domínio de Diretório Ativo Azure
 
-A integridade de um domínio gerenciado do Azure Active Directory Domain Services (AD DS do Azure) é monitorada pela plataforma do Azure. A página status de integridade na portal do Azure mostra todos os alertas para o domínio gerenciado. Para garantir que os problemas sejam respondidos em tempo hábil, as notificações por email podem ser configuradas para relatar alertas de integridade assim que forem detectados no domínio gerenciado do Azure AD DS.
+A saúde de um domínio gerido pelo Azure Ative Directory (Azure AD DS) é monitorizada pela plataforma Azure. A página de estado de saúde no portal Azure mostra quaisquer alertas para o domínio gerido. Para garantir que os problemas são respondidos atempadamente, as notificações por e-mail podem ser configuradas para reportar alertas de saúde assim que forem detetadas no domínio gerido pelo Azure AD DS.
 
-Este artigo mostra como configurar destinatários de notificação por email para um domínio gerenciado do Azure AD DS.
+Este artigo mostra-lhe como configurar destinatários de notificação de e-mail para um domínio gerido pelo Azure AD DS.
 
-## <a name="email-notification-overview"></a>Visão geral da notificação por email
+## <a name="email-notification-overview"></a>Visão geral da notificação de e-mail
 
-Para alertá-lo sobre problemas com um domínio gerenciado do Azure AD DS, você pode configurar notificações por email. Essas notificações de email especificam o domínio gerenciado do Azure AD DS em que o alerta está presente, bem como a hora da detecção e um link para a página de integridade na portal do Azure. Em seguida, você pode seguir o aviso de solução de problemas fornecido para resolver os problemas.
+Para alertá-lo de problemas com um domínio gerido pelo Azure AD DS, pode configurar notificações de e-mail. Estas notificações por e-mail especificam o domínio gerido pelo Azure AD DS em que o alerta está presente, bem como dar o tempo de deteção e um link para a página de saúde no portal Azure. Em seguida, pode seguir os conselhos de resolução de problemas fornecidos para resolver os problemas.
 
-O exemplo de notificação por email a seguir indica que um aviso crítico ou alerta foi gerado no domínio gerenciado AD DS do Azure:
+O seguinte exemplo de notificação por e-mail indica que foi gerado um aviso crítico ou alerta no domínio gerido pela AD DS do Azure:
 
-![Exemplo de notificação por email](./media/active-directory-domain-services-alerts/email-alert.png)
+![Notificação de e-mail de exemplo](./media/active-directory-domain-services-alerts/email-alert.png)
 
 > [!WARNING]
-> Sempre verifique se o email é proveniente de um Microsoft Sender verificado antes de clicar nos links na mensagem. As notificações por email são sempre provenientes do endereço `azure-noreply@microsoft.com`.
+> Certifique-se sempre de que o e-mail vem de um remetente verificado da Microsoft antes de clicar nos links da mensagem. As notificações por e-mail são sempre do endereço `azure-noreply@microsoft.com`.
 
-### <a name="why-would-i-receive-email-notifications"></a>Por que eu receberia notificações por email?
+### <a name="why-would-i-receive-email-notifications"></a>Por que receberia notificações por e-mail?
 
-O Azure AD DS envia notificações por email para atualizações importantes sobre o domínio gerenciado. Essas notificações são apenas para problemas urgentes que afetam o serviço e devem ser resolvidas imediatamente. Cada notificação por email é disparada por um alerta no domínio gerenciado AD DS do Azure. Os alertas também aparecem na portal do Azure e podem ser exibidos na página de [integridade do AD DS do Azure][check-health].
+O Azure AD DS envia notificações por e-mail para atualizações importantes sobre o domínio gerido. Estas notificações são apenas para questões urgentes que impactam o serviço e devem ser tratadas imediatamente. Cada notificação por e-mail é desencadeada por um alerta sobre o domínio gerido pelo Azure AD DS. Os alertas também aparecem no portal Azure e podem ser vistos na página de [saúde Azure AD DS][check-health].
 
-O Azure AD DS não envia emails para fins de anúncio, atualizações ou vendas.
+O Azure AD DS não envia e-mails para fins de publicidade, atualizações ou vendas.
 
-### <a name="when-will-i-receive-email-notifications"></a>Quando receberei notificações por email?
+### <a name="when-will-i-receive-email-notifications"></a>Quando receberei notificações por e-mail?
 
-Uma notificação é enviada imediatamente quando um [novo alerta][troubleshoot-alerts] é encontrado em um domínio gerenciado AD DS do Azure. Se o alerta não for resolvido, as notificações de email adicionais serão enviadas como um lembrete a cada quatro dias.
+Uma notificação é enviada imediatamente quando um [novo alerta][troubleshoot-alerts] é encontrado num domínio gerido pela AD DS azure. Se o alerta não for resolvido, as notificações adicionais de e-mail são enviadas como um lembrete a cada quatro dias.
 
-### <a name="who-should-receive-the-email-notifications"></a>Quem deve receber as notificações por email?
+### <a name="who-should-receive-the-email-notifications"></a>Quem deve receber as notificações de e-mail?
 
-A lista de destinatários de email para o Azure AD DS deve ser composta por pessoas que são capazes de administrar e fazer alterações no domínio gerenciado. Essa lista de emails deve ser considerada como seus "primeiros respondentes" a quaisquer alertas e problemas.
+A lista de destinatários de e-mail para AD DS Azure deve ser composta por pessoas que são capazes de administrar e fazer alterações no domínio gerido. Esta lista de e-mails deve ser considerada como os seus "socorristas" para quaisquer alertas e problemas.
 
-Você pode adicionar até cinco destinatários de email adicionais para notificações por email. Se você quiser mais de cinco destinatários para notificações por email, crie uma lista de distribuição e adicione-a à lista de notificações em vez disso.
+Pode adicionar até cinco destinatários adicionais de e-mail para notificações por e-mail. Se quiser mais de cinco destinatários para notificações por e-mail, crie uma lista de distribuição e adicione-a à lista de notificações.
 
-Você também pode optar por ter todos os *administradores globais* do diretório do Azure AD e cada membro do grupo de *Administradores do AAD DC* receber notificações por email. O Azure AD DS envia somente a notificação para até 100 endereços de email, incluindo a lista de administradores globais e os administradores do AAD DC.
+Também pode optar por ter todos os *Administradores Globais* do diretório Azure AD e todos os membros do grupo de administradores da *AAD DC* recebem notificações por e-mail. A Azure AD DS apenas envia notificação para até 100 endereços de e-mail, incluindo a lista de administradores globais e administradores da AAD DC.
 
 ## <a name="configure-email-notifications"></a>Configurar as notificações por e-mail
 
-Para examinar os destinatários de notificação por email existentes ou Adicionar destinatários adicionais, conclua as seguintes etapas:
+Para rever os destinatários de notificação de e-mail existentes ou adicionar destinatários adicionais, preencha os seguintes passos:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**.
-1. Selecione seu domínio gerenciado AD DS do Azure, como *aadds.contoso.com*.
-1. No lado esquerdo da janela de recursos do AD DS do Azure, selecione **configurações de notificação**. Os destinatários existentes para notificações por email são mostrados.
-1. Para adicionar um destinatário de email, insira o endereço de email na tabela destinatários adicionais.
-1. Quando terminar, selecione **salvar** na navegação superior.
+1. No portal Azure, procure e selecione Serviços de **Domínio Azure AD**.
+1. Selecione o seu domínio gerido pelo Azure AD DS, como *aaddscontoso.com*.
+1. No lado esquerdo da janela de recursos Azure AD DS, selecione definições de **Notificação**. Os destinatários existentes para notificações por e-mail são mostrados.
+1. Para adicionar um destinatário de e-mail, insira o endereço de e-mail na tabela de destinatários adicional.
+1. Quando terminar, selecione **Guardar** na navegação em cima.
 
 > [!WARNING]
-> Quando você altera as configurações de notificação, as configurações de notificação para todo o domínio gerenciado do Azure AD DS são atualizadas, não apenas por conta própria.
+> Ao alterar as definições de notificação, as definições de notificação de todo o domínio gerido pelo Azure AD DS são atualizadas e não apenas a si mesmo.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>Recebi uma notificação por email para um alerta, mas quando fiz logon no portal do Azure não havia nenhum alerta. O que aconteceu?
+### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>Recebi uma notificação por e-mail para um alerta, mas quando entrei no portal Azure não houve alerta. O que aconteceu?
 
-Se um alerta for resolvido, o alerta será removido da portal do Azure. O motivo mais provável é que outra pessoa que recebe notificações por email resolveu o alerta no domínio gerenciado AD DS do Azure ou foi automaticamente resolvido pela plataforma Azure.
+Se um alerta for resolvido, o alerta é retirado do portal Azure. A razão mais provável é que alguém que recebe notificações de e-mail resolveu o alerta no domínio gerido pela AD DS do Azure, ou foi auto-resolvido pela plataforma Azure.
 
-### <a name="why-can-i-not-edit-the-notification-settings"></a>Por que não posso editar as configurações de notificação?
+### <a name="why-can-i-not-edit-the-notification-settings"></a>Por que não posso editar as definições de notificação?
 
-Se não for possível acessar a página de configurações de notificação no portal do Azure, você não terá as permissões para editar o domínio gerenciado do Azure AD DS. Você deve entrar em contato com um administrador global para obter permissões para editar o recurso de AD DS do Azure ou ser removido da lista de destinatários.
+Se não conseguir aceder à página de definições de notificação no portal Azure, não tem permissões para editar o domínio gerido pelo Azure AD DS. Deve contactar um administrador global para obter permissões para editar o recurso Azure AD DS ou ser removido da lista de destinatários.
 
-### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Não parece que estou recebendo notificações por email, embora eu tenha fornecido meu endereço de email. Porquê?
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Não estou a receber notificações por e-mail, apesar de ter fornecido o meu endereço de e-mail. Porquê?
 
-Verifique sua pasta de spam ou lixo eletrônico em seu email para a notificação e certifique-se de permitir o remetente da `azure-noreply@microsoft.com`.
+Verifique o seu spam ou pasta de lixo no seu e-mail para a notificação e certifique-se de que permite o remetente de `azure-noreply@microsoft.com`.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como solucionar alguns dos problemas que podem ser relatados, consulte [resolver alertas em um domínio gerenciado do Azure AD DS][troubleshoot-alerts].
+Para obter mais informações sobre a resolução de problemas de alguns dos problemas que podem ser relatados, consulte [alertas Resolve sobre um domínio gerido pela AD DS azure][troubleshoot-alerts].
 
 <!-- INTERNAL LINKS -->
 [check-health]: check-health.md

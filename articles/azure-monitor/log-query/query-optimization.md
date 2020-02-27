@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2019
-ms.openlocfilehash: cd48f29d1f3866a4cd6893746dc44999b8aba24b
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
-ms.translationtype: HT
+ms.openlocfilehash: 521fd84e79196439ea220bd7ffa7cc6d0750f045
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622912"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648840"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Monitor Azure
 O Azure Monitor Logs utiliza o [Azure Data Explorer (ADX)](/azure/data-explorer/) para armazenar dados de registo e executar consultas para analisar esses dados. Cria, gere e mantém os clusters ADX para si e otimiza-os para a sua carga de trabalho de análise de registo. Quando executa uma consulta, está otimizada e encaminhada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Tanto o Azure Monitor Logs como o Azure Data Explorer utilizam muitos mecanismos automáticos de otimização de consultas. Embora as otimizações automáticas ofereçam um impulso significativo, são em alguns casos em que pode melhorar drasticamente o seu desempenho de consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -38,11 +38,11 @@ Os seguintes indicadores de desempenho de consulta estão disponíveis para cada
 
 - [CpU total](#total-cpu): A computação geral usada para processar a consulta em todos os nós de computação. Representa o tempo usado para computação, análise e recolha de dados. 
 
-- [Volume de dados](#data-volume): Dados globais que foram acedidos para processar a consulta. Influenciado pelo tamanho da tabela-alvo, tempo utilizado, filtros aplicados e pelo número de colunas referenciadas.
+- [Dados utilizados para consulta processada](#data-used-for-processed-query): Dados globais que foram acedidos para processar a consulta. Influenciado pelo tamanho da tabela-alvo, tempo utilizado, filtros aplicados e pelo número de colunas referenciadas.
 
-- [Intervalo](#time-range)de tempo : O fosso entre os dados mais recentes e os mais antigos que foi acedido para processar a consulta. Influenciado pelo intervalo de tempo explícito especificado para a consulta.
+- [Tempo da consulta processada](#time-span-of-the-processed-query): O fosso entre os dados mais recentes e os mais antigos que foi acedido para processar a consulta. Influenciado pelo intervalo de tempo explícito especificado para a consulta.
 
-- [Idade dos dados](#age-of-data): O fosso entre agora e os dados mais antigos que foi acedido para processar a consulta. Influencia fortemente a eficiência da recolha de dados.
+- [Idade dos dados processados](#age-of-processed-data): O fosso entre agora e os dados mais antigos que foi acedido para processar a consulta. Influencia fortemente a eficiência da recolha de dados.
 
 - [Número de espaços de trabalho](#number-of-workspaces): Quantos espaços de trabalho foram acedidos durante o processamento de consulta devido à seleção implícita ou explícita.
 
@@ -151,7 +151,7 @@ Heartbeat
 > Este indicador apresenta apenas CPU do cluster imediato. Em consultas multi-regiões, representaria apenas uma das regiões. Em consulta multi-workspace, pode não incluir todos os espaços de trabalho.
 
 
-## <a name="data-volume"></a>Volume de dados
+## <a name="data-used-for-processed-query"></a>Dados utilizados para consulta processada
 
 Um fator crítico no processamento da consulta é o volume de dados que é digitalizado e utilizado para o processamento de consulta. O Azure Data Explorer utiliza otimizações agressivas que reduzem drasticamente o volume de dados em comparação com outras plataformas de dados. Ainda assim, existem fatores críticos na consulta que podem afetar o volume de dados que é usado.
 Nos Registos do Monitor Azure, a coluna **TimeGenerated** é usada como forma de indexar os dados. Restringir os valores **gerados** pelo tempo para uma gama tão estreita quanto possível fará uma melhoria significativa no desempenho da consulta, limitando significativamente a quantidade de dados que tem de ser processado.
@@ -209,7 +209,7 @@ SecurityEvent
 | summarize count(), dcount(EventID), avg(Level) by Computer  
 ```
 
-## <a name="time-range"></a>Intervalo de tempo
+## <a name="time-span-of-the-processed-query"></a>Tempo da consulta processada
 
 Todos os registos em Registos do Monitor Azure são divididos de acordo com a coluna **TimeGenerated.** O número de divisórias acedidas está diretamente relacionado com o período de tempo. Reduzir o intervalo de tempo é a forma mais eficiente de assegurar uma rápida execução de consultas.
 
@@ -262,7 +262,7 @@ by Computer
 > [!IMPORTANT]
 > Este indicador não está disponível para consultas de região transversal.
 
-## <a name="age-of-data"></a>Idade dos dados
+## <a name="age-of-processed-data"></a>Idade dos dados processados
 O Azure Data Explorer utiliza vários níveis de armazenamento: em memória, discos SSD locais e blobs Azure muito mais lentos. Quanto mais recentes forem os dados, maior é a possibilidade de ser armazenado num nível mais performante com menor latência, reduzindo a duração da consulta e cpu. Além dos dados em si, o sistema também tem uma cache para metadados. Quanto mais velhos forem os dados, menos hipóteses os seus metadados estarão em cache.
 
 Embora algumas consultas exijam o uso de dados antigos, há casos em que dados antigos são usados por engano. Isto acontece quando as consultas são executadas sem fornecer intervalo de tempo nos seus metadados e nem todas as referências de tabela incluem filtro na coluna **TimeGenerated.** Nestes casos, o sistema irá digitalizar todos os dados armazenados nessa tabela. Quando a retenção de dados é longa, pode abranger intervalos de longo prazo e, portanto, dados tão antigos como o período de retenção de dados.

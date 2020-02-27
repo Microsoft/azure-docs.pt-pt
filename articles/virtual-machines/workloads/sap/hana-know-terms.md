@@ -3,8 +3,8 @@ title: Conheça os termos do SAP HANA em Azure (Grandes Instâncias) / Microsoft
 description: Conheça os termos do SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9719f1a081da688501e6dbea0fc1b865168077c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 6785ae821f701121185f0064c6317c69d50191ab
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591222"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617055"
 ---
 # <a name="know-the-terms"></a>Conhecer os termos
 
