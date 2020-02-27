@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 694697be85b61ad2d59a0a4be1ced3581873cb77
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111747"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648500"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -161,28 +161,27 @@ Este repositório contém:
 
 **Para janelas:**
 
-• TelemettryMQTTWin32: contém código para enviar uma mensagem de telemetria para um hub Azure IoT, construído e executado numa máquina Windows.
+* TelemettryMQTTWin32: contém código para enviar uma mensagem de telemetria para um hub Azure IoT, construído e executado numa máquina windows.
 
-• Inscreva-seMQTTWin32: contém código para subscrever eventos de um determinado hub IoT numa máquina Windows.
+* SubscritoMQTTWin32: contém código para subscrever eventos de um determinado hub IoT numa máquina Windows.
 
-• DispositivoTwinMQTTWin32: contém código para consulta e subscreva o dispositivo eventos gémeos de um dispositivo no hub Azure IoT numa máquina Windows.
+* DispositivoTwinMQTTWin32: contém código para consultar e subscrever o dispositivo eventos gémeos de um dispositivo no hub Azure IoT numa máquina Windows.
 
-• PnPMQTTWin32: contém código para enviar uma mensagem de telemetria com capacidades de pré-visualização IoT Plug & Play para um hub Azure IoT, construído e executado numa máquina Windows. Mais sobre IoT Plug & Play [aqui](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: contém código para enviar uma mensagem de telemetria com capacidades de pré-visualização IoT Plug & Play para um hub Azure IoT, construído e executado numa máquina windows. Mais sobre IoT Plug & Play [aqui](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **Para Linux:**
 
-• MQTTLinux: contém código e guião de construção para executar em Linux (WSL, Ubuntu e Raspbian foram testados até agora).
+* MQTTLinux: contém código e construção script para executar em Linux (WSL, Ubuntu e Raspbian foram testados até agora).
 
-• LinuxConsoleVS2019: contém o mesmo código mas num projeto VS2019 direcionado para a WSL (subsistema Windows Linux). Este projeto permite-lhe depurar o código em execução no Linux passo a passo do Visual Studio.
+* LinuxConsoleVS2019: contém o mesmo código mas num projeto VS2019 direcionado para a WSL (subsistema Windows Linux). Este projeto permite-lhe depurar o código em execução no Linux passo a passo do Visual Studio.
 
 **Para mosquitto_pub:**
 
-• Esta pasta contém duas amostras de comandos utilizados com mosquitto_pub ferramenta de utilidade fornecida por Mosquitto.org.
+Esta pasta contém duas amostras de comandos utilizados com mosquitto_pub ferramenta de utilidade fornecida por Mosquitto.org.
 
-Mosquitto_sendmessage: enviar uma simples mensagem de texto a um hub Azure IoT agindo como um dispositivo.
+* Mosquitto_sendmessage: enviar uma simples mensagem de texto a um hub Azure IoT agindo como um dispositivo.
 
-Mosquitto_subscribe: ver eventos que ocorrem num centro azure ioT.
-
+* Mosquitto_subscribe: ver eventos que ocorrem num centro azure ioT.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Utilização direta do protocolo MQTT (como módulo)
 
@@ -342,7 +341,7 @@ Os códigos de estado possíveis são:
 
 |Estado | Descrição |
 | ----- | ----------- |
-| 204 | Sucesso (nenhum conteúdo é devolvido) |
+| 200 | Êxito |
 | 429 | Demasiados pedidos (estrangulados), de acordo com o [iot hub estrangulando](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Erros do servidor |
 
@@ -373,7 +372,7 @@ Os códigos de estado possíveis são:
 
 |Estado | Descrição |
 | ----- | ----------- |
-| 200 | Êxito |
+| 204 | Sucesso (nenhum conteúdo é devolvido) |
 | 400 | Mau pedido. JSON mal formado |
 | 429 | Demasiados pedidos (estrangulados), de acordo com o [iot hub estrangulando](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Erros do servidor |
@@ -408,7 +407,7 @@ Quando um dispositivo está ligado, o IoT Hub envia notificações para o tema `
 }
 ```
 
-Quanto às atualizações de propriedades, `null` valores significa que o membro do objeto JSON está a ser eliminado. Note ainda que `$version` indica a nova versão da secção de propriedades desejadas do gémeo.
+Quanto às atualizações de propriedades, `null` valores significam que o membro do objeto JSON está a ser eliminado. Note ainda que `$version` indica a nova versão da secção de propriedades desejadas do gémeo.
 
 > [!IMPORTANT]
 > O IoT Hub só gera notificações de alteração quando os dispositivos estão ligados. Certifique-se de implementar o fluxo de [reconexão](iot-hub-devguide-device-twins.md#device-reconnection-flow) do dispositivo para manter as propriedades desejadas sincronizadas entre o IoT Hub e a aplicação do dispositivo.

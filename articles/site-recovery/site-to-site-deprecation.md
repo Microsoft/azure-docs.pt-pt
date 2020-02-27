@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 29a939452d9b90bd8afda7db4e115d10956ee5e5
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 68d975a1b8bb8d47011bb292d3cf897956b31712
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606636"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623608"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Depreciação da recuperação de desastres entre sites geridos pelo cliente (com VMM) utilizando a Recuperação do Site Azure
 
@@ -26,9 +26,9 @@ DR entre sites de propriedade de clientes geridos pelo System Center Virtual Mac
 
 ## <a name="what-changes-should-you-expect"></a>Que mudanças deve esperar?
 
-- A partir de novembro de 2019, não serão permitidos novos utilizadores de embarque para estes cenários. **As replicações e as operações de gestão existentes,** incluindo a falha, a falha do teste, a monitorização, etc. **não serão afetadas.**
+- A partir de março de 2020, receberá notificações do portal Azure e comunicações de email com a próxima depreciação da replicação site-to-site de VMs Hiper-V. A depreciação está prevista para março de 2023.
 
-- Se tiver uma configuração existente, não poderá registar novos VMMs.
+- Se tiver uma configuração existente, não haverá impacto na configuração.
 
 - Uma vez que os cenários são depreciados a menos que o cliente siga as abordagens alternativas, as replicações existentes podem ser interrompidas. Os clientes não poderão visualizar, gerir ou realizar quaisquer operações relacionadas com dr através da experiência azure de recuperação do site no portal Azure.
  

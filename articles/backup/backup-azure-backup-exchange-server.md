@@ -4,12 +4,12 @@ description: Saiba como fazer backup de um servidor de troca para backup azure u
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 813a13739020bed839cc389897704395c77a322d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 389713767409ff49c6fc83a4d6e8dc3c87272fc9
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586500"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614378"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Fazer cópia de segurança de um servidor do Exchange para o Azure Backup com o System Center 2012 R2 DPM
 
@@ -38,8 +38,8 @@ Antes de continuar, certifique-se de que todos os [pré-requisitos](backup-azure
 
 Para instalar o agente de proteção DPM no servidor Exchange, siga estes passos:
 
-1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte as exceções à [firewall configurar para o agente](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758204(v=sc.12)).
-2. Instale o agente no servidor Exchange clicando em **Management > Agents > Instale** na Consola de Administrador DPM. Consulte [a instalação do agente de proteção DPM](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12)) para obter passos detalhados.
+1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte as exceções à [firewall configurar para o agente](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+2. Instale o agente no servidor Exchange clicando em **Management > Agents > Instale** na Consola de Administrador DPM. Consulte [a instalação do agente de proteção DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para obter passos detalhados.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Criar um grupo de proteção para o servidor De troca
 

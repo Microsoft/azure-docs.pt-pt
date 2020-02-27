@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 02/24/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: e74e470ec1f3e26ca6e55e74f20030efdc47f971
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 22f50a6d5136eaff457c24864dae71261a20e13e
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525256"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615606"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância Azure
 
@@ -134,6 +134,7 @@ Código de Estado de HTTP | Razão
 400 Mau Pedido | Falta ndo cabeçalho de `Metadata: true` ou faltando o formato ao consultar um nó de folha
 404 não encontrados | O elemento solicitado não existe
 Método 405 não permitido | Apenas `GET` pedidos são apoiados
+410 Desaparecidos | Retente depois de algum tempo por um máximo de 70 segundos
 429 Pedidos A Mais | A API suporta atualmente um máximo de 5 consultas por segundo
 Erro de serviço 500     | Voltar a tentar depois de algum tempo
 
@@ -454,10 +455,10 @@ Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 atestado | Ver [Dados Attested](#attested-data) | 2018-10-01
 identidade | Identidades geridas para os recursos azure. Ver [adquirir um símbolo de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instance | Ver [Instância API](#instance-api) | 2017-04-02
+instância | Ver [Instância API](#instance-api) | 2017-04-02
 eventos agendados | Ver [Eventos Agendados](scheduled-events.md) | 2017-08-01
 
-#### <a name="instance-api"></a>Instância API
+### <a name="instance-api"></a>Instância API
 
 As seguintes categorias computadas estão disponíveis através da API de instância:
 
@@ -486,7 +487,7 @@ armazenamentoPerfil | Ver [Perfil de Armazenamento](#storage-profile) | 2019-06-
 subscriptionId | Assinatura Azure para a Máquina Virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/management/tag-resources.md) para a sua Máquina Virtual  | 2017-08-01
 tagsList | Tags formatadas como uma matriz JSON para uma análise programática mais fácil  | 2019-06-04
-versão | Versão da imagem VM | 2017-04-02
+version | Versão da imagem VM | 2017-04-02
 vmId | [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para o VM | 2017-04-02
 vmScaleSetName | [Conjunto](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de escala de máquina virtual Nome do seu conjunto de escala de máquina virtual | 2017-12-01
 vmSize | [Tamanho da VM](sizes.md) | 2017-04-02
@@ -569,7 +570,6 @@ Nonce é uma corda opcional de 10 dígitos. Caso não seja fornecido, o IMDS dev
 ```
 
 A bolha de assinatura é uma versão assinada [pkcs7](https://aka.ms/pkcs7) do documento. Contém o certificado utilizado para a assinatura juntamente com os detalhes vM como vmId, sku, nonce, subscriçãoId, timeStamp para criação e expiração do documento e informações do plano sobre a imagem. A informação do plano é apenas povoada para imagens de lugar do Mercado Azure. O certificado pode ser extraído da resposta e utilizado para validar que a resposta é válida e vem do Azure.
-
 
 ## <a name="example-scenarios-for-usage"></a>Exemplos de cenários para uso  
 
@@ -717,12 +717,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 ```
 
 **Resposta**
+
 ```bash
 AzurePublicCloud
 ```
+
 A nuvem e os valores do Ambiente Azure estão listados abaixo.
 
- Nuvem   | Ambiente Azure
+ Cloud   | Ambiente Azure
 ---------|-----------------
 [Todas as regiões globais de Azure geralmente disponíveis](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
@@ -836,12 +838,14 @@ Assim que tiver a assinatura acima, pode verificar se a assinatura é da Microso
 > [!NOTE]
 > O certificado para nuvem pública e nuvem soberana será diferente.
 
- Nuvem | Certificado
+ Cloud | Certificado
 ---------|-----------------
-[Todas as regiões globais de Azure geralmente disponíveis](https://azure.microsoft.com/regions/)     | metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
-[Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
+[Todas as regiões globais de Azure geralmente disponíveis](https://azure.microsoft.com/regions/)     | *.metadata.azure.com
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
+[Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
+
+Há uma emissão conhecida em torno do certificado usado para assinar. Os certificados podem não ter uma correspondência exata de `metadata.azure.com` para a nuvem pública. Por conseguinte, a validação da certificação deve permitir um nome comum de qualquer subdomínio `.metadata.azure.com`.
 
 ```bash
 
@@ -871,7 +875,7 @@ Para certos cenários, ao consultar o Serviço de Metadados de Instância com Cl
 route print
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > A saída de exemplo seguinte de um VM do Windows Server com cluster failover ativado contém apenas a Tabela de Rota IPv4 para a simplicidade.
 
 ```bat
@@ -918,7 +922,7 @@ ID      | ID do Recurso
 oferta   | Oferta da plataforma ou imagem de mercado
 publicador | Editor de imagem
 sku     | Sku de imagem
-versão | Versão da plataforma ou imagem de mercado
+version | Versão da plataforma ou imagem de mercado
 
 O objeto do disco OS contém as seguintes informações sobre o disco OS utilizado pelo VM:
 
@@ -1029,7 +1033,7 @@ Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d08c0b8817c0008a0ecfbab1a9d38243ec0bea79
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eacbeca275192e1a68b6682c3036da2d5c09bd54
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705688"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619878"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Indexer de vídeo frequentemente fez perguntas
 
@@ -59,7 +59,7 @@ Não, o Video Indexer fornece a integração de múltiplos modelos de machine le
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Que formatos de mídia suportam o Video Indexer?
 
-O Video Indexer suporta a maioria dos formatos de multimédia comuns. Consulte a lista de [formatos padrão Do Encoder Azure Media](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) para mais detalhes.
+O Indexer de vídeo suporta os formatos mais comuns dos media. Consulte a lista de [formatos padrão Do Encoder Azure Media](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) para mais detalhes.
 
 ### <a name="how-to-do-i-upload-a-media-into-video-indexer"></a>Como fazer o upload de um meio de comunicação para o Indexer de Vídeo?
 
@@ -76,6 +76,14 @@ Sim, pode integrar o Indexer de Vídeo em tecnologias sem servidores como Aplica
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>Em que as regiões azure estão disponíveis indexadores de vídeo?
 
 Pode ver quais as regiões azure Video Indexer estão disponíveis na página das [regiões.](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all)
+
+### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>Posso personalizar os modelos do Indexer de Vídeo para o meu caso de uso específico? 
+
+Sim. No Indexer de Vídeo pode personalizar alguns dos modelos disponíveis para melhor se adaptar às suas necessidades. 
+
+Por exemplo, o nosso modelo Pessoa suporta 1.000.000 rostos fora da caixa de reconhecimento de celebridades, mas também pode treiná-lo para reconhecer outras faces que não estão nessa base de dados. 
+
+Para mais detalhes, consulte artigos sobre personalizar modelos [pessoa,](customize-person-model-overview.md) [marcas](customize-brands-model-overview.md)e [idiomas.](customize-language-model-overview.md) 
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>O que é o SLA para Indexer de Vídeo?
 
@@ -119,6 +127,21 @@ O Indexer de Vídeo está coberto pela Declaração de Privacidade da [Microsoft
 
 O Indexer de Vídeo tem atualmente a certificação SOC. Para rever a certificação do Indexer de Vídeo, consulte o [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure).
 
+### <a name="what-is-the-difference-between-private-and-public-videos"></a>Qual é a diferença entre vídeos privados e públicos? 
+
+Quando os vídeos são enviados para o Indexer de Vídeo, pode escolher entre duas definições de privacidade: privada seleção pública e privada. Os vídeos públicos são acessíveis a qualquer pessoa, incluindo utilizadores anónimos e não identificados. Os privados são limitados exclusivamente aos membros da conta. 
+
+### <a name="i-tried-to-upload-a-video-as-public-and-it-was-flagged-for-inappropriate-or-offensive-content-what-does-that-mean"></a>Tentei enviar um vídeo como público e foi sinalizado por conteúdo impróprio ou ofensivo, o que significa isso? 
+
+Ao enviar um vídeo para o Video Indexer, uma análise automática de conteúdo é feita por algoritmos e modelos de forma a garantir que nenhum conteúdo impróprio será apresentado publicamente. Se um vídeo for considerado suspeito como contendo conteúdo explícito, não será possível defini-lo como público. No entanto, os membros da conta ainda podem acessá-lo como um vídeo privado (veja-o, descarregue os insights e extraídos artefactos, e execute outras operações disponíveis para os membros da conta).   
+
+Para definir o vídeo para acesso público, pode: 
+
+* Construa a sua própria camada de interface (como app ou website) e use-a para interagir com o serviço De indexante de vídeo. Desta forma o vídeo permanece privado no nosso portal e os seus utilizadores podem interagir com ele através da sua interface. Por exemplo, ainda pode obter as informações ou permitir visualizar o vídeo na sua própria interface. 
+* Solicite uma revisão humana do conteúdo, o que resultaria na remoção da restrição, assumindo que o conteúdo não é explícito. 
+
+    Esta opção pode ser explorada se o website do Indexer de Vídeo for utilizado diretamente pelos seus utilizadores como camada de interface, e para visualização pública (não autenticada). 
+
 ## <a name="api-questions"></a>Perguntas da API
 
 ### <a name="what-apis-does-video-indexer-offer"></a>O que as APIs oferecem o Indexer de Vídeo?
@@ -161,7 +184,7 @@ O Indexer de Vídeo usa um modelo de preços simples com base na duração da en
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando é que sou cobrado por usar o Indexer de Vídeo?
 
-Quando enviar um vídeo para indexação, o utilizador definirá a indexação para análise de vídeo, análise de áudio ou ambas. Isto determinará que SKUs serão cobrados. Em caso de erro de nível crítico durante o processamento, será devolvido um código de erro como resposta. Nesse caso, não ocorre faturação.  Um erro crítico pode ser causado por um erro no nosso código ou uma falha crítica numa dependência interna do serviço. Erros como identificação ou extração de informações incorretas não são considerados críticos e é devolvida uma resposta. Sempre que seja devolvida uma resposta válida (sem ser código de erro), ocorre faturação.
+Ao enviar um vídeo a ser indexado, o utilizador definirá o indexante para ser análise de vídeo, análise de áudio ou ambos. Isto determinará quais as SKUs que serão cobradas. Se houver um erro de nível crítico durante o processamento, um código de erro será devolvido como resposta. Neste caso, não ocorre qualquer faturação.  Um erro crítico pode ser causado por um bug no nosso código ou por uma falha crítica numa dependência interna que o serviço tem. Erros como identificação errada ou extração de insights não são considerados críticos e uma resposta é devolvida. Em qualquer caso em que uma resposta válida (código não-erro) é devolvida, a faturação ocorre.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>O Indexer de Vídeo oferece um teste gratuito?
 

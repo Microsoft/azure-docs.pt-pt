@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 39eacbb9a87fa18cc6ef92e319fbfbd3e415337b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525520"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621936"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -108,7 +108,7 @@ Pode escalar a entrada prevista de um recipiente ou de uma base de dados a qualq
 |RUs atribuídos ou disponíveis para um recipiente específico|Não existem garantias. As RUs atribuídas a um determinado contentor dependem das propriedades. As propriedades podem ser a escolha de chaves de divisória de recipientes que partilham a entrada, a distribuição da carga de trabalho e o número de contentores. |Todos os RUs configurados no contentor exclusivamente estão reservados para o contentor.|
 |Armazenamento máximo para um contentor|Ilimitado.|Ilimitado.|
 |Débito máximo por partição lógica de um contentor|10 mil RUs|10 mil RUs|
-|Armazenamento máximo (dados + índice) por partição lógica de um contentor|10 GB|10 GB|
+|Armazenamento máximo (dados + índice) por partição lógica de um contentor|20 GB|20 GB|
 
 ## <a name="next-steps"></a>Passos seguintes
 

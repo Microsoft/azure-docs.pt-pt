@@ -4,12 +4,12 @@ description: Instalação de resolução de problemas, registo do Servidor de Ba
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 3a83c496191baaebc30f6fe0aedda790827644cb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 018a6cee3f00531752684b12f4988cac174d3d26
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605740"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617579"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -32,7 +32,7 @@ Recomendamos que execute a validação abaixo, antes de começar a resolver prob
 
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
-| Registrando-se em um cofre | Foram fornecidas credenciais de cofre inválidas. O ficheiro é corrompido ou não tem as últimas credenciais associadas ao serviço de recuperação. | Ação recomendada: <br> <ul><li> Descarregue o ficheiro de credenciais mais recentes do cofre e tente de novo. <br>(OU)</li> <li> Se a ação anterior não funcionou, tente transferir as credenciais para um diretório local diferente ou crie um novo cofre. <br>(OU)</li> <li> Tente atualizar as definições de data e hora como descrito [neste blog](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/). <br>(OU)</li> <li> Verifique se c:\windows\tem mais de 65000 ficheiros. Desloque os ficheiros velhos para outro local ou elimine os itens da pasta Temp. <br>(OU)</li> <li> Verifique o estado dos certificados. <br> a. **Open Manage Certificados de computador** (no Painel de Controlo). <br> b. Expandir o nó **pessoal** e os **certificados**de nó infantil.<br> c.  Remova o certificado **Ferramentas Windows Azure**. <br> d. Retry o registo no cliente Azure Backup. <br> (OU) </li> <li> Verifique se existe alguma política de grupo. </li></ul> |
+| Registrando-se em um cofre | Foram fornecidas credenciais de cofre inválidas. O ficheiro é corrompido ou não tem as últimas credenciais associadas ao serviço de recuperação. | Ação recomendada: <br> <ul><li> Descarregue o ficheiro de credenciais mais recentes do cofre e tente de novo. <br>(OU)</li> <li> Se a ação anterior não funcionou, tente transferir as credenciais para um diretório local diferente ou crie um novo cofre. <br>(OU)</li> <li> Tente atualizar as definições de data e hora descritas [neste artigo](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#invalid-vault-credentials-provided). <br>(OU)</li> <li> Verifique se c:\windows\tem mais de 65000 ficheiros. Desloque os ficheiros velhos para outro local ou elimine os itens da pasta Temp. <br>(OU)</li> <li> Verifique o estado dos certificados. <br> a. **Open Manage Certificados de computador** (no Painel de Controlo). <br> b. Expandir o nó **pessoal** e os **certificados**de nó infantil.<br> c.  Remova o certificado **Ferramentas Windows Azure**. <br> d. Retry o registo no cliente Azure Backup. <br> (OU) </li> <li> Verifique se existe alguma política de grupo. </li></ul> |
 
 ## <a name="replica-is-inconsistent"></a>A réplica é inconsistente
 
@@ -62,7 +62,7 @@ Recomendamos que execute a validação abaixo, antes de começar a resolver prob
 
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
-| Empurrar agentes para servidores protegidos | A operação do agente falhou devido a um erro de comunicação com o serviço de Coordenador do Agente DPM na \<ServerName>. | **Se a ação recomendada no produto não funcionar, então execute os seguintes passos:** <ul><li> Se estiver a ligar um computador a partir de um domínio não confiável, siga [estes passos](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757801(v=sc.12)). <br> (OU) </li><li> Se estiver a anexar um computador a partir de um domínio de confiança, saque de problemas utilizando os passos descritos [neste blog](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>(OU)</li><li> Tente desativar o antivírus como um passo de resolução de problemas. Se resolver o problema, modifique as definições antivírus, tal como sugerido [neste artigo](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).</li></ul> |
+| Empurrar agentes para servidores protegidos | A operação do agente falhou devido a um erro de comunicação com o serviço de Coordenador do Agente DPM na \<ServerName>. | **Se a ação recomendada no produto não funcionar, então execute os seguintes passos:** <ul><li> Se estiver a ligar um computador a partir de um domínio não confiável, siga [estes passos](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> (OU) </li><li> Se estiver a anexar um computador a partir de um domínio de confiança, saque de problemas utilizando os passos descritos [neste blog](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>(OU)</li><li> Tente desativar o antivírus como um passo de resolução de problemas. Se resolver o problema, modifique as definições antivírus, tal como sugerido [neste artigo](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Configuração não conseguiu atualizar metadados de registo
 
@@ -75,7 +75,7 @@ Recomendamos que execute a validação abaixo, antes de começar a resolver prob
 
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
-| Empurrar agentes para servidores protegidos | As credenciais especificadas para o servidor são inválidas. | **Se a ação recomendada que é mostrada no produto não funcionar, tome as seguintes medidas:** <br> Tente instalar o agente de proteção manualmente no servidor de produção, conforme especificado [neste artigo](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12)).|
+| Empurrar agentes para servidores protegidos | As credenciais especificadas para o servidor são inválidas. | **Se a ação recomendada que é mostrada no produto não funcionar, tome as seguintes medidas:** <br> Tente instalar o agente de proteção manualmente no servidor de produção, conforme especificado [neste artigo](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).|
 | O Agente de Backup Azure não conseguiu ligar-se ao serviço de backup Azure (ID: 100050) | O Agente de Apoio Azure não conseguiu ligar-se ao serviço de backup Azure. | **Se a ação recomendada que é mostrada no produto não funcionar, tome as seguintes medidas:** <br>1. Executar o seguinte comando a partir de um pedido elevado: **psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**. Isto abre a janela do Internet Explorer. <br/> 2. Vá às **ferramentas** > **Opções** de Internet > **Ligações** > **definições LAN**. <br/> 3. Altere as definições para utilizar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy.<br/> 4. Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as definições de firewall na máquina ou proxy permitem estes [URLs](backup-configure-vault.md#verify-internet-access) e [endereço IP](backup-configure-vault.md#verify-internet-access).|
 | Instalação do Agente de Backup Azure falhou | A instalação dos Serviços de Recuperação do Microsoft Azure falhou. Todas as alterações que foram feitas no sistema pela instalação dos Serviços de Recuperação do Microsoft Azure foram revertidas. (ID: 4024) | Instale manualmente o Agente Azure.
 

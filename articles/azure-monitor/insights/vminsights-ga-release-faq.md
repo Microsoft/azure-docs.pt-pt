@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 673cda4005d9c985d8d6ee5ef1d28a3d8c241ac0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 883f24e529f9479f0c6ee6597c1324a0089ece7b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482889"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620385"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Monitor Azure para VMs Geralmente disponíveis (GA) Perguntas frequentes
 
@@ -25,8 +25,6 @@ Lançámos uma nova versão do Monitor Azure para VMs. Os clientes que permitem 
 Com esta atualização, os dados de desempenho do Azure Monitor para VMs são armazenados na mesma tabela *InsightsMetrics* que o [Azure Monitor para contentores,](container-insights-overview.md)o que facilita a consulta dos dois conjuntos de dados. Além disso, é capaz de armazenar conjuntos de dados mais diversos que não poderíamos armazenar na tabela anteriormente utilizada. 
 
 As nossas opiniões de desempenho estão agora a usar os dados que armazenamos na tabela *InsightsMetrics.*  Se ainda não tiver atualizado para utilizar a mais recente solução VMInsights no seu espaço de trabalho, os seus gráficos deixarão de exibir informações.  Pode fazer upgrade a partir da nossa página **Get Started,** conforme descrito abaixo.
-
-Com esta atualização, os dados de desempenho do Azure Monitor para VMs são armazenados na mesma tabela *InsightsMetrics* que o [Azure Monitor para os contentores,](container-insights-overview.md) facilitando a consulta dos dois conjuntos de dados. Também é capaz de armazenar conjuntos de dados mais diversos que não poderíamos armazenar na tabela anteriormente utilizada. 
 
 Percebemos que pedir aos clientes existentes para fazer upgrade causa perturbação no seu fluxo de trabalho, razão pela qual escolhemos fazê-lo agora enquanto estamos em Visualização Pública e não mais tarde depois da GA.
 
@@ -123,6 +121,6 @@ Como cliente existente, pode continuar a utilizar a funcionalidade Saúde em VMs
 
 Se é um cliente existente que está a utilizar a funcionalidade Saúde e a pretenda utilizá-la para um novo lançamento, contacte-nos em vminsights@microsoft.com para solicitar instruções.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para compreender os requisitos e métodos que o ajudam a monitorizar as suas máquinas virtuais, reveja o [Monitor De implantação de Dispositivos Azure para VMs](vminsights-enable-overview.md).

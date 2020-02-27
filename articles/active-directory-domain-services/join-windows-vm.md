@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: c40a3b1352c383b8b70a0b14f59265188b77a86d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d15877107e49c57f8f33b8ec41caeb7d48230b91
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523690"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613879"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Junte-se a uma máquina virtual do Windows Server para um domínio gerido
 
@@ -149,16 +149,16 @@ Com o VM criado e uma ligação RDP baseada na web estabelecida usando o Azure B
 
     ![Opte por alterar as propriedades do grupo de trabalho ou do domínio](./media/join-windows-vm/change-domain.png)
 
-1. Na caixa **de Domínio,** especifique o nome do seu domínio gerido pelo Azure AD DS, como *contoso.com,* e, em seguida, selecione **OK**.
+1. Na caixa **de Domínio,** especifique o nome do seu domínio gerido pelo Azure AD DS, *como*aaddscontoso.com, e, em seguida, selecione **OK**.
 
     ![Especificar o domínio gerido pela AD DS azure para aderir](./media/join-windows-vm/join-domain.png)
 
 1. Introduza credenciais de domínio para se juntar ao domínio. Utilize as credenciais para um utilizador que pertença ao grupo de *administradores da AD DC azure.* Apenas membros deste grupo têm privilégios de se juntar às máquinas ao domínio gerido pela AD DS azure. A conta deve fazer parte do domínio gerido pela Azure AD DS ou pelo inquilino Azure AD - contas de diretórios externos associados ao seu inquilino Azure AD não podem autenticar corretamente durante o processo de união de domínios. As credenciais de conta podem ser especificadas de uma das seguintes formas:
 
-    * **Formato UPN** (recomendado) - Introduza o sufixo principal do utilizador (UPN) para a conta de utilizador, tal como configurado em Azure AD. Por exemplo, o sufixo UPN do utilizador de *contosoadmina* seria `contosoadmin@contoso.onmicrosoft.com`. Existem alguns casos comuns de utilização em que o formato UPN pode ser usado de forma fiável para iniciar sessão no domínio em vez do formato *SAMAccountName:*
+    * **Formato UPN** (recomendado) - Introduza o sufixo principal do utilizador (UPN) para a conta de utilizador, tal como configurado em Azure AD. Por exemplo, o sufixo UPN do utilizador de *contosoadmina* seria `contosoadmin@aaddscontoso.onmicrosoft.com`. Existem alguns casos comuns de utilização em que o formato UPN pode ser usado de forma fiável para iniciar sessão no domínio em vez do formato *SAMAccountName:*
         * Se o prefixo UPN de um utilizador for longo, como o *nome deehasareallylongname,* o *Nome SAMAccount pode* ser autogerado.
         * Se vários utilizadores tiverem o mesmo prefixo UPN no seu inquilino Azure AD, como *o DEE,* o seu formato *SAMAccountName* poderá ser autogerado.
-    * **Formato SAMAccountName** - Introduza o nome da conta no formato *SAMAccountName.* Por exemplo, o *Nome samAccount da* *contosoadmina* do utilizador seria `CONTOSO\contosoadmin`.
+    * **Formato SAMAccountName** - Introduza o nome da conta no formato *SAMAccountName.* Por exemplo, o *Nome samAccount da* *contosoadmina* do utilizador seria `AADDSCONTOSO\contosoadmin`.
 
 1. Demora alguns segundos a juntar-se ao domínio gerido pelo Azure AD DS. Quando estiver concluída, a seguinte mensagem dá-lhe as boas-vindas ao domínio:
 
@@ -169,9 +169,9 @@ Com o VM criado e uma ligação RDP baseada na web estabelecida usando o Azure B
 1. Para completar o processo para aderir ao domínio gerido pela AD DS Azure, reinicie o VM.
 
 > [!TIP]
-> Pode juntar-se a um VM utilizando o PowerShell com o cmdlet [add-computer.][add-computer] O exemplo seguinte junta-se ao domínio *CONTOSO* e, em seguida, reinicia o VM. Quando solicitado, insira as credenciais para um utilizador que pertença ao grupo de *administradores da AD DC do Azure:*
+> Pode juntar-se a um VM utilizando o PowerShell com o cmdlet [add-computer.][add-computer] O exemplo seguinte junta-se ao domínio *AADDSCONTOSO* e, em seguida, reinicia o VM. Quando solicitado, insira as credenciais para um utilizador que pertença ao grupo de *administradores da AD DC do Azure:*
 >
-> `Add-Computer -DomainName CONTOSO -Restart`
+> `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
 > Para unir um VM sem ligar-lhe e configurar manualmente a ligação, pode utilizar o [cmdlet Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell.
 
@@ -207,7 +207,7 @@ Se não receber um pedido que peça credenciais para se juntar ao domínio, há 
 Depois de experimentar cada uma destas etapas de resolução de problemas, tente juntar-se ao VM do Windows Server novamente para o domínio gerido.
 
 * Verifique se o VM está ligado à mesma rede virtual em que o Azure AD DS está ativado ou tem uma ligação de rede com pares.
-* Tente pingar o nome de domínio DNS do domínio gerido, como `ping contoso.com`.
+* Tente pingar o nome de domínio DNS do domínio gerido, como `ping aaddscontoso.com`.
     * Se o pedido de ping falhar, tente adoeça os endereços IP para o domínio gerido, como `ping 10.0.0.4`. O endereço IP para o seu ambiente é apresentado na página *Propriedades* quando selecionar o domínio gerido pelo Azure AD DS a partir da sua lista de recursos Azure.
     * Se conseguir obter o endereço IP, mas não o domínio, o DNS pode estar incorretamente configurado. Confirme que os endereços IP do domínio gerido estão configurados como servidores DNS para a rede virtual.
 * Tente descarregar a cache de resolver DNS na máquina virtual utilizando o comando `ipconfig /flushdns`.
@@ -220,7 +220,7 @@ Depois de experimentar cada uma destas etapas de resolução de problemas, tente
 
 * Certifique-se de que a conta de utilizador que especifica pertence ao grupo de *administradores da AAD DC.*
 * Confirme que a conta faz parte do domínio gerido pela Azure AD DS ou pelo inquilino azure AD. As contas de diretórios externos associados ao seu inquilino Azure AD não podem autenticar corretamente durante o processo de união de domínios.
-* Tente utilizar o formato UPN para especificar credenciais, como `contosoadmin@contoso.onmicrosoft.com`. Se houver muitos utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo, o *Nome SAMAccount para* a sua conta pode ser autogerado. Nestes casos, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
+* Tente utilizar o formato UPN para especificar credenciais, como `contosoadmin@aaddscontoso.onmicrosoft.com`. Se houver muitos utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo, o *Nome SAMAccount para* a sua conta pode ser autogerado. Nestes casos, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
 * Verifique se permitiu a sincronização da [palavra-passe][password-sync] no seu domínio gerido. Sem este passo de configuração, as hashes de senha necessárias não estarão presentes no domínio gerido pelo Azure AD DS para autenticar corretamente o seu sinal na tentativa.
 * Aguarde a sincronização da palavra-passe. Quando a palavra-passe de uma conta de utilizador é alterada, uma sincronização automática de fundo da Azure AD atualiza a palavra-passe no Azure ADDS. Leva algum tempo para que a palavra-passe esteja disponível para uso de união de domínio.
 

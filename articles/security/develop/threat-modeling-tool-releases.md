@@ -1,6 +1,6 @@
 ---
-title: Threat Modeling Tool releases-Microsoft Threat Modeling Tool-Azure | Microsoft Docs
-description: Documentando as notas de versão da ferramenta de modelagem de ameaças
+title: Lançamentos de ferramentas de modelação de ameaças - Ferramenta de Modelação de Ameaças da Microsoft - Azure Microsoft Docs
+description: Documentando as notas de lançamento para a ferramenta de modelação de ameaças
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,35 +15,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: 12db1a0b0b5a9677d0490f8eff229bbb524a91ff
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6a5216f17645dc86a9e7a1872c7e66947c8bd36b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224784"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624076"
 ---
-# <a name="threat-modeling-tool-releases"></a>Versões Threat Modeling Tool
+# <a name="threat-modeling-tool-releases"></a>Lançamentos de ferramentas de modelação de ameaças
 
-O Microsoft Threat Modeling Tool é lançado no momento como um aplicativo de [clique para baixar](https://aka.ms/threatmodelingtool) gratuito para Windows. Esse mecanismo de entrega nos permite enviar por push os aprimoramentos e correções de bugs mais recentes para os clientes sempre que abrirem a ferramenta.
+A Ferramenta de Modelação de Ameaças da Microsoft é atualmente lançada como uma aplicação gratuita [de clique para descarregar](https://aka.ms/threatmodelingtool) para windows. Este mecanismo de entrega permite-nos empurrar as últimas melhorias e correções de bugs para os clientes sempre que abrem a ferramenta.
 
 ## <a name="system-requirements"></a>Requisitos de Sistema
 
 - Sistemas Operativos Suportados
-  - Atualização de aniversário do Microsoft Windows 10 ou posterior
-- Versão do .NET necessária
+  - Microsoft Windows 10 Atualização de Aniversário ou mais tarde
+- versão .NET necessária
   - .NET 4.7.1 ou posterior
 - Requisitos Adicionais
-  - Uma conexão com a Internet é necessária para receber atualizações para a ferramenta e os modelos.
+  - É necessária uma ligação à Internet para receber atualizações da ferramenta e dos modelos.
 
 ## <a name="release-notes"></a>Notas de Versão
 
-- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.61015.1](threat-modeling-tool-releases-71610151.md) – outubro de 16 2019
-- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.60702.1](threat-modeling-tool-releases-71607021.md) – julho de 2 2019
-- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.60408.1](threat-modeling-tool-releases-71604081.md) – abril de 9 2019
-- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.60126.1](threat-modeling-tool-releases-71601261.md) – janeiro de 29 2019
-- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.51023.1](threat-modeling-tool-releases-71510231.md) – novembro de 1 2018
-- [Versão de lançamento Microsoft Threat Modeling Tool GA 7.1.50911.2](threat-modeling-tool-releases-71509112.md) – setembro de 12 2018
+- [Microsoft Threat Modeling Tool GA Release Version 7.3.00206.1](threat-modeling-tool-releases-73002061.md) - 11 de fevereiro de 2020
+- [Microsoft Threat Modeling Tool GA Release Version 7.1.61015.1](threat-modeling-tool-releases-71610151.md) - October 16 2019
+- [Microsoft Threat Modeling Tool GA Release Version 7.1.60702.1](threat-modeling-tool-releases-71607021.md) - julho 2019
+- [Microsoft Threat Modeling Tool GA Release Version 7.1.60408.1](threat-modeling-tool-releases-71604081.md) - abril 9 2019
+- [Microsoft Threat Modeling Tool GA Release Version 7.1.60126.1](threat-modeling-tool-releases-71601261.md) - 29 de janeiro de 2019
+- [Microsoft Threat Modeling Tool GA Release Version 7.1.51023.1](threat-modeling-tool-releases-71510231.md) - novembro 1 2018
+- [Microsoft Threat Modeling Tool GA Release Version 7.1.50911.2](threat-modeling-tool-releases-71509112.md) - September 12 2018
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Baixe a versão mais recente do [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).
+Descarregue a versão mais recente da Ferramenta de [Modelação de Ameaças da Microsoft](https://aka.ms/threatmodelingtool).

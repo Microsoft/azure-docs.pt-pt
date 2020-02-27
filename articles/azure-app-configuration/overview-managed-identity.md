@@ -3,16 +3,16 @@ title: Configure identidades geridas com configuração de app Azure
 description: Saiba como funcionam identidades geridas na Configuração de Aplicações Azure e como configurar uma identidade gerida
 author: jpconnock
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 02/25/2020
 ms.author: jeconnoc
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 751b10c0d80412671028e85debb2dcd4422c8459
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: fe66466395a100221e6a3cdebdef870bdf195afc
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493153"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623031"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Como usar identidades geridas para configuração de aplicações do Azure
 
@@ -101,7 +101,7 @@ Os seguintes passos irão acompanhá-lo através da criação de uma identidade 
 
 Uma identidade atribuída ao sistema pode ser removida desativando a funcionalidade utilizando o comando de remoção de [identidade az appconfig](/cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-remove) no ClI Azure. As identidades atribuídas ao utilizador podem ser removidas individualmente. A remoção de uma identidade atribuída ao sistema desta forma também a eliminará da AAD. As identidades atribuídas ao sistema também são automaticamente removidas do AAD quando o recurso da aplicação é eliminado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Crie uma app ASP.NET Core com configuração de aplicações azure](quickstart-aspnet-core-app.md)

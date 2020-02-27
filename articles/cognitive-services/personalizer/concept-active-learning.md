@@ -1,57 +1,34 @@
 ---
-title: Eventos ativos e inativos – personalizador
-titleSuffix: Azure Cognitive Services
-description: Este artigo aborda o uso de eventos ativos e inativos, configurações de aprendizado e políticas de aprendizado no serviço personalizador.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+title: Política de aprendizagem - Personalizer
+description: As definições de aprendizagem determinam os *hiperparâmetros* do treino do modelo. Dois modelos dos mesmos dados que são treinados em diferentes configurações de aprendizagem acabarão por ser diferentes.
 ms.topic: conceptual
-ms.date: 01/09/2019
-ms.author: diberry
-ms.openlocfilehash: 90658e030c907a9fd99dd8fb9a6e90698d72b1f0
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.date: 02/20/2020
+ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834467"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623801"
 ---
-# <a name="active-and-inactive-events"></a>Eventos ativos e inativos
+# <a name="learning-policy-and-settings"></a>Política de aprendizagem e configurações
 
-Quando o aplicativo chama a API de classificação, você recebe a ação que o aplicativo deve mostrar no campo **rewardActionId** .  A partir desse momento, o personalizador espera uma chamada de recompensa com o mesmo eventId. A pontuação de recompensa será usada para treinar o modelo para futuras chamadas de classificação. Se nenhuma chamada de recompensa for recebida para o eventId, um prêmio padrão será aplicado. As recompensas padrão são definidas no portal do Azure.
+As definições de aprendizagem determinam os *hiperparâmetros* do treino do modelo. Dois modelos dos mesmos dados que são treinados em diferentes configurações de aprendizagem acabarão por ser diferentes.
 
-Em alguns cenários, o aplicativo pode precisar chamar a classificação antes mesmo de saber se o resultado será usado ou exibido para o usuário. Isso pode acontecer em situações em que, por exemplo, a renderização da página de conteúdo promovido é substituída por uma campanha de marketing. Se o resultado da chamada de classificação nunca foi usado e o usuário nunca o viu, não envie uma chamada de recompensa correspondente.
+[A política e definições de aprendizagem estão](how-to-settings.md#configure-rewards-for-the-feedback-loop) definidas no seu recurso Personalizer no portal Azure.
 
-Normalmente, esses cenários acontecem quando:
+## <a name="import-and-export-learning-policies"></a>Políticas de importação e de aprendizagem das exportações
 
-* Você está processando a IU que o usuário pode ou não conseguir ver.
-* Seu aplicativo está fazendo uma personalização preditiva na qual as chamadas de classificação são feitas com pouco contexto em tempo real e o aplicativo pode ou não usar a saída.
+Pode importar e exportar ficheiros de política de aprendizagem do portal Azure. Utilize este método para salvar as políticas existentes, testá-las, substituí-las e arquivá-las no seu controlo de código fonte como artefactos para futuras referências e auditorias.
 
-Nesses casos, use personalizador para chamar a classificação, solicitando que o evento fique _inativo_. O personalizador não esperará um prêmio para esse evento e não aplicará uma recompensa padrão.
-Posteriormente, em sua lógica de negócios, se o aplicativo usar as informações da chamada de classificação, basta _Ativar_ o evento. Assim que o evento estiver ativo, o personalizador espera um recompensa de evento. Se nenhuma chamada explícita for feita na API de recompensa, o personalizador aplicará uma recompensa padrão.
+Aprenda [a](how-to-manage-model.md#import-a-new-learning-policy) importar e exportar uma política de aprendizagem no portal Azure para o seu recurso Personalizer.
 
-## <a name="inactive-events"></a>Eventos inativos
+## <a name="understand-learning-policy-settings"></a>Compreender as definições de políticas de aprendizagem
 
-Para desabilitar o treinamento de um evento, chame Rank usando `learningEnabled = False`. Para um evento inativo, o aprendizado será ativado implicitamente se você enviar uma recompensa para o eventId ou chamar a API de `activate` para esse eventId.
+As configurações da política de aprendizagem não se destinam a ser alteradas. Alterar as definições apenas se entender como afetam o Personalizer. Sem este conhecimento, pode causar problemas, incluindo a invalidação de modelos Personalizer.
 
-## <a name="learning-settings"></a>Configurações de aprendizado
+Personalizer usa [vowpalwabbit](https://github.com/VowpalWabbit) para treinar e marcar os eventos. Consulte a [documentação da vowpalwabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) sobre como editar as definições de aprendizagem usando o vowpalwabbit. Assim que tiver os argumentos corretos da linha de comando, guarde o comando para um ficheiro com o seguinte formato (substitua o valor da propriedade dos argumentos pelo comando pretendido) e faça o upload do ficheiro para importar definições de aprendizagem no painel de Definições de **Modelo e Aprendizagem** no portal Azure para o seu recurso Personalizer.
 
-As configurações de aprendizado determinam os *hiperparâmetros* do treinamento do modelo. Dois modelos dos mesmos dados que são treinados em diferentes configurações de aprendizado acabarão sendo diferentes.
-
-### <a name="import-and-export-learning-policies"></a>Importar e exportar políticas de aprendizado
-
-Você pode importar e exportar arquivos de política de aprendizagem do portal do Azure. Use esse método para salvar as políticas existentes, testá-las, substituí-las e arquivá-las no controle do código-fonte como artefatos para referência e auditoria futuras.
-
-Saiba [como](how-to-learning-policy.md) importar e exportar uma política de aprendizado.
-
-### <a name="understand-learning-policy-settings"></a>Entender as configurações da política de aprendizagem
-
-As configurações na política de aprendizado não devem ser alteradas. Altere as configurações somente se você entender como elas afetam o personalizador. Sem esse conhecimento, você pode causar problemas, incluindo a invalidação de modelos de personalização.
-
-O personalizador usa [vowpalwabbit](https://github.com/VowpalWabbit) para treinar e pontuar os eventos. Consulte a [documentação do vowpalwabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) sobre como editar as configurações de aprendizado usando o vowpalwabbit. Depois de ter os argumentos de linha de comando corretos, salve o comando em um arquivo com o seguinte formato (substitua o valor da propriedade arguments pelo comando desejado) e carregue o arquivo para importar as configurações de aprendizado no painel de **configurações de aprendizado e de modelo** no portal do Azure para o recurso personalizador.
-
-O `.json` a seguir é um exemplo de uma política de aprendizado.
+O seguinte `.json` é um exemplo de uma política de aprendizagem.
 
 ```json
 {
@@ -60,14 +37,18 @@ O `.json` a seguir é um exemplo de uma política de aprendizado.
 }
 ```
 
-### <a name="compare-learning-policies"></a>Comparar políticas de aprendizado
+## <a name="compare-learning-policies"></a>Comparar políticas de aprendizagem
 
-Você pode comparar o desempenho das diferentes políticas de aprendizagem em relação aos dados anteriores nos logs do personalizado, fazendo [avaliações offline](concepts-offline-evaluation.md).
+Pode comparar como diferentes políticas de aprendizagem funcionam com dados passados em registos personalizer, fazendo [avaliações offline](concepts-offline-evaluation.md).
 
-[Carregue suas próprias políticas de aprendizado](how-to-learning-policy.md) para compará-las com a política de aprendizado atual.
+[Faça upload das suas próprias políticas de aprendizagem](how-to-manage-model.md) para compará-las com a política de aprendizagem atual.
 
-### <a name="optimize-learning-policies"></a>Otimizar políticas de aprendizado
+## <a name="optimize-learning-policies"></a>Otimizar as políticas de aprendizagem
 
-O personalizador pode criar uma política de aprendizado otimizada em uma [avaliação offline](how-to-offline-evaluation.md). Uma política de aprendizado otimizada que tem recompensas melhores em uma avaliação offline produzirá resultados melhores quando for usada online no personalizador.
+O personalizer pode criar uma política de aprendizagem otimizada numa [avaliação offline.](how-to-offline-evaluation.md) Uma política de aprendizagem otimizada que tenha melhores recompensas numa avaliação offline produzirá melhores resultados quando é usada online no Personalizer.
 
-Depois de otimizar uma política de aprendizado, você pode aplicá-la diretamente ao personalizador para que ela substitua imediatamente a política atual. Ou você pode salvar a política otimizada para avaliação adicional e, posteriormente, decidir se deseja descartá-la, salvá-la ou aplicá-la.
+Depois de otimizar uma política de aprendizagem, pode aplicá-la diretamente ao Personalizer para que substitua imediatamente a política atual. Ou pode guardar a política otimizada para posterior avaliação e, mais tarde, decidir se descarta, poupa ou aplica.
+
+## <a name="next-steps"></a>Passos seguintes
+
+* Aprenda [eventos ativos e inativos.](concept-active-inactive-events.md)

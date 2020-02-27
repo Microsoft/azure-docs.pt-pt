@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 0dd3cb12c52e23a0a8acd57bf401ba68acfb9925
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424937"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623697"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Problemas de consulta ao usar O Azure Cosmos DB
 
@@ -22,6 +22,20 @@ Este artigo percorre uma abordagem geral recomendada para consultas de resoluç�
 Você pode amplamente categorizar otimizações de consulta em Azure Cosmos DB: Otimizações que reduzem a carga da Unidade de Pedido (RU) das consultas e otimizações que apenas reduzem a latência. Ao reduzir a carga de RU de uma consulta, certamente também diminuirá a latência.
 
 Este documento usará exemplos que podem ser recriados usando o conjunto de dados [nutricionais.](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)
+
+## <a name="important"></a>Importante
+
+- Para obter o melhor desempenho, siga as Dicas de [Desempenho.](performance-tips.md)
+    > [!NOTE] 
+    > Recomenda-se o processamento do anfitrião do Windows 64 bits para um melhor desempenho. O SQL SDK inclui um ServiceInterop.dll nativo para analisar e otimizar consultas localmente, e só é suportado na plataforma Windows x64. Para o linux e outras plataformas não suportadas onde o ServiceInterop.dll não estiver disponível, fará uma chamada adicional de rede para a porta de entrada para obter a consulta otimizada. 
+- A consulta cosmos DB não suporta uma contagem mínima de itens.
+    - Código deve manusear qualquer tamanho de página de 0 a contagem de itens máximos
+    - O número de itens numa página pode e mudará sem aviso prévio.
+- São esperadas páginas vazias para consultas, e podem aparecer a qualquer momento. 
+    - A razão pela qual as páginas vazias são expostas nos SDKs é que permite mais oportunidades para cancelar a consulta. Também deixa claro que o SDK está a fazer várias chamadas de rede.
+    - Páginas vazias podem aparecer em cargas de trabalho existentes porque uma partição física é dividida em Cosmos DB. A primeira partição tem agora 0 resultados, o que causa a página vazia.
+    - As páginas vazias são causadas pelo backend que antecipa a consulta porque a consulta está a demorar mais do que algum tempo fixo no backend para recuperar os documentos. Se cosmos DB preemite uma consulta, devolverá um token de continuação que permitirá que a consulta continue. 
+- Certifique-se de drenar completamente a consulta. Olhe para as amostras de SDK e use um loop de tempo na `FeedIterator.HasMoreResults` para drenar toda a consulta.
 
 ### <a name="obtaining-query-metrics"></a>Obtenção de métricas de consulta:
 
@@ -144,7 +158,7 @@ Política de indexação:
 }
 ```
 
-**RU Charge:** 409.51 RU's
+**Ru Charge:** 409.51 RUs
 
 ### <a name="optimized"></a>Otimizado
 
@@ -163,7 +177,7 @@ Política de indexação atualizada:
 }
 ```
 
-**RU Charge:** 2.98 RU's
+**Ru Charge:** 2.98 RUs
 
 Pode adicionar propriedades adicionais à política de indexação a qualquer momento, sem impacto para escrever disponibilidade ou desempenho. Se adicionar uma nova propriedade ao índice, as consultas que utilizam esta propriedade utilizarão imediatamente o novo índice disponível. A consulta utilizará o novo índice enquanto está a ser construído. Como resultado, os resultados da consulta podem ser inconsistentes, uma vez que a reconstrução do índice está em curso. Se uma nova propriedade for indexada, as consultas que apenas utilizam os índices existentes não serão afetadas durante a reconstrução do índice. Pode acompanhar o progresso da [transformação do índice.](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)
 
@@ -217,7 +231,7 @@ Política de indexação:
 }
 ```
 
-**RU Charge:** 44.28 RU's
+**Carga RU:** 44.28 RUs
 
 ### <a name="optimized"></a>Otimizado
 
@@ -257,7 +271,7 @@ Política de indexação atualizada:
 
 ```
 
-**RU Charge:** 8.86 RU's
+**Ru Charge:** 8.86 RUs
 
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>Otimizar as expressões JOIN utilizando uma subqueria
 Subqueries de vários valores podem otimizar expressões `JOIN` empurrando predicados após cada expressão selecionada em vez de afinal se juntarem à cláusula `WHERE`.
@@ -274,7 +288,7 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**RU Charge:** 167.62 RU's
+**Carga RU:** 167.62 RUs
 
 Para esta consulta, o índice corresponderá a qualquer documento que tenha uma etiqueta com o nome "fórmula infantil", nutriçãoValor superior a 0, e servindo uma quantidade superior a 1. A expressão `JOIN` aqui irá realizar o cross-product de todos os itens de tags, nutrientes e porções arrays para cada documento correspondente antes de qualquer filtro ser aplicado. A cláusula `WHERE` aplicará então o predicado do filtro em cada `<c, t, n, s>` tuple.
 
@@ -290,7 +304,7 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**RU Charge:** 22.17 RU's
+**Carga RU:** 22.17 RUs
 
 Assuma que apenas um item na matriz de etiquetas corresponde ao filtro, e existem cinco itens para nutrientes e porções arrays. As expressões `JOIN` expandir-se-ão então para 1 x 1 x 5 x 5 = 25 itens, em oposição a 1.000 itens na primeira consulta.
 

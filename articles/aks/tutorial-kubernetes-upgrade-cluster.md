@@ -3,14 +3,14 @@ title: Tutorial do Kubernetes no Azure - Atualizar cluster para versão superior
 description: Neste tutorial do Azure Kubernetes Service (AKS), saiba como atualizar um cluster do AKS existente para a versão do Kubernetes mais recente disponível.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 57cad9472c599bf0ad8f3e3d2ff53cb224db689a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4d9ef061904fb1a0fff25506eedb82158971bed5
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593133"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622036"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar o Kubernetes no Serviço Kubernetes do Azure (AKS)
 
@@ -37,12 +37,12 @@ Antes de atualizar um cluster, utilize o comando [az aks get-upgrades][] para ve
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-No exemplo seguinte, a versão atual é *de 1.13.10*, e as versões disponíveis são mostradas na coluna *Upgrades.*
+No exemplo seguinte, a versão atual é *de 1.14.8*, e as versões disponíveis são mostradas na coluna *Upgrades.*
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 -------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.13.10          1.13.10            1.14.5, 1.14.6
+default  myResourceGroup  1.14.8           1.14.8             1.15.5, 1.15.7
 ```
 
 ## <a name="upgrade-a-cluster"></a>Atualizar um cluster
@@ -58,13 +58,13 @@ Para minimizar a perturbação das aplicações em execução, os nós AKS são 
 Utilize o comando [az aks upgrade][] para atualizar o cluster do AKS. O exemplo seguinte atualiza o cluster para a versão Kubernetes *1.14.6*.
 
 > [!NOTE]
-> Pode atualizar apenas uma versão secundária de cada vez. Por exemplo, pode fazer upgrade de *1.12.x* para *1.13.x,* mas não pode fazer upgrade de *1.12.x* para *1.14.x* diretamente. Para atualizar de *1.12.x* para *1.14.x*, primeiro upgrade de *1.12.x* para *1.13.x,* em seguida, execute outra atualização de *1.13.x* para *1.14.x*.
+> Pode atualizar apenas uma versão secundária de cada vez. Por exemplo, pode fazer upgrade de *1.14.x* para *1.15.x,* mas não pode fazer upgrade de *1.14.x* para *1.16.x* diretamente. Para atualizar de *1.14.x* para *1.16.x*, primeiro upgrade de *1.14.x* para *1.15.x,* em seguida, execute outra atualização de *1.15.x* para *1.16.x*.
 
 ```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.14.6
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.15.5
 ```
 
-A saída de exemplo condensado seguinte mostra que os *kubernetesVersion* reportam agora *1.14.6:*
+A saída de exemplo condensado seguinte mostra que a *kubernetesVersion* reporta agora *1.15.5*:
 
 ```json
 {
@@ -82,7 +82,7 @@ A saída de exemplo condensado seguinte mostra que os *kubernetesVersion* report
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.14.6",
+  "kubernetesVersion": "1.15.5",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -97,12 +97,12 @@ Confirme se a atualização foi concluída com êxito com o comando [az aks show
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-A saída de exemplo seguinte mostra que o cluster AKS executa *kubernetesVersion 1.14.6*:
+A saída de exemplo seguinte mostra que o cluster AKS executa *kubernetesVersion 1.15.5*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.14.6               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.15.5               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>Eliminar o cluster

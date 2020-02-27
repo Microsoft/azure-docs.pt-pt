@@ -1,6 +1,6 @@
 ---
-title: Como marcar um recurso de VM do Windows no Azure
-description: Saiba mais sobre como marcar uma máquina virtual do Windows criada no Azure usando o modelo de implantação do Resource Manager
+title: Como marcar um recurso VM do Windows em Azure
+description: Saiba como marcar uma máquina virtual do Windows criada em Azure utilizando o modelo de implementação do Gestor de Recursos
 services: virtual-machines-windows
 documentationcenter: ''
 author: mmccrory
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: af9b06ebf422632e2b40ebc7761d87fc58e90215
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b646b1a14d6cedcafa662192229daa570a0d2441
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965300"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616434"
 ---
-# <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Windows no Azure
-Este artigo descreve diferentes maneiras de marcar uma máquina virtual do Windows no Azure por meio do modelo de implantação do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou em um grupo de recursos. Atualmente, o Azure dá suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas têm suporte apenas para recursos criados por meio do modelo de implantação do Resource Manager. Se você quiser marcar uma máquina virtual do Linux, consulte [como marcar uma máquina virtual do Linux no Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+# <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Windows em Azure
+Este artigo descreve diferentes formas de marcar uma máquina virtual do Windows em Azure através do modelo de implementação do Gestor de Recursos. As etiquetas são pares de chaves/valor definidos pelo utilizador que podem ser colocados diretamente num recurso ou num grupo de recursos. O Azure suporta atualmente até 50 tags por grupo de recursos e recursos. As etiquetas podem ser colocadas num recurso no momento da criação ou adicionadas a um recurso existente. Por favor, note que as tags são suportadas apenas para recursos criados apenas através do modelo de implementação do Gestor de Recursos. Se quiser marcar uma máquina virtual Linux, veja [como marcar uma máquina virtual Linux em Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
-## <a name="tagging-with-powershell"></a>Marcação com o PowerShell
-Para criar, adicionar e excluir marcas por meio do PowerShell, primeiro você precisa configurar o [ambiente do PowerShell com Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Depois de concluir a instalação, você poderá posicionar as marcas nos recursos de computação, rede e armazenamento na criação ou depois que o recurso for criado por meio do PowerShell. Este artigo se concentrará na exibição/edição de marcas colocadas em máquinas virtuais.
+## <a name="tagging-with-powershell"></a>Marcação com PowerShell
+Para criar, adicionar e eliminar tags através do PowerShell, primeiro precisa de configurar o seu [ambiente PowerShell com o Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Uma vez concluída a configuração, pode colocar etiquetas nos recursos Compute, Network e Storage na criação ou após a criação do recurso através do PowerShell. Este artigo concentrar-se-á nas etiquetas de visualização/edição colocadas em Máquinas Virtuais.
 
  
 
-Primeiro, navegue até uma máquina virtual por meio do cmdlet `Get-AzVM`.
+Primeiro, navegue para uma Máquina Virtual através do `Get-AzVM` cmdlet.
 
         PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
 
-Se sua máquina virtual já contiver marcas, você verá todas as marcas em seu recurso:
+Se a sua Máquina Virtual já contiver etiquetas, verá todas as etiquetas do seu recurso:
 
         Tags : {
                 "Application": "MyApp1",
@@ -44,13 +44,13 @@ Se sua máquina virtual já contiver marcas, você verá todas as marcas em seu 
                 "Environment": "Production"
                }
 
-Se você quiser adicionar marcas por meio do PowerShell, poderá usar o comando `Set-AzResource`. Observação ao atualizar marcas por meio do PowerShell, as marcas são atualizadas como um todo. Portanto, se você estiver adicionando uma marca a um recurso que já tem marcas, será necessário incluir todas as marcas que deseja que sejam colocadas no recurso. Veja abaixo um exemplo de como adicionar marcas adicionais a um recurso por meio de cmdlets do PowerShell.
+Se quiser adicionar tags através do PowerShell, pode utilizar o comando `Set-AzResource`. Note ao atualizar as etiquetas através do PowerShell, as etiquetas são atualizadas como um todo. Por isso, se estiver a adicionar uma etiqueta a um recurso que já tem etiquetas, terá de incluir todas as etiquetas que pretende colocar no recurso. Abaixo está um exemplo de como adicionar tags adicionais a um recurso através de Cmdlets PowerShell.
 
-Esse primeiro cmdlet define todas as marcas colocadas em *MyTestVM* para a variável *$Tags* , usando a propriedade `Get-AzResource` e `Tags`.
+Este primeiro cmdlet define todas as etiquetas colocadas no *MyTestVM* para a *variável $tags,* utilizando a propriedade `Get-AzResource` e `Tags`.
 
         PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-O segundo comando exibe as marcas para a variável especificada.
+O segundo comando exibe as etiquetas para a variável dada.
 
 ```
     PS C:\> $tags
@@ -63,15 +63,15 @@ O segundo comando exibe as marcas para a variável especificada.
     Environment   Production
 ```
 
-O terceiro comando adiciona uma marca adicional à variável *$Tags* . Observe o uso do **+=** para acrescentar o novo par de chave/valor à lista de *$Tags* .
+O terceiro comando adiciona uma etiqueta adicional à *variável $tags.* Note a utilização do **+=** para anexar o novo par chave/valor à lista *$tags.*
 
         PS C:\> $tags += @{Location="MyLocation"}
 
-O quarto comando define todas as marcas definidas na variável *$Tags* para o recurso fornecido. Nesse caso, é MyTestVM.
+O quarto comando define todas as etiquetas definidas na *variável $tags* para o recurso dado. Neste caso, é MyTestVM.
 
         PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
-O quinto comando exibe todas as marcas no recurso. Como você pode ver, *Location* agora é definido como uma marca com *MyLocation* como o valor.
+O quinto comando exibe todas as etiquetas do recurso. Como pode ver, a *localização* é agora definida como uma etiqueta com *MyLocation* como o valor.
 
 ```
     PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
@@ -85,13 +85,13 @@ O quinto comando exibe todas as marcas no recurso. Como você pode ver, *Locatio
     Location      MyLocation
 ```
 
-Para saber mais sobre marcação por meio do PowerShell, confira os [cmdlets de recurso do Azure][Azure Resource Cmdlets].
+Para saber mais sobre a marcação através da PowerShell, confira os [Cmdlets][Azure Resource Cmdlets]de Recursos Azure .
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para saber mais sobre como marcar os recursos do Azure, confira [Azure Resource Manager visão geral][Azure Resource Manager Overview] e [usando marcas para organizar os recursos do Azure][Using Tags to organize your Azure Resources].
-* Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [noções básicas sobre sua fatura do Azure][Understanding your Azure Bill] e [obter informações sobre o consumo de recursos Microsoft Azure][Gain insights into your Microsoft Azure resource consumption].
+* Para saber mais sobre a marcação dos seus recursos Azure, consulte a [visão geral do Gestor de Recursos Azure][Azure Resource Manager Overview] e usando [tags para organizar os seus Recursos Azure.][Using Tags to organize your Azure Resources]
+* Para ver como as tags podem ajudá-lo a gerir o seu uso de recursos Azure, consulte [Understanding your Azure Bill][Understanding your Azure Bill] e Gain insights sobre o seu consumo de recursos Microsoft [Azure][Gain insights into your Microsoft Azure resource consumption].
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/management/manage-resources-powershell.md
 [Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/az.resources/

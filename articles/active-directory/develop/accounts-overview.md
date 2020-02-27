@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: a0f0f3be1647c820591923a094ef7fce86ab9672
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d0497ad68e7b29e6d8c83dd860ba8f509e229579
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699449"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77611879"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Contas e perfis de inquilino (Android)
 
@@ -52,7 +52,7 @@ Uma conta na plataforma de identidade da Microsoft consiste em:
 
 ## <a name="account-overview-diagram"></a>Diagrama de visão geral da conta
 
-![Diagrama de visão geral da conta](./media/accounts-overview/accounts-overview.png)
+![Diagrama de visão geral da conta](./media/accounts-overview/accounts-overview.svg)
 
 No diagrama acima:
 
@@ -69,7 +69,7 @@ No diagrama acima:
   - Existe um perfil de inquilino para `tom@live.com` em cada um destes inquilinos.
 - Informações sobre Tom e Bob em outros inquilinos podem diferir disso no sistema de registo. Podem diferir por atributos como título de trabalho, Localização do Escritório, e assim por diante. Podem ser membros de grupos e/ou funções dentro de cada organização (Azure Ative Directory Tenant). Referimo-nos a esta informação como bob@contoso.com perfil de inquilino.
 
-No diagrama, bob@contoso.com e tom@live.com têm acesso a recursos em diferentes inquilinos do Azure Ative Directory. Para obter mais informações, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+No diagrama, bob@contoso.com e tom@live.com têm acesso a recursos em diferentes inquilinos do Azure Ative Directory. Para mais informações, consulte os utilizadores de colaboração Add [Azure Ative Directory B2B no portal Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 ## <a name="accounts-and-single-sign-on-sso"></a>Contas e inscrição única (SSO)
 

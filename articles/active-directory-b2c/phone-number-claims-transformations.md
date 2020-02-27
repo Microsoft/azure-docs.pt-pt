@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5beef98f03c52ca022a7ab8047d3b392755c0bf
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 34a6d15090cd13a775ad3faa694718ec58738471
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212194"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620636"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir número de telefone reclama transformações em Azure AD B2C
 
@@ -26,9 +26,39 @@ Este artigo fornece referência e exemplos para a utilização do número de tel
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
+## <a name="convertphonenumberclaimtostring"></a>Converter Número de Telefone Claimtostring
+
+Converte um tipo de dados `phoneNumber` num tipo de dados `string`.
+
+| Item | TransformationClaimType | Tipo de Dados | Notas |
+| ---- | ----------------------- | --------- | ----- |
+| inputClaim | phoneNumber | phoneNumber |  O ClaimType para converter numa corda. |
+| OutputClaim | telefoneNumberString | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado. |
+
+Neste exemplo, a alegação do cellNumber com um tipo de valor de `phoneNumber` é convertida para uma reivindicação de telemóvelPhone com um tipo de valor de `string`.
+
+```XML
+<ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="cellPhone" TransformationClaimType="phoneNumberString" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemplo
+
+- Créditos de entrada:
+  - **telefoneNúmero:** +11234567890 (número de telefone)
+- Alegações de saída:
+  - **telefoneNumberString**: +11234567890 (cadeia)
+
+
 ## <a name="convertstringtophonenumberclaim"></a>Reconversão stringtoPhoneNumberClaim
 
-Esta alegação valida o formato do número de telefone. Se estiver num formato válido, altere-o para um formato padrão utilizado pelo Azure AD B2C. Se o número de telefone fornecido não estiver num formato válido, uma mensagem de erro é devolvida.
+Esta transformação de reclamação valida o formato do número de telefone. Se estiver num formato válido, altere-o para um formato padrão utilizado pelo Azure AD B2C. Se o número de telefone fornecido não estiver num formato válido, uma mensagem de erro é devolvida.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -68,10 +98,10 @@ O perfil técnico autoafirmado que chama o perfil técnico de validação que co
 ### <a name="example-1"></a>Exemplo 1
 
 - Créditos de entrada:
-  - **telefoneNumberString**: 045 456-7890
+  - **telefoneNumberString**: 033 456-7890
   - **país**: DK
 - Alegações de saída:
-  - **saídaSReclamação:** +450546148120
+  - **saídaSReclamação:** +450334567890
 
 ### <a name="example-2"></a>Exemplo 2
 
@@ -79,6 +109,7 @@ O perfil técnico autoafirmado que chama o perfil técnico de validação que co
   - **telefoneNumberString:** +1 (123) 456-7890
 - Alegações de saída: 
   - **saídaSReclamação:** +11234567890
+
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberandCountryCodeFromNumberstring
 

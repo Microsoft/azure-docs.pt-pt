@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/29/2019
+ms.date: 02/25/2020
 ms.author: aahi
-ms.openlocfilehash: 19df2cfc58f0653b09600b43e5859753781d7151
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 560f34d21a68cecc4950db5dcceb9c8ef7b05a49
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560800"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614440"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplo de cenários de utilizador para a API de Análise de Texto
 
@@ -44,6 +44,12 @@ Utilize a extração de frases-chave e o reconhecimento da entidade para process
 Monitorize o feedback do utilizador na página de Twitter ou Facebook do seu produto. Utilize os dados para analisar o sentimento do cliente em relação aos lançamentos de novos produtos, extrair frases-chave sobre funcionalidades e pedidos de funcionalidades, ou abordar as reclamações dos clientes à medida que estes acontecerem. Veja o exemplo [do modelo de Fluxo](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)do Microsoft .
 
 ![Uma imagem descrevendo como monitorizar o feedback do seu produto e empresa nas redes sociais usando a extração de frases-chave](media/use-cases/social-feed.svg)
+
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Classificar e redigir documentos que tenham informações sensíveis
+
+Utilizar o Reconhecimento de Entidades Nomeadas para identificar informações pessoais e sensíveis em documentos. Utilize os dados para classificar documentos ou redigi-los para que possam ser partilhados com segurança.
+
+![Uma imagem descrevendo como usar ner para detetar informações pessoais e classificar e redigir documentos](media/use-cases/sensitive-docs.jpg)
 
 ## <a name="next-steps"></a>Passos seguintes
 

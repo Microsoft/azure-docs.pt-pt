@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: compartilhar âncoras com Azure Cosmos DB'
-description: Neste tutorial, você aprende a compartilhar identificadores de âncoras espaciais do Azure em dispositivos Android/iOS no Unity com um serviço de back-end e Azure Cosmos DB.
+title: 'Tutorial: Partilhar âncoras com a Azure Cosmos DB'
+description: Neste tutorial, aprende-se a partilhar identificadores de Âncoras Espaciais Azure em dispositivos Android/iOS em Unidade com um serviço back-end e Azure Cosmos DB.
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
@@ -8,46 +8,52 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57bf9c9752cf2203ffcac08c213373fd71a79148
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 71b3027d86400d6921895f86e257ddff2961f91f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276884"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615159"
 ---
-# <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: compartilhando âncoras espaciais do Azure entre sessões e dispositivos com um back-end Azure Cosmos DB
+# <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Partilhar âncoras espaciais azure em sessões e dispositivos com um back back end Azure Cosmos
 
-Este tutorial é uma continuação do [compartilhamento de âncoras espaciais do Azure em sessões e dispositivos.](../../../articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md) Ele vai orientá-lo pelo processo de adição de mais alguns recursos para fazer Azure Cosmos DB servirem como o armazenamento de back-end enquanto compartilham âncoras espaciais do Azure entre sessões e dispositivos.
+Este tutorial é uma continuação da partilha de [Âncoras Espaciais Azure em sessões e dispositivos.](../../../articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md) Irá guiá-lo através do processo de adicionar mais algumas capacidades para fazer com que o Azure Cosmos DB sirva de armazenamento traseiro enquanto partilha âncoras espaciais azure em sessões e dispositivos.
 
-![GIF ilustrando persistência de objeto](./media/persistence.gif)
+![GIF ilustrando a persistência de objetos](./media/persistence.gif)
 
-Vale a pena observar que, embora você esteja usando o Unity e o Azure Cosmos DB neste tutorial, é só fornecer um exemplo de como compartilhar identificadores espaciais de âncoras entre dispositivos. Você pode fazer com que outras linguagens e tecnologias de back-end atinjam o mesmo objetivo. Além disso, o aplicativo Web ASP.NET Core usado neste tutorial requer o SDK do .NET Core 2,2. Ele funciona bem em aplicativos Web para o Windows, mas ele não é executado atualmente em aplicativos Web para Linux.
+Vale a pena notar que, embora esteja a usar a Unity e a Azure Cosmos DB neste tutorial, é apenas para lhe dar um exemplo de como partilhar identificadores de Âncoras Espaciais em dispositivos. Pode usar outras línguas e tecnologias de back-end para atingir o mesmo objetivo. Além disso, a aplicação web ASP.NET Core utilizada neste tutorial requer o .NET Core 2.2 SDK. Funciona bem em Aplicações Web para Windows, mas atualmente não será executado em Web Apps para Linux.
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
-Adicione um banco de dados Cosmos do Azure ao grupo de recursos que você criou anteriormente.
+Adicione uma Base de Dados Azure Cosmos ao grupo de recursos que criou anteriormente.
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
 
-Copie o `Connection String` porque você precisará dele.
+Copie o `Connection String` porque vai precisar.
 
-## <a name="make-minor-changes-to-the-sharingservice-files"></a>Fazer alterações secundárias nos arquivos SharingService
+## <a name="make-minor-changes-to-the-sharingservice-files"></a>Faça pequenas alterações nos ficheiros SharingService
 
-Em **Gerenciador de soluções**, abra `SharingService\Startup.cs`.
+No **Solution Explorer,** abra `SharingService\Startup.cs`.
 
-Localize `#define INMEMORY_DEMO` na parte superior do arquivo e comente essa linha. Salve o arquivo.
+Localize `#define INMEMORY_DEMO` no topo do ficheiro e comente essa linha. Guarde o ficheiro.
 
-Em **Gerenciador de soluções**, abra `SharingService\appsettings.json`.
+No **Solution Explorer,** abra `SharingService\appsettings.json`.
 
-Localize a propriedade `StorageConnectionString` e defina o valor como o mesmo que o valor de `Connection String` que você copiou na [etapa criar uma conta de banco de dados](#create-a-database-account). Guarde o ficheiro.
+Localize a `StorageConnectionString` imóvel e detetete o valor para ser o mesmo que o valor `Connection String` que copiou na base de [dados criar uma conta](#create-a-database-account)de base de dados . Guarde o ficheiro.
 
-Você pode publicar o serviço de compartilhamento novamente e executar o aplicativo de exemplo.
+Pode publicar novamente o Serviço de Partilha e executar a aplicação de amostras.
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+### <a name="unity-20193"></a>Unidade 2019.3
+
+Devido a alterações de rutura, a Unidade 2019.3 não é atualmente apoiada. Utilize a Unidade 2019.1 ou 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você usou Azure Cosmos DB para compartilhar identificadores de âncora entre dispositivos. Para saber mais sobre como usar as âncoras espaciais do Azure em um novo aplicativo de HoloLens do Unity, prossiga para o próximo tutorial.
+Neste tutorial, usaste o Azure Cosmos DB para partilhar identificadores de âncora em dispositivos. Para saber mais sobre como usar âncoras espaciais Azure numa nova app Unity HoloLens, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Iniciando um novo aplicativo de HoloLens de Unity](./tutorial-new-unity-hololens-app.md)
+> [Iniciar uma nova app Unity HoloLens](./tutorial-new-unity-hololens-app.md)

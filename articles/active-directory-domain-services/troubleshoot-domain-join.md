@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de ingresso no domínio com Azure AD Domain Services | Microsoft Docs
-description: Saiba como solucionar problemas comuns ao tentar ingressar em um domínio uma VM ou conectar um aplicativo a Azure Active Directory Domain Services e você não pode se conectar ou autenticar no domínio gerenciado.
+title: Troubleshoot domain-join com Azure AD Domain Services  Microsoft Docs
+description: Aprenda a resolver problemas comuns quando tenta juntar-se a um VM ou ligar uma aplicação aos Serviços de Domínio de Diretório Ativo Azure e não pode ligar ou autenticar o domínio gerido.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -10,59 +10,59 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703664"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612801"
 ---
-# <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solucionar problemas de ingresso no domínio com um Azure AD Domain Services domínio gerenciado
+# <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Problemas de resolução de problemas de união de domínio com um domínio gerido pela Azure AD Domain Services
 
-Ao tentar ingressar em uma VM (máquina virtual) ou conectar um aplicativo a um domínio gerenciado Azure Active Directory Domain Services (AD DS), você poderá receber um erro informando que não é possível fazer isso. Para solucionar problemas de ingresso no domínio, examine em quais dos seguintes pontos você tem um problema:
+Quando tentar juntar-se a uma máquina virtual (VM) ou ligar uma aplicação a um domínio gerido pelo Azure Ative Directory Services (AD DS), poderá ter um erro que não consegue fazê-lo. Para resolver problemas de união de domínios, reveja em qual dos seguintes pontos tem um problema:
 
-* Se você não receber um prompt de autenticação, a VM ou o aplicativo não poderá se conectar ao domínio gerenciado AD DS do Azure.
-    * Comece a solucionar [problemas de conectividade para ingressar no domínio](#connectivity-issues-for-domain-join).
-* Se você receber um erro durante a autenticação, a conexão com o domínio gerenciado AD DS do Azure será bem-sucedida.
-    * Comece a solucionar problemas [relacionados a credenciais durante o ingresso no domínio](#credentials-related-issues-during-domain-join).
+* Se não receber um pedido de autenticação, o VM ou aplicação não pode ligar-se ao domínio gerido pelo Azure AD DS.
+    * Comece a resolver problemas de [conectividade para a adesão ao domínio.](#connectivity-issues-for-domain-join)
+* Se receber um erro durante a autenticação, a ligação ao domínio gerido pelo Azure AD DS é bem sucedida.
+    * Comece a resolver [problemas relacionados com credenciais durante a adesão ao domínio](#credentials-related-issues-during-domain-join).
 
-## <a name="connectivity-issues-for-domain-join"></a>Problemas de conectividade para ingresso no domínio
+## <a name="connectivity-issues-for-domain-join"></a>Problemas de conectividade para a adesão ao domínio
 
-Se a VM não conseguir localizar o domínio gerenciado AD DS do Azure, normalmente haverá uma conexão de rede ou um problema de configuração. Examine as seguintes etapas de solução de problemas para localizar e resolver o problema:
+Se o VM não conseguir encontrar o domínio gerido pelo Azure AD DS, normalmente existe um problema de ligação ou configuração de rede. Reveja as seguintes medidas de resolução de problemas para localizar e resolver o problema:
 
-1. Verifique se a VM está conectada à mesma rede virtual, ou emparelhada, que está habilitada para o Azure AD DS. Caso contrário, a VM não poderá localizar e se conectar ao domínio para ingressar.
-    * Se a VM não estiver conectada à mesma rede virtual, confirme se o emparelhamento de rede virtual ou a conexão VPN está *ativa* ou *conectada* para permitir que o tráfego flua corretamente.
-1. Tente executar o ping no domínio usando o nome de domínio do domínio gerenciado AD DS do Azure, como `ping aadds.contoso.com`.
-    * Se a resposta de ping falhar, tente executar ping nos endereços IP para o domínio exibido na página Visão geral no portal para seu domínio gerenciado AD DS do Azure, como `ping 10.0.0.4`.
-    * Se você puder executar o ping com êxito no endereço IP, mas não no domínio, o DNS poderá estar configurado incorretamente. Verifique se você configurou os servidores DNS de domínio gerenciado AD DS do Azure para a rede virtual.
-1. Tente liberar o cache do resolvedor de DNS na máquina virtual, como `ipconfig /flushdns`.
+1. Certifique-se de que o VM está ligado à mesma rede virtual, ou a uma rede virtual esparsada que está ativada para O DS Azure. Caso contrário, o VM não consegue encontrar e ligar-se ao domínio para se juntar.
+    * Se o VM não estiver ligado à mesma rede virtual, confirme que o peering virtual de rede ou ligação VPN é *Ativo* ou *Ligado* para permitir que o tráfego flua corretamente.
+1. Tente pingar o domínio usando o nome de domínio do domínio gerido pelo Azure AD DS, como `ping aaddscontoso.com`.
+    * Se a resposta de ping falhar, tente pingar os endereços IP para o domínio apresentado na página de visão geral no portal para o seu domínio gerido pelo Azure AD DS, como `ping 10.0.0.4`.
+    * Se conseguir obter o acesso ao endereço IP com sucesso, mas não o domínio, o DNS pode estar incorretamente configurado. Certifique-se de que configura os servidores DNS geridos pelo Azure AD DNs para a rede virtual.
+1. Tente lavar a cache de dNS na máquina virtual, como `ipconfig /flushdns`.
 
-### <a name="network-security-group-nsg-configuration"></a>Configuração do NSG (grupo de segurança de rede)
+### <a name="network-security-group-nsg-configuration"></a>Configuração do Grupo de Segurança da Rede (NSG)
 
-Quando você cria um domínio gerenciado do Azure AD DS, um grupo de segurança de rede também é criado com as regras apropriadas para uma operação de domínio bem-sucedida. Se você editar ou criar regras de grupo de segurança de rede adicionais, poderá bloquear involuntariamente as portas necessárias para o AD DS do Azure fornecer serviços de conexão e autenticação. Essas regras de grupo de segurança de rede podem causar problemas como a sincronização de senha não ser concluída, os usuários não conseguem entrar ou problemas de ingresso no domínio.
+Quando cria um domínio gerido pelo Azure AD DS, é também criado um grupo de segurança de rede com as regras adequadas para uma operação de domínio bem sucedida. Se editar ou criar regras adicionais de grupo de segurança de rede, poderá bloquear involuntariamente as portas necessárias para que o Azure AD DS forneça serviços de ligação e autenticação. Estas regras do grupo de segurança da rede podem causar problemas como a sincronização de passwords não estar a ser concluída, os utilizadores não poderem iniciar sessão ou problemas de adesão ao domínio.
 
-Se você continuar tendo problemas de conexão, examine as seguintes etapas de solução de problemas:
+Se continuar a ter problemas de ligação, reveja as seguintes etapas de resolução de problemas:
 
-1. Verifique o status de integridade do seu domínio gerenciado AD DS do Azure no portal do Azure. Se você tiver um alerta para *AADDS001*, uma regra de grupo de segurança de rede estará bloqueando o acesso.
-1. Examine as [portas necessárias e as regras do grupo de segurança de rede][network-ports]. Certifique-se de que nenhuma regra de grupo de segurança de rede aplicada à VM ou à rede virtual à qual você está se conectando bloqueie essas portas de rede.
-1. Depois que qualquer problema de configuração do grupo de segurança de rede for resolvido, o alerta *AADDS001* desaparece da página de integridade em cerca de 2 horas. Com a conectividade de rede agora disponível, tente adicionar o domínio à VM novamente.
+1. Verifique o estado de saúde do seu domínio gerido azure AD DS no portal Azure. Se tiver um alerta para *a AADDS001,* uma regra do grupo de segurança da rede está a bloquear o acesso.
+1. Reveja as regras exigidas para os [portos e as regras][network-ports]do grupo de segurança da rede. Certifique-se de que não são aplicadas regras do grupo de segurança da rede aplicadas ao VM ou à rede virtual que está a ligar a partir de bloquear estas portas de rede.
+1. Uma vez resolvidos quaisquer problemas de configuração do grupo de segurança da rede, o alerta *AADDS001* desaparece da página de saúde em cerca de 2 horas. Com a conectividade da rede agora disponível, tente juntar-se novamente ao VM.
 
-## <a name="credentials-related-issues-during-domain-join"></a>Problemas relacionados a credenciais durante o ingresso no domínio
+## <a name="credentials-related-issues-during-domain-join"></a>Questões relacionadas com credenciais durante a adesão ao domínio
 
-Se você receber uma caixa de diálogo que solicita credenciais para ingressar no domínio gerenciado AD DS do Azure, a VM será capaz de se conectar ao domínio usando a rede virtual do Azure. O processo de ingresso no domínio falha ao autenticar no domínio ou autorização para concluir o processo de ingresso no domínio usando as credenciais fornecidas.
+Se obtém uma caixa de diálogo que pede credenciais para aderir ao domínio gerido pelo Azure AD DS, o VM é capaz de se ligar ao domínio utilizando a rede virtual Azure. O processo de união de domínio falha na autenticação ao domínio ou autorização para completar o processo de adesão ao domínio utilizando as credenciais.
 
-Para solucionar problemas relacionados a credenciais, examine as seguintes etapas de solução de problemas:
+Para resolver problemas relacionados com credenciais, reveja os seguintes passos de resolução de problemas:
 
-1. Tente usar o formato UPN para especificar as credenciais, como `dee@contoso.onmicrosoft.com`. Verifique se esse UPN está configurado corretamente no Azure AD.
-    * O *sAMAccountName* para sua conta pode ser gerado automaticamente se houver vários usuários com o mesmo prefixo UPN em seu locatário ou se o prefixo UPN for muito longo. Portanto, o formato *sAMAccountName* para sua conta pode ser diferente do que você espera ou usa em seu domínio local.
-1. Tente usar as credenciais de uma conta de usuário que pertença ao grupo de *Administradores de DC do AAD* para ingressar VMs no domínio gerenciado AD DS do Azure.
-1. Certifique-se de que você [habilitou a sincronização de senha][enable-password-sync] e esperou tempo suficiente para a conclusão da sincronização de senha inicial.
+1. Tente utilizar o formato UPN para especificar credenciais, como `dee@aaddscontoso.onmicrosoft.com`. Certifique-se de que esta UPN está corretamente configurada em Azure AD.
+    * O *Nome SAMAccountName* para a sua conta pode ser autogerado se houver vários utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo. Por isso, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
+1. Tente utilizar as credenciais para uma conta de utilizador que pertence ao grupo de *administradores da AAD DC* para se juntar aos VMs ao domínio gerido pelo Azure AD DS.
+1. Certifique-se de que ativou a sincronização da [palavra-passe][enable-password-sync] e esperou o suficiente para que a sincronização inicial da palavra-passe esteja concluída.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma compreensão mais profunda dos processos de Active Directory como parte da operação de ingresso no domínio, consulte [problemas de ingresso e autenticação][join-authentication-issues].
+Para uma compreensão mais profunda dos processos de Diretório Ativo como parte da operação de associação de domínios, consulte questões de [adesão e autenticação.][join-authentication-issues]
 
-Se você ainda tiver problemas para ingressar sua VM no domínio gerenciado AD DS do Azure, [Encontre ajuda e abra um tíquete de suporte para Azure Active Directory][azure-ad-support].
+Se ainda tiver problemas em juntar o seu VM ao domínio gerido pelo Azure AD DS, encontre ajuda e abra um bilhete de apoio para o [Azure Ative Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [enable-password-sync]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds

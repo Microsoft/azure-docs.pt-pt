@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 46557d802222190c0ed82f6243dd2a9b997ecaa5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 18395f2b839aef88491f71aeed660eb2ce011e2c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960571"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614229"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Altere o SKU para um domínio gerido pelos Serviços de Domínio Azure existentes
 
@@ -25,14 +25,14 @@ Este artigo mostra-lhe como mudar o SKU para um domínio gerido azure DS existen
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
+Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
 * Uma subscrição ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Um locatário Azure Active Directory associado à sua assinatura, seja sincronizado com um diretório local ou um diretório somente em nuvem.
-    * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
-* Um Azure Active Directory Domain Services domínio gerenciado habilitado e configurado em seu locatário do Azure AD.
-    * Se necessário, conclua o tutorial para [criar e configurar uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Se não tiver uma assinatura Azure, [crie uma conta.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Um inquilino azure Ative Directory associado à sua subscrição, sincronizado com um diretório no local ou com um diretório apenas na nuvem.
+    * Se necessário, crie um inquilino do [Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
+* Um Azure Ative Directory Domain Services gerido domínio habilitado e configurado no seu inquilino Azure AD.
+    * Se necessário, complete o tutorial para criar e configurar uma instância de Serviços de [Domínio de Diretório Ativo Azure.][create-azure-ad-ds-instance]
 
 ## <a name="sku-change-limitations"></a>Limitações de mudança sku
 
@@ -46,7 +46,7 @@ Para obter mais informações sobre estes limites, consulte as [funcionalidades 
 
 Para alterar o SKU para um domínio gerido por Azure AD DS utilizando o portal Azure, complete os seguintes passos:
 
-1. Na parte superior da portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha o seu domínio gerido da lista, como *aadds.contoso.com*.
+1. No topo do portal Azure, procure e selecione Serviços de **Domínio Azure AD.** Escolha o seu domínio gerido da lista, como *aaddscontoso.com*.
 1. No menu do lado esquerdo da página Azure AD DS, **selecione Definições > SKU**.
 
     ![Selecione a opção de menu SKU para o seu domínio gerido azure AD DS no portal Azure](media/change-sku/overview-change-sku.png)

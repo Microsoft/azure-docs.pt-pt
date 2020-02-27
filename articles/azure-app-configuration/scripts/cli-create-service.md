@@ -8,16 +8,16 @@ ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
-ms.openlocfilehash: d2e1c1e2047e89cfede0e8745b3b2ae70e2bfaac
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 667cf9545d87bd9277c59d066933710339b6c079
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523701"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623087"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Criar uma loja de configuração de aplicações Azure
 
-Este script de amostra cria uma nova instância de Configuração de Aplicações Azure em um novo grupo de recursos com um nome aleatório.
+Este script de amostra cria uma nova instância de Configuração de Aplicações Azure num novo grupo de recursos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,7 +44,9 @@ appConfigHostname=$(az appconfig create \
   --location eastus \
   --resource-group $myResourceGroupName \
   --query hostName \
-  -o tsv)
+  --sku free \
+  -o tsv
+  )
 
 # Get the AppConfig connection string 
 appConfigConnectionString=$(az appconfig credential list \

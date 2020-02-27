@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 6737b75a955bb12072722f274ac589cb6d525ffb
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 216fdeca9893f4e290474512617f13382d22890f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772544"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614007"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configure Kerberos constrangido delegação (KCD) em Serviços de Domínio de Diretório Ativo Azure
 
@@ -26,17 +26,17 @@ Este artigo mostra-lhe como configurar a delegação limitada kerberos baseada e
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este artigo, você precisa dos seguintes recursos:
+Para completar este artigo, precisa dos seguintes recursos:
 
 * Uma subscrição ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Um locatário Azure Active Directory associado à sua assinatura, seja sincronizado com um diretório local ou um diretório somente em nuvem.
-    * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
-* Um Azure Active Directory Domain Services domínio gerenciado habilitado e configurado em seu locatário do Azure AD.
-    * Se necessário, [crie e configure uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado AD DS do Azure.
+    * Se não tiver uma assinatura Azure, [crie uma conta.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Um inquilino azure Ative Directory associado à sua subscrição, sincronizado com um diretório no local ou com um diretório apenas na nuvem.
+    * Se necessário, crie um inquilino do [Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
+* Um Azure Ative Directory Domain Services gerido domínio habilitado e configurado no seu inquilino Azure AD.
+    * Se necessário, crie e configure uma instância de Serviços de [Domínio de Diretório Ativo Azure][create-azure-ad-ds-instance].
+* Um VM de gestão do Servidor Windows que se junta ao domínio gerido pelo Azure AD DS.
     * Se necessário, complete o tutorial para criar um VM do [Windows Server e junte-o a um domínio gerido][create-join-windows-vm] e, em seguida, instale as ferramentas de [gestão AD DS][tutorial-create-management-vm].
-* Uma conta de usuário que é membro do grupo de *Administradores de DC do Azure ad* em seu locatário do Azure AD.
+* Uma conta de utilizador que é membro do grupo de administradores da *Azure AD DC* no seu inquilino Azure AD.
 
 ## <a name="kerberos-constrained-delegation-overview"></a>Kerberos limitou a visão geral da delegação
 
@@ -56,7 +56,7 @@ O KCD baseado em recursos é configurado usando powerShell. Utiliza os cmdlets [
 
 ## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Configure o KCD baseado em recursos para uma conta de computador
 
-Neste cenário, vamos assumir que tem uma aplicação web que funciona no computador chamado *contoso-webapp.aadds.contoso.com*. A aplicação web precisa de aceder a uma API web que funciona no computador chamado *contoso-api.aadds.contoso.com* no contexto dos utilizadores de domínio. Complete os seguintes passos para configurar este cenário:
+Neste cenário, vamos assumir que tem uma aplicação web que funciona no computador chamado *contoso-webapp.aaddscontoso.com*. A aplicação web precisa de aceder a uma API web que funciona no computador chamado *contoso-api.aaddscontoso.com* no contexto dos utilizadores de domínio. Complete os seguintes passos para configurar este cenário:
 
 1. [Crie um OU personalizado.](create-ou.md) Pode delegar permissões para gerir este OU personalizado aos utilizadores dentro do domínio gerido pelo Azure AD DS.
 1. [Junte-se ao domínio das máquinas virtuais][create-join-windows-vm], tanto a que executa a aplicação web, como a que executa a Web API, para o domínio gerido pelo Azure AD DS. Crie estas contas de computador na UA personalizada a partir do passo anterior.
@@ -67,8 +67,8 @@ Neste cenário, vamos assumir que tem uma aplicação web que funciona no comput
 1. Por fim, configure o KCD baseado em recursos utilizando o cmdlet [Set-ADComputer][Set-ADComputer] PowerShell. A partir da sua VM de gestão filiada em domínio e registrado como conta de utilizador que é membro do grupo de *administradores da AD DC Azure,* executa os seguintes cmdlets. Forneça os seus próprios nomes de computador conforme necessário:
     
     ```powershell
-    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aadds.contoso.com
-    Set-ADComputer contoso-api.aadds.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aaddscontoso.com
+    Set-ADComputer contoso-api.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
     ```
 
 ## <a name="configure-resource-based-kcd-for-a-user-account"></a>Configure o KCD baseado em recursos para uma conta de utilizador

@@ -2,19 +2,20 @@
 title: Resolução de problemas num cartão rejeitado na inscrição no Azure
 description: Resolva o problema do cartão de crédito rejeitado na inscrição no Azure no portal do Azure ou no centro de contas.
 author: v-miegge
+services: cost-management-billing
+manager: dcscontentpm
 ms.reviewer: judupont
 editor: v-jesits
-tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: ea30fe715bc01b4cd621a2a99c68167f45e5fd36
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 04bd8b82e301778db6c68791925f1cd668fb7859
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200474"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560563"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Resolução de problemas num cartão rejeitado na inscrição no Azure
 
