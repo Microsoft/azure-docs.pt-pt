@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: b0a8deb5f656fafde358dbcf2e1a2724f1a84113
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ff439083ca9c648ceec95b89b041bb5b60785c91
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64727626"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603002"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Documentação sobre Máquinas Virtuais do Linux
 
@@ -42,7 +42,7 @@ Saiba como implementar, gerir e dimensionar VMs do Linux no Azure.
 - [Fazer cópias de segurança de VMs](/azure/virtual-machines/linux/tutorial-backup-vms)
 - [Monitorizar VMs](/azure/virtual-machines/linux/tutorial-monitoring)
 - [Gerir a segurança em VMs](/azure/virtual-machines/linux/tutorial-azure-security)
-- [Criar uma infraestrutura de CI/CD com Jenkins, Docker e GitHub](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+- [Criar uma infraestrutura de CI/CD com Jenkins, Docker e GitHub](/azure/jenkins/tutorial-jenkins-github-docker-cicd)
 
 ## <a name="free-pluralsight-video-training"></a>Vídeo de Formação Gratuita da PluralSight
 

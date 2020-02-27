@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c82a67bbbf8f1a4f77db6ca965031e85e69ee100
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 804b46cd5238c189063608d067c0b40fcd3e306d
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514175"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505684"
 ---
-::: zone target="docs"
+::: zone target="docs" 
 
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box via SMB
 

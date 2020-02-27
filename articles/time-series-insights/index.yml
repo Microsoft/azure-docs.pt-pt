@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: KingdomOfEnds
   ms.author: v-adgera
-  ms.date: 12/17/2019
-  ms.openlocfilehash: ce539fcc3a2e5f6d067ebbb56c21df70c1b3ba49
-  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+  ms.date: 02/12/2020
+  ms.openlocfilehash: 34d7e9ad4f312576eb1e51961feb8364b99a967e
+  ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/24/2020
-  ms.locfileid: "76712881"
+  ms.lasthandoff: 02/27/2020
+  ms.locfileid: "77651326"
 landingContent:
 - title: Acerca do Azure Time Series Insights
   linkLists:
