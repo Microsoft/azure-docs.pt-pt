@@ -1,77 +1,75 @@
 ---
-title: Conectar-se ao SMTP de aplicativos lógicos do Azure
-description: Automatizar tarefas e fluxos de trabalho que enviam email por meio de sua conta SMTP (protocolo de transferência de email simples) usando aplicativos lógicos do Azure
+title: Ligue-se ao SMTP a partir de Aplicações Lógicas Azure
+description: Automatizar tarefas e fluxos de trabalho que enviam e-mail através da sua conta SMTP (Simple Mail Transfer Protocol) utilizando aplicações da Lógica Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: fb501a158c839e6d4d71fc2af5ae50e48c248466
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 60acd128495176cd0a90418c61edf53bdcd88e5a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789159"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647583"
 ---
-# <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Enviar email de sua conta SMTP com o aplicativo lógico do Azure
+# <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envie e-mail da sua conta SMTP com Aplicações Lógicas Azure
 
-Com os aplicativos lógicos do Azure e o conector do protocolo SMTP, você pode criar tarefas automatizadas e fluxos de trabalho que enviam emails de sua conta SMTP. Você também pode fazer com que outras ações usem a saída de ações SMTP. Por exemplo, depois que o SMTP envia um email, você pode notificar sua equipe em atraso com o conector de margem de atraso. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+Com aplicativos azure logic e o conector Simple Mail Transfer Protocol (SMTP), pode criar tarefas e fluxos de trabalho automatizados que enviam e-mail da sua conta SMTP. Também pode ter outras ações a utilizar a saída a partir de ações SMTP. Por exemplo, depois de o seu SMTP enviar um e-mail, pode notificar a sua equipa em Slack com o conector Slack. Se é novo em aplicações lógicas, reveja [o que são as Aplicações Lógicas Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* Sua conta SMTP e as credenciais do usuário
+* A sua conta SMTP e credenciais de utilizador
 
-  Suas credenciais autorizam seu aplicativo lógico a criar uma conexão e acessar sua conta SMTP.
+  As suas credenciais autorizam a sua aplicação lógica para criar uma ligação e aceder à sua conta SMTP.
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar sua conta SMTP. Para usar uma ação SMTP, inicie seu aplicativo lógico com um gatilho, como um gatilho do Salesforce, se você tiver uma conta do Salesforce.
+* A aplicação lógica onde pretende aceder à sua conta SMTP. Para utilizar uma ação SMTP, inicie a sua aplicação lógica com um gatilho, como um gatilho Salesforce, se tiver uma conta Salesforce.
 
-  Por exemplo, você pode iniciar seu aplicativo lógico com o gatilho **quando um registro é criado** do Salesforce. 
-  Esse gatilho é acionado cada vez que um novo registro, como um cliente potencial, é criado no Salesforce. 
-  Em seguida, você pode seguir esse gatilho com a ação **Enviar email** SMTP. Dessa forma, quando o novo registro for criado, seu aplicativo lógico enviará um email da sua conta SMTP sobre o novo registro.
+  Por exemplo, pode iniciar a sua aplicação lógica com o gatilho **When a record is created** Salesforce. 
+  Este gatilho dispara cada vez que um novo recorde, como um chumbo, é criado na Salesforce. 
+  Pode então seguir este gatilho com a ação SMTP **Enviar e-mail.** Desta forma, quando o novo disco é criado, a sua aplicação lógica envia um e-mail da sua conta SMTP sobre o novo disco.
 
-## <a name="connect-to-smtp"></a>Conectar-se ao SMTP
+## <a name="connect-to-smtp"></a>Ligar ao SMTP
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer de aplicativo lógico, se ainda não estiver aberto.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica no Logic App Designer, se ainda não estiver aberta.
 
-1. Na última etapa em que você deseja adicionar uma ação SMTP, escolha **nova etapa**. 
+1. Sob o último passo em que pretende adicionar uma ação SMTP, escolha **novo passo**. 
 
-   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. 
+   Escolha o sinal plus **(+)** que aparece e, em seguida, **selecione Adicionar uma ação**.
 
-1. Na caixa de pesquisa, digite "SMTP" como filtro. Na lista ações, selecione a ação desejada.
+1. Na caixa de pesquisa, introduza "smtp" como filtro. Na lista de ações, selecione a ação que deseja.
 
-1. Quando solicitado, forneça estas informações de conexão:
+1. Quando solicitado, forneça esta informação de ligação:
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da Ligação** | Sim | Um nome para a conexão com o servidor SMTP | 
-   | **Endereço do servidor SMTP** | Sim | O endereço do servidor SMTP | 
-   | **Nome de usuário** | Sim | Seu nome de usuário para sua conta SMTP | 
-   | **Palavra-passe** | Sim | Sua senha para sua conta SMTP | 
-   | **Porta do servidor SMTP** | Não | Uma porta específica no servidor SMTP que você deseja usar | 
-   | **Habilitar SSL?** | Não | Ative ou desative a criptografia SSL. | 
+   | **Nome da Ligação** | Sim | Um nome para a ligação ao seu servidor SMTP | 
+   | **Endereço do servidor SMTP** | Sim | O endereço do seu servidor SMTP | 
+   | **Nome do utilizador** | Sim | O seu nome de utilizador para a sua conta SMTP | 
+   | **Palavra-passe** | Sim | A sua palavra-passe para a sua conta SMTP | 
+   | **Porta do servidor SMTP** | Não | Uma porta específica no seu servidor SMTP que pretende utilizar | 
+   | **Ativar o SSL?** | Não | Ligue ou desligue a encriptação SSL. | 
    |||| 
 
-1. Forneça os detalhes necessários para a ação selecionada. 
+1. Forneça os detalhes necessários para a sua ação selecionada. 
 
-1. Salve seu aplicativo lógico ou continue criando o fluxo de trabalho do aplicativo lógico.
+1. Guarde a sua aplicação lógica ou continue a construir o fluxo de trabalho da sua aplicação lógica.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência](/connectors/smtpconnector/)do conector.
+Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/smtpconnector/).
 
-## <a name="get-support"></a>Obter suporte
-
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
+> [!NOTE]
+> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

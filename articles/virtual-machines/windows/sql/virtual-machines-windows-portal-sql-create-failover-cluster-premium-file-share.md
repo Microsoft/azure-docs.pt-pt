@@ -1,6 +1,6 @@
 ---
-title: SQL Server FCI com compartilhamento de arquivos Premium – máquinas virtuais do Azure
-description: Este artigo explica como criar uma instância de cluster de failover SQL Server usando um compartilhamento de arquivos Premium em máquinas virtuais do Azure.
+title: SQL Server FCI com partilha de ficheiropremium - Máquinas Virtuais Azure
+description: Este artigo explica como criar uma instância de cluster de falha do SQL Server utilizando uma partilha de ficheiro premium em máquinas virtuais Azure.
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -14,200 +14,200 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906796"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651366"
 ---
-# <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server com compartilhamento de arquivos Premium em máquinas virtuais do Azure
+# <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configure uma instância de cluster de failover do SQL Server com partilha de ficheiropremium em máquinas virtuais Azure
 
-Este artigo explica como criar uma FCI (instância de cluster de failover) SQL Server em máquinas virtuais do Azure usando um [compartilhamento de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md).
+Este artigo explica como criar uma instância de cluster de failover do SQL Server (FCI) em máquinas virtuais Azure utilizando uma partilha de [ficheiro premium](../../../storage/files/storage-how-to-create-premium-fileshare.md).
 
-Os compartilhamentos de arquivos Premium são compartilhamentos de arquivos consistentemente de baixa latência que têm suporte total para uso com instâncias de cluster de failover para o SQL Server 2012 ou posterior no Windows Server 2012 ou posterior. Os compartilhamentos de arquivos Premium proporcionam maior flexibilidade, permitindo que você redimensione e dimensione um compartilhamento de arquivos sem nenhum tempo de inatividade.
+As ações de ficheiropremium são ações de ficheiros apoiadas por SSD, consistentemente de baixa latência, que são totalmente suportadas para utilização com instâncias de cluster Failover para SQL Server 2012 ou posteriormente no Windows Server 2012 ou posteriormente. As ações de ficheiropremium dão-lhe maior flexibilidade, permitindo-lhe redimensionar e escalar uma parte de ficheiro sem qualquer tempo de inatividade.
 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Há algumas coisas que você precisa saber e ter em vigor antes de começar.
+Há algumas coisas que precisa saber e ter no lugar antes de começar.
 
-Você deve ter uma compreensão operacional dessas tecnologias:
+Deve ter uma compreensão operacional destas tecnologias:
 
-- [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)
-- [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)
+- [Casos de cluster de falha do servidor SQL](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-Uma coisa a ser observada é que, em um cluster de failover de VM IaaS do Azure, recomendamos uma única NIC por servidor (nó de cluster) e uma única sub-rede. A rede do Azure tem redundância física que torna as NICs e sub-redes adicionais desnecessárias em um cluster convidado da VM IaaS do Azure. O relatório de validação de cluster avisará que os nós podem ser acessados apenas em uma única rede. Você pode ignorar esse aviso em clusters de failover de VM IaaS do Azure.
+Uma coisa a ter em conta é que num cluster de falha de VM Azure IaaS, recomendamos um único NIC por servidor (nó de cluster) e uma única sub-rede. A rede Azure tem redundância física que torna os NICs e subnets adicionais desnecessários num aglomerado de hóspedes Azure IaaS VM. O relatório de validação do cluster irá avisá-lo de que os nós são acessíveis apenas numa única rede. Pode ignorar este aviso sobre os clusters de falha do Azure IaaS VM.
 
-Você também deve ter uma compreensão geral dessas tecnologias:
+Deve também ter uma compreensão geral destas tecnologias:
 
-- [Compartilhamento de arquivos premium do Azure](../../../storage/files/storage-how-to-create-premium-fileshare.md)
-- [Grupos de recursos do Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
+- [Partilha de ficheiros premium Azure](../../../storage/files/storage-how-to-create-premium-fileshare.md)
+- [Grupos de recursos azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> Neste momento, SQL Server instâncias de cluster de failover em máquinas virtuais do Azure só têm suporte com o [modo de gerenciamento leve](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) da [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para alterar do modo de extensão completo para leve, exclua o recurso de **máquina virtual do SQL** para as VMs correspondentes e registre-as com o provedor de recursos de VM do SQL no modo leve. Ao excluir o recurso de **máquina virtual do SQL** usando o portal do Azure, **desmarque a caixa de seleção ao lado da máquina virtual correta**. A extensão completa oferece suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do Portal. Esses recursos não funcionarão para VMs do SQL depois que o agente for reinstalado no modo de gerenciamento leve.
+> Neste momento, as instâncias de cluster de falha do SQL Server nas máquinas virtuais Azure são suportadas apenas com o modo de [gestão leve](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) da extensão do [agente SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md). Para mudar do modo de extensão completo para leve, elimine o recurso **SQL Virtual Machine** para os VMs correspondentes e, em seguida, registe-os com o fornecedor de recursos SQL VM em modo leve. Ao apagar o recurso **SQL Virtual Machine** utilizando o portal Azure, limpe a caixa de **verificação junto à máquina virtual correta**. A extensão completa suporta funcionalidades como backup automatizado, patching e gestão avançada do portal. Estas funcionalidades não funcionarão para VMs SQL depois de o agente ser reinstalado em modo de gestão leve.
 
-Os compartilhamentos de arquivos Premium fornecem IOPS e recursos que atenderão às necessidades de várias cargas de trabalho. Para cargas de trabalho com uso intensivo de e/s, considere [SQL Server instâncias de cluster de failover com espaços de armazenamento diretos](virtual-machines-windows-portal-sql-create-failover-cluster.md), com base em discos Premium gerenciados ou em discos ultraos.  
+As ações de ficheiropremium fornecem IOPS e em todas as capacidades que irão atender às necessidades de muitas cargas de trabalho. Para cargas de trabalho intensivas em IO, considere [as instâncias de cluster de failover do Servidor SQL com espaços](virtual-machines-windows-portal-sql-create-failover-cluster.md)de armazenamento diretos, com base em discos premium geridos ou discos ultra.  
 
-Verifique a atividade de IOPS do seu ambiente e verifique se os compartilhamentos de arquivos Premium fornecerão o IOPS de que você precisa antes de iniciar uma implantação ou migração. Use os contadores de disco do monitor de desempenho do Windows para monitorar o IOPS total (transferências de disco/segundo) e a taxa de transferência (bytes de disco/segundo) necessários para dados de SQL Server, log e arquivos de BD temporários.
+Verifique a atividade iops do seu ambiente e verifique se as ações de ficheiropremium fornecerão o IOPS de que necessita antes de iniciar uma implementação ou migração. Utilize os contadores de discos do Windows Performance Monitor para monitorizar o total de IOPS (Transferências de Discos/segundo) e a entrada (Bytes/segundo do Disco) necessárias para os ficheiros SQL Server, Log e Temp DB.
 
-Muitas cargas de trabalho têm intermitência de e/s, portanto, é uma boa ideia verificar durante períodos de uso pesado e observar o IOPS máximo e a média de IOPS. Os compartilhamentos de arquivos Premium fornecem IOPS com base no tamanho do compartilhamento. Os compartilhamentos de arquivos Premium também fornecem intermitências gratuitas que permitem a intermitência de sua e/s para triplo da quantidade de linha de base por até uma hora.
+Muitas cargas de trabalho rebentaram iO, por isso é uma boa ideia verificar durante períodos de uso pesados e notar tanto o IOPS máximo como o IOPS médio. As ações de ficheiropremium fornecem IOPS com base no tamanho da ação. As ações de ficheiro premium também fornecem uma explosão gratuita que lhe permite rebentar o seu IO para triplicar o valor de base por até uma hora.
 
-Para obter mais informações sobre o desempenho de compartilhamento de arquivos premium, consulte [níveis de desempenho de compartilhamento de arquivos](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
+Para obter mais informações sobre o desempenho da partilha de ficheiros premium, consulte os níveis de [desempenho da partilha de ficheiros](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
 
 ### <a name="licensing-and-pricing"></a>Licenciamento e preços
 
-Em máquinas virtuais do Azure, você pode licenciar SQL Server usando imagens de VM PAYG (pré-pago) ou BYOL (traga sua própria licença). O tipo de imagem que você escolhe afeta como você é cobrado.
+Em máquinas virtuais Azure, pode licenciar o SQL Server utilizando imagens VM pay-as-you-go (PAYG) ou trazer as imagens VM da sua própria licença (BYOL). O tipo de imagem que escolhe saem da forma como é cobrado.
 
-Com o licenciamento pago conforme o uso, uma FCI (instância de cluster de failover) de SQL Server em máquinas virtuais do Azure incorre em encargos para todos os nós do FCI, incluindo os nós passivos. Para obter mais informações, consulte [SQL Server Enterprise preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
+Com o licenciamento pay-as-you-go, uma instância de cluster failover (FCI) do SQL Server em máquinas virtuais Azure incorre em encargos para todos os nós do FCI, incluindo os nós passivos. Para mais informações, consulte o Preço das [Máquinas Virtuais da Empresa de Servidores SQL](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
 
-Se você tiver Enterprise Agreement com o Software Assurance, poderá usar um nó FCI passivo gratuito para cada nó ativo. Para aproveitar esse benefício no Azure, use imagens de VM BYOL e use a mesma licença nos nós ativo e passivo do FCI. Para obter mais informações, consulte [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
+Se tiver acordo de empresa com garantia de software, pode utilizar um nó FCI passivo gratuito para cada nó ativo. Para aproveitar este benefício em Azure, utilize imagens BYOL VM e use a mesma licença tanto nos nós ativos como passivos do FCI. Para mais informações, consulte [o Acordo de Empresa.](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)
 
-Para comparar o licenciamento pago conforme o uso e o BYOL para SQL Server em máquinas virtuais do Azure, consulte Introdução [às VMs do SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+Para comparar o licenciamento pay-as-you-go e byoL para o SQL Server em máquinas virtuais Azure, consulte [Get started with SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
-Para obter informações completas sobre SQL Server de licenciamento, consulte [preços](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
+Para obter informações completas sobre o licenciamento do Servidor SQL, consulte [O Preço](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="filestream"></a>Filestream
 
-FILESTREAM não tem suporte para um cluster de failover com um compartilhamento de arquivos premium. Para usar o FileStream, implante o cluster usando [espaços de armazenamento diretos](virtual-machines-windows-portal-sql-create-failover-cluster.md).
+Filestream não é suportado para um cluster failover com uma quota de ficheiro premium. Para utilizar o filestream, implemente o seu cluster utilizando espaços de [armazenamento direto](virtual-machines-windows-portal-sql-create-failover-cluster.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de concluir as etapas neste artigo, você já deve ter:
+Antes de completar os passos deste artigo, já deve ter:
 
-- Uma assinatura Microsoft Azure.
-- Um domínio do Windows em máquinas virtuais do Azure.
+- Uma subscrição do Microsoft Azure.
+- Um domínio Windows em máquinas virtuais Azure.
 - Uma conta de utilizador de domínio que tem permissões para criar objetos tanto nas máquinas virtuais do Azure como no Diretório Ativo.
 - Uma conta de utilizador de domínio para executar o serviço SQL Server e com a qual pode entrar na máquina virtual com a montagem da partilha de ficheiros.  
-- Uma rede virtual do Azure e uma sub-rede com espaço de endereço IP suficiente para esses componentes:
+- Uma rede virtual Azure e uma subrede com espaço de endereço IP suficiente para estes componentes:
    - Duas máquinas virtuais.
-   - O endereço IP do cluster de failover.
+   - O endereço IP do cluster failover.
    - Um endereço IP para cada FCI.
-- DNS configurado na rede do Azure, apontando para os controladores de domínio.
+- DNS configurado na rede Azure, apontando para os controladores de domínio.
 - Uma partilha de [ficheiro premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) a ser utilizada como unidade agrupada, com base na quota de armazenamento da sua base de dados para os seus ficheiros de dados.
 - Se estiver no Windows Server 2012 R2 ou mais velho, precisará de outra partilha de ficheiros para usar como testemunha de partilha de ficheiros, uma vez que as testemunhas na nuvem são suportadas para o Windows 2016 e mais recentes. Pode utilizar outra partilha de ficheiros Azure, ou pode utilizar uma partilha de ficheiros numa máquina virtual separada. Se vai utilizar outra partilha de ficheiros Azure, pode montá-la com o mesmo processo que para a partilha de ficheiros premium utilizada para a sua unidade agrupada. 
 
-Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de failover. A primeira etapa é criar as máquinas virtuais.
+Com estes pré-requisitos no lugar, você pode começar a construir o seu cluster de failover. O primeiro passo é criar as máquinas virtuais.
 
-## <a name="step-1-create-the-virtual-machines"></a>Etapa 1: criar as máquinas virtuais
+## <a name="step-1-create-the-virtual-machines"></a>Passo 1: Criar as máquinas virtuais
 
-1. Entre no [portal do Azure](https://portal.azure.com) com sua assinatura.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) com a sua subscrição.
 
-1. [Crie um conjunto de disponibilidade do Azure](../tutorial-availability-sets.md).
+1. [Crie um conjunto de disponibilidade azure.](../tutorial-availability-sets.md)
 
-   O conjunto de disponibilidade agrupa máquinas virtuais entre domínios de falha e domínios de atualização. Ele garante que seu aplicativo não seja afetado por pontos únicos de falha, como o comutador de rede ou a unidade de alimentação de um rack de servidores.
+   O conjunto de disponibilidade groups máquinas virtuais através de domínios de falha e domínios de atualização. Garante que a sua aplicação não é afetada por um único ponto de falha, como o interruptor de rede ou a unidade de alimentação de um rack de servidores.
 
-   Se você não criou o grupo de recursos para suas máquinas virtuais, faça isso ao criar um conjunto de disponibilidade do Azure. Se você estiver usando o portal do Azure para criar o conjunto de disponibilidade, siga estas etapas:
+   Se ainda não criou o grupo de recursos para as suas máquinas virtuais, faça-o quando criar um conjunto de disponibilidade sinuoso Azure. Se estiver a usar o portal Azure para criar o conjunto de disponibilidade, tome estes passos:
 
-   1. Na portal do Azure, selecione **criar um recurso** para abrir o Azure Marketplace. Procure o **conjunto de disponibilidade**.
-   1. Selecione **conjunto de disponibilidade**.
+   1. No portal Azure, selecione **Criar um recurso** para abrir o Azure Marketplace. Procure por **disponibilidade definida**.
+   1. Selecione **Conjunto de Disponibilidade**.
    1. Selecione **Criar**.
-   1. Em **criar conjunto de disponibilidade**, forneça estes valores:
-      - **Nome**: um nome para o conjunto de disponibilidade.
-      - **Assinatura**: sua assinatura do Azure.
-      - **Grupo de recursos**: se você quiser usar um grupo existente, clique em **selecionar existente** e selecione o grupo na lista. Caso contrário, selecione **criar novo** e insira um nome para o grupo.
-      - **Local**: defina o local em que você planeja criar suas máquinas virtuais.
-      - **Domínios de falha**: Use o padrão (**3**).
-      - **Domínios de atualização**: Use o padrão (**5**).
-   1. Selecione **criar** para criar o conjunto de disponibilidade.
+   1. No **conjunto de disponibilidade criar,** fornecer estes valores:
+      - **Nome**: Um nome para o conjunto de disponibilidade.
+      - **Subscrição**: A sua subscrição Azure.
+      - **Grupo de recursos**: Se pretender utilizar um grupo existente, clique em **Selecionar existente** e, em seguida, selecione o grupo a partir da lista. Caso contrário, selecione **Criar novo** e insira um nome para o grupo.
+      - **Localização**: Detete o local onde pretende criar as suas máquinas virtuais.
+      - **Domínios**de avaria: Utilize o padrão **(3**).
+      - **Domínios de atualização**: Utilize o padrão **(5**).
+   1. Selecione **Criar** para criar o conjunto de disponibilidade.
 
 1. Crie as máquinas virtuais no conjunto de disponibilidade.
 
-   Provisione duas máquinas virtuais SQL Server no conjunto de disponibilidade do Azure. Para obter instruções, consulte [provisionar uma máquina virtual SQL Server no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
+   Fornecer duas máquinas virtuais SQL Server no conjunto de disponibilidade do Azure. Para obter instruções, consulte [A provisionia uma máquina virtual SQL Server no portal Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
    Coloque ambas as máquinas virtuais:
 
-   - No mesmo grupo de recursos do Azure que seu conjunto de disponibilidade.
-   - Na mesma rede que o controlador de domínio.
-   - Em uma sub-rede que tem espaço de endereço IP suficiente para ambas as máquinas virtuais e todas as FCIs que você pode usar eventualmente no cluster.
+   - No mesmo grupo de recursos Azure que o seu conjunto de disponibilidade.
+   - Na mesma rede que o seu controlador de domínio.
+   - Numa sub-rede que tem espaço de endereço IP suficiente para máquinas virtuais e todas as FCIs que poderá eventualmente utilizar no cluster.
    - No conjunto de disponibilidade do Azure.
 
       >[!IMPORTANT]
-      >Você não pode definir ou alterar o conjunto de disponibilidade depois de ter criado uma máquina virtual.
+      >Não pode definir ou alterar o conjunto de disponibilidade depois de ter criado uma máquina virtual.
 
-   Escolha uma imagem do Azure Marketplace. Você pode usar uma imagem do Azure Marketplace que inclui o Windows Server e SQL Server ou usar uma que inclui apenas o Windows Server. Para obter detalhes, consulte [visão geral de SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+   Escolha uma imagem do Azure Marketplace. Pode utilizar uma imagem do Azure Marketplace que inclui o Windows Server e o SQL Server, ou utilizar uma que apenas inclui o Windows Server. Para mais detalhes, consulte a [visão geral do Servidor SQL nas máquinas virtuais Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-   As imagens do SQL Server oficial na galeria do Azure incluem uma instância SQL Server instalada, o software de instalação do SQL Server e a chave necessária.
+   As imagens oficiais do SQL Server na Galeria Azure incluem uma instância de Servidor SQL instalada, o software de instalação SQL Server e a chave necessária.
 
    >[!IMPORTANT]
-   > Depois de criar a máquina virtual, remova a instância de SQL Server autônoma pré-instalada. Você usará a mídia de SQL Server pré-instalada para criar o SQL Server FCI depois de configurar o cluster de failover e o compartilhamento de arquivos Premium como armazenamento.
+   > Depois de criar a máquina virtual, remova a instância de Servidor SQL autónoma pré-instalada. Utilizará os meios de comunicação SQL Server pré-instalados para criar o SQL Server FCI depois de configurar o cluster failover e a partilha de ficheiros premium como armazenamento.
 
-   Como alternativa, você pode usar as imagens do Azure Marketplace que contêm apenas o sistema operacional. Escolha uma imagem do **Windows Server 2016 datacenter** e instale o SQL Server FCI depois de configurar o cluster de failover e o compartilhamento de arquivos Premium como armazenamento. Esta imagem não contém SQL Server mídia de instalação. Coloque a mídia de instalação do SQL Server em um local onde você possa executá-lo para cada servidor.
+   Em alternativa, pode utilizar imagens do Azure Marketplace que contenham apenas o sistema operativo. Escolha uma imagem **do Datacenter do Windows Server 2016** e instale o SQL Server FCI depois de configurar o cluster failover e a partilha de ficheiros premium como armazenamento. Esta imagem não contém meios de instalação do SQL Server. Coloque os meios de instalação do SQL Server num local onde possa executá-lo para cada servidor.
 
-1. Depois que o Azure criar suas máquinas virtuais, conecte-se a cada uma usando o RDP.
+1. Depois do Azure criar as suas máquinas virtuais, ligue-se a cada uma utilizando RDP.
 
-   Quando você se conecta pela primeira vez a uma máquina virtual usando o RDP, um prompt pergunta se você deseja permitir que o computador seja detectável na rede. Selecione **Sim**.
+   Quando se conecta pela primeira vez a uma máquina virtual utilizando RDP, uma solicitação pergunta-lhe se pretende permitir que o PC seja detetável na rede. Selecione **Sim**.
 
-1. Se você estiver usando uma das imagens de máquina virtual com base em SQL Server, remova a instância de SQL Server.
+1. Se estiver a utilizar uma das imagens da máquina virtual baseada no Servidor SQL, remova a instância do Servidor SQL.
 
    1. Em **Programas e Funcionalidades,** clique à direita **no Microsoft SQL Server 201_ (64-bits)** e selecione **Desinstalar/Alterar**.
    1. Selecione **Remover**.
-   1. Selecione a instância padrão.
-   1. Remova todos os recursos em **serviços mecanismo de banco de Dadoss**. Não remova os **recursos compartilhados**. Você verá algo semelhante à captura de tela a seguir:
+   1. Selecione a instância predefinida.
+   1. Remova todas as funcionalidades em **Serviços**de Motor de Base de Dados . Não remova **as funcionalidades partilhadas.** Verá algo como a seguinte imagem:
 
-        ![Selecione Funcionalidades](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+        ![Selecionar Funcionalidades](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
-   1. Selecione **Avançar**e, em seguida, selecione **remover**.
+   1. Selecione **Next**, e, em seguida, selecione **Remover**.
 
-1. <a name="ports"></a>Abra as portas do firewall.
+1. <span id="ports"></span> Abra as portas de firewall.  
 
-   Em cada máquina virtual, abra essas portas no firewall do Windows:
+   Em cada máquina virtual, abra estas portas na Firewall do Windows:
 
-   | Finalidade | Porta TCP | Notas
+   | Objetivo | Porta TCP | Notas
    | ------ | ------ | ------
-   | SQL Server | 1433 | Porta normal para instâncias padrão de SQL Server. Se você usou uma imagem da galeria, essa porta será aberta automaticamente.
-   | Sonda de estado de funcionamento | 59999 | Qualquer porta TCP aberta. Em uma etapa posterior, configure a [investigação de integridade](#probe) do balanceador de carga e o cluster para usar essa porta.
-   | Partilha de ficheiros | 445 | Porta usada pelo serviço de compartilhamento de arquivos.
+   | SQL Server | 1433 | Porta normal para casos padrão do Servidor SQL. Se usou uma imagem da galeria, esta porta é aberta automaticamente.
+   | Sonda de estado de funcionamento | 59999 | Qualquer porta TCP aberta. Num passo posterior, configure a sonda de [saúde](#probe) do equilibrador de carga e o cluster para utilizar esta porta.
+   | Partilha de ficheiros | 445 | Porta utilizada pelo serviço de partilha de ficheiros.
 
-1. [Adicione as máquinas virtuais ao domínio já existente](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
+1. [Adicione as máquinas virtuais ao seu domínio pré-existente](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-Depois de criar e configurar as máquinas virtuais, você pode configurar o compartilhamento de arquivos premium.
+Depois de criar e configurar as máquinas virtuais, pode configurar a parte de ficheiro premium.
 
-## <a name="step-2-mount-the-premium-file-share"></a>Etapa 2: montar o compartilhamento de arquivos Premium
+## <a name="step-2-mount-the-premium-file-share"></a>Passo 2: Monte a parte do ficheiro premium
 
-1. Entre no [portal do Azure](https://portal.azure.com) e vá para sua conta de armazenamento.
-1. Vá para **compartilhamentos de arquivos** em **serviço de arquivo** e selecione o compartilhamento de arquivos premium que você deseja usar para o armazenamento do SQL.
-1. Selecione **conectar** para exibir a cadeia de conexão para o compartilhamento de arquivos.
-1. Selecione a letra da unidade que você deseja usar na lista suspensa e copie os dois blocos de código para o bloco de notas.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e vá à sua conta de armazenamento.
+1. Vá a **File Shares** sob o serviço **de Ficheiros** e selecione a parte de ficheiro premium que pretende utilizar para o seu armazenamento SQL.
+1. Selecione **Connect** para elevar o fio de ligação para a sua parte de ficheiro.
+1. Selecione a letra de unidade que pretende utilizar a partir da lista de lançamentos e, em seguida, copie ambos os blocos de código para O Bloco de Notas.
 
 
-   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/premium-file-storage-commands.png" alt-text="Copie os dois comandos do PowerShell do portal de conexão de compartilhamento de arquivos":::
+   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/premium-file-storage-commands.png" alt-text="Copie ambos os comandos PowerShell do portal de ligação de partilha de ficheiros":::
 
-1. Use o RDP para se conectar à VM SQL Server com a conta que seu SQL Server FCI usará para a conta de serviço.
-1. Abra um console de comando do PowerShell administrativo.
-1. Execute os comandos que você salvou anteriormente quando estava trabalhando no Portal.
-1. Vá para o compartilhamento usando o explorador de arquivos ou a caixa de diálogo **executar** (tecla com o logotipo do Windows + r). Use o `\\storageaccountname.file.core.windows.net\filesharename`de caminho de rede. Por exemplo, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. Utilize RDP para ligar ao VM do Servidor SQL com a conta que o seu SQL Server FCI utilizará para a conta de serviço.
+1. Abra uma consola de comando powerShell administrativa.
+1. Execute os comandos que guardou mais cedo quando estava a trabalhar no portal.
+1. Aceda à partilha utilizando o File Explorer ou a caixa de diálogo **Executar** (tecla de logotipo do Windows + r). Utilize o caminho da rede `\\storageaccountname.file.core.windows.net\filesharename`. Por exemplo, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
-1. Crie pelo menos uma pasta no compartilhamento de arquivos conectado recentemente para posicionar seus arquivos de dados SQL.
-1. Repita essas etapas em cada VM SQL Server que participará do cluster.
+1. Crie pelo menos uma pasta na partilha de ficheiros recentemente ligada para colocar os seus ficheiros SQL Data.
+1. Repita estes passos em cada VM do Servidor SQL que participará no cluster.
 
   > [!IMPORTANT]
-  > - Considere o uso de um compartilhamento de arquivos separado para arquivos de backup para salvar a capacidade de IOPS e espaço desse compartilhamento para arquivos de dados e de log. Você pode usar um compartilhamento de arquivos Premium ou Standard para arquivos de backup.
+  > - Considere utilizar uma partilha de ficheiroseparada para ficheiros de backup para guardar o IOPS e a capacidade espacial desta partilha para ficheiros Data e Log. Pode utilizar uma partilha de ficheiros premium ou padrão para ficheiros de backup.
   > - Se estiver no Windows 2012 R2 ou mais velho, siga estes mesmos passos para montar a sua partilha de ficheiros que vai usar como testemunha de partilha de ficheiros. 
 
 ## <a name="step-3-configure-the-failover-cluster"></a>Passo 3: Configure o cluster failover
 
-A próxima etapa é configurar o cluster de failover. Nesta etapa, você concluirá as seguintes subetapas:
+O próximo passo é configurar o cluster failover. Neste passo, completará os seguintes subpassos:
 
-1. Adicione o recurso Windows Server failover clustering.
-1. Valide o cluster.
-1. Crie o cluster de failover.
+1. Adicione a função de Clustering de Falha do Servidor do Windows.
+1. Validar o cluster.
+1. Crie o cluster de falhas.
 1. Crie a testemunha em nuvem (para Windows Server 2016 e mais recente) ou a testemunha de partilha de ficheiros (para Windows Server 2012 R2 ou mais antiga).
 
 
-### <a name="add-windows-server-failover-clustering"></a>Adicionar clustering de failover do Windows Server
+### <a name="add-windows-server-failover-clustering"></a>Adicionar clustering de falha do servidor do Windows
 
-1. Conecte-se à primeira máquina virtual com o RDP usando uma conta de domínio que seja membro dos administradores locais e que tenha permissão para criar objetos no Active Directory. Use essa conta para o restante da configuração.
+1. Ligue-se à primeira máquina virtual com RDP utilizando uma conta de domínio que é membro dos administradores locais e que tem permissão para criar objetos no Diretório Ativo. Utilize esta conta para o resto da configuração.
 
-1. [Adicionar clustering de failover a cada máquina virtual](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Adicione o Agrupamento failover a cada máquina virtual](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 
-   Para instalar o clustering de failover da interface do usuário, execute estas etapas em ambas as máquinas virtuais:
-   1. Em **Gerenciador do servidor**, selecione **gerenciar**e, em seguida, selecione **adicionar funções e recursos**.
-   1. No **Assistente Adicionar funções e recursos**, selecione **Avançar** até chegar a **selecionar recursos**.
-   1. Em **selecionar recursos**, selecione **clustering de failover**. Inclua todos os recursos necessários e as ferramentas de gerenciamento. Selecione **Adicionar recursos**.
-   1. Selecione **Avançar**e, em seguida, selecione **concluir** para instalar os recursos.
+   Para instalar o Clusterfailover a partir da UI, dê estes passos em ambas as máquinas virtuais:
+   1. No **Gestor do Servidor,** selecione **Gerir**e, em seguida, selecione **Adicionar Funções e Funcionalidades**.
+   1. No **Assistente de Adicionar Funções e Funcionalidades,** selecione **Seguinte** até **selecionar funcionalidades**.
+   1. Em **Funcionalidades selecionadas,** selecione **'Clustering Failover**'. Inclua todas as funcionalidades necessárias e as ferramentas de gestão. Selecione **Adicionar Funcionalidades**.
+   1. Selecione **Next**, e, em seguida, selecione **Terminar** para instalar as funcionalidades.
 
-   Para instalar o clustering de failover usando o PowerShell, execute o seguinte script de uma sessão de administrador do PowerShell em uma das máquinas virtuais:
+   Para instalar o Failover Clustering utilizando o PowerShell, execute o seguinte script a partir de uma sessão de administrador PowerShell numa das máquinas virtuais:
 
    ```powershell
    $nodes = ("<node1>","<node2>")
@@ -216,42 +216,42 @@ A próxima etapa é configurar o cluster de failover. Nesta etapa, você conclui
 
 ### <a name="validate-the-cluster"></a>Validar o cluster
 
-Valide o cluster na interface do usuário ou usando o PowerShell.
+Valide o cluster na UI ou utilizando o PowerShell.
 
-Para validar o cluster usando a interface do usuário, execute as seguintes etapas em uma das máquinas virtuais:
+Para validar o cluster utilizando a UI, dê os seguintes passos numa das máquinas virtuais:
 
-1. Em **Gerenciador do servidor**, selecione **ferramentas**e, em seguida, selecione **Gerenciador de cluster de failover**.
-1. Em **Gerenciador de cluster de failover**, selecione **ação**e, em seguida, selecione **validar configuração**.
+1. Sob **o Gestor do Servidor,** selecione **Ferramentas**e, em seguida, selecione **Failover Cluster Manager**.
+1. Em **Failover Cluster Manager,** selecione **Action**, e, em seguida, selecione **Validate Configuration**.
 1. Selecione **Seguinte**.
-1. Em **selecionar servidores ou um cluster**, insira os nomes de ambas as máquinas virtuais.
-1. Em **Opções de teste**, selecione **executar apenas testes que eu selecionar**. Selecione **Seguinte**.
-1. Em **seleção de teste**, selecione todos os testes, exceto **armazenamento** e **espaços de armazenamento diretos**, conforme mostrado aqui:
+1. Em **Servidores Selecionados ou num Cluster,** introduza os nomes de ambas as máquinas virtuais.
+1. Em **opções**de teste, selecione **apenas testes de execução que selecionei**. Selecione **Seguinte**.
+1. Em **seleção**de testes, selecione todos os testes, exceto para **espaços** de armazenamento e **armazenamento diretos,** como mostrado aqui:
 
-   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/cluster-validation.png" alt-text="Selecionar testes de validação de cluster":::
+   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/cluster-validation.png" alt-text="Selecione testes de validação de clusters":::
 
 1. Selecione **Seguinte**.
-1. Em **confirmação**, selecione **Avançar**.
+1. Sob **confirmação,** selecione **Seguinte**.
 
-O **Assistente para validar uma configuração** executa os testes de validação.
+O **Validar um Assistente de Configuração** executa os testes de validação.
 
-Para validar o cluster usando o PowerShell, execute o seguinte script de uma sessão de administrador do PowerShell em uma das máquinas virtuais:
+Para validar o cluster utilizando o PowerShell, execute o seguinte script a partir de uma sessão de administrador PowerShell numa das máquinas virtuais:
 
    ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
    ```
 
-Depois de validar o cluster, crie o cluster de failover.
+Depois de validar o cluster, crie o cluster failover.
 
 ### <a name="create-the-failover-cluster"></a>Criar o cluster failover
 
-Para criar o cluster de failover, você precisa de:
-- Os nomes das máquinas virtuais que se tornarão os nós de cluster.
-- Um nome para o cluster de failover
-- Um endereço IP para o cluster de failover. Você pode usar um endereço IP que não é usado na mesma rede virtual e sub-rede do Azure que os nós de cluster.
+Para criar o cluster failover, você precisa:
+- Os nomes das máquinas virtuais que se tornarão os nós do cluster.
+- Um nome para o cluster failover
+- Um endereço IP para o cluster failover. Pode utilizar um endereço IP que não seja utilizado na mesma rede virtual Azure e sub-rede que os nós do cluster.
 
-#### <a name="windows-server-2012-through-windows-server-2016"></a>Windows Server 2012 por meio do Windows Server 2016
+#### <a name="windows-server-2012-through-windows-server-2016"></a>Windows Server 2012 através do Windows Server 2016
 
-O script do PowerShell a seguir cria um cluster de failover para o Windows Server 2012 por meio do Windows Server 2016. Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP disponível da rede virtual do Azure.
+O seguinte script PowerShell cria um cluster de failover para Windows Server 2012 através do Windows Server 2016. Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP disponível da rede virtual Azure.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
@@ -259,7 +259,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### <a name="windows-server-2019"></a>Windows Server 2019
 
-O script do PowerShell a seguir cria um cluster de failover para o Windows Server 2019. Para obter mais informações, consulte [cluster de failover: objeto de rede de cluster](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97). Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP disponível da rede virtual do Azure.
+O seguinte script PowerShell cria um cluster de failover para o Windows Server 2019. Para mais informações, consulte [O cluster Failover: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97). Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP disponível da rede virtual Azure.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -268,13 +268,13 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 ### <a name="create-a-cloud-witness-win-2016-"></a>Criar uma testemunha em nuvem (Ganhar 2016 +)
 
-Se estiver no Windows Server 2016 ou melhor, terá de criar uma Testemunha de Nuvem. A testemunha de nuvem é um novo tipo de testemunha de quorum de cluster que é armazenado em um blob de armazenamento do Azure. Isto elimina a necessidade de um VM separado que acolhe uma partilha de testemunhas, ou usando uma partilha de ficheiro separada.
+Se estiver no Windows Server 2016 ou melhor, terá de criar uma Testemunha de Nuvem. Cloud Witness é um novo tipo de testemunha quórum de cluster que está armazenada numa bolha de armazenamento Azure. Isto elimina a necessidade de um VM separado que acolhe uma partilha de testemunhas, ou usando uma partilha de ficheiro separada.
 
-1. [Crie uma testemunha de nuvem para o cluster de failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [Crie uma testemunha de nuvem para o cluster failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
-1. Crie um contêiner de BLOBs.
+1. Crie um recipiente de bolhas.
 
-1. Salve as chaves de acesso e a URL do contêiner.
+1. Guarde as chaves de acesso e o URL do recipiente.
 
 ### <a name="configure-quorum"></a>Configure quórum 
 
@@ -283,127 +283,127 @@ Para o Windows Server 2016 e maior, configure o cluster para utilizar a testemun
 Para o Windows Server 2012 R2 ou mais antigo, siga os mesmos passos na [Configuração da testemunha quórum na interface do utilizador](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) mas na página **'Select Quorum Witness',** selecione a opção de testemunha de partilha de **ficheiros Configurar.** Especifique a parte do ficheiro que atribuiu para ser a testemunha de partilha de ficheiros, quer seja uma que configuraste numa máquina virtual separada, ou montada a partir do Azure. 
 
 
-## <a name="step-4-test-cluster-failover"></a>Etapa 4: testar o failover de cluster
+## <a name="step-4-test-cluster-failover"></a>Passo 4: Falha do cluster de teste
 
-Failover de teste do cluster. Em **Gerenciador de cluster de failover**, clique com o botão direito do mouse no cluster e selecione **mais ações** > **mover recurso de cluster principal** > **selecione nó**e, em seguida, selecione o outro nó do cluster. Mova o recurso de cluster principal para cada nó do cluster e, em seguida, mova-o de volta para o nó primário. Se você puder mover o cluster para cada nó com êxito, estará pronto para instalar o SQL Server.  
+Teste falha do seu cluster. No **Failover Cluster Manager,** clique no seu cluster e selecione **Mais Ações** > Mover o Recurso de **Cluster** > **Selecione**o nó e, em seguida, selecione o outro nó do cluster. Mova o recurso do cluster central para cada nó do cluster e, em seguida, mova-o de volta para o nó primário. Se conseguir mover o cluster com sucesso para cada nó, está pronto para instalar o SQL Server.  
 
-:::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/test-cluster-failover.png" alt-text="Testar o failover de cluster movendo o recurso principal para os outros nós":::
+:::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/test-cluster-failover.png" alt-text="Falha no cluster de teste movendo o recurso principal para os outros nós":::
 
-## <a name="step-5-create-the-sql-server-fci"></a>Etapa 5: criar o SQL Server FCI
+## <a name="step-5-create-the-sql-server-fci"></a>Passo 5: Criar o Servidor SQL FCI
 
-Depois de configurar o cluster de failover, você pode criar o SQL Server FCI.
+Depois de configurar o cluster failover, pode criar o SQL Server FCI.
 
-1. Conecte-se à primeira máquina virtual usando o RDP.
+1. Ligue-se à primeira máquina virtual utilizando RDP.
 
-1. Em **Gerenciador de cluster de failover**, verifique se todos os recursos de cluster principais estão na primeira máquina virtual. Se necessário, mova todos os recursos para esta máquina virtual.
+1. No **Failover Cluster Manager,** certifique-se de que todos os Recursos core cluster estão na primeira máquina virtual. Se precisar, mova todos os recursos para esta máquina virtual.
 
-1. Localize a mídia de instalação. Se a máquina virtual utilizar uma das imagens do Azure Marketplace, os meios de comunicação estão localizados em `C:\SQLServer_<version number>_Full`. Selecione **instalação**.
+1. Localize os meios de instalação. Se a máquina virtual utilizar uma das imagens do Azure Marketplace, os meios de comunicação estão localizados em `C:\SQLServer_<version number>_Full`. **Selecione Configuração**.
 
-1. Na **central de instalação do SQL Server**, selecione **instalação**.
+1. No Centro de Instalação do **Servidor SQL,** selecione **Instalação**.
 
-1. Selecione **novo SQL Server instalação de cluster de failover**. Siga as instruções no Assistente para instalar o SQL Server FCI.
+1. Selecione nova instalação de **cluster de falha do Servidor SQL**. Siga as instruções no assistente para instalar o SQL Server FCI.
 
-   Os diretórios de dados do FCI precisam estar no compartilhamento de arquivos premium. Insira o caminho completo do compartilhamento, neste formulário: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Um aviso será exibido, informando que você especificou um servidor de arquivos como o diretório de dados. Esse aviso é esperado. Certifique-se de que a conta de utilizador com a qual o RDP'd entra no VM quando insistiu que a parte do ficheiro é a mesma conta que o serviço SQL Server utiliza para evitar possíveis falhas.
+   Os diretórios de dados da FCI têm de estar na parte do ficheiro premium. Insira o caminho completo da parte, desta forma: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Aparecerá um aviso, dizendo-lhe que especificou um servidor de ficheiros como o diretório de dados. Este aviso é esperado. Certifique-se de que a conta de utilizador com a qual o RDP'd entra no VM quando insistiu que a parte do ficheiro é a mesma conta que o serviço SQL Server utiliza para evitar possíveis falhas.
 
-   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Usar o compartilhamento de arquivos como diretórios de dados SQL":::
+   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Utilize a partilha de ficheiros como diretórios de dados SQL":::
 
-1. Depois de concluir as etapas no assistente, a instalação instalará um SQL Server FCI no primeiro nó.
+1. Depois de completar os passos no assistente, a Configuração instalará um SQL Server FCI no primeiro nó.
 
-1. Após a instalação instalar o FCI no primeiro nó, conecte-se ao segundo nó usando o RDP.
+1. Depois de configurar o FCI no primeiro nó, ligue-se ao segundo nó utilizando RDP.
 
-1. Abra a **central de instalação do SQL Server**. Selecione **instalação**.
+1. Abra o Centro de Instalação do **Servidor SQL**. **Selecione Instalação**.
 
-1. Selecione **adicionar nó a um cluster de failover SQL Server**. Siga as instruções no Assistente para instalar SQL Server e adicionar o servidor ao FCI.
+1. Selecione Adicionar nó a um cluster de falha do **Servidor SQL**. Siga as instruções no assistente para instalar o Servidor SQL e adicione o servidor ao FCI.
 
    >[!NOTE]
-   >Se você usou uma imagem da galeria do Azure Marketplace com SQL Server, SQL Server ferramentas foram incluídas com a imagem. Se você não usou uma dessas imagens, instale as ferramentas de SQL Server separadamente. Consulte [baixar SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >Se usou uma imagem de galeria Azure Marketplace com o SQL Server, as ferramentas do SQL Server foram incluídas com a imagem. Se não usou uma dessas imagens, instale as ferramentas Do Servidor SQL separadamente. Consulte o [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-6-create-the-azure-load-balancer"></a>Etapa 6: criar o Azure Load Balancer
+## <a name="step-6-create-the-azure-load-balancer"></a>Passo 6: Criar o equilibrador de carga Azure
 
-Em máquinas virtuais do Azure, os clusters usam um balanceador de carga para manter um endereço IP que precisa estar em um nó de cluster por vez. Nessa solução, o balanceador de carga mantém o endereço IP para o SQL Server FCI.
+Nas máquinas virtuais azure, os clusters usam um equilibrador de carga para segurar um endereço IP que precisa estar num nó de cluster de cada vez. Nesta solução, o equilibrador de carga detém o endereço IP para o SQL Server FCI.
 
-Para obter mais informações, consulte [criar e configurar um balanceador de carga do Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
+Para mais informações, consulte [Criar e configurar um equilibrador](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)de carga Azure .
 
-### <a name="create-the-load-balancer-in-the-azure-portal"></a>Criar o balanceador de carga no portal do Azure
+### <a name="create-the-load-balancer-in-the-azure-portal"></a>Crie o equilibrador de carga no portal Azure
 
-Para criar o balanceador de carga:
+Para criar o equilibrador de carga:
 
-1. Na portal do Azure, vá para o grupo de recursos que contém as máquinas virtuais.
+1. No portal Azure, vá ao grupo de recursos que contém as máquinas virtuais.
 
-1. Selecione **Adicionar**. Pesquise **Load Balancer**no Azure Marketplace. Selecione **Load Balancer**.
+1. Selecione **Adicionar**. Pesquise no Mercado Azure para **balancer de carga.** Selecione **Balanceor de carga**.
 
 1. Selecione **Criar**.
 
-1. Configure o balanceador de carga usando os seguintes valores:
+1. Instale o equilibrador de carga utilizando os seguintes valores:
 
-   - **Assinatura**: sua assinatura do Azure.
-   - **Grupo de recursos**: o grupo de recursos que contém suas máquinas virtuais.
-   - **Nome**: um nome que identifica o balanceador de carga.
-   - **Região**: o local do Azure que contém suas máquinas virtuais.
-   - **Tipo**: público ou privado. Um balanceador de carga privado pode ser acessado de dentro da rede virtual. A maioria dos aplicativos do Azure pode usar um balanceador de carga privado. Se seu aplicativo precisar de acesso a SQL Server diretamente pela Internet, use um balanceador de carga público.
-   - **SKU**: Standard.
-   - **Rede virtual**: a mesma rede que as máquinas virtuais.
-   - **Atribuição de endereço IP**: estática. 
-   - **Endereço IP privado**: o endereço IP que você atribuiu ao recurso de rede de cluster SQL Server FCI.
+   - **Subscrição**: A sua subscrição Azure.
+   - **Grupo de recursos**: O grupo de recursos que contém as suas máquinas virtuais.
+   - **Nome**: Um nome que identifique o equilibrador de carga.
+   - **Região**: A localização Azure que contém as suas máquinas virtuais.
+   - **Tipo**: Público ou privado. Um equilibrador de carga privado pode ser acedido a partir da rede virtual. A maioria das aplicações Azure pode usar um equilibrador de carga privado. Se a sua aplicação necessitar de acesso ao SQL Server diretamente através da internet, utilize um equilibrador de carga público.
+   - **SKU:** Standard.
+   - **Rede virtual**: A mesma rede que as máquinas virtuais.
+   - **Atribuição de endereço IP**: Estática. 
+   - **Endereço IP privado**: O endereço IP que atribuiu ao recurso de rede de cluster SQL Server FCI.
 
-   A imagem a seguir mostra a interface de usuário **criar balanceador de carga** :
+   A imagem seguinte mostra o Create **load balancer** UI:
 
-   ![Configurar o balanceador de carga](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
+   ![Configurar o equilibrador de carga](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
    
 
-### <a name="configure-the-load-balancer-backend-pool"></a>Configurar o pool de back-end do balanceador de carga
+### <a name="configure-the-load-balancer-backend-pool"></a>Configure a piscina de backend do equilibrador de carga
 
-1. Retorne ao grupo de recursos do Azure que contém as máquinas virtuais e localize o novo balanceador de carga. Talvez seja necessário atualizar a exibição no grupo de recursos. Selecione o balanceador de carga.
+1. Volte ao grupo de recursos Azure que contém as máquinas virtuais e localize o novo equilibrador de carga. Talvez seja necessário refrescar a vista sobre o grupo de recursos. Selecione o equilibrador de carga.
 
-1. Selecione **pools de back-end**e, em seguida, selecione **Adicionar**.
+1. Selecione **piscinas backend**e, em seguida, selecione **Adicionar**.
 
-1. Associe o pool de back-end ao conjunto de disponibilidade que contém as VMs.
+1. Associe o pool de backend com o conjunto de disponibilidade que contém os VMs.
 
-1. Em **configurações de IP de rede de destino**, selecione **máquina virtual** e escolha as máquinas virtuais que participarão como nós de cluster. Certifique-se de incluir todas as máquinas virtuais que hospedarão o FCI.
+1. Sob **as configurações IP**da rede Target, selecione VIRTUAL **MACHINE** e escolha as máquinas virtuais que irão participar como nós de cluster. Certifique-se de incluir todas as máquinas virtuais que irão acolher o FCI.
 
-1. Selecione **OK** para criar o pool de back-end.
+1. Selecione **OK** para criar a piscina de backend.
 
 ### <a name="configure-a-load-balancer-health-probe"></a>Configure uma sonda de saúde de equilíbrio de carga
 
-1. Na folha balanceador de carga, selecione **investigações de integridade**.
+1. Na lâmina do equilíbrio de carga, selecione **sondas de saúde**.
 
 1. Selecione **Adicionar**.
 
-1. Na folha **Adicionar investigação de integridade** , <a name="probe"> </a>defina os parâmetros de investigação de integridade a seguir.
+1. Na lâmina da sonda <span id="probe"></span> de **saúde Add,** defina os seguintes parâmetros da sonda de saúde.
 
-   - **Nome**: um nome para a investigação de integridade.
+   - **Nome**: Um nome para a sonda de saúde.
    - **Protocolo**: TCP.
-   - **Porta**: a porta que você criou no firewall para a investigação de integridade nesta [etapa](#ports). Neste artigo, o exemplo usa a porta TCP `59999`.
-   - **Intervalo**: 5 segundos.
-   - **Limite não íntegro**: 2 falhas consecutivas.
+   - **Porta**: A porta que criou na firewall para a sonda de saúde [neste passo](#ports). Neste artigo, o exemplo utiliza a porta TCP `59999`.
+   - **Intervalo:** 5 segundos.
+   - **Limiar pouco saudável:** 2 falhas consecutivas.
 
 1. Selecione **OK**.
 
-### <a name="set-load-balancing-rules"></a>Definir regras de balanceamento de carga
+### <a name="set-load-balancing-rules"></a>Definir regras de equilíbrio de carga
 
-1. Na folha balanceador de carga, selecione **regras de balanceamento de carga**.
+1. Na lâmina do equilíbrio de carga, selecione Regras de **equilíbrio de carga**.
 
 1. Selecione **Adicionar**.
 
-1. Defina os parâmetros da regra de balanceamento de carga:
+1. Definir os parâmetros da regra de equilíbrio da carga:
 
-   - **Nome**: um nome para as regras de balanceamento de carga.
-   - **Endereço IP de front-end**: o endereço IP para o recurso de rede de cluster SQL Server FCI.
-   - **Porta**: a porta TCP do SQL Server FCI. A porta de instância padrão é 1433.
-   - **Porta de back-end**: usa a mesma porta que o valor da **porta** quando você habilita o **IP flutuante (retorno de servidor direto)** .
-   - **Pool de back-end**: o nome do pool de back-end que você configurou anteriormente.
-   - **Investigação de integridade**: a investigação de integridade que você configurou anteriormente.
-   - **Persistência da sessão**: nenhuma.
-   - **Tempo limite de ociosidade (minutos)** : 4.
-   - **IP flutuante (retorno de servidor direto)** : habilitado.
+   - **Nome**: Um nome para as regras de equilíbrio de carga.
+   - **Endereço IP frontend**: O endereço IP para o recurso de rede de cluster SQL Server FCI.
+   - **Porta**: Porta SQL Server FCI TCP. A porta de instância padrão é 1433.
+   - **Porta de backend**: Utiliza a mesma porta que o valor da **porta** quando ativa o **IP flutuante (devolução do servidor direto)** .
+   - **Piscina de backend**: O nome da piscina de backend que configurau anteriormente.
+   - **Sonda de saúde**: A sonda de saúde que configuraste anteriormente.
+   - **Persistência da sessão**: Nenhuma.
+   - **Tempo limite (minutos)** : 4.
+   - **IP flutuante (devolução do servidor direto)** : Ativado.
 
 1. Selecione **OK**.
 
-## <a name="step-7-configure-the-cluster-for-the-probe"></a>Etapa 7: configurar o cluster para a investigação
+## <a name="step-7-configure-the-cluster-for-the-probe"></a>Passo 7: Configure o cluster para a sonda
 
-Defina o parâmetro de porta de investigação do cluster no PowerShell.
+Defina o parâmetro da porta da sonda cluster no PowerShell.
 
-Para definir o parâmetro de porta de investigação de cluster, atualize as variáveis no script a seguir com valores de seu ambiente. Remova os colchetes angulares (`<` e `>`) do script.
+Para definir o parâmetro da porta da sonda cluster, atualize as variáveis no seguinte script com valores do seu ambiente. Retire os suportes angulares (`<` e `>`) do script.
 
    ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
@@ -416,56 +416,56 @@ Para definir o parâmetro de porta de investigação de cluster, atualize as var
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-A lista a seguir descreve os valores que você precisa atualizar:
+A lista que se segue descreve os valores que precisa de atualizar:
 
-   - `<Cluster Network Name>`: o nome do cluster de failover do Windows Server para a rede. Em **Gerenciador de Cluster de Failover** > **redes**, clique com o botão direito do mouse na rede e selecione **Propriedades**. O valor correto está sob **nome** na guia **geral** .
+   - `<Cluster Network Name>`: O nome do Cluster Failover do Windows Server para a rede. No **Failover Cluster Manager** > **Networks,** clique à direita na rede e selecione **Propriedades**. O valor correto está em **nome** no separador **Geral.**
 
-   - `<SQL Server FCI IP Address Resource Name>`: o nome do recurso de endereço IP do SQL Server FCI. Em **Gerenciador de Cluster de Failover** > **funções**, na função SQL Server FCI, em **nome do servidor**, clique com o botão direito do mouse no recurso de endereço IP e selecione **Propriedades**. O valor correto está sob **nome** na guia **geral** .
+   - `<SQL Server FCI IP Address Resource Name>`: O nome do recurso de endereço IP do Servidor SQL FCI. No **Failover Cluster Manager** > **Roles**, sob a função SQL Server FCI, sob o Nome **do Servidor,** clique no recurso de endereço IP e selecione **Propriedades**. O valor correto está em **nome** no separador **Geral.**
 
-   - `<ILBIP>`: o endereço IP ILB. Esse endereço é configurado no portal do Azure como o endereço de front-end ILB. Esse também é o endereço IP do SQL Server FCI. Você pode encontrá-lo em **Gerenciador de cluster de failover** na mesma página de propriedades em que você localizou o `<SQL Server FCI IP Address Resource Name>`.  
+   - `<ILBIP>`: O endereço IP ILB. Este endereço está configurado no portal Azure como o endereço frontal ILB. Este é também o endereço IP Do Servidor SQL FCI. Pode encontrá-lo no **Failover Cluster Manager** na mesma página de propriedades onde localizou o `<SQL Server FCI IP Address Resource Name>`.  
 
-   - `<nnnnn>`: a porta de investigação configurada na investigação de integridade do balanceador de carga. Qualquer porta TCP não utilizada é válida.
+   - `<nnnnn>`: A porta de sonda que configuraste na sonda de saúde do equilibrador de carga. Qualquer porta TCP não utilizada é válida.
 
 >[!IMPORTANT]
->A máscara de sub-rede do parâmetro de cluster deve ser o endereço de difusão IP TCP: `255.255.255.255`.
+>A máscara de sub-rede para o parâmetro do cluster deve ser o endereço de transmissão IP do TCP: `255.255.255.255`.
 
-Depois de definir a investigação de cluster, você poderá ver todos os parâmetros de cluster no PowerShell. Executar este script:
+Depois de definir a sonda de cluster, pode ver todos os parâmetros do cluster no PowerShell. Execute este guião:
 
    ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter
   ```
 
-## <a name="step-8-test-fci-failover"></a>Etapa 8: testar o failover do FCI
+## <a name="step-8-test-fci-failover"></a>Passo 8: Falha do Teste FCI
 
-Teste o failover do FCI para validar a funcionalidade do cluster. Tome os seguintes passos:
+Teste falha do FCI para validar a funcionalidade do cluster. Tome os seguintes passos:
 
-1. Conecte-se a um dos nós de cluster SQL Server FCI usando o RDP.
+1. Ligue-se a um dos nós de cluster SQL Server FCI utilizando RDP.
 
-1. Abra **Gerenciador de cluster de failover**. Selecione **funções**. Observe qual nó possui a função SQL Server FCI.
+1. Open **Failover Cluster Manager**. Selecione **Funções**. Note qual nó detém o papel SQL Server FCI.
 
-1. Clique com o botão direito do mouse na função SQL Server FCI.
+1. Clique na função SQL Server FCI.
 
-1. Selecione **mover**e, em seguida, selecione o **melhor nó possível**.
+1. Selecione **Mover**e, em seguida, selecione **o Melhor Nó Possível**.
 
-**Gerenciador de cluster de failover** mostra a função e seus recursos ficam offline. Os recursos são movidos e ficam online novamente no outro nó.
+**O Failover Cluster Manager** mostra o papel, e os seus recursos ficam offline. Os recursos movem-se e voltam a funcionar no outro nó.
 
 ### <a name="test-connectivity"></a>Testar conectividade
 
-Para testar a conectividade, entre em outra máquina virtual na mesma rede virtual. Abra **SQL Server Management Studio** e conecte-se ao nome do SQL Server FCI.
+Para testar a conectividade, inscreva-se noutra máquina virtual na mesma rede virtual. Abra o **Estúdio de Gestão de Servidores SQL** e ligue-se ao nome SQL Server FCI.
 
 >[!NOTE]
->Se precisar, você pode [baixar SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>Se precisar, pode baixar o Estúdio de Gestão de [Servidores SQL](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Limitações
 
-As máquinas virtuais do Azure dão suporte ao Microsoft Coordenador de Transações Distribuídas (MSDTC) no Windows Server 2019 com armazenamento em CSV (volumes compartilhados clusterizados) e um [balanceador de carga padrão](../../../load-balancer/load-balancer-standard-overview.md).
+As máquinas virtuais Azure suportam o Microsoft Distributed Transaction Coordinator (MSDTC) no Windows Server 2019 com armazenamento em Volumes Partilhados Clustered (CSV) e um [equilíbrio de carga padrão.](../../../load-balancer/load-balancer-standard-overview.md)
 
-Em máquinas virtuais do Azure, o MSDTC não tem suporte no Windows Server 2016 ou anterior porque:
+Nas máquinas virtuais Azure, o MSDTC não é suportado no Windows Server 2016 ou mais cedo porque:
 
-- O recurso MSDTC clusterizado não pode ser configurado para usar o armazenamento compartilhado. No Windows Server 2016, se você criar um recurso MSDTC, ele não mostrará nenhum armazenamento compartilhado disponível para uso, mesmo que o armazenamento esteja disponível. Esse problema foi corrigido no Windows Server 2019.
-- O balanceador de carga básico não lida com portas RPC.
+- O recurso MSDTC agrupado não pode ser configurado para usar armazenamento partilhado. No Windows Server 2016, se criar um recurso MSDTC, não mostrará qualquer armazenamento partilhado disponível para utilização, mesmo que o armazenamento esteja disponível. Este problema foi corrigido no Windows Server 2019.
+- O equilibrador de carga básico não trata das portas RPC.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-- [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)
-- [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)
+- [Casos de cluster de falha do servidor SQL](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

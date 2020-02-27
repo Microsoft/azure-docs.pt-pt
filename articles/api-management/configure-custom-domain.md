@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 72075d4eff336af625bbf6d62f1276d2997bfed4
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 887019bbdb92807d49c09af3a83313470f334a52
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251214"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649552"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
@@ -27,7 +27,7 @@ Quando se cria uma instância de serviço de Gestão API Azur, o Azure atribui-l
 > A API Management aceita apenas pedidos com valores de cabeçalho do [anfitrião](https://tools.ietf.org/html/rfc2616#section-14.23) que correspondam ao nome de domínio padrão ou qualquer um dos nomes de domínio personalizado configurados.
 
 > [!WARNING]
-> Os clientes que desejem utilizar o certificado para melhorar a segurança das suas aplicações devem utilizar um nome de domínio e certificado personalizados que gerem, e não o certificado predefinido. Os clientes que fixarem o certificado padrão receberão uma dependência rígida das propriedades do certificado que eles não controlam, o que não é uma prática recomendada.
+> Os clientes que desejem utilizar o certificado para melhorar a segurança das suas aplicações devem utilizar um nome de domínio e certificado personalizados que gerem, e não o certificado predefinido. Os clientes que fixarem o certificado predefinido estarão, em vez disso, a assumir uma forte dependência das propriedades do certificado que não controlam, o que não é uma prática recomendada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,8 @@ Para realizar os passos descritos neste artigo, deve ter:
     - **Gateway** (o padrão é: `<apim-service-name>.azure-api.net`),
     - **Portal** (o padrão é: `<apim-service-name>.portal.azure-api.net`),
     - **Gestão** (o padrão é: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (predefinido é: `<apim-service-name>.scm.azure-api.net`).
+    - **SCM** (padrão é: `<apim-service-name>.scm.azure-api.net`),
+    - **NewPortal** (predefinido é: `<apim-service-name>.developer.azure-api.net`).
 
     > [!NOTE]
     > Apenas o ponto final **do Gateway** está disponível para configuração no nível de Consumo.

@@ -3,18 +3,18 @@ title: Definir múltiplos casos de uma variável
 description: Utilize a operação de cópia num modelo de Gestor de Recursos Azure para iterar várias vezes ao criar uma variável.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 9e252a0b9721ffec99535c5d30e609e12e9e67eb
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: ea4caf3553b3cd14eec194b8cef0db59499a4f4c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210817"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622872"
 ---
 # <a name="variable-iteration-in-azure-resource-manager-templates"></a>Iteração variável nos modelos do Gestor de Recursos Azure
 
 Este artigo mostra-lhe como criar mais do que um valor para uma variável no seu modelo de Gestor de Recursos Azure. Ao adicionar o elemento **de cópia** à secção de variáveis do seu modelo, pode configurar dinamicamente o número de itens para uma variável durante a implantação. Também evita ter que repetir a sintaxe do modelo.
 
-Também pode utilizar cópias com [recursos](copy-resources.md) e [propriedades num recurso.](copy-properties.md)
+Também pode utilizar cópias com [recursos,](copy-resources.md) [propriedades num recurso,](copy-properties.md)e [saídas.](copy-outputs.md)
 
 ## <a name="variable-iteration"></a>Iteração variável
 
@@ -313,7 +313,10 @@ Os exemplos seguintes mostram cenários comuns para criar mais do que um valor p
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias](template-tutorial-create-multiple-instances.md)de recursos utilizando modelos de Gestor de Recursos .
-* Para outras utilizações do elemento de cópia, consulte a [iteração de recursos nos modelos do Gestor](copy-resources.md) de Recursos Azure e [a iteração de propriedade nos modelos do Gestor](copy-properties.md)de Recursos Azure .
+* Para outras utilizações do elemento cópia, consulte:
+  * [Iteração de recursos nos modelos do Gestor de Recursos Azure](copy-resources.md)
+  * [Iteração de propriedade em modelos de Gestor de Recursos Azure](copy-properties.md)
+  * [Iteração de saída nos modelos do Gestor de Recursos Azure](copy-outputs.md)
 * Se quiser saber sobre as secções de um modelo, consulte os modelos de gestor de [recursos do Azure .](template-syntax.md)
 * Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com o Modelo](deploy-powershell.md)de Gestor de Recursos Azure .
 

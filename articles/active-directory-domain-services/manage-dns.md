@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o DNS para Azure AD Domain Services | Microsoft Docs
-description: Saiba como instalar as ferramentas do servidor DNS para gerenciar o DNS para um Azure Active Directory Domain Services domínio gerenciado.
+title: Gerir o DNS para serviços de domínio azure ad  Microsoft Docs
+description: Aprenda a instalar as Ferramentas de Servidor DNS para gerir o DNS para um domínio gerido pelo Azure Ative Directory Domain Services.
 author: iainfoulds
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -10,79 +10,79 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: f47f112991a4fe2e5b245920db98e5ae7617161a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2694a5f250b746748a1b42ac4d211aa28ef1ebad
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704937"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613686"
 ---
-# <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administrar o DNS em um domínio Azure AD Domain Services gerenciado
+# <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administrar dNS num domínio gerido pelos Serviços de Domínio Azure AD
 
-No Azure Active Directory Domain Services (AD DS do Azure), um componente de chave é DNS (resolução de nomes de domínio). O AD DS do Azure inclui um servidor DNS que fornece resolução de nomes para o domínio gerenciado. Esse servidor DNS inclui registros e atualizações de DNS internos para os principais componentes que permitem a execução do serviço.
+Nos Serviços de Domínio de Diretório Ativo Azure (Azure AD DS), um componente chave é o DNS (Resolução de Nome de Domínio). O Azure AD DS inclui um servidor DNS que fornece resolução de nome para o domínio gerido. Este servidor DNS inclui registos dNS incorporados e atualizações para os componentes chave que permitem que o serviço seja executado.
 
-Ao executar seus próprios aplicativos e serviços, talvez seja necessário criar registros DNS para computadores que não são ingressados no domínio, configurar endereços IP virtuais para balanceadores de carga ou configurar encaminhadores de DNS externos. Os usuários que pertencem ao grupo de *Administradores de DC do AAD* recebem privilégios de administração de DNS no domínio gerenciado AD DS do Azure e podem criar e editar registros DNS personalizados.
+À medida que executa as suas próprias aplicações e serviços, poderá ter de criar registos DNS para máquinas que não estejam unidas ao domínio, configurar endereços IP virtuais para equilibradores de carga ou configurar avançados externos do DNS. Os utilizadores que pertencem ao grupo de administradores da *AAD DC* recebem privilégios de administração DNS no domínio gerido pelo Azure AD DS e podem criar e editar registos dNS personalizados.
 
-Em um ambiente híbrido, as zonas e os registros DNS configurados em um ambiente de AD DS local não são sincronizados com o AD DS do Azure. Para definir e usar suas próprias entradas DNS, crie registros no servidor DNS AD DS do Azure ou use encaminhadores condicionais que apontam para servidores DNS existentes em seu ambiente.
+Num ambiente híbrido, as zonas de DNS e os registos configurados num ambiente AD DS no local não são sincronizados com O DS Azure. Para definir e utilizar as suas próprias entradas dNS, crie registos no servidor DNS DNS Da AD Azure ou utilize avançados condicionados que apontem para servidores DNS existentes no seu ambiente.
 
-Este artigo mostra como instalar as ferramentas de servidor DNS e usar o console DNS para gerenciar registros no Azure AD DS.
+Este artigo mostra-lhe como instalar as ferramentas DNS Server e depois utilizar a consola DNS para gerir registos em DS AD Azure.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
+Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
 * Uma subscrição ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Um locatário Azure Active Directory associado à sua assinatura, seja sincronizado com um diretório local ou um diretório somente em nuvem.
-    * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
-* Um Azure Active Directory Domain Services domínio gerenciado habilitado e configurado em seu locatário do Azure AD.
-    * Se necessário, conclua o tutorial para [criar e configurar uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado AD DS do Azure.
-    * Se necessário, conclua o tutorial para [criar uma VM do Windows Server e associá-la a um domínio gerenciado][create-join-windows-vm].
-* Uma conta de usuário que é membro do grupo de *Administradores de DC do Azure ad* em seu locatário do Azure AD.
+    * Se não tiver uma assinatura Azure, [crie uma conta.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Um inquilino azure Ative Directory associado à sua subscrição, sincronizado com um diretório no local ou com um diretório apenas na nuvem.
+    * Se necessário, crie um inquilino do [Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
+* Um Azure Ative Directory Domain Services gerido domínio habilitado e configurado no seu inquilino Azure AD.
+    * Se necessário, complete o tutorial para criar e configurar uma instância de Serviços de [Domínio de Diretório Ativo Azure.][create-azure-ad-ds-instance]
+* Um VM de gestão do Servidor Windows que se junta ao domínio gerido pelo Azure AD DS.
+    * Se necessário, complete o tutorial para [criar um VM do Servidor windows e junte-o a um domínio gerido][create-join-windows-vm].
+* Uma conta de utilizador que é membro do grupo de administradores da *Azure AD DC* no seu inquilino Azure AD.
 
-## <a name="install-dns-server-tools"></a>Instalar ferramentas de servidor DNS
+## <a name="install-dns-server-tools"></a>Instalar ferramentas do Servidor DNS
 
-Para criar e modificar registros DNS no Azure AD DS, você precisa instalar as ferramentas do servidor DNS. Essas ferramentas podem ser instaladas como um recurso no Windows Server. Para obter mais informações sobre como instalar as ferramentas administrativas em um cliente Windows, consulte instalar o [ferramentas de administração de servidor remoto (RSAT)][install-rsat].
+Para criar e modificar os registos DNS em DS AD S Azure, é necessário instalar as ferramentas do Servidor DNS. Estas ferramentas podem ser instaladas como uma funcionalidade no Windows Server. Para obter mais informações sobre como instalar as ferramentas administrativas num cliente windows, consulte a instalação de Ferramentas de Administração do [Servidor Remoto (RSAT)][install-rsat].
 
-1. Entre na sua VM de gerenciamento. Para obter as etapas sobre como se conectar usando o portal do Azure, consulte [conectar-se a uma VM do Windows Server][connect-windows-server-vm].
-1. Se **Gerenciador do servidor** não abrir por padrão quando você entrar na VM, selecione o menu **Iniciar** e, em seguida, escolha **Gerenciador do servidor**.
-1. No painel *painel* da janela **Gerenciador do servidor** , selecione **adicionar funções e recursos**.
-1. Na página **antes de começar** do *Assistente para adicionar funções e recursos*, selecione **Avançar**.
-1. Para o *tipo de instalação*, deixe a opção de instalação baseada em **função ou recurso** marcada e selecione **Avançar**.
-1. Na página **seleção de servidor** , escolha a VM atual no pool de servidores, como *MyVM.aadds.contoso.com*, e selecione **Avançar**.
-1. Na página **funções de servidor** , clique em **Avançar**.
-1. Na página **recursos** , expanda o nó **ferramentas de administração de servidor remoto** e, em seguida, expanda o nó **ferramentas de administração de função** . Selecione o recurso **ferramentas de servidor DNS** na lista de ferramentas de administração de função.
+1. Inscreva-se na sua VM de gestão. Para obter passos sobre como se conectar utilizando o portal Azure, consulte [Connect to a Windows Server VM][connect-windows-server-vm].
+1. Se o **Gestor do Servidor** não abrir por padrão quando iniciar sessão no VM, selecione o menu **Iniciar** e, em seguida, escolha o Gestor **do Servidor**.
+1. No painel do *Dashboard* da janela Do Gestor do **Servidor,** selecione **Adicionar Funções e Funcionalidades**.
+1. Na página Antes de **Iniciar** o Assistente de *Adicionar Funções e Funcionalidades,* selecione **Next**.
+1. Para o Tipo de *Instalação,* deixe a opção **de instalação baseada em funções** ou baseada em funções verificada e selecione **Next**.
+1. Na página de Seleção do **Servidor,** escolha o VM atual a partir do conjunto de servidores, como *myvm.aaddscontoso.com,* em seguida, selecione **Next**.
+1. Na página Funções do **Servidor,** clique em **Seguinte**.
+1. Na página **Funcionalidades,** expanda o nó de **Ferramentas** de Administração do Servidor Remoto e, em seguida, expanda o nó de Ferramentas de Administração de **Funções.** Selecione a funcionalidade **DNS Server Tools** da lista de ferramentas de administração de funções.
 
-    ![Opte por instalar as ferramentas do servidor DNS na lista de ferramentas de administração de função disponíveis](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
+    ![Escolha instalar as Ferramentas de Servidor DNS a partir da lista de ferramentas de administração de funções disponíveis](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
 
-1. Na página **confirmação** , selecione **instalar**. Pode levar um minuto ou dois para instalar as ferramentas de gerenciamento de Política de Grupo.
-1. Quando a instalação do recurso estiver concluída, selecione **fechar** para sair do assistente **adicionar funções e recursos** .
+1. Na página **confirmação,** selecione **Instalar**. Pode levar um minuto ou dois para instalar as ferramentas de Gestão de Políticas do Grupo.
+1. Quando a instalação da funcionalidade estiver concluída, selecione **Close** to exit the **Add Roles and Features** wizard.
 
-## <a name="open-the-dns-management-console-to-administer-dns"></a>Abra o console de gerenciamento do DNS para administrar o DNS
+## <a name="open-the-dns-management-console-to-administer-dns"></a>Abra a consola de gestão DNS para administrar dNS
 
-Com as ferramentas do servidor DNS instaladas, você pode administrar os registros DNS no domínio gerenciado AD DS do Azure.
+Com as ferramentas DNS Server instaladas, pode administrar registos DNS no domínio gerido pelo Azure AD DS.
 
 > [!NOTE]
-> Para administrar o DNS em um domínio gerenciado AD DS do Azure, você deve estar conectado a uma conta de usuário que seja membro do grupo de *Administradores de DC do AAD* .
+> Para administrar dNS num domínio gerido pelo Azure AD DS, deve ser inscrito numa conta de utilizador que seja membro do grupo de administradores da *AAD DC.*
 
-1. Na tela iniciar, selecione **Ferramentas administrativas**. Uma lista de ferramentas de gerenciamento disponíveis é mostrada, incluindo o **DNS** instalado na seção anterior. Selecione **DNS** para iniciar o console de gerenciamento do DNS.
-1. Na caixa de diálogo **conectar ao servidor DNS** , selecione **o seguinte computador**e, em seguida, insira o nome de domínio DNS do domínio gerenciado, como *aadds.contoso.com*:
+1. A partir do ecrã Iniciar, selecione **Ferramentas Administrativas**. É apresentada uma lista de ferramentas de gestão disponíveis, incluindo **DNS** instalados na secção anterior. Selecione **DNS** para lançar a consola DNS Management.
+1. No diálogo **Connect to DNS Server,** selecione **O seguinte computador,** introduza o nome de domínio DNS do domínio gerido, como *aaddscontoso.com:*
 
-    ![Conectar-se ao domínio gerenciado AD DS do Azure no console DNS](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
+    ![Ligue-se ao domínio gerido pelo Azure AD DS na consola DNS](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 
-1. O console DNS se conecta ao domínio gerenciado AD DS do Azure especificado. Expanda as **zonas de pesquisa direta** ou as **zonas de pesquisa inversa** para criar suas entradas DNS necessárias ou editar os registros existentes, conforme necessário.
+1. A consola DNS liga-se ao domínio gerido pelo Azure AD DS especificado. Expanda as Zonas de **Alookup Para A Frente** ou Zonas de **Procura Reversa** para criar as entradas dNS necessárias ou editar os registos existentes conforme necessário.
 
-    ![Console DNS-administrar domínio](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
+    ![Consola DNS - domínio de administração](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
 
 > [!WARNING]
-> Ao gerenciar registros usando as ferramentas do servidor DNS, certifique-se de não excluir ou modificar os registros DNS internos que são usados pelo Azure AD DS. Os registros DNS internos incluem registros DNS de domínio, registros de servidor de nomes e outros registros usados para o local do DC. Se você modificar esses registros, os serviços de domínio serão interrompidos na rede virtual.
+> Quando gere os registos utilizando as ferramentas do DNS Server, certifique-se de que não elimina ou modifica os registos DNS incorporados que são utilizados pelo Azure AD DS. Os registos dNS incorporados incluem registos de DNS de domínio, registos de servidores de nomee outros registos utilizados para a localização de DC. Se modificar estes registos, os serviços de domínio são interrompidos na rede virtual.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como gerenciar o DNS, consulte o [artigo ferramentas de DNS no TechNet](https://technet.microsoft.com/library/cc753579.aspx).
+Para obter mais informações sobre a gestão do DNS, consulte o artigo de [ferramentas DNS no Technet](https://technet.microsoft.com/library/cc753579.aspx).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

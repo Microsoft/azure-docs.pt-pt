@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 409e73f05366065f1c4159e9f1cd7e5bf8bb5ceb
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 880f1c601cf4132fdec9e5d25b1bf1f2ff175ab7
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486248"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650542"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Diretrizes de desempenho para O Servidor SQL em Máquinas Virtuais Azure
 
@@ -136,7 +136,7 @@ Para VMs que suportam SSDs premium, também pode armazenar TempDB num disco que 
      > [!WARNING]
      > Pare o serviço SQL Server ao alterar a definição de cache dos discos Azure VM para evitar a possibilidade de qualquer corrupção na base de dados.
 
-* Tamanho da unidade de **atribuição NTFS**: Ao formar o disco de dados, recomenda-se que utilize um tamanho de unidade de alocação de 64 KB para dados e ficheiros de registo, bem como tempDB.
+* Tamanho da unidade de **atribuição NTFS**: Ao formar o disco de dados, recomenda-se que utilize um tamanho de unidade de alocação de 64 KB para dados e ficheiros de registo, bem como tempDB. Se tempDB for colocado no disco temporário (D:\ unidade) o desempenho obtido ao alavancar esta unidade supera a necessidade de um tamanho de unidade de alocação de 64K. 
 
 * **Boas práticas**de gestão do disco : Ao remover um disco de dados ou alterar o seu tipo de cache, pare o serviço SQL Server durante a alteração. Quando as definições de cache são alteradas no disco OS, o Azure para o VM, altera o tipo de cache e reinicia o VM. Quando as definições de cache de um disco de dados são alteradas, o VM não é parado, mas o disco de dados é separado do VM durante a alteração e, em seguida, religado.
 

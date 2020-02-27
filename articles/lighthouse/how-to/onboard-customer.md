@@ -3,12 +3,12 @@ title: Integrar um cliente na gestão de recursos delegados do Azure
 description: Aprenda a embarcar um cliente para a gestão de recursos delegados do Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino.
 ms.date: 01/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 34c6173211a9125cace59d77ea942d301919aa26
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 33cf880098e174c2c230a3d78e125ad8df7d894a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526217"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649794"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -16,7 +16,7 @@ Este artigo explica como você, como prestador de serviços, pode embarcar um cl
 
 Pode repetir este processo se estiver a gerir recursos para vários clientes. Em seguida, quando um utilizador autorizado se inscreve no seu inquilino, esse utilizador pode ser autorizado através de âmbitos de arrendamento do cliente para realizar operações de gestão sem ter que iniciar sessão em cada inquilino de cliente individual.
 
-Para acompanhar o seu impacto através dos compromissos dos clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) com as suas subscrições a bordo. Para mais informações, consulte [Link um parceiro ID para as suas contas Azure](../../billing/billing-partner-admin-link-started.md). Note que terá de realizar esta associação no seu prestador de serviços inquilino.
+Para acompanhar o seu impacto através dos compromissos dos clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Note que terá de realizar esta associação no seu prestador de serviços inquilino. Para a simplicidade, recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, e que lhe conceda acesso ao Leitor a todos os clientes a bordo. Para mais informações, consulte [Link um parceiro ID para as suas contas Azure](../../billing/billing-partner-admin-link-started.md). 
 
 > [!NOTE]
 > Os clientes também podem ser a bordo quando compram uma oferta de serviços geridos (público ou privado) que publicou no Azure Marketplace. Para mais informações, consulte [a Publicação de Ofertas de Serviços Geridos para o Mercado Azure.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque aqui descrito juntamente com uma oferta publicada no Azure Marketplace.
@@ -304,7 +304,7 @@ Um utilizador com esta permissão pode remover uma delegação de uma das seguin
 
 1. Navegue para a [página dos meus clientes.](view-manage-customers.md)
 2. Selecione **Delegações**.
-3. Localize a delegação que você deseja remover e, em seguida, selecione o ícone de lixeira que aparece em sua linha.
+3. Encontre a delegação que pretende remover e, em seguida, selecione o ícone do caixote do lixo que aparece na sua fileira.
 
 ### <a name="powershell"></a>PowerShell
 

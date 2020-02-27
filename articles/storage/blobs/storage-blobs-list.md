@@ -1,71 +1,71 @@
 ---
-title: Listar BLOBs com .NET-armazenamento do Azure
-description: Saiba como listar BLOBs em um contêiner em sua conta de armazenamento do Azure usando a biblioteca de cliente .NET. Os exemplos de código mostram como listar BLOBs em uma listagem simples ou como listar BLOBs hierarquicamente, como se eles fossem organizados em diretórios ou pastas.
+title: Lista de blobs com .NET - Armazenamento Azure
+description: Aprenda a listar bolhas num contentor na sua conta de Armazenamento Azure utilizando a biblioteca de clientes .NET. Exemplos de código mostram como listar bolhas numa listagem plana, ou como listar as bolhas hierárquicas hierárquicas, como se fossem organizadas em diretórios ou pastas.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/06/2020
+ms.date: 02/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 3deb3bd0ff66bb31691c4c380595771e3bf2c681
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: b51016b1b73b51cd1f1ec827f05fc9a93dd4cb38
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75691060"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650712"
 ---
-# <a name="list-blobs-with-net"></a>Listar BLOBs com .NET
+# <a name="list-blobs-with-net"></a>Lista de bolhas com .NET
 
-Ao listar BLOBs do seu código, você pode especificar várias opções para gerenciar como os resultados são retornados do armazenamento do Azure. Você pode especificar o número de resultados a serem retornados em cada conjunto de resultados e, em seguida, recuperar os conjuntos subsequentes. Você pode especificar um prefixo para retornar os BLOBs cujos nomes começam com esse caractere ou cadeia de caracteres. E você pode listar os BLOBs em uma estrutura de listagem simples ou hierarquicamente. Uma listagem hierárquica retorna BLOBs como se elas fossem organizadas em pastas. 
+Quando lista bolhas do seu código, pode especificar várias opções para gerir a forma como os resultados são devolvidos do Armazenamento Azure. Pode especificar o número de resultados a devolver em cada conjunto de resultados e, em seguida, recuperar os conjuntos seguintes. Pode especificar um prefixo para devolver bolhas cujos nomes começam com esse carácter ou corda. E pode listar bolhas numa estrutura plana de listagem, ou hierárquica. Uma listagem hierárquica devolve bolhas como se estivessem organizadas em pastas. 
 
-Este artigo mostra como listar BLOBs usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage/client).  
+Este artigo mostra como listar bolhas usando a [biblioteca de clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).  
 
-## <a name="understand-blob-listing-options"></a>Entender as opções de listagem de BLOB
+## <a name="understand-blob-listing-options"></a>Compreender as opções de listagem de blob
 
-Para listar os BLOBs em uma conta de armazenamento, chame um destes métodos:
+Para listar as bolhas numa conta de armazenamento, ligue para um destes métodos:
 
-- [CloudBlobClient. ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
-- [CloudBlobClient. ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
-- [CloudBlobClient. ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmentedasync)
+- [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
+- [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
+- [CloudBlobClient.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmentedasync)
 
-Para listar os BLOBs em um contêiner, chame um destes métodos:
+Para listar as bolhas num recipiente, ligue para um destes métodos:
 
-- [CloudBlobContainer. ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs)
-- [CloudBlobContainer. ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
-- [CloudBlobContainer. ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
+- [CloudBlobContainer.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs)
+- [CloudBlobContainer.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
+- [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
 
-As sobrecargas para esses métodos fornecem opções adicionais para o gerenciamento de como os BLOBs são retornados pela operação de listagem. Essas opções são descritas nas seções a seguir.
+As sobrecargas para estes métodos fornecem opções adicionais para gerir a forma como as bolhas são devolvidas pela operação de listagem. Estas opções são descritas nas seguintes secções.
 
-### <a name="manage-how-many-results-are-returned"></a>Gerenciar quantos resultados são retornados
+### <a name="manage-how-many-results-are-returned"></a>Gerir quantos resultados são devolvidos
 
-Por padrão, uma operação de listagem retorna até 5000 resultados por vez. Para retornar um conjunto menor de resultados, forneça um valor diferente de zero para o parâmetro `maxresults` ao chamar um dos métodos **ListBlobs** .
+Por predefinição, uma operação de listagem retorna até 5000 resultados de cada vez. Para devolver um conjunto menor de resultados, forneça um valor não zero para o parâmetro `maxresults` ao ligar para um dos **métodos ListBlobs.**
 
-Se uma operação de listagem retornar mais de 5000 BLOBs ou se você tiver especificado um valor para `maxresults` de modo que a operação de listagem retorne um subconjunto de contêineres na conta de armazenamento, o armazenamento do Azure retornará um *token de continuação* com a lista de BLOBs. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do armazenamento do Azure.
+Se uma operação de listagem devolver mais de 5000 blobs, ou se tiver especificado um valor para `maxresults` de modo a que a operação de cotação derede um subconjunto de contentores na conta de armazenamento, então o Armazenamento Azure devolve um sinal de *continuação* com a lista de bolhas. Um token de continuação é um valor opaco que pode usar para recuperar o próximo conjunto de resultados do Armazenamento Azure.
 
-Em seu código, verifique o valor do token de continuação para determinar se ele é nulo. Quando o token de continuação é nulo, o conjunto de resultados é concluído. Se o token de continuação não for nulo, chame a operação de listagem novamente, passando o token de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
+No seu código, verifique o valor do símbolo de continuação para determinar se é nulo. Quando o sinal de continuação é nulo, então o conjunto de resultados está completo. Se o sinal de continuação não for nulo, volte a ligar para a operação de listagem, passando no sinal de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
 
-### <a name="filter-results-with-a-prefix"></a>Filtrar resultados com um prefixo
+### <a name="filter-results-with-a-prefix"></a>Resultados do filtro com prefixo
 
-Para filtrar a lista de contêineres, especifique uma cadeia de caracteres para o parâmetro `prefix`. A cadeia de caracteres de prefixo pode incluir um ou mais caracteres. Em seguida, o armazenamento do Azure retorna somente os BLOBs cujos nomes começam com esse prefixo.
+Para filtrar a lista de recipientes, especifique uma corda para o parâmetro `prefix`. A cadeia de prefixo pode incluir um ou mais caracteres. O Azure Storage devolve apenas as bolhas cujos nomes começam com esse prefixo.
 
-### <a name="return-metadata"></a>Retornar metadados
+### <a name="return-metadata"></a>Devolver metadados
 
-Para retornar os metadados de blob com os resultados, especifique o valor de **metadados** para a enumeração [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . O armazenamento do Azure inclui metadados com cada blob retornado, portanto, você não precisa chamar um dos métodos **fetchattributes** nesse contexto para recuperar os metadados do blob.
+Para devolver metadados blob com os resultados, especifique o valor **metadados** para a enumeração [BlobListingDetails.](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) O Azure Storage inclui metadados com cada bolha devolvida, pelo que não precisa de chamar um dos métodos **FetchAS** neste contexto para recuperar os metadados blob.
 
-### <a name="flat-listing-versus-hierarchical-listing"></a>Listagem simples versus listagem hierárquica
+### <a name="flat-listing-versus-hierarchical-listing"></a>Listagem plana versus listagem hierárquica
 
-Os BLOBs no armazenamento do Azure são organizados em um paradigma simples, em vez de um paradigma hierárquico (como um sistema de arquivos clássico). No entanto, você pode organizar BLOBs em *diretórios virtuais* para imitar uma estrutura de pastas. Um diretório virtual faz parte do nome do blob e é indicado pelo caractere delimitador.
+As bolhas no Armazenamento Azure são organizadas num paradigma plano, em vez de um paradigma hierárquico (como um sistema de ficheiros clássico). No entanto, pode organizar blobs em *diretórios virtuais* de forma a imitar uma estrutura de pastas. Um diretório virtual faz parte do nome da bolha e é indicado pelo carácter delimitador.
 
-Para organizar BLOBs em diretórios virtuais, use um caractere delimitador no nome do blob. O caractere delimitador padrão é uma barra (/), mas você pode especificar qualquer caractere como o delimitador.
+Para organizar blobs em diretórios virtuais, use um personagem delimitador no nome blob. O carácter delimitador predefinido é um corte para a frente (/), mas pode especificar qualquer personagem como delimitador.
 
-Se você nomear seus BLOBs usando um delimitador, poderá optar por listar os BLOBs hierarquicamente. Para uma operação de listagem hierárquica, o armazenamento do Azure retorna qualquer diretório virtual e blobs abaixo do objeto pai. Você pode chamar a operação de listagem recursivamente para atravessar a hierarquia, semelhante a como você percorreria um sistema de arquivos clássico programaticamente.
+Se nomear as suas bolhas usando um delimitador, então pode optar por listar as bolhas hierárquicas. Para uma operação hierárquica de listagem, o Azure Storage devolve quaisquer diretórios virtuais e bolhas por baixo do objeto-mãe. Pode chamar a operação de listagem de forma recursiva para atravessar a hierarquia, semelhante à forma como atravessaria um sistema de ficheiros clássico programáticamente.
 
-## <a name="use-a-flat-listing"></a>Usar uma listagem simples
+## <a name="use-a-flat-listing"></a>Use uma listagem plana
 
-Por padrão, uma operação de listagem retorna BLOBs em uma listagem simples. Em uma listagem simples, os BLOBs não são organizados por diretório virtual.
+Por predefinição, uma operação de listagem devolve bolhas numa listagem plana. Numa listagem plana, as bolhas não são organizadas por diretório virtual.
 
-O exemplo a seguir lista os BLOBs no contêiner especificado usando uma listagem simples, com um tamanho de segmento opcional especificado, e grava o nome do blob em uma janela de console.
+O exemplo seguinte lista as bolhas no recipiente especificado utilizando uma listagem plana, com um tamanho de segmento opcional especificado, e escreve o nome blob para uma janela de consola.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -108,7 +108,7 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
-A saída de exemplo é semelhante a:
+A saída da amostra é semelhante a:
 
 ```
 Blob name: FolderA/blob1.txt
@@ -122,20 +122,20 @@ Blob name: FolderA/FolderB/FolderC/blob2.txt
 Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
 
-## <a name="use-a-hierarchical-listing"></a>Usar uma listagem hierárquica
+## <a name="use-a-hierarchical-listing"></a>Use uma listagem hierárquica
 
-Quando você chama uma operação de listagem hierarquicamente, o armazenamento do Azure retorna os diretórios virtuais e os BLOBs no primeiro nível da hierarquia. A propriedade [prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de cada diretório virtual é definida para que você possa passar o prefixo em uma chamada recursiva para recuperar o próximo diretório.
+Quando você chama uma operação de listagem hierárquica, o Armazenamento Azure devolve os diretórios virtuais e as bolhas no primeiro nível da hierarquia. A propriedade [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) de cada diretório virtual está definida para que você possa passar o prefixo em uma chamada recursiva para recuperar o próximo diretório.
 
-Para listar os BLOBs hierarquicamente, defina o parâmetro `useFlatBlobListing` do método de listagem como **false**.
+Para enumerar as bolhas hierárquicas, defina o parâmetro `useFlatBlobListing` do método de listagem para **falso**.
 
-O exemplo a seguir lista os BLOBs no contêiner especificado usando uma listagem simples, com um tamanho de segmento opcional especificado, e grava o nome do blob na janela do console.
+O exemplo seguinte lista as bolhas no recipiente especificado utilizando uma listagem plana, com um tamanho de segmento opcional especificado, e escreve o nome blob para a janela da consola.
 
 ```csharp
 private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer container, string prefix)
 {
     CloudBlobDirectory dir;
     CloudBlob blob;
-    BlobContinuationToken continuationToken;
+    BlobContinuationToken continuationToken = null;
 
     try
     {
@@ -183,7 +183,7 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 }
 ```
 
-A saída de exemplo é semelhante a:
+A saída da amostra é semelhante a:
 
 ```
 Virtual directory prefix: FolderA/
@@ -203,11 +203,11 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
 
 > [!NOTE]
-> Instantâneos de BLOB não podem ser listados em uma operação de listagem hierárquica.
+> Os instantâneos blob não podem ser listados numa operação hierárquica de listagem.
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Listar BLOBs](/rest/api/storageservices/list-blobs)
-- [Enumerando recursos de BLOB](/rest/api/storageservices/enumerating-blob-resources)
+- [Lista blobs](/rest/api/storageservices/list-blobs)
+- [Enumerando os recursos blob](/rest/api/storageservices/enumerating-blob-resources)

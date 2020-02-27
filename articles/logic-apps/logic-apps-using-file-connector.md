@@ -1,6 +1,6 @@
 ---
-title: Conectar-se a sistemas de arquivos locais
-description: Automatizar tarefas e fluxos de trabalho que se conectam a sistemas de arquivos locais com o conector do sistema de arquivos por meio do gateway de dados local em aplicativos lógicos do Azure
+title: Ligar a sistemas de ficheiros nas instalações
+description: Automatizar tarefas e fluxos de trabalho que se ligam aos sistemas de ficheiros no local com o conector do Sistema de Ficheiros através da gateway de dados no local em Aplicações lógicas azure
 services: logic-apps
 ms.suite: integration
 author: derek1ee
@@ -8,94 +8,97 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: bc2067dbde1e99619fb6e384be4e70f606c8518d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792783"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651411"
 ---
-# <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar-se a sistemas de arquivos locais com aplicativos lógicos do Azure
+# <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar-se a sistemas de ficheiros no local com aplicações lógicas azure
 
-Com o conector do sistema de arquivos e os aplicativos lógicos do Azure, você pode criar tarefas e fluxos de trabalho automatizados que criam e gerenciam arquivos em um compartilhamento de arquivos local, por exemplo:  
+Com as Aplicações Lógicas Azure e o conector do Sistema de Ficheiros, pode criar tarefas automatizadas e fluxos de trabalho que criam e gerem ficheiros numa partilha de ficheiros no local, por exemplo:
 
-- Criar, obter, acrescentar, atualizar e excluir arquivos.
-- Listar arquivos em pastas ou pastas raiz.
-- Obter conteúdo do arquivo e metadados.
+- Criar, obter, anexar, atualizar e eliminar ficheiros.
+- Enumerar ficheiros em pastas ou pastas-raiz.
+- Obtenha conteúdo de ficheiros e metadados.
 
-Este artigo mostra como você pode se conectar a um sistema de arquivos local, conforme descrito neste cenário de exemplo: copiar um arquivo que é carregado no Dropbox para um compartilhamento de arquivos e, em seguida, enviar um email. Para conectar e acessar sistemas locais com segurança, os aplicativos lógicos usam o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md). Para obter informações técnicas específicas do conector, consulte a [referência do conector do sistema de arquivos](/connectors/filesystem/).
+Este artigo mostra como pode ligar-se a um sistema de ficheiros no local, conforme descrito por este cenário de exemplo: copiar um ficheiro que é enviado para o Dropbox para uma partilha de ficheiros e, em seguida, enviar um e-mail. Para ligar e aceder de forma segura aos sistemas no local, as aplicações lógicas utilizam a [porta de dados no local.](../logic-apps/logic-apps-gateway-connection.md) Se é novo em aplicações lógicas, reveja [o que são as Aplicações Lógicas Azure?](../logic-apps/logic-apps-overview.md) Para obter informações técnicas específicas do conector, consulte a referência do [conector](/connectors/filesystem/)do Sistema de Ficheiros .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Antes de poder conectar aplicativos lógicos a sistemas locais, como o servidor do sistema de arquivos, você precisa [instalar e configurar um gateway de dados local](../logic-apps/logic-apps-gateway-install.md). Dessa forma, você pode especificar para usar a instalação do gateway ao criar a conexão do sistema de arquivos do seu aplicativo lógico.
+* Antes de poder ligar aplicações lógicas a sistemas no local, como o servidor do sistema de ficheiros, é necessário [instalar e configurar um portal de dados no local](../logic-apps/logic-apps-gateway-install.md). Desta forma, pode especificar utilizar a instalação do gateway quando criar a ligação do sistema de ficheiros a partir da sua aplicação lógica.
 
-* Uma [conta do Dropbox](https://www.dropbox.com/), que você pode assinar gratuitamente. Suas credenciais de conta são necessárias para criar uma conexão entre seu aplicativo lógico e sua conta do dropbox.
+* Uma [conta Dropbox](https://www.dropbox.com/), que pode inscrever-se gratuitamente. As credenciais da sua conta são necessárias para criar uma ligação entre a sua aplicação lógica e a sua conta Dropbox.
 
-* Acesso ao computador que tem o sistema de arquivos que você deseja usar. Por exemplo, se você instalar o gateway de dados no mesmo computador que o sistema de arquivos, precisará das credenciais de conta para esse computador.
+* Acesso ao computador que tem o sistema de ficheiros que pretende utilizar. Por exemplo, se instalar a porta de dados no mesmo computador que o seu sistema de ficheiros, precisa das credenciais de conta para esse computador.
 
-* Uma conta de email de um provedor com suporte dos aplicativos lógicos, como o Office 365 Outlook, Outlook.com ou gmail. Para outros fornecedores, [consulte a lista de conectores aqui](https://docs.microsoft.com/connectors/). Esta aplicação lógica utiliza uma conta do Outlook do Office 365. Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
+* Uma conta de e-mail de um fornecedor que é suportado por Aplicações Lógicas, como Office 365 Outlook, Outlook.com ou Gmail. Para outros fornecedores, [consulte a lista de conectores aqui](https://docs.microsoft.com/connectors/). Esta aplicação lógica utiliza uma conta do Outlook do Office 365. Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para este exemplo, você precisa de um aplicativo lógico em branco.
+* Conhecimento básico sobre [como criar aplicações lógicas.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Para este exemplo, precisa de uma aplicação lógica em branco.
 
 ## <a name="add-trigger"></a>Adicionar gatilho
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Entre no [portal do Azure](https://portal.azure.com)e abra seu aplicativo lógico no designer de aplicativo lógico, se ainda não estiver aberto.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica no Logic App Designer, se ainda não estiver aberta.
 
-1. Na caixa de pesquisa, digite "Dropbox" como filtro. Na lista de gatilhos, selecione este gatilho: **quando um arquivo é criado**
+1. Na caixa de pesquisa, introduza "dropbox" como filtro. A partir da lista de gatilhos, selecione este gatilho: **Quando um ficheiro é criado**
 
-   ![Selecionar gatilho do Dropbox](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
+   ![Selecione gatilho Dropbox](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
-1. Entre com suas credenciais de conta do Dropbox e autorize o acesso aos dados do Dropbox para aplicativos lógicos do Azure.
+1. Inscreva-se nas credenciais da sua conta Dropbox e autorize o acesso aos seus dados dropbox para Aplicações Lógicas Azure.
 
-1. Forneça as informações necessárias para seu gatilho.
+1. Forneça as informações necessárias para o seu gatilho.
 
-   ![Gatilho do Dropbox](media/logic-apps-using-file-connector/dropbox-trigger.png)
+   ![Gatilho de dropbox](media/logic-apps-using-file-connector/dropbox-trigger.png)
 
 ## <a name="add-actions"></a>Adicionar ações
 
-1. No gatilho, escolha a **próxima etapa**. Na caixa de pesquisa, digite "sistema de arquivos" como filtro. Na lista ações, selecione esta ação: **criar arquivo**
+1. Sob o gatilho, escolha **o próximo passo**. Na caixa de pesquisa, introduza o "sistema de ficheiros" como filtro. A partir da lista de ações, selecione esta ação: **Criar ficheiro**
 
-   ![Localizar conector do sistema de arquivos](media/logic-apps-using-file-connector/find-file-system-action.png)
+   ![Localizar conector do sistema de ficheiros](media/logic-apps-using-file-connector/find-file-system-action.png)
 
-1. Se você ainda não tiver uma conexão com o sistema de arquivos, você será solicitado a criar uma conexão.
+1. Se ainda não tiver uma ligação ao seu sistema de ficheiros, é-lhe pedido que crie uma ligação.
 
    ![Criar ligação](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Propriedade | Obrigatório | Valor | Descrição |
+   | Propriedade | Necessário | Valor | Descrição |
    | -------- | -------- | ----- | ----------- |
-   | **Nome da Ligação** | Sim | <*nome da conexão*> | O nome que você deseja para sua conexão |
-   | **Pasta raiz** | Sim | <*nome da pasta raiz*> | A pasta raiz do seu sistema de arquivos, por exemplo, se você instalou o gateway de dados local, como uma pasta de locais no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos para todas as ações relacionadas a arquivos. |
-   | **Tipo de autenticação** | Não | > *de <de tipo de autenticação* | O tipo de autenticação que o sistema de arquivos usa, por exemplo, **Windows** |
-   | **Nome de Utilizador** | Sim | <>de *domínio* \\<*nome de usuário*> | O nome de usuário para o computador em que você tem o sistema de arquivos |
-   | **Palavra-passe** | Sim | <*sua senha*> | A senha do computador em que você tem o sistema de arquivos |
-   | **Gateway** | Sim | <*installed-gateway-name*> | O nome do gateway instalado anteriormente |
+   | **Nome da Ligação** | Sim | < *> de nome de ligação* | O nome que quer para a sua ligação |
+   | **Pasta raiz** | Sim | < *> de nome de pasta-raiz* | A pasta-raiz do seu sistema de ficheiros, por exemplo, se instalou o seu portal de dados no local, como uma pasta local no computador onde está instalada a porta de dados no local, ou a pasta para uma partilha de rede a que o computador pode aceder. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta-raiz é a pasta principal dos pais, que é usada para caminhos relativos para todas as ações relacionadas com ficheiros. |
+   | **Tipo de autenticação** | Não | <> *do tipo auth* | O tipo de autenticação que o seu sistema de ficheiros utiliza, por exemplo, **o Windows** |
+   | **Nome de Utilizador** | Sim | <*domínio*>\\<nome de *utilizador*> | O nome de utilizador do computador onde tem o seu sistema de ficheiros |
+   | **Palavra-passe** | Sim | <*a sua palavra-passe*> | A palavra-passe para o computador onde tem o seu sistema de ficheiros |
+   | **porta de entrada** | Sim | <> de nome de *porta de entrada instalado* | O nome para o seu gateway previamente instalado |
    |||||
 
 1. Quando tiver terminado, escolha **Create** (Criar).
 
-   Os aplicativos lógicos definem e testam sua conexão, certificando-se de que a conexão funcione corretamente. Se a conexão estiver configurada corretamente, as opções serão exibidas para a ação que você selecionou anteriormente.
+   As Aplicações Lógicas configuram e testam a sua ligação, certificando-se de que a ligação funciona corretamente. Se a ligação estiver corretamente configurada, aparecem opções para a ação que selecionou anteriormente.
 
-1. Na ação **criar arquivo** , forneça os detalhes para copiar arquivos do Dropbox para a pasta raiz em seu compartilhamento de arquivos local. Para adicionar saídas de etapas anteriores, clique dentro das caixas e selecione os campos disponíveis quando a lista de conteúdo dinâmico for exibida.
+1. Na ação **do ficheiro Create,** forneça os detalhes para copiar ficheiros do Dropbox para a pasta raiz na sua partilha de ficheiros no local. Para adicionar saídas de passos anteriores, clique no interior das caixas e selecione a partir de campos disponíveis quando a lista de conteúdos dinâmicos aparecer.
 
    ![Criar ação de arquivo](media/logic-apps-using-file-connector/create-file-filled.png)
 
-1. Agora, adicione uma ação do Outlook que envia um email para que os usuários apropriados saibam sobre o novo arquivo. Insira os destinatários, o título e o corpo do email. Para teste, você pode usar seu próprio endereço de email.
+1. Agora, adicione uma ação do Outlook que envia um e-mail para que os utilizadores apropriados saibam sobre o novo ficheiro. Insira os destinatários, o título e o corpo do e-mail. Para testes, pode utilizar o seu próprio endereço de e-mail.
 
-   ![Enviar ação de email](media/logic-apps-using-file-connector/send-email.png)
+   ![Enviar ação de e-mail](media/logic-apps-using-file-connector/send-email.png)
 
-1. Guarde a aplicação lógica. Teste seu aplicativo carregando um arquivo no dropbox.
+1. Guarde a aplicação lógica. Teste a sua aplicação fazendo o upload de um ficheiro para o Dropbox.
 
-   Seu aplicativo lógico deve copiar o arquivo para o compartilhamento de arquivos local e enviar aos destinatários um email sobre o arquivo copiado.
+   A sua aplicação lógica deve copiar o ficheiro para a sua parte de ficheiro no local e enviar aos destinatários um e-mail sobre o ficheiro copiado.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência](/connectors/fileconnector/)do conector.
+Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/fileconnector/).
+
+> [!NOTE]
+> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [se conectar a dados locais](../logic-apps/logic-apps-gateway-connection.md) 
-* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)
+* Saiba como [se conectar aos dados no local](../logic-apps/logic-apps-gateway-connection.md) 
+* Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

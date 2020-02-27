@@ -1,218 +1,222 @@
 ---
 title: Funcionalidades de rede
-description: Saiba mais sobre os recursos de rede no serviço Azure App e quais recursos são necessários para a segurança ou a funcionalidade de sua rede.
+description: Conheça as funcionalidades da rede no Serviço de Aplicações Azure e quais as funcionalidades que necessita para as necessidades da sua rede para segurança ou funcionalidade.
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 02/27/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0fd904b15a830e2b261057a11d1a8f3a4d584fe1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971762"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649231"
 ---
-# <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
+# <a name="app-service-networking-features"></a>Funcionalidades de rede de serviços de aplicação
 
-Os aplicativos no serviço de Azure App podem ser implantados de várias maneiras. Por padrão, os aplicativos hospedados no serviço de aplicativo são diretamente acessíveis pela Internet e só podem acessar pontos de extremidade hospedados na Internet. No entanto, muitos aplicativos de clientes precisam controlar o tráfego de rede de entrada e saída. Há vários recursos disponíveis no serviço de aplicativo para atender a essas necessidades. O desafio é saber qual recurso deve ser usado para resolver um determinado problema. Este documento destina-se a ajudar os clientes a determinar qual recurso deve ser usado com base em alguns casos de uso de exemplo.
+As aplicações no Serviço de Aplicações Azure podem ser implementadas de várias formas. Por padrão, as aplicações hospedadas no App Service são diretamente acessíveis à Internet e só podem chegar a pontos finais hospedados na Internet. Muitas aplicações de clientes precisam, no entanto, de controlar o tráfego de rede de entrada e saída. Existem várias funcionalidades disponíveis no Serviço de Aplicações para satisfazer essas necessidades. O desafio é saber que funcionalidade deve ser usada para resolver um determinado problema. Este documento destina-se a ajudar os clientes a determinar que funcionalidade deve ser usada com base em alguns casos de utilização de exemplo.
 
-Há dois tipos de implantação principais para o serviço de Azure App. Há o serviço público multilocatário, que hospeda os planos do serviço de aplicativo nas SKUs de preços gratuita, compartilhada, básica, Standard, Premium e Premiumv2. Em seguida, há um único locatário Ambiente do Serviço de Aplicativo (ASE), que hospeda planos de serviço de aplicativo SKU isolados diretamente em sua VNet (rede virtual) do Azure. Os recursos que você usar irão variar em se você estiver no serviço multilocatário ou em um ASE. 
+Existem dois tipos de implantação primários para o Serviço de Aplicações Azure. Existe o serviço público multi-inquilino, que acolhe planos de Serviço de Aplicações nas SKUs de preços Gratuitos, Partilhados, Básicos, Standard, Premium e Premiumv2. Depois, há o único inquilino App Service Environment (ASE), que acolhe planos isolados do Serviço de Aplicações SKU diretamente na sua Rede Virtual Azure (VNet). As funcionalidades que utiliza variarão se estiver no serviço multi-inquilino ou numa ASE. 
 
-## <a name="multi-tenant-app-service-networking-features"></a>Recursos de rede do serviço de aplicativo multilocatário 
+## <a name="multi-tenant-app-service-networking-features"></a>Funcionalidades de rede de serviço sinuoso multi-inquilino 
 
-O serviço de Azure App é um sistema distribuído. As funções que tratam solicitações HTTP/HTTPS de entrada são chamadas de front-ends. As funções que hospedam a carga de trabalho do cliente são chamadas de trabalhadores. Todas as funções em uma implantação do serviço de aplicativo existem em uma rede de vários locatários. Como há muitos clientes diferentes na mesma unidade de escala do serviço de aplicativo, você não pode conectar a rede do serviço de aplicativo diretamente à sua rede. Em vez de conectar as redes, precisamos de recursos para lidar com os diferentes aspectos da comunicação do aplicativo. Os recursos que manipulam solicitações para seu aplicativo não podem ser usados para resolver problemas ao fazer chamadas de seu aplicativo. Da mesma forma, os recursos que resolvem problemas de chamadas de seu aplicativo não podem ser usados para resolver problemas em seu aplicativo.  
+O Serviço de Aplicações Azure é um sistema distribuído. As funções que tratam dos pedidos http/HTTPS são chamadas front-ends. Os papéis que acolhem a carga de trabalho do cliente são chamados trabalhadores. Todas as funções numa implementação do Serviço de Aplicações existem numa rede multi-arrendatária. Como existem muitos clientes diferentes na mesma unidade de escala de Serviço de Aplicações, não é possível ligar a rede de Serviços de Aplicações diretamente à sua rede. Em vez de ligar as redes, precisamos de funcionalidades para lidar com os diferentes aspetos da comunicação de aplicações. As funcionalidades que lidam com pedidos para a sua aplicação não podem ser usadas para resolver problemas ao fazer chamadas da sua aplicação. Da mesma forma, as funcionalidades que resolvem problemas de chamadas da sua aplicação não podem ser usadas para resolver problemas na sua aplicação.  
 
-| Recursos de entrada | Recursos de saída |
+| Características de entrada | Características de saída |
 |---------------------|-------------------|
-| Endereço atribuído ao aplicativo | Ligações Híbridas |
-| Restrições de acesso | Integração VNet necessária do gateway |
-| Pontos Finais de Serviço | Integração VNet (versão prévia) |
+| Endereço atribuído à aplicação | Ligações Híbridas |
+| Restrições de acesso | Gateway exigia integração VNet |
+| Pontos Finais de Serviço | Integração de VNet |
 
-Salvo indicação em contrário, todos os recursos podem ser usados juntos. Você pode misturar os recursos para resolver os diversos problemas.
+Salvo indicação em contrário, todas as funcionalidades podem ser usadas em conjunto. Pode misturar as funcionalidades para resolver os seus vários problemas.
 
-## <a name="use-case-and-features"></a>Caso de uso e recursos
+## <a name="use-case-and-features"></a>Use o estojo e as características
 
-Para qualquer caso de uso específico, pode haver algumas maneiras de resolver o problema.  O recurso certo a ser usado às vezes é devido a motivos além do próprio caso de uso. Os seguintes casos de uso de entrada sugerem como usar os recursos de rede do serviço de aplicativo para resolver problemas relacionados ao controle de tráfego que vai para seu aplicativo. 
+Para qualquer caso de utilização, pode haver algumas formas de resolver o problema.  A característica certa a utilizar deve-se, por vezes, a razões para além do caso de utilização em si. Os seguintes casos de utilização de entrada sugerem como usar funcionalidades de rede do Serviço app para resolver problemas em torno do controlo do tráfego que vai para a sua aplicação. 
  
-| Casos de uso de entrada | Funcionalidade |
+| Casos de utilização de entrada | Funcionalidade |
 |---------------------|-------------------|
-| Dar suporte às necessidades de SSL baseado em IP para seu aplicativo | endereço atribuído ao aplicativo |
-| Não compartilhado, endereço de entrada dedicado para seu aplicativo | endereço atribuído ao aplicativo |
-| Restringir o acesso ao seu aplicativo de um conjunto de endereços bem definidos | Restrições de acesso |
-| Expor meu aplicativo em IPs privados em minha VNet | ASE ILB </br> Gateway de aplicativo com pontos de extremidade de serviço |
-| Restringir o acesso ao meu aplicativo de recursos em uma VNet | Pontos Finais de Serviço </br> ASE ILB |
-| Expor meu aplicativo em um IP privado em minha VNet | ASE ILB </br> IP privado para entrada em um gateway de aplicativo com pontos de extremidade de serviço |
-| Proteger meu aplicativo com um WAF | Gateway de aplicativo + ILB ASE </br> Gateway de aplicativo com pontos de extremidade de serviço </br> Porta frontal do Azure com restrições de acesso |
-| Balancear a carga do tráfego para meus aplicativos em regiões diferentes | Porta frontal do Azure com restrições de acesso | 
-| Balancear a carga do tráfego na mesma região | [Gateway de aplicativo com pontos de extremidade de serviço][appgwserviceendpoints] | 
+| Suporte as necessidades SSL baseadas em IP para a sua aplicação | Endereço atribuído à aplicação |
+| Endereço de entrada não partilhado e dedicado para a sua aplicação | Endereço atribuído à aplicação |
+| Restringir o acesso à sua aplicação a partir de um conjunto de endereços bem definidos | Restrições de acesso |
+| Expor a minha aplicação em IPs privados no meu VNet | ILB ASE </br> Gateway de Aplicação com pontos finais de serviço |
+| Restringir o acesso à minha app a partir de recursos num VNet | Pontos Finais de Serviço </br> ILB ASE |
+| Exponha a minha aplicação num IP privado no meu VNet | ILB ASE </br> IP privado para entrada em um Gateway de aplicação com pontos finais de serviço |
+| Proteja a minha aplicação com um WAF | Gateway de aplicação + ILB ASE </br> Gateway de Aplicação com pontos finais de serviço </br> Porta da frente azure com restrições de acesso |
+| Carregar o tráfego de equilíbrio para as minhas apps em diferentes regiões | Porta da frente azure com restrições de acesso | 
+| Tráfego de equilíbrio de carga na mesma região | [Gateway de aplicação com pontos finais de serviço][appgwserviceendpoints] | 
 
-Os seguintes casos de uso de saída sugerem como usar os recursos de rede do serviço de aplicativo para resolver as necessidades de acesso de saída para seu aplicativo. 
+Os seguintes casos de utilização sugerem como utilizar funcionalidades de rede do Serviço de Aplicações para resolver as necessidades de acesso de saída para a sua aplicação. 
 
-| Casos de uso de saída | Funcionalidade |
+| Casos de utilização de saída | Funcionalidade |
 |---------------------|-------------------|
-| Acessar recursos em um Entrada na Rede virtual do Azure na mesma região | Integração de VNet </br> ASE |
-| Acessar recursos em um Entrada na Rede virtual do Azure em uma região diferente | Integração VNet necessária do gateway </br> Emparelhamento de ASE e VNet |
-| Acessar recursos protegidos com pontos de extremidade de serviço | Integração de VNet </br> ASE |
-| Acessar recursos em uma rede privada não conectada ao Azure | Ligações Híbridas |
-| Acessar recursos nos circuitos do ExpressRoute | Integração VNet (restrita aos endereços RFC 1918 por enquanto) </br> ASE | 
+| Acesso a recursos numa Rede Virtual Azure na mesma região | Integração de VNet </br> ASE |
+| Acesso a recursos numa Rede Virtual Azure numa região diferente | Gateway exigia integração VNet </br> ASE e VNet espreitando |
+| Recursos de acesso garantidos com pontos finais de serviço | Integração de VNet </br> ASE |
+| Recursos de acesso numa rede privada não ligada ao Azure | Ligações Híbridas |
+| Recursos de acesso através dos circuitos ExpressRoute | Integração de VNet </br> ASE | 
+| Proteja o tráfego de saída da sua aplicação web | Grupos de Integração vNet e segurança da rede </br> ASE | 
+| Rota de tráfego de saída da sua aplicação web | Tabelas de Integração e Rota VNet </br> ASE | 
 
 
 ### <a name="default-networking-behavior"></a>Comportamento de rede padrão
 
-As unidades de escala de serviço Azure App dão suporte a muitos clientes em cada implantação. Os planos de SKU gratuito e compartilhado hospedam cargas de trabalho do cliente em trabalhos com vários locatários. Os planos básico e acima hospedam cargas de trabalho do cliente que são dedicadas a apenas um único plano do serviço de aplicativo (ASP). Se você tivesse um plano do serviço de aplicativo padrão, todos os aplicativos nesse plano serão executados no mesmo trabalho. Se você escalar horizontalmente o trabalho, todos os aplicativos nesse ASP serão replicados em um novo trabalhador para cada instância em seu ASP. Os trabalhadores que são usados para Premiumv2 são diferentes dos trabalhadores usados para os outros planos. Cada implantação do serviço de aplicativo tem um endereço IP que é usado para todo o tráfego de entrada para os aplicativos na implantação do serviço de aplicativo. No entanto, em qualquer lugar de 4 a 11 endereços usados para fazer chamadas de saída. Esses endereços são compartilhados por todos os aplicativos na implantação do serviço de aplicativo. Os endereços de saída são diferentes com base nos diferentes tipos de trabalho. Isso significa que os endereços usados pelos ASPs gratuito, compartilhado, básico, Standard e Premium são diferentes dos endereços usados para chamadas de saída dos ASPs Premiumv2. Se você examinar as propriedades de seu aplicativo, poderá ver os endereços de entrada e de saída usados pelo seu aplicativo. Se você precisar bloquear uma dependência com uma ACL de IP, use o possibleOutboundAddresses. 
+As unidades de escala de serviço de aplicação Azure suportam muitos clientes em cada implementação. Os planos SKU gratuitos e partilhados acolhem cargas de trabalho dos clientes em trabalhadores multi-inquilinos. Os planos Básicos, e acima dos planos, acolhem cargas de trabalho dos clientes que se dedicam a apenas um plano de Serviço de Aplicações (ASP). Se você tinha um plano de Serviço de Aplicações Padrão, então todas as aplicações desse plano serão executadas com o mesmo trabalhador. Se eliminar o trabalhador, todas as aplicações nessa ASP serão replicadas num novo trabalhador para cada instância no seu ASP. Os trabalhadores que são utilizados para o Premiumv2 são diferentes dos trabalhadores utilizados para os outros planos. Cada implementação do Serviço de Aplicações tem um endereço IP que é usado para todo o tráfego de entrada para as aplicações nessa implementação do Serviço de Aplicações. No entanto, existem entre 4 e 11 endereços usados para fazer chamadas de saída. Estes endereços são partilhados por todas as aplicações da implementação do Serviço de Aplicações. Os endereços de saída são diferentes com base nos diferentes tipos de trabalhadores. Isto significa que os endereços utilizados pelos ASPs Gratuitos, Partilhados, Básicos, Standard e Premium são diferentes dos endereços utilizados para chamadas de saída dos ASPs Premiumv2. Se procurar nas propriedades para a sua aplicação, pode ver os endereços de entrada e saída que são utilizados pela sua aplicação. Se precisar de bloquear uma dependência com um IP ACL, utilize os possíveis Endereços outbound. 
 
-![Propriedades do aplicativo](media/networking-features/app-properties.png)
+![Propriedades de aplicativos](media/networking-features/app-properties.png)
 
-O serviço de aplicativo tem vários pontos de extremidade que são usados para gerenciar o serviço.  Esses endereços são publicados em um documento separado e também estão na marca de serviço do AppServiceManagement IP. A marca AppServiceManagement é usada apenas com um Ambiente do Serviço de Aplicativo (ASE) onde você precisa permitir tal tráfego. Os endereços de entrada do serviço de aplicativo são acompanhados na marca de serviço do AppService IP. Não há nenhuma marca de serviço IP que contenha os endereços de saída usados pelo serviço de aplicativo. 
+O Serviço de Aplicações tem uma série de pontos finais que são usados para gerir o serviço.  Estes endereços são publicados num documento separado e também estão na etiqueta de serviço IP appServiceManagement. A etiqueta AppServiceManagement só é utilizada com um App Service Environment (ASE) onde é necessário permitir esse tráfego. Os endereços de entrada do Serviço de Aplicações são rastreados na etiqueta de serviço IP appService. Não existe nenhuma etiqueta de serviço IP que contenha os endereços de saída utilizados pelo Serviço de Aplicações. 
 
-![Diagrama de entrada e saída do serviço de aplicativo](media/networking-features/default-behavior.png)
+![Diagrama de entrada e saída do Serviço de Aplicações](media/networking-features/default-behavior.png)
 
-### <a name="app-assigned-address"></a>Endereço atribuído ao aplicativo 
+### <a name="app-assigned-address"></a>Endereço atribuído à aplicação 
 
-O recurso de endereço atribuído ao aplicativo é um offshoot do recurso SSL baseado em IP e é acessado Configurando o SSL com seu aplicativo. Esse recurso pode ser usado para chamadas SSL baseadas em IP, mas também pode ser usado para dar a seu aplicativo um endereço que só tenha. 
+A funcionalidade de endereço atribuída à aplicação é um offshoot da capacidade SSL baseada em IP e é acedida através da configuração do SSL com a sua aplicação. Esta funcionalidade pode ser utilizada para chamadas SSL baseadas em IP, mas também pode ser usada para dar à sua aplicação um endereço que só tem. 
 
-![Diagrama de endereço atribuído ao aplicativo](media/networking-features/app-assigned-address.png)
+![Diagrama de endereço atribuído a aplicativo](media/networking-features/app-assigned-address.png)
 
-Quando você usa um endereço atribuído a um aplicativo, seu tráfego ainda passa pelas mesmas funções de front-end que manipulam todo o tráfego de entrada na unidade de escala do serviço de aplicativo. No entanto, o endereço atribuído ao seu aplicativo é usado apenas pelo seu aplicativo. Os casos de uso para esse recurso são:
+Quando utiliza um endereço atribuído a uma aplicação, o seu tráfego continua a passar pelas mesmas funções front-front-end que tratam todo o tráfego de entrada na unidade de escala do Serviço de Aplicações. O endereço que é atribuído à sua aplicação, no entanto, só é utilizado pela sua aplicação. Os casos de utilização desta funcionalidade são:
 
-* Dar suporte às necessidades de SSL baseado em IP para seu aplicativo
-* Definir um endereço dedicado para seu aplicativo que não é compartilhado com nada mais
+* Suporte as necessidades SSL baseadas em IP para a sua aplicação
+* Detete um endereço dedicado para a sua aplicação que não seja partilhado com mais nada
 
-Você pode aprender a definir um endereço em seu aplicativo com o tutorial sobre como [Configurar o SSL baseado em IP][appassignedaddress]. 
+Pode aprender a definir um endereço na sua aplicação com o tutorial em [Configuração IP baseado em SSL][appassignedaddress]. 
 
 ### <a name="access-restrictions"></a>Restrições de acesso 
 
-O recurso de restrições de acesso permite filtrar solicitações de **entrada** com base no endereço IP de origem. A ação de filtragem ocorre nas funções de front-end que são upstream das funções de trabalho em que seus aplicativos estão em execução. Como as funções de front-end são upstream dos trabalhadores, a capacidade de restrições de acesso pode ser considerada como proteção de nível de rede para seus aplicativos. O recurso permite que você crie uma lista de blocos de endereços allow e Deny que são avaliados em ordem de prioridade. É semelhante ao recurso NSG (grupo de segurança de rede) que existe na rede do Azure.  Você pode usar esse recurso em um ASE ou no serviço multilocatário. Quando usado com um ASE ILB, você pode restringir o acesso de blocos de endereços privados.
+A capacidade de Restrições de Acesso permite filtrar pedidos de **entrada** com base no endereço IP de origem. A ação de filtragem ocorre nas funções frontais que estão a montante das funções dos trabalhadores onde as suas aplicações estão em execução. Uma vez que as funções front-end são a montante dos trabalhadores, a capacidade de Restrições de Acesso pode ser considerada como proteção de nível de rede para as suas apps. A funcionalidade permite-lhe construir uma lista de blocos de endereços de permitir e negar que são avaliados em ordem prioritária. É semelhante à funcionalidade do Network Security Group (NSG) que existe em Rede Azure.  Pode utilizar esta funcionalidade numa ASE ou no serviço multi-inquilinos. Quando utilizado com um ILB ASE, pode restringir o acesso a partir de blocos de endereços privados.
 
 ![Restrições de acesso](media/networking-features/access-restrictions.png)
 
-O recurso de restrições de acesso ajuda em cenários em que você deseja restringir os endereços IP que podem ser usados para acessar seu aplicativo. Entre os casos de uso para esse recurso estão:
+A funcionalidade Restrições de Acesso ajuda em cenários em que pretende restringir os endereços IP que podem ser utilizados para chegar à sua aplicação. Entre os casos de utilização desta funcionalidade encontram-se:
 
-* Restringir o acesso ao seu aplicativo de um conjunto de endereços bem definidos 
-* Restringir o acesso à entrada de um serviço de balanceamento de carga, como o Azure front door. Se você quisesse bloquear seu tráfego de entrada para a porta frontal do Azure, crie regras para permitir o tráfego de 147.243.0.0/16 e 2a01:111:2050::/44. 
+* Restringir o acesso à sua aplicação a partir de um conjunto de endereços bem definidos 
+* Restrinja o acesso a um serviço de equilíbrio de carga, como a Porta da Frente Azure. Se quiser bloquear o seu tráfego de entrada para a Porta Da Frente Azure, crie regras para permitir o tráfego de 147.243.0.0/16 e 2a01:111:2050:/44. 
 
-![Restrições de acesso com a porta frontal](media/networking-features/access-restrictions-afd.png)
+![Restrições de acesso com porta da frente](media/networking-features/access-restrictions-afd.png)
 
-Se você quiser bloquear o acesso ao seu aplicativo para que ele só possa ser acessado de recursos em sua VNet (rede virtual) do Azure, você precisará de um endereço público estático em qualquer sua fonte em sua VNet. Se os recursos não tiverem um endereço público, você deverá usar o recurso de pontos de extremidade de serviço em vez disso. Saiba como habilitar esse recurso com o tutorial sobre como [Configurar restrições de acesso][iprestrictions].
+Se deseja bloquear o acesso à sua aplicação para que só possa ser alcançado a partir de recursos da sua Rede Virtual Azure (VNet), precisa de uma morada pública estática sobre qualquer que seja a sua fonte no seu VNet. Se os recursos não tiverem um endereço público, deverá utilizar a função De pontos finais de serviço. Saiba como ativar esta funcionalidade com o tutorial sobre restrições de [acesso de configuração][iprestrictions].
 
 ### <a name="service-endpoints"></a>Pontos finais de serviço
 
-Os pontos de extremidade de serviço permitem bloquear o acesso de **entrada** ao seu aplicativo, de modo que o endereço de origem deve vir de um conjunto de sub-redes que você selecionar. Esse recurso funciona em conjunto com as restrições de acesso de IP. Os pontos de extremidade de serviço são definidos na mesma experiência de usuário que as restrições de acesso de IP. Você pode criar uma lista de permissão/negação de regras de acesso que inclui endereços públicos, bem como sub-redes em seu VNets. Esse recurso dá suporte a cenários como:
+Os pontos finais do serviço permitem bloquear o acesso **à entrada** da sua aplicação de modo a que o endereço de origem tenha de vir de um conjunto de subredes que seleciona. Esta funcionalidade funciona em conjunto com as Restrições de Acesso IP. Os pontos finais do serviço são definidos na mesma experiência do utilizador que as Restrições de Acesso IP. Pode construir uma lista de regras de acesso que inclua endereços públicos, bem como subredes nos seus VNets. Esta funcionalidade suporta cenários como:
 
-![pontos de extremidade de serviço](media/networking-features/service-endpoints.png)
+![pontos finais de serviço](media/networking-features/service-endpoints.png)
 
-* Configurando um gateway de aplicativo com seu aplicativo para bloquear o tráfego de entrada para seu aplicativo
-* Restrição de acesso ao seu aplicativo aos recursos em sua VNet. Isso pode incluir VMs, ASEs ou até mesmo outros aplicativos que usam a integração de VNet 
+* Configurar um Gateway de Aplicação com a sua app para bloquear o tráfego de entrada na sua app
+* Restringindo o acesso à sua app aos recursos no seu VNet. Isto pode incluir VMs, ASEs ou mesmo outras aplicações que usam integração VNet 
 
-![pontos de extremidade de serviço com o gateway de aplicativo](media/networking-features/service-endpoints-appgw.png)
+![pontos finais de serviço com gateway de aplicação](media/networking-features/service-endpoints-appgw.png)
 
-Você pode aprender mais sobre a configuração de pontos de extremidade de serviço com seu aplicativo no tutorial sobre como [Configurar restrições de acesso de ponto final de serviço][serviceendpoints]
+Pode saber mais sobre configurar pontos finais de serviço com a sua aplicação no tutorial sobre restrições de acesso ao [fim do serviço de configuração][serviceendpoints]
  
 ### <a name="hybrid-connections"></a>Ligações Híbridas
 
-O serviço de aplicativo Conexões Híbridas permite que seus aplicativos façam chamadas de **saída** para pontos de extremidade TCP especificados. O ponto de extremidade pode ser local, em uma VNet ou em qualquer lugar que permita o tráfego de saída para o Azure na porta 443. O recurso requer a instalação de um agente de retransmissão chamado HCM (Gerenciador de Conexões Híbridas) em um host Windows Server 2012 ou mais recente. O HCM precisa ser capaz de alcançar a retransmissão do Azure na porta 443. O HCM pode ser baixado da interface do usuário Conexões Híbridas do serviço de aplicativo no Portal. 
+O Serviço de Aplicações Ligações Híbridas permite que as suas apps efaçam chamadas **de saída** para pontos finais específicos do TCP. O ponto final pode estar no local, num VNet ou em qualquer lugar que permita o tráfego de saída para Azure no porto 443. A funcionalidade requer a instalação de um agente de retransmissão chamado Hybrid Connection Manager (HCM) num Windows Server 2012 ou num novo anfitrião. O HCM precisa de ser capaz de chegar ao Relé Azure na porta 443. O HCM pode ser descarregado a partir do App Service Hybrid Connections UI no portal. 
 
-![Conexões Híbridas o fluxo de rede](media/networking-features/hybrid-connections.png)
+![Fluxo de rede de conexões híbridas](media/networking-features/hybrid-connections.png)
 
-O recurso de Conexões Híbridas do serviço de aplicativo é criado no recurso de Conexões Híbridas de retransmissão do Azure. O serviço de aplicativo usa uma forma especializada do recurso que dá suporte apenas para fazer chamadas de saída de seu aplicativo para um host e uma porta TCP. Esse host e a porta precisam apenas ser resolvidos no host em que o HCM está instalado. Quando o aplicativo, no serviço de aplicativo, faz uma pesquisa de DNS no host e na porta definida em sua conexão híbrida, o tráfego é automaticamente redirecionado para passar pela conexão híbrida e para a Gerenciador de Conexões Híbridas. Para saber mais sobre Conexões Híbridas, leia a documentação sobre o [serviço de aplicativo conexões híbridas][hybridconn]
+A funcionalidade De Ligações Híbridas do Serviço app é construída com base na capacidade de Ligações Híbridas Azure Relay. O Serviço de Aplicações utiliza uma forma especializada da funcionalidade que apenas suporta fazer chamadas de saída da sua app para um anfitrião e porta TCP. Este hospedeiro e porta só precisam de ser resolvidos no hospedeiro onde o HCM está instalado. Quando a aplicação, no Serviço de Aplicações, faz uma verificação DNS sobre o hospedeiro e a porta definida sem ligação híbrida, o tráfego é automaticamente redirecionado para passar pela Ligação Híbrida e sair do Hybrid Connection Manager. Para saber mais sobre Ligações Híbridas, leia a documentação sobre [ligações híbridas do Serviço de Aplicações][hybridconn]
 
-Esse recurso é comumente usado para:
+Esta funcionalidade é comumente usada para:
 
-* Acessar recursos em redes privadas que não estão conectadas ao Azure com uma VPN ou ExpressRoute
-* Suporte ao aumento e deslocamento de aplicativos locais para o serviço de aplicativo sem a necessidade de mover bancos de dados de suporte  
-* Forneça acesso com segurança a um único host e porta por conexão híbrida. A maioria dos recursos de rede abre o acesso a uma rede e com Conexões Híbridas você tem apenas o host único e a porta que pode alcançar.
-* Cenários de cobertura não cobertos por outros métodos de conectividade de saída
-* Execute o desenvolvimento no serviço de aplicativo em que os aplicativos podem aproveitar facilmente os recursos locais 
+* Aceder a recursos em redes privadas que não estejam ligados ao Azure com uma VPN ou ExpressRoute
+* Suporte levantar e transferir aplicações no local para O Serviço de Aplicações sem necessidade de mover também bases de dados de suporte  
+* Forneça de forma segura acesso a um único hospedeiro e porta por conexão híbrida. A maioria das funcionalidades de networking abre acesso a uma rede e com Conexões Híbridas só tem o único anfitrião e porta que pode alcançar.
+* Cobrir cenários não abrangidos por outros métodos de conectividade de saída
+* Realizar desenvolvimento no App Service onde as aplicações podem facilmente alavancar recursos no local 
 
-Como o recurso habilita o acesso a recursos locais sem um buraco de firewall de entrada, ele é popular com os desenvolvedores. Os outros recursos de rede do serviço de aplicativo de saída são muito relacionados à rede virtual do Azure. A Conexões Híbridas não tem uma dependência de passar por uma VNet e pode ser usada para uma variedade maior de necessidades de rede. É importante observar que o recurso de Conexões Híbridas do serviço de aplicativo não se preocupa nem sabe o que você está fazendo sobre ele. Isso significa que você pode usá-lo para acessar um banco de dados, um serviço Web ou um soquete TCP arbitrário em um mainframe. Essencialmente, o recurso encapsula pacotes TCP. 
+Uma vez que a funcionalidade permite o acesso aos recursos no local sem um buraco de firewall de entrada, é popular entre os desenvolvedores. As outras funcionalidades de rede de serviços de aplicações de saída estão muito relacionadas com a Rede Virtual Azure. As Ligações Híbridas não têm uma dependência de passar por um VNet e podem ser usadas para uma maior variedade de necessidades de networking. É importante notar que a funcionalidade De Ligações Híbridas do Serviço app não se importa ou sabe o que está a fazer em cima dela. Isto é, pode usá-lo para aceder a uma base de dados, a um serviço web ou a uma tomada tCP arbitrária num computador principal. A funcionalidade essencialmente túneis pacotes TCP. 
 
-Embora Conexões Híbridas seja popular para o desenvolvimento, ela também é usada em inúmeros aplicativos de produção. É ótimo para acessar um serviço Web ou banco de dados, mas não é apropriado para situações envolvendo a criação de várias conexões. 
+Embora a Hybrid Connections seja popular para o desenvolvimento, também é usada em numerosas aplicações de produção. É ótimo para aceder a um serviço web ou base de dados, mas não é apropriado para situações que envolvam a criação de muitas conexões. 
 
-### <a name="gateway-required-vnet-integration"></a>Integração VNet necessária do gateway 
+### <a name="gateway-required-vnet-integration"></a>Gateway exigia integração VNet 
 
-O recurso de integração de VNet do serviço de aplicativo necessário ao Gateway permite que seu aplicativo faça solicitações de **saída** em uma rede virtual do Azure. O recurso funciona conectando o host em que seu aplicativo está sendo executado em um gateway de rede virtual em sua VNet com uma VPN ponto a site. Quando você configura o recurso, seu aplicativo obtém um dos endereços ponto a site atribuídos a cada instância. Esse recurso permite que você acesse recursos tanto no VNets clássico quanto no Resource Manager em qualquer região. 
+A funcionalidade de integração VNet do Serviço de Aplicação necessária permite que a sua aplicação evoque pedidos de **saída** numa Rede Virtual Azure. A funcionalidade funciona ligando o anfitrião que a sua aplicação está a correr para um portal de rede virtual no seu VNet com uma VPN ponto-a-site. Ao configurar a funcionalidade, a sua aplicação obtém um dos endereços ponto-a-site atribuídos a cada instância. Esta funcionalidade permite-lhe aceder a recursos em VNets Clássicos ou Gestorde Recursos em qualquer região. 
 
-![Integração VNet necessária do gateway](media/networking-features/gw-vnet-integration.png)
+![Gateway exigia integração VNet](media/networking-features/gw-vnet-integration.png)
 
-Esse recurso resolve o problema de acessar recursos em outros VNets e pode até mesmo ser usado para se conectar por meio de uma VNet a outro VNets ou até mesmo local. Ele não funciona com o VNets conectado do ExpressRoute, mas faz com redes VPN site a site conectadas. Normalmente, é inapropriado usar esse recurso de um aplicativo em um Ambiente do Serviço de Aplicativo (ASE), pois o ASE já está em sua VNet. Os casos de uso que esse recurso resolve são:
+Esta funcionalidade resolve o problema de aceder a recursos noutros VNets e pode mesmo ser usada para ligar através de um VNet a outros VNets ou até mesmo no local. Não funciona com VNets ligados à ExpressRoute, mas sim com redes conectadas VPN site-to-site. Normalmente é inapropriado utilizar esta funcionalidade a partir de uma aplicação num App Service Environment (ASE), porque a ASE já se encontra no seu VNet. Os casos de utilização que esta funcionalidade resolve são:
 
-* Acessando recursos em IPs privados em suas redes virtuais do Azure 
-* Acessando recursos no local se houver uma VPN site a site 
-* Acessando recursos no VNets emparelhado 
+* Acesso a recursos em IPs privados nas suas redes virtuais Azure 
+* Acesso a recursos no local se houver uma VPN site-to-site 
+* Acesso a recursos em VNets peered 
 
-Quando esse recurso estiver habilitado, seu aplicativo usará o servidor DNS com o qual a VNet de destino está configurada. Você pode ler mais sobre esse recurso na documentação sobre [integração de VNet do serviço de aplicativo][vnetintegrationp2s]. 
+Quando esta funcionalidade estiver ativada, a sua aplicação utilizará o servidor DNS com o qual o destino VNet está configurado. Pode ler mais sobre esta funcionalidade na documentação sobre a [Integração VNet do Serviço de Aplicações.][vnetintegrationp2s] 
 
 ### <a name="vnet-integration"></a>Integração de VNet
 
-O recurso de integração VNet do gateway necessário é muito útil, mas ainda não resolve o acesso a recursos no ExpressRoute. Além de precisar alcançar entre conexões de ExpressRoute, há a necessidade de os aplicativos serem capazes de fazer chamadas para serviços protegidos de ponto de extremidade de serviço. Para resolver essas duas necessidades adicionais, outro recurso de integração VNet foi adicionado. O novo recurso de integração VNet permite que você coloque o back-end de seu aplicativo em uma sub-rede em uma VNet do Resource Manager na mesma região. Esse recurso não está disponível em um Ambiente do Serviço de Aplicativo, que já está em uma VNet. Esta funcionalidade permite:
+A funcionalidade de Integração VNet necessária é muito útil, mas ainda não resolve o acesso aos recursos através do ExpressRoute. Além de precisar de contactar as ligações ExpressRoute, é necessário que as aplicações possam fazer chamadas para serviços seguros de ponto final. Para resolver ambas as necessidades adicionais, foi adicionada outra capacidade de Integração VNet. A nova funcionalidade de Integração VNet permite-lhe colocar o backend da sua aplicação numa subnet numa VNet gestora de recursos na mesma região. Esta funcionalidade não está disponível a partir de um App Service Environment, que já se encontra num VNet. Esta funcionalidade permite:
 
-* Acessando recursos no VNets do Resource Manager na mesma região
-* Acessando recursos que são protegidos com pontos de extremidade de serviço 
-* Acessando recursos que são acessíveis em conexões de ExpressRoute ou VPN
+* Acesso a recursos em VNets gestor de recursos na mesma região
+* Acesso a recursos que são assegurados com pontos finais de serviço 
+* Acesso a recursos acessíveis através de conexões ExpressRoute ou VPN
+* Assegurar todo o tráfego de saída 
+* Forçar a escavar todo o tráfego de saída. 
 
 ![Integração de VNet](media/networking-features/vnet-integration.png)
 
-Esse recurso está em versão prévia e não deve ser usado para cargas de trabalho de produção. Para saber mais sobre esse recurso, leia os documentos na [integração VNet do serviço de aplicativo][vnetintegration].
+Para saber mais sobre esta funcionalidade, leia os docs no [App Service VNet Integration][vnetintegration].
 
 ## <a name="app-service-environment"></a>Ambiente do Serviço de Aplicações 
 
-Um Ambiente do Serviço de Aplicativo (ASE) é uma implantação de locatário único do serviço de Azure App que é executado em sua VNet. O ASE habilita casos de uso como:
+Um App Service Environment (ASE) é uma implantação única do Serviço de Aplicações Azure que funciona no seu VNet. A ASE permite a utilização de casos como:
 
-* Acessar recursos em sua VNet
-* Acessar recursos no ExpressRoute
-* Expor seus aplicativos com um endereço privado em sua VNet 
-* Acessar recursos entre pontos de extremidade de serviço 
+* Acesso a recursos no seu VNet
+* Acesso a recursos através do ExpressRoute
+* Exponha as suas apps com um endereço privado no seu VNet 
+* Aceder a recursos através de pontos finais de serviço 
 
-Com um ASE, você não precisa usar recursos como a integração VNet ou pontos de extremidade de serviço porque o ASE já está em sua VNet. Se você quiser acessar recursos como SQL ou armazenamento em pontos de extremidade de serviço, habilite os pontos de extremidade de serviço na sub-rede do ASE. Se você quiser acessar recursos na VNet, não será necessária nenhuma configuração adicional.  Se você quiser acessar recursos no ExpressRoute, você já está na VNet e não precisa configurar nada no ASE ou nos aplicativos dentro dele. 
+Com uma ASE, não precisa de utilizar funcionalidades como a Integração VNet ou pontos finais de serviço porque a ASE já se encontra no seu VNet. Se pretender aceder a recursos como o SQL ou o Storage sobre os pontos finais do serviço, ative pontos finais de serviço na subnet ASE. Se quiser aceder aos recursos no VNet, não é necessária uma configuração adicional.  Se quiser aceder a recursos através do ExpressRoute, já se encontra no VNet e não precisa de configurar nada na ASE ou nas aplicações no seu interior. 
 
-Como os aplicativos em um ASE ILB podem ser expostos em um endereço IP privado, você pode facilmente adicionar dispositivos WAF para expor apenas os aplicativos que você deseja para a Internet e manter o resto seguro. Ele se presta para facilitar o desenvolvimento de aplicativos de várias camadas. 
+Como as aplicações de um ILB ASE podem ser expostas num endereço IP privado, pode facilmente adicionar dispositivos WAF para expor apenas as aplicações que deseja para a internet e manter o resto seguro. Presta-se a um fácil desenvolvimento de aplicações de vários níveis. 
 
-Há algumas coisas que ainda não são possíveis do serviço multilocatário que são de um ASE. Eles incluem itens como:
+Há algumas coisas que ainda não são possíveis do serviço multi-inquilinos que são de uma ASE. Estas incluem coisas como:
 
-* Expor seus aplicativos em um endereço IP privado
-* Proteger todo o tráfego de saída com controles de rede que não fazem parte de seu aplicativo 
-* Hospede seus aplicativos em um único serviço de locatário 
-* Escalar verticalmente para muitas outras instâncias do que é possível no serviço multilocatário 
-* Carregar certificados de cliente de autoridade de certificação privada para uso por seus aplicativos com pontos de extremidade protegidos da AC privada 
-* Forçar o TLS 1,1 em todos os aplicativos hospedados no sistema sem qualquer capacidade de desabilitar no nível do aplicativo 
-* Forneça um endereço de saída dedicado para todos os aplicativos em seu ASE que não são compartilhados com nenhum cliente 
+* Exponha as suas aplicações num endereço IP privado
+* Proteja todo o tráfego de saída com controlos de rede que não fazem parte da sua app 
+* Hospedar as suas apps num único serviço de inquilinos 
+* Escala até muitos mais instâncias do que é possível no serviço multi-inquilinos 
+* Carregue certificados de cliente ca privados para uso pelas suas apps com pontos finais seguros CA privados 
+* Force TLS 1.1 em todas as aplicações hospedadas no sistema sem qualquer capacidade de desativar ao nível da aplicação 
+* Forneça um endereço de saída dedicado para todas as aplicações da sua ASE que não seja partilhada com nenhum cliente 
 
 ![ASE em uma VNet](media/networking-features/app-service-environment.png)
 
-O ASE fornece a melhor história sobre hospedagem de aplicativo isolada e dedicada, mas vem com alguns desafios de gerenciamento. Algumas coisas a serem consideradas antes de usar um ASE operacional são:
+A ASE oferece a melhor história em torno de hospedagem de apps isoladas e dedicadas, mas vem com alguns desafios de gestão. Algumas coisas a considerar antes de usar uma ASE operacional são:
  
- * Um ASE é executado dentro de sua VNet, mas tem dependências fora da VNet. Essas dependências devem ser permitidas. Leia mais em [considerações de rede para um ambiente do serviço de aplicativo][networkinfo]
- * Um ASE não é dimensionado imediatamente como o serviço multilocatário. Você precisa prever as necessidades de dimensionamento em vez de dimensionar reativamente. 
- * Um ASE tem um custo antecipado mais alto associado a ele. Para aproveitar ao máximo seu ASE, você deve planejar a colocação de várias cargas de trabalho em um ASE em vez de usá-lo para pequenos esforços
- * Os aplicativos em um ASE não podem restringir o acesso a alguns aplicativos em um ASE e não a outros.
- * O ASE está em uma sub-rede e todas as regras de rede se aplicam a todo o tráfego de e para esse ASE. Se você quiser atribuir regras de tráfego de entrada para apenas um aplicativo, use as restrições de acesso. 
+ * Uma ASE corre dentro do seu VNet mas tem dependências fora do VNet. Essas dependências devem ser permitidas. Ler mais em considerações de [Networking para um Ambiente de Serviço de Aplicações][networkinfo]
+ * Uma ASE não escala imediatamente como o serviço multi-inquilinos. É preciso antecipar as necessidades de escala em vez de escalar reactivamente. 
+ * Uma ASE tem um custo frontal mais elevado associado a ele. Para tirar o máximo partido da sua ASE, deve planear colocar muitas cargas de trabalho numa ASE em vez de a utilizar para pequenos esforços.
+ * As aplicações numa ASE não podem restringir o acesso a algumas aplicações numa ASE e não noutras.
+ * A ASE encontra-se numa subrede e todas as regras de rede aplicam-se a todo o tráfego de e para a ASE. Se quiser atribuir regras de tráfego de entrada para apenas uma aplicação, utilize restrições de acesso. 
 
-## <a name="combining-features"></a>Combinando recursos 
+## <a name="combining-features"></a>Combinando funcionalidades 
 
-Os recursos indicados para o serviço multilocatário podem ser usados juntos para resolver casos de uso mais elaborados. Dois dos casos de uso mais comuns são descritos aqui, mas são apenas exemplos. Ao entender o que os diversos recursos fazem, você pode resolver quase todas as suas necessidades de arquitetura do sistema.
+As funcionalidades notadas para o serviço multi-inquilinos podem ser utilizadas em conjunto para resolver casos de utilização mais elaborados. Dois dos casos de utilização mais comuns são descritos aqui, mas são apenas exemplos. Ao entender o que as várias funcionalidades fazem, pode resolver quase todas as necessidades da arquitetura do seu sistema.
 
-### <a name="inject-app-into-a-vnet"></a>Injetar aplicativo em uma VNet
+### <a name="inject-app-into-a-vnet"></a>Injetar app num VNet
 
-Uma solicitação comum é sobre como colocar seu aplicativo em uma VNet. Colocar seu aplicativo em uma VNet significa que os pontos de extremidade de entrada e saída para um aplicativo estão dentro de uma VNet. O ASE fornece a melhor solução para resolver esse problema, mas você pode obter a maior parte do que é necessário com o serviço de vários locatários combinando recursos. Por exemplo, você pode hospedar aplicativos somente de intranet com endereços de entrada e saída privados:
+Um pedido comum é sobre como colocar a sua aplicação num VNet. Colocar a sua aplicação num VNet significa que os pontos finais de entrada e saída para uma aplicação estão dentro de um VNet. A ASE fornece a melhor solução para resolver este problema, mas pode obter a maior parte do que é necessário no serviço multi-inquilinos, combinando funcionalidades. Por exemplo, pode alojar aplicações intranet apenas com endereços de entrada e saída privados por:
 
-* Criando um gateway de aplicativo com endereço de entrada e saída privado
-* Protegendo o tráfego de entrada para seu aplicativo com pontos de extremidade de serviço 
-* Use a nova integração de VNet para que o back-end de seu aplicativo esteja em sua VNet 
+* Criação de um Gateway de Aplicação com endereço de entrada e saída privado
+* Garantir o tráfego de entrada na sua app com pontos finais de serviço 
+* Use a nova Integração VNet para que o backend da sua aplicação esteja no seu VNet 
 
-Esse estilo de implantação não forneceria um endereço dedicado para o tráfego de saída para a Internet ou permite que você bloqueie todo o tráfego de saída de seu aplicativo.  Esse estilo de implantação daria a você uma grande parte do que você poderia obter com um ASE. 
+Este estilo de implementação não lhe daria um endereço dedicado para tráfego de saída para a internet ou lhe daria a capacidade de bloquear todo o tráfego de saída da sua app.  Este estilo de implantação dar-lhe-ia muito do que só de outra forma conseguiria com uma ASE. 
 
-### <a name="create-multi-tier-applications"></a>Criar aplicativos de várias camadas
+### <a name="create-multi-tier-applications"></a>Criar aplicações de vários níveis
 
-Um aplicativo de várias camadas é um aplicativo em que os aplicativos de back-end de API só podem ser acessados da camada de front-end. Para criar um aplicativo de várias camadas, você pode:
+Uma aplicação de vários níveis é uma aplicação onde as aplicações de backend da API só podem ser acedidas a partir do nível frontal. Para criar uma aplicação de vários níveis, pode:
 
-* Usar a integração VNet para conectar o back-end do seu aplicativo Web de front-end com uma sub-rede em uma VNet
-* Use pontos de extremidade de serviço para proteger o tráfego de entrada para seu aplicativo de API apenas proveniente da sub-rede usada pelo seu aplicativo Web de front-end
+* Utilize a Integração VNet para ligar o backend da sua aplicação web frontal com uma subnet num VNet
+* Utilize pontos finais de serviço para garantir o tráfego de entrada na sua aplicação API apenas para vir da subnet utilizada pela sua aplicação web frontal
 
-![aplicativo de várias camadas](media/networking-features/multi-tier-app.png)
+![app multi-tier](media/networking-features/multi-tier-app.png)
 
-Você pode fazer com que vários aplicativos de front-end usem o mesmo aplicativo de API usando a integração VNet de outros aplicativos front-end e pontos de extremidade de serviço do aplicativo de API com suas sub-redes.  
+Pode ter várias aplicações front-end a utilizar a mesma aplicação API utilizando a Integração VNet a partir das outras aplicações frontais e pontos finais de serviço da aplicação API com as suas subredes.  
 
 <!--Links-->
 [appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate

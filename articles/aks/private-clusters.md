@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (A
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: e59dccbcc7514f12e148bfb2f771593a53e85dc5
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4b4ba130d9ff63291abdd46617b0692e844a60bf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594571"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649512"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Criar um cluster privado de serviço Azure Kubernetes (pré-visualização)
 
@@ -55,6 +55,18 @@ O plano de controlo ou servidor API está numa subscrição Azure Kubernetes Ser
 * E.U.A.Oeste 2
 * E.U.A. Leste 2
 
+## <a name="currently-supported-availability-zones"></a>Atualmente áreas de disponibilidade suportadas
+
+* E.U.A. Central
+* E.U.A. Leste
+* E.U.A. Leste 2
+* França Central
+* Leste do Japão
+* Europa do Norte
+* Ásia Sudeste
+* Sul do Reino Unido
+* Europa Ocidental
+* E.U.A.Oeste 2
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instale a mais recente extensão de pré-visualização Azure CLI AKS
 
@@ -115,6 +127,7 @@ Onde *-enable-private-cluster* é uma bandeira obrigatória para um aglomerado p
 > Se a ponte Docker abordar o CIDR (172.17.0.1/16) entrar em conflito com a sub-rede CIDR, mude o endereço da ponte Docker adequadamente.
 
 ## <a name="connect-to-the-private-cluster"></a>Ligue-se ao cluster privado
+
 O ponto final do servidor API não tem endereço IP público. Consequentemente, deve criar uma máquina virtual Azure (VM) numa rede virtual e ligar-se ao servidor API. Para isso, faça o seguinte:
 
 1. Obtenha credenciais para se ligar ao cluster.
@@ -148,7 +161,8 @@ O ponto final do servidor API não tem endereço IP público. Consequentemente, 
 * Para utilizar um servidor DNS personalizado, implemente um servidor AD com DNS para encaminhar para este IP 168.63.129.16
 
 ## <a name="limitations"></a>Limitações 
-* As Zonas de Disponibilidade são atualmente apenas suportadas para regiões leste dos EUA 2 e 2 do Oeste dos EUA
+* As gamas autorizadas IP não podem ser aplicadas ao ponto final do servidor api privado, aplicam-se apenas ao servidor público da API
+* As Zonas de Disponibilidade são atualmente suportadas para determinadas regiões, ver o início deste documento 
 * As limitações do [serviço Azure Private Link][private-link-service] aplicam-se a clusters privados, pontos finais privados do Azure e pontos finais de serviço de rede virtual, que não são atualmente suportados na mesma rede virtual.
 * Nenhum suporte para nós virtuais em um cluster privado para girar instâncias privadas de contentores Azure (ACI) em uma rede virtual azure privada
 * Nenhum apoio à integração de Azure DevOps fora da caixa com clusters privados

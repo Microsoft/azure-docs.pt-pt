@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 2e2fea90f125cae6de44afbc82dd749a421ff3e2
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566017"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650866"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Crie e gerencie bolhas no armazenamento de Blob Azure usando aplicações da Azure Logic
 
@@ -137,7 +137,10 @@ Este exemplo só recebe o conteúdo para uma bolha. Para visualizar o conteúdo,
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para detalhes técnicos, tais como gatilhos, ações e limites, conforme descrito pelo ficheiro Open API (ex-Swagger) do conector, consulte a página de [referência do conector](https://docs.microsoft.com/connectors/azureblobconnector/).
+Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/azureblobconnector/).
+
+> [!NOTE]
+> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
 <a name="storage-firewalls"></a>
 

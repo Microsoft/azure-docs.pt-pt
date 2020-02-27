@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 56c48e9a64ec1fd000f98a20d5005305f522ff41
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: a6b0ebf811d662046d1a9a89fb75a0ab137569c3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500658"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616554"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -34,7 +34,7 @@ O Azure utiliza a tradução de endereços de rede fonte (SNAT) para executar es
 Existem [vários cenários de saída.](#scenarios) Pode combinar estes cenários conforme necessário. Reveja-os cuidadosamente para compreender as capacidades, constrangimentos e padrões que se aplicam ao seu modelo de implementação e cenário de aplicação. Rever orientações para [a gestão destes cenários.](#snatexhaust)
 
 >[!IMPORTANT] 
->Standard Load Balancer e Standard Public IP introduzem novas habilidades e diferentes comportamentos para a conectividade de saída.  Não são os mesmos que as SKUs básicas.  Se pretender conectividade de saída ao trabalhar com as SKUs Standard, deve defini-la explicitamente com endereços IP públicos padrão ou um balancer de carga público padrão.  Isto inclui a criação de conectividade de saída ao utilizar um Balancer de Carga Padrão interno.  Recomendamos que utilize sempre regras de saída num Balancer de Carga Pública Standard.  [O cenário 3](#defaultsnat) não está disponível com o Standard SKU.  Isto significa que, quando um Balancer de Carga Padrão interno é utilizado, você precisa tomar medidas para criar conectividade de saída para os VMs na piscina de backend se a conectividade de saída for desejada.  No contexto da conectividade de saída, um Único VM autónomo, todos os VM's em um Conjunto de Disponibilidade, todos os casos em um VMSS comportam-se como um grupo. Isto significa que, se um único VM num Conjunto de Disponibilidade estiver associado a um SKU Padrão, todos os casos de VM dentro deste Conjunto de Disponibilidade comportam-se agora pelas mesmas regras que se estiverem associados ao SKU Padrão, mesmo que uma instância individual não esteja diretamente associada ao mesmo.  Reveja cuidadosamente todo este documento para compreender os conceitos globais, reveja o [Standard Load Balancer](load-balancer-standard-overview.md) para obter diferenças entre As EK E reveja [as regras de saída](load-balancer-outbound-rules-overview.md).  A utilização de regras de saída permite-lhe um controlo fino sobre todos os aspetos da conectividade de saída.
+>Standard Load Balancer e Standard Public IP introduzem novas habilidades e diferentes comportamentos para a conectividade de saída.  Não são os mesmos que as SKUs básicas.  Se pretender conectividade de saída ao trabalhar com as SKUs Standard, deve defini-la explicitamente com endereços IP públicos padrão ou um balancer de carga público padrão.  Isto inclui a criação de conectividade de saída ao utilizar um Balancer de Carga Padrão interno.  Recomendamos que utilize sempre regras de saída num Balancer de Carga Pública Standard.  [O cenário 3](#defaultsnat) não está disponível com o Standard SKU.  Isto significa que, quando um Balancer de Carga Padrão interno é utilizado, você precisa tomar medidas para criar conectividade de saída para os VMs na piscina de backend se a conectividade de saída for desejada.  No contexto da conectividade de saída, um Único VM autónomo, todos os VM's em um Conjunto de Disponibilidade, todos os casos em um VMSS comportam-se como um grupo. Isto significa que, se um único VM num Conjunto de Disponibilidade estiver associado a um SKU Padrão, todos os casos de VM dentro deste Conjunto de Disponibilidade comportam-se agora pelas mesmas regras que se estiverem associados ao SKU Padrão, mesmo que uma instância individual não esteja diretamente associada ao mesmo. Este comportamento também é observado no caso de um VM autónomo com vários cartões de interface de rede ligados a um equilibrista de carga. Se um NIC for adicionado como um autónomo, terá o mesmo comportamento. Reveja cuidadosamente todo este documento para compreender os conceitos globais, reveja o [Standard Load Balancer](load-balancer-standard-overview.md) para obter diferenças entre As EK E reveja [as regras de saída](load-balancer-outbound-rules-overview.md).  A utilização de regras de saída permite-lhe um controlo fino sobre todos os aspetos da conectividade de saída.
 
 ## <a name="scenarios"></a>Visão geral do cenário
 
@@ -259,7 +259,7 @@ Se um NSG bloquear os pedidos de sonda de saúde a partir da etiqueta padrão AZ
 - O Desactivador OutOutboundSnat não está disponível como opção para configurar uma regra de equilíbrio de carga no portal.  Utilize as ferramentas DE REPOUSO, modelo ou cliente.
 - As Funções dos Trabalhadores Web sem um VNet e outros serviços da plataforma Microsoft podem ser acessíveis quando apenas um Balancer de Carga Padrão interno é usado devido a um efeito colateral a partir do funcionamento dos serviços pré-VNet e de outros serviços da plataforma. Não confie neste efeito colateral, uma vez que o próprio serviço ou a plataforma subjacente podem mudar sem aviso prévio. Deve sempre assumir que precisa de criar uma conectividade de saída explicitamente, se desejar, quando utilizar apenas um Balancer de Carga Padrão interno. O cenário [padrão sNAT](#defaultsnat) 3 descrito neste artigo não está disponível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).
 - Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md) para o Standard Public Load Balancer.

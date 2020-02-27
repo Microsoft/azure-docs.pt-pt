@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 5c820b7e11c06f2d785da036f5174298caf56da6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960610"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651343"
 ---
 #    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (Pré-visualização)
 
@@ -43,7 +43,7 @@ Os parâmetros são sensíveis aos casos.
 |defaultLanguageCode |  (Opcional) Código linguístico do texto de entrada utilizado para tokenizar e delinear texto de entrada. Apoiam-se as seguintes línguas: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (`en`). Se passar um formato de código de idioma-country, apenas é utilizada a parte do idioma do formato.  |
 
 
-## <a name="skill-inputs"></a>Entradas de habilidades
+## <a name="skill-inputs"></a>Inputs de habilidade
 
 | Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
@@ -54,16 +54,16 @@ Os parâmetros são sensíveis aos casos.
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 
-| Nome da saída     | Descrição                   |
+| Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
-| contabilidade | Uma série de objetos que contêm informações sobre os fósforos que foram encontrados, e metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: A entidade de alto nível identificada. A entidade representa o formulário "normalizado". </li> <li> *id*: Um identificador único para a entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *descrição*: Descrição da entidade definida pelo utilizador no "Formato de Definição de Entidade Aduaneira". </li> <li> *tipo:* Tipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *subtipo:* Subtipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li>  <li> *fósforos*: Recolha que descreve cada uma das partidas para essa entidade no texto de origem. Cada partida terá os seguintes membros: </li> <ul> <li> *texto*: O texto bruto corresponde ao documento de origem. </li> <li> *offset*: O local onde a correspondência foi encontrada no texto. </li> <li> *comprimento*: O comprimento do texto combinado. </li> <li> *matchDistance*: O número de caracteres diferentes desta partida era do nome ou pseudónimo original da entidade.  </li> </ul> </ul>
+| entidades | Uma série de objetos que contêm informações sobre os fósforos que foram encontrados, e metadados relacionados. Cada uma das entidades identificadas pode conter os seguintes campos:  <ul> <li> *nome*: A entidade de alto nível identificada. A entidade representa o formulário "normalizado". </li> <li> *id*: Um identificador único para a entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *descrição*: Descrição da entidade definida pelo utilizador no "Formato de Definição de Entidade Aduaneira". </li> <li> *tipo:* Tipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li> <li> *subtipo:* Subtipo de entidade definido pelo utilizador no "Formato de Definição de Entidade Personalizada".</li>  <li> *fósforos*: Recolha que descreve cada uma das partidas para essa entidade no texto de origem. Cada partida terá os seguintes membros: </li> <ul> <li> *texto*: O texto bruto corresponde ao documento de origem. </li> <li> *offset*: O local onde a correspondência foi encontrada no texto. </li> <li> *comprimento*: O comprimento do texto combinado. </li> <li> *matchDistance*: O número de caracteres diferentes desta partida era do nome ou pseudónimo original da entidade.  </li> </ul> </ul>
   |
 
 ## <a name="custom-entity-definition-format"></a>Formato de Definição de Entidade Personalizada
 
 Existem 3 formas diferentes de fornecer a lista de entidades personalizadas à habilidade de Procura de Entidades Personalizadas. Pode fornecer a lista em . Ficheiro CSV, a . Ficheiro JSON ou como uma definição inline como parte da definição de habilidade.  
 
-Se o ficheiro de definição for a . CSV ou . Arquivo JSON, o caminho do ficheiro deve ser fornecido como parte do parâmetro *entidadeDefitionUri.* Neste caso, o ficheiro é descarregado uma vez no início de cada execução de indexador. O ficheiro deve estar acessível desde que o indexante se destine a ser executado.
+Se o ficheiro de definição for a . CSV ou . Arquivo JSON, o caminho do ficheiro deve ser fornecido como parte do parâmetro *entidadeDefitionUri.* Neste caso, o ficheiro é descarregado uma vez no início de cada execução de indexador. O ficheiro deve estar acessível desde que o indexante se destine a ser executado. Além disso, o ficheiro deve ser codificado UTF-8.
 
 Se a definição for fornecida inline, deve ser fornecida tão inline como o conteúdo do parâmetro de habilidade *inlineEntidadesDefinição.* 
 
@@ -168,7 +168,7 @@ As tabelas abaixo descrevem mais detalhes os diferentes parâmetros de configura
 Em alguns casos, pode ser mais conveniente fornecer a lista de entidades personalizadas para combinar diretamente com a definição de habilidade. Nesse caso, pode utilizar um formato JSON semelhante ao acima descrito, mas está inlineado na definição de habilidade.
 Apenas configurações com menos de 10 KB de tamanho (tamanho serializado) podem ser definidas em linha. 
 
-##  <a name="sample-definition"></a>Definição de exemplo
+##  <a name="sample-definition"></a>Definição de amostra
 
 Uma definição de habilidade de amostra utilizando um formato inline é mostrada abaixo:
 
@@ -296,8 +296,8 @@ Alternativamente, se decidir fornecer um ponteiro para o ficheiro de definição
   } 
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Habilidades internas](cognitive-search-predefined-skills.md)
-+ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
++ [Competências incorporadas](cognitive-search-predefined-skills.md)
++ [Como definir um conjunto de habilidades](cognitive-search-defining-skillset.md)
 + [Competência de Reconhecimento de Entidades (para procurar entidades conhecidas)](cognitive-search-skill-entity-recognition.md)

@@ -4,12 +4,12 @@ description: Conheça as limitações conhecidas quando executa piscinas de nós
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 6d951652e3522b7ff926b72a3916bffe97575054
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592498"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615646"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para piscinas de nó do Windows Server e cargas de trabalho de aplicação no Serviço Azure Kubernetes (AKS)
 
@@ -51,9 +51,9 @@ Os nós principais (o plano de controlo) num cluster AKS são hospedados pela AK
 
 Os clusters AKS com piscinas de nó Windows devem utilizar o modelo de rede Azure CNI (avançado). A rede Kubenet (básica) não é suportada. Para obter mais informações sobre as diferenças nos modelos de rede, consulte conceitos de [rede para aplicações no AKS][azure-network-models]. - O modelo de rede Azure CNI requer planeamento e considerações adicionais para a gestão de endereços IP. Para obter mais informações sobre como planear e implementar o Azure CNI, consulte a [rede Configure Azure CNI em AKS][configure-azure-cni].
 
-## <a name="can-i-change-the-min--of-pods-per-node"></a>Posso mudar o min.
+## <a name="can-i-change-the-max--of-pods-per-node"></a>Posso mudar o máximo. De pods por nó?
 
-Atualmente é um requisito a ser definido para um mínimo de 30 cápsulas para garantir a fiabilidade dos seus clusters.
+Atualmente é um requisito a ser definido para um máximo de 30 cápsulas para garantir a fiabilidade dos seus clusters.
 
 ## <a name="how-do-patch-my-windows-nodes"></a>Como remendar os meus nós do Windows?
 

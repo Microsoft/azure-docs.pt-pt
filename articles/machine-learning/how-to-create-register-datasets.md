@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 0bfaef72be23f148c01e02e910b11128cec1659e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6b6d63d956f46587d89edf1b080f1bb9bd3ca67e
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116712"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649095"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure
 
@@ -67,16 +67,16 @@ Para criar conjuntos de dados a partir de uma [datastore Azure](how-to-access-da
 
 1. Verifique se tem acesso `contributor` ou `owner` à loja de dados Azure registada.
 
-2. Crie o conjunto de um referenciando caminhos no repositório de armazenamento.
+2. Criar o conjunto de dados referenciando caminhos na loja de dados.
 > [!Note]
-> Você pode criar um conjunto de um DataSet a partir de vários caminhos em vários repositórios de armazenamento. Não há nenhum limite rígido para o número de arquivos ou o tamanho de dados do qual você pode criar um DataSet. No entanto, para cada caminho de dados, algumas solicitações serão enviadas ao serviço de armazenamento para verificar se ele aponta para um arquivo ou uma pasta. Essa sobrecarga pode levar à degradação do desempenho ou falha. Um conjunto de dados que faz referência a uma pasta com 1000 arquivos dentro é considerado fazendo referência a um caminho de dado. É recomendável criar um conjunto de consulta que referencie menos de 100 caminhos em repositórios de armazenamento para um desempenho ideal.
+> Pode criar um conjunto de dados a partir de múltiplos caminhos em várias lojas de dados. Não existe um limite rígido no número de ficheiros ou tamanho de dados a partir do dia. No entanto, para cada trajetória de dados, alguns pedidos serão enviados para o serviço de armazenamento para verificar se aponta para um ficheiro ou uma pasta. Esta sobrecarga pode levar a desempenho ou falha degradada. Um conjunto de dados que referencia uma pasta com 1000 ficheiros no interior é considerado referenciando uma via de dados. Recomendamos a criação de dataset referenciando menos de 100 caminhos nas lojas de dados para um desempenho ótimo.
 
 
 #### <a name="create-a-tabulardataset"></a>Criar um Conjunto TabularDataset
 
-Você pode criar TabularDatasets por meio do SDK ou usando o Azure Machine Learning Studio. 
+Pode criar TabularDatasets através do SDK ou utilizando o estúdio Azure Machine Learning. 
 
-Utilize o método [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) na classe `TabularDatasetFactory` para ler ficheiros em formato .csv ou .tsv e para criar um Conjunto TabularDataset não registado. Se estiver a ler de vários ficheiros, os resultados serão agregados numa representação tabular.
+Utilize o método [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) na classe `TabularDatasetFactory` para ler ficheiros em formato .csv ou .tsv e para criar um Conjunto TabularDataset não registado. Se estiver a ler de vários ficheiros, os resultados serão agregados numa representação tabular. 
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -96,7 +96,10 @@ datastore_paths = [(datastore, 'ather/2018/11.csv'),
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-Por predefinição, quando cria um Conjunto tabularDataset, os tipos de dados da coluna são automaticamente inferidos. Se os tipos inferidos não corresponderem às suas expectativas, pode especificar os tipos de colunautilizando o seguinte código. Também pode [saber mais sobre tipos de dados suportados.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py)
+Por predefinição, quando cria um Conjunto tabularDataset, os tipos de dados da coluna são automaticamente inferidos. Se os tipos inferidos não corresponderem às suas expectativas, pode especificar os tipos de colunautilizando o seguinte código. Se o seu armazenamento estiver por trás de uma rede virtual ou firewall, inclua os parâmetros `validate=False` e `infer_column_types=False` no seu método `from_delimited_files()`. Isto ignora a verificação inicial de validação e garante que pode criar o seu conjunto de dados a partir destes ficheiros seguros. Também pode [saber mais sobre tipos de dados suportados.](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py)
+
+> [!NOTE] 
+>O `infer_column_type` parâmetro só é aplicável para conjuntos de dados criados a partir de ficheiros delimitados. 
 
 ```Python
 from azureml.data.dataset_factory import DataType
@@ -149,7 +152,7 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### <a name="create-a-filedataset"></a>Criar um Conjunto de Datatos de Ficheiros
 
-Utilize o método [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) na classe `FileDatasetFactory` para carregar ficheiros em qualquer formato e criar um Conjunto de Datatos de Ficheiros não registado:
+Utilize o método [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) na classe `FileDatasetFactory` para carregar ficheiros em qualquer formato e criar um Conjunto de Datatos de Ficheiros não registado. Se o seu armazenamento estiver por trás de uma rede virtual ou firewall, defina o parâmetro `validate =False` no seu método `from_files()`. Isto ignora a etapa inicial de validação e garante que pode criar o seu conjunto de dados a partir destes ficheiros seguros.
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -188,7 +191,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 ```
 
 > [!Note]
-> Os conjuntos de valores criados por meio do Azure Machine Learning Studio são automaticamente registrados no espaço de trabalho.
+> Os conjuntos de dados criados através do estúdio Azure Machine Learning estão automaticamente registados no espaço de trabalho.
 
 ## <a name="create-datasets-with-azure-open-datasets"></a>Criar conjuntos de dados com conjuntos de dados abertos do Azure
 
@@ -198,7 +201,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 Para criar conjuntos de dados com conjuntos de dados Abertos Azure a partir do SDK, certifique-se de que instalou o pacote com `pip install azureml-opendatasets`. Cada conjunto de dados discreto é representado pela sua própria classe no SDK, e certas classes estão disponíveis como um `TabularDataset`, `FileDataset`, ou ambos. Consulte a [documentação](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) de referência para uma lista completa de aulas.
 
-Pode recuperar determinadas classes como um `TabularDataset` ou `FileDataset`, o que lhe permite manipular e/ou descarregar os ficheiros diretamente. Outras classes **só** podem obter um conjunto de dados utilizando uma das funções `get_tabular_dataset()` ou `get_file_dataset()`. O exemplo de código a seguir mostra alguns exemplos desses tipos de classes.
+Pode recuperar determinadas classes como um `TabularDataset` ou `FileDataset`, o que lhe permite manipular e/ou descarregar os ficheiros diretamente. Outras classes **só** podem obter um conjunto de dados utilizando uma das funções `get_tabular_dataset()` ou `get_file_dataset()`. A amostra de código que se segue mostra alguns exemplos deste tipo de aulas.
 
 ```python
 from azureml.opendatasets import MNIST

@@ -1,97 +1,97 @@
 ---
-title: Problemas ao conectar bancos de dados de origem
+title: Problemas que ligam bases de dados de fontes
 titleSuffix: Azure Database Migration Service
-description: Saiba mais sobre como solucionar problemas/erros conhecidos associados à conexão do serviço de migração de banco de dados do Azure a bancos de dados de origem.
+description: Saiba como resolver problemas conhecidos de problemas/erros associados à ligação do Serviço de Migração de Bases de Dados Azure às bases de dados de origem.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/28/2019
-ms.openlocfilehash: b697faeded4177381f70ebb9d1f93d928b25d7b1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 332f612e1ffe57fc4edd90b1fe4c6a5ea5a2904a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437799"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649180"
 ---
-# <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Solucionar erros DMS ao conectar-se a bancos de dados de origem
+# <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Erros de DMS de resolução de problemas ao ligar-se a bases de dados de origem
 
-O artigo a seguir fornece detalhes sobre como resolver possíveis problemas que você pode encontrar ao conectar o serviço de migração de banco de dados do Azure (DMS) ao seu banco de dados de origem. Cada seção abaixo está relacionada a um tipo específico de banco de dados de origem, que lista o erro que você pode encontrar juntamente com detalhes e links para informações sobre como solucionar problemas de conectividade.
+O seguinte artigo fornece detalhes sobre como lidar com potenciais problemas que poderá encontrar ao ligar o Serviço de Migração de Bases de Dados Azure (DMS) à sua base de dados fonte. Cada secção abaixo diz respeito a um tipo específico de base de dados de origem, enumerando o erro que pode encontrar juntamente com detalhes e links para informações sobre como resolver a conectividade.
 
 ## <a name="sql-server"></a>SQL Server
 
-Os possíveis problemas associados à conexão a um banco de dados de SQL Server de origem e como solucioná-los são fornecidos na tabela a seguir.
+Problemas potenciais associados à ligação a uma base de dados do SQL Server de origem e como endereçá-los são fornecidos na tabela seguinte.
 
-| Erro         | Detalhes de causa e solução de problemas |
+| Erro         | Detalhes de causa e resolução de problemas |
 | ------------- | ------------- |
-| Falha na conexão SQL. Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não está acessível. Verifique se o nome da instância está correto e se SQL Server está configurado para permitir conexões remotas.<br> | Esse erro ocorrerá se o serviço não puder localizar o servidor de origem. Para resolver o problema, consulte o artigo [erro ao conectar-se ao SQL Server de origem ao usar a porta dinâmica ou a instância nomeada](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance). |
-| **Erro 53** -falha na conexão do SQL. (Também, para os códigos de erro 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Esse erro ocorrerá se o serviço não puder se conectar ao servidor de origem. Para resolver o problema, consulte os recursos a seguir e tente novamente. <br><br>  [Guia do usuário interativo para solucionar o problema de conectividade](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Pré-requisitos para migrar SQL Server para o banco de dados SQL do Azure](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Pré-requisitos para migrar SQL Server para uma instância gerenciada do banco de dados SQL do Azure](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
-| **Erro 18456** -falha no logon.<br> | Esse erro ocorrerá se o serviço não puder se conectar ao banco de dados de origem usando as credenciais do T-SQL fornecidas. Para resolver o problema, verifique as credenciais inseridas. Você também pode consultar [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) ou os documentos de solução de problemas listados na observação abaixo desta tabela e, em seguida, tentar novamente. |
-| Valor '{0}' de AccountName malformado fornecido. O formato esperado para AccountName é DomainName\UserName<br> | Esse erro ocorrerá se o usuário selecionar a autenticação do Windows, mas fornecer o nome de usuário em um formato inválido. Para resolver o problema, forneça o nome de usuário no formato correto para a autenticação do Windows ou selecione **autenticação SQL**. |
+| A ligação SQL falhou. Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não está acessível. Verifique se o nome da instância está correto e que o Servidor SQL está configurado para permitir ligações remotas.<br> | Este erro ocorre se o serviço não conseguir localizar o servidor de origem. Para resolver o problema, consulte o artigo [Erro ligado à fonte SQL Server ao utilizar porta dinâmica ou instância nomeada](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance). |
+| **Erro 53** - Ligação SQL falhou. (Também, para os códigos de erro 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Este erro ocorre se o serviço não conseguir ligar-se ao servidor de origem. Para abordar a questão, consulte os seguintes recursos e, em seguida, tente novamente. <br><br>  [Guia interativo do utilizador para resolver problemas com problemas](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Pré-requisitos para migrar o Servidor SQL para a Base de Dados SQL Azure](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Pré-requisitos para migrar o Servidor SQL para uma base de dados Azure SQL gerida](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
+| **Erro 18456** - O login falhou.<br> | Este erro ocorre se o serviço não conseguir ligar-se à base de dados de origem utilizando as credenciais T-SQL fornecidas. Para resolver o problema, verifique as credenciais inseridas. Pode também consultar [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) ou aos documentos de resolução de problemas listados na nota abaixo desta tabela e, em seguida, tentar novamente. |
+| Valor de nome de conta mal formado '{0}' fornecido. O formato esperado para o Nome da Conta é DomínioNome\UserName<br> | Este erro ocorre se o utilizador selecionar a autenticação do Windows, mas fornecer o nome de utilizador num formato inválido. Para resolver o problema, forneça o nome de utilizador no formato correto para autenticação do Windows ou selecione **a autenticação SQL**. |
 
 ## <a name="aws-rds-mysql"></a>AWS RDS MySQL
 
-Os possíveis problemas associados à conexão a um banco de dados do AWS RDS MySQL de origem e como solucioná-los são fornecidos na tabela a seguir.
+Problemas potenciais associados à ligação a uma base de dados AWS RDS MySQL de origem e como endereçá-los são fornecidos na tabela seguinte.
 
-| Erro         | Detalhes de causa e solução de problemas |
+| Erro         | Detalhes de causa e resolução de problemas |
 | ------------- | ------------- |
-| **Erro [2003]** [HY000]-falha na conexão. ERRO [HY000] [MySQL] [ODBC x. x (w) Driver] não é possível conectar ao servidor MySQL em ' {Server} ' (10060) | Esse erro ocorrerá se o driver ODBC do MySQL não puder se conectar ao servidor de origem. Para resolver o problema, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente.<br> |
-| **Erro [2005]** [HY000]-falha na conexão. ERRO [HY000] [MySQL] [ODBC x. x (w) Driver] host do MySQL Server desconhecido ' {Server} ' | Esse erro ocorrerá se o serviço não conseguir localizar o host de origem no RDS. O problema pode ser porque a fonte listada não existe ou há um problema com a infraestrutura do RDS. Para resolver o problema, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente.<br> |
-| **Erro [1045]** [HY000]-falha na conexão. ERRO [HY000] [MySQL] [ODBC x. x (w) Driver] acesso negado para o usuário ' {user} ' @ ' {Server} ' (usando a senha: Sim) | Esse erro ocorrerá se o driver ODBC do MySQL não puder se conectar ao servidor de origem devido a credenciais inválidas. Verifique as credenciais que você inseriu. Se o problema continuar, verifique se o computador de origem tem as credenciais corretas. Talvez seja necessário redefinir a senha no console do. Se você ainda encontrar o problema, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente.<br> |
-| **Erro [9002]** [HY000]-falha na conexão. ERRO [HY000] [MySQL] [ODBC x. x (w) Driver] a cadeia de conexão pode não estar correta. Visite o portal para obter referências.| Esse erro ocorrerá se a conexão estiver falhando devido a um problema com a cadeia de conexão. Verifique se a cadeia de conexão fornecida é válida. Para resolver o problema, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente.<br> |
-| **Erro no log binário. A variável binlog_format tem o valor ' {value} '. Altere-o para ' Row '.** | Esse erro ocorrerá se houver um erro no registro em log binário; a variável binlog_format tem o valor incorreto. Para resolver o problema, altere o binlog_format no grupo de parâmetros para ' ROW ' e reinicialize a instância. Para obter mais informações, consulte a documentação [Opções de log binário e variáveis](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html) ou [arquivos de log do banco de dados AWS RDS MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html).<br> |
+| **Erro [2003]** [HY000] - a ligação falhou. ERRO [HY000] [MySQL][ODBC x.x(w) driver] Não pode ligar-se ao servidor MySQL em '{server}' (10060) | Este erro ocorre se o controlador MySQL ODBC não conseguir ligar-se ao servidor de origem. Para abordar a questão, consulte os documentos de resolução de problemas listados na nota abaixo desta tabela e, em seguida, tente novamente.<br> |
+| **Erro [2005]** [HY000] - a ligação falhou. ERROR [HY000] [MySQL][ODBC x.x(w) driver] Unknown MySQL server host '{server}' | Este erro ocorre se o serviço não encontrar o hospedeiro de origem no RDS. A questão pode ou ser porque a fonte listada não existe ou há um problema com as infraestruturas RDS. Para abordar a questão, consulte os documentos de resolução de problemas listados na nota abaixo desta tabela e, em seguida, tente novamente.<br> |
+| **Erro [1045]** [HY000] - a ligação falhou. ERRO [HY000] [MySQL][ODBC x.x(w) driver] Acesso negado para utilizador '{user}'{server}' (usando palavra-passe: SIM) | Este erro ocorre se o controlador MySQL ODBC não conseguir ligar-se ao servidor de origem devido a credenciais inválidas. Verifique as credenciais que inseriu. Se o problema continuar, verifique se o computador de origem tem as credenciais corretas. Poderá ter de redefinir a palavra-passe na consola. Se ainda encontrar o problema, consulte os documentos de resolução de problemas listados na nota abaixo desta tabela e, em seguida, tente novamente.<br> |
+| **Erro [9002]** [HY000] - a ligação falhou. ERRO [HY000] [MySQL][ODBC x.x(w) driver] A corda de ligação pode não estar certa. Visite o portal para referências.| Este erro ocorre se a ligação estiver falhada devido a um problema com a cadeia de ligação. Verifique se a cadeia de ligação fornecida é válida. Para abordar a questão, consulte os documentos de resolução de problemas listados na nota abaixo desta tabela e, em seguida, tente novamente.<br> |
+| **Erro na exploração madeireira binária. Variável binlog_format tem valor '{value}'. Por favor, mude para "row".** | Este erro ocorre se houver um erro na exploração madeireira binária; a variável binlog_format tem o valor errado. Para resolver o problema, altere a binlog_format do grupo de parâmetros para 'ROW' e, em seguida, reinicie a instância. Para mais informações, consulte [as opções e variáveis de registo binários](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html) ou a documentação dos ficheiros de registo mysql de registo de dados de dados de dados de dados da [AWS RDS RDS MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html).<br> |
 
 > [!NOTE]
-> Para obter mais informações sobre como solucionar problemas relacionados à conexão com um banco de dados do AWS RDS MySQL de origem, consulte os seguintes recursos:
-> * [Solução de problemas de conectividade do Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
-> * [Como fazer resolver problemas de conexão com minha instância de banco de dados do Amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
+> Para obter mais informações sobre problemas relacionados com a ligação a uma base de dados AWS RDS MySQL, consulte os seguintes recursos:
+> * [Resolução de problemas para problemas de conectividade RDS da Amazon](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
+> * [Como posso resolver problemas de ligação à minha base de dados amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
 ## <a name="aws-rds-postgresql"></a>AWS RDS PostgreSQL
 
-Os possíveis problemas associados à conexão a um banco de dados do AWS RDS de origem e como solucioná-los são fornecidos na tabela a seguir.
+Problemas potenciais associados à ligação a uma base de dados AWS RDS PostgreSQL de origem e como endereçá-los são fornecidos na tabela seguinte.
 
-| Erro         | Detalhes de causa e solução de problemas |
+| Erro         | Detalhes de causa e resolução de problemas |
 | ------------- | ------------- |
-| **Erro [101]** [08001]-falha na conexão. ERRO [08001] tempo limite expirado. | Esse erro ocorrerá se o driver postgres não puder se conectar ao servidor de origem. Para resolver o problema, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente. |
-| **Erro: o parâmetro wal_level tem o valor ' {value} '. Altere-o para ' lógico ' para permitir a replicação.** | Esse erro ocorrerá se o parâmetro wal_level tiver o valor incorreto. Para resolver o problema, altere o RDS. logical_replication no grupo de parâmetros para 1 e, em seguida, reinicialize a instância. Para obter mais informações, consulte [pré-requisitos para migrar para o PostgreSQL do Azure usando DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) ou [POSTGRESQL no Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html). |
+| **Erro [101]** [08001] - a ligação falhou. Error [08001] tempo de tempo expirou. | Este erro ocorre se o controlador Postgres não conseguir ligar-se ao servidor de origem. Para abordar a questão, consulte os documentos de resolução de problemas listados na nota abaixo desta tabela e, em seguida, tente novamente. |
+| **Erro: O parâmetro wal_level tem valor '{value}'. Por favor, mude-o para "lógico" para permitir a replicação.** | Este erro ocorre se o parâmetro wal_level tiver o valor errado. Para resolver o problema, mude o grupo rds.logical_replication em grupo de parâmetros para 1 e, em seguida, reiniciar a instância. Para mais informações, consulte os [pré-requisitos para a migração para O Azure PostgreSQL utilizando DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) ou [PostgreSQL no Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html). |
 
 > [!NOTE]
-> Para obter mais informações sobre como solucionar problemas relacionados à conexão a um banco de dados do AWS do RDS de origem, consulte os seguintes recursos:
-> * [Solução de problemas de conectividade do Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
-> * [Como fazer resolver problemas de conexão com minha instância de banco de dados do Amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
+> Para obter mais informações sobre problemas relacionados com a ligação a uma base de dados AWS RDS PostgreSQL, consulte os seguintes recursos:
+> * [Resolução de problemas para problemas de conectividade RDS da Amazon](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
+> * [Como posso resolver problemas de ligação à minha base de dados amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
-## <a name="aws-rds-sql-server"></a>AWS RDS SQL Server
+## <a name="aws-rds-sql-server"></a>Servidor AWS RDS SQL
 
-Os possíveis problemas associados à conexão a um banco de dados AWS SQL Server RDS de origem e como solucioná-los são fornecidos na tabela a seguir.
+Problemas potenciais associados à ligação a uma base de dados de servidor AWS RDS SQL e como endereçá-los são fornecidos na tabela seguinte.
 
-| Erro         | Detalhes de causa e solução de problemas |
+| Erro         | Detalhes de causa e resolução de problemas |
 | ------------- | ------------- |
-| **Erro 53** -falha na conexão do SQL. Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não estava acessível. Verifique se o nome da instância está correto e se SQL Server está configurado para permitir conexões remotas. (provedor: provedor de pipes nomeados, erro: 40-não foi possível abrir uma conexão com SQL Server | Esse erro ocorrerá se o serviço não puder se conectar ao servidor de origem. Para resolver o problema, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente. |
-| **Erro 18456** -falha no logon. Falha de logon do usuário ' {user} ' | Esse erro ocorrerá se o serviço não puder se conectar ao banco de dados de origem com as credenciais de T-SQL fornecidas. Para resolver o problema, verifique as credenciais inseridas. Você também pode se referir a [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) ou aos documentos de solução de problemas listados na observação abaixo desta tabela e tentar novamente. |
-| **Erro 87** -a cadeia de conexão não é válida. Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não está acessível. Verifique se o nome da instância está correto e se SQL Server está configurado para permitir conexões remotas. (provedor: interfaces de rede do SQL, erro: 25-a cadeia de conexão não é válida) | Esse erro ocorrerá se o serviço não puder se conectar ao servidor de origem devido a uma cadeia de conexão inválida. Para resolver o problema, verifique a cadeia de conexão fornecida. Se o problema persistir, consulte os documentos de solução de problemas listados na observação abaixo desta tabela e tente novamente. |
-| **Erro-certificado de servidor não confiável.** Uma conexão foi estabelecida com êxito com o servidor, mas ocorreu um erro durante o processo de logon. (provedor: provedor SSL, erro: 0-a cadeia de certificados foi emitida por uma autoridade que não é confiável.) | Esse erro ocorrerá se o certificado usado não for confiável. Para resolver o problema, você precisa encontrar um certificado que possa ser confiável e, em seguida, habilitá-lo no servidor. Como alternativa, você pode selecionar a opção de certificado de confiança durante a conexão. Execute esta ação somente se você estiver familiarizado com o certificado usado e confiar nele. <br> As conexões SSL que são criptografadas usando um certificado autoassinado não fornecem segurança forte – elas são suscetíveis a ataques man-in-the-Middle. Não confie no SSL usando certificados autoassinados em um ambiente de produção ou em servidores conectados à Internet. <br> Para obter mais informações, consulte como [usar SSL com uma instância Microsoft SQL Server DB](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) ou [tutorial: migrar RDS SQL Server para o Azure usando DMS](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites). |
-| **Erro 300** -o usuário não tem as permissões necessárias. A permissão VIEW SERVER STATE foi negada no objeto ' {Server} ', banco de dados ' {database} ' | Esse erro ocorrerá se o usuário não tiver permissão para executar a migração. Para resolver o problema, consulte [permissões de servidor Grant-Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) ou [tutorial: migrar RDS SQL Server para o Azure usando DMS](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites) para obter mais detalhes. |
+| **Erro 53** - Ligação SQL falhou. Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não estava acessível. Verifique se o nome da instância está correto e que o Servidor SQL está configurado para permitir ligações remotas. (fornecedor: Fornecedor de tubos nomeado, erro: 40 - Não conseguiu abrir uma ligação ao Servidor SQL | Este erro ocorre se o serviço não conseguir ligar-se ao servidor de origem. Para abordar a questão, consulte os documentos de resolução de problemas listados na nota abaixo desta tabela e, em seguida, tente novamente. |
+| **Erro 18456** - O login falhou. O login falhou para o utilizador '{user}' | Este erro ocorre se o serviço não conseguir ligar-se à base de dados de origem com as credenciais T-SQL fornecidas. Para resolver o problema, verifique as credenciais inseridas. Pode também consultar [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) ou aos documentos de resolução de problemas listados na nota abaixo desta tabela, e tentar novamente. |
+| **Erro 87** - A cadeia de ligação não é válida. Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não está acessível. Verifique se o nome da instância está correto e que o Servidor SQL está configurado para permitir ligações remotas. (fornecedor: Interfaces de rede SQL, erro: 25 - A cadeia de ligação não é válida) | Este erro ocorre se o serviço não conseguir ligar-se ao servidor de origem devido a uma cadeia de ligação inválida. Para resolver o problema, verifique a cadeia de ligação fornecida. Se a questão persistir, consulte os documentos de resolução de problemas listados na nota abaixo desta tabela e, em seguida, tente novamente. |
+| **Erro - Certificado de servidor não confiável.** Uma ligação foi estabelecida com sucesso com o servidor, mas depois ocorreu um erro durante o processo de login. (fornecedor: SSL Provider, erro: 0 - A cadeia de certificados foi emitida por uma autoridade que não é de confiança.) | Este erro ocorre se o certificado utilizado não for de confiança. Para resolver o problema, é necessário encontrar um certificado de confiança e, em seguida, ativar no servidor. Em alternativa, pode selecionar a opção Trust Certificate durante a ligação. Tome esta ação apenas se estiver familiarizado com o certificado usado e confiar nele. <br> As ligações SSL que são encriptadas usando um certificado auto-assinado não fornecem segurança forte. Não confie na SSL utilizando certificados auto-assinados num ambiente de produção ou em servidores ligados à internet. <br> Para mais informações, consulte a [Utilização do SSL com um Microsoft SQL Server DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) ou [Tutorial: Migrar o Servidor RDS SQL para O Azure utilizando dMS](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites). |
+| **Erro 300** - O utilizador não necessita de permissões. Ver server STATE permission foi negado em objeto '{server}', base de dados '{database}' | Este erro ocorre se o utilizador não tiver permissão para realizar a migração. Para resolver o problema, consulte [as permissões do servidor GRANT - Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) ou [Tutorial: Migrar rds SQL Server para Azure usando DMS](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites) para mais detalhes. |
 
 > [!NOTE]
-> Para obter mais informações sobre como solucionar problemas relacionados à conexão com um SQL Server RDS de origem AWS, consulte os seguintes recursos:
+> Para obter mais informações sobre problemas relacionados com a ligação a uma fonte AWS RDS SQL Server, consulte os seguintes recursos:
 >
 > * [Resolver erros de Conectividade ao SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)
-> * [Como fazer resolver problemas de conexão com minha instância de banco de dados do Amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
+> * [Como posso resolver problemas de ligação à minha base de dados amazon RDS?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados SQL do Azure](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
-* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
+* [Questões conhecidas/limitações de migração com migrações online para base de dados Azure SQL](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
+* [Questões conhecidas/limitações de migração com migrações online para Base de Dados Azure para MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
+* [Questões conhecidas/limitações de migração com migrações online para Base de Dados Azure para PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Exiba o artigo [PowerShell do serviço de migração de banco de dados do Azure](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
-* Exiba o artigo [como configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
-* Veja o artigo [visão geral dos pré-requisitos para usar o serviço de migração de banco de dados do Azure](https://docs.microsoft.com/azure/dms/pre-reqs).
-* Consulte as [perguntas frequentes sobre como usar o serviço migração de banco de dados do Azure](https://docs.microsoft.com/azure/dms/faq).
+* Ver o artigo Serviço de Migração de Bases de [Dados Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Ver o artigo Como configurar parâmetros de servidor na Base de [Dados Azure para MySQL utilizando o portal Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
+* Ver o artigo [Visão geral dos pré-requisitos para a utilização](https://docs.microsoft.com/azure/dms/pre-reqs)do Serviço de Migração de Bases de Dados Azure .
+* Consulte as [FAQ sobre a utilização](https://docs.microsoft.com/azure/dms/faq)do Serviço de Migração de Bases de Dados Azure .

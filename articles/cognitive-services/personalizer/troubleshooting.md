@@ -2,14 +2,14 @@
 title: Resolução de problemas - Personalizer
 description: Este artigo contém respostas para perguntas frequentes sobre o Personalizer.
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.author: diberry
-ms.openlocfilehash: fec403da7f54098dbf197d14f3b16afd30bf5efc
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 432b33243bdb38cf359d4fea1a336500eb244464
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469549"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650525"
 ---
 # <a name="personalizer-troubleshooting"></a>Resolução de problemas personalizador
 
@@ -32,6 +32,19 @@ Este artigo contém respostas para perguntas frequentes sobre o Personalizer.
 </details>
 
 ## <a name="learning-loop"></a>Ciclo de aprendizagem
+
+<details>
+<summary>
+<b>O ciclo de aprendizagem não corresponde a 100% do sistema sem o Personalizer. Como posso resolver isto?</b></summary>
+
+**Resposta**: As razões pelas quais não alcança o seu objetivo com o ciclo de aprendizagem:
+* Não há funcionalidades suficientes enviadas com chamada API rank
+* Bugs nas funcionalidades enviadas - tais como o envio de dados de funcionalidades não agregados, tais como selos de tempo para rank API
+* Bugs com processamento de loop - como não enviar dados de recompensa para Reward API para eventos
+
+Para corrigir, é necessário alterar o processamento alterando as funcionalidades enviadas para o loop, ou certificar-se de que a recompensa é uma avaliação correta da qualidade da resposta do Rank.
+
+</details>
 
 <details>
 <summary>
@@ -91,7 +104,7 @@ Quando o novo período de atualização começar, o modelo atualizado é utiliza
 <details>
 <summary><b>Como posso importar uma política de aprendizagem?</b></summary>
 
-**Resposta**: Saiba mais sobre [conceitos](concept-active-learning.md#understand-learning-policy-settings) de política de aprendizagem e [como aplicar](how-to-learning-policy.md) uma nova política de aprendizagem. Se não quiser selecionar uma política de aprendizagem, pode usar a [avaliação offline](how-to-offline-evaluation.md) para sugerir uma política de aprendizagem, com base nos seus eventos atuais.
+**Resposta**: Saiba mais sobre [conceitos](concept-active-learning.md#understand-learning-policy-settings) de política de aprendizagem e [como aplicar](how-to-manage-model.md) uma nova política de aprendizagem. Se não quiser selecionar uma política de aprendizagem, pode usar a [avaliação offline](how-to-offline-evaluation.md) para sugerir uma política de aprendizagem, com base nos seus eventos atuais.
 
 </details>
 
@@ -104,6 +117,6 @@ Quando o novo período de atualização começar, o modelo atualizado é utiliza
 
 </details>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Configure a frequência de atualização do modelo](how-to-settings.md#model-update-frequency)

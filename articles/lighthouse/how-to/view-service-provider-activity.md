@@ -1,46 +1,49 @@
 ---
 title: Ver a atividade do fornecedor de serviços
-description: Os clientes podem exibir a atividade registrada para ver as ações executadas pelos provedores de serviço por meio do gerenciamento de recursos delegado do Azure.
+description: Os clientes podem ver a atividade registada para ver ações realizadas pelos prestadores de serviços através da gestão de recursos delegados do Azure.
 ms.date: 01/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: de149bddb6917a63d91b1890c0430f64465cb40c
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: a923a57ecc94ac15af207c2b8dc8998708b708d4
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046109"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649641"
 ---
 # <a name="view-service-provider-activity"></a>Ver a atividade do fornecedor de serviços
 
-Os clientes que têm assinaturas delegadas para o gerenciamento de recursos delegado do Azure podem exibir os dados [do log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) para ver todas as ações executadas. Isso dá aos clientes visibilidade total das operações que os provedores de serviços estão realizando por meio do gerenciamento de recursos delegado do Azure, juntamente com aqueles feitos por usuários no locatário do próprio Azure Active Directory (Azure AD) do cliente.
+Os clientes que tenham delegado subscrições para a gestão de recursos delegados do Azure podem ver os dados de [registo da Atividade Azure](../../azure-monitor/platform/platform-logs-overview.md) para ver todas as ações tomadas. Isto dá aos clientes total visibilidade em operações que os prestadores de serviços estão a realizar através da gestão de recursos delegados do Azure, juntamente com operações feitas pelos utilizadores dentro do próprio inquilino azure Ative Directory (Azure AD) do cliente.
 
-## <a name="view-activity-log-data"></a>Exibir dados do log de atividades
+> [!TIP]
+> Fornecemos também uma definição política integrada da Política Azure para auditar a delegação de âmbitos a um inquilino gestor. Para mais informações, consulte delegações de [auditoria no seu ambiente.](view-manage-service-providers.md#audit-delegations-in-your-environment)
 
-Você pode [Exibir o log de atividades](../../azure-monitor/platform/activity-log-view.md) no menu **monitorar** na portal do Azure. Para limitar os resultados a uma assinatura específica, você pode usar os filtros para selecionar uma assinatura específica. Você também pode [Exibir e recuperar eventos do log de atividades](../../azure-monitor/platform/activity-log-view.md) programaticamente.
+## <a name="view-activity-log-data"></a>Ver dados de registo de atividade
 
-> [!NOTE]
-> Os usuários no locatário de um provedor de serviços podem exibir os resultados do log de atividades para uma assinatura delegada em um locatário do cliente se eles tiverem recebido a função [leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclui acesso de leitor) quando essa assinatura foi integrada ao gerenciamento de recursos delegados do Azure.
-
-No log de atividades, você verá o nome da operação e seu status, juntamente com a data e a hora em que ele foi executado. O **evento iniciado por** coluna mostra qual usuário realizou a operação, se ele foi um usuário em um locatário do provedor de serviços agindo por meio do gerenciamento de recursos delegado do Azure ou um usuário no próprio locatário do cliente. Observe que o nome do usuário é mostrado, em vez do locatário, ou da função que o usuário foi atribuído para essa assinatura.
-
-A atividade registrada está disponível no portal do Azure nos últimos 90 dias. Para saber como armazenar esses dados por mais de 90 dias, consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](../../azure-monitor/platform/activity-log-collect.md)
+Pode [ver o registo](../../azure-monitor/platform/activity-log-view.md) de atividade do menu **Monitor** no portal Azure. Para limitar os resultados a uma subscrição específica, utilize os filtros para selecionar uma subscrição específica. Também pode [visualizar e recuperar eventos](../../azure-monitor/platform/activity-log-view.md) de registo de atividade sem eprogramágrafos.
 
 > [!NOTE]
-> Os usuários do provedor de serviços aparecem no log de atividades, mas esses usuários e suas atribuições de função não são mostrados no **controle de acesso (iam)** ou ao recuperar informações de atribuição de função por meio de APIs.
+> Os utilizadores do inquilino de um prestador de serviços podem visualizar os resultados do registo de atividade para uma subscrição delegada num inquilino de cliente se lhes fosse concedida a função [de Leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclui o acesso ao Leitor) quando essa subscrição estava a bordo para a gestão de recursos delegados do Azure.
+
+No registo de atividade, verá o nome da operação e o seu estado, juntamente com a data e hora em que foi realizada. O **Evento iniciado por** coluna mostra qual utilizador realizou a operação, quer se trate de um utilizador no inquilino de um prestador de serviços agindo através da gestão de recursos delegados do Azure, ou de um utilizador no próprio inquilino do cliente. Note que o nome do utilizador é mostrado, em vez do inquilino ou a função que o utilizador foi atribuído para essa subscrição.
+
+A atividade registada está disponível no portal Azure nos últimos 90 dias. Para aprender a armazenar estes dados por mais de 90 dias, consulte Recolher e analisar registos de atividade do [Azure no espaço de trabalho do Log Analytics](../../azure-monitor/platform/activity-log-collect.md).
+
+> [!NOTE]
+> Os utilizadores do prestador de serviços aparecem no registo de atividade, mas estes utilizadores e as suas atribuições de funções não são apresentados no Controlo de **Acesso (IAM)** ou na recuperação de informações de atribuição de funções através de APIs.
 
 ## <a name="set-alerts-for-critical-operations"></a>Definir alertas para operações críticas
 
-Para ficar atento às operações críticas que os provedores de serviços (ou usuários em seu próprio locatário) estão executando, recomendamos a criação de [alertas do log de atividades](../../azure-monitor/platform/activity-log-alerts.md). Por exemplo, talvez você queira controlar todas as ações administrativas de uma assinatura ou ser notificado quando qualquer máquina virtual em um grupo de recursos específico for excluída. Quando você cria alertas, eles incluem ações tomadas por usuários no próprio locatário do cliente, bem como em qualquer locatário de gerenciamento.
+Para se manter atento às operações críticas que os prestadores de serviços (ou utilizadores do seu próprio inquilino) estão a realizar, recomendamos a criação de [alertas](../../azure-monitor/platform/activity-log-alerts.md)de registo de atividades. Por exemplo, pode querer acompanhar todas as ações administrativas para uma subscrição, ou ser notificado quando qualquer máquina virtual de um determinado grupo de recursos for eliminada. Quando criar alertas, incluirão ações realizadas pelos utilizadores no próprio inquilino do cliente, bem como em qualquer managing tenants.
 
-Para obter mais informações, consulte [criar e gerenciar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md).
+Para mais informações, consulte [Criar e gerir alertas](../../azure-monitor/platform/alerts-activity-log.md)de registo de atividade .
 
-## <a name="create-log-queries"></a>Criar consultas de log
+## <a name="create-log-queries"></a>Criar consultas de registo
 
-Você pode criar consultas para analisar sua atividade registrada ou se concentrar em itens específicos. Por exemplo, talvez uma auditoria exija que você relate todas as ações de nível administrativo executadas em uma assinatura. Você pode criar uma consulta para filtrar apenas essas ações e classificar os resultados por usuário, data ou outro valor.
+Pode criar consultas para analisar a sua atividade registada ou focar-se em itens específicos. Por exemplo, talvez uma auditoria exija que informe sobre todas as ações de nível administrativo realizadas numa subscrição. Pode criar uma consulta para filtrar apenas estas ações e classificar os resultados por utilizador, data ou outro valor.
 
-Para obter mais informações, consulte [visão geral das consultas de log no Azure monitor](../../azure-monitor/log-query/log-query-overview.md).
+Para mais informações, consulte a [visão geral das consultas de registo no Monitor Azure](../../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [Azure monitor](../../azure-monitor/index.yml).
-- Saiba como [Exibir e gerenciar ofertas de provedor de serviços](view-manage-service-providers.md) na portal do Azure.
+- Saiba mais sobre [o Monitor Azure.](../../azure-monitor/index.yml)
+- Saiba como [visualizar e gerir ofertas](view-manage-service-providers.md) de prestadores de serviços no portal Azure.

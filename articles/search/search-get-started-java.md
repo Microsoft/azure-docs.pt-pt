@@ -1,85 +1,85 @@
 ---
-title: 'Início rápido: criar um índice de pesquisa em Java usando APIs REST'
+title: 'Quickstart: Criar um índice de pesquisa em Java usando APIs REST'
 titleSuffix: Azure Cognitive Search
-description: Neste início rápido do Java, saiba como criar um índice, carregar dados e executar consultas usando as APIs REST do Azure Pesquisa Cognitiva.
+description: Neste início de Java, aprenda a criar um índice, dados de carga e executar consultas usando as APIs de PESQUISA Cognitiva Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 5e53167a083b5e89bd88a45452929dd40f0868f2
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/25/2020
+ms.openlocfilehash: 0b07e934625b09e7f6249dc00865465147f6f0ba
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406735"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624023"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Início rápido: criar um índice de Pesquisa Cognitiva do Azure em Java usando APIs REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva azure em Java usando APIs REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-create-index-rest-api.md)
-> * [Python](search-get-started-python.md)
+> * [python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Crie um aplicativo de console Java que cria, carrega e consulta um índice de Pesquisa Cognitiva do Azure usando o [IntelliJ](https://www.jetbrains.com/idea/), o [SDK do Java 11](/java/azure/jdk/?view=azure-java-stable)e a [API REST do Azure pesquisa cognitiva](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação do aplicativo. Como alternativa, você pode [baixar e executar o aplicativo completo](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Crie uma aplicação de consola Java que crie, carregue e questione um índice de pesquisa utilizando [IntelliJ,](https://www.jetbrains.com/idea/) [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)e a [API de Pesquisa Cognitiva Azure](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação da aplicação. Em alternativa, pode [descarregar e executar a aplicação completa.](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Usamos o software e os serviços a seguir para criar e testar este exemplo:
+Usamos o seguinte software e serviços para construir e testar este quickstart:
 
-+ [IDEIA IntelliJ](https://www.jetbrains.com/idea/)
++ [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-+ [SDK do Java 11](/java/azure/jdk/?view=azure-java-stable)
++ [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
 
-+ [Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido.
++ [Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido.
 
 <a name="get-service-info"></a>
 
-## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
+## <a name="get-a-key-and-url"></a>Obtenha uma chave e URL
 
-Chamadas para o serviço exigem um ponto de extremidade de URL e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Pesquisa Cognitiva à sua assinatura, siga estas etapas para obter as informações necessárias:
+As chamadas para o serviço requerem um ponto final url e uma chave de acesso em cada pedido. Um serviço de pesquisa é criado com ambos, por isso, se você adicionar Pesquisa Cognitiva Azure à sua subscrição, siga estes passos para obter as informações necessárias:
 
-1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
+1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página de **visão geral** do seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-2. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+2. Em **Definições** > **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
 
-   Crie uma chave de consulta também. É uma prática recomendada emitir solicitações de consulta com acesso somente leitura.
+   Crie uma chave de consulta, também. É uma boa prática emitir pedidos de consulta com acesso só para leitura.
 
-![Obter o nome do serviço e as chaves de consulta e de administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+![Obtenha o nome de serviço e as chaves de administração e consulta](media/search-get-started-nodejs/service-name-and-keys.png)
 
-Cada solicitação enviada ao serviço requer uma chave de API. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
+Cada pedido enviado ao seu serviço requer uma chave api. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
 ## <a name="set-up-your-environment"></a>Configurar o ambiente
 
-Comece abrindo IntelliJ IDEA e configurando um novo projeto.
+Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-1. Abra IntelliJ IDEA e selecione **criar novo projeto**.
+1. Abra o IntelliJ IDEA e selecione **Create New Project**.
 1. Selecione **Maven**.
-1. Na lista **SDK do projeto** , selecione o SDK do Java 11.
+1. Na lista **Do Projeto SDK,** selecione o Java 11 SDK.
 
-    ![Criar um projeto Maven](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+    ![Criar um projeto maven](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
 
-1. Para **GroupId** e **artefatoid**, insira `AzureSearchQuickstart`.
-1. Aceite os padrões restantes para abrir o projeto.
+1. Para **o GroupId** e **O ArtifactId,** insira `AzureSearchQuickstart`.
+1. Aceite os restantes incumprimentos para abrir o projeto.
 
-### <a name="specify-maven-dependencies"></a>Especificar dependências do Maven
+### <a name="specify-maven-dependencies"></a>Especificar dependências de Maven
 
-1. Selecione **arquivo** > **configurações**.
-1. Na janela **configurações** , selecione **Build, execução, implantação** > **ferramentas de Build** > **Maven** > **importando**.
-1. Marque a caixa de seleção **Importar projetos Maven automaticamente** e clique em **OK** para fechar a janela. Os plug-ins do Maven e outras dependências agora serão sincronizados automaticamente quando você atualizar o arquivo pom. xml na próxima etapa.
+1. Selecione **Definições**de > **de Ficheiros** .
+1. Na janela **Definições,** selecione **Construir, Executar, > Ferramentas** de **Construção** > **Maven** > **Importar**.
+1. Selecione os **projetos Import Maven** verifique automaticamente a caixa e clique em **OK** para fechar a janela. Os plugins maven e outras dependências serão automaticamente sincronizados quando atualizar o ficheiro pom.xml no próximo passo.
 
-    ![Opções de importação do Maven nas configurações do IntelliJ](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+    ![Opções de importação de Maven em configurações intelliJ](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
 
-1. Abra o arquivo pom. xml e substitua o conteúdo pelos seguintes detalhes de configuração do Maven. Isso inclui referências ao [plug-in exec Maven](https://www.mojohaus.org/exec-maven-plugin/) e a uma [API de interface JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
+1. Abra o ficheiro pom.xml e substitua o conteúdo com os seguintes detalhes de configuração Maven. Estes incluem referências ao [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) e a uma [interface JSON API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -132,22 +132,22 @@ Comece abrindo IntelliJ IDEA e configurando um novo projeto.
 
 ### <a name="set-up-the-project-structure"></a>Configurar a estrutura do projeto
 
-1. Selecione **arquivo** > **estrutura do projeto**.
-1. Selecione **módulos**e expanda a árvore de origem para acessar o conteúdo da pasta `src` >  `main`.
-1. Na pasta `src` >  `main` > `java`, adicione `app` e `service` pastas. Para fazer isso, selecione a pasta `java`, pressione Alt + Insert e insira o nome da pasta.
-1. Na pasta `src` >  `main` >`resources`, adicione `app` e `service` pastas.
+1. Selecione **File** > Estrutura de **Projeto**.
+1. Selecione **Módulos**e expanda a árvore de origem para aceder ao conteúdo da pasta `src` >  `main`.
+1. No `src` >    `main`  > `java` pasta, adicione pastas `app` e `service`. Para tal, selecione a pasta `java`, prima Alt + Insert e introduza o nome da pasta.
+1. No `src` >    `main`  >`resources` pasta, adicione pastas `app` e `service`.
 
-    Quando terminar, a árvore do projeto deverá ser parecida com a imagem a seguir.
+    Quando terminar, a árvore do projeto deve parecer a seguinte imagem.
 
-    ![Estrutura do diretório do projeto](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+    ![Estrutura de diretório de projetos](media/search-get-started-java/java-quickstart-basic-code-tree.png)
 
-1. Clique em **OK** para fechar a janela.
+1. Clique **em OK** para fechar a janela.
 
-### <a name="add-azure-cognitive-search-service-information"></a>Adicionar informações do serviço de Pesquisa Cognitiva do Azure
+### <a name="add-azure-cognitive-search-service-information"></a>Adicione informações do serviço de pesquisa cognitiva Azure
 
-1. Na janela do **projeto** , expanda a árvore de origem para acessar a pasta `src` >  `main` >`resources` > `app` e adicione um arquivo `config.properties`. Para fazer isso, selecione a pasta `app`, pressione ALT + Inserir, selecione **arquivo**e, em seguida, insira o nome do arquivo.
+1. Na janela **do Projeto,** expanda a árvore-fonte para aceder à `src` >  `main` >`resources`  > `app` pasta e adicione um ficheiro `config.properties`. Para isso, selecione a pasta `app`, prima Alt + Insert, selecione **File**, e, em seguida, introduza o nome do ficheiro.
 
-1. Copie as configurações a seguir no novo arquivo e substitua `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`e `<YOUR-QUERY-KEY>` pelo nome do serviço e pelas chaves. Se o ponto de extremidade de serviço for `https://mydemo.search.windows.net`, o nome do serviço será "mydemo".
+1. Copie as seguintes definições no novo ficheiro e substitua `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, e `<YOUR-QUERY-KEY>` com o nome e as chaves do seu serviço. Se o seu ponto final de serviço for `https://mydemo.search.windows.net`, o nome do serviço seria "mydemo".
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
@@ -157,14 +157,14 @@ Comece abrindo IntelliJ IDEA e configurando um novo projeto.
         ApiVersion=2019-05-06
     ```
 
-### <a name="add-the-main-method"></a>Adicionar o método Main
+### <a name="add-the-main-method"></a>Adicione o método principal
 
-1. Na pasta `src` >  `main` > `java` > `app`, adicione uma classe `App`. Para fazer isso, selecione a pasta `app`, pressione Alt + Insert, selecione **classe Java**e, em seguida, digite o nome da classe.
-1. Abra a classe `App` e substitua o conteúdo pelo código a seguir. Esse código contém o método `main`. 
+1. No `src` >  `main` > `java`pasta `app`  > , adicione uma aula de `App`. Para isso, selecione a pasta `app`, prima Alt + Insert, selecione **Java Class,** e introduza o nome da classe.
+1. Abra a `App` classe e substitua o conteúdo pelo seguinte código. Este código contém o método `main`. 
 
-    O código não comentado lê os parâmetros do serviço de pesquisa e os usa para criar uma instância do cliente do serviço de pesquisa. O código do cliente do serviço de pesquisa será adicionado na próxima seção.
+    O código não comentado lê os parâmetros do serviço de pesquisa e utiliza-os para criar uma instância do cliente do serviço de pesquisa. O código cliente do serviço de pesquisa será adicionado na secção seguinte.
 
-    O código comentado nesta classe não será comentado em uma seção posterior deste guia de início rápido.
+    O código comentado nesta classe não será comentado numa secção posterior deste arranque rápido.
 
     ```java
     package main.java.app;
@@ -256,10 +256,10 @@ Comece abrindo IntelliJ IDEA e configurando um novo projeto.
     }
     ```
 
-### <a name="add-the-http-operations"></a>Adicionar as operações HTTP
+### <a name="add-the-http-operations"></a>Adicione as operações http
 
-1. Na pasta `src` >  `main` > `java` > `service`, adicione uma classe`SearchServiceClient`. Para fazer isso, selecione a pasta `service`, pressione Alt + Insert, selecione **classe Java**e, em seguida, digite o nome da classe.
-1. Abra a classe `SearchServiceClient` e substitua o conteúdo pelo código a seguir. Esse código fornece as operações HTTP necessárias para usar a API REST do Azure Pesquisa Cognitiva. Métodos adicionais para criar um índice, carregar documentos e consultar o índice serão adicionados em uma seção posterior.
+1. No `src` >  `main` > `java`pasta `service`  > , adicione uma aula de`SearchServiceClient`. Para isso, selecione a pasta `service`, prima Alt + Insert, selecione **Java Class,** e introduza o nome da classe.
+1. Abra a `SearchServiceClient` classe e substitua o conteúdo pelo seguinte código. Este código fornece as operações HTTP necessárias para utilizar a API de PESQUISA Cognitiva Azure. Métodos adicionais para criar um índice, carregar documentos e consultar o índice serão adicionados numa secção posterior.
 
     ```java
     package main.java.service;
@@ -372,20 +372,20 @@ Comece abrindo IntelliJ IDEA e configurando um novo projeto.
 
 1. Verifique se o seu projeto tem a seguinte estrutura.
 
-    ![Estrutura do diretório do projeto](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    ![Estrutura de diretório de projetos](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
-1. Abra a janela de ferramentas do **Maven** e execute esta meta do maven: `verify exec:java`
-![executar a meta do Maven: Verify exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java`
+![Executar o objetivo de Maven: verifique exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
 
-Quando o processamento for concluído, procure uma mensagem de êxito de compilação seguida por um código de saída zero (0).
+Ao processar, procure uma mensagem BUILD SUCCESS seguida de um código de saída zero (0).
 
-## <a name="1---create-index"></a>1-criar índice
+## <a name="1---create-index"></a>1 - Criar índice
 
-A definição do índice de hotéis contém campos simples e um campo complexo. Exemplos de um campo simples são "Hotelname" ou "Description". O campo "endereço" é um campo complexo porque tem subcampos, como "endereço" e "cidade". Neste guia de início rápido, a definição do índice é especificada usando JSON.
+A definição de índice de hotéis contém campos simples e um campo complexo. Exemplos de um campo simples são "Nome do Hotel" ou "Descrição". O campo "Address" é um campo complexo porque tem subcampos, como "Street Address" e "City". Neste arranque rápido, a definição de índice é especificada usando jSON.
 
-1. Na janela do **projeto** , expanda a árvore de origem para acessar o `src` >  `main` >`resources` > pasta e adicione um arquivo `service`.`index.json` Para fazer isso, selecione a pasta `app`, pressione ALT + Inserir, selecione **arquivo**e, em seguida, insira o nome do arquivo.
+1. Na janela **do Projeto,** expanda a árvore-fonte para aceder ao `src` >  `main`  >`resources` > pasta `service` e adicione um ficheiro `index.json`. Para isso, selecione a pasta `app`, prima Alt + Insert, selecione **File**, e, em seguida, introduza o nome do ficheiro.
 
-1. Abra o arquivo `index.json` e insira a definição de índice a seguir.
+1. Abra o ficheiro `index.json` e insira a seguinte definição de índice.
 
     ```json
     {
@@ -510,11 +510,11 @@ A definição do índice de hotéis contém campos simples e um campo complexo. 
     }
     ```
 
-    O nome do índice será "Hotéis-início rápido". Os atributos nos campos de índice determinam como os dados indexados podem ser pesquisados em um aplicativo. Por exemplo, o atributo `IsSearchable` deve ser atribuído a cada campo que deve ser incluído em uma pesquisa de texto completo. Para saber mais sobre atributos, confira [campos de coleção e de campo](search-what-is-an-index.md#fields-collection).
+    O nome do índice será "hotéis-quickstart". Os atributos nos campos de índice determinam como os dados indexados podem ser pesquisados numa aplicação. Por exemplo, o atributo `IsSearchable` deve ser atribuído a todos os campos que devem ser incluídos numa pesquisa completa de texto. Para saber mais sobre atributos, consulte a [recolha fields e atributos](search-what-is-an-index.md#fields-collection)de campo.
     
-    O campo `Description` neste índice usa a propriedade opcional `analyzer` para substituir o analisador de idioma padrão do Lucene. O campo `Description_fr` está usando a `fr.lucene` do analisador Lucene francês porque armazena texto em francês. O `Description` está usando o Microsoft Language Analyzer en. Lucene opcional. Para saber mais sobre analisadores, consulte [analisadores para processamento de texto no Azure pesquisa cognitiva](search-analyzers.md).
+    O campo `Description` neste índice utiliza a propriedade opcional `analyzer` para anular o analisador de língualucene padrão. O campo `Description_fr` está a usar o analisador francês Lucene `fr.lucene` porque armazena texto francês. O `Description` está a usar o analisador de idiomas opcional da Microsoft en.lucene. Para saber mais sobre os analisadores, consulte [analisadores para processamento](search-analyzers.md)de texto em Pesquisa Cognitiva Azure .
 
-1. Adicione o código a seguir à classe `SearchServiceClient`. Esses métodos criam URLs do serviço REST do Azure Pesquisa Cognitiva que criam e excluem um índice, e que determinam se existe um índice. Os métodos também fazem a solicitação HTTP.
+1. Adicione o seguinte código à classe `SearchServiceClient`. Estes métodos constroem URLs de serviço de PESQUISA Cognitiva Azure que criam e eliminam um índice, e que determinam se existe um índice. Os métodos também fazem o pedido http.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -554,9 +554,9 @@ A definição do índice de hotéis contém campos simples e um campo complexo. 
     }
     ```
 
-1. Remova a marca de comentário do código a seguir na classe `App`. Esse código exclui o índice "Hotéis-início rápido", se existir, e cria um novo índice com base na definição de índice no arquivo "index. JSON". 
+1. Não comente o seguinte código na classe `App`. Este código elimina o índice "hotéis-quickstart", caso exista, e cria um novo índice com base na definição de índice no ficheiro "index.json". 
 
-    Uma pausa de um segundo é inserida após a solicitação de criação de índice. Essa pausa garante que o índice seja criado antes de você carregar documentos.
+    Uma pausa de um segundo é inserida após o pedido de criação de índice. Esta pausa garante que o índice é criado antes de fazer o upload de documentos.
 
     ```java
         if (client.indexExists()) { client.deleteIndex();}
@@ -564,14 +564,14 @@ A definição do índice de hotéis contém campos simples e um campo complexo. 
           Thread.sleep(1000L); // wait a second to create the index
     ```
 
-1. Abra a janela de ferramentas do **Maven** e execute esta meta do maven: `verify exec:java`
+1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java`
 
-    À medida que o código é executado, procure uma mensagem "criando índice" seguida por um código de resposta 201. Esse código de resposta confirma que o índice foi criado. A execução deve terminar com uma mensagem de êxito de compilação e um código de saída zero (0).
+    À medida que o código funciona, procure uma mensagem "Creating index", seguida de um código de resposta de 201. Este código de resposta confirma que o índice foi criado. A corrida deve terminar com uma mensagem BUILD SUCCESS e um código de saída zero (0).
     
-## <a name="2---load-documents"></a>2-carregar documentos
+## <a name="2---load-documents"></a>2 - Carregar documentos
 
-1. Na janela do **projeto** , expanda a árvore de origem para acessar o `src` >  `main` >`resources` > pasta e adicione um arquivo `service`.`hotels.json` Para fazer isso, selecione a pasta `app`, pressione ALT + Inserir, selecione **arquivo**e, em seguida, insira o nome do arquivo.
-1. Insira os seguintes documentos do hotel no arquivo.
+1. Na janela **do Projeto,** expanda a árvore-fonte para aceder ao `src` >  `main`  >`resources` > pasta `service` e adicione um ficheiro `hotels.json`. Para isso, selecione a pasta `app`, prima Alt + Insert, selecione **File**, e, em seguida, introduza o nome do ficheiro.
+1. Insira os seguintes documentos do hotel no ficheiro.
 
     ```json
     {
@@ -656,7 +656,7 @@ A definição do índice de hotéis contém campos simples e um campo complexo. 
     }
     ```
 
-1. Insira o código a seguir na classe `SearchServiceClient`. Esse código cria a URL do serviço REST para carregar os documentos do hotel no índice e, em seguida, faz a solicitação HTTP POST.
+1. Insira o seguinte código na classe `SearchServiceClient`. Este código constrói o URL do serviço REST para fazer o upload dos documentos do hotel para o índice e, em seguida, faz o pedido HTTP POST.
 
     ```java
     public boolean uploadDocuments(String documentsFile) throws IOException, InterruptedException {
@@ -675,30 +675,30 @@ A definição do índice de hotéis contém campos simples e um campo complexo. 
     }
     ```
 
-1. Remova a marca de comentário do código a seguir na classe `App`. Esse código carrega os documentos em "Hotéis. JSON" no índice.
+1. Não comente o seguinte código na classe `App`. Este código envia os documentos em "hotels.json" para o índice.
 
     ```java
     client.uploadDocuments("/service/hotels.json");
     Thread.sleep(2000L); // wait 2 seconds for data to upload
     ```
 
-    Uma pausa de dois segundos é inserida após a solicitação de upload para garantir que o processo de carregamento de documento seja concluído antes de consultar o índice.
+    Uma pausa de dois segundos é inserida após o pedido de upload para garantir que o processo de carregamento do documento esteja concluído antes de consultar o índice.
 
-1. Abra a janela de ferramentas do **Maven** e execute esta meta do maven: `verify exec:java`
+1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java`
 
-    Como você criou um índice "Hotéis-início rápido" na etapa anterior, o código agora o excluirá e o recriará antes de carregar os documentos do hotel.
+    Como criou um índice de "hotéis-quickstart" na etapa anterior, o código irá agora apagá-lo e recriá-lo novamente antes de carregar os documentos do hotel.
 
-    À medida que o código é executado, procure uma mensagem "Carregando documentos" seguida por um código de resposta 200. Esse código de resposta confirma que os documentos foram carregados no índice. A execução deve terminar com uma mensagem de êxito de compilação e um código de saída zero (0).
+    À medida que o código corre, procure uma mensagem de "Upload de documentos" seguida de um código de resposta de 200. Este código de resposta confirma que os documentos foram enviados para o índice. A corrida deve terminar com uma mensagem BUILD SUCCESS e um código de saída zero (0).
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Agora que você carregou os documentos de hotéis, pode criar consultas de pesquisa para acessar os dados de hotéis.
+Agora que carregou os documentos dos hotéis, pode criar consultas de pesquisa para aceder aos dados dos hotéis.
 
-1. Adicione o código a seguir à classe `SearchServiceClient`. Esse código cria as URLs do serviço REST do Azure Pesquisa Cognitiva para pesquisar os dados indexados e imprime os resultados da pesquisa.
+1. Adicione o seguinte código à classe `SearchServiceClient`. Este código constrói URLs de serviço de PESQUISA Cognitiva Azure para pesquisar os dados indexados e imprimir os resultados da pesquisa.
 
-    A classe `SearchOptions` e o método `createSearchOptions` permitem especificar um subconjunto das opções de consulta da API REST do Azure Pesquisa Cognitiva disponíveis. Para obter mais informações sobre as opções de consulta da API REST, consulte [Pesquisar documentos (API REST do Azure pesquisa cognitiva)](/rest/api/searchservice/search-documents).
+    O método `SearchOptions` classe e `createSearchOptions` permite especificar um subconjunto das opções de consulta aPI de pesquisa cognitiva azure disponíveis. Para mais informações sobre as opções de consulta da API REST, consulte Documentos de [Pesquisa (Azure Cognitive Search REST API)](/rest/api/searchservice/search-documents).
 
-    O método `SearchPlus` cria a URL de consulta de pesquisa, faz a solicitação de pesquisa e, em seguida, imprime os resultados no console. 
+    O método `SearchPlus` cria o URL de consulta de pesquisa, faz o pedido de pesquisa e, em seguida, imprime os resultados para a consola. 
 
     ```java
     public SearchOptions createSearchOptions() { return new SearchOptions();}
@@ -761,7 +761,7 @@ Agora que você carregou os documentos de hotéis, pode criar consultas de pesqu
     }
     ```
 
-1. Na classe `App`, remova a marca de comentário do código a seguir. Esse código configura cinco consultas diferentes, incluindo o texto de pesquisa, os parâmetros de consulta e os campos de dados a serem retornados. 
+1. Na aula `App`, não comente o seguinte código. Este código configura cinco consultas diferentes, incluindo o texto de pesquisa, parâmetros de consulta e campos de dados para devolver. 
 
     ```java
     // Query 1
@@ -811,23 +811,23 @@ Agora que você carregou os documentos de hotéis, pode criar consultas de pesqu
 
 
 
-    Há duas [maneiras de fazer a correspondência de termos em uma consulta](search-query-overview.md#types-of-queries): pesquisa de texto completo e filtros. Uma consulta de pesquisa de texto completo pesquisa um ou mais termos em `IsSearchable` campos no índice. Um filtro é uma expressão booliana que é avaliada sobre `IsFilterable` campos em um índice. Você pode usar a pesquisa de texto completo e os filtros juntos ou separados.
+    Existem duas [formas de combinar termos numa consulta:](search-query-overview.md#types-of-queries)pesquisa de texto completo e filtros. Uma consulta de pesquisa de texto completo procura um ou mais termos em campos `IsSearchable` no seu índice. Um filtro é uma expressão booleana que é avaliada sobre `IsFilterable` campos em um índice. Pode utilizar pesquisas de texto completo e filtros em conjunto ou separadamente.
 
-1. Abra a janela de ferramentas do **Maven** e execute esta meta do maven: `verify exec:java`
+1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java`
 
-    Procure um resumo de cada consulta e seus resultados. A execução deve ser concluída com a mensagem de êxito de BUILD e um código de saída zero (0).
+    Procure um resumo de cada consulta e seus resultados. A execução deve ser completada com uma mensagem BUILD SUCCESS e um código de saída zero (0).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando você está trabalhando em sua própria assinatura, no final de um projeto, é uma boa ideia remover os recursos que não são mais necessários. Os recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir o conjunto inteiro de recursos.
+Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
-Você pode encontrar e gerenciar recursos no portal, usando o link **todos os recursos** ou **grupos de recursos** no painel de navegação esquerdo.
+Pode encontrar e gerir recursos no portal, utilizando a ligação **De Todos os recursos** ou **grupos de Recursos** no painel de navegação à esquerda.
 
-Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
+Se estiver a utilizar um serviço gratuito, lembre-se de que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para se manter abaixo do limite. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido do Java, você trabalhou em uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Se você estiver familiarizado com os conceitos básicos, recomendamos o seguinte artigo que lista as operações do indexador em repouso.
+Neste início de Java, trabalhou através de uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Se se sentir confortável com os conceitos básicos, recomendamos o seguinte artigo que lista as operações de indexer em REST.
 
 > [!div class="nextstepaction"]
-> [Operações do indexador](/rest/api/searchservice/indexer-operations)
+> [Operações indexantes](/rest/api/searchservice/indexer-operations)

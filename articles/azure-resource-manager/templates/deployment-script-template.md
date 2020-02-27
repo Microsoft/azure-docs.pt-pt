@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: jgao
-ms.openlocfilehash: 19ef5a08b66b8d1a09ddf9a6b73a3856f745485d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586711"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616302"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -77,7 +77,7 @@ Os benefícios do script de implantação:
 
 - **Versão Azure PowerShell 3.0.0, 2.8.0 ou 2.7.0** ou **versão Azure CLI 2.0.80, 2.0.79, 2.0.78 ou 2.0.77**. Você não precisa destas versões para implementar modelos. Mas estas versões são necessárias para testar scripts de implantação localmente. Consulte [A instalação do módulo PowerShell Azure](/powershell/azure/install-az-ps). Podes usar uma imagem do Docker reconfigurada.  Ver Ambiente de [desenvolvimento configure](#configure-development-environment).
 
-## <a name="sample-template"></a>Modelo de exemplo
+## <a name="sample-templates"></a>Modelos de exemplo
 
 O seguinte json é um exemplo.  O mais recente esquema de modelo pode ser encontrado [aqui.](/azure/templates/microsoft.resources/deploymentscripts)
 
@@ -130,6 +130,15 @@ Detalhes do valor da propriedade:
 - **limpezaPreferência**. Especifique a preferência de limpar os recursos de implantação quando a execução do script estiver em estado terminal. A definição predefinida é **sempre**, o que significa apagar os recursos apesar do estado terminal (Bem sucedido, falhado, cancelado). Para saber mais, consulte [a Limpeza dos recursos do script de implementação.](#clean-up-deployment-script-resources)
 - intervalo de **retençãoIntervalo**: Especifique o intervalo para o qual o serviço mantém os recursos do script de implantação após a execução do script de implantação atingir um estado terminal. Os recursos do script de implantação serão eliminados quando esta duração expirar. A duração baseia-se no [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor predefinido é **P1D,** o que significa sete dias. Esta propriedade é utilizada quando a limpezaA preferência está definida para *OnExpiration*. A propriedade *OnExpiration* não está ativada atualmente. Para saber mais, consulte [a Limpeza dos recursos do script de implementação.](#clean-up-deployment-script-resources)
 
+### <a name="additional-samples"></a>Amostras adicionais
+
+- [criar e atribuir um certificado a um cofre chave](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)
+
+- [criar e atribuir uma identidade gerida atribuída](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json)ao utilizador a um grupo de recursos, e executar um script de implementação .
+
+> [!NOTE]
+> Recomenda-se criar uma identidade atribuída ao utilizador e conceder permissões antecipadas. Você pode obter erros relacionados com o início de sessão e permissão se criar a identidade e conceder permissões no mesmo modelo onde executa scripts de implementação. Leva algum tempo até que as permissões se tornem eficazes.
+
 ## <a name="use-inline-scripts"></a>Utilizar scripts inline
 
 O modelo seguinte tem um recurso definido com o tipo `Microsoft.Resources/deploymentScripts`.
@@ -139,7 +148,7 @@ O modelo seguinte tem um recurso definido com o tipo `Microsoft.Resources/deploy
 > [!NOTE]
 > Como os scripts de implementação em linha são fechados em citações duplas, as cordas dentro dos scripts de implementação precisam de ser fechadas em cotações únicas. O personagem de **&#92;** fuga para a PowerShell é. Também pode considerar a substituição de cordas como é mostrada na amostra JSON anterior. Consulte o valor padrão do parâmetro de nome.
 
-O guião leva um parâmetro e produz o valor do parâmetro. **ImplementaçãoScriptOutputs** é usado para armazenar saídas.  Na secção de saídas, a linha de **valor** mostra como aceder aos valores armazenados. `Write-Output` é usado para depurar. Para aprender a aceder ao ficheiro de saída, consulte scripts de [implementação de Debug](#debug-deployment-scripts).  Para obter as descrições da propriedade, consulte [o modelo de amostra](#sample-template).
+O guião leva um parâmetro e produz o valor do parâmetro. **ImplementaçãoScriptOutputs** é usado para armazenar saídas.  Na secção de saídas, a linha de **valor** mostra como aceder aos valores armazenados. `Write-Output` é usado para depurar. Para aprender a aceder ao ficheiro de saída, consulte scripts de [implementação de Debug](#debug-deployment-scripts).  Para obter as descrições da propriedade, consulte [os modelos de amostra](#sample-templates).
 
 Para executar o script, selecione **Experimente-o** para abrir a Casca de Nuvem Azure e, em seguida, colhe o seguinte código no painel de conchas.
 
@@ -217,7 +226,6 @@ As saídas de scriptde de implantação devem ser guardadas na localização AZ_
 
 Pode controlar a forma como o PowerShell reage a erros não terminadores utilizando a [**variável $ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) no seu script de implementação. O motor de script de implantação não define/altera o valor.  Apesar do valor que definiu para $ErrorActionPreference, o script de implementação define o estado de fornecimento de recursos para *Failed* quando o script encontra um erro.
-
 
 ## <a name="debug-deployment-scripts"></a>Scripts de implementação de depurados
 

@@ -1,7 +1,7 @@
 ---
-title: Análise na base de conhecimentos-QnA Maker
+title: Analytics na base de conhecimentos - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker armazenará todos os logs de chat e outras telemetrias, se você tiver habilitado o Application insights durante a criação de seu serviço de QnA Maker. Execute as consultas de exemplo para fazer seus logs de chat do App insights.
+description: A QnA Maker armazena todos os registos de chat e outras telemetrias, se tiver ativado a App Insights durante a criação do seu serviço QnA Maker. Faça as consultas de amostra para obter os seus registos de chat da App Insights.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,24 +11,24 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: 72d2598c1ff17f80fc264e6d547a799ab74a163f
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e769bde39bc796b5b598109328b468b15385f38a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621965"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650406"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obter análises da base de dados de conhecimento
 
-QnA Maker armazenará todos os logs de chat e outras telemetrias, se você tiver habilitado o Application insights durante a [criação de seu serviço de QnA Maker](./set-up-qnamaker-service-azure.md). Execute as consultas de exemplo para fazer seus logs de chat do App insights.
+A QnA Maker armazena todos os registos de chat e outras telemetrias, se tiver ativado a App Insights durante a [criação do seu serviço QnA Maker](./set-up-qnamaker-service-azure.md). Faça as consultas de amostra para obter os seus registos de chat da App Insights.
 
-1. Vá para o recurso do App insights.
+1. Vá ao seu recurso App Insights.
 
-    ![Selecione o recurso do Application insights](../media/qnamaker-how-to-analytics-kb/resources-created.png)
+    ![Selecione o seu recurso de insights de aplicação](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Selecione **log (análise)** . Uma nova janela é aberta, onde você pode consultar QnA Maker telemetria.
+2. Selecione **Registo (Analytics)** . Abre-se uma nova janela onde pode consultar a telemetria do QnA Maker.
 
-3. Cole a consulta a seguir e execute-a.
+3. Pasta na seguinte consulta e executá-la.
 
     ```kusto
     requests
@@ -44,11 +44,11 @@ QnA Maker armazenará todos os logs de chat e outras telemetrias, se você tiver
     | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId
     ```
 
-    Selecione **executar** para executar a consulta.
+    Selecione **Executar** para executar a consulta.
 
-    [![executar a consulta para determinar as perguntas, as respostas e a Pontuação dos usuários](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
+    [![Executar consulta para determinar perguntas, respostas e pontuação dos utilizadores](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
-## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Executar consultas para outras análises em sua base de dados de conhecimento QnA Maker
+## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Execute consultas para outras análises na sua base de conhecimento qnA Maker
 
 ### <a name="total-90-day-traffic"></a>Total de tráfego de 90 dias
 
@@ -56,11 +56,11 @@ QnA Maker armazenará todos os logs de chat e outras telemetrias, se você tiver
 //Total Traffic
 requests
 | where url endswith "generateAnswer" and name startswith "POST"
-| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer" 
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
 | summarize ChatCount=count() by bin(timestamp, 1d), KbId
 ```
 
-### <a name="total-question-traffic-in-a-given-time-period"></a>Tráfego de pergunta total em um determinado período de tempo
+### <a name="total-question-traffic-in-a-given-time-period"></a>Total de questiona tráfego em um determinado período de tempo
 
 ```kusto
 //Total Question Traffic in a given time period
@@ -68,12 +68,12 @@ let startDate = todatetime('2019-01-01');
 let endDate = todatetime('2020-12-31');
 requests
 | where timestamp <= endDate and timestamp >=startDate
-| where url endswith "generateAnswer" and name startswith "POST" 
-| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer" 
+| where url endswith "generateAnswer" and name startswith "POST"
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
 | summarize ChatCount=count() by KbId
 ```
 
-### <a name="user-traffic"></a>Tráfego do usuário
+### <a name="user-traffic"></a>Tráfego de utilizadores
 
 ```kusto
 //User Traffic
@@ -82,13 +82,13 @@ requests
 | project timestamp, id, url, resultCode, duration
 | parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
 | join kind= inner (
-traces | extend id = operation_ParentId 
+traces | extend id = operation_ParentId
 ) on id
 | extend UserId = tostring(customDimensions['UserId'])
 | summarize ChatCount=count() by bin(timestamp, 1d), UserId, KbId
 ```
 
-### <a name="latency-distribution-of-questions"></a>Distribuição de latência de perguntas
+### <a name="latency-distribution-of-questions"></a>Distribuição de perguntas por latência
 
 ```kusto
 //Latency distribution of questions
@@ -99,7 +99,7 @@ requests
 | summarize count() by performanceBucket, KbId
 ```
 
-### <a name="unanswered-questions"></a>Perguntas não respondidas
+### <a name="unanswered-questions"></a>Perguntas sem resposta
 
 ```kusto
 // Unanswered questions
@@ -114,11 +114,11 @@ traces | extend id = operation_ParentId
 | extend answer = tostring(customDimensions['Answer'])
 | extend score = tostring(customDimensions['Score'])
 | where  score  == "0"
-| project timestamp, KbId, question, answer, score 
+| project timestamp, KbId, question, answer, score
 | order  by timestamp  desc
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Escolha capactiy](../tutorials/choosing-capacity-qnamaker-deployment.md)
+> [Escolha a capactiy](./improve-knowledge-base.md)

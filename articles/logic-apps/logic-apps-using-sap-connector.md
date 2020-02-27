@@ -9,17 +9,17 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 3990a9d53a8e53ddd29683440917031bc1bb6448
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 39ab222f64d964e95b16e043c9cdeccd8170ace3
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904648"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651020"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar aos sistemas SAP a partir de Aplicações Lógicas Azure
 
 > [!IMPORTANT]
-> Os anteriores connectores sap application Server e SAP Message Server estão agendados para a deprecação em 29 de fevereiro de 2020. O atual conector SAP consolida estes conectores SAP anteriores para que não tenha de alterar o tipo de ligação, é totalmente compatível com conectores anteriores, fornece muitas capacidades adicionais e continua a utilizar a biblioteca de conectores SAP .Net ( SAP NCo).
+> Os anteriores connectores sap application Server e SAP Message Server são depreciados em 29 de fevereiro de 2020. O atual conector SAP consolida estes conectores SAP anteriores para que não tenha de alterar o tipo de ligação, é totalmente compatível com conectores anteriores, fornece muitas capacidades adicionais e continua a utilizar a biblioteca de conectores SAP .Net ( SAP NCo).
 >
 > Para aplicações lógicas que utilizam os conectores mais antigos, [por favor, emigre para o mais recente conector](#migrate) antes da data de depreciação. Caso contrário, estas aplicações lógicas sofrerão falhas de execução e não poderão enviar mensagens para o seu sistema SAP.
 
@@ -43,7 +43,7 @@ Este artigo mostra como criar aplicações lógicas de exemplo que se integram c
 
 Para acompanhar este artigo, precisa destes itens:
 
-* Uma subscrição do Azure. Se você ainda não tiver uma assinatura do Azure, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma subscrição do Azure. Se ainda não tiver uma assinatura Azure, [inscreva-se numa conta Azure gratuita.](https://azure.microsoft.com/free/)
 
 * A aplicação lógica de onde pretende aceder ao seu sistema SAP e um gatilho que inicia o fluxo de trabalho da sua aplicação lógica. Se é novo em aplicações lógicas, veja [O que são as Aplicações Lógicas Do Azure e](../logic-apps/logic-apps-overview.md) o [Quickstart: Crie a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -77,7 +77,7 @@ Para acompanhar este artigo, precisa destes itens:
 
 1. A partir do mais recente conector SAP, adicione a mensagem Enviar à ação **SAP.** Antes de poder utilizar esta ação, recrie a ligação ao seu sistema SAP.
 
-1. Quando tiver terminado, salve seu aplicativo lógico.
+1. Quando terminar, guarde a sua aplicação lógica.
 
 <a name="add-trigger"></a>
 
@@ -87,7 +87,7 @@ Este exemplo utiliza uma aplicação lógica que pode desencadear com um pedido 
 
 ### <a name="add-an-http-request-trigger"></a>Adicione um gatilho de pedido HTTP
 
-Em aplicativos lógicos do Azure, cada aplicativo lógico deve começar com um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts), que é acionado quando um evento específico ocorre ou quando uma condição específica é atendida. Cada vez que o gatilho é acionado, o mecanismo de aplicativos lógicos cria uma instância de aplicativo lógico e começa a executar o fluxo de trabalho do aplicativo.
+Nas Aplicações Lógicas Do Azure, todas as aplicações lógicas devem começar com um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts), que dispara quando um evento específico acontece ou quando uma condição específica é satisfeita. Cada vez que o gatilho dispara, o motor Logic Apps cria uma instância de aplicação lógica e começa a executar o fluxo de trabalho da sua aplicação.
 
 Neste exemplo, cria uma aplicação lógica com um ponto final no Azure para que possa enviar *pedidos HTTP POST* para a sua aplicação lógica. Quando a sua aplicação lógica recebe estes pedidos HTTP, o gatilho dispara e corre o próximo passo no seu fluxo de trabalho.
 
@@ -97,7 +97,7 @@ Neste exemplo, cria uma aplicação lógica com um ponto final no Azure para que
 
    ![Adicionar gatilho de pedido HTTP](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
 
-1. Agora guarde a sua aplicação lógica para que possa gerar um URL de ponto final para a sua aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
+1. Agora guarde a sua aplicação lógica para que possa gerar um URL de ponto final para a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
    O URL do ponto final aparece agora no gatilho, por exemplo:
 
@@ -107,7 +107,7 @@ Neste exemplo, cria uma aplicação lógica com um ponto final no Azure para que
 
 ### <a name="add-an-sap-action"></a>Adicione uma ação SAP
 
-Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma etapa no fluxo de trabalho que segue um gatilho ou outra ação. Se ainda não adicionou um gatilho à sua aplicação lógica e quer seguir este exemplo, [adicione o gatilho descrito nesta secção](#add-trigger).
+Nas Aplicações Lógicas Azure, uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um passo no seu fluxo de trabalho que segue um gatilho ou outra ação. Se ainda não adicionou um gatilho à sua aplicação lógica e quer seguir este exemplo, [adicione o gatilho descrito nesta secção](#add-trigger).
 
 1. No Logic App Designer, sob o gatilho, selecione **Novo passo**.
 
@@ -141,7 +141,7 @@ Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
       Por predefinição, a dactilografia forte é usada para verificar valores inválidos executando a validação XML contra o esquema. Este comportamento pode ajudá-lo a detetar problemas mais cedo. A opção **"Digito seguro"** está disponível para a retrocompatibilidade e verifica apenas o comprimento da corda. Saiba mais sobre a [opção Dactilografia Segura](#safe-typing).
 
-   1. Quando tiver terminado, selecione **criar**.
+   1. Quando terminar, selecione **Criar**.
 
       As Aplicações Lógicas configuram e testam a sua ligação para se certificar de que a ligação funciona corretamente.
 
@@ -172,7 +172,7 @@ Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
       ![Complete a ação SAP](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
+1. Guarde a aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
 <a name="add-response"></a>
 
@@ -190,11 +190,11 @@ Adicione agora uma ação de resposta ao fluxo de trabalho da sua aplicação l�
 
 1. Guarde a aplicação lógica.
 
-### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
+### <a name="test-your-logic-app"></a>Teste a sua aplicação lógica
 
-1. Se a sua aplicação lógica ainda não estiver ativada, no menu de aplicações lógicas, selecione **Visão Geral**. Na barra de ferramentas, selecione **habilitar**.
+1. Se a sua aplicação lógica ainda não estiver ativada, no menu de aplicações lógicas, selecione **Visão Geral**. Na barra de ferramentas, selecione **Ativar**.
 
-1. Na barra de ferramentas do designer, selecione **executar**. Essa etapa inicia manualmente o aplicativo lógico.
+1. Na barra de ferramentas de design, selecione **Executar**. Este passo inicia manualmente a sua aplicação lógica.
 
 1. Desencadeie a sua aplicação lógica enviando um pedido HTTP POST para o URL no seu gatilho http Request.
 Inclua o conteúdo da sua mensagem com o seu pedido. Para enviar o pedido, pode utilizar uma ferramenta como [o Carteiro](https://www.getpostman.com/apps).
@@ -255,7 +255,7 @@ Este exemplo utiliza uma aplicação lógica que dispara quando a aplicação re
 
       Por predefinição, a dactilografia forte é usada para verificar valores inválidos executando a validação XML contra o esquema. Este comportamento pode ajudá-lo a detetar problemas mais cedo. A opção **"Digito seguro"** está disponível para a retrocompatibilidade e verifica apenas o comprimento da corda. Saiba mais sobre a [opção Dactilografia Segura](#safe-typing).
 
-   1. Quando tiver terminado, selecione **criar**.
+   1. Quando terminar, selecione **Criar**.
 
       As Aplicações Lógicas configuram e testam a sua ligação para se certificar de que a ligação funciona corretamente.
 
@@ -277,14 +277,14 @@ Este exemplo utiliza uma aplicação lógica que dispara quando a aplicação re
 
    Para mais informações sobre a ação do SAP, consulte [Message schemas para operações do IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
 
-1. Agora guarde a sua aplicação lógica para que possa começar a receber mensagens do seu sistema SAP. Na barra de ferramentas do designer, selecione **salvar**.
+1. Agora guarde a sua aplicação lógica para que possa começar a receber mensagens do seu sistema SAP. Na barra de ferramentas de design, selecione **Guardar**.
 
 A sua aplicação lógica está agora pronta para receber mensagens do seu sistema SAP.
 
 > [!NOTE]
 > O gatilho SAP não é um gatilho de sondagens, mas é um gatilho baseado em webhook. O gatilho só é chamado do portal quando existe uma mensagem, pelo que não é necessária qualquer sondagem.
 
-### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
+### <a name="test-your-logic-app"></a>Teste a sua aplicação lógica
 
 1. Para desencadear a sua aplicação lógica, envie uma mensagem do seu sistema SAP.
 
@@ -339,7 +339,7 @@ Este exemplo utiliza uma aplicação lógica que pode desencadear com um pedido 
    ![Adicionar gatilho de pedido HTTP](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
 
 1. Agora guarde a sua aplicação lógica para que possa gerar um URL de ponto final para a sua aplicação lógica.
-Na barra de ferramentas do designer, selecione **salvar**.
+Na barra de ferramentas de design, selecione **Guardar**.
 
    O URL do ponto final aparece agora no gatilho, por exemplo:
 
@@ -379,7 +379,7 @@ Na barra de ferramentas do designer, selecione **salvar**.
 
       Por predefinição, a dactilografia forte é usada para verificar valores inválidos executando a validação XML contra o esquema. Este comportamento pode ajudá-lo a detetar problemas mais cedo. A opção **"Digito seguro"** está disponível para a retrocompatibilidade e verifica apenas o comprimento da corda. Saiba mais sobre a [opção Dactilografia Segura](#safe-typing).
 
-   1. Quando tiver terminado, selecione **criar**.
+   1. Quando terminar, selecione **Criar**.
 
       As Aplicações Lógicas configuram e testam a sua ligação para se certificar de que a ligação funciona corretamente.
 
@@ -401,9 +401,9 @@ Na barra de ferramentas do designer, selecione **salvar**.
 
    Para obter mais informações sobre a ação SAP, consulte [Message schemas para operações iDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
+1. Guarde a aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
-### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
+### <a name="test-your-logic-app"></a>Teste a sua aplicação lógica
 
 1. Na barra de ferramentas de design, selecione **Run** para desencadear uma corrida para a sua aplicação lógica.
 
@@ -444,9 +444,9 @@ Opcionalmente, pode descarregar ou armazenar os esquemas gerados em repositório
    > }
    > ```
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, selecione **salvar**.
+1. Guarde a aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
-### <a name="test-your-logic-app"></a>Testar seu aplicativo lógico
+### <a name="test-your-logic-app"></a>Teste a sua aplicação lógica
 
 1. Na barra de ferramentas de design, selecione **Executar** para acionar manualmente a sua aplicação lógica.
 
@@ -556,7 +556,10 @@ Aqui estão as questões e limitações atualmente conhecidas para o conector SA
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência do conector](/connectors/sap/).
+Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, ações e limites descritos pelo ficheiro Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/sap/).
+
+> [!NOTE]
+> Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
 ## <a name="next-steps"></a>Passos seguintes
 

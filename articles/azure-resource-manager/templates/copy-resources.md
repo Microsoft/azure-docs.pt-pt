@@ -3,18 +3,18 @@ title: Implementar múltiplas instâncias de recursos
 description: Utilize a operação de cópia e as matrizes num modelo de Gestor de Recursos Azure para implementar o tipo de recursos muitas vezes.
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 38b5bcd38e0dc8ba8c758e9aa8371857541ba55e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e90673504ceaccdc25a477e856defa77eed37d86
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210830"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620226"
 ---
 # <a name="resource-iteration-in-azure-resource-manager-templates"></a>Iteração de recursos nos modelos do Gestor de Recursos Azure
 
 Este artigo mostra-lhe como criar mais do que uma instância de um recurso no seu modelo de Gestor de Recursos Azure. Ao adicionar o elemento **de cópia** à secção de recursos do seu modelo, pode configurar dinamicamente o número de recursos para implantar. Também evita ter que repetir a sintaxe do modelo.
 
-Também pode utilizar cópiacom [propriedades](copy-properties.md) e [variáveis.](copy-variables.md)
+Também pode utilizar cópias com [propriedades,](copy-properties.md) [variáveis](copy-variables.md) e [saídas.](copy-outputs.md)
 
 Se precisar especificar se um recurso está implantado, consulte o [elemento condição](conditional-resource-deployment.md).
 
@@ -130,6 +130,8 @@ O exemplo seguinte cria uma conta de armazenamento para cada nome fornecido no p
   "outputs": {}
 }
 ```
+
+Se pretender devolver valores dos recursos implantados, pode utilizar [cópiana secção de saídas](copy-outputs.md).
 
 ## <a name="serial-or-parallel"></a>Série ou Paralelo
 
@@ -279,7 +281,10 @@ Os exemplos seguintes mostram cenários comuns para a criação de mais do que u
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias](template-tutorial-create-multiple-instances.md)de recursos utilizando modelos de Gestor de Recursos .
-* Para outros usos do elemento de cópia, consulte a [iteração da propriedade nos modelos do Gestor](copy-properties.md) de Recursos Azure e [a iteração variável nos modelos do Gestor](copy-variables.md)de Recursos Azure .
+* Para outras utilizações do elemento cópia, consulte:
+  * [Iteração de propriedade em modelos de Gestor de Recursos Azure](copy-properties.md)
+  * [Iteração variável nos modelos do Gestor de Recursos Azure](copy-variables.md)
+  * [Iteração de saída nos modelos do Gestor de Recursos Azure](copy-outputs.md)
 * Para obter informações sobre a utilização da cópia com modelos aninhados, consulte [A Utilização da Cópia](linked-templates.md#using-copy).
 * Se quiser saber sobre as secções de um modelo, consulte os modelos de gestor de [recursos do Azure .](template-syntax.md)
 * Para aprender a implementar o seu modelo, consulte [implementar uma aplicação com o Modelo](deploy-powershell.md)de Gestor de Recursos Azure .

@@ -7,18 +7,21 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/11/2020
-ms.openlocfilehash: a093eea8b1961482722211017174018a649e2c4f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.date: 02/21/2020
+ms.openlocfilehash: 6eb8f86d7bfa1c140c6422753840ded8a37ce3c4
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484847"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616095"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escala automaticamente os clusters Azure HDInsight
 
 > [!Important]
-> A funcionalidade De escala automática funciona apenas para os clusters Apache Spark, ApacheHive, LLAP e Apache HBase criados após o dia 8 de maio de 2019. A escala automática para LLAP e HBase está em pré-visualização.
+> A funcionalidade Azure HDInsight Autoscale foi lançada para disponibilidade geral a 7 de novembro de 2019 para os clusters Spark e Hadoop e incluiu melhorias não disponíveis na versão de pré-visualização da funcionalidade. Se criou um cluster Spark antes de 7 de novembro de 2019 e pretende utilizar a funcionalidade De Escala Automática no seu cluster, o caminho recomendado é criar um novo cluster e ativar a Escala Automática no novo cluster. 
+>
+>A escala automática para clusters De Consulta Interativa (LLAP) e HBase ainda está em pré-visualização. A escala automática só está disponível nos clusters Spark, Hadoop, Interactive Query e HBase. 
+
 
 A função de cluster Autoscale da Azure HDInsight escala automaticamente o número de nós de trabalhador num cluster para cima e para baixo. Outros tipos de nós no cluster não podem ser escalados atualmente.  Durante a criação de um novo cluster HDInsight, pode ser definido um número mínimo e máximo de nós de trabalhadores. A escala automática monitoriza então os requisitos de recursos da carga de análise e escala o número de nós dos trabalhadores para cima ou para baixo. Não há nenhuma taxa adicional para esta funcionalidade.
 
@@ -263,6 +266,6 @@ Selecione **Métricas** sob **monitorização**. Em seguida, **selecione Adicion
 
 ![Ativar a métrica de escala automática baseada no horário do nó do trabalhador](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre as melhores práticas para escalonar clusters manualmente nas [melhores práticas](hdinsight-scaling-best-practices.md) de escala

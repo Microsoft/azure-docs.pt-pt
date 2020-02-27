@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e01be0442f6d968613ffd800f076705d33e3e16e
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598209"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616029"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de encaminhamento de mensagens IoT Hub
 
@@ -213,6 +213,8 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 ```sql
 $twin.tags.deploymentLocation.floor = 1 
 ```
+
+Não é suportada a consulta de encaminhamento no corpo ou no dispositivo twin com um período de carga útil ou nome de propriedade.
 
 ## <a name="next-steps"></a>Passos seguintes
 

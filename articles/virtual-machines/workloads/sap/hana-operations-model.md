@@ -1,71 +1,71 @@
 ---
-title: Modelo de operações do SAP HANA no Azure (instâncias grandes) | Microsoft Docs
-description: Modelo de operações do SAP HANA no Azure (instâncias grandes).
+title: Modelo de operações da SAP HANA on Azure (Grandes Instâncias)  Microsoft Docs
+description: Modelo de operações da SAP HANA em Azure (Grandes Instâncias).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a8ea845dd53048766abc337a1351a408ea7f1bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e147e4a5f104ca4cd1a10a776c907e3f9f1d6128
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099700"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616979"
 ---
 # <a name="operations-model-and-responsibilities"></a>Modelo e responsabilidades de operações
 
-O serviço fornecido com SAP HANA no Azure (instâncias grandes) está alinhado com os serviços IaaS do Azure. Você Obtém uma instância de uma instância grande do HANA com um sistema operacional instalado que é otimizado para SAP HANA. Assim como nas VMs de IaaS do Azure, a maioria das tarefas de proteção do sistema operacional, instalação de software adicional, instalação do HANA, operação do sistema operacional e HANA e atualização do sistema operacional e HANA é sua responsabilidade. A Microsoft não força atualizações do sistema operacional ou atualizações do HANA para você.
+O serviço prestado com o SAP HANA on Azure (Grandes Instâncias) está alinhado com os serviços Azure IaaS. Obtém-se uma instância de uma Grande Instância HANA com um sistema operativo instalado que está otimizado para o SAP HANA. Tal como acontece com os VMs Azure IaaS, a maioria das tarefas de endurecimento do SISTEMA, instalação de software adicional, instalação de HANA, operação do OS e HANA, e atualização do OS e HANA é da sua responsabilidade. A Microsoft não obriga as atualizações do OS ou as atualizações da HANA sobre si.
 
-![Responsabilidades de SAP HANA no Azure (instâncias grandes)](./media/hana-overview-architecture/image2-responsibilities.png)
+![Responsabilidades da SAP HANA em Azure (Grandes Instâncias)](./media/hana-overview-architecture/image2-responsibilities.png)
 
-Conforme mostrado no diagrama, SAP HANA no Azure (instâncias grandes) é uma oferta IaaS multilocatário. Na maior parte do tempo, a divisão de responsabilidade está no limite da infraestrutura do sistema operacional. A Microsoft é responsável por todos os aspectos do serviço abaixo da linha do sistema operacional. Você é responsável por todos os aspectos do serviço acima da linha. O sistema operacional é sua responsabilidade. Você pode continuar a usar os métodos locais mais atuais que você pode empregar para conformidade, segurança, gerenciamento de aplicativos, base e gerenciamento de so. Os sistemas aparecem como se estivessem em sua rede em todos os aspectos.
+Como mostrado no diagrama, SAP HANA on Azure (Grandes Instâncias) é uma oferta iaaS multi-inquilino. Na maior parte das vezes, a divisão de responsabilidade está no limite da infraestrutura do OS. A Microsoft é responsável por todos os aspetos do serviço abaixo da linha do sistema operativo. Você é responsável por todos os aspetos do serviço acima da linha. O SO é da sua responsabilidade. Pode continuar a utilizar a maioria dos métodos atuais no local que pode utilizar para o cumprimento, segurança, gestão de aplicações, base e gestão de OS. Os sistemas aparecem como se estivessem na sua rede em todos os aspetos.
 
-Esse serviço é otimizado para SAP HANA, portanto, há áreas em que você precisa trabalhar com a Microsoft para usar os recursos de infraestrutura subjacentes para obter melhores resultados.
+Este serviço está otimizado para o SAP HANA, por isso existem áreas onde precisa trabalhar com a Microsoft para utilizar as capacidades de infraestrutura subjacentes para obter melhores resultados.
 
-A lista a seguir fornece mais detalhes sobre cada uma das camadas e suas responsabilidades:
+A lista seguinte fornece mais detalhes sobre cada uma das camadas e as suas responsabilidades:
 
-**Rede**: Todas as redes internas para o carimbo de instância grande em execução SAP HANA. Sua responsabilidade inclui acesso ao armazenamento, conectividade entre as instâncias (para expansão e outras funções), conectividade com o cenário e conectividade com o Azure, onde a camada de aplicativo SAP está hospedada em VMs. Ele também inclui conectividade de WAN entre data centers do Azure para fins de recuperação de desastres. Todas as redes são particionadas pelo locatário e têm a qualidade de serviço aplicada.
+**Rede**: Todas as redes internas para o carimbo de grande instância executando SAP HANA. A sua responsabilidade inclui o acesso ao armazenamento, a conectividade entre as instâncias (para escala-out e outras funções), conectividade com a paisagem e conectividade com O Azure onde a camada de aplicação SAP está alojada em VMs. Também inclui conectividade WAN entre Os Centros de Dados Azure para a replicação de fins de recuperação de desastres. Todas as redes são divididas pelo arrendatário e têm qualidade de serviço aplicada.
 
-**Armazenamento**: O armazenamento particionado virtualizado para todos os volumes necessários para os servidores SAP HANA, bem como para instantâneos. 
+**Armazenamento**: O armazenamento virtualizado dividido para todos os volumes necessários pelos servidores SAP HANA, bem como para instantâneos. 
 
-**Servidores**: Os servidores físicos dedicados para executar os bancos de SAP HANA atribuídos aos locatários. Os servidores da classe do tipo I de SKUs são abstratos pelo hardware. Com esses tipos de servidores, a configuração do servidor é coletada e mantida em perfis, que podem ser movidos de um hardware físico para outro hardware físico. Uma movimentação desse tipo (manual) de um perfil por operações pode ser comparada um pouco à recuperação de serviço do Azure. Os servidores dos SKUs de classe do tipo II não oferecem tal recurso.
+**Servidores**: Os servidores físicos dedicados para executar os DBs SAP HANA atribuídos aos inquilinos. Os servidores da classe I de SKUs são abstratos de hardware. Com este tipo de servidores, a configuração do servidor é recolhida e mantida em perfis, que podem ser movidos de um hardware físico para outro hardware físico. Tal movimento (manual) de um perfil por operações pode ser comparado um pouco com a cura do serviço Azure. Os servidores da classe II SKUs não oferecem tal capacidade.
 
-**SDDC**: O software de gerenciamento usado para gerenciar data centers como entidades definidas pelo software. Ele permite que a Microsoft pool recursos para fins de escala, disponibilidade e desempenho.
+**SDDC**: O software de gestão que é usado para gerir centros de dados como entidades definidas por software. Permite à Microsoft reunir recursos para razões de escala, disponibilidade e desempenho.
 
-**O/S**: O sistema operacional escolhido (SUSE Linux ou Red Hat Linux) em execução nos servidores. As imagens do sistema operacional que você forneceu foram fornecidas pelo fornecedor individual do Linux para a Microsoft para execução de SAP HANA. Você deve ter uma assinatura com o fornecedor do Linux para a imagem específica com otimização de SAP HANA. Você é responsável por registrar as imagens com o fornecedor do sistema operacional. 
+**O/S:** O SISTEMA que escolher (SUSE Linux ou Red Hat Linux) que está a funcionar nos servidores. As imagens de OS com as suas informações foram fornecidas pelo fornecedor linux individual à Microsoft para executar o SAP HANA. Deve ter uma subscrição com o fornecedor Linux para a imagem específica otimizada pelo SAP HANA. É responsável pelo registo das imagens com o fornecedor de SO. 
 
-Do ponto de transferência da Microsoft, você é responsável por qualquer aplicação de patch no sistema operacional Linux. Essa aplicação de patch inclui pacotes adicionais que podem ser necessários para uma instalação de SAP HANA bem-sucedida e que não foram incluídos pelo fornecedor específico do Linux em suas SAP HANA imagens do sistema operacional otimizadas. (Para obter mais informações, consulte documentação de instalação do HANA do SAP e notas SAP.) 
+A partir do ponto de entrega da Microsoft, é responsável por qualquer nova correção do sistema operativo Linux. Este patching inclui pacotes adicionais que podem ser necessários para uma instalação bem sucedida do SAP HANA e que não foram incluídos pelo fornecedor linux específico nas suas imagens sap HANA otimizadas. (Para mais informações, consulte a documentação de instalação HANA da SAP e as notas SAP.) 
 
-Você é responsável pela aplicação de patch do sistema operacional em devido de mau funcionamento ou otimização do sistema operacional e de seus drivers em relação ao hardware de servidor específico. Você também é responsável pela aplicação de patches de segurança ou funcional do sistema operacional. 
+É responsável pela correção de OS devido a mau funcionamento ou otimização do SISTEMA e dos seus controladores em relação ao hardware específico do servidor. Também é responsável pela segurança ou correção funcional do Sistema Operativo. 
 
-Sua responsabilidade também inclui monitoramento e planejamento de capacidade de:
+A sua responsabilidade também inclui monitorização e planeamento de capacidades de:
 
-- Consumo de recursos de CPU.
+- Consumo de recursos da CPU.
 - Consumo de memória.
-- Volumes de disco relacionados a espaço livre, IOPS e latência.
-- Tráfego de volume de rede entre a instância grande do HANA e a camada de aplicativo SAP.
+- Volumes de disco relacionados com espaço livre, IOPS e latência.
+- Tráfego de volume de rede entre hana grande instância e a camada de aplicação SAP.
 
-A infraestrutura subjacente do HANA em instâncias grandes fornece a funcionalidade de backup e restauração do volume do sistema operacional. O uso dessa funcionalidade também é de sua responsabilidade.
+A infraestrutura subjacente da HANA Large Instance fornece funcionalidade para cópia de segurança e restauro do volume de SO. Usar esta funcionalidade também é da sua responsabilidade.
 
-**Middleware**: A instância do SAP HANA, principalmente. Administração, operações e monitoramento são sua responsabilidade. Você pode usar a funcionalidade fornecida para usar instantâneos de armazenamento para fins de backup e restauração e recuperação de desastre. Esses recursos são fornecidos pela infraestrutura. Suas responsabilidades também incluem a criação de alta disponibilidade ou recuperação de desastres com esses recursos, o aproveitamento e o monitoramento para determinar se os instantâneos de armazenamento foram executados com êxito.
+**Middleware**: O Caso SAP HANA, principalmente. Administração, operações e monitorização são da sua responsabilidade. Pode utilizar a funcionalidade fornecida para utilizar instantâneos de armazenamento para fins de backup e restauro e recuperação de desastres. Estas capacidades são fornecidas pela infraestrutura. As suas responsabilidades incluem também a conceção de alta disponibilidade ou recuperação de desastres com estas capacidades, alavancando-as e monitorizando para determinar se os instantâneos de armazenamento executados com sucesso.
 
-**Dados**: Seus dados gerenciados por SAP HANA e outros dados, como arquivos de backup localizados em volumes ou compartilhamentos de arquivos. Suas responsabilidades incluem o monitoramento de espaço livre em disco e o gerenciamento do conteúdo nos volumes. Você também é responsável por monitorar a execução bem-sucedida de backups de volumes de disco e instantâneos de armazenamento. A execução bem-sucedida da replicação de dados para sites de recuperação de desastre é de responsabilidade da Microsoft.
+**Dados**: Os seus dados geridos pelo SAP HANA e outros dados, tais como ficheiros de backup localizados em volumes ou partilhas de ficheiros. As suas responsabilidades incluem monitorizar o espaço livre do disco e gerir o conteúdo nos volumes. Também é responsável pela monitorização da execução bem sucedida de cópias de segurança de volumes de discos e instantâneos de armazenamento. A execução bem sucedida da replicação de dados para sites de recuperação de desastres é da responsabilidade da Microsoft.
 
-**Aplicativos** As instâncias do aplicativo SAP ou, no caso de aplicativos não SAP, a camada de aplicativo desses aplicativos. Suas responsabilidades incluem implantação, administração, operações e monitoramento desses aplicativos. Você é responsável pelo planejamento de capacidade de consumo de recursos de CPU, consumo de memória, consumo de armazenamento do Azure e consumo de largura de banda de rede em redes virtuais. Você também é responsável pelo planejamento de capacidade para consumo de recursos de redes virtuais para SAP HANA no Azure (instâncias grandes).
+**Candidaturas:** As instâncias de aplicação SAP ou, no caso de aplicações não SAP, a camada de aplicação dessas aplicações. As suas responsabilidades incluem implantação, administração, operações e monitorização dessas aplicações. É responsável pelo planeamento da capacidade do consumo de recursos cpu, consumo de memória, consumo de armazenamento de Azure e consumo de largura de banda da rede dentro das redes virtuais. É também responsável pelo planeamento de capacidade supor o consumo de recursos de redes virtuais para o SAP HANA em Azure (Grandes Instâncias).
 
-**WANs**: As conexões que você estabelece de locais para implantações do Azure para cargas de trabalho. Todos os clientes com o SAP HANA em instâncias grandes usam o Azure ExpressRoute para conectividade. Essa conexão não faz parte do SAP HANA na solução do Azure (instâncias grandes). Você é responsável pela configuração desta conexão.
+**WANs**: As ligações que estabelece desde as instalações até às implantações do Azure para cargas de trabalho. Todos os clientes com HANA Large Instance utilizam o Azure ExpressRoute para conectividade. Esta ligação não faz parte da solução SAP HANA sobre azure (Grandes Instâncias). É responsável pela instalação desta ligação.
 
-**Arquivo morto**: Você pode preferir arquivar cópias de dados usando seus próprios métodos em contas de armazenamento. O arquivamento requer gerenciamento, conformidade, custos e operações. Você é responsável por gerar cópias de arquivamento e backups no Azure e armazená-los de forma compatível.
+**Arquivo**: Pode preferir arquivar cópias de dados utilizando os seus próprios métodos em contas de armazenamento. O arquivamento requer gestão, conformidade, custos e operações. É responsável por gerar cópias de arquivo e cópias de segurança no Azure e armazená-las de forma compatível.
 
-Consulte o [SLA para SAP Hana no Azure (instâncias grandes)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
+Consulte o [SLA para SAP HANA em Azure (Grandes Instâncias)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
 
 **Passos seguintes?**
-- Consulte a [arquitetura SAP Hana (instâncias grandes) no Azure](hana-architecture.md)
+- Consulte [a arquitetura SAP HANA (Grandes Instâncias) em Azure](hana-architecture.md)

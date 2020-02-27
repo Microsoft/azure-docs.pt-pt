@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e49a07f591731a1deb2838751852c0134548966d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: e74a7ab0c003aaf9d90211484b39f8322cd9c329
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521851"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648007"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Funcionalidades e licenças para autenticação multi-factor Azure
 
@@ -43,7 +43,7 @@ A tabela seguinte apresenta uma lista das funcionalidades que estão disponívei
 
 | Funcionalidade | Azure AD Free - Falhas de segurança | Azure AD Free - Administradores Globais da Azure AD | Escritório 365 Business Premium, E3 ou E5 | Azure AD Premium P1 ou P2 |
 | --- |:---:|:---:|:---:|:---:|
-| Proteja as contas de administração da AD Azure com mFA | ● | ● (apenas contas de*Administrador Global da AD)* | ● | ● |
+| Proteja as contas de administrador adinaminária da Azure AD com mfa | ● | ● (apenas contas de*Administrador Global da AD)* | ● | ● |
 | Aplicativo móvel como segundo fator | ● | ● | ● | ● |
 | Chamada telefónica como segundo fator | | ● | ● | ● |
 | SMS como segundo fator | | ● | ● | ● |

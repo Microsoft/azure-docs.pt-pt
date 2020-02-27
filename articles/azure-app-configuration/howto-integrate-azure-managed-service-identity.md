@@ -1,31 +1,32 @@
 ---
-title: Integrar com identidades geridas do Azure
-description: Saiba como usar identidades geridas pelo Azure para autenticar e ter acesso à Configuração de Aplicações Azure
+title: Autenticar usando identidades geridas de Azure
+titleSuffix: Azure App Configuration
+description: Autenticar a Configuração de Aplicações Azure usando identidades geridas pelo Azure
 ms.service: azure-app-configuration
 author: lisaguthrie
 ms.topic: conceptual
-ms.date: 12/29/2019
+ms.date: 2/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 2cdeb0d513230cac5d03f85f2189f15c818798fd
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 66bf27c1b1e8349c1a0e822c457412fdfca58e82
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500393"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619453"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrar com identidades geridas azure
 
-[As identidades geridas pelo](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) Azure Ative Directory ajudam a simplificar a gestão de segredos para a sua aplicação na nuvem. Com uma identidade gerida, o seu código pode utilizar o principal de serviço que foi criado para o serviço Azure em que funciona. Você usa uma identidade gerida em vez de uma credencial separada armazenada no Cofre de Chaves Azure ou uma cadeia de ligação local. 
+O Azure Ative Directory [geriu identidades](../active-directory/managed-identities-azure-resources/overview.md) para simplificar a gestão de segredos para a sua aplicação na nuvem. Com uma identidade gerida, o seu código pode utilizar o principal de serviço criado para o serviço Azure em que funciona. Você usa uma identidade gerida em vez de uma credencial separada armazenada no Cofre de Chaves Azure ou uma cadeia de ligação local. 
 
-A Configuração da Aplicação Azure e o seu Núcleo .NET, .NET Framework e as bibliotecas de clientes da Java Spring têm gerido o suporte de identidade incorporado neles. Embora não seja obrigado a usá-lo, a identidade gerida elimina a necessidade de um sinal de acesso que contenha segredos. O seu código pode aceder à loja de configuração de aplicações utilizando apenas o ponto final do serviço. Pode incorporar este URL no seu código diretamente sem a preocupação de expor qualquer segredo.
+A Configuração da Aplicação Azure e o seu Núcleo .NET, .NET Framework e as bibliotecas de clientes da Java Spring têm gerido o suporte de identidade incorporado neles. Embora não seja obrigado a usá-lo, a identidade gerida elimina a necessidade de um sinal de acesso que contenha segredos. O seu código pode aceder à loja de configuração de aplicações utilizando apenas o ponto final do serviço. Pode incorporar este URL no seu código diretamente sem expor qualquer segredo.
 
-Este tutorial mostra como pode tirar partido da identidade gerida para aceder à Configuração da App. Baseia-se na aplicação web introduzida nos quickstarts. Antes de continuar, termine [Criar uma aplicação ASP.NET Core com configuração](./quickstart-aspnet-core-app.md) de aplicações primeiro.
+Este artigo mostra como pode tirar partido da identidade gerida para aceder à Configuração da App. Baseia-se na aplicação web introduzida nos quickstarts. Antes de continuar, [Crie uma aplicação ASP.NET Core com configuração](./quickstart-aspnet-core-app.md) de aplicações primeiro.
 
-Este tutorial também mostra como pode usar a identidade gerida em conjunto com as referências chave vault da Configuração da App. Com uma única identidade gerida, pode aceder perfeitamente aos dois segredos do Key Vault e valores de configuração da Configuração da App. Se desejar explorar esta capacidade, termine as referências do cofre de [chaves de utilização com ASP.NET Core](./use-key-vault-references-dotnet-core.md) primeiro.
+Este artigo também mostra como pode usar a identidade gerida em conjunto com as referências chave vault da Configuração da App. Com uma única identidade gerida, pode aceder perfeitamente aos dois segredos do Key Vault e valores de configuração da Configuração da App. Se desejar explorar esta capacidade, termine as referências do cofre de [chaves de utilização com ASP.NET Core](./use-key-vault-references-dotnet-core.md) primeiro.
 
 Pode usar qualquer editor de código para fazer os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
 
-Neste tutorial, ficará a saber como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Conceda um acesso de identidade gerido à Configuração de Aplicações.
@@ -257,7 +258,7 @@ Por exemplo, pode atualizar a aplicação de consola .NET Framework criada no qu
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, adicionou uma identidade gerida pelo Azure para agilizar o acesso à Configuração de Aplicações e melhorar a gestão da credencial para a sua aplicação. Para saber mais sobre como utilizar a Configuração da App, continue com as amostras do Azure CLI.
 
 > [!div class="nextstepaction"]
