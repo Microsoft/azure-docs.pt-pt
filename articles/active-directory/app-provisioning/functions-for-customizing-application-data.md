@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd78c78a711b64c58290f09eb2ee52263375002f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
-ms.translationtype: HT
+ms.openlocfilehash: cc41a18063202bfefb9ddf7238de17fc691984af
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522514"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612152"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever Expressões para Mapeamentos de Atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -38,7 +38,7 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 * Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \\"Contoso\\".
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp;[RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Acrescentar
@@ -50,8 +50,8 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
-| **sufixo** |Necessário |Cadeia |A cadeia a acrescentar ao final do valor de origem. |
+| **fonte** |Necessário |String |Normalmente, o nome do atributo de objeto de origem. |
+| **sufixo** |Necessário |String |A cadeia a acrescentar ao final do valor de origem. |
 
 ---
 ### <a name="bitand"></a>Bitand
@@ -101,8 +101,8 @@ Devoluções Verdadeiras se ambos os atributos tiverem o mesmo valor.
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte1 ... fonteN** | Necessário | Cadeia |Obrigatório, número variável de vezes. Normalmente, o nome do atributo de objeto de origem. |
-| **defaultValor** | Opcional | Cadeia | Valor predefinido a utilizar quando todos os valores de origem são NULOS. Pode ser uma cadeia de caracteres vazia ("").
+| **fonte1 ... fonteN** | Necessário | String |Obrigatório, número variável de vezes. Normalmente, o nome do atributo de objeto de origem. |
+| **defaultValor** | Opcional | String | Valor predefinido a utilizar quando todos os valores de origem são NULOS. Pode ser uma cadeia de caracteres vazia ("").
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -114,7 +114,7 @@ Devoluções Verdadeiras se ambos os atributos tiverem o mesmo valor.
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |Corda a ser convertida para base 64|
+| **fonte** |Necessário |String |Corda a ser convertida para base 64|
 
 **Exemplo:**<br>
 ConvertToBase64 ("Olá mundo!")                                                                                                        
@@ -130,7 +130,7 @@ Devoluções "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |Corda a ser convertida em UTF8 Hex|
+| **fonte** |Necessário |String |Corda a ser convertida em UTF8 Hex|
 
 **Exemplo:**<br>
 ConvertToUTF8Hex ("Olá mundo!")                                                                                                         
@@ -191,15 +191,32 @@ Devoluções DataTime representando 2012-01-01 23:00:00
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
-| **inputFormat** |Necessário |Cadeia |Formato esperado do valor de origem. Para formatos suportados, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Necessário |Cadeia |Formato da data de saída. |
+| **fonte** |Necessário |String |Normalmente, o nome do atributo de objeto de origem. |
+| **inputFormat** |Necessário |String |Formato esperado do valor de origem. Para formatos suportados, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Necessário |String |Formato da data de saída. |
 
 ---
 ### <a name="guid"></a>Guid
 **Função:**<br> Guia()
 
 **Descrição:**<br> A função Guid gera um novo GUID aleatório
+
+---
+### <a name="iif"></a>IIF
+**Função:**<br> IIF (condição,valueIfTrue,valueIfFalse)
+
+**Descrição:**<br> A função IIF devolve um conjunto de valores possíveis com base numa condição especificada.
+
+**Parâmetros:**<br> 
+
+| Nome | Obrigatório / repetidos | Tipo | Notas |
+| --- | --- | --- | --- |
+| **condição** |Necessário |Variável ou Expressão |Qualquer valor ou expressão que possa ser avaliado a verdade ou falsa. |
+| **valorIfTrue** |Necessário |Variável ou Corda | Se a condição avaliar a verdade, o valor devolvido. |
+| **valorIfFalso** |Necessário |Variável ou Corda |Se a condição avaliar a falsa, o valor devolvido.|
+
+**Exemplo:**<br>
+IIF[[país]="EUA,"[country],[department])
 
 ---
 ### <a name="instr"></a>Instr
@@ -211,8 +228,8 @@ Devoluções DataTime representando 2012-01-01 23:00:00
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **valor1** |Necessário |Cadeia |Corda a ser revistada |
-| **valor2** |Necessário |Cadeia |Corda a ser encontrada |
+| **valor1** |Necessário |String |Corda a ser revistada |
+| **valor2** |Necessário |String |Corda a ser encontrada |
 | **start** |Opcional |Número inteiro |Posição inicial para encontrar a subcadeia|
 | **compararType** |Opcional |Enum |Pode ser vbTextCompare ou vbBinaryCompare |
 
@@ -311,8 +328,8 @@ Se um dos valores de origem for um atributo de vários valores, então cada valo
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **separador** |Necessário |Cadeia |Cadeia utilizada para separar os valores de origem quando eles são concatenados numa cadeia de caracteres. Pode ser "" se nenhum separador é necessário. |
-| **fonte1 ... fonteN** |Variável-número de vezes, necessário |Cadeia |Cadeia de valores a ser unidas. |
+| **separador** |Necessário |String |Cadeia utilizada para separar os valores de origem quando eles são concatenados numa cadeia de caracteres. Pode ser "" se nenhum separador é necessário. |
+| **fonte1 ... fonteN** |Variável-número de vezes, necessário |String |Cadeia de valores a ser unidas. |
 
 ---
 ### <a name="left"></a>Esquerda
@@ -344,7 +361,7 @@ Devoluções "Joh"
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |Normalmente, o nome do atributo. |
+| **fonte** |Necessário |String |Normalmente, o nome do atributo. |
 | **start** |Necessário |número inteiro |Índice na cadeia **de origem** onde deve iniciar a subcadeia. Primeiro caractere na cadeia de caracteres terão o índice de 1, o segundo caráter terão índice 2 e assim por diante. |
 | **comprimento** |Necessário |número inteiro |Comprimento da subcadeia. Se o comprimento terminar fora da cadeia de **origem,** a função devolverá o substring do índice de **arranque** até ao fim da cadeia de **origem.** |
 
@@ -358,7 +375,7 @@ Devoluções "Joh"
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia | Normalmente um primeiro nome ou apelido. |
+| **fonte** |Necessário |String | Normalmente um primeiro nome ou apelido. |
 
 ---
 ### <a name="not"></a>Não
@@ -382,7 +399,7 @@ Devoluções "Joh"
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **valor** |Necessário | Cadeia | Linha de hora de data no formato suportado. Para formatos suportados, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
+| **valor** |Necessário | String | Linha de hora de data no formato suportado. Para formatos suportados, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
 **Exemplo:**<br>
 * Exemplo do dia de trabalho <br>
@@ -438,13 +455,13 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |Normalmente, o nome do atributo do objeto **de origem.** |
-| **oldValue** |Opcional |Cadeia |Valor a substituir na **fonte** ou **no modelo.** |
-| **regexPattern** |Opcional |Cadeia |Padrão Regex para o valor a substituir na **fonte**. Ou, quando é utilizado **o nome propertyname** substituto, padrão para extrair valor da **substituiçãoPropertyName**. |
-| **regexGroupName** |Opcional |Cadeia |Nome do grupo dentro do **regexPattern**. Só quando for utilizado **o substitutoPropertyName,** extrairemos valor deste grupo como **substitutoValor** da **substituiçãoPropertyName**. |
-| **substituiçãoValor** |Opcional |Cadeia |Novo valor para substituir um antigo com. |
-| **substituiçãoNome atribuído** |Opcional |Cadeia |Nome do atributo a utilizar para valor de substituição |
-| **modelo** |Opcional |Cadeia |Quando o valor do **modelo** for fornecido, procuraremos **por oldValue** dentro do modelo e substituí-lo-emos pelo valor **de origem.** |
+| **fonte** |Necessário |String |Normalmente, o nome do atributo do objeto **de origem.** |
+| **oldValue** |Opcional |String |Valor a substituir na **fonte** ou **no modelo.** |
+| **regexPattern** |Opcional |String |Padrão Regex para o valor a substituir na **fonte**. Ou, quando é utilizado **o nome propertyname** substituto, padrão para extrair valor da **substituiçãoPropertyName**. |
+| **regexGroupName** |Opcional |String |Nome do grupo dentro do **regexPattern**. Só quando for utilizado **o substitutoPropertyName,** extrairemos valor deste grupo como **substitutoValor** da **substituiçãoPropertyName**. |
+| **substituiçãoValor** |Opcional |String |Novo valor para substituir um antigo com. |
+| **substituiçãoNome atribuído** |Opcional |String |Nome do atributo a utilizar para valor de substituição |
+| **modelo** |Opcional |String |Quando o valor do **modelo** for fornecido, procuraremos **por oldValue** dentro do modelo e substituí-lo-emos pelo valor **de origem.** |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -463,7 +480,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **únicoValueRule1 ... únicoValueRuleN** |Pelo menos 2 são vinculados a necessário, não superior |Cadeia | Lista de regras únicas de geração de valor para avaliar. |
+| **únicoValueRule1 ... únicoValueRuleN** |Pelo menos 2 são vinculados a necessário, não superior |String | Lista de regras únicas de geração de valor para avaliar. |
 
 
 ---
@@ -476,7 +493,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Necessário |Cadeia |**[appRoleAssignments]** objeto. |
+| **[appRoleAssignments]** |Necessário |String |**[appRoleAssignments]** objeto. |
 
 ---
 ### <a name="split"></a>Dividir
@@ -488,8 +505,8 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |valor **de origem** para atualização. |
-| **delimitador** |Necessário |Cadeia |Especifica o personagem que será usado para dividir a corda (exemplo: "") |
+| **fonte** |Necessário |String |valor **de origem** para atualização. |
+| **delimitador** |Necessário |String |Especifica o personagem que será usado para dividir a corda (exemplo: "") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -501,7 +518,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |valor **de origem** para atualização. |
+| **fonte** |Necessário |String |valor **de origem** para atualização. |
 
 ---
 ### <a name="switch"></a>Comutador
@@ -513,10 +530,10 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |**Valor de origem** para atualização. |
-| **defaultValor** |Opcional |Cadeia |Valor predefinido a utilizar quando a origem não corresponde a quaisquer chaves. Pode ser uma cadeia de caracteres vazia (""). |
-| **chave** |Necessário |Cadeia |**Chave** para comparar o valor **de origem** com. |
-| **valor** |Necessário |Cadeia |Valor de substituição da **fonte** que combina com a chave. |
+| **fonte** |Necessário |String |**Valor de origem** para atualização. |
+| **defaultValor** |Opcional |String |Valor predefinido a utilizar quando a origem não corresponde a quaisquer chaves. Pode ser uma cadeia de caracteres vazia (""). |
+| **chave** |Necessário |String |**Chave** para comparar o valor **de origem** com. |
+| **valor** |Necessário |String |Valor de substituição da **fonte** que combina com a chave. |
 
 ---
 ### <a name="tolower"></a>toLower
@@ -528,8 +545,8 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
-| **cultura** |Opcional |Cadeia |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2*, onde o *código linguístico2* é o código linguístico de duas letras e o *código de país/região2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
+| **fonte** |Necessário |String |Normalmente, o nome do atributo de objeto de origem |
+| **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2*, onde o *código linguístico2* é o código linguístico de duas letras e o *código de país/região2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -541,8 +558,8 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **fonte** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
-| **cultura** |Opcional |Cadeia |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2*, onde o *código linguístico2* é o código linguístico de duas letras e o *código de país/região2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
+| **fonte** |Necessário |String |Normalmente, o nome do atributo de objeto de origem. |
+| **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2*, onde o *código linguístico2* é o código linguístico de duas letras e o *código de país/região2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
 
 ---
 ### <a name="word"></a>Word
@@ -560,7 +577,7 @@ Se a corda contiver menos de palavras numéricas, ou a corda não contiver palav
 | --- | --- | --- | --- |
 | **Corda** |Necessário |Atributo multivalorizado |Corda para devolver uma palavra de.|
 | **Número de palavras** |Necessário | Número inteiro | Número identificando qual número de palavra deve devolver|
-| **delimitadores** |Necessário |Cadeia| Uma corda que representa o(s) delimitador que deve ser usado para identificar palavras|
+| **delimitadores** |Necessário |String| Uma corda que representa o(s) delimitador que deve ser usado para identificar palavras|
 
 **Exemplo:**<br>
 Palavra("A raposa marrom rápida", 3, ")                                                                                       

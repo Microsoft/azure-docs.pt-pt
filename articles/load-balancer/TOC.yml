@@ -12,8 +12,9 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Modelo
+    - name: Modelo Azure Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
+      displayName: ARM
 - name: Tutoriais
   items:
     - name: Balancear carga de tráfego de internet para VMs
@@ -84,16 +85,18 @@
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
-        - name: Modelo
+        - name: Modelo Azure Resource Manager
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
+          displayName: ARM
     - name: Configurar o Balanceador de Carga interno
       items:
         - name: CLI do Azure
           href: load-balancer-get-started-ilb-arm-cli.md
         - name: Azure PowerShell
           href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Modelo
+        - name: Modelo Azure Resource Manager
           href: load-balancer-get-started-ilb-arm-template.md
+          displayName: ARM
     - name: Configurar o tempo limite de inatividade de TCP para o Balanceador de Carga
       href: load-balancer-tcp-idle-timeout.md
     - name: Configurar o modo de distribuição do Balanceador de Carga
@@ -141,6 +144,9 @@
       href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations'
     - name: REST
       href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
+    - name: Modelo do Resource Manager
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers'
+      displayName: ARM
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn
