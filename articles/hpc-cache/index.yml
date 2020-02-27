@@ -10,12 +10,12 @@ metadata:
   author: ekpgh
   ms.author: rohogue
   ms.date: 11/07/2019
-  ms.openlocfilehash: 07a161066cdea57d42050986bc9e16d98a9310a6
-  ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+  ms.openlocfilehash: 3cee41dd9cb4852eab884345404ba89eff8d9d91
+  ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/19/2019
-  ms.locfileid: "74166504"
+  ms.lasthandoff: 02/27/2020
+  ms.locfileid: "77651037"
 landingContent:
 - title: Acerca do Azure HPC Cache
   linkLists:
@@ -53,7 +53,11 @@ landingContent:
       url: hpc-cache-edit-storage.md
     - text: Contornar as definições de firewall para criar destinos de armazenamento de blobs
       url: hpc-cache-blob-firewall-fix.md
+    - text: Resolver problemas da criação de destinos de armazenamento NFS
+      url: troubleshoot-nas.md
   - linkListType: concept
     links:
     - text: Recuperar de uma falha regional
       url: hpc-region-recovery.md
+    - text: Utilizar destinos de armazenamento do Azure NetApp Files
+      url: hpc-cache-netapp.md

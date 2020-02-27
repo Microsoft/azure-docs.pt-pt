@@ -350,8 +350,9 @@
         - name: Azure Monitor
           href: azure-monitor.md
           displayName: 'log, logs, logging, usage, events'
-        - name: Gestão de contas
+        - name: Gerir utilizadores - Microsoft Graph
           href: manage-user-accounts-graph-api.md
+          displayName: 'account, accounts'
         - name: Implementar com os Pipelines do Azure
           href: deploy-custom-policies-devops.md
           displayName: 'azure devops, ci/cd, cicd, custom policy, policies'

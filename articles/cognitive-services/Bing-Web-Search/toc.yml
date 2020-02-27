@@ -7,7 +7,7 @@
       expanded: true
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: APIs REST
       items:
@@ -27,14 +27,8 @@
           href: quickstarts/ruby.md
     - name: SDKs
       items:
-        - name: 'C#'
-          href: web-search-sdk-quickstart.md
-        - name: Java
-          href: web-sdk-java-quickstart.md
-        - name: Node.js
-          href: web-search-sdk-node-quickstart.md
-        - name: Python
-          href: web-sdk-python-quickstart.md
+        - name: Bibliotecas de cliente da Pesquisa na Web do Bing
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriais
   items:
     - name: Criar uma aplicação web de página única

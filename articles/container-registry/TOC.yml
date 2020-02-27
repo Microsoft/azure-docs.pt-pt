@@ -141,15 +141,17 @@
       items:
         - name: Automatizar compilações de imagem de contentor
           items:
-            - name: Criar a partir do contexto de origem
+            - name: 1 - Criar a partir do contexto de origem
               href: container-registry-tutorial-quick-task.md
-            - name: Criar com base na consolidação de código
+            - name: 2a - Criar com base na consolidação de código
               href: container-registry-tutorial-build-task.md
-            - name: Tarefa de várias etapas com base na consolidação de código
+            - name: 2b - Tarefa de várias etapas em consolidação de código
               href: container-registry-tutorial-multistep-task.md
-            - name: Criar com base na atualização da imagem de base
+            - name: 3a - Criar com base na atualização da imagem de base
               href: container-registry-tutorial-base-image-update.md
-            - name: Agendar uma tarefa
+            - name: 3b - Criar com base na atualização da imagem de base privada
+              href: container-registry-tutorial-private-base-image-update.md
+            - name: 4 - Criar com base num agendamento
               href: container-registry-tasks-scheduled.md
     - name: Amostras
       expanded: false
@@ -160,6 +162,8 @@
       items:
         - name: Tarefas com vários passos
           href: container-registry-tasks-multi-step.md
+        - name: Atualizações da imagem de base
+          href: container-registry-tasks-base-images.md
     - name: Guias de procedimentos
       expanded: false
       items:

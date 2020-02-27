@@ -181,6 +181,20 @@
   items:
     - name: APIs REST
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: FAQ do Centro de Segurança do Azure
+      items:
+        - name: Perguntas gerais
+          href: faq-general.md
+        - name: Perguntas sobre faturação
+          href: faq-billing.md
+        - name: Perguntas sobre permissões
+          href: faq-permissions.md
+        - name: Perguntas sobre recolha de dados e agentes
+          href: faq-data-collection-agents.md
+        - name: Perguntas sobre Máquinas Virtuais
+          href: faq-vms.md
+        - name: Utilizadores existentes do Azure Log Analytics
+          href: faq-azure-monitor-logs.md
     - name: Notas de versão
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Descontinuação de funcionalidades e de API (julho de 2019)
@@ -195,8 +209,6 @@
       href: security-center-privacy.md
     - name: Documentação do Centro de Segurança do Azure para IoT
       href: 'https://docs.microsoft.com/azure/asc-for-iot/'
-    - name: FAQ
-      href: security-center-faq.md
     - name: Documentação da segurança do Azure
       href: /azure/security/
     - name: Atualizações do Azure

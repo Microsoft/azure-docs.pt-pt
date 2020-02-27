@@ -42,6 +42,8 @@
       href: hpc-cache-support-ticket.md
     - name: Contornar as definições de firewall da conta de armazenamento de blobs
       href: hpc-cache-blob-firewall-fix.md
+    - name: Resolver problemas da criação de destinos de armazenamento NFS
+      href: troubleshoot-nas.md
     - name: Recuperar de uma falha regional
       href: hpc-region-recovery.md
     - name: Utilizar o Azure NetApp Files com o Azure HPC Cache

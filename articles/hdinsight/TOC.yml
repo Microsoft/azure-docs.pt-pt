@@ -69,7 +69,7 @@
               href: ./hdinsight-hadoop-create-linux-clusters-portal.md
             - name: Criar clusters com modelos
               href: ./hdinsight-hadoop-create-linux-clusters-arm-templates.md
-            - name: Criar clusters com a linha de comandos
+            - name: Criar clusters com a CLI do Azure
               href: ./hdinsight-hadoop-create-linux-clusters-azure-cli.md
             - name: Criar clusters com o PowerShell
               href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md

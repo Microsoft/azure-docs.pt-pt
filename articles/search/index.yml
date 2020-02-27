@@ -10,29 +10,43 @@ metadata:
   ms.collection: collection
   author: HeidiSteen
   ms.author: heidist
-  ms.date: 09/20/2019
-  ms.openlocfilehash: 3d011bdf1f0da04efec86adc121326a877532b6f
-  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+  ms.date: 02/25/2020
+  ms.openlocfilehash: b1df45b155e9c9d1bd4433d7ddc765c126686a07
+  ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/24/2020
-  ms.locfileid: "76721069"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77614959"
 landingContent:
 - title: Acerca da Pesquisa Cognitiva
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é a Pesquisa Cognitiva do Azure?
+    - text: O que é o Azure Cognitive Search
       url: search-what-is-azure-search.md
-  - linkListType: architecture
-    links:
-    - text: Como funciona a pesquisa em texto completo na Pesquisa Cognitiva
-      url: search-lucene-query-architecture.md
+    - text: O que é o melhoramento de IA
+      url: cognitive-search-concept-intro.md
+    - text: O que é um indexador
+      url: search-indexer-overview.md
   - linkListType: video
     links:
     - text: O que é a Pesquisa Cognitiva (1 min. 27 seg.)
       url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
-- title: Introdução
+- title: Indexar dados do Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Indexar a partir do armazenamento de Blobs do Azure
+      url: search-blob-storage-integration.md
+    - text: Indexar a partir da Base de Dados SQL do Azure
+      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+    - text: Indexar a partir do Cosmos DB
+      url: search-howto-index-cosmosdb.md
+  - linkListType: tutorial
+    links:
+    - text: Indexar dados de blob semiestruturados
+      url: search-semi-structured-data.md
+- title: Inícios rápidos de 10 minutos
   linkLists:
   - linkListType: quickstart
     links:
@@ -40,31 +54,11 @@ landingContent:
       url: search-create-service-portal.md
     - text: Criar um índice
       url: search-get-started-portal.md
-    - text: Criar um pipeline de melhoramento
-      url: cognitive-search-quickstart-blob.md
-  - linkListType: tutorial
-    links:
     - text: Criar uma aplicação
-      url: tutorial-csharp-create-first-app.md
-  - linkListType: learn
-    links:
-    - text: Introdução à Pesquisa Cognitiva do Azure
-      url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
-- title: Utilizar com o Armazenamento de Blobs
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Utilizar a IA para compreender os dados de blob
-      url: search-blob-ai-integration.md
-    - text: Procurar o seu conteúdo de blob
-      url: search-blob-storage-integration.md
-    - text: Armazenar melhoramentos de IA
-      url: knowledge-store-concept-intro.md
-  - linkListType: tutorial
-    links:
-    - text: Indexar dados de blob semiestruturados
-      url: search-semi-structured-data.md
-- title: Indexar os seus dados
+      url: search-create-app-portal.md
+    - text: Ingerir e extrair texto não processado e imagens
+      url: cognitive-search-quickstart-blob.md
+- title: Indexar quaisquer dados
   linkLists:
   - linkListType: concept
     links:
@@ -72,32 +66,22 @@ landingContent:
       url: search-what-is-an-index.md
     - text: Importar dados
       url: search-what-is-data-import.md
-    - text: Utilizar um indexador
-      url: search-indexer-overview.md
-  - linkListType: how-to-guide
-    links:
-    - text: Indexar a partir da Base de Dados SQL do Azure
-      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-    - text: Indexar a partir dos dados do Cosmos DB
-      url: search-howto-index-cosmosdb.md
   - linkListType: reference
     links:
     - text: Criar Índice (REST)
       url: https://docs.microsoft.com/rest/api/searchservice/create-index
     - text: Criar Indexador (REST)
       url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
-- title: Melhorar os seus dados
+- title: Melhorar com a IA
   linkLists:
   - linkListType: concept
     links:
-    - text: Pipeline de melhoramento de IA
-      url: cognitive-search-concept-intro.md
     - text: Conjuntos de competências
       url: cognitive-search-defining-skillset.md
     - text: Arquivos de conhecimento
       url: knowledge-store-concept-intro.md
     - text: Projeções
-      url: knowledge-store-projection-overview.md
+      url: knowledge-store-projections-examples.md
   - linkListType: how-to-guide
     links:
     - text: Anexar Serviços Cognitivos
@@ -110,11 +94,11 @@ landingContent:
     links:
     - text: Competências incorporadas
       url: cognitive-search-predefined-skills.md
-- title: Consultar os seus dados
+- title: Consultar dados
   linkLists:
   - linkListType: concept
     links:
-    - text: Descrição geral
+    - text: Tipos de consulta e composição
       url: search-query-overview.md
     - text: Sintaxe simples (predefinição)
       url: query-simple-syntax.md

@@ -417,6 +417,8 @@
               href: vmware-physical-secondary-disaster-recovery.md
         - name: VMs Hyper-V
           items:
+            - name: Preterição do cenário site a site para VMs Hyper-V
+              href: site-to-site-deprecation.md
             - name: Instruções-Recuperação após desastre de VMs Hyper-V em clouds VMM para um site secundário
               href: hyper-v-vmm-disaster-recovery.md
             - name: Executar um teste de recuperação após desastre para VMs Hyper-V para um site secundário

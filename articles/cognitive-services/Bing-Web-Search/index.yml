@@ -14,12 +14,12 @@ metadata:
   author: aahill
   ms.author: aahi
   ms.date: 11/06/2019
-  ms.openlocfilehash: a425aab2f9f2fb8bf8ffcff5ec91aa1f43078250
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: f47d69574097e5fd85a4a9aedbf5df7d830fb139
+  ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75448306"
+  ms.lasthandoff: 02/27/2020
+  ms.locfileid: "77650270"
 highlightedContent:
   items:
   - title: Comparar as APIs de Pesquisa do Bing
@@ -40,16 +40,16 @@ conceptualContent:
   items:
   - title: Pesquisa Web do Bing
     links:
-    - url: web-search-sdk-quickstart.md
+    - url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
       itemType: quickstart
       text: Utilizar C#
-    - url: web-sdk-java-quickstart.md
+    - url: ./quickstarts/client-libraries.md?pivots=programming-language-java
       itemType: quickstart
       text: Utilizar Java
-    - text: Utilizar Node.js
+    - url: ./quickstarts/client-libraries.md?pivots=programming-language-javascript
       itemType: quickstart
-      url: web-search-sdk-node-quickstart.md
-    - url: web-sdk-python-quickstart.md
+      text: Utilizar JavaScript
+    - url: ./quickstarts/client-libraries.md?pivots=programming-language-python
       itemType: quickstart
       text: Utilizar Python
     - url: tutorial-bing-web-search-single-page-app.md

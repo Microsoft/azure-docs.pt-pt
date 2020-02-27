@@ -148,6 +148,8 @@
           href: live-event-states-billing.md
         - name: Latência
           href: live-event-latency.md
+        - name: Códigos de erro do Evento em Direto
+          href: live-event-error-codes.md
     - name: Monitorização
       items:
         - name: Eventos com o Event Grid
@@ -175,6 +177,8 @@
           items:
             - name: Códigos de erro do Ponto Final de Transmissão em Fluxo
               href: streaming-endpoint-error-codes.md
+            - name: Códigos de erro do Evento em Direto
+              href: live-event-error-codes.md
             - name: Códigos de erro das tarefas
               href: job-error-codes.md
     - name: Guia de migração de v2 para v3
@@ -325,6 +329,8 @@
       items:
         - name: Códigos de erro do Ponto Final de Transmissão em Fluxo
           href: streaming-endpoint-error-codes.md
+        - name: Códigos de erro do Evento em Direto
+          href: live-event-error-codes.md
         - name: Códigos de erro das tarefas
           href: job-error-codes.md
 - name: Recursos

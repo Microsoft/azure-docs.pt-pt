@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: a46ee8ef0a28b5326dcb0db51f2fa0a7cc19aeda
-  ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+  ms.openlocfilehash: 2896bee8f5a07a7432ca3fa2ca49caa529fdeb1e
+  ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/06/2020
-  ms.locfileid: "75666079"
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77604773"
 landingContent:
 - title: Sobre o Centro de Segurança
   linkLists:
@@ -52,11 +52,11 @@ landingContent:
       url: security-center-secure-score.md
     - text: Atualizar para a segurança avançada
       url: security-center-onboarding.md
-- title: Melhorar a sua pontuação segura
+- title: Melhorar a Classificação de Segurança
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: O que é uma classificação de segurança?
+    - text: O que é uma Classificação de Segurança?
       url: security-center-secure-score.md
     - text: Remediar recomendações de segurança
       url: security-center-remediate-recommendations.md

@@ -109,6 +109,8 @@
           href: search-capacity-planning.md
         - name: Dimensionamento para desempenho
           href: search-performance-optimization.md
+        - name: Mover o serviço entre regiões
+          href: search-howto-move-across-regions.md
         - name: Arquitetura multi-inquilino
           href: search-modeling-multitenant-saas-applications.md
     - name: Segurança

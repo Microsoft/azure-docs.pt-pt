@@ -329,23 +329,18 @@
           href: how-to-deploy-existing-model.md
         - name: Resolução de problemas e depuração
           href: how-to-troubleshoot-deployment.md
-    - name: Consumir os serviços web
-      items:
-        - name: Consumir em tempo real
+        - name: Criar clientes
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Predições em lote de estruturador
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-    - name: Monitorizar modelos
-      items:
-        - name: Recolher e avaliar dados do modelo
-          displayName: track production
-          href: how-to-enable-data-collection.md
-        - name: Detetar desvios de dados
-          href: how-to-monitor-data-drift.md
-        - name: Monitorizar com o Application Insights
-          href: how-to-enable-app-insights.md
+        - name: Monitorizar modelos
+          items:
+            - name: Recolher e avaliar dados do modelo
+              displayName: track production
+              href: how-to-enable-data-collection.md
+            - name: Detetar desvios de dados
+              href: how-to-monitor-data-drift.md
+            - name: Monitorizar com o Application Insights
+              href: how-to-enable-app-insights.md
     - name: Compilar e utilizar pipelines de ML
       displayName: pipelines
       items:
@@ -372,6 +367,9 @@
         - name: Depurar e resolver problemas de execução paralela
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+        - name: Predições em lote de estruturador
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
     - name: Gerir quotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md

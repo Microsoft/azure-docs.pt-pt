@@ -1,0 +1,11 @@
+- name: Documentação de engenharia de fiabilidade do local
+  href: ../index.yml
+- name: Recursos
+  expanded: true
+  items:
+    - name: Livros de SRE
+      href: books.md
+    - name: Eventos de SRE
+      href: events.md
+    - name: Coleções e resumos de ligações de SRE
+      href: links.md
