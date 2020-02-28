@@ -1,178 +1,177 @@
 ---
-title: Um guia de referência para os blocos do designer de exibição no Azure Monitor | Microsoft Docs
-description: Usando o designer de exibição no Azure Monitor, você pode criar exibições personalizadas que são exibidas na portal do Azure e conter uma variedade de visualizações nos dados no espaço de trabalho Log Analytics. Este artigo é um guia de referência para as configurações dos blocos que estão disponíveis em suas exibições personalizadas.
-ms.service: azure-monitor
+title: Um guia de referência para os azulejos do View Designer no Monitor Azure  Microsoft Docs
+description: Ao utilizar o View Designer no Monitor Azure, pode criar vistas personalizadas que são exibidas no portal Azure e conter uma variedade de visualizações sobre dados no espaço de trabalho log Analytics. Este artigo é um guia de referência para as definições para os azulejos que estão disponíveis nas suas vistas personalizadas.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: 4141a4728ef5a7dd8896e4e3f21ee6d1d4dce958
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931962"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658511"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para exibir blocos do designer no Azure Monitor
-Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência para as configurações dos blocos que estão disponíveis em suas exibições personalizadas.
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para ver azulejos designer no Monitor Azure
+Ao utilizar o View Designer no Monitor Azure, pode criar uma variedade de vistas personalizadas no portal Azure que podem ajudá-lo a visualizar dados no seu espaço de trabalho Log Analytics. Este artigo é um guia de referência para as definições para os azulejos que estão disponíveis nas suas vistas personalizadas.
 
-Para obter mais informações sobre o designer de exibição, consulte:
+Para mais informações sobre o View Designer, consulte:
 
-* [Designer de exibição](view-designer.md): fornece uma visão geral do designer de exibição e dos procedimentos para criar e editar exibições personalizadas.
-* [Referência de parte de visualização](view-designer-parts.md): fornece um guia de referência para as configurações para as partes de visualização que estão disponíveis em suas exibições personalizadas.
+* [Ver Designer](view-designer.md): Fornece uma visão geral do View Designer e procedimentos para criar e editar vistas personalizadas.
+* [Referência da parte](view-designer-parts.md)de visualização : Fornece um guia de referência para as definições para as peças de visualização que estão disponíveis nas suas vistas personalizadas.
 
 
-Os blocos do designer de exibição disponíveis são descritos na tabela a seguir:  
+Os azulejos disponíveis do View Designer são descritos na tabela seguinte:  
 
-| Bloco | Descrição |
+| Azulejo | Descrição |
 |:--- |:--- |
-| [Automática](#number-tile) |A contagem de registros de uma consulta. |
-| [Dois números](#two-numbers-tile) |As contagens de registros de duas consultas diferentes. |
-| [Rosca](#donut-tile) | Um gráfico baseado em uma consulta, com um valor de resumo no centro. |
-| Gráfico de linhas e texto explicativo | Um gráfico de linhas baseado em uma consulta e um texto explicativo com um valor de resumo. |
-| [Gráfico de linhas](#line-chart-tile) |Um gráfico de linhas baseado em uma consulta. |
-| [Duas linhas do tempo](#two-timelines-tile) | Um gráfico de colunas com duas séries, cada uma com base em uma consulta separada. |
+| [Número](#number-tile) |A contagem de registos de uma consulta. |
+| [Dois números](#two-numbers-tile) |As contagens de registos de duas consultas diferentes. |
+| [Donut](#donut-tile) | Um gráfico que é baseado numa consulta, com um valor resumo no centro. |
+| Gráfico de linha e chamada | Um gráfico de linha que é baseado numa consulta, e uma chamada com um valor resumo. |
+| [Gráfico de linha](#line-chart-tile) |Um gráfico de linha baseado numa consulta. |
+| [Duas cronologias](#two-timelines-tile) | Um gráfico de colunas com duas séries, cada uma baseada numa consulta separada. |
 
-As seções a seguir descrevem os tipos de bloco e suas propriedades em detalhes.
+As secções seguintes descrevem os tipos de azulejos e as suas propriedades em detalhe.
 
 > [!NOTE]
-> Blocos em exibições são baseados em [consultas de log](../log-query/log-query-overview.md) em seu espaço de trabalho log Analytics. Atualmente, eles não dão suporte a [consultas entre recursos](../log-query/cross-workspace-query.md) para recuperar dados de Application insights.
+> Os azulejos em vistas [baseiam-se](../log-query/log-query-overview.md) em consultas de registo no seu espaço de trabalho Log Analytics. Atualmente, não suportam [consultas de recursos cruzados](../log-query/cross-workspace-query.md) para obter dados de Insights de Aplicação.
 
-## <a name="number-tile"></a>Bloco número
-O bloco **número** exibe a contagem de registros de uma consulta de log e um rótulo.
+## <a name="number-tile"></a>Azulejo sumido
+O azulejo **Número** apresenta tanto a contagem de registos de uma consulta de registo como de uma etiqueta.
 
-![Bloco número](media/view-designer-tiles/tile-number.png)
-
-| Definição | Descrição |
-|:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
-| **Bloco** | |
-| Legenda |O texto que é exibido sob o valor. |
-| Consulta |A consulta executada. A contagem dos registros retornados pela consulta é exibida. |
-| **Avançadas** |**> Verificação de fluxo de dados** |
-| Ativado |Selecione este link se a verificação de fluxo de dados deve ser habilitada para o bloco. Essa abordagem fornecerá uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, você usa a abordagem para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados ficam disponíveis. |
-| Consulta |A consulta executada para determinar se os dados estão disponíveis para a exibição. Se a consulta não retornar nenhum resultado, uma mensagem será exibida no lugar do valor da consulta principal. |
-| Mensagem |A mensagem que será exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se você não fornecer nenhuma mensagem, uma mensagem de status de *avaliação em execução* será exibida. |
-
-
-## <a name="two-numbers-tile"></a>Bloco de dois números
-Esse bloco exibe a contagem de registros de duas consultas de log diferentes e um rótulo para cada uma.
-
-![Bloco de dois números](media/view-designer-tiles/tile-two-numbers.png)
+![Azulejo sumido](media/view-designer-tiles/tile-number.png)
 
 | Definição | Descrição |
 |:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
-| **Primeiro bloco** | |
-| Legenda |O texto que é exibido sob o valor. |
-| Consulta |A consulta executada. A contagem dos registros retornados pela consulta é exibida. |
-| **Segundo bloco** | |
-| Legenda |O texto que é exibido sob o valor. |
-| Consulta |A consulta executada. A contagem dos registros retornados pela consulta é exibida. |
-| **Avançadas** |**> Verificação de fluxo de dados** |
-| Ativado |Selecione este link se a verificação de fluxo de dados deve ser habilitada para o bloco. Essa abordagem fornecerá uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, você usa a abordagem para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados ficam disponíveis. |
-| Consulta |A consulta executada para determinar se os dados estão disponíveis para a exibição. Se a consulta não retornar nenhum resultado, uma mensagem será exibida no lugar do valor da consulta principal. |
-| Mensagem |A mensagem que será exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se você não fornecer nenhuma mensagem, uma mensagem de status de *avaliação em execução* será exibida. |
+| Nome |O texto que está exposto no topo do azulejo. |
+| Descrição |O texto que está exposto sob o nome do azulejo. |
+| **Azulejo** | |
+| Lenda |O texto que é exibido sob o valor. |
+| Consulta |A consulta que é executada. A contagem dos registos que são devolvidos pela consulta é exibida. |
+| **Avançado** |**> Verificação do fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação do fluxo de dados deve ser ativada para o azulejo. Esta abordagem fornece uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, utiliza a abordagem para fornecer uma mensagem durante o período temporário quando a vista é instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolver resultados, uma mensagem é exibida no lugar do valor da consulta principal. |
+| Mensagem |A mensagem que é exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se não fornecer nenhuma mensagem, é apresentada uma mensagem de estado de *avaliação de desempenho.* |
 
 
-## <a name="donut-tile"></a>Bloco de rosca
-O bloco de **rosca** exibe um único número que resume uma coluna de valor em uma consulta de log. A rosca exibe graficamente os resultados dos três principais registros.
+## <a name="two-numbers-tile"></a>Dois números de azulejo
+Este azulejo apresenta a contagem de registos de duas consultas de registo diferentes e uma etiqueta para cada um.
 
-![Bloco de rosca](media/view-designer-tiles/tile-donut.png)
+![Dois números de azulejo](media/view-designer-tiles/tile-two-numbers.png)
 
 | Definição | Descrição |
 |:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
-| **Rosca** | |
-| Consulta |A consulta executada para a rosca. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Essa consulta normalmente usa a palavra-chave *Measure* para resumir os resultados. |
-| **Rosca** |**Centro de >** |
-| Texto |O texto que é exibido sob o valor dentro da rosca. |
-| Operação |A operação executada na propriedade Value para resumir como um único valor.<ul><li>Sum: Adicione os valores de todos os registros com o valor da propriedade.</li><li>Porcentagem: porcentagem dos valores somados de registros com o valor da propriedade em comparação com os valores somados de todos os registros.</li></ul> |
-| Valores de resultado usados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta são limitados a registros com os valores de propriedade que você especificar. Se nenhum valor for adicionado, todos os registros serão incluídos na consulta. |
-| **Rosca** |**> Opções adicionais** |
-| Cores |A cor que é exibida para cada uma das três propriedades principais. Para especificar cores alternativas para valores de propriedade específicos, use o *mapeamento de cores avançado*. |
-| Mapeamento de cores avançado |Exibe uma cor que representa valores de propriedade específicos. Se o valor especificado estiver nos três principais, a cor alternativa será exibida em vez da cor padrão. Se a propriedade não estiver nos três principais, a cor não será exibida. |
-| **Avançadas** |**> Verificação de fluxo de dados** |
-| Ativado |Selecione este link se a verificação de fluxo de dados deve ser habilitada para o bloco. Essa abordagem fornecerá uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, você usa a abordagem para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados ficam disponíveis. |
-| Consulta |A consulta executada para determinar se os dados estão disponíveis para a exibição. Se a consulta não retornar nenhum resultado, uma mensagem será exibida no lugar do valor da consulta principal. |
-| Mensagem |A mensagem que será exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se você não fornecer nenhuma mensagem, uma mensagem de status de *avaliação em execução* será exibida. |
+| Nome |O texto que está exposto no topo do azulejo. |
+| Descrição |O texto que está exposto sob o nome do azulejo. |
+| **Primeiro azulejo** | |
+| Lenda |O texto que é exibido sob o valor. |
+| Consulta |A consulta que é executada. A contagem dos registos que são devolvidos pela consulta é exibida. |
+| **Segundo azulejo** | |
+| Lenda |O texto que é exibido sob o valor. |
+| Consulta |A consulta que é executada. A contagem dos registos que são devolvidos pela consulta é exibida. |
+| **Avançado** |**> Verificação do fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação do fluxo de dados deve ser ativada para o azulejo. Esta abordagem fornece uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, utiliza a abordagem para fornecer uma mensagem durante o período temporário quando a vista é instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolver resultados, uma mensagem é exibida no lugar do valor da consulta principal. |
+| Mensagem |A mensagem que é exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se não fornecer nenhuma mensagem, é apresentada uma mensagem de estado de *avaliação de desempenho.* |
 
 
-## <a name="line-chart-tile"></a>Bloco do gráfico de linhas
-Esse bloco é um gráfico de linhas que exibe várias séries de uma consulta de log ao longo do tempo. 
+## <a name="donut-tile"></a>Azulejo de donut
+O azulejo **Donut** apresenta um único número que resume uma coluna de valor numa consulta de registo. O donut apresenta graficamente os resultados dos três primeiros registos.
 
-![Gráfico de linhas e bloco de texto explicativo](media/view-designer-tiles/tile-line-chart.png)
+![Azulejo de donut](media/view-designer-tiles/tile-donut.png)
 
 | Definição | Descrição |
 |:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
-| **Gráfico de linhas** | |
-| Consulta |A consulta que é executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Essa consulta normalmente usa a palavra-chave *Measure* para resumir os resultados. Se a consulta usar a palavra-chave *Interval* , o eixo x usará esse intervalo de tempo. Se a consulta não usar a palavra-chave *Interval* , o eixo x usará intervalos por hora. |
-| **Gráfico de linhas** |**Eixo Y >** |
-| Usar escala logarítmica |Selecione este link para usar uma escala logarítmica para o eixo y. |
-| Unidades |Especifique as unidades para os valores retornados pela consulta. Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores. O **tipo de unidade** especifica a categoria da unidade e define os valores do **tipo de unidade atual** que estão disponíveis. Se você selecionar um valor em **converter para** , os valores numéricos serão convertidos do tipo de **unidade atual** para o tipo **converter para** . |
-| Rótulo personalizado |O texto que é exibido para o eixo y ao lado do rótulo do tipo de *unidade* . Se nenhum rótulo for especificado, somente o tipo de *unidade* será exibido. |
-| **Avançadas** |**> Verificação de fluxo de dados** |
-| Ativado |Selecione este link se a verificação de fluxo de dados deve ser habilitada para o bloco. Essa abordagem fornecerá uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, você usa a abordagem para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados ficam disponíveis. |
-| Consulta |A consulta executada para determinar se os dados estão disponíveis para a exibição. Se a consulta não retornar nenhum resultado, uma mensagem será exibida no lugar do valor da consulta principal. |
-| Mensagem |A mensagem que será exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se você não fornecer nenhuma mensagem, uma mensagem de status de *avaliação em execução* será exibida. |
+| Nome |O texto que está exposto no topo do azulejo. |
+| Descrição |O texto que está exposto sob o nome do azulejo. |
+| **Donut** | |
+| Consulta |A consulta que corre para o donut. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta usa normalmente a palavra-chave de *medida* para resumir resultados. |
+| **Donut** |**> Centro** |
+| Texto |O texto que é exibido sob o valor dentro do donut. |
+| Operação |A operação que é realizada na propriedade de valor para resumir como um único valor.<ul><li>Soma: Adicione os valores de todos os registos com o valor patrimonial.</li><li>Percentagem: Percentagem dos valores resumidos dos registos com o valor patrimonial em comparação com os valores resumidos de todos os registos.</li></ul> |
+| Valores de resultadoutilizados no funcionamento do centro |Opcionalmente, selecione o sinal de mais (+) para adicionar um ou mais valores. Os resultados da consulta limitam-se a registos com os valores de propriedade que especifica. Se não forem adicionados valores, todos os registos estão incluídos na consulta. |
+| **Donut** |**> Opções adicionais** |
+| Cores |A cor que é exibida para cada uma das três propriedades de topo. Para especificar cores alternativas para valores de propriedade específicos, utilize *o Advanced Color Mapping*. |
+| Mapeamento de cores avançadas |Exibe uma cor que representa valores de propriedade específicos. Se o valor que especifica estiver nos três primeiros, a cor alternativa é exibida em vez da cor padrão. Se a propriedade não estiver entre os três primeiros, a cor não é exibida. |
+| **Avançado** |**> Verificação do fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação do fluxo de dados deve ser ativada para o azulejo. Esta abordagem fornece uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, utiliza a abordagem para fornecer uma mensagem durante o período temporário quando a vista é instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolver resultados, uma mensagem é exibida no lugar do valor da consulta principal. |
+| Mensagem |A mensagem que é exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se não fornecer nenhuma mensagem, é apresentada uma mensagem de estado de *avaliação de desempenho.* |
 
 
-## <a name="line-chart-and-callout-tile"></a>Gráfico de linhas e bloco de texto explicativo
-Esse bloco tem um gráfico de linhas que exibe várias séries de uma consulta de log ao longo do tempo e um texto explicativo com um valor resumido. 
+## <a name="line-chart-tile"></a>Azulejo de gráfico de linha
+Este azulejo é um gráfico de linha que exibe várias séries de uma consulta de log ao longo do tempo. 
 
-![Gráfico de linhas e bloco de texto explicativo](media/view-designer-tiles/tile-line-chart-callout.png)
-
-| Definição | Descrição |
-|:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
-| **Gráfico de linhas** | |
-| Consulta |A consulta que é executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Essa consulta normalmente usa a palavra-chave *Measure* para resumir os resultados. Se a consulta usar a palavra-chave *Interval* , o eixo x usará esse intervalo de tempo. Se a consulta não usar a palavra-chave *Interval* , o eixo x usará intervalos por hora. |
-| **Gráfico de linhas** |**> Texto explicativo** |
-| Título do balão | O texto que é exibido acima do valor do texto explicativo. |
-| Nome da série |O valor da propriedade da série a ser usado como o valor do texto explicativo. Se nenhuma série for fornecida, todos os registros da consulta serão usados. |
-| Operação |A operação executada na propriedade Value para resumir como um valor único para o texto explicativo.<ul><li>Média: a média dos valores de todos os registros.</li><li>Contagem: a contagem de todos os registros retornados pela consulta.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Max: o valor máximo dos intervalos que são incluídos no gráfico.</li><li>Min: o valor mínimo dos intervalos que são incluídos no gráfico.</li><li>Sum: a soma dos valores de todos os registros.</li></ul> |
-| **Gráfico de linhas** |**Eixo Y >** |
-| Usar escala logarítmica |Selecione este link para usar uma escala logarítmica para o eixo y. |
-| Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Essas informações são usadas para exibir rótulos de gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo de *unidade* especifica a categoria da unidade e define os valores de tipo de *unidade atual* disponíveis. Se você selecionar um valor em *converter para*, os valores numéricos serão convertidos do tipo de *unidade atual* para o tipo *converter para* . |
-| Rótulo personalizado |O texto que é exibido para o eixo y ao lado do rótulo do tipo de *unidade* . Se nenhum rótulo for especificado, somente o tipo de *unidade* será exibido. |
-| **Avançadas** |**> Verificação de fluxo de dados** |
-| Ativado |Selecione este link se a verificação de fluxo de dados deve ser habilitada para o bloco. Essa abordagem fornecerá uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, você usa a abordagem para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados ficam disponíveis. |
-| Consulta |A consulta executada para determinar se os dados estão disponíveis para a exibição. Se a consulta não retornar nenhum resultado, uma mensagem será exibida no lugar do valor da consulta principal. |
-| Mensagem |A mensagem que será exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se você não fornecer nenhuma mensagem, uma mensagem de status de *avaliação em execução* será exibida. |
-
-
-## <a name="two-timelines-tile"></a>Bloco de duas linhas do tempo
-O bloco **dois cronogramas** exibe os resultados de duas consultas de log ao longo do tempo como gráficos de colunas. Um texto explicativo é exibido para cada série. 
-
-![Bloco de duas linhas do tempo](media/view-designer-tiles/tile-two-timelines.png)
+![Gráfico de linha e azulejo de chamada](media/view-designer-tiles/tile-line-chart.png)
 
 | Definição | Descrição |
 |:--- |:--- |
-| Nome |O texto que é exibido na parte superior do bloco. |
-| Descrição |O texto que é exibido sob o nome do bloco. |
-| Primeiro gráfico | |
-| Legenda |O texto que é exibido sob o texto explicativo para a primeira série. |
+| Nome |O texto que está exposto no topo do azulejo. |
+| Descrição |O texto que está exposto sob o nome do azulejo. |
+| **Gráfico de linha** | |
+| Consulta |A consulta que corre para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta usa normalmente a palavra-chave de *medida* para resumir resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo x utiliza este intervalo de tempo. Se a consulta não usar a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
+| **Gráfico de linha** |**> Eixo Y** |
+| Utilizar escala logarítmica |Selecione este link para utilizar uma escala logarítmica para o eixo y. |
+| Unidades |Especifique as unidades para os valores devolvidos pela consulta. Estas informações são utilizadas para exibir etiquetas no gráfico indicando os tipos de valor e opcionalmente para a conversão dos valores. O **Tipo Unidade** especifica a categoria da unidade e define os valores do Tipo unidade **atual** que estão disponíveis. Se selecionar um valor em **Converter para** então os valores numéricos são convertidos do tipo **Unidade Atual** para o Converter **para** escrever. |
+| Etiqueta personalizada |O texto apresentado para o eixo y ao lado da etiqueta para o tipo *Unidade.* Se não for especificada a etiqueta, apenas o tipo *Unidade* é apresentado. |
+| **Avançado** |**> Verificação do fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação do fluxo de dados deve ser ativada para o azulejo. Esta abordagem fornece uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, utiliza a abordagem para fornecer uma mensagem durante o período temporário quando a vista é instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolver resultados, uma mensagem é exibida no lugar do valor da consulta principal. |
+| Mensagem |A mensagem que é exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se não fornecer nenhuma mensagem, é apresentada uma mensagem de estado de *avaliação de desempenho.* |
+
+
+## <a name="line-chart-and-callout-tile"></a>Gráfico de linha e azulejo de chamada
+Este azulejo tem tanto um gráfico de linha que exibe várias séries de uma consulta de log ao longo do tempo e uma chamada com um valor resumido. 
+
+![Gráfico de linha e azulejo de chamada](media/view-designer-tiles/tile-line-chart-callout.png)
+
+| Definição | Descrição |
+|:--- |:--- |
+| Nome |O texto que está exposto no topo do azulejo. |
+| Descrição |O texto que está exposto sob o nome do azulejo. |
+| **Gráfico de linha** | |
+| Consulta |A consulta que corre para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta usa normalmente a palavra-chave de *medida* para resumir resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo x utiliza este intervalo de tempo. Se a consulta não usar a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
+| **Gráfico de linha** |**> Callout** |
+| Título de callout | O texto que é exibido acima do valor de chamada. |
+| Nome da série |O valor da propriedade da série a ser usado como o valor de chamada. Se não for fornecida nenhuma série, todos os registos da consulta são utilizados. |
+| Operação |A operação que é realizada na propriedade de valor para resumir como um único valor para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: A contagem de todos os registos que são devolvidos pela consulta.</li><li>Última amostra: O valor do último intervalo incluído na tabela.</li><li>Max: O valor máximo dos intervalos incluídos na tabela.</li><li>Min: O valor mínimo dos intervalos incluídos na tabela.</li><li>Soma: A soma dos valores de todos os registos.</li></ul> |
+| **Gráfico de linha** |**> Eixo Y** |
+| Utilizar escala logarítmica |Selecione este link para utilizar uma escala logarítmica para o eixo y. |
+| Unidades |Especifique as unidades para que os valores sejam devolvidos pela consulta. Esta informação é utilizada para exibir etiquetas de gráficos que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *Unidade* especifica a categoria da unidade e define os valores do tipo *Unidade Atual* disponíveis. Se selecionar um valor em *Converter para*, os valores numéricos são convertidos do tipo *Unidade Atual* para o Converter *para* escrever. |
+| Etiqueta personalizada |O texto apresentado para o eixo y ao lado da etiqueta para o tipo *Unidade.* Se não for especificada a etiqueta, apenas o tipo *Unidade* é apresentado. |
+| **Avançado** |**> Verificação do fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação do fluxo de dados deve ser ativada para o azulejo. Esta abordagem fornece uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, utiliza a abordagem para fornecer uma mensagem durante o período temporário quando a vista é instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolver resultados, uma mensagem é exibida no lugar do valor da consulta principal. |
+| Mensagem |A mensagem que é exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se não fornecer nenhuma mensagem, é apresentada uma mensagem de estado de *avaliação de desempenho.* |
+
+
+## <a name="two-timelines-tile"></a>Dois azulejos de linha do tempo
+O azulejo **de duas linhas de tempo** exibe os resultados de duas consultas de registo ao longo do tempo como gráficos de colunas. É apresentado um callout para cada série. 
+
+![Dois azulejos de linha do tempo](media/view-designer-tiles/tile-two-timelines.png)
+
+| Definição | Descrição |
+|:--- |:--- |
+| Nome |O texto que está exposto no topo do azulejo. |
+| Descrição |O texto que está exposto sob o nome do azulejo. |
+| Primeira Tabela | |
+| Lenda |O texto que é exibido sob o callout para a primeira série. |
 | Cor |A cor que é usada para as colunas na primeira série. |
-| Consulta de gráfico |A consulta que é executada para a primeira série. A contagem dos registros em cada intervalo de tempo é representada pelas colunas do gráfico. |
-| Operação |A operação executada na propriedade Value para resumir como um valor único para o texto explicativo.<ul><li>Média: a média dos valores de todos os registros.</li><li>Contagem: a contagem de todos os registros retornados pela consulta.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Max: o valor máximo dos intervalos que são incluídos no gráfico.</li></ul> |
+| Consulta de gráfico |A consulta que corre para a primeira série. A contagem dos registos em cada intervalo de tempo é representada pelas colunas do gráfico. |
+| Operação |A operação que é realizada na propriedade de valor para resumir como um único valor para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: A contagem de todos os registos que são devolvidos pela consulta.</li><li>Última amostra: O valor do último intervalo incluído na tabela.</li><li>Max: O valor máximo dos intervalos incluídos na tabela.</li></ul> |
 | **Segundo gráfico** | |
-| Legenda |O texto que é exibido sob o texto explicativo para a segunda série. |
-| Cor |A cor que é usada para as colunas na segunda série. |
-| Consulta de gráfico |A consulta que é executada para a segunda série. A contagem dos registros em cada intervalo de tempo é representada pelas colunas do gráfico. |
-| Operação |A operação executada na propriedade Value para resumir como um valor único para o texto explicativo.<ul><li>Média: a média dos valores de todos os registros.</li><li>Contagem: a contagem de todos os registros retornados pela consulta.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Max: o valor máximo dos intervalos que são incluídos no gráfico. |
-| **Avançadas** |**> Verificação de fluxo de dados** |
-| Ativado |Selecione este link se a verificação de fluxo de dados deve ser habilitada para o bloco. Essa abordagem fornecerá uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, você usa a abordagem para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados ficam disponíveis. |
-| Consulta |A consulta executada para determinar se os dados estão disponíveis para a exibição. Se a consulta não retornar nenhum resultado, uma mensagem será exibida no lugar do valor da consulta principal. |
-| Mensagem |A mensagem que será exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se você não fornecer nenhuma mensagem, uma mensagem de status de *avaliação em execução* será exibida. |
+| Lenda |O texto que é exibido sob a chamada para a segunda série. |
+| Cor |A cor que é usada para as colunas da segunda série. |
+| Consulta de gráfico |A consulta que corre para a segunda série. A contagem dos registos em cada intervalo de tempo é representada pelas colunas do gráfico. |
+| Operação |A operação que é realizada na propriedade de valor para resumir como um único valor para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: A contagem de todos os registos que são devolvidos pela consulta.</li><li>Última amostra: O valor do último intervalo incluído na tabela.</li><li>Max: O valor máximo dos intervalos incluídos na tabela. |
+| **Avançado** |**> Verificação do fluxo de dados** |
+| Ativado |Selecione esta ligação se a verificação do fluxo de dados deve ser ativada para o azulejo. Esta abordagem fornece uma mensagem alternativa se os dados não estiverem disponíveis. Normalmente, utiliza a abordagem para fornecer uma mensagem durante o período temporário quando a vista é instalada e os dados ficam disponíveis. |
+| Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolver resultados, uma mensagem é exibida no lugar do valor da consulta principal. |
+| Mensagem |A mensagem que é exibida se a consulta de verificação de fluxo de dados não retornar nenhum dado. Se não fornecer nenhuma mensagem, é apresentada uma mensagem de estado de *avaliação de desempenho.* |
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para dar suporte às consultas em blocos.
-* Adicione [partes de visualização](view-designer-parts.md) à sua exibição personalizada.
+* Aprenda sobre consultas de [log](../log-query/log-query-overview.md) para suportar as consultas em azulejos.
+* Adicione peças de [visualização](view-designer-parts.md) à sua vista personalizada.

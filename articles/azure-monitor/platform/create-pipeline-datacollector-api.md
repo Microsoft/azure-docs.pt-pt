@@ -1,70 +1,69 @@
 ---
-title: Criar um pipeline de dados com a API do coletor de dados Azure Monitor | Microsoft Docs
-description: Você pode usar a API do coletor de dados HTTP Azure Monitor para adicionar dados JSON POST ao espaço de trabalho Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como carregar dados armazenados em arquivos de maneira automatizada.
-ms.service: azure-monitor
+title: Criar um pipeline de dados com a API de Recolha de Dados do Monitor Azure  Microsoft Docs
+description: Pode utilizar a API do Colecionador de Dados Do Monitor Azure Para adicionar dados POST JSON ao espaço de trabalho do Log Analytics a partir de qualquer cliente que possa ligar para a API REST. Este artigo descreve como fazer o upload de dados armazenados em ficheiros de forma automatizada.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 3074d8d9dfcb3dbca31821d73cfd6daee056edb9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0300b44577725ddb272086713220d3318f1726fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363970"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655346"
 ---
-# <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API do coletor de dados
+# <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API de Recolha de Dados
 
-A [API do coletor de dados Azure monitor](data-collector-api.md) permite importar dados de log personalizados para um espaço de trabalho Log Analytics no Azure monitor. Os únicos requisitos são que os dados sejam formatados em JSON e divididos em 30 MB ou menos segmentos. Esse é um mecanismo completamente flexível que pode ser conectado de várias maneiras: a partir de dados enviados diretamente do seu aplicativo, a uploads adhoc únicos. Este artigo descreverá alguns pontos de partida para um cenário comum: a necessidade de carregar dados armazenados em arquivos de forma regular e automatizada. Embora o pipeline apresentado aqui não seja o mais eficaz ou otimizado de outra forma, ele se destina a servir como um ponto de partida para a criação de um pipeline de produção por conta própria.
+A API do Colecionador de [Dados do Monitor Azure](data-collector-api.md) permite-lhe importar quaisquer dados de registo personalizados num espaço de trabalho de Log Analytics no Monitor Azure. Os únicos requisitos são que os dados sejam formatados jSON e divididos em 30 MB ou menos segmentos. Este é um mecanismo completamente flexível que pode ser ligado de muitas formas: desde os dados enviados diretamente da sua aplicação, até uploads adhoc únicos. Este artigo irá delinear alguns pontos de partida para um cenário comum: a necessidade de fazer o upload de dados armazenados em ficheiros numa base regular e automatizada. Embora o gasoduto aqui apresentado não seja o mais performante ou otimizado de outra forma, pretende-se servir de ponto de partida para a construção de um oleoduto de produção próprio.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Problema de exemplo
-Para o restante deste artigo, examinaremos os dados de exibição de página em Application Insights. Em nosso cenário hipotético, queremos correlacionar as informações geográficas coletadas por padrão pelo SDK do Application Insights a dados personalizados que contenham a população de cada país/região do mundo, com o objetivo de identificar onde devemos gastar mais os dólares de marketing. 
+Para o resto deste artigo, examinaremos os dados de visualização de páginas em Insights de Aplicação. No nosso cenário hipotético, queremos correlacionar as informações geográficas recolhidas por padrão pelo SDK de Aplicação insights a dados personalizados que contenham a população de todos os países/regiões do mundo, com o objetivo de identificar onde devemos gastar mais dólares de marketing. 
 
-Usamos uma fonte de dados pública, como os [clientes potenciais de população](https://esa.un.org/unpd/wpp/) sem o mundo para essa finalidade. Os dados terão o seguinte esquema simples:
+Utilizamos uma fonte de dados público, como as [Perspetivas Mundiais da População das Nações Unidas](https://esa.un.org/unpd/wpp/) para este fim. Os dados terão o seguinte simples esquema:
 
-![Esquema simples de exemplo](./media/create-pipeline-datacollector-api/example-simple-schema-01.png)
+![Exemplo de esquema simples](./media/create-pipeline-datacollector-api/example-simple-schema-01.png)
 
-Em nosso exemplo, supomos que carregaremos um novo arquivo com os dados do ano mais recente assim que ele se tornar disponível.
+No nosso exemplo, assumimos que enviaremos um novo ficheiro com os dados do último ano assim que estiver disponível.
 
 ## <a name="general-design"></a>Design geral
-Estamos usando uma lógica clássica do tipo ETL para criar nosso pipeline. A arquitetura terá a seguinte aparência:
+Estamos a usar uma lógica clássica do tipo ETL para desenhar o nosso oleoduto. A arquitetura será a seguinte:
 
-![Arquitetura de pipeline de coleta de dados](./media/create-pipeline-datacollector-api/data-pipeline-dataflow-architecture.png)
+![Arquitetura do gasoduto de recolha de dados](./media/create-pipeline-datacollector-api/data-pipeline-dataflow-architecture.png)
 
-Este artigo não abordará como criar dados ou [carregá-los em uma conta de armazenamento de BLOBs do Azure](../../storage/blobs/storage-upload-process-images.md). Em vez disso, escolhemos o fluxo assim que um novo arquivo é carregado no BLOB. Daqui:
+Este artigo não cobre como criar dados ou [enviá-lo para uma conta de Armazenamento Azure Blob](../../storage/blobs/storage-upload-process-images.md). Em vez disso, captamos o fluxo assim que um novo ficheiro é enviado para a bolha. A partir daqui:
 
-1. Um processo detectará que novos dados foram carregados.  Nosso exemplo usa um [aplicativo lógico do Azure](../../logic-apps/logic-apps-overview.md), que tem um gatilho disponível para detectar novos dados que estão sendo carregados em um blob.
+1. Um processo irá detetar que novos dados foram carregados.  O nosso exemplo utiliza uma [App Lógica Azure,](../../logic-apps/logic-apps-overview.md)que tem um gatilho disponível para detetar novos dados a serem enviados para uma bolha.
 
-2. Um processador lê esses novos dados e os converte em JSON, o formato exigido por Azure Monitor neste exemplo, usamos uma [função do Azure](../../azure-functions/functions-overview.md) como uma maneira leve e econômica de executar nosso código de processamento. A função é inicializada pelo mesmo aplicativo lógico usado para detectar os novos dados.
+2. Um processador lê estes novos dados e converte-os para a JSON, o formato exigido pelo Azure Monitor Neste exemplo, utilizamos uma [Função Azure](../../azure-functions/functions-overview.md) como uma forma leve e rentável de executar o nosso código de processamento. A função é iniciada pela mesma App Lógica que usamos para detetar os novos dados.
 
-3. Por fim, depois que o objeto JSON estiver disponível, ele será enviado para Azure Monitor. O mesmo aplicativo lógico envia os dados para Azure Monitor usando a atividade interna do coletor de dados Log Analytics.
+3. Finalmente, uma vez disponível o objeto JSON, é enviado para o Monitor Azure. A mesma Aplicação Lógica envia os dados para o Monitor Azure utilizando a atividade incorporada no Log Analytics Data Collector.
 
-Embora a configuração detalhada do armazenamento de BLOBs, do aplicativo lógico ou do Azure Function não esteja descrita neste artigo, as instruções detalhadas estão disponíveis nas páginas de produtos específicos.
+Embora a configuração detalhada do armazenamento de blob, Logic App ou Azure Function não esteja delineada neste artigo, instruções detalhadas estão disponíveis nas páginas dos produtos específicos.
 
-Para monitorar esse pipeline, usamos Application Insights para monitorar os detalhes da função do Azure [aqui](../../azure-functions/functions-monitoring.md)e Azure monitor monitorar os detalhes do aplicativo lógico [aqui](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
+Para monitorizar este pipeline, utilizamos o Application Insights para monitorizar [os nossos detalhes](../../azure-functions/functions-monitoring.md)da Função Azure aqui , e o Monitor Azure para monitorizar os detalhes da nossa Aplicação Lógica [aqui](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
 
-## <a name="setting-up-the-pipeline"></a>Configurando o pipeline
-Para definir o pipeline, primeiro verifique se o seu contêiner de BLOBs foi criado e configurado. Da mesma forma, certifique-se de que o espaço de trabalho Log Analytics para o qual você deseja enviar os dados seja criado.
+## <a name="setting-up-the-pipeline"></a>Configuração do oleoduto
+Para definir o gasoduto, certifique-se primeiro de que tem o seu recipiente de bolhas criado e configurado. Da mesma forma, certifique-se de que o espaço de trabalho do Log Analytics para onde gostaria de enviar os dados é criado.
 
-## <a name="ingesting-json-data"></a>Ingerir dados JSON
-A ingestão de dados JSON é trivial com aplicativos lógicos e, como nenhuma transformação precisa ocorrer, podemos encerrarão o pipeline inteiro em um único aplicativo lógico. Depois que o contêiner de BLOB e o espaço de trabalho do Log Analytics tiverem sido configurados, crie um novo aplicativo lógico e configure-o da seguinte maneira:
+## <a name="ingesting-json-data"></a>Ingerir dados jSON
+Ingestão de dados JSON é trivial com apps lógicas, e como nenhuma transformação precisa de ocorrer, podemos envolver todo o pipeline numa única Aplicação Lógica. Uma vez configurado tanto o recipiente blob como o espaço de trabalho log Analytics, crie uma nova App Lógica e configure-a da seguinte forma:
 
-![Exemplo de fluxo de trabalho de aplicativos lógicos](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-01.png)
+![Exemplo de fluxo de aplicativos lógicos](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-01.png)
 
-Salve seu aplicativo lógico e continue para testá-lo.
+Guarde a sua App Lógica e proceda à sua prova.
 
 ## <a name="ingesting-xml-csv-or-other-formats-of-data"></a>Ingestão de XML, CSV ou outros formatos de dados
-Atualmente, os aplicativos lógicos não têm recursos internos para transformar facilmente XML, CSV ou outros tipos em formato JSON. Portanto, precisamos usar outro meio para concluir essa transformação. Para este artigo, usamos os recursos de computação sem servidor do Azure Functions como uma maneira muito leve e amigável de fazer isso. 
+As Aplicações Lógicas de hoje não têm capacidades incorporadas para transformar facilmente XML, CSV ou outros tipos em formato JSON. Por conseguinte, temos de utilizar outro meio para completar esta transformação. Para este artigo, utilizamos as capacidades computacionais sem servidores das Funções Azure como uma forma muito leve e amigável de fazê-lo. 
 
-Neste exemplo, analisamos um arquivo CSV, mas qualquer outro tipo de arquivo pode ser processado de forma semelhante. Basta modificar a parte de desserialização da função do Azure para refletir a lógica correta para seu tipo de dados específico.
+Neste exemplo, analisamos um ficheiro CSV, mas qualquer outro tipo de ficheiro pode ser processado da mesma forma. Basta modificar a parte desserialização da Função Azure para refletir a lógica correta para o seu tipo de dados específico.
 
-1.  Crie uma nova função do Azure usando o tempo de execução de função v1 e com base no consumo quando solicitado.  Selecione o modelo de **gatilho http** direcionado para C# como um ponto de partida que configura suas associações conforme necessário. 
-2.  Na guia **Exibir arquivos** no painel direito, crie um novo arquivo chamado **Project. JSON** e cole o seguinte código dos pacotes NuGet que estamos usando:
+1.  Crie uma nova Função Azure, utilizando o tempo de funcionamento da função v1 e baseado no consumo quando solicitado.  Selecione o modelo C# de gatilho **HTTP** direcionado como um ponto de partida que configura as suas encadernações conforme exigimos. 
+2.  A partir do separador **'Ver Ficheiros'** no painel certo, crie um novo ficheiro chamado **project.json** e colhe o seguinte código dos pacotes NuGet que estamos a utilizar:
 
-    ![Azure Functions projeto de exemplo](./media/create-pipeline-datacollector-api/functions-example-project-01.png)
+    ![Projeto de exemplo de funções azure](./media/create-pipeline-datacollector-api/functions-example-project-01.png)
     
     ``` JSON
     {
@@ -79,10 +78,10 @@ Neste exemplo, analisamos um arquivo CSV, mas qualquer outro tipo de arquivo pod
      }  
     ```
 
-3. Alterne para **Run. CSX** no painel direito e substitua o código padrão pelo seguinte. 
+3. Mude para **run.csx** a partir do painel direito e substitua o código predefinido pelo seguinte. 
 
     >[!NOTE]
-    >Para seu projeto, você precisa substituir o modelo de registro (a classe "PopulationRecord") por seu próprio esquema de dados.
+    >Para o seu projeto, tem de substituir o modelo de gravação (a classe "PopulationRecord") pelo seu próprio esquema de dados.
     >
 
     ```   
@@ -122,24 +121,24 @@ Neste exemplo, analisamos um arquivo CSV, mas qualquer outro tipo de arquivo pod
      }  
     ```
 
-4. Salve sua função.
-5. Teste a função para certificar-se de que o código está funcionando corretamente. Alterne para a guia **teste** no painel direito, configurando o teste da seguinte maneira. Coloque um link para um blob com dados de exemplo na caixa de texto **corpo da solicitação** . Depois de clicar em **executar**, você deverá ver a saída JSON na caixa **saída** :
+4. Salve a sua função.
+5. Teste a função para se certificar de que o código está a funcionar corretamente. Mude para o separador **Test** no painel direito, configurando o teste da seguinte forma. Coloque um link para uma bolha com dados da amostra na caixa de texto **do corpo de Solicitar.** Depois de clicar em **Executar,** deve ver a saída da JSON na caixa **de saída:**
 
-    ![Código de teste de aplicativos de funções](./media/create-pipeline-datacollector-api/functions-test-01.png)
+    ![Código de teste de aplicativos de função](./media/create-pipeline-datacollector-api/functions-test-01.png)
 
-Agora precisamos voltar e modificar o aplicativo lógico que começamos a criar anteriormente para incluir os dados ingeridos e convertidos no formato JSON.  Usando o designer de exibição, configure da seguinte maneira e, em seguida, salve seu aplicativo lógico:
+Agora precisamos voltar e modificar a App Lógica que começamos a construir mais cedo para incluir os dados ingeridos e convertidos para o formato JSON.  Utilizando o View Designer, configure o seguinte e, em seguida, guarde a sua Aplicação Lógica:
 
-![Exemplo de fluxo de trabalho de aplicativos lógicos concluído](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
+![Lógica Apps fluxo de trabalho completo exemplo](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
-## <a name="testing-the-pipeline"></a>Testando o pipeline
-Agora você pode carregar um novo arquivo no blob configurado anteriormente e tê-lo monitorado por seu aplicativo lógico. Em breve, você deve ver uma nova instância do aplicativo lógico disparar, chamar sua função do Azure e enviar os dados com êxito para Azure Monitor. 
+## <a name="testing-the-pipeline"></a>Testar o gasoduto
+Agora pode enviar um novo ficheiro para a bolha configurada anteriormente e tê-lo monitorizado pela sua App Lógica. Em breve, deverá ver um novo exemplo da Aplicação Lógica arrancar, ligar para a sua Função Azure e, em seguida, enviar os dados com sucesso para o Monitor Azure. 
 
 >[!NOTE]
->Pode levar até 30 minutos para que os dados apareçam em Azure Monitor na primeira vez que você enviar um novo tipo de dados.
+>Pode levar até 30 minutos para os dados aparecerem no Monitor Azure na primeira vez que envia um novo tipo de dados.
 
 
-## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Correlacionar com outros dados em Log Analytics e Application Insights
-Para concluir nosso objetivo de correlacionar Application Insights dados de exibição de página com os dados populacionais que ingerimos de nossa fonte de dados personalizada, execute a seguinte consulta na janela Application Insights Analytics ou no espaço de trabalho Log Analytics:
+## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Correlacionado com outros dados em Log Analytics e Application Insights
+Para completar o nosso objetivo de correlacionar os dados da página De insights de aplicação com os dados da população que ingerimos a partir da nossa fonte de dados personalizada, executar a seguinte consulta a partir da janela de Análise de Aplicações insights ou log Analytics:
 
 ``` KQL
 app("fabrikamprod").pageViews
@@ -150,21 +149,21 @@ app("fabrikamprod").pageViews
 | project client_CountryOrRegion, numUsers, Population_d
 ```
 
-A saída deve mostrar as duas fontes de dados agora Unidas.  
+A saída deve mostrar que as duas fontes de dados agora aderiram.  
 
-![Correlacionando dados separados em um exemplo de resultado da pesquisa](./media/create-pipeline-datacollector-api/correlating-disjoined-data-example-01.png)
+![Correlacionar dados desacompanhados num exemplo de resultado de pesquisa](./media/create-pipeline-datacollector-api/correlating-disjoined-data-example-01.png)
 
-## <a name="suggested-improvements-for-a-production-pipeline"></a>Aprimoramentos sugeridos para um pipeline de produção
-Este artigo apresentou um protótipo de trabalho, a lógica por trás, que pode ser aplicada em direção a uma verdadeira solução de qualidade de produção. Para uma solução de qualidade de produção, são recomendadas as seguintes melhorias:
+## <a name="suggested-improvements-for-a-production-pipeline"></a>Melhorias sugeridas para um gasoduto de produção
+Este artigo apresentou um protótipo funcional, a lógica por trás da qual pode ser aplicada para uma verdadeira solução de qualidade de produção. Para uma solução de qualidade de produção, recomendam-se as seguintes melhorias:
 
-* Adicione o tratamento de erros e a lógica de repetição em seu aplicativo lógico e função.
-* Adicione lógica para garantir que o limite de chamadas da API de ingestão de Log Analytics 30MB/único não seja excedido. Divida os dados em segmentos menores, se necessário.
-* Configure uma política de limpeza em seu armazenamento de BLOBs. Uma vez enviado com êxito para o espaço de trabalho do Log Analytics, a menos que você queira manter os dados brutos disponíveis para fins de arquivamento, não há motivo para continuar a armazená-los. 
-* Verifique se o monitoramento está habilitado em todo o pipeline, adicionando pontos de rastreamento e alertas conforme apropriado.
-* Aproveite o controle de código-fonte para gerenciar o código da sua função e do aplicativo lógico.
-* Verifique se uma política apropriada de gerenciamento de alterações é seguida, de modo que, se o esquema for alterado, os aplicativos lógicos e de função serão modificados de acordo.
-* Se você estiver carregando vários tipos de dados diferentes, separe-os em pastas individuais dentro do seu contêiner de BLOBs e crie uma lógica para o ventilador da lógica com base no tipo de dados. 
+* Adicione a lógica de manipulação de erros e de novo na sua Aplicação lógica e função.
+* Adicione lógica para garantir que o limite de chamada de API de ingestão de analítica de log analytics de 30MB/single não seja ultrapassado. Divida os dados em segmentos mais pequenos, se necessário.
+* Estabeleça uma política de limpeza no seu armazenamento de bolhas. Uma vez enviado com sucesso para o espaço de trabalho log Analytics, a menos que queira manter os dados brutos disponíveis para fins de arquivo, não há razão para continuar a armazená-los. 
+* Verifique se a monitorização está ativada em todo o oleoduto, adicionando pontos de rastreio e alertas conforme apropriado.
+* Aproveite o controlo de fontes para gerir o código para a sua função e Aplicação Lógica.
+* Certifique-se de que uma política de gestão de mudanças adequada é seguida, de modo a que se o esquema mudar, a função e as Aplicações Lógicas sejam modificadas em conformidade.
+* Se estiver a carregar vários tipos de dados diferentes, segrega-os em pastas individuais dentro do seu recipiente blob e crie lógica para abanar a lógica com base no tipo de dados. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre a [API do coletor de dados](data-collector-api.md) para gravar dados no espaço de trabalho log Analytics de qualquer cliente da API REST.
+Saiba mais sobre a [API](data-collector-api.md) do Colecionador de Dados para escrever dados para log Analytics espaço de trabalho de qualquer cliente da API REST.

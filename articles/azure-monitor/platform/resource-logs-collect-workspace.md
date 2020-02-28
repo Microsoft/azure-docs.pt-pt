@@ -1,128 +1,127 @@
 ---
-title: Coletar logs de recursos do Azure no espaço de trabalho Log Analytics
-description: Saiba como transmitir logs de recursos do Azure para um espaço de trabalho Log Analytics no Azure Monitor.
+title: Recolher registos de recursos Azure no espaço de trabalho do Log Analytics
+description: Aprenda a transmitir registos de recursos Azure para um espaço de trabalho de Log Analytics no Monitor Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750359"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659004"
 ---
-# <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar logs da plataforma Azure no espaço de trabalho Log Analytics no Azure Monitor
-[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. Este artigo descreve a coleta de logs de recursos em um espaço de trabalho Log Analytics que permite analisá-lo com outros dados de monitoramento coletados em logs de Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. 
+# <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Colete registos de plataforma Azure no espaço de trabalho do Log Analytics no Monitor Azure
+[Os registos da plataforma](platform-logs-overview.md) no Azure, incluindo registos de registos de atividades do Azure e de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure de que dependem. Este artigo descreve a recolha de registos de recursos num espaço de trabalho do Log Analytics que permite analisá-lo com outros dados de monitorização recolhidos em Registos de Monitores Do Azure utilizando consultas de registo poderosas e também para alavancar outras funcionalidades do Monitor de Azure, como alertas e alertas e visualizações. 
 
 
-## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>O que você pode fazer com os logs da plataforma em um espaço de trabalho
-Coletar os logs de plataforma em um espaço de trabalho Log Analytics permite que você analise os logs de todos os seus recursos do Azure juntos e aproveite todos os recursos disponíveis para [Azure monitor logs](data-platform-logs.md) que incluem o seguinte:
+## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>O que você pode fazer com logs de plataforma em um espaço de trabalho
+Recolher registos de plataformas num espaço de trabalho do Log Analytics permite-lhe analisar os registos de todos os seus recursos Azure em conjunto e aproveitar todas as funcionalidades disponíveis para registos do [Monitor Azure,](data-platform-logs.md) que inclui o seguinte:
 
-* **Consultas de log** – crie [consultas de log](../log-query/log-query-overview.md) usando uma linguagem de consulta avançada para analisar rapidamente e obter informações sobre seus dados de diagnóstico e analisá-los com os dados coletados de outras fontes no Azure monitor.
-* **Alertas** -obtenha notificações proativas de condições críticas e padrões identificados em seus logs de recursos usando [alertas de log no Azure monitor](alerts-log.md).
-* **Visualizações** – fixe os resultados de uma consulta de log em um painel do Azure ou inclua-os em uma pasta de trabalho como parte de um relatório interativo.
+* **Consultas** de registo - Criar consultas de [registo](../log-query/log-query-overview.md) utilizando uma linguagem de consulta poderosa para analisar e obter informações sobre os seus dados de diagnóstico e analisá-los com dados recolhidos de outras fontes no Monitor Do Azure.
+* **Alerta** - Obtenha uma notificação proactiva das condições e padrões críticos identificados nos seus registos de recursos utilizando alertas de [registo no Monitor Azure](alerts-log.md).
+* **Visualizações** - Pin os resultados de uma consulta de log a um painel azure ou incluí-lo em um livro como parte de um relatório interativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você precisará [criar um novo espaço de trabalho](../learn/quick-create-workspace.md) se ainda não tiver um. O espaço de trabalho não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+Precisa [criar um novo espaço](../learn/quick-create-workspace.md) de trabalho se ainda não tiver um. O espaço de trabalho não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições.
 
-## <a name="create-a-diagnostic-setting"></a>Criar uma configuração de diagnóstico
-Envie os logs da plataforma para um espaço de trabalho Log Analytics e outros destinos criando uma configuração de diagnóstico para um recurso do Azure. Consulte [criar configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md) para obter detalhes.
+## <a name="create-a-diagnostic-setting"></a>Criar uma definição de diagnóstico
+Envie registos de plataformas para um espaço de trabalho de Log Analytics e outros destinos, criando uma definição de diagnóstico para um recurso Azure. Consulte [a definição de diagnóstico Para recolher registos e métricas em Azure](diagnostic-settings.md) para obter mais detalhes.
 
 
-## <a name="activity-log-collection"></a>Coleção de logs de atividades
-Você pode enviar o log de atividades de qualquer assinatura única para até cinco espaços de trabalho do Log Analytics. Os dados de log de recursos coletados em um espaço de trabalho Log Analytics são armazenados na tabela **AzureActivity** . 
+## <a name="activity-log-collection"></a>Coleção de registo sonantes de atividade
+Pode enviar o registo de Atividade sessão a partir de qualquer subscrição única para até cinco espaços de trabalho log Analytics. Os dados de registo de recursos recolhidos num espaço de trabalho do Log Analytics são armazenados na tabela **AzureActivity.** 
 
-## <a name="resource-log-collection-mode"></a>Modo de coleta do log de recursos
-Os dados de log de recursos coletados em um espaço de trabalho Log Analytics são armazenados em tabelas, conforme descrito em [estrutura de logs de Azure monitor](../log-query/logs-structure.md). As tabelas usadas pelos logs de recursos dependem do tipo de coleção que o recurso está usando:
+## <a name="resource-log-collection-mode"></a>Modo de recolha de registode recursos
+Os dados de registo de recursos recolhidos num espaço de trabalho do Log Analytics são armazenados em [tabelas descritas na Estrutura de Registos do Monitor Azure](../log-query/logs-structure.md). As tabelas utilizadas por registos de recursos dependem do tipo de recolha que o recurso está a utilizar:
 
-- Diagnóstico do Azure-todos os dados gravados estão na tabela _AzureDiagnostics_ .
-- Dados específicos do recurso são gravados em uma tabela individual para cada categoria do recurso.
+- Diagnósticos Azure - Todos os dados escritos são para a tabela _AzureDiagnostics._
+- Específico de recursos - Os dados são escritos em tabela individual para cada categoria do recurso.
 
-### <a name="azure-diagnostics-mode"></a>Modo de Diagnóstico do Azure 
-Nesse modo, todos os dados de qualquer [configuração de diagnóstico](diagnostic-settings.md) serão coletados na tabela _AzureDiagnostics_ . Esse é o método herdado usado hoje pela maioria dos serviços do Azure.
+### <a name="azure-diagnostics-mode"></a>Modo De Diagnóstico Azure 
+Neste modo, todos os dados de qualquer [definição](diagnostic-settings.md) de diagnóstico serão recolhidos na tabela _AzureDiagnostics._ Este é o método legado usado hoje pela maioria dos serviços Azure.
 
-Como vários tipos de recursos enviam dados para a mesma tabela, seu esquema é o superconjunto dos esquemas de todos os tipos de dados diferentes que estão sendo coletados.
+Uma vez que vários tipos de recursos enviam dados para a mesma tabela, o seu esquema é o superconjunto dos esquemas de todos os diferentes tipos de dados que estão a ser recolhidos.
 
-Considere o exemplo a seguir em que as configurações de diagnóstico estão sendo coletadas no mesmo espaço de trabalho para os seguintes tipos de dados:
+Considere o seguinte exemplo em que as definições de diagnóstico estão a ser recolhidas no mesmo espaço de trabalho para os seguintes tipos de dados:
 
-- Logs de auditoria do serviço 1 (tendo um esquema que consiste nas colunas A, B e C)  
-- Logs de erros do serviço 1 (tendo um esquema que consiste em colunas D, E e F)  
-- Logs de auditoria do serviço 2 (tendo um esquema que consiste em colunas G, H e I)  
+- Registos de auditoria do serviço 1 (com um esquema constituído por colunas A, B e C)  
+- Registos de erro do serviço 1 (com um esquema constituído por colunas D, E e F)  
+- Registos de auditoria do serviço 2 (com um esquema constituído por colunas G, H e I)  
 
-A tabela AzureDiagnostics terá a seguinte aparência:  
+A tabela AzureDiagnostics será a seguinte:  
 
 | ResourceProvider    | Categoria     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft. Service1 | AuditLogs    | x1 | Y1 | z1 |    |    |    |    |    |    |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
-| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | j1 | K1 | l1 |
-| Microsoft. Service1 | ErrorLogs    |    |    |    | q2 | W2 | E2 |    |    |    |
-| Microsoft. Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
-| Microsoft. Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
+| Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
+| Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
+| Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | l1 |
+| Microsoft.Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
+| Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
+| Microsoft.Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
 | ... |
 
-### <a name="resource-specific"></a>Específico do recurso
-Nesse modo, as tabelas individuais no espaço de trabalho selecionado são criadas para cada categoria selecionada na configuração de diagnóstico. Esse método é recomendado, pois torna muito mais fácil trabalhar com os dados em consultas de log, fornece melhor capacidade de descoberta de esquemas e sua estrutura, melhora o desempenho em tempos de consulta e latência de ingestão e a capacidade de conceder direitos de RBAC em um tabela específica. Todos os serviços do Azure eventualmente serão migrados para o modo específico do recurso. 
+### <a name="resource-specific"></a>Específico de recursos
+Neste modo, são criadas tabelas individuais no espaço de trabalho selecionado para cada categoria selecionada na definição de diagnóstico. Este método é recomendado uma vez que torna muito mais fácil trabalhar com os dados em consultas de registo, proporciona uma melhor descoberta de schemas e sua estrutura, melhora o desempenho em tempos de latência e consulta de ingestão, e a capacidade de conceder direitos RBAC em um mesa específica. Todos os serviços Azure acabarão por migrar para o modo Específico de Recursos. 
 
-O exemplo acima resultaria em três tabelas sendo criadas:
+O exemplo acima resultaria na criação de três tabelas:
  
-- Tabela *Service1AuditLogs* da seguinte maneira:
+- Serviço de *Mesa1AuditLogs* da seguinte forma:
 
-    | Provedor de recursos | Categoria | A | B | C |
+    | Fornecedor de Recursos | Categoria | A | B | C |
     | -- | -- | -- | -- | -- |
-    | Service1 | AuditLogs | x1 | Y1 | z1 |
-    | Service1 | AuditLogs | x5 | y5 | z5 |
+    | Serviço1 | AuditLogs | x1 | y1 | z1 |
+    | Serviço1 | AuditLogs | x5 | y5 | z5 |
     | ... |
 
-- Tabela *Service1ErrorLogs* da seguinte maneira:  
+- Serviço de *Mesa1ErrorLogs* da seguinte forma:  
 
-    | Provedor de recursos | Categoria | D | E | F |
+    | Fornecedor de Recursos | Categoria | D | E | F |
     | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  q1 | W1 | E1 |
-    | Service1 | ErrorLogs |  q2 | W2 | E2 |
+    | Serviço1 | ErrorLogs |  q1 | w1 | e1 |
+    | Serviço1 | ErrorLogs |  q2 | w2 | e2 |
     | ... |
 
-- Tabela *Service2AuditLogs* da seguinte maneira:  
+- Serviço de *Mesa2Registos de Auditoria* da seguinte forma:  
 
-    | Provedor de recursos | Categoria | G | H | I |
+    | Fornecedor de Recursos | Categoria | G | H | I |
     | -- | -- | -- | -- | -- |
-    | Service2 | AuditLogs | j1 | K1 | l1|
-    | Service2 | AuditLogs | j3 | k3 | l3|
+    | Serviço2 | AuditLogs | j1 | k1 | l1|
+    | Serviço2 | AuditLogs | j3 | k3 | l3|
     | ... |
 
 
 
-### <a name="select-the-collection-mode"></a>Selecione o modo de coleta
-A maioria dos recursos do Azure gravará dados no espaço de trabalho no modo de **diagnóstico do Azure** ou **específico do recurso,** sem lhe dar uma opção. Consulte a [documentação de cada serviço](diagnostic-logs-schema.md) para obter detalhes sobre qual modo ele usa. Todos os serviços do Azure eventualmente usarão o modo específico do recurso. Como parte dessa transição, alguns recursos permitirão que você selecione um modo na configuração de diagnóstico. Você deve especificar o modo específico do recurso para as novas configurações de diagnóstico, pois isso torna os dados mais fáceis de gerenciar e pode ajudá-lo a evitar migrações complexas em uma data posterior.
+### <a name="select-the-collection-mode"></a>Selecione o modo de recolha
+A maioria dos recursos do Azure escreverá dados para o espaço de trabalho no modo **Azure Diagnostic** ou **Resource-Specific** sem lhe dar uma escolha. Consulte a [documentação de cada serviço para](diagnostic-logs-schema.md) obter detalhes sobre o modo que utiliza. Todos os serviços Azure acabarão por utilizar o modo Específico de Recursos. Como parte desta transição, alguns recursos permitirão selecionar um modo na definição de diagnóstico. Deve especificar o modo específico de recursos para quaisquer novas definições de diagnóstico, uma vez que isso facilita a gestão dos dados e pode ajudá-lo a evitar migrações complexas numa data posterior.
   
-   ![Seletor de modo de configurações de diagnóstico](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
+   ![Seletor de modo definições de diagnóstico](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
 
 
 
 > [!NOTE]
-> Atualmente, o **diagnóstico do Azure** e o modo **específico do recurso** só podem ser selecionados ao definir a configuração de diagnóstico no portal do Azure. Se você definir a configuração usando a CLI, o PowerShell ou a API REST, o **diagnóstico do Azure**será padronizado.
+> Atualmente, os **diagnósticos Azure** e o modo **específico de recurso** só podem ser selecionados quando configurar a definição de diagnóstico no portal Azure. Se configurar a definição utilizando CLI, PowerShell ou Rest API, esta será predefinida para o **diagnóstico Azure**.
 
-Você pode modificar uma configuração de diagnóstico existente para o modo específico do recurso. Nesse caso, os dados que já foram coletados permanecerão na tabela _AzureDiagnostics_ até que sejam removidos de acordo com sua configuração de retenção para o espaço de trabalho. Novos dados serão coletados na tabela dedicada. Use o operador [Union](https://docs.microsoft.com/azure/kusto/query/unionoperator) para consultar dados em ambas as tabelas.
+Pode modificar uma definição de diagnóstico existente para o modo específico de recursos. Neste caso, os dados já recolhidos permanecerão na tabela _AzureDiagnostics_ até que sejam removidos de acordo com a sua definição de retenção para o espaço de trabalho. Novos dados serão recolhidos na tabela dedicada. Use o operador [sindical](https://docs.microsoft.com/azure/kusto/query/unionoperator) para consultar dados em ambas as tabelas.
 
-Continue a assistir ao blog de [atualizações do Azure](https://azure.microsoft.com/updates/) para obter anúncios sobre os serviços do Azure que dão suporte ao modo específico do recurso.
+Continue a ver o blog [Azure Updates](https://azure.microsoft.com/updates/) para anúncios sobre serviços Azure que suportam o modo Específico de Recursos.
 
-### <a name="column-limit-in-azurediagnostics"></a>Limite de coluna em AzureDiagnostics
-Há um limite de propriedade de 500 para qualquer tabela nos logs de Azure Monitor. Quando esse limite for atingido, todas as linhas contendo dados com qualquer propriedade fora do primeiro 500 serão removidas no momento da ingestão. A tabela *AzureDiagnostics* está em particular suscetível a esse limite, pois inclui propriedades para todos os serviços do Azure que gravam nele.
+### <a name="column-limit-in-azurediagnostics"></a>Limite de coluna sintetizar em AzureDiagnostics
+Existe um limite de 500 propriedades para qualquer mesa em Registos Do Monitor Azure. Uma vez atingido este limite, quaisquer linhas que contenham dados com qualquer propriedade fora dos primeiros 500 serão retiradas no tempo de ingestão. A tabela *AzureDiagnostics* é particularmente suscetível a este limite, uma vez que inclui propriedades para todos os serviços Azure que lhe escrevem.
 
-Se você estiver coletando logs de recursos de vários serviços, o _AzureDiagnostics_ poderá exceder esse limite e os dados serão perdidos. Até que todos os serviços do Azure ofereçam suporte ao modo específico de recurso, você deve configurar recursos para gravar em vários espaços de trabalho para reduzir a possibilidade de atingir o limite de coluna de 500.
+Se estiver a recolher registos de recursos de vários serviços, o _AzureDiagnostics_ pode exceder este limite e os dados serão perdidos. Até que todos os serviços azure suportem o modo específico de recursos, deve configurar recursos para escrever em vários espaços de trabalho para reduzir a possibilidade de atingir o limite de 500 colunas.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-Azure Data Factory, devido a um conjunto muito detalhado de logs, é um serviço que é conhecido por gravar um grande número de colunas e, potencialmente, fazer com que o _AzureDiagnostics_ exceda seu limite. Para qualquer configuração de diagnóstico configurada antes do modo específico do recurso ser habilitado, haverá uma nova coluna criada para cada parâmetro de usuário nomeado exclusivamente em relação a qualquer atividade. Mais colunas serão criadas por causa da natureza detalhada das entradas e saídas da atividade.
+A Azure Data Factory, devido a um conjunto muito detalhado de registos, é um serviço que é conhecido por escrever um grande número de colunas e potencialmente fazer com que o _AzureDiagnostics_ exceda o seu limite. Para quaisquer configurações de diagnóstico configuradas antes de o modo específico de recursos ter sido ativado, haverá uma nova coluna criada para cada parâmetro de utilizador de nome único contra qualquer atividade. Mais colunas serão criadas devido à natureza verbosa das inputs e saídas de atividade.
  
-Você deve migrar seus logs para usar o modo específico do recurso assim que possível. Se você não puder fazer isso imediatamente, uma alternativa provisória é isolar Azure Data Factory logs em seu próprio espaço de trabalho para minimizar a chance desses logs, afetando outros tipos de log que estão sendo coletados em seus espaços de trabalho.
+Deve migrar os seus registos para utilizar o modo específico de recursos o mais rapidamente possível. Se não conseguir fazê-lo imediatamente, uma alternativa provisória é isolar os registos da Azure Data Factory no seu próprio espaço de trabalho para minimizar a probabilidade destes registos terem impacto noutros tipos de registos recolhidos nos seus espaços de trabalho.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Leia mais sobre os logs de recursos](platform-logs-overview.md).
-* [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).
+* [Leia mais sobre registos](platform-logs-overview.md)de recursos .
+* [Crie uma definição de diagnóstico para recolher registos e métricas em Azure](diagnostic-settings.md).

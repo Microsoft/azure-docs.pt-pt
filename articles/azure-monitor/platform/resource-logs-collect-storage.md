@@ -3,17 +3,16 @@ title: Registos de recursos do Archive Azure para a conta de armazenamento  Micr
 description: Saiba como arquivar os seus registos de recursos Azure para retenção a longo prazo numa conta de armazenamento.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: f4109359adaaeae0a1ba027ac04439ff60b5a939
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467186"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658976"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Registos de recursos do Archive Azure para conta de armazenamento
 [Os registos da plataforma](platform-logs-overview.md) no Azure, incluindo registos de registos de atividades do Azure e de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure de que dependem.  Este artigo descreve a recolha de registos de plataformas numa conta de armazenamento Azure para reter dados para arquivamento.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 02/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5df7eedcd92d338d3f741f7092ff6ef73f3442d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d3df906936cc4e47ee1f43adb0fcbaa0e8c04b0f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585888"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656318"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Subvenção
 
@@ -55,7 +55,7 @@ A seleção desta caixa de verificação exigirá que os utilizadores realizem a
 
 As organizações que implementaram o Microsoft Intune podem utilizar as informações devolvidas dos seus dispositivos para identificar dispositivos que satisfaçam os requisitos específicos de conformidade. Esta informação de conformidade política é transmitida de Intune para AD Azure, onde o Acesso Condicional pode tomar decisões para conceder ou bloquear o acesso aos recursos. Para obter mais informações sobre as políticas de conformidade, consulte o artigo [Definir regras sobre dispositivos para permitir o acesso aos recursos na sua organização usando o Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
 
-Um dispositivo pode ser marcado como conforme por Intune (para qualquer dispositivo OS) ou por um sistema DEM de terceiros para dispositivos Windows 10. Os sistemas de MDM de terceiros para tipos de SISTEMA de dispositivos que não o Windows 10 não são suportados.
+Um dispositivo pode ser marcado como conforme por Intune (para qualquer dispositivo OS) ou por um sistema DEM de terceiros para dispositivos Windows 10. O Jamf Pro é o único sistema MDM suportado por terceiros. Mais informações sobre integração podem ser encontradas no artigo, [Integrao Jamf Pro com Intune para o cumprimento.](/intune/protect/conditional-access-integrate-jamf)
 
 Os dispositivos devem ser registados em Azure AD antes de poderem ser marcados como conformes. Mais informações sobre o registo do dispositivo podem ser encontradas no artigo, O que é uma identidade do [dispositivo.](../devices/overview.md)
 

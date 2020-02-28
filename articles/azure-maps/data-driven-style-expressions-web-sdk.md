@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: e3e8476d09541518d964bfaff4dabad47755eeb9
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c3f5fb2a387db6e672290fcf03d46c476b6211b6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189653"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657108"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo orientadas por dados (Web SDK)
 
@@ -91,6 +91,8 @@ As expressões de dados fornecem acesso aos dados da propriedade numa funcionali
 | `['has', string, object]` | boolean | Determina se as propriedades do objeto têm a propriedade especificada. |
 | `['id']` | valor | Obtém a identificação da funcionalidade se tiver uma. |
 | `['length', string | array]` | número | Tem o comprimento de uma corda ou de uma matriz. |
+| `['in', boolean | string | number, array]` | boolean | Determina se um item existe numa matriz |
+| `['in', substring, string]` | boolean | Determina se uma subcadeia existe numa corda |
 
 **Exemplos**
 

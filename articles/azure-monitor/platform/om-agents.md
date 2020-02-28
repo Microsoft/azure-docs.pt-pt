@@ -1,50 +1,49 @@
 ---
-title: Conectar Operations Manager ao Azure Monitor | Microsoft Docs
+title: Connect Operations Manager to Azure Monitor [ Monitor De Ligação] Microsoft Docs
 description: Para manter o seu investimento existente no System Center Operations Manager e utilizar as capacidades expandidas com o Log Analytics, pode integrar o Operations Manager com a área de trabalho.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 5dc9412c7884eb62795fd04240f6cfa7d103e3be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363664"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659412"
 ---
-# <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Operations Manager ao Azure Monitor
+# <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Gerente de Operações ao Monitor Azure
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Para manter seu investimento existente em [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) e usar recursos estendidos com o Azure monitor, você pode integrar Operations Manager ao seu espaço de trabalho do log Analytics. Isso permite que você aproveite as oportunidades de logs em Azure Monitor enquanto continua a usar Operations Manager para:
+Para manter o seu investimento existente no [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) e utilizar capacidades alargadas com o Monitor Azure, pode integrar o Gestor de Operações com o seu espaço de trabalho Log Analytics. Isto permite aproveitar as oportunidades de login no Monitor Azure, continuando a utilizar o Gestor de Operações para:
 
 * Monitorizar o estado de funcionamento dos serviços de TI com o Operations Manager
 * Manter a integração com as soluções ITSM que suportam a gestão de incidentes e problemas
 * Gerir o ciclo de vida dos agentes implementados nas máquinas virtuais IaaS no local e na cloud pública que o utilizador monitoriza com o Operations Manager
 
-A integração com o System Center Operations Manager agrega valor à sua estratégia de operações de serviço usando a velocidade e a eficiência de Azure Monitor na coleta, no armazenamento e na análise de dados de log de Operations Manager. Azure Monitor consultas de log ajudam a correlacionar e trabalhar para identificar as falhas de problemas e identificando recorrências no suporte do processo de gerenciamento de problemas existente. A flexibilidade do mecanismo de consulta para examinar dados de desempenho, eventos e alertas, com painéis avançados e recursos de relatório para expor esses dados de maneiras significativas, demonstra a força que o Azure Monitor traz para complementar Operations Manager.
+Integrar-se com o System Center Operations Manager acrescenta valor à sua estratégia de operações de serviço, utilizando a rapidez e eficiência do Monitor Azure na recolha, armazenamento e análise de dados de registo do Gestor de Operações. As consultas de registo do Azure Monitor ajudam a correlacionar e a trabalhar no sentido de identificar as falhas dos problemas e de surgir recorrências em apoio ao seu processo de gestão de problemas existente. A flexibilidade do motor de consulta para examinar dados de desempenho, evento e alerta, com painéis de instrumentos ricos e capacidades de reporte para expor estes dados de forma significativa, demonstra a força que o Azure Monitor traz ao Complementar Diretor de Operações.
 
-Os agentes que se reportam para o grupo de gerenciamento de Operations Manager coletam dados de seus servidores com base nas [fontes log Analytics de dados](agent-data-sources.md) e soluções que você habilitou em seu espaço de trabalho. Dependendo das soluções habilitadas, seus dados são enviados diretamente de um servidor de gerenciamento de Operations Manager para o serviço ou devido ao volume de dados coletados no sistema gerenciado por agente, são enviados diretamente do agente para um espaço de trabalho Log Analytics. O servidor de gestão reencaminha os dados diretamente para o serviço; estes nunca são escritos na base de dados operacional ou do armazém de dados. Quando um servidor de gerenciamento perde a conectividade com Azure Monitor, ele armazena os dados em cache localmente até que a comunicação seja restabelecida. Se o servidor de gerenciamento estiver offline devido à manutenção planejada ou à interrupção não planejada, outro servidor de gerenciamento no grupo de gerenciamento retomará a conectividade com Azure Monitor.  
+Os agentes que reportam ao grupo de gestão do Gestor de Operações recolhem dados dos seus servidores com base nas [fontes](agent-data-sources.md) de dados do Log Analytics e nas soluções que permitiu no seu espaço de trabalho. Dependendo das soluções ativadas, os seus dados são enviados diretamente de um servidor de gestão do Gestor de Operações para o serviço, ou devido ao volume de dados recolhidos no sistema gerido pelo agente, são enviados diretamente do agente para um espaço de trabalho de Log Analytics. O servidor de gestão reencaminha os dados diretamente para o serviço; estes nunca são escritos na base de dados operacional ou do armazém de dados. Quando um servidor de gestão perde conectividade com o Monitor Azure, ele cacheos os dados localmente até que a comunicação seja restabelecida. Se o servidor de gestão estiver offline devido à manutenção planeada ou à paragem não planeada, outro servidor de gestão do grupo de gestão retoma a conectividade com o Monitor Azure.  
 
-O diagrama a seguir mostra a conexão entre os servidores de gerenciamento e os agentes em um System Center Operations Manager grupo de gerenciamento e Azure Monitor, incluindo a direção e as portas.
+O diagrama seguinte mostra a ligação entre os servidores de gestão e os agentes de um grupo de gestão de gestão de operações do System Center e do Monitor Azure, incluindo a direção e as portas.
 
 ![oms-operations-manager-integration-diagram](./media/om-agents/oms-operations-manager-connection.png)
 
-Se suas políticas de segurança de ti não permitirem que computadores em sua rede se conectem à Internet, os servidores de gerenciamento poderão ser configurados para se conectarem ao gateway de Log Analytics para receber informações de configuração e enviar os dados coletados dependendo das soluções habilitado. Para obter mais informações e etapas sobre como configurar seu grupo de gerenciamento de Operations Manager para se comunicar por meio de um gateway de Log Analytics para Azure Monitor, consulte [conectar computadores ao Azure monitor usando o gateway log Analytics](../../azure-monitor/platform/gateway.md).  
+Se as suas políticas de segurança de TI não permitirem que os computadores da sua rede se conectem à Internet, os servidores de gestão podem ser configurados para se ligarem ao portal Log Analytics para receber informações de configuração e enviar dados recolhidos dependendo das soluções habilitado. Para obter mais informações e passos sobre como configurar o seu grupo de gestão de Gestor de Operações para comunicar através de um portal de Log Analytics para o Monitor Azure, consulte [connect computers to Azure Monitor utilizando o gateway Log Analytics](../../azure-monitor/platform/gateway.md).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar, examine os requisitos a seguir.
+Antes de começar, reveja os seguintes requisitos.
 
-* Azure Monitor só dá suporte a System Center Operations Manager 2016 ou posterior, Operations Manager 2012 SP1 UR6 ou posterior e Operations Manager 2012 R2 UR2 ou posterior. Foi adicionado suporte de proxy ao Operations Manager 2012 SP1 UR7 e ao Operations Manager 2012 R2 UR3.
-* A integração do System Center Operations Manager 2016 com a nuvem do governo dos EUA requer um pacote de gerenciamento do Advisor atualizado incluído no pacote cumulativo de atualizações 2 ou posterior. O System Center Operations Manager 2012 R2 requer um pacote de gerenciamento do Advisor atualizado incluído com o pacote cumulativo de atualizações 3 ou posterior.
-* Todos os agentes do Operations Manager têm de cumprir os requisitos mínimos de suporte. Verifique se os agentes estão na atualização mínima, caso contrário, a comunicação do agente do Windows pode falhar e gerar erros no log de eventos do Operations Manager.
-* Uma área de trabalho do Log Analytics. Para obter mais informações, examine [log Analytics visão geral do espaço de trabalho](design-logs-deployment.md). 
-* Você se autentica no Azure com uma conta que seja membro da [função colaborador de log Analytics](manage-access.md#manage-access-using-azure-permissions).
+* O Azure Monitor apenas suporta o System Center Operations Manager 2016 ou mais tarde, O Gestor de Operações 2012 SP1 UR6 ou posteriormente, e O Gestor de Operações 2012 R2 UR2 ou mais tarde. Foi adicionado suporte de proxy ao Operations Manager 2012 SP1 UR7 e ao Operations Manager 2012 R2 UR3.
+* Integrar o System Center Operations Manager 2016 com a nuvem do Governo dos EUA requer um pacote de gestão de Advisor atualizado incluído com Update Rollup 2 ou mais tarde. System Center Operations Manager 2012 R2 requer um pacote de gestão advisor atualizado incluído com Rollup atualizado 3 ou posterior.
+* Todos os agentes do Operations Manager têm de cumprir os requisitos mínimos de suporte. Certifique-se de que os agentes estão na atualização mínima, caso contrário a comunicação do agente Windows pode falhar e gerar erros no registo de eventos do Gestor de Operações.
+* Uma área de trabalho do Log Analytics. Para mais informações, reveja a visão geral do espaço de [trabalho do Log Analytics](design-logs-deployment.md). 
+* Autentica-se a Azure com uma conta que é membro do papel de Colaborador de [Log Analytics.](manage-access.md#manage-access-using-azure-permissions)
 
-* Regiões com suporte – somente as seguintes regiões do Azure têm suporte pelo System Center Operations Manager para se conectar a um espaço de trabalho do Log Analytics:
+* Regiões Apoiadas - Apenas as seguintes regiões azure são apoiadas pelo System Center Operations Manager para se conectarem a um espaço de trabalho log Analytics:
     - E.U.A. Centro-Oeste
     - Sudeste da Austrália
     - Europa Ocidental
@@ -54,21 +53,21 @@ Antes de iniciar, examine os requisitos a seguir.
     - Sul do Reino Unido
     - Índia Central
     - Canadá Central
-    - E.U.A. Oeste 2
+    - E.U.A.Oeste 2
 
 >[!NOTE]
->As alterações recentes nas APIs do Azure impedirão que os clientes consigam configurar a integração com êxito entre o grupo de gerenciamento e Azure Monitor pela primeira vez. Para os clientes que já tiverem integrado o grupo de gerenciamento com o serviço, você não será afetado, a menos que precise reconfigurar a conexão existente.  
->Um novo pacote de gerenciamento foi lançado para as seguintes versões do Operations Manager:
-> - Para System Center Operations Manager 2019, esse pacote de gerenciamento é incluído na mídia de origem e instalado durante a instalação de um novo grupo de gerenciamento ou durante uma atualização.
->- Operations Manager pacote de gerenciamento 1801 também é aplicável para Operations Manager 1807.
->- Para System Center Operations Manager 1801, baixe o pacote de gerenciamento [aqui](https://www.microsoft.com/download/details.aspx?id=57173).
->- Para o System Center 2016-Operations Manager, baixe o pacote de gerenciamento [aqui](https://www.microsoft.com/download/details.aspx?id=57172).  
->- Para System Center Operations Manager 2012 R2, baixe o pacote de gerenciamento [aqui](https://www.microsoft.com/download/details.aspx?id=57171).  
+>As recentes alterações às APIs do Azure impedirão que os clientes consigam configurar com sucesso a integração entre o seu grupo de gestão e o Monitor Azure pela primeira vez. Para os clientes que já integraram o seu grupo de gestão com o serviço, não é afetado a menos que precise reconfigurar a sua ligação existente.  
+>Foi lançado um novo pacote de gestão para as seguintes versões do Diretor de Operações:
+> - Para o System Center Operations Manager 2019, este pacote de gestão está incluído com os meios de origem e instalado durante a criação de um novo grupo de gestão ou durante uma atualização.
+>- O pacote de gestão 1801 do Gestor de Operações também é aplicável ao Gestor de Operações 1807.
+>- Para System Center Operations Manager 1801, baixe o pacote de gestão a partir [daqui.](https://www.microsoft.com/download/details.aspx?id=57173)
+>- Para system center 2016 - Gestor de Operações, baixe o pacote de gestão a partir [daqui.](https://www.microsoft.com/download/details.aspx?id=57172)  
+>- Para System Center Operations Manager 2012 R2, baixe o pacote de gestão a partir [daqui.](https://www.microsoft.com/download/details.aspx?id=57171)  
 
 
 ### <a name="network"></a>Rede
 
-As informações abaixo listam as informações de configuração de proxy e firewall necessárias para que o agente de Operations Manager, os servidores de gerenciamento e o console de operações se comuniquem com Azure Monitor. O tráfego de cada componente é de saída de sua rede para Azure Monitor.
+As informações abaixo listam as informações de proxy e configuração de firewall necessárias para que o agente do Gestor de Operações, servidores de gestão e consola de operações se comuniquem com o Monitor Azure. O tráfego de cada componente está a sair da sua rede para o Monitor Azure.
 
 |Recurso | Número da porta| Inspeção de HTTP Direto|  
 |---------|------|-----------------------|  
@@ -82,7 +81,7 @@ As informações abaixo listam as informações de configuração de proxy e fir
 |\*.blob.core.windows.net| 443| Sim|  
 |\*.ods.opinsights.azure.com| 443| Sim|  
 |*.azure-automation.net | 443| Sim|  
-|**Operations Manager Console para Azure Monitor**|||  
+|**Consola de Gestor de Operações para O Monitor Azure**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.live.com| 80 e 443||  
@@ -96,22 +95,22 @@ As informações abaixo listam as informações de configuração de proxy e fir
 
 ### <a name="tls-12-protocol"></a>Protocolo TLS 1.2
 
-Para garantir a segurança dos dados em trânsito para Azure Monitor, é altamente recomendável que você configure o agente e o grupo de gerenciamento para usar pelo menos o protocolo TLS (segurança de camada de transporte) 1,2. As versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto trabalham ainda atualmente para permitir a compatibilidade com versões anteriores, estão **não recomendada**. Para obter mais informações, consulte [enviar dados de forma segura através de TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12).
+Para garantir a segurança dos dados em trânsito para o Monitor Azure, encorajamo-lo vivamente a configurar o agente e o grupo de gestão para utilizar pelo menos a Segurança da Camada de Transporte (TLS) 1.2. As versões mais antigas da Camada de Tomadas TLS/Secure (SSL) revelaram-se vulneráveis e, embora ainda trabalhem para permitir a retrocompatibilidade, não são **recomendadas**. Para obter informações adicionais, reveja o [envio de dados de forma segura utilizando o TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12).
 
-## <a name="connecting-operations-manager-to-azure-monitor"></a>Conectando Operations Manager ao Azure Monitor
+## <a name="connecting-operations-manager-to-azure-monitor"></a>Gestor de Operações de Ligação ao Monitor Azure
 
 Realize esta série de passos para configurar o grupo de gestão do Operations Manager para se ligar a uma das suas áreas de trabalho do Log Analytics.
 
-Durante o registro inicial de seu grupo de gerenciamento de Operations Manager com um espaço de trabalho Log Analytics, a opção de especificar a configuração de proxy para o grupo de gerenciamento não está disponível no console de operações.  O grupo de gestão tem de ser registado com êxito no serviço para esta opção ficar disponível.  Para contornar isso, você precisa atualizar a configuração de proxy do sistema usando o netsh no sistema que executa o console de operações do para configurar a integração e todos os servidores de gerenciamento no grupo de gerenciamento.  
+Durante o registo inicial do seu grupo de gestão de Gestão de Operações com um espaço de trabalho log Analytics, a opção de especificar a configuração de procuração para o grupo de gestão não está disponível na consola de Operações.  O grupo de gestão tem de ser registado com êxito no serviço para esta opção ficar disponível.  Para contornar isto, é necessário atualizar a configuração de proxy do sistema utilizando o Netsh no sistema a sua consola de funcionamento de operações para configurar a integração e todos os servidores de gestão do grupo de gestão.  
 
 1. Abra uma linha de comandos elevada.
-   a. Aceda a **começar** e escreva **cmd**.
-   b. Com o botão direito **linha de comandos** e selecionar executar como administrador * *.
+   a. Vá para **Iniciar** e digite **cmd**.
+   b. Clique no comando **de modo** a partir de um pedido e selecione Executar como administrador**.
 1. Introduza o seguinte comando e prima **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-Depois de concluir as etapas a seguir para integrar com o Azure Monitor, você pode remover a configuração executando `netsh winhttp reset proxy` e, em seguida, usar a opção **Configurar servidor proxy** no console de operações para especificar o proxy ou o servidor de gateway de log Analytics.
+Depois de completar os seguintes passos para integrar com o Monitor Azure, pode remover a configuração executando `netsh winhttp reset proxy` e, em seguida, utilizar a opção de **servidor proxy Configure** na consola operações para especificar o servidor de gateway proxy ou Log Analytics.
 
 1. Na consola do Operations Manager, selecione a área de trabalho **Administração**.
 1. Expanda o nó Operations Management Suite e clique em **Ligação**.
@@ -119,12 +118,12 @@ Depois de concluir as etapas a seguir para integrar com o Azure Monitor, você p
 1. Na página **Assistente de Inclusão do Operations Management Suite: Autenticação**, introduza o endereço de e-mail ou o número de telefone e a palavra-passe da conta de administrador associada à sua subscrição do OMS e clique em **Iniciar sessão**.
 
    >[!NOTE]
-   >O nome do Operations Management Suite foi desativado.
+   >O nome da Suite de Gestão de Operações foi retirado.
 
-1. Depois que você for autenticado com êxito, na página **Assistente de integração do Operations Management Suite: selecionar espaço de trabalho** , será solicitado que você selecione seu locatário do Azure, sua assinatura e o espaço de trabalho do log Analytics. Se tiver mais do que uma área de trabalho, selecione a área de trabalho que pretende registar com o grupo de gestão do Operations Manager na lista pendente e clique em **Seguinte**.
+1. Depois de autenticado com sucesso, na suite de gestão de operações Assistente de **embarque: Selecione workspace** page, é solicitado a selecionar o seu inquilino, subscrição e espaço de trabalho Log Analytics. Se tiver mais do que uma área de trabalho, selecione a área de trabalho que pretende registar com o grupo de gestão do Operations Manager na lista pendente e clique em **Seguinte**.
 
    > [!NOTE]
-   > O Operations Manager suporta apenas uma área de trabalho do Log Analytics de cada vez. A conexão e os computadores que foram registrados para Azure Monitor com o espaço de trabalho anterior são removidos do Azure Monitor.
+   > O Operations Manager suporta apenas uma área de trabalho do Log Analytics de cada vez. A ligação e os computadores que estavam registados no Monitor Azure com o espaço de trabalho anterior são removidos do Monitor Azure.
    >
    >
 1. Na página **Assistente de Inclusão do Operations Management Suite: Resumo**, confirme as definições, verifique se estão corretas e clique em **Criar**.
@@ -132,25 +131,25 @@ Depois de concluir as etapas a seguir para integrar com o Azure Monitor, você p
 
 ### <a name="add-agent-managed-computers"></a>Adicionar computadores geridos por agentes
 
-Depois de configurar a integração com seu espaço de trabalho do Log Analytics, ele estabelece apenas uma conexão com o serviço, nenhum dado é coletado dos agentes subordinados ao seu grupo de gerenciamento. Isso só acontecerá depois que você configurar quais computadores gerenciados por agente específicos coletam dados de log para Azure Monitor. Pode selecionar os objetos de computador individualmente ou pode selecionar um grupo que contenha objetos de computador do Windows. Não pode selecionar um grupo que contenha instâncias de outra classe, tais como discos lógicos ou bases de dados SQL.
+Depois de configurar a integração com o seu espaço de trabalho Log Analytics, apenas estabelece uma ligação com o serviço, não são recolhidos dados dos agentes que reportam ao seu grupo de gestão. Isto só acontecerá depois de configurar quais computadores específicos geridos por agentes recolhem dados de registo para o Monitor Azure. Pode selecionar os objetos de computador individualmente ou pode selecionar um grupo que contenha objetos de computador do Windows. Não pode selecionar um grupo que contenha instâncias de outra classe, tais como discos lógicos ou bases de dados SQL.
 
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 1. Expanda o nó Operations Management Suite e clique em **Ligação**.
 1. Clique na ligação **Adicionar um Computador/Grupo** sob o cabeçalho Ações, no lado direito do painel.
-1. Na caixa de diálogo **Pesquisa no Computador**, pode procurar os computadores ou os grupos monitorizados pelo Operations Manager. Selecione computadores ou grupos, incluindo o servidor de gerenciamento de Operations Manager para carregar Azure Monitor, clique em **Adicionar**e, em seguida, clique em **OK**.
+1. Na caixa de diálogo **Pesquisa no Computador**, pode procurar os computadores ou os grupos monitorizados pelo Operations Manager. Selecione computadores ou grupos, incluindo o Servidor de Gestão de Gestão de Gestão de Operações para embarcar para o Monitor Azure, clique em **Adicionar**, e, em seguida, clique em **OK**.
 
 Pode ver os computadores e os grupos configurados para recolher dados a partir do nó Computadores Geridos no Operations Management Suite na área de trabalho **Administração** da Consola de operações. Aqui, pode adicionar ou remover computadores e grupos, conforme necessário.
 
 ### <a name="configure-proxy-settings-in-the-operations-console"></a>Configurar as definições do proxy na Consola de operações
 
-Execute as etapas a seguir se um servidor proxy interno estiver entre o grupo de gerenciamento e Azure Monitor. Essas configurações são gerenciadas centralmente do grupo de gerenciamento e distribuídas para sistemas gerenciados por agente que estão incluídos no escopo para coletar dados de log para Azure Monitor.  Tal é benéfico para quando determinadas soluções ignoram o servidor de gestão e enviam dados diretamente para o serviço.
+Execute os seguintes passos se um servidor de procuração interna estiver entre o grupo de gestão e o Monitor Azure. Estas configurações são geridas centralmente a partir do grupo de gestão e distribuídas para sistemas geridos por agentes que estão incluídos no âmbito para recolher dados de registo para o Monitor Azure.  Tal é benéfico para quando determinadas soluções ignoram o servidor de gestão e enviam dados diretamente para o serviço.
 
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 1. Expanda o Operations Management Suite e clique em **Ligações**.
 1. Na vista Ligação OMS, clique em **Configurar Servidor Proxy**.
 1. Na página **Assistente do Operations Management Suite: Servidor Proxy**, selecione **Utilizar um servidor proxy para aceder ao Operations Management Suite**, escreva o URL com o número da porta, por exemplo, http://corpproxy:80 e, em seguida, clique em **Concluir**.
 
-Se o servidor proxy exigir autenticação, execute as etapas a seguir para configurar as credenciais e as configurações que precisam ser propagadas para os computadores gerenciados que os relatórios Azure Monitor no grupo de gerenciamento.
+Se o seu servidor proxy necessitar de autenticação, execute os seguintes passos para configurar credenciais e configurações que precisam de se propagar para computadores geridos que reportam ao Azure Monitor no grupo de gestão.
 
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 1. Em **Configuração RunAs**, selecione **Perfis**.
@@ -161,40 +160,40 @@ Se o servidor proxy exigir autenticação, execute as etapas a seguir para confi
 1. Clique em **OK** para fechar a caixa **Adicionar uma conta Run As**.
 1. Clique em **Guardar** para concluir o assistente e guardar as alterações.
 
-Depois que a conexão é criada e você configura quais agentes coletarão e relatarão dados de log para Azure Monitor, a configuração a seguir será aplicada no grupo de gerenciamento, não necessariamente na ordem:
+Após a criação da ligação e configurar quais os agentes que irão recolher e reportar dados de registo ao Monitor Azure, a seguinte configuração é aplicada no grupo de gestão, não necessariamente por ordem:
 
 * É criada a Conta Run As **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate**. A conta é associada ao perfil Run As **Blob do Perfil Run As do Microsoft System Center Advisor** e é direcionada para duas classes – **Servidor de Recolha** e **Grupo de Gestão do Operations Manager**.
-* São criados dois conectores.  O primeiro é chamado de **Microsoft. SystemCenter. Advisor. Dataconnecter** e é configurado automaticamente com uma assinatura que encaminha todos os alertas gerados de instâncias de todas as classes no grupo de gerenciamento para Azure monitor. O segundo conector é o **Advisor Connector**, que é responsável por se comunicar com Azure monitor e compartilhar dados.
+* São criados dois conectores.  O primeiro chama-se **Microsoft.SystemCenter.Advisor.DataConnector** e é configurado automaticamente com uma subscrição que reencaminha todos os alertas gerados de instâncias de todas as classes do grupo de gestão para o Monitor Azure. O segundo conector é **advisor Connector,** que é responsável pela comunicação com o Monitor Azure e partilha de dados.
 * Os agentes e os grupos que selecionou para recolher dados no grupo de gestão são adicionados ao **Grupo de Servidores de Monitorização do Microsoft System Center Advisor**.
 
 ## <a name="management-pack-updates"></a>Atualizações dos pacotes de gestão
 
-Após a conclusão da configuração, o grupo de gerenciamento Operations Manager estabelece uma conexão com Azure Monitor. O servidor de gestão é sincronizado com o serviço Web e recebe informações de configuração atualizadas sob a forma de pacotes de gestão para as soluções ativadas que se integram com o Operations Manager. Operations Manager verifica se há atualizações desses pacotes de gerenciamento e os importa automaticamente quando estão disponíveis. Existem duas regras específicas que controlam este comportamento:
+Após a configuração ser concluída, o grupo de gestão do Gestor de Operações estabelece uma ligação com o Monitor Azure. O servidor de gestão é sincronizado com o serviço Web e recebe informações de configuração atualizadas sob a forma de pacotes de gestão para as soluções ativadas que se integram com o Operations Manager. O Gestor de Operações verifica as atualizações destes pacotes de gestão e descarrega-os automaticamente e importa-os quando estão disponíveis. Existem duas regras específicas que controlam este comportamento:
 
-* **Microsoft. SystemCenter. Advisor. MPUpdate** -atualiza os pacotes de gerenciamento de Azure monitor base. Por predefinição, é executada a cada 12 horas.
+* **Microsoft.SystemCenter.Advisor.MPUpdate** - Atualiza os pacotes de gestão base Do Monitor Do Azure. Por predefinição, é executada a cada 12 horas.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** – Atualiza os pacotes de gestão de soluções ativadas na sua área de trabalho. Por predefinição, é executada a cada cinco (5) minutos.
 
-Você pode substituir essas duas regras para impedir o download automático desabilitando-os ou modificar a frequência com que o servidor de gerenciamento é sincronizado com Azure Monitor para determinar se um novo pacote de gerenciamento está disponível e deve ser baixado. Siga os passos em [Como Substituir uma Regra ou um Monitor](https://technet.microsoft.com/library/hh212869.aspx) para modificar o parâmetro **Frequência** por um valor em segundos, para alterar a agenda de sincronização ou modificar o parâmetro **Ativada** para desativar as regras. Escolha as substituições para todos os objetos da classe do Grupo de Gestão do Operations Manager.
+Pode anular estas duas regras para impedir o descarregamento automático, desativando-as, ou modificando a frequência da frequência com que o servidor de gestão sincroniza com o Monitor Azure para determinar se um novo pacote de gestão está disponível e deve ser descarregado. Siga os passos em [Como Substituir uma Regra ou um Monitor](https://technet.microsoft.com/library/hh212869.aspx) para modificar o parâmetro **Frequência** por um valor em segundos, para alterar a agenda de sincronização ou modificar o parâmetro **Ativada** para desativar as regras. Escolha as substituições para todos os objetos da classe do Grupo de Gestão do Operations Manager.
 
-Para continuar seguindo o processo de controle de alterações existente para controlar as versões do pacote de gerenciamento em seu grupo de gerenciamento de produção, você pode desabilitar as regras e habilitá-las durante horários específicos quando as atualizações forem permitidas. Se tiver um grupo de desenvolvimento ou de gestão de QA no seu ambiente e este tiver conetividade à Internet, poderá configurar esse grupo de gestão com uma área de trabalho do Log Analytics para suportar este cenário. Isso permite que você examine e avalie as versões iterativas dos pacotes de gerenciamento do Azure Monitor antes de liberá-los para o grupo de gerenciamento de produção.
+Para continuar a seguir o processo de controlo de alterações existente para controlar as libertações de pacotes de gestão no seu grupo de gestão de produção, pode desativar as regras e capacitá-las em momentos específicos em que as atualizações são permitidas. Se tiver um grupo de desenvolvimento ou de gestão de QA no seu ambiente e este tiver conetividade à Internet, poderá configurar esse grupo de gestão com uma área de trabalho do Log Analytics para suportar este cenário. Isto permite-lhe rever e avaliar os lançamentos iterativos dos pacotes de gestão Do Monitor Azure antes de os lançar no seu grupo de gestão de produção.
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Mudar de um grupo do Operations Manager para uma nova Área de Trabalho do Log Analytics
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics** e, em seguida, crie uma área de trabalho.  
 1. Abra a consola do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager e selecione a área de trabalho **Administração**.
-1. Expanda Log Analytics e selecione **conexões**.
+1. Expandir o Log Analytics e selecionar **Ligações**.
 1. Selecione a ligação **Reconfigurar o Operation Management Suite** no meio do painel.
-1. Siga o **Assistente de integração de log Analytics** e insira o endereço de email ou o número de telefone e a senha da conta de administrador que está associada ao seu novo espaço de trabalho do log Analytics.
+1. Siga o Assistente de Acesso de **Log Analytics** e introduza o endereço de e-mail ou número de telefone e a palavra-passe da conta de administrador que está associada ao seu novo espaço de trabalho do Log Analytics.
 
    > [!NOTE]
    > A página **Assistente de Inclusão do Operations Management Suite: Selecionar Área de Trabalho** apresenta a área de trabalho existente que está a ser utilizada.
    >
    >
 
-## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Validar a integração de Operations Manager com o Azure Monitor
+## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Validar Integração de Gestor de Operações com o Monitor Azure
 
-Há algumas maneiras diferentes de verificar se Azure Monitor Operations Manager integração foi bem-sucedida.
+Existem algumas formas diferentes de verificar se a integração do Azure Monitor para o Gestor de Operações é bem sucedida.
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>Para confirmar a integração no portal do Azure
 
@@ -214,11 +213,11 @@ Há algumas maneiras diferentes de verificar se Azure Monitor Operations Manager
 
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
-## <a name="remove-integration-with-azure-monitor"></a>Remover a integração com o Azure Monitor
+## <a name="remove-integration-with-azure-monitor"></a>Remover integração com o Monitor Azure
 
-Quando já não necessitar da integração entre o grupo de gestão do Operations Manager e a área de trabalho do Log Analytics, existem vários passos necessários para remover corretamente a ligação e a configuração no grupo de gestão. O procedimento a seguir atualiza seu espaço de trabalho Log Analytics excluindo a referência do seu grupo de gerenciamento, exclui os conectores de Azure Monitor e, em seguida, exclui os pacotes de gerenciamento que dão suporte à integração com o serviço.  
+Quando já não necessitar da integração entre o grupo de gestão do Operations Manager e a área de trabalho do Log Analytics, existem vários passos necessários para remover corretamente a ligação e a configuração no grupo de gestão. O procedimento seguinte faz com que atualize o seu espaço de trabalho Log Analytics eliminando a referência do seu grupo de gestão, eliminando os conectores Do Monitor Azure e, em seguida, elimine pacotes de gestão que suportem a integração com o serviço.  
 
-Pacotes de gerenciamento para as soluções que você habilitou que se integram com Operations Manager e os pacotes de gerenciamento necessários para dar suporte à integração com Azure Monitor não podem ser facilmente excluídos do grupo de gerenciamento. Isso ocorre porque alguns dos pacotes de gerenciamento Azure Monitor têm dependências em outros pacotes de gerenciamento relacionados. Para eliminar pacotes de gestão com dependências noutros pacotes de gestão, transfira o script [remover um pacote de gestão com dependências](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) do Centro de Scripts do TechNet.  
+Os pacotes de gestão para as soluções que permitiu que se integrem com o Gestor de Operações e os pacotes de gestão necessários para apoiar a integração com o Azure Monitor não podem ser facilmente eliminados do grupo de gestão. Isto porque alguns dos pacotes de gestão do Azure Monitor têm dependências de outros pacotes de gestão relacionados. Para eliminar pacotes de gestão com dependências noutros pacotes de gestão, transfira o script [remover um pacote de gestão com dependências](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) do Centro de Scripts do TechNet.  
 
 1. Abra a Shell de Comandos do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager.
 
@@ -231,7 +230,7 @@ Pacotes de gerenciamento para as soluções que você habilitou que se integram 
 1. Para remover quaisquer pacotes de gestão restantes que tenham dependências noutros pacotes de gestão do System Center Advisor, utilize o script *RecursiveRemove.ps1* que transferiu do Centro de Scripts da TechNet anteriormente.  
 
     > [!NOTE]
-    > A etapa para remover os pacotes de gerenciamento do Advisor com o PowerShell não excluirá automaticamente os pacotes de gerenciamento internos do Microsoft System Center Advisor ou do Microsoft System Center Advisor.  Não tente excluí-los.  
+    > O passo para remover os pacotes de gestão do Advisor com o PowerShell não eliminará automaticamente os pacotes internos do Microsoft System Center Advisor ou do Microsoft System Center Advisor.  Não tente eliminá-los.  
     >  
 
 1. Abra a consola de Operações do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager.
@@ -240,9 +239,9 @@ Pacotes de gerenciamento para as soluções que você habilitou que se integram 
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Interno
 
-1. No portal do Azure, clique no bloco **configurações** .
-1. Selecione **fontes conectadas**.
-1. Na tabela na seção System Center Operations Manager, você deve ver o nome do grupo de gerenciamento que deseja remover do espaço de trabalho. Sob a coluna **Últimos Dados**, clique em **Remover**.  
+1. No portal Azure, clique no azulejo **Definições.**
+1. Selecione **Fontes Ligadas**.
+1. Na tabela sob a secção Gestor de Operações do System Center, deve ver o nome do grupo de gestão que pretende remover do espaço de trabalho. Sob a coluna **Últimos Dados**, clique em **Remover**.  
 
     > [!NOTE]
     > A ligação **Remover** só estará disponível após 14 dias se não existir nenhuma atividade detetada no grupo de gestão ligado.  
@@ -348,11 +347,11 @@ Para eliminar os dois conectores – Microsoft.SystemCenter.Advisor.DataConnecto
     Remove-Connector $connectorName
 ```
 
-No futuro, se você planeja reconectar seu grupo de gerenciamento a um espaço de trabalho do Log Analytics, você precisará importar novamente o arquivo do pacote de gerenciamento do `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb`. Consoante a versão do System Center Operations Manager implementada no seu ambiente, pode encontrar este ficheiro na seguinte localização:
+No futuro, se planeia reconectar o seu grupo de gestão a um espaço de trabalho de Log Analytics, precisa de reimportar o ficheiro de pacote de gestão `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb`. Consoante a versão do System Center Operations Manager implementada no seu ambiente, pode encontrar este ficheiro na seguinte localização:
 
 * No suporte de dados de origem na pasta `\ManagementPacks` do System Center 2016 – Operations Manager e superior.
-* No rollup de atualizações mais recentes aplicado ao grupo de gestão. Para Operations Manager 2012, a pasta de origem é `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e para 2012 R2, ela está localizada em `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* No rollup de atualizações mais recentes aplicado ao grupo de gestão. Para o Gestor de Operações 2012, a pasta de origem é `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e para 2012 R2, está localizada em `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para adicionar funcionalidade e coletar dados, consulte [Adicionar soluções de Azure monitor do Galeria de soluções](../../azure-monitor/insights/solutions.md).
+Para adicionar funcionalidade e recolher dados, consulte [soluções Add Azure Monitor a partir da Galeria soluções](../../azure-monitor/insights/solutions.md).

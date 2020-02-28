@@ -1,6 +1,6 @@
 ---
-title: Tutorial para usar os sinalizadores de recurso em um aplicativo Spring boot – Azure App configuração | Microsoft Docs
-description: Neste tutorial, você aprenderá a implementar sinalizadores de recursos em aplicativos Spring boot.
+title: Tutorial para usar bandeiras de recurso numa aplicação spring boot - Configuração de aplicações Azure [ Configuração de aplicações de Azure ] Microsoft Docs
+description: Neste tutorial, você aprende a implementar bandeiras de recurso em aplicativos Spring Boot.
 services: azure-app-configuration
 documentationcenter: ''
 author: mrm9084
@@ -14,30 +14,30 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc
-ms.openlocfilehash: 8c66e2995462701f7ddaefc3a2623c02fee883ef
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 090ede85301f9e7aff14394c8fb5c7d558d98dd4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687172"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656029"
 ---
-# <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Usar sinalizadores de recurso em um aplicativo Spring boot
+# <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Use bandeiras de recurso numa aplicação spring boot
 
-As bibliotecas do Spring boot Core Feature Management oferecem suporte à implementação de sinalizadores de recursos em um aplicativo Spring boot. Essas bibliotecas permitem que você adicione sinalizadores de recurso declarativamente ao seu código.
+As bibliotecas de Gestão de Recursos de Base de Botas de primavera fornecem suporte para a implementação de bandeiras de recurso numa aplicação spring boot. Estas bibliotecas permitem-lhe adicionar declarativamente bandeiras de recurso ao seu código.
 
-As bibliotecas de gerenciamento de recursos também gerenciam os ciclos de vida do sinalizador de recursos nos bastidores. Por exemplo, as bibliotecas atualizam e armazenam em cache os Estados de sinalizador ou garantem que um estado de sinalizador seja imutável durante uma chamada de solicitação. Além disso, a biblioteca Spring boot oferece integrações, incluindo ações do controlador MVC, rotas e middleware.
+As bibliotecas de Gestão de Recursos também gerem ciclos de vida de bandeira nos bastidores. Por exemplo, as bibliotecas refrescam e cache bandeira, ou garantem que um estado de bandeira seja imutável durante uma chamada de pedido. Além disso, a biblioteca Spring Boot oferece integrações, incluindo ações de controlador MVC, rotas e middleware.
 
-O guia de [início rápido adicionar sinalizadores de recurso a um aplicativo Spring boot](./quickstart-feature-flag-spring-boot.md) mostra várias maneiras de adicionar sinalizadores de recurso em um aplicativo Spring boot. Este tutorial explica esses métodos mais detalhadamente.
+As [bandeiras de recurso Add para uma aplicação Spring Boot Quickstart](./quickstart-feature-flag-spring-boot.md) mostram várias formas de adicionar bandeiras de funcionalidade seletiva numa aplicação spring boot. Este tutorial explica estes métodos com mais detalhes.
 
 Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
-> * Adicione sinalizadores de recurso em partes principais de seu aplicativo para controlar a disponibilidade do recurso.
-> * Integre com a configuração de aplicativo quando estiver usando-a para gerenciar sinalizadores de recurso.
+> * Adicione bandeiras de características em partes chave da sua aplicação para controlar a disponibilidade da funcionalidade.
+> * Integre com a Configuração de Aplicações quando estiver a usá-la para gerir as bandeiras de recurso.
 
-## <a name="set-up-feature-management"></a>Configurar o gerenciamento de recursos
+## <a name="set-up-feature-management"></a>Configurar a gestão de recursos
 
-O Gerenciador de recursos do Spring boot `FeatureManager` obtém sinalizadores de recurso do sistema de configuração nativa da estrutura. Como resultado, você pode definir os sinalizadores de recurso do aplicativo usando qualquer fonte de configuração com suporte do Spring boot, incluindo o arquivo *. yml* ou as variáveis de ambiente do bootstrap local. `FeatureManager` depende da injeção de dependência. Você pode registrar os serviços de gerenciamento de recursos usando convenções padrão:
+O gestor de funcionalidades da Spring Boot `FeatureManager` recebe bandeiras do sistema de configuração nativa do quadro. Como resultado, pode definir as bandeiras de características da sua aplicação utilizando qualquer fonte de configuração que a Spring Boot suporte, incluindo o ficheiro *de bootstrap.yml* local ou variáveis ambientais. `FeatureManager` depende da injeção de dependência. Pode registar os serviços de gestão de funcionalidades utilizando convenções padrão:
 
 ```java
 private FeatureManager featureManager;
@@ -47,54 +47,65 @@ public HelloController(FeatureManager featureManager) {
 }
 ```
 
-Recomendamos que você mantenha os sinalizadores de recurso fora do aplicativo e gerencie-os separadamente. Isso permite que você modifique os Estados de sinalizador a qualquer momento e faça com que essas alterações entrem em vigor no aplicativo imediatamente. A configuração de aplicativo fornece um local centralizado para organizar e controlar todos os sinalizadores de recursos por meio de uma interface do usuário do portal dedicada. A configuração de aplicativo também fornece os sinalizadores para seu aplicativo diretamente por meio de suas bibliotecas de cliente Spring boot.
+Recomendamos que mantenha as bandeiras fora da aplicação e as gere separadamente. Ao fazê-lo, permite-lhe modificar os estados de bandeira a qualquer momento e fazer com que essas alterações entrem imediatamente em vigor na aplicação. A Configuração da Aplicação fornece um local centralizado para organizar e controlar todas as suas bandeiras através de um portal dedicado UI. A Configuração da Aplicação também entrega as bandeiras à sua aplicação diretamente através das bibliotecas de clientes spring boot.
 
-A maneira mais fácil de conectar seu aplicativo Spring boot à configuração do aplicativo é por meio do provedor de configuração:
+A forma mais fácil de ligar a sua aplicação Spring Boot à Configuração de Aplicações é através do fornecedor de configuração:
+
+### <a name="spring-cloud-11x"></a>Nuvem de primavera 1.1.x
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-    <version>1.1.0.M4</version>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.1.1</version>
 </dependency>
 ```
 
-## <a name="feature-flag-declaration"></a>Declaração de sinalizador de recurso
+### <a name="spring-cloud-12x"></a>Nuvem de primavera 1.2.x
 
-Cada sinalizador de recurso tem duas partes: um nome e uma lista de um ou mais filtros que são usados para avaliar se o estado de um recurso está *ativado* (ou seja, quando seu valor é `True`). Um filtro define um caso de uso para quando um recurso deve ser ativado.
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.2.1</version>
+</dependency>
+```
 
-Quando um sinalizador de recurso tem vários filtros, a lista de filtros é percorrida na ordem até que um dos filtros determine que o recurso deve ser habilitado. Nesse ponto, o sinalizador do recurso está *ativado*e os resultados restantes do filtro são ignorados. Se nenhum filtro indicar que o recurso deve ser habilitado, o sinalizador de recurso será *desativado*.
+## <a name="feature-flag-declaration"></a>Declaração de bandeira de recurso
 
-O Gerenciador de recursos dá suporte a *Application. yml* como uma fonte de configuração para sinalizadores de recurso. O exemplo a seguir mostra como configurar sinalizadores de recurso em um arquivo YAML:
+Cada bandeira de recurso tem duas partes: um nome e uma lista de um ou mais filtros que são usados para avaliar se o estado de uma característica está *ligado* (isto é, quando o seu valor é `True`). Um filtro define um caso de utilização para quando uma função deve ser ligada.
+
+Quando uma bandeira de características tem vários filtros, a lista de filtros é atravessada para poder até que um dos filtros determine que a funcionalidade deve ser ativada. Nessa altura, a bandeira da característica está *asereda,* e os resultados restantes do filtro são ignorados. Se nenhum filtro indicar que a função deve ser ativada, a bandeira de características está *desligada*.
+
+O gestor de funcionalidades suporta a *aplicação.yml* como fonte de configuração para as bandeiras de recurso. O exemplo que se segue mostra como configurar bandeiras de recurso num ficheiro YAML:
 
 ```yml
 feature-management:
-  featureSet:
-    features:
-      FeatureA: true
-      FeatureB: false
-      FeatureC:
-        EnabledFor:
-          -
-            name: Percentage
-            parameters:
-              value: 50
+  feature-set:
+    feature-a: true
+    feature-b: false
+    feature-c:
+      enabled-for:
+        -
+          name: Percentage
+          parameters:
+            value: 50
 ```
 
-Por convenção, a seção `feature-management` deste documento YML é usada para configurações de sinalizador de recurso. O exemplo anterior mostra três sinalizadores de recurso com seus filtros definidos na propriedade `EnabledFor`:
+Por convenção, a secção `feature-management` deste documento YML é utilizada para configurações de bandeira de características. O exemplo anterior mostra três bandeiras de características com os seus filtros definidos na propriedade `EnabledFor`:
 
-* `FeatureA` está *on*.
-* `FeatureB` está *desativado*.
-* `FeatureC` especifica um filtro chamado `Percentage` com uma propriedade `Parameters`. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para que o sinalizador de `FeatureC` seja *ativado*.
+* `feature-a` está *ligado.*
+* `feature-b` está *desligado.*
+* `feature-c` especifica um filtro chamado `Percentage` com uma propriedade `parameters`. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a bandeira `feature-c` estar *em .*
 
-## <a name="feature-flag-checks"></a>Verificações de sinalizador de recurso
+## <a name="feature-flag-checks"></a>Verificações de bandeiras de características
 
-O padrão básico do gerenciamento de recursos é verificar primeiro se um sinalizador de recurso está definido como *on*. Nesse caso, o Gerenciador de recursos executa as ações que o recurso contém. Por exemplo:
+O padrão básico de gestão de recursos é verificar primeiro se uma bandeira de característicaestá definida *.* Em caso afirmativo, o gestor de funcionalidades executa as ações que a funcionalidade contém. Por exemplo:
 
 ```java
 private FeatureManager featureManager;
 ...
-if (featureManager.isEnabled("FeatureA"))
+if (featureManager.isEnabledAsync("feature-a"))
 {
     // Run the following code
 }
@@ -102,7 +113,7 @@ if (featureManager.isEnabled("FeatureA"))
 
 ## <a name="dependency-injection"></a>Injeção de dependência
 
-No Spring boot, você pode acessar o Gerenciador de recursos `FeatureManager` por meio da injeção de dependência:
+No Spring Boot, pode aceder ao gestor de recursos `FeatureManager` através de injeção de dependência:
 
 ```java
 @Controller
@@ -118,21 +129,21 @@ public class HomeController {
 
 ## <a name="controller-actions"></a>Ações do controlador
 
-Em controladores MVC, você usa o atributo `@FeatureGate` para controlar se uma ação específica está habilitada. A ação `Index` a seguir requer que `FeatureA` esteja *ativada* para que possa ser executada:
+Nos controladores MVC, utiliza-se o `@FeatureGate` atributo para controlar se uma ação específica está ativada. As seguintes `Index` medidas exigem que `feature-a` esteja *em funcionando* antes de poder ser executado:
 
 ```java
 @GetMapping("/")
-@FeatureGate(feature = "FeatureA")
+@FeatureGate(feature = "feature-a")
 public String index(Model model) {
     ...
 }
 ```
 
-Quando um controlador MVC ou uma ação é bloqueada porque o sinalizador de recurso de controle está *desativado*, uma interface `IDisabledFeaturesHandler` registrada é chamada. A interface padrão `IDisabledFeaturesHandler` retorna um código de status 404 para o cliente sem corpo de resposta.
+Quando um controlador ou ação mvc é bloqueado porque a bandeira da característica de controlo está *desligada,* uma interface `IDisabledFeaturesHandler` registada é chamada. A interface `IDisabledFeaturesHandler` padrão devolve um código de estado 404 ao cliente sem corpo de resposta.
 
 ## <a name="mvc-filters"></a>Filtros MVC
 
-Você pode configurar filtros MVC para que eles sejam ativados com base no estado de um sinalizador de recurso. O código a seguir adiciona um filtro MVC chamado `FeatureFlagFilter`. Esse filtro será disparado no pipeline MVC somente se `FeatureA` estiver habilitado.
+Pode configurar filtros MVC para que sejam ativados com base no estado de uma bandeira de recurso. O código seguinte adiciona um filtro MVC chamado `FeatureFlagFilter`. Este filtro só é acionado dentro do gasoduto MVC se `feature-a` estiver ativado.
 
 ```java
 @Component
@@ -144,7 +155,7 @@ public class FeatureFlagFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if(!featureManager.isEnabled("FeatureA")) {
+        if(!featureManager.isEnabled("feature-a")) {
             chain.doFilter(request, response);
             return;
         }
@@ -156,11 +167,11 @@ public class FeatureFlagFilter implements Filter {
 
 ## <a name="routes"></a>Rotas
 
-Você pode usar sinalizadores de recurso para redirecionar rotas. O código a seguir redirecionará um usuário do `FeatureA` está habilitado:
+Pode utilizar bandeiras de recurso para redirecionar rotas. O seguinte código redirecionará um utilizador de `feature-a` está ativado:
 
 ```java
 @GetMapping("/redirect")
-@FeatureGate(feature = "FeatureA", fallback = "/getOldFeature")
+@FeatureGate(feature = "feature-a", fallback = "/getOldFeature")
 public String getNewFeature() {
     // Some New Code
 }
@@ -173,7 +184,7 @@ public String getOldFeature() {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a implementar sinalizadores de recurso em seu aplicativo Spring boot usando as bibliotecas `spring-cloud-azure-feature-management-web`. Para obter mais informações sobre o suporte ao gerenciamento de recursos no Spring boot e na configuração do aplicativo, consulte os seguintes recursos:
+Neste tutorial, aprendeu a implementar bandeiras de recurso na sua aplicação Spring Boot utilizando as bibliotecas `spring-cloud-azure-feature-management-web`. Para obter mais informações sobre o suporte de gestão de funcionalidades na Configuração de Boot e App spring, consulte os seguintes recursos:
 
-* [Código de exemplo do sinalizador de recursos do Spring boot](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Código de amostra de porta-botas de mola](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
 * [Gerir sinalizadores de funcionalidades](./manage-feature-flags.md)

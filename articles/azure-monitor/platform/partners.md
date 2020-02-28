@@ -1,18 +1,15 @@
 ---
 title: Parceiros que integram com o Azure Monitor
 description: Conheça os parceiros do Azure Monitor e como pode aceder à documentação para integrar com eles.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: e111bcdde9381e8e418e7027d8294aa7dad7e39d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40ba4c4f0a90d5bca03afea67302a5dbb77de027
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023876"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659463"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -73,7 +70,7 @@ A CloudMonix oferece serviços de monitorização, automação e auto-cura para 
 
 [Vá à documentação.][cloudmonix-doc]
 
-## <a name="datadog"></a>Datadog
+## <a name="datadog"></a>Cão de Dados
 
 ![Logotipo dataDog](./media/partners/datadog.png)
 
@@ -140,7 +137,7 @@ O Microfocus **ArcSight** tem um conector inteligente para centros de eventos Az
 
 A Microfocus **Operations Bridge** monitoriza automaticamente todos os recursos de TI híbridos – qualquer dispositivo, sistema operativo, base de dados, aplicação ou serviço, independentemente do local onde funciona e aplica AIOps a todos os tipos de dados – eventos, métricas, registos e dependências. Fornece uma combinação única de monitorização da qualidade do serviço, juntamente com análises profundas de saúde de aplicações, e inclui monitorização abrangente de desempenho e disponibilidade dos serviços do Microsoft Azure. A Operations Bridge permite que os clientes forneçam um único painel de vidro, disponível em qualquer dispositivo com um browser, de forma a que tanto as empresas como as partes interessadas em TI possam compreender.
 
-Saber mais
+Saiba mais
 - [Visão geral da Suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope é um componente na Suite De Operações Bridge.
@@ -190,7 +187,7 @@ PagerDuty, a principal solução de gestão de incidentes, forneceu suporte de p
 
 ![Logotipo do QRadar](./media/partners/qradar.png)
 
-O Microsoft Azure DSM e Microsoft Azure protocolo Hub de eventos estão disponíveis para download no [site de suporte da IBM](https://www.ibm.com/support). Pode [Saber mais sobre a integração com o Azure aqui][qradar-doc].
+O Microsoft Azure DSM e o Microsoft Azure Event Hub Protocol estão disponíveis para download a partir do site de [suporte da IBM.](https://www.ibm.com/support) Pode [Saber mais sobre a integração com o Azure aqui][qradar-doc].
 
 ## <a name="sciencelogic"></a>ScienceLogic
 
@@ -247,7 +244,7 @@ A Sumo Logic é um serviço de análise de dados seguros, nativos em nuvem, de d
 
 ![Logotipo turbonómico](./media/partners/Turbonomic.png)
 
-O Turbonomic entrega uma automação de carga de trabalho para clouds híbridas ao otimizar em simultâneo o desempenho, custo e conformidade em tempo real. A Turbonómica ajuda as organizações a serem elásticas na sua propriedade Azure, otimizando continuamente a propriedade para garantir que as aplicações recebem constantemente os recursos necessários para entregar o seu SLA e nada mais através da computação, armazenamento e rede para o IaaS e PaaS camada. As organizações podem simular migrações, escalar adequadamente as cargas de trabalho e retirar recursos do datacenter para migrar em tempo útil para Azure, dentro do orçamento, garantindo tanto o desempenho como o cumprimento. O Turbonomic é orientado por API e executa como uma VM sem agente no Azure e local.
+A Turbonómica fornece automatização de carga de trabalho para nuvens híbridas, otimizando simultaneamente o desempenho, o custo e a conformidade em tempo real. A Turbonómica ajuda as organizações a serem elásticas na sua propriedade Azure, otimizando continuamente a propriedade para garantir que as aplicações recebem constantemente os recursos necessários para entregar o seu SLA e nada mais através da computação, armazenamento e rede para o IaaS e PaaS camada. As organizações podem simular migrações, escalar adequadamente as cargas de trabalho e retirar recursos do datacenter para migrar em tempo útil para Azure, dentro do orçamento, garantindo tanto o desempenho como o cumprimento. O turbonómico é conduzido pela API e funciona como um VM sem agente em Azure e no local.
 
 [Saiba mais.][turbonomic-doc]
 

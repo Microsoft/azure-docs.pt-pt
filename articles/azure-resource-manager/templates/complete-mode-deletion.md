@@ -2,13 +2,13 @@
 title: Eliminação completa de modo
 description: Mostra como os tipos de recursos lidam com a eliminação completa do modo nos modelos do Gestor de Recursos Do Azure.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 80d2ee356e3bc15a178862c453bf7f1ab8d66c77
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 5f797974212636460306c6a17869d6b8380545ab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207813"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664411"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminação dos recursos do Azure para implementações completas de modos
 
@@ -141,7 +141,6 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Recursos](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -297,6 +296,9 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | automatizaçõesContas | Sim |
 > | automatizaçãoContas / configurações | Sim |
 > | automaçãoContas / empregos | Não |
+> | automatizaçãoContas / privateEndpointConnectionProxies | Não |
+> | automatizaçõesContas / privateEndpointConnections | Não |
+> | automatizaçãoContas / privateLinkResources | Não |
 > | automaçãoContas / livros de execução | Sim |
 > | automatizaçõesContas / softwareUpdateConfiguras | Não |
 > | automatizaçãoContas / webhooks | Não |
@@ -716,6 +718,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | registos / importaçãoImagem | Não |
 > | registos / privateEndpointConnectionProxies | Não |
 > | registos / privateEndpointConnectionProxies / validar | Não |
+> | registos / privateEndpointConnections | Não |
 > | registos / privateLinkResources | Não |
 > | registos / filaConstruir | Não |
 > | registos / regeneraçãoCredential | Não |
@@ -762,7 +765,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Departamentos | Não |
 > | Dimensões | Não |
 > | Contas de Inscrição | Não |
-> | Port | Não |
+> | Exportações | Não |
 > | Contas de Faturação Externa | Não |
 > | Contas /Alertas de Faturação Externa | Não |
 > | Contas /Dimensões de Faturação Externa | Não |
@@ -1057,6 +1060,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | partnerNamespaces / eventoChannels | Não |
 > | parceiroSRegistrations | Sim |
 > | parceiroTópicos | Sim |
+> | partnerTopics / eventoSSubscrições | Não |
 > | sistemaTópicos | Sim |
 > | sistemaTópicos / eventosSubscrições | Não |
 > | tópicos | Sim |
@@ -1274,7 +1278,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
-> | Identities | Não |
+> | identidades | Não |
 > | userAssignedIdentities | Sim |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
@@ -1293,6 +1297,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | getEntities | Não |
 > | grupos de gestão | Não |
+> | grupos de gestão / configurações | Não |
 > | recursos | Não |
 > | startTenantBackfill | Não |
 > | inquilinoBackfillStatus | Não |
@@ -1554,6 +1559,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | legacyPeerings | Não |
 > | peerAsns | Não |
 > | os pares | Sim |
+> | peeringServiceCountries | Não |
 > | peeringServiceProviders | Não |
 > | peeringServices | Sim |
 
@@ -1591,7 +1597,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- |
 > | capacidades | Sim |
 
-## <a name="microsoftprojectbabylon"></a>Microsoft. ProjectBabylon
+## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminação completa de modo |
@@ -1679,13 +1685,6 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | aplicações | Sim |
 > | recursos saasrecursos | Não |
 
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Eliminação completa de modo |
-> | ------------- | ----------- |
-> | recolhas de emprego | Sim |
-
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
@@ -1754,7 +1753,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | agregações | Não |
 > | alertaRegras | Não |
 > | modelos de regras de alerta | Não |
-> | marcadores | Não |
+> | Marcadores | Não |
 > | casos | Não |
 > | dataCotes | Não |
 > | dataConnectorsCheckRequisitos | Não |
@@ -2015,6 +2014,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | dispositivos | Sim |
+> | assinaturas registadas | Não |
 > | fornecedores | Não |
 > | fornecedores / skus | Não |
 > | fornecedores / vnfs | Não |

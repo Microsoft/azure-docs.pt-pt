@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 45fa6a332697cf298b2446212701025007682357
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 9bc5be37f3892186233fac197c08066dbfacb43f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754250"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780600"
 ---
-Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar uma base de dados e um contentor. 
+Agora pode utilizar a ferramenta Data Explorer no portal Azure para criar uma base de dados e um recipiente. 
 
-1. Selecione **o Data Explorer** > **novo contentor**. 
+1. Selecione **Data Explorer** > **Novo Recipiente**. 
     
-    O **adicionar contentor** área é apresentada na extremidade direita, poderá ter de se deslocar para a direita para vê-lo.
+    A área **add container** é exibida na extrema-direita, pode ser necessário rolar para a direita para vê-lo.
 
-    ![O portal do Azure Data Explorer, no painel Adicionar contentor](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    ![O portal Azure Data Explorer, Adicionar painel de contentores](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
-2. Na **adicionar contentor** página, introduza as definições para o novo contentor.
+2. Na página **'Adicionar',** introduza as definições para o novo recipiente.
 
     |Definição|Valor sugerido|Descrição
     |---|---|---|
-    |**ID da Base de Dados**|Tarefas|Introduza *ToDoList* como o nome para a nova base de dados. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita. Verifique os **débito de base de dados de aprovisionamento** opção, permite-lhe partilhar o débito aprovisionado para a base de dados em todos os contentores na base de dados. Esta opção também ajuda a com redução de custos. |
-    |**Débito**|400|Deixe o débito com 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
-    |**ID de contentor**|Itens|Introduza *itens* como o nome para o novo contentor. IDs de contentor têm os mesmos requisitos como nomes de base de dados.|
-    |**Chave de partição**| /categoria| O exemplo descrito neste artigo usa */category* como a chave de partição.|
+    |**ID da Base de Dados**|Tarefas|Designe a nova base de dados como *Tarefas*. Os nomes da base de dados devem conter de 1 a 255 caracteres, e não podem conter `/, \\, #, ?`, ou um espaço de fuga. Consulte a opção de entrada da base de **dados Provision,** permite-lhe partilhar a entrada disponibilizada na base de dados em todos os recipientes da base de dados. Esta opção também ajuda na poupança de custos. |
+    |**Débito**|400|Deixe a entrada em 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
+    |**ID do contentor**|Itens|Introduza *itens* como o nome do seu novo recipiente. Os IDs de contentores têm os mesmos requisitos de caracteres que os nomes da base de dados.|
+    |**Chave de partição**| /categoria| A amostra descrita neste artigo *utiliza/categoria* como chave de partição.|
     
-    Além das configurações anteriores, pode adicionar opcionalmente **chaves exclusivas** do contentor. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política de chaves exclusivas durante a criação de um contentor, garantir a exclusividade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
+    Além das definições anteriores, pode adicionar **opcionalmente chaves Únicas** para o recipiente. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política chave única ao criar um recipiente, você garante a singularidade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
     
-    Selecione **OK**. O Data Explorer mostra a nova base de dados e o contentor.
+    Selecione **OK**. O Data Explorer exibe a nova base de dados e o recipiente.

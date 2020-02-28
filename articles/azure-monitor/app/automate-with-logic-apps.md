@@ -1,73 +1,69 @@
 ---
-title: Automatizar processos do insights Aplicativo Azure usando aplicativos lógicos
-description: Saiba como você pode automatizar rapidamente os processos reproduzíveis adicionando o conector de Application Insights ao seu aplicativo lógico.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Automatizar os processos de insights de aplicação azure utilizando aplicações lógicas
+description: Saiba como pode automatizar rapidamente processos repetíveis adicionando o conector De Insights de Aplicação à sua aplicação lógica.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/11/2019
-ms.openlocfilehash: 95a3577d352b6bc4b56d36b5b79658571a6be1ff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9a7f411ca5ec47e3f25d8120d0388fb030b00c72
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407524"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655010"
 ---
-# <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizar processos de Application Insights usando aplicativos lógicos
+# <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizar processos de insights de aplicação utilizando aplicações lógicas
 
-Você se encontra executando repetidamente as mesmas consultas nos dados de telemetria para verificar se o serviço está funcionando corretamente? Você pretende automatizar essas consultas para encontrar tendências e anomalias e, em seguida, criar seus próprios fluxos de trabalho em relação a eles? O conector do insights Aplicativo Azure para aplicativos lógicos é a ferramenta certa para essa finalidade.
+Encontra-se repetidamente a executar as mesmas consultas nos seus dados de telemetria para verificar se o seu serviço está a funcionar corretamente? Está a tentar automatizar estas consultas para encontrar tendências e anomalias e depois construir os seus próprios fluxos de trabalho à sua volta? O conector Azure Application Insights para Aplicações Lógicas é a ferramenta certa para este fim.
 
-Com essa integração, você pode automatizar vários processos sem escrever uma única linha de código. Você pode criar um aplicativo lógico com o conector de Application Insights para automatizar rapidamente qualquer processo de Application Insights. 
+Com esta integração, pode automatizar inúmeros processos sem escrever uma única linha de código. Pode criar uma aplicação lógica com o conector Application Insights para automatizar rapidamente qualquer processo de Insights de Aplicação. 
 
-Você também pode adicionar ações adicionais. O recurso aplicativos lógicos do serviço Azure App torna centenas de ações disponíveis. Por exemplo, usando um aplicativo lógico, você pode enviar automaticamente uma notificação por email ou criar um bug no Azure DevOps. Você também pode usar um dos muitos [modelos](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponíveis para ajudar a acelerar o processo de criação de seu aplicativo lógico. 
+Também pode adicionar ações adicionais. A funcionalidade de Aplicações Lógicas do Azure App Service disponibiliza centenas de ações. Por exemplo, ao utilizar uma aplicação lógica, pode enviar automaticamente uma notificação por e-mail ou criar um bug em Azure DevOps. Também pode usar um dos muitos [modelos](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponíveis para ajudar a acelerar o processo de criação da sua aplicação lógica. 
 
-## <a name="create-a-logic-app-for-application-insights"></a>Criar um aplicativo lógico para Application Insights
+## <a name="create-a-logic-app-for-application-insights"></a>Criar uma aplicação lógica para Insights de Aplicação
 
-Neste tutorial, você aprenderá a criar um aplicativo lógico que usa o algoritmo de autocluster do Analytics para agrupar atributos nos dados de um aplicativo Web. O fluxo envia automaticamente os resultados por email, apenas um exemplo de como você pode usar Application Insights a análise e os aplicativos lógicos juntos. 
+Neste tutorial, aprende-se a criar uma aplicação lógica que utiliza o algoritmo de autocluster Analytics para atributos de grupo nos dados de uma aplicação web. O fluxo envia automaticamente os resultados por e-mail, apenas um exemplo de como pode utilizar as Aplicações Insights Analytics e Logic Apps em conjunto. 
 
-### <a name="step-1-create-a-logic-app"></a>Etapa 1: criar um aplicativo lógico
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Clique em **criar um recurso**, selecione **Web + celular**e, em seguida, selecione **aplicativo lógico**.
+### <a name="step-1-create-a-logic-app"></a>Passo 1: Criar uma aplicação lógica
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Clique **em Criar um recurso,** selecione Web + **Mobile,** e depois selecione **Logic App**.
 
-    ![Janela novo aplicativo lógico](./media/automate-with-logic-apps/1createlogicapp.png)
+    ![Nova janela de aplicativo lógica](./media/automate-with-logic-apps/1createlogicapp.png)
 
-### <a name="step-2-create-a-trigger-for-your-logic-app"></a>Etapa 2: criar um gatilho para seu aplicativo lógico
-1. Na janela **designer do aplicativo lógico** , em **Iniciar com um gatilho comum**, selecione **recorrência**.
+### <a name="step-2-create-a-trigger-for-your-logic-app"></a>Passo 2: Criar um gatilho para a sua aplicação lógica
+1. Na janela **Logic App Designer,** sob **iniciar com um gatilho comum,** selecione **Recurrence**.
 
-    ![Janela do designer de aplicativo lógico](./media/automate-with-logic-apps/2logicappdesigner.png)
+    ![Janela de designer de aplicativos lógicos](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Na caixa **intervalo** , digite **1** e, em seguida, caixa**frequência** , selecione **dia**.
+1. Na caixa **intervalo,** tipo **1** e depois, caixa**de frequência,** selecione **Dia**.
 
-    ![Janela "recorrência" do designer de aplicativo lógico](./media/automate-with-logic-apps/3recurrence.png)
+    ![Janela de Designer de Aplicações Lógica "Recorrência"](./media/automate-with-logic-apps/3recurrence.png)
 
-### <a name="step-3-add-an-application-insights-action"></a>Etapa 3: adicionar uma ação de Application Insights
-1. Clique em **nova etapa**.
+### <a name="step-3-add-an-application-insights-action"></a>Passo 3: Adicionar uma ação de Insights de Aplicação
+1. Clique em **novo passo**.
 
-1. Na caixa de pesquisa **escolher uma ação** , digite **aplicativo Azure insights**.
+1. Na **caixa de** pesquisa de ação Escolha uma caixa de pesquisa de ação, **digite Insights de aplicação Azure**.
 
-1. Em **ações**, clique em **aplicativo Azure insights – Visualizar consulta do Analytics**.
+1. Em **Ações**, clique em **Insights de Aplicação Azure - Visualizar consulta de Analytics**.
 
-    ![Janela "escolher uma ação" do designer de aplicativo lógico](./media/automate-with-logic-apps/4visualize.png)
+    ![Lógica App Designer "Escolha uma ação" janela](./media/automate-with-logic-apps/4visualize.png)
 
-### <a name="step-4-connect-to-an-application-insights-resource"></a>Etapa 4: conectar-se a um recurso de Application Insights
+### <a name="step-4-connect-to-an-application-insights-resource"></a>Passo 4: Ligar a um recurso Deinsights de Aplicação
 
-Para concluir esta etapa, você precisa de uma ID de aplicativo e uma chave de API para seu recurso. Você pode recuperá-los do portal do Azure, conforme mostrado no diagrama a seguir:
+Para completar este passo, precisa de um ID de aplicação e de uma chave API para o seu recurso. Pode recuperá-los do portal Azure, como mostra o seguinte diagrama:
 
-![ID do aplicativo no portal do Azure](./media/automate-with-logic-apps/5apiaccess.png)
+![ID de aplicação no portal Azure](./media/automate-with-logic-apps/5apiaccess.png)
 
-![ID do aplicativo no portal do Azure](./media/automate-with-logic-apps/6apikey.png)
+![ID de aplicação no portal Azure](./media/automate-with-logic-apps/6apikey.png)
 
-Forneça um nome para a conexão, a ID do aplicativo e a chave de API.
+Forneça um nome para a sua ligação, o ID da aplicação e a chave API.
 
-![Janela de conexão do fluxo do designer do aplicativo lógico](./media/automate-with-logic-apps/7connection.png)
+![Janela de conexão de fluxo de designer de aplicativológica](./media/automate-with-logic-apps/7connection.png)
 
-### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Etapa 5: especificar a consulta de análise e o tipo de gráfico
-No exemplo a seguir, a consulta seleciona as solicitações com falha no último dia e as correlaciona com exceções que ocorreram como parte da operação. O Analytics correlaciona as solicitações com falha com base no identificador de operation_Id. Em seguida, a consulta segmenta os resultados usando o algoritmo autocluster. 
+### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Passo 5: Especificar a consulta de Analytics e o tipo de gráfico
+No exemplo seguinte, a consulta seleciona os pedidos falhados no último dia e correlaciona-os com exceções que ocorreram no âmbito da operação. A análise correlaciona os pedidos falhados, com base no identificador operation_Id. A consulta segmenta então os resultados utilizando o algoritmo de autocluster. 
 
-Ao criar suas próprias consultas, verifique se elas estão funcionando corretamente no Analytics antes de adicioná-las ao seu fluxo.
+Quando criar as suas próprias consultas, verifique se estão a funcionar corretamente no Analytics antes de adicioná-lo ao seu fluxo.
 
-1. Na caixa de **consulta** , adicione a seguinte consulta de análise:
+1. Na caixa **de consulta,** adicione a seguinte consulta de Analytics:
 
     ```
     requests
@@ -80,58 +76,58 @@ Ao criar suas próprias consultas, verifique se elas estão funcionando corretam
     | evaluate autocluster()
     ```
 
-1. Na caixa **tipo de gráfico** , selecione **tabela HTML**.
+1. Na caixa **'Tipo gráfico',** selecione **Tabela Html**.
 
-    ![Janela de configuração de consulta do Analytics](./media/automate-with-logic-apps/8query.png)
+    ![Janela de configuração de consulta de análise](./media/automate-with-logic-apps/8query.png)
 
-### <a name="step-6-configure-the-logic-app-to-send-email"></a>Etapa 6: configurar o aplicativo lógico para enviar email
+### <a name="step-6-configure-the-logic-app-to-send-email"></a>Passo 6: Configure a aplicação lógica para enviar e-mail
 
-1. Clique em **nova etapa**.
+1. Clique em **novo passo**.
 
-1. Na caixa de pesquisa, digite **Office 365 Outlook**.
+1. Na caixa de pesquisa, digite **office 365 Outlook**.
 
-1. Clique em **Office 365 Outlook-enviar um email**.
+1. Clique no **Office 365 Outlook - Envie um e-mail**.
 
-    ![Seleção do Office 365 Outlook](./media/automate-with-logic-apps/9sendemail.png)
+    ![Seleção de Perspetivas do Office 365](./media/automate-with-logic-apps/9sendemail.png)
 
-1. Na janela **enviar um email** , faça o seguinte:
+1. No Enviar uma janela de **e-mail,** faça o seguinte:
 
-   a. Digite o endereço de email do destinatário.
+   a. Digite o endereço de e-mail do destinatário.
 
-   b. Digite um assunto para o email.
+   b. Digite um assunto para o e-mail.
 
-   c. Clique em qualquer lugar na caixa **corpo** e, no menu conteúdo dinâmico que é aberto à direita, selecione **corpo**.
+   c. Clique em qualquer lugar da caixa **Body** e, em seguida, no menu de conteúdo dinâmico que se abre à direita, selecione **Body**.
     
-   d. Clique na lista suspensa **Adicionar novo parâmetro** e selecione anexos e é HTML.
+   d. Clique no **novo parâmetro Adicionar** novo parâmetro e selecione Anexos e Is HTML.
 
       ![Configuração do Office 365 Outlook](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Configuração do Office 365 Outlook](./media/automate-with-logic-apps/11emailparameter.png)
 
-1. No menu conteúdo dinâmico, faça o seguinte:
+1. No menu de conteúdo dinâmico, faça o seguinte:
 
-    a. Selecione o **nome do anexo**.
+    a. Selecione **Nome de anexo**.
 
-    b. Selecione o **conteúdo do anexo**.
+    b. Selecione **o conteúdo do anexo**.
     
-    c. Na caixa **é HTML** , selecione **Sim**.
+    c. Na caixa **Is HTML,** selecione **Sim**.
 
-      ![Tela de configuração de email do Office 365](./media/automate-with-logic-apps/12emailattachment.png)
+      ![Ecrã de configuração de e-mail office 365](./media/automate-with-logic-apps/12emailattachment.png)
 
-### <a name="step-7-save-and-test-your-logic-app"></a>Etapa 7: salvar e testar seu aplicativo lógico
-* Clique em **guardar** para guardar as alterações.
+### <a name="step-7-save-and-test-your-logic-app"></a>Passo 7: Guarde e teste a sua aplicação lógica
+* Clique em **Guardar** para guardar as suas alterações.
 
-Você pode aguardar até que o gatilho execute o aplicativo lógico ou pode executar o aplicativo lógico imediatamente selecionando **executar**.
+Pode esperar que o gatilho execute a aplicação lógica, ou pode executar a aplicação lógica imediatamente selecionando **Executar**.
 
-![Tela de criação de aplicativo lógico](./media/automate-with-logic-apps/13save.png)
+![Tela de criação de aplicativológico](./media/automate-with-logic-apps/13save.png)
 
-Quando seu aplicativo lógico for executado, os destinatários especificados na lista de emails receberão um email semelhante ao seguinte:
+Quando a sua aplicação lógica for executado, os destinatários especificados na lista de e-mails receberão um e-mail que se parece com o seguinte:
 
-![Mensagem de email do aplicativo lógico](./media/automate-with-logic-apps/flow9.png)
+![Mensagem de e-mail de aplicativo lógico](./media/automate-with-logic-apps/flow9.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre como criar [consultas de análise](../../azure-monitor/log-query/get-started-queries.md).
+- Saiba mais sobre a criação de [consultas de Análise.](../../azure-monitor/log-query/get-started-queries.md)
 - Saiba mais sobre o [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 
 

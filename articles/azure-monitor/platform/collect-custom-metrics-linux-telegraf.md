@@ -3,17 +3,16 @@ title: Recolher métricas personalizadas para Linux VM com o agente InfluxData T
 description: Instruções sobre como implantar o agente InfluxData Telegraf num VM Linux em Azure e configurar o agente para publicar métricas no Monitor Azure.
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 365330aa445bcf8e5b1aec575d5e646d533ceaf7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 0ed9144116c1d716124025ef0aae39e7783c5934
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901317"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655468"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Colete métricas personalizadas para um VM Linux com o agente InfluxData Telegraf
 
@@ -29,7 +28,7 @@ Ao utilizar o Monitor Azure, pode recolher métricas personalizadas através da 
 
 Para este tutorial, implementamos um VM Linux que executa o sistema operativo Ubuntu 16.04 LTS. O agente Telegraf é suportado para a maioria dos sistemas operativos Linux. Tanto os pacotes Debian como rPM estão disponíveis juntamente com binários Linux não embalados no portal de [descarregamento InfluxData](https://portal.influxdata.com/downloads). Consulte este guia de [instalação da Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) para obter instruções e opções adicionais de instalação. 
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 Crie um novo VM Linux: 
 
@@ -131,7 +130,7 @@ Além disso, neste passeio, usou o agente Telegraf para emitir métricas sobre o
 Quando já não são necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para isso, selecione o grupo de recursos para a máquina virtual e selecione **Eliminar**. Em seguida, confirme o nome do grupo de recursos para apagar. 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
+- Saiba mais sobre [métricas personalizadas.](metrics-custom-overview.md)
 
 
 

@@ -1,34 +1,33 @@
 ---
-title: Transmitir logs da plataforma Azure para um hub de eventos
-description: Saiba como transmitir logs de recursos do Azure para um hub de eventos para enviar dados a sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.
+title: Stream Azure logs plataforma para um hub de eventos
+description: Saiba como transmitir registos de recursos do Azure para um centro de eventos para enviar dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 00dcc1c1a1d823ab0f2497e47641916d391ee37b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 72341b6da0068ba4b7e3f53b08e6015cafb70f09
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750350"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658919"
 ---
-# <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Transmitir logs da plataforma Azure para os hubs de eventos do Azure
-[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem.  Este artigo descreve os logs da plataforma de streaming para os hubs de eventos para enviar dados a sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.
+# <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Stream Azure logs plataforma para Azure Event Hubs
+[Os registos da plataforma](platform-logs-overview.md) no Azure, incluindo registos de registos de atividades do Azure e de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure de que dependem.  Este artigo descreve registos de plataformas de streaming em centros de eventos para enviar dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo.
 
 
-## <a name="what-you-can-do-with-platform-logs-sent-to-an-event-hub"></a>O que você pode fazer com os logs de plataforma enviados para um hub de eventos
-Transmita logs da plataforma no Azure para os hubs de eventos para fornecer a seguinte funcionalidade:
+## <a name="what-you-can-do-with-platform-logs-sent-to-an-event-hub"></a>O que pode fazer com os registos da plataforma enviados para um centro de eventos
+Stream platform logs in Azure to event hubs to providenciando a seguinte funcionalidade:
 
-* **Transmita logs para sistemas de registro em log e telemetria de terceiros** – transmita todos os seus logs de plataforma para um único Hub de eventos para canalizar dados de log para uma ferramenta Siem ou log Analytics de terceiros.
+* **Transmita registos para sistemas de registo e telemetria** de terceiros – Transmita todos os registos da sua plataforma para um único centro de eventos para canalizar dados de registo para uma ferramenta de análise de registo siEM ou registo de terceiros.
   
-* **Crie uma plataforma de registro em log e telemetria personalizada** – a natureza altamente escalonável de publicação-assinatura dos hubs de eventos permite que você inscreva com flexibilidade os logs da plataforma em uma plataforma teletry personalizada. Consulte [projetando e dimensionando uma plataforma de telemetria de escala global nos hubs de eventos do Azure](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) para obter detalhes.
+* **Construa uma plataforma personalizada de telemetria e registo –** A natureza altamente escalável de centros de eventos permite-lhe ingerir flexionavelmente os registos de plataformas numa plataforma de telemetria personalizada. Consulte [design e dimensionamento de uma plataforma de telemetria](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) de escala global em Hubs de eventos Azure para mais detalhes.
 
-* **Exibir a integridade do serviço transmitindo dados para Power bi** – use os hubs de eventos, Stream Analytics e Power bi para transformar os dados de diagnóstico em informações quase em tempo real nos serviços do Azure. Consulte [Stream Analytics e Power bi: um painel de análise em tempo real para dados de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para obter detalhes sobre essa solução.
+* Consulte a **saúde do serviço através do streaming de dados para Power BI** – Use Event Hubs, Stream Analytics e Power BI para transformar os seus dados de diagnóstico em informações quase em tempo real sobre os seus serviços Azure. Consulte [stream analytics e Power BI: Um dashboard de análise em tempo real para transmitir dados](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para obter detalhes sobre esta solução.
 
-    O código SQL a seguir é um exemplo de Stream Analytics consulta que você pode usar para analisar todos os dados de log em uma tabela Power BI:
+    O seguinte código SQL é uma consulta de stream analytics de amostra que pode usar para analisar todos os dados de registo numa tabela Power BI:
     
     ```sql
     SELECT
@@ -41,34 +40,34 @@ Transmita logs da plataforma no Azure para os hubs de eventos para fornecer a se
     ```
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você precisará [criar um hub de eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se você já tiver uma configuração de diagnóstico usando esse namespace de hubs de eventos, esse Hub de eventos será reutilizado.
+Precisa criar um centro de [eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se já tiver uma definição de diagnóstico utilizando este espaço de nome sinuoso do Event Hubs, então esse centro de eventos será reutilizado.
 
-A política de acesso compartilhado para o namespace define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Você pode criar ou modificar políticas de acesso compartilhado no portal do Azure na guia Configurar para seu namespace de hubs de eventos.
+A política de acesso partilhado para o espaço de nome define as permissões que o mecanismo de streaming tem. O streaming para centros de eventos requer permissões de Gestão, Envio e Escuta. Pode criar ou modificar políticas de acesso partilhado no portal Azure sob o separador Configure para o seu espaço de nome Sem Evento.
 
-Para atualizar a configuração de diagnóstico para incluir streaming, você deve ter a permissão ListKey nessa regra de autorização de hubs de eventos. O namespace de hubs de eventos não precisa estar na mesma assinatura que a assinatura que está emitindo logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas e ambas as assinaturas estejam no mesmo locatário do AAD.
+Para atualizar a definição de diagnóstico para incluir o streaming, deve ter a permissão ListKey nessa regra de autorização do Event Hubs. O espaço de nome sem nome do Event Hubs não tem de estar na mesma subscrição que a subscrição que está a emitir registos, desde que o utilizador que configura a definição tenha acesso rBAC adequado a ambas as subscrições e ambas as subscrições estejam no mesmo inquilino AAD.
 
-## <a name="create-a-diagnostic-setting"></a>Criar uma configuração de diagnóstico
-Envie os logs da plataforma para um hub de eventos e outros destinos criando uma configuração de diagnóstico para um recurso do Azure. Consulte [criar configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md) para obter detalhes.
+## <a name="create-a-diagnostic-setting"></a>Criar uma definição de diagnóstico
+Envie registos de plataformas para um hub de eventos e outros destinos, criando uma definição de diagnóstico para um recurso Azure. Consulte [a definição de diagnóstico Para recolher registos e métricas em Azure](diagnostic-settings.md) para obter mais detalhes.
 
-## <a name="collect-data-from-compute-resources"></a>Coletar dados de recursos de computação
-As configurações de diagnóstico coletarão logs de recursos para recursos de computação do Azure como qualquer outro recurso, mas não seu sistema operacional convidado ou cargas de trabalho. Para coletar esses dados, instale o [agente de log Analytics](log-analytics-agent.md). 
+## <a name="collect-data-from-compute-resources"></a>Recolher dados de recursos computacionais
+As definições de diagnóstico recolherão registos de recursos para os recursos computacionais do Azure, como qualquer outro recurso, mas não o seu sistema operativo ou cargas de trabalho. Para recolher estes dados, instale o [agente Log Analytics](log-analytics-agent.md). 
 
 
-## <a name="consuming-log-data-from-event-hubs"></a>Consumindo dados de log dos hubs de eventos
-Os logs de plataforma dos hubs de eventos são consumidos no formato JSON com os elementos na tabela a seguir.
+## <a name="consuming-log-data-from-event-hubs"></a>Consumir dados de registo dos centros de eventos
+Os registos da plataforma dos centros de eventos são consumidos em formato JSON com os elementos na tabela seguinte.
 
-| Nome do Elemento | Descrição |
+| Nome do elemento | Descrição |
 | --- | --- |
-| grava |Uma matriz de todos os eventos de log nesta carga. |
-| hora |Hora em que o evento ocorreu. |
+| registos |Uma série de todos os eventos de registo nesta carga. |
+| hora |Hora em que ocorreu o evento. |
 | categoria |Categoria de log para este evento. |
-| resourceId |ID de recurso do recurso que gerou este evento. |
+| resourceId |Identificação de recursos do recurso que gerou este evento. |
 | operationName |Nome da operação. |
-| level |Opcional. Indica o nível de evento de log. |
-| propriedades |Propriedades do evento. Elas irão variar para cada serviço do Azure, conforme [ ]()descrito em. |
+| nível |Opcional. Indica o nível do evento de registo. |
+| propriedades |Propriedades do evento. Estes variarão para cada serviço [ ]()Azure, conforme descrito em . |
 
 
-Veja a seguir exemplos de dados de saída dos hubs de eventos para um log de recursos:
+Seguem-se os dados de saída da amostra dos Centros de Eventos para um registo de recursos:
 
 ```json
 {
@@ -135,8 +134,8 @@ Veja a seguir exemplos de dados de saída dos hubs de eventos para um log de rec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Leia mais sobre os logs de recursos](platform-logs-overview.md).
-* [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).
-* [Transmita logs de Azure Active Directory com Azure monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
-* [Introdução aos hubs de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+* [Leia mais sobre registos](platform-logs-overview.md)de recursos .
+* [Crie uma definição de diagnóstico para recolher registos e métricas em Azure](diagnostic-settings.md).
+* [Stream Azure Ative Directory logy com Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* [Começar com Centros de Eventos.](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 

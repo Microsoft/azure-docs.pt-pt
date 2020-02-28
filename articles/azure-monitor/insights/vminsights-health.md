@@ -1,352 +1,351 @@
 ---
-title: Entender a integridade de suas máquinas virtuais do Azure | Microsoft Docs
-description: Este artigo descreve como entender a integridade das máquinas virtuais e dos sistemas operacionais subjacentes com Azure Monitor para VMs.
-ms.service: azure-monitor
+title: Compreenda a saúde das suas máquinas virtuais Azure  Microsoft Docs
+description: Este artigo descreve como compreender a saúde das máquinas virtuais e dos sistemas operativos subjacentes com o Monitor Azure para VMs.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: e01223783130ea6b276db26bab709e2b51a8f76d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cecb04a4f299051860c45425f0fc4e13c3722ea
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399780"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656301"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines"></a>Entender a integridade de suas máquinas virtuais do Azure
+# <a name="understand-the-health-of-your-azure-virtual-machines"></a>Compreenda a saúde das suas máquinas virtuais Azure
 
-O Azure inclui serviços para funções ou tarefas específicas no espaço de monitoramento, mas não fornece perspectivas de integridade detalhadas de sistemas operacionais (OSs) hospedados em VMs (máquinas virtuais) do Azure. Embora você possa usar Azure Monitor para diferentes condições, ele não foi projetado para modelar e representar a integridade dos componentes principais, ou a integridade geral das VMs.
+O Azure inclui serviços para funções específicas ou tarefas no espaço de monitorização, mas não fornece perspetivas aprofundadas de saúde dos sistemas operativos (OSs) alojados em máquinas virtuais Azure (VMs). Embora possa utilizar o Monitor Azure para diferentes condições, não foi concebido para modelar e representar a saúde dos componentes principais, ou a saúde geral dos VMs.
 
-Usando o Azure Monitor para VMs Health, você pode monitorar ativamente a disponibilidade e o desempenho de um SO convidado Windows ou Linux. O recurso de integridade usa um modelo que representa os principais componentes e suas relações, fornece critérios que especificam como medir a integridade do componente e envia um alerta quando ele detecta uma condição não íntegra.
+Ao utilizar o Monitor Azure para a saúde dos VMs, pode monitorizar ativamente a disponibilidade e desempenho de um Os hóspede do Windows ou do Linux. A função de saúde utiliza um modelo que representa componentes-chave e suas relações, fornece critérios que especificam como medir a saúde dos componentes, e envia um alerta quando deteta uma condição pouco saudável.
 
-A exibição do estado de integridade geral de uma VM do Azure e do sistema operacional subjacente pode ser observada em duas perspectivas: diretamente de uma VM ou em todas as VMs em um grupo de recursos de Azure Monitor.
+Ver o estado de saúde geral de um VM Azure e o SISTEMA subjacente podem ser observados a partir de duas perspetivas: diretamente de um VM, ou em todos os VMs de um grupo de recursos do Azure Monitor.
 
-Este artigo mostra como avaliar, investigar e resolver rapidamente problemas de integridade quando eles são detectados pelo recurso de integridade de Azure Monitor para VMs.
+Este artigo mostra como avaliar, investigar e resolver rapidamente problemas de saúde quando são detetados pelo Monitor Azure para a funcionalidade de saúde dos VMs.
 
-Para obter informações sobre como configurar Azure Monitor para VMs, consulte [habilitar Azure monitor para VMs](vminsights-enable-overview.md).
+Para obter informações sobre a configuração do Monitor Azure para VMs, consulte [o Monitor Enable Azure para VMs](vminsights-enable-overview.md).
 
 >[!NOTE]
->Recentemente, [anunciamos alterações](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
-) que estamos fazendo no recurso de integridade com base nos comentários que recebemos de nossos clientes de demonstração pública. Considerando o número de alterações que iremos fazer, vamos parar de oferecer o recurso de integridade para novos clientes. Os clientes existentes podem continuar a usar o recurso de integridade. Para obter mais detalhes, consulte nossas [perguntas frequentes sobre disponibilidade geral](vminsights-ga-release-faq.md). 
+>Anunciámos recentemente [alterações](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
+) à funcionalidade Saúde com base no feedback que recebemos dos nossos clientes de pré-visualização pública. Dado o número de alterações que vamos fazer, vamos deixar de oferecer a funcionalidade Saúde a novos clientes. Os clientes existentes podem continuar a utilizar a funcionalidade de saúde. Para mais detalhes, consulte as nossas [FAQ](vminsights-ga-release-faq.md)de Disponibilidade Geral . 
 
-## <a name="monitoring-configuration-details"></a>Detalhes da configuração de monitoramento
+## <a name="monitoring-configuration-details"></a>Monitorizar detalhes de configuração
 
-Esta seção descreve os critérios de integridade padrão para monitorar as VMs do Windows e Linux do Azure. Todos os critérios de integridade são pré-configurados para enviar um alerta quando detectam uma condição não íntegra.
+Esta secção descreve os critérios de saúde padrão para monitorizar os VMs Azure Windows e Linux. Todos os critérios de saúde são pré-configurados para enviar um alerta quando detetam uma condição pouco saudável.
 
-| Nome do monitor | Frequência (min) | Duração de Lookback (min) | Operador | Limiar | Alertar no estado | Gravidade | Categoria da carga de trabalho | 
+| Monitorizar o nome | Frequência (min) | Duração do retrocesso (min) | Operador | Limiar | Alerta sobre o estado | Gravidade | Categoria de carga de trabalho | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
-| Disco lógico online | 5 | 15 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
+| Disco Lógico Online | 5 | 15 | <> | 1 (verdadeiro) | Crítica | Sev1 | Linux | 
 | Espaço Livre de Disco Lógico | 5 | 15 | < | 200 MB (aviso)<br> 100 MB (crítico) | Aviso | Sev1<br> Sev2 | Linux | 
-| % de Inodes Livres de Disco Lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
-| % de Espaço Livre de Disco Lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
-| Status do adaptador de rede | 5 | 15 | <> | 1 (verdadeiro) | Aviso | Sev2 | Linux | 
-| Memória em Megabytes Disponíveis do Sistema Operativo | 5 | 10 | < | 2,5 MB | Crítico | Sev1 | Linux | 
-| Média de disco s/leitura de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
-| Média de disco s/transferência de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
-| Média de disco s/gravação de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
-| Status do disco | 5 | 25 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
-| Percentagem Total de Tempo do Processador do Sistema Operativo | 5 | 10 | >= | 95% | Crítico | Sev1 | Linux | 
-| Porcentagem de utilização total da CPU | 5 | 10 | >= | 95% | Crítico | Sev1 | Windows | 
-| Erro ou corrupção do sistema de arquivos | 60 | 60 | <> | 4 | Crítico | Sev1 | Windows | 
-| Média de segundos de disco lógico por leitura | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Média de segundos de disco lógico por transferência | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Média de segundos de disco lógico por gravação (disco lógico) | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Comprimento da fila de disco atual (disco lógico) | 5 | 60 | >= | 32 | Aviso | Sev2 | Windows | 
-| Espaço livre em disco lógico (MB) | 15 | 60 | > | aviso de 500 MB<br> 300 MB crítico | Crítico | Sev1<br> Sev2 | Windows | 
-| Espaço livre em disco lógico (%) | 15 | 60 | > | aviso de 10%<br> 5% crítico | Crítico | Sev1<br> Sev2 | Windows |
-| Porcentagem de tempo ocioso do disco lógico | 15 | 360 | <= | 20% | Aviso | Sev2 | Windows | 
-| Porcentagem de largura de banda usada lida | 5 | 60 | >= | 60% | Aviso | Sev2 | Windows | 
-| Porcentagem total de largura de banda usada | 5 | 60 | >= | 75% | Aviso | Sev2 | Windows | 
-| Porcentagem de largura de banda usada | 5 | 60 | >= | 60% | Aviso | Sev2 | Windows | 
-| Integridade do serviço de cliente DHCP | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade do serviço cliente DNS | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade do serviço log de eventos do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade do serviço de firewall do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade do serviço RPC | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade do serviço do servidor | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Integridade do serviço de Gerenciamento Remoto do Windows | 5 | 12 | <> | 4 (em execução) | Crítico | Sev1 | Windows | 
-| Megabytes disponíveis de memória | 5 | 10 | < | 100 MB | Crítico | Sev1 | Windows | 
-| Entradas de tabela livres da página do sistema | 5 | 10 | <= | 5000 | Crítico | Sev1 | Windows | 
-| Páginas de memória por segundo | 5 | 10 | >= | 5\.000/s | Aviso | Sev1 | Windows | 
-| Porcentagem de memória confirmada em uso | 5 | 10 | > | 80% | Crítico | Sev1 | Windows | 
-| Média de segundos de disco por transferência | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Média de segundos de disco por gravação | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Comprimento da fila de disco atual | 5 | 60 | >= | 32 | Aviso | Sev2 | Windows | 
-| Porcentagem de tempo ocioso do disco | 5 | 60 | >= | 20% | Aviso | Sev2 | Windows | 
+| % de Inodes Livres de Disco Lógico | 5 | 15 | < | 5% | Crítica | Sev1 | Linux | 
+| % de Espaço Livre de Disco Lógico | 5 | 15 | < | 5% | Crítica | Sev1 | Linux | 
+| Estado do adaptador de rede | 5 | 15 | <> | 1 (verdadeiro) | Aviso | Sev2 | Linux | 
+| Memória em Megabytes Disponíveis do Sistema Operativo | 5 | 10 | < | 2,5 MB | Crítica | Sev1 | Linux | 
+| Disk Avg. Disk sec/Read | 5 | 25 | > | 0,05s | Crítica | Sev1 | Linux | 
+| Disk Avg. Disk sec/Transfer | 5 | 25 | > | 0,05s | Crítica | Sev1 | Linux | 
+| Disk Avg. Disk sec/Write | 5 | 25 | > | 0,05s | Crítica | Sev1 | Linux | 
+| Estado do disco | 5 | 25 | <> | 1 (verdadeiro) | Crítica | Sev1 | Linux | 
+| Percentagem Total de Tempo do Processador do Sistema Operativo | 5 | 10 | >= | 95% | Crítica | Sev1 | Linux | 
+| Percentagem total de utilização do CPU | 5 | 10 | >= | 95% | Crítica | Sev1 | Windows | 
+| Erro do sistema de ficheiros ou corrupção | 60 | 60 | <> | 4 | Crítica | Sev1 | Windows | 
+| Segundos de disco lógico médio por leitura | 1 | 15 | > | 0.04s | Aviso | Sev2 | Windows | 
+| Segundos lógicos médios do disco por transferência | 1 | 15 | > | 0.04s | Aviso | Sev2 | Windows | 
+| Segundos lógicos médios do disco por escrita (disco lógico) | 1 | 15 | > | 0.04s | Aviso | Sev2 | Windows | 
+| Comprimento da fila do disco atual (disco lógico) | 5 | 60 | >= | 32 | Aviso | Sev2 | Windows | 
+| Espaço Livre de Disco Lógico (MB) | 15 | 60 | > | Aviso de 500 MB<br> 300 MB crítico | Crítica | Sev1<br> Sev2 | Windows | 
+| Espaço Sem Disco Lógico (%) | 15 | 60 | > | 10% de aviso<br> 5% crítico | Crítica | Sev1<br> Sev2 | Windows |
+| Tempo lógico de disqueia por cento inativo | 15 | 360 | <= | 20% | Aviso | Sev2 | Windows | 
+| Por cento de largura de banda leitura usada | 5 | 60 | >= | 60% | Aviso | Sev2 | Windows | 
+| Por cento de largura de banda usada total | 5 | 60 | >= | 75% | Aviso | Sev2 | Windows | 
+| Por cento de largura de banda escrita usada | 5 | 60 | >= | 60% | Aviso | Sev2 | Windows | 
+| DHCP Atendimento ao Cliente Saúde | 5 | 12 | <> | 4 (em execução) | Crítica | Sev1 | Windows | 
+| Saúde do Serviço ao Cliente do DNS | 5 | 12 | <> | 4 (em execução) | Crítica | Sev1 | Windows | 
+| Saúde do serviço de log de eventos do windows | 5 | 12 | <> | 4 (em execução) | Crítica | Sev1 | Windows | 
+| Saúde do serviço de firewall do Windows Firewall | 5 | 12 | <> | 4 (em execução) | Crítica | Sev1 | Windows | 
+| Saúde do Serviço RPC | 5 | 12 | <> | 4 (em execução) | Crítica | Sev1 | Windows | 
+| Saúde do Serviço de Servidores | 5 | 12 | <> | 4 (em execução) | Crítica | Sev1 | Windows | 
+| Saúde do Serviço de Gestão Remota do Windows | 5 | 12 | <> | 4 (em execução) | Crítica | Sev1 | Windows | 
+| Megabytes disponíveis de memória | 5 | 10 | < | 100 MB | Crítica | Sev1 | Windows | 
+| Entradas de tabela de página de sistema gratuito | 5 | 10 | <= | 5000 | Crítica | Sev1 | Windows | 
+| Páginas de memória por segundo | 5 | 10 | >= | 5000/s | Aviso | Sev1 | Windows | 
+| Percentagem de Memória Comprometida em Uso | 5 | 10 | > | 80% | Crítica | Sev1 | Windows | 
+| Segundos médios do disco por transferência | 1 | 15 | > | 0.04s | Aviso | Sev2 | Windows | 
+| Segundos médios do disco por escrita | 1 | 15 | > | 0.04s | Aviso | Sev2 | Windows | 
+| Comprimento da fila do disco atual | 5 | 60 | >= | 32 | Aviso | Sev2 | Windows | 
+| Tempo de marcha lenta por cento do disco | 5 | 60 | >= | 20% | Aviso | Sev2 | Windows | 
 
 >[!NOTE]
->A duração de Lookback representa a frequência com que a janela olhar de volta verifica os valores de métrica, como nos últimos cinco minutos.  
+>A duração do retrocesso representa a frequência com que a janela de olhar para trás verifica os valores métricos, como nos últimos cinco minutos.  
 
 >[!NOTE]
->A frequência representa a frequência com que o alerta de métrica verifica se as condições são atendidas, como a cada um minuto.  É a taxa na qual o critério de integridade é executado e lookback é a duração em que o critério de integridade é avaliado. Por exemplo, o critério de integridade está avaliando se a **utilização da CPU da** condição é maior do que 95% com uma frequência de 5 minutos e permanece maior que 95% por 15 minutos (3 ciclos de avaliação consecutivos), então, o estado será atualizado para gravidade crítica se ainda não tiver sido.
+>A frequência representa a frequência com que o alerta métrico verifica se as condições são satisfeitas, como a cada minuto.  É a taxa a que o critério de saúde é executado, e o retrocesso é a duração sobre a qual o critério de saúde é avaliado. Por exemplo, o critério de saúde está a avaliar se a utilização do **CPU** da condição é superior a 95 por cento com uma frequência de 5 minutos e permanece superior a 95% durante 15 minutos (3 ciclos de avaliação consecutivos), então o Estado é atualizado para a gravidade crítica se já não fosse.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Para entrar, vá para a [portal do Azure](https://portal.azure.com).
+Para entrar, vá ao [portal Azure.](https://portal.azure.com)
 
-## <a name="introduction-to-azure-monitor-for-vms-health"></a>Introdução à Azure Monitor para VMs Health
+## <a name="introduction-to-azure-monitor-for-vms-health"></a>Introdução ao Monitor Azure para a saúde dos VMs
 
-Antes de usar o recurso de integridade para uma única VM ou grupo de VMs, é importante entender como as informações são apresentadas e o que as visualizações representam.
+Antes de utilizar a funcionalidade de saúde para um único VM ou grupo de VMs, é importante entender como a informação é apresentada e o que as visualizações representam.
 
-### <a name="view-health-directly-from-a-vm"></a>Exibir a integridade diretamente de uma VM
+### <a name="view-health-directly-from-a-vm"></a>Ver saúde diretamente de um VM
 
-Para exibir a integridade de uma VM do Azure, selecione **insights (versão prévia)** no painel esquerdo da VM. Na página de informações da VM, a guia **integridade** é aberta por padrão e mostra a exibição de integridade da VM.
+Para ver a saúde de um VM Azure, selecione **Insights (pré-visualização)** no painel esquerdo do VM. Na página de insights vM, o separador **Saúde** é aberto por padrão e mostra a visão de saúde do VM.
 
-![Visão geral do Azure Monitor para VMs Health de uma máquina virtual do Azure selecionada](./media/vminsights-health/vminsights-directvm-health-01.png)
+![Monitor Azure para visão geral da saúde dos VMs de uma máquina virtual Azure selecionada](./media/vminsights-health/vminsights-directvm-health-01.png)
 
-Na seção **integridade da VM convidada** , a tabela mostra o acúmulo de integridade dos componentes de desempenho monitorados pelos critérios de integridade para a VM e o número total de alertas de integridade da VM gerados por componentes não íntegros. Esses componentes incluem **CPU**, **memória**, **disco**e **rede**. Expanda a divisa ao lado de integridade da VM convidada para exibir a integridade de seus componentes.
+Na secção de **saúde VM convidada,** a tabela mostra o rolo de saúde dos componentes de desempenho monitorizados por critérios de saúde para o VM, e o número total de alertas de saúde VM levantados por componentes pouco saudáveis. Estes componentes incluem **CPU,** **Memória,** **Disco**e **Rede.** Expanda o chevron ao lado da saúde Guest VM para ver a saúde dos seus componentes.
 
-![Azure Monitor para VMs o status de integridade do componente de uma máquina virtual do Azure selecionada](./media/vminsights-health/vminsights-directvm-health-02.png)
+![Monitor Azure para o estado de saúde dos componentes vMs de uma máquina virtual Azure selecionada](./media/vminsights-health/vminsights-directvm-health-02.png)
 
-Selecionar o estado ao lado do componente abrirá a experiência de diagnóstico de integridade no contexto do componente selecionado. Ele mostra a composição do estado do componente, descrevendo quais critérios de integridade são usados para computar sua integridade. Para obter mais informações, consulte [diagnóstico de integridade e trabalhando com critérios de integridade](#health-diagnostics). Para obter mais informações sobre alertas, consulte [alertas](#alerts).
+A seleção do estado junto ao componente abrirá a experiência de Diagnóstico de Saúde no contexto da componente selecionada. Mostra a composição do estado dessa componente, descrevendo quais os critérios de saúde usados para calcular a sua saúde. Para mais informações, consulte diagnósticos de [saúde e trabalhando com critérios de saúde.](#health-diagnostics) Para mais informações sobre alertas, consulte [Alertas](#alerts).
 
-Os Estados de integridade definidos para uma VM são descritos na tabela a seguir:
+Os estados de saúde definidos para um VM são descritos na tabela seguinte:
 
-|Ícone |Estado de integridade |Significado |
+|Ícone |Estado de saúde |Significado |
 |-----|-------------|---------------|
-| |Bom estado de funcionamento |A VM está dentro das condições de integridade definidas. Esse estado indica que não há nenhum problema detectado e a VM está funcionando normalmente. Com um monitor de rollup pai, a integridade acumula e reflete o estado de melhor caso ou o pior caso do filho.|
-| |Crítico |O estado não está dentro da condição de integridade definida, indicando que um ou mais problemas críticos foram detectados. Esses problemas devem ser resolvidos para restaurar a funcionalidade normal. Com um monitor de rollup pai, o estado de integridade acumula e reflete o estado de melhor caso ou pior caso do filho.|
-| |Aviso |O estado está entre dois limites para a condição de integridade definida, em que um indica um estado de aviso e o outro indica um estado crítico (três limites de estado de integridade podem ser configurados) ou quando um problema não crítico pode causar problemas críticos se não resolvidos. Com um monitor de rollup pai, se um ou mais filhos estiverem em um estado de aviso, o pai refletirá um estado de aviso. Se um filho estiver em um estado crítico e outro filho em um estado de aviso, o rollup pai mostrará o estado de integridade como crítico.|
-| |Desconhecido |O estado não pode ser computado por vários motivos. A seção a seguir fornece detalhes adicionais e possíveis soluções. |
+| |Bom estado de funcionamento |O VM está dentro das condições de saúde definidas. Este estado indica que não há problemas detetados e o VM está a funcionar normalmente. Com um monitor de rollup dos pais, a saúde aparece e reflete o melhor ou pior estado da criança.|
+| |Crítica |O Estado não está dentro da condição de saúde definida, indicando que foram detetadas uma ou mais questões críticas. Estas questões devem ser abordadas para restabelecer a funcionalidade normal. Com um monitor de rollup dos pais, o estado de saúde aparece e reflete o melhor ou pior estado da criança.|
+| |Aviso |O estado está entre dois limiares para a condição de saúde definida, onde um indica um estado de alerta e o outro indica um estado crítico (três limiares de estado de saúde podem ser configurados), ou quando uma questão não crítica pode causar problemas críticos se não resolvido. Com um monitor de rollup dos pais, se uma ou mais crianças estiverem em estado de alerta, o progenitor refletirá um estado de alerta. Se uma criança estiver em estado crítico e outra criança em estado de alerta, o rolo de pais mostrará o estado de saúde como crítico.|
+| |Desconhecido |O Estado não pode ser calculado por várias razões. A secção seguinte fornece detalhes adicionais e possíveis soluções. |
 
-Um estado de integridade desconhecido pode ser causado pelos seguintes problemas:
+Um estado de saúde desconhecido pode ser causado pelas seguintes questões:
 
-- O agente foi reconfigurado e não fornece mais relatórios para o espaço de trabalho especificado quando Azure Monitor para VMs foi habilitado. Para configurar o agente para relatar ao espaço de trabalho, consulte [adicionando ou removendo um espaço de trabalho](../platform/agent-manage.md#adding-or-removing-a-workspace).
-- A VM foi excluída.
-- O espaço de trabalho associado a Azure Monitor para VMs foi excluído. Você pode recuperar o espaço de trabalho se tiver benefícios de suporte Premier. Vá para [Premier](https://premier.microsoft.com/) e abra uma solicitação de suporte.
-- As dependências da solução foram excluídas. Para reabilitar as soluções ServiceMap e InfrastructureInsights em seu espaço de trabalho Log Analytics, reinstale a solução ServiceMap usando o [modelo Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). Para reinstalar a solução InfastructureInsights, vminsights@microsoft.comde email. 
-- A VM foi desligada.
-- O serviço de VM do Azure está indisponível ou a manutenção está sendo executada.
-- O [limite de retenção ou dados diário](../platform/manage-cost-storage.md) do espaço de trabalho foi atingido.
+- O agente foi reconfigurado e já não reporta ao espaço de trabalho especificado quando o Monitor Azure para VMs foi ativado. Para configurar o agente para reportar ao espaço de trabalho ver, [adicionar ou remover um espaço](../platform/agent-manage.md#adding-or-removing-a-workspace)de trabalho .
+- O VM foi apagado.
+- O espaço de trabalho associado ao Monitor Azure para VMs foi eliminado. Pode recuperar o espaço de trabalho se tiver benefícios de suporte premier. Vá ao [Primeiro-Ministro](https://premier.microsoft.com/) e abra um pedido de apoio.
+- As dependências da solução foram eliminadas. Para reativar as soluções ServiceMap e InfrastructureInsights no seu espaço de trabalho Log Analytics, reinstale a solução ServiceMap utilizando o modelo do Gestor de [Recursos Azure](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). Para reinstalar a solução InfastructureInsights, o email vminsights@microsoft.com. 
+- O VM foi desligado.
+- O serviço Azure VM não está disponível ou a manutenção está a ser realizada.
+- Os [dados diários](../platform/manage-cost-storage.md) do espaço de trabalho ou o limite de retenção foram cumpridos.
 
-Selecione **Exibir diagnóstico de integridade** para abrir uma página mostrando todos os componentes de uma VM, critérios de integridade associados, alterações de estado e outros problemas detectados por componentes de monitoramento relacionados à VM.
+Selecione **Ver diagnósticos** de saúde para abrir uma página mostrando todos os componentes de um VM, critérios de saúde associados, alterações do estado e outros problemas detetados pela monitorização de componentes relacionados com o VM.
 
-Para obter mais informações, consulte [diagnóstico de integridade](#health-diagnostics).
+Para mais informações, consulte diagnósticos de [saúde.](#health-diagnostics)
 
-Na seção **integridade** , uma tabela mostra o acúmulo de integridade dos componentes de desempenho monitorados pelos critérios de integridade. Esses componentes incluem **CPU**, **memória**, **disco**e **rede**. A seleção de um componente abre uma página que lista todos os critérios de monitoramento e o estado de integridade desse componente.
+Na secção **Saúde,** uma tabela mostra o rolo de saúde dos componentes de desempenho monitorizados por critérios de saúde. Estes componentes incluem **CPU,** **Memória,** **Disco**e **Rede.** A seleção de um componente abre uma página que lista todos os critérios de monitorização e o estado de saúde desse componente.
 
-Quando você acessa a integridade de uma VM do Azure que executa o Windows, o estado de integridade dos cinco principais serviços do Windows é mostrado em **integridade dos serviços principais**. A seleção de qualquer um dos serviços abre uma página que lista o monitoramento de critérios de integridade para esse componente junto com seu estado de integridade.
+Quando você acede à saúde de um VM Azure que gere o Windows, o estado de saúde dos cinco principais serviços principais do Windows é mostrado sob a saúde dos **serviços Core**. A seleção de qualquer um dos serviços abre uma página que lista os critérios de saúde de monitorização dessa componente juntamente com o seu estado de saúde.
 
-A seleção do nome dos critérios de integridade abre o painel de propriedades. Nesse painel, você pode examinar os detalhes de configuração, incluindo se os critérios de integridade têm um alerta de Azure Monitor correspondente.
+A seleção do nome dos critérios de saúde abre o painel de propriedades. Neste painel, pode rever os detalhes da configuração, incluindo se os critérios de saúde tiverem um alerta de Monitor Azure correspondente.
 
-Para obter mais informações, consulte [diagnóstico de integridade e trabalhando com critérios de integridade](#health-diagnostics).
+Para mais informações, consulte diagnósticos de [saúde e trabalhando com critérios de saúde.](#health-diagnostics)
 
-### <a name="aggregate-vm-perspective"></a>Perspectiva da VM agregada
+### <a name="aggregate-vm-perspective"></a>Perspetiva VM agregada
 
-Para exibir a coleção de integridade de todas as suas VMs em um grupo de recursos, selecione **Azure monitor** na lista de navegação no portal e, em seguida, selecione **máquinas virtuais (versão prévia)** .
+Para ver a recolha de saúde para todos os seus VMs num grupo de recursos, selecione **O Monitor Azure** da lista de navegação no portal e, em seguida, selecione **Virtual Machines (pré-visualização)** .
 
-![Exibição de monitoramento do Gerenciador de informações da VM de Azure Monitor](./media/vminsights-health/vminsights-aggregate-health.png)
+![Visão de monitorização VM Insights do Monitor Azure](./media/vminsights-health/vminsights-aggregate-health.png)
 
-Nas listas suspensas **assinatura** e **grupo de recursos** , selecione o grupo de recursos apropriado que inclui as VMs relacionadas ao grupo para exibir o estado de integridade relatado. Sua seleção só se aplica ao recurso de integridade e não é transferida para guias de **desempenho** ou **mapa** .
+Nas listas de abandono do Grupo **de Subscrição** e **Recursos,** selecione o grupo de recursos adequado que inclui os VMs relacionados com o grupo, para ver o seu estado de saúde relatado. A sua seleção aplica-se apenas à funcionalidade de saúde e não passa para os separadores **Performance** ou **Map.**
 
-A guia **integridade** fornece as seguintes informações:
+O separador **Saúde** fornece as seguintes informações:
 
-* Quantas VMs estão em um estado crítico ou não íntegro, em comparação com quantas estão íntegras ou não estão enviando dados (chamados de estado desconhecido).
-* Quais e quantas VMs por sistema operacional estão relatando um estado não íntegro.
-* Quantas VMs não estão íntegras devido a um problema detectado com um processador, disco, memória ou adaptador de rede, Categorizado por estado de integridade.
-* Quantas VMs não estão íntegras devido a um problema detectado com um serviço de sistema operacional principal, Categorizado por estado de integridade.
+* Quantas VMs estão em estado crítico ou pouco saudável, contra quantas são saudáveis ou não estão a enviar dados (referidos como um estado desconhecido).
+* Que e quantos VMs da OS estão a relatar um estado pouco saudável.
+* Quantos VMs não são saudáveis devido a um problema detetado com um processador, disco, memória ou adaptador de rede, categorizado pelo estado de saúde.
+* Quantos VMs não são saudáveis devido a um problema detetado com um serviço de SO central, categorizado pelo estado de saúde.
 
-Na guia **integridade** , você pode identificar os problemas críticos detectados pelos critérios de integridade que monitoram a VM e examinar os detalhes do alerta e os artigos de conhecimento associados. Esses artigos podem ajudar no diagnóstico e na correção de problemas. Selecione qualquer uma das severidades para abrir a página [todos os alertas](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) filtrada por essa gravidade.
+No separador **Saúde,** pode identificar as questões críticas detetadas pelos critérios de saúde que monitorizam o VM, e rever detalhes de alerta e artigos de conhecimento associados. Estes artigos podem ajudar no diagnóstico e na remediação de questões. Selecione qualquer uma das severidades para abrir a página [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) filtrada por essa gravidade.
 
-A lista **distribuição de VM por sistema operacional** mostra as VMs listadas pela distribuição do Windows Edition ou do Linux, juntamente com sua versão. Em cada categoria de sistema operacional, as VMs são divididas ainda mais com base na integridade da VM.
+A **distribuição vm por** lista de sistemaoperativo mostra VMs listados pela edição do Windows ou distribuição linux, juntamente com a sua versão. Em cada categoria de SM, os VMs são discriminados ainda mais com base na saúde do VM.
 
-![Perspectiva de distribuição de máquina virtual do insights de VM](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
+![Perspetiva de distribuição virtual de máquinas VM Insights](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
 
-Selecione qualquer coluna, **incluindo contagem de VM**, **crítica**, **aviso**, **íntegro**ou **desconhecido**. Exiba a lista de resultados filtrados na página **máquinas virtuais** que correspondem à coluna selecionada.
+Selecione qualquer coluna que **inclua contagem vm**, **Critical**, **Warning**, **Healthy**, ou **Unknown**. Ver a lista de resultados filtrados na página **Máquinas Virtuais** que correspondem à coluna selecionada.
 
-Por exemplo, para examinar todas as VMs que executam Red Hat Enterprise Linux versão 7,5, selecione o valor de **contagem de VM** para esse so e ele listará as VMs que correspondem a esse filtro e seu estado de integridade atual.
+Por exemplo, para rever todos os VMs que executam o lançamento do Red Hat Enterprise Linux 7.5, selecione o valor da contagem de **VM** para esse SISTEMA, e listará os VMs correspondentes a esse filtro e ao seu estado de saúde atual.
 
-![ROLLUP de exemplo de VMs Red Hat Linux](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
+![Lançamento de exemplo de VMs de Red Hat Linux](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
 
-Você clica em **Mostrar integridade** caixa de seleção e o estado de integridade é retornado para os resultados filtrados na tabela.  
+Clique na caixa de verificação **Show Health** e o estado de saúde é devolvido para os resultados filtrados na tabela.  
 
-![Exemplo de estado de integridade de VMs Red Hat Linux](./media/vminsights-health/vminsights-rollup-vm-rehl-02.png)
+![Exemplo estado de saúde de VMs de Chapéu Vermelho](./media/vminsights-health/vminsights-rollup-vm-rehl-02.png)
 
-Para qualquer um dos itens na lista, você pode clicar no estado de integridade correspondente para iniciar o diagnóstico de integridade, que mostra como a integridade é avaliada para a VM selecionada. 
+Para qualquer um dos itens da lista, pode clicar no estado de saúde correspondente para lançar Diagnósticos de Saúde, o que mostra como a saúde é avaliada para o VM selecionado. 
 
-Na página **máquinas virtuais** , se você selecionar o nome de uma VM sob a coluna **nome da VM**, você será direcionado para a página **instância de VM** . Esta página fornece mais detalhes sobre os alertas e problemas de critérios de integridade que estão afetando a VM selecionada. Filtre os detalhes do estado de integridade selecionando o ícone **estado de integridade** no canto superior esquerdo da página para ver quais componentes não estão íntegros. Você também pode exibir os alertas de integridade da VM gerados por um componente não íntegro categorizado pela severidade do alerta.
+Na página **Máquinas Virtuais,** se selecionar o nome de um VM sob o **nome VM**da coluna, é direcionado para a página **de instância VM.** Esta página fornece mais detalhes sobre os problemas de alertas e critérios de saúde que estão a afetar o VM selecionado. Filtre os detalhes do estado de saúde selecionando o ícone **do Estado de Saúde** no canto superior esquerdo da página para ver quais os componentes que não são saudáveis. Também pode ver alertas de Saúde VM levantados por um componente pouco saudável categorizado pela gravidade do alerta.
 
-Na exibição de **lista de VMs** , selecione o nome de uma VM para abrir a página de **integridade** dessa VM, da mesma forma como se você selecionou **insights (visualização)** diretamente da VM.
+Na vista da **lista VM,** selecione o nome de um VM para abrir a página **Health** para esse VM, da mesma forma que selecionou **Insights (pré-visualização)** diretamente do VM.
 
-![Informações de VM de uma máquina virtual do Azure selecionada](./media/vminsights-health/vminsights-directvm-health.png)
+![VM insights de uma máquina virtual Azure selecionada](./media/vminsights-health/vminsights-directvm-health.png)
 
-As **máquinas virtuais (visualização) na página Azure monitor** mostra um status de integridade de rollup para a VM e os alertas. Esse status de integridade é categorizado por severidade, que representa os alertas de integridade da VM gerados quando o estado de integridade mudou de íntegro para não íntegro, com base em critérios. A seleção de **VMs em condição crítica** abre uma página com uma lista de uma ou mais VMs em um estado de integridade crítico.
+As **Máquinas Virtuais (pré-visualização) na** página Do Monitor Azure mostram um estado de saúde nominal para o VM e alertas. Este estado de saúde é categorizado pela gravidade, que representa alertas de saúde VM levantados quando o estado de saúde passou de saudável para pouco saudável, com base em critérios. A seleção de **VMs em estado crítico** abre uma página com uma lista de um ou mais VMs em estado de saúde crítico.
 
-Selecionar o status de integridade de uma das VMs mostra a exibição de **diagnóstico de integridade** da VM. Nessa exibição, você pode determinar quais critérios de integridade estão refletindo um problema de estado de integridade. Quando a página **diagnóstico de integridade** é aberta, mostra todos os componentes da VM e seus critérios de integridade associados com o estado de integridade atual.
+A seleção do estado de saúde de um dos VMs mostra a visão de **Diagnóstico de Saúde** do VM. Nesta perspetiva, pode determinar quais os critérios de saúde que refletem uma questão de estado de saúde. Quando a página de Diagnósticos de **Saúde** abre, mostra todos os componentes VM e os seus critérios de saúde associados ao estado de saúde atual.
 
-Para obter mais informações, consulte [diagnóstico de integridade](#health-diagnostics).
+Para mais informações, consulte diagnósticos de [saúde.](#health-diagnostics)
 
-Selecionar **Exibir todos os critérios de integridade** abre uma página mostrando uma lista de todos os critérios de integridade disponíveis com esse recurso. As informações podem ser filtradas ainda mais com base nas seguintes opções:
+Selecionando **Ver todos os critérios de saúde** abre uma página que mostra uma lista de todos os critérios de saúde disponíveis com esta funcionalidade. A informação pode ser filtrada com base nas seguintes opções:
 
-* **Digite**. Há três tipos de critérios de integridade para avaliar condições e acumular o estado de integridade geral de uma VM monitorada:
-    - **Unidade**. Mede algum aspecto de uma VM. Esse tipo de critério de integridade pode estar verificando um contador de desempenho para determinar o desempenho do componente, executando um script para executar uma transação sintética ou observando um evento que indica um erro. O filtro é definido como unidade por padrão.
-    - **Dependência**. Fornece um acúmulo de integridade entre entidades diferentes. Esse critério de integridade permite que a integridade de uma entidade dependa da integridade de outro tipo de entidade da qual ela depende para uma operação bem-sucedida.
-    - **Agregação**. Fornece um estado de integridade combinado de critérios de integridade semelhantes. Os critérios de integridade de unidade e de dependência normalmente são configurados sob um critério de integridade agregado. Além de fornecer uma melhor organização geral dos vários critérios de integridade diferentes direcionados a uma entidade, o critério de integridade agregado fornece um estado de integridade exclusivo para categorias distintas das entidades.
+* **Tipo**. Existem três tipos de critérios de saúde para avaliar as condições e arregaçar o estado geral de saúde de um VM monitorizado:
+    - **Unidade**. Mede algum aspeto de um VM. Este tipo de critérios de saúde pode estar a verificar um contador de desempenho para determinar o desempenho do componente, executar um script para realizar uma transação sintética, ou assistir a um evento que indique um erro. O filtro está definido para a unidade por defeito.
+    - **Dependência.** Proporciona um rollup de saúde entre diferentes entidades. Este critério de saúde permite que a saúde de uma entidade dependa da saúde de outro tipo de entidade em que se baseia para o funcionamento bem sucedido.
+    - **Agregado**. Proporciona um estado de saúde combinado de critérios de saúde semelhantes. O critério de saúde unitário e de dependência é tipicamente configurado sob um critério de saúde agregado. Além de proporcionar uma melhor organização geral dos diferentes critérios de saúde direcionados a uma entidade, o critério de saúde agregado proporciona um estado de saúde único para categorias distintas das entidades.
 
-* **Categoria**. O tipo de critérios de integridade usados para agrupar critérios semelhantes para fins de relatório. Essas categorias são **disponibilidade** e **desempenho**.
+* **Categoria**. O tipo de critérios de saúde utilizados para agrupar critérios semelhantes para efeitos de reporte. Estas categorias são **Disponibilidade** e **Desempenho.**
 
-Para ver quais instâncias não estão íntegras, selecione um valor na coluna **componente não íntegro** . Nesta página, uma tabela lista os componentes que estão em um estado de integridade crítico.
+Para ver quais as instâncias que não são saudáveis, selecione um valor sob a coluna **Componente Não Saudável.** Nesta página, uma tabela lista os componentes que estão em estado crítico de saúde.
 
-## <a name="health-diagnostics"></a>Diagnóstico de integridade
+## <a name="health-diagnostics"></a>Diagnósticos de saúde
 
-A página **diagnóstico de integridade** permite que você visualize o modelo de integridade de uma VM. Esta página lista todos os componentes da VM, os critérios de integridade associados, as alterações de estado e outros problemas significativos identificados pelos componentes monitorados relacionados à VM.
+A página **de Diagnósticos** de Saúde permite visualizar o modelo de saúde de um VM. Esta página lista todos os componentes vM, critérios de saúde associados, alterações estatais e outras questões significativas identificadas por componentes monitorizados relacionados com o VM.
 
-![Exemplo de página de diagnóstico de integridade para uma VM](./media/vminsights-health/health-diagnostics-page-01.png)
+![Exemplo da página de Diagnósticos de Saúde para um VM](./media/vminsights-health/health-diagnostics-page-01.png)
 
-Inicie o diagnóstico de integridade usando os seguintes métodos:
+Inicie os diagnósticos de saúde utilizando os seguintes métodos:
 
-* Por estado de integridade de rollup para todas as VMs da perspectiva da VM agregada no Azure Monitor:
+* Por estado de saúde rollup para todos os VMs a partir da perspetiva global de VM no Monitor Azure:
 
-    1. Na página **integridade** , selecione o ícone do estado de integridade **crítico**, de **aviso**, **ÍNTEGRO**ou **desconhecido** na seção **integridade da VM convidada**.
-    2. Vá para a página que lista todas as VMs que correspondem a essa categoria filtrada.
-    3. Selecione o valor na coluna **estado de integridade** para abrir o diagnóstico de integridade com escopo para essa VM.
+    1. Na página **Health,** selecione o ícone para **Estado**crítico , **aviso,** **saudável**ou **desconhecido** sob a secção **Saúde VM convidada**.
+    2. Vá à página que lista todos os VMs correspondentes a essa categoria filtrada.
+    3. Selecione o valor na coluna do Estado de **Saúde** para abrir os diagnósticos de saúde traçados para esse VM.
 
-* Pelo sistema operacional da perspectiva da VM agregada no Azure Monitor. Em **distribuição de VM**, a seleção de qualquer um dos valores de coluna abrirá a página **máquinas virtuais** e retornará uma lista na tabela correspondente à categoria filtrada. Selecionar o valor na coluna **estado de integridade** abre o diagnóstico de integridade para a VM selecionada.
+* Por OS a partir da perspetiva vm agregada no Monitor Azure. Sob **a distribuição vm,** selecionando qualquer um dos valores da coluna abrirá a página **Máquinas Virtuais** e devolverá uma lista na tabela correspondente à categoria filtrada. A seleção do valor sob a coluna **Do Estado de Saúde** abre diagnósticos de saúde para o VM selecionado.
  
-* Na VM convidada na guia Azure Monitor para VMs **integridade** , selecionando **Exibir diagnóstico de integridade**.
+* A partir do VM convidado no separador Azure Monitor para VMs **Health,** selecionando **Ver diagnósticos**de saúde .
 
-O diagnóstico de integridade organiza as informações de integridade em duas categorias: disponibilidade e desempenho.
+O diagnóstico de saúde organiza informação de saúde em duas categorias: disponibilidade e desempenho.
  
-Todos os critérios de integridade definidos para um componente, como disco lógico, CPU e assim por diante, podem ser exibidos sem filtragem nas duas categorias. Essas exibições podem estar em uma exibição de todos os critérios ou por meio da filtragem dos resultados por qualquer categoria quando você seleciona **disponibilidade** ou **desempenho**.
+Todos os critérios de saúde definidos para um componente, como o disco lógico, o CPU, e assim por diante, podem ser vistos sem filtragem nas duas categorias. Estas vistas podem estar numa visão geral dos critérios, ou através da filtragem dos resultados por qualquer uma das categorias quando selecionar **Disponibilidade** ou **Desempenho**.
 
-Além disso, a categoria de critérios pode ser vista ao lado da coluna **critérios de integridade** . Se os critérios não corresponderem à categoria selecionada, uma mensagem informando **que nenhum critério de integridade disponível para a categoria selecionada** aparecerá na coluna **critérios de integridade** .
+Além disso, a categoria de critérios pode ser vista junto à coluna Critérios de **Saúde.** Se os critérios não corresponderem à categoria selecionada, uma mensagem indicando que não há critérios de **saúde disponíveis para a categoria selecionada** na coluna Critérios de **Saúde.**
 
-O estado de um critério de integridade é definido por um dos quatro tipos: **crítico**, **aviso**, **íntegro**e **desconhecido**. Os três primeiros são configuráveis, o que significa que você pode modificar os valores de limite dos monitores diretamente no painel de configuração de **critérios de integridade** . Isso também é possível usando a Azure Monitor [operação do monitor de atualização](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)da API REST. **Desconhecido** não é configurável e está reservado para cenários específicos.
+O estado de um critério de saúde é definido por um de quatro tipos: **Crítico,** **Aviso,** **Saudável**e **Desconhecido.** Os três primeiros são configuráveis, o que significa que pode modificar os valores-limiar dos monitores diretamente no painel de configuração dos Critérios de **Saúde.** Isto também é possível utilizando a operação de monitorização de [atualização](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)API do Monitor Do Monitor Azure . **Desconhecido** não é configurável e está reservado para cenários específicos.
 
-A página **diagnóstico de integridade** tem três seções principais:
+A página **de Diagnósticos de Saúde** tem três secções principais:
 
-* Modelo de componente
-* Critérios de Estado de Funcionamento
+* Modelo de Componente
+* Critérios de Saúde
 * Alterações de Estado
 
-![Seções da página diagnóstico de integridade](./media/vminsights-health/health-diagnostics-page-02.png)
+![Página de Secções de Diagnóstico de Saúde](./media/vminsights-health/health-diagnostics-page-02.png)
 
 ### <a name="component-model"></a>Modelo de componente
 
-A coluna mais à esquerda na página **diagnóstico de integridade** é **modelo de componente**. Todos os componentes, que estão associados à VM, são exibidos nesta coluna junto com seu estado de integridade atual.
+A coluna mais à esquerda na página de **Diagnósticos** de Saúde é **o Modelo de Componentes**. Todos os componentes, que estão associados ao VM, são apresentados nesta coluna juntamente com o seu estado de saúde atual.
 
-No exemplo a seguir, os componentes descobertos são **disco**, **disco lógico**, **processador**, **memória**e **sistema operacional**. Várias instâncias desses componentes são descobertas e exibidas nesta coluna.
+No exemplo seguinte, os componentes descobertos são **Disco,** **Disco Lógico,** **Processador,** **Memória**e **Sistema Operativo.** Várias instâncias destes componentes são descobertas e exibidas nesta coluna.
 
-Por exemplo, a figura a seguir mostra que a VM tem duas instâncias de discos lógicos, **C:** e **D:** , que estão em um estado íntegro:
+Por exemplo, a figura que se segue mostra que o VM tem dois casos de discos lógicos, **C:** e **D:** , que estão em estado saudável:
 
-![Modelo de componente de exemplo apresentado no diagnóstico de integridade](./media/vminsights-health/health-diagnostics-page-component.png)
+![Modelo de componente de exemplo apresentado em diagnósticos de saúde](./media/vminsights-health/health-diagnostics-page-component.png)
 
-### <a name="health-criteria"></a>Critérios de integridade
+### <a name="health-criteria"></a>Critérios de saúde
 
-A coluna central na página diagnóstico de integridade é **critérios de integridade**. O modelo de integridade definido para a VM é exibido em uma árvore hierárquica. O modelo de integridade para uma VM consiste em critérios de integridade de unidade e agregação.
+A coluna central na página de Diagnósticos de Saúde é **Critérios de Saúde.** O modelo de saúde definido para o VM é exibido numa árvore hierárquica. O modelo de saúde de um VM consiste em critérios de saúde unitários e agregados.
 
-![Critérios de integridade de exemplo apresentados no diagnóstico de integridade](./media/vminsights-health/health-diagnostics-page-healthcriteria.png)
+![Critérios de saúde de exemplo apresentados em diagnósticos de saúde](./media/vminsights-health/health-diagnostics-page-healthcriteria.png)
 
-Um critério de integridade mede a integridade de uma instância monitorada, que pode ser um valor limite, estado de uma entidade e assim por diante. Um critério de integridade tem dois ou três limites de estado de integridade configuráveis, conforme descrito anteriormente. A qualquer momento, o critério de integridade pode estar em apenas um de seus Estados potenciais.
+Um critério de saúde mede a saúde de uma instância monitorizada, que pode ser um valor limiar, estado de uma entidade, e assim por diante. Um critério de saúde tem dois ou três limiares de estado de saúde configuráveis, como descrito anteriormente. Em qualquer momento, o critério de saúde pode estar apenas num dos seus estados potenciais.
 
-O modelo de integridade define critérios que determinam a integridade do destino geral e dos componentes do destino. A hierarquia de critérios é mostrada na seção **critérios de integridade** na página diagnóstico de **integridade** .
+O modelo de saúde define critérios que determinam a saúde do objetivo geral e componentes do alvo. A hierarquia de critérios é mostrada na secção critérios de **saúde** na página de Diagnósticos de **Saúde.**
 
-A política de acumulação de integridade faz parte da configuração dos critérios de integridade agregada (o padrão é definido como **pior**). Você pode encontrar um conjunto padrão de critérios de integridade em execução como parte desse recurso na seção [detalhes de configuração de monitoramento](#monitoring-configuration-details) deste artigo.
+A política de rollup de saúde faz parte da configuração de critérios de saúde agregados (o padrão está definido para **o pior de**). Pode encontrar um conjunto padrão de critérios de saúde em execução como parte desta funcionalidade na secção de detalhes de configuração de [Monitorização](#monitoring-configuration-details) deste artigo.
 
-Você também pode usar a lista de instâncias do monitor de API REST Azure Monitor [por recurso](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) para obter uma lista de todos os critérios de integridade. Esses critérios incluem detalhes de configuração em execução no recurso de VM do Azure.
+Também pode utilizar a lista de [instâncias](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) de monitor escotomonitor Do Monitor Azure Rest por recurso para obter uma lista de todos os critérios de saúde. Estes critérios incluem detalhes de configuração em execução contra o recurso Azure VM.
 
-O tipo de critério de integridade da **unidade** pode ter sua configuração modificada selecionando o link de reticências ao lado direito. Selecione **Mostrar detalhes** para abrir o painel de configuração.
+O tipo de critérios de saúde **unitáriopode** ter a sua configuração modificada selecionando a ligação de elipse para o lado direito. Selecione **Detalhes do show** para abrir o painel de configuração.
 
-![Configurando um exemplo de critérios de integridade](./media/vminsights-health/health-diagnostics-vm-example-02.png)
+![Configurar um exemplo de critérios de saúde](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-No painel de configuração dos critérios de integridade selecionados, se você usar o exemplo **média de segundos de disco por gravação**, o limite poderá ser configurado com um valor numérico diferente. É um monitor de dois Estados, o que significa que ele pode mudar apenas de **íntegro** para **aviso**.
+No painel de configuração para os critérios de saúde selecionados, se utilizar o exemplo **Average Disk Seconds Per Write,** o limiar pode ser configurado com um valor numérico diferente. É um monitor de dois estados, o que significa que só pode mudar de **Saudável** para **Aviso.**
 
-Outros critérios de integridade às vezes usam três Estados, onde você pode configurar o valor para limites de estado de integridade críticos e de aviso. Você também pode modificar um limite usando Azure Monitor [configuração do monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)da API REST.
+Outros critérios de saúde por vezes usam três estados, onde você pode configurar o valor para alerta e limiares críticos de estado de saúde. Também pode modificar um limiar utilizando a [configuração](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)do monitor API do Monitor Do Monitor Azure .
 
 >[!NOTE]
->A aplicação de alterações de configuração de critérios de integridade a uma instância aplica-as a todas as instâncias monitoradas. Por exemplo, se você selecionar **disco-1 D:** e, em seguida, modificar o limite **médio de segundos de disco por gravação** , a alteração se aplicará a todas as instâncias descobertas e monitoradas na VM.
+>Aplicar as alterações de configuração dos critérios de saúde numa instância aplica-as a todas as instâncias monitorizadas. Por exemplo, se selecionar **o Disco -1 D:** e depois modificar o limiar **average Seconds Per Write,** a alteração aplica-se a todas as instâncias descobertas e monitorizadas no VM.
 
 
-![Configurando um critério de integridade de um exemplo de monitor de unidade](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
+![Configurar um critério de saúde de um exemplo de monitor de unidade](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
 
-Se você quiser saber mais sobre os critérios de integridade, incluímos artigos de conhecimento para ajudá-lo a identificar problemas, causas e resoluções. Selecione **Exibir informações** na página para ver o artigo de conhecimento relacionado.
+Se quiser saber mais sobre critérios de saúde, incluímos artigos de conhecimento para ajudá-lo a identificar problemas, causas e resoluções. Selecione **Ver informações** na página para ver o artigo de conhecimento relacionado.
 
-Para examinar todos os artigos de conhecimento incluídos no Azure Monitor para VMs Health, consulte a [documentação de conhecimento do Azure monitor Health](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+Para rever todos os artigos de conhecimento incluídos no Azure Monitor para a saúde dos VMs, consulte a documentação do conhecimento de [saúde do Azure Monitor.](https://docs.microsoft.com/azure/monitoring/infrastructure-health/)
 
-### <a name="state-changes"></a>Alterações de estado
+### <a name="state-changes"></a>Alterações de Estado
 
-A coluna da extrema direita da página **diagnóstico de integridade** são **alterações de estado**. Esta coluna lista todas as alterações de estado associadas aos critérios de integridade selecionados na seção **critérios de integridade** ou a alteração de estado da VM se uma VM foi selecionada na coluna **modelo de componente** ou critérios de **integridade** da tabela.
+A coluna de extrema-direita da página de Diagnósticos de **Saúde** é **alterações do Estado.** Esta coluna enumera todas as alterações do Estado associadas aos critérios de saúde selecionados na secção Critérios de **Saúde,** ou a alteração do Estado do VM se um VM foi selecionado a partir do **Modelo de Componente** ou da coluna critérios de **saúde** da tabela.
 
-![Alterações de estado de exemplo apresentadas no diagnóstico de integridade](./media/vminsights-health/health-diagnostics-page-statechanges.png)
+![Mudanças de estado exemplo apresentadas nos diagnósticos de saúde](./media/vminsights-health/health-diagnostics-page-statechanges.png)
 
-A seção a seguir mostra o estado de critérios de integridade e a hora associada. Essas informações mostram o estado mais recente na parte superior da coluna.
+A secção seguinte mostra o estado dos critérios de saúde e o tempo associado. Esta informação mostra o último estado no topo da coluna.
 
-### <a name="association-of-component-model-health-criteria-and-state-changes-columns"></a>Associação das colunas modelo de componente, critérios de integridade e alterações de estado
+### <a name="association-of-component-model-health-criteria-and-state-changes-columns"></a>Associação de Modelos componentes, Critérios de Saúde e Alterações do Estado
 
-As três colunas são interligadas entre si. Quando você seleciona uma instância na coluna **modelo de componente** , a coluna **critérios de integridade** é filtrada para essa exibição de componente. De modo correspondente, a coluna de **alterações de estado** é atualizada com base nos critérios de integridade selecionados.
+As três colunas estão interligadas umas com as outras. Quando seleciona uma instância na coluna Modelo **componente,** a coluna Critérios de **Saúde** é filtrada para essa vista do componente. Em conformidade, a coluna **Alterações** do Estado é atualizada com base nos critérios de saúde selecionados.
 
-![Exemplo de seleção de instância e resultados monitorados](./media/vminsights-health/health-diagnostics-vm-example-01.png)
+![Exemplo de seleção de instâncias e resultados monitorizados](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-Por exemplo, se você selecionar *disco-1 D:* na lista em **modelo de componente**, **critérios de integridade** filtros para *disco-1D:* e **alterações de estado** mostrarão a alteração de estado com base na disponibilidade do *disco-1 D:* .
+Por exemplo, se selecionar *o Disco - 1 D:* da lista em **Modelo**componente, filtros de critérios de **saúde** para *disco - 1D:* e **alterações** de Estado mostram a mudança de estado com base na disponibilidade do *Disco - 1 D:* .
 
-Para ver um estado de integridade atualizado, você pode atualizar a página de diagnóstico de integridade selecionando o link **Atualizar** . Se houver uma atualização para o estado de integridade do critério de integridade com base no intervalo de sondagem predefinido, essa tarefa permitirá que você evite aguardar e reflita o estado de integridade mais recente. O **estado dos critérios de integridade** é um filtro que permite o escopo dos resultados com base no estado de integridade selecionado: íntegro, aviso, crítico, desconhecido e todos. A hora da **última atualização** no canto superior direito representa a última vez em que a página de diagnóstico de integridade foi atualizada.
+Para ver um estado de saúde atualizado, pode refrescar a página de Diagnósticos de Saúde selecionando o link **Refresh.** Se houver uma atualização do estado de saúde do critério de saúde com base no intervalo de sondagens pré-definido, esta tarefa permite evitar esperar e refletir o mais recente estado de saúde. O Estado dos Critérios de **Saúde** é um filtro que permite analisar os resultados com base no estado de saúde selecionado: Saudável, Aviso, Crítico, Desconhecido e Tudo. A última vez **atualizada** no canto superior direito representa a última vez que a página de Diagnósticos de Saúde foi refrescada.
 
 ## <a name="alerts"></a>Alertas
 
-O Azure Monitor para VMs Health se integra aos [alertas do Azure](../../azure-monitor/platform/alerts-overview.md). Ele gera um alerta quando critérios predefinidos, quando detectados, mudam de um estado íntegro para um estado não íntegro. Os alertas são categorizados por severidade, de Sev 0 a Sev 4, com Sev 0 como o nível mais alto.
+O Monitor Azure para a saúde dos VMs integra-se com [alertas Azure.](../../azure-monitor/platform/alerts-overview.md) Levanta um alerta quando critérios predefinidos, quando detetados, mudam de um estado saudável para um estado pouco saudável. Os alertas são categorizados pela gravidade, do Sev 0 ao Sev 4, com o Sev 0 como o nível mais alto.
 
-Os alertas não estão associados a um grupo de ações para notificá-lo quando o alerta foi disparado. Um usuário com função de proprietário no escopo da assinatura deve configurar notificações seguindo as etapas na seção [configurar alertas](#configure-alerts) .
+Os alertas não estão associados a um grupo de ação para notificá-lo quando o alerta foi desencadeado. Um utilizador com a função Proprietário no âmbito de subscrição deve configurar notificações seguindo as etapas na secção de [alertas Configure.](#configure-alerts)
 
-O número total de alertas de integridade da VM categorizados por severidade está disponível no painel de **integridade** na seção **alertas** . Quando você seleciona o número total de alertas ou o número correspondente a um nível de severidade, a página **alertas** é aberta e lista todos os alertas que correspondem à sua seleção.
+O número total de alertas de Saúde VM categorizados pela gravidade está disponível no painel de **saúde** no âmbito da secção **Alertas.** Quando seleciona o número total de alertas ou o número correspondente a um nível de gravidade, a página **Alerts** abre e lista todos os alertas correspondentes à sua seleção.
 
-Por exemplo, se você selecionar a linha correspondente ao **Sev nível 1**, verá o seguinte modo de exibição:
+Por exemplo, se selecionar a linha correspondente ao **nível Sev 1,** verá a seguinte vista:
 
-![Exemplo de todos os alertas de nível de severidade 1](./media/vminsights-health/vminsights-sev1-alerts-01.png)
+![Exemplo de todos os alertas de Nível 1 da Severity](./media/vminsights-health/vminsights-sev1-alerts-01.png)
 
-A página **todos os alertas** não tem o escopo definido para mostrar somente os alertas que correspondem à sua seleção. Ele também é filtrado pelo **tipo de recurso** para mostrar apenas os alertas de integridade gerados por um recurso da VM. Esse formato é refletido na lista de alertas, sob o **recurso de destino**da coluna, em que mostra a VM do Azure o alerta gerado quando uma condição não íntegra foi atendida.
+A página **All Alerts** não é vista para mostrar apenas alertas correspondentes à sua seleção. Também é filtrado pelo **tipo Derecurso** para mostrar apenas alertas de saúde levantados por um recurso VM. Este formato reflete-se na lista de alerta, sob a coluna **Target Resource,** onde mostra ao Azure VM o alerta elevado quando uma condição pouco saudável foi satisfeita.
 
-Os alertas de outros tipos de recursos ou serviços não devem ser incluídos nessa exibição. Esses alertas incluem alertas de log, que se baseiam em consultas de log ou alertas de métrica que você normalmente veria na página padrão Azure Monitor [todos os alertas](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) .
+Neste ponto de vista, os alertas de outros tipos ou serviços de recursos não se destinam a ser incluídos. Estes alertas incluem alertas de registo, que são baseados em consultas de registo ou alertas métricos que normalmente visualizaria a partir da página padrão do Monitor Azure [Todos os Alertas.](../../azure-monitor/platform/alerts-overview.md#all-alerts-page)
 
-Você pode filtrar essa exibição selecionando valores nos menus suspensos na parte superior da página.
+Pode filtrar esta vista selecionando valores nos menus suspensos na parte superior da página.
 
-|Column |Descrição |
+|Coluna |Descrição |
 |-------|------------|
-|Subscrição |Selecione uma subscrição do Azure. Somente os alertas na assinatura selecionada são incluídos na exibição. |
-|Grupo de Recursos |Selecione um único grupo de recursos. Somente os alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
-|Tipo de recurso |Selecione um ou mais tipos de recurso. Por padrão, somente alertas de **máquinas virtuais** de destino são selecionados e incluídos nessa exibição. Esta coluna só estará disponível depois que um grupo de recursos tiver sido especificado. |
-|Recurso |Selecione um recurso. Somente os alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
-|Gravidade |Selecione uma severidade de alerta ou selecione **tudo** para incluir alertas de todas as severidades. |
-|Condição do monitor |Selecione uma condição de monitor para filtrar alertas se eles tiverem sido acionados ou resolvidos pelo sistema se a condição não estiver mais ativa. Ou selecione **todos** para incluir alertas de todas as condições. |
-|Estado de alerta |Selecione um estado de alerta, **novo**, **reconhecer**, **fechado**ou **todos** para incluir alertas de todos os Estados. |
-|Monitorizar serviço |Selecione um serviço ou selecione **todos** para incluir todos os serviços. Somente os alertas do VM insights têm suporte para esse recurso.|
-|Intervalo de tempo| Somente os alertas acionados na janela de tempo selecionada são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
+|Subscrição |Selecione uma subscrição do Azure. Apenas os alertas na subscrição selecionada estão incluídos na vista. |
+|Grupo de Recursos |Selecione um único grupo de recursos. Apenas os alertas com alvos no grupo de recursos selecionados estão incluídos na vista. |
+|Tipo de recurso |Selecione um ou mais tipos de recursos. Por predefinição, apenas são selecionados e **incluídos,** nesta vista, apenas os alertas das máquinas virtuais-alvo. Esta coluna só está disponível depois de um grupo de recursos ter sido especificado. |
+|Recurso |Selecione um recurso. Apenas os alertas com esse recurso como alvo estão incluídos na vista. Esta coluna só está disponível depois de ser especificado um tipo de recurso. |
+|Gravidade |Selecione uma gravidade de alerta ou selecione **Tudo** para incluir alertas de todas as gravidades. |
+|Condição do Monitor |Selecione uma condição de monitor para filtrar alertas se tiverem sido disparados ou resolvidos pelo sistema se a condição já não estiver ativa. Ou, selecione **Tudo** para incluir alertas de todas as condições. |
+|Estado de alerta |Selecione um estado de alerta, **Novo,** **Reconhecimento,** **Fechado,** ou **Tudo** para incluir alertas de todos os Estados. |
+|Serviço de monitorização |Selecione um serviço ou selecione **Todos** os serviços. Apenas os alertas da VM Insights são suportados para esta funcionalidade.|
+|Intervalo de tempo| Apenas os alertas disparados dentro da janela de tempo selecionada estão incluídos na vista. Os valores suportados são a última hora, as últimas 24 horas, os últimos 7 dias, e os últimos 30 dias. |
 
-Quando você seleciona um alerta, a página de **detalhes do alerta** é exibida. Esta página fornece detalhes do alerta e permite que você altere seu estado.
+Quando selecionar um alerta, a página de detalhes do **Alerta** é apresentada. Esta página fornece detalhes do alerta e permite-lhe alterar o seu estado.
 
-Para saber mais sobre como gerenciar alertas, confira [criar, exibir e gerenciar alertas usando o Azure monitor](../../azure-monitor/platform/alerts-metric.md).
+Para saber mais sobre gestão de alertas, consulte [Criar, visualizar e gerir alertas utilizando o Monitor Azure.](../../azure-monitor/platform/alerts-metric.md)
 
 >[!NOTE]
->Atualmente, não há suporte para a criação de novos alertas com base nos critérios de integridade ou para modificar as regras de alerta de integridade existentes no Azure Monitor do Portal.
+>A criação de novos alertas com base em critérios de saúde ou na modificação das regras de alerta de saúde existentes no Monitor de Saúde do Portal não é atualmente suportada.
 
 
-![Painel detalhes do alerta para um alerta selecionado](./media/vminsights-health/alert-details-pane-01.png)
+![Painel de detalhes de alerta para um alerta selecionado](./media/vminsights-health/alert-details-pane-01.png)
 
-Você pode alterar um estado de alerta para um ou vários alertas selecionando-os e, em seguida, selecionando **alterar estado** na página **todos os alertas** no canto superior esquerdo. Selecione um dos Estados no painel **alterar estado do alerta** , adicione uma descrição da alteração no campo **Comentário** e, em seguida, selecione **OK** para confirmar suas alterações. Quando as informações são verificadas e as alterações são aplicadas, acompanhe o progresso em **notificações** no menu.
+Pode alterar um estado de alerta para um ou vários alertas selecionando-os e, em seguida, selecionando o **estado De alterar** a partir da página All **Alerts** no canto superior esquerdo. Selecione um dos estados no painel de estado de **alerta Change,** adicione uma descrição da alteração no campo **'Comentários'** e, em seguida, selecione **Ok** para cometer as suas alterações. Quando a informação for verificada e as alterações forem aplicadas, acompanhe os progressos no âmbito das **Notificações** no menu.
 
 ### <a name="configure-alerts"></a>Configurar alertas
-Você não pode gerenciar determinadas tarefas de gerenciamento de alertas do portal do Azure. Essas tarefas devem ser executadas usando a [API REST do Azure monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Especificamente:
+Não se pode gerir certas tarefas de gestão de alerta do portal Azure. Estas tarefas devem ser executadas utilizando a [API REST DO Monitor Azure](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Mais concretamente:
 
-- Habilitando ou desabilitando um alerta para critérios de integridade
-- Configurando notificações para alertas de critérios de integridade
+- Habilitar ou desativar um alerta para critérios de saúde
+- Criação de notificações para critérios de saúde alerta
 
-Cada exemplo usa [ARMClient](https://github.com/projectkudu/armclient) em seu computador Windows. Se você não estiver familiarizado com esse método, consulte [usando ARMClient](../platform/rest-api-walkthrough.md#use-armclient).
+Cada exemplo utiliza o [ARMClient](https://github.com/projectkudu/armclient) na sua máquina Windows. Se não estiver familiarizado com este método, consulte [a Utilização do ARMClient](../platform/rest-api-walkthrough.md#use-armclient).
 
-#### <a name="enable-or-disable-an-alert-rule"></a>Habilitar ou desabilitar uma regra de alerta
+#### <a name="enable-or-disable-an-alert-rule"></a>Ativar ou desativar uma regra de alerta
 
-Para habilitar ou desabilitar um alerta para critérios de integridade específicos, a propriedade **alertGeneration** deve ser modificada com um valor de **desabilitado** ou **habilitado**.
+Para ativar ou desativar um alerta para critérios específicos de saúde, o alerta de propriedade **A geração** deve ser modificada com um valor de **Incapacidade** ou **Habilitação**.
 
-Para identificar o *monitorid* para critérios de integridade específicos, o exemplo a seguir mostra como consultar esse valor para os critérios **lógico \ média disco segundos por transferência**:
+Para identificar o *monitorId* para critérios específicos de saúde, o exemplo seguinte mostra como consultar esse valor para os critérios **LogicalDisk\Avg Disk Seconds Por Transferência:**
 
-1. Em uma janela de terminal, digite **armclient. exe login**. Isso solicitará que você entre no Azure.
+1. Numa janela terminal, escreva **login armclient.exe**. Fazê-lo leva-o a assinar no Azure.
 
-2. Digite o seguinte comando para recuperar todo o critério de integridade ativo em uma VM específica e identificar o valor da propriedade *monitorid* :
+2. Insira o seguinte comando para recuperar todos os critérios de saúde ativos num VM específico e identificar o valor para a propriedade *monitorId:*
 
     ```
     armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview"
     ```
 
-    O exemplo a seguir mostra a saída do comando *ARMCLIENT Get* . Anote o valor de *monitorid*. Esse valor é necessário para a próxima etapa, onde devemos especificar a ID dos critérios de integridade e modificar sua propriedade para criar um alerta.
+    O exemplo seguinte mostra a saída do comando GET do *armclient.* Tome nota do valor do *MonitorId*. Este valor é necessário para o próximo passo, onde devemos especificar a identificação dos critérios de saúde e modificar a sua propriedade para criar um alerta.
 
     ```
     "id": "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourcegroups/Lab/providers/Microsoft.Compute/virtualMachines/SVR01/providers/Microsoft.WorkloadMonitor/monitors/ComponentTypeId='LogicalDisk',MonitorId='Microsoft_LogicalDisk_AvgDiskSecPerRead'",
@@ -385,37 +384,37 @@ Para identificar o *monitorid* para critérios de integridade específicos, o ex
       "etag": null,
     ```
 
-3. Digite o seguinte comando para modificar a propriedade *alertGeneration* :
+3. Insira o seguinte comando para modificar a propriedade *alertGeneration:*
 
     ```
     armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview "{'properties':{'alertGeneration':'Disabled'}}"
     ```   
 
-4. Insira o comando GET usado na etapa 2 para verificar se o valor da propriedade está definido como **desabilitado**.
+4. Introduza o comando GET utilizado no passo 2 para verificar se o valor da propriedade está definido para **desativado**.
 
-#### <a name="associate-an-action-group-with-health-criteria"></a>Associar um grupo de ação a critérios de integridade
+#### <a name="associate-an-action-group-with-health-criteria"></a>Associar um grupo de ação com critérios de saúde
 
-O Azure Monitor para VMs Health dá suporte a notificações de SMS e email quando os alertas são gerados a partir de critérios de integridade não íntegros. Para configurar notificações, observe o nome do grupo de ações configurado para enviar notificações por email ou SMS.
+O Monitor Azure para a saúde de VMs suporta SMS e notificações de e-mail quando os alertas são gerados a partir de critérios de saúde pouco saudáveis. Para configurar notificações, note o nome do grupo de ação configurado para enviar notificações de SMS ou e-mail.
 
 >[!NOTE]
->Essa ação deve ser executada em cada VM monitorada para a qual você deseja receber uma notificação. Ele não se aplica a todas as VMs em um grupo de recursos.
+>Esta ação deve ser executada contra cada VM monitorizado que pretende receber uma notificação. Não se aplica a todos os VMs de um grupo de recursos.
 
-1. Em uma janela de terminal, insira o *logon do armclient. exe*. Isso solicitará que você entre no Azure.
+1. Numa janela de terminais, introduza *login armclient.exe*. Fazê-lo leva-o a assinar no Azure.
 
-2. Digite o seguinte comando para associar um grupo de ação a regras de alerta:
+2. Insira o seguinte comando para associar um grupo de ação às regras de alerta:
  
     ```
     $payload = "{'properties':{'ActionGroupResourceIds':['/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/microsoft.insights/actionGroups/actiongroupName']}}"
     armclient PUT https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings/default?api-version=2018-08-31-preview $payload
     ```
 
-3. Para verificar se o valor da propriedade **actionGroupResourceIds** foi atualizado com êxito, insira o seguinte comando:
+3. Para verificar se o valor da **ação imobiliáriaGroupResourceIds** foi atualizado com sucesso, insira o seguinte comando:
 
     ```
     armclient GET "subscriptions/subscriptionName/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings?api-version=2018-08-31-preview"
     ```
 
-    A saída deve ser semelhante aos seguintes critérios:
+    A saída deve parecer os seguintes critérios:
     
     ```
     {
@@ -438,6 +437,6 @@ O Azure Monitor para VMs Health dá suporte a notificações de SMS e email quan
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para identificar as limitações e o desempenho geral da VM, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md).
+- Para identificar limitações e desempenho geral de VM, consulte [View Azure VM Performance](vminsights-performance.md).
 
-- Para saber mais sobre dependências de aplicativo descobertas, consulte [exibir mapa de Azure monitor para VMs](vminsights-maps.md).
+- Para saber sobre dependências de aplicações descobertas, consulte o View Azure Monitor para o Mapa de [VMs](vminsights-maps.md).

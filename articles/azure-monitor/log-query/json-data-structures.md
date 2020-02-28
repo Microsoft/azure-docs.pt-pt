@@ -1,36 +1,35 @@
 ---
-title: Trabalhando com cadeias de caracteres em consultas de log de Azure Monitor | Microsoft Docs
-description: Este artigo fornece um tutorial para usar Azure Monitor Log Analytics no portal do Azure para consultar e analisar dados de log no Azure Monitor.
-ms.service: azure-monitor
+title: Trabalhar com cordas em consultas de registo do Monitor Azure  Microsoft Docs
+description: Este artigo fornece um tutorial para a utilização do Azure Monitor Log Analytics no portal Azure para consultar e analisar dados de registo no Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 940c82e9ef7016639a3ab334040c408f83996e2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365313"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670156"
 ---
-# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhando com estruturas de dados e JSON em Azure Monitor consultas de log
+# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhar com a JSON e as estruturas de dados em consultas de registo do Monitor Azure
 
 > [!NOTE]
-> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas de Azure monitor log](get-started-queries.md) antes de concluir esta lição.
+> Deve completar [O Get started com o Azure Monitor Log Analytics](get-started-portal.md) e começar com consultas de registo do [Azure Monitor](get-started-queries.md) antes de concluir esta aula.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Objetos aninhados são objetos que contêm outros objetos em uma matriz ou um mapa de pares chave-valor. Esses objetos são representados como cadeias de caracteres JSON. Este artigo descreve como o JSON é usado para recuperar dados e analisar objetos aninhados.
+Objetos aninhados são objetos que contêm outros objetos numa matriz ou num mapa de pares de valor-chave. Estes objetos são representados como cordas JSON. Este artigo descreve como a JSON é usada para recuperar dados e analisar objetos aninhados.
 
-## <a name="working-with-json-strings"></a>Trabalhando com cadeias de caracteres JSON
-Use `extractjson` para acessar um elemento JSON específico em um caminho conhecido. Essa função requer uma expressão de caminho que usa as convenções a seguir.
+## <a name="working-with-json-strings"></a>Trabalhar com cordas JSON
+Utilize `extractjson` para aceder a um elemento JSON específico num caminho conhecido. Esta função requer uma expressão de caminho que utiliza as seguintes convenções.
 
-- _$_ fazer referência à pasta raiz
-- Use a notação de colchete ou ponto para fazer referência a índices e elementos, conforme ilustrado nos exemplos a seguir.
+- _$_ para se referir à pasta raiz
+- Utilize o suporte ou notação do ponto para se referir a índices e elementos ilustrados nos seguintes exemplos.
 
 
-Use colchetes para índices e pontos para separar elementos:
+Utilize os suportes para índices e pontos para separar elementos:
 
 ```Kusto
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
@@ -38,7 +37,7 @@ print hosts_report
 | extend status = extractjson("$.hosts[0].status", hosts_report)
 ```
 
-Esse é o mesmo resultado usando apenas a notação de colchetes:
+Este é o mesmo resultado utilizando apenas a notação dos suportes:
 
 ```Kusto
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
@@ -46,7 +45,7 @@ print hosts_report
 | extend status = extractjson("$['hosts'][0]['status']", hosts_report)
 ```
 
-Se houver apenas um elemento, você poderá usar apenas a notação de ponto:
+Se houver apenas um elemento, só pode utilizar a notação do ponto:
 
 ```Kusto
 let hosts_report='{"location":"North_DC", "status":"running", "rate":5}';
@@ -58,7 +57,7 @@ print hosts_report
 ## <a name="working-with-objects"></a>Trabalhar com objetos
 
 ### <a name="parsejson"></a>parsejson
-Para acessar vários elementos em sua estrutura JSON, é mais fácil acessá-lo como um objeto dinâmico. Use `parsejson` para converter dados de texto em um objeto dinâmico. Depois de convertido em um tipo dinâmico, funções adicionais podem ser usadas para analisar os dados.
+Para aceder a vários elementos da sua estrutura json, é mais fácil acessá-lo como um objeto dinâmico. Utilize `parsejson` para lançar dados de texto num objeto dinâmico. Uma vez convertidos para um tipo dinâmico, funções adicionais podem ser usadas para analisar os dados.
 
 ```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
@@ -69,7 +68,7 @@ print hosts_object
 
 
 ### <a name="arraylength"></a>arraylength
-Use `arraylength` para contar o número de elementos em uma matriz:
+Utilize `arraylength` para contar o número de elementos numa matriz:
 
 ```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
@@ -78,7 +77,7 @@ print hosts_object
 ```
 
 ### <a name="mvexpand"></a>mvexpand
-Use `mvexpand` para quebrar as propriedades de um objeto em linhas separadas.
+Utilize `mvexpand` para quebrar as propriedades de um objeto em linhas separadas.
 
 ```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
@@ -97,7 +96,7 @@ print hosts_object
 | summarize buildschema(hosts_object)
 ```
 
-A saída é um esquema no formato JSON:
+A saída é um esquema em formato JSON:
 ```json
 {
     "hosts":
@@ -111,9 +110,9 @@ A saída é um esquema no formato JSON:
     }
 }
 ```
-Essa saída descreve os nomes dos campos de objeto e seus tipos de dados correspondentes. 
+Esta saída descreve os nomes dos campos de objetos e os seus tipos de dados correspondentes. 
 
-Objetos aninhados podem ter esquemas diferentes, como no exemplo a seguir:
+Os objetos aninhados podem ter diferentes esquemmas, tais como no seguinte exemplo:
 
 ```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"status":"stopped", "rate":"3", "range":100}]}');
@@ -122,15 +121,15 @@ print hosts_object
 ```
 
 
-![Esquema de compilação](media/json-data-structures/buildschema.png)
+![Construir esquemas](media/json-data-structures/buildschema.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte outras lições para usar consultas de log no Azure Monitor:
+Consulte outras lições para utilizar consultas de registo no Monitor Azure:
 
-- [Operações de cadeia de caracteres](string-operations.md)
+- [Operações de cordas](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
-- [Gravação de consulta avançada](advanced-query-writing.md)
-- [Junções](joins.md)
-- [Spersão](charts.md)
+- [Escrita de consulta avançada](advanced-query-writing.md)
+- [Junta-se](joins.md)
+- [Gráficos](charts.md)

@@ -1,98 +1,97 @@
 ---
-title: Consultar entre recursos com Azure Monitor | Microsoft Docs
-description: Este artigo descreve como você pode consultar recursos de vários espaços de trabalho e aplicativo do Application insights em sua assinatura.
-ms.service: azure-monitor
+title: Consulta entre recursos com o Monitor Azure  Monitor De Adc) Microsoft Docs
+description: Este artigo descreve como pode consultar recursos de vários espaços de trabalho e app App Insights na sua subscrição.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/05/2019
-ms.openlocfilehash: 0eaaf1157bf49068958bc07d17a23fc31dd99de0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365500"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670275"
 ---
-# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas de log entre recursos no Azure Monitor  
+# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Realizar consultas de registo de recursos cruzados no Monitor Azure  
 
-Anteriormente, com Azure Monitor, você podia apenas analisar dados de dentro do espaço de trabalho atual e ele limitou sua capacidade de consultar em vários espaços de trabalho definidos em sua assinatura.  Além disso, você só podia pesquisar itens de telemetria coletados de seu aplicativo baseado na Web com Application Insights diretamente no Application Insights ou no Visual Studio. Isso também tornou um desafio para analisar nativamente os dados operacionais e de aplicativos juntos.
+Anteriormente com o Monitor Azure, só era possível analisar dados de dentro do espaço de trabalho atual, e limitava a sua capacidade de consulta em vários espaços de trabalho definidos na sua subscrição.  Além disso, só foi possível pesquisar artigos de telemetria recolhidos a partir da sua aplicação baseada na Web com insights de aplicação diretamente em Application Insights ou no Visual Studio. Isto também o tornou um desafio para analisar de forma nativa os dados operacionais e de aplicação em conjunto.
 
-Agora você pode consultar não apenas em vários espaços de trabalho do Log Analytics, mas também dados de um aplicativo Application Insights específico no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura. Isso fornece uma exibição de seus dados em todo o sistema. Você só pode executar esses tipos de consultas no [log Analytics](portals.md).
+Agora pode consultar não só vários espaços de trabalho do Log Analytics, mas também dados de uma aplicação específica de Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isto fornece-lhe uma visão global dos seus dados. Só é possível realizar este tipo de consultas no [Log Analytics](portals.md).
 
-## <a name="cross-resource-query-limits"></a>Limites de consulta entre recursos 
+## <a name="cross-resource-query-limits"></a>Limites de consulta de recursos cruzados 
 
-* O número de recursos de Application Insights e espaços de trabalho de Log Analytics que você pode incluir em uma única consulta é limitado a 100.
-* Não há suporte para a consulta entre recursos no designer de exibição. Você pode criar uma consulta em Log Analytics e fixá-la no painel do Azure para [Visualizar uma consulta de log](../learn/tutorial-logs-dashboards.md). 
-* Há suporte para a consulta entre recursos em alertas de log na nova [API do scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por padrão, Azure Monitor usa a [API de alerta log Analytics herdada](../platform/api-alerts.md) para criar novas regras de alerta de log de portal do Azure, a menos que você mude da [API de alertas de log herdado](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a opção, a nova API torna-se o padrão para novas regras de alerta no portal do Azure e permite criar regras de alertas de log de consulta entre recursos. Você pode criar regras de alerta de log de consulta de recurso cruzado sem fazer a alternância usando o [modelo de Azure Resource Manager para a API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas essa regra de alerta é gerenciável, embora a [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não de portal do Azure.
+* O número de recursos de Application Insights e espaços de trabalho de Log Analytics que pode incluir numa única consulta está limitado a 100.
+* A consulta de recursos cruzados não é suportada no View Designer. Pode escrever uma consulta no Log Analytics e fixá-la no painel azure para [visualizar uma consulta](../learn/tutorial-logs-dashboards.md)de log . 
+* A consulta de recursos cruzados em alertas de registo é suportada na nova [API agendadaQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por padrão, o Azure Monitor utiliza o [legado Log Analytics Alert API](../platform/api-alerts.md) para criar novas regras de alerta de log a partir do portal Azure, a menos que troque do legado Log [Alerts API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a troca, a nova API torna-se o padrão para novas regras de alerta no portal Azure e permite criar regras de alerta de consulta de recursos cruzados. Pode criar regras de alerta de consulta de cross-resource sem fazer a troca utilizando o modelo do Gestor de [Recursos Azure para a API agendada](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas esta regra de alerta é controlável apesar da [API agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não do portal Azure.
 
 
-## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultando em Log Analytics espaços de trabalho e de Application Insights
-Para fazer referência a outro espaço de trabalho em sua consulta, use o identificador do [*espaço de trabalho*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) e, para um aplicativo de Application insights, use o identificador do [*aplicativo*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression) .  
+## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consulta em espaços de trabalho log Analytics e a partir de Insights de Aplicação
+Para fazer referência a outro espaço de trabalho na sua consulta, utilize o identificador espaço de [*trabalho*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) e, para uma aplicação da Application Insights, utilize o identificador da [*aplicação.* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)  
 
-### <a name="identifying-workspace-resources"></a>Identificando recursos do espaço de trabalho
-Os exemplos a seguir demonstram consultas em Log Analytics espaços de trabalho para retornar contagens resumidas de logs da tabela de atualização em um espaço de trabalho chamado *contosoretail-it*. 
+### <a name="identifying-workspace-resources"></a>Identificação de recursos espaciais de trabalho
+Os exemplos seguintes demonstram consultas em espaços de trabalho da Log Analytics para devolver contagens resumidas de registos da tabela Update num espaço de trabalho chamado *contosoretail-it*. 
 
-A identificação de um espaço de trabalho pode ser realizada de várias maneiras:
+Identificar um espaço de trabalho pode ser realizado de várias formas:
 
-* Nome do recurso – é um nome legível do espaço de trabalho, às vezes chamado de *nome de componente*. 
+* Nome de recurso - é um nome legível pelo homem do espaço de trabalho, por vezes referido como *nome do componente*. 
 
     `workspace("contosoretail-it").Update | count`
 
-* Nome qualificado – é o "nome completo" do espaço de trabalho, composto pelo nome da assinatura, pelo grupo de recursos e pelo nome do componente neste formato: *subscriptionname/resourcegroup/ComponentName*. 
+* Nome qualificado - é o "nome completo" do espaço de trabalho, composto pelo nome de subscrição, grupo de recursos e nome do componente neste formato: *subscriçãoNome/recursoGroup/componentName*. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
-    >Como os nomes de assinatura do Azure não são exclusivos, esse identificador pode ser ambíguo. 
+    >Como os nomes de subscrição do Azure não são únicos, este identificador pode ser ambíguo. 
     >
 
-* ID do espaço de trabalho-uma ID de espaço de trabalho é o identificador exclusivo e imutável atribuído a cada espaço de trabalho representado como um GUID (identificador global exclusivo).
+* ID do espaço de trabalho - Um ID espaço de trabalho é o identificador único, imutável e identificador atribuído a cada espaço de trabalho representado como um identificador globalmente único (GUID).
 
     `workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update | count`
 
-* ID de recurso do Azure – a identidade exclusiva definida pelo Azure do espaço de trabalho. Você usa a ID do recurso quando o nome do recurso é ambíguo.  Para espaços de trabalho, o formato é: */subscriptions/SubscriptionId/resourcegroups/resourceGroup/Providers/Microsoft. OperationalInsights/Workspaces/ComponentName*.  
+* Azure Resource ID – a identidade única definida pelo Azure do espaço de trabalho. Usa o ID de recurso quando o nome do recurso é ambíguo.  Para espaços de trabalho, o formato é: */subscrições/subscriçõesId/resourcegroups/resourceGroup/providers/microsoft. OperationalInsights/espaços de trabalho/componentName*.  
 
     Por exemplo:
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
-### <a name="identifying-an-application"></a>Identificando um aplicativo
-Os exemplos a seguir retornam uma contagem resumida de solicitações feitas em um aplicativo chamado *fabrikamapp* em Application insights. 
+### <a name="identifying-an-application"></a>Identificação de uma aplicação
+Os exemplos seguintes devolvem uma contagem resumida de pedidos feitos contra uma aplicação chamada *fabrikamapp* em Application Insights. 
 
-A identificação de um aplicativo no Application Insights pode ser realizada com a expressão do *aplicativo (identificador)* .  O argumento *Identifier* especifica o aplicativo usando um dos seguintes:
+A identificação de uma aplicação em Insights de Aplicação pode ser realizada com a expressão *da aplicação (Identificador).*  O argumento *do identificador* especifica a aplicação utilizando um dos seguintes:
 
-* Nome do recurso – é um nome legível por humanos do aplicativo, às vezes chamado de *nome do componente*.  
+* Nome de recurso - é um nome legível humano da app, por vezes referido como o nome do *componente*.  
 
     `app("fabrikamapp")`
 
     >[!NOTE]
-    >A identificação de um aplicativo por nome pressupõe exclusividade em todas as assinaturas acessíveis. Se você tiver vários aplicativos com o nome especificado, a consulta falhará devido à ambiguidade. Nesse caso, você deve usar um dos outros identificadores.
+    >Identificar uma aplicação por nome pressupõe uma singularidade em todas as subscrições acessíveis. Se tiver várias aplicações com o nome especificado, a consulta falha devido à ambiguidade. Neste caso, deve usar um dos outros identificadores.
 
-* Nome qualificado – é o "nome completo" do aplicativo, composto pelo nome da assinatura, pelo grupo de recursos e pelo nome do componente neste formato: *subscriptionname/resourcegroup/ComponentName*. 
+* Nome qualificado - é o "nome completo" da app, composto pelo nome de subscrição, grupo de recursos e nome do componente neste formato: *subscriçãoNome/recursoGroup/componentName*. 
 
     `app("AI-Prototype/Fabrikam/fabrikamapp").requests | count`
 
      >[!NOTE]
-    >Como os nomes de assinatura do Azure não são exclusivos, esse identificador pode ser ambíguo. 
+    >Como os nomes de subscrição do Azure não são únicos, este identificador pode ser ambíguo. 
     >
 
-* ID-o GUID do aplicativo.
+* ID - a aplicação GUID da aplicação.
 
     `app("b459b4f6-912x-46d5-9cb1-b43069212ab4").requests | count`
 
-* ID de recurso do Azure-a identidade exclusiva definida pelo Azure do aplicativo. Você usa a ID do recurso quando o nome do recurso é ambíguo. O formato é: */subscriptions/SubscriptionId/resourcegroups/resourceGroup/Providers/Microsoft. OperationalInsights/Components/ComponentName*.  
+* Azure Resource ID - a identidade única definida pelo Azure da app. Usa o ID de recurso quando o nome do recurso é ambíguo. O formato é: */subscrições/subscriçõesId/resourcegroups/resourceGroup/providers/microsoft. OperationalInsights/componentes/componentName*.  
 
     Por exemplo:
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
 
-### <a name="performing-a-query-across-multiple-resources"></a>Executando uma consulta em vários recursos
-Você pode consultar vários recursos de qualquer uma de suas instâncias de recurso, que podem ser aplicativos e espaços de trabalho combinados.
+### <a name="performing-a-query-across-multiple-resources"></a>Realizar uma consulta em vários recursos
+Você pode consultar vários recursos de qualquer um dos seus casos de recursos, estes podem ser espaços de trabalho e aplicações combinados.
     
-Exemplo de consulta em dois espaços de trabalho:    
+Exemplo para consulta em dois espaços de trabalho:    
 
 ```
 union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
@@ -101,10 +100,10 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 | summarize dcount(Computer) by Classification
 ```
 
-## <a name="using-cross-resource-query-for-multiple-resources"></a>Usando a consulta entre recursos para vários recursos
-Ao usar consultas entre recursos para correlacionar dados de vários espaços de trabalho do Log Analytics e Application Insights recursos, a consulta pode se tornar complexa e difícil de manter. Você deve aproveitar as [funções em Azure monitor consultas de log](functions.md) para separar a lógica de consulta do escopo dos recursos de consulta, o que simplifica a estrutura de consulta. O exemplo a seguir demonstra como você pode monitorar vários Application Insights recursos e visualizar a contagem de solicitações com falha por nome do aplicativo. 
+## <a name="using-cross-resource-query-for-multiple-resources"></a>Usando consulta de recursos cruzados para vários recursos
+Ao utilizar consultas de recursos cruzados para correlacionar dados de vários espaços de trabalho do Log Analytics e recursos de Aplicação Insights, a consulta pode tornar-se complexa e difícil de manter. Deve aproveitar funções em consultas de [registo do Monitor Azure](functions.md) para separar a lógica de consulta da deteção dos recursos de consulta, o que simplifica a estrutura de consulta. O exemplo que se segue demonstra como pode monitorizar vários recursos do Application Insights e visualizar a contagem de pedidos falhados pelo nome da aplicação. 
 
-Crie uma consulta como a seguinte que faça referência ao escopo dos recursos de Application Insights. O comando `withsource= SourceApp` adiciona uma coluna que designa o nome do aplicativo que enviou o log. [Salve a consulta como função](functions.md#create-a-function) com o alias _applicationsScoping_.
+Criar uma consulta como a seguinte que referencia o âmbito dos recursos da Application Insights. O comando `withsource= SourceApp` adiciona uma coluna que designa o nome da aplicação que enviou o registo. [Guarde a consulta em função](functions.md#create-a-function) com as aplicações do _pseudónimoSS ._
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -118,7 +117,7 @@ app('Contoso-app5').requests
 
 
 
-Agora você pode [usar essa função](../../azure-monitor/log-query/functions.md#use-a-function) em uma consulta entre recursos, como a seguinte. O alias de função _applicationsScoping_ retorna a União da tabela de solicitações de todos os aplicativos definidos. Em seguida, a consulta filtra as solicitações com falha e visualiza as tendências por aplicativo. O operador _Parse_ é opcional neste exemplo. Ele extrai o nome do aplicativo da propriedade _SourceApp_ .
+Agora pode [utilizar esta função](../../azure-monitor/log-query/functions.md#use-a-function) numa consulta de recurso cruzado como a seguinte. A função pseudónimo _aplicaçõesScoping_ devolve a união do quadro de pedidos de todas as aplicações definidas. A consulta filtra então pedidos falhados e visualiza as tendências por aplicação. Neste exemplo, o operador _de parse_ é opcional. Extrai o nome da aplicação da propriedade _SourceApp._
 
 ```Kusto
 applicationsScoping 
@@ -130,12 +129,12 @@ applicationsScoping
 ```
 
 >[!NOTE]
->Esse método não pode ser usado com alertas de log porque a validação de acesso dos recursos de regra de alerta, incluindo espaços de trabalho e aplicativos, é executada no momento da criação do alerta. Não há suporte para a adição de novos recursos à função após a criação do alerta. Se preferir usar a função para o escopo de recursos em alertas de log, você precisará editar a regra de alerta no portal ou com um modelo do Resource Manager para atualizar os recursos com escopo. Como alternativa, você pode incluir a lista de recursos na consulta de alerta de log.
+>Este método não pode ser utilizado com alertas de registo porque a validação de acesso dos recursos de regra de alerta, incluindo espaços de trabalho e aplicações, é realizada em tempo de criação de alerta. Adicionar novos recursos à função após a criação de alerta não é suportado. Se preferir utilizar a função de deteção de recursos em alertas de registo, tem de editar a regra de alerta no portal ou com um modelo de Gestor de Recursos para atualizar os recursos com âmbito de aplicação. Em alternativa, pode incluir a lista de recursos na consulta de alerta de registo.
 
 
-![Timechart](media/cross-workspace-query/chart.png)
+![Gráfico de tempo](media/cross-workspace-query/chart.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Examine [analisar dados de log em Azure monitor](log-query-overview.md) para obter uma visão geral das consultas de log e como Azure monitor dados de log são estruturados.
-- Examine [Azure monitor consultas de log](query-language.md) para exibir todos os recursos para Azure monitor consultas de log.
+- Reveja os dados de [log do Monitor de Análise no Monitor Azure](log-query-overview.md) para uma visão geral das consultas de registo e como os dados de registo do Monitor Do Azure são estruturados.
+- Reveja as consultas de registo do [Monitor Azure](query-language.md) para visualizar todos os recursos para consultas de registo do Monitor Azure.

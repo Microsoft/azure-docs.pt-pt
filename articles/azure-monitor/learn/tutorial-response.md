@@ -1,19 +1,18 @@
 ---
 title: Responder a eventos com Alertas do Log Analytics do Azure | Microsoft Docs
 description: Este tutorial ajuda-o a compreender os alertas com o Log Analytics para identificar informações importantes na sua área de trabalho e notificá-lo proativamente de problemas ou invocar ações para tentar corrigi-las.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 11ce572cdb8a04dac07689b37eef76f354475df3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365627"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670377"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com Alertas do Azure Monitor
 Os alertas no Azure Monitor podem identificar informações importantes no repositório do Log Analytics. Estes são criados pelas regras de alerta que executam automaticamente pesquisas de registos em intervalos regulares, e se os resultados da pesquisa de registos corresponderem a critérios de específicos, então será criado um registo de alerta que poderá ser configurado para efetuar uma resposta automática.  Este tutorial é uma continuação do tutorial [Criar e partilhar dashboards de dados do Log Analytics](tutorial-logs-dashboards.md).   
@@ -34,9 +33,9 @@ Os alertas são criados por regras de alerta no Azure Monitor e podem executar a
 
 No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica com base na consulta *Azure VMs – Utilização do Processador* guardada em [Visualizar tutorial de dados](tutorial-logs-dashboards.md).  É criado um alerta para cada máquina virtual que excede um limiar de 90%.  
 
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 2. No painel da esquerda, selecione **Alertas** e, em seguida, clique em **Nova Regra de Alerta** na parte superior da página para criar um novo alerta.<br><br> ![Criar nova regra de alerta](./media/tutorial-response/alert-rule-02.png)<br>
-3. Para o primeiro passo, na secção **Criar Alerta**, vai selecionar a sua área de trabalho do Log Analytics como o recurso, pois é um sinal de alerta baseado em registo.  Filtre os resultados ao escolher a **Subscrição** específica na lista pendente, se tiver mais do que uma, que contém a área de trabalho do Log Analytics e a VM criadas anteriormente.  Filtre o **Tipo de Recurso** ao selecionar **Log Analytics** na lista pendente.  Por fim, selecione o **Recurso** **DefaultLAWorkspace** e, em seguida, clique em **Concluído**.<br><br> ![Criar alerta, passo 1](./media/tutorial-response/alert-rule-03.png)<br>
+3. Para o primeiro passo, na secção **Criar Alerta**, vai selecionar a sua área de trabalho do Log Analytics como o recurso, pois é um sinal de alerta baseado em registo.  Filtre os resultados ao escolher a **Subscrição** específica na lista pendente, se tiver mais do que uma, que contém a área de trabalho do Log Analytics e a VM criadas anteriormente.  Filtre o **Tipo de Recurso** ao selecionar **Log Analytics** na lista pendente.  Por fim, selecione o **espaço Padrão LAWork do** **Recurso** e, em seguida, clique em **Done**.<br><br> ![Criar alerta, passo 1](./media/tutorial-response/alert-rule-03.png)<br>
 4. Na secção **Critérios de Alerta**, clique em **Adicionar Critérios** para selecionar a nossa consulta guardada e, em seguida, especifique a lógica que a regra de alerta segue.  No painel **Configurar lógica de sinal**, selecione *Azure VMs – Utilização do Processador* na lista.  O painel atualiza para apresentar as definições de configuração do alerta.  Na parte superior, mostra os resultados dos últimos 30 minutos do sinal selecionado e a consulta de pesquisa.  
 5. Configure o alerta com as seguintes informações:  
    a. Na lista pendente **Com base em**, selecione **Unidades métricas**.  Uma medição métrica cria um alerta para cada objeto na consulta com um valor que excede o nosso limiar especificado.  

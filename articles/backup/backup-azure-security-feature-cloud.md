@@ -1,93 +1,93 @@
 ---
-title: Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem
-description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
+title: Funcionalidades de segurança para ajudar a proteger as cargas de trabalho em nuvem
+description: Aprenda a utilizar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 20cf322dec0827c00b15a62bf4f7695fc4ed0992
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 3435b9455af3362cdce2dceb20e183a8b05a15dd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705501"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660840"
 ---
-# <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
+# <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger cargas de trabalho em nuvem que usam Backup Azure
 
-As preocupações em relação a problemas de segurança, como software maligno, ransomware e intrusão, estão a aumentar. Estes problemas de segurança podem ser dispendiosos, tanto em termos de dinheiro como de dados. Para se proteger contra tais ataques, o backup do Azure agora fornece recursos de segurança para ajudar a proteger os dados de backup mesmo após a exclusão.
+As preocupações com questões de segurança, como malware, ransomware e intrusão, estão a aumentar. Estas questões de segurança podem ser dispendiosas, tanto em termos de dinheiro como de dados. Para se proteger de tais ataques, o Azure Backup fornece agora funcionalidades de segurança para ajudar a proteger os dados de backup mesmo após a eliminação.
 
-Um desses recursos é exclusão reversível. Com a exclusão reversível, mesmo que um ator mal-intencionado exclua o backup de uma VM (ou os dados de backup sejam excluídos acidentalmente), os dados de backup são mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias de dados de backup no estado de "soft delete" não incorre em nenhum custo para o cliente. O Azure também criptografa todos os dados de backup em repouso usando [criptografia do serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para proteger ainda mais seus dados.
+Uma dessas características é a eliminação suave. Com eliminação suave, mesmo que um ator malicioso apague a cópia de segurança de um VM (ou os dados de backup são acidentalmente eliminados), os dados de backup são retidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias de dados de backup no estado de "soft delete" não incorre em nenhum custo para o cliente. O Azure também encripta todos os dados de reserva em repouso usando [encriptação](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) do Serviço de Armazenamento para proteger ainda mais os seus dados.
 
 A proteção de eliminação suave para máquinas virtuais Azure está geralmente disponível.
 
 >[!NOTE]
 >A eliminação suave para o servidor SQL em Azure VM e eliminação suave para SAP HANA em cargas de trabalho VM Azure já está disponível na pré-visualização.<br>
->Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com
+>Para se inscrever na pré-estreia, escreva-nos na AskAzureBackupTeam@microsoft.com
 
-## <a name="soft-delete"></a>Eliminação de forma recuperável
+## <a name="soft-delete"></a>Eliminação suave
 
 ### <a name="soft-delete-for-vms"></a>Eliminação suave para VMs
 
 A eliminação suave para VMs protege as cópias de segurança dos seus VMs de eliminação não intencional. Mesmo depois de as cópias de segurança serem eliminadas, são preservadas em estado de eliminação suave por 14 dias adicionais.
 
 > [!NOTE]
-> A exclusão reversível só protege os dados de backup excluídos. Se uma VM for excluída sem um backup, o recurso de exclusão reversível não preservará os dados. Todos os recursos devem ser protegidos com o backup do Azure para garantir a resiliência completa.
+> A eliminação suave apenas protege os dados de backup eliminados. Se um VM for eliminado sem uma cópia de segurança, a função soft-delete não preservará os dados. Todos os recursos devem ser protegidos com o Azure Backup para garantir a plena resiliência.
 >
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
-A exclusão reversível tem suporte no momento no EUA Central ocidental, Ásia Oriental, Canadá central, leste do Canadá, França central, sul da França, Coreia central, Coreia do Sul, Sul do Reino Unido, Oeste do Reino Unido, leste da Austrália, leste do Sul da Austrália, Europa Setentrional, oeste dos EUA, oeste dos EUA 2, EUA Central, sul Ásia Oriental, norte EUA Central, Sul EUA Central, leste do Japão, oeste do Japão, sul da Índia, Índia central, Índia ocidental, leste dos EUA 2, Norte da Suíça, Oeste da Suíça e todas as regiões nacionais.
+A soft delete é atualmente apoiada no Centro-Oeste dos EUA, Ásia Oriental, Canadá Central, Canadá Leste, França Central, França Sul, Coreia Central, Coreia do Sul, Reino Unido, Oeste, Austrália Leste, Austrália Sudeste, Norte da Europa, Oeste DOS EUA, OESTE DOS EUA, Centro dos EUA, Sul Leste asiático, Norte-Central dos EUA, Centro-Sul dos EUA, Japão Leste, Japão Oeste, Índia Sul, Índia Central, Índia Ocidental, Leste DOS EUA 2, Suíça Norte, Suíça Oeste, e todas as regiões nacionais.
 
-### <a name="soft-delete-for-vms-using-azure-portal"></a>Exclusão reversível para VMs usando portal do Azure
+### <a name="soft-delete-for-vms-using-azure-portal"></a>Eliminação suave para VMs utilizando portal Azure
 
-1. Para excluir os dados de backup de uma VM, o backup deve ser interrompido. Na portal do Azure, vá para o cofre dos serviços de recuperação, clique com o botão direito do mouse no item de backup e escolha **parar backup**.
+1. Para eliminar os dados de cópia de segurança de um VM, a cópia de segurança deve ser interrompida. No portal Azure, vá ao cofre dos serviços de recuperação, clique à direita no item de reserva e escolha parar de **reserva**.
 
-   ![Captura de tela de portal do Azure itens de backup](./media/backup-azure-security-feature-cloud/backup-stopped.png)
+   ![Screenshot dos itens de backup do portal Azure](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-2. Na janela a seguir, você terá a opção de excluir ou reter os dados de backup. Se você escolher **excluir dados de backup** e **parar o backup**, o backup da VM não será excluído permanentemente. Em vez disso, os dados de backup serão mantidos por 14 dias no estado de exclusão reversível. Se **excluir dados de backup** for escolhido, um alerta de email de exclusão será enviado para a ID de email configurada informando ao usuário que 14 dias permanecem de retenção estendida para dados de backup. Além disso, um alerta por email é enviado no dia de 12 dias informando que há mais dois dias restantes para ressuscitar os dados excluídos. A exclusão é adiada até o dia 15, quando a exclusão permanente ocorre e um alerta de email final é enviado informando sobre a exclusão permanente dos dados.
+2. Na janela seguinte, será-lhe dada a opção de eliminar ou reter os dados de cópia de segurança. Se escolher **eliminar os dados** de backup e, em seguida, parar a cópia de **segurança,** a cópia de segurança VM não será eliminada permanentemente. Em vez disso, os dados de backup serão conservados durante 14 dias no estado suave apagado. Se eliminar os dados de **backup,** um alerta de e-mail de exclusão é enviado para o ID de e-mail configurado informando o utilizador de que restam 14 dias de retenção prolongada para dados de backup. Além disso, um alerta de e-mail é enviado no dia 12 informando que faltam mais dois dias para ressuscitar os dados apagados. A eliminação é adiada até ao 15º dia, quando ocorrer a eliminação permanente e é enviado um alerta final de e-mail informando sobre a eliminação permanente dos dados.
 
-   ![Captura de tela de portal do Azure, parar o backup Screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
+   ![Screenshot do portal Azure, ecrã stop backup](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
-3. Durante esses 14 dias, no cofre dos serviços de recuperação, a VM com exclusão reversível será exibida com um ícone vermelho de "exclusão reversível" ao lado dele.
+3. Durante esses 14 dias, no Cofre de Serviços de Recuperação, o VM suave apagado aparecerá com um ícone vermelho de "soft-delete" ao lado.
 
-   ![Captura de tela de portal do Azure, VM no estado de exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
-
-   > [!NOTE]
-   > Se algum item de backup excluído por software estiver presente no cofre, o cofre não poderá ser excluído nesse momento. Tente excluir o cofre depois que os itens de backup forem excluídos permanentemente e não houver nenhum item no estado de exclusão reversível no cofre.
-
-4. Para restaurar a VM com exclusão reversível, primeiro ela deve ser restaurada. Para restaurar, escolha a VM com exclusão reversível e, em seguida, selecione a opção **restaurar**.
-
-   ![Captura de tela de portal do Azure, restaurar VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-
-   Uma janela será exibida avisando que, se a exclusão for escolhida, todos os pontos de restauração da VM serão restaurados e estarão disponíveis para a execução de uma operação de restauração. A VM será retida em um estado "parar proteção com retenção de dados" com backups pausados e dados de backup retidos para sempre, sem nenhuma política de backup em vigor.
-
-   ![Captura de tela de portal do Azure, confirmar restaurar VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
-
-   Neste ponto, você também pode restaurar a VM selecionando **restaurar VM** do ponto de restauração escolhido.  
-
-   ![Captura de tela de portal do Azure, opção restaurar VM](./media/backup-azure-security-feature-cloud/restore-vm.png)
+   ![Screenshot do portal Azure, VM em estado de eliminação suave](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > O coletor de lixo só executará e limpará os pontos de recuperação expirados depois que o usuário executar a operação de **retomada de backup** .
+   > Se houver itens de reserva apagados no cofre, o cofre não pode ser apagado nessa altura. Por favor, tente a eliminação do cofre depois que os itens de reserva sejam permanentemente apagados, e não há nenhum item em estado suave apagado no cofre.
 
-5. Depois que o processo de reinicialização for concluído, o status retornará "parar backup com reter dados" e você poderá escolher **retomar backup**. A operação **retomar backup** retorna o item de backup no estado ativo, associado a uma política de backup selecionada pelo usuário que define os agendamentos de backup e retenção.
+4. Para restaurar o VM eliminado suavemente, deve primeiro não ser eliminado. Para não apagar, escolha o VM eliminado suavemente e, em seguida, selecione a opção **Não apagar**.
 
-   ![Captura de tela de portal do Azure, opção retomar backup](./media/backup-azure-security-feature-cloud/resume-backup.png)
+   ![Screenshot do portal Azure, Undelete VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
-Este gráfico de fluxo mostra as diferentes etapas e Estados de um item de backup quando a exclusão reversível está habilitada:
+   Aparecerá uma janela avisando que, se não for escolhida a eliminação, todos os pontos de restauro do VM serão não eliminados e disponíveis para a realização de uma operação de restauro. O VM será retido num estado de "stop protection with reretain data" com cópias de segurança interrompidas e dados de backup retidos para sempre sem uma política de backup eficaz.
 
-![Ciclo de vida do item de backup excluído por software](./media/backup-azure-security-feature-cloud/lifecycle.png)
+   ![Screenshot do portal Azure, Confirme não excluir VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
-Para obter mais informações, consulte a seção [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) abaixo.
+   Neste ponto, também pode restaurar o VM selecionando Restore **VM** a partir do ponto de restauro escolhido.  
 
-### <a name="soft-delete-for-vms-using-azure-powershell"></a>Exclusão reversível para VMs usando o Azure PowerShell
+   ![Screenshot do portal Azure, restaurar a opção VM](./media/backup-azure-security-feature-cloud/restore-vm.png)
+
+   > [!NOTE]
+   > O coletor de lixo só funcionará e limpará os pontos de recuperação expirados após o utilizador executar a operação de **backup do Currículo.**
+
+5. Após o processo de não exclusão, o estado voltará a "Parar a cópia de segurança com os dados de retenção" e, em seguida, poderá escolher a **cópia de segurança do Currículo**. A operação de **backup resume** o item de backup no estado ativo, associado a uma política de backup selecionada pelo utilizador que define os horários de backup e retenção.
+
+   ![Screenshot do portal Azure, Opção de cópia de segurança do Currículo](./media/backup-azure-security-feature-cloud/resume-backup.png)
+
+Este gráfico de fluxo mostra os diferentes passos e estados de um item de reserva quando o Soft Delete está ativado:
+
+![Ciclo de vida de artigo de backup eliminado suave](./media/backup-azure-security-feature-cloud/lifecycle.png)
+
+Para mais informações, consulte a secção [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) abaixo.
+
+### <a name="soft-delete-for-vms-using-azure-powershell"></a>Eliminação suave para VMs usando Azure Powershell
 
 > [!IMPORTANT]
-> A versão AZ. Recoveryservices necessária para usar a exclusão reversível usando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
+> A versão Az.RecoveryServices necessária para utilizar soft-delete utilizando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
 
-Conforme descrito acima para portal do Azure, a sequência de etapas é a mesma ao usar o Azure PowerShell também.
+Tal como descrito acima para o portal Azure, a sequência de passos é a mesma ao utilizar também o Azure Powershell.
 
-#### <a name="delete-the-backup-item-using-azure-powershell"></a>Excluir o item de backup usando o Azure PowerShell
+#### <a name="delete-the-backup-item-using-azure-powershell"></a>Eliminar o item de backup utilizando o Azure Powershell
 
-Exclua o item de backup usando o cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) do PS.
+Elimine o item de backup utilizando o cmdlet de proteção ps de [deficientes-AzRecoveryServicesBackup.](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0)
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -97,11 +97,11 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
 ```
 
-O ' Deletestate ' do item de backup será alterado de ' candeleted ' para ' ToBeDeleted '. Os dados de backup serão mantidos por 14 dias. Se você quiser reverter a operação de exclusão, a ação desfazer-excluir deverá ser executada.
+O 'DeleteState' do item de cópia de segurança passará de 'NotDeleted' para 'ToBeDeleted'. Os dados de cópia de segurança serão conservados durante 14 dias. Se pretender reverter a operação de eliminação, deve efetuar a eliminação do desmino.
 
-#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Desfazendo a operação de exclusão usando o Azure PowerShell
+#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Desfazer a operação de eliminação utilizando a Azure Powershell
 
-Primeiro, busque o item de backup relevante que está no estado de exclusão reversível (ou seja, prestes a ser excluído).
+Em primeiro lugar, pegue o item de reserva relevante que está em estado de eliminação suave (isto é, prestes a ser eliminado).
 
 ```powershell
 
@@ -114,7 +114,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Em seguida, execute a operação de desfazer exclusão usando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) do PS.
+Em seguida, execute a operação de deseliminação utilizando o [undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) PS cmdlet.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -124,33 +124,33 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-O ' Deletestate ' do item de backup será revertido para ' candeleted '. Mas a proteção ainda está parada. Você precisa [retomar o backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) para reabilitar a proteção.
+O 'DeleteState' do item de cópia de segurança reverterá para 'NotDeleted'. Mas a proteção ainda está parada. Tem de [retomar o backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) para reativar a proteção.
 
-### <a name="soft-delete-for-vms-using-rest-api"></a>Exclusão reversível para VMs usando a API REST
+### <a name="soft-delete-for-vms-using-rest-api"></a>Eliminação suave para VMs utilizando API REST
 
-- Exclua os backups usando a API REST, conforme mencionado [aqui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- Se o usuário quiser desfazer essas operações de exclusão, consulte as etapas mencionadas [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+- Elimine as cópias de segurança utilizando a API REST como mencionado [aqui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+- Se o utilizador desejar desfazer estas operações de eliminação, consulte as etapas [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data)mencionadas .
 
-## <a name="disabling-soft-delete"></a>Desabilitando a exclusão reversível
+## <a name="disabling-soft-delete"></a>Desativar suavemente apaga-se
 
-A exclusão reversível é habilitada por padrão em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas.  Não é recomendável desabilitar esse recurso. A única circunstância em que você deve considerar a desabilitação da exclusão reversível é se você está planejando mover seus itens protegidos para um novo cofre e não pode aguardar os 14 dias necessários antes de excluir e proteger novamente (como em um ambiente de teste). Somente um administrador de backup pode desabilitar esse recurso. Se você desabilitar esse recurso, todas as exclusões de itens protegidos resultarão na remoção imediata, sem a capacidade de restaurar. Dados de backup em estado de exclusão reversível antes de desabilitar esse recurso, permanecerão no estado de exclusão reversível. Se você quiser excluí-las permanentemente imediatamente, será necessário restaurar e excluí-las novamente para que sejam excluídas permanentemente.
+A eliminação suave é ativada por padrão em cofres recém-criados para proteger os dados de backup de exclusões acidentais ou maliciosas.  Não é recomendada a desativação desta funcionalidade. A única circunstância em que deve considerar a desativação suave é se planeia mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de eliminar e reproteger (como num ambiente de teste).) Só o dono do cofre pode desativar esta funcionalidade. Se desativar esta funcionalidade, todas as futuras eliminações de itens protegidos resultarão em remoção imediata, sem a capacidade de restaurar. Os dados de backup que existem em estado suave apagado antes de desativar esta funcionalidade permanecerão em estado suave apagado durante o período de 14 dias. Se pretender eliminá-las permanentemente imediatamente, então terá de os eliminar e apagar novamente para ser eliminado permanentemente.
 
-### <a name="disabling-soft-delete-using-azure-portal"></a>Desabilitando a exclusão reversível usando o portal do Azure
+### <a name="disabling-soft-delete-using-azure-portal"></a>Desativar soft delete usando portal Azure
 
-Para desabilitar a exclusão reversível, siga estas etapas:
+Para desativar a eliminação suave, siga estes passos:
 
-1. Na portal do Azure, acesse seu cofre e vá para **configurações** -> **Propriedades**.
-2. No painel Propriedades, selecione **configurações de segurança** -> **atualização**.  
-3. No painel configurações de segurança, em **exclusão reversível**, selecione **desabilitar**.
+1. No portal Azure, vá ao seu cofre e, em seguida, vá ao **Definições** -> **Propriedades**.
+2. No painel de propriedades, selecione **Definições** de Segurança -> **Atualização**.  
+3. No painel de definições de segurança, em **Soft Delete,** selecione **Desativar**.
 
-![Desabilitar exclusão reversível](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+![Desativar a eliminação suave](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
 
-### <a name="disabling-soft-delete-using-azure-powershell"></a>Desabilitando a exclusão reversível usando o Azure PowerShell
+### <a name="disabling-soft-delete-using-azure-powershell"></a>Desativar soft delete usando Azure Powershell
 
 > [!IMPORTANT]
-> A versão AZ. Recoveryservices necessária para usar a exclusão reversível usando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
+> A versão Az.RecoveryServices necessária para utilizar soft-delete utilizando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
 
-Para desabilitar, use o cmdlet [set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) do PS.
+Para desativar, utilize o [Set-AzRecoveryServicesBackupBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS cmdlet.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -163,47 +163,47 @@ EnhancedSecurityState  : Enabled
 SoftDeleteFeatureState : Disabled
 ```
 
-### <a name="disabling-soft-delete-using-rest-api"></a>Desabilitando a exclusão reversível usando a API REST
+### <a name="disabling-soft-delete-using-rest-api"></a>Desativar soft delete usando REST API
 
-Para desabilitar a funcionalidade de exclusão reversível usando a API REST, consulte as etapas mencionadas [aqui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+Para desativar a funcionalidade de eliminação suave utilizando a API REST, consulte os passos [aqui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)mencionados .
 
-## <a name="permanently-deleting-soft-deleted-backup-items"></a>Excluindo permanentemente itens de backup com exclusão reversível
+## <a name="permanently-deleting-soft-deleted-backup-items"></a>Eliminação permanente de itens de backup eliminados suaves
 
-Dados de backup em estado de exclusão reversível antes de desabilitar esse recurso, permanecerão no estado de exclusão reversível. Se você quiser excluí-las permanentemente, desexclua-as e exclua-as novamente para que sejam excluídas permanentemente.
+Os dados de backup em estado eliminado suave antes de desativar esta funcionalidade permanecerão em estado suave apagado. Se pretender eliminá-los permanentemente, então elimine-os e elimine-os novamente para ser permanentemente eliminado.
 
-### <a name="using-azure-portal"></a>Utilizar o portal do Azure
+### <a name="using-azure-portal"></a>Com o Portal do Azure
 
 Siga estes passos.
 
-1. Siga as etapas para [desabilitar a exclusão reversível](#disabling-soft-delete).
-2. No portal do Azure, acesse seu cofre, vá para **itens de backup**e escolha a VM com exclusão reversível.
+1. Siga os passos para [desativar a eliminação suave](#disabling-soft-delete).
+2. No portal Azure, vá ao seu cofre, vá a **Backup Itens**e escolha o VM suave apagado.
 
-![Escolher VM com exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+![Escolha VM eliminado suavemente](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
-3. Selecione a opção **restaurar**.
+3. Selecione a opção **Não apagar**.
 
-![Escolha restaurar](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+![Escolha Não excluir](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
 
-4. Uma janela será exibida. Selecione **restaurar**.
+4. Uma janela aparecerá. **Selecione Undelete**.
 
-![Selecione restaurar](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+![Selecione Undelete](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
-5. Escolha **excluir dados de backup** para excluir permanentemente os dados de backup.
+5. Escolha **eliminar os dados de backup** para eliminar permanentemente os dados de backup.
 
-![Escolha excluir dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+![Escolha eliminar dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-6. Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
+6. Digite o nome do item de reserva para confirmar que pretende eliminar os pontos de recuperação.
 
-![Digite o nome do item de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+![Digite o nome do artigo de reserva](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
-7. Para excluir os dados de backup do item, selecione **excluir**. Uma mensagem de notificação permite que você saiba que os dados de backup foram excluídos.
+7. Para eliminar os dados de cópia de segurança do artigo, **selecione Eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de backup foram eliminados.
 
-### <a name="using-azure-powershell"></a>Usando o Azure PowerShell
+### <a name="using-azure-powershell"></a>Usando a Powershell Azure
 
-Se os itens foram excluídos antes de a exclusão reversível ter sido desabilitada, eles estarão em um estado de exclusão reversível. Para excluí-los imediatamente, a operação de exclusão precisa ser revertida e, em seguida, executada novamente.
+Se os itens foram eliminados antes de a eliminação suave ter sido desativada, então estarão em estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e executada novamente.
 
-Identifique os itens que estão no estado de exclusão reversível.
+Identifique os itens que estão em estado de soft-deleted.
 
 ```powershell
 
@@ -216,7 +216,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Em seguida, inverta a operação de exclusão que foi executada quando a exclusão reversível foi habilitada.
+Em seguida, inverta a operação de eliminação que foi realizada quando a eliminação suave foi ativada.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -226,7 +226,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-Como a exclusão reversível agora está desabilitada, a operação de exclusão resultará na remoção imediata dos dados de backup.
+Uma vez que o soft-delete está agora desativado, a operação de eliminação resultará na remoção imediata dos dados de backup.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -236,91 +236,91 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
 ```
 
-### <a name="using-rest-api"></a>Utilizar a API REST
+### <a name="using-rest-api"></a>Com a API REST
 
-Se os itens foram excluídos antes de a exclusão reversível ter sido desabilitada, eles estarão em um estado de exclusão reversível. Para excluí-los imediatamente, a operação de exclusão precisa ser revertida e, em seguida, executada novamente.
+Se os itens foram eliminados antes de a eliminação suave ter sido desativada, então estarão em estado de eliminação suave. Para eliminá-los imediatamente, a operação de eliminação tem de ser invertida e executada novamente.
 
-1. Primeiro, desfaça as operações de exclusão com as etapas mencionadas [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
-2. Em seguida, desabilite a funcionalidade de exclusão reversível usando a API REST usando as etapas mencionadas [aqui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
-3. Em seguida, exclua os backups usando a API REST, conforme mencionado [aqui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+1. Em primeiro lugar, desfazer as operações de eliminação com os passos [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data)mencionados .
+2. Em seguida, desative a funcionalidade de eliminação suave utilizando a API REST utilizando os passos [aqui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)mencionados .
+3. Em seguida, elimine as cópias de segurança utilizando a API REST como mencionado [aqui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
 ## <a name="encryption"></a>Encriptação
 
-### <a name="encryption-of-backup-data-using-microsoft-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas da Microsoft
+### <a name="encryption-of-backup-data-using-microsoft-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pela Microsoft
 
-Os dados de backup são criptografados automaticamente usando a criptografia de armazenamento do Azure. A criptografia protege seus dados e ajuda a atender aos compromissos de segurança e conformidade da organização. Os dados são criptografados e descriptografados de forma transparente usando a criptografia AES de 256 bits, uma das codificações de bloco mais fortes disponíveis e é compatível com o FIPS 140-2. A criptografia de armazenamento do Azure é semelhante à criptografia BitLocker no Windows.
+Os dados de backup são automaticamente encriptados utilizando encriptação do Armazenamento Azure. A encriptação protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e conformidade. Os dados são encriptados e desencriptados de forma transparente utilizando encriptação AES de 256 bits, uma das cifras de blocos mais fortes disponíveis, e é compatível com o FIPS 140-2. A encriptação azure Storage é semelhante à encriptação BitLocker no Windows.
 
-No Azure, os dados em trânsito entre o armazenamento do Azure e o cofre são protegidos por HTTPS. Esses dados permanecem na rede de backbone do Azure.
+Dentro do Azure, os dados em trânsito entre o armazenamento do Azure e o cofre estão protegidos por HTTPS. Estes dados permanecem na rede de espinha dorsal Azure.
 
-Para obter mais informações, consulte [criptografia de armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Consulte as [perguntas frequentes sobre o backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para responder a perguntas que você possa ter sobre criptografia.
+Para mais informações, consulte [a encriptação do Armazenamento Azure para obter dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Consulte o [FaQ de Backup Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para responder a quaisquer perguntas que possa ter sobre encriptação.
 
-### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
-Ao fazer backup de máquinas virtuais do Azure, você também tem a opção de criptografar os dados de backup no cofre dos serviços de recuperação usando suas chaves de criptografia armazenadas no Azure Key Vault.
+Ao fazer backup das Máquinas Virtuais Azure, também tem a opção de encriptar os seus dados de backup no Cofre de Serviços de Recuperação utilizando as chaves de encriptação armazenadas no Cofre de Chaves Azure.
 
 >[!NOTE]
->Este recurso está atualmente em uso inicial. Preencha [esta pesquisa](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) se desejar criptografar seus dados de backup usando chaves gerenciadas pelo cliente. Observe que a capacidade de usar esse recurso está sujeita à aprovação do serviço de backup do Azure.
+>Esta funcionalidade encontra-se atualmente em uso precoce. Preencha [este inquérito](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) se pretender encriptar os seus dados de backup utilizando as chaves geridas pelo cliente. Note que a capacidade de utilização desta funcionalidade está sujeita à aprovação do serviço de backup Azure.
 
-### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>Backup de VM de disco gerenciado criptografado usando chaves gerenciadas pelo cliente
+### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>Backup do VM de disco gerido encriptado usando chaves geridas pelo cliente
 
-O backup do Azure permite fazer backup de máquinas virtuais do Azure que contêm discos criptografados usando chaves gerenciadas pelo cliente. Para obter detalhes, consulte [criptografia de discos gerenciados com chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+O Azure Backup permite-lhe fazer backup de Máquinas Virtuais Azure contendo discos encriptados utilizando chaves geridas pelo cliente. Para mais detalhes, consulte a [Encriptação de discos geridos com chaves geridas](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)pelo cliente .
 
-### <a name="backup-of-encrypted-vms"></a>Backup de VMs criptografadas
+### <a name="backup-of-encrypted-vms"></a>Backup de VMs encriptados
 
-Você pode fazer backup e restaurar máquinas virtuais (VMs) do Azure do Windows ou Linux com discos criptografados usando o serviço de backup do Azure. Para obter instruções, consulte [fazer backup e restaurar máquinas virtuais criptografadas com o backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+Pode fazer backup e restaurar as máquinas virtuais Windows ou Linux Azure (VMs) com discos encriptados utilizando o serviço de backup Azure. Para obter instruções, consulte [Back up e restaure as máquinas virtuais encriptadas com cópia](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)de segurança Azure .
 
-## <a name="other-security-features"></a>Outros recursos de segurança
+## <a name="other-security-features"></a>Outras funcionalidades de segurança
 
-### <a name="protection-of-azure-backup-recovery-points"></a>Proteção dos pontos de recuperação do backup do Azure
+### <a name="protection-of-azure-backup-recovery-points"></a>Proteção dos pontos de recuperação de Backup Azure
 
-As contas de armazenamento usadas pelos cofres dos serviços de recuperação são isoladas e não podem ser acessadas por usuários para fins mal-intencionados. O acesso é permitido somente por meio de operações de gerenciamento de backup do Azure, como a restauração. Essas operações de gerenciamento são controladas pelo RBAC (controle de acesso baseado em função).
+As contas de armazenamento utilizadas pelos cofres dos serviços de recuperação estão isoladas e não podem ser acedidas pelos utilizadores para qualquer finalidade maliciosa. O acesso só é permitido através de operações de gestão de backup azure, como restaurar. Estas operações de gestão são controladas através do Controlo de Acesso baseado em Funções (RBAC).
 
-Para obter mais informações, consulte [usar o controle de acesso baseado em função para gerenciar pontos de recuperação do backup do Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+Para mais informações, consulte use o [Controlo de Acesso baseado em funções para gerir os pontos](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault)de recuperação de backup do Azure .
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="for-soft-delete"></a>Para exclusão reversível
+### <a name="for-soft-delete"></a>Para eliminar soft
 
-#### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>É necessário habilitar o recurso de exclusão reversível em todos os cofres?
+#### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>Preciso de ativar a funcionalidade de eliminação suave em todos os cofres?
 
-Não, ele é compilado e habilitado por padrão para todos os cofres dos serviços de recuperação.
+Não, é construído e habilitado por padrão para todos os cofres dos serviços de recuperação.
 
-#### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>Posso configurar o número de dias pelos quais meus dados serão retidos no estado de exclusão reversível após a conclusão da operação de exclusão?
+#### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>Posso configurar o número de dias para os quais os meus dados serão retidos em estado de eliminação suave após a eliminação da operação?
 
-Não, ele é corrigido para 14 dias de retenção adicional após a operação de exclusão.
+Não, é fixado a 14 dias de retenção adicional após a operação de eliminação.
 
-#### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>É necessário pagar o custo dessa retenção adicional de 14 dias?
+#### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>Preciso pagar o custo por esta retenção adicional de 14 dias?
 
-Não, essa retenção adicional de 14 dias é gratuita por custo como parte da funcionalidade de exclusão reversível.
+Não, esta retenção adicional de 14 dias vem gratuitamente de custos como parte da funcionalidade soft-delete.
 
-#### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>Posso executar uma operação de restauração quando meus dados estiverem no estado de exclusão reversível?
+#### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>Posso executar uma operação de restauro quando os meus dados estão em estado de eliminação suave?
 
-Não, você precisa restaurar o recurso de exclusão reversível a fim de restaurá-lo. A operação de desfazer exclusão levará o recurso de volta para o **estado parar proteção com manter dados** , em que você pode restaurar para qualquer ponto no tempo. O coletor de lixo permanece pausado nesse estado.
+Não, é necessário desapagar o recurso suave apagado para restaurar. A operação de exclusão trará o recurso de volta para a **proteção Stop com o estado** de retenção onde pode restaurar a qualquer momento. O colecionador de lixo continua em pausa neste estado.
 
-#### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>Meus instantâneos seguem o mesmo ciclo de vida dos meus pontos de recuperação no cofre?
+#### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>As minhas fotos seguirão o mesmo ciclo de vida que os meus pontos de recuperação no cofre?
 
 Sim.
 
-#### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Como posso disparar os backups agendados novamente para um recurso excluído de forma reversível?
+#### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Como posso voltar a ativar as cópias de segurança programadas para um recurso apagado?
 
-Não excluir seguido pela operação de retomada irá proteger o recurso novamente. A operação de retomada associa uma política de backup para disparar os backups agendados com o período de retenção selecionado. Além disso, o coletor de lixo é executado assim que a operação de retomada é concluída. Se você quiser executar uma restauração de um ponto de recuperação após sua data de expiração, é recomendável fazer isso antes de disparar a operação de retomada.
+A eliminação seguida de retoma irá proteger novamente o recurso. Retomar a operação associa uma política de backup para desencadear as cópias de segurança programadas com o período de retenção selecionado. Além disso, o coletor de lixo funciona assim que a operação de retoma estiver concluída. Se desejar efetuar um restauro a partir de um ponto de recuperação que já ultrapasse a data de validade, é aconselhável fazê-lo antes de desencadear a operação de retoma.
 
-#### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Posso excluir meu cofre se houver itens com exclusão reversível no cofre?
+#### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Posso apagar o meu cofre se houver itens apagados macios no cofre?
 
-O cofre dos serviços de recuperação não poderá ser excluído se houver itens de backup em estado de exclusão reversível no cofre. Os itens excluídos por software são excluídos permanentemente 14 dias após a operação de exclusão. Se você não puder esperar por 14 dias, [desabilite a exclusão reversível](#disabling-soft-delete), exclua os itens com exclusão reversível e exclua-os novamente para ser excluído permanentemente. Depois de garantir que não há itens protegidos e nenhum item com exclusão reversível, o cofre pode ser excluído.  
+O cofre dos Serviços de Recuperação não pode ser apagado se houver itens de reserva em estado de eliminação suave no cofre. Os artigos apagados são eliminados permanentemente 14 dias após a eliminação da operação. Se não puder esperar 14 dias, [desative suavemente,](#disabling-soft-delete)desapague os itens apagados macios e elimine-os novamente para ser eliminado permanentemente. Depois de garantir que não existem itens protegidos e não há itens apagados macios, o cofre pode ser apagado.  
 
-#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Posso excluir os dados anteriores ao período de exclusão reversível de 14 dias após a exclusão?
+#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Posso apagar os dados mais cedo do que os 14 dias de eliminação suave após a eliminação?
 
-Não. Não é possível forçar a exclusão dos itens excluídos por software, eles são excluídos automaticamente após 14 dias. Esse recurso de segurança é habilitado para proteger os dados de backup de exclusões acidentais ou mal-intencionadas.  Você deve aguardar por 14 dias antes de executar qualquer outra ação na VM.  Os itens excluídos de forma reversível não serão cobrados.  Se você precisar proteger novamente as VMs marcadas para exclusão reversível dentro de 14 dias para um novo cofre, entre em contato com o suporte da Microsoft.
+Não. Não é possível forçar a eliminação dos itens apagados, estes são automaticamente apagados após 14 dias. Esta funcionalidade de segurança está ativada para salvaguardar os dados de back-up de exclusões acidentais ou maliciosas.  Deve esperar 14 dias antes de realizar qualquer outra ação no VM.  Os itens apagados não serão carregados.  Se precisar de reproteger os VMs marcados para apagar suavemente dentro de 14 dias para um novo cofre, contacte o suporte da Microsoft.
 
-#### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>As operações de exclusão reversível podem ser executadas no PowerShell ou na CLI?
+#### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>As operações de eliminação suave podem ser realizadas em PowerShell ou CLI?
 
-As operações de exclusão reversível podem ser executadas usando o [PowerShell](#soft-delete-for-vms-using-azure-powershell). Atualmente, não há suporte para a CLI.
+As operações de eliminação suave podem ser efetuadas através da [Powershell](#soft-delete-for-vms-using-azure-powershell). Atualmente, o CLI não é suportado.
 
-#### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>A exclusão reversível tem suporte para outras cargas de trabalho de nuvem, como SQL Server em VMs do Azure e SAP HANA em VMs do Azure?
+#### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>O soft delete é suportado para outras cargas de trabalho em nuvem, como o SQL Server em VMs Azure e SAP HANA em VMs Azure?
 
-Não. Atualmente, há suporte para a exclusão reversível em máquinas virtuais do Azure.
+Não. Atualmente, o soft delete é suportado apenas para máquinas virtuais Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia sobre os [controles de segurança para o backup do Azure](backup-security-controls.md).
+- Leia sobre os controlos de [segurança para o Backup Azure](backup-security-controls.md).

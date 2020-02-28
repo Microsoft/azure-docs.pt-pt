@@ -3,18 +3,17 @@ title: Monitorizar a utilização e custos estimados no Azure Monitor
 description: Descrição geral do processo de uso de utilização do Azure Monitor e a página de custos estimados
 author: dalekoetke
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 3fb51a9dc3f607d89934f6962588195e0f5c83f5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 22c7243cd966f458610c2abc67ed5540b37357b8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715785"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658820"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorizar a utilização e custos estimados no Azure Monitor
 
@@ -27,7 +26,7 @@ ms.locfileid: "76715785"
 
 O modelo básico de faturação do Monitor Azure é um preço baseado no consumo ("Pay-As-You-Go"). Só paga o que utilizar. Os detalhes de preços estão disponíveis para [alerta, métricas, notificações,](https://azure.microsoft.com/pricing/details/monitor/) [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e Insights [de Aplicação.](https://azure.microsoft.com/pricing/details/application-insights/) 
 
-Além do modelo Pay-As-You-Go para dados de registo, o Log Analytics tem Reservas de Capacidade, que lhe permitem economizar até 25% em comparação com o preço pay-As-You-Go. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os preços da Reserva de Capacidade.
+Além do modelo Pay-As-You-Go para dados de registo, o Log Analytics tem Reservas de Capacidade, que lhe permitem economizar até 25% em comparação com o preço pay-As-You-Go. O preço da reserva de capacidade permite-lhe comprar uma reserva a partir de 100 GB/dia. Qualquer utilização acima do nível de reserva será faturada à taxa Pay-As-You-Go. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os preços da Reserva de Capacidade.
 
 Alguns clientes terão acesso aos [antigos níveis](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers) de preços do Log Analytics e ao legado nível de preços da [Aplicação Empresarial Insights.](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) 
 
@@ -35,9 +34,9 @@ Alguns clientes terão acesso aos [antigos níveis](https://docs.microsoft.com/a
 
 Há duas fases para compreender os custos. A primeira é quando se considera o Monitor Azure como a sua solução de monitorização. 
 
-### <a name="estimating-the-costs-to-manage-your-environment"></a>Estimando os custos para gerenciar seu ambiente
+### <a name="estimating-the-costs-to-manage-your-environment"></a>Estimando os custos para gerir o seu ambiente
 
-Se ainda não estiver a utilizar registos do Monitor Azure, pode utilizar a calculadora de [preços do Monitor Azure](https://azure.microsoft.com/pricing/calculator/?service=monitor) para estimar o custo da utilização do Monitor Azure. Comece inserindo "Azure Monitor" na caixa de pesquisa e clicando no bloco do Azure Monitor resultante. Percorra a página até ao Monitor Azure e selecione uma das opções a partir do dropdown tipo:
+Se ainda não estiver a utilizar registos do Monitor Azure, pode utilizar a calculadora de [preços do Monitor Azure](https://azure.microsoft.com/pricing/calculator/?service=monitor) para estimar o custo da utilização do Monitor Azure. Comece por introduzir o "Monitor Azure" na caixa de pesquisa e clicando no azulejo do Monitor Azure resultante. Percorra a página até ao Monitor Azure e selecione uma das opções a partir do dropdown tipo:
 
 - Consultas métricas e alertas  
 - Log Analytics
@@ -45,9 +44,9 @@ Se ainda não estiver a utilizar registos do Monitor Azure, pode utilizar a calc
 
 Em cada uma delas, a calculadora de preços irá ajudá-lo a estimar os seus custos prováveis com base na sua utilização esperada.
 
-Por exemplo, com o Log Analytics pode introduzir o número de VMs e o GB de dados que espera recolher de cada VM. Normalmente, 1 GB a 3 GB de mês de dados é ingerido a partir de um VM Azul típico. Se já estiver avaliando os logs de Azure Monitor, você poderá usar suas estatísticas de dados do seu próprio ambiente. Veja abaixo como determinar o [número de VMs monitorizados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data) e o volume de dados que o seu espaço de [trabalho está a ingerir](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).
+Por exemplo, com o Log Analytics pode introduzir o número de VMs e o GB de dados que espera recolher de cada VM. Normalmente, 1 GB a 3 GB de mês de dados é ingerido a partir de um VM Azul típico. Se já está a avaliar os Registos do Monitor Do Azure, pode utilizar as suas estatísticas de dados a partir do seu próprio ambiente. Veja abaixo como determinar o [número de VMs monitorizados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data) e o volume de dados que o seu espaço de [trabalho está a ingerir](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).
 
-Da mesma forma para os Insights de Aplicação, se ativar a funcionalidade "Estimar o volume de dados com base na atividade da aplicação", pode fornecer informações sobre a sua aplicação (pedidos por mês e visualizações de página por mês, caso recolha telemetria do lado do cliente), e, em seguida, a calculadora irá dizer-lhe a quantidade mediana e 90%a quantidade de dados recolhidos por aplicações semelhantes. Estas aplicações abrangem a gama de configurações de Insights de Aplicação (por exemplo, algumas têm amostragem predefinida, algumas não têm amostragem, etc.), pelo que ainda tem o controlo para reduzir o volume de dados que ingere muito abaixo do nível mediano utilizando a amostragem. Mas esse é um ponto de partida para entender o que outros clientes semelhantes estão vendo. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/app/pricing#estimating-the-costs-to-manage-your-application) sobre a estimativa de custos para insights de aplicação.
+Da mesma forma para os Insights de Aplicação, se ativar a funcionalidade "Estimar o volume de dados com base na atividade da aplicação", pode fornecer informações sobre a sua aplicação (pedidos por mês e visualizações de página por mês, caso recolha telemetria do lado do cliente), e, em seguida, a calculadora irá dizer-lhe a quantidade mediana e 90%a quantidade de dados recolhidos por aplicações semelhantes. Estas aplicações abrangem a gama de configurações de Insights de Aplicação (por exemplo, algumas têm amostragem predefinida, algumas não têm amostragem, etc.), pelo que ainda tem o controlo para reduzir o volume de dados que ingere muito abaixo do nível mediano utilizando a amostragem. Mas este é um ponto de partida para entender o que outros clientes semelhantes estão a ver. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/app/pricing#estimating-the-costs-to-manage-your-application) sobre a estimativa de custos para insights de aplicação.
 
 ### <a name="understanding-your-usage-and-estimated-costs"></a>Compreender o seu uso e custos estimados
 
@@ -68,7 +67,7 @@ Isto resulta numa visão como:
 
 A partir daqui, você pode perfurar a partir deste resumo de custos acumulado para obter os detalhes mais finos na vista "Custo por recurso". Nos níveis de preços atuais, os dados do Azure Log são carregados no mesmo conjunto de contadores, quer sejam originários de Log Analytics ou Application Insights. Para separar os custos da utilização do Log Analytics ou da Aplicação Insights, pode adicionar um filtro no **tipo Desuso**. Para ver todos os custos de Insights de Aplicação, filtre o tipo de Recurso para "microsoft.insights/componentes", e para os custos do Log Analytics, filtrar o tipo de Recurso para "microsoft.operationalinsights/workspaces". 
 
-Mais detalhes sobre o seu uso estão disponíveis [através do download da sua utilização a partir do portal Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Na planilha baixada, você pode ver o uso por recurso do Azure por dia. Nesta planilha do Excel, o uso de seus recursos de Application Insights pode ser encontrado primeiro filtrando a coluna "categoria do medidor" para mostrar "Application Insights" e "Log Analytics" e, em seguida, adicionar um filtro na coluna "ID da instância", que é "contém Microsoft. insights/Components".  A maior parte Application Insights uso é relatada em metros com a categoria de medidor de Log Analytics, já que há um único back-end de logs para todos os componentes de Azure Monitor.  Somente Application Insights recursos em tipos de preço herdados e testes na Web de várias etapas são relatados com uma categoria de medidor de Application Insights.  O uso é mostrado na coluna "quantidade consumida" e a unidade de cada entrada é mostrada na coluna "unidade de medida".  Mais detalhes estão disponíveis para ajudá-lo a [entender a sua conta Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+Mais detalhes sobre o seu uso estão disponíveis [através do download da sua utilização a partir do portal Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Na folha de cálculo descarregada, pode ver o uso por recurso Azure por dia. Nesta folha de cálculo do Excel, a utilização a partir dos recursos da aplicação Insights pode ser encontrada através da filtragem da coluna "Categoria Meter" para mostrar "Application Insights" e "Log Analytics", e depois adicionar um filtro na coluna "Id de instância" que é "contém microsoft.insights/componentes".  A maioria da utilização de Insights de Aplicação é reportada em metros com a categoria de medidor de Log Analytics, uma vez que existe um único backend de registos para todos os componentes do Monitor Azure.  Apenas os recursos da Application Insights em níveis de preços antigos e testes web em várias etapas são relatados com uma categoria de Medidor de Insights de Aplicação.  A utilização é mostrada na coluna "Quantidade Consumida" e a unidade para cada entrada é mostrada na coluna "Unidade de Medida".  Mais detalhes estão disponíveis para ajudá-lo a [entender a sua conta Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 > [!NOTE]
 > A **utilização** da Cost Management no hub **Azure Cost Management + Billing** é a abordagem preferida para compreender amplamente os custos de monitorização.  As experiências **de Utilização e Custos Estimados** para [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) e [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#understand-your-usage-and-estimate-costs) fornecem insights mais profundos para cada uma dessas partes do Monitor Azure.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 01397ad078bc741977c4928f67d1834f05e1db8d
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: f83385e1c0a360689569424dbba0c4548751916c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623959"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661964"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança - um guia de referência
 
@@ -399,8 +399,8 @@ As intençãos suportadas pela cadeia de morte suportadas do Security Center bas
 
 |Intenção|Descrição|
 |------|-------|
-|**Sondagem**|A sondagem pode ser uma tentativa de aceder a um determinado recurso, independentemente de uma intenção maliciosa, ou uma tentativa falhada de aceder a um sistema-alvo para recolher informações antes da exploração. Este passo é geralmente detetado como uma tentativa, originária de fora da rede, de digitalizar o sistema alvo e identificar um ponto de entrada.|
-|**Exploração**|A exploração é o palco em que um atacante consegue obter um ponto de apoio no recurso atacado. Esta fase é relevante para os anfitriões e recursos de computação, tais como contas de utilizador, certificados, etc. Os atores ameaçadores poderão, muitas vezes, controlar o recurso após esta fase.|
+|**Pré-Ataque**</br>(substitui a Sondagem)|O pré-ataque pode ser uma tentativa de aceder a um determinado recurso, independentemente de uma intenção maliciosa, ou uma tentativa falhada de aceder a um sistema-alvo para recolher informações antes da exploração. Este passo é geralmente detetado como uma tentativa, originária de fora da rede, de digitalizar o sistema alvo e identificar um ponto de entrada.</br>Mais detalhes sobre o palco Pré-Ataque podem ser lidos na [página do MITRE](https://attack.mitre.org/matrices/pre/).|
+|**Acesso Inicial**</br>(substitui a Exploração)|O InitialAccess é o palco onde um atacante consegue obter um ponto de apoio no recurso atacado. Esta fase é relevante para os anfitriões e recursos de computação, tais como contas de utilizador, certificados, etc. Os atores ameaçadores poderão, muitas vezes, controlar o recurso após esta fase.|
 |**Persistência**|Persistência é qualquer acesso, ação ou mudança de configuração para um sistema que dá a um ator ameaçador uma presença persistente nesse sistema. Os atores ameaçadores muitas vezes terão de manter o acesso aos sistemas através de interrupções como reinícios de sistema, perda de credenciais ou outras falhas que exigiriam uma ferramenta de acesso remoto para reiniciar ou fornecer uma porta traseira alternativa para que eles recuperassem o acesso.|
 |**PrivilegeEscalation**|A escalada de privilégios é o resultado de ações que permitem a um adversário obter um nível mais elevado de permissões num sistema ou rede. Certas ferramentas ou ações requerem um maior nível de privilégio para trabalhar e são provavelmente necessárias em muitos pontos ao longo de uma operação. As contas de utilizadores com permissões para aceder a sistemas específicos ou executar funções específicas necessárias para que os adversários atinjam o seu objetivo também podem ser consideradas uma escalada de privilégios.|
 |**DefesaEee**|A evasão da defesa consiste em técnicas que um adversário pode usar para escapar à deteção ou evitar outras defesas. Por vezes, estas ações são as mesmas que (ou variações de) técnicas noutras categorias que têm o benefício adicional de subverter uma determinada defesa ou mitigação.|

@@ -1,51 +1,50 @@
 ---
-title: Solução de gerenciamento em práticas recomendadas do Azure | Microsoft Docs
+title: Solução de gestão nas melhores práticas do Azure Microsoft Docs
 description: ''
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 28ae01fe28b1b2d6af95567e529c7c9ae17920e4
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 837fb87d73698961ec1550b122840563d1707f8a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553930"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663203"
 ---
-# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Práticas recomendadas para a criação de soluções de gerenciamento no Azure (versão prévia)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Boas práticas para criar soluções de gestão em Azure (Pré-visualização)
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento no Azure que estão atualmente em versão prévia. Qualquer esquema descrito abaixo está sujeito a alterações.  
+> Esta é uma documentação preliminar para a criação de soluções de gestão no Azure que estão atualmente em pré-visualização. Qualquer esquema descrito abaixo está sujeito a alterações.  
 
-Este artigo fornece as práticas recomendadas para [a criação de um arquivo de solução de gerenciamento](solutions-solution-file.md) no Azure.  Essas informações serão atualizadas conforme as práticas recomendadas adicionais forem identificadas.
+Este artigo fornece as melhores práticas para [a criação](solutions-solution-file.md) de um ficheiro de solução de gestão no Azure.  Estas informações serão atualizadas à medida que forem identificadas as melhores práticas adicionais.
 
 ## <a name="data-sources"></a>Origens de dados
-- As fontes de dados podem ser [configuradas com um modelo do Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), mas não devem ser incluídas em um arquivo de solução.  O motivo é que a configuração de fontes de dados não é idempotente no momento, o que significa que sua solução poderia substituir a configuração existente no espaço de trabalho do usuário.<br><br>Por exemplo, sua solução pode exigir eventos de aviso e erro do log de eventos do aplicativo.  Se você especificar isso como uma fonte de dados em sua solução, você arriscará a remover eventos de informações se o usuário tiver configurado esse código em seu espaço de trabalho.  Se você tiver incluído todos os eventos, poderá estar coletando eventos de informações excessivos no espaço de trabalho do usuário.
+- As fontes de dados podem ser [configuradas com um modelo](../../azure-monitor/platform/template-workspace-configuration.md)de Gestor de Recursos, mas não devem ser incluídas num ficheiro de solução.  A razão é que configurar fontes de dados não é atualmente idempotente, o que significa que a sua solução pode substituir a configuração existente no espaço de trabalho do utilizador.<br><br>Por exemplo, a sua solução pode exigir eventos de aviso e erro do registo do evento Da Aplicação.  Se especificar isto como uma fonte de dados na sua solução, arrisca-se a remover eventos de Informação se o utilizador tiver isto configurado no seu espaço de trabalho.  Se incluiu todos os eventos, poderá estar a recolher eventos de informação excessiva no espaço de trabalho do utilizador.
 
-- Se sua solução exigir dados de uma das fontes de dados padrão, você deverá definir isso como um pré-requisito.  Estado na documentação que o cliente deve configurar a fonte de dados por conta própria.  
-- Adicione uma mensagem de [verificação de fluxo de dados](../../azure-monitor/platform/view-designer-tiles.md) a quaisquer exibições em sua solução para instruir o usuário em fontes de dados que precisam ser configuradas para que os dados necessários sejam coletados.  Essa mensagem é exibida no bloco da exibição quando os dados necessários não são encontrados.
+- Se a sua solução necessitar de dados de uma das fontes de dados padrão, então deve defini-lo como um pré-requisito.  Indicar na documentação que o cliente deve configurar a fonte de dados por si só.  
+- Adicione uma mensagem de [Verificação](../../azure-monitor/platform/view-designer-tiles.md) de Fluxo de Dados a quaisquer pontos de vista da sua solução para instruir o utilizador sobre fontes de dados que precisam de ser configuradas para que os dados necessários sejam recolhidos.  Esta mensagem é exibida no azulejo da vista quando os dados necessários não são encontrados.
 
 
 ## <a name="runbooks"></a>Runbooks
-- Adicione uma [agenda de automação](../../automation/automation-schedules.md) para cada runbook em sua solução que precisa ser executada em um agendamento.
-- Inclua o [módulo IngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) em sua solução para ser usado por runbooks gravando dados no repositório de log Analytics.  Configure a solução para [fazer referência](solutions-solution-file.md#solution-resource) a esse recurso para que ele permaneça se a solução for removida.  Isso permite que várias soluções compartilhem o módulo.
-- Use [variáveis de automação](../../automation/automation-schedules.md) para fornecer valores à solução que os usuários talvez queiram alterar posteriormente.  Mesmo que a solução esteja configurada para conter a variável, seu valor ainda poderá ser alterado.
+- Adicione um [calendário de Automação](../../automation/automation-schedules.md) para cada livro de execução na sua solução que precisa de ser executado num horário.
+- Inclua o [módulo IngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) na sua solução para ser utilizado através de livros de execução que escrevem dados para o repositório Log Analytics.  Configure a solução para [fazer referência](solutions-solution-file.md#solution-resource) a este recurso de modo a que permaneça se a solução for removida.  Isto permite que várias soluções partilhem o módulo.
+- Utilize [variáveis de Automação](../../automation/automation-schedules.md) para fornecer valores à solução que os utilizadores possam querer mudar mais tarde.  Mesmo que a solução esteja configurada para conter a variável, o seu valor ainda pode ser alterado.
 
 ## <a name="views"></a>Vistas
-- Todas as soluções devem incluir uma única exibição exibida no portal do usuário.  O modo de exibição pode conter várias [partes de visualização](../../azure-monitor/platform/view-designer-parts.md) para ilustrar diferentes conjuntos de dados.
-- Adicione uma mensagem de [verificação de fluxo de dados](../../azure-monitor/platform/view-designer-tiles.md) a quaisquer exibições em sua solução para instruir o usuário em fontes de dados que precisam ser configuradas para que os dados necessários sejam coletados.
-- Configure a solução para [conter](solutions-solution-file.md#solution-resource) a exibição para que ela seja removida se a solução for removida.
+- Todas as soluções devem incluir uma única vista que seja exibida no portal do utilizador.  A vista pode conter múltiplas peças de [visualização](../../azure-monitor/platform/view-designer-parts.md) para ilustrar diferentes conjuntos de dados.
+- Adicione uma mensagem de [Verificação](../../azure-monitor/platform/view-designer-tiles.md) de Fluxo de Dados a quaisquer pontos de vista da sua solução para instruir o utilizador sobre fontes de dados que precisam de ser configuradas para que os dados necessários sejam recolhidos.
+- Configure a solução para [conter](solutions-solution-file.md#solution-resource) a vista de modo a que seja removida se a solução for removida.
 
 ## <a name="alerts"></a>Alertas
-- Defina a lista de destinatários como um parâmetro no arquivo de solução para que o usuário possa defini-los ao instalar a solução.
-- Configure a solução para [referenciar](solutions-solution-file.md#solution-resource) regras de alerta para que o usuário possa alterar sua configuração.  Eles podem querer fazer alterações, como modificar a lista de destinatários, alterar o limite do alerta ou desabilitar a regra de alerta. 
+- Defina a lista de destinatários como parâmetro no ficheiro de solução para que o utilizador possa defini-los quando instalar a solução.
+- Configure a solução para as regras de alerta [de referência](solutions-solution-file.md#solution-resource) para que o utilizador possa alterar a sua configuração.  Podem querer fazer alterações como modificar a lista de destinatários, alterar o limiar do alerta ou desativar a regra de alerta. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Percorra o processo básico de [criação e criação de uma solução de gerenciamento](solutions-creating.md).
-* Saiba como [criar um arquivo de solução](solutions-solution-file.md).
-* [Adicionar alertas e pesquisas salvas](solutions-resources-searches-alerts.md) à sua solução de gerenciamento.
-* [Adicione exibições](solutions-resources-views.md) à sua solução de gerenciamento.
-* [Adicione runbooks de automação e outros recursos](solutions-resources-automation.md) à sua solução de gerenciamento.
+* Caminhe pelo processo básico de conceção e construção de uma solução de [gestão.](solutions-creating.md)
+* Aprenda a criar um ficheiro de [solução.](solutions-solution-file.md)
+* [Adicione pesquisas e alertas guardados](solutions-resources-searches-alerts.md) para a sua solução de gestão.
+* [Adicione pontos de vista](solutions-resources-views.md) à sua solução de gestão.
+* [Adicione livros de execução automation e outros recursos](solutions-resources-automation.md) à sua solução de gestão.
 

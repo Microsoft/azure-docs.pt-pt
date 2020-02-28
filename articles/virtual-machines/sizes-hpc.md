@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: dc2086223dea9bff311aac9e7d4771b5273f0e91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: a5b0eb0c8bd56a28889945480e95b6413dc9b4dd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493556"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660024"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamanhos vM de computação de alto desempenho
 
@@ -87,7 +87,7 @@ Em determinadas implementações de instâncias A8 e A9, a extensão HpcVmDriver
   Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
   ```
 
-  Para mais informações, consulte [extensões e funcionalidades da máquina virtual.](/extensions/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Também pode trabalhar com extensões para VMs implantadas no [modelo de implementação clássico](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+  Para mais informações, consulte [extensões e funcionalidades da máquina virtual.](./extensions/overview.md) Também pode trabalhar com extensões para VMs implantadas no [modelo de implementação clássico](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - Espaço de endereço de **rede RDMA** - A rede RDMA em Azure reserva o espaço de endereço172.16.0.0.0.0/16. Para executar aplicações de MPI em casos implantados numa rede virtual Azure, certifique-se de que o espaço de endereço seletiva da rede virtual não se sobrepõe à rede RDMA.
 

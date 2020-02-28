@@ -1,19 +1,15 @@
 ---
 title: Explore os registos de rastreio .NET com iLogger - Azure Application Insights
 description: Amostras da utilização do fornecedor Azure Application Insights ILogger com aplicações ASP.NET Core e Console.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b538196467ba1d69e679a111ca313f922738b048
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e2b306670c43722279327301b15630f96da50ea5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716019"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659939"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider para registos .NET Core ILogger
 
@@ -219,7 +215,7 @@ Ainda pode usar o antigo provedor. (Será removido apenas numa grande versão al
 > [!Note]
 > O novo fornecedor está disponível para aplicações que visam netSTANDARD2.0 ou posteriormente. Se a sua aplicação tiver como alvo versões mais antigas .NET Core, tais como .NET Core 1.1, ou se tiver como alvo o .NET Framework, continue a utilizar o antigo fornecedor.
 
-## <a name="console-application"></a>Aplicativo de console
+## <a name="console-application"></a>Aplicação de consola
 
 > [!NOTE]
 > Existe uma nova aplicação Insights SDK chamada [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que pode ser usada para ativar insights de aplicação (iLogger e outras telemetrias de Insights de Aplicação) para quaisquer Aplicações de Consola. Recomenda-se utilizar este pacote e instruções associadas a partir [daqui](../../azure-monitor/app/worker-service.md).
@@ -396,7 +392,7 @@ Se experimentar o duplo registo ao depurar-se do Visual Studio, desative `Enable
  }
 ```
 
-### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdkhttpswwwnugetorgpackagesmicrosoftapplicationinsightsaspnetcore-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Atualizei para [microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versão 2.7.1, e os registos do ILogger são capturados automaticamente. Como desligo completamente esta funcionalidade?
+### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdk-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Atualizei para [microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versão 2.7.1, e os registos do ILogger são capturados automaticamente. Como desligo completamente esta funcionalidade?
 
 Consulte a secção de [nível](../../azure-monitor/app/ilogger.md#control-logging-level) de registo de controlo para ver como filtrar os registos em geral. Para desligar o ApplicationInsightsLoggerProvider, utilize `LogLevel.None`:
 
@@ -500,7 +496,7 @@ Este código só é exigido quando utilizar um fornecedor de registo autónomo. 
    }
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: a6c1e14e332f6081111d2a58a30702093b99a876
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198246"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657049"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -47,9 +47,9 @@ A lista seguinte descreve palavras comuns usadas com os serviços Azure Maps.
 
 <a name="asynchronous-request"></a>**Pedido assíncrono**: Um pedido HTTP que abre uma ligação e faz um pedido ao servidor que devolve um identificador para o pedido assíncrono, em seguida, fecha a ligação. O servidor continua a processar o pedido e o utilizador pode verificar o estado utilizando o identificador. Quando o pedido estiver concluído, o utilizador pode então descarregar a resposta. Este tipo de pedido é utilizado para processos de longo curso.
 
-<a name="autocomplete"></a>**Autocomplete**: Uma funcionalidade numa aplicação prevê o resto de uma palavra que um utilizador está a escrever. 
+<a name="autocomplete"></a>**Autocomplete**: Uma funcionalidade numa aplicação que prevê o resto de uma palavra que um utilizador está a escrever. 
 
-<a name="autosuggest"></a>**Sugestão automática**: Uma funcionalidade numa aplicação prevê possibilidades lógicas para o que o utilizador está a digitar.
+<a name="autosuggest"></a>**Sugestão automática**: Uma funcionalidade numa aplicação que prevê possibilidades lógicas para o que o utilizador está a escrever.
 
 <a name="azure-location-based-services-lbs"></a>**Serviços baseados em localização Azure (LBS)** : O antigo nome do Azure Maps quando estava em pré-visualização.
 

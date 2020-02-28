@@ -1,18 +1,16 @@
 ---
 title: Utilizar análise de alterações de aplicações no Monitor Azure para encontrar problemas com aplicações web Microsoft Docs
 description: Utilize a Análise de Alterações de Aplicações no Monitor Azure para resolver problemas de aplicações em sites ao vivo no Serviço de Aplicações Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: f2602dbee12f82c32ab3a3c2ec0566d8dfbeaa83
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 143f55a02a856b536172bd5fc2bac15903a228b9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211823"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655689"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilizar análise de alterações de aplicações (pré-visualização) no Monitor Azure
 
@@ -74,7 +72,7 @@ Selecione Grupo de Recursos e recursos para começar a visualizar alterações.
 Pode ver Insights e recursos de dependências relacionadas que acolhem a sua aplicação. Esta visão foi concebida para ser centrada na aplicação para os desenvolvedores resolverem problemas.
 
 Os recursos atualmente apoiados incluem:
-- Máquinas Virtuais
+- Virtual Machines
 - Conjunto de escala de máquina virtual
 - Recursos de Networking Azure
 - Aplicação web com rastreio de ficheiros no hóspede e alterações de variáveis ambientais

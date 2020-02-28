@@ -1,33 +1,32 @@
 ---
 title: Ver dados de aplicações do Azure Application Insights | Documentos da Microsoft
 description: Pode utilizar a solução do conector do Application Insights para diagnosticar problemas de desempenho e compreender o que os utilizadores fazem com a sua aplicação quando monitorizados com o Application Insights.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: d0cfca44878130e870c633040afcfbdd55ba8b7b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396557"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665159"
 ---
-# <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento de Conector do Application Insights (preterida)
+# <a name="application-insights-connector-management-solution-deprecated"></a>Soluçõe de gestão de conector de insights de aplicação (Preprecated)
 
 ![Símbolo do Application Insights](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Com o suporte a [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md), a solução de gerenciamento de conector do Application insights não é mais necessária. Ele foi preterido e removido do Azure Marketplace, junto com o portal do OMS que foi oficialmente preterido em 15 de janeiro de 2019 para a nuvem comercial do Azure. Ele será desativado em 30 de março de 2019 para a nuvem do governo dos EUA do Azure.
+> Com o apoio de [consultas de recursos cruzados,](../../azure-monitor/log-query/cross-workspace-query.md)a solução de gestão do Conector de Insights de Aplicação já não é necessária. Foi depreciado e removido do Azure Marketplace, juntamente com o portal OMS que foi oficialmente depreciado a 15 de janeiro de 2019 para a nuvem comercial azure. Será retirado a 30 de março de 2019 para a nuvem do Governo dos EUA.
 >
->As conexões existentes continuarão a funcionar até 30 de junho de 2019.  Com a substituição do portal do OMS, não há como configurar e remover conexões existentes do Portal. Consulte [removendo o conector com o PowerShell](#removing-the-connector-with-powershell) abaixo para obter um script sobre como usar o PowerShell para remover as conexões existentes.
+>As ligações existentes continuarão a funcionar até 30 de junho de 2019.  Com a depreciação do portal OMS, não há forma de configurar e remover as ligações existentes do portal. Consulte [A remoção do conector com o PowerShell](#removing-the-connector-with-powershell) abaixo para obter um script sobre a utilização do PowerShell para remover as ligações existentes.
 >
->Para obter orientação sobre como consultar Application Insights dados de log para vários aplicativos, consulte [unificar vários recursos de Application insights de Azure monitor](../log-query/unify-app-resource-data.md). Para obter mais informações sobre a substituição do portal do OMS, consulte [portal do OMS migrando para o Azure](../../azure-monitor/platform/oms-portal-transition.md).
+>Para obter orientações sobre consulta de dados de registo de insights de aplicação para várias aplicações, consulte Unificar vários recursos de Insights de [Aplicação do Monitor Azure](../log-query/unify-app-resource-data.md). Para obter mais informações sobre a deprecação do portal OMS, consulte o [portal OMS movendo-se para o Azure](../../azure-monitor/platform/oms-portal-transition.md).
 >
 > 
 
-A solução de conector de informações de aplicações ajuda-o a diagnosticar problemas de desempenho e compreender o que os utilizadores fazem com a sua aplicação quando está a ser monitorizado com [Application Insights](../../azure-monitor/app/app-insights-overview.md). Vistas da mesma telemetria de aplicações que os desenvolvedores vêem no Application Insights estão disponíveis no Log Analytics. No entanto, quando integrar as suas aplicações do Application Insights com o Log Analytics, visibilidade de seus aplicativos é aumentada em ter dados operacionais e da aplicação num único local. Ter os mesmos modos de exibição ajuda-o a colaborar com os programadores de aplicações. As vistas comuns podem ajudar a reduzir o tempo para detetar e resolver os problemas de plataforma de aplicativos e.
+A solução ApplicationInsights Insights Connector ajuda-o a diagnosticar problemas de desempenho e a compreender o que os utilizadores fazem com a sua aplicação quando é monitorizada com insights de [aplicação](../../azure-monitor/app/app-insights-overview.md). Vistas da mesma telemetria de aplicações que os desenvolvedores vêem no Application Insights estão disponíveis no Log Analytics. No entanto, quando integrar as suas aplicações do Application Insights com o Log Analytics, visibilidade de seus aplicativos é aumentada em ter dados operacionais e da aplicação num único local. Ter os mesmos modos de exibição ajuda-o a colaborar com os programadores de aplicações. As vistas comuns podem ajudar a reduzir o tempo para detetar e resolver os problemas de plataforma de aplicativos e.
 
 Quando utiliza a solução, pode:
 
@@ -43,11 +42,11 @@ Quando utiliza a solução, pode:
 
 Ao contrário da maioria das outras soluções do Log Analytics, os dados não são recolhidos para o conector do Application Insights por agentes. Todos os dados utilizados pela solução é fornecido diretamente a partir do Azure.
 
-| Origem Ligada | Suportadas | Descrição |
+| Origem Ligada | Suportado | Descrição |
 | --- | --- | --- |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
 | [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de agentes do Linux. |
-| [Grupo de gestão do SCOM](../../azure-monitor/platform/om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão ligado do SCOM. |
+| [Grupo de gestão scom](../../azure-monitor/platform/om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão ligado do SCOM. |
 | [Conta de armazenamento do Azure](collect-azure-metrics-logs.md) | Não | A solução faz não informações da coleção do armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -58,9 +57,9 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 
 ## <a name="configuration"></a>Configuração
 
-1. Ativar a solução de análise de aplicações Web do Azure a partir do [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou utilizando o processo descrito na [adicionar soluções Log Analytics da Galeria de soluções](../../azure-monitor/insights/solutions.md).
-2. Navegue para o [portal do Azure](https://portal.azure.com). Selecione **todos os serviços** para abrir o Application Insights. Em seguida, procure o Application Insights. 
-3. Sob **subscrições**, selecione uma subscrição que tem os recursos do Application Insights e, em **nome**, selecione uma ou mais aplicações.
+1. Ative a solução Azure Web Apps Analytics do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou utilizando o processo descrito nas [soluções Add Log Analytics da Galeria Solutions](../../azure-monitor/insights/solutions.md).
+2. Navegue para o [portal do Azure](https://portal.azure.com). Selecione **todos os serviços** para abrir insights de aplicação. Em seguida, procure o Application Insights. 
+3. Em **Subscrições**, selecione uma subscrição que tenha recursos de Insights de Aplicação e, em seguida, em **Nome,** selecione uma ou mais aplicações.
 4. Clique em **Guardar**.
 
 Em aproximadamente 30 minutos, dados ficarem disponíveis e o mosaico do Application Insights é atualizado com dados, semelhante à imagem seguinte:
@@ -70,7 +69,7 @@ Em aproximadamente 30 minutos, dados ficarem disponíveis e o mosaico do Applica
 Outros pontos a ter em mente:
 
 - Só pode ligar aplicações do Application Insights a uma área de trabalho do Log Analytics.
-- Só pode ligar [recursos básico ou empresarial Application Insights](https://azure.microsoft.com/pricing/details/application-insights) ao Log Analytics. No entanto, pode utilizar o escalão gratuito do Log Analytics.
+- Só pode ligar [os recursos de Insights de Aplicação Básica ou Empresarial](https://azure.microsoft.com/pricing/details/application-insights) ao Log Analytics. No entanto, pode utilizar o escalão gratuito do Log Analytics.
 
 ## <a name="management-packs"></a>Pacotes de gestão
 
@@ -82,49 +81,49 @@ As secções seguintes descrevem como pode utilizar os painéis mostrados no das
 
 ### <a name="view-application-insights-connector-information"></a>Ver informações de conector do Application Insights
 
-Clique nas **Application Insights** mosaico para abrir o **Application Insights** dashboard para ver os seguintes painéis.
+Clique no azulejo Deinsights de **Aplicação** para abrir o painel de insights de **aplicação** para ver as seguintes lâminas.
 
 ![Painel do Application Insights](./media/app-insights-connector/app-insights-dash01.png)
 
 ![Painel do Application Insights](./media/app-insights-connector/app-insights-dash02.png)
 
-O dashboard inclui os painéis mostrados na tabela. Cada painel apresenta uma lista com um máximo de 10 itens que correspondem aos critérios do âmbito e do intervalo de tempo especificados. Pode executar uma pesquisa de registos que devolve todos os registos ao clicar **ver todas as** na parte inferior do painel ou ao clicar no cabeçalho do painel.
+O dashboard inclui os painéis mostrados na tabela. Cada painel apresenta uma lista com um máximo de 10 itens que correspondem aos critérios do âmbito e do intervalo de tempo especificados. Pode executar uma pesquisa de registo que retorna todos os registos quando clicar Em **Ver tudo** na parte inferior da lâmina ou quando clicar no cabeçalho da lâmina.
 
 
 | **Coluna** | **Descrição** |
 | --- | --- |
-| Aplicações - número de aplicativos | Mostra o número de aplicativos em recursos de aplicativos. Também apresenta uma lista de nomes de aplicativo e para cada um, a contagem de registos de aplicação. Clique no número para executar uma pesquisa de registos para <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Clique num nome de aplicação para executar uma pesquisa de registos para a aplicação que mostra os registos de aplicação por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
-| Volume de dados – anfitriões a enviar dados | Mostra o número de computadores anfitriões que estão a enviar dados. Também apresenta uma lista de anfitriões de computador e a contagem de registos para cada anfitrião. Clique no número para executar uma pesquisa de registos para <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Clique no nome do computador para executar uma pesquisa de registos para o anfitrião que mostra os registos de aplicação por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
-| Disponibilidade – resultados Webtest | Mostra um gráfico de anel para resultados de teste da web, indicando aprovação ou reprovação. Clique no gráfico para executar uma pesquisa de registos para <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Os resultados mostram o número de passos e falhas de todos os testes. Mostra todas as aplicações Web com tráfego para o último minuto. Clique num nome de aplicação para ver uma pesquisa de registos a mostrar os detalhes de testes da web com falha. |
-| Pedidos de servidor – pedidos por hora | Mostra um gráfico de linhas de pedidos de servidor por hora por vários aplicativos. Coloque o cursor sobre uma linha no gráfico para ver as aplicações de 3 principais receber pedidos para um ponto no tempo. Também mostra uma lista dos aplicativos recebem pedidos e o número de pedidos durante o período selecionado. <br><br>Clique no gráfico para executar uma pesquisa de registos para <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que mostra um gráfico de linhas mais detalhado dos pedidos de servidor por hora por vários aplicativos. <br><br> Clique num aplicativo na lista para executar uma pesquisa de registos para <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> que mostra uma lista de pedidos, gráficos de pedidos durante o período de tempo e a pedido e uma lista do pedido de códigos de resposta.   |
-| Falhas – pedidos falhados por hora | Mostra um gráfico de linhas de pedidos de aplicação que falhou por hora. Paire o rato sobre o gráfico para ver as principais aplicações de 3 com pedidos falhados para um ponto no tempo. Também mostra uma lista de aplicativos com o número de pedidos falhados para cada um. Clique no gráfico para executar uma pesquisa de registos para <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que mostra um gráfico de linhas mais detalhado de pedidos de aplicação que falhou. <br><br>Clique num item na lista para executar uma pesquisa de registos para <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> que mostra gráficos para pedidos com falha de pedidos falhados ao longo do período de tempo e a pedido e uma lista de códigos de resposta de solicitação com falha. |
-| Exceções – exceções por hora | Mostra um gráfico de linhas de exceções por hora. Paire o rato sobre o gráfico para ver as principais aplicações de 3 com exceções para um ponto no tempo. Também mostra uma lista de aplicativos com o número de exceções para cada um. Clique no gráfico para executar uma pesquisa de registos para <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que mostra um gráfico de ligação mais detalhado de exceções. <br><br>Clique num item na lista para executar uma pesquisa de registos para <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> que mostra uma lista de exceções, gráficos para exceções ao longo do tempo e com falhas de pedidos e uma lista dos tipos de exceção.  |
+| Aplicações - número de aplicativos | Mostra o número de aplicativos em recursos de aplicativos. Também apresenta uma lista de nomes de aplicativo e para cada um, a contagem de registos de aplicação. Clique no número para fazer uma pesquisa de registo para <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Clique num nome de aplicação para executar uma pesquisa de registos para a aplicação que mostra os registos de aplicação por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
+| Volume de dados – anfitriões a enviar dados | Mostra o número de computadores anfitriões que estão a enviar dados. Também apresenta uma lista de anfitriões de computador e a contagem de registos para cada anfitrião. Clique no número para fazer uma pesquisa de registo para <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Clique no nome do computador para executar uma pesquisa de registos para o anfitrião que mostra os registos de aplicação por anfitrião, registos por tipo de telemetria e todos os dados por tipo (com base no último dia). |
+| Disponibilidade – resultados Webtest | Mostra um gráfico de anel para resultados de teste da web, indicando aprovação ou reprovação. Clique na tabela para fazer uma pesquisa de registo para <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Os resultados mostram o número de passos e falhas de todos os testes. Mostra todas as aplicações Web com tráfego para o último minuto. Clique num nome de aplicação para ver uma pesquisa de registos a mostrar os detalhes de testes da web com falha. |
+| Pedidos de servidor – pedidos por hora | Mostra um gráfico de linhas de pedidos de servidor por hora por vários aplicativos. Coloque o cursor sobre uma linha no gráfico para ver as aplicações de 3 principais receber pedidos para um ponto no tempo. Também mostra uma lista dos aplicativos recebem pedidos e o número de pedidos durante o período selecionado. <br><br>Clique no gráfico para executar uma pesquisa de registo para <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que mostra um gráfico de linha mais detalhado dos pedidos do servidor por hora para várias aplicações. <br><br> Clique numa aplicação na lista para executar uma pesquisa de registo para <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> que mostra uma lista de pedidos, gráficos para pedidos ao longo do tempo e duração do pedido e uma lista de códigos de resposta de pedido.   |
+| Falhas – pedidos falhados por hora | Mostra um gráfico de linhas de pedidos de aplicação que falhou por hora. Paire o rato sobre o gráfico para ver as principais aplicações de 3 com pedidos falhados para um ponto no tempo. Também mostra uma lista de aplicativos com o número de pedidos falhados para cada um. Clique na tabela para fazer uma pesquisa de registo para <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que mostra um gráfico de linha mais detalhado de pedidos de aplicação falhados. <br><br>Clique num item na lista para executar uma pesquisa de registo para <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> que mostra pedidos falhados, gráficos para pedidos falhados ao longo do tempo e duração do pedido e uma lista de códigos de resposta de pedido falhados. |
+| Exceções – exceções por hora | Mostra um gráfico de linhas de exceções por hora. Paire o rato sobre o gráfico para ver as principais aplicações de 3 com exceções para um ponto no tempo. Também mostra uma lista de aplicativos com o número de exceções para cada um. Clique na tabela para fazer uma pesquisa de registo para <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que mostre um gráfico de ligação mais detalhado de exceções. <br><br>Clique num item na lista para fazer uma pesquisa de registo para <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> que mostre uma lista de exceções, gráficos para exceções ao longo do tempo e pedidos falhados, e uma lista de tipos de exceção.  |
 
 ### <a name="view-the-application-insights-perspective-with-log-search"></a>Ver o ponto de vista do Application Insights com pesquisa de registos
 
 Quando clicar em qualquer item no dashboard, verá um ponto de vista do Application Insights mostrado na pesquisa. O ponto de vista fornece uma visualização expandida, consoante o tipo de telemetria que selecionou. Então, o conteúdo de visualização é alterado para tipos de telemetria diferentes.
 
-Ao clicar em qualquer lugar no painel de aplicações, consulte a predefinição **aplicativos** perspetiva.
+Quando clica em qualquer lugar da lâmina aplicações, vê a perspetiva de **Aplicações predefinidas.**
 
 ![Perspetiva de aplicativos de informações da aplicação](./media/app-insights-connector/applications-blade-drill-search.png)
 
 O ponto de vista mostra uma descrição geral da aplicação que selecionou.
 
-O **disponibilidade** painel mostra uma exibição de ponto de vista diferentes onde pode ver os resultados de teste da web e pedidos falhados relacionados.
+A lâmina **de disponibilidade** mostra uma visão de perspetiva diferente onde pode ver os resultados dos testes web e pedidos falhados relacionados.
 
 ![Perspetiva de disponibilidade de informações da aplicação](./media/app-insights-connector/availability-blade-drill-search.png)
 
-Ao clicar em qualquer lugar no **pedidos de servidor** ou **falhas** painéis, os componentes de perspetiva alterar para lhe fornecer uma visualização que relacionadas com os pedidos.
+Quando clica em qualquer lugar das lâminas de Pedidos ou **Falhas** do **Servidor,** os componentes de perspetiva mudam para lhe dar uma visualização relacionada com pedidos.
 
 ![Painel de informações de falhas de aplicações](./media/app-insights-connector/server-requests-failures-drill-search.png)
 
-Ao clicar em qualquer lugar no **exceções** painel, verá uma visualização que está adaptada às exceções.
+Quando clica em qualquer lugar da lâmina **exceções,** vê-se uma visualização adaptada a exceções.
 
 ![Painel de informações de exceções de aplicações](./media/app-insights-connector/exceptions-blade-drill-search.png)
 
-Independentemente se clicar em algo um a **conector do Application Insights** dashboard, dentro da **pesquisa** página em si, qualquer consulta retornar dados do Application Insights mostram o aplicativo Ponto de vista de informações. Por exemplo, se estiver a visualizar dados do Application Insights, um **&#42;** consulta também mostra o separador de ponto de vista semelhante à imagem seguinte:
+Independentemente de clicar em algo no dashboard Do **Conector** de Insights de Aplicação, dentro da própria página **de Pesquisa,** qualquer consulta que devolveos dados de Insights de Aplicação mostra a perspetiva de Insights de Aplicação. Por exemplo, se estiver a ver **&#42;** dados do Application Insights, uma consulta também mostra o separador de perspetiva como a seguinte imagem:
 
-![Estatísticas das Aplicações](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Componentes de perspetiva são atualizadas dependendo da consulta de pesquisa. Isso significa que pode filtrar os resultados ao utilizar qualquer campo de pesquisa que lhe dá a capacidade de ver os dados da:
 
@@ -134,18 +133,18 @@ Componentes de perspetiva são atualizadas dependendo da consulta de pesquisa. I
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Utilize também a uma aplicação no portal do Azure
 
-Os painéis do Application Insights Connector foram concebidos para permitir que passar para a aplicação selecionada do Application Insights *ao utilizar o portal do Azure*. Pode utilizar a solução como uma plataforma de monitorização de alto nível que o ajuda a resolver problemas numa aplicação. Quando vir um problema em potencial em qualquer uma das suas aplicações ligadas, pode de qualquer teste para o mesmo na pesquisa do Log Analytics ou pode passar diretamente para a aplicação Application Insights.
+As lâminas do Conector Insights de Aplicação foram concebidas para permitir que se desloque para a aplicação Deinsights de Aplicação selecionada *quando utilizar o portal Azure*. Pode utilizar a solução como uma plataforma de monitorização de alto nível que o ajuda a resolver problemas numa aplicação. Quando vir um problema em potencial em qualquer uma das suas aplicações ligadas, pode de qualquer teste para o mesmo na pesquisa do Log Analytics ou pode passar diretamente para a aplicação Application Insights.
 
-Para dinamizar, clique nas reticências ( **...** ) que aparece no final de cada linha e selecione **abrir no Application Insights**.
+Para girar, clique nas elipses**que**aparecem no final de cada linha, e selecione Open in **Application Insights**.
 
 >[!NOTE]
->**Abrir no Application Insights** não está disponível no portal do Azure.
+>**Open in Application Insights** não está disponível no portal Azure.
 
 ![Abrir no Application Insights](./media/app-insights-connector/open-in-app-insights.png)
 
 ### <a name="sample-corrected-data"></a>Foi corrigido o exemplo de dados
 
-O Application Insights fornece *[correção de amostragem](../../azure-monitor/app/sampling.md)* para ajudar a reduzir o tráfego de telemetria. Ao ativar a amostragem no seu aplicativo do Application Insights, obtém uma redução do número de entradas armazenados no Application Insights e no Log Analytics. Embora a consistência dos dados é preservada na **conector do Application Insights** página e perspectivas, deve corrigir manualmente amostras de dados para as suas consultas personalizadas.
+Application Insights fornece *[correção de amostragem](../../azure-monitor/app/sampling.md)* para ajudar a reduzir o tráfego de telemetria. Ao ativar a amostragem no seu aplicativo do Application Insights, obtém uma redução do número de entradas armazenados no Application Insights e no Log Analytics. Embora a consistência dos dados seja preservada na página e perspetivas do **Conector** de Insights de Aplicação, deve corrigir manualmente os dados amostrados para as suas consultas personalizadas.
 
 Eis um exemplo de correção de amostragem numa consulta de pesquisa de registo:
 
@@ -153,9 +152,9 @@ Eis um exemplo de correção de amostragem numa consulta de pesquisa de registo:
 ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
-O **contagem de objeto de amostragem** campo está presente em todas as entradas e mostra o número de pontos de dados que representa a entrada. Se ativar a amostragem de para a sua aplicação do Application Insights **contagem de objeto de amostragem** for superior a 1. Para contar o número real de entradas que gera a sua aplicação, soma o **contagem de objeto de amostragem** campos.
+O campo **Contagem Amostrada** está presente em todas as entradas e mostra o número de pontos de dados que a entrada representa. Se ligar a amostragem para a sua aplicação Insights, a **Contagem De Amostras** é superior a 1. Para contar o número real de entradas que a sua aplicação gera, soma os campos **de Contagem Amostrada.**
 
-Amostragem afeta apenas o número total de entradas que gera a sua aplicação. Não precisa de corrigir a amostragem para como campos de métrica **RequestDuration** ou **AvailabilityDuration** porque esses campos mostram a média para entradas representadas.
+Amostragem afeta apenas o número total de entradas que gera a sua aplicação. Não é necessário corrigir a amostragem para campos métricos como **A Duração** do Pedido ou **a Duração da Disponibilidade** porque esses campos mostram a média para entradas representadas.
 
 ## <a name="input-data"></a>Dados de entrada
 
@@ -164,14 +163,14 @@ A solução recebe os seguintes tipos de telemetria dos dados das suas aplicaç�
 - Disponibilidade
 - Exceções
 - Pedidos
-- Vistas de página – sua área de trabalho receber as vistas de página, tem de configurar as suas aplicações para coletar essas informações. Obter mais informações, consulte [vistas de página](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
-- Eventos personalizados – sua área de trabalho receber eventos personalizados, tem de configurar as suas aplicações para coletar essas informações. Obter mais informações, consulte [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+- Vistas de página – sua área de trabalho receber as vistas de página, tem de configurar as suas aplicações para coletar essas informações. Para mais informações, consulte [pageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Eventos personalizados – sua área de trabalho receber eventos personalizados, tem de configurar as suas aplicações para coletar essas informações. Para mais informações, consulte [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Dados são recebidos pelo Log Analytics do Application Insights à medida que ficam disponível.
 
 ## <a name="output-data"></a>Dados de saída
 
-Um registo com um *tipo* dos *Application Insights* é criada para cada tipo de dados de entrada. Registos do Application Insights tem propriedades mostradas nas seções a seguir:
+É criado um registo com um *tipo* de *ApplicationInsights* para cada tipo de dados de entrada. Registos do Application Insights tem propriedades mostradas nas seções a seguir:
 
 ### <a name="generic-fields"></a>Campos genéricos
 
@@ -186,10 +185,10 @@ Um registo com um *tipo* dos *Application Insights* é criada para cada tipo de 
 | deviceType | Dispositivo de cliente |
 | ScreenResolution |   |
 | Continente | Continente em que o pedido teve origem |
-| País | País/região em que a solicitação foi originada |
+| País | País/região onde o pedido teve origem |
 | Província | Província, estado ou região em que o pedido teve origem |
-| Cidade | Cidade ou cidade em que o pedido teve origem |
-| isSynthetic | Indica se o pedido foi criado por um utilizador ou pelo método automatizado. True = método automatizado ou false = gerado pelo usuário |
+| Localidade | Cidade ou cidade em que o pedido teve origem |
+| isSynthetic | Indica se o pedido foi criado por um utilizador ou pelo método automatizado. Verdadeiro = método automatizado ou falso = utilizador gerado |
 | SamplingRate | Percentagem de telemetria gerada pelo SDK do que é enviado para o portal. Intervalo de 0,0 100,0. |
 | SampledCount | 100/(SamplingRate). Por exemplo, 4 =&gt; 25% |
 | IsAuthenticated | Verdadeiro ou falso |
@@ -252,8 +251,8 @@ Um registo com um *tipo* dos *Application Insights* é criada para cada tipo de 
 | RequestID | ID para identificar exclusivamente o pedido |
 | RequestName | GET/pós + base de URL |
 | RequestDuration | Tempo, em segundos, da duração do pedido |
-| URL | URL do pedido não incluindo o anfitrião |
-| Host | Anfitrião do servidor Web |
+| do IdP | URL do pedido não incluindo o anfitrião |
+| Anfitrião | Anfitrião do servidor Web |
 | URLBase | URL completo do pedido |
 | ApplicationProtocol | Tipo de protocolo utilizado pela aplicação |
 | RequestCount | 100 /(Sampling Rate). Por exemplo, 4 =&gt; 25% |
@@ -264,10 +263,10 @@ Um registo com um *tipo* dos *Application Insights* é criada para cada tipo de 
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 
-Esta solução não tem um conjunto de pesquisas de registos de exemplo mostrado no dashboard. No entanto, as consultas de pesquisa de registo de exemplo com as descrições são apresentadas na [informações do conector do Application Insights do modo de exibição](#view-application-insights-connector-information) secção.
+Esta solução não tem um conjunto de pesquisas de registos de exemplo mostrado no dashboard. No entanto, as consultas de pesquisa de registo de amostras com descrições são mostradas na secção de informação do [Conector de](#view-application-insights-connector-information) Insights de Aplicação view.
 
-## <a name="removing-the-connector-with-powershell"></a>Removendo o conector com o PowerShell
-Com a substituição do portal do OMS, não há como configurar e remover conexões existentes do Portal. Você pode remover as conexões existentes com o seguinte script do PowerShell. Você deve ser o proprietário ou colaborador do espaço de trabalho e o leitor de Application Insights recurso para executar essa operação.
+## <a name="removing-the-connector-with-powershell"></a>Remoção do conector com powerShell
+Com a depreciação do portal OMS, não há forma de configurar e remover as ligações existentes do portal. Pode remover as ligações existentes com o seguinte script PowerShell. Deve ser o proprietário ou colaborador do espaço de trabalho e leitor de recursos da Application Insights para realizar esta operação.
 
 ```powershell
 $Subscription_app = "App Subscription Name"
@@ -284,7 +283,7 @@ Set-AzContext -SubscriptionId $Subscription_workspace
 Remove-AzOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
 ```
 
-Você pode recuperar uma lista de aplicativos usando o seguinte script do PowerShell que invoca uma chamada à API REST. 
+Pode recuperar uma lista de aplicações utilizando o seguinte script PowerShell que invoca uma chamada REST API. 
 
 ```powershell
 Connect-AzAccount
@@ -305,13 +304,13 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Esse script requer um token de autenticação de portador para autenticação em relação à Azure Active Directory. Uma maneira de recuperar esse token é usando um artigo no [site de documentação da API REST](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Clique em **experimentar** e faça logon em sua assinatura do Azure. Você pode copiar o token de portador da versão **prévia da solicitação** , conforme mostrado na imagem a seguir.
+Este script requer um símbolo de autenticação ao portador para autenticação contra o Diretório Ativo Azure. Uma forma de recuperar este símbolo é usar um artigo no site de [documentação REST API](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Clique em **Experimentá-lo** e iniciar sessão na subscrição do Azure. Pode copiar o token do portador a partir da **Pré-Visualização** de Pedido, como mostrado na imagem seguinte.
 
 
-![Token de portador](media/app-insights-connector/bearer-token.png)
+![Símbolo do portador](media/app-insights-connector/bearer-token.png)
 
 
-Você também pode recuperar uma lista de aplicativos usando uma consulta de log:
+Também pode recuperar uma lista de aplicações que utilizam uma consulta de registo:
 
 ```Kusto
 ApplicationInsights | summarize by ApplicationName
@@ -319,4 +318,4 @@ ApplicationInsights | summarize by ApplicationName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Uso [pesquisa de registos](../../azure-monitor/log-query/log-query-overview.md) para ver informações detalhadas para as suas aplicações do Application Insights.
+- Utilize a Pesquisa de [Registos](../../azure-monitor/log-query/log-query-overview.md) para visualizar informações detalhadas para as suas aplicações De insights de aplicação.

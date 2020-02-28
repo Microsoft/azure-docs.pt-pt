@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
-ms.openlocfilehash: 984d7d9af306adc94bfc45d705581c08bfe07687
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: a7cc1104785dcf4938d810e5e4b31f05abeb4406
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495084"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780263"
 ---
 |Nome |Descrição |Efeitos(s) |Versão |Origem |
-|---|---|---|---|
+|---|---|---|---|---|
 |[Configure o fuso horário nas máquinas windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6141c932-9384-44c6-a395-59e4c057d7c9) |Esta política cria uma atribuição de Configuração de Hóspedes para definir o fuso horário especificado nas máquinas virtuais do Windows. |implementarIfNotExists |1.0.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SetWindowsTimeZone_Deploy.json)
 |[Implementar pré-requisitos para auditar VMs Linux que permitem ligações remotas a partir de contas sem senhas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec49586f-4939-402d-a29e-6ff502b20592) |Esta política cria uma atribuição de Configuração de Hóspedes para auditar máquinas virtuais Linux que permitem ligações remotas a partir de contas sem senhas. Também cria uma identidade gerida atribuída pelo sistema e implementa a extensão VM para configuração de hóspedes. Esta política só deve ser utilizada, juntamente com a sua política de auditoria correspondente numa iniciativa. Para mais informações sobre as políticas de Configuração de Hóspedes, visite https://aka.ms/gcpol |implementarIfNotExists |1.1.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxPassword110_Deploy.json)
 |[Implementar pré-requisitos para auditar VMs Linux que não tenham as permissões de ficheiro sonante definidas para 0644](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff19aa1c1-6b91-4c27-ae6a-970279f03db9) |Esta política cria uma atribuição de Configuração de Hóspedes para auditar máquinas virtuais Linux que não têm as permissões de ficheiro sinuosas definidas para 0644. Também cria uma identidade gerida atribuída pelo sistema e implementa a extensão VM para configuração de hóspedes. Esta política só deve ser utilizada, juntamente com a sua política de auditoria correspondente numa iniciativa. Para mais informações sobre as políticas de Configuração de Hóspedes, visite https://aka.ms/gcpol |implementarIfNotExists |1.1.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxPassword121_Deploy.json)

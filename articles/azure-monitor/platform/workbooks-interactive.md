@@ -1,148 +1,147 @@
 ---
-title: Azure Monitor pastas de trabalho com parâmetros personalizados
-description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
+title: Livros Azure Monitor com parâmetros personalizados
+description: Simplificar relatórios complexos com livros pré-construídos e parametrizados personalizados
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 19fd8c108e8075d30ca494ca75d52952849c284a
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 4d9f6e48722f01970a90a3a1d8d8b58b5d939774
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872847"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658276"
 ---
-# <a name="interactive-workbooks"></a>Pastas de trabalho interativas
+# <a name="interactive-workbooks"></a>Livros Interativos
 
-As pastas de trabalho permitem que os autores criem relatórios e experiências interativos para seus consumidores. Há suporte para interatividade de várias maneiras.
+Os livros permitem que os autores criem relatórios e experiências interativos para os seus consumidores. A interatividade é apoiada de várias formas.
 
-## <a name="parameter-changes"></a>Alterações de parâmetro
-Quando um usuário da pasta de trabalho atualiza um parâmetro, qualquer controle que usa o parâmetro é atualizado automaticamente e redesenha para refletir o novo estado. É assim que a maioria dos relatórios de portal do Azure dá suporte à interatividade. As pastas de trabalho fornecem isso de maneira muito simples com o mínimo de esforço do usuário.
+## <a name="parameter-changes"></a>Alterações no parâmetro
+Quando um utilizador de livro atualiza um parâmetro, qualquer controlo que utilize o parâmetro atualiza-se automaticamente e retira-se para refletir o novo estado. É assim que a maioria dos relatórios do portal Azure apoiam a interatividade. Os livros de recção fornecem-no de forma muito direta, com o mínimo de esforço do utilizador.
 
-Saiba mais sobre [parâmetros em pastas de trabalho](workbooks-parameters.md)
+Saiba mais sobre [parâmetros em Livros](workbooks-parameters.md)
 
-## <a name="grid-row-clicks"></a>Cliques na linha de grade
-As pastas de trabalho permitem que os autores construam cenários em que clicar em uma linha em uma grade atualiza os gráficos subsequentes com base no conteúdo da linha. 
+## <a name="grid-row-clicks"></a>Cliques de linha de grelha
+Os livros permitem que os autores construam cenários onde clicar numa linha numa grelha atualiza gráficos subsequentes com base no conteúdo da linha. 
 
-Por exemplo, um usuário pode ter uma grade que mostra uma lista de solicitações e algumas estatísticas como contagens de falha. Eles poderiam configurá-lo de tal forma que clicar em uma linha correspondente a uma solicitação, resultará em gráficos detalhados abaixo da atualização para filtrar até a mesma solicitação.
+Por exemplo, um utilizador pode ter uma grelha que mostra uma lista de pedidos e algumas estatísticas como contações de falhas. Poderiam configurar de tal forma que clicar numa linha correspondente a um pedido, resultará em gráficos detalhados abaixo da atualização para filtrar apenas esse pedido.
 
-### <a name="setting-up-interactivity-on-grid-row-click"></a>Configurando a interatividade na linha de grade clique
-1. Alterne a pasta de trabalho para o modo de edição clicando no item _Editar_ barra de ferramentas.
-2. Use o link _Adicionar consulta_ para adicionar um controle de consulta de log à pasta de trabalho. 
-3. Selecione o tipo de consulta como _log_, tipo de recurso (por exemplo, Application insights) e os recursos a serem direcionados.
-4. Use o editor de consultas para inserir o KQL para a sua análise
+### <a name="setting-up-interactivity-on-grid-row-click"></a>Configuração da interatividade no clique da linha da grelha
+1. Mude o livro para o modo de edição clicando no item da barra de ferramentas _Editar._
+2. Utilize o link _adicionar_ consulta para adicionar um controlo de consulta de registo ao livro de trabalho. 
+3. Selecione o tipo de consulta como _Log_, tipo de recurso (por exemplo, Insights de Aplicação) e os recursos a atingir.
+4. Use o editor de Consulta para introduzir o KQL para a sua análise
     ```kusto
     requests
     | summarize AllRequests = count(), FailedRequests = countif(success == false) by Request = name
     | order by AllRequests desc    
     ```
-5. `Run query` para ver os resultados
-6. Clique no ícone _Configurações avançadas_ no rodapé da consulta (o ícone é semelhante a uma engrenagem). Isso abre o painel Configurações avançadas 
-7. Verifique a configuração: `When an item is selected, export a parameter`
-    1. Campo a ser exportado: `Request`
+5. `Run query` ver os resultados
+6. Clique no ícone _Definições Avançadas_ no rodapé da consulta (o ícone parece uma engrenagem). Isto abre o painel de configurações avançadas 
+7. Verifique a definição: `When an item is selected, export a parameter`
+    1. Campo para exportar: `Request`
     2. Nome do parâmetro: `SelectedRequest`
-    3. Valor padrão: `All requests`
+    3. Valor predefinido: `All requests`
     
-    ![Imagem mostrando o editor avançado com configurações para exportar campos como parâmetros](./media/workbooks-interactive/advanced-settings.png)
+    ![Imagem mostrando o editor avançado com configurações para campos de exportação como parâmetros](./media/workbooks-interactive/advanced-settings.png)
 
 8. Clique em `Done Editing`.
-9. Adicione outro controle de consulta usando as etapas 2 e 3.
-10. Use o editor de consultas para inserir o KQL para a sua análise
+9. Adicione outro controlo de consulta utilizando os passos 2 e 3.
+10. Use o editor de Consulta para introduzir o KQL para a sua análise
     ```kusto
     requests
     | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
     | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
     ```
-11. `Run query` para ver os resultados.
-12. Alterar a _Visualização_ para `Area chart`
-12. Clique em uma linha na primeira grade. Observe como o gráfico de área abaixo é filtrado para a solicitação selecionada.
+11. `Run query` ver os resultados.
+12. Alterar _a Visualização_ para `Area chart`
+12. Clique numa linha na primeira grelha. Note como o gráfico de área abaixo filtra o pedido selecionado.
 
-O relatório resultante tem esta aparência no modo de edição:
+O relatório resultante parece-se com este no modo de edição:
 
-![Imagem mostrando a criação de uma experiência interativa usando cliques de linha de grade](./media/workbooks-interactive//grid-click-create.png)
+![Imagem mostrando a criação uma experiência interativa usando cliques de linha de grelha](./media/workbooks-interactive//grid-click-create.png)
 
-A imagem abaixo mostra um relatório interativo mais elaborado no modo de leitura com base nos mesmos princípios. O relatório usa cliques de grade para exportar parâmetros – que, por sua vez, são usados em dois gráficos e um bloco de texto.
+A imagem abaixo mostra um relatório interativo mais elaborado no modo de leitura com base nos mesmos princípios. O relatório utiliza cliques de grelha para exportar parâmetros - que por sua vez são utilizados em dois gráficos e num bloco de texto.
 
-![Imagem mostrando a criação de uma experiência interativa usando cliques de linha de grade](./media/workbooks-interactive/grid-click-read-mode.png)
+![Imagem mostrando a criação uma experiência interativa usando cliques de linha de grelha](./media/workbooks-interactive/grid-click-read-mode.png)
 
-### <a name="exporting-the-contents-of-an-entire-row"></a>Exportando o conteúdo de uma linha inteira
-Às vezes, é desejável exportar todo o conteúdo da linha selecionada em vez de apenas uma coluna específica. Nesses casos, deixe a propriedade de `Field to export` desdefinida na etapa 7,1 acima. As pastas de trabalho vão exportar todo o conteúdo da linha como um JSON para o parâmetro. 
+### <a name="exporting-the-contents-of-an-entire-row"></a>Exportação do conteúdo de uma linha inteira
+Por vezes, é desejável exportar todo o conteúdo da linha selecionada em vez de apenas uma coluna específica. Nesses casos, deixe a propriedade `Field to export` desmontada no passo 7.1 acima. Os livros de relojoaria exportarão todo o conteúdo da linha como um json para o parâmetro. 
 
-No controle KQL de referência, use a função `todynamic` para analisar o JSON e acessar as colunas individuais.
+No controlo KQL de referência, utilize a função `todynamic` para analisar o json e aceder às colunas individuais.
 
- ## <a name="grid-cell-clicks"></a>Cliques de célula de grade
-As pastas de trabalho permitem que os autores adicionem interatividade por meio de um tipo especial de renderizador de coluna de grade chamado um `link renderer`. Um renderizador de link converte uma célula de grade em um hiperlink com base no conteúdo da célula. As pastas de trabalho dão suporte a vários tipos de renderizadores de link-incluindo aqueles que permitem abrir folhas de visão geral de recursos, visualizadores de conjunto de propriedades, pesquisa, uso, rastreamento de transações, etc.
+ ## <a name="grid-cell-clicks"></a>Cliques de células de grelha
+Os livros permitem que os autores adicionem interatividade através de um tipo especial de renderizador de coluna de grelha chamado `link renderer`. Um renderizador de ligação converte uma célula da grelha numa hiperligação com base no conteúdo da célula. Os livros de trabalho suportam muitos tipos de renderizadores de ligação - incluindo aqueles que permitem abrir lâminas de visão geral de recursos, espectadores de sacos de propriedade, pesquisa de App Insights, uso, rastreio de transações, etc.
 
-### <a name="setting-up-interactivity-using-grid-cell-clicks"></a>Configurando a interatividade usando cliques de célula de grade
-1. Alterne a pasta de trabalho para o modo de edição clicando no item _Editar_ barra de ferramentas.
-2. Use o link _Adicionar consulta_ para adicionar um controle de consulta de log à pasta de trabalho. 
-3. Selecione o tipo de consulta como _log_, tipo de recurso (por exemplo, Application insights) e os recursos a serem direcionados.
-4. Use o editor de consultas para inserir o KQL para a sua análise
+### <a name="setting-up-interactivity-using-grid-cell-clicks"></a>Configuração da interatividade utilizando cliques de células de grelha
+1. Mude o livro para o modo de edição clicando no item da barra de ferramentas _Editar._
+2. Utilize o link _adicionar_ consulta para adicionar um controlo de consulta de registo ao livro de trabalho. 
+3. Selecione o tipo de consulta como _Log_, tipo de recurso (por exemplo, Insights de Aplicação) e os recursos a atingir.
+4. Use o editor de Consulta para introduzir o KQL para a sua análise
     ```kusto
     requests
     | summarize Count = count(), Sample = any(pack_all()) by Request = name
     | order by Count desc
     ```
-5. `Run query` para ver os resultados
-6. Clique em _configurações de coluna_ para abrir o painel configurações.
-7. Na seção _colunas_ , defina:
-    1. _Exemplo_ -renderizador de coluna: `Link`, exibir para abrir: `Cell Details`, rótulo de Link: `Sample`
-    2. Processador de _contagem_ de colunas: `Bar`, paleta de cores: `Blue`, valor mínimo: `0`
-    3. Renderizador de coluna de _solicitação_ : `Automatic`
-    4. Clique em _salvar e fechar_ para aplicar as alterações
-8. Clique em um dos links de `Sample` na grade. Isso abre um painel de propriedades com os detalhes de uma solicitação de amostra.
+5. `Run query` ver os resultados
+6. Clique em _Definições_ de Coluna para abrir o painel de definições.
+7. Na secção _Colunas,_ coloque:
+    1. _Amostra_ - Renderizador de coluna: `Link`, Vista para abrir: `Cell Details`, Etiqueta de Ligação: `Sample`
+    2. _Contagem_ - Renderizador de coluna: `Bar`, Paleta de cores: `Blue`, Valor mínimo: `0`
+    3. _Pedido_ - Renderizador de Coluna: `Automatic`
+    4. Clique em _Guardar e Fechar_ para aplicar alterações
+8. Clique num dos links `Sample` da grelha. Isto abre um painel de propriedades com os detalhes de um pedido amostrado.
 
-    ![Imagem mostrando a criação de uma experiência interativa usando cliques de células de grade](./media/workbooks-interactive/grid-cell-click-create.png)
+    ![Imagem mostrando a criação uma experiência interativa usando cliques de células de grelha](./media/workbooks-interactive/grid-cell-click-create.png)
 
-### <a name="link-renderer-actions"></a>Ações do renderizador de link
-| Ação do link | Ação ao clicar |
+### <a name="link-renderer-actions"></a>Ações renderizadoras de ligação
+| Ação de ligação | Ação no clique |
 |:------------- |:-------------|
-| `Generic Details` | Mostra os valores de linha em uma folha de contexto de grade de propriedades |
-| `Cell Details` | Mostra o valor da célula em uma folha de contexto de grade de propriedades. Útil quando a célula contém um tipo dinâmico com informações (por exemplo, JSON com propriedades de solicitação, como local, instância de função, etc.). |
-| `Cell Details` | Mostra o valor da célula em uma folha de contexto de grade de propriedades. Útil quando a célula contém um tipo dinâmico com informações (por exemplo, JSON com propriedades de solicitação, como local, instância de função, etc.). |
-| `Custom Event Details` | Abre os detalhes da pesquisa Application Insights com a ID do evento personalizado (itemId) na célula |
-| `* Details` | Semelhante aos detalhes do evento personalizado, exceto para dependências, exceções, exibições de página, solicitações e rastreamentos. |
-| `Custom Event User Flows` | Abre o Application Insights Fluxos dos Usuários experiência dinamizada no nome do evento personalizado na célula |
-| `* User Flows` | Semelhante ao Fluxos dos Usuários de eventos personalizado, exceto para exceções, exibições de página e solicitações |
-| `User Timeline` | Abre a linha do tempo do usuário com a ID de usuário (user_Id) na célula |
-| `Session Timeline` | Abre a experiência de pesquisa Application Insights para o valor na célula (por exemplo, pesquise o texto ' abc ' em que ABC é o valor na célula) |
-| `Resource overview` | Abra a visão geral do recurso no portal com base no valor da ID do recurso na célula |
+| `Generic Details` | Mostra os valores da linha em uma lâmina de contexto de grelha de propriedade |
+| `Cell Details` | Mostra o valor celular numa lâmina de contexto de rede de propriedade. Útil quando a célula contém um tipo dinâmico com informação (por exemplo, json com propriedades de pedido como localização, exemplo de papel, etc.). |
+| `Cell Details` | Mostra o valor celular numa lâmina de contexto de rede de propriedade. Útil quando a célula contém um tipo dinâmico com informação (por exemplo, json com propriedades de pedido como localização, exemplo de papel, etc.). |
+| `Custom Event Details` | Abre os detalhes de pesquisa de Insights de Aplicação com o ID do evento personalizado (itemId) na célula |
+| `* Details` | Semelhante aos Detalhes do Evento Personalizado, com exceção de dependências, exceções, visualizações de páginas, pedidos e vestígios. |
+| `Custom Event User Flows` | Abre a experiência De fluxos de utilizadores de Insights de Aplicação apostada no nome do evento personalizado na célula |
+| `* User Flows` | Semelhante aos Fluxos de Utilizadores de Eventos Personalizados, exceto exceções, visualizações de páginas e pedidos |
+| `User Timeline` | Abre a linha do tempo do utilizador com o ID do utilizador (user_Id) na célula |
+| `Session Timeline` | Abre a experiência de pesquisa de Insights de Aplicação pelo valor na célula (por exemplo, pesquisar por texto 'abc' onde o ABC é o valor na célula) |
+| `Resource overview` | Abra a visão geral do recurso no portal com base no valor de ID do recurso na célula |
 
-## <a name="conditional-visibility"></a>Visibilidade condicional
-A pasta de trabalho permite que os usuários façam com que determinados controles apareçam ou desapareçam com base nos valores dos parâmetros. Isso permite que os autores tenham a aparência de relatórios diferentes com base no estado de entrada ou telemetria do usuário. Um exemplo é mostrar aos consumidores apenas um resumo quando as coisas são boas, mas mostram detalhes completos quando algo está errado.
+## <a name="conditional-visibility"></a>Visibilidade Condicional
+O livro de trabalho permite que os utilizadores façam com que certos controlos apareçam ou desapareçam com base nos valores dos parâmetros. Isto permite que os autores tenham relatórios diferentes com base na entrada do utilizador ou estado de telemetria. Um exemplo é mostrar aos consumidores apenas um resumo quando as coisas estão boas, mas mostram todos os detalhes quando algo está errado.
 
-### <a name="setting-up-interactivity-using-conditional-visibility"></a>Configurando a interatividade usando a visibilidade condicional
-1. Siga as etapas na seção `Setting up interactivity on grid row click` para configurar dois controles interativos.
+### <a name="setting-up-interactivity-using-conditional-visibility"></a>Criação de interatividade utilizando visibilidade condicional
+1. Siga os passos na secção `Setting up interactivity on grid row click` para configurar dois controlos interativos.
 2. Adicione um novo parâmetro na parte superior:
     1. Nome: `ShowDetails`
     2. Tipo de parâmetro: `Drop down`
-    3. Necessário: `checked`
-    4. Obter dados de: `JSON`
+    3. Obrigatório: `checked`
+    4. Obtenha dados de: `JSON`
     5. Entrada JSON: `["Yes", "No"]`
-    6. Salve para confirmar as alterações.
-3. Definir valor do parâmetro como `Yes`
-4. No controle de consulta com o gráfico de área, clique no ícone _Configurações avançadas_ (ícone de engrenagem)
-5. Verifique a configuração `Make this item conditionally visible`
-    1. Esse item estará visível se `ShowDetails` valor do parâmetro `equals` `Yes`
-6. Clique em _edição concluída_ para confirmar as alterações.
-7. Clique em _edição concluída_ na barra de ferramentas da pasta de trabalho para entrar no modo de leitura.
-8. Alterne o valor do parâmetro `ShowDetails` para `No`. Observe que o gráfico abaixo desaparece.
+    6. Poupe para cometer alterações.
+3. Definir valor de parâmetro para `Yes`
+4. No controlo de consulta com o gráfico de área, clique no ícone _Definições Avançadas_ (ícone de engrenagem)
+5. Verifique a definição `Make this item conditionally visible`
+    1. Este item é visível se `ShowDetails` valor do parâmetro `equals` `Yes`
+6. Clique em _Edição Feita_ para cometer alterações.
+7. Clique em _Editar feito_ na barra de ferramentas do livro para introduzir o modo de leitura.
+8. Mude o valor do parâmetro `ShowDetails` para `No`. Note que o gráfico abaixo desaparece.
 
-A imagem abaixo mostra o caso visível em que `ShowDetails` é `Yes`
+A imagem abaixo mostra o caso visível onde `ShowDetails` é `Yes`
 
-![Imagem mostrando a visibilidade condicional em que o gráfico está visível](./media/workbooks-interactive/conditional-visibility.png)
+![Imagem mostrando a visibilidade condicional onde o gráfico é visível](./media/workbooks-interactive/conditional-visibility.png)
 
-A imagem abaixo mostra o caso oculto em que `ShowDetails` é `No`
+A imagem abaixo mostra o caso escondido onde `ShowDetails` é `No`
 
-![Imagem mostrando a visibilidade condicional em que o gráfico está oculto](./media/workbooks-interactive/conditional-invisible.png)
+![Imagem mostrando a visibilidade condicional onde o gráfico está escondido](./media/workbooks-interactive/conditional-invisible.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
-* [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.
+* [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
+* [Controle](workbooks-access-control.md) e partilhe o acesso aos recursos do seu livro.

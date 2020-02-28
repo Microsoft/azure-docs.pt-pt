@@ -1,28 +1,27 @@
 ---
 title: Criar e partilhar dashboards de dados do Log Analytics do Azure | Microsoft Docs
-description: Este tutorial ajuda você a entender como os painéis de Log Analytics podem visualizar todas as suas consultas de log salvas, oferecendo a você uma única lente para exibir seu ambiente.
-ms.service: azure-monitor
+description: Este tutorial ajuda-o a entender como os dashboards do Log Analytics podem visualizar todas as suas consultas de registo guardadas, dando-lhe uma única lente para ver o seu ambiente.
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: d06ead285321b780490c816dc3d902dac1b6916f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365580"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661537"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e partilhar dashboards dos dados do Log Analytics
 
-Os painéis de Log Analytics podem visualizar todas as consultas de log salvas, oferecendo a você a capacidade de localizar, correlacionar e compartilhar dados operacionais de ti na organização.  Este tutorial aborda a criação de uma consulta de log que será usada para dar suporte a um painel compartilhado que será acessado pela equipe de suporte de operações de ti.  Saiba como:
+Os dashboards do Log Analytics podem visualizar todas as suas consultas de registo guardadas, dando-lhe a capacidade de encontrar, correlacionar e partilhar dados operacionais de TI na organização.  Este tutorial cobre a criação de uma consulta de log que será usada para suportar um dashboard partilhado que será acedido pela sua equipa de suporte de operações de TI.  Saiba como:
 
 > [!div class="checklist"]
 > * Criar um dashboard partilhado no portal do Azure
-> * Visualizar uma consulta de log de desempenho 
-> * Adicionar uma consulta de log a um painel compartilhado 
+> * Visualizar uma consulta de registo de desempenho 
+> * Adicione uma consulta de log a um dashboard partilhado 
 > * Personalizar um mosaico num dashboard partilhado
 
 Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente [ligada à área de trabalho do Log Analytics](quick-collect-azurevm.md).  
@@ -31,32 +30,32 @@ Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existent
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-shared-dashboard"></a>Criar um dashboard partilhado
-Selecione **painel** para abrir o [painel](../../azure-portal/azure-portal-dashboards.md)padrão. Seu painel terá aparência diferente do exemplo abaixo.
+Selecione **Dashboard** para abrir o seu painel de [instrumentos](../../azure-portal/azure-portal-dashboards.md)predefinido . O seu painel de instrumentos será diferente do exemplo abaixo.
 
 ![Dashboard do portal do Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
-Aqui, pode reunir os dados operacionais mais importantes para as TI em todos os recursos do Azure, incluindo telemetria do Log Analytics do Azure.  Antes de entrarmos em visualização de uma consulta de log, vamos primeiro criar um painel e compartilhá-lo.  Em seguida, podemos nos concentrar em nossa consulta de log de desempenho de exemplo, que será renderizada como um gráfico de linhas e a adicionará ao painel.  
+Aqui, pode reunir os dados operacionais mais importantes para as TI em todos os recursos do Azure, incluindo telemetria do Log Analytics do Azure.  Antes de visualizarmos uma consulta de log, vamos primeiro criar um dashboard e partilhá-lo.  Podemos então focar-nos na nossa consulta de registo de desempenho, que será render como um gráfico de linha, e adicioná-lo ao painel de instrumentos.  
 
 Para criar um dashboard, selecione o botão **Novo dashboard** junto ao nome do dashboard atual.
 
-![Criar novo painel no portal do Azure](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
+![Criar novo dashboard no portal Azure](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
 
-Esta ação cria um dashboard novo, vazio e privado, e coloca-o no modo de personalização onde pode nomear o seu dashboard e adicionar ou reorganizar os mosaicos. Edite o nome do painel e especifique o *painel de exemplo* para este tutorial e, em seguida, selecione **personalização concluída**.<br><br> ![Guardar dashboard do Azure personalizado](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
+Esta ação cria um dashboard novo, vazio e privado, e coloca-o no modo de personalização onde pode nomear o seu dashboard e adicionar ou reorganizar os mosaicos. Editar o nome do painel de instrumentos e especificar *sample dashboard* para este tutorial e, em seguida, selecionar **Feito personalizar**.<br><br> ![Guardar dashboard do Azure personalizado](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
 
 Quando cria um dashboard, é privado por predefinição, o que significa que é o único utilizador que o pode ver. Para o tornar visível a outros utilizadores, utilize o botão **Partilhar** que se encontra junto aos outros comandos do dashboard.
 
-![Compartilhar um novo painel no portal do Azure](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
+![Partilhe um novo dashboard no portal Azure](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
 É-lhe pedido para escolher uma subscrição e um grupo de recursos para o seu dashboard ser publicado. Para sua comodidade, a experiência de publicação do portal encaminha-o para um padrão onde coloca dashboards num grupo de recursos designado **dashboards**.  Verifique a subscrição selecionada e, em seguida, clique em **Publicar**.  O acesso às informações apresentadas no dashboard é controlado com o [Controlo de Acesso Baseado no Recurso do Azure](../../role-based-access-control/role-assignments-portal.md).   
 
-## <a name="visualize-a-log-query"></a>Visualizar uma consulta de log
-[Log Analytics](../log-query/get-started-portal.md) é um portal dedicado usado para trabalhar com consultas de log e seus resultados. As funcionalidades incluem a capacidade de editar uma consulta em várias linhas, executar código seletivamente, contexto confidencial do Intellisense e Análise Inteligente. Neste tutorial, você usará Log Analytics para criar um modo de exibição de desempenho em formato gráfico, salvá-lo para uma consulta futura e fixá-lo no painel compartilhado criado anteriormente.
+## <a name="visualize-a-log-query"></a>Visualizar uma consulta de registo
+[Log Analytics](../log-query/get-started-portal.md) é um portal dedicado usado para trabalhar com consultas de registo e seus resultados. As funcionalidades incluem a capacidade de editar uma consulta em várias linhas, executar código seletivamente, contexto confidencial do Intellisense e Análise Inteligente. Neste tutorial, utilizará o Log Analytics para criar uma visão de desempenho em formagráfica, guarde-a para uma futura consulta e fixá-la-á no painel partilhado criado anteriormente.
 
-Abra Log Analytics selecionando **logs** no menu Azure monitor. Ele começa com uma nova consulta em branco.
+Abra o Log Analytics selecionando **Registos** no menu Do Monitor Azure. Começa com uma nova consulta em branco.
 
 ![Página de boas-vindas](media/tutorial-logs-dashboards/homepage.png)
 
-Insira a consulta a seguir para retornar os registros de utilização do processador para computadores Windows e Linux, agrupados por computador e TimeGenerated, e exibidos em um gráfico Visual. Clique em **executar** para executar a consulta e exibir o gráfico resultante.
+Introduza a seguinte consulta para devolver os registos de utilização do processador para computadores Windows e Linux, agrupados por Computer e TimeGenerated, e apresentados num gráfico visual. Clique em **Executar** para executar a consulta e ver o gráfico resultante.
 
 ```Kusto
 Perf 
@@ -65,22 +64,22 @@ Perf
 | render timechart
 ```
 
-Salve a consulta selecionando o botão **salvar** na parte superior da página.
+Guarde a consulta selecionando o botão **Guardar** a partir do topo da página.
 
 ![Guardar consulta](media/tutorial-logs-dashboards/save-query.png)
 
-No painel de controle **Salvar consulta** , forneça um nome como *VMs do Azure-utilização do processador* e uma categoria como *painéis* e clique em **salvar**.  Dessa forma, você pode criar uma biblioteca de consultas comuns que você pode usar e modificar.  Por fim, fixe isso no painel compartilhado criado anteriormente selecionando o botão **fixar no painel** no canto superior direito da página e, em seguida, selecionando o nome do painel.
+No painel de controlo **Save Query,** forneça um nome como *VMs Azure - Utilização do Processador* e uma categoria como *Dashboards* e, em seguida, clique em **Guardar**.  Desta forma pode criar uma biblioteca de consultas comuns que pode usar e modificar.  Por fim, fixe-o ao painel partilhado criado anteriormente selecionando o botão Pin para o painel de **instrumentos** a partir do canto superior direito da página e, em seguida, selecionando o nome do painel de instrumentos.
 
 Agora que temos uma consulta afixada ao dashboard, irá reparar que tem um título genérico e um comentário abaixo do mesmo.
 
-![Exemplo do painel do Azure](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)
+![Amostra de painel de instrumentos azure](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)
 
- Devemos alterar o nome para algo significativo que possa ser facilmente compreendido pelos utilizadores que o veem.  Clique no botão Editar para personalizar o título e o subtítulo do bloco e, em seguida, clique em **Atualizar**.  Será apresentada uma faixa a pedir-lhe para publicar ou eliminar as alterações.  Clique em **salvar uma cópia**.  
+ Devemos alterar o nome para algo significativo que possa ser facilmente compreendido pelos utilizadores que o veem.  Clique no botão de edição para personalizar o título e a legenda para o azulejo e, em seguida, clique em **Atualizar**.  Será apresentada uma faixa a pedir-lhe para publicar ou eliminar as alterações.  Clique em **Guardar uma cópia**.  
 
 ![Configuração concluída do dashboard de exemplo](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, você aprendeu a criar um painel no portal do Azure e a adicionar uma consulta de log a ele.  Avance para o próximo tutorial para aprender as diferentes respostas que podem ser implementadas com base nos resultados da consulta de log.  
+Neste tutorial, aprendeu a criar um dashboard no portal Azure e a adicionar-lhe uma consulta de log.  Avance para o próximo tutorial para saber as diferentes respostas que pode implementar com base nos resultados da consulta de log.  
 
 > [!div class="nextstepaction"]
 > [Responder a eventos com Alertas do Log Analytics](tutorial-response.md)

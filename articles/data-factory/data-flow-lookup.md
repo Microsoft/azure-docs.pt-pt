@@ -1,64 +1,74 @@
 ---
-title: Mapeando a transformação pesquisa de fluxo de dados
-description: Transformação de pesquisa de fluxo de dados de mapeamento de Azure Data Factory
+title: Mapeando fluxo de dados Lookup Transformation
+description: Azure Data Factory mapeando fluxo de dados Lookup Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/03/2019
-ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 02/26/2020
+ms.openlocfilehash: aa71f7d2f3b277ca34e1e5fea76ada6adf93e573
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930323"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655073"
 ---
-# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformação de pesquisa de fluxo de dados de mapeamento de Azure Data Factory
+# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mapeando fluxo de dados Lookup Transformation
 
-Use Lookup para adicionar dados de referência de outra fonte ao fluxo de dados. A transformação pesquisa requer uma fonte definida que aponte para a tabela de referência e corresponde aos campos de chave.
+Utilize o Lookup para adicionar dados de referência de outra fonte ao seu Fluxo de Dados. A transformação do Lookup requer uma fonte definida que aponta para a sua tabela de referência e fósforos em campos-chave.
 
-![Transformação pesquisa](media/data-flow/lookup1.png "Pesquisa")
+![Transformação de lookup](media/data-flow/lookup1.png "Pesquisa")
 
-Selecione os campos de chave que você deseja corresponder entre os campos de fluxo de entrada e os campos da origem de referência. Primeiro, você deve ter criado uma nova origem na tela de design do fluxo de dados para usar como o lado direito da pesquisa.
+Selecione os principais campos que pretende combinar entre os campos de fluxo de entrada e os campos a partir da fonte de referência. Primeiro deve ter criado uma nova fonte na tela de design de Fluxo de Dados para usar como o lado direito para a procura.
 
-Quando as correspondências forem encontradas, as linhas e colunas resultantes da fonte de referência serão adicionadas ao fluxo de dados. Você pode escolher quais campos de interesse deseja incluir no seu coletor no final do fluxo de dados. Como alternativa, use uma transformação SELECT após sua pesquisa para remover a lista de campos para manter somente os campos de ambos os fluxos que você gostaria de reter.
+Quando os fósforos forem encontrados, as linhas e colunas resultantes da fonte de referência serão adicionadas ao fluxo de dados. Pode escolher quais os campos de interesse que deseja incluir na sua Pia no final do seu Fluxo de Dados. Em alternativa, utilize uma transformação Select seguindo o seu Lookup para podar a lista de campo para manter apenas os campos de ambos os fluxos que gostaria de reter.
 
-A transformação pesquisa executa o equivalente a uma junção externa esquerda. Portanto, você verá que todas as linhas de sua fonte esquerda se combinam com correspondências do lado direito. Se você tiver vários valores correspondentes em sua pesquisa, ou se quiser personalizar a expressão de pesquisa, é preferível alternar para uma transformação de junção e usar uma junção cruzada. Isso evitará possíveis erros de produtos cartesianos na execução.
+A transformação lookup executa o equivalente a uma união exterior esquerda. Então, verás todas as filas da tua fonte esquerda combinadas com fósforos do teu lado direito. Se tiver vários valores correspondentes na sua aparência, ou se quiser personalizar a expressão de lookup, é preferível mudar para uma transformação de Join e usar uma cruz de união. Isto evitará eventuais erros de produto cartesiano na execução.
 
-## <a name="match--no-match"></a>Correspondência/nenhuma correspondência
+## <a name="match--no-match"></a>Jogo / Sem jogo
 
-Após a transformação pesquisa, você pode usar as transformações subsequentes para inspecionar os resultados de cada linha correspondente usando a função Expression `isMatch()` para fazer mais escolhas em sua lógica com base em se a pesquisa resultou ou não em uma correspondência de linha ou não.
+Após a sua transformação de Lookup, pode utilizar transformações subsequentes para inspecionar os resultados de cada linha de jogo, utilizando a função de expressão `isMatch()` para fazer escolhas adicionais na sua lógica com base no facto de o Lookup ter ou não resultado numa correspondência de linha ou não.
 
-![Padrão de pesquisa](media/data-flow/lookup111.png "Padrão de pesquisa")
+![Padrão de procura](media/data-flow/lookup111.png "Padrão de procura")
 
-Depois de usar a transformação pesquisa, você pode adicionar uma divisão de transformação de divisão condicional na função ```isMatch()```. No exemplo acima, as linhas correspondentes passam pelo fluxo superior e as linhas não correspondentes fluem por meio do fluxo de ```NoMatch```.
+Depois de utilizar a transformação de Lookup, pode adicionar uma transformação de Divisão Condicional dividindo-se na função ```isMatch()```. No exemplo acima, as linhas correspondentes passam pelo fluxo superior e as linhas não correspondentes fluem através do fluxo de ```NoMatch```.
 
 ## <a name="first-or-last-value"></a>Primeiro ou último valor
 
-Quando você tiver várias correspondências de sua pesquisa, convém reduzir as várias linhas correspondentes escolhendo a primeira ou a última correspondência. Você pode fazer isso usando uma transformação Agregação após a pesquisa.
+A Transformação de Procura é implementada como uma união exterior à esquerda. Quando tiver vários fósforos do seu Lookup, pode querer reduzir as múltiplas linhas partidas, escolhendo a primeira linha partida, a última partida ou qualquer linha aleatória.
 
-Nesse caso, uma transformação agregada chamada ```PickFirst``` é usada para escolher o primeiro valor das correspondências de pesquisa.
+### <a name="option-1"></a>opção 1
 
-![Agregação de pesquisa](media/data-flow/lookup333.png "Agregação de pesquisa")
+![Lookup de linha única](media/data-flow/singlerowlookup.png "Lookup de fila única")
 
-![Pesquisar primeiro](media/data-flow/lookup444.png "Pesquisar primeiro")
+* Combine várias linhas: Deixe em branco para devolver o jogo de uma linha única
+* Jogo em: Selecione primeiro, último ou qualquer jogo
+* Condições de classificação: Se selecionar primeiro ou último, a ADF requer que os seus dados sejam encomendados de modo a que haja lógica por trás da primeira e da última
+
+### <a name="option-2"></a>Opção 2
+
+Também pode fazê-lo usando uma transformação agregada após o seu Lookup. Neste caso, uma transformação agregada chamada ```PickFirst``` é usada para escolher o primeiro valor dos jogos de procuração.
+
+![Agregado de lookup](media/data-flow/lookup333.png "Agregado de lookup")
+
+![Olhar primeiro](media/data-flow/lookup444.png "Olhar primeiro")
 
 ## <a name="optimizations"></a>Otimizações
 
-No Data Factory, os fluxos de dados são executados em ambientes Spark expandidos. Se o conjunto de seus conjuntos de trabalho puder se ajustar ao espaço de memória do nó do trabalhador, podemos otimizar seu desempenho de pesquisa.
+Na Fábrica de Dados, os Fluxos de Dados executam em ambientes de Faísca saltados. Se o seu conjunto de dados puder encaixar no espaço de memória do nó do trabalhador, podemos otimizar o seu desempenho de Lookup.
 
-![Junção de difusão](media/data-flow/broadcast.png "Associação transmitida em direto")
+![Broadcast Join](media/data-flow/broadcast.png "Broadcast Join")
 
-### <a name="broadcast-join"></a>Junção de difusão
+### <a name="broadcast-join"></a>A difusão junta-se
 
-Selecione junção de difusão esquerda e/ou direita para solicitar que o ADF envie por push todo o conjunto de um dos lados da relação de pesquisa para a memória. Para conjuntos de tabelas menores, isso pode melhorar muito o desempenho da pesquisa.
+Selecione A emissão do lado esquerdo e/ou direito junta-se para solicitar à ADF que empurre todo o conjunto de dados de ambos os lados da relação Lookup para a memória. Para conjuntos de dados mais pequenos, isto pode melhorar muito o seu desempenho de procura.
 
 ### <a name="data-partitioning"></a>Criação de partições de dados
 
-Você também pode especificar o particionamento de seus dados selecionando "definir particionamento" na guia otimizar da transformação pesquisa para criar conjuntos de dados que podem se ajustar melhor à memória por trabalho.
+Também pode especificar a partilha dos seus dados selecionando "set Partitioning" no separador Otimize da transformação de Lookup para criar conjuntos de dados que possam encaixar melhor na memória por trabalhador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* As transformações [Join](data-flow-join.md) e [Exists](data-flow-exists.md) executam tarefas semelhantes em fluxos de dados de mapeamento do ADF. Observe essas transformações em seguida.
-* Usar uma [divisão condicional](data-flow-conditional-split.md) com ```isMatch()``` para dividir linhas em valores correspondentes e não correspondentes
+* As transformações [de adesão](data-flow-join.md) e [existem](data-flow-exists.md) executam tarefas semelhantes nos fluxos de dados de mapeamento da ADF. Olhe para as transformações a seguir.
+* Utilize uma [Divisão Condicional](data-flow-conditional-split.md) com ```isMatch()``` para dividir linhas em valores correspondentes e não correspondentes

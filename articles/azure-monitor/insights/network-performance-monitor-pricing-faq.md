@@ -1,116 +1,115 @@
 ---
-title: Perguntas frequentes sobre preços do Azure Monitor de Desempenho de Rede | Microsoft Docs
-description: Perguntas frequentes-Monitor de Desempenho de Rede do Azure
-ms.service: azure-monitor
+title: Preços FAQ para Monitor de Desempenho da Rede Azure  Microsoft Docs
+description: Perguntas frequentes - Monitor de Desempenho da Rede Azure
 ms.subservice: logs
 ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: 3d69637c2851764363209ed8dfbe8c24c636ffba
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c5a80c7ff6d08ce601a6c2bbb0db0ef866d3b425
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898795"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654397"
 ---
-# <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para o Azure Monitor de Desempenho de Rede
+# <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para o Monitor de Desempenho da Rede Azure
 
-Nós ouvimos seus comentários e recentemente introduzimos uma [nova experiência de preços](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) para vários serviços de monitoramento no Azure. Este artigo captura as alterações de preço relacionadas ao [Monitor de desempenho de rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) do Azure (NPM) em um formato de pergunta e resposta fácil de ler.
+Ouvimos o seu feedback e introduzimos recentemente uma [nova experiência](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) de preços para vários serviços de monitorização em todo o Azure. Este artigo captura as alterações de preços relacionadas com o Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) num formato de perguntas e respostas de fácil leitura.
 
-Monitor de Desempenho de Rede consiste em três componentes:
-* [Monitor de desempenho](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Monitor de ponto de extremidade de serviço](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
-* [Monitor do ExpressRoute](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+O Monitor de Desempenho da Rede é composto por três componentes:
+* [Monitor de Desempenho](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
+* [Monitor de fim de serviço](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
+* [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-As seções a seguir explicam as alterações de preços para os componentes do NPM.
+As seguintes secções explicam as alterações de preços dos componentes NPM.
 
 ## <a name="performance-monitor"></a>Monitorização de Desempenho
 
-**Como o uso do monitor de desempenho foi cobrado no modelo antigo?**
+**Como foi cobrado o uso do Performance Monitor no modelo antigo?**
 
-A cobrança para NPM foi baseada no uso e consumo de dois componentes:
-* **Nós**: todas as transações sintéticas se originam e terminam nos nós. Os nós também são chamados de agentes ou agentes de gerenciamento da Microsoft.
-* **Dados**: os resultados dos vários testes de rede são armazenados no espaço de trabalho log Analytics.
+A faturação para OPm Foi baseada na utilização e consumo de dois componentes:
+* **Nós**: Todas as transações sintéticas têm origem e terminam nos nós. Os nódosos também são referidos como agentes ou agentes de gestão da Microsoft.
+* **Dados**: Os resultados dos vários testes de rede são armazenados no espaço de trabalho do Log Analytics.
 
-No modelo antigo, a conta foi calculada com base no número de nós e no volume de dados gerados. 
+Sob o modelo antigo, a conta foi calculada com base no número de nós e no volume de dados gerados. 
 
-**Como o uso do monitor de desempenho é cobrado no novo modelo?**
+**Como é que o uso do Monitor de Desempenho é carregado ao abrigo do novo modelo?**
 
-O recurso de monitor de desempenho no NPM agora é cobrado com base em uma combinação de: 
+A funcionalidade Performance Monitor em NPM é agora faturada com base numa combinação de: 
 
-* Links de sub-rede monitorados
+* Ligações de sub-rede monitorizadas
 * Volume de dados
 
-**O que é um link de sub-rede?**
+**O que é uma ligação de sub-rede?**
 
-O monitor de desempenho monitora a conectividade entre dois ou mais locais na rede. A conexão entre um grupo de nós ou agentes em uma sub-rede e um grupo de nós em outra sub-rede é chamada de link de sub-rede.
+O Monitor de Desempenho monitoriza a conectividade entre dois ou mais locais da rede. A ligação entre um grupo de nós ou agentes numa subnet, e um grupo de nós noutra subnet, é chamada de ligação de sub-rede.
 
-**Tenho duas sub-redes (A e B) e tenho vários agentes em cada sub-rede. O monitor de desempenho monitora a conectividade de todos os agentes na sub-rede A para todos os agentes na sub-rede B. Serei cobrado com base no número de conexões entre sub-redes?**
+**Tenho duas subredes (A e B), e tenho vários agentes em cada subnet. O Monitor de Desempenho monitoriza a conectividade de todos os agentes na sub-rede A a todos os agentes da sub-rede B. Serei acusado com base no número de ligações inter-sub-rede?**
 
-Não. Para fins de cobrança, todas as conexões da sub-rede A à sub-rede B são agrupadas em um link de sub-rede. Você será cobrado por uma única conexão. O monitor de desempenho continua a monitorar a conectividade entre vários agentes em cada sub-rede.
+Não. Para efeitos de faturação, todas as ligações da sub-rede A à sub-rede B são agrunadas numa única ligação de sub-rede. É cobrado por uma única ligação. O Monitor de Desempenho continua a monitorizar a conectividade entre vários agentes em cada subnet.
 
-**Quais são os custos para monitorar um link de sub-rede?**
+**Quais são os custos para monitorizar uma ligação de sub-rede?**
 
-Para o custo de monitorar um único link de sub-rede para o mês inteiro, consulte a seção [malha de ping](https://azure.microsoft.com/pricing/details/network-watcher/) .
+Para o custo de monitorização de uma única ligação de sub-rede durante todo o mês, consulte a secção [Ping Mesh.](https://azure.microsoft.com/pricing/details/network-watcher/)
 
-**Quais são os encargos dos dados que o monitor de desempenho gera?**
+**Quais são os encargos para os dados que o Performance Monitor gera?**
 
-A cobrança por ingestão (carregamento de dados para Log Analytics espaço de trabalho em Azure Monitor, processamento e indexação) está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para log Analytics, na seção ingestão de dados. A cobrança pela retenção de dados (ou seja, os dados retidos na opção do cliente, além do primeiro mês) também está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/), na seção retenção de dados.
+O custo de ingestão (upload de dados para log Analytics workspace in Azure Monitor, processamento e indexação) está disponível na página de [preços](https://azure.microsoft.com/pricing/details/log-analytics/) do Log Analytics, na secção de Ingestion de Dados. O custo para a retenção de dados (isto é, dados retidos por opção do cliente, para além do primeiro mês) também está disponível na página de [preços,](https://azure.microsoft.com/pricing/details/log-analytics/)na secção de Retenção de Dados.
 
 
-## <a name="expressroute-monitor"></a>Monitor do ExpressRoute
+## <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
-**Quais são os encargos de uso do monitor do ExpressRoute?**
+**Quais são os encargos para a utilização do Monitor ExpressRoute?**
 
-Os encargos do monitor do ExpressRoute são cobrados com base no volume de dados gerados durante o monitoramento. Para obter mais informações, consulte "quais são os encargos dos dados que o monitor de desempenho gera?"
+Os encargos para o ExpressRoute Monitor são faturados com base no volume de dados gerados durante a monitorização. Para obter mais informações, consulte "Quais são os encargos para os dados que o Performance Monitor gera?"
 
-**Uso o monitor do ExpressRoute para monitorar vários circuitos do ExpressRoute. Sou cobrado com base no número de circuitos que estão sendo monitorados?**
+**Uso o Monitor ExpressRoute para monitorizar vários circuitos ExpressRoute. Estou carregado com base no número de circuitos a serem monitorizados?**
 
-Você não é cobrado com base no número de circuitos ou no tipo de emparelhamento (por exemplo, emparelhamento privado, emparelhamento da Microsoft). Você é cobrado com base no volume de dados, conforme explicado anteriormente.
+Não é cobrado com base no número de circuitos ou no tipo de observação (por exemplo, peering privado, microsoft peering). É cobrado com base no volume de dados, como explicado anteriormente.
 
-**Qual é o volume de dados gerados quando o ExpressRoute monitora um único circuito?**
+**Qual é o volume de dados gerado quando o ExpressRoute monitoriza um único circuito?**
 
-O volume de dados gerados por mês, quando o ExpressRoute monitora uma conexão de emparelhamento privado, é o seguinte:
+O volume de dados gerados por mês, quando o ExpressRoute monitoriza uma ligação de pares privados, é o seguinte:
 
 |Percentil      |Dados/mês (MB)|
 | :---:          |           ---:|
-|50<sup></sup> |            192|
-|60<sup></sup> |            256|
-|70<sup></sup> |            360|
-|80<sup></sup> |            498|
-|90<sup></sup> |            870|
+|50<sup>º</sup> |            192|
+|60<sup>º</sup> |            256|
+|70<sup>º</sup> |            360|
+|80<sup>º</sup> |            498|
+|90<sup>º</sup> |            870|
 |95<sup></sup> |           1560|
 
 
-De acordo com essa tabela, os clientes no 50 º percentil pagam por 192 MB de dados. A USD $2,30/GB do primeiro mês, o custo incorrido para monitorar um circuito é de BRL $0.43 (= 192 * 2,30/1024).
+De acordo com esta tabela, os clientes do percentil 50 pagam por 192 MB de dados. A USD $2,30/GB no primeiro mês, o custo incorrido para a monitorização de um circuito é USD $0,43 (= 192 * 2,30 / 1024).
 
-**Quais são alguns motivos para variações no volume de dados?**
+**Quais são algumas razões para variações no volume de dados?**
 
-O volume de dados de monitoramento gerado depende de vários fatores, como:
-* Número de agentes. A precisão do isolamento de falha aumenta com um aumento no número de agentes.
-* Número de saltos na rede.
-* Número de caminhos entre a origem e o destino.
+O volume de dados de monitorização gerados depende de vários fatores, tais como:
+* Número de agentes. A precisão do isolamento de falhas aumenta com o aumento do número de agentes.
+* Número de lúpulos na rede.
+* Número de caminhos entre a fonte e o destino.
 
-Os clientes nos mais altos percentuais (na tabela anterior) geralmente monitoram seus circuitos de vários pontos privilegiando em sua rede local. Vários agentes também são colocados mais profundamente na rede, mais distante do roteador de borda do provedor de serviços. Os agentes geralmente são colocados em vários sites de usuário, branches e racks em datacenters.
+Os clientes dos percentilmais elevados (na tabela anterior) geralmente monitorizam os seus circuitos a partir de vários pontos de vista na sua rede no local. Vários agentes também são colocados mais fundo na rede, mais longe do router de borda do prestador de serviços. Os agentes são frequentemente colocados em vários sites de utilizadores, agências e racks em datacenters.
 
-## <a name="service-endpoint-monitor"></a>Monitor de ponto de extremidade de serviço
+## <a name="service-endpoint-monitor"></a>Monitor de fim de serviço
 
-**Quais são os encargos para o uso do monitor de ponto de extremidade de serviço?**
+**Quais são os encargos para a utilização do Monitor de Ponto final do Serviço?**
 
-Os encargos pelo uso do monitor de ponto de extremidade de serviço são calculados com base em:
-* Número de conexões
+Os encargos para a utilização do Monitor de Fim de Serviço são calculados com base em:
+* Número de ligações
 * Volume de dados
 
-**O que é uma conexão?**
+**O que é uma ligação?**
 
-Uma conexão é um teste de acessibilidade para um ponto de extremidade (URL ou serviço de rede) de um único agente para o mês inteiro. Por exemplo, o monitoramento de uma conexão com o bing.com de três agentes constitui três conexões.
+Uma ligação é um teste de alcance a um ponto final (URL ou serviço de rede) de um único agente durante todo o mês. Por exemplo, monitorizar uma ligação com bing.com de três agentes constitui três ligações.
 
-**Quais são os custos para o monitor de ponto de extremidade de serviço?**
+**Quais são os custos para o Monitor de Ponto final do Serviço?**
 
-Consulte a seção [monitoramento de conexão](https://azure.microsoft.com/pricing/details/network-watcher/) para obter o custo de monitoramento de um ponto de extremidade para o mês inteiro. A cobrança de dados está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para log Analytics, na seção ingestão de dados.
+Consulte a secção de Monitorização de [Ligação](https://azure.microsoft.com/pricing/details/network-watcher/) para o custo de monitorização de um ponto final durante todo o mês. A cobrança de dados está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) do Log Analytics, na secção de Ingestion de Dados.
 
 ## <a name="references"></a>Referências
 
-[Log Analytics perguntas frequentes sobre preços](https://azure.microsoft.com/pricing/details/log-analytics/): a seção de perguntas frequentes tem informações sobre a camada gratuita, preços por nó e outros detalhes de preços.
+[Log Analytics Pricing FAQ](https://azure.microsoft.com/pricing/details/log-analytics/): A secção DE PERGUNTAS FREQUENTES tem informações sobre o nível livre, por preços de nó e outros detalhes de preços.
 

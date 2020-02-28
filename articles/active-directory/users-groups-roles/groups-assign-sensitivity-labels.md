@@ -1,6 +1,6 @@
 ---
-title: Atribuir rótulos de sensibilidade a grupos – Azure AD | Microsoft Docs
-description: Como criar regras de associação para preencher automaticamente os grupos e uma referência de regra.
+title: Atribuir etiquetas de sensibilidade a grupos - Azure AD / Microsoft Docs
+description: Como criar regras de adesão para povoar automaticamente grupos, e uma referência de regras.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,37 +9,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/24/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07859299805c5f7be869350adbdbfa675775888c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 51b242a76e1daec7d401d797e8c9887821117246
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404810"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656947"
 ---
-# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Atribuir rótulos de sensibilidade a grupos do Office 365 no Azure Active Directory (versão prévia)
+# <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Atribuir etiquetas de sensibilidade aos grupos do Office 365 no Diretório Ativo azure (pré-visualização)
 
-O Azure Active Directory (AD do Azure) dá suporte à aplicação de rótulos de sensibilidade publicados pelo [centro de conformidade do Microsoft 365](https://sip.protection.office.com/homepage) para grupos do Office 365. Os rótulos de sensibilidade se aplicam ao grupo entre serviços, como o Outlook, o Microsoft Teams e o SharePoint. Este recurso está atualmente em visualização pública.
+O Azure Ative Directory (Azure AD) suporta a aplicação de etiquetas de sensibilidade publicadas pelo Centro de [Conformidade Microsoft 365](https://sip.protection.office.com/homepage) para os grupos office 365. As etiquetas de sensibilidade aplicam-se ao grupo através de serviços como Outlook, Microsoft Teams e SharePoint. Esta funcionalidade encontra-se atualmente em pré-visualização pública. Para obter mais informações sobre o suporte de aplicações do Office 365, consulte o [suporte do Office 365 para etiquetas](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels)de sensibilidade .
 
 > [!IMPORTANT]
-> O uso de rótulos de sensibilidade do Azure AD para grupos do Office 365 requer uma licença Azure Active Directory Premium P1.
+> Para configurar esta funcionalidade, deve existir pelo menos uma licença Azure Ative Directory Premium P1 ativa na sua organização Azure AD.
 
-## <a name="group-settings-controlled-by-labels"></a>Configurações de grupo controladas por rótulos
+## <a name="enable-sensitivity-label-support-in-powershell"></a>Ativar suporte de etiqueta de sensibilidade no PowerShell
 
-Há duas configurações que podem ser associadas a um rótulo:
+Para aplicar rótulos publicados em grupos, tem primeiro de ativar a funcionalidade. Estes passos permitem a funcionalidade em Azure AD.
 
-- **Privacidade**: os administradores podem associar uma configuração de privacidade ao rótulo para controlar se um grupo é público ou privado.
-- **Acesso de convidado**: os administradores podem impor a política de convidado para todos os grupos que têm o rótulo atribuído. Esta política especifica se convidados podem ser adicionados como membros ou não. Se a política de convidado estiver configurada para um rótulo, todos os grupos aos quais você atribuir o rótulo não permitirão que a configuração AllowToAddGuests seja alterada.
-
-## <a name="enable-sensitivity-label-support-in-powershell"></a>Habilitar o suporte ao rótulo de sensibilidade no PowerShell
-
-Para aplicar rótulos publicados a grupos, você deve primeiro habilitar o recurso. Essas etapas habilitam o recurso no Azure AD.
-
-1. Abra uma janela do Windows PowerShell no seu computador. Você pode abri-lo sem privilégios elevados.
+1. Abra uma janela Do Windows PowerShell no seu computador. Pode abri-la sem privilégios elevados.
 1. Execute os seguintes comandos para preparar a execução dos cmdlets.
 
     ```PowerShell
@@ -47,127 +40,112 @@ Para aplicar rótulos publicados a grupos, você deve primeiro habilitar o recur
     Connect-AzureAD
     ```
 
-    Na página **entrar na sua conta** , insira sua conta de administrador e senha para conectá-lo ao serviço e selecione **entrar**.
-1. Busque as configurações de grupo atuais para a organização do Azure AD.
+    No **'Iniciar sessão' na página** da sua conta, insira a sua conta de administração e a sua palavra-passe para o ligar ao seu serviço e selecione **Iniciar sessão**.
+1. Pegue as definições atuais do grupo para a organização Azure AD.
 
     ```PowerShell
     $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
     ```
 
     > [!NOTE]
-    > Se nenhuma configuração de grupo tiver sido criada para esta organização do Azure AD, você deverá primeiro criar as configurações. Siga as etapas em [Azure Active Directory cmdlets para definir configurações de grupo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-cmdlets) para criar configurações de grupo para esta organização do Azure AD.
+    > Se não foram criadas configurações de grupo para esta organização Azure AD, primeiro deve criar as definições. Siga os passos em [Cmdlets de Diretório Ativo Azure para configurar as configurações](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-cmdlets) do grupo para criar configurações de grupo para esta organização Azure AD.
 
-1. Em seguida, exiba as configurações de grupo atuais.
+1. Em seguida, exiba as definições atuais do grupo.
 
     ```PowerShell
     $Setting.Values
     ```
 
-1. Em seguida, habilite o recurso:
+1. Em seguida, ativar a funcionalidade:
 
     ```PowerShell
     $Setting["EnableMIPLabels"] = "True"
     ```
 
-1. Em seguida, salve as alterações e aplique as configurações:
+1. Em seguida, guarde as alterações e aplique as definições:
 
     ```PowerShell
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-E já está. Você habilitou o recurso e pode aplicar rótulos publicados a grupos.
+Já está. Ativou a funcionalidade e pode aplicar rótulos publicados em grupos.
 
-## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Atribuir um rótulo a um novo grupo no portal do Azure
+## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Atribuir um rótulo a um novo grupo no portal Azure
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com).
-1. Selecione **grupos**e, em seguida, selecione **novo grupo**.
-1. Na página **novo grupo** , selecione **Office 365**e preencha as informações necessárias para o novo grupo e selecione um rótulo de sensibilidade na lista.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com).
+1. Selecione **Grupos**, e, em **seguida,** selecione Novo grupo .
+1. Na página do **Novo Grupo,** selecione o **Office 365**e, em seguida, preencha as informações necessárias para o novo grupo e selecione um rótulo de sensibilidade da lista.
 
-   ![Atribuir um rótulo de sensibilidade na página novos grupos](./media/groups-assign-sensitivity-labels/new-group-page.png)
+   ![Atribuir uma etiqueta de sensibilidade na página dos novos grupos](./media/groups-assign-sensitivity-labels/new-group-page.png)
 
-1. Salve as alterações e selecione **criar**.
+1. Guarde as suas alterações e selecione **Criar**.
 
-Seu grupo é criado e as políticas associadas ao rótulo selecionado são automaticamente impostas.
+O seu grupo é criado e as definições do site e do grupo associadas à etiqueta selecionada são aplicadas automaticamente.
 
-## <a name="assign-a-label-to-an-existing-group-in-azure-portal"></a>Atribuir um rótulo a um grupo existente no portal do Azure
+## <a name="assign-a-label-to-an-existing-group-in-azure-portal"></a>Atribuir um rótulo a um grupo existente no portal Azure
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta de administrador global ou de grupos ou como um proprietário de grupo.
-1. Selecione **grupos**.
-1. Na página **todos os grupos** , selecione o grupo que você deseja rotular.
-1. Na página do grupo selecionado, selecione **Propriedades** e selecione um rótulo de sensibilidade na lista.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta de administração de Grupos, ou como proprietário de grupo.
+1. Selecione **Grupos**.
+1. A partir da página **Todos os grupos,** selecione o grupo que pretende rotular.
+1. Na página do grupo selecionado, selecione **Propriedades** e selecione uma etiqueta de sensibilidade da lista.
 
-   ![Atribuir um rótulo de sensibilidade na página Visão geral de um grupo](./media/groups-assign-sensitivity-labels/assign-to-existing.png)
+   ![Atribuir uma etiqueta de sensibilidade na página geral para um grupo](./media/groups-assign-sensitivity-labels/assign-to-existing.png)
 
-1. Selecione **salvar** para salvar as alterações.
+1. Selecione **Guardar** para guardar as suas alterações.
 
-## <a name="remove-a-label-from-an-existing-group-in-azure-portal"></a>Remover um rótulo de um grupo existente no portal do Azure
+## <a name="remove-a-label-from-an-existing-group-in-azure-portal"></a>Remova um rótulo de um grupo existente no portal Azure
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta de administrador global ou de grupos ou como um proprietário de grupo.
-1. Selecione **grupos**.
-1. Na página **todos os grupos** , selecione o grupo do qual você deseja remover o rótulo.
-1. Na página **grupo** , selecione **Propriedades**.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta de administração global ou de grupos, ou como proprietário de grupo.
+1. Selecione **Grupos**.
+1. A partir da página **Todos os grupos,** selecione o grupo de que pretende remover a etiqueta.
+1. Na página **do Grupo,** selecione **Propriedades**.
 1. Selecione **Remover**.
-1. Selecione **salvar** para aplicar suas alterações.
+1. Selecione **Guardar** para aplicar as suas alterações.
 
-## <a name="office-365-app-support-for-sensitivity-labels"></a>Suporte do aplicativo do Office 365 para rótulos de sensibilidade
+## <a name="using-classic-azure-ad-classifications"></a>Usando classificações clássicas de AD Azure
 
-Os seguintes aplicativos e serviços do Office 365 dão suporte aos rótulos de sensibilidade nesta visualização:
+Depois de ativar esta funcionalidade, as classificações "clássicas" para grupos aparecerão apenas grupos e sites existentes, e você deve usá-los para novos grupos apenas se criar grupos em apps que não suportem rótulos de sensibilidade. A sua administração pode convertê-las em etiquetas de sensibilidade mais tarde, se necessário. As classificações clássicas são as classificações antigas que configura, definindo valores para a definição `ClassificationList` em Azure AD PowerShell. Quando esta funcionalidade estiver ativada, essas classificações não serão aplicadas aos grupos.
 
-- Centro de administração do Azure AD
-- Centro de conformidade Microsoft 365
-- SharePoint
-- Outlook na Web
-- Responsáveis
-- Centro de administração do SharePoint
+## <a name="troubleshooting-issues"></a>Problemas de resolução de problemas
 
-Para obter mais informações sobre o suporte a aplicativos do Office 365, consulte [suporte do office 365 para rótulos de sensibilidade](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels).
+### <a name="sensitivity-labels-are-not-available-for-assignment-on-a-group"></a>Etiquetas de sensibilidade não estão disponíveis para atribuição num grupo
 
-## <a name="using-classic-azure-ad-classifications"></a>Usando classificações clássicas do Azure AD
+A opção de etiqueta de sensibilidade só é apresentada para grupos quando todas as seguintes condições forem satisfeitas:
 
-Depois de habilitar esse recurso, o Office 365 não oferece mais suporte às classificações "clássicas" para novos grupos. As classificações clássicas são as classificações antigas que você define definindo valores para a configuração de `ClassificationList` no PowerShell do Azure AD. Quando esse recurso estiver habilitado, essas classificações não serão aplicadas a grupos.
-
-## <a name="troubleshooting-issues"></a>Solucionando problemas
-
-### <a name="sensitivity-labels-are-not-available-for-assignment-on-a-group"></a>Os rótulos de sensibilidade não estão disponíveis para atribuição em um grupo
-
-A opção de rótulo de sensibilidade só é exibida para grupos quando todas as condições a seguir são atendidas:
-
-1. Os rótulos são publicados no centro de conformidade Microsoft 365 para esse locatário.
-1. O recurso está habilitado, EnableMIPLabels é definido como true no PowerShell.
+1. As etiquetas são publicadas no Microsoft 365 Compliance Center para este inquilino.
+1. A funcionalidade está ativada, o EnableMIPLabels está definido para True in PowerShell.
 1. O grupo é um grupo do Office 365.
-1. O locatário tem uma licença do Active Azure Active Directory Premium P1.
-1. O usuário conectado atual tem acesso aos rótulos publicados.
-1. O usuário conectado atual tem privilégios suficientes para atribuir rótulos. O usuário deve ser um administrador global, administrador de grupo ou o proprietário do grupo.
-1. O usuário conectado atual tem uma licença do Office 365 atribuída. Para obter mais informações sobre os requisitos de licença, consulte [Rótulos de sensibilidade em aplicativos do Office](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-office-apps).
+1. O inquilino tem uma licença ativa azure Ative Directory Premium P1.
+1. O atual utilizador inscrito tem privilégios suficientes para atribuir etiquetas. O utilizador deve ser um Administrador Global, Administrador de Grupo ou o proprietário do grupo.
 
-Certifique-se de que todas as condições sejam atendidas para atribuir rótulos a um grupo.
+Certifique-se de que todas as condições estão reunidas para atribuir etiquetas a um grupo.
 
-### <a name="the-label-i-want-to-assign-is-not-in-the-list"></a>O rótulo que desejo atribuir não está na lista
+### <a name="the-label-i-want-to-assign-is-not-in-the-list"></a>O rótulo que quero atribuir não está na lista.
 
-Se o rótulo que você está procurando não estiver na lista, esse pode ser o caso por um dos seguintes motivos:
+Se o rótulo que procura não estiver na lista, pode ser o caso de uma das seguintes razões:
 
-- O rótulo pode não ser publicado no centro de conformidade Microsoft 365. Isso também pode ser aplicado a rótulos que não são mais publicados. Consulte o administrador para obter mais informações.
-- O rótulo pode ser publicado, no entanto, não está disponível para o usuário que está conectado. Consulte o administrador para obter mais informações sobre como obter acesso ao rótulo.
+- A etiqueta pode não ser publicada no Microsoft 365 Compliance Center. Isto também pode aplicar-se às etiquetas que já não são publicadas. Por favor, consulte o seu administrador para mais informações.
+- No entanto, a etiqueta pode ser publicada, não disponível para o utilizador que esteja inscrito. Consulte o seu administrador para obter mais informações sobre como obter acesso à etiqueta.
 
-### <a name="how-can-i-change-the-label-on-a-group"></a>Como posso alterar o rótulo em um grupo?
+### <a name="how-to-change-the-label-on-a-group"></a>Como alterar o rótulo em um grupo
 
-Os rótulos podem ser trocados a qualquer momento usando as mesmas etapas que atribui um rótulo a um grupo existente, da seguinte maneira:
+As etiquetas podem ser trocadas a qualquer momento utilizando os mesmos passos que a atribuição de uma etiqueta a um grupo existente, da seguinte forma:
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta global ou de administrador de grupo ou como proprietário do grupo.
-1. Selecione **grupos**.
-1. Na página **todos os grupos** , selecione o grupo que você deseja rotular.
-1. Na página do grupo selecionado, selecione **Propriedades** e selecione um novo rótulo de sensibilidade na lista.
+1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com) com uma conta de administrador global ou de grupo ou como proprietário do grupo.
+1. Selecione **Grupos**.
+1. A partir da página **Todos os grupos,** selecione o grupo que pretende rotular.
+1. Na página do grupo selecionado, selecione **Properties** e selecione um novo rótulo de sensibilidade da lista.
 1. Selecione **Guardar**.
 
-### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>As alterações de configuração de grupo em rótulos publicados não são atualizadas nos grupos
+### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>As alterações à definição de grupos para rótulos publicados não são atualizadas nos grupos
 
-Como prática recomendada, não recomendamos que você altere as configurações de grupo para um rótulo depois que o rótulo for aplicado a grupos. Quando você faz alterações nas configurações de grupo associadas aos rótulos publicados no [centro de conformidade Microsoft 365](https://sip.protection.office.com/homepage), essas alterações de política não são aplicadas automaticamente nos grupos afetados.
+Como uma boa prática, não recomendamos que altere as definições de grupo para uma etiqueta após a aplicação da etiqueta aos grupos. Quando efaz alterações nas definições de grupo associadas às etiquetas publicadas no Centro de Conformidade microsoft [365,](https://sip.protection.office.com/homepage)essas alterações de política não são aplicadas automaticamente nos grupos impactados.
 
-Se você precisar fazer uma alteração, use um [script do PowerShell do Azure ad](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) para aplicar manualmente as atualizações aos grupos afetados. Esse método garante que todos os grupos existentes impõem a nova configuração.
+Se tiver de fazer uma alteração, utilize um [script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) para aplicar manualmente atualizações aos grupos afetados. Este método assegura que todos os grupos existentes apliquem a nova configuração.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Use rótulos de sensibilidade com o Microsoft Teams, grupos do Office 365 e sites do SharePoint](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
-- [Atualizar grupos após a alteração da política de rótulo manualmente com o script do PowerShell do Azure AD](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)
+- [Utilize etiquetas de sensibilidade com microsoft teams, grupos do Office 365 e sites SharePoint](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+- [Atualizar grupos após mudança de política de etiquetamanualmente com script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)
 - [Editar as suas definições de grupo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal)
 - [Gerir grupos através de comandos do PowerShell](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets)

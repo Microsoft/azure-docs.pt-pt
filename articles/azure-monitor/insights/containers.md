@@ -1,18 +1,17 @@
 ---
 title: Solução de monitorização de contentores no Monitor Azure [ Monitor De contentores] Microsoft Docs
 description: A solução de monitorização de contentores no Monitor Azure ajuda-o a visualizar e gerir os seus anfitriões de contentores Docker e Windows num único local.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/22/2019
-ms.openlocfilehash: 7dab80f901304a727b75c7861c5d865fee03bec3
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 171f897f6e110e8f759281c139addab477ecede3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482995"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664699"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitorização de contentores no Monitor Azure
 
@@ -46,7 +45,7 @@ Antes de começar, reveja os detalhes seguintes para verificar que cumpre os pr�
 
 A tabela seguinte descreve a orquestração docker e o suporte de monitorização do sistema operativo de inventário de contentores, desempenho e registos com o Monitor Azure.   
 
-| | ACS | Linux | Windows | Contentor<br>Inventário | Image<br>Inventário | Nó<br>Inventário | Contentor<br>Desempenho | Contentor<br>Evento | Evento<br>Registar | Contentor<br>Registar |
+| | ACS | Linux | Windows | Contentor<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contentor<br>Desempenho | Contentor<br>Evento | Evento<br>Registar | Contentor<br>Registar |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Utilizar o Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -639,6 +638,6 @@ Guardar consultas é uma característica padrão no Monitor Azure. Salvando-los,
 
 Depois de criar uma consulta que ache útil, guarde-a clicando em **Favoritos** no topo da página de Pesquisa de Registos. Depois, pode aceder-lhe facilmente mais tarde a partir da página **My Dashboard.**
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Registos](../log-query/log-query-overview.md) de consultas para visualizar registos de dados detalhados do recipiente.

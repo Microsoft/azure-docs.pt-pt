@@ -2,18 +2,16 @@
 title: Mude de legado Log Analytics alerta API para novo Azure Alerts API
 description: Visão geral do legado salvou API de alerta de log analytics baseado em Pesquisa de Registo e processo para mudar as regras de alerta para a nova API ScheduledQueryRules, com detalhes que abordam as preocupações comuns do cliente.
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: a6f71cca2c63591d2d26a7d34ced232eabfbc6bb
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: c1ca85ba9c79f828b5ddcf0d640cfe7f8b6e097c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425156"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668014"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Alternar a preferência da API para alertas de registo
 

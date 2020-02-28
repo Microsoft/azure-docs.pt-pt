@@ -1,90 +1,86 @@
 ---
-title: Monitor com testes na Web de várias etapas-insights de Aplicativo Azure
-description: Configurar testes na Web de várias etapas para monitorar seus aplicativos Web com o Aplicativo Azure insights
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Monitor com testes web em várias etapas - Azure Application Insights
+description: Configurar testes web em várias etapas para monitorizar as suas aplicações web com insights de aplicação azure
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928958"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655945"
 ---
-# <a name="multi-step-web-tests"></a>Testes Web de vários passos
+# <a name="multi-step-web-tests"></a>Testes Web com vários passos
 
-Você pode monitorar uma sequência registrada de URLs e interações com um site por meio de testes na Web de várias etapas. Este artigo explicará o processo de criação de um teste na Web de várias etapas com Visual Studio Enterprise.
+Pode monitorizar uma sequência gravada de URLs e interações com um website através de testes web em várias etapas. Este artigo irá acompanhá-lo através do processo de criação de um teste web em várias etapas com a Visual Studio Enterprise.
 
 > [!NOTE]
-> Testes na Web de várias etapas dependem de arquivos do Visual Studio WebTest. Foi [anunciado](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que o Visual Studio 2019 será a última versão com a funcionalidade WebTest. É importante entender que, embora nenhum novo recurso seja adicionado, a funcionalidade do WebTest no Visual Studio 2019 ainda é suportada e continuará a ter suporte durante o ciclo de vida do suporte do produto. A equipe de produto Azure Monitor resolveu perguntas sobre o futuro de testes de disponibilidade de várias etapas [aqui](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
+> Os testes web em várias etapas dependem de ficheiros webtest do Estúdio Visual. Foi [anunciado](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que o Visual Studio 2019 será a última versão com funcionalidade webtest. É importante entender que, embora não sejam adicionadas novas funcionalidades, a funcionalidade webtest no Visual Studio 2019 ainda está suportada e continuará a ser suportada durante o ciclo de vida de suporte do produto. A equipa de produtos do Azure Monitor abordou [aqui](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)questões relativas ao futuro dos testes de disponibilidade em várias etapas.  
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
-* Visual Studio 2017 Enterprise ou superior.
-* Ferramentas de teste de carga e desempenho na Web do Visual Studio.
+* Visual Studio 2017 Enterprise ou maior.
+* Ferramentas de desempenho web do Estúdio Visual e ferramentas de teste de carga.
 
-Para localizar o pré-requisito das ferramentas de teste. Inicie o **Instalador do Visual Studio** > **componentes individuais** > **depuração e teste** > **ferramentas de teste de carga e desempenho da Web**.
+Para localizar as ferramentas de teste pré-requisitos. Lance o **Instalador de Estúdio Visual** > **componentes individuais** > **Depuração e teste** > ferramentas de desempenho web e de teste de **carga.**
 
-![Captura de tela da interface do usuário do instalador do Visual Studio com componentes individuais selecionados com uma caixa de seleção ao lado do item para ferramentas de teste de carga e desempenho na Web](./media/availability-multistep/web-performance-load-testing.png)
+![Screenshot do instalador do Estúdio Visual UI com componentes individuais selecionados com uma caixa de verificação ao lado do item para ferramentas de desempenho web e de teste de carga](./media/availability-multistep/web-performance-load-testing.png)
 
 > [!NOTE]
-> Testes na Web de várias etapas têm custos adicionais associados a eles. Para saber mais, consulte o [Guia de preços oficial](https://azure.microsoft.com/pricing/details/application-insights/).
+> Os testes web em várias etapas têm custos adicionais associados a eles. Para saber mais, consulte o [guia oficial](https://azure.microsoft.com/pricing/details/application-insights/)de preços .
 
-## <a name="record-a-multi-step-web-test"></a>Registrar um teste na Web de várias etapas 
+## <a name="record-a-multi-step-web-test"></a>Grave um teste web em várias etapas 
 
 > [!WARNING]
-> Não é mais recomendável usar o gravador de várias etapas. O gravador foi desenvolvido para páginas HTML estáticas com interações básicas e não fornece uma experiência funcional para páginas da Web modernas.
+> Já não recomendamos a utilização do gravador de várias etapas. O gravador foi desenvolvido para páginas html estáticas com interações básicas, e não fornece uma experiência funcional para páginas web modernas.
 
-Para obter orientação sobre como criar testes na Web do Visual Studio, consulte a [documentação oficial do visual studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Para obter orientações sobre a criação de testes web do Visual Studio, consulte a documentação oficial do [Visual Studio 2019.](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019)
 
-## <a name="upload-the-web-test"></a>Carregar o teste na Web
+## <a name="upload-the-web-test"></a>Faça upload do teste web
 
-1. No portal de Application Insights no painel disponibilidade, selecione **criar teste** > **tipo de teste** > **teste na Web de várias etapas**.
+1. No portal De insights de aplicação sobre o painel de disponibilidade selecione **Criar teste** > tipo de **teste** > teste web **em várias etapas**.
 
-2. Defina os locais de teste, a frequência e os parâmetros de alerta.
+2. Defina os locais de teste, frequência e parâmetros de alerta.
 
-### <a name="frequency--location"></a>Local de & de frequência
+### <a name="frequency--location"></a>Frequência e localização
 
 |Definição| Explicação
 |----|----|----|
 |**Frequência de teste**| Define a frequência com que o teste é executado a partir de cada local de teste. Com uma frequência predefinida de cinco minutos e cinco localizações de teste, o site é testado, em média, a cada minuto.|
-|**Locais de teste**| São os locais de onde nossos servidores enviam solicitações da Web para sua URL. **Nosso número mínimo de locais de teste recomendados é cinco** para garantir que você possa distinguir problemas em seu site por meio de problemas de rede. Pode selecionar até 16 localizações.
+|**Locais de teste**| São os locais de onde os nossos servidores enviam pedidos web para o seu URL. **O nosso número mínimo de locais de teste recomendados é de cinco,** de forma a garantir que pode distinguir problemas no seu website a partir de problemas de rede. Pode selecionar até 16 localizações.
 
 ### <a name="success-criteria"></a>Critérios de sucesso
 
 |Definição| Explicação
 |----|----|----|
-| **Tempo limite do teste** |Diminua esse valor para ser alertado sobre respostas lentas. O teste será contabilizado como uma falha se as respostas do seu site não foram recebidas durante este período. Se tiver selecionado **Pedidos dependentes de análise**, todas as imagens, ficheiros de estilos, scripts e outros recursos dependentes terão de ser recebidos durante este período.|
-| **Resposta HTTP** | O código de status retornado que é contado como êxito. 200 é o código que indica que foi devolvida uma página Web normal.|
-| **Correspondência de conteúdo** | Uma cadeia de caracteres, como "bem-vindo!" Podemos testar que uma correspondência sensíveis às maiúsculas e minúsculas ocorre em cada resposta. Tem de ser uma cadeia simples, sem carateres universais. Não se esqueça de que se alterar o conteúdo da página, poderá ter de a atualizar. **Somente caracteres em inglês têm suporte com correspondência de conteúdo** |
+| **Tempo de teste** |Diminua este valor para ser alertado sobre respostas lentas. O teste será contabilizado como uma falha se as respostas do seu site não foram recebidas durante este período. Se tiver selecionado **Pedidos dependentes de análise**, todas as imagens, ficheiros de estilos, scripts e outros recursos dependentes terão de ser recebidos durante este período.|
+| **Resposta HTTP** | O código de estado devolvido que é contado como um sucesso. 200 é o código que indica que foi devolvida uma página Web normal.|
+| **Correspondência de conteúdo** | Uma corda, como "Bem-vindo!" Podemos testar que uma correspondência sensíveis às maiúsculas e minúsculas ocorre em cada resposta. Tem de ser uma cadeia simples, sem carateres universais. Não se esqueça de que se alterar o conteúdo da página, poderá ter de a atualizar. **Apenas os caracteres ingleses são suportados com correspondência de conteúdo** |
 
 ### <a name="alerts"></a>Alertas
 
 |Definição| Explicação
 |----|----|----|
-|**Quase em tempo real (visualização)** | É recomendável usar alertas quase em tempo real. A configuração desse tipo de alerta é feita após a criação do teste de disponibilidade.  |
-|**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
-|**Limite de local de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o **limite de local de alerta** = **número de locais de teste-2, com um mínimo de cinco locais de teste.**|
+|**Quase em tempo real (Pré-visualização)** | Recomendamos a utilização de alertas quase em tempo real. Configurar este tipo de alerta é feito após a criação do seu teste de disponibilidade.  |
+|**Clássico** | Já não recomendamos a utilização de alertas clássicos para novos testes de disponibilidade.|
+|**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização do alerta e o número de locais de teste é o limiar de **localização de alerta** = número de **locais de teste - 2, com um mínimo de cinco locais de teste.**|
 
 ## <a name="configuration"></a>Configuração
 
-### <a name="plugging-time-and-random-numbers-into-your-test"></a>Tempo de conexão e números aleatórios em seu teste
+### <a name="plugging-time-and-random-numbers-into-your-test"></a>Ligar tempo e números aleatórios no seu teste
 
 Suponhamos que está a testar uma ferramenta que obtém dados dependentes da hora, tais como stocks de um feed externo. Ao gravar o teste Web, tem de utilizar horas específicas, embora sejam definidas como parâmetros do teste, StartTime e EndTime.
 
-![Captura de tela de meu aplicativo de ações incríveis](./media/availability-multistep/app-insights-72webtest-parameters.png)
+![Minha incrível imagem de app de stock](./media/availability-multistep/app-insights-72webtest-parameters.png)
 
 Quando executa o teste, gostaria que a EndTime fosse sempre a hora atual e a StartTime a hora de há 15 minutos.
 
-O plug-in de data e hora do teste na Web fornece a maneira de lidar com os tempos de parametrização.
+O Plugin de Data de Data de Teste web fornece a forma de lidar com os tempos de parametrização.
 
 1. Adicione um plug-in de teste Web para cada valor variável de parâmetro que pretende. Na barra de ferramentas do teste Web, selecione **Adicionar Plug-in de Teste Web**.
     
-    ![Adicionar plug-in de teste na Web](./media/availability-multistep/app-insights-72webtest-plugin-name.png)
+    ![Adicionar plug-in de teste web](./media/availability-multistep/app-insights-72webtest-plugin-name.png)
     
     Neste exemplo, utilizamos duas instâncias do Plug-in Data/Hora. Uma instância para “há 15 minutos” e outra para “agora”.
 
@@ -104,31 +100,31 @@ Se os seus utilizadores iniciarem sessão na sua aplicação, terá várias opç
 
 Em todos os casos, deve criar uma conta na sua aplicação apenas para efeitos de teste. Se possível, restrinja as permissões da conta neste teste, para que não haja nenhuma possibilidade de os testes Web afetarem os utilizadores reais.
 
-**Nome de usuário e senha simples** Registre um teste na Web da maneira usual. Elimine primeiro os cookies.
+**Nome de utilizador simples e senha** Grave um teste na web da maneira habitual. Elimine primeiro os cookies.
 
 **Autenticação SAML**
 
 |Nome da propriedade| Descrição|
 |----|-----|
-| URI do público | O URI do público-alvo do token SAML.  Esse é o URI para o serviço de controle de acesso (ACS) – incluindo o nome do host e o namespace do ACS. |
-| Senha do certificado | A senha para o certificado de cliente que concederá acesso à chave privada inserida. |
-| Certificado do cliente  | O valor do certificado de cliente com a chave privada no formato codificado em base64. |
-| Identificador de Nome | O identificador de nome para o token |
-| Não Após | O TimeSpan para o qual o token será válido.  O padrão é 5 minutos. |
-| Não Antes | O TimeSpan para o qual um token criado no passado será válido (para endereçar distorções de tempo).  O padrão é (negativo) 5 minutos. |
-| Nome do parâmetro de contexto de destino | O parâmetro de contexto que receberá a declaração gerada. |
+| Público Uri | O público URI para o símbolo SAML.  Este é o URI para o Serviço de Controlo de Acesso (ACS) – incluindo o espaço de nome ACS e o nome do anfitrião. |
+| Palavra-passe do certificado | A palavra-passe para o certificado de cliente que dará acesso à chave privada incorporada. |
+| Certificado de Cliente  | O valor do certificado de cliente com chave privada no formato codificado Base64. |
+| Identificador de nome | O identificador de nome para o símbolo |
+| Não depois | A hora do tempo para a qual o símbolo será válido.  O padrão é de 5 minutos. |
+| Não antes | O tempo para o qual um símbolo criado no passado será válido (para abordar os desvios de tempo).  A predefinição é (negativa) 5 minutos. |
+| Nome do parâmetro de contexto-alvo | O parâmetro de contexto que receberá a afirmação gerada. |
 
 
-**Segredo do cliente** Se seu aplicativo tiver uma rota de entrada que envolva um segredo do cliente, use essa rota. O Azure Active Directory (AAD) é um exemplo de um serviço que fornece um início de sessão com segredo do cliente. No AAD, o segredo do cliente é a Chave da Aplicação.
+**Segredo do cliente** Se a sua aplicação tiver uma rota de login que envolva um segredo de cliente, use essa rota. O Azure Active Directory (AAD) é um exemplo de um serviço que fornece um início de sessão com segredo do cliente. No AAD, o segredo do cliente é a Chave da Aplicação.
 
 Eis um exemplo de teste Web de uma aplicação Web do Azure com uma chave de aplicação:
 
-![Captura de tela de exemplo](./media/availability-multistep/client-secret.png)
+![Screenshot da amostra](./media/availability-multistep/client-secret.png)
 
 Obtenha o token do AAD utilizando o segredo do cliente (AppKey).
 Extraia o token de portador a partir da resposta.
 Chame a API com o token de portador no cabeçalho de autorização.
-Verifique se o teste na Web é um cliente real, ou seja, se ele tem seu próprio aplicativo no AAD, e use sua chave de aplicativo clientId +. Seu serviço em teste também tem seu próprio aplicativo no AAD: o URI do appID deste aplicativo é refletido no teste na Web no campo de recurso.
+Certifique-se de que o teste web é um cliente real - isto é, tem a sua própria app em AAD - e use a sua chave de aplicação clientId +. O seu serviço em teste também tem a sua própria app em AAD: o appID URI desta aplicação reflete-se no teste web no campo de recursos.
 
 ### <a name="open-authentication"></a>Autenticação Aberta
 Um exemplo de Autenticação Aberta é iniciar sessão com a conta Microsoft ou Google. Muitas aplicações que utilizam a OAuth fornecem uma alternativa ao segredo do cliente. Por isso, a primeira tática deve ser investigar essa possibilidade.
@@ -143,9 +139,9 @@ Parametrizar os tokens definindo o parâmetro quando o token é devolvido do aut
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-[Artigo de solução de problemas](troubleshoot-availability.md)dedicado.
+Artigo dedicado à resolução de [problemas.](troubleshoot-availability.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Alertas de disponibilidade](availability-alerts.md)
-* [Testes da Web de ping de URL](monitor-web-app-availability.md)
+* [Alertas de Disponibilidade](availability-alerts.md)
+* [Url ping web testes](monitor-web-app-availability.md)

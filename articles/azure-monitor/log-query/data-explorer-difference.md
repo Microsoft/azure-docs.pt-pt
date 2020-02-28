@@ -1,62 +1,61 @@
 ---
-title: Diferenças de linguagem de consulta de log Azure Monitor | Microsoft Docs
-description: Informações de referência para a linguagem de consulta Kusto usada pelo Azure Monitor. Inclui elementos adicionais específicos para Azure Monitor e elementos sem suporte em consultas de log de Azure Monitor.
-ms.service: azure-monitor
+title: Diferenças linguísticas de consulta de log Do Azure Monitor  Microsoft Docs
+description: Informações de referência para a linguagem de consulta Kusto utilizada saqueada pelo Azure Monitor. Inclui elementos adicionais específicos do Monitor Azure e elementos não suportados nas consultas de registo do Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 16a221c0530d65e11589ac272a8e032de0cd3d2b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b4601968a318388086a60ef98e4359ae01f652ed
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933105"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662107"
 ---
-# <a name="azure-monitor-log-query-language-differences"></a>Diferenças de linguagem de consulta de log Azure Monitor
+# <a name="azure-monitor-log-query-language-differences"></a>Diferenças linguísticas de consulta de log do Monitor Azure
 
-Embora os [logs no Azure monitor](log-query-overview.md) sejam criados no [Data Explorer do Azure](/azure/data-explorer) e usem a mesma [linguagem de consulta Kusto](/azure/kusto/query), a versão da linguagem tem algumas diferenças. Este artigo identifica os elementos que são diferentes entre a versão do idioma usado para Data Explorer e a versão usada para Azure Monitor consultas de log.
+Enquanto [os registos no Azure Monitor](log-query-overview.md) são construídos no [Azure Data Explorer](/azure/data-explorer) e usam a mesma linguagem de consulta [Kusto,](/azure/kusto/query)a versão do idioma tem algumas diferenças. Este artigo identifica elementos diferentes entre a versão do idioma utilizada para o Data Explorer e a versão utilizada para consultas de registo do Monitor Do Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="kql-elements-not-supported-in-azure-monitor"></a>Elementos KQL sem suporte no Azure Monitor
-As seções a seguir descrevem os elementos da linguagem de consulta Kusto que não têm suporte do Azure Monitor.
+## <a name="kql-elements-not-supported-in-azure-monitor"></a>Elementos KQL não suportados no Monitor Azure
+As seguintes secções descrevem elementos da linguagem de consulta kusto que não são suportados pelo Monitor Azure.
 
-### <a name="statements-not-supported-in-azure-monitor"></a>Instruções sem suporte no Azure Monitor
+### <a name="statements-not-supported-in-azure-monitor"></a>Declarações não apoiadas no Monitor Azure
 
-* [Receber](/azure/kusto/query/aliasstatement)
+* [Pseudónimo](/azure/kusto/query/aliasstatement)
 * [Parâmetros de consulta](/azure/kusto/query/queryparametersstatement)
 
-### <a name="functions-not-supported-in-azure-monitor"></a>Funções sem suporte no Azure Monitor
+### <a name="functions-not-supported-in-azure-monitor"></a>Funções não suportadas no Monitor Azure
 
-* [cluster ()](/azure/kusto/query/clusterfunction)
+* [cluster()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [banco de dados ()](/azure/kusto/query/databasefunction)
+* [base de dados()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
-### <a name="operators-not-supported-in-azure-monitor"></a>Operadores sem suporte no Azure Monitor
+### <a name="operators-not-supported-in-azure-monitor"></a>Operadores não apoiados no Monitor Azure
 
-* [Junção entre clusters](/azure/kusto/query/joincrosscluster)
-* [operador externaldata](/azure/kusto/query/externaldata-operator)
+* [Cruzamento de cluster](/azure/kusto/query/joincrosscluster)
+* [operador de dados externos](/azure/kusto/query/externaldata-operator)
 
-### <a name="plugins-not-supported-in-azure-monitor"></a>Não há suporte para plug-ins no Azure Monitor
+### <a name="plugins-not-supported-in-azure-monitor"></a>Plugins não suportados no Monitor Azure
 
-* [Plug-in do Python](/azure/kusto/query/pythonplugin)
-* [plug-in sql_request](/azure/kusto/query/sqlrequestplugin)
+* [Plugin python](/azure/kusto/query/pythonplugin)
+* [plugin sql_request](/azure/kusto/query/sqlrequestplugin)
 
 
-## <a name="additional-operators-in-azure-monitor"></a>Operadores adicionais no Azure Monitor
-Os operadores a seguir dão suporte a recursos específicos de Azure Monitor e não estão disponíveis fora do Azure Monitor.
+## <a name="additional-operators-in-azure-monitor"></a>Operadores adicionais no Monitor Azure
+Os seguintes operadores suportam funcionalidades específicas do Monitor Azure e não estão disponíveis fora do Monitor Azure.
 
-* [aplicativo ()](app-expression.md)
-* [espaço de trabalho ()](workspace-expression.md)
+* [app()](app-expression.md)
+* [espaço de trabalho()](workspace-expression.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Obtenha referências a diferentes [recursos para gravar Azure monitor consultas de log](query-language.md).
-- Acesse a [documentação de referência completa para a linguagem de consulta do Kusto](/azure/kusto/query/).
+- Obtenha referências a diferentes recursos para escrever consultas de [registo do Monitor Azure](query-language.md).
+- Aceda à documentação completa de referência para a [linguagem de consulta kusto](/azure/kusto/query/).

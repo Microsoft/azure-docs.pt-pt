@@ -1,38 +1,38 @@
 ---
-title: Visão geral do status do Azure | Microsoft Docs
-description: Uma exibição global da integridade dos serviços do Azure
-ms.topic: article
+title: Visão geral do estado do Azure  Microsoft Docs
+description: Uma visão global para a saúde dos serviços azure
+ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 1257476234709380de3452015313e3a3bf71e04d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463985"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654159"
 ---
-# <a name="azure-status-overview"></a>Visão geral do status do Azure
+# <a name="azure-status-overview"></a>Visão geral do estado do Azure
 
-O [status do Azure](https://status.azure.com/status/) fornece uma exibição global da integridade dos serviços e regiões do Azure. Com o status do Azure, você pode obter informações sobre a disponibilidade do serviço. O status do Azure está disponível para todos para exibir todos os serviços que relatam sua integridade de serviço, bem como incidentes com impacto amplo. No entanto, se você for um usuário atual do Azure, é altamente recomendável usar a experiência personalizada na [integridade do serviço do Azure](https://aka.ms/azureservicehealth). A integridade do serviço do Azure inclui todas as interrupções, atividades de manutenção planejadas futuras e comunicados de serviço.
+[O estatuto azure](https://status.azure.com/status/) proporciona-lhe uma visão global da saúde dos serviços e regiões azure. Com o estado do Azure, pode obter informações sobre a disponibilidade do serviço. O estado do Azure está disponível para todos os serviços que reportam a sua saúde de serviço, bem como incidentes com impacto abrangente. No entanto, se é um utilizador atual do Azure, encorajamo-lo vivamente a utilizar a experiência personalizada na [Azure Service Health.](https://aka.ms/azureservicehealth) A Azure Service Health inclui todas as paragens, as próximas atividades de manutenção planeadas e aconselhamento de serviço.
 
 ![Página de estado do Azure](./media/azure-status-overview/azure-status.PNG)
 
-## <a name="azure-status-updates"></a>Atualizações de status do Azure
+## <a name="azure-status-updates"></a>Atualizações de estado do Azure
 
-A página de status do Azure é atualizada em tempo real à medida que a integridade dos serviços do Azure é alterada. Se você deixar a página de status do Azure aberta, poderá controlar a taxa na qual a página é atualizada com novos dados. Na parte superior, você pode ver a última vez em que a página foi atualizada.
+A página de estado do Azure é atualizada em tempo real à medida que a saúde dos serviços azure muda. Se deixar aberta a página de estado do Azure, pode controlar a taxa a que a página se atualiza com novos dados. No topo, pode ver a última vez que a página foi atualizada.
 
-![Atualização de status do Azure](./media/azure-status-overview/update.PNG)
+![Atualização do estado do Azure](./media/azure-status-overview/update.PNG)
 
-## <a name="azure-status-history"></a>Histórico do estado do Azure
+## <a name="azure-status-history"></a>História do estado de Azure
 
-Embora a página de status do Azure sempre mostre as informações de integridade mais recentes, você pode exibir eventos mais antigos usando a [página de histórico de status do Azure](https://status.azure.com/status/history/).
+Enquanto a página de estado do Azure mostra sempre as últimas informações de saúde, pode ver eventos mais antigos usando a página de história do [estado do Azure](https://status.azure.com/status/history/).
 
-Lá, você pode ver eventos de até 90 dias no passado, incluindo uma causa raiz preliminar, mitigação e próximas etapas para o Azure.
+Lá você pode ver eventos até 90 dias no passado, incluindo uma causa de raiz preliminar, mitigação, e próximos passos para Azure.
 
-## <a name="rss-feed"></a>Feed RSS
+## <a name="rss-feed"></a>Alimentação RSS
 
-O status do Azure também fornece [um RSS feed](https://status.azure.com/status/feed/) de alterações para a integridade dos serviços do Azure que você pode assinar.
+O estado azure também fornece [um feed RSS](https://status.azure.com/status/feed/) de alterações à saúde dos serviços Azure que você pode subscrever.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como você pode obter uma exibição mais personalizada da integridade do Azure com a [integridade do serviço](./service-health-overview.md).
-* Saiba como você pode obter uma exibição mais granular da integridade de seus recursos específicos do Azure com o [Resource Health](./resource-health-overview.md).
+* Saiba como pode obter uma visão mais personalizada para a saúde azure com saúde de [serviço.](./service-health-overview.md)
+* Saiba como pode obter uma visão mais granular sobre a saúde dos seus recursos azure específicos com [a Saúde](./resource-health-overview.md)dos Recursos.

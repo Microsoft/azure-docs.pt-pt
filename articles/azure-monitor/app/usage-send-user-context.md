@@ -1,56 +1,54 @@
 ---
-title: IDs de contexto de usuário para acompanhar informações de Aplicativo Azure de atividade
-description: Acompanhe como os usuários se movem pelo serviço atribuindo a cada um deles uma cadeia de caracteres de ID exclusiva e persistente em Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: IDs de contexto do utilizador para acompanhar a atividade - Insights de aplicação Azure
+description: Acompanhe a forma como os utilizadores se movem através do seu serviço, atribuindo a cada um deles uma linha de ID única e persistente em Insights de Aplicação.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: ee26aeff87f56ec09bced6029154c5152f26750d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: beb5a0f7ad3733aaf12b0880af4fba23a705a7e8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432291"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670938"
 ---
-# <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar IDs de contexto de usuário para habilitar experiências de uso no Aplicativo Azure insights
+# <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Envie IDs de contexto do utilizador para permitir experiências de utilização em Insights de Aplicação Azure
 
-## <a name="tracking-users"></a>Controlando usuários
+## <a name="tracking-users"></a>Rastreio de utilizadores
 
-Application Insights permite que você monitore e acompanhe seus usuários por meio de um conjunto de ferramentas de uso do produto:
+Os Insights de Aplicação permitem-lhe monitorizar e rastrear os seus utilizadores através de um conjunto de ferramentas de utilização do produto:
 
 - [Utilizadores, Sessões, Eventos](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 - [Funis](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-- [Retenção](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) Coortes
+- [Retenção](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) Cohorts
 - [Livros](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
-Para acompanhar o que um usuário faz ao longo do tempo, Application Insights precisa de uma ID para cada usuário ou sessão. Inclua as seguintes IDs em cada exibição de página ou evento personalizado.
+Para acompanhar o que um utilizador faz ao longo do tempo, o Application Insights necessita de um ID para cada utilizador ou sessão. Inclua as seguintes IDs em todos os eventos ou visualizações de página personalizadas.
 
-- Usuários, Funils, retenção e coortes: incluir ID de usuário.
-- Sessões: incluir ID de sessão.
+- Utilizadores, Funis, Retenção e Cohorts: Incluir id do utilizador.
+- Sessões: Incluir ID da sessão.
 
 > [!NOTE]
-> Este é um artigo avançado que descreve as etapas manuais para controlar a atividade do usuário com Application Insights. Com muitos aplicativos Web, **essas etapas podem não ser necessárias**, já que os SDKs padrão do lado do servidor em conjunto com o [SDK do JavaScript do lado do cliente](../../azure-monitor/app/website-monitoring.md ), geralmente são suficientes para rastrear automaticamente a atividade do usuário. Se você não tiver configurado o [monitoramento no lado do cliente](../../azure-monitor/app/website-monitoring.md ) além do SDK do lado do servidor, faça isso primeiro e teste para ver se as ferramentas de análise de comportamento do usuário estão sendo executadas conforme o esperado.
+> Este é um artigo avançado que descreve os passos manuais para rastrear a atividade do utilizador com insights de aplicação. Com muitas aplicações web **estes passos podem não ser necessários**, uma vez que os SDKs do lado do servidor predefinidos em conjunto com o [JavaScript SDK](../../azure-monitor/app/website-monitoring.md )do lado do cliente/navegador , são muitas vezes suficientes para rastrear automaticamente a atividade do utilizador. Se não configurar [a monitorização do lado do cliente](../../azure-monitor/app/website-monitoring.md ) para além do SDK do lado do servidor, faça isso primeiro e teste para ver se as ferramentas de análise do comportamento do utilizador estão a funcionar como esperado.
 
-## <a name="choosing-user-ids"></a>Escolhendo IDs de usuário
+## <a name="choosing-user-ids"></a>Escolher iDs de utilizador
 
-As IDs de usuário devem persistir nas sessões do usuário para controlar como os usuários se comportam com o tempo. Há várias abordagens para persistir a ID.
+As iDs dos utilizadores devem persistir em todas as sessões do utilizador para acompanhar o funcionar dos utilizadores ao longo do tempo. Existem várias abordagens para persistir a identificação.
 
-- Uma definição de um usuário que você já tem em seu serviço.
-- Se o serviço tiver acesso a um navegador, ele poderá passar o navegador um cookie com uma ID. A ID persistirá enquanto o cookie permanecer no navegador do usuário.
-- Se necessário, você pode usar uma nova ID em cada sessão, mas os resultados sobre os usuários serão limitados. Por exemplo, você não conseguirá ver como o comportamento de um usuário muda ao longo do tempo.
+- Uma definição de utilizador que já tem ao seu serviço.
+- Se o serviço tiver acesso a um navegador, pode passar ao navegador um cookie com um ID no mesmo. O ID irá persistir enquanto o cookie permanecer no navegador do utilizador.
+- Se necessário, pode utilizar um novo ID em cada sessão, mas os resultados sobre os utilizadores serão limitados. Por exemplo, não poderá ver como o comportamento de um utilizador muda ao longo do tempo.
 
-A ID deve ser um GUID ou outra cadeia de caracteres complexa o suficiente para identificar cada usuário exclusivamente. Por exemplo, pode ser um número aleatório longo.
+O ID deve ser um Oriente ou outro complexo de cordas o suficiente para identificar cada utilizador de forma única. Por exemplo, pode ser um número aleatório longo.
 
-Se a ID contiver informações de identificação pessoal sobre o usuário, não será um valor apropriado a ser enviado para Application Insights como uma ID de usuário. Você pode enviar tal ID como uma [ID de usuário autenticado](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), mas ele não atende ao requisito de ID de usuário para cenários de uso.
+Se o ID contiver informações de identificação pessoal sobre o utilizador, não é um valor apropriado enviar para A aplicação Insights como um ID do utilizador. Pode enviar um ID como [um ID autenticado](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users)do utilizador, mas não cumpre o requisito de ID do utilizador para cenários de utilização.
 
-## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicativos ASP.NET: Configurando o contexto do usuário em um ITelemetryInitializer
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET aplicações: Definir o contexto do utilizador num ITelemettryInitializer
 
-Crie um inicializador de telemetria, conforme descrito em detalhes [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer). Passe a ID da sessão por meio da telemetria de solicitação e defina Context.User.Id e Context.Session.Id.
+Crie um inicializador de telemetria, como descrito em detalhe [aqui.](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer) Passe a identificação da sessão através da telemetria do pedido, e detetete o Context.User.Id e o Context.Session.Id.
 
-Este exemplo define a ID de usuário para um identificador que expira após a sessão. Se possível, use uma ID de usuário que persiste entre as sessões.
+Este exemplo define o ID do utilizador para um identificador que expira após a sessão. Se possível, utilize um ID do utilizador que persista em sessões.
 
 ### <a name="telemetry-initializer"></a>Inicializador de telemetria
 
@@ -130,9 +128,9 @@ namespace MvcWebRole.Telemetry
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para habilitar as experiências de uso, comece a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Se você já enviar eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários usam seu serviço.
-    - [Visão geral de uso](usage-overview.md)
+- Para permitir experiências de utilização, comece a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [visualizações de páginas.](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)
+- Se já envia eventos personalizados ou visualizações de página, explore as ferramentas de Utilização para saber como os utilizadores usam o seu serviço.
+    - [Visão geral do uso](usage-overview.md)
     - [Users, Sessions, and Events](usage-segmentation.md) (Utilizadores, Sessões e Eventos)
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)

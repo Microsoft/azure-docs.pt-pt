@@ -1,18 +1,17 @@
 ---
 title: Novidades na documentação do Monitor Azure
 description: Atualizações significativas para a documentação do Monitor Do Azure atualizadas todos os meses.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2020
-ms.openlocfilehash: f390de40504d4d6065705ca23555ac2164c9847b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: ecee13850e735f827a5465e0f49039f514afe233
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065566"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657746"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Quais as novidades na documentação do Monitor Azure?
 Este artigo fornece listas de artigos do Monitor Do Azure que são novos ou foram significativamente atualizados. Será atualizado na primeira semana de cada mês para incluir atualizações de artigos do mês anterior.

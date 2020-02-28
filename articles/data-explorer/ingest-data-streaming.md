@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 89772bea818a0ebb57135990b3a04fcb559e2716
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623308"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664937"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestão de streaming (Pré-visualização)
 
@@ -76,7 +76,7 @@ Existem dois tipos de ingestão de streaming suportados:
 * A limitação do tamanho dos dados por pedido de ingestão é de 4 MB.
 * As atualizações de Schema, tais como a criação e modificação de tabelas e mapeamentos de ingestão, podem demorar até 5 minutos para o serviço de ingestão de streaming.
 * Permitir o streaming de ingestão num cluster, mesmo quando os dados não são ingeridos através do streaming, utiliza parte do disco SSD local das máquinas de cluster para streaming de dados de ingestão e reduz o armazenamento disponível para cache quente.
-* [As etiquetas](/azure/kusto/management/extents-overview.md#extent-tagging) de extensão não podem ser definidas nos dados de ingestão de streaming.
+* [As etiquetas](/azure/kusto/management/extents-overview#extent-tagging) de extensão não podem ser definidas nos dados de ingestão de streaming.
 
 A ingestão de streaming não suporta as seguintes funcionalidades:
 * [Cursores de base de dados](/azure/kusto/management/databasecursor).

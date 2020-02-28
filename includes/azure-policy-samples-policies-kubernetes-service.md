@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
-ms.openlocfilehash: 8aff431b5160548599055c56d1317065236e7a68
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 93963005ece192d9fe8a477473800e43c0b53552
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495262"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780503"
 ---
 |Nome |Descrição |Efeitos(s) |Versão |Origem |
-|---|---|---|---|
+|---|---|---|---|---|
 |[\[\]de pré-visualização limitada : \[AKS\] Não permita contentores privilegiados no AKS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ce7ac02-a5c6-45d6-8d1b-844feb1c1531) |Esta política não permite a criação de contentores privilegiados num cluster do Serviço Azure Kubernetes. As políticas limitadas de pré-visualização funcionam apenas para subscrições registadas. Para se registar, por favor vá ao https://aka.ms/akspolicyonboarding. Para obter instruções sobre a utilização desta política, dirija-se a https://aka.ms/akspolicydoc. |EnforceRegoPolicy, Deficientes |1.0.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes%20service/ContainerNoPrivilege_EnforceRegoPolicy.json)
 |[\[\]de pré-visualização limitada : \[AKS\] Impor https ingresso em AKS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2fbff515-eecc-4b7e-9b63-fcc7138b7dc3) |Esta política aplica a entrada https num cluster de Serviço Azure Kubernetes. As políticas limitadas de pré-visualização funcionam apenas para subscrições registadas. Para se registar, por favor vá ao https://aka.ms/akspolicyonboarding. Para obter instruções sobre a utilização desta política, dirija-se a https://aka.ms/akspolicydoc. |EnforceRegoPolicy, Deficientes |1.0.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes%20service/IngressHttpsOnly_EnforceRegoPolicy.json)
 |[\[\]de pré-visualização limitada : \[AKS\] Impor equilíbrios internos de carga no AKS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa74d8f00-2fd9-4ce4-968e-0ee1eb821698) |Esta política impõe que os equilibradores de carga não possuam IPs públicos num cluster do Serviço Azure Kubernetes. As políticas limitadas de pré-visualização funcionam apenas para subscrições registadas. Para se registar, por favor vá ao https://aka.ms/akspolicyonboarding. Para obter instruções sobre a utilização desta política, dirija-se a https://aka.ms/akspolicydoc. |EnforceRegoPolicy, Deficientes |1.0.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes%20service/LoadbalancerNoPublicIPs_EnforceRegoPolicy.json)

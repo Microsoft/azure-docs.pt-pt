@@ -1,59 +1,58 @@
 ---
-title: Visão geral dos logs da plataforma Azure | Microsoft Docs
-description: Visão geral dos logs em Azure Monitor que fornecem dados avançados e frequentes sobre a operação de um recurso do Azure.
+title: Visão geral dos registos da plataforma Azure  Microsoft Docs
+description: Visão geral dos registos no Monitor Azure que fornecem dados ricos e frequentes sobre o funcionamento de um recurso Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 5f02368bfb0c084691376300980d4cdee0d9b3be
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 89de6b3737c8a1e91832aba8f749078806b64e90
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530889"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659325"
 ---
-# <a name="overview-of-azure-platform-logs"></a>Visão geral dos logs da plataforma Azure
-Os logs de plataforma fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e a plataforma do Azure da qual dependem. Eles são gerados automaticamente, embora você precise configurar determinados logs da plataforma para serem encaminhados a um ou mais destinos a serem retidos. Este artigo fornece uma visão geral dos logs de plataforma, incluindo as informações que eles fornecem e como você pode configurá-los para coleta e análise.
+# <a name="overview-of-azure-platform-logs"></a>Visão geral dos registos da plataforma Azure
+Os registos da plataforma fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure de que dependem. São gerados automaticamente, embora seja necessário configurar determinados registos de plataformas para serem encaminhados para um ou mais destinos a serem retidos. Este artigo fornece uma visão geral dos registos da plataforma, incluindo as informações que fornecem e como pode configurá-los para recolha e análise.
 
-## <a name="types-of-platform-logs"></a>Tipos de logs de plataforma
-A tabela a seguir lista os logs de plataforma específicos que estão disponíveis em diferentes camadas do Azure.
+## <a name="types-of-platform-logs"></a>Tipos de registos de plataformas
+A tabela seguinte lista os registos específicos da plataforma que estão disponíveis em diferentes camadas do Azure.
 
-| Registo | Camada | Descrição |
+| Registar | Camada | Descrição |
 |:---|:---|:---|
-| Registos do recurso | Recursos do Azure | Forneça informações sobre as operações que foram executadas em um recurso do Azure (o *plano de dados*), por exemplo, obter um segredo de um Key Vault ou fazer uma solicitação para um banco de dado. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso.<br><br>*Os logs de recursos foram anteriormente referidos como logs de diagnóstico.*  |
-| Registo de atividades | Subscrição do Azure | Fornece informações sobre as operações em cada recurso do Azure na assinatura de fora (*o plano de gerenciamento*), além de atualizações em eventos de integridade do serviço. Use o log de atividades para determinar o _que_, _quem_e _quando_ para qualquer operação de gravação (put, post, Delete) realizada nos recursos em sua assinatura. Também é possível compreender o estado da operação e outras propriedades relevantes.  Há um único log de atividades para cada assinatura do Azure. |
-| Logs de Azure Active Directory | Inquilino do Azure |  Contém o histórico de atividade de entrada e a trilha de auditoria das alterações feitas no Azure Active Directory para um locatário específico. Consulte [o que são Azure Active Directory relatórios?](../../active-directory/reports-monitoring/overview-reports.md) para obter uma descrição completa dos Logs de Azure Active Directory.   |
+| Registos do recurso | Recursos do Azure | Forneça informações sobre as operações que foram realizadas dentro de um recurso Azure (o avião de *dados),* por exemplo, obter um segredo de um Cofre chave ou fazer um pedido para uma base de dados. O conteúdo dos registos de recursos varia pelo tipo de serviço e recursos Azure.<br><br>*Os registos de recursos foram anteriormente referidos como registos de diagnóstico.*  |
+| Registo de atividades | Subscrição do Azure | Fornece informações sobre as operações em cada recurso Azure na subscrição a partir do exterior ( o plano de*gestão*), além de atualizações sobre eventos de Saúde de Serviço. Utilize o Registo de Atividades, para determinar o _quê,_ _quem, quem, e_ _quando_ para quaisquer operações de escrita (PUT, POST, DELETE) assumiu os recursos na sua subscrição. Também é possível compreender o estado da operação e outras propriedades relevantes.  Existe um único registo de Atividade para cada subscrição do Azure. |
+| Registos de Diretório Ativo Azure | Inquilino Azure |  Contém o histórico de atividade sessão e rasto de auditoria das alterações efetuadas no Diretório Ativo Azure para um determinado inquilino. Veja o que são relatórios do [Azure Ative Directory para](../../active-directory/reports-monitoring/overview-reports.md) uma descrição completa dos Registos de Diretórios Ativos do Azure.   |
 
 > [!NOTE]
-> O log de atividades do Azure destina-se principalmente a atividades que ocorrem em Azure Resource Manager. Ele não controla os recursos usando o modelo clássico/RDFE. Alguns tipos de recursos clássicos têm um provedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft. ClassicCompute). Se você interagir com um tipo de recurso clássico por meio de Azure Resource Manager usando esses provedores de recursos de proxy, as operações aparecerão no log de atividades. Se você interagir com um tipo de recurso clássico fora dos proxies de Azure Resource Manager, suas ações só serão registradas no log de operação. O log de operação pode ser pesquisado em uma seção separada do Portal.
+> O Registo de Atividades do Azure destina-se principalmente a atividades que ocorrem no Gestor de Recursos Azure. Não rastreia os recursos utilizando o modelo Classic/RDFE. Alguns tipos de recursos clássicos têm um fornecedor de recursos proxy no Azure Resource Manager (por exemplo, Microsoft.ClassicCompute). Se interagir com um tipo de recurso Clássico através do Gestor de Recursos Azure utilizando estes fornecedores de recursos proxy, as operações aparecem no Registo de Atividades. Se interagir com um tipo de recurso Clássico fora dos proxies do Gestor de Recursos Azure, as suas ações só são registadas no Registo de Operação. O Registo de Operação pode ser navegado numa secção separada do portal.
 
 ![Descrição geral dos registos da plataforma](media/platform-logs-overview/logs-overview.png)
 
 
 
 
-## <a name="viewing-platform-logs"></a>Exibindo logs da plataforma
-Há diferentes opções para exibir e analisar os diferentes logs da plataforma Azure.
+## <a name="viewing-platform-logs"></a>Ver registos de plataformas
+Existem diferentes opções para visualizar e analisar os diferentes registos da plataforma Azure.
 
-- Exiba o log de atividades no portal do Azure e acesse eventos do PowerShell e da CLI. Consulte [Exibir e recuperar eventos do log de atividades do Azure](activity-log-view.md) para obter detalhes. 
-- Exiba Azure Active Directory relatórios de segurança e atividade no portal do Azure. Confira [o que são Azure Active Directory relatórios?](../../active-directory/reports-monitoring/overview-reports.md)  para obter detalhes.
-- Os logs de recursos são gerados automaticamente por recursos do Azure com suporte, mas não estão disponíveis para serem exibidos, a menos que você os envie para um [destino](#destinations). 
+- Veja o log de Atividade no portal Azure e aceda a eventos da PowerShell e CLI. Consulte ver [e recuperar eventos](activity-log-view.md) de registo da Atividade Azure para mais detalhes. 
+- Consulte os relatórios de Segurança e Atividade do Diretório Ativo azure no portal Azure. Vê [o que são relatórios do Azure Ative Directory?](../../active-directory/reports-monitoring/overview-reports.md)  para detalhes.
+- Os registos de recursos são gerados automaticamente por recursos Azure suportados, mas não estão disponíveis para serem vistos a menos que os envie para um [destino](#destinations). 
 
 ## <a name="destinations"></a>Destinos
-Você pode enviar os logs da plataforma para um ou mais dos destinos na tabela a seguir, dependendo dos seus requisitos de monitoramento. Configure destinos para logs da plataforma [criando uma configuração de diagnóstico](diagnostic-settings.md).
+Pode enviar registos de plataformas para um ou mais destinos na tabela seguinte, dependendo dos seus requisitos de monitorização. Configure destinos para registos de plataformas [criando uma definição de Diagnóstico](diagnostic-settings.md).
 
 | Destino | Cenário | Referências |
 |:---|:---|:---|:---|
-| Área de trabalho do Log Analytics | Analise os logs com outros dados de monitoramento e aproveite Azure Monitor recursos como consultas de log e alertas. | [Log de atividades e logs de recursos](resource-logs-collect-workspace.md)<br>[Logs do diretório de atividades do Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Storage do Azure | Arquive os logs para auditoria, análise estática ou backup. |[Log de atividades e logs de recursos](archive-diagnostic-logs.md)<br>[Logs do diretório de atividades do Azure](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Hub de eventos | Transmita os logs para sistemas de registro em log e telemetria de terceiros.  |[Log de atividades e logs de recursos](resource-logs-stream-event-hubs.md)<br>[Logs do diretório de atividades do Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
+| Área de trabalho do Log Analytics | Analise os registos com outros dados de monitorização e aproveite as funcionalidades do Monitor Azure, tais como consultas de registo e alertas. | [Registos de registos de atividades e registos de recursos](resource-logs-collect-workspace.md)<br>[Registos de Diretório de Atividade sinuosa](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Storage do Azure | Arquivar os registos para auditoria, análise estática ou cópia de segurança. |[Registos de registos de atividades e registos de recursos](archive-diagnostic-logs.md)<br>[Registos de Diretório de Atividade sinuosa](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Hub de eventos | Transmita os registos para sistemas de registo e telemetria de terceiros.  |[Registos de registos de atividades e registos de recursos](resource-logs-stream-event-hubs.md)<br>[Registos de Diretório de Atividade sinuosa](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Exibir o esquema do log de atividades para diferentes categorias](activity-log-schema.md)
-* [Exibir o esquema de log de recursos para diferentes serviços do Azure](diagnostic-logs-schema.md)
+* [Ver o esquema de log da Atividade para diferentes categorias](activity-log-schema.md)
+* [Veja o esquema de registo de recursos para diferentes serviços Azure](diagnostic-logs-schema.md)

@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 02/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4cc4db9ffcb700d4b65a7f5c21d258e9af52d164
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 155498aeaea30bf2da1d5aa0dbcb322aeb43bbdd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598532"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661299"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -35,6 +35,10 @@ Para saber sobre estes tipos de disco, consulte o artigo [Selecione um tipo](htt
 O Azure oferece dois métodos de implementação para VHDs em Acabamentos Standard Azure e Armazenamento Premium. Se o cenário geral permitir, aproveite as implementações de [discos geridos pelo Azure.](https://azure.microsoft.com/services/managed-disks/) 
 
 Para obter uma lista de tipos de armazenamento e os seus SLAs em IOPS e entrada de armazenamento, reveja a [documentação azure para discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+> [!IMPORTANT]
+> Independentemente do tipo de armazenamento Azure escolhido, o sistema de ficheiros utilizado nesse armazenamento precisa de ser suportado pela SAP para o sistema operativo específico e dbmS. [A nota](https://launchpad.support.sap.com/#/notes/405827) de suporte sAP #405827 lista os sistemas de ficheiros suportados para diferentes sistemas operativos e bases de dados, incluindo o SAP HANA. Isto aplica-se a todos os volumes Que o SAP HANA pode ter acesso para leitura e escrita para qualquer tarefa. Especificamente utilizando o NFS em Azure para sap HANA, as restrições adicionais das versões NFS aplicam-se, conforme indicado mais tarde neste artigo 
+
 
 As condições mínimas certificadas sAP HANA para os diferentes tipos de armazenamento são: 
 

@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
-ms.openlocfilehash: 786075b4641675f7b36df427fff69f33c9cfc2c5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 27b453c4e20c2ae3ccb6ddda5a00e42ba4e522f6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495469"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780657"
 ---
 |Nome |Descrição |Efeitos(s) |Versão |Origem |
-|---|---|---|---|
+|---|---|---|---|---|
 |[\[Pré-visualização\] Avaliação de vulnerabilidade deve ser ativada em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Monitoriza vulnerabilidades detetadas pela Avaliação de Vulnerabilidade do Centro de Segurança Azure em Máquinas Virtuais |AuditoriaIfNotExists, Deficiente |1.0.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json)
 |[\[pré-visualização\]: As gamas IP autorizadas devem ser definidas nos Serviços Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e246bcf-5f6f-4f87-bc6f-775d4712c7ea) |Restringir o acesso à API de Gestão de Serviços Kubernetes, concedendo acesso a API apenas a endereços IP em gamas específicas. Recomenda-se limitar o acesso às gamas IP autorizadas para garantir que apenas as aplicações de redes permitidas possam aceder ao cluster. |Auditoria, Deficientes |1.0.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableIpRanges_KubernetesService_Audit.json)
 |[\[Preview\]: O reencaminhamento ip da sua máquina virtual deve ser desativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd352bd5-2853-4985-bf0d-73806b4a5744) |Permitir o reencaminhamento de IP no NIC de uma máquina virtual permite que a máquina receba tráfego endereçado a outros destinos. O encaminhamento ip raramente é necessário (por exemplo, quando utilizar o VM como um aparelho virtual de rede), e, portanto, este deve ser revisto pela equipa de segurança da rede. |AuditoriaIfNotExists, Deficiente |1.0.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_IPForwardingOnVirtualMachines_Audit.json)

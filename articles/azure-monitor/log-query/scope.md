@@ -1,95 +1,94 @@
 ---
-title: Escopo de consulta de log em Azure Monitor Log Analytics | Microsoft Docs
-description: Descreve o escopo e o intervalo de tempo para uma consulta de log no Azure Monitor Log Analytics.
-ms.service: azure-monitor
+title: Âmbito de consulta de log no Azure Monitor Log Analytics  Microsoft Docs
+description: Descreve o intervalo de alcance e tempo para uma consulta de log no Azure Monitor Log Analytics.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2019
-ms.openlocfilehash: dec81bfde160cd9913db07bb99629b8fbcc37364
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365211"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660314"
 ---
-# <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Escopo de consulta de log e intervalo de tempo em Azure Monitor Log Analytics
-Quando você executa uma [consulta de log](log-query-overview.md) em [log Analytics no portal do Azure](get-started-portal.md), o conjunto de dados avaliado pela consulta depende do escopo e do intervalo de tempo que você selecionar. Este artigo descreve o escopo e o intervalo de tempo e como você pode definir cada um dependendo de seus requisitos. Ele também descreve o comportamento de diferentes tipos de escopos.
+# <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Âmbito de consulta de log e intervalo de tempo no Azure Monitor Log Analytics
+Quando executa uma consulta de [log](log-query-overview.md) no [Log Analytics no portal Azure,](get-started-portal.md)o conjunto de dados avaliados pela consulta depende do âmbito e do intervalo de tempo que seleciona. Este artigo descreve o alcance e o intervalo de tempo e como pode definir cada um dependendo dos seus requisitos. Também descreve o comportamento de diferentes tipos de âmbitos.
 
 
 ## <a name="query-scope"></a>Âmbito de consulta
-O escopo da consulta define os registros que são avaliados pela consulta. Normalmente, isso incluirá todos os registros em um único espaço de trabalho Log Analytics ou Application Insights aplicativo. Log Analytics também permite que você defina um escopo para um recurso do Azure monitorado específico. Isso permite que um proprietário de recurso se concentre apenas em seus dados, mesmo se esse recurso gravar em vários espaços de trabalho.
+O âmbito de consulta define os registos que são avaliados pela consulta. Isto geralmente incluirá todos os registos de um único espaço de trabalho log analytics ou aplicação De Insights de Aplicação. O Log Analytics também permite definir uma margem para um recurso Azure monitorizado específico. Isto permite que um proprietário de recursos se concentre apenas nos seus dados, mesmo que esse recurso escreva para vários espaços de trabalho.
 
-O escopo é sempre exibido na parte superior esquerda da janela de Log Analytics. Um ícone indica se o escopo é um espaço de trabalho Log Analytics ou um aplicativo Application Insights. Nenhum ícone indica outro recurso do Azure.
+O âmbito é sempre exibido na parte superior esquerda da janela Log Analytics. Um ícone indica se o âmbito é um espaço de trabalho log Analytics ou uma aplicação De insights de aplicação. Nenhum ícone indica outro recurso Azure.
 
 ![Âmbito](media/scope/scope.png)
 
-O escopo é determinado pelo método usado para iniciar Log Analytics e, em alguns casos, você pode alterar o escopo clicando nele. A tabela a seguir lista os diferentes tipos de escopo usados e detalhes diferentes para cada um.
+O âmbito é determinado pelo método que utiliza para iniciar o Log Analytics e, em alguns casos, pode alterar o âmbito clicando nele. A tabela seguinte enumera os diferentes tipos de âmbito utilizados e diferentes detalhes para cada um.
 
-| Âmbito de consulta | Registros no escopo | Como selecionar | Alterando o escopo |
+| Âmbito de consulta | Registos de âmbito | Como selecionar | Alteração do Âmbito |
 |:---|:---|:---|:---|
-| Área de trabalho do Log Analytics | Todos os registros no espaço de trabalho Log Analytics. | Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .  | Pode alterar o escopo para qualquer outro tipo de recurso. |
-| Application Insights aplicativo | Todos os registros no aplicativo Application Insights. | Selecione **análise** na página **visão geral** do Application insights. | Só é possível alterar o escopo para outro aplicativo Application Insights. |
-| Grupo de recursos | Registros criados por todos os recursos no grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu grupo de recursos. | Não é possível alterar o escopo.|
-| Subscrição | Registros criados por todos os recursos na assinatura. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **logs** no menu assinatura.   | Não é possível alterar o escopo. |
-| Outros recursos do Azure | Registros criados pelo recurso. Pode incluir dados de vários espaços de trabalho do Log Analytics.  | Selecione **logs** no menu de recursos.<br>OU<br>Selecione **logs** no menu **Azure monitor** e, em seguida, selecione um novo escopo. | Só é possível alterar o escopo para o mesmo tipo de recurso. |
+| Área de trabalho do Log Analytics | Todos os registos no espaço de trabalho do Log Analytics. | Selecione **Registos** do menu **Do Monitor Azure** ou do menu de espaços de **trabalho Log Analytics.**  | Pode alterar o âmbito para qualquer outro tipo de recurso. |
+| Aplicação de Insights de Aplicação | Todos os registos na aplicação Application Insights. | Selecione **Analytics** a partir da página **de visão geral** de Insights de Aplicação. | Só pode alterar o âmbito para outra aplicação de Insights de Aplicação. |
+| Grupo de recursos | Registos criados por todos os recursos do grupo de recursos. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **Registos** do menu do grupo de recursos. | Não pode mudar o âmbito.|
+| Subscrição | Registos criados por todos os recursos na subscrição. Pode incluir dados de vários espaços de trabalho do Log Analytics. | Selecione **Registos** do menu de subscrição.   | Não pode mudar o âmbito. |
+| Outros recursos Azure | Registos criados pelo recurso. Pode incluir dados de vários espaços de trabalho do Log Analytics.  | Selecione **Registos** do menu de recursos.<br>OU<br>Selecione **Registos** do menu **Do Monitor Azure** e, em seguida, selecione um novo âmbito. | Só pode mudar o âmbito para o mesmo tipo de recurso. |
 
-### <a name="limitations-when-scoped-to-a-resource"></a>Limitações no escopo de um recurso
+### <a name="limitations-when-scoped-to-a-resource"></a>Limitações quando âmbitoado a um recurso
 
-Quando o escopo da consulta é um espaço de trabalho Log Analytics ou um aplicativo Application Insights, todas as opções no portal e todos os comandos de consulta estão disponíveis. Quando o escopo é um recurso, as seguintes opções no portal não estão disponíveis porque estão associadas a um único espaço de trabalho ou aplicativo:
+Quando o âmbito de consulta é um espaço de trabalho log Analytics ou uma aplicação Application Insights, todas as opções no portal e todos os comandos de consulta estão disponíveis. No entanto, quando se aplica misétes para um recurso, as seguintes opções no portal não estão disponíveis porque estão associadas a um único espaço de trabalho ou aplicação:
 
 - Guardar
-- Explorador de consultas
+- Explorador de consulta
 - Nova regra de alerta
 
-Você não pode usar os comandos a seguir em uma consulta quando definido como escopo para um recurso, pois o escopo da consulta já incluirá quaisquer espaços de trabalho com dados para esse recurso ou conjunto de recursos:
+Não é possível utilizar os seguintes comandos numa consulta quando ser reparado com um recurso, uma vez que o âmbito de consulta já incluirá quaisquer espaços de trabalho com dados para esse recurso ou conjunto de recursos:
 
 - [app](app-expression.md)
-- [espaço](workspace-expression.md)
+- [espaço de trabalho](workspace-expression.md)
  
 
 ## <a name="query-limits"></a>Limites de consulta
-Você pode ter requisitos de negócios para que um recurso do Azure grave dados em vários espaços de trabalho do Log Analytics. O espaço de trabalho não precisa estar na mesma região que o recurso, e um único espaço de trabalho pode coletar dados de recursos em uma variedade de regiões.  
+Pode ter requisitos de negócio para um recurso Azure para escrever dados em vários espaços de trabalho do Log Analytics. O espaço de trabalho não precisa de estar na mesma região que o recurso, e um único espaço de trabalho pode recolher dados de recursos em várias regiões.  
 
-Definir o escopo para um recurso ou conjunto de recursos é um recurso particularmente poderoso de Log Analytics, pois ele permite que você consolide automaticamente os dados distribuídos em uma única consulta. Isso pode afetar significativamente o desempenho, embora os dados precisem ser recuperados de espaços de trabalho em várias regiões do Azure.
+Definir o âmbito para um recurso ou conjunto de recursos é uma característica particularmente poderosa do Log Analytics, uma vez que permite consolidar automaticamente os dados distribuídos numa única consulta. Pode afetar significativamente o desempenho se os dados precisarem de ser recuperados de espaços de trabalho em várias regiões do Azure.
 
-Log Analytics ajuda a proteger contra sobrecarga excessiva de consultas que abrangem espaços de trabalho em várias regiões emitindo um aviso ou erro quando um determinado número de regiões está sendo usado. Sua consulta receberá um aviso se o escopo incluir espaços de trabalho em 5 ou mais regiões. Ele ainda será executado, mas pode levar muito tempo para ser concluído.
+O Log Analytics ajuda a proteger contra sobrecargas excessivas de consultas que abrangem espaços de trabalho em várias regiões, emitindo um aviso ou erro quando um certo número de regiões está sendo usado. A sua consulta receberá um aviso se o âmbito incluir espaços de trabalho em 5 ou mais regiões. ainda vai funcionar, mas pode levar tempo excessivo para completar.
 
 ![Aviso de consulta](media/scope/query-warning.png)
 
-Sua consulta será impedida de ser executada se o escopo incluir espaços de trabalho em 20 ou mais regiões. Nesse caso, será solicitado que você reduza o número de regiões do espaço de trabalho e tente executar a consulta novamente. A lista suspensa exibirá todas as regiões no escopo da consulta e você deverá reduzir o número de regiões antes de tentar executar a consulta novamente.
+A sua consulta será bloqueada se o âmbito incluir espaços de trabalho em 20 ou mais regiões. Neste caso, será solicitado que reduza o número de regiões do espaço de trabalho e tente executar novamente a consulta. O dropdown mostrará todas as regiões no âmbito da consulta, e você deve reduzir o número de regiões antes de tentar executar a consulta novamente.
 
-![Falha na consulta](media/scope/query-failed.png)
+![A consulta falhou](media/scope/query-failed.png)
 
 
 ## <a name="time-range"></a>Intervalo de tempo
-O intervalo de tempo especifica o conjunto de registros que são avaliados para a consulta com base em quando o registro foi criado. Isso é definido por uma propriedade padrão em cada registro no espaço de trabalho ou aplicativo, conforme especificado na tabela a seguir.
+O intervalo de tempo especifica o conjunto de registos que são avaliados para a consulta com base no momento em que o registo foi criado. Isto é definido por uma propriedade padrão em cada registo no espaço de trabalho ou aplicação, conforme especificado na tabela seguinte.
 
 | Localização | Propriedade |
 |:---|:---|
 | Área de trabalho do Log Analytics          | TimeGenerated |
-| Application Insights aplicativo | carimbo de data/hora     |
+| Aplicação de Insights de Aplicação | carimbo de data/hora     |
 
-Defina o intervalo de tempo selecionando-o no seletor de tempo na parte superior da janela de Log Analytics.  Você pode selecionar um período predefinido ou selecionar **personalizado** para especificar um intervalo de tempo específico.
+Desmarca o intervalo de tempo selecionando-o a partir do marcador de tempo na parte superior da janela Log Analytics.  Pode selecionar um período predefinido ou selecionar **o Costume** para especificar um intervalo de tempo específico.
 
-![Seletor de hora](media/scope/time-picker.png)
+![Selecionador de tempo](media/scope/time-picker.png)
 
-Se você definir um filtro na consulta que usa a propriedade hora padrão, conforme mostrado na tabela acima, o seletor de tempo será alterado para **definido em consulta**e o seletor de hora será desabilitado. Nesse caso, é mais eficiente colocar o filtro na parte superior da consulta para que qualquer processamento subsequente só precise trabalhar com os registros filtrados.
+Se definir um filtro na consulta que utiliza a propriedade de tempo padrão, como mostrado na tabela acima, o marcador de tempo muda para **set em consulta**, e o marcador de tempo está desativado. Neste caso, é mais eficiente colocar o filtro no topo da consulta para que qualquer processamento subsequente só precise de funcionar com os registos filtrados.
 
 ![Consulta filtrada](media/scope/query-filtered.png)
 
-Se você usar o comando de [aplicativo](app-expression.md) ou [espaço de trabalho](workspace-expression.md) para recuperar dados de outro espaço de trabalho ou aplicativo, o seletor de tempo poderá se comportar de forma diferente. Se o escopo for um espaço de trabalho Log Analytics e você usar o **aplicativo**, ou se o escopo for um aplicativo Application insights e você usar o **espaço de trabalho**, log Analytics poderá não entender que a propriedade usada no filtro deve determinar o filtro de tempo.
+Se utilizar o espaço de [trabalho](workspace-expression.md) ou o comando da [aplicação](app-expression.md) para recuperar dados de outro espaço de trabalho ou aplicação, o selecionador pode comportar-se de forma diferente. Se o âmbito for um espaço de trabalho do Log Analytics e utilizar a **aplicação**, ou se o âmbito for uma aplicação Deinsights de Aplicação e utilizar o espaço de **trabalho,** então o Log Analytics pode não entender que a propriedade utilizada no filtro deve determinar o filtro de tempo.
 
-No exemplo a seguir, o escopo é definido como um espaço de trabalho Log Analytics.  A consulta usa o **espaço de trabalho** para recuperar dados de outro espaço de trabalho log Analytics. O seletor de tempo muda para **definido na consulta** porque vê um filtro que usa a propriedade **TimeGenerated** esperada.
+No exemplo seguinte, o âmbito é definido para um espaço de trabalho Log Analytics.  A consulta utiliza **espaço de trabalho** para recuperar dados de outro espaço de trabalho do Log Analytics. O apanhador de tempo muda para **Definir em consulta** porque vê um filtro que usa a propriedade **timeGenerated** esperada.
 
 ![Consulta com espaço de trabalho](media/scope/query-workspace.png)
 
-Se a consulta usar o **aplicativo** para recuperar dados de um aplicativo Application insights, o log Analytics não reconhecerá a propriedade **timestamp** no filtro e o seletor de tempo permanecerá inalterado. Nesse caso, ambos os filtros são aplicados. No exemplo, somente os registros criados nas últimas 24 horas são incluídos na consulta, mesmo que especifique 7 dias na cláusula **Where** .
+Se a consulta utilizar a **app** para recuperar dados de uma aplicação De insights de aplicação, no entanto, o Log Analytics não reconhece a propriedade da **timestamp** no filtro, e o apanhador de tempo permanece inalterado. Neste caso, aplicam-se ambos os filtros. No exemplo, apenas os registos criados nas últimas 24 horas estão incluídos na consulta, mesmo que especifique 7 dias na cláusula **onde.**
 
-![Consultar com o aplicativo](media/scope/query-app.png)
+![Consulta com app](media/scope/query-app.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Percorra um [tutorial sobre como usar log Analytics no portal do Azure](get-started-portal.md).
-- Percorra um [tutorial sobre como escrever consultas](get-started-queries.md).
+- Caminhe por um [tutorial sobre a utilização de Log Analytics no portal Azure](get-started-portal.md).
+- Caminhe por um [tutorial sobre perguntas de escrita.](get-started-queries.md)

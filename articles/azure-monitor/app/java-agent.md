@@ -1,55 +1,51 @@
 ---
-title: Monitoramento de desempenho de aplicativos Web Java-insights de Aplicativo Azure
-description: Monitoramento de uso e desempenho estendido do seu site Java com Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Monitorização do desempenho das aplicações web java - Azure Application Insights
+description: Desempenho alargado e monitorização de utilização do seu website java com Insights de Aplicação.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/10/2019
-ms.openlocfilehash: 8194c4b16d114be9b2b95ff56dea59d98cfdae10
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b29618179d22eac97a07bf41906465aba1fd7929
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931133"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657032"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorize dependências, exceções apanhadas e tempos de execução de métodos em aplicações web java
 
 
-Se você tiver [instrumentado seu aplicativo Web Java com Application insights][java], poderá usar o agente Java para obter informações mais aprofundadas, sem nenhuma alteração de código:
+Se [tiver instrumentado a sua aplicação web Java com Application Insights,][java]pode utilizar o Agente Java para obter informações mais profundas, sem alterações de código:
 
-* **Dependências:** Dados sobre chamadas que seu aplicativo faz para outros componentes, incluindo:
-  * As **chamadas http de saída** feitas via Apache HttpClient, OkHttp e `java.net.HttpURLConnection` são capturadas.
-  * **Chamadas Redis** feitas por meio do cliente Jedis são capturadas.
-  * **Consultas JDBC** – para MySQL e PostgreSQL, se a chamada demorar mais de 10 segundos, o agente relatará o plano de consulta.
+* **Dependências:** Dados sobre chamadas que a sua aplicação faz a outros componentes, incluindo:
+  * **As chamadas http-as** feitas via Apache HttpClient, OkHttp e `java.net.HttpURLConnection` são capturadas.
+  * As **chamadas** vermelhas feitas através do cliente Jedis são capturadas.
+  * **Consultas JDBC** - Para MySQL e PostgreSQL, se a chamada demorar mais de 10 segundos, o agente reporta o plano de consulta.
 
-* **Log de aplicativo:** Capturar e correlacionar os logs de aplicativo com solicitações HTTP e outras telemetrias
-  * **Log4J 1,2**
+* **Registo de aplicação:** Capture e correlacionar os seus registos de candidatura com pedidos HTTP e outras telemetrias
+  * **Log4j 1.2**
   * **Log4j2**
   * **Logback**
 
-* **Melhor nomenclatura de operação:** (usada para agregação de solicitações no Portal)
-  * Baseado na **mola** `@RequestMapping`.
-  * **JAX-RS** -baseado em `@Path`. 
+* **Melhor operação nomeação:** (utilizado para agregação de pedidos no portal)
+  * **primavera** - com base em `@RequestMapping`.
+  * **JAX-RS** - com base em `@Path`. 
 
-Para usar o agente Java, instale-o em seu servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java Application insights][java]. 
+Para utilizar o agente Java, instale-o no seu servidor. As suas aplicações web devem ser instrumentadas com os Insights de [Aplicação Java SDK][java]. 
 
-## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente de Application Insights para Java
+## <a name="install-the-application-insights-agent-for-java"></a>Instale o agente de insights de aplicação para Java
 1. No computador com o servidor Java em execução, [transfira o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Garanta que transfere a mesma versão do Agente Java que a do núcleo do SDK Java do Application Insights e dos pacotes Web.
-2. Edite o script de inicialização do servidor de aplicativos e adicione o seguinte argumento JVM:
+2. Editar o script de arranque do servidor de aplicações e adicionar o seguinte argumento JVM:
    
     `-javaagent:<full path to the agent JAR file>`
    
-    Por exemplo, no Tomcat em um computador Linux:
+    Por exemplo, em Tomcat numa máquina Linux:
    
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
-3. Reinicie o servidor de aplicativos.
+3. Reinicie o seu servidor de aplicações.
 
 ## <a name="configure-the-agent"></a>Configurar o agente
-Crie um arquivo chamado `AI-Agent.xml` e coloque-o na mesma pasta que o arquivo JAR do agente.
+Crie um ficheiro chamado `AI-Agent.xml` e coloque-o na mesma pasta que o ficheiro JAR do agente.
 
-Defina o conteúdo do arquivo XML. Edite o exemplo a seguir para incluir ou omitir os recursos desejados.
+Detete o conteúdo do ficheiro xml. Editar o seguinte exemplo para incluir ou omitir as funcionalidades que deseja.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -79,30 +75,30 @@ Defina o conteúdo do arquivo XML. Edite o exemplo a seguir para incluir ou omit
 </ApplicationInsightsAgent>
 ```
 
-## <a name="additional-config-spring-boot"></a>Configuração adicional (Spring boot)
+## <a name="additional-config-spring-boot"></a>Config adicional (Bota de primavera)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-Para Azure App serviços, faça o seguinte:
+Para serviços de aplicações Azure, faça o seguinte:
 
 * Selecione Definições > Definições da Aplicação
 * Em Definições da Aplicação, adicione um par de chaves-valores novo:
 
-Chave: `JAVA_OPTS` valor: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+Chave: valor `JAVA_OPTS`: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-Para obter a versão mais recente do agente Java, verifique as versões [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
+Para obter a versão mais recente do agente Java, consulte os lançamentos [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
 ). 
 
-O agente deve ser empacotado como um recurso em seu projeto, de modo que ele termine no diretório D:/Home/site/wwwroot/. Você pode confirmar que o agente está no diretório do serviço de aplicativo correto acessando **ferramentas de desenvolvimento** > **ferramentas avançadas** > **console de depuração** e examinando o conteúdo do diretório do site.    
+O agente deve ser embalado como recurso no seu projeto de modo a que ele acabe no D:/home/site/wwwroot/ diretório. Pode confirmar que o seu agente está no diretório correto do App Service, indo para **ferramentas** de desenvolvimento > **Ferramentas Avançadas** > **Consola de Debug** e examinando os conteúdos do diretório do site.    
 
-* Salve as configurações e reinicie o aplicativo. (Essas etapas se aplicam somente aos serviços de aplicativo em execução no Windows.)
+* Guarde as definições e reinicie a sua aplicação. (Estes passos aplicam-se apenas aos Serviços de Aplicações em execução no Windows.)
 
 > [!NOTE]
-> AI-Agent. xml e o arquivo JAR do agente devem estar na mesma pasta. Geralmente, eles são colocados juntos na pasta `/resources` do projeto.  
+> AI-Agent.xml e o ficheiro do frasco do agente devem estar na mesma pasta. São muitas vezes colocados juntos na pasta `/resources` do projeto.  
 
-#### <a name="enable-w3c-distributed-tracing"></a>Habilitar o rastreamento distribuído do W3C
+#### <a name="enable-w3c-distributed-tracing"></a>Ativar rastreio distribuído W3C
 
-Adicione o seguinte ao AI-Agent. xml:
+Adicione o seguinte a AI-Agent.xml:
 
 ```xml
 <Instrumentation>
@@ -113,21 +109,21 @@ Adicione o seguinte ao AI-Agent. xml:
 ```
 
 > [!NOTE]
-> O modo de compatibilidade com versões anteriores é habilitado por padrão e o parâmetro enableW3CBackCompat é opcional e deve ser usado somente quando você deseja desativá-lo. 
+> O modo de compatibilidade para trás é ativado por predefinição e o parâmetro activaw3CBackCompat é opcional e só deve ser utilizado quando quiser desligá-lo. 
 
-Idealmente, esse seria o caso quando todos os seus serviços foram atualizados para uma versão mais recente de SDKs com suporte para o protocolo W3C. É altamente recomendável migrar para a versão mais recente de SDKs com suporte W3C assim que possível.
+Idealmente, este seria o caso quando todos os seus serviços foram atualizados para a versão mais recente dos SDKs que suportam o protocolo W3C. É altamente recomendado passar para a versão mais recente de SDKs com suporte W3C o mais rápido possível.
 
-Verifique se **as configurações de [entrada](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) e de saída (agente)** são exatamente iguais.
+Certifique-se de que as configurações de  **[entrada](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) e de saída (agente)** são exatamente iguais.
 
 ## <a name="view-the-data"></a>Ver os dados
-No recurso Application Insights, a dependência remota agregada e os tempos de execução [do método aparecem no bloco desempenho][metrics].
+No recurso Application Insights, os tempos agregados de dependência remota e execução de métodos aparecem [sob o azulejo performance][metrics].
 
-Para pesquisar instâncias individuais de dependência, exceção e relatórios de método, abra a [pesquisa][diagnostic].
+Para procurar casos individuais de dependência, exceção e relatórios de métodos, abra [a Pesquisa.][diagnostic]
 
-[Diagnosticando problemas de dependência-saiba mais](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
+[Diagnosticar problemas](../../azure-monitor/app/asp-net-dependencies.md#diagnosis)de dependência - saiba mais .
 
-## <a name="questions-problems"></a>Dúvidas? Problemas?
-* Não tem dados? [Definir exceções de firewall](../../azure-monitor/app/ip-addresses.md)
+## <a name="questions-problems"></a>Tem dúvidas? Problemas?
+* Não existem dados? [Definir exceções à firewall](../../azure-monitor/app/ip-addresses.md)
 * [Resolução de problemas de Java](java-troubleshoot.md)
 
 <!--Link references-->

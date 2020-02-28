@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
-ms.openlocfilehash: 4a7ab395715d45894d355a35da81f6c2e58861ec
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 5202cc69fc9deb73342c8cc541d205525bd65c63
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495046"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780502"
 ---
 |Nome |Descrição |Efeitos(s) |Versão |Origem |
-|---|---|---|---|
+|---|---|---|---|---|
 |[\[Preview\]: \[\] de motores AKS Não permita contentores privilegiados no cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |Esta política não permite a criação de contentores privilegiados num aglomerado de Kubernetes. Para obter instruções sobre a utilização desta política, dirija-se a https://aka.ms/kubepolicydoc. |enforceOPAConstraint, deficiente |1.0.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege_EnforceOPAConstraint.json)
 |[\[Preview\]: \[motor AKS\] impor entrada HTTPS no cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |Esta política aplica a entrada https num cluster Kubernetes. Para obter instruções sobre a utilização desta política, dirija-se a https://aka.ms/kubepolicydoc. |enforceOPAConstraint, deficiente |1.0.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly_EnforceOPAConstraint.json)
 |[\[Preview\]: \[motor AKS\] impor equilíbrios internos de carga no cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3fc4dc25-5baf-40d8-9b05-7fe74c1bc64e) |Esta política impõe que os equilibradores de carga não possuam IPs públicos num cluster kubernetes. Para obter instruções sobre a utilização desta política, dirija-se a https://aka.ms/kubepolicydoc. |enforceOPAConstraint, deficiente |1.0.0-pré-visualização |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/LoadbalancerNoPublicIPs_EnforceOPAConstraint.json)

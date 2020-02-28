@@ -1,88 +1,87 @@
 ---
-title: Azure Monitor pastas de trabalho criando parâmetros
-description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
+title: Livros Azure Monitor que criam parâmetros
+description: Simplificar relatórios complexos com livros pré-construídos e parametrizados personalizados
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3a7e47d1e6ac0018c8695751ba2ea5091ddbfe8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872830"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658222"
 ---
-# <a name="workbook-parameters"></a>Parâmetros da pasta de trabalho
+# <a name="workbook-parameters"></a>Parâmetros do livro
 
-Os parâmetros permitem que os autores da pasta de trabalho coletem a entrada dos consumidores e façam referência a ele em outras partes da pasta de trabalho – geralmente para definir o escopo do conjunto de resultados ou definir o Visual correto. É um recurso importante que permite aos autores criar relatórios e experiências interativos. 
+Os parâmetros permitem que os autores do livro recolham a entrada dos consumidores e a refiram noutras partes do livro – normalmente para examinar o conjunto de resultados ou definir o visual certo. É uma capacidade chave que permite aos autores construir relatórios e experiências interativas. 
 
-As pastas de trabalho permitem que você controle como os controles de parâmetro são apresentados aos consumidores – caixa de texto versus lista suspensa, Single-vs. multisseleção, valores de texto, JSON, KQL ou grafo de recursos do Azure, etc.  
+Os livros de restão permitem controlar como os seus controlos de parâmetros são apresentados aos consumidores – caixa de texto vs. drop down, single-vs. multi-select, valores de texto, JSON, KQL ou Azure Resource Graph, etc.  
 
-Os tipos de parâmetro com suporte incluem:
-* [Hora](workbooks-time.md) – permite que um usuário selecione intervalos de tempo preenchidos previamente ou selecione um intervalo personalizado
-* [Lista suspensa](workbooks-dropdowns.md) – permite que um usuário selecione um valor ou um conjunto de valores
-* [Texto](workbooks-text.md) – permite que um usuário insira texto arbitrário
-* [Recurso](workbooks-resources.md) – permite que um usuário selecione um ou mais recursos do Azure
-* [Assinatura](workbooks-resources.md) – permite que um usuário selecione um ou mais recursos de assinatura do Azure
-* Tipo de recurso – permite que um usuário selecione um ou mais valores de tipo de recurso do Azure
-* Local – permite que um usuário selecione um ou mais valores de local do Azure
+Os tipos de parâmetros suportados incluem:
+* [Tempo](workbooks-time.md) - permite que um utilizador selecione a partir de intervalos de tempo pré-povoados ou selecione uma gama personalizada
+* [Drop down](workbooks-dropdowns.md) - permite que um utilizador selecione a partir de um valor ou conjunto de valores
+* [Texto](workbooks-text.md) - permite que um utilizador introduza texto arbitrário
+* [Recurso](workbooks-resources.md) - permite que um utilizador selecione um ou mais recursos Azure
+* [Subscrição](workbooks-resources.md) - permite que um utilizador selecione um ou mais recursos de subscrição do Azure
+* Tipo de Recurso - permite que um utilizador selecione um ou mais valores do tipo de recurso Azure
+* Localização - permite que um utilizador selecione um ou mais valores de localização Azure
 
-Esses valores de parâmetro podem ser referenciados em outras partes de pastas de trabalho por meio de associações ou expansões de valor.
+Estes valores de parâmetros podem ser referenciados noutras partes dos livros, seja através de encadernações ou expansões de valor.
 
-## <a name="creating-a-parameter"></a>Criando um parâmetro
-1. Comece com uma pasta de trabalho vazia no modo de edição.
-2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
-3. Clique no botão azul _Adicionar parâmetro_ .
-4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro: `TimeRange` *(Observe que os __nomes__ de parâmetro **não podem** incluir espaços ou caracteres especiais)*
-    2. Nome de exibição: `Time Range` *(no entanto, os __nomes de exibição__ podem incluir espaços, caracteres especiais, Emoji, etc.)*
+## <a name="creating-a-parameter"></a>Criar um parâmetro
+1. Comece com um livro vazio no modo de edição.
+2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
+3. Clique no botão azul _Adicionar Parâmetro._
+4. Na nova vidraça de parâmetroque aparece:
+    1. Nome do parâmetro: `TimeRange` (note que os nomes dos  *__parâmetros__ **não podem** incluir espaços ou caracteres especiais)*
+    2. Nome do ecrã: `Time Range` *(no entanto, __os nomes__ de exibição podem incluir espaços, caracteres especiais, emojis, etc.)*
     2. Tipo de parâmetro: `Time range picker`
-    3. Necessário: `checked`
-    4. Intervalos de tempo disponíveis: última hora, últimas 12 horas, últimas 24 horas, últimas 48 horas, últimos 3 dias, últimos 7 dias e permitir seleção de intervalo de tempo personalizado
-5. Escolha ' salvar ' na barra de ferramentas para criar o parâmetro.
+    3. Obrigatório: `checked`
+    4. Intervalos de tempo disponíveis: Última hora, Últimas 12 horas, Últimas 24 horas, Últimas 48 horas, Últimos 3 dias, Últimos 7 dias e Permitir a seleção de horários personalizados
+5. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 
    ![Imagem mostrando a criação de um parâmetro de intervalo de tempo](./media/workbooks-parameters/time-settings.png)
 
-É assim que a pasta de trabalho se parecerá no modo de leitura, no estilo "pills".
+É assim que o livro será em modo de leitura, no estilo "Comprimidos".
 
    ![Imagem mostrando um parâmetro de intervalo de tempo no modo de leitura](./media/workbooks-parameters/parameters-time.png)
 
 ## <a name="referencing-a-parameter"></a>Referenciando um parâmetro
-### <a name="via-bindings"></a>Via associações
-1. Adicione um controle de consulta à pasta de trabalho e selecione um recurso de Application Insights.
-2. Abra a lista suspensa _intervalo de tempo_ e selecione a opção `Time Range` na seção parâmetros na parte inferior.
-3. Isso associa o parâmetro de intervalo de tempo ao intervalo de tempo do gráfico. O escopo de tempo da consulta de exemplo agora é as últimas 24 horas.
-4. Execute a consulta para ver os resultados
+### <a name="via-bindings"></a>Via Encadernações
+1. Adicione um controlo de consulta ao livro e selecione um recurso Application Insights.
+2. Abra a tabela de _tempo_ e selecione a opção `Time Range` da secção Parâmetros na parte inferior.
+3. Isto liga o parâmetro de intervalo de tempo à faixa de tempo do gráfico. O intervalo de tempo da consulta da amostra é agora de 24 horas.
+4. Corra para ver os resultados
 
-    ![Imagem mostrando um parâmetro de intervalo de tempo referenciado por meio de associações](./media/workbooks-parameters/time-binding.png)
+    ![Imagem mostrando um parâmetro de intervalo de tempo referenciado através de encadernações](./media/workbooks-parameters/time-binding.png)
 
 ### <a name="in-kql"></a>Em KQL
-1. Adicione um controle de consulta à pasta de trabalho e selecione um recurso de Application Insights.
-2. No KQL, insira um filtro de escopo de tempo usando o parâmetro: `| where timestamp {TimeRange}`
-3. Isso expande o tempo de avaliação de consulta para `| where timestamp > ago(1d)`, que é o valor de intervalo de tempo do parâmetro.
-4. Execute a consulta para ver os resultados
+1. Adicione um controlo de consulta ao livro e selecione um recurso Application Insights.
+2. No KQL, introduza um filtro de alcance de tempo utilizando o parâmetro: `| where timestamp {TimeRange}`
+3. Isto expande-se no tempo de avaliação de consulta para `| where timestamp > ago(1d)`, que é o valor de tempo do parâmetro.
+4. Corra para ver os resultados
 
     ![Imagem mostrando um intervalo de tempo referenciado em KQL](./media/workbooks-parameters/time-in-code.png)
 
-### <a name="in-text"></a>Em texto 
-1. Adicione um controle de texto à pasta de trabalho.
-2. Na redução, insira `The chosen time range is {TimeRange:label}`
-3. Escolha a _edição concluída_
-4. O controle de texto mostrará o texto: _o intervalo de tempo escolhido é das últimas 24 horas_
+### <a name="in-text"></a>Em Texto 
+1. Adicione um controlo de texto ao livro.
+2. Na marcação, entre `The chosen time range is {TimeRange:label}`
+3. Escolha _edição feita_
+4. O controlo de texto mostrará texto: O intervalo de _tempo escolhido é de 24 horas_
 
-## <a name="parameter-options"></a>Opções de parâmetro
-A seção _no texto_ usou a `label` do parâmetro em vez de seu valor. Os parâmetros expõem várias opções tais, dependendo de seu tipo-por exemplo, seletores de intervalo de tempo permitem valor, rótulo, consulta, início, término e granulação.
+## <a name="parameter-options"></a>Opções de parâmetros
+A secção _Em Texto_ utilizou o `label` do parâmetro em vez do seu valor. Os parâmetros expõem várias dessas opções dependendo do seu tipo - por exemplo, os apanhadores de intervalo de tempo permitem valor, etiqueta, consulta, início, fim e grão.
 
-Use a seção `Previews` do painel _Editar parâmetro_ para ver as opções de expansão para seu parâmetro:
+Utilize a secção `Previews` da vidraça _do parâmetro_ editar para ver as opções de expansão para o seu parâmetro:
 
-![Imagem mostrando as opções de parâmetro de intervalo de tempo](./media/workbooks-parameters/time-previews.png)
+![Imagem mostrando uma gama de tempo paralímlo opções](./media/workbooks-parameters/time-previews.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
-* [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.
+* [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
+* [Controle](workbooks-access-control.md) e partilhe o acesso aos recursos do seu livro.

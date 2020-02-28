@@ -1,48 +1,48 @@
 ---
-title: Comportamento do alerta por SMS nos grupos de ação
-description: Formato de mensagem SMS e a responder às mensagens SMS para cancelar sua assinatura, subscrever ou pedir ajuda.
+title: Comportamento de alerta de SMS em grupos de ação
+description: Formato de mensagem SMS e resposta às mensagens SMS para cancelar a subscrição, reinscrever ou solicitar ajuda.
 author: dkamstra
+ms.author: dukek
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/16/2018
-ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 74666149824627308b6c5b026e0c9ba7a7750ada
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60346302"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665311"
 ---
-# <a name="sms-alert-behavior-in-action-groups"></a>Comportamento em grupos de ação de alerta de SMS
-## <a name="overview"></a>Descrição geral ##
-Grupos de ação permitem-lhe configurar uma lista de ações. Estes grupos são utilizados quando definir alertas; garantir que um grupo de ação específica é notificado quando o alerta é acionado. Uma das ações suportadas é SMS; Notificações por SMS suportam comunicação bidirecional. Um utilizador pode responder a um SMS para:
+# <a name="sms-alert-behavior-in-action-groups"></a>Comportamento de alerta sms em grupos de ação
 
-- **Anular a subscrição de alertas:** Um utilizador pode cancelar a inscrição de todos os alertas SMS para todos os grupos de ação ou um grupo de ação única.
-- **Subscrever a alertas:** Um utilizador pode subscrever a todos os alertas SMS para todos os grupos de ação ou um grupo de ação única.  
-- **Ajuda do pedido:** Um utilizador pode pedir para obter mais informações sobre o SMS. Eles são redirecionados para este artigo.
+## <a name="overview"></a>Descrição geral 
+Os grupos de ação permitem-lhe configurar uma lista de ações. Estes grupos são utilizados na definição de alertas; assegurar que um determinado grupo de ação seja notificado quando o alerta for acionado. Uma das ações apoiadas é a SMS; As notificações sMS suportam a comunicação bidirecional. Um utilizador pode responder a um SMS a:
 
-Este artigo aborda o comportamento dos alertas SMS e as ações de resposta o utilizador pode efetuar com base na localidade do usuário:
+- **Cancelar a subscrição de alertas:** Um utilizador pode cancelar a subscrição de todos os alertas SMS para todos os grupos de ação ou um único grupo de ação.
+- **Reinscreva-se para alertas:** Um utilizador pode voltar a subscrever todos os alertas SMS para todos os grupos de ação ou um único grupo de ação.  
+- **Pedido de ajuda:** Um utilizador pode solicitar mais informações sobre o SMS. São redirecionados para este artigo.
 
-## <a name="receiving-an-sms-alert"></a>Receber um alerta SMS
-Um receptor SMS configurado como parte de um grupo de ação recebe uma SMS quando for acionado um alerta. O SMS contém as seguintes informações:
-* Nome abreviado do grupo de ação que este alerta foi enviado para
+Este artigo cobre o comportamento dos alertas sms e as ações de resposta que o utilizador pode tomar com base no local do utilizador:
+
+## <a name="receiving-an-sms-alert"></a>Recebendo um alerta de SMS
+Um recetor SMS configurado como parte de um grupo de ação recebe um SMS quando um alerta é desencadeado. O SMS contém as seguintes informações:
+* Shortname do grupo de ação este alerta foi enviado para
 * Título do alerta
 
 | RESPOSTA | Descrição |
 | ----- | ----------- |
-| DESATIVAR `<Action Group Short name>` | Desativa o SMS adicional do grupo de ação |
-| ATIVAR `<Action Group Short name>` | Reativa o SMS. o grupo de ação |
-| PARAR | Desativa o SMS adicional de todos os grupos de ação |
-| INICIAR | Reativa SMS de todos os grupos de ação |
-| OBTER AJUDA | Uma resposta é enviada para o utilizador com uma ligação para este artigo. |
+| DESATIVAção `<Action Group Short name>` | Desativa mais SMS do Grupo de Ação |
+| ATIVAR `<Action Group Short name>` | Reativa SMS do Grupo de Ação |
+| PARAR | Desativa mais SMS de todos os grupos de ação |
+| INÍCIO | Reativa SMS de TODOS os Grupos de Ação |
+| Ajuda | Uma resposta é enviada ao utilizador com um link para este artigo. |
 
 >[!NOTE]
->Se um utilizador anulou a subscrição de SMS de alertas, mas, em seguida, é adicionado a um novo grupo de ação; eles irão receber alertas SMS para esse novo grupo de ação, mas permanecem anulados todos os grupos de ação anterior.
+>Se um utilizador tiver dessubscrito dos alertas SMS, mas for adicionado a um novo grupo de ação; receberão alertas de SMS para o novo grupo de ação, mas permanecem sem subscrição de todos os grupos de ação anteriores.
 
-## <a name="next-steps"></a>Próximos Passos
-Obter um [descrição geral dos alertas de registo de atividade](alerts-overview.md) e saiba como receber alertas  
-Saiba mais sobre [limitação de velocidade SMS](alerts-rate-limiting.md)  
+## <a name="next-steps"></a>Passos Seguintes
+Obtenha uma [visão geral dos alertas de registo de atividade](alerts-overview.md) e aprenda a ser alertado  
+Saiba mais sobre [a limitação da taxa de SMS](alerts-rate-limiting.md)  
 Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md)
 

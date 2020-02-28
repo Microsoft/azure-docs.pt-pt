@@ -1,22 +1,21 @@
 ---
-title: Azure Monitor limites de serviço | Microsoft Docs
-description: Lista os limites em diferentes áreas do Azure Monitor.
-ms.service: azure-monitor
+title: Limites de serviço do Azure Monitor Microsoft Docs
+description: Lista limites em diferentes áreas do Monitor Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
-ms.openlocfilehash: 236e41bcbb7055c4fda55ecd535bb0eccf224bcd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d2a2230613f9e4be3e0c9359a082843a4701b6f8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75394242"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657916"
 ---
-# <a name="azure-monitor-service-limits"></a>Limites de serviço Azure Monitor
+# <a name="azure-monitor-service-limits"></a>Limites de serviço do Azure Monitor
 
-Este artigo lista os limites em diferentes áreas do Azure Monitor.
+Este artigo enumera limites em diferentes áreas do Monitor Azure.
 
 ## <a name="alerts"></a>Alertas
 
@@ -26,7 +25,7 @@ Este artigo lista os limites em diferentes áreas do Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
 
-## <a name="log-queries-and-language"></a>Consultas de log e idioma
+## <a name="log-queries-and-language"></a>Consultas de registo e linguagem
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
 
@@ -34,12 +33,12 @@ Este artigo lista os limites em diferentes áreas do Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-workspaces.md)]
 
-## <a name="application-insights"></a>Estatísticas das Aplicações
+## <a name="application-insights"></a>Application Insights
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-app-insights.md)]
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/)
-- [Monitorando o uso e os custos estimados no Azure Monitor](platform/usage-estimated-costs.md)
-- [Gerir a utilização e os custos do Application Insights](app/pricing.md)
+- [Preços do Monitor Azure](https://azure.microsoft.com/pricing/details/monitor/)
+- [Monitorização da utilização e custos estimados no Monitor Azure](platform/usage-estimated-costs.md)
+- [Gerir o uso e os custos para insights de aplicação](app/pricing.md)

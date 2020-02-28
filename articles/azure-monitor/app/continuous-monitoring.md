@@ -1,106 +1,102 @@
 ---
-title: Monitoramento contínuo de seu pipeline de versão do DevOps com o Azure Pipelines e o Aplicativo Azure insights | Microsoft Docs
-description: Fornece instruções para configurar rapidamente o monitoramento contínuo com o Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Monitorização contínua do seu gasoduto de lançamento de DevOps com Pipelines Azure e Insights de Aplicação Azure  Microsoft Docs
+description: Fornece instruções para configurar rapidamente a monitorização contínua com insights de aplicação
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/16/2019
-ms.openlocfilehash: c891cc7564a60dfd665d84d569e266332d255fa9
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677524"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655400"
 ---
-# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar monitoramento contínuo ao seu pipeline de lançamento
+# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicione monitorização contínua ao seu gasoduto de libertação
 
-O Azure Pipelines integra-se com o Aplicativo Azure insights para permitir o monitoramento contínuo de seu pipeline de versão do DevOps em todo o ciclo de vida do desenvolvimento de software. 
+A Azure Pipelines integra-se com a Azure Application Insights para permitir a monitorização contínua do seu pipeline de lançamento de DevOps ao longo do ciclo de vida de desenvolvimento de software. 
 
-Com o monitoramento contínuo, os pipelines de versão podem incorporar dados de monitoramento de Application Insights e outros recursos do Azure. Quando o pipeline de liberação detecta um alerta de Application Insights, o pipeline pode portar ou reverter a implantação até que o alerta seja resolvido. Se todas as verificações forem aprovadas, as implantações poderão prosseguir automaticamente do teste até a produção, sem a necessidade de intervenção manual. 
+Com monitorização contínua, os gasodutos de libertação podem incorporar dados de monitorização a partir de Application Insights e outros recursos Azure. Quando o gasoduto de libertação detetar um alerta de Informação de Aplicação, o gasoduto pode portãor ou reverter a implantação até que o alerta seja resolvido. Se todos os controlos passarem, as implementações podem proceder automaticamente do teste até à produção, sem necessidade de intervenção manual. 
 
-## <a name="configure-continuous-monitoring"></a>Configurar o monitoramento contínuo
+## <a name="configure-continuous-monitoring"></a>Configurar a monitorização contínua
 
-1. No [Azure DevOps](https://dev.azure.com), selecione uma organização e um projeto.
+1. Em [Azure DevOps,](https://dev.azure.com)selecione uma organização e projeto.
    
-1. No menu à esquerda da página do projeto, selecione **pipelines**  > **versões**. 
+1. No menu esquerdo da página do projeto, selecione **Pipelines** > **Lançamentos**. 
    
-1. Solte a seta ao lado de **novo** e selecione **novo pipeline de liberação**. Ou, se você ainda não tiver um pipeline, selecione **novo pipeline** na página que aparece.
+1. Deite a seta ao lado de **New** e selecione Novo oleoduto de **libertação**. Ou, se ainda não tiver um oleoduto, selecione **Novo oleoduto** na página que aparece.
    
-1. No painel **selecionar um modelo** , procure e selecione **Azure app implantação de serviço com monitoramento contínuo**e, em seguida, selecione **aplicar**. 
+1. No painel **de modeloS Selecione um** painel de modelos, procure e selecione a implementação do Serviço de **Aplicações Azure com monitorização contínua**, e, em seguida, selecione **Apply**. 
 
-   ![Novo pipeline de lançamento de Azure Pipelines](media/continuous-monitoring/001.png)
+   ![Novo oleoduto Azure lança oleoduto](media/continuous-monitoring/001.png)
 
-1. Na caixa **estágio 1** , selecione o hiperlink para **exibir as tarefas do estágio.**
+1. Na caixa **do Estágio 1,** selecione a hiperligação para **ver tarefas** de palco.
 
-   ![Exibir tarefas do estágio](media/continuous-monitoring/002.png)
+   ![Ver tarefas de palco](media/continuous-monitoring/002.png)
 
-1. No painel configuração do **estágio 1** , preencha os seguintes campos: 
+1. No painel de configuração **do estágio 1,** preencha os seguintes campos: 
 
     | Parâmetro        | Valor |
    | ------------- |:-----|
-   | **Nome do estágio**      | Forneça um nome de estágio ou deixe-o no **estágio 1**. |
-   | **Subscrição do Azure** | Clique na lista suspensa e selecione a assinatura do Azure vinculada que você deseja usar.|
-   | **Tipo de aplicativo** | Clique no menu suspenso e selecione seu tipo de aplicativo. |
-   | **Nome do serviço de aplicativo** | Insira o nome do seu serviço de Azure App. |
-   | **Nome do grupo de recursos para Application Insights**    | Clique no menu suspenso e selecione o grupo de recursos que deseja usar. |
-   | **Nome do recurso de Application Insights** | Selecione o recurso de Application Insights para o grupo de recursos que você selecionou.
+   | **Nome artístico**      | Forneça um nome artístico ou deixe-o no **estágio 1**. |
+   | **Subscrição do Azure** | Desça e selecione a subscrição Azure ligada que pretende utilizar.|
+   | **Tipo de aplicação** | Desça e selecione o seu tipo de aplicação. |
+   | **Nome do serviço de aplicações** | Insira o nome do seu Serviço de Aplicações Azure. |
+   | **Nome do Grupo de Recursos para Insights de Aplicação**    | Desça e selecione o grupo de recursos que pretende utilizar. |
+   | **Nome de recurso De Insights de Aplicação** | Despete-se e selecione o recurso Application Insights para o grupo de recursos selecionado.
 
-1. Para salvar o pipeline com as configurações de regra de alerta padrão, selecione **salvar** no canto superior direito na janela DevOps do Azure. Insira um comentário descritivo e, em seguida, selecione **OK**.
+1. Para salvar o gasoduto com definições de regra de alerta predefinidos, selecione **Guardar** na parte superior direita na janela Azure DevOps. Introduza um comentário descritivo e, em seguida, selecione **OK**.
 
 ## <a name="modify-alert-rules"></a>Modificar regras de alerta
 
-Pronto para uso, a **implantação do serviço de Azure app com** o modelo de monitoramento contínuo tem quatro regras de alerta: **disponibilidade**, **solicitações com falha**, **tempo de resposta do servidor**e **exceções de servidor**. Você pode adicionar mais regras ou alterar as configurações de regra para atender às suas necessidades de nível de serviço. 
+Fora da caixa, a implementação do Serviço de **Aplicações Azure com** modelo de monitorização contínua tem quatro regras de alerta: **Disponibilidade,** **pedidos falhados,** tempo de resposta do **servidor**e **exceções**ao Servidor . Pode adicionar mais regras ou alterar as definições de regra para atender às necessidades do seu nível de serviço. 
 
-Para modificar as configurações da regra de alerta:
+Para modificar as definições de regra de alerta:
 
-1. No painel esquerdo da página de pipeline de liberação, selecione **configurar alertas de Application insights**.
+1. No painel esquerdo da página do pipeline de lançamento, **selecione Configurar Alertas**de Insights de Aplicação .
 
-1. No painel **alertas Azure monitor** , selecione as reticências **...** ao lado de **regras de alerta**.
+1. No painel **de alertas do Monitor Azure,** selecione a elipse... ao lado das **regras de Alerta.**
    
-1. Na caixa de diálogo **regras de alerta** , selecione o símbolo suspenso ao lado de uma regra de alerta, como **disponibilidade**. 
+1. No diálogo das **regras de alerta,** selecione o símbolo de drop-down ao lado de uma regra de alerta, como **disponibilidade**. 
    
-1. Modifique o **limite** e outras configurações para atender às suas necessidades.
+1. Modifique o **Limiar** e outras definições para satisfazer os seus requisitos.
    
    ![Modificar alerta](media/continuous-monitoring/003.png)
    
-1. Selecione **OK**e, em seguida, selecione **salvar** no canto superior direito na janela DevOps do Azure. Insira um comentário descritivo e, em seguida, selecione **OK**.
+1. Selecione **OK**e, em seguida, selecione **Guardar** na parte superior direita na janela Azure DevOps. Introduza um comentário descritivo e, em seguida, selecione **OK**.
 
 ## <a name="add-deployment-conditions"></a>Adicionar condições de implantação
 
-Quando você adiciona Gates de implantação ao seu pipeline de lançamento, um alerta que excede os limites definidos impede a promoção de liberação indesejada. Depois de resolver o alerta, a implantação pode continuar automaticamente.
+Ao adicionar portões de implantação ao seu gasoduto de libertação, um alerta que excede os limiares estabelecidos impede a promoção indesejada de lançamento. Uma vez que resolva o alerta, a implementação pode proceder automaticamente.
 
-Para adicionar Gates de implantação:
+Para adicionar portões de implantação:
 
-1. Na página principal do pipeline, em **estágios**, selecione o símbolo **condições de pré-implantação** ou **pós-implantação** , dependendo de qual estágio precisa de um portão de monitoramento contínuo.
+1. Na página principal do gasoduto, em **Fases**, selecione as **condições de pré-implantação** ou o símbolo das **condições de pós-implantação,** dependendo de qual fase necessita de um portão de monitorização contínuo.
    
    ![Condições de pré-implantação](media/continuous-monitoring/004.png)
    
-1. No painel configuração de **condições de pré-implantação** , defina **Gates** como **habilitado**.
+1. No painel de configuração das **condições de pré-implantação,** coloque **as portas** **ativadas**.
    
-1. Ao lado de **entradas de implantação**, selecione **Adicionar**.
+1. Ao lado dos portões de **implantação,** selecione **Adicionar**.
    
-1. Selecione **Azure monitor alertas de consulta** no menu suspenso. Essa opção permite que você acesse os alertas de Azure Monitor e Application Insights.
+1. Selecione **alertas do Query Azure Monitor** a partir do menu suspenso. Esta opção permite-lhe aceder tanto aos alertas do Azure Monitor como do Application Insights.
    
-   ![Alertas de Azure Monitor de consulta](media/continuous-monitoring/005.png)
+   ![Alertas de Monitor De Consulta Azure](media/continuous-monitoring/005.png)
    
-1. Em **Opções de avaliação**, insira os valores desejados para configurações como **o tempo entre a reavaliação de Gates** e **o tempo limite após o qual as Gates falharão**. 
+1. Nas **opções de Avaliação,** introduza os valores que pretende para configurações como **o tempo entre a reavaliação dos portões** e o intervalo após o qual os **portões falham**. 
 
-## <a name="view-release-logs"></a>Exibir logs de liberação
+## <a name="view-release-logs"></a>Ver registos de lançamento
 
-Você pode ver o comportamento do portão de implantação e outras etapas de versão nos logs de liberação. Para abrir os logs:
+Pode ver o comportamento do portão de implantação e outros passos de libertação nos registos de libertação. Para abrir os registos:
 
-1. Selecione **versões** no menu à esquerda da página pipeline. 
+1. Selecione **Lançamentos** a partir do menu esquerdo da página do pipeline. 
    
-1. Selecione qualquer versão. 
+1. Selecione qualquer lançamento. 
    
-1. Em **estágios**, selecione qualquer estágio para exibir um resumo de lançamento. 
+1. Em **Fases,** selecione qualquer palco para ver um resumo de lançamento. 
    
-1. Para exibir os logs, selecione **Exibir logs** no resumo da versão, selecione o hiperlink **bem-sucedido** ou **com falha** em qualquer estágio, ou passe o mouse sobre qualquer estágio e selecione **logs**. 
+1. Para visualizar registos, selecione **Registos de visualização** no resumo de lançamento, selecione a hiperligação **bem sucedida** ou **falhada** em qualquer fase, ou paire sobre qualquer fase e selecione **Registos**. 
    
-   ![Exibir logs de liberação](media/continuous-monitoring/006.png)
+   ![Ver registos de lançamento](media/continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre Azure Pipelines, consulte a [documentação do Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines).
+Para obter mais informações sobre os oleodutos Azure, consulte a documentação dos [Gasodutos Azure.](https://docs.microsoft.com/azure/devops/pipelines)

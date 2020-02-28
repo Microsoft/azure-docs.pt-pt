@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983100"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656743"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações de URI/URI de resposta
 
@@ -54,7 +54,7 @@ O modelo de aplicação Azure AD não suporta URIs wildcard para aplicações co
 > [!NOTE]
 > A experiência de [registos](https://go.microsoft.com/fwlink/?linkid=2083908) da nova App não permite que os desenvolvedores adicionem URIs wildcard na UI. A adição de wilcard URI para apps que assinam em contas de trabalho ou de escola é suportada apenas através do editor manifesto da aplicação. Daqui para a frente, as novas aplicações não poderão utilizar wildcards no REdirect URI. No entanto, aplicações mais antigas que contenham wildcards em URIs redirecionados continuarão a funcionar.
 
-Se o seu cenário requer mais URIs redirecionados do que o limite máximo permitido, em vez de adicionar um URI de redirecionamento wildcard, considere uma das seguintes abordagens.
+Se o seu cenário requer mais URIs redirecionais do que o limite máximo permitido, em vez de adicionar um redirecionamento de wildcard URI, considere a seguinte abordagem.
 
 ### <a name="use-a-state-parameter"></a>Use um parâmetro estatal
 
@@ -71,10 +71,6 @@ Nesta abordagem:
 > [!NOTE]
 > Esta abordagem permite que um cliente comprometido modifique os parâmetros adicionais enviados no parâmetro do Estado, redirecionando assim o utilizador para um URL diferente, que é a ameaça aberta de [redirector](https://tools.ietf.org/html/rfc6819#section-4.2.4) descrito no RFC 6819. Por isso, o cliente deve proteger estes parâmetros encriptando o estado ou verificando-o por outros meios, tais como validar o nome de domínio no redirecionamento do URI contra o símbolo.
 
-### <a name="add-redirect-uris-to-service-principals"></a>Adicionar URIs redirecionados aos principais de serviço
-
-Outra abordagem é adicionar URIs redirecionados aos [principais de serviço](app-objects-and-service-principals.md#application-and-service-principal-relationship) que representam o registo da sua aplicação em qualquer inquilino da AD Azure. Pode utilizar esta abordagem quando não pode utilizar um parâmetro de estado ou o seu cenário requer que adicione novos URIs redirecionados ao registo da sua aplicação para cada novo inquilino que apoiar. 
-
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [manifesto do aplicativo](reference-app-manifest.md)
+- Conheça o manifesto de [Candidatura](reference-app-manifest.md)

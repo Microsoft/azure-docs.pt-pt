@@ -1,61 +1,57 @@
 ---
-title: Monitorar o desempenho em VMs do Azure-informações do Aplicativo Azure
-description: Monitoramento do desempenho de aplicativos para a VM do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure. Tempo de resposta e carregamento do gráfico, informações de dependência e definir alertas sobre o desempenho.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Monitor desempenho em VMs Azure - Insights de aplicação Azure
+description: Monitorização do desempenho da aplicação para conjuntos de escala de máquinas virtuais Azure VM e Azure. Tempo de carga e resposta de gráficos, informações de dependência e alertas sobre o desempenho.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/26/2019
-ms.openlocfilehash: 2fdd07d01e6bb1258a3f2ae2e856e440e5ed2818
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d75e14dccef565f0029d06583e74d5693726dd99
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407342"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661333"
 ---
-# <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implantar o agente de Application Insights de Azure Monitor em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure
+# <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implemente o Agente de Insights de Aplicação do Monitor Azure em máquinas virtuais Azure e conjuntos de escala de máquinas virtuais Azure
 
-A habilitação do monitoramento em seus aplicativos Web baseados em .NET executados em [máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/) e [conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) agora está mais fácil do que nunca. Obtenha todos os benefícios do uso de Application Insights sem modificar seu código.
+Permitir a monitorização das suas aplicações web baseadas em .NET em funcionamento em [máquinas virtuais Azure](https://azure.microsoft.com/services/virtual-machines/) e conjuntos de [escala de máquinas virtuais Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) é agora mais fácil do que nunca. Obtenha todos os benefícios de usar O Insights de Aplicação sem modificar o seu código.
 
-Este artigo orienta você pela habilitação do monitoramento de Application Insights usando o agente Application Insights e fornece diretrizes preliminares para automatizar o processo para implantações em larga escala.
+Este artigo acompanha-o através da monitorização de Insights de Aplicação utilizando o Agente de Insights de Aplicação e fornece orientações preliminares para automatizar o processo para implementações em larga escala.
 
 > [!IMPORTANT]
-> No momento, o agente de informações do Aplicativo Azure para .NET está em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte e alguns podem ter recursos restritos.
+> O Agente de Insights de Aplicação Azure para .NET encontra-se atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não a recomendamos para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, e algumas podem ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 
-Há duas maneiras de habilitar o monitoramento de aplicativos para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure aplicativos hospedados:
+Existem duas formas de permitir a monitorização da aplicação para máquinas virtuais Azure e conjuntos de máquinas virtuais Azure hospedados aplicações:
 
-* Sem **código** por meio do agente de Application insights
-    * Esse método é o mais fácil de habilitar e nenhuma configuração avançada é necessária. Ele é geralmente chamado de monitoramento de "tempo de execução".
+* **Sem código** via Agente de Insights de Aplicação
+    * Este método é o mais fácil de ativar, e não é necessária nenhuma configuração avançada. É frequentemente referido como monitorização "tempo de funcionamento".
 
-    * Para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure, é recomendável habilitar, no mínimo, esse nível de monitoramento. Depois disso, com base em seu cenário específico, você pode avaliar se a instrumentação manual é necessária.
+    * Para máquinas virtuais Azure e conjuntos de escala de máquinas virtuais Azure recomendamos, no mínimo, este nível de monitorização. Depois disso, com base no seu cenário específico, pode avaliar se é necessária instrumentação manual.
 
-    * O agente de Application Insights coleta automaticamente os mesmos sinais de dependência prontos para uso que o SDK do .NET. Consulte [coleção de dependência automática](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net) para saber mais.
+    * O Agente de Insights de Aplicação recolhe automaticamente os mesmos sinais de dependência fora da caixa que o .NET SDK. Consulte a [coleção automática Dependency](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net) para saber mais.
         > [!NOTE]
-        > Atualmente, há suporte apenas para aplicativos hospedados no IIS do .net. Use um SDK para instrumentar aplicativos ASP.NET Core, Java e node. js hospedados em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais.
+        > Atualmente apenas são suportadas aplicações hospedadas em IIS .Net. Utilize um SDK para instrumentos ASP.NET aplicações Core, Java e Node.js alojadas em máquinas virtuais Azure e conjuntos de escala de máquinas virtuais.
 
 * **Baseado em código** via SDK
 
-    * Essa abordagem é muito mais personalizável, mas requer [a adição de uma dependência nos pacotes NuGet do SDK Application insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). Esse método, também significa que você precisa gerenciar as atualizações para a versão mais recente dos pacotes por conta própria.
+    * Esta abordagem é muito mais personalizável, mas requer a adição de [uma dependência dos pacotes DeSC NuGet](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)da Aplicação Insights . Este método também significa que você tem que gerir as atualizações para a versão mais recente dos pacotes por si mesmo.
 
-    * Se você precisar fazer chamadas à API personalizada para acompanhar eventos/dependências não capturadas por padrão com o monitoramento baseado em agente, você precisará usar esse método. Confira o [artigo API para eventos e métricas personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) para saber mais.
-
-> [!NOTE]
-> Se o monitoramento baseado em agente e a instrumentação baseada em SDK manual forem detectados, somente as configurações de instrumentação manual serão respeitadas. Isso é para evitar que dados duplicados sejam enviados. Para saber mais sobre isso, confira a [seção solução de problemas](#troubleshooting) abaixo.
-
-## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>Gerenciar o agente de Application Insights para aplicativos .NET em máquinas virtuais do Azure usando o PowerShell
+    * Se precisar de fazer chamadas aPI personalizadas para rastrear eventos/dependências não capturadas por padrão com monitorização baseada em agentes, terá de utilizar este método. Confira a API para saber [eventos personalizados e artigo de métricas](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) para saber mais.
 
 > [!NOTE]
-> Antes de instalar o agente de Application Insights, você precisará de uma cadeia de conexão. [Crie um novo recurso Application insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) ou copie a cadeia de conexão de um recurso existente do Application insights.
+> Se for detetada uma monitorização baseada no agente e uma instrumentação manual baseada em SDK, apenas as definições de instrumentação manual serão respeitadas. Isto é para evitar que os dados duplicados sejam enviados. Para saber mais sobre isto, confira a secção de resolução de [problemas](#troubleshooting) abaixo.
+
+## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>Gerir o Agente de Insights de Aplicações para aplicações .NET em máquinas virtuais Azure usando powerShell
 
 > [!NOTE]
-> Novo no PowerShell? Confira o [Guia de introdução](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0).
+> Antes de instalar o Agente de Insights de Aplicação, necessitará de uma cadeia de ligação. [Crie um novo Recurso de Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) de Aplicação ou copie a cadeia de ligação a partir de um recurso de insights de aplicação existente.
 
-Instalar ou atualizar o agente de Application Insights como uma extensão para máquinas virtuais do Azure
+> [!NOTE]
+> Novo para powershell? Confira o [Guia Iniciar A Iniciação](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0).
+
+Instale ou atualize o Agente de Insights de Aplicação como uma extensão para máquinas virtuais Azure
 ```powershell
 $publicCfgJsonString = '
 {
@@ -81,19 +77,19 @@ Set-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" 
 ```
 
 > [!NOTE]
-> Você pode instalar ou atualizar o agente de Application Insights como uma extensão em várias máquinas virtuais em escala usando um loop do PowerShell.
+> Pode instalar ou atualizar o Agente de Insights de Aplicação como uma extensão através de várias Máquinas Virtuais em escala utilizando um loop Powershell.
 
-Desinstalar a extensão do agente de Application Insights da máquina virtual do Azure
+Desinstalar extensão do agente insights de aplicação da máquina virtual Azure
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Name "ApplicationMonitoring"
 ```
 
-Consultar o status de extensão do agente Application Insights para a máquina virtual do Azure
+Consulta Aplicação Insights Estatuto de extensão de agente para máquina virtual Azure
 ```powershell
 Get-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Name ApplicationMonitoring -Status
 ```
 
-Obter lista de extensões instaladas para a máquina virtual do Azure
+Obtenha a lista de extensões instaladas para a máquina virtual Azure
 ```powershell
 Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions"
 
@@ -103,14 +99,14 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 # Location          : southcentralus
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions/ApplicationMonitoring
 ```
-Você também pode exibir as extensões instaladas na [folha máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) no Portal.
+Também pode ver extensões instaladas na [lâmina de máquina virtual Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) no Portal.
 
 > [!NOTE]
-> Verifique a instalação clicando em Live Metrics Stream dentro do recurso de Application Insights associado à cadeia de conexão usada para implantar a extensão do agente de Application Insights. Se você estiver enviando dados de várias máquinas virtuais, selecione as máquinas virtuais do Azure de destino em nome do servidor. Pode levar até um minuto para que os dados comecem a fluir.
+> Verifique a instalação clicando no Live Metrics Stream dentro do Recurso de Insights de Aplicação associado à cadeia de ligação que utilizou para implementar a extensão do agente de insights de aplicação. Se estiver a enviar dados de várias Máquinas Virtuais, selecione as máquinas virtuais Azure alvo sob o nome do servidor. Pode levar até um minuto para os dados começarem a fluir.
 
-## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machine-scale-sets-using-powershell"></a>Gerenciar Application Insights agente para aplicativos .NET em conjuntos de dimensionamento de máquinas virtuais do Azure usando o PowerShell
+## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machine-scale-sets-using-powershell"></a>Gerir o Agente de Insights de Aplicação para aplicações .NET em conjuntos de escala de máquinas virtuais Azure usando powershell
 
-Instalar ou atualizar o agente de Application Insights como uma extensão para o conjunto de dimensionamento de máquinas virtuais do Azure
+Instale ou atualize o Agente de Insights de Aplicação como uma extensão para o conjunto de escala de máquina virtual Azure
 ```powershell
 $publicCfgHashtable =
 @{
@@ -140,7 +136,7 @@ Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -Virtu
 # Note: depending on your update policy, you might need to run Update-AzVmssInstance for each instance
 ```
 
-Desinstalar a extensão de monitoramento de aplicativos dos conjuntos de dimensionamento de máquinas virtuais do Azure
+Desinstalar extensão de monitorização de aplicações de conjuntos de escala de máquinas virtuais Do Azure
 ```powershell
 $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myVmssName>"
 
@@ -151,12 +147,12 @@ Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -Virtu
 # Note: depending on your update policy, you might need to run Update-AzVmssInstance for each instance
 ```
 
-Consultar o status da extensão de monitoramento de aplicativo para conjuntos de dimensionamento de máquinas virtuais do Azure
+Estado de extensão de monitorização de aplicações de consulta para conjuntos de escala de máquinas virtuais Azure
 ```powershell
 # Not supported by extensions framework
 ```
 
-Obter lista de extensões instaladas para conjuntos de dimensionamento de máquinas virtuais do Azure
+Obtenha a lista de extensões instaladas para conjuntos de escala de máquinas virtuais Azure
 ```powershell
 Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.Compute/virtualMachineScaleSets/<myVmssName>/extensions
 
@@ -169,16 +165,16 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Encontre dicas de solução de problemas para Application Insights extensão do agente de monitoramento para aplicativos .NET em execução em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais.
+Encontre dicas de resolução de problemas para a extensão do agente de monitorização de insights de aplicações para aplicações .NET em máquinas virtuais Azure e conjuntos de escala de máquinas virtuais.
 
 > [!NOTE]
-> Os aplicativos .NET Core, Java e node. js só têm suporte em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure por meio de instrumentação manual baseada em SDK e, portanto, as etapas a seguir não se aplicam a esses cenários.
+> As aplicações .NET Core, Java e Node.js são suportadas apenas em máquinas virtuais Azure e conjuntos de escala de máquinas virtuais Azure através de instrumentação manual baseada em SDK e, portanto, os passos abaixo não se aplicam a estes cenários.
 
-A saída de execução de extensão é registrada nos arquivos encontrados nos seguintes diretórios:
+A saída de execução de extensão é registada em ficheiros encontrados nos seguintes diretórios:
 ```Windows
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWindows\<version>\
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba como [implantar um aplicativo em um conjunto de dimensionamento de máquinas virtuais do Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).
-* [Configure testes da Web de disponibilidade](monitor-web-app-availability.md) para serem alertados se o ponto de extremidade estiver inativo.
+* Aprenda a implementar uma aplicação para um conjunto de escala de [máquina seleções azul.](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md)
+* [Configurar os testes web de disponibilidade](monitor-web-app-availability.md) para ser alertado se o seu ponto final estiver em baixo.

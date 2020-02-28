@@ -1,88 +1,87 @@
 ---
-title: Fontes de dados de Azure Monitor pastas de trabalho | Microsoft docs
-description: Simplifique relatórios complexos com pastas de trabalho Azure Monitor parametrizadas predefinidas e personalizadas criadas com base em várias fontes de dados
+title: Fontes de dados dos livros Azure Monitor Microsoft docs
+description: Simplificar relatórios complexos com livros de trabalho azure monitor pré-construídos e personalizados construídos a partir de múltiplas fontes de dados
 services: azure-monitor
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 368da2baaea1be41331d77f4dae1bdd9567b8cc5
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d57910ae31d4db9be17b3dc46b5920a925ab4fcf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872898"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658376"
 ---
-# <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de Azure Monitor pastas de trabalho
+# <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados dos livros Azure Monitor
 
-As pastas de trabalho são compatíveis com um grande número de fontes de dados. Este artigo explicará as fontes de dados que estão disponíveis atualmente para Azure Monitor pastas de trabalho.
+Os livros de trabalho são compatíveis com um grande número de fontes de dados. Este artigo irá acompanhá-lo através de fontes de dados que estão atualmente disponíveis para os livros do Monitor Do Azure.
 
 ## <a name="logs"></a>Registos
 
-As pastas de trabalho permitem consultar logs das seguintes fontes:
+Os livros de reprodução permitem a consulta de registos das seguintes fontes:
 
-* Logs de Azure Monitor (recursos de Application Insights e espaços de trabalho de Log Analytics.)
-* Dados centrados em recursos (logs de atividade)
+* Registos de Monitores Azure (Recursos de Insights de Aplicação e Espaços de Trabalho de Log Analytics.)
+* Dados centrados em recursos (registos de atividade)
 
-Os autores da pasta de trabalho podem usar consultas KQL que transformam os dados de recurso subjacentes para selecionar um conjunto de resultados que pode ser visualizado como texto, gráficos ou grades.
+Os autores de livros podem usar consultas KQL que transformam os dados de recursos subjacentes para selecionar um conjunto de resultados que pode visualizar como texto, gráficos ou grelhas.
 
-![Captura de tela da interface de relatório de logs de pastas de trabalho](./media/workbooks-overview/logs.png)
+![Screenshot de livros de trabalho logs interface relatório](./media/workbooks-overview/logs.png)
 
-Os autores da pasta de trabalho podem facilmente consultar em vários recursos, criando uma experiência de relatório sofisticada verdadeiramente unificada.
+Os autores de livros podem facilmente consultar vários recursos criando uma experiência de reporte verdadeiramente unificada e rica.
 
 ## <a name="metrics"></a>Métricas
 
-Os recursos do Azure emitem [métricas](data-platform-metrics.md) que podem ser acessadas via pastas de trabalho. As métricas podem ser acessadas em pastas de trabalho por meio de um controle especializado que permite especificar os recursos de destino, as métricas desejadas e sua agregação. Esses dados podem então ser plotados em gráficos ou grades.
+Os recursos azure emitem [métricas](data-platform-metrics.md) que podem ser acedidas através de livros. As métricas podem ser acedidas em livros através de um controlo especializado que lhe permite especificar os recursos-alvo, as métricas desejadas e a sua agregação. Estes dados podem então ser traçados em gráficos ou grelhas.
 
-![Captura de tela de gráficos de métricas de pasta de trabalho de utilização da CPU](./media/workbooks-overview/metrics-graph.png)
+![Screenshot dos gráficos de métricas do livro da utilização do CPU](./media/workbooks-overview/metrics-graph.png)
 
-![Captura de tela da interface de métricas da pasta de trabalho](./media/workbooks-overview/metrics.png)
+![Screenshot da interface métricas do livro](./media/workbooks-overview/metrics.png)
 
 ## <a name="azure-resource-graph"></a>Azure Resource Graph 
 
-As pastas de trabalho dão suporte à consulta de recursos e seus metadados usando o grafo de recursos do Azure (ARG). Essa funcionalidade é usada principalmente para criar escopos de consulta personalizados para relatórios. O escopo do recurso é expresso por meio de um subconjunto de KQL com suporte de ARG, que geralmente é suficiente para casos de uso comuns.
+Os livros de trabalho apoiam a consulta de recursos e os seus metadados utilizando o Azure Resource Graph (ARG). Esta funcionalidade é usada principalmente para construir âmbitos de consulta personalizados para relatórios. O âmbito do recurso é expresso através de um subconjunto KQL que a ARG suporta – o que é muitas vezes suficiente para casos de uso comum.
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa tipo de consulta para escolher o grafo de recursos do Azure e selecione as assinaturas a serem direcionadas. Use o controle de consulta para adicionar o ARG KQL-subconjunto que seleciona um subconjunto de recursos interessante.
+Para fazer um controlo de consulta, utilize esta fonte de dados, utilize o drop-down do tipo Consulta para escolher o Azure Resource Graph e selecione as subscrições para o alvo. Utilize o controlo de consulta para adicionar o subconjunto ARG KQL que seleciona um subconjunto de recursos interessante.
 
 
-![Captura de tela da consulta KQL do grafo de recursos do Azure](./media/workbooks-overview/azure-resource-graph.png)
+![Screenshot da consulta do gráfico de recursos azure KQL](./media/workbooks-overview/azure-resource-graph.png)
 
-## <a name="alerts-preview"></a>Alertas (versão prévia)
+## <a name="alerts-preview"></a>Alertas (pré-visualização)
 
-As pastas de trabalho permitem que os usuários visualizem os alertas ativos relacionados aos seus recursos. Esse recurso permite a criação de relatórios que reúnem dados de notificação (alerta) e informações de diagnóstico (métricas, logs) em um relatório. Essas informações também podem ser Unidas para criar relatórios avançados que combinam informações entre essas fontes de dados.
+Os livros de redação permitem aos utilizadores visualizar os alertas ativos relacionados com os seus recursos. Esta funcionalidade permite a criação de relatórios que reúnem dados de notificação (alerta) e informações de diagnóstico (métricas, registos) num único relatório. Esta informação também pode ser unida para criar relatórios ricos que combinam insights através destas fontes de dados.
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa tipo de consulta para escolher alertas e selecionar as assinaturas, grupos de recursos ou recursos para o destino. Use os menus suspensos de filtro de alerta para selecionar um subconjunto interessante de alertas para suas necessidades analíticas.
+Para fazer um controlo de consulta use esta fonte de dados, use o tipo Descaído do tipo Consulta para escolher Alertas e selecione as subscrições, grupos de recursos ou recursos para o alvo. Utilize as descidas do filtro de alerta para selecionar um subconjunto interessante de alertas para as suas necessidades analíticas.
 
-![Captura de tela da consulta de alertas](./media/workbooks-overview/alerts.png)
+![Screenshot da consulta de alertas](./media/workbooks-overview/alerts.png)
 
-## <a name="workload-health-preview"></a>Integridade da carga de trabalho (versão prévia)
+## <a name="workload-health-preview"></a>Saúde da carga de trabalho (pré-visualização)
 
-Azure Monitor tem funcionalidade que monitora de forma proativa a disponibilidade e o desempenho de sistemas operacionais convidados Windows ou Linux. O Azure Monitor modela os principais componentes e suas relações, critérios de como medir a integridade desses componentes e quais componentes o alertam quando uma condição não íntegra é detectada. As pastas de trabalho permitem que os usuários usem essas informações para criar relatórios interativos sofisticados.
+O Azure Monitor tem uma funcionalidade que monitoriza proativamente a disponibilidade e desempenho dos sistemas operativos windows ou linux. O Azure Monitor modela componentes-chave e as suas relações, critérios para medir a saúde desses componentes e quais os componentes que o alertam quando é detetada uma condição pouco saudável. Os livros de recção permitem que os utilizadores utilizem esta informação para criar relatórios interativos ricos.
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa **tipo de consulta** para escolher integridade da carga de trabalho e selecione assinatura, grupo de recursos ou recursos de VM para destino. Use os menus suspensos de filtro de integridade para selecionar um subconjunto interessante de incidentes de integridade para suas necessidades analíticas.
+Para fazer um controlo de consulta use esta fonte de dados, use o **tipo Descaído** do tipo Consulta para escolher a Saúde da Carga de Trabalho e selecione recursos de subscrição, grupo de recursos ou VM para o alvo. Utilize as quedas do filtro de saúde para selecionar um subconjunto interessante de incidentes de saúde para as suas necessidades analíticas.
 
-![Captura de tela da consulta de alertas](./media/workbooks-overview/workload-health.png)
+![Screenshot da consulta de alertas](./media/workbooks-overview/workload-health.png)
 
-## <a name="azure-resource-health"></a>Azure Resource Health 
+## <a name="azure-resource-health"></a>Saúde dos recursos azure 
 
-As pastas de trabalho dão suporte à obtenção do Azure Resource Health e à combinação deles com outras fontes de dados para criar relatórios de integridade avançados e interativos
+Os livros de trabalho apoiam a saúde dos recursos do Azure e combinam-no com outras fontes de dados para criar relatórios de saúde ricos e interativos
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa **tipo de consulta** para escolher a integridade do Azure e selecione os recursos para direcionar. Use os menus suspensos de filtro de integridade para selecionar um subconjunto interessante de problemas de recursos para suas necessidades analíticas.
+Para fazer um controlo de consulta, utilize esta fonte de dados, utilize o drop-down do **tipo Consulta** para escolher a saúde do Azure e selecione os recursos para o alvo. Utilize as quedas do filtro de saúde para selecionar um subconjunto interessante de problemas de recursos para as suas necessidades analíticas.
 
-![Captura de tela da consulta de alertas](./media/workbooks-overview/resource-health.png)
+![Screenshot da consulta de alertas](./media/workbooks-overview/resource-health.png)
 
-## <a name="azure-data-explorer-preview"></a>Data Explorer do Azure (versão prévia)
+## <a name="azure-data-explorer-preview"></a>Explorador de Dados Azure (pré-visualização)
 
-As pastas de trabalho agora têm suporte para a consulta de clusters do [Azure data Explorer](https://docs.microsoft.com/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+Os livros de trabalho têm agora suporte para consulta de clusters [do Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto.](https://docs.microsoft.com/azure/kusto/query/index)   
 
-![Captura de tela da janela de consulta do Kusto](./media/workbooks-overview/data-explorer.png)
+![Screenshot da janela de consulta de Kusto](./media/workbooks-overview/data-explorer.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
-* [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.
+* [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
+* [Controle](workbooks-access-control.md) e partilhe o acesso aos recursos do seu livro.

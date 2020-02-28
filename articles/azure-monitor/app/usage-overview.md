@@ -1,32 +1,28 @@
 ---
-title: Análise de uso com o Aplicativo Azure insights | Microsoft docs
-description: Entenda seus usuários e o que eles fazem com seu aplicativo.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Análise de utilização com insights de aplicação azure / Microsoft docs
+description: Compreenda os seus utilizadores e o que eles fazem com a sua aplicação.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/19/2019
-ms.openlocfilehash: aa37717c5037294c2b5ec61f7815b007cbf74992
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9f34267a1820f8b2365a41569bd3c8eaed9f2f9c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884830"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671023"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
-Quais recursos de seu aplicativo Web ou móvel são mais populares? Os usuários atingem suas metas com seu aplicativo? Eles são suspensos em pontos específicos e retornam mais tarde?  O [aplicativo Azure insights](../../azure-monitor/app/app-insights-overview.md) ajuda você a obter informações poderosas sobre como as pessoas usam seu aplicativo. Sempre que atualizar seu aplicativo, você poderá avaliar como ele funciona para os usuários. Com esse conhecimento, você pode tomar decisões orientadas por dados sobre seus próximos ciclos de desenvolvimento.
+Quais as funcionalidades da sua aplicação web ou móvel mais populares? Os seus utilizadores alcançam os seus objetivos com a sua aplicação? Desistem em determinados pontos e regressam mais tarde?  [O Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) ajuda-o a obter informações poderosas sobre como as pessoas usam a sua aplicação. Sempre que atualizar a sua aplicação, pode avaliar o quão bem funciona para os utilizadores. Com este conhecimento, pode tomar decisões baseadas em dados sobre os seus próximos ciclos de desenvolvimento.
 
-## <a name="send-telemetry-from-your-app"></a>Enviar telemetria do seu aplicativo
+## <a name="send-telemetry-from-your-app"></a>Envie telemetria da sua aplicação
 
-A melhor experiência é obtida com a instalação do Application Insights no código do servidor de aplicativos e em suas páginas da Web. Os componentes de cliente e servidor do seu aplicativo enviam a telemetria de volta para a portal do Azure para análise.
+A melhor experiência é obtida instalando Insights de Aplicação tanto no código do servidor da sua aplicação como nas suas páginas web. Os componentes do cliente e do servidor da sua aplicação enviam telemetria de volta para o portal Azure para análise.
 
-1. **Código do servidor:** Instale o módulo apropriado para seu [ASP.net](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [node. js](../../azure-monitor/app/nodejs.md)ou [outro](../../azure-monitor/app/platforms.md) aplicativo.
+1. **Código do servidor:** Instale o módulo apropriado para o seu [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure,](../../azure-monitor/app/app-insights-overview.md) [Java,](../../azure-monitor/app/java-get-started.md) [Node.js](../../azure-monitor/app/nodejs.md)ou [outra](../../azure-monitor/app/platforms.md) aplicação.
 
-    * *Não deseja instalar o código do servidor? Basta [criar um recurso de informações de aplicativo Azure](../../azure-monitor/app/create-new-resource.md ).*
+    * *Não quer instalar o código do servidor? Basta [criar um recurso Azure Application Insights](../../azure-monitor/app/create-new-resource.md ).*
 
-2. **Código da página da Web:** Adicione o script a seguir à sua página da Web antes de fechar ``</head>``. Substitua a chave de instrumentação pelo valor apropriado para seu recurso de Application Insights:
+2. **Código da página web:** Adicione o seguinte script à sua página web antes do ``</head>``de fecho . Substitua a chave de instrumentação pelo valor adequado para o seu recurso Application Insights:
     
     ```html
     <script type="text/javascript">
@@ -38,56 +34,56 @@ A melhor experiência é obtida com a instalação do Application Insights no c�
     </script>
     ```
 
-    Para saber mais sobre configurações avançadas para o monitoramento de sites, confira o [artigo de referência do SDK do JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+    Para saber configurações mais avançadas para monitorizar websites, consulte o artigo de [referência JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
-3. **Código do aplicativo móvel:** Use o SDK do App Center para coletar eventos de seu aplicativo e, em seguida, envie cópias desses eventos para Application Insights para análise seguindo [este guia](../../azure-monitor/learn/mobile-center-quickstart.md).
+3. Código de **aplicativomóvel:** Utilize o App Center SDK para recolher eventos da sua aplicação e, em seguida, envie cópias destes eventos para A aplicação Insights para análise [seguindo este guia](../../azure-monitor/learn/mobile-center-quickstart.md).
 
-4. **Obter telemetria:** Execute seu projeto no modo de depuração por alguns minutos e, em seguida, procure resultados na folha visão geral em Application Insights.
+4. **Obter telemetria:** Execute o seu projeto em modo de depuração durante alguns minutos e, em seguida, procure resultados na lâmina de visão geral em Insights de Aplicação.
 
-    Publique seu aplicativo para monitorar o desempenho do aplicativo e descubra o que os usuários estão fazendo com seu aplicativo.
+    Publique a sua aplicação para monitorizar o desempenho da sua aplicação e descubra o que os seus utilizadores estão a fazer com a sua aplicação.
 
-## <a name="include-user-and-session-id-in-your-telemetry"></a>Incluir ID de usuário e de sessão em sua telemetria
-Para controlar os usuários ao longo do tempo, Application Insights requer uma maneira de identificá-los. A ferramenta de eventos é a única ferramenta de uso que não requer uma ID de usuário ou uma ID de sessão.
+## <a name="include-user-and-session-id-in-your-telemetry"></a>Inclua id de utilizador e sessão na sua telemetria
+Para rastrear os utilizadores ao longo do tempo, o Application Insights requer uma forma de os identificar. A ferramenta Eventos é a única ferramenta de utilização que não requer um ID do utilizador ou um ID de sessão.
 
-Comece a enviar IDs de usuário e de sessão usando [este processo](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Comece a enviar iDs de utilizador e sessão utilizando [este processo](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
-## <a name="explore-usage-demographics-and-statistics"></a>Explorar estatísticas e dados demográficos de uso
-Descubra quando as pessoas usam seu aplicativo, em quais páginas eles estão mais interessados, onde os usuários estão localizados, quais navegadores e sistemas operacionais eles usam. 
+## <a name="explore-usage-demographics-and-statistics"></a>Explore a demografia e as estatísticas de uso
+Descubra quando as pessoas usam a sua aplicação, em que páginas estão mais interessadas, onde estão localizados os seus utilizadores, quais os navegadores e sistemas operativos que utilizam. 
 
-Os relatórios de usuários e sessões filtram seus dados por páginas ou eventos personalizados e os segmentam por propriedades como local, ambiente e página. Você também pode adicionar seus próprios filtros.
+Os relatórios utilizadores e sessões filtram os seus dados por páginas ou eventos personalizados, e segmentam-nos por propriedades como localização, ambiente e página. Também pode adicionar os seus próprios filtros.
 
 ![Utilizadores](./media/usage-overview/users.png)  
 
-As informações à direita apontam padrões interessantes no conjunto de dados.  
+Insights sobre o certo apontam padrões interessantes no conjunto de dados.  
 
-* O relatório de **usuários** conta os números de usuários exclusivos que acessam suas páginas dentro dos períodos de tempo escolhidos. Para aplicativos Web, os usuários são contados usando cookies. Se alguém acessar seu site com diferentes navegadores ou computadores cliente, ou desmarcar seus cookies, eles serão contados mais de uma vez.
-* O relatório **sessões** conta o número de sessões de usuário que acessam seu site. Uma sessão é um período de atividade por um usuário, terminada por um período de inatividade de mais de meia hora.
+* O relatório **Utilizadores** conta o número de utilizadores únicos que acedem às suas páginas dentro dos períodos de tempo escolhidos. Para aplicações web, os utilizadores são contados usando cookies. Se alguém aceder ao seu site com diferentes navegadores ou máquinas de clientes, ou limpar os seus cookies, então serão contados mais de uma vez.
+* O relatório **Sessions** conta o número de sessões de utilizador que acedem ao seu site. Uma sessão é um período de atividade por parte de um utilizador, encerrado por um período de inatividade superior a meia hora.
 
-[Mais sobre as ferramentas de usuários, sessões e eventos](usage-segmentation.md)  
+[Mais sobre as ferramentas Utilizadores, Sessões e Eventos](usage-segmentation.md)  
 
-## <a name="retention---how-many-users-come-back"></a>Retenção-quantos usuários retornam?
+## <a name="retention---how-many-users-come-back"></a>Retenção - quantos utilizadores voltam?
 
-A retenção ajuda a entender com que frequência os usuários retornam para usar seu aplicativo, com base em coortes de usuários que executaram alguma ação comercial durante um determinado Bucket de tempo. 
+A retenção ajuda-o a perceber com que frequência os seus utilizadores voltam a utilizar a sua app, com base em coortes de utilizadores que realizaram alguma saque de negócio durante um determinado balde de tempo. 
 
-- Entenda quais recursos específicos fazem com que os usuários voltem mais do que outros 
-- Formate as mesmas com base nos dados reais do usuário 
-- Determinar se a retenção é um problema em seu produto 
+- Entenda quais as funcionalidades específicas que fazem com que os utilizadores voltem mais do que outros 
+- Formar hipóteses com base em dados reais do utilizador 
+- Determine se a retenção é um problema no seu produto 
 
 ![Retenção](./media/usage-overview/retention.png) 
 
-Os controles de retenção na parte superior permitem que você defina eventos específicos e o intervalo de tempo para calcular a retenção. O grafo no meio fornece uma representação visual da porcentagem de retenção geral pelo intervalo de tempo especificado. O grafo na parte inferior representa a retenção individual em um determinado período de tempo. Esse nível de detalhe permite que você entenda o que os usuários estão fazendo e o que pode afetar o retorno de usuários em uma granularidade mais detalhada.  
+Os controlos de retenção em cima permitem definir eventos específicos e intervalo de tempo para calcular a retenção. O gráfico no meio dá uma representação visual da percentagem de retenção global pelo intervalo de tempo especificado. O gráfico na parte inferior representa a retenção individual num determinado período de tempo. Este nível de detalhe permite-lhe compreender o que os seus utilizadores estão a fazer e o que pode afetar o retorno dos utilizadores numa granularidade mais detalhada.  
 
-[Mais sobre a ferramenta de retenção](usage-retention.md)
+[Mais sobre a ferramenta Retenção](usage-retention.md)
 
-## <a name="custom-business-events"></a>Eventos de negócios personalizados
+## <a name="custom-business-events"></a>Eventos comerciais personalizados
 
-Para ter uma compreensão clara do que os usuários fazem com seu aplicativo, é útil inserir linhas de código para registrar eventos personalizados. Esses eventos podem controlar tudo, desde ações detalhadas do usuário, como clicar em botões específicos, até eventos de negócios mais significativos, como fazer uma compra ou ganhar um jogo. 
+Para obter uma compreensão clara do que os utilizadores fazem com a sua aplicação, é útil inserir linhas de código para registar eventos personalizados. Estes eventos podem rastrear qualquer coisa desde ações detalhadas do utilizador, como clicar em botões específicos, até eventos de negócio saem mais significativos, como fazer uma compra ou ganhar um jogo. 
 
-Embora, em alguns casos, as exibições de página possam representar eventos úteis, isso não é verdade em geral. Um usuário pode abrir uma página de produto sem comprar o produto. 
+Embora em alguns casos, as visualizações de páginas possam representar eventos úteis, não é verdade em geral. Um utilizador pode abrir uma página de produto sem comprar o produto. 
 
-Com eventos de negócios específicos, você pode gráfico do progresso de seus usuários por meio de seu site. Você pode descobrir suas preferências para diferentes opções e onde elas se descartam ou têm dificuldades. Com esse conhecimento, você pode tomar decisões informadas sobre as prioridades em seu registro posterior de desenvolvimento.
+Com eventos de negócioespecíficos, pode traçar o progresso dos seus utilizadores através do seu site. Você pode descobrir suas preferências por diferentes opções, e onde eles desistem ou têm dificuldades. Com este conhecimento, pode tomar decisões informadas sobre as prioridades no seu atraso de desenvolvimento.
 
-Os eventos podem ser registrados no lado do cliente do aplicativo:
+Os eventos podem ser registados a partir do lado cliente da app:
 
 ```JavaScript
 
@@ -105,29 +101,29 @@ Ou do lado do servidor:
     tc.TrackEvent("CompletedPurchase");
 ```
 
-Você pode anexar valores de propriedade a esses eventos, para que você possa filtrar ou dividir os eventos ao inspecioná-los no Portal. Além disso, um conjunto padrão de propriedades é anexado a cada evento, como ID de usuário anônimo, que permite rastrear a sequência de atividades de um usuário individual.
+Pode anexar valores de propriedade a estes eventos, para que possa filtrar ou dividir os eventos quando os inspecionar no portal. Além disso, um conjunto padrão de propriedades é anexado a cada evento, como o ID do utilizador anónimo, que permite rastrear a sequência de atividades de um utilizador individual.
 
-Saiba mais sobre [Propriedades](../../azure-monitor/app/api-custom-events-metrics.md#properties)e [eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) .
+Saiba mais sobre eventos e [propriedades](../../azure-monitor/app/api-custom-events-metrics.md#properties) [personalizadas.](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
 
-### <a name="slice-and-dice-events"></a>Eventos de fatia e de
+### <a name="slice-and-dice-events"></a>Eventos de fatias e dados
 
-Nas ferramentas usuários, sessões e eventos, você pode fatiar e dividir os eventos personalizados por usuário, nome do evento e propriedades.
+Nas ferramentas Utilizadores, Sessões e Eventos, pode cortar e dado eventos personalizados pelo utilizador, nome do evento e propriedades.
 ![Utilizadores](./media/usage-overview/users.png)  
   
-## <a name="design-the-telemetry-with-the-app"></a>Criar a telemetria com o aplicativo
+## <a name="design-the-telemetry-with-the-app"></a>Desenhe a telemetria com a app
 
-Ao criar cada recurso do seu aplicativo, considere como você vai medir seu sucesso com os usuários. Decida quais eventos de negócios você precisa registrar e codifique as chamadas de rastreamento para esses eventos em seu aplicativo desde o início.
+Quando estiver a desenhar cada funcionalidade da sua aplicação, considere como vai medir o seu sucesso com os seus utilizadores. Decida quais os eventos empresariais que precisa de gravar e codifique as chamadas de rastreio desses eventos para a sua aplicação desde o início.
 
-## <a name="a--b-testing"></a>A | B teste
-Se você não souber qual variante de um recurso será mais bem-sucedido, libere ambos, tornando cada um acessível para usuários diferentes. Meça o sucesso de cada um deles e, em seguida, passe para uma versão unificada.
+## <a name="a--b-testing"></a>A B Testes
+Se não souber qual a variante de uma funcionalidade será mais bem sucedida, liberte ambos, tornando cada um acessível a diferentes utilizadores. Meça o sucesso de cada um e, em seguida, passe para uma versão unificada.
 
-Para essa técnica, você anexa valores de propriedade distintos a todas as telemetrias enviadas por cada versão do seu aplicativo. Você pode fazer isso definindo propriedades no TelemetryContext ativo. Essas propriedades padrão são adicionadas a cada mensagem de telemetria que o aplicativo envia – não apenas suas mensagens personalizadas, mas também a telemetria padrão.
+Para esta técnica, anexa valores de propriedade distintos a toda a telemetria que é enviada por cada versão da sua aplicação. Pode fazê-lo definindo propriedades no TelemettryContext ativo. Estas propriedades padrão são adicionadas a todas as mensagens de telemetria que a aplicação envia - não apenas as suas mensagens personalizadas, mas também a telemetria padrão.
 
-No portal de Application Insights, filtre e divida os dados nos valores de propriedade, para comparar as diferentes versões.
+No portal Application Insights, filtre e divida os seus dados sobre os valores da propriedade, de modo a comparar as diferentes versões.
 
-Para fazer isso, [Configure um inicializador de telemetria](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
+Para tal, [instale um infetante de telemetria:](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)
 
-**Aplicativos ASP.NET**
+**apps ASP.NET**
 
 ```csharp
     // Telemetry initializer class
@@ -140,7 +136,7 @@ Para fazer isso, [Configure um inicializador de telemetria](../../azure-monitor/
     }
 ```
 
-No inicializador do aplicativo Web, como Global.asax.cs:
+No inicializador da aplicação web, como Global.asax.cs:
 
 ```csharp
 
@@ -152,12 +148,12 @@ No inicializador do aplicativo Web, como Global.asax.cs:
     }
 ```
 
-**ASP.NET Core aplicativos**
+**ASP.NET aplicativos Core**
 
 > [!NOTE]
-> Adicionar inicializador usando `ApplicationInsights.config` ou usando `TelemetryConfiguration.Active` não é válido para aplicativos ASP.NET Core. 
+> Adicionar inicializador utilizando `ApplicationInsights.config` ou utilizar `TelemetryConfiguration.Active` não é válido para aplicações ASP.NET Core. 
 
-Para aplicativos [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) , adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, como mostrado abaixo. Isso é feito em `ConfigureServices` método de sua classe `Startup.cs`.
+Para ASP.NET aplicações [Core,](asp-net-core.md#adding-telemetryinitializers) a adição de um novo `TelemetryInitializer` é feita adicionando-a ao recipiente de Injeção de Dependência, como mostrado abaixo. Isto é feito em `ConfigureServices` método da sua aula de `Startup.cs`.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -168,7 +164,7 @@ Para aplicativos [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) , 
 }
 ```
 
-Todos os novos TelemetryClients adicionam automaticamente o valor da propriedade que você especificar. Eventos de telemetria individuais podem substituir os valores padrão.
+Todos os novos TelemettryClients adicionam automaticamente o valor da propriedade que especifica. Eventos individuais de telemetria podem anular os valores padrão.
 
 ## <a name="next-steps"></a>Passos seguintes
    - [Utilizadores, Sessões, Eventos](usage-segmentation.md)
@@ -176,4 +172,4 @@ Todos os novos TelemetryClients adicionam automaticamente o valor da propriedade
    - [Retenção](usage-retention.md)
    - [Fluxos do Utilizador](usage-flows.md)
    - [Livros](../../azure-monitor/app/usage-workbooks.md)
-   - [Adicionar contexto de usuário](usage-send-user-context.md)
+   - [Adicionar contexto de utilizador](usage-send-user-context.md)

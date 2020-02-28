@@ -1,84 +1,83 @@
 ---
-title: Importar dados do Azure Log Analytics para o Power BI | Microsoft Docs
-description: Power BI é um serviço de análise de negócios baseado em nuvem da Microsoft que fornece visualizações e relatórios avançados para análise de diferentes conjuntos de dados.  Este artigo descreve como configurar e importar Log Analytics dados no Power BI e configurá-los para serem atualizados automaticamente.
-ms.service: azure-monitor
+title: Importar dados do Azure Log Analytics para o Power BI  Microsoft Docs
+description: Power BI é um serviço de análise de negócios baseado em nuvem da Microsoft que fornece visualizações e relatórios ricos para análise de diferentes conjuntos de dados.  Este artigo descreve como configurar e importar dados do Log Analytics para o Power BI e configurá-lo para atualizar automaticamente.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 8c703cc2fd93900e13d39021992bc11247881b47
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ff24d508eb35c4f2a04c7d024254fa6f1875da8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75394707"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659290"
 ---
-# <a name="import-azure-monitor-log-data-into-power-bi"></a>Importar Azure Monitor dados de log para Power BI
+# <a name="import-azure-monitor-log-data-into-power-bi"></a>Import Azure Monitor dados de log no Power BI
 
 
-[Power bi](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é um serviço de análise de negócios baseado em nuvem da Microsoft que fornece visualizações e relatórios avançados para análise de diferentes conjuntos de dados.  Você pode importar os resultados de uma Azure Monitor consulta de log em um conjunto de dados Power BI para que você possa aproveitar seus recursos, como combinar dados de fontes diferentes e compartilhar relatórios na Web e em dispositivos móveis.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é um serviço de análise de negócios baseado em nuvem da Microsoft que fornece visualizações e relatórios ricos para análise de diferentes conjuntos de dados.  Pode importar os resultados de uma consulta de log Do Monitor Azure num conjunto de dados power BI para que possa tirar partido das suas funcionalidades, tais como combinar dados de diferentes fontes e partilhar relatórios na web e dispositivos móveis.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview"></a>Visão geral
-Para importar dados de um [espaço de trabalho log Analytics](manage-access.md) no Azure Monitor para Power bi, você cria um conjunto de dados no Power bi com base em uma [consulta de log](../log-query/log-query-overview.md) no Azure monitor.  A consulta é executada cada vez que o conjunto de um é atualizado.  Em seguida, você pode criar Power BI relatórios que usam dados do DataSet.  Para criar o conjunto de Power BI, você exporta sua consulta de Log Analytics para o [idioma Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification).  Em seguida, você usa isso para criar uma consulta no Power BI Desktop e, em seguida, publicá-la em Power BI como um conjunto de uma.  Os detalhes desse processo são descritos abaixo.
+## <a name="overview"></a>Descrição geral
+Para importar dados de um espaço de [trabalho de Log Analytics](manage-access.md) no Monitor Azure para o Power BI, cria um conjunto de dados no Power BI com base numa consulta de [log](../log-query/log-query-overview.md) no Monitor Azure.  A consulta é executada cada vez que o conjunto de dados é atualizado.  Em seguida, pode construir relatórios Power BI que utilizam dados a partir do conjunto de dados.  Para criar o conjunto de dados no Power BI, exporta a sua consulta de Log Analytics para [a linguagem Power Query (M).](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification)  Em seguida, utilize isto para criar uma consulta no Power BI Desktop e, em seguida, publicá-lo no Power BI como um conjunto de dados.  Os detalhes deste processo são descritos abaixo.
 
-![Log Analytics Power BI](media/powerbi/overview.png)
+![Log Analytics para Power BI](media/powerbi/overview.png)
 
-## <a name="export-query"></a>Exportar consulta
-Comece criando uma [consulta de log](../log-query/log-query-overview.md) que retorne os dados que você deseja que preencham o Power bi DataSet.  Em seguida, exporte essa consulta para [Power Query (M) linguagem](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) que pode ser usada pelo Power bi desktop.
+## <a name="export-query"></a>Consulta de exportação
+Comece por criar uma consulta de [registo](../log-query/log-query-overview.md) que derete os dados que pretende povoar o conjunto de dados power BI.  Em seguida, exporta essa consulta para a [linguagem Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) que pode ser usada pelo Power BI Desktop.
 
-1. [Crie a consulta de log no log Analytics](../log-query/get-started-portal.md) para extrair os dados para seu conjunto.
-2. Selecione **exportar** > **Power bi consulta (M)** .  Isso exporta a consulta para um arquivo de texto chamado **PowerBIQuery. txt**. 
+1. [Crie a consulta](../log-query/get-started-portal.md) de log no Log Analytics para extrair os dados para o seu conjunto de dados.
+2. Selecione **Export > ** **Power BI Query (M)** .  Isto exporta a consulta para um ficheiro de texto chamado **PowerBIQuery.txt**. 
 
-    ![Exportar pesquisa de logs](media/powerbi/export-analytics.png)
+    ![Pesquisa de registo de exportação](media/powerbi/export-analytics.png)
 
-3. Abra o arquivo de texto e copie seu conteúdo.
+3. Abra o ficheiro de texto e copie o seu conteúdo.
 
-## <a name="import-query-into-power-bi-desktop"></a>Importar consulta para Power BI Desktop
-Power BI Desktop é um aplicativo de área de trabalho que permite que você crie conjuntos de e relatórios que podem ser publicados em Power BI.  Você também pode usá-lo para criar uma consulta usando o idioma Power Query exportado do Azure Monitor. 
+## <a name="import-query-into-power-bi-desktop"></a>Consulta de importação para Power BI Desktop
+Power BI Desktop é uma aplicação de desktop que permite criar conjuntos de dados e relatórios que podem ser publicados para Power BI.  Também pode usá-lo para criar uma consulta utilizando a linguagem Power Query exportada do Monitor Azure. 
 
-1. Instale [Power bi desktop](https://powerbi.microsoft.com/desktop/) se você ainda não o tiver e, em seguida, abra o aplicativo.
-2. Selecione **obter dados** > **consulta em branco** para abrir uma nova consulta.  Em seguida, selecione **Editor avançado** e cole o conteúdo do arquivo exportado na consulta. Clique em **Concluído**.
+1. Instale o [Power BI Desktop](https://powerbi.microsoft.com/desktop/) se ainda não o tiver e abra a aplicação.
+2. Selecione **Obter Dados** > **Consulta em branco** para abrir uma nova consulta.  Em seguida, selecione **Advanced Editor** e colhe o conteúdo do ficheiro exportado para a consulta. Clique em **Concluído**.
 
-    ![Consulta de Power BI Desktop](media/powerbi/desktop-new-query.png)
+    ![Consulta de ambiente de trabalho power BI](media/powerbi/desktop-new-query.png)
 
-5. A consulta é executada e seus resultados são exibidos.  Você pode ser solicitado a fornecer credenciais para se conectar ao Azure.  
-6. Digite um nome descritivo para a consulta.  O padrão é **query1**. Clique em **fechar e aplicar** para adicionar o conjunto de um ao relatório.
+5. A consulta é executado, e os seus resultados são apresentados.  Pode ser solicitado que as credenciais se liguem ao Azure.  
+6. Digite um nome descritivo para a consulta.  O padrão é **Consulta1**. Clique em **Fechar e Aplicar** para adicionar o conjunto de dados ao relatório.
 
-    ![Nome do Power BI Desktop](media/powerbi/desktop-results.png)
+    ![Nome do ambiente de trabalho power BI](media/powerbi/desktop-results.png)
 
 
 
-## <a name="publish-to-power-bi"></a>Publicar no Power BI
-Quando você publicar no Power BI, um conjunto de um DataSet e um relatório serão criados.  Se você criar um relatório no Power BI Desktop, isso será publicado com seus dados.  Caso contrário, um relatório em branco será criado.  Você pode modificar o relatório em Power BI ou criar um novo com base no conjunto de um.
+## <a name="publish-to-power-bi"></a>Publicar para Power BI
+Quando publicar no Power BI, será criado um conjunto de dados e um relatório.  Se criar um relatório no Power BI Desktop, então este será publicado com os seus dados.  Caso contrário, será criado um relatório em branco.  Pode modificar o relatório no Power BI ou criar um novo com base no conjunto de dados.
 
-1. Crie um relatório com base em seus dados.  Use a [documentação Power bi desktop](https://docs.microsoft.com/power-bi/desktop-report-view) se você não estiver familiarizado com ela.  
-1. Quando estiver pronto para enviá-lo para Power BI, clique em **publicar**.  
-1. Quando solicitado, selecione um destino em sua conta de Power BI.  A menos que você tenha um destino específico em mente, use **meu espaço de trabalho**.
+1. Crie um relatório com base nos seus dados.  Utilize [a documentação do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) se não estiver familiarizado com ela.  
+1. Quando estiver pronto para enviá-lo para Power BI, clique em **Publicar**.  
+1. Quando solicitado, selecione um destino na sua conta Power BI.  A menos que tenha um destino específico em mente, use **o meu espaço de trabalho.**
 
     ![Power BI Desktop publicar](media/powerbi/desktop-publish.png)
 
-1. Quando a publicação for concluída, clique em **abrir no Power bi** para abrir Power bi com seu novo conjunto de novos.
+1. Quando a publicação estiver concluída, clique **em Open in Power BI** para abrir o Power BI com o seu novo conjunto de dados.
 
 
-### <a name="configure-scheduled-refresh"></a>Configure scheduled refresh (Configurar a atualização agendada)
-O conjunto de dados criado no Power BI terá os mesmos dados que você viu anteriormente em Power BI Desktop.  Você precisa atualizar o conjunto de dados periodicamente para executar a consulta novamente e preenchê-la com os dados mais recentes de Azure Monitor.  
+### <a name="configure-scheduled-refresh"></a>Configurar atualização programada
+O conjunto de dados criado no Power BI terá os mesmos dados que viu anteriormente no Power BI Desktop.  É necessário refrescar periodicamente o conjunto de dados para executar a consulta novamente e povoá-la com os dados mais recentes do Monitor Azure.  
 
-1. Clique no espaço de trabalho onde você carregou o relatório e selecione o menu **conjuntos** de itens. 
-1. Selecione o menu de contexto ao lado do novo conjunto de e selecione **configurações**. 
-1. Em **credenciais da fonte de dados** , você deve ter uma mensagem informando que as credenciais são inválidas.  Isso ocorre porque você ainda não forneceu credenciais para o conjunto de dados a ser usado quando ele atualiza os seus dados.  
-1. Clique em **Editar credenciais** e especifique as credenciais com acesso ao espaço de trabalho Log Analytics no Azure monitor. Se você precisar de autenticação de dois fatores, selecione **OAuth2** para que o **método de autenticação** seja solicitado a fazer logon com suas credenciais.
+1. Clique no espaço de trabalho onde fez o upload do seu relatório e selecione o menu **Datasets.** 
+1. Selecione o menu de contexto ao lado do seu novo conjunto de dados e selecione **Definições**. 
+1. De acordo com **as credenciais** de origem de Dados deve ter uma mensagem de que as credenciais são inválidas.  Isto porque ainda não forneceu credenciais para que o conjunto de dados seja utilizado quando atualiza os seus dados.  
+1. Clique em **editar credenciais** e especificar credenciais com acesso ao espaço de trabalho log analytics no Monitor Azure. Se necessitar de autenticação de dois fatores, selecione **OAuth2** para que o método de **Autenticação** seja solicitado para iniciar sessão com as suas credenciais.
 
-    ![Agenda de Power BI](media/powerbi/powerbi-schedule.png)
+    ![Horário do POWER BI](media/powerbi/powerbi-schedule.png)
 
-5. Em **atualização agendada** , ative a opção para **manter seus dados atualizados**.  Opcionalmente, você pode alterar a **frequência de atualização** e uma ou mais horas específicas para executar a atualização.
+5. Em **versão de atualização programada,** ligue a opção de **manter os seus dados atualizados**.  Pode alterar opcionalmente a **frequência Refresh** e uma ou mais horas específicas para executar a atualização.
 
-    ![Power BI atualizar](media/powerbi/powerbi-schedule-refresh.png)
+    ![Atualização de Power BI](media/powerbi/powerbi-schedule-refresh.png)
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre [pesquisas de log](../log-query/log-query-overview.md) para criar consultas que podem ser exportadas para Power bi.
-* Saiba mais sobre [Power bi](https://powerbi.microsoft.com) criar visualizações com base em exportações de log Azure monitor.
+* Saiba mais sobre pesquisas de [log](../log-query/log-query-overview.md) para construir consultas que podem ser exportadas para Power BI.
+* Saiba mais sobre [o Power BI](https://powerbi.microsoft.com) para construir visualizações com base nas exportações de log do Azure Monitor.

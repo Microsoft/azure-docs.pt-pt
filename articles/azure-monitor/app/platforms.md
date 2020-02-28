@@ -1,19 +1,15 @@
 ---
-title: 'Application Insights: linguagens, plataformas e integrações | Microsoft Docs'
-description: Linguagens, plataformas e integrações disponíveis para Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: 'Insights de aplicação: línguas, plataformas e integrações  Microsoft Docs'
+description: Idiomas, plataformas e integrações disponíveis para Insights de Aplicação
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 01cebc3a86808d549f1a7dc3adfd2883bc289076
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: d87b1d0aa74263f249db2030f2366b93b8c2b421
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73061453"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669833"
 ---
 # <a name="supported-languages"></a>Linguagens suportadas
 
@@ -21,24 +17,24 @@ ms.locfileid: "73061453"
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
-* [Python (versão prévia)](../../azure-monitor/app/opencensus-python.md)
+* [Python (pré-visualização)](../../azure-monitor/app/opencensus-python.md)
 
-## <a name="supported-platforms-and-frameworks"></a>Plataformas e estruturas com suporte
+## <a name="supported-platforms-and-frameworks"></a>Plataformas e quadros suportados
 
-### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Instrumentação para aplicativos já implantados (sem código, baseados em agente)
-* [Conjuntos de dimensionamento de máquinas virtuais do Azure e VM do Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
+### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Instrumentação para aplicações já implantadas (sem código, baseada em agentes)
+* [Conjuntos de escala de máquinas virtuais Azure VM e Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [App Service do Azure](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET – para aplicações que já estão em direto](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Serviços de nuvem do Azure](../../azure-monitor/app/cloudservices.md), incluindo funções Web e de trabalho
+* [Serviços Azure Cloud](../../azure-monitor/app/cloudservices.md), incluindo funções web e trabalhadores
 * [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
-### <a name="instrumentation-through-code-sdks"></a>Instrumentação por meio de código (SDKs)
+### <a name="instrumentation-through-code-sdks"></a>Instrumentação através de código (SDKs)
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [Núcleo do ASP.NET](../../azure-monitor/app/asp-net-core.md)
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
-* [Python (versão prévia)](../../azure-monitor/app/opencensus-python.md)
+* [Python (pré-visualização)](../../azure-monitor/app/opencensus-python.md)
 * [Aplicação Universal do Windows](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Aplicações de ambiente de trabalho, serviços e funções de trabalho do Windows](../../azure-monitor/app/windows-desktop.md)
 
@@ -49,9 +45,9 @@ ms.locfileid: "73061453"
 * [Plug-in do LogStash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
-## <a name="export-and-data-analysis"></a>Análise de dados e exportação
+## <a name="export-and-data-analysis"></a>Exportação e análise de dados
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
 ## <a name="unsupported-sdks"></a>SDKs não suportados
-Estamos cientes de que existem vários outros SDKs com suporte da Comunidade. No entanto, Azure Monitor só fornece suporte ao usar os SDKs com suporte listados nesta página. Estamos constantemente avaliando as oportunidades de expandir nosso suporte para outras linguagens, então siga nossa página de [anúncios do GitHub](https://github.com/microsoft/ApplicationInsights-Announcements/issues) para receber as notícias mais recentes do SDK. 
+Sabemos que existem vários outros SDKs apoiados pela comunidade. No entanto, o Monitor Azure apenas fornece suporte ao utilizar os SDKs suportados listados nesta página. Estamos constantemente a avaliar oportunidades para expandir o nosso suporte para outras línguas, por isso siga a nossa página de [Anúncios GitHub](https://github.com/microsoft/ApplicationInsights-Announcements/issues) para receber as últimas novidades do SDK. 

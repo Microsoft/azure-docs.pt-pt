@@ -1,30 +1,26 @@
 ---
-title: Explorar os logs de rastreamento do Java no Aplicativo Azure insights
-description: Pesquisar rastreamentos Log4J ou Logback no Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Explore os registos de rastreio de Java em Insights de Aplicação Azure
+description: Pesquisar rastreios de Log4J ou Logback em Insights de Aplicação
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: f552ccdbc67df93913c698e5d763dbb62b48a4ad
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927232"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657219"
 ---
-# <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento do Java no Application Insights
-Se você estiver usando Logback ou Log4J (v 1.2 ou v 2.0) para rastreamento, você pode fazer com que seus logs de rastreamento sejam enviados automaticamente para Application Insights onde você pode explorar e Pesquisar neles.
+# <a name="explore-java-trace-logs-in-application-insights"></a>Explore os registos de rastreio de Java em Insights de Aplicação
+Se estiver a utilizar o Logback ou o Log4J (v1.2 ou v2.0) para rastreio, pode enviar os seus registos de rastreio automaticamente para Informações de Aplicação, onde pode explorá-los e pesquisar.
 
 > [!TIP]
-> Você só precisa definir sua chave de instrumentação Application Insights uma vez para seu aplicativo. Se você estiver usando uma estrutura como o Java Spring, talvez já tenha registrado a chave em outro lugar na configuração do aplicativo.
+> Só precisa de definir a chave de instrumentação de insights de aplicação uma vez para a sua aplicação. Se estiver a usar uma estrutura como a Java Spring, pode já ter registado a chave em outros lugares na configuração da sua aplicação.
 
-## <a name="using-the-application-insights-java-agent"></a>Usando o agente Java Application Insights
+## <a name="using-the-application-insights-java-agent"></a>Utilização do agente Java Insights de Aplicação
 
-Por padrão, o Application Insights agente Java captura automaticamente o log executado no nível `WARN` e acima.
+Por predefinição, o agente Java De insights de aplicação captura automaticamente o registo realizado a `WARN` nível e superior.
 
-Você pode alterar o limite de log que é capturado usando o arquivo de `AI-Agent.xml`:
+Pode alterar o limiar de exploração madeireira capturado utilizando o ficheiro `AI-Agent.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -37,7 +33,7 @@ Você pode alterar o limite de log que é capturado usando o arquivo de `AI-Agen
 </ApplicationInsightsAgent>
 ```
 
-Você pode desabilitar a captura de log do agente Java usando o arquivo de `AI-Agent.xml`:
+Pode desativar a captura de registo do agente Java utilizando o ficheiro `AI-Agent.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -50,19 +46,19 @@ Você pode desabilitar a captura de log do agente Java usando o arquivo de `AI-A
 </ApplicationInsightsAgent>
 ```
 
-## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>Como alternativa (em oposição ao uso do agente Java), você pode seguir as instruções abaixo
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>Alternativamente (em oposição à utilização do agente Java), pode seguir as instruções abaixo
 
-### <a name="install-the-java-sdk"></a>Instalar o SDK do Java
+### <a name="install-the-java-sdk"></a>Instale o Java SDK
 
-Siga as instruções para instalar [Application insights SDK para Java][java], caso ainda não tenha feito isso.
+Siga as instruções para instalar o [Application Insights SDK para Java,][java]se ainda não o fez.
 
-### <a name="add-logging-libraries-to-your-project"></a>Adicionar bibliotecas de log ao seu projeto
+### <a name="add-logging-libraries-to-your-project"></a>Adicione bibliotecas de exploração madeireira ao seu projeto
 *Escolha a forma adequada para o seu projeto.*
 
 #### <a name="if-youre-using-maven"></a>Se estiver a utilizar Maven...
-Se seu projeto já estiver configurado para usar o Maven para compilação, mescle um dos trechos de código a seguir em seu arquivo pom. xml.
+Se o seu projeto já estiver configurado para utilizar a Maven para construir, misture um dos seguintes fragmentos de código no seu ficheiro pom.xml.
 
-Em seguida, atualize as dependências do projeto para que os binários sejam baixados.
+Em seguida, refresque as dependências do projeto, para que os binários sejam descarregados.
 
 *Logback*
 
@@ -104,9 +100,9 @@ Em seguida, atualize as dependências do projeto para que os binários sejam bai
 ```
 
 #### <a name="if-youre-using-gradle"></a>Se estiver a utilizar Gradle...
-Se o projeto já estiver configurado para usar o gradle para compilação, adicione uma das linhas a seguir ao grupo de `dependencies` em seu arquivo Build. gradle:
+Se o seu projeto já estiver configurado para utilizar gradle para construir, adicione uma das seguintes linhas ao grupo `dependencies` no seu ficheiro build.gradle:
 
-Em seguida, atualize as dependências do projeto para que os binários sejam baixados.
+Em seguida, refresque as dependências do projeto, para que os binários sejam descarregados.
 
 **Logback**
 
@@ -128,17 +124,17 @@ Em seguida, atualize as dependências do projeto para que os binários sejam bai
 ```
 
 #### <a name="otherwise-"></a>Caso contrário...
-Siga as diretrizes para instalar manualmente Application Insights SDK do Java, baixe o jar (depois de chegar à página central do Maven, clique no link ' jar ' na seção de download) para o anexador apropriado e adicione o JAR do appender baixado ao projeto.
+Siga as diretrizes para instalar manualmente os Insights da Aplicação Java SDK, descarregue o jarro (Depois de chegar à Página Central de Maven clique no link 'jar' na secção de descarregamento) para o appender apropriado e adicione o frasco de aplicadores descarregado ao projeto.
 
-| Digita | Transferir | Biblioteca |
+| Madeireiro | Transferência | Biblioteca |
 | --- | --- | --- |
-| Logback |[Jar do appender Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
-| Log4J v2.0 |[Jar do appender Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
-| Log4j v1.2 |[Jar do appender do Log4J v 1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+| Logback |[Jar de aparador de logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Jar do anador Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j v1.2 |[Jar do anador Log4J v1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
-### <a name="add-the-appender-to-your-logging-framework"></a>Adicionar o acrescentador à sua estrutura de log
-Para começar a obter rastreamentos, mescle o trecho de código relevante para o arquivo de configuração Log4J ou Logback: 
+### <a name="add-the-appender-to-your-logging-framework"></a>Adicione o apendicite à sua estrutura de exploração madeireira
+Para começar a obter vestígios, misture o fragmento de código relevante para o ficheiro de configuração Log4J ou Logback: 
 
 *Logback*
 
@@ -183,14 +179,14 @@ Para começar a obter rastreamentos, mescle o trecho de código relevante para o
     </root>
 ```
 
-Os acrescentadores de Application Insights podem ser referenciados por qualquer agente configurado e não necessariamente pelo agente raiz (conforme mostrado nos exemplos de código acima).
+Os apertantes de Insights de Aplicação podem ser referenciados por qualquer madeireiro configurado, e não necessariamente pelo madeireiro raiz (como indicado nas amostras de código acima).
 
-## <a name="explore-your-traces-in-the-application-insights-portal"></a>Explore seus rastreamentos no portal de Application Insights
-Agora que você configurou seu projeto para enviar rastreamentos para Application Insights, você pode exibir e Pesquisar esses rastreamentos no portal de Application Insights, na folha [Pesquisar][diagnostic] .
+## <a name="explore-your-traces-in-the-application-insights-portal"></a>Explore os seus vestígios no portal Application Insights
+Agora que configurao o seu projeto para enviar vestígios para Application Insights, pode ver e pesquisar estes vestígios no portal Application Insights, na lâmina [de pesquisa.][diagnostic]
 
-As exceções enviadas por meio de agentes serão exibidas no portal como telemetria de exceção.
+As exceções submetidas através de madeireiros serão apresentadas no portal como Telemetria exceção.
 
-![No portal de Application Insights, abra Pesquisar](./media/java-trace-logs/01-diagnostics.png)
+![No portal Application Insights, abra a Pesquisa](./media/java-trace-logs/01-diagnostics.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 [Pesquisa de diagnóstico][diagnostic]

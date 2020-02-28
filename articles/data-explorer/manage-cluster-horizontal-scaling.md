@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: d0c9fe9ebd040ee59ae8717e95fd1911eaef61be
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff7420619cffc2287ab8ff6332df605d56329549
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560461"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664138"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gerir a escala horizontal do cluster (escala para fora) no Azure Data Explorer para acomodar a mudança da procura
 
@@ -59,13 +59,14 @@ Quando o seu cluster se aproximar de um estado de sobreutilização, estem para 
 * O número de casos de cluster é inferior ao número máximo de instâncias definidas pelo utilizador.
 * A utilização da cache é alta por mais de uma hora.
 * A CPU está alta há mais de uma hora.
+* A utilização da ingestão é alta por mais de uma hora.
 
 > [!NOTE]
 > A lógica de escala não considera atualmente a métrica de utilização da ingestão. Se esta métrica for importante para a sua caixa de utilização, utilize a [escala automática personalizada](#custom-autoscale).
 
 **Escala em**
 
-Quando o seu cluster se aproxima de um estado de subutilização, dimensione para custos mais baixos, mas mantenha o desempenho. Várias métricas são usadas para verificar se é seguro escalar no cluster. As seguintes regras são avaliadas diariamente durante 7 dias antes da escala:
+Quando o seu cluster se aproxima de um estado de subutilização, dimensione para custos mais baixos, mas mantenha o desempenho. Várias métricas são usadas para verificar se é seguro escalar no cluster. As seguintes regras são avaliadas de hora em hora durante 6 horas antes da escala:
 * O número de ocorrências é superior a 2 e acima do número mínimo de ocorrências definidas.
 * Para garantir que não há sobrecarga de recursos, as seguintes métricas devem ser verificadas antes da escala: 
     * A utilização da cache não é alta.
