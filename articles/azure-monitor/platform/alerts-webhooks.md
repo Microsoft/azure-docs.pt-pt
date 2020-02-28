@@ -2,20 +2,19 @@
 title: Ligue para um webhook com um alerta métrico clássico no Monitor Azure
 description: Aprenda a redirecionar os alertas métricos azure para outros sistemas não-Azure.
 author: harelbr
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705518"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665073"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Ligue para um webhook com um alerta métrico clássico no Monitor Azure
+
 Pode utilizar webhooks para encaminhar uma notificação de alerta Azure para outros sistemas para pós-processamento ou ações personalizadas. Pode utilizar um webhook em alerta para encaminhá-lo para serviços que enviam mensagens SMS, para registar bugs, para notificar uma equipa através de serviços de chat ou mensagens, ou para várias outras ações. 
 
 Este artigo descreve como colocar um webhook num alerta métrico Azure. Também mostra como é a carga útil para o HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema para um alerta de registo de atividade do Azure (alerta sobre os eventos), consulte [um webhook num alerta](alerts-log-webhook.md)de registo de atividade do Azure .
@@ -32,7 +31,7 @@ Também pode configurar um alerta para publicar num webhook URI utilizando [cmdl
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
 O webhook pode autenticar utilizando uma autorização baseada em token. O webhook URI é guardado com uma identificação simbólica. Por exemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
-## <a name="payload-schema"></a>Esquema de carga
+## <a name="payload-schema"></a>Esquema de carga útil
 A operação POST contém a seguinte carga útil e esquema JSON para todos os alertas de base métrica:
 
 ```JSON
@@ -72,20 +71,20 @@ A operação POST contém a seguinte carga útil e esquema JSON para todos os al
 | Campo | Obrigatório | Conjunto fixo de valores | Notas |
 |:--- |:--- |:--- |:--- |
 | status |S |Ativado, Resolvido |O estado do alerta com base nas condições que definiu. |
-| noticioso |S | |O contexto de alerta. |
+| contexto |S | |O contexto de alerta. |
 | carimbo de data/hora |S | |O momento em que o alerta foi desencadeado. |
 | ID |S | |Cada regra de alerta tem uma identificação única. |
 | nome |S | |O nome do alerta. |
 | descrição |S | |Uma descrição do alerta. |
 | conditionType |S |Métrica, Evento |São apoiados dois tipos de alertas: métrica e evento. Os alertas métricos baseiam-se numa condição métrica. Os alertas de eventos baseiam-se num evento no registo de atividade. Use este valor para verificar se o alerta é baseado numa métrica ou num evento. |
 | condition |S | |Os campos específicos para verificar com base no valor do tipo de **condição.** |
-| MetricName |Para alertas métricos | |O nome da métrica que define o que a regra monitoriza. |
+| metricName |Para alertas métricos | |O nome da métrica que define o que a regra monitoriza. |
 | metricUnit |Para alertas métricos |Bytes, BytesPerSecond, Count, CountPerSecond, Por cento, Segundo |A unidade permitida na métrica. Ver [valores permitidos.](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx) |
 | métricaValor |Para alertas métricos | |O valor real da métrica que causou o alerta. |
 | threshold |Para alertas métricos | |O valor-limiar a que o alerta é ativado. |
 | janelaTamanho |Para alertas métricos | |O período de tempo que é usado para monitorizar a atividade de alerta com base no limiar. O valor deve ser entre 5 minutos e 1 dia. O valor deve estar no formato de duração ISO 8601. |
 | timeAggregation |Para alertas métricos |Média, último, máximo, mínimo, nenhum, total |Como os dados recolhidos devem ser combinados ao longo do tempo. O valor padrão é Médio. Ver [valores permitidos.](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx) |
-| operator |Para alertas métricos | |O operador que é usado para comparar os dados métricos atuais com o limiar definido. |
+| operador |Para alertas métricos | |O operador que é usado para comparar os dados métricos atuais com o limiar definido. |
 | subscriptionId |S | |O ID de assinatura Azure. |
 | resourceGroupName |S | |O nome do grupo de recursos para o recurso afetado. |
 | resourceName |S | |O nome do recurso afetado. |

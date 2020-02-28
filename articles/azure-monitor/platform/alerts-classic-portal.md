@@ -2,16 +2,15 @@
 title: Criar, visualizar e gerir alertas métricos clássicos usando o Monitor Azure
 description: Aprenda a usar o portal Azure, CLI ou Powershell para criar, visualizar e gerir regras clássicas de alerta métrico.
 author: yanivlavi
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: yalavi
-ms.openlocfilehash: fd15d6bb9442d91c672fdd444313880001880e07
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b770b9bd34c8267889db536ec81332de32cb8776
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705603"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668320"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas métricos clássicos usando o Monitor Azure
 
@@ -27,11 +26,11 @@ Os alertas métricos clássicos no Monitor Azure fornecem uma forma de ser notif
 
 3. Selecione o comando **de alerta métrico Adicionar (clássico)** e, em seguida, preencha os campos.
 
-    ![Adicionar alerta](media/alerts-classic-portal/AddAlertOnlyParamsPage.png)
+    ![Adicionar Alerta](media/alerts-classic-portal/AddAlertOnlyParamsPage.png)
 
 4. **Diga** o seu estado de alerta. Em seguida, escolha uma **Descrição**, que também aparece nos e-mails de notificação.
 
-5. Selecione a **Métrica** que pretende monitorizar. Em seguida, escolha uma **Condição** e valor **limiar** para a métrica. Escolha também o **período** de tempo que a regra de métrica deve ser satisfeita antes que o alerta seja disparado. Por exemplo, se utilizar o período "Nos últimos 5 minutos" e o seu alerta procurar um CPU acima de 80%, o alerta dispara quando o CPU tem sido consistentemente superior a 80% durante 5 minutos. Após o primeiro gatilho ocorrer, volta a disparar quando o CPU permanece abaixo dos 80% durante 5 minutos. A medição métrica do CPU acontece a cada minuto.
+5. Selecione a **Métrica** que pretende monitorizar. Em seguida, escolha uma **Condição** e valor **limiar** para a métrica. Escolha também o **período** de tempo em que a regra métrica deve ser satisfeita antes do alerta disparar. Por exemplo, se utilizar o período "Nos últimos 5 minutos" e o seu alerta procurar um CPU acima de 80%, o alerta dispara quando o CPU tem sido consistentemente superior a 80% durante 5 minutos. Após o primeiro gatilho ocorrer, volta a disparar quando o CPU permanece abaixo dos 80% durante 5 minutos. A medição métrica do CPU acontece a cada minuto.
 
 6. Selecione os proprietários de **e-mail...** se quiser que administradores e coadministradores recebam notificações de e-mail quando o alerta disparar.
 
@@ -43,13 +42,13 @@ Os alertas métricos clássicos no Monitor Azure fornecem uma forma de ser notif
 
 10. Selecione **OK** para criar o alerta.
 
-Em alguns minutos, o alerta está ativo e é disparado conforme descrito anteriormente.
+Dentro de poucos minutos, o alerta está ativo e dispara como descrito anteriormente.
 
 Depois de criar um alerta, pode selecioná-lo e fazer uma das seguintes tarefas:
 
 * Veja um gráfico que mostre o limiar métrico e os valores reais do dia anterior.
-* Edite ou exclua-o.
-* **Desabilite** ou **habilite** -o se quiser interromper temporariamente ou retomar as notificações para esse alerta.
+* Editar ou apagar.
+* **Desative** ou **ative-o** se pretender parar ou retomar temporariamente a receção de notificações para esse alerta.
 
 ## <a name="with-azure-cli"></a>Com a CLI do Azure
 

@@ -1,43 +1,41 @@
 ---
-title: Agente do insights Aplicativo Azure-introdução | Microsoft Docs
-description: Um guia de início rápido para o Application Insights Agent. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Agente de Insights de Aplicação Azure - a começar Microsoft Docs
+description: Um guia de início rápido para agente de insights de aplicação. Monitorize o desempenho do site sem reimplantar o website. Trabalha com ASP.NET aplicações web hospedadas no local, em VMs ou no Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 1ef354bc61d849a4d536bd26355ef21b0f1c0035
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7819de1f3dfab7f934421de86c0481d2e063f7a4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899623"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671193"
 ---
-# <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Introdução ao agente de Application Insights de Azure Monitor para servidores locais
+# <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Inicie-se com o Agente de Insights de Aplicação do Monitor Azure para servidores no local
 
-Este artigo contém os comandos de início rápido esperados para funcionar para a maioria dos ambientes.
-As instruções dependem do Galeria do PowerShell para distribuir atualizações.
-Esses comandos dão suporte ao parâmetro `-Proxy` do PowerShell.
+Este artigo contém os comandos quickstart esperados para a maioria dos ambientes.
+As instruções dependem da Galeria PowerShell para distribuir atualizações.
+Estes comandos suportam o parâmetro `-Proxy` PowerShell.
 
-Para obter uma explicação desses comandos, instruções de personalização e informações sobre solução de problemas, consulte as [instruções detalhadas](status-monitor-v2-detailed-instructions.md).
+Para obter uma explicação destes comandos, instruções de personalização e informações sobre resolução de problemas, consulte as [instruções detalhadas](status-monitor-v2-detailed-instructions.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="download-and-install-via-powershell-gallery"></a>Baixar e instalar via Galeria do PowerShell
+## <a name="download-and-install-via-powershell-gallery"></a>Descarregue e instale através da Galeria PowerShell
 
 ### <a name="install-prerequisites"></a>Pré-requisitos da instalação
-Execute o PowerShell como administrador.
+Executar powerShell como Administrador.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Install-Module -Name PowerShellGet -Force
 ``` 
-Feche o PowerShell.
+Close PowerShell.
 
-### <a name="install-application-insights-agent"></a>Instalar o agente de Application Insights
-Execute o PowerShell como administrador.
+### <a name="install-application-insights-agent"></a>Instalar agente de insights de aplicação
+Executar powerShell como Administrador.
 ```powershell   
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
@@ -50,11 +48,11 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ```
     
         
-## <a name="download-and-install-manually-offline-option"></a>Baixar e instalar manualmente (opção offline)
-### <a name="download-the-module"></a>Baixar o módulo
-Baixe manualmente a versão mais recente do módulo em [Galeria do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+## <a name="download-and-install-manually-offline-option"></a>Descarregue e instale manualmente (opção offline)
+### <a name="download-the-module"></a>Descarregue o módulo
+Descarregue manualmente a versão mais recente do módulo a partir da [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
-### <a name="unzip-and-install-application-insights-agent"></a>Descompactar e instalar Application Insights agente
+### <a name="unzip-and-install-application-insights-agent"></a>Desapertar e instalar agente de insights de aplicação
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -73,18 +71,18 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  Ver a telemetria:
 
-- [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.
-- [Pesquise eventos e logs](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
-- [Use a análise](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
-- [Crie painéis](../../azure-monitor/app/overview-dashboard.md).
+- [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorizar o desempenho e o uso.
+- [Pesquisar eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
+- [Use o Analytics](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
+- [Criar dashboards](../../azure-monitor/app/overview-dashboard.md).
 
  Adicionar mais telemetria:
 
-- [Crie testes da Web](monitor-web-app-availability.md) para garantir que seu site permaneça ativo.
-- [Adicione telemetria de cliente Web](../../azure-monitor/app/javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
-- [Adicione o SDK do Application insights ao seu código](../../azure-monitor/app/asp-net.md) para que você possa inserir chamadas de rastreamento e log.
+- [Crie testes web](monitor-web-app-availability.md) para garantir que o seu site permaneça ao vivo.
+- [Adicione telemetria](../../azure-monitor/app/javascript.md) de cliente web para ver exceções do código da página web e para ativar chamadas de rastreio.
+- [Adicione o SDK de Insights de Aplicação ao seu código](../../azure-monitor/app/asp-net.md) para que possa inserir chamadas de rastreio e log.
 
-Faça mais com Application Insights agente:
+Faça mais com o Agente de Insights de Aplicação:
 
-- Examine as [instruções detalhadas](status-monitor-v2-detailed-instructions.md) para obter uma explicação dos comandos encontrados aqui.
-- Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) do Application insights Agent.
+- Reveja as [instruções detalhadas](status-monitor-v2-detailed-instructions.md) para uma explicação dos comandos aqui encontrados.
+- Use o nosso guia para [resolver problemas](status-monitor-v2-troubleshoot.md) no Agente insights de aplicação.

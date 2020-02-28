@@ -1,45 +1,41 @@
 ---
-title: OpenCensus o rastreamento com o Aplicativo Azure insights | Microsoft Docs
-description: Fornece instruções para integrar o rastreamento do OpenCensus Go com o encaminhador local e Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: OpenCensus Vai rastreio com insights de aplicação azure  Microsoft Docs
+description: Fornece instruções para integrar o OpenCensus Ir rastreando com o avançado local e insights de aplicação
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/15/2018
-ms.openlocfilehash: ef67801fee574ae43d83af650d6b715e12426c7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ddb8dfbf14f2c75e4d16693076e56a711d8861ad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432549"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669986"
 ---
-# <a name="collect-distributed-traces-from-go-preview"></a>Coletar rastreamentos distribuídos do Go (visualização)
+# <a name="collect-distributed-traces-from-go-preview"></a>Recolher vestígios distribuídos de Go (Pré-visualização)
 
-O Application Insights agora dá suporte ao rastreamento distribuído de aplicativos Go por meio da integração com o [OpenCensus](https://opencensus.io) e nosso novo [encaminhador local](./opencensus-local-forwarder.md). Este artigo orientará você passo a passo pelo processo de configuração do OpenCensus para o Go e a obtenção dos dados de rastreamento para Application Insights.
+Application Insights agora suporta rastreio distribuído de aplicações Go através da integração com [openCensus](https://opencensus.io) e nosso novo [avançado local](./opencensus-local-forwarder.md). Este artigo irá acompanhá-lo passo a passo através do processo de criação de OpenCensus for Go e obter os seus dados de rastreio para Application Insights.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Precisa de uma Subscrição do Azure.
-- O go deve ser instalado, este artigo usa a versão 1,11 [Go Download](https://golang.org/dl/).
-- Siga as instruções para instalar o [encaminhador local como um serviço do Windows](./opencensus-local-forwarder.md).
+- Vá instalado, este artigo utiliza a versão 1.11 [Go Download](https://golang.org/dl/).
+- Siga as instruções para instalar o [avançado local como um serviço Windows](./opencensus-local-forwarder.md).
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-application-insights-resource"></a>Criar Application Insights recurso
+## <a name="create-application-insights-resource"></a>Criar recurso Deinsights de Aplicação
 
-Primeiro, você precisa criar um recurso de Application Insights que irá gerar uma chave de instrumentação (iKey). Em seguida, o iKey é usado para configurar o encaminhador local para enviar rastreamentos distribuídos de seu aplicativo OpenCensus instrumentado, para Application Insights.   
+Primeiro, é preciso criar um recurso Application Insights que gere uma chave de instrumentação (ikey). O ikey é então usado para configurar o avançado local para enviar vestígios distribuídos da sua aplicação instrumentada OpenCensus, para Application Insights.   
 
-1. Selecione **criar um recurso** > **ferramentas para desenvolvedores** > **Application insights**.
+1. Selecione **Criar um recurso** > **Ferramentas** de Desenvolvimento > **Insights de aplicação**.
 
    ![Adicionar um Recurso do Application Insights](./media/opencensus-Go/0001-create-resource.png)
 
  > [!NOTE]
-   >Se esta for a primeira vez que você cria um recurso de Application Insights, você pode aprender mais visitando o artigo [criar um recurso de Application insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
+   >Se for a primeira vez que cria um recurso de Insights de Aplicação, pode aprender mais visitando o artigo [Create a Application Insights Resource.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)
 
    É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
@@ -51,13 +47,13 @@ Primeiro, você precisa criar um recurso de Application Insights que irá gerar 
 
 2. Clique em **Criar**.
 
-## <a name="configure-local-forwarder"></a>Configurar encaminhador local
+## <a name="configure-local-forwarder"></a>Configure o avançado local
 
 1. Selecione **Descrição geral** > **Essentials** > Copie a **Chave de Instrumentação** da sua aplicação.
 
-   ![Captura de tela da chave de instrumentação](./media/opencensus-Go/0003-instrumentation-key.png)
+   ![Screenshot da chave de instrumentação](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. Edite seu arquivo de `LocalForwarder.config` e adicione sua chave de instrumentação. Se você seguiu as instruções no [pré-requisito](./opencensus-local-forwarder.md) , o arquivo está localizado em `C:\LF-WindowsServiceHost`
+2. Edite o seu ficheiro `LocalForwarder.config` e adicione a sua chave de instrumentação. Se seguiu as instruções no [pré-requisito,](./opencensus-local-forwarder.md) o ficheiro encontra-se em `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -74,18 +70,18 @@ Primeiro, você precisa criar um recurso de Application Insights que irá gerar 
     </LocalForwarderConfiguration>
     ```
 
-3. Reinicie o serviço de **encaminhador local** do aplicativo.
+3. Reinicie o serviço **Local Forwarder** da aplicação.
 
-## <a name="opencensus-go-packages"></a>Pacotes go do OpenCensus
+## <a name="opencensus-go-packages"></a>Pacotes OpenCensus Go
 
-1. Instale os pacotes abertos do censo para ir da linha de comando:
+1. Instale os pacotes Open Census para ir a partir da linha de comando:
 
     ```go
     go get -u go.opencensus.io
     go get -u contrib.go.opencensus.io/exporter/ocagent
     ```
 
-2. Adicione o código a seguir a um arquivo. go e, em seguida, compile e execute. (Este exemplo é derivado da orientação oficial do OpenCensus com código adicionado que facilita a integração com o encaminhador local)
+2. Adicione o seguinte código a um ficheiro .go e, em seguida, construa e corra. (Este exemplo deriva da orientação oficial do OpenCensus com código adicional que facilita a integração com o avançado local)
 
      ```go
         // Copyright 2018, OpenCensus Authors
@@ -184,45 +180,45 @@ Primeiro, você precisa criar um recurso de Application Insights que irá gerar 
         }
      ```
 
-3. Quando o aplicativo go simples estiver em execução, navegue até `http://localhost:50030`. Cada atualização do navegador irá gerar o texto "Olá, mundo" acompanhado pelos dados de span correspondentes que são selecionados pelo encaminhador local.
+3. Uma vez que a aplicação simples go está a correr navegapara `http://localhost:50030`. Cada atualização do navegador gerará o texto "hello world" acompanhado pelos dados de span correspondentes que são recolhidos pelo avançado local.
 
-4. Para confirmar se o **encaminhador local** está selecionando os rastreamentos, verifique o arquivo de `LocalForwarder.config`. Se você seguiu as etapas no [pré-requisito](https://docs.microsoft.com/azure/application-insights/local-forwarder), elas estarão localizadas em `C:\LF-WindowsServiceHost`.
+4. Para confirmar que o **avançado local** está a recolher os vestígios, verifique o ficheiro `LocalForwarder.config`. Se seguir os passos no [pré-requisito,](https://docs.microsoft.com/azure/application-insights/local-forwarder)ficará localizado em `C:\LF-WindowsServiceHost`.
 
-    Na imagem abaixo do arquivo de log, você pode ver que, antes de executar o segundo script em que adicionamos um exportador `OpenCensus input BatchesReceived` era 0. Depois de começar a executar o script atualizado `BatchesReceived` ser incrementado igual ao número de valores que inserimos:
+    Na imagem abaixo do ficheiro de registo, pode ver que antes de executar o segundo script onde adicionámos um exportador `OpenCensus input BatchesReceived` era 0. Assim que começamos a executar o script atualizado `BatchesReceived` incrementado igual ao número de valores que introduzimos:
     
     ![Formulário de recurso novo do App Insights](./media/opencensus-go/0004-batches-received.png)
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Iniciar a monitorização no portal do Azure
 
-1. Agora você pode reabrir a página de **visão geral** Application Insights no portal do Azure, para exibir detalhes sobre o aplicativo em execução no momento. Selecione **fluxo de métrica ao vivo**.
+1. Agora pode reabrir a página de **visão geral** da Aplicação Insights no portal Azure, para ver detalhes sobre a sua aplicação em execução. Selecione **Live Metric Stream**.
 
-   ![Captura de tela do painel Visão geral com o Live Metric Stream selecionado na caixa vermelha](./media/opencensus-go/0005-overview-live-metrics-stream.png)
+   ![Screenshot do painel de visão geral com fluxo métrico ao vivo selecionado na caixa vermelha](./media/opencensus-go/0005-overview-live-metrics-stream.png)
 
-2. Se você executar o aplicativo de segunda vez novamente e iniciar a atualização do navegador para `http://localhost:50030`, verá os dados de rastreamento ao vivo conforme eles chegam em Application Insights do serviço de encaminhador local.
+2. Se executar a segunda aplicação Go novamente e começar a refrescar o navegador para `http://localhost:50030`, verá dados de rastreio ao vivo à medida que chega à Aplicação Insights do serviço de avançados local.
 
-   ![Captura de tela do Live Metric Stream com dados de desempenho exibidos](./media/opencensus-go/0006-stream.png)
+   ![Screenshot do fluxo métrico ao vivo com dados de desempenho apresentados](./media/opencensus-go/0006-stream.png)
 
-3. Navegue de volta para a página **visão geral** e selecione **mapa do aplicativo** para obter um layout visual das relações de dependência e o tempo de chamada entre os componentes do aplicativo.
+3. Navegue de volta para a página **de visão geral** e selecione O Mapa de **Aplicações** para um layout visual das relações de dependência e tempo de chamada entre os seus componentes de aplicação.
 
-    ![Captura de tela do mapa do aplicativo básico](./media/opencensus-go/0007-application-map.png)
+    ![Screenshot do mapa básico de aplicações](./media/opencensus-go/0007-application-map.png)
 
-    Como estamos rastreando apenas uma chamada de método, nosso mapa de aplicativos não é tão interessante. Mas o mapa do aplicativo pode ser dimensionado para visualizar muito mais aplicativos distribuídos:
+    Como estávamos apenas a localizar uma chamada de método, o nosso mapa de aplicações não é tão interessante. Mas o mapa de aplicações pode escalar para visualizar aplicações muito mais distribuídas:
 
    ![Mapeamento de Aplicações](media/opencensus-go/application-map.png)
 
-4. Selecione **investigar desempenho** para executar análise de desempenho detalhada e determinar a causa raiz do desempenho lento.
+4. Selecione **Investigar performance** para efetuar uma análise detalhada de desempenho e determinar a causa principal de um desempenho lento.
 
-    ![Captura de tela do painel de desempenho](./media/opencensus-go/0008-performance.png)
+    ![Screenshot do painel de desempenho](./media/opencensus-go/0008-performance.png)
 
-5. Selecionar **exemplos** e clicar em qualquer um dos exemplos que aparecem no painel à direita iniciará a experiência de detalhes da transação de ponta a ponta. Embora nosso aplicativo de exemplo apenas mostre-nos um único evento, um aplicativo mais complexo permitiria que você explorasse a transação de ponta a ponta até o nível da pilha de chamadas de um evento individual.
+5. Selecionando **amostras** e clicando em qualquer uma das amostras que aparecem no painel da direita lançará a experiência de detalhes de transação de ponta a ponta. Enquanto a nossa aplicação de amostras apenas nos mostrará um único evento, uma aplicação mais complexa permitir-lhe-ia explorar a transação de ponta a ponta até ao nível da pilha de chamadas de um evento individual.
 
-     ![Captura de tela da interface de transação de ponta a ponta](./media/opencensus-go/0009-end-to-end-transaction.png)
+     ![Screenshot da interface de transação de ponta a ponta](./media/opencensus-go/0009-end-to-end-transaction.png)
 
-## <a name="opencensus-trace-for-go"></a>Rastreamento de OpenCensus para go
+## <a name="opencensus-trace-for-go"></a>Traço openCensus para Go
 
-Abordamos apenas os conceitos básicos da integração do OpenCensus para o Go com o encaminhador local e Application Insights. As [diretrizes de uso oficial do OpenCensus go](https://godoc.org/go.opencensus.io) abrangem tópicos mais avançados.
+Apenas cobrimos o básico de integrar o OpenCensus para Ir com o avançado local e insights de aplicação. A orientação oficial de utilização do [OpenCensus Go](https://godoc.org/go.opencensus.io) abrange temas mais avançados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
-* [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)
+* [Mapa de aplicações](./../../azure-monitor/app/app-map.md)
+* [Monitorização do desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

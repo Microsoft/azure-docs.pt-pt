@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
-ms.openlocfilehash: 7927866adb5efbdc8eb55b9b5209603a3658ae2c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e38ac438a398ced31b2918768efeb453649de62e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495582"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780269"
 ---
 |Nome |Descrição |Efeitos(s) |Versão |Origem |
-|---|---|---|---|
+|---|---|---|---|---|
 |[Uma política personalizada de IPsec/IKE deve ser aplicada a todas as ligações de gateway da rede virtual Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Esta política garante que todas as ligações de gateway de rede virtual Azure utilizem uma política personalizada de Segurança do Protocolo de Internet (Ipsec)/Internet Key Exchange (IKE). Algoritmos suportados e pontos fortes - https://aka.ms/AA62kb0 |Auditoria, Deficientes |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json)
 |[O Serviço de Aplicações deve utilizar um ponto final do serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Esta política audita qualquer Serviço de Aplicações não configurado para utilizar um ponto final do serviço de rede virtual. |AuditoriaIfNotExists, Deficiente |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json)
 |[Gateways Azure VPN não devem usar SKU 'básico'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345b6c3-24bd-4c93-9bbb-7e5e49a17b78) |Esta política garante que os gateways VPN não utilizem SKU "básico". |Auditoria, Deficientes |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_BasicSKU_Audit.json)

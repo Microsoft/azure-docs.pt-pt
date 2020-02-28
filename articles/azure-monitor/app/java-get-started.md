@@ -1,18 +1,16 @@
 ---
 title: 'Quickstart: Análise de aplicações web java com Insights de Aplicação Azure'
 description: 'Monitorização do Desempenho de Aplicações para aplicações Web Java com o Application Insights. '
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: abc16f8e1fdc6b81634b926eeb287e5d03efdc40
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 484d4e8df8a8fdceed62a65858126a16d028121e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963687"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670088"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Quickstart: Comece com Application Insights num projeto web da Java
 
@@ -38,7 +36,7 @@ Application Insights é um serviço de análise extensível para desenvolvedores
 
 *Escolha o seu tipo de projeto.*
 
-# <a name="maventabmaven"></a>[Maven](#tab/maven)
+# <a name="maven"></a>[Maven](#tab/maven)
 
 Se o seu projeto já estiver configurado para utilizar a Maven para construir, misture o seguinte código com o ficheiro *pom.xml.*
 
@@ -56,7 +54,7 @@ Em seguida, atualize as dependências do projeto para obter os binários transfe
     </dependencies>
 ```
 
-# <a name="gradletabgradle"></a>[Gradle](#tab/gradle)
+# <a name="gradle"></a>[Gradle](#tab/gradle)
 
 Se o seu projeto já estiver configurado para utilizar o Gradle para construir, misture o seguinte código para o seu ficheiro *build.gradle.*
 
@@ -70,7 +68,7 @@ Em seguida, atualize as dependências do projeto para obter os binários transfe
     }
 ```
 
-# <a name="other-typestabother"></a>[Outros tipos](#tab/other)
+# <a name="other-types"></a>[Outros tipos](#tab/other)
 
 Transfira a [versão mais recente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) e copie os ficheiros necessários para o seu projeto, o que substitui as versões anteriores.
 

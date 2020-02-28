@@ -1,18 +1,14 @@
 ---
 title: Monitorização de utilização e desempenho de aplicações de ambiente de trabalho do Windows
 description: Analise a utilização e o desempenho da sua aplicação de ambiente de trabalho do Windows com o Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/29/2019
-ms.openlocfilehash: a9dfc32a0f33db5639d5f74667a90a248dc358a1
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052463"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670836"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorização de utilização e desempenho de aplicações de Ambiente de Trabalho do Windows Clássico
 
@@ -24,7 +20,7 @@ As aplicações alojadas no local, no Azure e noutras clouds podem tirar todo o 
 3. No Visual Studio, edite os pacotes NuGet do seu projeto da aplicação e adicione Microsoft.ApplicationInsights.WindowsServer. (Ou escolha Microsoft.ApplicationInsights se apenas pretender a API bare, sem os módulos de coleção de telemetria standard.)
 4. Defina a chave de instrumentação no seu código:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *a sua chave* `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *a sua `";` chave*
    
     ou no Applicationinsights (se tiver instalado um dos pacotes de telemetria standard):
    
@@ -32,7 +28,7 @@ As aplicações alojadas no local, no Azure e noutras clouds podem tirar todo o 
    
     Se utilizar o ApplicationInsights.config, certifique-se de que as propriedades no Explorador de Soluções estão definidas para **Ação de Compilação = Conteúdo, Copiar para o Diretório de Saída = Copiar**.
 5. [Utilize a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar telemetria.
-6. Execute seu aplicativo e veja a telemetria no recurso que você criou na portal do Azure.
+6. Execute a sua aplicação e veja a telemetria no recurso que criou no portal Azure.
 
 ## <a name="telemetry"></a>Código de exemplo
 ```csharp
@@ -72,11 +68,11 @@ using Microsoft.ApplicationInsights;
 
 ```
 
-## <a name="override-storage-of-computer-name"></a>Substituir o armazenamento do nome do computador
+## <a name="override-storage-of-computer-name"></a>Anular o armazenamento do nome do computador
 
-Por padrão, esse SDK coletará e armazenará o nome do computador do sistema que emite telemetria. Para substituir a coleção, você precisa usar um inicializador de telemetria:
+Por predefinição, este SDK recolherá e armazenará o nome do computador do sistema que emite telemetria. Para anular a recolha, precisa de usar um Initializer de telemetria:
 
-**Escreva personalizada telemetryinitializer personalizado como abaixo.**
+**Escreva TelemettryInitializer personalizado como abaixo.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -97,7 +93,7 @@ namespace CustomInitializer.Telemetry
     }
 }
 ```
-Crie uma instância do inicializador no método `Program.cs` `Main()` abaixo de definir a chave de instrumentação:
+Instantie o inicializador no método `Program.cs` `Main()` abaixo, definindo a chave de instrumentação:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

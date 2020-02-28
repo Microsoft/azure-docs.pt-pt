@@ -1,90 +1,88 @@
 ---
-title: Criando alertas de métrica para logs no Azure Monitor
-description: Tutorial sobre a criação de alertas de métrica quase em tempo real em dados populares do log Analytics.
+title: Criação de alertas métricos para registos no Monitor Azure
+description: Tutorial sobre a criação de alertas métricos em tempo quase real sobre dados populares de análise de registo.
 author: yanivlavi
-services: monitoring
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 358312bcbb23aee5a06eaa39898ff4e632cd8b4b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c50c6f91daef35906dec9c0648dfe38fb2f1de85
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977605"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662237"
 ---
-# <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas de métrica para logs no Azure Monitor
+# <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas métricos para registos no Monitor Azure
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor dá suporte ao [tipo de alerta de métrica](../../azure-monitor/platform/alerts-metric-near-real-time.md) que tem benefícios em relação aos [alertas clássicos](../../azure-monitor/platform/alerts-classic-portal.md). As métricas estão disponíveis para [uma grande lista de serviços do Azure](../../azure-monitor/platform/metrics-supported.md). Este artigo explica o uso de um subconjunto (ou seja) para `Microsoft.OperationalInsights/workspaces`de recursos.
+O Azure Monitor suporta o tipo de [alerta métrico](../../azure-monitor/platform/alerts-metric-near-real-time.md) que tem benefícios sobre os [alertas clássicos.](../../azure-monitor/platform/alerts-classic-portal.md) As métricas estão disponíveis para [uma grande lista de serviços Azure.](../../azure-monitor/platform/metrics-supported.md) Este artigo explica o uso de um subconjunto (isto é) para recursos - `Microsoft.OperationalInsights/workspaces`.
 
-Você pode usar alertas de métrica em logs populares de Log Analytics extraídos como métricas como parte das métricas de logs, incluindo recursos no Azure ou localmente. As soluções de Log Analytics com suporte estão listadas abaixo:
+Pode utilizar alertas métricos em registos populares de Log Analytics extraídos como métricas como parte de Métricas de Registos, incluindo recursos em Azure ou no local. As soluções de Log Analytics suportadas estão listadas abaixo:
 
-- [Contadores de desempenho](../../azure-monitor/platform/data-sources-performance-counters.md) para computadores Windows & Linux
-- [Registros de pulsação para Integridade do Agente](../../azure-monitor/insights/solution-agenthealth.md)
-- [Atualizar](../../automation/automation-update-management.md) registros de gerenciamento
-- Logs de [dados de eventos](../../azure-monitor/platform/data-sources-windows-events.md)
+- [Contadores de desempenho](../../azure-monitor/platform/data-sources-performance-counters.md) para máquinas Windows & Linux
+- [Registos de batimentos cardíacos para agente de saúde](../../azure-monitor/insights/solution-agenthealth.md)
+- [Registos de gestão de atualizações](../../automation/automation-update-management.md)
+- Registos de dados do [evento](../../azure-monitor/platform/data-sources-windows-events.md)
 
-Há muitos benefícios para usar **alertas de métricas para logs** em [alertas de log](../../azure-monitor/platform/alerts-log.md) baseados em consulta no Azure; alguns deles estão listados abaixo:
+Existem muitos benefícios para a utilização **de Alertas Métricos para Registos** sobre alertas de [registo baseados](../../azure-monitor/platform/alerts-log.md) em consulta em Azure; alguns deles estão listados abaixo:
 
-- Os alertas de métrica oferecem capacidade de monitoramento quase em tempo real e alertas de métrica para logs bifurca dados da fonte de log para garantir o mesmo.
-- Os alertas de métricas são notificados apenas uma vez quando o alerta é disparado e uma vez quando o alerta é resolvido; em oposição aos alertas de log, que são sem estado e continuam sendo acionados em cada intervalo se a condição de alerta for atendida.
-- Os alertas de métrica para o log fornecem várias dimensões, permitindo a filtragem de valores específicos, como computadores, tipo de sistema operacional, etc. mais simples; sem a necessidade de consulta escrevendo na análise.
-
-> [!NOTE]
-> Métrica e/ou dimensão específica serão mostradas somente se os dados para ele existirem no período escolhido. Essas métricas estão disponíveis para clientes com espaços de trabalho do Azure Log Analytics.
-
-## <a name="metrics-and-dimensions-supported-for-logs"></a>Métricas e dimensões com suporte para logs
-
- Os alertas de métricas dão suporte a alertas para métricas que usam dimensões. Você pode usar dimensões para filtrar sua métrica para o nível certo. A lista completa de métricas com suporte para logs de [log Analytics espaços de trabalho](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) está listada; entre soluções com suporte.
+- Os Alertas Métricos oferecem capacidade de monitorização em tempo quase real e alertas métricos para os dados de garfos de logs de origem para garantir o mesmo.
+- Os Alertas Métricos são audais - apenas notificando uma vez quando o alerta é disparado e uma vez quando o alerta é resolvido; em oposição aos alertas de Registo, que são apátridas e continuam a disparar a cada intervalo se a condição de alerta for satisfeita.
+- Os alertas métricos para o Registo proporcionam múltiplas dimensões, permitindo a filtragem a valores específicos como Computadores, Tipo OS, etc. mais simples; sem a necessidade de escrever consulta em análise.
 
 > [!NOTE]
-> Para exibir as métricas com suporte para serem extraídas do espaço de trabalho Log Analytics por meio [de métricas de Azure monitor](../../azure-monitor/platform/metrics-charts.md); um alerta de métrica para o log deve ser criado para a métrica mencionada. As dimensões escolhidas no alerta de métrica para logs – só aparecerão para exploração por meio de métricas de Azure Monitor.
+> A métrica e/ou dimensão específicasó serão mostradas se existirem dados para o mesmo no período escolhido. Estas métricas estão disponíveis para clientes com espaços de trabalho Azure Log Analytics.
 
-## <a name="creating-metric-alert-for-log-analytics"></a>Criando alerta de métrica para Log Analytics
+## <a name="metrics-and-dimensions-supported-for-logs"></a>Métricas e dimensões suportadas para registos
 
-Os dados de métrica de logs populares são canalizados antes de serem processados em Log Analytics, em métricas de Azure Monitor. Isso permite que os usuários aproveitem os recursos da plataforma de métrica, bem como o alerta de métrica, incluindo a presença de alertas com frequência de até 1 minuto.
-Listados abaixo estão os meios de criar um alerta de métrica para logs.
-
-## <a name="prerequisites-for-metric-alert-for-logs"></a>Pré-requisitos para o alerta de métrica para logs
-
-Antes que a métrica dos logs coletados nos dados do Log Analytics funcione, o seguinte deve ser configurado e disponível:
-
-1. **Espaço de trabalho do Active log Analytics**: um espaço de trabalho válido e ativo do log Analytics deve estar presente. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
-2. **Agente está configurado para log Analytics espaço de trabalho**: o agente precisa ser configurado para VMs do Azure (e/ou) VMS locais para enviar dados para o espaço de trabalho log Analytics usado na etapa anterior. Para obter mais informações, consulte [visão geral do agente de log Analytics](../../azure-monitor/platform/agents-overview.md).
-3. As **soluções log Analytics com suporte estão instaladas**: a solução de log Analytics deve ser configurada e enviar dados para log Analytics soluções com suporte do espaço de trabalho são [contadores de desempenho para Windows & Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [registros de pulsação para integridade do agente](../../azure-monitor/insights/solution-agenthealth.md), [Gerenciamento de atualizações](../../automation/automation-update-management.md)e [dados de eventos](../../azure-monitor/platform/data-sources-windows-events.md).
-4. **Log Analytics soluções configuradas para enviar logs**: a solução log Analytics deve ter os logs/dados necessários correspondentes às [métricas com suporte para espaços de trabalho log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) habilitados. Por exemplo, para%, o contador de *memória disponível* deve ser configurado na solução de [contadores de desempenho](../../azure-monitor/platform/data-sources-performance-counters.md) primeiro.
-
-## <a name="configuring-metric-alert-for-logs"></a>Configurando o alerta de métrica para logs
-
- Os alertas de métrica podem ser criados e gerenciados usando o portal do Azure, modelos do Resource Manager, API REST, PowerShell e CLI do Azure. Como os alertas de métrica para logs, é uma variante de alertas de métrica-depois que os pré-requisitos são concluídos, o alerta de métrica para logs pode ser criado para o espaço de trabalho Log Analytics especificado. Todas as características e funcionalidades dos [alertas de métrica](../../azure-monitor/platform/alerts-metric-near-real-time.md) também serão aplicáveis a alertas de métricas para logs. incluindo o esquema de carga, os limites de cota aplicáveis e o preço cobrado.
-
-Para obter detalhes e exemplos passo a passo – consulte [criando e gerenciando alertas de métrica](https://aka.ms/createmetricalert). Especificamente, para alertas de métricas de logs-siga as instruções para gerenciar alertas de métrica e verifique o seguinte:
-
-- O destino para o alerta de métrica é um *espaço de trabalho log Analytics* válido
-- O sinal escolhido para o alerta de métrica para o *espaço de trabalho log Analytics* selecionado é do tipo **métrica**
-- Filtrar por condições ou recursos específicos usando filtros de dimensão; as métricas para logs são multidimensionais
-- Ao configurar a *lógica de sinal*, um único alerta pode ser criado para abranger vários valores de dimensão (como computador)
-- Se **não** estiver usando portal do Azure para criar um alerta de métrica para o *espaço de trabalho log Analytics*selecionado; em seguida, o usuário deve primeiro criar manualmente uma regra explícita para converter dados de log em uma métrica usando [regras de consulta Azure monitor agendadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
+ Alertas métricos suportam alertamento para métricas que usam dimensões. Pode utilizar dimensões para filtrar a sua métrica para o nível certo. A lista completa de métricas suportadas para Registos de espaços de [trabalho de Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) está listada; através de soluções apoiadas.
 
 > [!NOTE]
-> Ao criar um alerta de métrica para Log Analytics espaço de trabalho por meio de portal do Azure regra correspondente para converter dados de log em métrica por meio de [regras de consulta de Azure monitor,](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) é automaticamente criada em segundo plano, *sem a necessidade de intervenção ou ação do usuário*. Para o alerta de métrica para a criação de logs usando meios diferentes de portal do Azure, consulte [modelo de recurso para alertas de métricas para logs](#resource-template-for-metric-alerts-for-logs) na seção exemplo de como criar um log baseado em ScheduledQueryRule para regra de conversão de métrica antes da criação de alerta de medição. não haverá dados para o alerta de métrica nos logs criados.
+> Para ver métricas suportadas para ser extraído do espaço de trabalho Log Analytics via [Monitor Azure - Métricas;](../../azure-monitor/platform/metrics-charts.md) deve ser criado um alerta métrico para o log para a referida métrica. As dimensões escolhidas em Alerta Métrico para registos - só aparecerão para exploração via Monitor Azure - Métricas.
 
-## <a name="resource-template-for-metric-alerts-for-logs"></a>Modelo de recurso para alertas de métrica para logs
+## <a name="creating-metric-alert-for-log-analytics"></a>Criação de alerta métrico para Log Analytics
 
-Como mencionado anteriormente, o processo de criação de alertas de métricas de logs é dois pinos:
+Os dados métricos de registos populares são canalizados antes de ser processado no Log Analytics, no Monitor Azure - Métricas. Isto permite que os utilizadores aproveitem as capacidades da plataforma Métrica, bem como o alerta métrico - incluindo ter alertas com frequência tão baixa como 1 minuto.
+Abaixo estão os meios de elaboração de um alerta métrico para os registos.
 
-1. Criar uma regra para extrair métricas de logs com suporte usando a API do scheduledQueryRule
-2. Criar um alerta de métrica para a métrica extraída do log (em etapa 1) e Log Analytics espaço de trabalho como um recurso de destino
+## <a name="prerequisites-for-metric-alert-for-logs"></a>Pré-requisitos para alerta métrico para registos
 
-### <a name="metric-alerts-for-logs-with-static-threshold"></a>Alertas de métrica para logs com limite estático
+Antes de a Métrica de Registos recolhida nos dados do Log Analytics funcionar, devem ser configurados e disponíveis os seguintes dados:
 
-Para obter o mesmo, é possível usar o modelo de Azure Resource Manager de exemplo abaixo – em que a criação de um alerta de métrica de limite estático depende da criação bem-sucedida da regra para extrair métricas de logs via scheduledQueryRule.
+1. Espaço de **trabalho ative Log Analytics Workspace**: Deve estar presente um espaço de trabalho válido e ativo do Log Analytics. Para mais informações, consulte Criar um espaço de trabalho de [Log Analytics no portal Azure](../../azure-monitor/learn/quick-create-workspace.md).
+2. **O agente está configurado para log analytics workspace**: O agente precisa de ser configurado para VMs Azure (e/ou) vMs no local para enviar dados para o Log Analytics Workspace usado em etapas anteriores. Para mais informações, consulte [Log Analytics - Agent Overview](../../azure-monitor/platform/agents-overview.md).
+3. **As soluções de Log Analytics suportadas estão instaladas**: A solução Log Analytics deve ser configurada e enviar dados para o espaço de trabalho do Log Analytics - as soluções suportadas são contadores de [desempenho para Windows & Linux,](../../azure-monitor/platform/data-sources-performance-counters.md) [registos heartbeat para a Saúde do Agente,](../../azure-monitor/insights/solution-agenthealth.md) [gestão](../../automation/automation-update-management.md)de atualizações e dados do [Evento.](../../azure-monitor/platform/data-sources-windows-events.md)
+4. **Soluções de Log Analytics configuradas para enviar registos**: A solução Log Analytics deve ter os registos/dados [necessários correspondentes às métricas suportadas para espaços](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) de trabalho de Log Analytics ativados. Por exemplo, para o contador *de memória disponível %* deve ser configurado em primeiro lugar na solução de contadores de [desempenho.](../../azure-monitor/platform/data-sources-performance-counters.md)
+
+## <a name="configuring-metric-alert-for-logs"></a>Configuração de alerta métrico para registos
+
+ Os alertas métricos podem ser criados e geridos através do portal Azure, Modelos de Gestor de Recursos, Rest API, PowerShell e Azure CLI. Uma vez que os Alertas Métricos para Registos, é uma variante de alertas métricos - uma vez que os pré-requisitos são feitos, o alerta métrico para os registos pode ser criado para o espaço de trabalho especificado log Analytics. Todas as características e funcionalidades dos [alertas métricos](../../azure-monitor/platform/alerts-metric-near-real-time.md) serão aplicáveis também a alertas métricos para registos; incluindo esquema de carga útil, limites de quota aplicáveis e preço faturado.
+
+Para obter detalhes passo a passo e amostras - consulte [a criação e gestão de alertas métricos](https://aka.ms/createmetricalert). Especificamente, para Alertas Métricos para Registos - siga as instruções para gerir alertas métricos e certifique-se do seguinte:
+
+- O alvo para alerta métrico é um espaço de trabalho válido log *Analytics*
+- Sinal escolhido para alerta métrico para espaço de trabalho selecionado log *Analytics* é do tipo **Métrico**
+- Filtrar para condições específicas ou recurso utilizando filtros de dimensão; métricas para registos são multidimensionais
+- Ao configurar a Lógica do *Sinal,* pode ser criado um único alerta para abranger vários valores de dimensão (como computador)
+- Se **não** utilizar o portal Azure para criar um alerta métrico para o espaço de trabalho selecionado do *Log Analytics;* em seguida, o utilizador deve criar manualmente uma regra explícita para converter dados de registo numa métrica utilizando [o Monitor Azure - Regras de Consulta Agendadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
+
+> [!NOTE]
+> Ao criar um alerta métrico para o espaço de trabalho log Analytics via portal Azure - regra correspondente para converter dados de registo em métricavia [Monitor Azure - Regras](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) de consulta agendadas são automaticamente criadas em segundo plano, *sem necessidade de qualquer intervenção ou ação do utilizador*. Para alerta métrico para a criação de registos utilizando outros meios que não o portal Azure, consulte o [Modelo de Recurso para Alertas Métricos para a](#resource-template-for-metric-alerts-for-logs) secção de Registos na secção de amostras de criação de um registo baseado em ScheduledQueryRule para a regra de conversão métrica antes da criação de alerta métrico - caso contrário não haverá dados para o alerta métrico sobre os registos criados.
+
+## <a name="resource-template-for-metric-alerts-for-logs"></a>Modelo de recurso para alertas métricos para registos
+
+Como referido anteriormente, o processo de criação de alertas métricos a partir de registos é de dois empinados:
+
+1. Criar uma regra para extrair métricas de registos suportados utilizando a API agendada
+2. Criar um alerta métrico para métrica extraída do log (no passo1) e log Analytics espaço de trabalho como recurso-alvo
+
+### <a name="metric-alerts-for-logs-with-static-threshold"></a>Alertas métricos para registos com limiar estático
+
+Para conseguir o mesmo, pode-se utilizar a amostra Modelo de Gestor de Recursos Azure abaixo - onde a criação de um alerta métrico de limiar estático depende da criação bem-sucedida da regra para extrair métricas de registos através do ScheduledQueryRule.
 
 ```json
 {
@@ -301,7 +299,7 @@ Para obter o mesmo, é possível usar o modelo de Azure Resource Manager de exem
 }
 ```
 
-Digamos que o JSON acima seja salvo como metricfromLogsAlertStatic. JSON. em seguida, ele pode ser acoplado a um arquivo JSON de parâmetro para a criação baseada em modelo de recurso. Um arquivo JSON de parâmetro de exemplo é listado abaixo:
+Diga que o JSON acima é guardado como metricfromLogsAlertStatic.json - então pode ser associado com um ficheiro JSON parâmetro para criação baseada em modelo de recurso. Um ficheiro JSON do parâmetro de amostra está listado abaixo:
 
 ```json
 {
@@ -357,23 +355,23 @@ Digamos que o JSON acima seja salvo como metricfromLogsAlertStatic. JSON. em seg
 }
 ```
 
-Supondo que o arquivo de parâmetro acima seja salvo como metricfromLogsAlertStatic. Parameters. JSON; em seguida, é possível criar um alerta de métrica para logs usando o [modelo de recurso para criação em portal do Azure](../../azure-resource-manager/templates/deploy-portal.md).
+Assumindo que o ficheiro de parâmetro acima é guardado como metricfromLogsAlertStatic.parameters.json; em seguida, pode-se criar um alerta métrico para os registos usando o Modelo de [Recurso para a criação no portal Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
-Como alternativa, também é possível usar o comando do Azure PowerShell abaixo:
+Alternativamente, pode-se utilizar o comando Azure Powershell abaixo também:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
 ```
 
-Ou use o modelo de recurso de implantação usando CLI do Azure:
+Ou utilize o modelo de recurso de implantação utilizando o AZURE CLI:
 
 ```CLI
 az group deployment create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
 ```
 
-### <a name="metric-alerts-for-logs-with-dynamic-thresholds"></a>Alertas de métrica para logs com limites dinâmicos
+### <a name="metric-alerts-for-logs-with-dynamic-thresholds"></a>Alertas métricos para logs com limiares dinâmicos
 
-Para obter o mesmo, é possível usar o modelo de Azure Resource Manager de exemplo abaixo – em que a criação de um alerta de métrica de limites dinâmicos depende da criação bem-sucedida da regra para extrair métricas de logs via scheduledQueryRule.
+Para conseguir o mesmo, pode-se utilizar a amostra Modelo de Gestor de Recursos Azure abaixo - onde a criação de um alerta métrico Dynamic Thresholds depende da criação bem-sucedida da regra de extração de métricas de registos através do scheduledQueryRule.
 
 ```json
 {
@@ -611,7 +609,7 @@ Para obter o mesmo, é possível usar o modelo de Azure Resource Manager de exem
 }
 ```
 
-Digamos que o JSON acima seja salvo como metricfromLogsAlertDynamic. JSON. em seguida, ele pode ser acoplado a um arquivo JSON de parâmetro para a criação baseada em modelo de recurso. Um arquivo JSON de parâmetro de exemplo é listado abaixo:
+Diga que o JSON acima é guardado como metricfromLogsAlertDynamic.json - então pode ser associado com um ficheiro JSON parâmetro para criação baseada em modelo de recurso. Um ficheiro JSON do parâmetro de amostra está listado abaixo:
 
 ```json
 {
@@ -673,15 +671,15 @@ Digamos que o JSON acima seja salvo como metricfromLogsAlertDynamic. JSON. em se
 }
 ```
 
-Supondo que o arquivo de parâmetro acima seja salvo como metricfromLogsAlertDynamic. Parameters. JSON; em seguida, é possível criar um alerta de métrica para logs usando o [modelo de recurso para criação em portal do Azure](../../azure-resource-manager/templates/deploy-portal.md).
+Assumindo que o ficheiro de parâmetro acima é guardado como metricfromLogsAlertDynamic.parameters.json; em seguida, pode-se criar um alerta métrico para os registos usando o Modelo de [Recurso para a criação no portal Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
-Como alternativa, também é possível usar o comando do Azure PowerShell abaixo:
+Alternativamente, pode-se utilizar o comando Azure Powershell abaixo também:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
 ```
 
-Ou use o modelo de recurso de implantação usando CLI do Azure:
+Ou utilize o modelo de recurso de implantação utilizando o AZURE CLI:
 
 ```CLI
 az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
@@ -689,6 +687,6 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [alertas de métrica](alerts-metric.md).
-- Saiba mais sobre os [alertas de log no Azure](../../azure-monitor/platform/alerts-unified-log.md).
-- Saiba mais sobre [alertas no Azure](alerts-overview.md).
+- Saiba mais sobre os [alertas métricos.](alerts-metric.md)
+- Saiba mais sobre alertas de [log em Azure.](../../azure-monitor/platform/alerts-unified-log.md)
+- Saiba mais sobre [alertas em Azure.](alerts-overview.md)

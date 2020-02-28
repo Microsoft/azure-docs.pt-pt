@@ -1,19 +1,17 @@
 ---
 title: Cordas de ligação em Insights de Aplicação Azure  Microsoft Docs
 description: Como utilizar cordas de ligação.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8febe1fd749842a6db0cd1c9991f4002eb7cf2ad
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: ad56f1f15936bc3f3f1ac75396352206f68e7a61
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190101"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671482"
 ---
 # <a name="connection-strings"></a>Cadeias de ligação
 

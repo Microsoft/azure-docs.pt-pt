@@ -1,19 +1,17 @@
 ---
 title: Monitor Python aplicações com Monitor Azure (pré-visualização) / Microsoft Docs
 description: Fornece instruções para ligar openCensus Python com monitor Azure
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b9d2bda1d3f01d2bf4bb152c0f62ade87bb61b4c
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7d27256f64e09a4d4ba3dbf1544eaec4715f6d88
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368279"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669918"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar o Monitor Azure para a sua aplicação Python (pré-visualização)
 
@@ -26,7 +24,7 @@ O Azure Monitor suporta rastreios distribuídos, recolha métrica e registo de a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Criar um recurso Deinsights de Aplicação no Monitor Azure
 

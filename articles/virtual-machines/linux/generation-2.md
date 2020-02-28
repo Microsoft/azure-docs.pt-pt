@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 70b13b16e6aca6b0bdb0858a32a219defef6cca3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: dce01cb8ed6043193878551207eeca3d573f9d4d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162043"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672485"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Apoio à geração 2 VMs em Azure
 
@@ -58,8 +58,9 @@ Os VMs da Geração 2 suportam as seguintes imagens do Marketplace:
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
-* RHEL 8.0, 7.6, 7.5, 7.4, 7.0
-* Cent OS 8.0
+* RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
+* Cent OS 8.0, 7.7, 7.6, 7.5, 7.4
+* Oracle Linux 7.7, 7.7-CI
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>No local vs. Azure geração 2 VMs
 

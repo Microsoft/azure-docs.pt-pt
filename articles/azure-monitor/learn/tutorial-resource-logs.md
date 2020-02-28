@@ -1,100 +1,99 @@
 ---
-title: Coletar logs de recursos de um recurso do Azure e analisá-los com Azure Monitor
-description: Tutorial para definir as configurações de diagnóstico para coletar logs de recursos de um recurso do Azure para um Log Analytics espaço de trabalho onde eles podem ser analisados com uma consulta de log.
-ms.service: azure-monitor
+title: Recolher registos de recursos de um Recurso Azure e analisar com o Monitor Azure
+description: Tutorial para configurar configurações de diagnóstico para recolher registos de recursos de um recurso Azure para um espaço de trabalho log Analytics onde podem ser analisados com uma consulta de registo.
 ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 90b2a9bc9e3e8aa6297f02a46163717a2bf58a22
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9f88a69e8d24cfa8654ac2bea3344c9adf81c16a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533560"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670411"
 ---
-# <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: coletar e analisar logs de recursos de um recurso do Azure
+# <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Recolher e analisar registos de recursos de um recurso Azure
 
-Os logs de recursos fornecem informações sobre a operação detalhada de um recurso do Azure e são úteis para monitorar sua integridade e disponibilidade. Os recursos do Azure geram logs de recursos automaticamente, mas você deve configurar onde eles devem ser coletados. Este tutorial orienta você pelo processo de criação de uma configuração de diagnóstico para coletar logs de recursos para um recurso em sua assinatura do Azure e analisá-los com uma consulta de log.
+Os registos de recursos fornecem informações sobre o funcionamento detalhado de um recurso Azure e são úteis para monitorizar a sua saúde e disponibilidade. Os recursos azure geram registos de recursos automaticamente, mas é preciso configurar onde devem ser recolhidos. Este tutorial leva-o através do processo de criação de uma definição de diagnóstico para recolher registos de recursos para um recurso na sua subscrição Azure e analisá-lo com uma consulta de registo.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um espaço de trabalho Log Analytics no Azure Monitor
-> * Criar uma configuração de diagnóstico para coletar logs de recursos 
-> * Criar uma consulta de log simples para analisar os logs
+> * Criar um espaço de trabalho de Log Analytics no Monitor Azure
+> * Criar uma definição de diagnóstico para recolher registos de recursos 
+> * Criar uma simples consulta de log para analisar registos
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisa de um recurso do Azure para monitorar. Você pode usar qualquer recurso em sua assinatura do Azure que dê suporte às configurações de diagnóstico. Para determinar se um recurso dá suporte a configurações de diagnóstico, acesse seu menu na portal do Azure e verifique se há uma opção de **configurações de diagnóstico** na seção **monitoramento** do menu.
+Para completar este tutorial é necessário um recurso Azure para monitorizar. Pode utilizar qualquer recurso na sua subscrição Azure que suporte as definições de diagnóstico. Para determinar se um recurso suporta configurações de diagnóstico, vá ao seu menu no portal Azure e verifique se existe uma opção de **definições** de Diagnóstico na secção **de Monitorização** do menu.
 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 
-## <a name="create-a-workspace"></a>Criar áreas de trabalho
-Um espaço de trabalho Log Analytics no Azure Monitor coleta e indexa dados de log de uma variedade de fontes e permite uma análise avançada usando uma linguagem de consulta eficiente. O espaço de trabalho do Log Analytics precisa existir antes de criar uma configuração de diagnóstico para enviar dados para ela. Você pode usar um espaço de trabalho existente em sua assinatura do Azure ou criar um com o procedimento a seguir. 
+## <a name="create-a-workspace"></a>Criar uma área de trabalho
+Um espaço de trabalho de Log Analytics no Azure Monitor recolhe e indexa dados de registo de várias fontes e permite uma análise avançada usando uma linguagem de consulta poderosa. O espaço de trabalho log Analytics precisa de existir antes de criar uma definição de diagnóstico para enviar dados para o mesmo. Pode utilizar um espaço de trabalho existente na sua subscrição Azure ou criar um com o seguinte procedimento. 
 
 > [!NOTE]
-> Embora você possa trabalhar com dados em espaços de trabalho do Log Analytics no menu **Azure monitor** , crie e gerencie espaços de trabalho no menu **log Analytics espaços de trabalho** .
+> Enquanto pode trabalhar com dados em espaços de trabalho do Log Analytics no menu **Do Monitor Azure,** cria e gere espaços de trabalho no menu de espaços de **trabalho Log Analytics.**
 
-1. Em **todos os serviços**, selecione **log Analytics espaços de trabalho**.
-2. Clique em **Adicionar** na parte superior da tela e forneça os seguintes detalhes para o espaço de trabalho:
-   - **Espaço de trabalho log Analytics**: nome do novo espaço de trabalho. Esse nome deve ser globalmente exclusivo em todas as assinaturas de Azure Monitor.
-   - **Assinatura**: selecione a assinatura para armazenar o espaço de trabalho. Isso não precisa ser a mesma assinatura que o recurso que está sendo monitorado.
-   - **Grupo de recursos**: selecione um grupo de recursos existente ou clique em **criar novo** para criar um novo. Isso não precisa ser o mesmo grupo de recursos que o recurso que está sendo monitorado.
-   - **Local**: selecione uma região do Azure ou crie uma nova. Isso não precisa ser o mesmo local que o recurso que está sendo monitorado.
-   - **Tipo de preço**: selecione *gratuito* , que manterá 7 dias de dados. Você pode alterar esse tipo de preço mais tarde. Clique no link **log Analytics preços** para saber mais sobre diferentes tipos de preço.
+1. De **todos os serviços,** selecione espaços de **trabalho Log Analytics**.
+2. Clique em **Adicionar** na parte superior do ecrã e fornecer os seguintes detalhes para o espaço de trabalho:
+   - **Log Analytics espaço de trabalho**: Nome para o novo espaço de trabalho. Este nome deve ser globalmente único em todas as subscrições do Azure Monitor.
+   - **Subscrição**: Selecione a subscrição para armazenar o espaço de trabalho. Esta não é necessária a mesma subscrição que o recurso que está a ser monitorizado.
+   - **Grupo de Recursos**: Selecione um grupo de recursos existente ou clique **em Criar novo** para criar um novo. Este não precisa de ser o mesmo grupo de recursos que o recurso que está a ser monitorizado.
+   - **Localização**: Selecione uma região Azure ou crie uma nova. Este não precisa de ser o mesmo local que o recurso que está a ser monitorizado.
+   - **Nível de preços**: Selecione *Free* que irá reter 7 dias de dados. Pode alterar este nível de preços mais tarde. Clique no link de **preços log Analytics** para saber mais sobre diferentes níveis de preços.
 
     ![Nova área de trabalho](media/tutorial-resource-logs/new-workspace.png)
 
 3. Clique em **OK** para criar o espaço de trabalho.
 
-## <a name="create-a-diagnostic-setting"></a>Criar uma configuração de diagnóstico
-[As configurações de diagnóstico](../platform/diagnostic-settings.md) definem onde os logs de recursos devem ser enviados para um recurso específico. Uma única configuração de diagnóstico pode ter vários [destinos](../platform/diagnostic-settings.md#destinations), mas usaremos apenas um espaço de trabalho log Analytics neste tutorial.
+## <a name="create-a-diagnostic-setting"></a>Criar uma definição de diagnóstico
+[As definições de diagnóstico](../platform/diagnostic-settings.md) definem onde devem ser enviados registos de recursos para um determinado recurso. Uma única definição de diagnóstico pode ter [vários destinos,](../platform/diagnostic-settings.md#destinations)mas só usaremos um espaço de trabalho log Analytics neste tutorial.
 
-1. Na seção **monitoramento** do menu do recurso, selecione configurações de **diagnóstico**.
-2. Você deve ter uma mensagem "nenhuma configuração de diagnóstico definida". Clique em **Adicionar configuração de diagnóstico**.
+1. Na secção **de Monitorização** do menu do seu recurso, selecione **definições**de diagnóstico .
+2. Deve ter uma mensagem "Sem definições de diagnóstico definidas". Clique em **adicionar definição de diagnóstico**.
 
     ![Definições de diagnóstico](media/tutorial-resource-logs/diagnostic-settings.png)
 
-3. Cada configuração de diagnóstico tem três partes básicas:
+3. Cada definição de diagnóstico tem três partes básicas:
  
-   - **Nome**: isso não tem nenhum efeito significativo e deve ser simplesmente descritivo para você.
-   - **Destinos**: um ou mais destinos para enviar os logs. Todos os serviços do Azure compartilham o mesmo conjunto de três destinos possíveis. Cada configuração de diagnóstico pode definir um ou mais destinos, mas não mais de um destino de um tipo específico. 
-   - **Categorias**: categorias de logs para enviar a cada um dos destinos. O conjunto de categorias irá variar para cada serviço do Azure.
+   - **Nome**: Isto não tem efeito significativo e deve simplesmente ser descritivo para si.
+   - **Destinos**: Um ou mais destinos para enviar os registos. Todos os serviços da Azure partilham o mesmo conjunto de três destinos possíveis. Cada definição de diagnóstico pode definir um ou mais destinos, mas não mais do que um destino de um determinado tipo. 
+   - **Categorias**: Categorias de registos para enviar para cada um dos destinos. O conjunto de categorias variará para cada serviço Azure.
 
-4. Selecione **Enviar para log Analytics espaço de trabalho** e, em seguida, selecione o espaço de trabalho que você criou.
-5. Selecione as categorias que você deseja coletar. Consulte a documentação de cada serviço para obter uma definição de suas categorias disponíveis.
+4. Selecione **Enviar para Log Analytics espaço** de trabalho e, em seguida, selecione o espaço de trabalho que criou.
+5. Selecione as categorias que pretende recolher. Consulte a documentação para cada serviço para obter uma definição das suas categorias disponíveis.
 
-    ![Configuração de diagnóstico](media/tutorial-resource-logs/diagnostic-setting.png)
+    ![Definição de diagnóstico](media/tutorial-resource-logs/diagnostic-setting.png)
 
-6. Clique em **salvar** para salvar as configurações de diagnóstico.
+6. Clique em **Guardar** para guardar as definições de diagnóstico.
 
     
  
- ## <a name="use-a-log-query-to-retrieve-logs"></a>Usar uma consulta de log para recuperar logs
-Os dados são recuperados de um espaço de trabalho Log Analytics usando uma consulta de log escrita na linguagem de consulta Kusto (KQL). As informações e soluções no Azure Monitor fornecerão consultas de log para recuperar dados de um serviço específico, mas você pode trabalhar diretamente com consultas de log e seus resultados na portal do Azure com Log Analytics. 
+ ## <a name="use-a-log-query-to-retrieve-logs"></a>Use uma consulta de registo para recuperar registos
+Os dados são recuperados a partir de um espaço de trabalho de Log Analytics usando uma consulta de log escrita em Kusto Consulta Language (KQL). Insights e soluções no Azure Monitor fornecerão consultas de registo para recuperar dados para um determinado serviço, mas pode trabalhar diretamente com consultas de registo e seus resultados no portal Azure com Log Analytics. 
 
-1. Na seção **monitoramento** do menu do recurso, selecione **logs**.
-2. Log Analytics é aberto com uma janela de consulta vazia com o escopo definido para seu recurso. Todas as consultas incluirão somente os registros desse recurso.
+1. Na secção **de Monitorização** do menu do seu recurso, selecione **Registos**.
+2. O Log Analytics abre com uma janela de consulta vazia com o âmbito definido para o seu recurso. Quaisquer consultas incluirão apenas registos desse recurso.
 
     > [!NOTE]
-    > Se você tiver aberto os logs no menu Azure Monitor, o escopo será definido como o espaço de trabalho Log Analytics. Nesse caso, todas as consultas incluirão todos os registros no espaço de trabalho.
+    > Se abrisse os Registos do menu Do Monitor Azure, o âmbito seria definido para o espaço de trabalho do Log Analytics. Neste caso, quaisquer consultas incluirão todos os registos no espaço de trabalho.
    
     ![Registos](media/tutorial-resource-logs/logs.png)
 
-4. O serviço mostrado no exemplo grava logs de recursos na tabela **AzureDiagnostics** , mas outros serviços podem gravar em outras tabelas. Consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](../platform/diagnostic-logs-schema.md) para tabelas usadas por diferentes serviços do Azure.
+4. O serviço mostrado no exemplo escreve registos de recursos para a tabela **AzureDiagnostics,** mas outros serviços podem escrever para outras tabelas. Consulte [serviços suportados, schemas e categorias para Registos](../platform/diagnostic-logs-schema.md) de Recursos Azure para tabelas utilizadas por diferentes serviços Azure.
 
     > [!NOTE]
-    > Vários serviços gravam logs de recursos na tabela AzureDiagnostics. Se você iniciar Log Analytics no menu Azure Monitor, precisará adicionar uma instrução `where` com a coluna `ResourceProvider` para especificar seu serviço específico. Quando você inicia Log Analytics no menu de um recurso, o escopo é definido como somente registros desse recurso, de modo que essa coluna não é necessária. Consulte a documentação do serviço para obter exemplos de consultas.
+    > Vários serviços escrevem registos de recursos para a tabela AzureDiagnostics. Se iniciar o Log Analytics a partir do menu Do Monitor Azure, terá de adicionar uma declaração `where` com a coluna `ResourceProvider` para especificar o seu serviço específico. Quando iniciar o Log Analytics a partir do menu de um recurso, então o âmbito é definido apenas para registos a partir deste recurso para que esta coluna não seja necessária. Consulte a documentação do serviço para consultas de amostra.
 
 
-5. Digite uma consulta e clique em **executar** para inspecionar os resultados. 
-6. Consulte Introdução [às consultas de log no Azure monitor](../log-query/get-started-queries.md) para obter um tutorial sobre como escrever consultas de log.
+5. Digite uma consulta e clique **em Executar** para inspecionar os resultados. 
+6. Consulte Começar com consultas de [log no Monitor Azure](../log-query/get-started-queries.md) para um tutorial sobre escrever consultas de registo.
 
     ![Consulta de log](media/tutorial-resource-logs/log-query-1.png)
 
@@ -102,7 +101,7 @@ Os dados são recuperados de um espaço de trabalho Log Analytics usando uma con
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que você aprendeu como coletar logs de recursos em um espaço de trabalho Log Analytics, conclua um tutorial sobre como escrever consultas de log para analisar esses dados.
+Agora que aprendeu a recolher registos de recursos num espaço de trabalho do Log Analytics, complete um tutorial sobre escrever consultas de registo para analisar estes dados.
 
 > [!div class="nextstepaction"]
-> [Introdução às consultas de log no Azure Monitor](../log-query/get-started-queries.md)
+> [Começar com consultas de log no Monitor Azure](../log-query/get-started-queries.md)

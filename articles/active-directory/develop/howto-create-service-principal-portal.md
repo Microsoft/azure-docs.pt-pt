@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591579"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656399"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação e diretor de serviço seletiva azure que possa aceder a recursos
 
@@ -85,7 +85,7 @@ As aplicações Daemon podem usar duas formas de credenciais para autenticar com
 
 ### <a name="upload-a-certificate"></a>Faça upload de um certificado
 
-Pode usar um certificado existente se tiver um.  Opcionalmente, pode criar um certificado auto-assinado para efeitos de teste. Abra a PowerShell e execute [o New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar um certificado auto-assinado na loja de certificados do utilizador no seu computador: 
+Pode usar um certificado existente se tiver um.  Opcionalmente, pode criar um certificado auto-assinado *apenas*para efeitos de teste . Abra a PowerShell e execute [o New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar um certificado auto-assinado na loja de certificados do utilizador no seu computador: 
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -93,8 +93,18 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 Exporte este certificado para um ficheiro utilizando o snap-in do Certificado de [Utilizador Manage,](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) acessível a partir do Painel de Controlo do Windows.
 
+1. Selecione **Executar** a partir do menu **Iniciar** e, em seguida, introduzir **certmgr.msc**.
+
+   Aparece a ferramenta 'Gestor de Certificados' para o utilizador atual.
+
+1. Para visualizar os seus certificados, em **Certificados - Utilizador Atual** no painel esquerdo, expanda o diretório **Pessoal.**
+1. Clique à direita no cert que criou, selecione **Todas as tarefas->Exportação**.
+1. Siga o assistente de exportação de certificados.  Exportar a chave privada, especificar uma palavra-passe para o ficheiro cert e exportar para um ficheiro.
+
 Para fazer o upload do certificado:
 
+1. Selecione **Azure Active Directory**.
+1. A partir de registos de **aplicações** em Azure AD, selecione a sua aplicação.
 1. Selecione **Certificados e segredos.**
 1. Selecione **o certificado de upload** e selecione o certificado (um certificado existente ou o certificado auto-assinado que exportou).
 
@@ -146,15 +156,21 @@ Na subscrição do Azure, a sua conta deve ter acesso `Microsoft.Authorization/*
 
 Para verificar as suas permissões de subscrição:
 
-1. Selecione a sua conta no canto superior direito e selecione... **-> Minhas permissões**.
+1. Procure e selecione **Subscrições,** ou selecione **Subscrições** na página **Inicial.**
 
-   ![Selecione a sua conta e as suas permissões de utilizador](./media/howto-create-service-principal-portal/select-my-permissions.png)
+   ![Pesquisa](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. A partir da lista de entrega, selecione a subscrição em que pretende criar o principal de serviço. Em seguida, selecione **Clique aqui para ver detalhes completos de acesso para esta subscrição**.
+1. Selecione a subscrição em que pretende criar o principal de serviço.
+
+   ![Selecione subscrição para atribuição](./media/howto-create-service-principal-portal/select-one-subscription.png)
+
+   Se não vir a subscrição que procura, selecione filtro de **subscrições globais.** Certifique-se de que a subscrição que deseja está selecionada para o portal.
+
+1. **Selecione as minhas permissões.** Em seguida, selecione **Clique aqui para ver detalhes completos de acesso para esta subscrição**.
 
    ![Selecione a subscrição que pretende criar o principal de serviço em](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Selecione **atribuições** de Role para visualizar as suas funções atribuídas e determine se tem permissões adequadas para atribuir uma função a uma aplicação ad. Caso contrário, peça ao seu administrador de subscrição que o adicione à função de Administrador de Acesso ao Utilizador. Na seguinte imagem, é atribuído ao utilizador a função Proprietário, o que significa que o utilizador tem permissões adequadas.
+1. Selecione **Ver** em Atribuição de **Role** para ver as suas funções atribuídas e determinar se tem permissões adequadas para atribuir uma função a uma aplicação ad. Caso contrário, peça ao seu administrador de subscrição que o adicione à função de Administrador de Acesso ao Utilizador. Na seguinte imagem, é atribuído ao utilizador a função Proprietário, o que significa que o utilizador tem permissões adequadas.
 
    ![Este exemplo mostra que o utilizador é atribuído a função Proprietário](./media/howto-create-service-principal-portal/view-user-role.png)
 

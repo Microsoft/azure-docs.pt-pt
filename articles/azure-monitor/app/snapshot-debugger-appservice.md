@@ -1,58 +1,56 @@
 ---
-title: Habilitar Depurador de Instantâneos para aplicativos .NET no serviço Azure App | Microsoft Docs
-description: Habilitar Depurador de Instantâneos para aplicativos .NET no serviço Azure App
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Ativar o Snapshot Debugger para aplicações .NET no Serviço de Aplicações Azure  Microsoft Docs
+description: Ativar snapshot Debugger para .NET apps no Serviço de Aplicações Azure
 ms.topic: conceptual
 author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0f6eb6376075337edd7656e4bc83b5b7fddde479
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c23da585034e74d85be5a3c41b124f00408a0f4a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899898"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671431"
 ---
-# <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Habilitar Depurador de Instantâneos para aplicativos .NET no serviço Azure App
+# <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar snapshot Debugger para .NET apps no Serviço de Aplicações Azure
 
-Depurador de Instantâneos atualmente trabalha para aplicativos ASP.NET e ASP.NET Core que estão em execução no serviço Azure App nos planos de serviço do Windows.
+O Snapshot Debugger trabalha atualmente para ASP.NET e ASP.NET aplicações Core que estão a funcionar no Azure App Service nos planos de serviço do Windows.
 
-## <a id="installation"></a>Habilitar Depurador de Instantâneos
-Para habilitar Depurador de Instantâneos para um aplicativo, siga as instruções abaixo. Se você estiver executando um tipo diferente de serviço do Azure, aqui estão as instruções para habilitar Depurador de Instantâneos em outras plataformas com suporte:
-* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços de Service Fabric do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Máquinas virtuais ou físicas locais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+## <a id="installation"></a>Ativar o Debugger Snapshot
+Para ativar o Snapshot Debugger para uma aplicação, siga as instruções abaixo. Se estiver a executar um tipo diferente de serviço Azure, aqui estão as instruções para ativar o Snapshot Debugger noutras plataformas suportadas:
+* [Serviços em Nuvem do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço Azure Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Máquinas virtuais azure e conjuntos de escala de máquinas virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [No local máquinas virtuais ou físicas](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Se você estiver usando uma versão de visualização do .NET Core, siga as instruções para [habilitar depurador de instantâneos para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o pacote NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) com o aplicativo, e, em seguida, conclua o restante das instruções abaixo. 
+Se estiver a utilizar uma versão de pré-visualização de .NET Core, siga as instruções para [enable Snapshot Debugger para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet com a aplicação e, em seguida, complete o resto das instruções abaixo. 
 
-Application Insights Depurador de Instantâneos é pré-instalado como parte do tempo de execução dos serviços de aplicativo, mas você precisa ativá-lo para obter instantâneos para seu aplicativo do serviço de aplicativo. Depois de implantar um aplicativo, mesmo que você tenha incluído o SDK do Application Insights no código-fonte, siga as etapas abaixo para habilitar o depurador de instantâneos.
+A aplicação Insights Snapshot Debugger está pré-instalada como parte do tempo de funcionamento dos Serviços de Aplicações, mas precisa de o ligar para obter fotografias para a sua aplicação App Service. Depois de ter implementado uma aplicação, mesmo que tenha incluído o SDK de Insights de Aplicação no código fonte, siga os passos abaixo para ativar o desbugger instantâneo.
 
-1. Vá para o painel **serviços de aplicativos** na portal do Azure.
-2. Navegue até **configurações >** painel de Application insights.
+1. Vá ao painel de Serviços de **Aplicações** no portal Azure.
+2. Navegue para **Configurações > Painel de Insights de Aplicação.**
 
-   ![Habilitar o app insights no portal de serviços de aplicativos](./media/snapshot-debugger/applicationinsights-appservices.png)
+   ![Ativar o App Insights no portal dos serviços de aplicações](./media/snapshot-debugger/applicationinsights-appservices.png)
 
-3. Siga as instruções no painel para criar um novo recurso ou selecione um recurso existente do App insights para monitorar seu aplicativo. Verifique também se ambas as opções de Depurador de Instantâneos estão **ativadas**.
+3. Siga as instruções no painel para criar um novo recurso ou selecione um recurso app Insights existente para monitorizar a sua aplicação. Certifique-se também de que os dois interruptores para Snapshot Debugger estão **ligados**.
 
-   ![Adicionar extensão do site do App insights][Enablement UI]
+   ![Adicionar extensão de site do App Insights][Enablement UI]
 
-4. Depurador de Instantâneos agora está habilitado usando uma configuração de aplicativo dos serviços de aplicativo.
+4. O Snapshot Debugger está agora ativado através de uma definição de app services.
 
-    ![Configuração de aplicativo para Depurador de Instantâneos][snapshot-debugger-app-setting]
+    ![Definição de aplicativo saqueado para debugger instantâneo][snapshot-debugger-app-setting]
 
-## <a name="disable-snapshot-debugger"></a>Desabilitar Depurador de Instantâneos
+## <a name="disable-snapshot-debugger"></a>Desativar o Debugger Snapshot
 
-Siga as mesmas etapas necessárias para **habilitar o depurador de instantâneos**, mas alterne ambos os comutadores para depurador de instantâneos para **desativado**.
-É recomendável que você tenha Depurador de Instantâneos habilitado em todos os seus aplicativos para facilitar o diagnóstico de exceções de aplicativo.
+Siga os mesmos passos que para **Enable Snapshot Debugger**, mas mude ambos os interruptores para Snapshot Debugger to **Off**.
+Recomendamos que tenha o Snapshot Debugger habilitado em todas as suas aplicações para facilitar o diagnóstico das exceções à aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Gere o tráfego para o aplicativo que pode disparar uma exceção. Em seguida, aguarde de 10 a 15 minutos para que os instantâneos sejam enviados para a instância de Application Insights.
-- Consulte [instantâneos](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) na portal do Azure.
-- Para obter ajuda com a solução de problemas de Depurador de Instantâneos, consulte [depurador de instantâneos solução de problemas](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+- Gere tráfego para a sua aplicação que pode desencadear uma exceção. Em seguida, aguarde 10 a 15 minutos para que as fotos sejam enviadas para a instância Deinsights de Aplicação.
+- Veja [as fotos](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) no portal Azure.
+- Para ajuda na resolução de problemas de problemas, consulte [a resolução de problemas do Snapshot Debugger.](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json)
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png

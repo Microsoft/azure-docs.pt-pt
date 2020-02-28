@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: d88c76afb3426dce8c68ae4bcda366fe17700aa7
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: e7e9ff795f7f639686b9f629dacb6f0752c20732
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566051"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660211"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU otimizado tamanhos de máquina virtual
 
@@ -51,7 +51,7 @@ Se optar por instalar manualmente os controladores GPU da NVIDIA, consulte a con
 
 - Se quiser implementar mais do que alguns VMs da série N, considere uma subscrição pay-as-you-go ou outras opções de compra. Se estiver a utilizar uma [conta gratuita do Azure](https://azure.microsoft.com/free/), pode utilizar apenas um número limitado de núcleos de computação do Azure.
 
-- Poderá ser necessário aumentar a quota de núcleos (por região) na sua subscrição Azure e aumentar a quota separada para núcleos NC, NCv2, NCv3, ND, NDv2, NV ou NVv2. Para solicitar um aumento de quota, [abra um pedido de apoio](/../azure-supportability/how-to-create-azure-support-request.md) ao cliente online gratuitamente. Os limites de predefinição podem variar dependendo da sua categoria de subscrição.
+- Poderá ser necessário aumentar a quota de núcleos (por região) na sua subscrição Azure e aumentar a quota separada para núcleos NC, NCv2, NCv3, ND, NDv2, NV ou NVv2. Para solicitar um aumento de quota, [abra um pedido de apoio](../azure-portal/supportability/how-to-create-azure-support-request.md) ao cliente online gratuitamente. Os limites de predefinição podem variar dependendo da sua categoria de subscrição.
 
 ## <a name="other-sizes"></a>Outros tamanhos
 

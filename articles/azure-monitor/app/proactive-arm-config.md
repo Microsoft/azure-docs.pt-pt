@@ -1,45 +1,43 @@
 ---
-title: Configurações de regra de detecção inteligente-insights Aplicativo Azure
-description: Automatizar o gerenciamento e a configuração de regras de detecção inteligente do Aplicativo Azure insights com modelos de Azure Resource Manager
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Definições de regras de deteção inteligente - Insights de aplicação Azure
+description: Automatizar gestão e configuração de regras inteligentes de deteção inteligentes de Insights de Aplicação Azure com modelos de gestor de recursos Azure
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bc66a286bee193b377731a549129446bba431cb3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 3c028a97c2fb554b13035026025437d5331104c2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749033"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669714"
 ---
-# <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerenciar Application Insights regras de detecção inteligente usando modelos de Azure Resource Manager
+# <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir as regras de deteção inteligente de Insights de Aplicação utilizando modelos de Gestor de Recursos Azure
 
-Regras de detecção inteligente no Application Insights podem ser gerenciadas e configuradas usando [modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
-Esse método pode ser usado ao implantar novos recursos de Application Insights com Azure Resource Manager automação ou para modificar as configurações de recursos existentes.
+As regras de deteção inteligente em Insights de Aplicação podem ser geridas e configuradas usando modelos de [Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md).
+Este método pode ser utilizado na implementação de novos recursos de Insights de Aplicação com automatização do Gestor de Recursos Azure, ou para modificar as configurações dos recursos existentes.
 
-## <a name="smart-detection-rule-configuration"></a>Configuração de regra de detecção inteligente
+## <a name="smart-detection-rule-configuration"></a>Configuração de regra de deteção inteligente
 
 Pode configurar as seguintes definições para uma regra de deteção inteligente:
-- Se a regra estiver habilitada (o padrão é **true**).
-- Se os emails devem ser enviados aos usuários associados ao [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) da assinatura e às funções de [colaborador de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) quando uma detecção é encontrada (o padrão é **true**).
-- Todos os destinatários de email adicionais que devem receber uma notificação quando uma detecção é encontrada.
-    -  A configuração de email não está disponível para as regras de detecção inteligente marcadas como _Visualização_.
+- Se a regra estiver ativada (o predefinido é **verdadeiro**.)
+- Se os e-mails forem enviados aos utilizadores associados às funções de [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) da subscrição quando for detetada uma deteção (o predefinido é **verdadeiro**.)
+- Quaisquer destinatários adicionais de e-mail que devam receber uma notificação quando uma deteção for encontrada.
+    -  A configuração do e-mail não está disponível para regras de Deteção Inteligente marcadas como _pré-visualização_.
 
-Para permitir a configuração das configurações de regra via Azure Resource Manager, a configuração da regra de detecção inteligente agora está disponível como um recurso interno dentro do recurso Application Insights, chamado **ProactiveDetectionConfigs**.
-Para obter a flexibilidade máxima, cada regra de detecção inteligente pode ser configurada com configurações de notificação exclusivas.
+Para permitir configurar as definições de regra através do Gestor de Recursos Azure, a configuração da regra de deteção inteligente está agora disponível como um recurso interno dentro do recurso Application Insights, denominado **ProactiveDetectionConfigs**.
+Para uma flexibilidade máxima, cada regra de deteção inteligente pode ser configurada com configurações únicas de notificação.
 
 ## 
 
 ## <a name="examples"></a>Exemplos
 
-Abaixo estão alguns exemplos que mostram como definir as configurações de regras de detecção inteligente usando modelos de Azure Resource Manager.
-Todos os exemplos referem-se a um recurso de Application Insights chamado _"MyApplication"_ e à "regra de detecção inteligente de duração de dependência longa", que é internamente denominada _"longdependencyduration"_ .
-Certifique-se de substituir o nome do recurso de Application Insights e para especificar o nome interno da regra de detecção inteligente relevante. Verifique a tabela abaixo para obter uma lista dos nomes de Azure Resource Manager internos correspondentes para cada regra de detecção inteligente.
+Abaixo estão alguns exemplos que mostram como configurar as definições de regras de deteção inteligentes usando modelos do Gestor de Recursos Azure.
+Todas as amostras referem-se a um recurso Application Insights denominado _"myApplication",_ e à "regra de deteção inteligente de longa duração da dependência", que é internamente denominada _"longa duração da dependência"._
+Certifique-se de substituir o nome de recurso Application Insights e especificar o nome interno da regra de deteção inteligente relevante. Consulte a tabela abaixo para obter uma lista dos nomes correspondentes do Gestor de Recursos Azure internos para cada regra de deteção inteligente.
 
-### <a name="disable-a-smart-detection-rule"></a>Desabilitar uma regra de detecção inteligente
+### <a name="disable-a-smart-detection-rule"></a>Desativar uma regra de deteção inteligente
 
 ```json
 {
@@ -70,7 +68,7 @@ Certifique-se de substituir o nome do recurso de Application Insights e para esp
     }
 ```
 
-### <a name="disable-sending-email-notifications-for-a-smart-detection-rule"></a>Desabilitar o envio de notificações por email para uma regra de detecção inteligente
+### <a name="disable-sending-email-notifications-for-a-smart-detection-rule"></a>Desativar o envio de notificações por e-mail para uma regra de deteção inteligente
 
 ```json
 {
@@ -101,7 +99,7 @@ Certifique-se de substituir o nome do recurso de Application Insights e para esp
     }
 ```
 
-### <a name="add-additional-email-recipients-for-a-smart-detection-rule"></a>Adicionar destinatários de email adicionais para uma regra de detecção inteligente
+### <a name="add-additional-email-recipients-for-a-smart-detection-rule"></a>Adicione destinatários adicionais de e-mail para uma regra de deteção inteligente
 
 ```json
 {
@@ -133,12 +131,12 @@ Certifique-se de substituir o nome do recurso de Application Insights e para esp
 
 ```
 
-### <a name="failure-anomalies-alert-rule"></a>Regra de alerta de anomalias de falha
+### <a name="failure-anomalies-alert-rule"></a>Falha Anomalias regra de alerta
 
-Este modelo de Azure Resource Manager demonstra a configuração de uma regra de alerta de anomalias com uma severidade de 2. Essa nova versão da regra de alerta de anomalias de falha faz parte da nova plataforma de alerta do Azure e substitui a versão clássica que está sendo desativada como parte do [processo de aposentadoria de alertas clássicos](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+Este modelo de Gestor de Recursos Azure demonstra configurar uma regra de alerta de anomalias de falha com uma gravidade de 2. Esta nova versão da regra de alerta de Anomalias falhas faz parte da nova plataforma de alerta Azure, e substitui a versão clássica que está a ser retirada como parte do processo clássico de [alertas de reforma.](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)
 
 > [!NOTE]
-> As anomalias de falha são um serviço global, portanto, o local da regra é criado no local global.
+> As Anomalias de Falha é um serviço global, pelo que a localização da regra é criar na localização global.
 
 ```json
 {
@@ -169,32 +167,32 @@ Este modelo de Azure Resource Manager demonstra a configuração de uma regra de
 ```
 
 > [!NOTE]
-> Esse Azure Resource Manager modelo é exclusivo para a regra de alerta de anomalias de falha e é diferente das outras regras de detecção inteligente clássicas descritas neste artigo.
+> Este modelo de Gestor de Recursos Azure é exclusivo da regra de alerta de Anomalias de Falha e é diferente das outras regras clássicas de Deteção Inteligente descritas neste artigo.
 
-## <a name="smart-detection-rule-names"></a>Nomes de regra de detecção inteligente
+## <a name="smart-detection-rule-names"></a>Nomes de regras de deteção inteligente
 
-Abaixo está uma tabela de nomes de regras de detecção inteligente conforme eles aparecem no portal, juntamente com seus nomes internos, que devem ser usados no modelo de Azure Resource Manager.
+Abaixo está uma tabela de nomes de regras de deteção inteligente como aparecem no portal, juntamente com os seus nomes internos, que devem ser usados no modelo do Gestor de Recursos Azure.
 
 > [!NOTE]
-> As regras de detecção inteligente marcadas como _Visualização_ não dão suporte a notificações por email. Portanto, você só pode definir a propriedade _Enabled_ para essas regras. 
+> As regras de deteção inteligentes marcadas como _pré-visualização_ não suportam notificações de e-mail. Portanto, você só pode definir o imóvel _habilitado_ para estas regras. 
 
-| Nome da regra de portal do Azure | Nome interno
+| Nome da regra do portal Azure | Nome interno
 |:---|:---|
-| Tempo de carregamento de página lento | slowpageloadtime |
-| Tempo de resposta do servidor lento | slowserverresponsetime |
-| Duração de dependência longa | longdependencyduration |
-| Degradação no tempo de resposta do servidor | degradationinserverresponsetime |
-| Degradação na duração da dependência | degradationindependencyduration |
-| Degradação na taxa de gravidade de rastreamento (versão prévia) | extension_traceseveritydetector |
-| Aumento anormal no volume de exceção (versão prévia) | extension_exceptionchangeextension |
-| Possível vazamento de memória detectado (versão prévia) | extension_memoryleakextension |
-| Possível problema de segurança detectado (versão prévia) | extension_securityextensionspackage |
-| Aumento anormal no volume de dados diário (versão prévia) | extension_billingdatavolumedailyspikeextension |
+| Tempo de carga de página lenta | tempo de carregamento de página lenta |
+| Tempo de resposta do servidor lento | tempo de resposta do servidor lento |
+| Longa duração da dependência | longa dependência duração |
+| Degradação no tempo de resposta do servidor | degradação tempo de resposta servidor |
+| Degradação da duração da dependência | degradação da dependência duração |
+| Degradação na relação de gravidade dos vestígios (pré-visualização) | extension_traceseveritydetector |
+| Aumento anormal do volume de exceção (pré-visualização) | extension_exceptionchangeextension |
+| Fuga de memória potencial detetada (pré-visualização) | extension_memoryleakextension |
+| Potencial problema de segurança detetado (pré-visualização) | extension_securityextensionspackage |
+| Aumento anormal no volume diário de dados (pré-visualização) | extension_billingdatavolumedailyspikeextension |
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre a detecção automática de:
+Saiba mais sobre a deteção automática:
 
 - [Anomalias de falha](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Vazamentos de memória](../../azure-monitor/app/proactive-potential-memory-leak.md)
+- [Fugas de memória](../../azure-monitor/app/proactive-potential-memory-leak.md)
 - [Anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)

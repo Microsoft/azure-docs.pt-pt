@@ -1,502 +1,501 @@
 ---
-title: Usando Mapa do Serviço solução no Azure | Microsoft Docs
+title: Utilização da solução de Mapa de Serviço solução em Azure  Microsoft Docs
 description: O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes para implementar o mapa de serviço no seu ambiente e utilizá-lo numa variedade de cenários.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168182"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663628"
 ---
-# <a name="using-service-map-solution-in-azure"></a>Usando Mapa do Serviço solução no Azure
+# <a name="using-service-map-solution-in-azure"></a>Usando a solução do mapa de serviço em Azure
 
-O Mapa de Serviços deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o Mapa de Serviços, pode ver os seus servidores da mesma forma como os conceptualiza: como sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre servidores, os processos, a latência da ligação de entrada e de saída e as portas em qualquer arquitetura ligada por TCP, em que a única configuração necessária é a instalação de um agente.
+O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o Mapa de Serviços, pode ver os seus servidores da mesma forma como os conceptualiza: como sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre os servidores, os processos, a latência da ligação de entrada e de saída e as portas em qualquer arquitetura ligada por TCP, em que a única configuração necessária é a instalação de um agente.
 
-Este artigo descreve os detalhes de integração e uso de Mapa do Serviço. Para obter informações sobre como configurar os pré-requisitos para essa solução, consulte [habilitar a Azure monitor para VMs visão geral](vminsights-enable-overview.md#prerequisites). Para resumir, você precisa do seguinte:
+Este artigo descreve os detalhes do embarque e utilização do Mapa de Serviço. Para obter informações sobre a configuração dos pré-requisitos para esta solução, consulte [Ativar o Monitor Azure para vMs .](vminsights-enable-overview.md#prerequisites) Resumindo, é preciso o seguinte:
 
-* Um espaço de trabalho Log Analytics para habilitar essa solução.
+* Um espaço de trabalho log Analytics para ativar esta solução.
 
-* O agente de Log Analytics instalado no computador Windows ou no servidor Linux configurado para relatar o mesmo espaço de trabalho com o qual você habilitou a solução.
+* O agente Log Analytics instalado no computador Windows ou no servidor Linux configurado para reportar o mesmo espaço de trabalho com o qual ativou a solução.
 
-* O Dependency Agent instalado no computador Windows ou no servidor Linux.
+* O agente Dependency instalado no computador Windows ou no servidor Linux.
 
 >[!NOTE]
->Se você já implantou o Mapa do Serviço, agora você também pode exibir seus mapas no Azure Monitor para VMs, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, confira [Azure monitor para VMs visão geral](../../azure-monitor/insights/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa do Serviço e o recurso de mapa de Azure Monitor para VMs, consulte as [perguntas frequentes](../faq.md#azure-monitor-for-vms-preview)a seguir.
+>Se já implementou o Mapa de Serviços, pode agora também ver os seus mapas no Monitor Azure para VMs, que inclui funcionalidades adicionais para monitorizar a saúde e desempenho da VM. Para saber mais, consulte [o Monitor Azure para visualização geral dos VMs.](../../azure-monitor/insights/vminsights-overview.md) Para saber mais sobre as diferenças entre a solução do Mapa de Serviços e a funcionalidade Do Mapa do Monitor de VMs, consulte as seguintes [FAQ](../faq.md#azure-monitor-for-vms-preview).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="enable-service-map"></a>Habilitar Mapa do Serviço
+## <a name="enable-service-map"></a>Ativar o mapa de serviço
 
-1. Habilite a solução de Mapa do Serviço do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções de monitoramento do Galeria de soluções](solutions.md).
-1. [Instale o Dependency Agent no Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) ou [Instale o Dependency Agent no Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) em cada computador em que você deseja obter dados. O Agente de Dependência pode monitorizar as ligações dos vizinhos imediatos, pelo que poderá não precisar de um agente em cada computador.
+1. Ative a solução Service Map do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) ou utilizando o processo descrito em [Adicionar soluções de monitorização a partir da Galeria soluções.](solutions.md)
+1. [Instale o agente Dependency no Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) ou [instale o agente dependency no Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) em cada computador onde pretende obter dados. O Agente de Dependência pode monitorizar as ligações dos vizinhos imediatos, pelo que poderá não precisar de um agente em cada computador.
 
-Você acessa Mapa do Serviço no portal do Azure de seu espaço de trabalho do Log Analytics e seleciona a opção **soluções** no painel esquerdo.<br><br> ![opção Selecionar soluções na](./media/service-map/select-solution-from-workspace.png)do espaço de trabalho.<br> Na lista de soluções, selecione **ServiceMap (WorkspaceName)** e, na página Visão geral da solução mapa do serviço, clique no bloco resumo de mapa do serviço.<br><br> ](./media/service-map/service-map-summary-tile.png)de bloco de Resumo de Mapa do Serviço de ![.
+Aceda ao Mapa de Serviços no portal Azure a partir do seu espaço de trabalho Log Analytics e selecione as **soluções** de opção a partir do painel esquerdo.<br><br> ![Selecione Soluções no espaço de trabalho](./media/service-map/select-solution-from-workspace.png).<br> A partir da lista de soluções, selecione **ServiceMap (workspaceName)** e na página de visão geral da solução do Mapa de Serviço clique no resumo do mapa de serviço.<br><br> ![mapa de serviço sumário](./media/service-map/service-map-summary-tile.png).
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: torne seus processos de ti cientes da dependência
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Utilizar casos: Sensibilizar a dependência dos seus processos de TI
 
 ### <a name="discovery"></a>Deteção
 
-Mapa do Serviço cria automaticamente um mapa de referência comum de dependências em seus servidores, processos e serviços de terceiros. Ele descobre e mapeia todas as dependências de TCP, identificando conexões surpresa, sistemas remotos de terceiros dos quais você depende e dependências para áreas escuras tradicionais da sua rede, como Active Directory. Mapa do Serviço descobre conexões de rede com falha que os sistemas gerenciados estão tentando fazer, ajudando você a identificar possíveis erros de configuração, interrupção do serviço e problemas de rede.
+O Service Map constrói automaticamente um mapa de referência comum de dependências em todos os seus servidores, processos e serviços de terceiros. Descobre e mapeia todas as dependências de TCP, identificando ligações surpresa, sistemas remotos de terceiros de que depende, e dependências de áreas escuras tradicionais da sua rede, como o Ative Directory. O Service Map descobre ligações de rede falhadas que os seus sistemas geridos estão a tentar fazer, ajudando-o a identificar potenciais problemas de configuração do servidor, falha de serviço e problemas de rede.
 
 ### <a name="incident-management"></a>gestão de incidentes
 
-Mapa do Serviço ajuda a eliminar a adivinhação do isolamento de problemas, mostrando como os sistemas estão conectados e afetando uns aos outros. Além de identificar conexões com falha, ele ajuda a identificar balanceadores de carga configurados incorretamente, carga surpreendente ou excessiva em serviços críticos e clientes não autorizados, como computadores de desenvolvedor conversando com sistemas de produção. Usando fluxos de trabalho integrados com Controle de Alterações, você também pode ver se um evento de alteração em um computador de back-end ou serviço explica a causa raiz de um incidente.
+O Service Map ajuda a eliminar a adivinhação do isolamento de problemas, mostrando-lhe como os sistemas estão conectados e afetando uns aos outros. Além de identificar ligações falhadas, ajuda a identificar equilibradores de carga mal configurados, carga surpreendente ou excessiva em serviços críticos, e clientes fraudulentos, como máquinas de desenvolvimento que falam com sistemas de produção. Ao utilizar fluxos de trabalho integrados com O Rastreio de Mudanças, também pode ver se um evento de mudança numa máquina ou serviço de back-end explica a causa principal de um incidente.
 
 ### <a name="migration-assurance"></a>Garantia de migração
 
-Usando Mapa do Serviço, você pode efetivamente planejar, acelerar e validar migrações do Azure, o que ajuda a garantir que nada seja deixado para trás e interrupções surpresa não ocorram. Você pode descobrir todos os sistemas interdependentes que precisam ser migrados juntos, avaliar a capacidade e a configuração do sistema e identificar se um sistema em execução ainda está atendendo aos usuários ou se é um candidato ao encerramento em vez da migração. Depois que a movimentação for concluída, você poderá verificar a carga e a identidade do cliente para verificar se os sistemas de teste e os clientes estão se conectando. Se as definições de firewall e de planejamento de sub-rede tiverem problemas, as conexões com falha no Mapa do Serviço mapas apontarão para os sistemas que precisam de conectividade.
+Ao utilizar o Mapa de Serviços, pode planear, acelerar e validar as migrações azure, o que ajuda a garantir que nada é deixado para trás e que não ocorrem interrupções surpresa. Pode descobrir todos os sistemas interdependentes que precisam de migrar em conjunto, avaliar a configuração e capacidade do sistema e identificar se um sistema de funcionamento ainda serve os utilizadores ou se é candidato ao desmantelamento em vez de migração. Após a mudança estar concluída, pode verificar a carga e identidade do cliente para verificar se os sistemas de teste e os clientes estão a ligar-se. Se as definições de planeamento de sub-redes e de firewall tiverem problemas, as ligações falhadas nos mapas do Mapa de Serviçoapontam-no para os sistemas que precisam de conectividade.
 
-### <a name="business-continuity"></a>Continuidade de negócio
+### <a name="business-continuity"></a>Continuidade do negócio
 
-Se você estiver usando Azure Site Recovery e precisar de ajuda para definir a sequência de recuperação para seu ambiente de aplicativo, Mapa do Serviço poderá mostrar automaticamente como os sistemas dependem uns dos outros para garantir que seu plano de recuperação seja confiável. Ao escolher um servidor ou grupo crítico e exibir seus clientes, você pode identificar quais sistemas front-end serão recuperados depois que o servidor for restaurado e estiver disponível. Por outro lado, examinando as dependências de back-end dos servidores críticos, você pode identificar quais sistemas serão recuperados antes de seus sistemas de foco serem restaurados.
+Se estiver a utilizar a Recuperação do Site Azure e precisar de ajuda para definir a sequência de recuperação para o ambiente de aplicação, o Service Map pode mostrar-lhe automaticamente como os sistemas dependem uns dos outros para garantir que o seu plano de recuperação é fiável. Ao escolher um servidor ou grupo crítico e visualizar os seus clientes, pode identificar quais os sistemas frontais a recuperar após o servidor ser restaurado e disponível. Inversamente, olhando para as dependências traseiras dos servidores críticos, pode identificar quais os sistemas a recuperar antes de os seus sistemas de foco serem restaurados.
 
 ### <a name="patch-management"></a>Gestão de patches
 
-Mapa do Serviço aprimora o uso da avaliação de atualização do sistema, mostrando quais outras equipes e servidores dependem de seu serviço, para que você possa notificá-los com antecedência antes de desligar seus sistemas para aplicação de patches. O Mapa do Serviço também aprimora o gerenciamento de patches mostrando se os serviços estão disponíveis e conectados corretamente após serem corrigidos e reiniciados.
+O Mapa de Serviço saca a sua utilização da Avaliação de Atualização do Sistema, mostrando-lhe quais as outras equipas e servidores que dependem do seu serviço, para que possa notificá-los com antecedência antes de retirar os seus sistemas para remendar. O Service Map também melhora a gestão de patchs mostrando-lhe se os seus serviços estão disponíveis e devidamente conectados depois de remendados e reiniciados.
 
 ## <a name="mapping-overview"></a>Visão geral do mapeamento
 
-Os agentes de Mapa do Serviço coletam informações sobre todos os processos conectados a TCP no servidor onde estão instalados e detalhes sobre as conexões de entrada e saída de cada processo.
+Os agentes do Mapa de Serviço recolhem informações sobre todos os processos ligados ao TCP no servidor onde estão instalados e detalhes sobre as ligações de entrada e saída para cada processo.
 
-Na lista no painel esquerdo, você pode selecionar computadores ou grupos que têm agentes de Mapa do Serviço para visualizar suas dependências em um intervalo de tempo especificado. Os mapas de dependência de máquina se concentram em um computador específico e mostram todos os computadores que são clientes TCP diretos ou servidores desse computador.  Os mapas do grupo de computadores mostram conjuntos de servidores e suas dependências.
+A partir da lista no painel esquerdo, pode selecionar máquinas ou grupos que tenham agentes do Mapa de Serviço para visualizar as suas dependências ao longo de um intervalo de tempo especificado. Os mapas de dependência da máquina concentram-se numa máquina específica, e mostram todas as máquinas que são clientes diretos de TCP ou servidores dessa máquina.  Os mapas do Grupo Máquina mostram conjuntos de servidores e suas dependências.
 
-![Visão geral de Mapa do Serviço](media/service-map/service-map-overview.png)
+![Visão geral do mapa de serviço](media/service-map/service-map-overview.png)
 
-Os computadores podem ser expandidos no mapa para mostrar os grupos de processos e processos em execução com conexões de rede ativas durante o intervalo de tempo selecionado. Quando um computador remoto com um agente de Mapa do Serviço é expandido para mostrar os detalhes do processo, somente os processos que se comunicam com o computador de foco são mostrados. A contagem de computadores front-end sem agente que se conectam ao computador de foco é indicada no lado esquerdo dos processos aos quais se conectam. Se o computador de foco estiver fazendo uma conexão com um computador de back-end que não tem nenhum agente, o servidor back-end será incluído em um grupo de portas do servidor, juntamente com outras conexões com o mesmo número de porta.
+As máquinas podem ser expandidas no mapa para mostrar os grupos e processos de processo de execução com ligações de rede ativas durante o intervalo de tempo selecionado. Quando uma máquina remota com um agente do Mapa de Serviço é expandida para mostrar detalhes do processo, apenas são mostrados os processos que comunicam com a máquina de foco. A contagem de máquinas frontais sem agente que se ligam à máquina de focagem é indicada no lado esquerdo dos processos a que se ligam. Se a máquina de foco estiver a fazer uma ligação a uma máquina de back-end que não tem agente, o servidor de back-end está incluído num Grupo de Porta de Servidor, juntamente com outras ligações com o mesmo número de porta.
 
-Por padrão, os mapas do Mapa do Serviço mostram os últimos 30 minutos de informações de dependência. Usando os controles de tempo no canto superior esquerdo, você pode consultar mapas de intervalos de tempo históricos de até uma hora para mostrar como as dependências foram examinadas no passado (por exemplo, durante um incidente ou antes da ocorrência de uma alteração). Mapa do Serviço dados são armazenados por 30 dias em espaços de trabalho pagos e por 7 dias em espaços de trabalho gratuitos.
+Por padrão, os mapas do Mapa de Serviço mostram os últimos 30 minutos de informação sobre dependência. Ao utilizar os controlos de tempo na parte superior esquerda, pode consultar mapas para intervalos históricos de até uma hora para mostrar como as dependências pareciam no passado (por exemplo, durante um incidente ou antes de ocorrer uma mudança). Os dados do Mapa de Serviço saem armazenados durante 30 dias em espaços de trabalho pagos e durante 7 dias em espaços de trabalho gratuitos.
 
-## <a name="status-badges-and-border-coloring"></a>Notificações de status e cor da borda
+## <a name="status-badges-and-border-coloring"></a>Crachás de estado e coloração na fronteira
 
-Na parte inferior de cada servidor no mapa, pode haver uma lista de notificações de status que transmitem informações de status sobre o servidor. As notificações indicam que há algumas informações relevantes para o servidor de uma das integrações da solução. Clicar em uma notificação leva você diretamente aos detalhes do status no painel direito. As notificações de status disponíveis no momento incluem alertas, central de serviços, alterações, segurança e atualizações.
+Na parte inferior de cada servidor no mapa pode estar uma lista de crachás de estado que transmitem informações de estado sobre o servidor. Os crachás indicam que há algumas informações relevantes para o servidor a partir de uma das integrações de soluções. Clicar num crachá leva-o diretamente aos detalhes do estado no painel certo. Os crachás de estado atualmente disponíveis incluem Alertas, Balcão de Serviço, Alterações, Segurança e Atualizações.
 
-Dependendo da gravidade das notificações de status, as bordas de nó de computador podem ser coloridas em vermelho (crítico), amarelo (aviso) ou azul (informativo). A cor representa o status mais grave de qualquer uma das notificações de status. Uma borda cinza indica um nó que não tem nenhum indicador de status.
+Dependendo da gravidade das insígnias de estado, as bordas do nó da máquina podem ser coloridas de vermelho (crítico), amarelo (aviso) ou azul (informativo). A cor representa o estado mais grave de qualquer um dos crachás de estado. Uma fronteira cinzenta indica um nó que não tem indicadores de estado.
 
-![Notificações de status](media/service-map/status-badges.png)
+![Crachás de estado](media/service-map/status-badges.png)
 
-## <a name="process-groups"></a>Grupos de processos
+## <a name="process-groups"></a>Grupos de Processo
 
-Os grupos de processos combinam processos associados a um produto ou serviço comum em um grupo de processos.  Quando um nó de computador é expandido, ele exibirá processos autônomos juntamente com os grupos de processos.  Se houver falha em conexões de entrada e de saída para um processo dentro de um grupo de processos, a conexão será mostrada como falha para o grupo de processos inteiro.
+Os Grupos de Processo combinam processos que estão associados a um produto ou serviço comum num grupo de processos.  Quando um nó de máquina é expandido, apresentará processos autónomos juntamente com grupos de processos.  Se alguma ligação de entrada e saída a um processo dentro de um grupo de processo sintetizou, então a ligação é mostrada como falhada para todo o grupo de processos.
 
 ## <a name="machine-groups"></a>Grupos de Máquinas
 
-Os grupos de computadores permitem ver mapas centralizados em um conjunto de servidores, não apenas um, para que você possa ver todos os membros de um aplicativo de várias camadas ou cluster de servidores em um mapa.
+Os Grupos de Máquinas permitem-lhe ver mapas centrados em torno de um conjunto de servidores, e não apenas um para que possa ver todos os membros de uma aplicação de vários níveis ou cluster de servidor num mapa.
 
-Os usuários selecionam quais servidores pertencem a um grupo juntos e escolhem um nome para o grupo.  Você pode optar por exibir o grupo com todos os seus processos e conexões, ou exibi-lo apenas com os processos e conexões diretamente relacionados aos outros membros do grupo.
+Os utilizadores selecionam quais servidores pertencem a um grupo e escolhem um nome para o grupo.  Pode então optar por ver o grupo com todos os seus processos e ligações, ou vê-lo apenas com os processos e ligações que se relacionam diretamente com os outros membros do grupo.
 
-![Grupo de computadores](media/service-map/machine-group.png)
+![Grupo máquina](media/service-map/machine-group.png)
 
-### <a name="creating-a-machine-group"></a>Criando um grupo de computadores
+### <a name="creating-a-machine-group"></a>Criação de um Grupo máquina
 
-Para criar um grupo, selecione o computador ou as máquinas que você deseja na lista computadores e clique em **Adicionar ao grupo**.
+Para criar um grupo, selecione a máquina ou as máquinas que deseja na lista de Máquinas e clique em **Adicionar ao grupo**.
 
 ![Criar Grupo](media/service-map/machine-groups-create.png)
 
-Lá, você pode escolher **criar novo** e dar um nome ao grupo.
+Lá, pode escolher **Criar novo** e dar um nome ao grupo.
 
-![Grupo de nomes](media/service-map/machine-groups-name.png)
+![Grupo de Nomes](media/service-map/machine-groups-name.png)
 
 >[!NOTE]
->Os grupos de computadores são limitados a 10 servidores.
+>Os grupos de máquinas estão limitados a 10 servidores.
 
-### <a name="viewing-a-group"></a>Exibindo um grupo
+### <a name="viewing-a-group"></a>Visualização de um grupo
 
-Depois de criar alguns grupos, você pode exibi-los escolhendo a guia grupos.
+Depois de criar alguns grupos, pode vê-los escolhendo o separador Grupos.
 
-![Guia grupos](media/service-map/machine-groups-tab.png)
+![Separador de grupos](media/service-map/machine-groups-tab.png)
 
-Em seguida, selecione o nome do grupo para exibir o mapa desse grupo de computadores.
-![grupo de computadores](media/service-map/machine-group.png) as máquinas que pertencem ao grupo são descritas em branco no mapa.
+Em seguida, selecione o nome de grupo para visualizar o mapa para esse Grupo máquina.
+![Grupo máquina](media/service-map/machine-group.png) As máquinas que pertencem ao grupo estão delineadas em branco no mapa.
 
-Expandir o grupo listará os computadores que compõem o grupo de computadores.
+A expansão do Grupo listará as máquinas que compõem o Grupo máquina.
 
-![Computadores do grupo de computadores](media/service-map/machine-groups-machines.png)
+![Máquinas do Grupo máquina](media/service-map/machine-groups-machines.png)
 
 ### <a name="filter-by-processes"></a>Filtrar por processos
 
-Você pode alternar a exibição de mapa entre mostrar todos os processos e conexões no grupo e apenas aqueles que se relacionam diretamente com o grupo de computadores.  A exibição padrão é mostrar todos os processos.  Você pode alterar o modo de exibição clicando no ícone de filtro acima do mapa.
+Pode alternar a vista do mapa entre mostrar todos os processos e ligações do Grupo e apenas os que se relacionam diretamente com o Grupo máquina.  A visão padrão é mostrar todos os processos.  Pode alterar a vista clicando no ícone do filtro acima do mapa.
 
-![Grupo de filtros](media/service-map/machine-groups-filter.png)
+![Grupo de Filtros](media/service-map/machine-groups-filter.png)
 
-Quando **todos os processos** for selecionado, o mapa incluirá todos os processos e conexões em cada um dos computadores do grupo.
+Quando todos os processos forem **selecionados,** o mapa incluirá todos os processos e ligações em cada uma das máquinas do Grupo.
 
-![Todos os processos do grupo de computadores](media/service-map/machine-groups-all.png)
+![Grupo máquina todos os processos](media/service-map/machine-groups-all.png)
 
-Se você alterar a exibição para mostrar apenas os **processos conectados por grupo**, o mapa será limitado somente a esses processos e conexões diretamente conectados a outros computadores no grupo, criando uma exibição simplificada.
+Se alterar a visão de mostrar apenas **processos ligados**ao grupo, o mapa será reduzido apenas aos processos e ligações que estão diretamente ligados a outras máquinas do grupo, criando uma visão simplificada.
 
-![Processos filtrados do grupo de computadores](media/service-map/machine-groups-filtered.png)
+![Processos filtrados do Grupo Máquina](media/service-map/machine-groups-filtered.png)
  
-### <a name="adding-machines-to-a-group"></a>Adicionando computadores a um grupo
+### <a name="adding-machines-to-a-group"></a>Adicionar máquinas a um grupo
 
-Para adicionar computadores a um grupo existente, marque as caixas ao lado dos computadores que você deseja e, em seguida, clique em **Adicionar ao grupo**.  Em seguida, escolha o grupo ao qual você deseja adicionar os computadores.
+Para adicionar máquinas a um grupo existente, verifique as caixas ao lado das máquinas que deseja e, em seguida, clique em **Adicionar ao grupo**.  Em seguida, escolha o grupo a que pretende adicionar as máquinas.
  
-### <a name="removing-machines-from-a-group"></a>Removendo computadores de um grupo
+### <a name="removing-machines-from-a-group"></a>Remoção de máquinas de um grupo
 
-Na lista grupos, expanda o nome do grupo para listar os computadores no grupo de computadores.  Em seguida, clique no menu de reticências ao lado do computador que você deseja remover e escolha **remover**.
+Na Lista de Grupos, expanda o nome do grupo para listar as máquinas no Grupo máquina.  Em seguida, clique no menu de elipse ao lado da máquina que pretende remover e escolher **Remover**.
 
-![Remover computador do grupo](media/service-map/machine-groups-remove.png)
+![Remover a máquina do grupo](media/service-map/machine-groups-remove.png)
 
-### <a name="removing-or-renaming-a-group"></a>Removendo ou renomeando um grupo
+### <a name="removing-or-renaming-a-group"></a>Remoção ou renomeação de um grupo
 
-Clique no menu de reticências ao lado do nome do grupo na lista de grupos.
+Clique no menu de elipse ao lado do nome de grupo na Lista de Grupos.
 
-![Menu de grupo de computadores](media/service-map/machine-groups-menu.png)
+![Menu de grupo de máquinas](media/service-map/machine-groups-menu.png)
 
 
-## <a name="role-icons"></a>Ícones de função
+## <a name="role-icons"></a>Ícones de papel
 
-Determinados processos atendem a funções específicas em computadores: servidores Web, servidores de aplicativos, banco de dados e assim por diante. Mapa do Serviço anota as caixas processo e máquina com ícones de função para ajudar a identificar rapidamente a função que um processo ou servidor desempenha.
+Certos processos servem papéis particulares em máquinas: servidores web, servidores de aplicações, base de dados, e assim por diante. O Mapa de Serviço anota caixas de processo e máquinas com ícones de funções para ajudar a identificar num ápice a função que um processo ou servidor desempenha.
 
 | Ícone de função | Descrição |
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
-| ![Servidor de aplicações](media/service-map/role-application-server.png) | Servidor de aplicativos |
+| ![Servidor de aplicativos](media/service-map/role-application-server.png) | Servidor de aplicações |
 | ![Servidor de base de dados](media/service-map/role-database.png) | Servidor de base de dados |
 | ![Servidor LDAP](media/service-map/role-ldap.png) | Servidor LDAP |
 | ![Servidor SMB](media/service-map/role-smb.png) | Servidor SMB |
 
-![Ícones de função](media/service-map/role-icons.png)
+![Ícones de papel](media/service-map/role-icons.png)
 
 
-## <a name="failed-connections"></a>Conexões com falha
+## <a name="failed-connections"></a>Ligações falhadas
 
-As conexões com falha são mostradas no Mapa do Serviço Maps para processos e computadores, com uma linha vermelha tracejada indicando que um sistema cliente está falhando em alcançar um processo ou uma porta. As conexões com falha são relatadas de qualquer sistema com um agente de Mapa do Serviço implantado se esse sistema for o que está tentando a conexão com falha. Mapa do Serviço mede esse processo observando os soquetes TCP que falham ao estabelecer uma conexão. Essa falha pode resultar de um firewall, uma configuração incorreta no cliente ou servidor, ou um serviço remoto estar indisponível.
+As ligações falhadas são mostradas nos mapas do Mapa de Serviço para processos e computadores, com uma linha vermelha tracejada indicando que um sistema de cliente está a falhar em alcançar um processo ou porta. As ligações falhadas são reportadas a partir de qualquer sistema com um agente de mapas de serviço implantado se esse sistema for o que tenta a ligação falhada. O Mapa de Serviço mede este processo observando tomadas TCP que não estabelecem uma ligação. Esta falha pode resultar de uma firewall, de uma configuração errada no cliente ou servidor, ou de um serviço remoto indisponível.
 
-![Conexões com falha](media/service-map/failed-connections.png)
+![Ligações falhadas](media/service-map/failed-connections.png)
 
-A compreensão de conexões com falha pode ajudar na solução de problemas, validação de migração, análise de segurança e compreensão geral da arquitetura. As conexões com falha são algumas vezes inofensivas, mas elas geralmente apontam diretamente para um problema, como um ambiente de failover que está ficando inacessível repentinamente ou duas camadas de aplicativo não podem se comunicar após uma migração de nuvem.
+Compreender ligações falhadas pode ajudar na resolução de problemas, validação da migração, análise de segurança e compreensão arquitetónica geral. As ligações falhadas são por vezes inofensivas, mas muitas vezes apontam diretamente para um problema, como um ambiente de falha súbita, tornando-se subitamente inacessível, ou dois níveis de aplicação incapazes de falar após uma migração na nuvem.
 
-## <a name="client-groups"></a>Grupos de clientes
+## <a name="client-groups"></a>Grupos de Clientes
 
-Grupos de clientes são caixas no mapa que representam computadores cliente que não têm agentes de dependência. Um único grupo de clientes representa os clientes de um computador ou processo individual.
+Grupos de Clientes são caixas no mapa que representam máquinas de clientes que não têm Agentes de Dependência. Um único Grupo cliente representa os clientes para um processo ou máquina individual.
 
-![Grupos de clientes](media/service-map/client-groups.png)
+![Grupos de Clientes](media/service-map/client-groups.png)
 
-Para ver os endereços IP dos servidores em um grupo de clientes, selecione o grupo. O conteúdo do grupo é listado no painel **Propriedades do grupo de clientes** .
+Para ver os endereços IP dos servidores num Grupo cliente, selecione o grupo. Os conteúdos do grupo estão listados no painel **Client Group Properties.**
 
-![Propriedades do grupo de clientes](media/service-map/client-group-properties.png)
+![Propriedades do Grupo Cliente](media/service-map/client-group-properties.png)
 
-## <a name="server-port-groups"></a>Grupos de portas do servidor
+## <a name="server-port-groups"></a>Grupos de porta de servidor
 
-Os grupos de portas do servidor são caixas que representam portas de servidor em servidores que não têm agentes de dependência. A caixa contém a porta do servidor e uma contagem do número de servidores com conexões com essa porta. Expanda a caixa para ver os servidores e as conexões individuais. Se houver apenas um servidor na caixa, o nome ou o endereço IP será listado.
+Os Grupos de Portas do Servidor são caixas que representam portas de servidores em servidores que não têm Agentes de Dependência. A caixa contém a porta do servidor e uma contagem do número de servidores com ligações a essa porta. Expanda a caixa para ver os servidores e ligações individuais. Se houver apenas um servidor na caixa, o nome ou endereço IP está listado.
 
-![Grupos de portas do servidor](media/service-map/server-port-groups.png)
+![Grupos de porta de servidor](media/service-map/server-port-groups.png)
 
 ## <a name="context-menu"></a>Menu Contexto
 
-Clicar nas reticências (...) na parte superior direita de qualquer servidor exibe o menu de contexto desse servidor.
+Clicar na elipse (...) na direita superior de qualquer servidor exibe o menu de contexto desse servidor.
 
-![Conexões com falha](media/service-map/context-menu.png)
+![Ligações falhadas](media/service-map/context-menu.png)
 
-### <a name="load-server-map"></a>Carregar mapa do servidor
+### <a name="load-server-map"></a>Mapa do servidor de carga
 
-Clicar em **carregar mapa do servidor** leva você para um novo mapa com o servidor selecionado como o novo computador de foco.
+Clicar no Mapa do Servidor de **Carga** leva-o a um novo mapa com o servidor selecionado como a nova máquina de foco.
 
-### <a name="show-self-links"></a>Mostrar Self-links
+### <a name="show-self-links"></a>Mostrar auto-ligações
 
-Clicar em **Mostrar AutoLink** redesenha o nó do servidor, incluindo quaisquer links automáticos, que são conexões TCP que começam e terminam em processos no servidor. Se os links automáticos forem mostrados, o comando de menu será alterado para **ocultar Self-links**, para que você possa desativá-los.
+Clicar em **Mostrar Auto-Links** rebaseia o nó do servidor, incluindo quaisquer auto-links, que são ligações TCP que começam e terminam em processos dentro do servidor. Se forem mostradas autoligações, o comando do menu muda para **Ocultar Auto-Ligações,** para que possa desligá-los.
 
 ## <a name="computer-summary"></a>Resumo do computador
 
-O painel **Resumo da máquina** inclui uma visão geral do sistema operacional de um servidor, contagens de dependência e dados de outras soluções. Esses dados incluem métricas de desempenho, tíquetes de central de serviços, controle de alterações, segurança e atualizações.
+O painel **de resumo** da máquina inclui uma visão geral do sistema operativo de um servidor, contagens de dependência e dados de outras soluções. Estes dados incluem métricas de desempenho, bilhetes de secretária de serviço, rastreio de alterações, segurança e atualizações.
 
-![Painel Resumo da máquina](media/service-map/machine-summary.png)
+![Painel de resumo da máquina](media/service-map/machine-summary.png)
 
-## <a name="computer-and-process-properties"></a>Propriedades do computador e do processo
+## <a name="computer-and-process-properties"></a>Propriedades de computador e processo
 
-Ao navegar em um mapa de Mapa do Serviço, você pode selecionar computadores e processos para obter contexto adicional sobre suas propriedades. Os computadores fornecem informações sobre o nome DNS, os endereços IPv4, a capacidade de CPU e memória, o tipo de VM, o sistema operacional e a versão, a hora da última reinicialização e as IDs de seus agentes do OMS e do Mapa do Serviço.
+Ao navegar num mapa de mapas de serviço, pode selecionar máquinas e processos para ganhar contexto adicional sobre as suas propriedades. As máquinas fornecem informações sobre o nome DNS, endereços IPv4, CPU e capacidade de memória, tipo VM, sistema operativo e versão, última hora de reinício, e os IDs dos seus agentes OMS e Service Map.
 
-![Painel de propriedades do computador](media/service-map/machine-properties.png)
+![Painel de propriedades da máquina](media/service-map/machine-properties.png)
 
-Você pode coletar detalhes do processo de metadados do sistema operacional sobre processos em execução, incluindo nome do processo, descrição do processo, nome de usuário e domínio (no Windows), nome da empresa, nome do produto, versão do produto, diretório de trabalho, linha de comando e processo hora de início.
+Pode recolher detalhes do processo a partir de metadados do sistema operativo sobre processos de execução, incluindo nome de processo, descrição do processo, nome e domínio do utilizador (no Windows), nome da empresa, nome do produto, versão do produto, diretório de trabalho, linha de comando e processo hora de início.
 
-![Painel de propriedades do processo](media/service-map/process-properties.png)
+![Painel de propriedades de processo](media/service-map/process-properties.png)
 
-O painel **Resumo do processo** fornece informações adicionais sobre a conectividade do processo, incluindo suas portas associadas, conexões de entrada e saída e conexões com falha.
+O painel resumo do **processo** fornece informações adicionais sobre a conectividade do processo, incluindo as portas ligadas, ligações de entrada e saída, e ligações falhadas.
 
 ![Painel de resumo do processo](media/service-map/process-summary.png)
 
-## <a name="alerts-integration"></a>Integração de alertas
+## <a name="alerts-integration"></a>Alertas de integração
 
-Mapa do Serviço integra-se com os alertas do Azure para mostrar os alertas acionados para o servidor selecionado no intervalo de tempo selecionado. O servidor exibirá um ícone se houver alertas atuais e o painel de **alertas do computador** listará os alertas.
+O Mapa de Serviço integra-se com alertas Azure para mostrar alertas disparados para o servidor selecionado na faixa hortemsa selecionada. O servidor apresenta um ícone se houver alertas atuais, e o painel de alertas de **máquinas** lista os alertas.
 
-![Painel de alertas do computador](media/service-map/machine-alerts.png)
+![Painel de alertas de máquina](media/service-map/machine-alerts.png)
 
-Para permitir que Mapa do Serviço exiba alertas relevantes, crie uma regra de alerta que seja acionada para um computador específico. Para criar alertas adequados:
-- Inclua uma cláusula para agrupar por computador (por exemplo, **por intervalo de computador 1 minuto**).
-- Opte por alertar com base na medição da métrica.
+Para permitir que o Mapa de Serviço saque alertas relevantes, crie uma regra de alerta que dispara para um computador específico. Para criar alertas adequados:
+- Incluir uma cláusula para agrupar por computador (por exemplo, **por intervalo de computador 1 minuto).**
+- Opte por alertar com base na medição métrica.
 
 ## <a name="log-events-integration"></a>Integração de eventos de log
 
-Mapa do Serviço integra-se com a pesquisa de log para mostrar uma contagem de todos os eventos de log disponíveis para o servidor selecionado durante o intervalo de tempo selecionado. Você pode clicar em qualquer linha na lista de contagens de eventos para saltar para a pesquisa de logs e ver os eventos de log individuais.
+O Mapa de Serviço integra-se com a Pesquisa de Registos para mostrar uma contagem de todos os eventos de registo disponíveis para o servidor selecionado durante o intervalo de tempo selecionado. Pode clicar em qualquer linha na lista de contagens de eventos para saltar para Registar Pesquisa e ver os eventos de registo individuais.
 
-![Painel de eventos de log do computador](media/service-map/log-events.png)
+![Painel de eventos de log de máquina](media/service-map/log-events.png)
 
-## <a name="service-desk-integration"></a>Integração da central de serviços
+## <a name="service-desk-integration"></a>Integração do Balcão de Serviço
 
-A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando ambas as soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics. A integração no Mapa do Serviço é rotulada "central de serviços". Para obter mais informações, consulte [gerenciar centralmente itens de trabalho de ITSM usando o conector de gerenciamento de serviços de ti](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+A integração do Mapa de Serviços com o Conector de Gestão de Serviços de TI é automática quando ambas as soluções estão ativadas e configuradas no seu espaço de trabalho Log Analytics. A integração no Mapa de Serviços está rotulada como "Balcão de Serviço". Para mais informações, consulte centralmente gerir itens de [trabalho ITSM utilizando o Conector de Gestão de Serviços de TI](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
-O painel **central de serviços de computador** lista todos os eventos de gerenciamento de serviços de ti para o servidor selecionado no intervalo de tempo selecionado. O servidor exibirá um ícone se houver itens atuais e o painel central de serviços da máquina os listar.
+O painel **do Balcão de Serviço** da Máquina lista todos os eventos de Gestão de Serviços de TI para o servidor selecionado na faixa horda selecionada. O servidor apresenta um ícone se houver itens atuais e o painel do Balcão de Serviço de Máquinas os lista.
 
-![Painel central de serviços de máquina](media/service-map/service-desk.png)
+![Painel de mesa de serviço de máquina](media/service-map/service-desk.png)
 
-Para abrir o item em sua solução ITSM conectada, clique em **Exibir item de trabalho**.
+Para abrir o item na sua solução ITSM conectada, clique no **View Work Item**.
 
-Para exibir os detalhes do item na pesquisa de logs, clique em **Mostrar na pesquisa de logs**.
-As métricas de conexão são gravadas em duas novas tabelas no Log Analytics 
+Para ver os detalhes do item em 'Pesquisa de Registo', clique **em Mostrar em Pesquisa de Registo**.
+As métricas de ligação são escritas para duas novas tabelas no Log Analytics 
 
-## <a name="change-tracking-integration"></a>Integração do Controle de Alterações
+## <a name="change-tracking-integration"></a>Alteração de Rastreio de Integração
 
-A integração do Mapa do Serviço com o Controle de Alterações é automática quando ambas as soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
+A integração do Mapa de Serviço com o Change Tracking é automática quando ambas as soluções estão ativadas e configuradas no seu espaço de trabalho Log Analytics.
 
-O painel de **controle de alterações do computador** lista todas as alterações, com a mais recente primeiro, junto com um link para fazer uma busca detalhada da pesquisa de logs para obter detalhes adicionais.
+O painel de rastreio de **alterações** automáticas lista todas as alterações, com a primeira mais recente, juntamente com um link para perfurar para obter detalhes adicionais.
 
-![Painel de Controle de Alterações do computador](media/service-map/change-tracking.png)
+![Painel de rastreio de alterações de máquina](media/service-map/change-tracking.png)
 
-A imagem a seguir é uma exibição detalhada de um evento ConfigurationChange que você pode ver depois de selecionar **Mostrar em log Analytics**.
+A imagem que se segue é uma visão detalhada de um evento De ConfiguraçãoChange que poderá ver depois de selecionar **Mostrar em Log Analytics**.
 
-![Evento ConfigurationChange](media/service-map/configuration-change-event-01.png)
+![Evento ConfiguraçãoChange](media/service-map/configuration-change-event-01.png)
 
 ## <a name="performance-integration"></a>Integração de desempenho
 
-O painel **desempenho do computador** exibe as métricas de desempenho padrão para o servidor selecionado. As métricas incluem utilização de CPU, utilização de memória, bytes de rede enviados e recebidos e uma lista dos principais processos por bytes de rede enviados e recebidos.
+O painel **de desempenho** da máquina apresenta métricas de desempenho padrão para o servidor selecionado. As métricas incluem a utilização do CPU, a utilização da memória, os bytes de rede enviados e recebidos, e uma lista dos principais processos por bytes de rede enviados e recebidos.
 
-![Painel de desempenho do computador](media/service-map/machine-performance.png)
+![Painel de desempenho da máquina](media/service-map/machine-performance.png)
 
-Para ver os dados de desempenho, talvez seja necessário [habilitar os contadores de desempenho apropriados de log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Os contadores que você deseja habilitar:
+Para ver os dados de desempenho, poderá ser necessário [ativar os contadores](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters)de desempenho adequados do Log Analytics .  Os contadores que pretende ativar:
 
 Windows:
-- Processador (*)\\% tempo do processador
-- Memória\\% de bytes confirmados em uso
-- Adaptador de rede (*)\\bytes enviados/s
-- Adaptador de rede (*)\\bytes recebidos/s
+- Processador(*)\\% Tempo do processador
+- Memória\\% Bytes Comprometidos em Uso
+- Adaptador de rede(*)\\Bytes Enviado/seg
+- Adaptador de rede(*)\\Bytes Recebidos/seg
 
 Linux:
-- Processador (*)\\% tempo do processador
-- Memória (*)\\% de memória usada
-- Adaptador de rede (*)\\bytes enviados/s
-- Adaptador de rede (*)\\bytes recebidos/s
+- Processador(*)\\% Tempo do processador
+- Memória(*)\\% Memória Usada
+- Adaptador de rede(*)\\Bytes Enviado/seg
+- Adaptador de rede(*)\\Bytes Recebidos/seg
 
-Para obter os dados de desempenho de rede, você também deve ter habilitado a solução Wire Data 2.0 em seu espaço de trabalho.
+Para obter os dados de desempenho da rede, também deve ter ativado a solução Wire Data 2.0 no seu espaço de trabalho.
  
 ## <a name="security-integration"></a>Integração de segurança
 
-A integração do Mapa do Serviço com o Segurança e Auditoria é automática quando ambas as soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
+A integração do Mapa de Serviços com segurança e auditoria é automática quando ambas as soluções estão ativadas e configuradas no seu espaço de trabalho Log Analytics.
 
-O painel **segurança do computador** mostra dados da solução segurança e auditoria para o servidor selecionado. O painel lista um resumo de quaisquer problemas de segurança pendentes para o servidor durante o intervalo de tempo selecionado. Clicar em qualquer um dos problemas de segurança faz uma busca detalhada em uma pesquisa de log para obter detalhes sobre eles.
+O painel **de Segurança automática** mostra dados da solução de Segurança e Auditoria para o servidor selecionado. O painel lista um resumo de quaisquer problemas de segurança pendentes para o servidor durante o intervalo de tempo selecionado. Clicar em qualquer um dos problemas de segurança faz um exercício para baixo em uma Pesquisa de Registo para obter detalhes sobre eles.
 
-![Painel segurança do computador](media/service-map/machine-security.png)
+![Painel de segurança da máquina](media/service-map/machine-security.png)
 
 ## <a name="updates-integration"></a>Integração de atualizações
 
-A integração do Mapa do Serviço com o Gerenciamento de Atualizações é automática quando ambas as soluções estão habilitadas e configuradas em seu espaço de trabalho do Log Analytics.
+A integração do Mapa de Serviço com a Atualização é automática quando ambas as soluções estão ativadas e configuradas no seu espaço de trabalho Log Analytics.
 
-O painel **atualizações do computador** exibe dados da solução gerenciamento de atualizações para o servidor selecionado. O painel lista um resumo de todas as atualizações ausentes para o servidor durante o intervalo de tempo selecionado.
+O painel de **atualizações** da máquina apresenta dados da solução de Gestão de Atualizações para o servidor selecionado. O painel lista um resumo de quaisquer atualizações em falta para o servidor durante o intervalo de tempo selecionado.
 
-![Painel de Controle de Alterações do computador](media/service-map/machine-updates.png)
+![Painel de rastreio de alterações de máquina](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registos do Log Analytics
 
-Mapa do Serviço dados de inventário do computador e do processo estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
+Os dados do computador do Mapa de Serviço e do inventário de processos estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Pode aplicar estes dados a cenários que incluem planeamento migratório, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
 
-Um registro é gerado por hora para cada computador e processo exclusivo, além dos registros que são gerados quando um processo ou computador é iniciado ou integrado ao Mapa do Serviço. Esses registros têm as propriedades nas tabelas a seguir. Os campos e valores no ServiceMapComputer_CL eventos são mapeados para os campos do recurso de máquina na API de Azure Resource Manager de ServiceMap. Os campos e valores no ServiceMapProcess_CL eventos são mapeados para os campos do recurso de processo na API de Azure Resource Manager de ServiceMap. O campo ResourceName_s corresponde ao campo de nome no recurso do Resource Manager correspondente. 
+Um registo é gerado por hora para cada computador e processo exclusivos, além dos registos que são gerados quando um processo ou computador começa ou está a bordo do Mapa de Serviço. Estes registos têm as propriedades nas seguintes tabelas. Os campos e valores do mapa de eventos ServiceMapComputer_CL para campos do recurso Máquina na API serviceMap Azure Resource Manager. Os campos e valores do mapa de eventos ServiceMapProcess_CL para os campos do recurso Process na API serviceMap Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nomes no recurso correspondente do Gestor de Recursos. 
 
 >[!NOTE]
->À medida que os recursos do Mapa do Serviço crescem, esses campos estão sujeitos a alterações.
+>À medida que as funcionalidades do Mapa de Serviço crescem, estes campos estão sujeitos a alterações.
 
-Há Propriedades geradas internamente que você pode usar para identificar computadores e processos exclusivos:
+Existem propriedades geradas internamente que pode usar para identificar processos e computadores únicos:
 
-- Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um espaço de trabalho log Analytics.
-- Processo: use *ResourceId* para identificar exclusivamente um processo em um espaço de trabalho log Analytics. *ResourceName_s* é exclusivo no contexto do computador em que o processo está em execução (MachineResourceName_s) 
+- Computador: Utilize o *ResourceId* ou *ResourceName_s* para identificar de forma única um computador dentro de um espaço de trabalho de Log Analytics.
+- Processo: Utilize o *ResourceId* para identificar de forma única um processo dentro de um espaço de trabalho de Log Analytics. *ResourceName_s* é único no contexto da máquina em que o processo está a decorrer (MachineResourceName_s) 
 
-Como vários registros podem existir para um processo especificado e um computador em um intervalo de tempo especificado, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir apenas o registro mais recente, adicione "| eliminação de duplicatas "para a consulta.
+Como vários registos podem existir para um processo e computador especificados numa faixa de tempo especificada, as consultas podem devolver mais do que um registo para o mesmo computador ou processo. Para incluir apenas o registo mais recente, adicione " dedup ResourceId " para a consulta.
 
 ### <a name="connections"></a>Ligações
 
-As métricas de conexão são gravadas em uma nova tabela em Log Analytics-VMConnection. Esta tabela fornece informações sobre as conexões de um computador (entrada e saída). As métricas de conexão também são expostas com APIs que fornecem os meios para obter uma métrica específica durante uma janela de tempo.  As conexões TCP resultantes da aceitação em um soquete de escuta são de entrada, enquanto aquelas criadas pela conexão a um determinado IP e porta são de saída. A direção de uma conexão é representada pela propriedade Direction, que pode ser definida como de **entrada** ou de **saída**. 
+As métricas de ligação são escritas para uma nova tabela no Log Analytics - VMConnection. Esta tabela fornece informações sobre as ligações para uma máquina (entrada e saída). As Métricas de Ligação também são expostas com APIs que fornecem os meios para obter uma métrica específica durante uma janela de tempo.  As ligações TCP resultantes da aceitação numa tomada de audição estão a entrar, enquanto as criadas através da ligação a um determinado IP e à porta estão de saída. A direção de uma ligação é representada pela propriedade Direction, que pode ser definida para **entrada** ou **saída**. 
 
-Os registros nessas tabelas são gerados a partir de dados relatados pelo Dependency Agent. Cada registro representa uma observação sobre um intervalo de tempo de um minuto. A Propriedade TimeGenerated indica o início do intervalo de tempo. Cada registro contém informações para identificar a respectiva entidade, ou seja, conexão ou porta, bem como métricas associadas a essa entidade. Atualmente, apenas a atividade de rede que ocorre usando TCP sobre IPv4 é relatada.
+Os registos nestas tabelas são gerados a partir de dados reportados pelo agente dependency. Cada registo representa uma observação num intervalo de um minuto. A propriedade TimeGenerated indica o início do intervalo de tempo. Cada registo contém informações para identificar a respetiva entidade, isto é, conexão ou porta, bem como métricas associadas a essa entidade. Atualmente, apenas é reportada a atividade de rede que ocorre usando TCP sobre iPv4.
 
-Para gerenciar o custo e a complexidade, os registros de conexão não representam conexões de rede física individuais. Várias conexões de rede física são agrupadas em uma conexão lógica, que é refletida na respectiva tabela.  Ou seja, os registros na tabela *VMConnection* representam um agrupamento lógico e não as conexões físicas individuais que estão sendo observadas. A conexão de rede física que compartilha o mesmo valor para os seguintes atributos durante um determinado intervalo de um minuto, é agregada em um único registro lógico em *VMConnection*. 
+Para gerir o custo e a complexidade, os registos de ligação não representam ligações físicas individuais da rede. Várias ligações físicas de rede são agruparadas numa conexão lógica, que é então refletida na respetiva tabela.  Ou seja, os registos na tabela *VMConnection* representam um agrupamento lógico e não as ligações físicas individuais que estão a ser observadas. A ligação física da rede que partilha o mesmo valor para os seguintes atributos durante um determinado intervalo de um minuto, são agregados num único registo lógico em *VMConnection*. 
 
 | Propriedade | Descrição |
 |:--|:--|
-| `Direction` |Direção da conexão, o valor é de *entrada* ou de *saída* |
-| `Machine` |O FQDN do computador |
-| `Process` |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
-| `SourceIp` |Endereço IP da origem |
+| `Direction` |Direção da ligação, o valor é *de entrada* ou *saída* |
+| `Machine` |O computador FQDN |
+| `Process` |Identidade de processo ou grupos de processos, início/aceitação da ligação |
+| `SourceIp` |Endereço IP da fonte |
 | `DestinationIp` |Endereço IP do destino |
-| `DestinationPort` |Número da porta do destino |
-| `Protocol` |Protocolo usado para a conexão.  Os valores são *TCP*. |
+| `DestinationPort` |Número do porto do destino |
+| `Protocol` |Protocolo usado para a ligação.  Valores é *tcp*. |
 
-Para considerar o impacto do agrupamento, as informações sobre o número de conexões físicas agrupadas são fornecidas nas seguintes propriedades do registro:
+Para ter em conta o impacto do agrupamento, são fornecidas informações sobre o número de ligações físicas agrunadas nas seguintes propriedades do registo:
 
 | Propriedade | Descrição |
 |:--|:--|
-| `LinksEstablished` |O número de conexões de rede física que foram estabelecidas durante a janela de tempo de relatório |
-| `LinksTerminated` |O número de conexões de rede física que foram terminadas durante a janela de tempo de relatório |
-| `LinksFailed` |O número de conexões de rede física que falharam durante a janela de tempo de relatório. Atualmente, essas informações estão disponíveis apenas para conexões de saída. |
-| `LinksLive` |O número de conexões de rede física que estavam abertas no final da janela de tempo de relatório|
+| `LinksEstablished` |O número de ligações físicas de rede que foram estabelecidas durante a janela de tempo de reporte |
+| `LinksTerminated` |O número de ligações físicas de rede que foram terminadas durante a janela de tempo de reporte |
+| `LinksFailed` |O número de ligações físicas à rede que falharam durante o período de reporte. Esta informação está atualmente disponível apenas para ligações de saída. |
+| `LinksLive` |O número de ligações físicas de rede que estavam abertas no final da janela de tempo de reporte|
 
 #### <a name="metrics"></a>Métricas
 
-Além das métricas de contagem de conexão, as informações sobre o volume de dados enviados e recebidos em uma determinada conexão lógica ou porta de rede também estão incluídas nas seguintes propriedades do registro:
+Para além das métricas de contagem de ligação, estão também incluídas informações sobre o volume de dados enviados e recebidos numa determinada ligação lógica ou porta de rede nas seguintes propriedades do registo:
 
 | Propriedade | Descrição |
 |:--|:--|
-| `BytesSent` |Número total de bytes que foram enviados durante a janela de tempo de relatório |
-| `BytesReceived` |Número total de bytes recebidos durante a janela de tempo de relatório |
-| `Responses` |O número de respostas observadas durante a janela de tempo de relatório. 
-| `ResponseTimeMax` |O maior tempo de resposta (milissegundos) observado durante a janela de tempo de relatório.  Se nenhum valor, a propriedade ficará em branco.|
-| `ResponseTimeMin` |O menor tempo de resposta (milissegundos) observado durante a janela de tempo de relatório.  Se nenhum valor, a propriedade ficará em branco.|
-| `ResponseTimeSum` |A soma de todos os tempos de resposta (milissegundos) observados durante a janela de tempo de relatório.  Se nenhum valor, a propriedade estará em branco|
+| `BytesSent` |Número total de bytes que foram enviados durante a janela de reporte |
+| `BytesReceived` |Número total de bytes que foram recebidos durante a janela de reporte |
+| `Responses` |O número de respostas observadas durante a janela de tempo de reporte. 
+| `ResponseTimeMax` |O maior tempo de resposta (milissegundos) observado durante a janela de tempo de reporte.  Se não tiver valor, a propriedade está em branco.|
+| `ResponseTimeMin` |O menor tempo de resposta (milissegundos) observado durante a janela de tempo de reporte.  Se não tiver valor, a propriedade está em branco.|
+| `ResponseTimeSum` |A soma de todos os tempos de resposta (milissegundos) observados durante a janela de tempo de reporte.  Se não tiver valor, a propriedade está em branco|
 
-O terceiro tipo de dados que estão sendo relatados é o tempo de resposta – quanto tempo um chamador gasta aguardando uma solicitação enviada por uma conexão a ser processada e respondida pelo ponto de extremidade remoto. O tempo de resposta relatado é uma estimativa do tempo de resposta verdadeiro do protocolo de aplicativo subjacente. Ele é calculado usando heurística com base na observação do fluxo de dados entre a extremidade de origem e destino de uma conexão de rede física. Conceitualmente, é a diferença entre a hora em que o último byte de uma solicitação deixa o remetente e a hora em que o último byte da resposta chega a ele. Esses dois carimbos de data/hora são usados para delinear eventos de solicitação e resposta em uma determinada conexão física. A diferença entre eles representa o tempo de resposta de uma única solicitação. 
+O terceiro tipo de dados a ser reportado é o tempo de resposta - quanto tempo um chamador gasta à espera de um pedido enviado sobre uma ligação a ser processado e respondido pelo ponto final remoto. O tempo de resposta reportado é uma estimativa do verdadeiro tempo de resposta do protocolo de candidatura subjacente. É calculado utilizando heurística com base na observação do fluxo de dados entre a origem e o destino de uma ligação de rede física. Conceptualmente, é a diferença entre o último byte de um pedido que deixa o remetente, e o momento em que o último byte da resposta chega ao mesmo. Estes dois selos temporais são usados para delinear eventos de pedido e resposta numa determinada ligação física. A diferença entre eles representa o tempo de resposta de um único pedido. 
 
-Nesta primeira versão desse recurso, nosso algoritmo é uma aproximação que pode funcionar com um grau variável de sucesso, dependendo do protocolo de aplicativo usado para uma determinada conexão de rede. Por exemplo, a abordagem atual funciona bem para protocolos baseados em solicitação-resposta, como HTTP (S), mas não funciona com protocolos unidirecionais e baseados em fila de mensagens.
+Neste primeiro lançamento desta funcionalidade, o nosso algoritmo é uma aproximação que pode funcionar com um grau de sucesso variado dependendo do protocolo de aplicação real utilizado para uma determinada ligação de rede. Por exemplo, a abordagem atual funciona bem para protocolos baseados em resposta a pedidos, como http(S), mas não funciona com protocolos de ida ou de fila de mensagens.
 
-Aqui estão alguns pontos importantes a considerar:
+Eis alguns pontos importantes a ter em conta:
 
-1. Se um processo aceitar conexões no mesmo endereço IP, mas em várias interfaces de rede, um registro separado para cada interface será relatado. 
-2. Os registros com IP curinga não conterá nenhuma atividade. Eles são incluídos para representar o fato de que uma porta no computador está aberta para o tráfego de entrada.
-3. Para reduzir o detalhamento e o volume de dados, os registros com IP curinga serão omitidos quando houver um registro correspondente (para o mesmo processo, porta e protocolo) com um endereço IP específico. Quando um registro de IP curinga for omitido, a propriedade de registro IsWildcardBind com o endereço IP específico será definida como "true" para indicar que a porta está exposta em todas as interfaces da máquina de relatórios.
-4. As portas que são associadas somente em uma interface específica têm IsWildcardBind definido como "false".
+1. Se um processo aceitar ligações no mesmo endereço IP, mas em várias interfaces de rede, será reportado um registo separado para cada interface. 
+2. Os registos com o WILDCARD IP não conterão nenhuma atividade. Estão incluídos para representar o facto de que uma porta da máquina está aberta ao tráfego de entrada.
+3. Para reduzir a verbosidade e o volume de dados, os registos com IP wildcard serão omitidos quando houver um registo correspondente (para o mesmo processo, porta e protocolo) com um endereço IP específico. Quando um registo IP wildcard for omitido, a propriedade de registo IsWildcardBind com o endereço IP específico, será definida como "True" para indicar que a porta está exposta em todas as interfaces da máquina de reporte.
+4. As portas que estão ligadas apenas a uma interface específica têm o IsWildcardBind definido para "Falso".
 
-#### <a name="naming-and-classification"></a>Nomenclatura e classificação
+#### <a name="naming-and-classification"></a>Nomeação e Classificação
 
-Para sua conveniência, o endereço IP da extremidade remota de uma conexão é incluído na propriedade RemoteIp. Para conexões de entrada, RemoteIp é o mesmo que SourceIp, enquanto para conexões de saída, é o mesmo que DestinationIp. A propriedade RemoteDnsCanonicalNames representa os nomes canônicos de DNS relatados pelo computador para RemoteIp. As propriedades RemoteDnsQuestions e RemoteClassification são reservadas para uso futuro. 
+Por conveniência, o endereço IP da extremidade remota de uma ligação está incluído na propriedade RemoteIp. Para ligações de entrada, o RemoteIp é o mesmo que o SourceIp, enquanto para ligações de saída, é o mesmo que o DestinationIp. A propriedade RemoteDnsCanonicalNames representa os nomes canónicos DNS relatados pela máquina para RemoteIp. As propriedades RemoteDnsQuestions e RemoteClassification estão reservadas para uso futuro. 
 
 #### <a name="geolocation"></a>Geolocalização
 
-O *VMConnection* também inclui informações de localização geográfica para a extremidade remota de cada registro de conexão nas seguintes propriedades do registro: 
+A *VMConnection* também inclui informações de geolocalização para a extremidade remota de cada registo de ligação nas seguintes propriedades do registo: 
 
 | Propriedade | Descrição |
 |:--|:--|
-| `RemoteCountry` |O nome do país/região que hospeda o RemoteIp.  Por exemplo, *Estados Unidos* |
-| `RemoteLatitude` |A latitude de geolocalização.  Por exemplo, *47,68* |
-| `RemoteLongitude` |A longitude da geolocalização.  Por exemplo, *-122,12* |
+| `RemoteCountry` |O nome do país/região que acolhe o RemoteIp.  Por exemplo, *Estados Unidos* |
+| `RemoteLatitude` |A latitude geolocalização.  Por exemplo, *47.68* |
+| `RemoteLongitude` |A longitude geolocalização.  Por exemplo, *-122.12* |
 
-#### <a name="malicious-ip"></a>IP mal-intencionado
+#### <a name="malicious-ip"></a>IP malicioso
 
-Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em relação a um conjunto de IPS com atividade mal-intencionada conhecida. Se o RemoteIp for identificado como mal-intencionado, as propriedades a seguir serão preenchidas (estão vazias, quando o IP não for considerado mal-intencionado) nas seguintes propriedades do registro:
+Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas contra um conjunto de IPs com atividade maliciosa conhecida. Se o RemoteIp for identificado como malicioso, as seguintes propriedades serão povoadas (estão vazias, quando o IP não for considerado malicioso) nas seguintes propriedades do registo:
 
 | Propriedade | Descrição |
 |:--|:--|
 | `MaliciousIp` |O endereço RemoteIp |
-| `IndicatorThreadType` |O indicador de ameaça detectado é um dos seguintes valores: *botnet*, *C2*, *CryptoMining*, *Darknet*, *DDoS*, *MaliciousUrl*, *malware*, *phishing*, *proxy*, *pua*, *Watchlist*.   |
+| `IndicatorThreadType` |O indicador de ameaça detetado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining,* *Darknet,* *DDos,* *MaliciousUrl,* *Malware*, *Phishing,* *Proxy,* *PUA,* *Watchlist*.   |
 | `Description` |Descrição da ameaça observada. |
-| `TLPLevel` |O nível do protocolo TLP (Traffic Light Protocol) é um dos valores definidos, *branco*, *verde*, *âmbar*e *vermelho*. |
+| `TLPLevel` |O nível do Protocolo do Semáforo (TLP) é um dos valores definidos, *Branco,* *Verde,* *Âmbar,* *Vermelho*. |
 | `Confidence` |Os valores são *0 a 100*. |
-| `Severity` |Os valores são *0 – 5*, em que *5* é o mais grave e *0* não é grave. O valor padrão é *3*.  |
-| `FirstReportedDateTime` |A primeira vez que o provedor reportou o indicador. |
-| `LastReportedDateTime` |A última vez em que o indicador foi visto por interflow. |
-| `IsActive` |Indica que os indicadores são desativados com o valor *verdadeiro* ou *falso* . |
-| `ReportReferenceLink` |Links para relatórios relacionados a um determinado observed. |
+| `Severity` |Os valores são *0 - 5*, onde *5* é o mais grave e *0* não é severo de todo. O valor predefinido é *de 3*.  |
+| `FirstReportedDateTime` |A primeira vez que o fornecedor reportou o indicador. |
+| `LastReportedDateTime` |A última vez que o indicador foi visto pela Interflow. |
+| `IsActive` |Indica que os indicadores são desativados com valor *verdadeiro* ou *falso.* |
+| `ReportReferenceLink` |Ligações a relatórios relacionados com um dado observável. |
 | `AdditionalInformation` |Fornece informações adicionais, se aplicável, sobre a ameaça observada. |
 
-### <a name="servicemapcomputer_cl-records"></a>Registros de ServiceMapComputer_CL
+### <a name="servicemapcomputer_cl-records"></a>ServiceMapComputer_CL registos
 
-Os registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes de mapa do serviço. Estes registos têm as propriedades na tabela a seguir:
+Os registos com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes do Mapa de Serviço. Estes registos têm as propriedades na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
-| `ResourceId` | O identificador exclusivo de um computador dentro do espaço de trabalho |
-| `ResourceName_s` | O identificador exclusivo de um computador dentro do espaço de trabalho |
-| `ComputerName_s` | O FQDN do computador |
-| `Ipv4Addresses_s` | Uma lista de endereços IPv4 do servidor |
-| `Ipv6Addresses_s` | Uma lista de endereços IPv6 do servidor |
-| `DnsNames_s` | Uma matriz de nomes DNS |
-| `OperatingSystemFamily_s` | Windows ou Linux |
-| `OperatingSystemFullName_s` | O nome completo do sistema operacional  |
-| `Bitness_s` | O bit de bits do computador (32 bits ou 64 bits)  |
+| `ResourceId` | O identificador único para uma máquina dentro do espaço de trabalho |
+| `ResourceName_s` | O identificador único para uma máquina dentro do espaço de trabalho |
+| `ComputerName_s` | O computador FQDN |
+| `Ipv4Addresses_s` | Uma lista dos endereços IPv4 do servidor |
+| `Ipv6Addresses_s` | Uma lista dos endereços IPv6 do servidor |
+| `DnsNames_s` | Uma variedade de nomes DNS |
+| `OperatingSystemFamily_s` | Janelas ou Linux |
+| `OperatingSystemFullName_s` | O nome completo do sistema operativo  |
+| `Bitness_s` | A bitness da máquina (32-bit ou 64-bit)  |
 | `PhysicalMemory_d` | A memória física em MB |
 | `Cpus_d` | O número de CPUs |
-| `CpuSpeed_d` | A velocidade da CPU em MHz|
-| `VirtualizationState_s` | *desconhecido*, *físico*, *virtual*, *hipervisor* |
-| `VirtualMachineType_s` | *HyperV*, *VMware*e assim por diante |
-| `VirtualMachineNativeMachineId_g` | A ID da VM como atribuída por seu hipervisor |
-| `VirtualMachineName_s` | O nome da VM |
-| `BootTime_t` | O tempo de inicialização |
+| `CpuSpeed_d` | A velocidade do CPU em MHz|
+| `VirtualizationState_s` | *desconhecido,* *físico,* *virtual,* *hipervisor* |
+| `VirtualMachineType_s` | *hyperv*, *vmware,* e assim por diante |
+| `VirtualMachineNativeMachineId_g` | O ID VM atribuído pelo seu hipervisor |
+| `VirtualMachineName_s` | O nome do VM |
+| `BootTime_t` | O tempo de arranque |
 
-### <a name="servicemapprocess_cl-type-records"></a>Registros de tipo de ServiceMapProcess_CL
+### <a name="servicemapprocess_cl-type-records"></a>Registos do tipo ServiceMapProcess_CL
 
-Os registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos conectados por TCP em servidores com agentes de mapa do serviço. Estes registos têm as propriedades na tabela a seguir:
+Os registos com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos ligados ao TCP em servidores com agentes do Mapa de Serviço. Estes registos têm as propriedades na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
-| `ResourceId` | O identificador exclusivo de um processo no espaço de trabalho |
-| `ResourceName_s` | O identificador exclusivo de um processo no computador em que está sendo executado|
-| `MachineResourceName_s` | O nome do recurso do computador |
-| `ExecutableName_s` | O nome do executável do processo |
-| `StartTime_t` | A hora de início do pool de processos |
-| `FirstPid_d` | O primeiro PID no pool de processos |
+| `ResourceId` | O identificador único para um processo dentro do espaço de trabalho |
+| `ResourceName_s` | O identificador único para um processo dentro da máquina em que está em execução|
+| `MachineResourceName_s` | O nome do recurso da máquina |
+| `ExecutableName_s` | O nome do processo executável |
+| `StartTime_t` | A hora de início da piscina de processo |
+| `FirstPid_d` | O primeiro PID na piscina de processo |
 | `Description_s` | A descrição do processo |
 | `CompanyName_s` | O nome da empresa |
 | `InternalName_s` | O nome interno |
 | `ProductName_s` | O nome do produto |
 | `ProductVersion_s` | A versão do produto |
-| `FileVersion_s` | A versão do arquivo |
+| `FileVersion_s` | A versão de ficheiro |
 | `CommandLine_s` | A linha de comando |
 | `ExecutablePath _s` | O caminho para o arquivo executável |
 | `WorkingDirectory_s` | O diretório de trabalho |
-| `UserName` | A conta sob a qual o processo está sendo executado |
-| `UserDomain` | O domínio no qual o processo está sendo executado |
+| `UserName` | A conta sob a qual o processo está a executar |
+| `UserDomain` | O domínio sob o qual o processo está executando |
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 
-### <a name="list-all-known-machines"></a>Listar todos os computadores conhecidos
+### <a name="list-all-known-machines"></a>Listar todas as máquinas conhecidas
 
-ServiceMapComputer_CL | resumir arg_max (TimeGenerated, *) por ResourceId
+ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) por ResourceId
 
-### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Listar a capacidade de memória física de todos os computadores gerenciados.
+### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Enumera rita a capacidade física de memória de todos os computadores geridos.
 
-ServiceMapComputer_CL | resumir arg_max (TimeGenerated, *) por ResourceId | PhysicalMemory_d do projeto, ComputerName_s
+ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) by ResourceId  projeto PhysicalMemory_d, ComputerName_s
 
-### <a name="list-computer-name-dns-ip-and-os"></a>Listar nome do computador, DNS, IP e sistema operacional.
+### <a name="list-computer-name-dns-ip-and-os"></a>Lista de nomes de computador, DNS, IP e OS.
 
-ServiceMapComputer_CL | resumir arg_max (TimeGenerated, *) por ResourceId | ComputerName_s do projeto, OperatingSystemFullName_s, DnsNames_s Ipv4Addresses_s
+ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) by ResourceId  ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
-### <a name="find-all-processes-with-sql-in-the-command-line"></a>Localizar todos os processos com "SQL" na linha de comando
+### <a name="find-all-processes-with-sql-in-the-command-line"></a>Encontre todos os processos com "sql" na linha de comando
 
-ServiceMapProcess_CL | onde CommandLine_s contains_cs "SQL" | resumir arg_max (TimeGenerated, *) por ResourceId
+ServiceMapProcess_CL onde CommandLine_s contains_cs "sql"  sql'  resumir arg_max (TimeGenerated, *) por ResourceId
 
-### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Localizar um computador (registro mais recente) por nome de recurso
+### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Encontre uma máquina (registo mais recente) pelo nome de recurso
 
-Pesquisar em (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46DF-b43c-899ba829e07b" | resumir arg_max (TimeGenerated, *) por ResourceId
+pesquisa em (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b"  resumir arg_max (TimeGenerated, *) por ResourceId
 
-### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Localizar um computador (registro mais recente) por endereço IP
+### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Encontre uma máquina (registo mais recente) por endereço IP
 
-Pesquisar em (ServiceMapComputer_CL) "10.229.243.232" | resumir arg_max (TimeGenerated, *) por ResourceId
+pesquisa em (ServiceMapComputer_CL) "10.229.243.232"  resumir arg_max (TimeGenerated, *) por ResourceId
 
-### <a name="list-all-known-processes-on-a-specified-machine"></a>Listar todos os processos conhecidos em um computador especificado
+### <a name="list-all-known-processes-on-a-specified-machine"></a>Enumerar todos os processos conhecidos numa máquina especificada
 
-ServiceMapProcess_CL | em que MachineResourceName_s = = "m-559dbcd8-3130-454D-8d1d-f624e57961bc" | resumir arg_max (TimeGenerated, *) por ResourceId
+ServiceMapProcess_CL onde MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" / resumir arg_max (TimeGenerated, *) por ResourceId
 
-### <a name="list-all-computers-running-sql"></a>Listar todos os computadores que executam SQL
+### <a name="list-all-computers-running-sql"></a>Listar todos os computadores que executam o SQL
 
-ServiceMapComputer_CL | onde ResourceName_s ((Search in (ServiceMapProcess_CL) "\*SQL\*" | MachineResourceName_s distinto)) | ComputerName_s distintos
+ServiceMapComputer_CL onde ResourceName_s ((pesquisa em (ServiceMapProcess_CL) "\*sql\*"  MachineResourceName_s distinta)) / ComputerName_s distinta
 
-### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Listar todas as versões de produto exclusivas da ondulação em meu datacenter
+### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Enumere todas as versões únicas de produto de caracol no meu datacenter
 
-ServiceMapProcess_CL | em que ExecutableName_s = = "Ondulação" | ProductVersion_s distintos
+ServiceMapProcess_CL onde ExecutableName_s == "curl"  ProductVersion_s distinto
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Criar um grupo de computador de todos os computadores que executam o CentOS
 
 ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
-### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir as conexões de saída de um grupo de computadores
+### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir as ligações de saída de um grupo de máquinas
 
 ```
 // the machines of interest
@@ -541,17 +540,17 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## <a name="rest-api"></a>API REST
 
-Todos os dados de servidor, processo e dependência no Mapa do Serviço estão disponíveis por meio da [API REST do mapa do serviço](https://docs.microsoft.com/rest/api/servicemap/).
+Todos os dados do servidor, processo e dependência no Mapa de Serviços estão disponíveis através do Mapa de [Serviço REST API](https://docs.microsoft.com/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de utilização e diagnóstico
 
-A Microsoft recolhe automaticamente dados de utilização e desempenho através da utilização do serviço do mapa de serviço. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço de mapa de serviço. Para fornecer recursos de solução de problemas precisos e eficientes, os dados incluem informações sobre a configuração do software, como sistema operacional e versão, endereço IP, nome DNS e nome da estação de trabalho. A Microsoft não coleta nomes, endereços ou outras informações de contato.
+A Microsoft recolhe automaticamente dados de utilização e desempenho através da utilização do serviço do mapa de serviço. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço de mapa de serviço. Para fornecer capacidades precisas e eficientes de resolução de problemas, os dados incluem informações sobre a configuração do seu software, tais como sistema operativo e versão, endereço IP, nome DNS e nome da estação de trabalho. A Microsoft não recolhe nomes, moradas ou outras informações de contacto.
 
-Para obter mais informações sobre a recolha de dados e a utilização, consulte a [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+Para obter mais informações sobre a recolha e utilização de dados, consulte a Declaração de [Privacidade dos Serviços Online](https://go.microsoft.com/fwlink/?LinkId=512132)da Microsoft .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as [pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) no log Analytics para recuperar dados coletados pelo mapa do serviço.
+Saiba mais sobre pesquisas de [log](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para recuperar dados recolhidos pelo Service Map.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -560,47 +559,47 @@ Se tiver quaisquer problemas de instalação ou execução de mapa de serviço, 
 ### <a name="dependency-agent-installation-problems"></a>Problemas de instalação do agente de dependência
 
 #### <a name="installer-prompts-for-a-reboot"></a>Pedidos de instalador de um reinício
-O agente de dependência *geralmente* não requer uma reinicialização após a instalação ou remoção. No entanto, em certos casos raros, Windows Server exige uma reinicialização para continuar com uma instalação. Isso acontece quando uma dependência, geralmente, a biblioteca C++ redistribuível do Microsoft Visual requer uma reinicialização devido a um arquivo bloqueado.
+O agente de dependência *geralmente* não necessita de um reboot após a instalação ou remoção. No entanto, em certos casos raros, Windows Server exige uma reinicialização para continuar com uma instalação. Isto acontece quando uma dependência, C++ normalmente a biblioteca redistribuível visual da Microsoft requer um reboot por causa de um ficheiro bloqueado.
 
 #### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Mensagem "não é possível instalar o agente de dependência: não foi possível instalar as bibliotecas de Runtime do Visual Studio (código = [code_number])" é apresentada
 
 O agente do Microsoft Dependency baseia-se as bibliotecas de tempo de execução do Microsoft Visual Studio. Obterá uma mensagem se existe um problema durante a instalação das bibliotecas. 
 
-Os programas de instalação de biblioteca de tempo de execução criam registos na pasta %LOCALAPPDATA%\temp. O arquivo é `dd_vcredist_arch_yyyymmddhhmmss.log`, em que *Arch* é `x86` ou `amd64` e *AAAAMMDDHHMMSS* é a data e a hora (relógio de 24 horas) quando o log foi criado. O registo fornece detalhes sobre o problema que está a bloquear a instalação.
+Os programas de instalação de biblioteca de tempo de execução criam registos na pasta %LOCALAPPDATA%\temp. O ficheiro é `dd_vcredist_arch_yyyymmddhhmmss.log`, onde o *arco* é `x86` ou `amd64` e *yyymmddhhmmssé* a data e hora (relógio 24 horas) quando o tronco foi criado. O registo fornece detalhes sobre o problema que está a bloquear a instalação.
 
-Pode ser útil instalar primeiro as [bibliotecas de tempo de execução mais recentes](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) .
+Pode ser útil instalar as [últimas bibliotecas](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) em tempo de execução primeiro.
 
 A tabela seguinte apresenta uma lista de números de código e resoluções sugeridas.
 
 | Código | Descrição | Resolução |
 |:--|:--|:--|
-| 0x17 | O instalador de biblioteca exige uma atualização do Windows que não foi instalada. | Procure no registo do instalador mais recente da biblioteca.<br><br>Se uma referência a `Windows8.1-KB2999226-x64.msu` for seguida por uma linha `Error 0x80240017: Failed to execute MSU package,` você não terá os pré-requisitos para instalar o KB2999226. Siga as instruções na seção pré-requisitos no artigo [tempo de execução universal C no Windows](https://support.microsoft.com/kb/2999226) . Poderá ter de executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute o instalador do agente Microsoft Dependency novamente. |
+| 0x17 | O instalador de biblioteca exige uma atualização do Windows que não foi instalada. | Procure no registo do instalador mais recente da biblioteca.<br><br>Se uma referência a `Windows8.1-KB2999226-x64.msu` for seguida por uma linha `Error 0x80240017: Failed to execute MSU package,` não tiver os pré-requisitos para instalar o KB2999226. Siga as instruções na secção de pré-requisitos no universal [C Runtime no](https://support.microsoft.com/kb/2999226) artigo Windows. Poderá ter de executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute o instalador do agente Microsoft Dependency novamente. |
 
 ### <a name="post-installation-issues"></a>Problemas de pós-instalação
 
 #### <a name="server-doesnt-appear-in-service-map"></a>Servidor não aparece no mapa de serviço
 
-Se a instalação do agente de dependência for bem-sucedida, mas você não vir seu computador na solução Mapa do Serviço:
+Se a instalação do seu agente dependency tiver sucesso, mas não vê a sua máquina na solução Service Map:
 * O agente de dependência é instalado com êxito? Pode confirmar isto, verificando se o serviço está instalado e em execução.<br><br>
-**Windows**: Procure o serviço chamado **Microsoft Dependency Agent**.
-**Linux**: Procure o processo em execução **Microsoft-Dependency-Agent**.
+**Windows**: Procure o serviço chamado **Microsoft Dependency agent**.
+**Linux**: Procure o processo de execução do **agente de dependência**da Microsoft .
 
-* Você está na [camada gratuita log Analytics](https://azure.microsoft.com/pricing/details/monitor/)? O plano gratuito permite até cinco máquinas Mapa do Serviço exclusivas. Quaisquer computadores subsequentes não aparecerão no Mapa do Serviço, mesmo que os cinco anteriores não estejam mais enviando dados.
+* Está no [nível livre](https://azure.microsoft.com/pricing/details/monitor/)de Log Analytics? O plano Gratuito permite até cinco máquinas exclusivas do Mapa de Serviço. Quaisquer máquinas subsequentes não aparecerão no Mapa de Serviços, mesmo que as cinco anteriores já não estejam a enviar dados.
 
-* O servidor está enviando dados de log e desempenho para Azure Monitor logs? Vá para o Azure Monitor\Logs e execute a seguinte consulta para o seu computador: 
+* O seu servidor está a enviar dados de registo e perf para registos do Monitor Do Azure? Vá ao Azure Monitor\Logs e faça a seguinte consulta para o seu computador: 
 
     ```kusto
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-Obteve uma variedade de eventos nos resultados? Os dados são recentes? Nesse caso, seu agente de Log Analytics está operando corretamente e se comunicando com o espaço de trabalho. Caso contrário, verifique o agente em seu computador: [log Analytics agente para solução de problemas do Windows](../platform/agent-windows-troubleshoot.md) ou solução [de problemas do agente log Analytics para Linux](../platform/agent-linux-troubleshoot.md).
+Obteve uma variedade de eventos nos resultados? Os dados são recentes? Em caso afirmativo, o seu agente Log Analytics está a funcionar corretamente e a comunicar com o espaço de trabalho. Caso contrário, verifique o agente na sua máquina: [Agente de Log Analytics para resolução](../platform/agent-windows-troubleshoot.md) de problemas do Windows ou agente Delog Analytics para resolução de [problemas do Linux](../platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servidor é apresentado no mapa de serviço, mas não tem nenhum processo
 
-Se você vir seu computador no Mapa do Serviço, mas ele não tem nenhum processo ou dados de conexão, isso indica que o agente de dependência está instalado e em execução, mas o driver do kernel não foi carregado. 
+Se vir a sua máquina no Mapa de Serviço, mas não tiver dados de processo ou de ligação, isso indica que o agente Dependency está instalado e em funcionamento, mas o controlador de kernel não carregou. 
 
 Verifique o `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) ou `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). As última linhas do ficheiro devem indicar por que não carregou o kernel. Por exemplo, o kernel poderá não ser suportado no Linux, se atualizou o kernel.
 
 ## <a name="feedback"></a>Comentários
 
-Você tem algum comentário para nós sobre Mapa do Serviço ou esta documentação?  Visite nossa [página de voz do usuário](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), na qual você pode sugerir recursos ou votar em sugestões existentes.
+Tem algum feedback sobre o Mapa de Serviços ou sobre esta documentação?  Visite a nossa [página de Voz do Utilizador,](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)onde pode sugerir funcionalidades ou votar as sugestões existentes.

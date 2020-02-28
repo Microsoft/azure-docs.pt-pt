@@ -1,19 +1,15 @@
 ---
 title: 'Quickstart: Monitorize websites com Insights de Aplicação do Monitor Azure'
 description: Fornece instruções de arranque rápido configuração de website cliente/browser-side com Insights de aplicação do Monitor Azure
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 408b24c83c5b3d795a86d1ad0275d732bb54a6db
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 1c581867f1e7ebc29f2aaff97124a08bec4e3b40
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963624"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670853"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Quickstart: Comece a monitorizar o seu website com insights de aplicação do Monitor Azure
 
@@ -30,18 +26,18 @@ Com o Azure Monitor Application Insights, pode monitorizar facilmente o seu site
 
 O Application Insights pode recolher dados telemétricos de qualquer aplicação ligada à Internet, executada no local ou na cloud. Utilize os passos seguintes para começar a ver estes dados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Criar um recurso** > **Ferramentas de gestão**  > **Application Insights**.
 
    > [!NOTE]
-   >Se esta for a primeira vez que você cria um recurso de Application Insights, você pode aprender mais visitando o artigo [criar um recurso de Application insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
+   >Se for a primeira vez que cria um recurso de Insights de Aplicação, pode aprender mais visitando o artigo [Create a Application Insights Resource.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)
 
    É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
     | Definições        | Valor           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valor Exclusivo Global | Nome que identifica o aplicativo que você está monitorando |
-   | **Grupo de Recursos**     | myResourceGroup      | Nome para o novo grupo de recursos para acolher dados de Insights de Aplicação. Você pode criar um novo grupo de recursos ou usar um existente. |
+   | **Nome**      | Valor Exclusivo Global | Nome que identifique a app que está a monitorizar |
+   | **Grupo de Recursos**     | myResourceGroup      | Nome para o novo grupo de recursos para acolher dados de Insights de Aplicação. Pode criar um novo grupo de recursos ou utilizar um existente. |
    | **Localização** | E.U.A. Leste | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 3. Clique em **Criar**.
@@ -128,7 +124,7 @@ Para obter configurações mais avançadas para monitorização de sites, veja a
 Se pretende continuar a trabalhar com quickstarts adicionais ou com os tutoriais, não limpe os recursos criados neste arranque rápido. Caso contrário, se não pretende continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido no portal Azure.
 
 > [!NOTE]
-> Se você usou um grupo de recursos existente, as instruções abaixo não funcionarão e você precisará apenas excluir o recurso de Application Insights individual. Tenha em mente sempre que você excluir um grupo de recursos, todos os recursos do underyling que são membros desse grupo serão excluídos.
+> Se utilizou um grupo de recursos existente, as instruções abaixo não funcionarão e terá de eliminar o recurso Individual Application Insights. Tenha em mente que sempre que eliminar um grupo de recursos, todos os recursos que são membros desse grupo serão eliminados.
 
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.

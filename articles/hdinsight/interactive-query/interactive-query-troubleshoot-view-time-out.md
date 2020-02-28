@@ -1,26 +1,26 @@
 ---
-title: Apache Hive exibição atinge o tempo limite do resultado da consulta-Azure HDInsight
-description: Apache Hive exibição expira ao buscar um resultado de consulta no Azure HDInsight
+title: Apache Hive View vezes fora do resultado da consulta - Azure HDInsight
+description: Apache Hive Ver horários ao obter um resultado de consulta em Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 6b4050918251d35a460d232dddc0c3113f163ec8
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f00f70e674ac0b83b737d6b2a4bf9d20400736fc
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895084"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672026"
 ---
-# <a name="scenario-apache-hive-view-times-out-when-fetching-a-query-result-in-azure-hdinsight"></a>Cenário: Apache Hive exibição expira ao buscar um resultado de consulta no Azure HDInsight
+# <a name="scenario-apache-hive-view-times-out-when-fetching-a-query-result-in-azure-hdinsight"></a>Cenário: Apache Hive Ver horários ao obter um resultado de consulta em Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao usar componentes de consulta interativa em clusters do Azure HDInsight.
+Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas ao utilizar componentes de Consulta Interativa em clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Ao executar determinadas consultas na exibição de Apache Hive, o seguinte erro pode ser encontrado:
+Ao executar certas consultas da vista Apache Hive, pode encontrar-se o seguinte erro:
 
 ```
 result fetch timed out
@@ -29,26 +29,26 @@ java.util.concurrent.TimeoutException: deadline passed
 
 ## <a name="cause"></a>Causa
 
-O valor de tempo limite padrão de exibição do hive pode não ser adequado para a consulta que você está executando. O período de tempo especificado é muito curto para a exibição do hive buscar o resultado da consulta.
+O valor de tempo de tempo padrão da Hive View pode não ser adequado para a consulta que está a executar. O período de tempo especificado é demasiado curto para a Vista da Colmeia buscar o resultado da consulta.
 
 ## <a name="resolution"></a>Resolução
 
-Aumente os tempos limite de exibição do hive do Apache Ambari definindo as propriedades a seguir no `/etc/ambari-server/conf/ambari.properties`.
+Aumente os intervalos apache Ambari Hive View definindo as seguintes propriedades em `/etc/ambari-server/conf/ambari.properties`.
 
 ```
 views.ambari.request.read.timeout.millis=300000
 views.request.read.timeout.millis=300000
-views.ambari.hive<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
+views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
 ```
 
-O valor de `HIVE_VIEW_INSTANCE_NAME` está disponível no final da URL de exibição do hive.
+O valor do `HIVE_VIEW_INSTANCE_NAME` está disponível no final do URL da Vista da Colmeia.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através do [Apoio Comunitário de Azure.](https://azure.microsoft.com/support/community/)
 
-* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente, ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** a partir da barra de menus ou abra o centro de **suporte Ajuda +.** Para obter informações mais detalhadas, por favor reveja [como criar um pedido de apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte do Azure.](https://azure.microsoft.com/support/plans/)

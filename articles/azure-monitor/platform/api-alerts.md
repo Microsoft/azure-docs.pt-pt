@@ -1,29 +1,27 @@
 ---
 title: Usando a API de REST de alerta do Log Analytics
-description: A API REST do alerta de Log Analytics permite criar e gerenciar alertas no Log Analytics, que faz parte do Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
-ms.service: azure-monitor
+description: O Log Analytics Alert REST API permite-lhe criar e gerir alertas no Log Analytics, que faz parte do Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
 ms.subservice: logs
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
 ms.date: 07/29/2018
-ms.openlocfilehash: 7112f86ca123c66c5969236617f35fcb8d698030
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: a85dad2ba638505233e5df769e55fa5bd7b8dafd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680669"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665005"
 ---
-# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta no Log Analytics com a REST API
+# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta no Log Analytics com a REST API 
+
 A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
 
 > [!IMPORTANT]
-> Conforme [anunciado anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), os espaços de trabalho do log Analytics criados após *1º de junho de 2019* – poderão gerenciar regras de alerta usando **apenas** a [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)do Azure scheduledQueryRules, o [modelo Manager de recursos do Azure](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e o [cmdlet do PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Os clientes podem facilmente [alternar seus meios preferenciais de gerenciamento de regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para espaços de trabalho mais antigos para aproveitar Azure monitor scheduledQueryRules como padrão e obter muitos [novos benefícios](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) como a capacidade de usar cmdlets nativos do PowerShell, um período de tempo de lookback maior em regras, a criação de regras em um grupo de recursos ou assinatura separado e muito mais.
+> Como [anunciado anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), log analytics workspace(s) criado após 1 de junho de *2019* - será capaz de gerir regras de alerta usando **apenas** o Azure scheduledQueryRules [REST API,](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)Modelo de [Mananger de Recursos Azure](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e [cmdlet PowerShell.](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell) Os clientes podem facilmente [mudar os seus meios preferidos de gestão de regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para espaços de trabalho mais antigos para alavancar o Programado Azure MonitorQueryRules como padrão e obter muitos novos [benefícios](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) como a capacidade de usar cmdlets nativos powerShell, o aumento do tempo de retrospetiva nas regras, a criação de regras em grupo de recursos separados ou subscrição e muito mais.
 
-A API de REST de pesquisa do Log Analytics é RESTful e pode ser acedido através da API de REST do Azure Resource Manager. Neste documento, encontrará exemplos em que a API é acessada a partir de uma linha de comandos do PowerShell através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código-fonte aberto que simplifica a invocar a API do Azure Resource Manager. O uso de ARMClient e o PowerShell é uma das muitas opções para acessar a API de pesquisa do Log Analytics. Com essas ferramentas, pode utilizar o Gestor de recursos do API RESTful do Azure para fazer chamadas para áreas de trabalho do Log Analytics e executar comandos de pesquisa dentro dos mesmos. A API irá enviar os resultados da pesquisa para si no formato JSON, permitindo que use os resultados da pesquisa de muitas formas diferentes através de programação.
+A API de REST de pesquisa do Log Analytics é RESTful e pode ser acedido através da API de REST do Azure Resource Manager. Neste documento, encontrará exemplos em que a API é acedida a partir de uma linha de comando PowerShell utilizando o [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de código aberto que simplifica a invocação da API do Gestor de Recursos Azure. O uso de ARMClient e o PowerShell é uma das muitas opções para acessar a API de pesquisa do Log Analytics. Com essas ferramentas, pode utilizar o Gestor de recursos do API RESTful do Azure para fazer chamadas para áreas de trabalho do Log Analytics e executar comandos de pesquisa dentro dos mesmos. A API irá enviar os resultados da pesquisa para si no formato JSON, permitindo que use os resultados da pesquisa de muitas formas diferentes através de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Atualmente, os alertas só podem ser criados com uma pesquisa guardada do Log Analytics.  Pode consultar o [API do REST de pesquisa de registo](../../azure-monitor/log-query/log-query-overview.md) para obter mais informações.
+Atualmente, os alertas só podem ser criados com uma pesquisa guardada do Log Analytics.  Pode consultar a [API](../../azure-monitor/log-query/log-query-overview.md) de Pesquisa de Registo sem mais informações.
 
 ## <a name="schedules"></a>Agendas
 Uma pesquisa guardada pode ter uma ou mais agendas. O plano define a frequência com que a pesquisa é a execução e o intervalo de tempo durante o qual os critérios é identificado.
@@ -63,7 +61,7 @@ Segue-se uma resposta de exemplo para uma agenda.
 ```
 
 ### <a name="creating-a-schedule"></a>Criar uma agenda
-Utilize o método Put com um ID de agendamento exclusivas para criar uma nova agenda.  Dois agendamentos não podem ter a mesma ID, mesmo se estiverem associados a pesquisas salvas diferentes.  Quando cria uma agenda na consola do Log Analytics, um GUID é criado para o ID de agenda.
+Utilize o método Put com um ID de agendamento exclusivas para criar uma nova agenda.  Dois horários não podem ter a mesma identificação mesmo que estejam associados a diferentes pesquisas guardadas.  Quando cria uma agenda na consola do Log Analytics, um GUID é criado para o ID de agenda.
 
 > [!NOTE]
 > O nome para pesquisas guardadas tudo, cronogramas e ações criadas com a API de análise de registo tem de ser em minúsculas.
@@ -72,7 +70,7 @@ Utilize o método Put com um ID de agendamento exclusivas para criar uma nova ag
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>Editar uma agenda
-Use o método Put com uma ID de agenda existente para a mesma pesquisa salva para modificar essa agenda; no exemplo abaixo, a agenda está desabilitada. O corpo da solicitação deve incluir a *ETag* da agenda.
+Utilize o método Put com um ID de agenda existente para a mesma pesquisa guardada para modificar esse horário; por exemplo, abaixo do horário é desativado. O corpo do pedido deve incluir o *etage* do horário.
 
       $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'false' } }"
       armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
@@ -129,7 +127,7 @@ Uma agenda deve ter apenas uma ação do alerta.  Ações de alerta tem uma ou m
 | Limiar |Critérios para quando a ação é executada.| É necessário para cada alerta, antes ou depois de eles são estendidos para o Azure. |
 | Gravidade |Etiqueta utilizada para classificar o alerta quando acionado.| É necessário para cada alerta, antes ou depois de eles são estendidos para o Azure. |
 | Suprimir |Opção para parar as notificações de alerta. | Opcional para cada alerta, antes ou depois de eles são estendidos para o Azure. |
-| Grupos de Ações |IDs de ActionGroup do Azure em que são especificadas as ações necessárias, como - emails, SMSs, chamadas de voz, Webhooks, Runbooks de automatização, conectores de ITSM, etc.| Necessário depois de alertas são expandidos para o Azure|
+| Grupos de Ação |IDs de ActionGroup do Azure em que são especificadas as ações necessárias, como - emails, SMSs, chamadas de voz, Webhooks, Runbooks de automatização, conectores de ITSM, etc.| Necessário depois de alertas são expandidos para o Azure|
 | Personalizar Ações|Modificar a saída padrão para selecionadas ações de ActionGroup| Opcional para cada alerta, pode ser utilizado depois de alertas são expandidos para o Azure. |
 
 ### <a name="thresholds"></a>Limiares
@@ -202,9 +200,9 @@ Utilize o método Put com um ID de ação existente para modificar uma ação de
 #### <a name="suppress"></a>Suprimir
 O log Analytics com base em consulta alertas serão acionados sempre que o limite é atingido ou excedido. Com base na lógica implícita na consulta, isso pode resultar em obter acionada para uma série de intervalos de alerta e, por conseguinte, as notificações também a ser enviadas constantemente. Para impedir que tal cenário, um utilizador pode definir a opção Suppress instruindo o Log Analytics para aguardar um período estipulado de tempo antes de notificação é disparada na segunda vez para a regra de alerta. Então, se suprimir está definido para 30 minutos; em seguida, alerta será acionado pela primeira vez e enviar notificações configuradas. Mas, em seguida, aguarde 30 minutos, antes de notificação para a regra de alerta é novamente utilizada. No período provisório, regra de alerta continuará a ser executado – apenas notificação suprimida pelo Log Analytics para o período de tempo especificado, independentemente do número de vezes que a regra de alerta acionada neste período.
 
-Suprimir a propriedade do Log Analytics a regra de alerta é especificada com o *limitação* valor e a utilização do período de supressão *DurationInMinutes* valor.
+Suprimir a propriedade da regra de alerta Log Analytics é especificada usando o valor *de estrangulamento* e o período de supressão usando o valor *DurationInMinutes.*
 
-Veja a seguir uma resposta de exemplo para uma ação com apenas um limite, severidade e propriedade de supressão
+Segue-se uma resposta da amostra para uma ação com apenas um limiar, gravidade e suprimir propriedade
 
     "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
     "properties": {
@@ -230,10 +228,10 @@ Utilize o método Put com um ID de ação existente para modificar uma ação de
     $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
-#### <a name="action-groups"></a>Grupos de Ações
+#### <a name="action-groups"></a>Grupos de Ação
 Todos os alertas no Azure, utilize o grupo de ação como o mecanismo predefinido para a manipulação de ações. Com o grupo de ação, pode especificar as suas ações de uma vez e, em seguida, associar o grupo de ação para múltiplos alertas - em todo o Azure. Sem a necessidade, repetidamente declarar as mesmas ações repetidamente. Os grupos de ação suportam várias ações - incluindo e-mail, SMS, chamada de voz, a ligação ITSM, Runbook de automatização, Webhook URI e muito mais. 
 
-Para usuários que estenderam seus alertas para o Azure – uma agenda agora deve ter detalhes do grupo de ações aprovados junto com o limite para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automatização de Runbook e outras ações, tem de ser definido no lado primeiro antes, criando um alerta, um grupo de ação é possível criar [grupo de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) no Portal ou de utilização [API de grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+Para os utilizadores que tenham alargado os seus alertas ao Azure - um calendário deve agora ter detalhes do Action Group aprovados juntamente com o limiar, para poderem criar um alerta. Os detalhes do e-mail, URLs Webhook, detalhes da Automatização do Livro de Executa e outras Ações, precisam de ser definidos ao lado de um Grupo de Ação primeiro antes de criar um alerta; pode criar [o Grupo de Ação a partir do Monitor Azure](../../azure-monitor/platform/action-groups.md) no Portal ou utilizar a [API do Grupo de Ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Para Adicionar associação de grupo de ação para um alerta, especifique o ID de Gestor de recursos do Azure exclusivo do grupo de ação na definição de alerta. Uma ilustração de exemplo é fornecida abaixo:
 
@@ -269,7 +267,7 @@ Utilize o método Put com um ID de ação existente para modificar um grupo de a
 Por ações predefinidas, siga o modelo padrão e o formato para as notificações. No entanto, o utilizador pode personalizar algumas ações, mesmo que eles são controlados por grupos de ação. Atualmente, a personalização é possível para o assunto do E-Mail e Webhook Payload.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Personalizar o assunto do E-Mail para o grupo de ação
-Por predefinição, é o assunto do e-mail para alertas: notificação de alerta `<AlertName>` para `<WorkspaceName>`. Mas isso pode ser personalizado, para que possa palavras específicas ou etiquetas - para que possa facilmente empregar as regras de filtro na pasta a receber. Os detalhes de cabeçalho do e-mail de personalizar tem de enviar, juntamente com detalhes de ActionGroup, tal como no exemplo abaixo.
+Por predefinição, o endereço de e-mail para alertas é: Notificação de alerta `<AlertName>` para `<WorkspaceName>`. Mas isso pode ser personalizado, para que possa palavras específicas ou etiquetas - para que possa facilmente empregar as regras de filtro na pasta a receber. Os detalhes de cabeçalho do e-mail de personalizar tem de enviar, juntamente com detalhes de ActionGroup, tal como no exemplo abaixo.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
@@ -301,7 +299,7 @@ Utilize o método Put com um ID de ação existente para modificar um grupo de a
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 ##### <a name="customize-webhook-payload-for-action-group"></a>Personalizar o Payload do Webook para o grupo de ação
-Por predefinição, o webhook enviado por meio do grupo de ação para o log analytics tem uma estrutura fixa. No entanto, um pode personalizar o payload JSON, utilizando variáveis específicas suportadas, para atender aos requisitos do ponto final do webhook. Para obter mais informações, consulte [ação do Webhook para regras de alerta de registo](../../azure-monitor/platform/alerts-log-webhook.md). 
+Por predefinição, o webhook enviado por meio do grupo de ação para o log analytics tem uma estrutura fixa. No entanto, um pode personalizar o payload JSON, utilizando variáveis específicas suportadas, para atender aos requisitos do ponto final do webhook. Para mais informações, consulte a [ação do Webhook para obter regras](../../azure-monitor/platform/alerts-log-webhook.md)de alerta de registo . 
 
 Os detalhes do webhook de personalizar precisam de enviar, juntamente com detalhes de ActionGroup e serão aplicadas a todos os Webhook URI especificado no interior do grupo de ação; tal como no exemplo abaixo.
 
@@ -338,7 +336,7 @@ Utilize o método Put com um ID de ação existente para modificar um grupo de a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Utilize o [API REST para realizar pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics.
-* Saiba mais sobre os [alertas de log no Azure monitor](../../azure-monitor/platform/alerts-unified-log.md)
-* Como [criar, editar ou gerenciar regras de alerta de log no Azure monitor](../../azure-monitor/platform/alerts-log.md)
+* Utilize a [API REST para efetuar pesquisas](../../azure-monitor/log-query/log-query-overview.md) de log no Log Analytics.
+* Saiba mais sobre alertas de [log no monitor Azure](../../azure-monitor/platform/alerts-unified-log.md)
+* Como [criar, editar ou gerir regras](../../azure-monitor/platform/alerts-log.md) de alerta de registo no monitor Azure
 

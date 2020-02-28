@@ -1,29 +1,28 @@
 ---
 title: Prepare-se para o Azure Monitor alerta sionantes migração atualizando as suas aplicações lógicas e livros de corridas
-author: yanivlavi
 description: Aprenda a modificar os seus webhooks, aplicações lógicas e livros de corridas para se preparar para a migração voluntária.
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 58ba95ff60ddccf909578a673110c870caf57376
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705569"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665597"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Prepare as suas aplicações lógicas e livros de corridas para a migração de regras clássicas de alerta
 
-Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão a ser retirados em setembro de 2019 (foi originalmente julho de 2019). Uma ferramenta de migração está disponível no portal do Azure aos clientes que usam regras de alerta clássicas e que desejam disparar a migração por conta própria.
+Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão a ser retirados em setembro de 2019 (foi originalmente julho de 2019). Uma ferramenta de migração está disponível no portal Azure para clientes que usam regras clássicas de alerta e que querem desencadear a migração por si mesmas.
 
 > [!NOTE]
 > Devido ao atraso no lançamento da ferramenta de migração, a data de reforma para alertas clássicos migração foi alargada para 31 de agosto de 2019 a partir da data inicialmente anunciada de 30 de junho de 2019.
 
 Se optar por migrar voluntariamente as suas regras clássicas de alerta para novas regras de alerta, esteja ciente de que existem algumas diferenças entre os dois sistemas. Este artigo explica essas diferenças e como se pode preparar para a mudança.
 
-## <a name="api-changes"></a>Alterações de API
+## <a name="api-changes"></a>Alterações da API
 
 As APIs que criam e gerem as regras clássicas de alerta (`microsoft.insights/alertrules`) são diferentes das APIs que criam e gerem novos alertas métricos (`microsoft.insights/metricalerts`). Se criar e gerir programaticamente as regras clássicas de alerta hoje, atualize os seus scripts de implementação para trabalhar com as novas APIs.
 
@@ -32,7 +31,7 @@ A tabela a seguir é uma referência às interfaces programáticas para alertas 
 |         |Alertas clássicos  |Novos alertas métricos |
 |---------|---------|---------|
 |API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|CLI do Azure     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta de métricas az monitor](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|CLI do Azure     | [alerta az monitor](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta de métricas az monitor](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modelo Azure Resource Manager | [Para alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Para novos alertas métricos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
@@ -44,26 +43,26 @@ Utilize a tabela seguinte para mapear os campos de carga útil do webhook do for
 
 |  |Alertas clássicos  |Novos alertas métricos |
 |---------|---------|---------|
-|O alerta foi ativado ou resolvido?    | **status**       | **data.status** |
-|Informação contextual sobre o alerta     | **contexto**        | **data.context**        |
-|Carimbo de tempo em que o alerta foi ativado ou resolvido     | **context.timestamp**       | **data.context.timestamp**        |
+|O alerta foi ativado ou resolvido?    | **estado**       | **data.status** |
+|Informação contextual sobre o alerta     | **contexto**        | **dados.contexto**        |
+|Carimbo de tempo em que o alerta foi ativado ou resolvido     | **contexto.carimbo de tempo**       | **data.context.timestamp**        |
 | Id da regra de alerta | **context.id** | **data.context.id** |
-| Nome da regra de alerta | **context.name** | **data.context.name** |
-| Descrição da regra do alerta | **context.description** | **data.context.description** |
-| Condição da regra do alerta | **context.condition** | **data.context.condition** |
-| Nome da métrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Nome da regra do alerta | **context.name** | **data.context.name** |
+| Descrição da regra do alerta | **contexto.descrição** | **data.context.description** |
+| Condição da regra do alerta | **contexto.condição** | **dados.contexto.condição** |
+| Nome da métrica | **contexto.condição.metricName** | **data.context.condition.allOf[0].metricName** |
 | Agregação do tempo (como a métrica é agregada sobre a janela de avaliação)| **contexto.condição.timeAggregação** | **contexto.condição.timeAggregação** |
-| Período de avaliação | **context.condition.windowSize** | **data.context.condition.windowSize** |
-| Operador (como o valor métrico agregado é comparado com o limiar) | **context.condition.operator** | **data.context.condition.operator** |
-| Limiar | **context.condition.threshold** | **data.context.condition.allOf[0].limiar** |
-| Valor métrico | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| ID de Subscrição | **context.subscriptionId** | **data.context.subscriptionId** |
-| Grupo de recursos do recurso afetado | **context.resourceGroup** | **data.context.resourceGroup** |
-| Nome do recurso afetado | **context.resourceName** | **data.context.resourceName** |
-| Tipo do recurso afetado | **context.resourceType** | **data.context.resourceType** |
-| Identificação de recursos do recurso afetado | **context.resourceId** | **data.context.resourceId** |
-| Link direto para a página de resumo do recurso do portal | **context.portalLink** | **data.context.portalLink** |
-| Campos de carga personalizada saem para o webhook ou aplicação lógica | **Propriedades** | **data.properties** |
+| Período de avaliação | **contexto.condição.windowSize** | **data.context.condition.windowSize** |
+| Operador (como o valor métrico agregado é comparado com o limiar) | **contexto.condição.operador** | **data.context.condition.operator** |
+| Limiar | **contexto.condição.limiar** | **data.context.condition.allOf[0].limiar** |
+| Valor métrico | **contexto.condição.metricValue** | **data.context.condition.allOf[0].metricValue** |
+| ID da subscrição | **contexto.subscriçãoId** | **data.context.subscriçãoId** |
+| Grupo de recursos do recurso afetado | **contexto.recursosGroup** | **data.context.resourceGroup** |
+| Nome do recurso afetado | **contexto.resourceName** | **data.context.resourceName** |
+| Tipo do recurso afetado | **contexto.resourceType** | **data.context.resourceType** |
+| Identificação de recursos do recurso afetado | **contexto.resourceId** | **data.context.resourceId** |
+| Link direto para a página de resumo do recurso do portal | **contexto.portalLink** | **data.context.portalLink** |
+| Campos de carga personalizada saem para o webhook ou aplicação lógica | **propriedades** | **data.properties** |
 
 As cargas são semelhantes, como pode ver. A seguinte secção oferece:
 
@@ -159,7 +158,7 @@ A maioria dos [nossos parceiros que se integram com alertas clássicos](https://
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
-- [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
+- [Sinalização4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
 Se está a usar uma integração de parceiros que não está listada aqui, confirme com o provedor de integração que a integração funciona com novos alertas métricos.
 

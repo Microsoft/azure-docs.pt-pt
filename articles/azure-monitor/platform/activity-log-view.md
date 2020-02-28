@@ -1,67 +1,66 @@
 ---
-title: Exibir eventos do log de atividades do Azure no Azure Monitor
-description: Exiba o log de atividades do Azure em Azure Monitor e recupere com o PowerShell, a CLI e a API REST.
+title: Ver eventos de log da Atividade Azure no Monitor Azure
+description: Veja o log in Azure Activity no Azure Monitor e recupere com powerShell, CLI e REST API.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 46d26aa5dccd32438b2028e21eaa94f7993944d1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749513"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668830"
 ---
-# <a name="view-and-retrieve-azure-activity-log-events"></a>Exibir e recuperar eventos do log de atividades do Azure
+# <a name="view-and-retrieve-azure-activity-log-events"></a>Ver e recuperar eventos de log da Atividade Azure
 
-O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo fornece detalhes sobre diferentes métodos para exibir e recuperar eventos do log de atividades.
+O [Registo de Atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos de nível de subscrição que ocorreram no Azure. Este artigo fornece detalhes sobre diferentes métodos para visualização e recuperação de eventos de Registo de Atividades.
 
 ## <a name="azure-portal"></a>Portal do Azure
-Exiba o log de atividades de todos os recursos no menu **monitorar** na portal do Azure. Exiba o log de atividades de um recurso específico da opção **log de atividades** no menu desse recurso.
+Consulte o Registo de Atividades para todos os recursos do menu **Monitor** no portal Azure. Consulte o Registo de Atividades para obter um recurso específico da opção Registo de **Atividades** no menu desse recurso.
 
-![Exibir log de atividades](./media/activity-logs-overview/view-activity-log.png)
+![Ver Registo de Atividades](./media/activity-logs-overview/view-activity-log.png)
 
-Você pode filtrar eventos do log de atividades pelos seguintes campos:
+Pode filtrar eventos de Registo de Atividadepelos seguintes campos:
 
-* **TimeSpan**: a hora de início e de término dos eventos.
-* **Categoria**: a categoria de evento, conforme descrito em [categorias no log de atividades](activity-log-view.md#categories-in-the-activity-log).
-* **Assinatura**: um ou mais nomes de assinatura do Azure.
-* **Grupo de recursos**: um ou mais grupos de recursos dentro das assinaturas selecionadas.
-* **Recurso (nome)** :-o nome de um recurso específico.
-* **Tipo de recurso**: o tipo de recurso, por exemplo, _Microsoft. Compute/VirtualMachines_.
-* **Nome da operação** -o nome de uma operação de Azure Resource Manager, por exemplo, _Microsoft. SQL/Servers/Write_.
-* **Severidade**: o nível de severidade do evento. Os valores disponíveis são _informativo_, _aviso_, _erro_, _crítico_.
-* **Evento iniciado por**: o usuário que realizou a operação.
-* **Abrir pesquisa**: caixa de pesquisa de texto aberta que pesquisa essa cadeia de caracteres em todos os campos em todos os eventos.
+* **Timespan**: O início e o fim do tempo para os eventos.
+* **Categoria**: A categoria do evento descrita nas [categorias do Registo de Atividades](activity-log-view.md#categories-in-the-activity-log).
+* **Subscrição**: Um ou mais nomes de subscrição Azure.
+* **Grupo de recursos**: Um ou mais grupos de recursos dentro das subscrições selecionadas.
+* **Recurso (nome)** : - O nome de um recurso específico.
+* **Tipo**de recurso : O tipo de recurso, por exemplo _Microsoft.Compute/virtualmachines_.
+* **Nome** da operação - O nome de uma operação do Gestor de Recursos Azure, por exemplo _Microsoft.SQL/servers/Write_.
+* **Gravidade**: O nível de gravidade do evento. Os valores disponíveis são _Informativos,_ _Aviso,_ _Erro,_ _Crítico._
+* **Evento iniciado por**: O utilizador que realizou a operação.
+* **Pesquisa aberta**: Abrir a caixa de pesquisa de texto que procura essa corda em todos os campos em todos os eventos.
 
-## <a name="categories-in-the-activity-log"></a>Categorias no log de atividades
-Cada evento no log de atividades tem uma categoria específica que são descritas na tabela a seguir. Para todos os detalhes sobre esquemas uma destas categorias, consulte [esquema de eventos de registo de atividades do Azure](activity-log-schema.md). 
+## <a name="categories-in-the-activity-log"></a>Categorias no registo de Atividades
+Cada evento no Registo de Atividades tem uma categoria específica que são descritas na tabela seguinte. Para mais detalhes sobre os esquemas destas categorias, consulte o esquema do [evento Azure Activity Log](activity-log-schema.md). 
 
 | Categoria | Descrição |
 |:---|:---|
-| Administrativa | Contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Exemplos de eventos administrativos incluem _criar máquina virtual_ e _excluir grupo de segurança de rede_.<br><br>Cada ação tomada por um usuário ou aplicativo usando o Resource Manager é modelada como uma operação em um determinado tipo de recurso. Se o tipo de operação for _gravação_, _exclusão_ou _ação_, os registros de início e êxito ou falha da operação serão registrados na categoria administrativa. Os eventos administrativos também incluem quaisquer alterações no controle de acesso baseado em função em uma assinatura. |
-| Service Health | Contém o registro de qualquer incidente de integridade do serviço que ocorreu no Azure. Um exemplo de SQL Azure de eventos de integridade do serviço _no leste dos EUA está apresentando tempo de inatividade_. <br><br>Os eventos de integridade do serviço são fornecidos em seis variedades: _ação necessária_, _recuperação assistida_, _incidente_, _manutenção_, _informações_ou _segurança_. Esses eventos serão criados somente se você tiver um recurso na assinatura que seria impactado pelo evento.
-| Estado de Funcionamento de Recursos | Contém o registro dos eventos de integridade do recurso que ocorreram para os recursos do Azure. Um exemplo de um evento de Resource Health é o _status de integridade da máquina virtual alterado para indisponível_.<br><br>Resource Health eventos podem representar um dos quatro status de integridade: _disponível_, _indisponível_, _degradado_e _desconhecido_. Além disso, Resource Health eventos podem ser categorizados como sendo _iniciado pela plataforma_ ou _pelo usuário_. |
-| Alerta | Contém o registro de ativações para alertas do Azure. Um exemplo de um evento de alerta é _% de CPU em myVM tem mais de 80 para os últimos 5 minutos_.|
-| Dimensionamento automático | Contém o registro de todos os eventos relacionados à operação do mecanismo de dimensionamento automático com base em qualquer configuração de dimensionamento automático que você definiu em sua assinatura. Um exemplo de um evento de dimensionamento automático é a _ação de escalabilidade vertical com falha_. |
-| Recomendação | Contém eventos de recomendação do Azure Advisor. |
-| Segurança | Contém o registro de todos os alertas gerados pela central de segurança do Azure. Um exemplo de um evento de segurança é um _arquivo de extensão dupla suspeito executado_. |
-| Política | Contém registros de todas as operações de ação de efeito executadas por Azure Policy. Exemplos de eventos de política incluem _auditoria_ e _negação_. Cada ação tomada pela política é modelada como uma operação em um recurso. |
+| Administrativa | Contém o registo de todas as operações de criação, atualização, eliminação e ação realizadas através do Gestor de Recursos. Exemplos de eventos administrativos incluem _criar máquina virtual_ e eliminar grupo de segurança de _rede_.<br><br>Todas as medidas tomadas por um utilizador ou aplicação utilizando o Gestor de Recursos são modeladas como uma operação num determinado tipo de recurso. Se o tipo de operação for _Write_, _Delete_, or _Action,_ os registos do início e do sucesso ou da falha dessa operação são registados na categoria Administrativa. Os eventos administrativos também incluem quaisquer alterações ao controlo de acesso baseado em papéis numa subscrição. |
+| Service Health | Contém o registo de quaisquer incidentes de saúde de serviço que tenham ocorrido em Azure. Um exemplo de um evento de Saúde de Serviço _SQL Azure no Leste dos EUA está a passar por um tempo de inatividade._ <br><br>Serviço Os eventos de saúde vêm em Seis variedades: _Ação Necessária,_ _Recuperação Assistida,_ _Incidente,_ _Manutenção,_ _Informação_ou _Segurança._ Estes eventos só são criados se tiver um recurso na subscrição que seria impactado pelo evento.
+| Estado de Funcionamento de Recursos | Contém o registo de quaisquer eventos de saúde de recursos que tenham ocorrido aos seus recursos Azure. Um exemplo de um evento de Saúde de Recursos é o estado de saúde da _Máquina Virtual alterado para indisponível_.<br><br>Os eventos de saúde de recursos podem representar um dos quatro estados de saúde: _Disponível,_ _Indisponível,_ _Degradado_e _Desconhecido._ Além disso, os eventos de Saúde de Recursos podem ser categorizados como sendo _iniciados_ pela plataforma ou _iniciados pelo utilizador_. |
+| Alerta | Contém o registo de ativações para alertas Azure. Um exemplo de um evento de alerta é _cpu % no myVM foi superior a 80 nos últimos 5 minutos_.|
+| Dimensionamento Automático | Contém o registo de quaisquer eventos relacionados com o funcionamento do motor de escala automática com base em quaisquer definições de escala automática que tenha definido na sua subscrição. Um exemplo de um evento de escala automática é a _ação de escala automática falhada._ |
+| Recomendação | Contém eventos de recomendação do Consultor Azure. |
+| Segurança | Contém o registo de quaisquer alertas gerados pelo Azure Security Center. Um exemplo de um evento de segurança é _ficheiro de extensão dupla suspeito executado_. |
+| Política | Contém registos de todas as operações de ação de efeito realizadas pela Política Azure. Exemplos de eventos de política incluem _Auditoria_ e _Negação._ Todas as medidas tomadas pela Policy são modeladas como uma operação sobre um recurso. |
 
-## <a name="view-change-history"></a>Exibir histórico de alterações
+## <a name="view-change-history"></a>Ver história de mudança
 
-Ao examinar o log de atividades, ele pode ajudar a ver quais alterações ocorreram durante esse evento. Você pode exibir essas informações com o **histórico de alterações**. Selecione um evento do log de atividades que você deseja que pareça mais profundo. Selecione a guia **histórico de alterações (versão prévia)** para exibir as alterações associadas a esse evento.
+Ao rever o Registo de Atividades, pode ajudar a ver as mudanças que aconteceram durante o tempo do evento. Pode ver esta informação com **o histórico de Mudanças.** Selecione um evento a partir do Registo de Atividades que pretende aprofundar. Selecione o separador **'Pré-visualização' do 'Alterar' para** ver quaisquer alterações associadas a esse evento.
 
-![Lista de histórico de alterações para um evento](media/activity-logs-overview/change-history-event.png)
+![Alterar lista de história para um evento](media/activity-logs-overview/change-history-event.png)
 
-Se houver alterações associadas ao evento, você verá uma lista de alterações que pode selecionar. Isso abre a página **histórico de alterações (versão prévia)** . Nessa página, você vê as alterações no recurso. Como você pode ver no exemplo a seguir, podemos ver não apenas que a VM mudou de tamanhos, mas qual era o tamanho anterior da VM antes da alteração e para que ela foi alterada.
+Se houver alterações associadas ao evento, verá uma lista de alterações que pode selecionar. Isto abre a página **do histórico de alteração (Pré-visualização).** Nesta página vê-se as alterações ao recurso. Como pode ver pelo exemplo seguinte, somos capazes de ver não só que o VM mudou de tamanho, mas qual era o tamanho anterior do VM antes da mudança e para o que foi alterado.
 
-![Página de histórico de alterações mostrando diferenças](media/activity-logs-overview/change-history-event-details.png)
+![Alterar página de histórico mostrando diferenças](media/activity-logs-overview/change-history-event-details.png)
 
-Para saber mais sobre o histórico de alterações, consulte [obter alterações de recurso](../../governance/resource-graph/how-to/get-resource-changes.md).
+Para saber mais sobre a história da Mudança, consulte [obter alterações de recursos.](../../governance/resource-graph/how-to/get-resource-changes.md)
 
 
 
@@ -69,43 +68,43 @@ Para saber mais sobre o histórico de alterações, consulte [obter alterações
 
 
 ## <a name="powershell"></a>PowerShell
-Use o cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) para recuperar o log de atividades do PowerShell. A seguir estão alguns exemplos comuns.
+Utilize o cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) para recuperar o Registo de Atividade da PowerShell. Seguem-se alguns exemplos comuns.
 
 > [!NOTE]
-> `Get-AzLog` fornece apenas 15 dias de histórico. Use o parâmetro **-MaxEvents** para consultar os últimos N eventos além de 15 dias. Para acessar eventos com mais de 15 dias, use a API REST ou o SDK. Se você não incluir **StartTime**, o valor padrão será **EndTime** menos uma hora. Se você não incluir **EndTime**, o valor padrão será current time. Todas as horas estão em UTC.
+> `Get-AzLog` só dá 15 dias de história. Use o parâmetro **-MaxEvents** para consultar os últimos eventos N para além de 15 dias. Para aceder a eventos com mais de 15 dias, utilize o REST API ou SDK. Se não incluir o **StartTime,** então o valor predefinido é **EndTime** menos uma hora. Se não incluir o **EndTime,** então o valor predefinido é o tempo atual. Todos os tempos estão na UTC.
 
 
-Obter entradas de log criadas após uma data e hora específica:
+Obtenha entradas de log criadas após uma hora específica de data:
 
 ```powershell
 Get-AzLog -StartTime 2016-03-01T10:30
 ```
 
-Obter entradas de log entre um intervalo de data/hora:
+Obtenha entradas de registo entre um intervalo de hora de data:
 
 ```powershell
 Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
-Obter entradas de log de um grupo de recursos específico:
+Obtenha entradas de registo de um grupo de recursos específicos:
 
 ```powershell
 Get-AzLog -ResourceGroup 'myrg1'
 ```
 
-Obter entradas de log de um provedor de recursos específico entre um intervalo de data/hora:
+Obtenha entradas de registo de um fornecedor de recursos específicos entre uma faixa de tempo de data:
 
 ```powershell
 Get-AzLog -ResourceProvider 'Microsoft.Web' -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
-Obter entradas de log com um chamador específico:
+Obtenha entradas de registo com um chamador específico:
 
 ```powershell
 Get-AzLog -Caller 'myname@company.com'
 ```
 
-Obter os últimos 1000 eventos:
+Obtenha os últimos 1000 eventos:
 
 ```powershell
 Get-AzLog -MaxEvents 1000
@@ -113,28 +112,28 @@ Get-AzLog -MaxEvents 1000
 
 
 ## <a name="cli"></a>CLI
-Use [AZ monitor Activity-log](cli-samples.md#view-activity-log-for-a-subscription) para recuperar o log de atividades da CLI. A seguir estão alguns exemplos comuns.
+Utilize o registo de atividade do [monitor az](cli-samples.md#view-activity-log-for-a-subscription) para recuperar o Registo de Atividade do CLI. Seguem-se alguns exemplos comuns.
 
 
-Exiba todas as opções disponíveis.
+Consulte todas as opções disponíveis.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Obter entradas de log de um grupo de recursos específico:
+Obtenha entradas de registo de um grupo de recursos específicos:
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Obter entradas de log com um chamador específico:
+Obtenha entradas de registo com um chamador específico:
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Obter logs pelo chamador em um tipo de recurso, dentro de um intervalo de datas:
+Obtenha registos por chamada num tipo de recurso, dentro de um intervalo de data:
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \
@@ -144,63 +143,63 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 ```
 
 ## <a name="rest-api"></a>API REST
-Use a [API rest Azure monitor](https://docs.microsoft.com/rest/api/monitor/) para recuperar o log de atividades de um cliente REST. A seguir estão alguns exemplos comuns.
+Utilize a [API REST Do Monitor Azure](https://docs.microsoft.com/rest/api/monitor/) para recuperar o Registo de Atividades de um cliente REST. Seguem-se alguns exemplos comuns.
 
-Obter logs de atividade com filtro:
+Obtenha Registos de Atividade com filtro:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
 ```
 
-Obter logs de atividade com filtro e selecionar:
+Obtenha Registos de Atividade com filtro e selecione:
 
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
 ```
 
-Obter logs de atividade com SELECT:
+Obtenha Registos de Atividade com selecione:
 
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
 ```
 
-Obter logs de atividade sem filtro ou selecionar:
+Obtenha Registos de Atividade sem filtro ou selecione:
 
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
 
-## <a name="activity-logs-analytics-monitoring-solution"></a>Solução de monitoramento de análise de logs de atividades
-A solução de monitoramento de Log Analytics do Azure inclui várias consultas de log e exibições para analisar os registros de log de atividades em seu espaço de trabalho do Log Analytics.
+## <a name="activity-logs-analytics-monitoring-solution"></a>Solução de monitorização de Logs de Atividade Analytics
+A solução de monitorização do Azure Log Analytics inclui múltiplas consultas de registo e vistas para analisar os registos de Registo de Atividade sintetizadores no seu espaço de trabalho Log Analytics.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Você deve criar uma configuração de diagnóstico para enviar o log de atividades da sua assinatura para um espaço de trabalho Log Analytics. Consulte [coletar logs da plataforma Azure no espaço de trabalho log Analytics no Azure monitor](resource-logs-collect-workspace.md).
+Tem de criar uma definição de diagnóstico para enviar o registo de Atividade supor a sua subscrição a um espaço de trabalho do Log Analytics. Consulte os [registos da plataforma Do Tamina](resource-logs-collect-workspace.md)do Collect Azure no espaço de trabalho do Log Analytics no Monitor Azure .
 
 ### <a name="install-the-solution"></a>Instalar a solução
-Use o procedimento em [instalar uma solução de monitoramento](../insights/solutions.md#install-a-monitoring-solution) para instalar a solução de **análise do log de atividades** . Não há nenhuma configuração adicional necessária.
+Utilize o procedimento em [Instalar uma solução de monitorização](../insights/solutions.md#install-a-monitoring-solution) para instalar a solução **Activity Log Analytics.** Não é necessária uma configuração adicional.
 
 ### <a name="use-the-solution"></a>Utilizar a solução
-Clique em **logs** na parte superior da página do **log de atividades** para abrir a solução de monitoramento de [análise do log de atividades](activity-log-collect.md) para a assinatura. Ou acesse todas as soluções de monitoramento em seu menu **Monitor** de assinatura no portal do Azure. Selecione **mais** na seção **insights** para abrir a página **visão geral** com os blocos de solução. O bloco **logs de atividade do Azure** exibe uma contagem do número de registros **AzureActivity** em seu espaço de trabalho.
+Clique em **Registos** no topo da página **De registo** de atividade para abrir a solução de monitorização do Registo [de Atividades Analytics](activity-log-collect.md) para a subscrição. Ou aceda a todas as soluções de monitorização no menu monitor de **subscrição** no portal Azure. Selecione **Mais** na secção **Insights** para abrir a página **'Overview'** com os azulejos da solução. O azulejo **Azure Activity Logs** apresenta uma contagem do número de registos **azureActivity** no seu espaço de trabalho.
 
 ![Mosaico de registos de atividades do Azure](media/collect-activity-logs/azure-activity-logs-tile.png)
 
 
-Clique no bloco **logs de atividade do Azure** para abrir a exibição **logs de atividade do Azure** . A exibição inclui as partes de visualização na tabela a seguir. Cada parte lista até 10 itens que correspondem aos critérios das partes para o intervalo de tempo especificado. Você pode executar uma consulta de log que retorna todos os registros correspondentes clicando em **Ver todos** na parte inferior da parte.
+Clique no azulejo **Azure Activity Logs** para abrir a vista Registos de Atividade sintetizações **do Azure.** A vista inclui as peças de visualização na tabela a seguir. Cada peça lista até 10 itens que correspondam aos critérios dessas peças para o intervalo de tempo especificado. Pode executar uma consulta de registo que devolve todos os registos correspondentes clicando **Ver tudo** na parte inferior da peça.
 
 ![Dashboard de registos de atividades do Azure](media/collect-activity-logs/activity-log-dash.png)
 
 | Parte de visualização | Descrição |
 | --- | --- |
-| Entradas de registo de atividades do Azure | Mostra um gráfico de barras dos totais principais registros de entrada do log de atividades do Azure para o intervalo de datas selecionado e mostra uma lista dos 10 principais chamadores de atividade. Clique para executar uma pesquisa de registos para o gráfico de barras `AzureActivity`. Clique em um item do chamador para executar uma pesquisa de logs retornando todas as entradas do log de atividades para esse item. |
-| Registos de atividades por Estado | Mostra um gráfico de rosca para o status do log de atividades do Azure para o intervalo de datas selecionado e uma lista dos dez principais registros de status. Clique no gráfico para executar uma consulta de log para `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Clique em um item de status para executar uma pesquisa de logs que retorna todas as entradas do log de atividades para esse registro de status. |
-| Registos de atividades por recurso | Mostra o número total de recursos com logs de atividade e lista os dez principais recursos com contagens de registros para cada recurso. Clique na área total para executar uma pesquisa de registos para `AzureActivity | summarize AggregatedValue = count() by Resource`, que mostra todos os recursos do Azure disponíveis para a solução. Clique em um recurso para executar uma consulta de log que retorna todos os registros de atividade para esse recurso. |
-| Registos de atividade pelo fornecedor de recursos | Mostra o número total de provedores de recursos que produzem logs de atividades e lista os dez principais. Clique na área total para executar uma consulta de log para `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, que mostra todos os provedores de recursos do Azure. Clique em um provedor de recursos para executar uma consulta de log que retorna todos os registros de atividade do provedor. |
+| Entradas de registo de atividades do Azure | Mostra um gráfico de barras do top Azure Activity Log registo total total para o intervalo de data que selecionou e mostra uma lista dos 10 melhores participantes da atividade. Clique na tabela de barras para fazer uma pesquisa de registo para `AzureActivity`. Clique num item de chamada para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse item. |
+| Registos de atividades por Estado | Mostra um gráfico de donut para o estado de Registo de Atividade seletiva do Azure para a gama de datas selecionada e uma lista dos dez melhores registos de estado. Clique na tabela para fazer uma consulta de registo para `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Clique num item de estado para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse registo de estado. |
+| Registos de atividades por recurso | Mostra o número total de recursos com Registos de Atividade e lista os dez melhores recursos com contagens recorde para cada recurso. Clique na área total para fazer uma pesquisa de registo para `AzureActivity | summarize AggregatedValue = count() by Resource`, que mostra todos os recursos Do Azure disponíveis para a solução. Clique num recurso para executar uma consulta de registo devolvendo todos os registos de atividade para esse recurso. |
+| Registos de atividade pelo fornecedor de recursos | Mostra o número total de fornecedores de recursos que produzem Registos de Atividade e lista o top 10. Clique na área total para fazer uma consulta de registo para `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, que mostra todos os fornecedores de recursos Azure. Clique num fornecedor de recursos para executar uma consulta de registo devolvendo todos os registos de atividade para o fornecedor. |
 
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Leia uma visão geral dos logs da plataforma](platform-logs-overview.md)
-* [Criar configuração de diagnóstico para enviar logs de atividade para outros destinos](diagnostic-settings.md)
+* [Leia uma visão geral dos registos da plataforma](platform-logs-overview.md)
+* [Criar definição de diagnóstico para enviar registos de Atividade para outros destinos](diagnostic-settings.md)

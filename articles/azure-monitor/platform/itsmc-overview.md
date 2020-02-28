@@ -1,191 +1,190 @@
 ---
-title: Conector de Gerenciamento de Serviços de TI no Azure Log Analytics | Microsoft Docs
-description: Este artigo fornece uma visão geral de Conector de Gerenciamento de Serviços de TI (ITSMC) e informações sobre como usar essa solução para monitorar e gerenciar centralmente os itens de trabalho de ITSM no Azure Log Analytics e resolver problemas rapidamente.
-ms.service: azure-monitor
+title: Conector de gestão de serviços de TI em Azure Log Analytics  Microsoft Docs
+description: Este artigo fornece uma visão geral do Conector de Gestão de Serviços de TI (ITSMC) e informações sobre como usar esta solução para monitorizar e gerir centralmente os itens de trabalho ITSM no Azure Log Analytics, e resolver quaisquer problemas rapidamente.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 68aff01ea541a24be1f8d526fecbb6a9d2c30086
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990679"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672230"
 ---
-# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
+# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços DE TI
 
-![Símbolo de Conector de Gerenciamento de Serviços de TI](media/itsmc-overview/itsmc-symbol.png)
+![Símbolo do conector de gestão do serviço de TI](media/itsmc-overview/itsmc-symbol.png)
 
-O Conector de Gerenciamento de Serviços de TI (ITSMC) permite que você conecte o Azure e um produto/serviço de ITSM (gerenciamento de serviços de ti) com suporte.
+O Conector de Gestão de Serviços de TI (ITSMC) permite ligar o Azure e um produto/serviço de gestão de serviços de TI suportado (ITSM).
 
-Os serviços do Azure, como Log Analytics e Azure Monitor fornecem ferramentas para detectar, analisar e solucionar problemas com seus recursos do Azure e não Azure. No entanto, os itens de trabalho relacionados a um problema normalmente residem em um produto/serviço de ITSM. O conector ITSM fornece uma conexão bidirecional entre o Azure e as ferramentas de ITSM para ajudá-lo a resolver problemas com mais rapidez.
+Serviços Azure como log analytics e Azure Monitor fornecem ferramentas para detetar, analisar e resolver problemas com os seus recursos Azure e não-Azure. No entanto, os itens de trabalho relacionados com um problema residem tipicamente num produto/serviço ITSM. O conector ITSM fornece uma ligação bidirecional entre as ferramentas Azure e ITSM para ajudá-lo a resolver os problemas mais rapidamente.
 
-O ITSMC dá suporte a conexões com as seguintes ferramentas de ITSM:
+A ITSMC suporta ligações com as seguintes ferramentas ITSM:
 
 -   ServiceNow
 -   Gestor de serviços do Centro de Sistema
 -   Provance
 -   Cherwell
 
-Com o ITSMC, você pode:
+Com o ITSMC, pode:
 
--  Crie itens de trabalho na ferramenta de ITSM, com base em seus alertas do Azure (alertas de métrica, alertas do log de atividades e alertas de Log Analytics).
--  Opcionalmente, você pode sincronizar seu incidente e alterar os dados de solicitação de sua ferramenta de ITSM para um espaço de trabalho do Azure Log Analytics.
+-  Crie itens de trabalho na ferramenta ITSM, com base nos seus alertas Azure (alertas métricos, alertas de Registo de Atividade e alertas de Log Analytics).
+-  Opcionalmente, pode sincronizar o seu incidente e alterar os dados de pedido da sua ferramenta ITSM para um espaço de trabalho Azure Log Analytics.
 
-Leia mais sobre os [termos legais e a política de privacidade](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
+Leia mais sobre os [termos legais e a política](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9)de privacidade.
 
-Você pode começar a usar o Conector ITSM usando as seguintes etapas:
+Pode começar a utilizar o Conector ITSM utilizando os seguintes passos:
 
-1.  [Adicionar a solução de Conector ITSM](#adding-the-it-service-management-connector-solution)
-2.  Criar uma conexão de ITSM
-3.  [Usar a conexão](#using-the-solution)
+1.  [Adicione a solução de conector ITSM](#adding-the-it-service-management-connector-solution)
+2.  Criar uma ligação ITSM
+3.  [Use a ligação](#using-the-solution)
 
 
-##  <a name="adding-the-it-service-management-connector-solution"></a>Adicionando a solução de Conector de Gerenciamento de Serviços de TI
+##  <a name="adding-the-it-service-management-connector-solution"></a>Adicionar a solução de conector de gestão de serviços de TI
 
-Para poder criar uma conexão, você precisa adicionar a solução Conector ITSM.
+Antes de criar uma ligação, tem de adicionar a Solução de Conector ITSM.
 
-1. Em portal do Azure, clique em **+ novo** ícone.
+1. No portal Azure, clique **+ Novo** ícone.
 
-   ![Novo recurso do Azure](media/itsmc-overview/azure-add-new-resource.png)
+   ![Novo recurso azure](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Pesquise **conector de gerenciamento de serviços de ti** no Marketplace e clique em **criar**.
+2. Procure **conector** de gestão de serviços de TI no Mercado e clique em **Criar**.
 
    ![Adicionar solução ITSMC](media/itsmc-overview/add-itsmc-solution.png)
 
-3. Na seção **espaço de trabalho do OMS** , selecione o espaço de trabalho log Analytics do Azure onde você deseja instalar a solução.
+3. Na secção **Workspace OMS,** selecione o espaço de trabalho Azure Log Analytics onde pretende instalar a solução.
    >[!NOTE]
-   > * Como parte da transição contínua do Microsoft Operations Management Suite (OMS) para Azure Monitor, os espaços de trabalho do OMS agora são chamados de espaços de trabalho Log Analytics.
-   > * O Conector ITSM só pode ser instalado nos espaços de trabalho Log Analytics nas seguintes regiões: leste dos EUA, oeste dos EUA 2, Sul EUA Central, Oeste EUA Central, centro-Canadá, Europa Ocidental, sul do Reino Unido, Sudeste Asiático, leste do Japão, Índia central, Austrália oriental.
+   > * Como parte da transição em curso da Microsoft Operations Management Suite (OMS) para o Monitor Azure, os espaços de trabalho oMS são agora referidos como espaços de trabalho de Log Analytics.
+   > * O Conector ITSM só pode ser instalado em espaços de trabalho log Analytics nas seguintes regiões: Leste dos EUA, US2 Ocidental, Centro-Sul dos EUA, Oeste Dos EUA, Canadá Central, Europa Ocidental, Reino Unido do Sul, Sudeste Asiático, Japão Oriental, Índia Central, Sudeste da Austrália.
 
-4. Na seção **configurações do espaço de trabalho do OMS** , selecione o resourcegroup no qual você deseja criar o recurso de solução.
+4. Na secção Definições do Espaço de **Trabalho OMS,** selecione o Grupo de Recursos onde pretende criar o recurso de solução.
 
    ![Espaço de trabalho ITSMC](media/itsmc-overview/itsmc-solution-workspace.png)
    >[!NOTE]
-   >Como parte da transição contínua do Microsoft Operations Management Suite (OMS) para Azure Monitor, os espaços de trabalho do OMS agora são chamados de espaços de trabalho Log Analytics.
+   >Como parte da transição em curso da Microsoft Operations Management Suite (OMS) para o Monitor Azure, os espaços de trabalho oMS são agora referidos como espaços de trabalho de Log Analytics.
 
 5. Clique em **Criar**.
 
-Quando o recurso de solução é implantado, uma notificação é exibida na parte superior direita da janela.
+Quando o recurso de solução é implantado, uma notificação aparece na parte superior direita da janela.
 
 
-## <a name="creating-an-itsm--connection"></a>Criando uma conexão de ITSM
+## <a name="creating-an-itsm--connection"></a>Criar uma ligação ITSM
 
-Depois de instalar a solução, você pode criar uma conexão.
+Uma vez instalado a solução, pode criar uma ligação.
 
-Para criar uma conexão, você precisará preparar sua ferramenta de ITSM para permitir a conexão da solução de Conector ITSM.  
+Para criar uma ligação, terá de preparar a sua ferramenta ITSM para permitir a ligação a partir da solução de Conector ITSM.  
 
-Dependendo do produto de ITSM ao qual você está se conectando, use as seguintes etapas:
+Dependendo do produto ITSM a que está a ligar, utilize os seguintes passos:
 
-- [System Center Service Manager (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [Gestor de Serviço scsm (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
 - [Provance](../../azure-monitor/platform/itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](../../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [Rio Cherwell](../../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
-Depois de ter preparado suas ferramentas de ITSM, siga as etapas abaixo para criar uma conexão:
+Depois de ter preparado as suas ferramentas ITSM, siga os passos abaixo para criar uma ligação:
 
-1. Vá para **todos os recursos**, procure por **YourWorkspaceName (assistência técnica)** .
-2. Em **fontes de dados do espaço de trabalho** no painel esquerdo, clique em **conexões de ITSM**.
+1. Ir a **Todos os Recursos**, procure **ServiceDesk(YourWorkspaceName)** .
+2. Em fontes de **dados workspace** no painel esquerdo, clique em **Conexões ITSM**.
    ![ligações ITSM](media/itsmc-overview/itsm-connections.png)
 
-   Esta página exibe a lista de conexões.
+   Esta página apresenta a lista de ligações.
 3. Clique em **adicionar ligação**.
 
-   ![Adicionar conexão de ITSM](media/itsmc-overview/add-new-itsm-connection.png)
+   ![Adicione a ligação ITSM](media/itsmc-overview/add-new-itsm-connection.png)
 
-4. Especifique as configurações de conexão, conforme descrito em [Configurando o artigo conexão ITSMC com seus produtos/serviços de ITSM](../../azure-monitor/platform/itsmc-connections.md).
+4. Especifique as definições de ligação descritas na [configuração da ligação ITSMC com o artigo produtos/serviços ITSM](../../azure-monitor/platform/itsmc-connections.md).
 
    > [!NOTE]
    >
-   > Por padrão, o ITSMC atualiza os dados de configuração da conexão uma vez a cada 24 horas. Para atualizar os dados da conexão instantaneamente para quaisquer edições ou atualizações de modelo feitas, clique no botão **sincronizar** na folha da sua conexão.
+   > Por predefinição, o ITSMC atualiza os dados de configuração da ligação uma vez em cada 24 horas. Para atualizar os dados da sua ligação instantaneamente para quaisquer edits ou atualizações de modelos que efetua, clique no botão **Sync** na lâmina da sua ligação.
 
-   ![Atualização de conexão](media/itsmc-overview/itsmc-connections-refresh.png)
+   ![Atualização de ligação](media/itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>Utilizar a solução
-   Usando a solução Conector ITSM, você pode criar itens de trabalho de alertas do Azure, alertas de Log Analytics e registros de log do Log Analytics.
+   Utilizando a solução de Conector ITSM, pode criar itens de trabalho a partir de alertas Azure, alertas De Log Analytics e registos de registos de registo slog Analytics.
 
-## <a name="create-itsm-work-items-from-azure-alerts"></a>Criar itens de trabalho de ITSM de alertas do Azure
+## <a name="create-itsm-work-items-from-azure-alerts"></a>Criar itens de trabalho ITSM a partir de alertas Azure
 
-Depois de criar a conexão de ITSM, você poderá criar itens de trabalho em sua ferramenta de ITSM com base nos alertas do Azure, usando a **ação de ITSM** em **grupos de ação**.
+Assim que tiver a ligação ITSM criada, pode criar um item de trabalho na sua ferramenta ITSM com base em alertas Azure, utilizando a **Ação ITSM** em Grupos de **Ação.**
 
-Os grupos de ação fornecem uma maneira modular e reutilizável de disparar ações para seus alertas do Azure. Você pode usar grupos de ação com alertas de métrica, alertas do log de atividades e alertas do Log Analytics do Azure no portal do Azure.
+Os Grupos de Ação fornecem uma forma modular e reutilizável de desencadear ações para os seus Alertas Azure. Pode utilizar Grupos de Ação com alertas métricos, alertas de Registo de Atividades e alertas Azure Log Analytics no portal Azure.
 
 Utilize o seguinte procedimento:
 
-1. Em portal do Azure, clique em **monitorar**.
-2. No painel esquerdo, clique em **grupos de ação**. A janela **Adicionar grupo de ações** é exibida.
+1. No portal Azure, clique no **Monitor**.
+2. No painel esquerdo, clique em **grupos de ação**. A janela do grupo de **ação Add** aparece.
 
-    ![Grupos de Ações](media/itsmc-overview/action-groups.png)
+    ![Grupos de Ação](media/itsmc-overview/action-groups.png)
 
-3. Forneça o **nome** e o **curtoname** para o seu grupo de ação. Selecione o **grupo de recursos** e a **assinatura** em que você deseja criar o grupo de ações.
+3. Forneça **nome** e **nome curto** para o seu grupo de ação. Selecione o **Grupo de Recursos** e **Subscrição** onde pretende criar o seu grupo de ação.
 
-    ![Detalhes de grupos de ação](media/itsmc-overview/action-groups-details.png)
+    ![Pormenores dos Grupos de Ação](media/itsmc-overview/action-groups-details.png)
 
-4. Na lista ações, selecione **ITSM** no menu suspenso para o **tipo de ação**. Forneça um **nome** para a ação e clique em **Editar detalhes**.
-5. Selecione a **assinatura** na qual seu espaço de trabalho do log Analytics está localizado. Selecione o nome da **conexão** (seu nome de conector ITSM) seguido pelo nome do espaço de trabalho. Por exemplo, "MyITSMMConnector (MyWorkspace)".
+4. Na lista de Ações, selecione **ITSM** do menu suspenso para **O Tipo**de Ação . Forneça um **Nome** para a ação e clique em **editar detalhes**.
+5. Selecione a **Subscrição** onde está localizado o seu espaço de trabalho Log Analytics. Selecione o nome **Ligação** (o seu nome de conector ITSM) seguido do seu nome Workspace. Por exemplo, "MyITSMMConnector(MyWorkspace)".
 
-    ![Detalhes da ação de ITSM](media/itsmc-overview/itsm-action-details.png)
+    ![Detalhes da Ação ITSM](media/itsmc-overview/itsm-action-details.png)
 
-6. Selecione tipo de **item de trabalho** no menu suspenso.
-   Escolha usar um modelo existente ou preencha os campos exigidos por seu produto de ITSM.
+6. Selecione o tipo **de artigo** de trabalho a partir do menu suspenso.
+   Opte por utilizar um modelo existente ou preencha os campos exigidos pelo seu produto ITSM.
 7. Clique em **OK**.
 
-Ao criar/editar uma regra de alerta do Azure, use um grupo de ações que tenha uma ação de ITSM. Quando o alerta é disparado, o item de trabalho é criado/atualizado na ferramenta ITSM.
+Ao criar/editar uma regra de alerta Azure, utilize um grupo de Ação, que tenha uma Ação ITSM. Quando o alerta dispara, o item de trabalho é criado/atualizado na ferramenta ITSM.
 
 > [!NOTE]
 >
-> Para obter informações sobre o preço da ação de ITSM, consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para grupos de ações.
+> Para obter informações sobre os preços da AÇÃO ITSM, consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) dos Grupos de Ação.
 
 
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar os dados de incidente e de solicitação de alteração
+## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar os dados do incidente e alterar os dados do pedido
 
-Com base na sua configuração ao configurar uma conexão, o conector ITSM pode sincronizar até 120 dias de incidentes e dados de solicitação de alteração. O esquema de registro de log para esses dados é fornecido na [próxima seção](#additional-information).
+Com base na sua configuração ao configurar uma ligação, o conector ITSM pode sincronizar até 120 dias de dados de pedidos de incidentes e alterações. O esquema de registo de registo para estes dados é fornecido na [secção seguinte](#additional-information).
 
-Os dados de incidente e de solicitação de alteração podem ser visualizados usando o painel Conector ITSM na solução.
+Os dados do incidente e alteração podem ser visualizados utilizando o painel de conector ITSM na solução.
 
 ![Tela de Log Analytics](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
-O painel também fornece informações sobre o status do conector que pode ser usado como um ponto de partida para analisar quaisquer problemas com as conexões.
+O painel também fornece informações sobre o estado do conector que podem ser usados como ponto de partida para analisar quaisquer problemas com as ligações.
 
-Você também pode visualizar os incidentes sincronizados em relação aos computadores afetados, dentro da solução Mapa do Serviço.
+Também pode visualizar os incidentes sincronizados com os computadores impactados, dentro da solução Service Map.
 
-Mapa do Serviço descobre automaticamente os componentes do aplicativo em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Permite-lhe visualizar os seus servidores tal como os pensa – como sistemas interligados que prestam serviços críticos. O Mapa de Serviço mostra ligações entre servidores, processos e portas em qualquer arquitetura ligada ao TCP sem qualquer configuração necessária que não seja a instalação de um agente. [Saiba mais](../../azure-monitor/insights/service-map.md).
+O Service Map descobre automaticamente os componentes da aplicação nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Permite-lhe visualizar os seus servidores tal como os pensa – como sistemas interligados que prestam serviços críticos. O Mapa de Serviço mostra ligações entre servidores, processos e portas em qualquer arquitetura ligada ao TCP sem qualquer configuração necessária que não seja a instalação de um agente. [Saiba mais](../../azure-monitor/insights/service-map.md).
 
-Se você estiver usando a solução Mapa do Serviço, poderá exibir os itens da central de serviços criados nas soluções de ITSM, conforme mostrado no exemplo a seguir:
+Se estiver a utilizar a solução Service Map, pode ver os itens de balcão de serviço criados nas soluções ITSM, como mostra o seguinte exemplo:
 
 ![Tela de Log Analytics](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Mais informações: [mapa do serviço](../../azure-monitor/insights/service-map.md)
+Mais informações: [Mapa do Serviço](../../azure-monitor/insights/service-map.md)
 
 
-## <a name="additional-information"></a>Informação adicional
+## <a name="additional-information"></a>Informações adicionais
 
-### <a name="data-synced-from-itsm-product"></a>Dados sincronizados do produto de ITSM
-Incidentes e solicitações de alteração são sincronizados de seu produto ITSM para seu espaço de trabalho Log Analytics com base na configuração da conexão.
+### <a name="data-synced-from-itsm-product"></a>Dados sincronizados com o produto ITSM
+Incidentes e pedidos de alteração são sincronizados do seu produto ITSM para o seu espaço de trabalho Log Analytics com base na configuração da ligação.
 
-As informações a seguir mostram exemplos de dados coletados pelo ITSMC:
+As seguintes informações mostram exemplos de dados recolhidos pelo ITSMC:
 
 > [!NOTE]
 >
 > Dependendo do tipo de artigo de trabalho importado para o Log Analytics, **ServiceDesk_CL** contém os seguintes campos:
 
-**Item de trabalho:** **incidentes**  
+**Artigo de trabalho:** **Incidentes**  
 ServiceDeskWorkItemType_s="Incident"
 
 **Campos**
 
 - ServiceDeskConnectionName
-- ID da central de serviços
+- ID do balcão de serviço
 - Estado
 - Urgência
 - Impacto
 - Prioridade
 - Escalamento
 - Criado por
-- Resolvido por
+- Resolvido Por
 - Fechado por
 - Origem
 - Atribuído a
@@ -199,13 +198,13 @@ ServiceDeskWorkItemType_s="Incident"
 - Computador
 
 
-**Item de trabalho:** **solicitações de alteração**
+**Artigo de trabalho:** **Alterar pedidos**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
 **Campos**
 - ServiceDeskConnectionName
-- ID da central de serviços
+- ID do balcão de serviço
 - Criado por
 - Fechado por
 - Origem
@@ -215,7 +214,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Categoria
 - Estado
 - Escalamento
-- Status de conflito
+- Estado do Conflito
 - Urgência
 - Prioridade
 - Risco
@@ -225,18 +224,18 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de fecho
 - Data da última modificação
 - Data solicitada
-- Data de início planejada
-- Data de término planejada
+- Data de início planeada
+- Data final planeada
 - Data de início do trabalho
-- Data de término do trabalho
+- Data final do trabalho
 - Descrição
 - Computador
 
-## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída para um incidente do ServiceNow
+## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída para um incidente serviceNow
 
-| Campo de Log Analytics | Campo do ServiceNow |
+| Campo de Log Analytics | Campo ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Número |
+| ServiceDeskId_s| Number |
 | IncidentState_s | Estado |
 | Urgency_s |Urgência |
 | Impact_s |Impacto|
@@ -244,7 +243,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | CreatedBy_s | Aberto por |
 | ResolvedBy_s | Resolvido por|
 | ClosedBy_s  | Fechado por |
-| Source_s| Tipo de contato |
+| Source_s| Tipo de contacto |
 | AssignedTo_s | Atribuído a  |
 | Category_s | Categoria |
 | Title_s|  Descrição curta |
@@ -254,11 +253,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ResolvedDate_t|Resolvido|
 | Computador  | Item de configuração |
 
-## <a name="output-data-for-a-servicenow-change-request"></a>Dados de saída para uma solicitação de alteração do ServiceNow
+## <a name="output-data-for-a-servicenow-change-request"></a>Dados de saída para um pedido de alteração ServiceNow
 
-| Log Analytics | Campo do ServiceNow |
+| Log Analytics | Campo ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Número |
+| ServiceDeskId_s| Number |
 | CreatedBy_s | Solicitado por |
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
@@ -271,37 +270,37 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Risk_s| Risco|
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por data |
-| ClosedDate_t | Data fechada |
-| PlannedStartDate_t  |     Data de início planejada |
-| PlannedEndDate_t  |   Data de término planejada |
+| ClosedDate_t | Data de fecho |
+| PlannedStartDate_t  |     Data de início planeada |
+| PlannedEndDate_t  |   Data final planeada |
 | WorkStartDate_t  | Data de início real |
-| WorkEndDate_t | Data final real|
+| WorkEndDate_t | Data de fim real|
 | Description_s | Descrição |
-| Computador  | Item de configuração |
+| Computador  | Item de Configuração |
 
 
-## <a name="troubleshoot-itsm-connections"></a>Solucionar problemas de conexões de ITSM
-1. Se a conexão falhar na interface do usuário da fonte conectada com um **erro ao salvar** a mensagem de conexão, execute as seguintes etapas:
-   - Para conexões do ServiceNow, Cherwell e Provance,  
-   - Verifique se você inseriu corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
-   - Verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão.  
-   - Para conexões Service Manager,  
-   - Verifique se o aplicativo Web foi implantado com êxito e se a conexão híbrida foi criada. Para verificar se a conexão foi estabelecida com êxito com o computador Service Manager local, visite a URL do aplicativo Web conforme detalhado na documentação para fazer a [conexão híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+## <a name="troubleshoot-itsm-connections"></a>Ligações ITSM de resolução de problemas
+1. Se a ligação falhar no UI da fonte conectada com um Erro na mensagem de **ligação de salvamento,** tome os seguintes passos:
+   - Para ligações ServiceNow, Cherwell e Provance,  
+   - certifique-se de que inseriu corretamente o nome de utilizador, palavra-passe, ID do cliente e segredo do cliente para cada uma das ligações.  
+   - verifique se tem privilégios suficientes no produto ITSM correspondente para efazer a ligação.  
+   - Para ligações de Gestor de Serviços,  
+   - garantir que a aplicação Web é implementada com sucesso e a conexão híbrida é criada. Para verificar se a ligação é estabelecida com sucesso com a máquina de Gestor de Serviços no local, visite o URL da aplicação Web conforme detalhado na documentação para fazer a [ligação híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
-2. Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow às vezes entram em suspensão quando ociosas por um longo período. Caso contrário, relate o problema.
-3. Se Log Analytics alertas forem acionados, mas os itens de trabalho não forem criados em itens de configuração ou produtos de ITSM não forem criados/vinculados a itens de trabalho ou para outras informações genéricas, procure nos seguintes locais:
-   -  ITSMC: a solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco mostrando o **status do conector**, que o leva para a pesquisa de **log** com a consulta relevante. Veja os registos de registo com LogType_S como ERROR para obter mais informações.
+2. Se os dados do ServiceNow não estiverem a ser sincronizados no Log Analytics, certifique-se de que a instância ServiceNow não está a dormir. ServiceNow Dev Instances às vezes vão dormir quando estão inativos por um longo período. Caso contrário, informe o assunto.
+3. Se o Log Analytics alertar o fogo, mas os itens de trabalho não forem criados em produtos ITSM ou itens de configuração não são criados/ligados a itens de trabalho ou para qualquer outra informação genérica, procure nos seguintes locais:
+   -  ITSMC: A solução mostra um resumo de ligações/itens de trabalho/computadores, etc. Clique no azulejo que mostra o Estado do **Conector,** que o leva a **Registar Pesquisa** com a consulta relevante. Veja os registos de registo com LogType_S como ERROR para obter mais informações.
    - **Página de pesquisa de registo:** consulte os erros/informações relacionadas diretamente utilizando a consulta `*`ServiceDeskLog_CL`*`.
 
-## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas Service Manager implantação de aplicativo Web
-1.  No caso de problemas com a implantação de aplicativo Web, verifique se você tem permissões suficientes na assinatura mencionada para criar/implantar recursos.
-2.  Se você receber um erro **"referência de objeto não definida para a instância de um objeto"** ao executar o [script](itsmc-service-manager-script.md), certifique-se de que você inseriu valores válidos na seção **configuração do usuário** .
-3.  Se você não conseguir criar o namespace de retransmissão do barramento de serviço, verifique se o provedor de recursos necessário está registrado na assinatura. Se não estiver registrado, crie manualmente o namespace de retransmissão do barramento de serviço do portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) do portal do Azure.
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>Implementação da Aplicação Web do Gestor de Serviços de Resolução de Problemas
+1.  Em caso de problemas com a implementação de aplicações web, certifique-se de que tem permissões suficientes na subscrição mencionada para criar/implementar recursos.
+2.  Se obtém um erro de "referência do **objeto não definido para a instância de um objeto"** quando executa a [script](itsmc-service-manager-script.md), certifique-se de que introduziu valores válidos na secção de Configuração do **Utilizador.**
+3.  Se não criar o espaço de nome de retransmissão de ônibus de serviço, certifique-se de que o fornecedor de recursos necessário está registado na subscrição. Se não estiver registado, crie manualmente o espaço de nome de retransmissão de ônibus de serviço a partir do portal Azure. Também pode criá-lo ao mesmo tempo [que cria a ligação híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) a partir do portal Azure.
 
 
 ## <a name="contact-us"></a>Contacte-nos
 
-Para quaisquer consultas ou comentários sobre o Conector de Gerenciamento de Serviços de TI, entre em contato conosco em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
+Para quaisquer dúvidas ou comentários sobre o Conector de Gestão de Serviços de TI, contacte-nos em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
 ## <a name="next-steps"></a>Passos seguintes
-[Adicione produtos/serviços de ITSM a conector de gerenciamento de serviços de ti](../../azure-monitor/platform/itsmc-connections.md).
+[Adicione produtos/serviços ITSM ao Conector](../../azure-monitor/platform/itsmc-connections.md)de Gestão de Serviços de TI.

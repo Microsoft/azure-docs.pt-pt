@@ -1,50 +1,49 @@
 ---
-title: Modos de exibição em soluções de gerenciamento | Microsoft Docs
-description: 'Normalmente, as soluções de gerenciamento incluirão uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar um modo de exibição criado pelo designer de exibição e incluí-lo em uma solução de gerenciamento. '
-ms.service: azure-monitor
+title: Pontos de vista em soluções de gestão  Microsoft Docs
+description: 'As soluções de gestão normalmente incluem uma ou mais vistas para visualizar dados.  Este artigo descreve como exportar uma visão criada pelo View Designer e incluí-la numa solução de gestão. '
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 473d10bbec6ca056554f7223800a32e9ca93578e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a9a1c1718fb95a6ace3700af043134072d582473
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553894"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663050"
 ---
-# <a name="views-in-management-solutions-preview"></a>Exibições em soluções de gerenciamento (versão prévia)
+# <a name="views-in-management-solutions-preview"></a>Pontos de vista em soluções de gestão (Pré-visualização)
 > [!NOTE]
-> Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Qualquer esquema descrito abaixo está sujeito a alterações.    
+> Esta é uma documentação preliminar para a criação de soluções de gestão que estão atualmente em pré-visualização. Qualquer esquema descrito abaixo está sujeito a alterações.    
 
 
-Normalmente, as [soluções de gerenciamento](solutions.md) incluirão uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar um modo de exibição criado pelo [Designer de exibição](../../azure-monitor/platform/view-designer.md) e incluí-lo em uma solução de gerenciamento.  
+[As soluções](solutions.md) de gestão normalmente incluem uma ou mais vistas para visualizar dados.  Este artigo descreve como exportar uma visão criada pelo [View Designer](../../azure-monitor/platform/view-designer.md) e incluí-la numa solução de gestão.  
 
 > [!NOTE]
-> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para soluções de gerenciamento e são descritos em [projetar e criar uma solução de gerenciamento no Azure](solutions-creating.md)
+> As amostras deste artigo utilizam parâmetros e variáveis que são necessários ou comuns a soluções de gestão e descritas no [Design e constroem uma solução de gestão em Azure](solutions-creating.md)
 >
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você já esteja familiarizado com a [criação de uma solução de gerenciamento](solutions-creating.md) e a estrutura de um arquivo de solução.
+Este artigo assume que já está familiarizado com a forma de [criar uma solução](solutions-creating.md) de gestão e a estrutura de um ficheiro de solução.
 
-## <a name="overview"></a>Visão geral
-Para incluir um modo de exibição em uma solução de gerenciamento, você cria um **recurso** para ele no [arquivo de solução](solutions-creating.md).  O JSON que descreve a configuração detalhada da exibição é normalmente complexo, mas não algo que um autor de solução típico poderia criar manualmente.  O método mais comum é criar o modo de exibição usando o [Designer de exibição](../../azure-monitor/platform/view-designer.md), exportá-lo e, em seguida, adicionar sua configuração detalhada à solução.
+## <a name="overview"></a>Descrição geral
+Para incluir uma visão numa solução de gestão, cria-se um **recurso** para o mesmo no ficheiro de [solução.](solutions-creating.md)  O JSON que descreve a configuração detalhada da vista é tipicamente complexo e não algo que um autor típico da solução seria capaz de criar manualmente.  O método mais comum é criar a vista usando o [View Designer,](../../azure-monitor/platform/view-designer.md)exportá-la e, em seguida, adicionar a sua configuração detalhada à solução.
 
-As etapas básicas para adicionar uma exibição a uma solução são as seguintes.  Cada etapa é descrita mais detalhadamente nas seções a seguir.
+Os passos básicos para adicionar uma visão a uma solução são os seguintes.  Cada passo é descrito mais detalhadamente nas secções abaixo.
 
-1. Exporte a exibição para um arquivo.
-2. Crie o recurso de exibição na solução.
-3. Adicione os detalhes da exibição.
+1. Exporte a vista para um arquivo.
+2. Crie o recurso de visualização na solução.
+3. Adicione os detalhes da vista.
 
-## <a name="export-the-view-to-a-file"></a>Exportar a exibição para um arquivo
-Siga as instruções em [log Analytics designer de exibição](../../azure-monitor/platform/view-designer.md) para exportar um modo de exibição para um arquivo.  O arquivo exportado estará no formato JSON com os mesmos [elementos que o arquivo de solução](solutions-solution-file.md).  
+## <a name="export-the-view-to-a-file"></a>Exportar a vista para um arquivo
+Siga as instruções no [Log Analytics View Designer](../../azure-monitor/platform/view-designer.md) para exportar uma vista para um ficheiro.  O ficheiro exportado estará em formato JSON com os [mesmos elementos que o ficheiro de solução](solutions-solution-file.md).  
 
-O elemento **Resources** do arquivo de exibição terá um recurso com um tipo de **Microsoft. OperationalInsights/Workspaces** que representa o espaço de trabalho log Analytics.  Esse elemento terá um subelemento com um tipo de **exibições** que representa a exibição e que contém sua configuração detalhada.  Você copiará os detalhes desse elemento e, em seguida, o copiará para sua solução.
+O elemento **de recursos** do ficheiro view terá um recurso com um tipo de **Microsoft.OperationalInsights/espaços** de trabalho que representa o espaço de trabalho log Analytics.  Este elemento terá um subelemento com um tipo de ponto de **vista** que representa a vista e contém a sua configuração detalhada.  Irá copiar os detalhes deste elemento e, em seguida, copiá-lo na sua solução.
 
-## <a name="create-the-view-resource-in-the-solution"></a>Criar o recurso de exibição na solução
-Adicione o seguinte recurso de exibição ao elemento **Resources** do seu arquivo de solução.  Isso usa as variáveis descritas abaixo que você também deve adicionar.  Observe que as propriedades **Dashboard** e **OverviewTile** são espaços reservados que serão substituídos pelas propriedades correspondentes do arquivo de exibição exportado.
+## <a name="create-the-view-resource-in-the-solution"></a>Criar o recurso de visualização na solução
+Adicione o recurso de visualização seguinte ao elemento **de recursos** do seu ficheiro de solução.  Isto usa variáveis que são descritas abaixo que você também deve adicionar.  Note que as propriedades **do Dashboard** e **do OverviewTile** são espaços reservados que irá substituir com as propriedades correspondentes do ficheiro de visualização exportado.
 
     {
         "apiVersion": "[variables('LogAnalyticsApiVersion')]",
@@ -66,39 +65,39 @@ Adicione o seguinte recurso de exibição ao elemento **Resources** do seu arqui
         }
     }
 
-Adicione as seguintes variáveis ao elemento Variables do arquivo de solução e substitua os valores para os da sua solução.
+Adicione as seguintes variáveis ao elemento variável do ficheiro de solução e substitua os valores pelos valores para a sua solução.
 
     "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
 
-Observe que você pode copiar o recurso de exibição inteiro do arquivo de exibição exportado, mas precisa fazer as seguintes alterações para que ele funcione em sua solução.  
+Tenha em anote que poderá copiar todo o recurso de visualização do seu ficheiro de visualização exportado, mas terá de efazer as seguintes alterações para que funcione na sua solução.  
 
-* O **tipo** para o recurso de exibição precisa ser alterado de **exibições** para **Microsoft. OperationalInsights/Workspaces**.
-* A propriedade **Name** para o recurso de exibição precisa ser alterada para incluir o nome do espaço de trabalho.
-* A dependência no espaço de trabalho precisa ser removida, pois o recurso de espaço de trabalho não está definido na solução.
-* A propriedade **DisplayName** precisa ser adicionada à exibição.  A **ID**, o **nome**e o **DisplayName** devem ser correspondentes.
-* Os nomes de parâmetro devem ser alterados para corresponder ao conjunto de parâmetros necessário.
-* As variáveis devem ser definidas na solução e usadas nas propriedades apropriadas.
+* O **tipo** de recurso de visualização tem de ser alterado de **vistas** para **Microsoft.OperationalInsights/espaços de trabalho**.
+* A propriedade **de nome** para o recurso de vista precisa ser alterada para incluir o nome do espaço de trabalho.
+* A dependência do espaço de trabalho precisa de ser removida, uma vez que o recurso do espaço de trabalho não está definido na solução.
+* A propriedade **DisplayName** precisa de ser adicionada à vista.  O **Id,** **O Nome**e o Nome do **Ecrã** devem coincidir.
+* Os nomes dos parâmetros devem ser alterados de acordo com o conjunto de parâmetros exigido.
+* As variáveis devem ser definidas na solução e utilizadas nas propriedades apropriadas.
 
-### <a name="log-analytics-api-version"></a>Versão da API Log Analytics
-Todos os Log Analytics recursos definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Esta versão é diferente para exibições com consultas que usam a [linguagem de consulta herdada e atualizada](../../azure-monitor/log-query/log-query-overview.md).  
+### <a name="log-analytics-api-version"></a>Versão API de Log Analytics
+Todos os recursos do Log Analytics definidos num modelo de Gestor de Recursos têm uma **apiVersão** de propriedade que define a versão da API que o recurso deve usar.  Esta versão é diferente para vistas com consultas que usam o [legado e a linguagem de consulta atualizada.](../../azure-monitor/log-query/log-query-overview.md)  
 
- A tabela a seguir especifica as versões de API Log Analytics para exibições em espaços de trabalho herdados e atualizados: 
+ O quadro seguinte especifica as versões Log Analytics API para visualizações em espaços de trabalho legados e atualizados: 
 
-| Versão do espaço de trabalho | Versão da API | Consulta |
+| Versão workspace | Versão API | Consulta |
 |:---|:---|:---|
-| V1 (Herdado)   | 2015-11-01-visualização | Formato herdado.<br> Exemplo: tipo = evento EventLevelName = erro  |
-| v2 (atualizado) | 2015-11-01-visualização | Formato herdado.  Convertido em formato atualizado na instalação.<br> Exemplo: tipo = evento EventLevelName = erro<br>Convertido em: evento &#124; em que EventLevelName = = "Error"  |
-| v2 (atualizado) | 2017-03-03-visualização | Formato de atualização. <br>Exemplo: evento &#124; em que EventLevelName = = "Error"  |
+| v1 (legado)   | Antevisão 2015-11-01 | Formato legado.<br> Exemplo: Type=EventLevelName = Erro  |
+| v2 (atualizado) | Antevisão 2015-11-01 | Formato legado.  Convertido em formato atualizado na instalação.<br> Exemplo: Type=EventLevelName = Erro<br>Convertido para: &#124; Evento onde EventLevelName == "Error"  |
+| v2 (atualizado) | Antevisão 2017-03-03 | Formato de upgrade. <br>Exemplo: &#124; Evento onde eventlevelName == "Error"  |
 
 
-## <a name="add-the-view-details"></a>Adicionar os detalhes da exibição
-O recurso de exibição no arquivo de exibição exportado conterá dois elementos no elemento **Properties** chamado **Dashboard** e **OverviewTile** , que contêm a configuração detalhada da exibição.  Copie esses dois elementos e seu conteúdo para o elemento **Properties** do recurso de exibição em seu arquivo de solução.
+## <a name="add-the-view-details"></a>Adicione os detalhes da vista
+O recurso de visualização no ficheiro de vista exportado conterá dois elementos no elemento **de propriedades** chamado **Dashboard** e **OverviewTile** que contêm a configuração detalhada da vista.  Copie estes dois elementos e o seu conteúdo no elemento **de propriedades** do recurso de visualização no seu ficheiro de solução.
 
 ## <a name="example"></a>Exemplo
-Por exemplo, o exemplo a seguir mostra um arquivo de solução simples com uma exibição.  As reticências (...) são mostradas para o **painel** e o conteúdo do **OverviewTile** por motivos de espaço.
+Por exemplo, a amostra que se segue mostra um simples ficheiro de solução com vista.  As elipses (...) são mostradas para o **dashboard** e **conteúdo do OverviewTile** por razões espaciais.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -181,5 +180,5 @@ Por exemplo, o exemplo a seguir mostra um arquivo de solução simples com uma e
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Conheça os detalhes completos da criação de [soluções de gerenciamento](solutions-creating.md).
-* Inclua [runbooks de automação na sua solução de gerenciamento](solutions-resources-automation.md).
+* Conheça todos os detalhes da criação de soluções de [gestão.](solutions-creating.md)
+* Inclua [os livros de execução da Automação na sua solução de gestão.](solutions-resources-automation.md)

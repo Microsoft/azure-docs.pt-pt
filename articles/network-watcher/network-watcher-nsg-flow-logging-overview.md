@@ -1,7 +1,7 @@
 ---
-title: Introdução ao log de fluxo para NSGs
+title: Introdução à exploração de fluxos de registo para NSGs
 titleSuffix: Azure Network Watcher
-description: Este artigo explica como usar o recurso de logs de fluxo NSG do observador de rede do Azure.
+description: Este artigo explica como usar a funcionalidade de registos de fluxo NSG do Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,101 +12,97 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: f231a5339b9c696b2a427b0713118d4b46e30277
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a7f30a5a70f71ff958d9b222d2a9e21d03d85e06
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841000"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670768"
 ---
-# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo para grupos de segurança de rede
+# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução à exploração de fluxos de exploração de grupos de segurança da rede
 
 Os registos de fluxo do grupo de segurança de rede (NSG) são uma característica do Observador de Rede que lhe permite visualizar informações sobre ingresse e egress TRÁFEGO IP através de um NSG. Os registos de fluxo são escritos em formato JSON, e mostram fluxos de saída e de entrada por regra, a interface de rede (NIC) a que o fluxo se aplica a informações de 5-tuple sobre o fluxo (Fonte/destino IP, porta de origem/destino e protocolo), se o tráfego foi permitido ou negado, e na versão 2, informações de entrada (Bytes e Pacotes).
 
 
-![Visão geral dos logs de fluxo](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
+![visão geral dos registos de fluxo](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-Embora os logs de fluxo tenham como destino NSGs, eles não são exibidos da mesma forma que os outros logs. Os logs de fluxo são armazenados somente dentro de uma conta de armazenamento e seguem o caminho de log mostrado no exemplo a seguir:
+Enquanto os registos de fluxo visam nsgs, não são apresentados os mesmos que os outros troncos. Os registos de fluxo são armazenados apenas dentro de uma conta de armazenamento e seguem o caminho de exploração de madeira mostrado no seguinte exemplo:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
-Você pode analisar os logs de fluxo e obter informações sobre o tráfego de rede usando a [análise de tráfego](traffic-analytics.md).
+Pode analisar os registos de fluxo e obter informações sobre o tráfego da sua rede utilizando [análises](traffic-analytics.md)de tráfego .
 
-As mesmas políticas de retenção vistas para outros logs se aplicam aos logs de fluxo. Você pode definir a política de retenção de log de 1 dia para 365 dias. Se não definir uma política de retenção, os registos são mantidos para sempre.
-
-> [!NOTE] 
-> Usar o recurso de política de retenção com o log de fluxo do NSG pode resultar em um alto volume de operações de armazenamento e os custos associados. Se você não precisar do recurso de política de retenção, recomendamos que você defina esse valor como 0.
-
+As mesmas políticas de retenção observadas para outros registos aplicam-se aos registos de fluxo. Pode definir a política de retenção de registos de 1 dia a 365 dias. Se uma política de retenção não for definida, os registos são mantidos para sempre.
 
 ## <a name="log-file"></a>Ficheiro de registo
 
-Os logs de fluxo incluem as seguintes propriedades:
+Os registos de fluxo incluem as seguintes propriedades:
 
-* **hora** em que o evento foi registrado
-* **SystemId** -ID de recurso do grupo de segurança de rede.
-* **categoria** -a categoria do evento. A categoria é sempre **NetworkSecurityGroupFlowEvent**
-* **ResourceId** -a ID de recurso do NSG
-* **operationName** -sempre NetworkSecurityGroupFlowEvents
-* **Propriedades** – uma coleção de propriedades do fluxo
-    * **Versão** -número de versão do esquema de evento de log de fluxo
-    * **fluxos** – uma coleção de fluxos. Esta propriedade tem várias entradas para regras diferentes
-        * **regra** -regra para a qual os fluxos são listados
-            * **fluxos** -uma coleção de fluxos
-                * **Mac** -o endereço MAC da NIC para a VM em que o fluxo foi coletado
-                * **flowTuples** -uma cadeia de caracteres que contém várias propriedades para a tupla de fluxo em formato separado por vírgulas
-                    * **Carimbo de data/hora** -esse valor é o carimbo de data/hora de quando o fluxo ocorreu no formato de época do UNIX
-                    * **IP de origem** -o IP de origem
-                    * **IP de destino** -o IP de destino
-                    * **Porta de origem** -a porta de origem
-                    * **Porta de destino** -a porta de destino
-                    * **Protocolo** -o protocolo do fluxo. Os valores válidos são **T** para TCP e **U** para UDP
-                    * **Fluxo de tráfego** -a direção do fluxo de tráfego. Os valores válidos são **I** para entrada e **O** para saída.
-                    * **Decisão de tráfego** -se o tráfego foi permitido ou negado. Os valores válidos são **a** para permitido e **D** para negado.
-                    * **Estado do fluxo – somente versão 2** – captura o estado do fluxo. Os Estados possíveis são **B**: Begin, quando um fluxo é criado. As estatísticas não são fornecidas. **C**: Continuando um fluxo em andamento. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: terminar, quando um fluxo for encerrado. As estatísticas são fornecidas.
-                    * **Pacotes-origem para destino-somente versão 2** O número total de pacotes TCP ou UDP enviados da origem para o destino desde a última atualização.
-                    * **Bytes enviados-origem para destino-versão 2 somente** O número total de bytes de pacotes TCP ou UDP enviados da origem para o destino desde a última atualização. Os bytes de pacote incluem o cabeçalho e a carga do pacote.
-                    * **Pacotes-destino para origem-versão 2 somente** O número total de pacotes TCP ou UDP enviados do destino para a origem desde a última atualização.
-                    * **Bytes enviados-destino para origem-versão 2 somente** O número total de bytes de pacotes TCP e UDP enviados do destino para a origem desde a última atualização. Bytes de pacote incluem cabeçalho e carga de pacote.
+* **tempo** - Tempo em que o evento foi registado
+* **systemId** - Network Security Group resource Id.
+* **categoria** - A categoria do evento. A categoria é sempre **NetworkSecurityGroupFlowEvent**
+* **resourceid** - O recurso Id do NSG
+* **operaçãoNome** - Sempre NetworkSecurityGroupFlowEvents
+* **propriedades** - Uma coleção de propriedades do fluxo
+    * **Versão** - Número de versão do esquema do evento Flow Log
+    * **fluxos** - Uma coleção de fluxos. Esta propriedade tem múltiplas entradas para diferentes regras
+        * **regra** - Regra para a qual os fluxos estão listados
+            * **fluxos** - uma coleção de fluxos
+                * **mac** - O endereço MAC do NIC para o VM onde o fluxo foi recolhido
+                * **flowTuples** - Uma cadeia que contém múltiplas propriedades para o fluxo tuple em formato separado de vírgula
+                    * **Carimbo** de tempo - Este valor é o carimbo de quando o fluxo ocorreu em formato de época UNIX
+                    * **FONTE IP** - A fonte IP
+                    * **Ip de destino** - O destino IP
+                    * **Porta fonte** - A porta de origem
+                    * **Porto** de destino - O Porto de Destino
+                    * **Protocolo** - O protocolo do fluxo. Valores válidos são **T** para TCP e **U** para UDP
+                    * **Fluxo** de Tráfego - A direção do fluxo de tráfego. Valores válidos são **eu** para entrada e **O** para saída.
+                    * **Decisão do Tráfego** - Se o tráfego foi permitido ou negado. Valores válidos são **A** para permitido e **D** para negado.
+                    * **Flow State - Apenas versão 2** - Captura o estado do fluxo. Os estados possíveis são **B:** Comece, quando um fluxo é criado. As estatísticas não são fornecidas. **C:** Continuar para um fluxo contínuo. As estatísticas são fornecidas em intervalos de 5 minutos. **E:** Terminar, quando um fluxo é terminado. As estatísticas são fornecidas.
+                    * **Pacotes - Fonte para destino - Versão 2 Apenas** O número total de pacotes TCP ou UDP enviados de origem para destino desde a última atualização.
+                    * **Bytes enviados - Fonte para destino - Versão 2 Apenas** O número total de bytes de pacotes TCP ou UDP enviados de origem para destino desde a última atualização. Os bytes do pacote incluem o cabeçalho do pacote e a carga útil.
+                    * **Pacotes - Destino para fonte - Versão 2 Apenas** O número total de pacotes TCP ou UDP enviados de destino para fonte desde a última atualização.
+                    * **Bytes enviados - Destino para fonte - Versão 2 Apenas** O número total de bytes de pacotes TCP e UDP enviados de destino para fonte desde a última atualização. Os bytes do pacote incluem cabeçalho de pacote e carga útil.
 
-## <a name="nsg-flow-logs-version-2"></a>Logs de fluxo NSG versão 2
+## <a name="nsg-flow-logs-version-2"></a>NsG fluxo logs versão 2
 
-A versão 2 dos logs apresenta o estado de fluxo. Você pode configurar qual versão dos logs de fluxo você recebe. Para saber como habilitar os logs de fluxo, consulte [habilitando o log de fluxo do NSG](network-watcher-nsg-flow-logging-portal.md).
+A versão 2 dos registos introduz o estado de fluxo. Pode configurar qual a versão dos registos de fluxo que recebe. Para aprender a ativar os registos de fluxo, consulte o registo de [fluxo snSG de habilitação](network-watcher-nsg-flow-logging-portal.md).
 
-O estado de fluxo *B* é registrado quando um fluxo é iniciado. O estado de fluxo *C* e estado de fluxo *e* são Estados que marcam a continuação de um fluxo e término de fluxo, respectivamente. Ambos os Estados *C* e *e* contêm informações de largura de banda de tráfego.
+O estado de fluxo *B* é registado quando um fluxo é iniciado. Estado *de* fluxo C e estado de fluxo *E* são estados que marcam a continuação de uma rescisão de fluxo e fluxo, respectivamente. Tanto os estados *C* como *E* contêm informações de largura de banda de tráfego.
 
-**Exemplo**: as tuplas de fluxo de uma conversa TCP entre 185.170.185.105:35370 e 10.2.0.4:23:
+**Exemplo**: Fluxo de tuples de uma conversa tCP entre 185.170.185.105:35370 e 10.2.0.4:23:
 
-"1493763938, 185.170.185.105, 10.2.0.4, 35370, 23, T, I, A, B,,,," "1493695838, 185.170.185.105, 10.2.0.4, 35370, 23, T, I, A, C, 1021, 588096, 8005, 4610880" "1493696138, 185.170.185.105, 10.2.0.4, 35370, 23, T, I, A, E, 52, 29952, 47, 27072"
+"1493763938.185.170.185.105,10.2.0.4.35370,23,T,A,B,,,," "1493695838.185.170.185.105,10.2.0.4.35370,23,T,A,1021.588096.8005.4610880" "1493696138.185.170.185.105,105,10.2.0.4.35370,23,T,I,E,52.29952,47.27.27072"
 
-Para os Estados de continuação *C* e End *e* Flow, as contagens de bytes e pacotes são contagens de agregação a partir do momento do registro de tupla de fluxo anterior. Fazendo referência à conversa de exemplo anterior, o número total de pacotes transferidos é 1021 + 52 + 8005 + 47 = 9125. O número total de bytes transferidos é 588096 + 29952 + 4610880 + 27072 = 5256000.
+Para a continuação dos estados de fluxo *C* e final *E,* as contagens de byte e pacote são contagens agregadas a partir do tempo do anterior recorde de tuple de fluxo. Referenciando a conversa de exemplo anterior, o número total de pacotes transferidos é 1021+52+8005+47 = 9125. O número total de bytes transferidos é 588096+29952+4610880+27072 = 5256000.
 
-O texto a seguir é um exemplo de um log de fluxo. Como você pode ver, há vários registros que seguem a lista de propriedades descrita na seção anterior.
+O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existem vários registos que seguem a lista de propriedades descrita na secção anterior.
 
-## <a name="nsg-flow-logging-considerations"></a>Considerações de log de fluxo NSG
+## <a name="nsg-flow-logging-considerations"></a>Considerações de exploração de fluxo de NSG
 
-**Considerações sobre a conta de armazenamento**: 
+**Considerações sobre a conta de armazenagem:** 
 
-- Local: a conta de armazenamento usada deve estar na mesma região que o NSG.
-- Rotação de chaves de autogerenciamento: se você alterar/girar as chaves de acesso para sua conta de armazenamento, os logs de fluxo do NSG deixarão de funcionar. Para corrigir esse problema, você deve desabilitar e, em seguida, reabilitar os logs de fluxo do NSG.
+- Localização: A conta de armazenamento utilizada deve estar na mesma região que o NSG.
+- Rotação da chave de auto-gestão: Se alterar/rodar as teclas de acesso da sua conta de armazenamento, os Registos de Fluxo NSG deixarão de funcionar. Para corrigir este problema, tem de desativar e, em seguida, reativar os registos de fluxo nsg.
 
-**Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra NSG. Em cenários em que vários NSGs são utilizados, é recomendável que o log de fluxo do NSG esteja habilitado em todos os NSGs aplicados à sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registrado. Para obter mais informações, consulte [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) em grupos de segurança de rede.
+Ativar o **registo de fluxo nsg em todos os NSGs ligados a um recurso**: O registo de fluxo saqueem em Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra nsg. Nos cenários em que são utilizados vários NSGs, recomendamos que o registo de fluxo sNG esteja ativado em todos os NSGs aplicados a subnet ou interface de rede de um recurso para garantir que todo o tráfego é registado. Para mais informações, consulte [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) em Grupos de Segurança da Rede.
 
-**Custos de log de fluxo**: o log de fluxo de NSG é cobrado no volume de logs produzidos. O alto volume de tráfego pode resultar em volume de log de fluxo grande e nos custos associados. O preço do log de fluxo NSG não inclui os custos subjacentes de armazenamento. Usar o recurso de política de retenção com o log de fluxo do NSG pode resultar em um alto volume de operações de armazenamento e os custos associados. Se você não precisar do recurso de política de retenção, recomendamos que você defina esse valor como 0. Para obter mais informações, consulte [preços do observador de rede](https://azure.microsoft.com/pricing/details/network-watcher/) e preços do [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter detalhes adicionais.
+**Custos de exploração de**fluxo : A exploração de fluxo sonífica saneada é faturada no volume de registos produzidos. Um elevado volume de tráfego pode resultar num grande volume de registo de fluxo e nos custos associados. Os preços do registo nsg Flow não incluem os custos subjacentes ao armazenamento. A utilização da funcionalidade de política de retenção com o NSG Flow Logging pode resultar num elevado volume de operações de armazenamento e nos custos associados. Se não necessitar da funcionalidade de política de retenção, recomendamos que detetete este valor para 0. Para mais informações, consulte os preços do Observador da [Rede](https://azure.microsoft.com/pricing/details/network-watcher/) e os preços de [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes.
 
-**Fluxos de entrada registrados de IPS de Internet para VMs sem IPS públicos**: VMs que não têm um endereço IP público atribuído por meio de um endereço IP público associado à NIC como um IP público em nível de instância, ou que fazem parte de um pool de back-end do Load Balancer básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e têm um endereço IP atribuído pelo Azure para facilitar a conectividade de saída. Como resultado, você poderá ver entradas de log de fluxo de fluxos de endereços IP da Internet, se o fluxo for destinado a uma porta no intervalo de portas atribuídas para SNAT. Embora o Azure não permita esses fluxos para a VM, a tentativa é registrada e aparece no log de fluxo do NSG do observador de rede por design. Recomendamos que o tráfego de Internet de entrada indesejado seja explicitamente bloqueado com NSG.
+**Fluxos de entrada registados desde os Ip sem IPs públicos**: VMs que não possuam um endereço IP público atribuído através de um endereço IP público associado ao NIC como um IP público de nível de exemplo, ou que fazem parte de um pool de back-end de um equilibrista de carga básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e têm um endereço IP atribuído pela Azure para facilitar a conectividade de saída. Como resultado, pode ver entradas de registo de fluxo para fluxos de endereços IP da Internet, se o fluxo estiver destinado a uma porta na gama de portas atribuídas para SNAT. Embora o Azure não permita estes fluxos para o VM, a tentativa é registada e aparece no registo de fluxo NSG do Network Watcher por design. Recomendamos que o tráfego indesejado de entrada na Internet seja explicitamente bloqueado com o NSG.
 
-**Contagens incorretas de bytes e pacotes para fluxos sem estado**: [NSGs (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/security-overview) são implementados como um [Firewall com estado](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). No entanto, muitas regras padrão/internas que controlam o fluxo de tráfego são implementadas de maneira sem monitoração de estado. Devido a limitações da plataforma, os bytes e as contagens de pacotes não são registrados para fluxos sem monitoração de estado (ou seja, fluxos de tráfego que passam por regras sem estado), eles são registrados apenas para fluxos com estado. Consequentemente, o número de bytes e pacotes relatados nos logs de fluxo NSG (e Análise de Tráfego) podem ser diferentes dos fluxos reais. Essa limitação está agendada para ser corrigida em junho de 2020.
+**Byte incorreto e contagem de pacotes para fluxos apátridas**: Grupos de [Segurança da Rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview) são implementados como uma [firewall imponente](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Por muito que muitas regras de incumprimento/internas que controlem o fluxo de tráfego sejam implementadas de forma apátrida. Devido às limitações da plataforma, os bytes e os pacotes contam não são registados para fluxos apátridas (isto é, fluxos de tráfego que passam por regras apátridas), são registados apenas para fluxos apátridas. Consequentemente, o número de bytes e pacotes relatados nos Registos de Fluxo nsg (e na Análise de Tráfego) poderia ser diferente dos fluxos reais. Esta limitação deverá ser fixada até junho de 2020.
 
-## <a name="sample-log-records"></a>Registros de log de exemplo
+## <a name="sample-log-records"></a>Registos de registos de amostras
 
-O texto a seguir é um exemplo de um log de fluxo. Como você pode ver, há vários registros que seguem a lista de propriedades descrita na seção anterior.
+O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existem vários registos que seguem a lista de propriedades descrita na secção anterior.
 
 
 > [!NOTE]
-> Os valores na propriedade **flowTuples* são uma lista separada por vírgulas.
+> Os valores na propriedade **flowTuples* são uma lista separada de vírgula.
  
-### <a name="version-1-nsg-flow-log-format-sample"></a>Exemplo de formato de log de fluxo NSG versão 1
+### <a name="version-1-nsg-flow-log-format-sample"></a>Amostra de formato de registo de fluxo NSG da versão 1
 ```json
 {
     "records": [
@@ -215,7 +211,7 @@ O texto a seguir é um exemplo de um log de fluxo. Como você pode ver, há vár
         ,
         ...
 ```
-### <a name="version-2-nsg-flow-log-format-sample"></a>Versão 2 exemplo de formato de log de fluxo NSG
+### <a name="version-2-nsg-flow-log-format-sample"></a>Amostra de formato de registo de fluxo NSG da versão 2
 ```json
  {
     "records": [
@@ -289,7 +285,7 @@ O texto a seguir é um exemplo de um log de fluxo. Como você pode ver, há vár
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber como habilitar os logs de fluxo, consulte [habilitando o log de fluxo do NSG](network-watcher-nsg-flow-logging-portal.md).
-- Para saber como ler os logs de fluxo, consulte [ler logs de fluxo do NSG](network-watcher-read-nsg-flow-logs.md).
-- Para saber mais sobre o log de NSG, consulte [logs de Azure monitor para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- Para determinar se o tráfego é permitido ou negado para ou de uma VM, consulte [diagnosticar um problema de filtro de tráfego de rede VM](diagnose-vm-network-traffic-filtering-problem.md)
+- Para aprender a ativar os registos de fluxo, consulte o registo de [fluxo snSG de habilitação](network-watcher-nsg-flow-logging-portal.md).
+- Para aprender a ler os registos de fluxo, consulte os registos de [fluxo da NSG](network-watcher-read-nsg-flow-logs.md).
+- Para saber mais sobre a exploração madeireira NSG, consulte [os registos do Monitor Azure para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Para determinar se o tráfego é permitido ou negado de ou para um VM, consulte Diagnosticar um problema de filtro de tráfego de [rede VM](diagnose-vm-network-traffic-filtering-problem.md)

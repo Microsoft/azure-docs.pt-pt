@@ -1,324 +1,323 @@
 ---
-title: Monitorar os serviços de armazenamento do Azure com o Azure Monitor para armazenamento (visualização) | Microsoft Docs
-description: Este artigo descreve o Azure Monitor para o recurso de armazenamento que fornece aos administradores de armazenamento uma compreensão rápida dos problemas de desempenho e utilização com suas contas de armazenamento do Azure.
-ms.service: azure-monitor
+title: Monitor Azure Storage serviços com Monitor Azure para Armazenamento (pré-visualização) Microsoft Docs
+description: Este artigo descreve a funcionalidade Azure Monitor for Storage que fornece aos administradores de armazenamento uma compreensão rápida dos problemas de desempenho e utilização com as suas contas de Armazenamento Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: 790d6ad9fb26253697ea36b402799d3eb488ca47
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401136"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662524"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorando seu serviço de armazenamento com o Azure Monitor para armazenamento (versão prévia)
+# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorização do seu serviço de armazenamento com o Monitor Azure para armazenamento (pré-visualização)
 
-Azure Monitor para armazenamento (visualização) fornece um monitoramento abrangente de suas contas de armazenamento do Azure, fornecendo uma exibição unificada de desempenho, capacidade e disponibilidade dos serviços de armazenamento do Azure. Você pode observar a capacidade de armazenamento e o desempenho de duas maneiras, exibir diretamente de uma conta de armazenamento ou exibição de Azure Monitor para ver em grupos de contas de armazenamento. 
+O Azure Monitor para armazenamento (pré-visualização) fornece uma monitorização abrangente das suas contas de Armazenamento Azure, proporcionando uma visão unificada do desempenho, capacidade e disponibilidade dos seus serviços de Armazenamento Azure. Você pode observar a capacidade de armazenamento, e o desempenho de duas maneiras, ver diretamente a partir de uma conta de armazenamento ou vista do Monitor Azure para ver através de grupos de contas de armazenamento. 
 
-Este artigo o ajudará a entender a experiência Azure Monitor para armazenamento (versão prévia) que o fornece para obter um conhecimento acionável sobre a integridade e o desempenho das contas de armazenamento em escala, com uma capacidade de se concentrar em pontos de uso e diagnosticar latência, limitação, e problemas de disponibilidade.
+Este artigo irá ajudá-lo a compreender a experiência que o Azure Monitor para armazenamento (pré-visualização) fornece para obter conhecimentos acionáveis sobre a saúde e desempenho das contas de Armazenamento em escala, com capacidade para se concentrar em hotspots e diagnosticar latência, estrangulamento, e problemas de disponibilidade.
 
-## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Introdução ao Azure Monitor para armazenamento (visualização)
+## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Introdução ao Monitor Azure para Armazenamento (pré-visualização)
 
-Antes de mergulhar na experiência, você deve entender como ele apresenta e visualiza informações. Se você selecionar o recurso de armazenamento diretamente de uma conta de armazenamento ou de Azure Monitor, Azure Monitor para armazenamento apresentará uma experiência consistente. 
+Antes de mergulhar na experiência, deve entender como apresenta e visualiza a informação. Quer selecione a funcionalidade de Armazenamento diretamente a partir de uma conta de armazenamento ou do Monitor Azure, o Azure Monitor para armazenamento apresenta uma experiência consistente. 
 
-Ele oferece:
+Combinado que entrega:
 
-* **Na perspectiva da escala** mostrando uma exibição de instantâneo de sua disponibilidade com base na integridade do serviço de armazenamento ou na operação de API, a utilização mostra o número total de solicitações que o serviço de armazenamento recebe e a latência que mostra o tempo médio que o serviço de armazenamento ou o tipo de operação de API está levando para processar solicitações. Você também pode exibir a capacidade por blob, arquivo, tabela e fila.
+* **Numa perspetiva de escala** que mostra uma visão instantânea da sua disponibilidade com base na saúde do serviço de armazenamento ou da operação API, a utilização mostra o número total de pedidos que o serviço de armazenamento recebe, e a latência mostrando o tempo médio que o serviço de armazenamento ou o tipo de operação API está a levar para processar pedidos. Também pode ver a capacidade por blob, arquivo, mesa e fila.
 
-* **Análise de busca detalhada** de uma determinada conta de armazenamento para ajudar a diagnosticar problemas ou executar uma análise detalhada por categoria, desempenho, falhas e capacidade. A seleção de qualquer uma dessas opções fornece uma visão detalhada das métricas.  
+* **Faça análises** de uma determinada conta de armazenamento para ajudar a diagnosticar problemas ou realizar análises detalhadas por categoria - disponibilidade, desempenho, falhas e capacidade. A seleção de qualquer uma dessas opções proporciona uma visão aprofundada das métricas.  
 
-* **Personalizável** , onde você pode alterar quais métricas deseja ver, modificar ou definir limites que se alinham com seus limites e salvar como sua própria pasta de trabalho. Os gráficos na pasta de trabalho podem ser fixados no painel do Azure.  
+* **Personalizável** onde pode alterar quais as métricas que pretende ver, modificar ou definir limiares que se alinham com os seus limites, e economizar como o seu próprio livro. Os gráficos do livro podem ser fixados no painel azure.  
 
-Esse recurso não exige que você habilite ou configure nada, as métricas de armazenamento de suas contas de armazenamento são coletadas por padrão. Se você não estiver familiarizado com as métricas disponíveis no armazenamento do Azure, exiba a descrição e a definição em métricas de armazenamento do Azure examinando as [métricas de armazenamento do Azure](../../storage/common/storage-metrics-in-azure-monitor.md).
-
->[!NOTE]
->Não há nenhum encargo para acessar esse recurso e você só será cobrado pelos recursos essenciais Azure Monitor que você configurar ou habilitar, conforme descrito na página de [detalhes de preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
+Esta funcionalidade não requer que ative ou configure nada, as métricas de armazenamento das suas contas de armazenamento são recolhidas por defeito. Se não estiver familiarizado com as métricas disponíveis no Armazenamento Azure, veja a descrição e definição nas métricas de Armazenamento Azure através da revisão das métricas de [armazenamento do Azure.](../../storage/common/storage-metrics-in-azure-monitor.md)
 
 >[!NOTE]
->Azure Monitor para armazenamento não oferece suporte [a contas v1 de uso geral](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
+>Não existe qualquer custo para aceder a esta funcionalidade e só será cobrado para as funcionalidades essenciais do Monitor Azure que configura ou ativa, conforme descrito na página de detalhes de preços do [Monitor Azure.](https://azure.microsoft.com/pricing/details/monitor/)
+
+>[!NOTE]
+>O Monitor Azure para armazenamento não suporta [contas v1 de uso geral](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
 >
 
-## <a name="view-from-azure-monitor"></a>Exibir de Azure Monitor
+## <a name="view-from-azure-monitor"></a>Vista do Monitor Azure
 
-Em Azure Monitor, você pode exibir detalhes de transação, latência e capacidade de várias contas de armazenamento em sua assinatura e ajudar a identificar desempenho, problemas de capacidade e falhas.
+Do Azure Monitor, pode visualizar detalhes de transações, latências e capacidade saem de várias contas de armazenamento na sua subscrição, e ajudar a identificar desempenho, problemas de capacidade e falhas.
 
-Para exibir a utilização e a disponibilidade de suas contas de armazenamento em todas as suas assinaturas, execute as etapas a seguir.
+Para ver a utilização e disponibilidade das suas contas de armazenamento em todas as suas subscrições, execute os seguintes passos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **Monitor** no painel esquerdo na portal do Azure e, na seção **insights** , selecione **contas de armazenamento (versão prévia)** .
+2. Selecione **Monitor** a partir do painel da mão esquerda no portal Azure, e sob a secção **Insights,** selecione Contas de **Armazenamento (pré-visualização)** .
 
-    ![Exibição de várias contas de armazenamento](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
+    ![Vista de contas de armazenamento múltiplas](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
-### <a name="overview-workbook"></a>Pasta de trabalho de visão geral
+### <a name="overview-workbook"></a>Livro de visão geral
 
-Na pasta de trabalho **visão geral** da assinatura selecionada, a tabela exibe as métricas de armazenamento interativo e o estado de disponibilidade do serviço para até 10 contas de armazenamento agrupadas na assinatura. Você pode filtrar os resultados com base nas opções selecionadas nas seguintes listas suspensas:
+No livro **de** resumo para a subscrição selecionada, a tabela apresenta métricas de armazenamento interativa e estado de disponibilidade de serviço para até 10 contas de armazenamento agruparadas dentro da subscrição. Pode filtrar os resultados com base nas opções selecionadas a partir das seguintes listas de drop-down:
 
-* **Assinaturas** -somente assinaturas que têm contas de armazenamento são listadas.  
+* **Assinaturas** - apenas estão listadas subscrições que tenham contas de armazenamento.  
 
-* **Contas de armazenamento** -por padrão, 10 contas de armazenamento são previamente selecionadas. Se você selecionar todas ou várias contas de armazenamento no seletor de escopo, até 200 contas de armazenamento serão retornadas. Por exemplo, se você tivesse um total de 573 contas de armazenamento em três assinaturas que você selecionou, somente as contas 200 serão exibidas. 
+* **Contas de Armazenamento** - por padrão, 10 contas de armazenamento são pré-selecionadas. Se selecionar todas ou múltiplas contas de armazenamento no seletor de âmbito, serão devolvidas até 200 contas de armazenamento. Por exemplo, se tivesse um total de 573 contas de armazenamento em três subscrições que selecionou, apenas 200 contas seriam apresentadas. 
 
-* **Intervalo de tempo** – por padrão, exibe as últimas 4 horas de informações com base nas seleções correspondentes feitas.
+* **Intervalo** de tempo - por padrão, exibe as últimas 4 horas de informação com base nas seleções correspondentes feitas.
 
-O bloco contador sob as listas suspensas acumula o número total de contas de armazenamento na assinatura e reflete quantos dos totais são selecionados. Há codificação de cor condicional ou calor para colunas na pasta de trabalho que relatam erros ou métricas de transação. A cor mais profunda tem o valor mais alto e uma cor mais clara é baseada nos valores mais baixos. Para as colunas baseadas em erro, o valor está em vermelho e para as colunas baseadas em métrica, o valor está em azul.
+O telha de balcão sob as listas de drop-down rolls-up o número total de contas de armazenamento na subscrição e reflete quantas do total são selecionados. Existe código de cores condicional ou mapas de calor para colunas no livro que reportam métricas de transação ou erros. A cor mais profunda tem o valor mais alto e uma cor mais clara é baseada nos valores mais baixos. Para as colunas baseadas em erros, o valor está em vermelho e para as colunas métricas, o valor é em azul.
 
-Selecione um valor nas colunas **disponibilidade**, **latência E2E**, **latência do servidor**e **erros/tipo de erro de transação** direciona você a um relatório personalizado para o tipo específico de métricas de armazenamento que correspondem à coluna selecionada para essa conta de armazenamento. Para obter mais informações sobre as pastas de trabalho para cada categoria, consulte a seção [pastas de trabalho de armazenamento detalhadas](#detailed-storage-workbooks) abaixo. 
+Selecione um valor nas colunas **Disponibilidade**, **Latência E2E,** **Latência do Servidor,** e **o tipo/erro** de transação direciona-o para um relatório adaptado ao tipo específico de métricas de armazenamento que correspondem à coluna selecionada para essa conta de armazenamento. Para obter mais informações sobre os livros de cada categoria, consulte a secção de livros de [armazenamento detalhado](#detailed-storage-workbooks) abaixo. 
 
 >[!NOTE]
->Para obter detalhes sobre quais erros podem ser mostrados no relatório, consulte [esquema de tipo de resposta](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) e procure tipos de resposta, como **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Dependendo das contas de armazenamento selecionadas, se houver mais de três tipos de erros relatados, todos os outros erros serão representados sob a categoria de **outros**.
+>Para mais detalhes sobre quais os erros que podem ser mostrados no relatório, consulte o [esquema do Tipo de Resposta](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) e procure tipos de resposta como **ServerOtherError,** **ClientOtherError**, **ClientThrottlingError**. Dependendo das contas de armazenamento selecionadas, se houver mais de três tipos de erros relatados, todos os outros erros são representados na categoria de **Outros**.
 
-O limite de **disponibilidade** padrão é:
+O limiar de **disponibilidade** padrão é:
 
-* Aviso-99%
-* Crítico-90%
+* Aviso - 99%
+* Crítico - 90%
 
-Para definir um limite de disponibilidade com base nos resultados de sua observação ou requisitos, examine [Modificar o limite de disponibilidade](#modify-the-availability-threshold). 
+Para definir um limiar de disponibilidade com base nos resultados da sua observação ou requisitos, a revisão [modifique o limiar de disponibilidade](#modify-the-availability-threshold). 
 
-### <a name="capacity-workbook"></a>Pasta de trabalho de capacidade
+### <a name="capacity-workbook"></a>Livro de capacidade
 
-Selecione **capacidade** na parte superior da página e a pasta de trabalho de **capacidade** é aberta. Ele mostra a quantidade de armazenamento total usada na conta e a capacidade usada por cada serviço de dados na conta para ajudar a identificar o armazenamento subutilizado e o menor.
+**Selecione Capacidade** no topo da página e abre o livro de trabalho **capacidade.** Mostra-lhe a quantidade de armazenamento total utilizado na conta e capacidade utilizada por cada serviço de dados na conta para ajudar a identificar-se sobre e sob armazenamento utilizado.
 
-![Pasta de trabalho de capacidade de várias contas de armazenamento](./media/storage-insights-overview/storage-account-capacity-02.png) 
+![Múltiplas contas de armazenamento Livro de capacidade](./media/storage-insights-overview/storage-account-capacity-02.png) 
 
-Há codificação de cor condicional ou calor para colunas na pasta de trabalho que relatam métricas de capacidade com um valor azul. A cor mais profunda tem o valor mais alto e uma cor mais clara é baseada nos valores mais baixos.
+Há códigos de cores condicional ou mapas de calor para colunas no livro que reportam métricas de capacidade com um valor azul. A cor mais profunda tem o valor mais alto e uma cor mais clara é baseada nos valores mais baixos.
 
-Quando você seleciona um valor em qualquer uma das colunas na pasta de trabalho, faz uma busca detalhada na pasta de trabalho de **capacidade** da conta de armazenamento. Mais detalhes sobre o relatório de busca detalhada são descritos na seção [pastas de trabalho de armazenamento detalhadas](#detailed-storage-workbooks) abaixo. 
+Quando selecionar um valor sob qualquer uma das colunas do livro, você perfura até o livro de trabalho **da Capacidade** para a conta de armazenamento. Mais detalhes sobre o relatório de perfuração são descritos na secção de livros de [armazenamento detalhado](#detailed-storage-workbooks) abaixo. 
 
-## <a name="view-from-a-storage-account"></a>Exibir de uma conta de armazenamento
+## <a name="view-from-a-storage-account"></a>Vista de uma conta de armazenamento
 
-Para acessar Azure Monitor para VMs diretamente de uma conta de armazenamento:
+Para aceder ao Monitor Azure para VMs diretamente de uma conta de armazenamento:
 
-1. No portal do Azure, selecione contas de armazenamento.
+1. No portal Azure, selecione contas de Armazenamento.
 
-2. Na lista, escolha uma conta de armazenamento. Na seção monitoramento, escolha insights (versão prévia).
+2. Na lista, escolha uma conta de armazenamento. Na secção de Monitorização, escolha Insights (pré-visualização).
 
-    ![Página Visão geral da conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Página de visão geral da conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
-Na pasta de trabalho **visão geral** da conta de armazenamento, ele mostra várias métricas de desempenho de armazenamento que ajudam você a avaliar rapidamente:
+No livro **de** resumo da conta de armazenamento, mostra várias métricas de desempenho de armazenamento que o ajudam a avaliar rapidamente:
 
-* Integridade do serviço de armazenamento para ver imediatamente se um problema fora do seu controle está afetando o serviço de armazenamento na região em que ele está implantado, que é indicado na coluna de **Resumo** .
+* Saúde do serviço de armazenamento para ver imediatamente se um problema fora do seu controlo está afetando o serviço de armazenamento na região para o qual está implantado, o que é indicado sob a coluna **Resumo.**
 
-* Gráficos de desempenho interativos mostrando os detalhes mais essenciais relacionados à capacidade, disponibilidade, transações e latência de armazenamento.  
+* Gráficos de desempenho interativos mostrando os detalhes mais essenciais relacionados com a capacidade de armazenamento, disponibilidade, transações e latência.  
 
-* Os blocos métrica e status realçando a disponibilidade do serviço, a contagem total de transações para o serviço de armazenamento, a latência de E2E e a latência do servidor.
+* Telhas métricas e de estado destacando a disponibilidade do serviço, contagem total de transações para o serviço de armazenamento, latência E2E e latência do servidor.
 
-A seleção de qualquer um dos botões para **falhas**, **desempenho**, **disponibilidade**e **capacidade** abre a respectiva pasta de trabalho. 
+Selecionar qualquer um dos botões para **falhas,** **desempenho,** **disponibilidade**e **capacidade** abre o respetivo livro. 
 
-![Página Visão geral da conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-capacity-01.png)
+![Página de visão geral da conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-capacity-01.png)
 
-## <a name="detailed-storage-workbooks"></a>Pastas de trabalho de armazenamento detalhadas
+## <a name="detailed-storage-workbooks"></a>Livros de armazenamento detalhados
 
-Se você selecionou um valor nas colunas **disponibilidade**, **latência E2E**, **latência do servidor**e **tipo/erros de erro da transação** na pasta de trabalho **visão geral** da conta de armazenamento múltiplo ou selecionando qualquer um dos botões para **falhas**, **desempenho**, **disponibilidade**e **capacidade** da pasta de trabalho **visão geral** de uma conta de armazenamento específica, cada uma delas fornece um conjunto de informações relacionadas ao armazenamento interativo adaptadas a essa categoria  
+Quer tenha selecionado um valor nas colunas Disponibilidade , **Latência E2E,** **Latência**do Servidor, e tipo de erro de **transação/Erros** do livro de trabalho da **conta** de armazenamento múltiplo, ou selecionando qualquer um dos botões para **falhas,** **desempenho,** **disponibilidade**e **capacidade** do livro de visão **geral** a partir de uma conta de armazenamento específica, cada um entrega um conjunto de informações interativas relacionadas com armazenamento adaptadas a essa categoria.  
 
-* **Disponibilidade** abre a pasta de trabalho de **disponibilidade** . Ele mostra o estado de integridade atual do serviço de armazenamento do Azure, uma tabela que mostra o estado de integridade disponível de cada objeto Categorizado pelo serviço de dados definido na conta de armazenamento com uma linha de tendência que representa o intervalo de tempo selecionado e um gráfico de tendência de disponibilidade para cada serviço de dados na conta.  
+* **A disponibilidade** abre o livro **de disponibilidade.** Mostra o estado de saúde atual do serviço de armazenamento Azure, uma tabela que mostra o estado de saúde disponível de cada objeto categorizado pelo serviço de dados definido na conta de armazenamento com uma linha de tendência que representa a faixa de tempo selecionada, e um gráfico de tendência de disponibilidade para cada serviço de dados na conta.  
 
     ![Exemplo de relatório de disponibilidade](./media/storage-insights-overview/storage-account-availability-01.png)
 
-* **Latência de E2E** e latência de **servidor** abre a pasta de trabalho de **desempenho** . Ele inclui um bloco de status de rollup mostrando latência E2E e latência de servidor, um gráfico de desempenho de E2E versus latência de servidor e uma tabela que reduz a latência de chamadas bem-sucedidas por API categorizadas pelo serviço de dados definido na conta de armazenamento.
+* **A Latência e** **a Latência** do Servidor E2E abrem o livro de **performance.** Inclui um azulejo de estado rollup que mostra latência e latência do servidor E2E, um gráfico de desempenho da latência e2E versus servidor, e uma tabela que quebra a latência de chamadas bem sucedidas por API categorizada pelo serviço de dados definido na conta de armazenamento.
 
     ![Exemplo de relatório de desempenho](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* Selecionando qualquer uma das categorias de erro listadas na grade, abra a pasta de trabalho **falha** . O relatório mostra os blocos de métricas de todos os outros erros do lado do cliente, exceto os descritos e as solicitações bem-sucedidas, os erros de limitação do cliente, um gráfico de desempenho para a métrica de dimensão do **tipo de resposta** da transação específica para o atributo ClientOtherError e duas tabelas – **transações por nome da API** e **transações por tipo de resposta**.
+* Selecionando qualquer uma das categorias de erro listadas na grelha abra o livro **de** falhas. O relatório mostra azulejos métricos de todos os outros erros do lado do cliente exceto os descritos e pedidos bem sucedidos, erros de estrangulamento do cliente, um gráfico de desempenho para a métrica de dimensão do Tipo de Resposta de **transação** específica ao atributo ClienteOtherError, e duas tabelas - **Transações por nome API** e **Transações por tipo de Resposta**.
 
    ![Exemplo de relatório de falha](./media/storage-insights-overview/storage-account-failures-01.png)
 
-* A **capacidade** abre a pasta de trabalho **capacidade** . Ele mostra a quantidade total de armazenamento usado para cada objeto de dados de armazenamento na conta nos blocos e o gráfico e quantos objetos de dados são armazenados na conta.  
+* **A capacidade** abre o livro de **capacidade.** Mostra a quantidade total de armazenamento utilizado para cada objeto de dados de armazenamento na conta nos azulejos e no gráfico, e quantos objetos de dados são armazenados na conta.  
 
-    ![Página de capacidade da conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-capacity-01.png) 
+    ![Página de capacidade de conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
-## <a name="pin-and-export"></a>Fixar e exportar
+## <a name="pin-and-export"></a>Pin e exportação
 
-Você pode fixar qualquer uma das seções de métrica em um painel do Azure selecionando o ícone de pino na parte superior direita da seção.
+Pode fixar qualquer uma das secções métricas num Painel De Instrumentos Azure selecionando o ícone do pino na parte superior direita da secção.
 
-![Exemplo de PIN da seção de métrica para painel](./media/storage-insights-overview/workbook-pin-example.png)
+![Pino de secção métrica para exemplo do painel de instrumentos](./media/storage-insights-overview/workbook-pin-example.png)
 
-A **visão geral** da conta de armazenamento e de várias assinaturas ou as pastas de trabalho de **capacidade** dão suporte à exportação dos resultados no formato do Excel selecionando o ícone de seta para baixo à direita do ícone de pino.
+A conta multi-subscrição e armazenamento **De overview** ou **capacidade** de livros suportam a exportação dos resultados em formato Excel, selecionando o ícone de seta para baixo à direita do ícone do pino.
 
-![Exportar exemplo de resultados de grade da pasta de trabalho](./media/storage-insights-overview/workbook-export-example.png)
+![Exemplo de resultados da grelha do livro de exportação](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage-preview"></a>Personalizar Azure Monitor para armazenamento (visualização)
+## <a name="customize-azure-monitor-for-storage-preview"></a>Personalize o Monitor Azure para Armazenamento (pré-visualização)
 
-Esta seção destaca os cenários comuns para editar a pasta de trabalho para personalizar o suporte às suas necessidades de análise de dados:
+Esta secção destaca cenários comuns para editar o livro de trabalho para personalizar em apoio às suas necessidades de análise de dados:
 
-* Fazer o escopo da pasta de trabalho para sempre selecionar uma determinada assinatura ou conta (s) de armazenamento
-* Alterar as métricas na grade
-* Alterar o limite de disponibilidade
-* Alterar a renderização de cor
+* Consulte o livro de trabalho para selecionar sempre uma determinada conta de subscrição ou armazenamento
+* Alterar métricas na grelha
+* Alterar o limiar de disponibilidade
+* Mude a renderização de cor
 
-As personalizações são salvas em uma pasta de trabalho personalizada para evitar a substituição da configuração padrão em nossa pasta de trabalho publicada. As pastas de trabalho são salvas em um grupo de recursos, na seção **meus relatórios** , que é particular para você ou na seção **relatórios compartilhados** , que é acessível a todos com acesso ao grupo de recursos. Depois de salvar a pasta de trabalho personalizada, você precisa ir para a Galeria de pastas de trabalho para iniciá-la.
+As personalizações são guardadas num livro personalizado para evitar a sobreposição da configuração predefinida no nosso livro publicado. Os livros de reprodução são guardados dentro de um grupo de recursos, quer na secção **My Reports** que seja privada para si ou na secção **Relatórios Partilhados** que esteja acessível a todos os que tenham acesso ao grupo de recursos. Depois de guardar o livro personalizado, precisa de ir à galeria do livro para o lançar.
 
-![Iniciar Galeria de pastas de trabalho na barra de comandos](./media/storage-insights-overview/workbook-command-bar-gallery.png)
+![Lançar galeria de livro saindo do bar de comando](./media/storage-insights-overview/workbook-command-bar-gallery.png)
 
-### <a name="specifying-a-subscription-or-storage-account"></a>Especificando uma assinatura ou conta de armazenamento
+### <a name="specifying-a-subscription-or-storage-account"></a>Especificação de uma conta de subscrição ou armazenamento
 
-Você pode configurar a **visão geral** da conta de armazenamento e de várias assinaturas ou as pastas de trabalho de **capacidade** para definir o escopo para uma ou mais assinaturas ou contas de armazenamento em cada execução, execute as etapas a seguir.
+Pode configurar a conta multi-subscrição e armazenamento **De** visão geral ou de trabalho de **capacidade** para uma determinada subscrição ou conta de armazenamento em cada execução, executar os seguintes passos.
 
-1. Selecione **Monitor** no portal e, em seguida, selecione **contas de armazenamento (versão prévia)** no painel esquerdo.
+1. Selecione **Monitor** a partir do portal e, em seguida, selecione Contas de **Armazenamento (pré-visualização)** do painel da esquerda.
 
-2. Na pasta de trabalho **visão geral** , na barra de comandos, selecione **Editar**.
+2. No livro **de** resumo, a partir da barra de comando selecione **Editar**.
 
-3. Selecione na lista suspensa **assinaturas** uma ou mais assinaturas para as quais você deseja que ele seja padronizado. Lembre-se de que a pasta de trabalho dá suporte à seleção de até um total de 10 assinaturas.  
+3. Selecione na lista de **subscrições** de uma ou mais subscrições a que pretende que seja predefinida. Lembre-se, o livro suporta selecionar até um total de 10 subscrições.  
 
-4. Selecione na lista suspensa **contas de armazenamento** uma ou mais contas para as quais você deseja que o padrão seja. Lembre-se de que a pasta de trabalho dá suporte à seleção de até um total de 200 contas de armazenamento. 
+4. Selecione na lista de **depósitos** de Contas de Armazenamento uma ou mais contas às quais deseja que seja predefinida. Lembre-se, o livro suporta selecionar até um total de 200 contas de armazenamento. 
 
-5. Selecione **salvar como** na barra de comandos para salvar uma cópia da pasta de trabalho com suas personalizações e clique em **edição concluída** para retornar ao modo de leitura.  
+5. Selecione **Guardar a** partir da barra de comando para guardar uma cópia do livro com as suas personalizações e, em seguida, clique em **editar para** voltar ao modo de leitura.  
 
-### <a name="modify-metrics-and-colors-in-the-workbook"></a>Modificar métricas e cores na pasta de trabalho
+### <a name="modify-metrics-and-colors-in-the-workbook"></a>Modificar métricas e cores no livro
 
-As pastas de trabalho predefinidas contêm dados de métrica e você tem a capacidade de modificar ou remover qualquer uma das visualizações e personalizá-las para as necessidades específicas de sua equipe.
+Os livros pré-construídos contêm dados métricos e você tem a capacidade de modificar ou remover qualquer uma das visualizações e personalizar às necessidades específicas da sua equipa.
 
-Em nosso exemplo, estamos trabalhando com a pasta de trabalho de várias assinaturas e capacidade de conta de armazenamento, para demonstrar como:
+No nosso exemplo, estamos a trabalhar com o livro de trabalho de capacidade de conta multi-subscrição e armazenamento, para demonstrar como:
 
 * Remover uma métrica
-* Alterar renderização de cor
+* Alterar a renderização de cor
 
-Você pode executar as mesmas alterações em qualquer uma das pastas de trabalho de **falhas**, **desempenho**, **disponibilidade**e **capacidade** predefinidas.
+Pode efetuar as mesmas alterações contra qualquer uma das falhas pré-construídas, **Desempenho,** **Disponibilidade**e Livros **de Capacidade.**
 
-1. Selecione **Monitor** no portal e, em seguida, selecione **contas de armazenamento (versão prévia)** no painel esquerdo.
+1. Selecione **Monitor** a partir do portal e, em seguida, selecione Contas de **Armazenamento (pré-visualização)** do painel da esquerda.
 
-2. Selecione a **capacidade** para alternar para a pasta de trabalho de capacidade e, na barra de comandos, selecione **Editar** na barra de comandos.
+2. Selecione **Capacidade** para mudar para o livro de capacidade e a partir da barra de comando, selecione **Editar** a partir da barra de comando.
 
-    ![Selecione Editar para modificar uma pasta de trabalho](./media/storage-insights-overview/workbook-edit-workbook.png)
+    ![Selecione editar para modificar um livro](./media/storage-insights-overview/workbook-edit-workbook.png)
 
-3. Ao lado da seção métricas, selecione **Editar**.
+3. Ao lado da secção de métricas, **selecione Editar**.
 
-    ![Selecione Editar para modificar as métricas de pasta de trabalho de capacidade](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
+    ![Selecione Editar para modificar métricas de livro de capacidade](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
-4. Vamos remover a coluna da **linha do tempo de capacidade usada da conta** , portanto, selecione **configurações de coluna** na grade métricas.
+4. Vamos remover a coluna de **linha temporal de capacidade usada da Conta,** por isso selecione **Definições** de Coluna na grelha de métricas.
 
-    ![Editar configurações de coluna](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
+    ![Editar definições de colunas](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. No painel **Editar configurações de coluna** , selecione na seção **colunas** **Microsoft. Storage/Storageaccounts-Capacity-UsedCapacity linha do tempo $ | A capacidade usada da conta linha do tempo $** e, no **renderizador da coluna** da lista suspensa, selecione **oculto**.
+5. No painel de definições da **coluna Editar,** selecione sob a secção **Colunas** **microsoft.storage/storageaccounts-Capacity-UsedAbilityy Timeline$  Conta utilizada capacidade Timeline$** , e sob a lista drop-down **Column renderizador** selecione **Hidden**.
 
-6. Selecione **salvar e fechar** para confirmar sua alteração.
+6. Selecione **Guardar e perto** de comprometer a sua mudança.
 
-Agora, vamos alterar o tema de cores para que as métricas de capacidade no relatório usem verde em vez de azul.
+Agora vamos mudar o tema da cor para as métricas de capacidade no relatório para usar verde em vez de azul.
 
-1. Selecione **configurações de coluna** na grade métricas.
+1. Selecione **Definições de coluna** na grelha de métricas.
 
-2. No painel **Editar configurações de coluna** , selecione na seção **colunas** **Microsoft. Storage/storageaccounts-Capacity-UsedCapacity $ | Microsoft. Storage/Storageaccounts/blobservices-Capacity-capacidade $ | Microsoft. Storage/Storageaccounts/fileservices-Capacity-filecapacity $ | Microsoft. Storage/Storageaccounts/queueservices-Capacity-QueueCapacity $ | Microsoft. Storage/Storageaccounts/tabelaservices-Capacity-TableCapacity $** . Na **paleta de cores**da lista suspensa, selecione **verde**.
+2. No painel de definições da **coluna Editar,** selecione sob a secção **Colunas** **microsoft.storage/storageaccounts-Capacity-Capacity$microsoft.storage/storageaccounts/blobservices-Capacity-Capacity$microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$microsoft.storage/storageaccounts/queueservices** Sob a lista de "paleta de **cores"** de down-down, selecione **Verde**.
 
-3. Selecione **salvar e fechar** para confirmar sua alteração.
+3. Selecione **Guardar e perto** de comprometer a sua mudança.
 
-4. Selecione **salvar como** na barra de comandos para salvar uma cópia da pasta de trabalho com suas personalizações e clique em **edição concluída** para retornar ao modo de leitura.  
+4. Selecione **Guardar a** partir da barra de comando para guardar uma cópia do livro com as suas personalizações e, em seguida, clique em **editar para** voltar ao modo de leitura.  
 
-### <a name="modify-the-availability-threshold"></a>Modificar o limite de disponibilidade
+### <a name="modify-the-availability-threshold"></a>Modificar o limiar de disponibilidade
 
-Neste exemplo, estamos trabalhando com a pasta de trabalho de capacidade da conta de armazenamento e demonstrando como modificar o limite de disponibilidade. Por padrão, a porcentagem de disponibilidade do bloco e do relatório de grade é configurada com um limite mínimo de 90 e o limite máximo de 99. Vamos alterar o valor do limite mínimo do **percentual de disponibilidade** na grade **disponibilidade por nome da API** para 85%, o que significa que o estado de integridade mudará para crítico se o limite for menor que 85%. 
+Neste exemplo, estamos a trabalhar com o livro de trabalho da capacidade da conta de armazenamento e a demonstrar como modificar o limiar de disponibilidade. Por predefinição, a disponibilidade por cento do azulejo e da rede reportando por cento está configurada com um limiar mínimo de 90 e limiar máximo de 99. Vamos alterar para 85% o valor limiar mínimo da **disponibilidade** % na grelha de nome da **API,** o que significa que o Estado de saúde muda para crítico se o limiar for inferior a 85%. 
 
-1. Selecione **contas de armazenamento** no portal e, em seguida, selecione uma conta de armazenamento na lista.
+1. Selecione contas de **Armazenamento** a partir do portal e, em seguida, selecione uma conta de armazenamento da lista.
 
-2. Selecione **insights (visualização)** no painel esquerdo.
+2. Selecione **Insights (pré-visualização)** a partir do painel da mão esquerda.
 
-3. Na pasta de trabalho, selecione **disponibilidade** para alternar para a pasta de trabalho de disponibilidade e, em seguida, selecione **Editar** na barra de comandos. 
+3. No livro, selecione **Disponibilidade** para mudar para o livro de trabalho de disponibilidade e, em seguida, selecione **Editar** a partir da barra de comando. 
 
-4. Role para baixo até a parte inferior da página e no lado esquerdo ao lado da grade de **disponibilidade por API** , selecione **Editar**.
+4. Percorra para baixo da página e no lado esquerdo ao lado esquerdo ao lado da grelha **Disponibilidade por API,** selecione **Editar**.
 
-    ![Editar disponibilidade por nome da API configurações de grade](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
+    ![Editar Disponibilidade por definições de grelha de nome API](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Selecione **configurações de coluna** e, em seguida, no painel **Editar configurações de coluna** , na seção **colunas** , selecione **disponibilidade (%) (Limites + formatado)** .
+5. Selecione **as definições da Coluna** e, em seguida, no painel de definições da coluna **Editar,** sob a secção **Colunas** selecione **Disponibilidade (%) (Limiares + Formato)** .
 
-6. Altere o valor do estado de integridade **crítico** de **90** para **85** e, em seguida, clique em **salvar e fechar**.
+6. Mude o valor para o estado de saúde **crítico** de **90** para **85** e, em seguida, clique em **Guardar e Fechar**.
 
-    ![Modificar o valor do limite de disponibilidade para o estado crítico](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
+    ![Modificar o valor limiar de disponibilidade para o estado crítico](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 
-7. Selecione **salvar como** na barra de comandos para salvar uma cópia da pasta de trabalho com suas personalizações e clique em **edição concluída** para retornar ao modo de leitura.
+7. Selecione **Guardar a** partir da barra de comando para guardar uma cópia do livro com as suas personalizações e, em seguida, clique em **editar para** voltar ao modo de leitura.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Esta seção o ajudará com o diagnóstico e a solução de problemas de alguns dos problemas comuns que você pode encontrar ao usar o Azure Monitor para armazenamento (versão prévia). Use a lista abaixo para localizar as informações relevantes para o seu problema específico.
+Esta secção irá ajudá-lo no diagnóstico e resolução de problemas de algumas das questões comuns que poderá encontrar ao utilizar o Monitor Azure para Armazenamento (pré-visualização). Utilize a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
-### <a name="resolving-performance-capacity-or-availability-issues"></a>Resolvendo problemas de desempenho, capacidade ou disponibilidade
+### <a name="resolving-performance-capacity-or-availability-issues"></a>Resolução de problemas de desempenho, capacidade ou disponibilidade
 
-Para ajudar a solucionar problemas relacionados ao armazenamento que você identifica com Azure Monitor para armazenamento (versão prévia), consulte as [diretrizes de solução de problemas](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)do armazenamento do Azure.  
+Para ajudar a resolver problemas com quaisquer problemas relacionados com o armazenamento que identifique com o Azure Monitor para armazenamento (pré-visualização), consulte a orientação de resolução de [problemas](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)do Armazenamento Azure .  
 
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Por que só posso ver 200 contas de armazenamento?
 
-O número de contas de armazenamento selecionadas tem um limite de 200, independentemente do número de assinaturas selecionadas.
+O número de contas de armazenamento selecionadas tem um limite de 200, independentemente do número de subscrições selecionadas.
 
-### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>O que acontece quando clico em um bloco recentemente afixado no painel?
+### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>O que acontece quando clico num azulejo recentemente preso no painel de instrumentos?
 
-* Se você clicar em qualquer lugar do bloco, ele levará você para a guia em que o bloco foi fixado. Por exemplo, se você fixar um grafo na guia "visão geral da conta de armazenamento", quando clicar nesse bloco no painel, ele abrirá esse modo de exibição padrão. no entanto, se você fixar um grafo de sua própria cópia salva, ele abrirá a exibição da cópia salva.
-* O ícone de filtro na parte superior esquerda do título abre a guia "definir configurações de bloco".
-* O ícone de elipse no canto superior direito fornecerá as opções para "personalizar dados de título", "Personalizar", "atualizar" e "remover do painel".
+* Se clicar em qualquer lugar no azulejo, irá levá-lo ao separador de onde o azulejo foi fixado. Por exemplo, se fixar um gráfico no separador "Visão geral da conta de armazenamento" então quando clicar no azulejo do painel de instrumentos, abrirá essa vista predefinida, no entanto, se fixar um gráfico da sua própria cópia guardada, abrirá a visão da cópia guardada.
+* O ícone do filtro na parte superior esquerda do título abre o separador "Configurar as definições de azulejos".
+* O ícone da elipse no direito superior irá dar-lhe as opções de "Personalizar dados de título", "personalizar", "refrescar" e "remover do dashboard".
 
-### <a name="what-happens-when-i-save-a-workbook"></a>O que acontece quando eu salvo uma pasta de trabalho?
+### <a name="what-happens-when-i-save-a-workbook"></a>O que acontece quando guardo um livro?
 
-* Quando você salva uma pasta de trabalho, ela permite que você crie uma nova cópia da pasta de trabalho com suas edições e altere o título. Salvar não substitui a pasta de trabalho, a pasta de trabalho atual sempre será a exibição padrão.
-* Uma pasta de trabalho **não salva** é apenas a exibição padrão.
+* Quando guarda um livro, permite criar uma nova cópia do livro com as suas edições e alterar o título. A poupança não substitui o livro de trabalho, o livro atual será sempre a visão padrão.
+* Um livro **não guardado** é apenas a visão padrão.
 
 
 ### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Por que não vejo todas as minhas assinaturas no portal?
 
-O portal mostrará dados somente para assinaturas selecionadas no lançamento do Portal. Para alterar quais assinaturas estão selecionadas, vá para o canto superior direito e clique no bloco de anotações com um ícone de filtro. Isso mostrará a guia diretório + assinaturas.
+O portal mostrará dados apenas para subscrições selecionadas no lançamento do portal. Para alterar o que as subscrições são selecionadas, vá para a direita superior e clique no caderno com um ícone de filtro. Isto mostrará o separador de assinaturas Diretório + +.
 
-![Diretório + subscrição](./media/storage-insights-overview/fqa3.png)
+![Assinatura de Diretório +](./media/storage-insights-overview/fqa3.png)
 
-### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Como alterar a cor e o limite de disponibilidade?
+### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Como alterar a coloração e o limiar de disponibilidade?
 
-Consulte a seção [Modificar o limite de disponibilidade](storage-insights-overview.md#modify-the-availability-threshold) para obter as etapas detalhadas sobre como alterar a cor e os limites de disponibilidade.
+Consulte a secção de limiar de [disponibilidade](storage-insights-overview.md#modify-the-availability-threshold) Para obter as etapas detalhadas sobre como alterar a coloração e os limiares de disponibilidade.
 
-### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Como analisar e solucionar problemas dos dados mostrados em Azure Monitor para armazenamento?
+### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Como analisar e resolver problemas os dados mostrados no Monitor Azure para Armazenamento?
 
- Consulte o artigo [monitorar, diagnosticar e solucionar problemas armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) para obter detalhes sobre como analisar e solucionar problemas dos dados do armazenamento do Azure mostrados em Azure monitor para armazenamento.
+ Consulte o [monitor, diagnosticar e resolver problemas](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) o artigo do Microsoft Azure Storage para obter detalhes sobre como analisar e resolver os dados de Armazenamento Azure mostrados no Monitor Azure para Armazenamento.
 
 ### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Por que não vejo todos os tipos de erros nas métricas?
 
-Atualmente, até três tipos diferentes de erros são mostrados e o restante dos erros são agrupados em um único Bucket. Ele é controlado usando splitByLimit e pode ser modificado. Para alterar essa propriedade:
+Atualmente, até três tipos diferentes de erros são mostrados e o resto dos erros são agrupados num único balde. É controlado usando splitByLimit e pode ser modificado. Para alterar esta propriedade:
 
-1. Clique em Editar pasta de trabalho.
-2. Vá para métricas, clique em Editar e, em seguida **, selecione transações, soma** ou qualquer métrica que você queira editar.
+1. Clique no livro de edição.
+2. Vá às métricas, clique em editar e, em seguida, selecione **Transações, Soma** ou quaisquer métricas que queira editar.
 
-    ![Vá para métricas e clique em Editar e em "transações, somas"](./media/storage-insights-overview/fqa7.png)
+    ![Vá às métricas e clique em editar e depois em "Transações, Sums"](./media/storage-insights-overview/fqa7.png)
 
-1. Em seguida, altere o número de divisões.
+1. Em seguida, mude o número de divisões.
 
-    ![Selecionar parâmetros de métrica "](./media/storage-insights-overview/fqa7-2.png)
+    ![Selecione parâmetros métricos"](./media/storage-insights-overview/fqa7-2.png)
 
-Se você quiser ver n tipos diferentes de erro que especificam splitByLimit como n + 1, 1 extra para o restante dos erros.
+Se quiser ver n diferentes tipos de erro do que especificar splitByLimit como n+1, 1 extra para o resto dos erros.
 
-###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Salvei minha pasta de trabalho em alguma conta de armazenamento. Por que não consigo encontrá-lo agora?
+###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Guardei o meu livro enquanto estava numa conta de armazenamento. Por que não posso encontrá-lo agora?
 
-Cada pasta de trabalho é salva na conta de armazenamento na qual você o salvou. Tente localizar a conta de armazenamento específica na qual o usuário salvou a pasta de trabalho. Caso contrário, não há como localizar uma pasta de trabalho específica sem saber o recurso (conta de armazenamento).
+Cada livro é guardado na conta de armazenamento em que o guardou. Tente encontrar a conta de armazenamento específica na qual o utilizador guardou o livro. Caso contrário, não há forma de encontrar um livro específico sem conhecer o recurso (conta de armazenamento).
 
 ### <a name="what-is-time-range"></a>O que é o intervalo de tempo?
 
-O intervalo de tempo mostra os dados de um determinado período de tempo. Por exemplo, se o intervalo de tempo for de 24 horas, ele estará mostrando dados das últimas 24 horas.
+O intervalo de tempo mostra-lhe dados de um determinado período de tempo. Por exemplo, se o intervalo de tempo é de 24 horas, então está a mostrar dados das últimas 24 horas.
 
-### <a name="what-is-time-granularity-time-grain"></a>O que é granularidade de tempo (intervalo de tempo)?
+### <a name="what-is-time-granularity-time-grain"></a>O que é a granularidade do tempo (grão de tempo)?
 
-A granularidade de tempo é a diferença de tempo entre dois pontos de dados. Por exemplo, se o intervalo de tempo for definido como 1 segundo, o que significa que as métricas são coletadas por segundo.
+A granularidade do tempo é a diferença de tempo entre dois pontos de dados. Por exemplo, se o grão de tempo estiver definido para 1 segundo, significa que as métricas são recolhidas a cada segundo.
 
-### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Qual é a granularidade de tempo quando fixamos qualquer parte das pastas de trabalho em um painel?
+### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Qual é a granularidade do tempo quando colocamos qualquer parte dos livros num painel de instrumentos?
 
-A granularidade de tempo padrão é definida como automática; no momento, ela não pode ser alterada no momento.
+A granularidade do tempo padrão está definida para automática, atualmente não pode ser alterada neste momento.
 
-### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Como fazer alterar o intervalo de TimeSpan/hora da etapa da pasta de trabalho no meu painel?
+### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Como posso alterar a hora/intervalo de tempo do passo do livro no meu painel?
 
-Por padrão, o intervalo de TimeSpan/hora em seu bloco do painel é definido como 24 horas, para alterar esse clique nas reticências no canto superior direito, selecione **personalizar dados do bloco**, marque a caixa "substituir as configurações de hora do painel no nível de título" e, em seguida, escolha um período usando o menu suspenso.  
+Por predefinição, o intervalo de tempo/tempo no seu painel de instrumentos está definido para 24 horas, para alterar este clique nas elipses superiores direitas, selecione Dados de **azulejos Personalizados,** verifique "sobrepor as definições de tempo do painel de instrumentos no nível do título" e, em seguida, escolha uma hora através do menu de dropdown.  
 
-![Selecione as reticências no canto direito do bloco e escolha Personalizar estes dados](./media/storage-insights-overview/fqa-data-settings.png)
+![Selecione as elipses no canto direito do azulejo e escolha Personalizar estes dados](./media/storage-insights-overview/fqa-data-settings.png)
 
-![Em definir configurações de bloco, selecione o menu suspenso TimeSpan para alterar o intervalo TimeSpan/time](./media/storage-insights-overview/fqa-timespan.png)
+![Nas definições de azulejos configure, selecione a queda da pá de tempo para alterar a gama de tempo/tempo](./media/storage-insights-overview/fqa-timespan.png)
 
-### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Como fazer alterar o título da pasta de trabalho ou uma etapa da pasta de trabalho fixada em um painel?
+### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Como posso mudar o título do livro ou um passo de livro que adei a um painel de instrumentos?
 
-O título da etapa da pasta de trabalho ou da pasta de trabalho fixada em um Dashboard retém o mesmo nome que tinha na pasta de trabalho. Para alterar o título, você deve salvar sua própria cópia da pasta de trabalho. Em seguida, você poderá nomear a pasta de trabalho antes de pressionar salvar.
+O título do livro ou passo do livro que está preso a um painel de instrumentos mantém o mesmo nome que tinha no livro. Para alterar o título, tem de guardar a sua própria cópia do livro. Então poderá nomear o livro antes de premir a save.
 
-![Selecione salvar na parte superior para salvar uma cópia da pasta de trabalho e alterar o nome dela](./media/storage-insights-overview/fqa-change-workbook-name.png)
+![Selecione guardar na parte superior para guardar uma cópia do livro e para alterar o nome do mesmo](./media/storage-insights-overview/fqa-change-workbook-name.png)
 
-Para alterar o nome de uma etapa na pasta de trabalho salva, selecione Editar na etapa e, em seguida, selecione a engrenagem na parte inferior das configurações.
+Para alterar o nome de um passo no livro guardado, selecione editar sob o degrau e, em seguida, selecione a engrenagem na parte inferior das definições.
 
-![selecione Editar na parte inferior de uma etapa da pasta de trabalho para abrir as configurações](./media/storage-insights-overview/fqa-edit.png)
-![em configurações selecione a engrenagem na parte inferior, para poder alterar o nome da etapa](./media/storage-insights-overview/fqa-change-name.png)
+![Selecione editar na parte inferior de um passo de livro para abrir as definições](./media/storage-insights-overview/fqa-edit.png)
+![Nas definições, selecione a engrenagem na parte inferior, para poder alterar o nome do passo](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados para auxiliar na detecção de problemas.
+* Configure [alertas métricos](../platform/alerts-metric.md) e notificações de [saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertaautomatizado para ajudar na deteção de problemas.
 
-* Conheça os cenários em que as pastas de trabalho foram projetadas para dar suporte, como criar novos e personalizar relatórios existentes e muito mais examinando [criar relatórios interativos com pastas de trabalho do Azure monitor](../app/usage-workbooks.md).
+* Saiba os cenários que os livros de trabalho são projetados para apoiar, como autor de novos relatórios existentes e mais através da revisão de [relatórios interativos Create com livros de trabalho do Monitor Azure.](../app/usage-workbooks.md)
 
-* Para obter um guia detalhado sobre como usar Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao armazenamento do Azure, consulte [monitorar, diagnosticar e solucionar problemas armazenamento do Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+* Para um guia aprofundado sobre a utilização de Storage Analytics e outras ferramentas para identificar, diagnosticar e resolver problemas relacionados com o armazenamento do Azure, consulte [monitor, diagnóstico e resolução](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)de problemas do Armazenamento Microsoft Azure .

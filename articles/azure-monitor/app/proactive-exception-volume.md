@@ -1,34 +1,30 @@
 ---
-title: Aumento anormal no volume de exceção – insights de Aplicativo Azure
-description: Monitore as exceções de aplicativo com detecção inteligente no Aplicativo Azure insights de padrões incomuns no volume de exceção.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Aumento anormal no volume de exceção - Insights de aplicação do Azure
+description: Monitorize exceções de aplicação com Smart Detection in Azure Application Insights para padrões incomuns em volume de exceção.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/08/2017
-ms.openlocfilehash: b524000f78741b2ff8cf442d2daaef0c7945799a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432426"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671771"
 ---
-# <a name="abnormal-rise-in-exception-volume-preview"></a>Aumento anormal no volume de exceção (versão prévia)
+# <a name="abnormal-rise-in-exception-volume-preview"></a>Aumento anormal do volume de exceção (pré-visualização)
 
-Application Insights analisa automaticamente as exceções geradas em seu aplicativo e pode avisá-lo sobre padrões incomuns em sua telemetria de exceção.
+Application Insights analisa automaticamente as exceções lançadas na sua aplicação, e pode avisá-lo sobre padrões incomuns na sua telemetria de exceção.
 
-Este recurso não requer nenhuma configuração especial, além de [Configurar o relatório de exceções](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) para seu aplicativo. Ele está ativo quando seu aplicativo gera telemetria de exceção suficiente.
+Esta funcionalidade não requer configuração especial, a não ser [configurar relatórios](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) de exceção para a sua aplicação. Está ativo quando a sua aplicação gera telemetria de exceção suficiente.
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando eu receberia esse tipo de notificação de detecção inteligente?
-Você poderá obter esse tipo de notificação se seu aplicativo estiver exibindo um aumento anormal no número de exceções de um tipo específico durante um dia, em comparação com uma linha de base calculada nos sete dias anteriores.
-Os algoritmos de aprendizado de máquina estão sendo usados para detectar o aumento na contagem de exceção, levando em conta um crescimento natural no uso do aplicativo.
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando é que eu receberia este tipo de notificação de deteção inteligente?
+Poderá receber este tipo de notificação se a sua aplicação apresentar um aumento anormal no número de exceções de um tipo específico durante um dia, em comparação com uma linha de base calculada nos sete dias anteriores.
+Os algoritmos de aprendizagem automática estão a ser usados para detetar o aumento da contagem de exceções, tendo em conta um crescimento natural no uso da sua aplicação.
 
-## <a name="does-my-app-definitely-have-a-problem"></a>Meu aplicativo definitivamente tem um problema?
-Não, uma notificação não significa que seu aplicativo definitivamente tem um problema. Embora um número excessivo de exceções geralmente indique um problema de aplicativo, essas exceções podem ser benignas e manipuladas corretamente pelo seu aplicativo.
+## <a name="does-my-app-definitely-have-a-problem"></a>A minha aplicação tem um problema?
+Não, uma notificação não significa que a sua aplicação definitivamente tenha um problema. Embora um número excessivo de exceções indique geralmente um problema de aplicação, estas exceções podem ser benignas e tratadas corretamente pela sua aplicação.
 
 ## <a name="how-do-i-fix-it"></a>Como posso corrigi-lo?
-As notificações incluem informações de diagnóstico para dar suporte ao processo de diagnóstico:
-1. **Triagem.** A notificação mostra quantos usuários ou quantas solicitações foram afetadas. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
-2. **Com.** O problema está afetando todo o tráfego ou apenas alguma operação? Essas informações podem ser obtidas na notificação.
-3. **Tect.** A detecção contém informações sobre o método do qual a exceção foi lançada, bem como o tipo de exceção. Você também pode usar os itens relacionados e os relatórios vinculando a informações de suporte, para ajudá-lo a diagnosticar o problema.
+As notificações incluem informações de diagnóstico para apoiar no processo de diagnóstico:
+1. **A triagem.** A notificação mostra quantos utilizadores ou quantos pedidos são afetados. Isto pode ajudá-lo a atribuir uma prioridade ao problema.
+2. **O alcance.** O problema está a afetar todo o tráfego, ou apenas alguma operação? Estas informações podem ser obtidas a partir da notificação.
+3. **Diagnosticar.** A deteção contém informações sobre o método a partir do qual a exceção foi lançada, bem como o tipo de exceção. Também pode utilizar os itens e relatórios relacionados que ligam a informações de apoio, para ajudá-lo a diagnosticar o problema.

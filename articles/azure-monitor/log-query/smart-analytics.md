@@ -1,29 +1,28 @@
 ---
-title: Exemplos do Log Analytics Smart Analytics | Microsoft Docs
-description: Exemplos que usam funções do Smart Analytics no Log Analytics para executar a análise da atividade do usuário.
-ms.service: azure-monitor
+title: Log Analytics exemplos de análise inteligente / Microsoft Docs
+description: Exemplos que utilizam funções de análise inteligente no Log Analytics para realizar análises da atividade do utilizador.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/15/2019
-ms.openlocfilehash: 03a4b8df24a0ab1dbe3cfabd3ccf207005b0e186
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 51584ccf5f845be8a06b1e049cae11e636edef11
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397621"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659837"
 ---
-# <a name="log-analytics-smart-analytics-examples"></a>Exemplos do Log Analytics Smart Analytics
-Este artigo inclui exemplos que usam funções do Smart Analytics no Log Analytics para executar a análise da atividade do usuário. Você pode usar esses exemplos para analisar seus próprios aplicativos monitorados pelo Application Insights ou usar os conceitos nessas consultas para análise semelhante em outros dados. 
+# <a name="log-analytics-smart-analytics-examples"></a>Log Analytics exemplos de análise inteligente
+Este artigo inclui exemplos que utilizam funções de análise inteligente no Log Analytics para realizar análises da atividade do utilizador. Pode utilizar estes exemplos para analisar as suas próprias aplicações monitorizadas por Application Insights ou utilizar os conceitos nestas consultas para análises semelhantes em outros dados. 
 
-Consulte a [referência de linguagem Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave usadas nesses exemplos. Siga uma [lição sobre como criar consultas](get-started-queries.md) se você for novo no log Analytics.
+Consulte a [referência linguística kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave utilizadas nestas amostras. Passe por uma [lição sobre a criação](get-started-queries.md) de consultas se for novo no Log Analytics.
 
-## <a name="cohorts-analytics"></a>Coortes Analytics
+## <a name="cohorts-analytics"></a>Análise de coortes
 
-A análise de coorte acompanha a atividade de grupos de usuários específicos, conhecida como coortes. Ele tenta medir a apelação de um serviço medindo a taxa de usuários que retornam. Os usuários são agrupados no momento em que usaram o serviço pela primeira vez. Ao analisar coortes, esperamos encontrar uma redução na atividade nos primeiros períodos rastreados. Cada coorte é intitulado pela semana em que seus membros foram observados pela primeira vez.
+A análise de coorte sintetiza a atividade de grupos específicos de utilizadores, conhecidos como coortes. Tenta medir o quão apelativo é um serviço medindo a taxa de retornados dos utilizadores. Os utilizadores estão agrupados quando utilizaram o serviço pela primeira vez. Ao analisar coortes, esperamos encontrar uma diminuição da atividade ao longo dos primeiros períodos rastreados. Cada coorte é intitulada pela semana em que os seus membros foram observados pela primeira vez.
 
-O exemplo a seguir analisa o número de atividades que os usuários executam no decorrer de 5 semanas, seguindo seu primeiro uso do serviço.
+O exemplo seguinte analisa o número de atividades que os utilizadores realizam ao longo de 5 semanas, após a primeira utilização do serviço.
 
 ```Kusto
 let startDate = startofweek(bin(datetime(2017-01-20T00:00:00Z), 1d));
@@ -84,12 +83,12 @@ week
           p4 = todouble(r4)/todouble(r0)*100 
 | sort by Cohort asc
 ```
-Este exemplo resulta na saída a seguir.
+Este exemplo resulta na seguinte saída.
 
 ![Saída de análise de coorte](media/smart-analytics/cohorts.png)
 
-## <a name="rolling-monthly-active-users-and-user-stickiness"></a>Desativação de usuários ativos mensais e adesão do usuário
-Os exemplos a seguir usam a análise de série temporal com a função [series_fir](/azure/kusto/query/series-firfunction) , que permite executar cálculos de janela deslizante. O aplicativo de exemplo que está sendo monitorado é uma loja online que controla a atividade dos usuários por meio de eventos personalizados. A consulta acompanha dois tipos de atividades do usuário, _addToCart_ e _checkout_, e define _os usuários ativos_ como aqueles que executaram um check-out pelo menos uma vez em um determinado dia.
+## <a name="rolling-monthly-active-users-and-user-stickiness"></a>Utilizadores ativos mensais e stickiness do utilizador
+Os exemplos seguintes utilizam a análise da série de tempo com a função [series_fir](/azure/kusto/query/series-firfunction) que lhe permite realizar cálculos de janelas deslizantes. A aplicação de amostra seleção que está a ser monitorizada é uma loja online que rastreia a atividade dos utilizadores através de eventos personalizados. A consulta rastreia dois tipos de atividades do utilizador, _AddToCart_ e _Checkout,_ e define _os utilizadores ativos_ como aqueles que realizaram um check-out pelo menos uma vez num determinado dia.
 
 
 
@@ -132,11 +131,11 @@ customEvents
 | render timechart
 ```
 
-Este exemplo resulta na saída a seguir.
+Este exemplo resulta na seguinte saída.
 
-![Saída de usuários mensais contínuos](media/smart-analytics/rolling-mau.png)
+![Produção mensal de utilizadores](media/smart-analytics/rolling-mau.png)
 
-O exemplo a seguir transforma a consulta acima em uma função reutilizável e a usa para calcular a adesão do usuário sem interrupção. Os usuários ativos nesta consulta são definidos como somente os usuários que executaram o check-out pelo menos uma vez em um determinado dia.
+O exemplo do tHe transforma a consulta acima numa função reutilizável e usa-a para calcular a cisma do utilizador em rolo. Os utilizadores ativos nesta consulta são definidos como apenas os utilizadores que realizaram o check-out pelo menos uma vez num determinado dia.
 
 ``` Kusto
 let rollingDcount = (sliding_window_size: int, event_name:string)
@@ -174,17 +173,17 @@ on Timestamp
 | render timechart
 ```
 
-Este exemplo resulta na saída a seguir.
+Este exemplo resulta na seguinte saída.
 
-![Saída de adesão do usuário](media/smart-analytics/user-stickiness.png)
+![Saída de stickiness do utilizador](media/smart-analytics/user-stickiness.png)
 
 ## <a name="regression-analysis"></a>Análise de regressão
-Este exemplo demonstra como criar um detector automatizado para interrupções de serviço com base exclusivamente nos logs de rastreamento de um aplicativo. O detector busca um aumento repentino anormal na quantidade relativa de rastreamentos de erros e avisos no aplicativo.
+Este exemplo demonstra como criar um detetor automatizado para interrupções de serviço baseadas exclusivamente nos registos de rastreio de uma aplicação. O detetor procura aumentos repentinos anormais na quantidade relativa de erros e vestígios de aviso na aplicação.
 
-Duas técnicas são usadas para avaliar o status do serviço com base nos dados dos logs de rastreamento:
+São utilizadas duas técnicas para avaliar o estado do serviço com base em dados de registos de rastreios:
 
-- Use [Make-Series](/azure/kusto/query/make-seriesoperator) para converter os logs semiestruturados de rastreamento textual em uma métrica que representa a proporção entre as linhas de rastreamento positivas e negativas.
-- Use [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) e [series_fit_line](/azure/kusto/query/series-fit-linefunction) para executar a detecção de salto de etapa avançada usando análise de série temporal com uma regressão linear de duas linhas.
+- Utilize [séries de make-series](/azure/kusto/query/make-seriesoperator) para converter os registos de traços textuais semi-estruturados numa métrica que represente a relação entre linhas de traços positivos e negativos.
+- Utilize [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) e [series_fit_line](/azure/kusto/query/series-fit-linefunction) para realizar uma deteção avançada de salto em passo utilizando uma análise da série de tempo com uma regressão linear de 2 linhas.
 
 ``` Kusto
 let startDate = startofday(datetime("2017-02-01"));
@@ -215,5 +214,5 @@ traces
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [referência de linguagem data Explorer](/azure/kusto/query) para obter detalhes sobre o idioma.
-- Percorra uma [lição sobre como escrever consultas em log Analytics](get-started-queries.md).
+- Consulte a referência linguística [do Data Explorer](/azure/kusto/query) para obter detalhes sobre o idioma.
+- Passeie por uma [lição sobre escrever consultas em Log Analytics.](get-started-queries.md)

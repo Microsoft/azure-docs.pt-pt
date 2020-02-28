@@ -1,74 +1,73 @@
 ---
-title: Azure Monitor para redes (visualização)
-description: Uma visão geral rápida de Azure Monitor para rede que fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados sem nenhuma configuração.
-ms.service: azure-monitor
+title: Monitor Azure para Redes (Pré-visualização)
+description: Uma visão geral rápida para o Azure Monitor for Network que proporciona uma visão abrangente da saúde e das métricas para todos os recursos de rede implantados sem qualquer configuração.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 3bb92b85779366081349dab777be67e063469678
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73840057"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654873"
 ---
-# <a name="azure-monitor-for-networks-preview"></a>Azure Monitor para redes (visualização)
-O Azure Monitor para rede fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados sem nenhuma configuração. A capacidade de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site simplesmente pesquisando o nome do site hospedado.
+# <a name="azure-monitor-for-networks-preview"></a>Monitor Azure para Redes (Pré-visualização)
+O Azure Monitor for Network proporciona uma visão abrangente da saúde e das métricas para todos os recursos de rede implantados sem qualquer configuração. A capacidade avançada de pesquisa ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que estão hospedando o seu website simplesmente procurando o nome do site hospedado.
 
-A página **visão geral** do Azure monitor for Networks fornece uma maneira fácil de visualizar o inventário de seus recursos de rede junto com os alertas e a integridade de recursos. Ele é dividido em quatro áreas funcionais principais:
+A página De **visão geral** do Monitor Azure para redes fornece uma forma sem esforço de visualizar o inventário dos seus recursos de networking, juntamente com a saúde dos recursos e alertas. Divide-se em quatro áreas funcionais fundamentais:
 
 - Pesquisa e filtragem
-- Resource Health e métricas
+- Saúde e Métricas de Recursos
 - Alertas 
-- Exibição de dependência
+- Vista de dependência
 
 ![Página de visão geral](media/network-insights-overview/overview.png)
 
 ## <a name="search-and-filtering"></a>Pesquisa e filtragem
-A exibição de integridade e alertas de recursos pode ser personalizada usando filtros como **assinatura**, **grupo de recursos** e **tipo de recurso**. A caixa de pesquisa fornece a capacidade de Pesquisar por propriedades de recurso.
+A visão de saúde de recursos e alertas pode ser personalizada usando filtros como **Subscrição,** **Grupo de Recursos** e Tipo de **Recursos**. A caixa de pesquisa fornece a capacidade de pesquisar através de propriedades de recursos.
 
-A caixa de pesquisa pode ser usada para pesquisar recursos e recursos associados. Por exemplo, um IP público é associado a um gateway de aplicativo. Pesquisar o nome DNS do IPs público identificará o IP público e o gateway de aplicativo associado.
+A caixa de pesquisa pode ser usada para procurar recursos e recursos associados. Por exemplo, um IP público está associado a um Gateway de Aplicação. A procura do nome DNS do IPS público identificará tanto o IP público como o Gateway de Aplicação associado.
 
 ![Pesquisa](media/network-insights-overview/search.png)
 
 
-## <a name="resource-health-and-metric"></a>Resource Health e métrica
-Cada bloco representa um tipo de recurso, com o número de instâncias implantadas em todas as assinaturas selecionadas junto com o status de integridade do recurso. No exemplo a seguir, há 105 conexões de ER e VPN implantadas, 103 estão íntegras e 2 não disponíveis.
+## <a name="resource-health-and-metric"></a>Saúde de Recursos e Métrica
+Cada azulejo representa um tipo de recurso, com o número de instâncias implementadas em todas as subscrições selecionadas juntamente com o estado de saúde dos recursos. No exemplo abaixo, existem 105 Ligações ER e VPN implantadas, 103 são saudáveis e 2 indisponíveis.
 
 ![Estado de funcionamento de recursos](media/network-insights-overview/resource-health.png)
 
-Ao clicar nas duas conexões de ER e VPN indisponíveis, o inicia uma exibição de métrica. 
+Clicando nas duas ligações ER e VPN indisponíveis, lança uma vista métrica. 
 
-![Exibição de métrica](media/network-insights-overview/metric-view.png)
+![Vista métrica](media/network-insights-overview/metric-view.png)
 
-Você pode clicar em cada elemento no modo de exibição de grade. Clique no ícone de integridade para redirecionar para o Resource Health para essa conexão. Clique em alertas para redirecionar para a página de alertas e métricas respectivamente para essa conexão. 
+Pode clicar em cada elemento na vista da grelha. Clique no ícone Saúde para redirecionar para a saúde dos recursos para essa ligação. Clique em Alertas para redirecionar para alertas e página métrica, respectivamente para essa ligação. 
 
 ## <a name="alerts"></a>Alertas
-A grade de **alertas** à direita fornece uma exibição de todos os alertas gerados para os recursos selecionados em todas as assinaturas. Clique no alerta contagens para navegar até a página alertas detalhados.
+A grelha **alertas** à direita fornece uma visão de todos os alertas gerados para os recursos selecionados em todas as subscrições. Clique nas contagens de alerta para navegar na página de alertas detalhados.
 
-## <a name="dependency-view"></a>Exibição de dependência
-A exibição de **dependência** ajuda a visualizar como o recurso é configurado. Atualmente, há suporte para a exibição de dependência somente no gateway de aplicativo. A exibição de dependência pode ser acessada clicando no nome do recurso do gateway de aplicativo na exibição de grade de métricas.
+## <a name="dependency-view"></a>Vista de dependência
+A visão **de Dependência** ajuda a visualizar a configuração do recurso. Atualmente, a visão de dependência é suportada apenas para Application Gateway. A visão de dependência pode ser acedida clicando no nome do recurso Application Gateway a partir da visão da grelha das métricas.
 
-![Exibição do gateway de aplicativo](media/network-insights-overview/application-gateway.png)
+![Visão de Gateway de aplicação](media/network-insights-overview/application-gateway.png)
 
-A exibição de **dependência** do gateway de aplicativo fornece uma visão simplificada de como os IPs de front-end são conectados aos ouvintes, às regras e ao pool de back-end. As bordas de conexão são codificadas por cores e fornecem detalhes adicionais com base na integridade do pool de back-end. A exibição também fornece uma exibição detalhada das métricas e métricas do gateway de aplicativo para todos os pools de back-end relacionados, como VMSS e instâncias de VM.
+A visão **de Dependência** para o Application Gateway proporciona uma visão simplificada de como os IPs frontais estão ligados aos ouvintes, regras e pool de backend. As bordas de ligação são codificadas por cores e fornecem detalhes adicionais com base na saúde da piscina de backend. A vista também fornece uma visão detalhada das métricas e métricas do Application Gateway para todas as piscinas de backend relacionadas, tais como casos VMSS e VM.
 
-![Exibição de dependência](media/network-insights-overview/dependency-view.png)
+![Vista de dependência](media/network-insights-overview/dependency-view.png)
 
-O grafo de dependência permite a navegação fácil para as definições de configuração. Clique com o botão direito do mouse em um pool de back-end para acessar outras funcionalidades. Por exemplo, se o pool de back-end for uma VM, você poderá acessar diretamente as informações da VM e a conexão do observador de rede para identificar problemas de conectividade.
+O gráfico de dependência permite uma navegação fácil para configurações de configuração. Clique direito numa piscina de backend para aceder a outras funcionalidades. Por exemplo, se o pool de backend for um VM, então você pode aceder diretamente a Problemas de ligação VM Insights e Network Watcher para identificar problemas de conectividade.
 
-![Menu de exibição de dependência](media/network-insights-overview/dependency-view-menu.png)
+![Menu de vista de dependência](media/network-insights-overview/dependency-view-menu.png)
 
-A barra de pesquisa e filtro na exibição de dependência fornece uma maneira fácil de Pesquisar no grafo. Por exemplo, a pesquisa de *AppGWTestRule* no exemplo abaixo restringirá a exibição gráfica a todos os nós conectados por meio de *AppGWTestRule*. 
+A barra de pesquisa e filtro na vista de dependência fornece uma forma sem esforço de pesquisar através do gráfico. Por exemplo, procurar *o AppGWTestRule* no exemplo abaixo reduzirá a vista gráfica a todos os nós ligados via *AppGWTestRule*. 
 
 ![Exemplo de pesquisa](media/network-insights-overview/search-example.png)
 
-Filtros diferentes fornecem ajuda para restringir a um caminho e estado específicos. Por exemplo, selecione somente não *íntegro* no menu suspenso **status de integridade** para mostrar todas as bordas em que o estado não está *íntegro*.
+Diferentes filtros fornecem ajuda para reduzir para um caminho e estado específicos. Por exemplo, selecione apenas *Não saudável* do Estado de **Saúde** descer para mostrar todas as bordas onde o estado é *insalubre*.
 
-Clique em **exibição de métrica detalhada** para iniciar uma pasta de trabalho pré-configurada com métricas detalhadas para o gateway de aplicativo, todos os recursos de pool de back-end e IPS de front-end. 
+Clique em **Detailed Metric View** para lançar um livro pré-configurado com métricas detalhadas para o gateway da aplicação, todos os recursos de piscina de backend e IPs frontais. 
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- Saiba mais sobre o monitoramento de rede em o que é o [observador de rede do Azure?](/azure/network-watcher/network-watcher-monitoring-overview).
+- Saiba mais sobre a monitorização da rede no What is [Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview)

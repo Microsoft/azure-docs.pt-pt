@@ -1,28 +1,27 @@
 ---
-title: Consultas avançadas no Azure Monitor | Microsoft Docs
-description: Este artigo fornece um tutorial para usar o portal de análise para escrever consultas no Azure Monitor.
-ms.service: azure-monitor
+title: Consultas avançadas no Monitor Azure / Microsoft Docs
+description: Este artigo fornece um tutorial para usar o portal Analytics para escrever consultas no Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
-ms.openlocfilehash: 8895224bef037c8c3f8b28a6085359837478d924
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894509"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670292"
 ---
-# <a name="writing-advanced-queries-in-azure-monitor"></a>Gravando consultas avançadas no Azure Monitor
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Escrever consultas avançadas no Monitor Azure
 
 > [!NOTE]
-> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Deve completar [O Get started com o Azure Monitor Log Analytics](get-started-portal.md) e começar com [consultas](get-started-queries.md) antes de concluir esta aula.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-## <a name="reusing-code-with-let"></a>Reutilizando código com Let
-Use `let` para atribuir resultados a uma variável e se referir a ele mais tarde na consulta:
+## <a name="reusing-code-with-let"></a>Reutilizar código com let
+Utilize `let` para atribuir resultados a uma variável, e consulte-o mais tarde na consulta:
 
 ```Kusto
 // get all events that have level 2 (indicates warning level)
@@ -34,7 +33,7 @@ warning_events
 | summarize count() by Computer 
 ```
 
-Você também pode atribuir valores constantes a variáveis. Isso dá suporte a um método para configurar parâmetros para os campos que você precisa alterar toda vez que executar a consulta. Modifique esses parâmetros conforme necessário. Por exemplo, para calcular o espaço livre em disco e a memória livre (em percentils), em uma determinada janela de tempo:
+Também pode atribuir valores constantes a variáveis. Isto suporta um método para configurar parâmetros para os campos que precisa de alterar sempre que executa a consulta. Modifique os parâmetros conforme necessário. Por exemplo, calcular o espaço de disco livre e a memória livre (em percentículos), numa determinada janela temporal:
 
 ```Kusto
 let startDate = datetime(2018-08-01T12:55:02);
@@ -52,10 +51,10 @@ Perf
 union FreeDiskSpace, FreeMemory
 ```
 
-Isso facilita a alteração do início da hora de término na próxima vez que você executar a consulta.
+Isto facilita a mudança do início do tempo final da próxima vez que fizer a consulta.
 
 ### <a name="local-functions-and-parameters"></a>Funções e parâmetros locais
-Use `let` instruções para criar funções que podem ser usadas na mesma consulta. Por exemplo, defina uma função que usa um campo DateTime (no formato UTC) e o converte em um formato padrão dos EUA. 
+Utilize declarações `let` para criar funções que possam ser usadas na mesma consulta. Por exemplo, defina uma função que tome um campo de data (no formato UTC) e converta-a num formato americano padrão. 
 
 ```Kusto
 let utc_to_us_date_format = (t:datetime)
@@ -70,15 +69,15 @@ Event
 ```
 
 ## <a name="print"></a>Imprimir
-`print` retornará uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isso geralmente é usado nos casos em que você precisa de um cálculo simples. Por exemplo, para localizar a hora atual em PST e adicionar uma coluna com EST:
+`print` devolverá uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isto é frequentemente usado em casos em que você precisa de um cálculo simples. Por exemplo, para encontrar o tempo atual em PST e adicionar uma coluna com EST:
 
 ```Kusto
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
 
-## <a name="datatable"></a>DataTable
-`datatable` permite que você defina um conjunto de dados. Você fornece um esquema e um conjunto de valores e, em seguida, canaliza a tabela em qualquer outro elemento de consulta. Por exemplo, para criar uma tabela de uso de RAM e calcular o valor médio por hora:
+## <a name="datatable"></a>Datatable
+`datatable` permite definir um conjunto de dados. Fornece um esquema e um conjunto de valores e, em seguida, tubo a mesa em qualquer outro elemento de consulta. Por exemplo, criar uma tabela de utilização de RAM e calcular o seu valor médio por hora:
 
 ```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
@@ -95,7 +94,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 | summarize avg(usage_percent) by bin(TimeGenerated, 1h)
 ```
 
-As construções de DataTable também são muito úteis ao criar uma tabela de pesquisa. Por exemplo, para mapear dados de tabela, como IDs de evento da tabela _SecurityEvent_ , para tipos de evento listados em outro lugar, crie uma tabela de pesquisa com os tipos de evento usando `datatable` e ingresse nesse DataTable com os dados _SecurityEvent_ :
+As construções datatable também são muito úteis na criação de uma mesa de lookup. Por exemplo, mapear dados de tabelas, tais como IDs de eventos da tabela _SecurityEvent,_ para tipos de eventos listados em outros lugares, criar uma tabela de lookup com os tipos de eventos usando `datatable` e juntar esta datatable com dados _SecurityEvent:_
 
 ```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
@@ -124,12 +123,12 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com Azure monitor dados de log:
+Consulte outras lições para utilizar a linguagem de [consulta Kusto](/azure/kusto/query/) com dados de registo do Monitor Azure:
 
-- [Operações de cadeia de caracteres](string-operations.md)
+- [Operações de cordas](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
 - [JSON e estruturas de dados](json-data-structures.md)
-- [Junções](joins.md)
-- [Spersão](charts.md)
+- [Junta-se](joins.md)
+- [Gráficos](charts.md)

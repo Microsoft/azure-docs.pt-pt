@@ -1,97 +1,95 @@
 ---
-title: Analisar padrões de navegação do usuário com Fluxos dos Usuários no Aplicativo Azure insights | Microsoft docs
-description: Analise como os usuários navegam entre as páginas e os recursos do seu aplicativo Web.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Analise os padrões de navegação dos utilizadores com fluxos de utilizadores em Insights de Aplicação Azure  Microsoft docs
+description: Analise a forma como os utilizadores navegam entre as páginas e as funcionalidades da sua aplicação web.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ec0af6dd61f8615c02e85135afa677c6a5f61f94
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a4a81a3e4c5759e444836162319abb97d83a4c74
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406271"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671074"
 ---
-# <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analisar padrões de navegação do usuário com Fluxos dos Usuários no Application Insights
+# <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analisar padrões de navegação do utilizador com fluxos de utilizador em Insights de Aplicação
 
-![Ferramenta de Fluxos dos Usuários de Application Insights](./media/usage-flows/00001-flows.png)
+![Ferramenta de fluxos de utilizadores de insights de aplicação](./media/usage-flows/00001-flows.png)
 
-A ferramenta Fluxos dos Usuários visualiza como os usuários navegam entre as páginas e os recursos do seu site. É ótimo responder a perguntas como:
+A ferramenta User Flows visualiza a forma como os utilizadores navegam entre as páginas e as funcionalidades do seu site. É ótimo responder a perguntas como:
 
-* Como os usuários navegam para fora de uma página no seu site?
-* O que os usuários clicam em uma página em seu site?
-* Onde estão os locais que os usuários mais fazem a rotatividade de seu site?
-* Há lugares onde os usuários repetim a mesma ação várias vezes?
+* Como é que os utilizadores navegam longe de uma página no seu site?
+* O que os utilizadores clicam numa página do seu site?
+* Onde estão os lugares que os utilizadores mais churn do seu site?
+* Há lugares onde os utilizadores repetem a mesma ação vezes sem conta?
 
-A ferramenta de Fluxos dos Usuários é iniciada em uma exibição de página inicial, evento personalizado ou exceção que você especificar. Devido a esse evento inicial, Fluxos dos Usuários mostra os eventos que ocorreram antes e depois durante as sessões do usuário. Linhas de espessura variável mostram quantas vezes cada caminho foi seguido pelos usuários. Nós de **sessão especial iniciados** mostram onde os nós subsequentes começaram uma sessão. Nós de **sessão encerrados** mostram quantos usuários não enviaram exibições de página ou eventos personalizados após o nó anterior, destacando onde os usuários provavelmente saíram do seu site.
+A ferramenta User Flows começa a partir de uma visão inicial da página, evento personalizado ou exceção que especifica. Dado este evento inicial, o User Flows mostra os eventos que aconteceram antes e depois durante as sessões do utilizador. Linhas de espessura variada mostram quantas vezes cada caminho foi seguido pelos utilizadores. Sessão Especial Os acenos **começaram** a mostrar onde os nódosos seguintes começaram uma sessão. Os nós **da Sessão Final** mostram quantos utilizadores não enviaram visualizações de página ou eventos personalizados após o nó anterior, realçando onde os utilizadores provavelmente deixaram o seu site.
 
 > [!NOTE]
-> O recurso de Application Insights deve conter exibições de página ou eventos personalizados para usar a ferramenta Fluxos dos Usuários. [Saiba como configurar seu aplicativo para coletar exibições de página automaticamente com o SDK Application insights JavaScript](../../azure-monitor/app/javascript.md).
+> O seu recurso Application Insights deve conter visualizações de página ou eventos personalizados para utilizar a ferramenta User Flows. [Saiba como configurar a sua aplicação para recolher automaticamente as visualizações da página com os Insights de Aplicação JavaScript SDK](../../azure-monitor/app/javascript.md).
 >
 >
 
-## <a name="start-by-choosing-an-initial-event"></a>Comece escolhendo um evento inicial
+## <a name="start-by-choosing-an-initial-event"></a>Comece por escolher um evento inicial
 
-![Escolha um evento inicial para Fluxos dos Usuários](./media/usage-flows/00002-flows-initial-event.png)
+![Escolha um evento inicial para Fluxos de Utilizador](./media/usage-flows/00002-flows-initial-event.png)
 
-Para começar a responder perguntas com a ferramenta Fluxos dos Usuários, escolha uma exibição de página inicial, evento personalizado ou exceção para servir como o ponto de partida para a visualização:
+Para começar a responder a perguntas com a ferramenta User Flows, escolha uma visão inicial da página, evento personalizado ou exceção para servir como ponto de partida para a visualização:
 
-1. Clique no link no título o **que os usuários fazem depois de...?** , ou clique no botão **Editar** .
-2. Selecione uma exibição de página, evento personalizado ou exceção na lista suspensa de **eventos inicial** .
-3. Clique em **criar grafo**.
+1. Clique no link no **what dos utilizadores fazerem depois...?**
+2. Selecione uma vista de página, evento personalizado ou exceção do dropdown inicial do **evento.**
+3. Clique **em Criar gráfico**.
 
-A coluna "Step 1" da visualização mostra o que os usuários fizeram com mais frequência logo após o evento inicial, ordenados de cima para baixo, do mais para o menos frequente. A "etapa 2" e as colunas subsequentes mostram o que os usuários fizeram depois, criando uma imagem de todas as formas que os usuários navegaram pelo site.
+A coluna "Passo 1" da visualização mostra o que os utilizadores fizeram com mais frequência logo após o evento inicial, ordenada de cima a baixo da maioria para o menos frequente. As colunas "Step 2" e posteriores mostram o que os utilizadores fizeram posteriormente, criando uma imagem de todas as formas como os utilizadores navegaram pelo seu site.
 
-Por padrão, a ferramenta de Fluxos dos Usuários só obtém aleatoriamente as últimas 24 horas de exibições de página e eventos personalizados do seu site. Você pode aumentar o intervalo de tempo e alterar o equilíbrio entre desempenho e precisão para amostragem aleatória no menu Editar.
+Por padrão, a ferramenta User Flows amostra aleatoriamente apenas as últimas 24 horas de visualizações da página e evento personalizado do seu site. Pode aumentar o intervalo de tempo e alterar o equilíbrio de desempenho e precisão para uma amostragem aleatória no menu Editar.
 
-Se algumas das exibições de página, eventos personalizados e exceções não forem relevantes para você, clique no **X** nos nós que você deseja ocultar. Depois de selecionar os nós que você deseja ocultar, clique no botão **criar grafo** abaixo da visualização. Para ver todos os nós que você ocultou, clique no botão **Editar** e examine a seção **eventos excluídos** .
+Se algumas das vistas da página, eventos personalizados e exceções não forem relevantes para si, clique no **X** nos nós que pretende esconder. Depois de selecionar os nós que pretende esconder, clique no botão **Criar** gráfico abaixo da visualização. Para ver todos os nós que escondeu, clique no botão **Editar** e, em seguida, veja a secção de **eventos excluídos.**
 
-Se estiverem faltando exibições de página ou eventos personalizados que você espera ver na visualização:
+Se faltarem vistas de página ou eventos personalizados que espera ver na visualização:
 
-* Verifique a seção **eventos excluídos** no menu **Editar** .
-* Use os botões de adição em **outros** nós para incluir eventos menos frequentes na visualização.
-* Se o modo de exibição de página ou evento personalizado esperado for enviado com pouca frequência pelos usuários, tente aumentar o intervalo de tempo da visualização no menu **Editar** .
-* Verifique se a exibição de página, o evento personalizado ou a exceção esperada está configurado para ser coletado pelo SDK do Application Insights no código-fonte do seu site. [Saiba mais sobre como coletar eventos personalizados.](../../azure-monitor/app/api-custom-events-metrics.md)
+* Verifique a secção **de eventos excluídos** no menu **Editar.**
+* Use os botões plus em **outros** nódosos para incluir eventos menos frequentes na visualização.
+* Se a visualização da página ou evento personalizado que espera ser enviada com pouca frequência pelos utilizadores, tente aumentar a gama de tempo da visualização no menu **Editar.**
+* Certifique-se de que a visualização da página, evento personalizado ou exceção que espera estar configurada para ser recolhida pelo SDK de Insights de Aplicação no código fonte do seu site. [Saiba mais sobre a recolha de eventos personalizados.](../../azure-monitor/app/api-custom-events-metrics.md)
 
-Se você quiser ver mais etapas na visualização, use os menus suspensos **etapas anteriores** e **próximas etapas** acima da visualização.
+Se quiser ver mais passos na visualização, utilize os **passos anteriores** e os **passos seguintes** acima da visualização.
 
-## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>Depois de visitar uma página ou recurso, onde os usuários vão e o que eles clicam?
+## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>Depois de visitar uma página ou funcionalidade, para onde vão os utilizadores e no que clicam?
 
-![Use Fluxos dos Usuários para entender onde os usuários clicam](./media/usage-flows/00003-flows-one-step.png)
+![Utilize fluxos de utilizador para entender onde os utilizadores clicam](./media/usage-flows/00003-flows-one-step.png)
 
-Se o evento inicial for uma exibição de página, a primeira coluna ("etapa 1") da visualização será uma maneira rápida de entender o que os usuários fizeram imediatamente depois de visitar a página. Tente abrir o site em uma janela ao lado da visualização Fluxos dos Usuários. Compare suas expectativas de como os usuários interagem com a página na lista de eventos na coluna "Step 1". Geralmente, um elemento de interface do usuário na página que parece insignificante para sua equipe pode estar entre os mais usados na página. Pode ser um ótimo ponto de partida para aprimoramentos de design em seu site.
+Se o seu evento inicial for uma visão de página, a primeira coluna ("Passo 1") da visualização é uma forma rápida de entender o que os utilizadores fizeram imediatamente após a visita à página. Tente abrir o seu site numa janela ao lado da visualização dos Fluxos de Utilizador. Compare as suas expectativas de como os utilizadores interagem com a página com a lista de eventos na coluna "Passo 1". Muitas vezes, um elemento ui na página que parece insignificante para a sua equipa pode estar entre os mais utilizados na página. Pode ser um ótimo ponto de partida para melhorias de design no seu site.
 
-Se o evento inicial for um evento personalizado, a primeira coluna mostrará o que os usuários fizeram logo após a execução dessa ação. Assim como nas exibições de página, considere se o comportamento observado dos usuários corresponde às metas e às expectativas da sua equipe. Se o evento inicial selecionado for "Adicionar item ao carrinho de compras", por exemplo, procure ver se "ir para checkout" e "compra concluída" aparecerão na visualização logo em seguida. Se o comportamento do usuário for diferente de suas expectativas, use a visualização para entender como os usuários estão se tornando "interceptados" pelo design atual do seu site.
+Se o seu evento inicial for um evento personalizado, a primeira coluna mostra o que os utilizadores fizeram logo após a realização dessa ação. Tal como acontece com as vistas da página, considere se o comportamento observado dos seus utilizadores corresponde aos objetivos e expectativas da sua equipa. Se o seu evento inicial selecionado for "Add Item to Shopping Cart", por exemplo, procure ver se "Ir para checkout" e "Complete D'Purchase" aparecem na visualização pouco depois. Se o comportamento do utilizador for diferente das suas expectativas, use a visualização para entender como os utilizadores estão a ficar "presos" pelo design atual do seu site.
 
-## <a name="where-are-the-places-that-users-churn-most-from-your-site"></a>Onde estão os locais que os usuários mais fazem a rotatividade de seu site?
+## <a name="where-are-the-places-that-users-churn-most-from-your-site"></a>Onde estão os lugares que os utilizadores mais churn do seu site?
 
-Observe os nós de **sessão encerrados** que aparecem em alto em uma coluna na visualização, especialmente no início de um fluxo. Isso significa que muitos usuários provavelmente se transformaram em seu site depois de seguir o caminho anterior de páginas e interações de interface do usuário. Às vezes, a rotatividade é esperada-depois de concluir uma compra em um site de comércio eletrônico, por exemplo, mas geralmente a rotatividade é um sinal de problemas de design, baixo desempenho ou outros problemas com seu site que podem ser melhorados.
+Observe os nós **de Sessão Terminados** que aparecem altos numa coluna na visualização, especialmente no início de um fluxo. Isto significa que muitos utilizadores provavelmente se retiraram do seu site depois de seguirem o caminho anterior das páginas e das interações de UI. Por vezes, espera-se que churn - depois de concluir uma compra num site de eCommerce, por exemplo - mas geralmente churn é um sinal de problemas de design, mau desempenho ou outros problemas com o seu site que podem ser melhorados.
 
-Tenha em mente que os nós **encerrados da sessão** são baseados apenas na telemetria coletada por esse Application insights recurso. Se Application Insights não receber telemetria para determinadas interações de usuário, os usuários ainda poderão ter interagindo com seu site dessas maneiras depois que a ferramenta de Fluxos dos Usuários disser que a sessão terminou.
+Tenha em mente que os nós **sessão terminados** são baseados apenas na telemetria recolhida por este recurso Application Insights. Se o Application Insights não receber telemetria para determinadas interações do utilizador, os utilizadores ainda podem ter interagido com o seu site dessa forma após a ferramenta User Flows dizer que a sessão terminou.
 
-## <a name="are-there-places-where-users-repeat-the-same-action-over-and-over"></a>Há lugares onde os usuários repetim a mesma ação várias vezes?
+## <a name="are-there-places-where-users-repeat-the-same-action-over-and-over"></a>Há lugares onde os utilizadores repetem a mesma ação vezes sem conta?
 
-Procure um modo de exibição de página ou evento personalizado que seja repetido por muitos usuários nas etapas subsequentes na visualização. Isso geralmente significa que os usuários estão executando ações repetitivas em seu site. Se você encontrar repetição, pense em alterar o design do seu site ou adicionar uma nova funcionalidade para reduzir a repetição. Por exemplo, adicionar funcionalidade de edição em massa se você encontrar usuários executando ações repetitivas em cada linha de um elemento de tabela.
+Procure uma visualização de página ou evento personalizado que seja repetido por muitos utilizadores em etapas subsequentes na visualização. Isto geralmente significa que os utilizadores estão a realizar ações repetitivas no seu site. Se encontrar repetição, pense em mudar o design do seu site ou adicionar uma nova funcionalidade para reduzir a repetição. Por exemplo, adicionar funcionalidade de edição a granel se encontrar utilizadores que realizem ações repetitivas em cada linha de um elemento de tabela.
 
 ## <a name="common-questions"></a>Perguntas comuns
 
-### <a name="does-the-initial-event-represent-the-first-time-the-event-appears-in-a-session-or-any-time-it-appears-in-a-session"></a>O evento inicial representa a primeira vez que o evento aparece em uma sessão ou sempre que ele aparece em uma sessão?
+### <a name="does-the-initial-event-represent-the-first-time-the-event-appears-in-a-session-or-any-time-it-appears-in-a-session"></a>O evento inicial representa a primeira vez que o evento aparece numa sessão, ou em qualquer altura em que aparece numa sessão?
 
-O evento inicial na visualização representa apenas a primeira vez que um usuário enviou essa exibição de página ou evento personalizado durante uma sessão. Se os usuários puderem enviar o evento inicial várias vezes em uma sessão, a coluna "Step 1" mostrará apenas como os usuários se comportam após a *primeira* instância do evento inicial, e não todas as instâncias.
+O evento inicial sobre a visualização representa apenas a primeira vez que um utilizador enviou essa visualização ou evento personalizado durante uma sessão. Se os utilizadores puderem enviar o evento inicial várias vezes numa sessão, então a coluna "Passo 1" apenas mostra como os utilizadores se comportam após a *primeira* instância do evento inicial, e não todas as instâncias.
 
-### <a name="some-of-the-nodes-in-my-visualization-are-too-high-level-for-example-a-node-that-just-says-button-clicked-how-can-i-break-it-down-into-more-detailed-nodes"></a>Alguns dos nós na minha visualização são de alto nível. Por exemplo, um nó que simplesmente diz "botão clicado". Como posso dividi-lo em nós mais detalhados?
+### <a name="some-of-the-nodes-in-my-visualization-are-too-high-level-for-example-a-node-that-just-says-button-clicked-how-can-i-break-it-down-into-more-detailed-nodes"></a>Alguns dos nódosos da minha visualização são muito altos. Por exemplo, um nó que diz apenas "Botão Clicado". Como posso decompartá-lo em nós mais detalhados?
 
-Use as opções **dividir por** no menu **Editar** :
+Utilize a **Divisão por** opções no menu **Editar:**
 
-1. Escolha o evento que você deseja dividir no menu de **eventos** .
-2. Escolha uma dimensão no menu **dimensão** . Por exemplo, se você tiver um evento chamado "botão clicado", tente uma propriedade personalizada chamada "nome do botão".
+1. Escolha o evento que pretende quebrar no menu **evento.**
+2. Escolha uma dimensão no menu **Dimensão.** Por exemplo, se tiver um evento chamado "Button Clicked", experimente uma propriedade personalizada chamada "Nome do botão".
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral de uso](usage-overview.md)
+* [Visão geral do uso](usage-overview.md)
 * [Users, Sessions, and Events](usage-segmentation.md) (Utilizadores, Sessões e Eventos)
 * [Retenção](usage-retention.md)
-* [Adicionando eventos personalizados ao seu aplicativo](../../azure-monitor/app/api-custom-events-metrics.md)
+* [Adicionar eventos personalizados à sua aplicação](../../azure-monitor/app/api-custom-events-metrics.md)

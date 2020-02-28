@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589441"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669544"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>O que é a Rede Virtual NAT (Visualização Pública)?
 
@@ -39,7 +39,7 @@ A Rede Virtual NAT (tradução de endereços de rede) simplifica a conectividade
 
 
 >[!NOTE] 
->A Rede Virtual NAT está disponível como pré-visualização pública neste momento. Atualmente só está disponível num conjunto limitado de [regiões.](#region-availability) Esta pré-visualização é fornecida sem um acordo de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) para obter mais informações.
+>A Rede Virtual NAT está disponível como pré-visualização pública neste momento. Atualmente só está disponível num conjunto limitado de [regiões.](#region-availability) Esta pré-visualização é fornecida sem um acordo de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms) para obter mais informações.
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Endereços IP estáticos para apenas saída
 
@@ -200,5 +200,5 @@ Queremos saber como podemos melhorar o serviço. Partilhe connosco o seu [feedba
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [recurso de gateway NAT.](./nat-gateway-resource.md)
-- [Diga-nos o que construir a seguir no UserVoice](https://aka/natuservoice).
+- [Diga-nos o que construir a seguir no UserVoice](https://aka.ms/natuservoice).
 - [Forneça feedback sobre a Pré-Visualização Pública](https://aka.ms/natfeedback).

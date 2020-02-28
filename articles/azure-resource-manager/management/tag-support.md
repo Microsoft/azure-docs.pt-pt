@@ -2,13 +2,13 @@
 title: Suporte de etiquetas para recursos
 description: Mostra quais os tipos de suporte dos tipos de recursos Azure. Fornece detalhes para todos os serviços azure.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 09dd71ef8c3ac4803a988dffbdca47116c967a0e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 6100c667c7df0b3e1740777565d260af9fa818a3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207932"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657578"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte de etiquetas para recursos Azure
 Este artigo descreve se um tipo de recurso suporta [etiquetas](tag-resources.md). As etiquetas de suporte com a etiqueta da coluna com **etiquetas** indica se o tipo de recurso tem uma propriedade para a etiqueta. O relatório de **custos** da coluna rotulada tag indica se esse tipo de recurso passa a etiqueta para o relatório de custos. Pode visualizar os custos através de tags na análise de custos de Gestão de [Custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na [fatura de faturação Azure e dados de utilização diária.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -116,8 +116,8 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
@@ -136,7 +136,6 @@ Salte para um espaço de nome do fornecedor de recursos:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Recursos](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -292,6 +291,9 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | automatizaçõesContas | Sim | Sim |
 > | automatizaçãoContas / configurações | Sim | Sim |
 > | automaçãoContas / empregos | Não | Não |
+> | automatizaçãoContas / privateEndpointConnectionProxies | Não | Não |
+> | automatizaçõesContas / privateEndpointConnections | Não | Não |
+> | automatizaçãoContas / privateLinkResources | Não | Não |
 > | automaçãoContas / livros de execução | Sim | Sim |
 > | automatizaçõesContas / softwareUpdateConfiguras | Não | Não |
 > | automatizaçãoContas / webhooks | Não | Não |
@@ -711,6 +713,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | registos / importaçãoImagem | Não | Não |
 > | registos / privateEndpointConnectionProxies | Não | Não |
 > | registos / privateEndpointConnectionProxies / validar | Não | Não |
+> | registos / privateEndpointConnections | Não | Não |
 > | registos / privateLinkResources | Não | Não |
 > | registos / filaConstruir | Não | Não |
 > | registos / regeneraçãoCredential | Não | Não |
@@ -757,7 +760,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Departamentos | Não | Não |
 > | Dimensões | Não | Não |
 > | Contas de Inscrição | Não | Não |
-> | Port | Não | Não |
+> | Exportações | Não | Não |
 > | Contas de Faturação Externa | Não | Não |
 > | Contas /Alertas de Faturação Externa | Não | Não |
 > | Contas /Dimensões de Faturação Externa | Não | Não |
@@ -1052,6 +1055,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | partnerNamespaces / eventoChannels | Não | Não |
 > | parceiroSRegistrations | Sim | Sim |
 > | parceiroTópicos | Sim | Sim |
+> | partnerTopics / eventoSSubscrições | Não | Não |
 > | sistemaTópicos | Sim | Sim |
 > | sistemaTópicos / eventosSubscrições | Não | Não |
 > | tópicos | Sim | Sim |
@@ -1269,7 +1273,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Etiquetas de suporte | Tag no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | Identities | Não | Não |
+> | identidades | Não | Não |
 > | userAssignedIdentities | Sim | Sim |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
@@ -1288,6 +1292,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | getEntities | Não | Não |
 > | grupos de gestão | Não | Não |
+> | grupos de gestão / configurações | Não | Não |
 > | recursos | Não | Não |
 > | startTenantBackfill | Não | Não |
 > | inquilinoBackfillStatus | Não | Não |
@@ -1395,15 +1400,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | netAppAccounts | Sim | Não |
 > | netAppAccounts / capacityPools | Sim | Não |
 > | netAppAccounts / capacityPools / volumes | Sim | Não |
-> | netAppAccounts / capacityPools / volumes / mountTargets | Sim | Não |
-> | netAppAccounts / capacityPools / volumes / instantâneos | Sim | Não |
-
-## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Etiquetas de suporte | Tag no relatório de custos |
-> | ------------- | ----------- | ----------- |
-> | NotebookProxies | Não | Não |
+> | netAppAccounts / capacityPools / volumes / instantâneos | Não | Não |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -1495,6 +1492,13 @@ Salte para um espaço de nome do fornecedor de recursos:
 > Para o Serviço de Porta Frontal Azure, pode aplicar etiquetas na criação do recurso, mas atualizar ou adicionar tags não é suportado atualmente.
 
 
+## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Etiquetas de suporte | Tag no relatório de custos |
+> | ------------- | ----------- | ----------- |
+> | NotebookProxies | Não | Não |
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1556,6 +1560,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | legacyPeerings | Não | Não |
 > | peerAsns | Não | Não |
 > | os pares | Sim | Sim |
+> | peeringServiceCountries | Não | Não |
 > | peeringServiceProviders | Não | Não |
 > | peeringServices | Sim | Sim |
 
@@ -1593,7 +1598,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | capacidades | Sim | Sim |
 
-## <a name="microsoftprojectbabylon"></a>Microsoft. ProjectBabylon
+## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Etiquetas de suporte | Tag no relatório de custos |
@@ -1681,13 +1686,6 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | aplicações | Sim | Sim |
 > | recursos saasrecursos | Não | Não |
 
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Etiquetas de suporte | Tag no relatório de custos |
-> | ------------- | ----------- | ----------- |
-> | recolhas de emprego | Sim | Sim |
-
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
@@ -1756,7 +1754,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | agregações | Não | Não |
 > | alertaRegras | Não | Não |
 > | modelos de regras de alerta | Não | Não |
-> | marcadores | Não | Não |
+> | Marcadores | Não | Não |
 > | casos | Não | Não |
 > | dataCotes | Não | Não |
 > | dataConnectorsCheckRequisitos | Não | Não |
@@ -2026,6 +2024,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | Tipo de recurso | Etiquetas de suporte | Tag no relatório de custos |
 > | ------------- | ----------- | ----------- |
 > | dispositivos | Sim | Sim |
+> | assinaturas registadas | Não | Não |
 > | fornecedores | Não | Não |
 > | fornecedores / skus | Não | Não |
 > | fornecedores / vnfs | Não | Não |

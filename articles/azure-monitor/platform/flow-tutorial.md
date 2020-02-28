@@ -1,18 +1,17 @@
 ---
 title: Automatizar processos de log do Monitor Azure com o Microsoft Flow
 description: Saiba como pode utilizar o Microsoft Flow para automatizar rapidamente processos repetíveis utilizando o conector Azure Log Analytics.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/29/2017
-ms.openlocfilehash: a6097d38d3335be356ca75f5a9d0eadeed414b03
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 92f0d2916b0f28760f7d028ee3e6dc0be37c32d2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166939"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672315"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de log do Monitor Azure com o conector para o Microsoft Flow
 O [Microsoft Flow](https://ms.flow.microsoft.com) permite-lhe criar fluxos de trabalho automatizados utilizando centenas de ações para uma variedade de serviços. A saída de uma ação pode ser usada como entrada para outra, permitindo-lhe criar integração entre diferentes serviços.  O conector Azure Log Analytics para o Microsoft Flow permite-lhe construir fluxos de trabalho que incluam dados recuperados por consultas de registo a partir de um espaço de trabalho do Log Analytics no Monitor Azure.

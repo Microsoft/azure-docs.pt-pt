@@ -1,5 +1,5 @@
 ---
-title: Criar experimentos de ML automatizados
+title: Criar experiências automatizadas em ML
 titleSuffix: Azure Machine Learning
 description: Aprendizagem automática escolhe um algoritmo para e gera um modelo pronto para implantação. Saiba as opções que pode utilizar para configurar automatizada experimentações de machine learning.
 author: cartacioS
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7f837c56214d2d01d0f119e0107a095bcfd782b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1b52d9b7eb60483da91f87435ace1994d91b1039
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198774"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665846"
 ---
-# <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
+# <a name="configure-automated-ml-experiments-in-python"></a>Configure experiências automatizadas de ML em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste guia, aprenda a definir várias configurações de configuração das suas experiências automatizadas de aprendizagem automática com o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Aprendizagem automática escolhe um algoritmo e hiperparâmetros para e gera um modelo pronto para implantação. Existem várias opções que pode utilizar para configurar automatizada experimentações de machine learning.
@@ -77,11 +77,11 @@ Aprendizagem automática suporta os dados que residem no ambiente de trabalho lo
 
 Requisitos para os dados de formação:
 - Os dados devem estar na forma tabular.
-- O valor a prever, coluna de destino, deve estar nos dados.
+- O valor a prever, coluna de alvo, deve estar nos dados.
 
-Os exemplos de código a seguir demonstram como armazenar os dados nesses formatos.
+Os seguintes exemplos de código demonstram como armazenar os dados nestes formatos.
 
-* TabularDataset
+* Conjunto de Dados Tabular
   ```python
   from azureml.core.dataset import Dataset
   from azureml.opendatasets import Diabetes
@@ -104,10 +104,10 @@ Os exemplos de código a seguir demonstram como armazenar os dados nesses format
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Obter dados para executar a experimentação em computação remota
 
-Para execuções remotas, os dados de treinamento devem ser acessíveis a partir da computação remota. A [classe`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) no SDK expõe a funcionalidade a:
+Para execuções remotas, os dados de treino devem ser acessíveis a partir da computação remota. A [classe`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) no SDK expõe a funcionalidade a:
 
-* Transfira facilmente dados de arquivos estáticos ou de fontes de URL para seu espaço de trabalho
-* disponibilizar seus dados para scripts de treinamento ao executar recursos de computação em nuvem
+* transferir facilmente dados de ficheiros estáticos ou fontes de URL para o seu espaço de trabalho
+* disponibilizar os seus dados para treinar scripts ao executar em recursos de computação em nuvem
 
 Veja o [como](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) usar a classe `Dataset` para montar dados para o seu alvo de cálculo.
 
@@ -119,13 +119,13 @@ Pode especificar conjuntos separados de comboios e validação diretamente no `A
 
 Utilize `n_cross_validations` definição para especificar o número de validações cruzadas. O conjunto de dados de treino será dividido aleatoriamente em `n_cross_validations` dobras de tamanho igual. Durante cada validação cruzada redondo, um dos subconjuntos será utilizado para a validação do modelo com base em com os subconjuntos restantes. Este processo repete-se durante `n_cross_validations` rondas até que cada dobra seja usada uma vez como conjunto de validação. As pontuações médias em todas as `n_cross_validations` rondas serão reportadas, e o modelo correspondente será retreinado em todo o conjunto de dados de treino.
 
-### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Validação cruzada Monte Carlo (subamostra aleatória repetida)
+### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Validação cruzada de Monte Carlo (Sub-amostragem aleatória repetida)
 
-Utilize `validation_size` para especificar a percentagem do conjunto de dados de formação que deve ser utilizado para validação e utilize `n_cross_validations` para especificar o número de validações cruzadas. Durante cada ronda de validação cruzada, um subconjunto de tamanho `validation_size` será selecionado aleatoriamente para validação do modelo treinado nos restantes dados. Finalmente, as pontuações médias em todas as `n_cross_validations` rondas serão reportadas, e o modelo correspondente será retreinado em todo o conjunto de dados de treino. Monte Carlo não tem suporte para previsão de série temporal.
+Utilize `validation_size` para especificar a percentagem do conjunto de dados de formação que deve ser utilizado para validação e utilize `n_cross_validations` para especificar o número de validações cruzadas. Durante cada ronda de validação cruzada, um subconjunto de tamanho `validation_size` será selecionado aleatoriamente para validação do modelo treinado nos restantes dados. Finalmente, as pontuações médias em todas as `n_cross_validations` rondas serão reportadas, e o modelo correspondente será retreinado em todo o conjunto de dados de treino. Monte Carlo não é apoiado para a previsão de séries temporais.
 
 ### <a name="custom-validation-dataset"></a>Conjunto de dados de validação personalizada
 
-Use o conjunto de dados de validação personalizada se a divisão aleatória não for aceitável, geralmente de data de série temporal ou dados desequilibrados. Pode especificar o seu próprio conjunto de dados de validação. O modelo será avaliado contra o conjunto de dados de validação especificado, em vez de um conjunto de dados aleatório.
+Utilize um conjunto de dados de validação personalizado se a divisão aleatória não for aceitável, normalmente dados de séries de tempo ou dados desequilibrados. Pode especificar o seu próprio conjunto de dados de validação. O modelo será avaliado contra o conjunto de dados de validação especificado, em vez de um conjunto de dados aleatório.
 
 ## <a name="compute-to-run-experiment"></a>Computação para executar a experimentação
 
@@ -135,7 +135,7 @@ Em seguida, determine onde será preparado o modelo. Uma experimentação de pre
 
     Consulte este [site gitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) por exemplo de cadernos com alvos de computação local e remota.
 
-*   Um cluster Azure Databricks na sua assinatura do Azure. Pode encontrar mais detalhes aqui - [Configurar cluster de databricks Azure para ML automatizado](how-to-configure-environment.md#azure-databricks)
+*   Um cluster Azure Databricks na sua subscrição Azure. Pode encontrar mais detalhes aqui - [Configurar cluster de databricks Azure para ML automatizado](how-to-configure-environment.md#azure-databricks)
 
     Consulte este [site gitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) por exemplo de cadernos com Tijolos de Dados Azure.
 
@@ -143,11 +143,11 @@ Em seguida, determine onde será preparado o modelo. Uma experimentação de pre
 
 ## <a name="configure-your-experiment-settings"></a>Configurar as definições de experimentação
 
-Existem várias opções que pode utilizar para configurar seu automatizada experimentação do machine learning. Estes parâmetros são definidos instantaneamente um objeto `AutoMLConfig`. Consulte a [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) para obter uma lista completa de parâmetros.
+Existem várias opções que pode utilizar para configurar seu automatizada experimentação do machine learning. Estes parâmetros são definidos instantaneamente um objeto `AutoMLConfig`. Consulte a [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) para obter uma lista completa de parâmetros.
 
 Alguns exemplos incluem:
 
-1.  Teste de classificação usando AUC ponderado como a métrica primária com minutos de tempo limite de experimento definido como 30 minutos e 2 dobras de validação cruzada.
+1.  Experiência de classificação utilizando AUC ponderada como a métrica primária com intervalos de tempo de experimentação definidos para 30 minutos e 2 dobras de validação cruzada.
 
     ```python
     automl_classifier=AutoMLConfig(
@@ -177,7 +177,7 @@ Os três diferentes valores de parâmetro sétero `task` (o terceiro tipo de tar
 O serivce de validação automatizado do ML exigirá que `experiment_timeout_minutes` seja fixado para um tempo mínimo de 15 minutos, a fim de ajudar a evitar falhas no tempo de tempo.
 
 ### <a name="primary-metric"></a>Métrica primária
-A métrica primária determina a métrica a ser usada durante o treinamento do modelo para otimização. As métricas disponíveis que você pode selecionar são determinadas pelo tipo de tarefa que você escolher e a tabela a seguir mostra métricas primárias válidas para cada tipo de tarefa.
+A métrica primária determina a métrica a ser usada durante o treino do modelo para otimização. As métricas disponíveis que pode selecionar são determinadas pelo tipo de tarefa que escolher, e a tabela seguinte mostra métricas primárias válidas para cada tipo de tarefa.
 
 |Classificação | Regressão | Previsão de séries temporais
 |-- |-- |--
@@ -208,8 +208,8 @@ Ao configurar as suas experiências, pode ativar a configuração avançada `fea
 A série de tempo `forecasting` tarefa requer parâmetros adicionais no objeto de configuração:
 
 1. `time_column_name`: Parâmetro necessário que define o nome da coluna nos seus dados de treino contendo uma série de tempo válida.
-1. `max_horizon`: Define o tempo que pretende prever com base na periodicidade dos dados de formação. Por exemplo, se você tiver dados de treinamento com refinamentos diários de tempo, defina a distância em dias que deseja que o modelo treine.
-1. `grain_column_names`: Define o nome das colunas que contêm dados individuais de séries temporais nos seus dados de formação. Por exemplo, se você estiver prevendo as vendas de uma determinada marca por loja, você definirá as colunas de armazenamento e marca como suas colunas de refinamento. As diversas séries temporais e as previsões serão criadas para cada granulação/agrupamento. 
+1. `max_horizon`: Define o tempo que pretende prever com base na periodicidade dos dados de formação. Por exemplo, se tiver dados de treino com grãos de horário diário, define até que ponto em dias quer que o modelo treine.
+1. `grain_column_names`: Define o nome das colunas que contêm dados individuais de séries temporais nos seus dados de formação. Por exemplo, se estiver a prever vendas de uma determinada marca por loja, definirá as colunas de loja e marca como colunas de cereais. Serão criadas séries e previsões separadas para cada grão/agrupamento. 
 
 Para exemplo das definições utilizadas abaixo, consulte o [caderno da amostra](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
@@ -244,7 +244,7 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 ### <a name="ensemble"></a>Configuração do conjunto
 
-Os modelos de Ensemble são habilitados por padrão e aparecem como as iterações de execução final em uma execução de Machine Learning automatizada. Atualmente, os métodos Ensemble com suporte são votação e empilhamento. A votação é implementada como voto suave usando médias ponderadas, e a implementação do empilhamento está usando uma implementação de duas camadas, onde a primeira camada tem os mesmos modelos que o conjunto de votação, e o modelo de segunda camada é usado para encontrar a combinação ideal de os modelos da primeira camada. Se estiver a utilizar modelos ONNX **ou** tiver uma explicabilidade de modelo, o empilhamento será desativado e apenas o voto será utilizado.
+Os modelos do Conjunto são ativados por padrão, e aparecem como as iterações de execução final numa corrida automatizada de aprendizagem automática. Atualmente, os métodos de conjunto suportados são o voto e o empilhamento. A votação é implementada como voto suave usando médias ponderadas, e a implementação do empilhamento está usando uma implementação de duas camadas, onde a primeira camada tem os mesmos modelos que o conjunto de votação, e o modelo de segunda camada é usado para encontrar a combinação ideal de os modelos da primeira camada. Se estiver a utilizar modelos ONNX **ou** tiver uma explicabilidade de modelo, o empilhamento será desativado e apenas o voto será utilizado.
 
 Existem múltiplos argumentos predefinidos que podem ser fornecidos como `kwargs` num objeto `AutoMLConfig` para alterar o comportamento padrão do conjunto de pilhas.
 
@@ -319,21 +319,21 @@ run = experiment.submit(automl_config, show_output=True)
 >As dependências são instaladas pela primeira vez numa máquina nova.  Pode demorar até 10 minutos antes de saída é mostrada.
 >A definição `show_output` para `True` resulta na exibição da saída na consola.
 
-### <a name="exit-criteria"></a>Critérios de saída
-Há algumas opções que você pode definir para encerrar seu experimento.
-1. Nenhum critério: se você não definir nenhum parâmetro de saída, o experimento continuará até que nenhum progresso adicional seja feito em sua métrica primária.
+### <a name="exit-criteria"></a>Critérios de Saída
+Existem algumas opções que pode definir para terminar a sua experiência.
+1. Sem critérios: Se não definir quaisquer parâmetros de saída, a experiência continuará até que não sejam feitos mais progressos na sua métrica primária.
 1. Saída após um período de tempo: Utilizar `experiment_timeout_minutes` nas suas definições permite definir quanto tempo em minutos deve uma experiência continuar em execução.
 1. Saída após uma pontuação alcançada: Usando `experiment_exit_score` completará a experiência depois de ter sido atingida uma pontuação métrica primária.
 
 ### <a name="explore-model-metrics"></a>Explorar métricas de modelo
 
-Você pode exibir os resultados de treinamento em um widget ou embutido se estiver em um bloco de anotações. Consulte [o Track e avalie os modelos](how-to-track-experiments.md#view-run-details) para obter mais detalhes.
+Pode ver os resultados do seu treino num widget ou inline se estiver num caderno. Consulte [o Track e avalie os modelos](how-to-track-experiments.md#view-run-details) para obter mais detalhes.
 
-## <a name="understand-automated-ml-models"></a>Entender os modelos de ML automatizados
+## <a name="understand-automated-ml-models"></a>Compreender modelos ML automatizados
 
-Qualquer modelo produzido usando o ML automatizado inclui as seguintes etapas:
+Qualquer modelo produzido com ML automatizado inclui os seguintes passos:
 + Engenharia automática de recursos (se `"featurization": 'auto'`)
-+ Dimensionamento/normalização e algoritmo com valores de hiperparâmetro
++ Escala/Normalização e algoritmo com valores hiperparâmetros
 
 Tornamos transparente obter esta informação a partir da fitted_model saída a partir de ML automatizado.
 
@@ -349,11 +349,11 @@ Consulte a lista de pré-processamento e [engenharia automática](concept-automa
 
 Considere este exemplo:
 + Existem quatro funcionalidades de entrada: A (Numérico), B (Numérico), C (Numérico), D (DataTime)
-+ O recurso numérico C é Descartado porque é uma coluna de ID com todos os valores exclusivos
-+ Os recursos numéricos A e B têm valores ausentes e, portanto, são imputadosdos pela média
-+ O recurso DateTime D é destacados em 11 recursos de engenharia diferentes
++ A característica numérica C é abandonada porque é uma coluna de ID com todos os valores únicos
++ Características numéricas A e B têm valores em falta e, portanto, são imputadas pela média
++ A funcionalidade DateTime D está incluída em 11 funcionalidades diferentes de engenharia
 
-Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Consulte [este caderno de amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+Utilize estas 2 APIs no primeiro passo do modelo equipado para entender mais.  Consulte [este caderno de amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
 + API 1: `get_engineered_feature_names()` devolve uma lista de nomes de funcionalidades projetados.
 
@@ -366,10 +366,10 @@ Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Co
   Output: ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
   ```
 
-  Essa lista inclui todos os nomes de recursos de engenharia.
+  Esta lista inclui todos os nomes de funcionalidades projetados.
 
   >[!Note]
-  >Use ' timeseriestransformer ' para a tarefa = ' previsão ', caso contrário use ' transtransformer ' para a tarefa ' regressão ' ou ' classificação '.
+  >Utilize o "timeseriestransformer" para a tarefa='forecasting', então utilize o "datatransformer" para a tarefa de "regressão" ou "classificação".
 
 + API 2: `get_featurization_summary()` retorna resumo de características para todas as funcionalidades de entrada.
 
@@ -379,7 +379,7 @@ Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Co
   ```
 
   >[!Note]
-  >Use ' timeseriestransformer ' para a tarefa = ' previsão ', caso contrário use ' transtransformer ' para a tarefa ' regressão ' ou ' classificação '.
+  >Utilize o "timeseriestransformer" para a tarefa='forecasting', então utilize o "datatransformer" para a tarefa de "regressão" ou "classificação".
 
   Saída:
   ```
@@ -409,25 +409,25 @@ Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Co
 
    |Saída|Definição|
    |----|--------|
-   |RawFeatureName|Nome de recurso/coluna de entrada do conjunto de dados fornecido.|
-   |TypeDetected|Tipo de dados detectado do recurso de entrada.|
-   |Passou|Indica se o recurso de entrada foi descartado ou usado.|
-   |EngineeringFeatureCount|Número de recursos gerados por meio de transformações automatizadas de engenharia de recursos.|
-   |Transformações|Lista de transformações aplicadas aos recursos de entrada para gerar recursos de engenharia.|
+   |RawFeatureName|Característica de entrada/nome da coluna a partir do conjunto de dados fornecido.|
+   |TipoDetectado|Detetado tipo de dados da função de entrada.|
+   |Caiu|Indica se a função de entrada foi largada ou utilizada.|
+   |EngineeringFeatureCount|Número de funcionalidades geradas através de transformações automatizadas de engenharia de recursos.|
+   |Transformações|Lista de transformações aplicadas às funcionalidades de entrada para gerar funcionalidades projetadas.|
    
-### <a name="customize-feature-engineering"></a>Personalizar a engenharia de recursos
+### <a name="customize-feature-engineering"></a>Personalizar engenharia de recursos
 Para personalizar a engenharia de funcionalidades, especifique `"featurization": FeaturizationConfig`.
 
-A personalização com suporte inclui:
+A personalização suportada inclui:
 
 |Personalização|Definição|
 |--|--|
-|Atualização de finalidade de coluna|Substituir o tipo de recurso para a coluna especificada.|
-|Atualização de parâmetro do transformador |Atualize os parâmetros para o transformador especificado. Atualmente, dá suporte a imputer (média & mediana, mais frequente) e HashOneHotEncoder.|
-|Remover colunas |As colunas a serem descartadas são destacados.|
-|Bloquear transformadores| Bloqueie os transformadores a serem usados no processo personalização.|
+|Atualização de propósito da coluna|Sobrepor o tipo de função para a coluna especificada.|
+|Atualização do parâmetro do transformador |Atualizar os parâmetros para o transformador especificado. Atualmente suporta imputer (médio, mais frequente e mediano) e HashOneHotEncoder.|
+|Colunas de gotete |Colunas a deixar de ser característica.|
+|Transformadores de blocos| Os transformadores de blocos a utilizar no processo de caracterização.|
 
-Crie o objeto FeaturizationConfig usando chamadas à API:
+Crie o objeto FeaturizationConfig utilizando chamadas API:
 ```python
 featurization_config = FeaturizationConfig()
 featurization_config.blocked_transformers = ['LabelEncoder']
@@ -441,7 +441,7 @@ featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "m
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
 ```
 
-### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Dimensionamento/normalização e algoritmo com valores de hiperparâmetro:
+### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Escala/Normalização e algoritmo com valores hiperparâmetros:
 
 Para compreender os valores de escala/normalização e algoritmo/hiperparâmetro para um gasoduto, utilize fitted_model.passos. [Saiba mais sobre escala/normalização](concept-automated-ml.md#preprocess). Eis uma saída de exemplo:
 
@@ -515,7 +515,7 @@ Se o modelo subjacente não suportar a função `predict_proba()` ou o formato e
 
 ## <a name="model-interpretability"></a>Capacidade de interpretação do modelo
 
-A interpretação de modelo permite que você entenda por que seus modelos fizeram previsões e os valores subjacentes de importância do recurso. O SDK inclui vários pacotes para habilitar recursos de interpretação de modelo, tanto no tempo de inferência quanto no treinamento, para modelos locais e implantados.
+A interpretação do modelo permite-lhe compreender porque é que os seus modelos fizeram previsões e os valores de importância da característica subjacente. O SDK inclui vários pacotes para permitir funcionalidades de interpretação de modelos, tanto no tempo de treino como de inferência, para modelos locais e implantados.
 
 Veja como obter amostras [de](how-to-machine-learning-interpretability-automl.md) código sobre como ativar funcionalidades de interpretação especificamente dentro de experiências automatizadas de aprendizagem automática de máquinas.
 

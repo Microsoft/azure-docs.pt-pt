@@ -2,24 +2,23 @@
 title: Emigra os seus alertas clássicos no Monitor Azure utilizando a ferramenta de migração voluntária
 description: Aprenda a usar a ferramenta de migração voluntária para migrar as suas regras clássicas de alerta.
 author: yanivlavi
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c4ebb2e9572f1dcc9ade548a55fc44d7441e5a79
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 537d84639523a74cbd9403d4ad25c34a798b7061
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705586"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665107"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Use a ferramenta de migração voluntária para migrar as suas regras clássicas de alerta
 
-Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão a ser retirados em setembro de 2019 (foi originalmente julho de 2019). Uma ferramenta de migração está disponível no portal do Azure aos clientes que usam regras de alerta clássicas e que desejam disparar a migração por conta própria. Este artigo explica como usar a ferramenta de migração para migrar voluntariamente as suas regras clássicas de alerta antes do início da migração automática em setembro de 2019.
+Como [já foi anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão a ser retirados em setembro de 2019 (foi originalmente julho de 2019). Uma ferramenta de migração está disponível no portal Azure para clientes que usam regras clássicas de alerta e que querem desencadear a migração por si mesmas. Este artigo explica como usar a ferramenta de migração para migrar voluntariamente as suas regras clássicas de alerta antes do início da migração automática em setembro de 2019.
 
 > [!NOTE]
-> Devido ao atraso na distribuição da ferramenta de migração, a data de desativação da migração de alertas clássicos foi [prorrogada para 31 de agosto de 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) da data de lançamento original de 30 de junho de 2019.
+> Devido ao atraso no lançamento da ferramenta de migração, a data de reforma para alertas clássicos migração foi alargada para 31 de agosto de [2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) a partir da data inicialmente anunciada de 30 de junho de 2019.
 
 ## <a name="benefits-of-new-alerts"></a>Benefícios de novos alertas
 
@@ -85,7 +84,7 @@ A ferramenta de migração está a ser lançada para os clientes por fases. Nas 
 
 Quando uma subscrição estiver pronta para a migração, o proprietário da subscrição receberá uma mensagem de e-mail indicando que a ferramenta está disponível. Fique de olho nesta mensagem.
 
-### <a name="who-can-trigger-the-migration"></a>Quem pode disparar a migração?
+### <a name="who-can-trigger-the-migration"></a>Quem pode desencadear a migração?
 
 Os utilizadores que tenham a função de Colaborador Monitorado atribuída a eles ao nível da subscrição são capazes de desencadear a migração. [Saiba mais sobre o Controlo de Acesso baseado em Papéis para o processo de migração.](alerts-understand-migration.md#who-can-trigger-the-migration)
 

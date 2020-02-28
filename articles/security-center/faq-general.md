@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: b13e5e0000cdd8e33f459400cc4c24d107ccaba3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604790"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661844"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Perguntas gerais sobre o Centro de Segurança Azure
 
@@ -38,16 +38,17 @@ Centro de segurança do Azure monitoriza os seguintes recursos do Azure:
 * Máquinas virtuais (VMs) (incluindo serviços em [nuvem)](../cloud-services/cloud-services-choose-me.md)
 * Conjuntos de dimensionamento de máquinas virtuais
 * Redes Virtuais do Azure
+* Contentores
 * Serviço SQL do Azure
 * Conta de armazenamento do Azure
 * Aplicativos Web Azure (em Ambiente de Serviço de [Aplicações)](../app-service/environment/intro.md)
 * Soluções de parceiro integradas com a sua subscrição do Azure, como uma firewall de aplicações web em VMs e no ambiente de serviço de aplicações
 
-Além disso, os computadores não Azure (incluindo no local) também podem ser monitorizados pelo Azure Security Center (tanto [os computadores Windows](./quick-onboard-windows-computer.md) como os [computadores Linux](./quick-onboard-linux-computer.md) são suportados)
+Além disso, as máquinas não Azure (incluindo no local) também podem ser monitorizadas pelo Azure Security Center. Ambas as [máquinas Windows](./quick-onboard-windows-computer.md) e [Linux](./quick-onboard-linux-computer.md) são suportadas.
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Como posso ver o estado de segurança atual dos meus recursos do Azure?
-A página **de visão geral** do Centro de Segurança mostra a postura de segurança geral do seu ambiente desfeito por Compute, Networking, Storage & datas e Aplicações. Cada tipo de recurso tem uma apresentação do indicador se quaisquer potenciais vulnerabilidades de segurança que tenham sido identificadas. Clicar em cada mosaico apresenta uma lista de problemas de segurança identificadas pelo centro de segurança, juntamente com um inventário dos recursos na sua subscrição.
+A página **de visão geral** do Centro de Segurança mostra a postura de segurança geral do seu ambiente desfeito por Compute, Networking, Storage & datas e Aplicações. Cada tipo de recurso tem um indicador que mostra vulnerabilidades de segurança identificadas. Clicar em cada mosaico apresenta uma lista de problemas de segurança identificadas pelo centro de segurança, juntamente com um inventário dos recursos na sua subscrição.
 
 
 

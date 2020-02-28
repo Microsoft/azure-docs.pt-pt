@@ -1,31 +1,30 @@
 ---
 title: Script automatizado para criar aplicação Web do Gestor de Serviços para se conectar com o Conector de Gestão de Serviços de TI em Azure  Microsoft Docs
 description: Crie uma aplicação Web do Gestor de Serviços utilizando um script automatizado para se conectar com o Conector de Gestão de Serviços de TI em Azure e monitorizar centralmente e gerir os itens de trabalho ITSM.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: a97ea4d505d17d1d5fb2f2035fb23f3fce94aebe
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f224e58905e2989caf16259e383726595c0206d5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990951"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672196"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web do Gestor de Serviços utilizando o script automatizado
 
 Utilize o seguinte script para criar a aplicação Web para a sua instância de Gestor de Serviços. Mais informações sobre a ligação do Gestor de Serviços estão aqui: [Aplicação Web do Gestor de Serviços](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
-Execute o script fornecendo os seguintes detalhes necessários:
+Executar o script fornecendo os seguintes detalhes necessários:
 
-- Detalhes da assinatura do Azure
+- Detalhes da subscrição do Azure
 - Nome do grupo de recursos
 - Localização
 - Detalhes do servidor do Gestor de Serviços (nome do servidor, domínio, nome de utilizador e palavra-passe)
-- Prefixo do nome do site para seu aplicativo Web
-- Namespace do ServiceBus.
+- Prefixo de nome do site para a sua aplicação Web
+- ServiceBus Namespace.
 
 O script criará a aplicação Web utilizando o nome que especificou (juntamente com algumas cordas adicionais para torná-la única). Gera o URL da **aplicação Web,** **o ID**do cliente e o segredo **do cliente.**
 

@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 2ae84b59cd70a5b27ad3e501db6cfae110d90fbd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b0d9437b10bc54aac481eb630f12a2b99d2360a1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209788"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672468"
 ---
 # <a name="building-an-accessible-application"></a>Construção de uma aplicação acessível
 
@@ -32,9 +32,11 @@ O Azure Maps Web SDK vem pré-construído com muitas funcionalidades de acessibi
 Detalhes completos de conformidade de acessibilidade para todos os produtos da Microsoft podem ser encontrados [aqui](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Procure "Azure Maps web" para encontrar o documento especificamente para o Azure Maps Web SDK. 
 
 ## <a name="navigating-the-map"></a>Navegar no mapa
+
 Existem várias maneiras diferentes em que o mapa pode ser zoomed, panned, rodado e arremessado. Os seguintes detalhes são todas as diferentes formas de navegar no mapa.
 
 **Zoom o mapa**
+
 - Utilizando um rato, clique duas vezes no mapa para ampliar num só nível.
 - Usando um rato, percorra a roda para ampliar o mapa.
 - Utilizando um ecrã tátil, toque no mapa com dois dedos e belisque-o para ampliar ou espalhar os dedos para ampliar.
@@ -45,23 +47,46 @@ Existem várias maneiras diferentes em que o mapa pode ser zoomed, panned, rodad
 - Pressione e segure o botão `Shift` e pressione o botão do rato esquerdo para baixo no mapa e arraste para desenhar uma área para ampliar o mapa.
 
 **Pan o mapa**
+
 - Utilizando um rato, pressione para baixo com o botão do rato esquerdo no mapa e arraste em qualquer direção.
 - Utilizando um ecrã tátil, toque no mapa e arraste em qualquer direção.
 - Com o mapa focado, use as teclas de seta para mover o mapa.
 
 **Rode o mapa**
+
 - Utilizando um rato, pressione para baixo com o botão do rato direito no mapa e arraste para a esquerda ou para a direita. 
 - Utilizando um ecrã tátil, toque no mapa com dois dedos e rode.
 - Com o mapa focado, utilize a chave de mudança e as teclas de seta esquerda ou direita.
 - Utilizando o controlo de rotação com um separador de rato, toque ou teclado/introduza teclas.
 
 **Lançar o mapa**
+
 - Utilizando o rato, pressione para baixo com o botão do rato certo no mapa e arraste para cima ou para baixo. 
 - Utilizando um ecrã tátil, toque no mapa com dois dedos e arraste-os juntos para cima ou para baixo.
 - Com o mapa focado, utilize a tecla de mudança mais as teclas de seta para cima ou para baixo. 
 - Utilizando o controlo de arremesso com um rato, toque ou teclado/teclas de entrada.
 
-**Mude o estilo do mapa** Nem todos os desenvolvedores querem que todos os estilos de mapas possíveis estejam disponíveis na sua aplicação. O desenvolvedor pode definir programáticamente e alterar o estilo do mapa. Se o desenvolvedor apresentar o controlo do apanhador de estilo do mapa, o utilizador poderá alterar o estilo do mapa utilizando o rato, um toque ou o teclado com o separador ou a tecla de entrada. O desenvolvedor pode especificar quais os estilos de mapa que querem disponibilizar no controlo do picker de estilo do mapa. 
+## <a name="change-the-map-style"></a>Alterar o estilo do mapa
+
+Nem todos os desenvolvedores querem que todos os estilos de mapas possíveis estejam disponíveis na sua aplicação. Se o desenvolvedor apresentar o controlo do apanhador de estilo do mapa, o utilizador poderá alterar o estilo do mapa utilizando o rato, um toque ou o teclado com o separador ou a tecla de entrada. O desenvolvedor pode especificar quais os estilos de mapa que querem disponibilizar no controlo do picker de estilo do mapa. Além disso, o desenvolvedor pode definir programáticamente e alterar o estilo do mapa.
+
+**Use alto contraste**
+
+- Quando o controlo do mapa é carregado, verifica se o alto contraste está ativado e o navegador suporta-o.
+- O controlo do mapa não monitoriza o modo de contraste elevado do dispositivo. Se o modo de dispositivo mudar, o mapa não. Assim, o utilizador terá de recarregar o mapa refrescando a página.
+- Quando for detetado um contraste elevado, o estilo do mapa mudará automaticamente para um contraste elevado, e todos os controlos incorporados usarão um estilo de alto contraste. Por exemplo, zoomControl, PitchControl, CompassControl, StyleControl e outros controlos incorporados, usarão um estilo de alto contraste.
+- Há dois tipos de alto contraste, luz e escuro. Se o tipo de alto contraste pode ser detetado pelos controlos do mapa, então o comportamento do mapa irá ajustar-se em conformidade. Se for leve, o grayscale_light estilo mapa será carregado. Se o tipo não puder ser detetado ou estiver escuro, o estilo high_contrast_dark será carregado.
+- Se criar controlos personalizados, é útil saber se os controlos incorporados estão usando um estilo de alto contraste. Os desenvolvedores podem adicionar uma classe css no div de contentores do mapa para verificar. As aulas css que seriam adicionadas são `high-contrast-dark` e `high-contrast-light`. Para verificar a utilização do JavaScript, utilize:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-dark")
+```
+
+ou, use:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-light")
+```
 
 ## <a name="keyboard-shortcuts"></a>Atalhos de teclado
 

@@ -3,22 +3,21 @@ title: Instalar e configurar extensão de diagnóstico do Windows Azure (WAD)
 description: Saiba como recolher dados de diagnóstico do Azure numa conta de Armazenamento Azure para que possa vê-lo com uma das várias ferramentas disponíveis.
 services: azure-monitor
 author: bwren
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 5b3cc4cbaa663b7932609e85c544378a7cca69ef
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 929ab4109eb8d0e90b6c561a2135c0b7dd4205bb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472690"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672264"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar extensão de diagnóstico do Windows Azure (WAD)
 A extensão de diagnóstico do Azure é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho de máquinas virtuais Azure e outros recursos computacionais. Este artigo fornece detalhes sobre a instalação e configuração da extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados na conta de Armazenamento Azure.
 
-A extensão de diagnóstico é implementada como uma [extensão virtual](/virtual-machines/extensions/overview) da máquina em Azure, por isso suporta as mesmas opções de instalação usando modelos de Gestor de Recursos, PowerShell e CLI. Consulte [extensões e funcionalidades da máquina Virtual para](/virtual-machines/extensions/features-windows) obter detalhes sobre a instalação e manutenção de extensões de máquinas virtuais.
+A extensão de diagnóstico é implementada como uma [extensão virtual](../../virtual-machines/extensions/overview.md) da máquina em Azure, por isso suporta as mesmas opções de instalação usando modelos de Gestor de Recursos, PowerShell e CLI. Consulte [extensões e funcionalidades da máquina Virtual para](../../virtual-machines/extensions/features-windows.md) obter detalhes sobre a instalação e manutenção de extensões de máquinas virtuais.
 
 ## <a name="install-with-azure-portal"></a>Instalar com portal Azure
 Pode instalar e configurar a extensão de diagnóstico numa máquina virtual individual no portal Azure, que lhe fornece uma interface em oposição a trabalhar diretamente com a configuração. Quando ativa a extensão de diagnóstico, utilizará automaticamente uma configuração predefinida com os contadores e eventos de desempenho mais comuns. Pode modificar esta configuração predefinida de acordo com os seus requisitos específicos.

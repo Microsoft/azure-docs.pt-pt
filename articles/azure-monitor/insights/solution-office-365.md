@@ -1,18 +1,17 @@
 ---
 title: Solução de gestão do Office 365 em Azure Microsoft Docs
 description: Este artigo fornece detalhes sobre a configuração e utilização da solução Office 365 em Azure.  Inclui descrição detalhada dos registos do Office 365 criados no Monitor Azure.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: 96d0124941f9f2daa1e1b2d1d254b0b767ffb395
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 0018ae55ab74e691577a34a397c15355587e0fac
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111561"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663268"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 em Azure (Pré-visualização)
 
@@ -30,7 +29,7 @@ ms.locfileid: "77111561"
 > A recolha de registo sacana azure está sujeita aos preços do Monitor Azure.  Consulte [os preços do Monitor Azure](https://azure.microsoft.com/pricing/details/monitor/) para obter mais informações.
 >
 > Para utilizar a solução Azure Sentinel Office 365:
-> 1. Usar o conector do Office 365 no Azure Sentinel afeta o preço do seu espaço de trabalho. Para mais informações, consulte [os preços do Azure Sentinel.](https://azure.microsoft.com/pricing/details/azure-sentinel/)
+> 1. A utilização do conector Office 365 em Azure Sentinel afeta os preços do seu espaço de trabalho. Para mais informações, consulte [os preços do Azure Sentinel.](https://azure.microsoft.com/pricing/details/azure-sentinel/)
 > 2. Se já estiver a utilizar a solução Azure Monitor Office 365, tem primeiro de desinstalá-la utilizando a script na [secção Desinstalação abaixo](#uninstall).
 > 3. [Ative a solução Azure Sentinel](../../sentinel/quickstart-onboard.md) no seu espaço de trabalho.
 > 4. Vá à página dos **conectores de Dados** no Azure Sentinel e ative o conector **Office 365.**
@@ -274,7 +273,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 | ResultStatus | Indica se a ação (especificada na propriedade operação) foi ou não bem sucedida. Os valores possíveis são bem sucedidos, parcialmente bem sucedidos ou falhados. Para a atividade de administrador a Exchange, o valor é verdadeiro ou falso. |
 | UserId | A UPN (Nome Principal do Utilizador) do utilizador que realizou a ação que resultou no registo foi registada; por exemplo, my_name@my_domain_name. Note que também estão incluídos registos de atividade realizadas por contas do sistema (como o sistema SHAREPOINT\ou NTAUTHORITY\SYSTEM). | 
 | UserKey | Um ID alternativo para o utilizador identificado na propriedade UserId.  Por exemplo, esta propriedade é povoada com o id exclusivo do passaporte (PUID) para eventos realizados pelos utilizadores em SharePoint, OneDrive for Business e Exchange. Esta propriedade também pode especificar o mesmo valor que a propriedade UserID para eventos ocorridos em outros serviços e eventos realizados por contas do sistema|
-| Tipo de utilizador | O tipo de utilizador que realizou a operação.<br><br>administrador<br>Aplicação<br>DcAdmin<br>Regular<br>Reservado<br>ServiçoPrincipal<br>Sistema |
+| Tipo de utilizador | O tipo de utilizador que realizou a operação.<br><br>Admin<br>Aplicação<br>DcAdmin<br>Regular<br>Reservado<br>ServiçoPrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base de Diretório Ativo Azure

@@ -7,21 +7,22 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f5ff4ca94f9e9c6bd03cde6b948331e42cc6225a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77618207"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659990"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Ligação de saída necessária
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto rico de funcionalidades e alta disponibilidade através de redundância de zona. Para saber mais sobre o Load Balancer SKU, consulte a [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Uma vez que a Standard Internal Load Balancer não fornece uma ligação de saída, fornecemos uma solução para criar um Balancer de Carga Pública Padrão.
 
-Há três fases numa atualização:
+Há quatro estágios numa atualização:
 
 1. Migrar a configuração para O Equilíbrio de Carga Pública Padrão
 2. Adicione VMs para apoiar piscinas de Equilibradores de Carga Pública Padrão
-3. Estabelecer regras de NSG para Subnet/VMs que devem ser abster-se de/para a Internet
+3. Criar uma regra de saída sobre o Balancer de Carga para ligação de saída
+4. Estabelecer regras de NSG para Subnet/VMs que devem ser abster-se de/para a Internet
 
 Este artigo abrange a migração de configuração. Adicionar VMs a piscinas de backend pode variar dependendo do seu ambiente específico. No entanto, [são fornecidas](#add-vms-to-backend-pools-of-standard-load-balancer)algumas recomendações gerais de alto nível.
 
@@ -83,7 +84,7 @@ Para executar o script:
     **Exemplo**
 
    ```azurepowershell
-   ./AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Adicione VMs para apoiar piscinas de Balancer de Carga Padrão
@@ -109,6 +110,12 @@ Aqui estão alguns cenários de como você adiciona VMs para backend piscinas do
 
 * **Criar novos VMs para adicionar às piscinas de backend do recém-criado Standard Public Load Balancer**.
     * Mais instruções sobre como criar VM e associá-lo ao Standard Load Balancer pode ser encontrado [aqui](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+
+### <a name="create-an-outbound-rule-for-outbound-connection"></a>Criar uma regra de saída para a ligação de saída
+
+Siga as [instruções](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) para criar uma regra de saída para que possa
+* Defina o NAT de saída do zero.
+* Escala e afina o comportamento do NAT de saída existente.
 
 ### <a name="create-nsg-rules-for-vms-which-to-refrain-communication-from-or-to-the-internet"></a>Criar regras de NSG para VMs que abstenham a comunicação de ou para a Internet
 Se quiser abster-se de o tráfego de Internet de chegar aos seus VMs, pode criar uma [regra NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) na Interface de Rede dos VMs.

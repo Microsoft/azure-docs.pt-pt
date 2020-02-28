@@ -1,18 +1,17 @@
 ---
 title: Utilize o armazenamento de blob para IIS e armazenamento de mesa para eventos no Monitor Azure [ Monitor] Microsoft Docs
 description: O Azure Monitor pode ler os registos dos serviços Azure que escrevem diagnósticos para armazenamento de mesa ou registos IIS escritos para armazenamento de bolhas.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 7edf778dc2429cc1054d1550a513d7461f8e7928
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472560"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672400"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Recolher dados da extensão de diagnóstico do Azure aos Registos do Monitor do Azure
 A extensão de diagnóstico do Azure é um [agente no Azure Monitor](agents-overview.md) que recolhe dados de monitorização do sistema operativo convidado de recursos computacionais do Azure, incluindo máquinas virtuais. Este artigo descreve como recolher os dados recolhidos pela extensão de diagnóstico do Armazenamento Azure para os Registos do Monitor Azure.
@@ -23,15 +22,15 @@ A extensão de diagnóstico do Azure é um [agente no Azure Monitor](agents-over
 ## <a name="supported-data-types"></a>Tipos de dados suportados
 A extensão de diagnóstico azure armazena dados numa conta de Armazenamento Azure. Para que o Azure Monitor Logs recolha estes dados, devem estar nos seguintes locais:
 
-| Tipo de registo | Tipo de Recurso | Localização |
+| Tipo de Registo | Tipo de Recurso | Localização |
 | --- | --- | --- |
-| Registos do IIS |Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WAD-iis-logfiles (armazenamento de BLOBs) |
-| Syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (armazenamento de tabelas) |
+| Registos do IIS |Virtual Machines <br> Funções da Web <br> Funções de trabalho |WAD-iis-logfiles (armazenamento de BLOBs) |
+| Syslog |Virtual Machines |LinuxsyslogVer2v0 (armazenamento de tabelas) |
 | Eventos operacionais do Service Fabric |Nós do Service Fabric |WADServiceFabricSystemEventTable |
 | Eventos de Reliable Actor do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableActorEventTable |
 | Eventos de Reliable Services do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableServiceEventTable |
-| Registos de Eventos do Windows |Nós do Service Fabric <br> Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WADWindowsEventLogsTable (armazenamento de tabelas) |
-| Registos ETW do Windows |Nós do Service Fabric <br> Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WADETWEventTable (armazenamento de tabelas) |
+| Registos de Eventos do Windows |Nós do Service Fabric <br> Virtual Machines <br> Funções da Web <br> Funções de trabalho |WADWindowsEventLogsTable (armazenamento de tabelas) |
+| Registos ETW do Windows |Nós do Service Fabric <br> Virtual Machines <br> Funções da Web <br> Funções de trabalho |WADETWEventTable (armazenamento de tabelas) |
 
 ## <a name="data-types-not-supported"></a>Tipos de dados não suportados
 

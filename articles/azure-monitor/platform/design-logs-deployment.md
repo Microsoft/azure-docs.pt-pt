@@ -1,18 +1,17 @@
 ---
 title: Conceber a sua implementação de Registos de Monitores Azure  Microsoft Docs
 description: Este artigo descreve as considerações e recomendações para os clientes que se preparam para implantar um espaço de trabalho no Monitor Azure.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: f2d530792e1a6f598dbf2ed66889c01cc43467ed
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: e493b07814821496f941a4b81402ba0b49acbede
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162247"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670462"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conceber a sua implementação de Registos de Monitores Azure
 

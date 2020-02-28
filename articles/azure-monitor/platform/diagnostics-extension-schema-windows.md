@@ -1,18 +1,17 @@
 ---
 title: Esquema de extensão de diagnóstico do Windows
 description: Referência de esquema de configuração para extensão de diagnóstico do Windows (WAD) no Monitor Azure.
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 5b4d68ab5be2566310ddcc2eaf591d9908d35ad1
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 3adf4b59c0605859ada75577c083094541815984
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472586"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672366"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 A extensão Azure Diagnostics é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho dos recursos da computação Azure. Este artigo detalha o esquema utilizado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos computacionais.

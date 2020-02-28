@@ -1,80 +1,76 @@
 ---
-title: Detecção inteligente-anomalias de falha, em Application Insights | Microsoft Docs
-description: Alerta você sobre alterações incomuns na taxa de solicitações com falha para seu aplicativo Web e fornece análise de diagnóstico. Nenhuma configuração é necessária.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Deteção Inteligente - anomalias de falha, em Insights de Aplicação / Microsoft Docs
+description: Alerta-o para alterações invulgares na taxa de pedidos falhados na sua aplicação web e fornece análise sinuosa. Não é necessária nenhuma configuração.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: c556f726cd63971abe1e9b6d8b87117bb3e378db
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912843"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671754"
 ---
-# <a name="smart-detection---failure-anomalies"></a>Detecção inteligente-anomalias de falha
-[Application insights](../../azure-monitor/app/app-insights-overview.md) o alertará automaticamente quase em tempo real se seu aplicativo Web sofrer um aumento anormal na taxa de solicitações com falha. Ele detecta um aumento incomum na taxa de solicitações HTTP ou chamadas de dependência que são relatadas como com falha. Para solicitações, as solicitações com falha geralmente têm códigos de resposta de 400 ou superior. Para ajudá-lo a fazer a triagem e diagnosticar o problema, uma análise das características das falhas e dos dados do aplicativo relacionado é fornecida nos detalhes do alerta. Também há links para o portal de Application Insights para diagnóstico mais detalhado. O recurso não precisa de instalação nem configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
+# <a name="smart-detection---failure-anomalies"></a>Deteção Inteligente - Anomalias de Falha
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) alerta-o automaticamente em tempo real se a sua aplicação da Web experimentar um aumento anormal na taxa de pedidos falhados. Deteta um aumento invulgar na taxa de pedidos de HTTP ou chamadas de dependência que são reportadas como falhadas. Para pedidos, os pedidos falhados geralmente têm códigos de resposta de 400 ou mais. Para ajudá-lo a triagem e diagnosticar o problema, uma análise das características das falhas e dados de aplicação relacionados é fornecida nos detalhes de alerta. Há também ligações com o portal Application Insights para mais diagnóstico. A funcionalidade não necessita de configuração nem configuração, uma vez que utiliza algoritmos de aprendizagem automática para prever a taxa normal de falha.
 
-Esse recurso funciona para qualquer aplicativo Web, hospedado na nuvem ou em seus próprios servidores, que geram dados de dependência ou de solicitação de aplicativo. Por exemplo, se você tiver uma função de trabalho que chama [TrackRequest ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [TrackDependency ()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Esta funcionalidade funciona para qualquer aplicação web, alojada na nuvem ou nos seus próprios servidores, que geram pedidos de aplicação ou dados de dependência. Por exemplo, se tiver uma função de trabalhador que chame [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
-Depois de configurar [Application insights para o seu projeto](../../azure-monitor/app/app-insights-overview.md)e, se seu aplicativo gerar uma determinada quantidade mínima de dados, a detecção inteligente de anomalias de falha levará 24 horas para aprender o comportamento normal do seu aplicativo, antes que ele seja ativado e possa enviar alertas.
+Depois de configurar os Insights de [Aplicação para o seu projeto](../../azure-monitor/app/app-insights-overview.md), e se a sua aplicação gerar uma certa quantidade mínima de dados, a Deteção Inteligente de anomalias de falhas leva 24 horas para aprender o comportamento normal da sua aplicação, antes de ser ligada e poder enviar alertas.
 
-Aqui está um alerta de exemplo:
+Aqui está um alerta de amostra:
 
 [![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
 
-Os detalhes do alerta lhe dirão:
+Os detalhes do alerta dirão:
 
-* A taxa de falha em comparação com o comportamento normal do aplicativo.
-* Quantos usuários são afetados, portanto, você sabe quanto deve se preocupar.
-* Um padrão característico associado às falhas. Neste exemplo, há um código de resposta específico, o nome da solicitação (operação) e a versão do aplicativo. Isso informa imediatamente onde começar a procurar em seu código. Outras possibilidades podem ser um sistema operacional específico de navegador ou cliente.
-* A exceção, os rastreamentos de log e a falha de dependência (bancos de dados ou outros componentes externos) que parecem estar associados às falhas caracterizadas.
-* Links diretamente para pesquisas relevantes sobre os dados em Application Insights.
+* A taxa de avaria em comparação com o comportamento normal da aplicação.
+* Quantos utilizadores são afetados - por isso sabe o quanto se deve preocupar.
+* Um padrão característico associado às falhas. Neste exemplo, há um código de resposta particular, nome de pedido (operação) e versão de aplicação. Isso diz-te imediatamente onde começar a procurar o teu código. Outras possibilidades podem ser um navegador específico ou sistema operativo de cliente.
+* A exceção, os rastreios de registo e a falha de dependência (bases de dados ou outros componentes externos) que parecem estar associados às falhas caracterizadas.
+* Links diretamente para pesquisas relevantes sobre os dados em Insights de Aplicação.
 
-## <a name="benefits-of-smart-detection"></a>Benefícios da detecção inteligente
-Os [alertas de métrica](../../azure-monitor/app/alerts.md) comuns informam que pode haver um problema. Mas a detecção inteligente inicia o trabalho de diagnóstico para você, realizando muito a análise que, de outra forma, você teria de fazer por conta própria. Você Obtém os resultados empacotados de forma organizada, ajudando-o a obter rapidamente a raiz do problema.
+## <a name="benefits-of-smart-detection"></a>Benefícios da Deteção Inteligente
+Os [alertas métricos comuns](../../azure-monitor/app/alerts.md) dizem-lhe que pode haver um problema. Mas a Deteção Inteligente inicia o trabalho de diagnóstico para si, realizando muito a análise que teria de fazer a si mesma. Obtém-se os resultados cuidadosamente embalados, ajudando-o a chegar rapidamente à raiz do problema.
 
 ## <a name="how-it-works"></a>Como funciona
-A detecção inteligente monitora os dados recebidos do seu aplicativo e, em particular, as tarifas de falha. Essa regra conta o número de solicitações para as quais a propriedade `Successful request` é falsa e o número de chamadas de dependência para as quais a propriedade `Successful call` é falsa. Para solicitações, por padrão, `Successful request == (resultCode < 400)` (a menos que você tenha escrito código personalizado para [Filtrar](../../azure-monitor/app/api-filtering-sampling.md#filtering) ou gerar suas próprias chamadas [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ). 
+A Smart Detection monitoriza os dados recebidos da sua aplicação e, em particular, as taxas de falha. Esta regra conta o número de pedidos para os quais a propriedade `Successful request` é falsa, e o número de pedidos de dependência para os quais a propriedade `Successful call` é falsa. Para pedidos, por padrão, `Successful request == (resultCode < 400)` (a menos que tenha escrito código personalizado para [filtrar](../../azure-monitor/app/api-filtering-sampling.md#filtering) ou gerar as suas próprias chamadas [TrackRequest).](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 
 
-O desempenho do aplicativo tem um padrão típico de comportamento. Algumas solicitações ou chamadas de dependência serão mais propensas a falhas do que outras; e a taxa geral de falha pode aumentar à medida que a carga aumenta. A detecção inteligente usa o aprendizado de máquina para encontrar essas anomalias.
+O desempenho da sua aplicação tem um padrão típico de comportamento. Alguns pedidos ou chamadas de dependência serão mais propensos ao fracasso do que outros; e a taxa de insucesso global pode subir à medida que a carga aumenta. A Smart Detection usa machine learning para encontrar estas anomalias.
 
-Como os dados entram em Application Insights de seu aplicativo Web, a detecção inteligente compara o comportamento atual com os padrões vistos nos últimos dias. Se uma elevação anormal na taxa de falha for observada por comparação com o desempenho anterior, uma análise será disparada.
+À medida que os dados chegam aos Insights de Aplicação da sua aplicação web, o Smart Detection compara o comportamento atual com os padrões vistos ao longo dos últimos dias. Se um aumento anormal da taxa de insucesso for observado em comparação com o desempenho anterior, é desencadeada uma análise.
 
-Quando uma análise é disparada, o serviço executa uma análise de cluster na solicitação com falha, para tentar identificar um padrão de valores que caracterizam as falhas. 
+Quando uma análise é desencadeada, o serviço realiza uma análise de cluster sobre o pedido falhado, para tentar identificar um padrão de valores que caracterizam as falhas. 
 
-No exemplo acima, a análise descobriu que a maioria das falhas são sobre um código de resultado específico, o nome da solicitação, o host de URL do servidor e a instância de função. 
+No exemplo acima, a análise descobriu que a maioria das falhas são sobre um código de resultado específico, nome de pedido, anfitrião de URL do Servidor e exemplo de funções. 
 
-Quando seu serviço é instrumentado com essas chamadas, o analisador procura uma exceção e uma falha de dependência associadas a solicitações no cluster que ele identificou, junto com um exemplo de todos os logs de rastreamento associados a essas solicitações.
+Quando o seu serviço é instrumentado com estas chamadas, o analisador procura uma exceção e uma falha de dependência que esteja associada a pedidos no cluster que identificou, juntamente com um exemplo de quaisquer registos de vestígios associados a esses pedidos.
 
-A análise resultante é enviada para você como alerta, a menos que você o tenha configurado para não.
+A análise resultante é enviada para si como alerta, a menos que tenha configurado não o fazer.
 
-Como os [alertas definidos manualmente](../../azure-monitor/app/alerts.md), você pode inspecionar o estado do alerta acionado, que pode ser resolvido se o problema for corrigido. Configure as regras de alerta na página alertas do recurso de Application Insights. Mas, ao contrário de outros alertas, você não precisa configurar nem configurar a detecção inteligente. Se desejar, você pode desabilitá-lo ou alterar seus endereços de email de destino.
+Tal como os [alertas que define manualmente,](../../azure-monitor/app/alerts.md)pode inspecionar o estado do alerta de disparo, que pode ser resolvido se o problema for corrigido. Configure as regras de alerta na página de Alertas do seu recurso Application Insights. Mas, ao contrário de outros alertas, não é necessário configurar ou configurar a Deteção Inteligente. Se quiser, pode desativá-lo ou alterar os seus endereços de e-mail-alvo.
 
 ### <a name="alert-logic-details"></a>Detalhes da lógica de alerta
 
-Os alertas são disparados por nosso algoritmo de aprendizado de máquina proprietário para que não seja possível compartilhar os detalhes de implementação exatos. Dito isso, entendemos que às vezes você precisa saber mais sobre como a lógica subjacente funciona. Os principais fatores que são avaliados para determinar se um alerta deve ser disparado são: 
+Os alertas são desencadeados pelo nosso algoritmo de aprendizagem automática proprietário, por isso não podemos partilhar os detalhes exatos da implementação. Dito isto, entendemos que às vezes é preciso saber mais sobre como funciona a lógica subjacente. Os principais fatores avaliados para determinar se um alerta deve ser desencadeado são: 
 
-* Análise da porcentagem de falhas de solicitações/dependências em uma janela de tempo de interrupção de 20 minutos.
-* Uma comparação do percentual de falha dos últimos 20 minutos até a taxa nos últimos 40 minutos e nos últimos sete dias e procurando desvios significativos que excedem X vezes esse desvio padrão.
-* Usando um limite adaptável para a porcentagem mínima de falhas, que varia com base no volume do aplicativo de solicitações/dependências.
-* Há uma lógica que pode resolver automaticamente a condição do monitor de alerta acionada, se o problema não for mais detectado por 8-24 horas.
+* Análise da percentagem de insucesso de pedidos/dependências numa janela de tempo de rolamento de 20 minutos.
+* Uma comparação da percentagem de insucesso dos últimos 20 minutos com a taxa nos últimos 40 minutos e nos últimos sete dias, e à procura de desvios significativos que excedam o desvio padrão.
+* Utilizando um limite adaptativo para a percentagem mínima de insucesso, que varia em função do volume de pedidos/dependências da aplicação.
+* Existe uma lógica que pode resolver automaticamente a condição do monitor de alerta disparado, se o problema já não for detetado durante 8-24 horas.
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
-Você pode desabilitar a regra de alerta de detecção inteligente no portal ou usando Azure Resource Manager ([consulte o exemplo de modelo](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
+Pode desativar a regra de alerta de deteção inteligente a partir do portal ou utilizando o Gestor de Recursos Azure[(ver exemplo](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)de modelo).
 
-Essa regra de alerta é criada com um [grupo de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) associado chamado "detecção inteligente Application insights" que contém ações de email e webhook e pode ser estendida para disparar ações adicionais quando o alerta é disparado.
+Esta regra de alerta é criada com um Grupo de [Ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) associado chamado "Application Insights Smart Detection" que contém ações de e-mail e webhook, e pode ser estendida para desencadear ações adicionais quando o alerta dispara.
 
 > [!NOTE]
-> As notificações por email enviadas por essa regra de alerta agora são enviadas por padrão para os usuários associados às funções de colaborador de monitoramento e monitoração da assinatura. Mais informações sobre isso estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
+> As notificações por e-mail enviadas desta regra de alerta são agora enviadas por padrão aos utilizadores associados às funções de Monitoring Reader e Monitoring Contributor da subscrição. Mais informações sobre este tema [aqui.](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification)
 > As notificações enviadas desta regra de alerta seguem o [esquema de alerta comum](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
 >
 
-Abra a página alertas. As regras de alerta de anomalias são incluídas junto com todos os alertas que você definiu manualmente, e você pode ver se ele está no estado do alerta no momento.
+Abra a página alertas. As regras de alerta de anomalias de falha estão incluídas juntamente com quaisquer alertas que tenha definido manualmente, e pode ver se está atualmente em estado de alerta.
 
 [![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
 
@@ -82,9 +78,9 @@ Clique no alerta para configurá-lo.
 
 [![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
 
-Observe que você pode desabilitar ou excluir uma regra de alerta de anomalias de falha, mas não pode criar outra no mesmo recurso de Application Insights.
+Note que pode desativar ou eliminar uma regra de alerta de Anomalias de Falha, mas não pode criar outra no mesmo recurso Application Insights.
 
-## <a name="example-of-failure-anomalies-alert-webhook-payload"></a>Exemplo de conteúdo de webhook de alerta de anomalias de falha
+## <a name="example-of-failure-anomalies-alert-webhook-payload"></a>Exemplo de Anomalias de Falha alertam carga útil do webhook
 
 ```json
 {
@@ -292,76 +288,76 @@ Observe que você pode desabilitar ou excluir uma regra de alerta de anomalias d
 }
 ```
 
-## <a name="triage-and-diagnose-an-alert"></a>Fazer triagem e diagnosticar um alerta
+## <a name="triage-and-diagnose-an-alert"></a>Triagem e diagnosticar um alerta
 
-Um alerta indica que um aumento anormal na taxa de solicitação com falha foi detectado. É provável que haja algum problema com seu aplicativo ou seu ambiente.
+Um alerta indica que foi detetado um aumento anormal na taxa de pedido falhada. É provável que haja algum problema com a sua app ou o seu ambiente.
 
-Para investigar melhor, clique em ' Exibir detalhes completos no Application Insights ' os links nesta página o levará diretamente a uma [página de pesquisa](../../azure-monitor/app/diagnostic-search.md) filtrada para as solicitações, exceções, dependências ou rastreamentos relevantes. 
+Para investigar mais, clique em 'Ver todos os detalhes em Informações de Aplicação' os links nesta página irão levá-lo diretamente para uma página de [pesquisa](../../azure-monitor/app/diagnostic-search.md) filtrada para os pedidos, exceção, dependência ou vestígios relevantes. 
 
-Você também pode abrir o [portal do Azure](https://portal.azure.com), navegar até o recurso de Application insights para seu aplicativo e abrir a página falhas.
+Também pode abrir o [portal Azure,](https://portal.azure.com)navegar para o recurso Application Insights para a sua aplicação e abrir a página Falhas.
 
-Clicar em ' diagnosticar falhas ' ajudará você a obter mais detalhes e a resolver o problema.
+Clicar em 'Diagnosticar falhas' irá ajudá-lo a obter mais detalhes e resolver o problema.
 
 [![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
 
-Do percentual de solicitações e do número de usuários afetados, você pode decidir o quão urgente é o problema. No exemplo acima, a taxa de falha de 78,5% é comparada com uma taxa normal de 2,2%, indica que algo insatisfatório está acontecendo. Por outro lado, apenas 46 usuários foram afetados. Se fosse seu aplicativo, você poderá avaliar o quão sério é.
+A partir da percentagem de pedidos e número de utilizadores afetados, pode decidir a urgência do problema. No exemplo acima, a taxa de insucesso de 78,5% compara com uma taxa normal de 2,2%, indica ndo que algo de mau está a acontecer. Por outro lado, apenas 46 utilizadores foram afetados. Se fosse a sua aplicação, seria capaz de avaliar a gravidade disso.
 
-Em muitos casos, você poderá diagnosticar o problema rapidamente do nome da solicitação, da exceção, da falha de dependência e dos dados de rastreamento fornecidos.
+Em muitos casos, poderá diagnosticar o problema rapidamente a partir do nome do pedido, exceção, falha de dependência e dados de rastreio fornecidos.
 
-Neste exemplo, houve uma exceção do banco de dados SQL devido ao limite de solicitação ser atingido.
+Neste exemplo, houve uma exceção da base de dados SQL devido ao limite de pedidos ser atingido.
 
 [![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
 
-## <a name="review-recent-alerts"></a>Examinar alertas recentes
+## <a name="review-recent-alerts"></a>Reveja alertas recentes
 
-Clique em **alertas** na página Application insights recurso para obter os alertas acionados mais recentes:
+Clique em **Alertas** na página de recursos da Application Insights para chegar aos mais recentes alertas disparados:
 
 [![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
 
 ## <a name="whats-the-difference-"></a>Qual é a diferença...
-A detecção inteligente de anomalias de falha complementa outros recursos semelhantes, mas distintos de Application Insights.
+Deteção Inteligente de anomalias de falha complementa outras características similares mas distintas de Insights de Aplicação.
 
-* Os [alertas de métrica](../../azure-monitor/app/alerts.md) são definidos por você e podem monitorar uma ampla gama de métricas, como ocupação de CPU, taxas de solicitação, tempos de carregamento de página e assim por diante. Você pode usá-los para avisá-lo, por exemplo, se precisar adicionar mais recursos. Por outro lado, a detecção inteligente de anomalias de falha cobre uma pequena gama de métricas críticas (atualmente, apenas a taxa de solicitação com falha), projetada para notificá-lo quase em tempo real, uma vez que a taxa de solicitação com falha do aplicativo Web aumenta em comparação com o comportamento normal do aplicativo Web. Diferentemente dos alertas de métrica, a detecção inteligente define e atualiza automaticamente os limites nas alterações de resposta no comportamento. A detecção inteligente também inicia o trabalho de diagnóstico para você, economizando tempo na resolução de problemas.
+* [Os Alertas Métricos](../../azure-monitor/app/alerts.md) são definidos por si e podem monitorizar uma vasta gama de métricas, tais como ocupação de CPU, taxas de pedido, tempos de carregamento de página, e assim por diante. Pode usá-los para avisá-lo, por exemplo, se precisar de adicionar mais recursos. Em contraste, a Deteção Inteligente de anomalias de falhas abrange uma pequena gama de métricas críticas (atualmente apenas a taxa de pedido falhada), projetada para notificá-lo de forma quase em tempo real uma vez que a taxa de pedido falhada da sua aplicação web aumenta em comparação com o comportamento normal da aplicação web. Ao contrário dos alertas métricos, a Deteção Inteligente define e atualiza automaticamente os limiares nas alterações de resposta no comportamento. A Smart Detection também inicia o trabalho de diagnóstico para si, poupando-lhe tempo na resolução de problemas.
 
-* A [detecção inteligente de anomalias de desempenho](proactive-performance-diagnostics.md) também usa a inteligência de máquina para descobrir padrões incomuns em suas métricas e nenhuma configuração por você é necessária. Mas, ao contrário da detecção inteligente de anomalias de falha, a finalidade da detecção inteligente de anomalias de desempenho é encontrar segmentos de seu uso diversa que podem ser atendidos incorretamente, por exemplo, por páginas específicas em um tipo específico de navegador. A análise é executada diariamente e, se qualquer resultado for encontrado, provavelmente será muito menos urgente do que um alerta. Por outro lado, a análise de anomalias de falha é executada continuamente em dados de aplicativo de entrada e você será notificado em minutos se as taxas de falha do servidor forem maiores do que o esperado.
+* [A Deteção Inteligente de anomalias de desempenho](proactive-performance-diagnostics.md) também utiliza inteligência automática para descobrir padrões incomuns nas suas métricas, e não é necessária nenhuma configuração por si. Mas, ao contrário da Deteção Inteligente de anomalias de falhas, o objetivo da Deteção Inteligente de anomalias de desempenho é encontrar segmentos do seu conjunto de utilização que possam ser mal servidos - por exemplo, por páginas específicas num tipo específico de navegador. A análise é feita diariamente, e se algum resultado for encontrado, é provável que seja muito menos urgente do que um alerta. Em contraste, a análise de anomalias de falha é realizada continuamente nos dados da aplicação, e você será notificado dentro de minutos se as taxas de falha do servidor forem maiores do que o esperado.
 
-## <a name="if-you-receive-a-smart-detection-alert"></a>Se você receber um alerta de detecção inteligente
-*Por que eu recebi esse alerta?*
+## <a name="if-you-receive-a-smart-detection-alert"></a>Se receber um alerta de Deteção Inteligente
+*Por que recebi este alerta?*
 
-* Detectamos um aumento anormal na taxa de solicitações com falha em comparação com a linha de base normal do período anterior. Após a análise das falhas e dos dados de aplicativo associados, achamos que há um problema que você deve examinar.
+* Detetámos um aumento anormal na taxa de pedidos falhados em comparação com a linha de base normal do período anterior. Após a análise das falhas e dados de aplicação associados, pensamos que há um problema que deve analisar.
 
-*A notificação significa que eu definitivamente tenho um problema?*
+*A notificação significa que tenho um problema?*
 
-* Tentamos alertar sobre a interrupção ou degradação do aplicativo, mas apenas você pode entender totalmente a semântica e o impacto sobre o aplicativo ou os usuários.
+* Tentamos alertar sobre perturbação ou degradação da aplicação, mas só você pode entender completamente a semântica e o impacto na app ou utilizadores.
 
-*Então, você está vendo os dados do meu aplicativo?*
+*Então, estás a ver os meus dados de candidatura?*
 
-* Não. O serviço é totalmente automático. Somente você obtém as notificações. Seus dados são [privados](../../azure-monitor/app/data-retention-privacy.md).
+* Não. O serviço é totalmente automático. Só recebeas as notificações. Os seus dados são [privados.](../../azure-monitor/app/data-retention-privacy.md)
 
-*É necessário assinar este alerta?*
+*Tenho de subscrever este alerta?*
 
-* Não. Cada aplicativo que envia dados de solicitação tem a regra de alerta de detecção inteligente.
+* Não. Todas as aplicações que enviam dados de pedido têm a regra de alerta de Deteção Inteligente.
 
-*Posso cancelar a assinatura ou receber as notificações enviadas aos meus colegas?*
+*Posso cancelar a inscrição ou receber as notificações enviadas aos meus colegas?*
 
-* Sim, em regras de alerta, clique na regra de detecção inteligente para configurá-la. Você pode desabilitar o alerta ou alterar os destinatários do alerta.
+* Sim, em regras de alerta, clique na regra de Deteção Inteligente para configurá-la. Pode desativar o alerta ou alterar os destinatários para o alerta.
 
-*Eu perdi o email. Onde posso encontrar as notificações no portal?*
+*Perdi o e-mail. Onde posso encontrar as notificações no portal?*
 
-* Nos logs de atividade. No Azure, abra o recurso Application Insights para seu aplicativo e, em seguida, selecione logs de atividade.
+* Nos registos de Atividade. No Azure, abra o recurso Application Insights para a sua aplicação e, em seguida, selecione registos de Atividade.
 
-*Alguns dos alertas são sobre problemas conhecidos e não quero recebê-los.*
+*Alguns dos alertas são sobre questões conhecidas e não quero recebê-las.*
 
-* Você pode usar o recurso de supressão de [regras de ação de alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) .
+* Pode utilizar a funcionalidade de supressão de regras de ação de [alerta.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules)
 
 ## <a name="next-steps"></a>Passos seguintes
-Essas ferramentas de diagnóstico ajudam você a inspecionar os dados do seu aplicativo:
+Estas ferramentas de diagnóstico ajudam-no a inspecionar os dados da sua aplicação:
 
-* [Gerenciador de métricas](../../azure-monitor/app/metrics-explorer.md)
-* [Gerenciador de pesquisa](../../azure-monitor/app/diagnostic-search.md)
-* [Análise – linguagem de consulta eficiente](../../azure-monitor/log-query/get-started-portal.md)
+* [Explorador métrico](../../azure-monitor/app/metrics-explorer.md)
+* [Explorador de pesquisa](../../azure-monitor/app/diagnostic-search.md)
+* [Analytics - linguagem de consulta poderosa](../../azure-monitor/log-query/get-started-portal.md)
 
-As detecções inteligentes são automáticas. Mas talvez você queira configurar mais alguns alertas?
+As deteções inteligentes são automáticas. Mas talvez queira criar mais alguns alertas?
 
-* [Alertas de métrica configurados manualmente](../../azure-monitor/app/alerts.md)
-* [Testes da Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Alertas métricos configurados manualmente](../../azure-monitor/app/alerts.md)
+* [Disponibilidade de testes web](../../azure-monitor/app/monitor-web-app-availability.md)

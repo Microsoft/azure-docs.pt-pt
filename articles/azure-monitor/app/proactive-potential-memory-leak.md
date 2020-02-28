@@ -1,33 +1,29 @@
 ---
-title: Detectar vazamento de memória-detecção inteligente de insights de Aplicativo Azure
-description: Monitore aplicativos com informações Aplicativo Azure para possíveis vazamentos de memória.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Detetar fuga de memória - Deteção inteligente de Insights de Aplicação Azure
+description: Monitorize aplicações com Insights de Aplicação Azure para potenciais fugas de memória.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/12/2017
-ms.openlocfilehash: cc6074732a86be02a8d8c596c46e154db4e8ad7f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 85d138518dfb1313a810657016e9fe3143887b6d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406467"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671703"
 ---
-# <a name="memory-leak-detection-preview"></a>Detecção de vazamento de memória (visualização)
+# <a name="memory-leak-detection-preview"></a>Deteção de fugas de memória (pré-visualização)
 
-Application Insights analisa automaticamente o consumo de memória de cada processo em seu aplicativo e pode avisá-lo sobre possíveis vazamentos de memória ou maior consumo de memória.
+Aplicação Insights analisa automaticamente o consumo de memória de cada processo na sua aplicação, e pode alertá-lo sobre potenciais fugas de memória ou aumento do consumo de memória.
 
-Esse recurso não requer nenhuma configuração especial, além da [configuração de contadores de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) para seu aplicativo. Ele está ativo quando seu aplicativo gera telemetria de contadores de desempenho de memória suficiente (por exemplo, bytes privados).
+Esta funcionalidade não requer configuração especial, a não ser [configurar contadores](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) de desempenho para a sua aplicação. Está ativo quando a sua aplicação gera telemetria de contadores de desempenho de memória suficientes (por exemplo, Private Bytes).
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando eu receberia esse tipo de notificação de detecção inteligente?
-Uma notificação típica seguirá um aumento consistente no consumo de memória em um longo período de tempo, em um ou mais processos e/ou em uma ou mais máquinas, que fazem parte do seu aplicativo. Os algoritmos de aprendizado de máquina são usados para detectar maior consumo de memória que corresponde ao padrão de um vazamento de memória.
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando é que eu receberia este tipo de notificação de deteção inteligente?
+Uma notificação típica seguirá um aumento consistente do consumo de memória durante um longo período de tempo, em um ou mais processos e/ou uma ou mais máquinas, que fazem parte da sua aplicação. Os algoritmos de aprendizagem automática são usados para detetar um aumento do consumo de memória que corresponde ao padrão de uma fuga de memória.
 
-## <a name="does-my-app-really-have-a-problem"></a>Meu aplicativo realmente tem um problema?
-Não, uma notificação não significa que seu aplicativo definitivamente tem um problema. Embora os padrões de perda de memória geralmente indiquem um problema de aplicativo, esses padrões podem ser típicos para seu processo específico, ou podem ter uma justificativa de negócios natural e podem ser ignorados.
+## <a name="does-my-app-really-have-a-problem"></a>A minha aplicação tem mesmo algum problema?
+Não, uma notificação não significa que a sua aplicação definitivamente tenha um problema. Embora os padrões de fuga de memória geralmente indiquem um problema de aplicação, estes padrões podem ser típicos do seu processo específico, ou podem ter uma justificação de negócio natural, e podem ser ignorados.
 
 ## <a name="how-do-i-fix-it"></a>Como posso corrigi-lo?
-As notificações incluem informações de diagnóstico para dar suporte ao processo de análise de diagnóstico:
-1. **Triagem.** A notificação mostra a quantidade de aumento de memória (em GB) e o intervalo de tempo no qual a memória aumentou. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
-2. **Com.** Quantos computadores exibiram o padrão de perda de memória? Quantas exceções foram disparadas durante o possível vazamento de memória? Essas informações podem ser obtidas na notificação.
-3. **Tect.** A detecção contém o padrão de perda de memória, mostrando o consumo de memória do processo ao longo do tempo. Você também pode usar os itens relacionados e os relatórios vinculando a informações de suporte, para ajudá-lo a diagnosticar o problema.
+As notificações incluem informações de diagnóstico para apoiar no processo de análise de diagnóstico:
+1. **A triagem.** A notificação mostra-lhe a quantidade de aumento de memória (em GB) e o intervalo de tempo em que a memória aumentou. Isto pode ajudá-lo a atribuir uma prioridade ao problema.
+2. **O alcance.** Quantas máquinas exibiram o padrão de fuga de memória? Quantas exceções foram desencadeadas durante a fuga de memória? Estas informações podem ser obtidas a partir da notificação.
+3. **Diagnosticar.** A deteção contém o padrão de fuga de memória, mostrando o consumo de memória do processo ao longo do tempo. Também pode utilizar os itens e relatórios relacionados que ligam a informações de apoio, para ajudá-lo a diagnosticar o problema.

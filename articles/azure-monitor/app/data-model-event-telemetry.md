@@ -1,29 +1,25 @@
 ---
-title: Modelo de dados de telemetria do Aplicativo Azure insights – telemetria de eventos | Microsoft Docs
-description: Modelo de dados Application Insights para telemetria de eventos
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Modelo de dados de telemetria da aplicação Azure Insights - Telemetria de Eventos Microsoft Docs
+description: Modelo de dados de Insights de Aplicação para telemetria de eventos
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 620983fb2174fe7f32a61503b0b87e8e7ce0c330
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: bd8b2581f7642f6825aaf0d1b51c8e94d4333d33
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678154"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671889"
 ---
-# <a name="event-telemetry-application-insights-data-model"></a>Telemetria de eventos: modelo de dados de Application Insights
+# <a name="event-telemetry-application-insights-data-model"></a>Telemetria de eventos: Modelo de dados de Insights de Aplicação
 
-Você pode criar itens de telemetria de eventos (em [Application insights](../../azure-monitor/app/app-insights-overview.md)) para representar um evento que ocorreu em seu aplicativo. Normalmente, é uma interação do usuário, como o clique do botão ou o check-out do pedido. Ele também pode ser um evento de ciclo de vida do aplicativo, como inicialização ou atualização de configuração. 
+Pode criar itens de telemetria de eventos (em Insights de [Aplicação)](../../azure-monitor/app/app-insights-overview.md)para representar um evento que ocorreu na sua aplicação. Normalmente é uma interação do utilizador, como clicar no botão ou encomendar check-out. Também pode ser um evento de ciclo de vida de aplicação como a inicialização ou a atualização de configuração. 
 
-Semanticamente, os eventos podem ou não ser correlacionados a solicitações. No entanto, se usado corretamente, a telemetria de eventos é mais importante do que solicitações ou rastreamentos. Os eventos representam a telemetria de negócios e devem ser um assunto para uma [amostragem](../../azure-monitor/app/api-filtering-sampling.md)separada e menos agressiva.
+Semanticamente, os acontecimentos podem ou não estar correlacionados com pedidos. No entanto, se for utilizada corretamente, a telemetria do evento é mais importante do que pedidos ou vestígios. Os eventos representam telemetria empresarial e devem ser sujeitos a [amostragem](../../azure-monitor/app/api-filtering-sampling.md)separada e menos agressiva.
 
 ## <a name="name"></a>Nome
 
-Nome do evento. Para permitir o agrupamento adequado e as métricas úteis, restrinja seu aplicativo para que ele gere um pequeno número de nomes de evento separados. Por exemplo, não use um nome separado para cada instância gerada de um evento.
+Nome do evento. Para permitir um agrupamento adequado e métricas úteis, restrinja a sua aplicação de modo a gerar um pequeno número de nomes de eventos separados. Por exemplo, não use um nome separado para cada instância gerada de um evento.
 
 Comprimento máximo: 512 caracteres
 
@@ -31,12 +27,12 @@ Comprimento máximo: 512 caracteres
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
-## <a name="custom-measurements"></a>Medidas personalizadas
+## <a name="custom-measurements"></a>Medições personalizadas
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte [modelo de dados](data-model.md) para tipos de Application insights e modelo de dados.
-- [Gravar telemetria de evento personalizado](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
-- Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte pelo Application insights.
+- Consulte o modelo de [dados](data-model.md) para tipos de Insights de Aplicação e modelo de dados.
+- [Escreva telemetria de eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
+- Confira [as plataformas](../../azure-monitor/app/platforms.md) suportadas por Application Insights.

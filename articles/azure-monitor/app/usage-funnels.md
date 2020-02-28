@@ -1,54 +1,52 @@
 ---
-title: Funils do Aplicativo Azure insights
-description: Saiba como você pode usar os Funils para descobrir como os clientes estão interagindo com seu aplicativo.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Funis de insights de aplicação Azure
+description: Saiba como pode usar funis para descobrir como os clientes estão interagindo com a sua aplicação.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: d6a6e34f9688747891ac91401941a96b6e85d76a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 89440a6385bab5b917a866b686e8d2ba828c92e5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899460"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671057"
 ---
-# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descubra como os clientes estão usando seu aplicativo com Application Insights Funils
+# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descubra como os clientes estão a usar a sua aplicação com funils de insights de aplicação
 
-Entender a experiência do cliente é o máximo de importância para seus negócios. Se seu aplicativo envolver vários estágios, você precisará saber se a maioria dos clientes está progredindo por todo o processo ou se eles estão encerrando o processo em algum momento. A progressão por meio de uma série de etapas em um aplicativo Web é conhecida como *funil*. Você pode usar Aplicativo Azure os Funils de informações para obter informações sobre os usuários e monitorar as taxas de conversão passo a passo. 
+Compreender a experiência do cliente é da maior importância para o seu negócio. Se a sua aplicação envolve várias fases, precisa de saber se a maioria dos clientes está a progredir durante todo o processo, ou se estão a terminar o processo em algum momento. A progressão através de uma série de passos numa aplicação web é conhecida como *funil.* Pode utilizar os Funis de Insights de Aplicação Azure para obter informações sobre os seus utilizadores e monitorizar as taxas de conversão passo a passo. 
 
-## <a name="create-your-funnel"></a>Criar seu funil
-Antes de criar o funil, decida sobre a pergunta que deseja responder. Por exemplo, talvez você queira saber quantos usuários estão exibindo o home page, exibindo um perfil de cliente e criando um tíquete. Neste exemplo, os proprietários da empresa Fabrikam Fiber querem saber a porcentagem de clientes que criaram com êxito um tíquete de cliente.
+## <a name="create-your-funnel"></a>Crie o seu funil
+Antes de criar o seu funil, decida sobre a pergunta que quer responder. Por exemplo, você pode querer saber quantos utilizadores estão a ver a página inicial, visualizando um perfil de cliente e criando um bilhete. Neste exemplo, os proprietários da empresa Fabrikam Fiber querem saber a percentagem de clientes que criam com sucesso um bilhete de cliente.
 
-Estas são as etapas necessárias para criar o funil.
+Aqui estão os passos que tomam para criar o seu funil.
 
-1. Na ferramenta Application Insights Funils, selecione **novo**.
-1. No menu suspenso **intervalo de tempo** , selecione **últimos 90 dias**. Selecione **meus funils** ou **funils compartilhados**.
-1. Na lista suspensa **etapa 1** , selecione **índice**. 
-1. Na lista **etapa 2** , selecione **cliente**.
-1. Na lista **etapa 3** , selecione **criar**.
-1. Adicione um nome ao funil e selecione **salvar**.
+1. Na ferramenta Funis De Insights de Aplicação, selecione **New**.
+1. A partir do menu de entrega do Intervalo de **Tempo,** selecione **Last 90 days**. Selecione **os meus funis** ou **funis partilhados.**
+1. A partir da lista de descidas do **Passo 1,** selecione **Index**. 
+1. A partir da lista **Passo 2,** selecione **Cliente**.
+1. A partir da lista **passo 3,** selecione **Criar**.
+1. Adicione um nome ao funil e selecione **Guardar**.
 
-A captura de tela a seguir mostra um exemplo do tipo de dados que a ferramenta de funil gera. Os proprietários da Fabrikam podem ver que durante os últimos 90 dias, 54,3% de seus clientes que visitaram o home page criou um tíquete de cliente. Eles também podem ver que 2.700 de seus clientes vieram para o índice da home page. Isso pode indicar um problema de atualização.
+A imagem que se segue mostra um exemplo do tipo de dados que a ferramenta Funnels gera. Os proprietários da Fabrikam podem ver que nos últimos 90 dias, 54,3 por cento dos seus clientes que visitaram a página inicial criaram um bilhete de cliente. Podem também ver que 2.700 dos seus clientes chegaram ao índice a partir da página inicial. Isto pode indicar um problema de atualização.
 
 
-![Captura de tela da ferramenta de funil com dados](media/usage-funnels/funnel1.png)
+![Screenshot da ferramenta Funilcom dados](media/usage-funnels/funnel1.png)
 
-### <a name="funnels-features"></a>Recursos de funils
-A captura de tela anterior inclui cinco áreas realçadas. Esses são recursos de Funils. A lista a seguir explica mais sobre cada área correspondente na captura de tela:
-1. Se seu aplicativo for amostrado, você verá uma faixa de amostragem. A seleção da faixa abre um painel de contexto, explicando como desativar a amostragem. 
-2. Você pode exportar o funil para [Power bi](../../azure-monitor/app/export-power-bi.md ).
-3. Selecione uma etapa para ver mais detalhes à direita. 
-4. O gráfico de conversão histórica mostra as taxas de conversão nos últimos 90 dias. 
-5. Entenda melhor seus usuários acessando a ferramenta usuários. Você pode usar filtros em cada etapa. 
+### <a name="funnels-features"></a>Funis funis
+A imagem anterior inclui cinco áreas destacadas. Estas são características de Funis. A seguinte lista explica mais sobre cada área correspondente na imagem:
+1. Se a sua aplicação for amostrada, verá um banner de amostragem. A seleção do banner abre um painel de contexto, explicando como desligar a amostragem. 
+2. Pode exportar o seu funil para [Power BI.](../../azure-monitor/app/export-power-bi.md )
+3. Selecione um passo para ver mais detalhes à direita. 
+4. O gráfico histórico de conversão mostra as taxas de conversão dos últimos 90 dias. 
+5. Compreenda melhor os seus utilizadores acedendo à ferramenta dos utilizadores. Pode utilizar filtros em cada passo. 
 
 ## <a name="next-steps"></a>Passos seguintes
-  * [Visão geral de uso](usage-overview.md)
+  * [Visão geral do uso](usage-overview.md)
   * [Users, Sessions, and Events](usage-segmentation.md) (Utilizadores, Sessões e Eventos)
   * [Retenção](usage-retention.md)
   * [Livros](../../azure-monitor/app/usage-workbooks.md)
-  * [Adicionar contexto de usuário](usage-send-user-context.md)
+  * [Adicionar contexto de utilizador](usage-send-user-context.md)
   * [Exportar para o Power BI](../../azure-monitor/app/export-power-bi.md )
 

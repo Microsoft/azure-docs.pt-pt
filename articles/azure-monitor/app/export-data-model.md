@@ -1,29 +1,25 @@
 ---
-title: Modelo de dados do Aplicativo Azure insights | Microsoft Docs
-description: Descreve as propriedades exportadas da exportação contínua em JSON e usadas como filtros.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Modelo de dados da Aplicação Azure Insights [ Modelo de Dados ] Microsoft Docs
+description: Descreve propriedades exportadas de exportação contínua em JSON, e usadas como filtros.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/08/2019
-ms.openlocfilehash: 8f84e3179a6f949e4a322a2218736fc9ebe60442
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e4dd2310169476e54c06083fee11b2e4cccecd8d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677916"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663880"
 ---
-# <a name="application-insights-export-data-model"></a>Modelo de dados de exportação Application Insights
-Esta tabela lista as propriedades de telemetria enviadas dos SDKs de [Application insights](../../azure-monitor/app/app-insights-overview.md) para o Portal.
-Você verá essas propriedades na saída de dados da [exportação contínua](export-telemetry.md).
-Eles também aparecem em filtros de propriedade no [Gerenciador de métricas](../../azure-monitor/app/metrics-explorer.md) e na [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md).
+# <a name="application-insights-export-data-model"></a>Modelo de dados de exportação de insights de aplicação
+Esta tabela lista as propriedades da telemetria enviadas dos SDKs de Insights de [Aplicação](../../azure-monitor/app/app-insights-overview.md) para o portal.
+Você verá estas propriedades na saída de dados da [Exportação Contínua](export-telemetry.md).
+Também aparecem em filtros de propriedade em [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) e Pesquisa [de Diagnóstico.](../../azure-monitor/app/diagnostic-search.md)
 
 Pontos a serem observados:
 
-* `[0]` nessas tabelas denota um ponto no caminho onde você precisa inserir um índice; Mas nem sempre é 0.
-* As durações de tempo são em décimos de um microssegundo, portanto, 10 milhões = = 1 segundo.
-* Datas e horas são UTC e são fornecidas no formato ISO `yyyy-MM-DDThh:mm:ss.sssZ`
+* `[0]` nestas tabelas denota um ponto no caminho em que tem de inserir um índice; mas nem sempre é 0.
+* As durações do tempo são em décimos de um microsegundo, por isso 10000000 == 1 segundo.
+* As datas e os horários são UTC, e são dadas no formato ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
 
 ## <a name="example"></a>Exemplo
@@ -107,194 +103,194 @@ Pontos a serem observados:
   }
 
 ## <a name="context"></a>Contexto
-Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem todos esses campos são transmitidos com todos os pontos de dados.
+Todos os tipos de telemetria são acompanhados por uma secção de contexto. Nem todos estes campos são transmitidos com todos os pontos de dados.
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| Context. Custom. Dimensions [0] |objeto [] |Pares de cadeia de caracteres de chave-valor definidos pelo parâmetro Propriedades personalizadas. Comprimento máximo da chave 100, tamanho máximo de valores 1024. Mais de 100 valores exclusivos, a propriedade pode ser pesquisada, mas não pode ser usada para segmentação. Máximo de 200 chaves por iKey. |
-| Context. Custom. métricas [0] |objeto [] |Pares chave-valor definidos pelo parâmetro de medidas personalizadas e por TrackMetrics. Comprimento máximo da chave 100, os valores podem ser numéricos. |
-| Context. Data. EventTime |string |HORÁRIO |
-| Context. Data. issintética |boolean |A solicitação parece vir de um teste na Web ou bot. |
-| Context. Data. samplingRate |número |Porcentagem de telemetria gerada pelo SDK que é enviado ao Portal. Intervalo 0,0-100.0. |
-| contexto. dispositivo |objeto |Dispositivo do cliente |
-| contexto. Device. browser |string |IE, Chrome,... |
-| Context. Device. browserVersion |string |Chrome 48,0,... |
-| Context. Device. deviceModel |string | |
-| Context. Device. DeviceName |string | |
+| contexto.custom.dimensions [0] |objeto [ ] |Pares de cordas de valor chave definidos por parâmetro de propriedades personalizadas. Comprimento máximo chave 100, valores comprimento máximo 1024. Mais de 100 valores únicos, a propriedade pode ser pesquisada mas não pode ser usada para segmentação. Max 200 chaves por chave. |
+| contexto.custom.metrics [0] |objeto [ ] |Pares de valor-chave definidos por parâmetro de medição personalizada e por TrackMetrics. Comprimento máximo chave 100, os valores podem ser numéricos. |
+| context.data.eventTime |string |UTC |
+| context.data.isSynthetic |boolean |O pedido parece vir de um teste de bot ou web. |
+| context.data.samplingRate |número |Percentagem de telemetria gerada pelo SDK do que é enviado para o portal. Intervalo de 0,0 100,0. |
+| contexto.dispositivo |objeto |Dispositivo de cliente |
+| context.device.browser |string |Ou é, Cromo, ... |
+| context.device.browserVersion |string |Cromado 48.0, ... |
+| context.device.deviceModel |string | |
+| context.device.deviceName |string | |
 | context.device.id |string | |
-| contexto. Device. Locale |string |en-GB, de-DE,... |
-| contexto. Device. Network |string | |
-| Context. Device. oemName |string | |
-| contexto. Device. os |string | |
-| Context. Device. osVersion |string |Sistema operacional do host |
-| Context. Device. roleInstance |string |ID do host do servidor |
-| Context. Device. roleName |string | |
-| Context. Device. screenResolution |string | |
-| Context. Device. Type |string |PC, navegador,... |
-| contexto. local |objeto |Derivado de clientip. |
-| Context. Location. City |string |Derivado de clientip, se conhecido |
-| Context. Location. clientip |string |O último octógono é anônimo para 0. |
-| Context. Location. continente |string | |
-| contexto. local. Country |string | |
-| Context. Location. província |string |Estado ou província |
-| context.operation.id |string |Os itens que têm a mesma ID de operação são mostrados como itens relacionados no Portal. Geralmente a ID da solicitação. |
-| context.operation.name |string |URL ou nome da solicitação |
-| Context. Operation. parentId |string |Permite itens relacionados aninhados. |
-| context.session.id |string |ID de um grupo de operações da mesma origem. Um período de 30 minutos sem uma operação sinaliza o final de uma sessão. |
-| Context. Session. isprimeiro |boolean | |
-| Context. User. accountAcquisitionDate |string | |
-| Context. User. AccountId |string | |
-| Context. User. anonAcquisitionDate |string | |
-| Context. User. anonid |string | |
-| Context. User. authAcquisitionDate |string |[Usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
-| Context. User. authid |string | |
-| Context. User. IsAuthenticated |boolean | |
-| Context. User. storeRegion |string | |
-| Internal. Data. documentVersion |string | |
-| internal.data.id |string | ID exclusiva que é atribuída quando um item é ingerido para Application Insights |
+| contexto.dispositivo.local |string |en-GB, de-DE, ... |
+| context.device.network |string | |
+| context.device.oemName |string | |
+| context.device.os |string | |
+| context.device.osVersion |string |Hospedeiro OS |
+| context.device.roleInstance |string |ID de anfitrião do servidor |
+| context.device.roleName |string | |
+| context.device.screenResolution |string | |
+| contexto.dispositivo.type |string |PC, Browser, ... |
+| context.location |objeto |Derivado do clientip. |
+| contexto.location.city |string |Derivado do clientip, se conhecido |
+| context.location.clientip |string |O último octogono é anoonizado a 0. |
+| context.location.continent |string | |
+| contexto.location.country |string | |
+| context.location.province |string |Estado ou província |
+| context.operation.id |string |Itens que têm o mesmo id de operação são mostrados como Itens Relacionados no portal. Normalmente a identificação do pedido. |
+| context.operation.name |string |url ou nome de pedido |
+| context.operation.parentId |string |Permite itens aninhadas. |
+| context.session.id |string |Identificação de um grupo de operações da mesma fonte. Um período de 30 minutos sem operação assinala o fim de uma sessão. |
+| context.session.isFirst |boolean | |
+| context.user.accountAcquisitionDate |string | |
+| context.user.accountId |string | |
+| contexto.user.anonAcquisitionDate |string | |
+| context.user.anonId |string | |
+| context.user.authAcquisitionDate |string |[Utilizador Autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
+| context.user.isAuthenticated |boolean | |
+| context.user.storeRegion |string | |
+| internal.data.documentVersion |string | |
+| internal.data.id |string | Id único que é atribuído quando um item é ingerido para Application Insights |
 
 ## <a name="events"></a>Eventos
-Eventos personalizados gerados por [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+Eventos personalizados gerados pelo [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| contagem do evento [0] |número inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo 4 = &gt; 25%. |
-| nome do evento [0] |string |Nome do evento.  Comprimento máximo de 250. |
-| URL do evento [0] |string | |
-| evento [0] urlData. base |string | |
-| evento [0] urlData. host |string | |
+| evento [0] contagem |número inteiro |100/(taxa[de amostragem).](../../azure-monitor/app/sampling.md) Por exemplo 4 =&gt; 25%. |
+| evento [0] nome |string |Nome do evento.  Comprimento máximo 250. |
+| evento [0] url |string | |
+| evento [0] urlData.base |string | |
+| evento [0] urlData.host |string | |
 
 ## <a name="exceptions"></a>Exceções
-Relata [exceções](../../azure-monitor/app/asp-net-exceptions.md) no servidor e no navegador.
+Reporta [exceções](../../azure-monitor/app/asp-net-exceptions.md) no servidor e no navegador.
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| assembly basicexception [0] |string | |
-| contagem de basicexception [0] |número inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo 4 = &gt; 25%. |
-| camada de exceção basicexception [0] |string | |
-| ExceptionType de basicexception [0] |string | |
-| basicexception [0] failedUserCodeMethod |string | |
-| basicexception [0] failedUserCodeAssembly |string | |
-| basicexception [0] handledAt |string | |
-| basicexception [0] hasFullStack |boolean | |
-| ID de basicexception [0] |string | |
-| método basicexception [0] |string | |
-| basicexception [0] mensagem |string |Mensagem de exceção. Comprimento máximo 10K. |
-| basicexception [0] outerExceptionMessage |string | |
-| basicexception [0] outerExceptionThrownAtAssembly |string | |
-| basicexception [0] outerExceptionThrownAtMethod |string | |
-| basicexception [0] outerExceptionType |string | |
-| basicexception [0] externaid |string | |
-| assembly basicexception [0] parsedStack [0] |string | |
-| basicexception [0] parsedStack [0] nome do arquivo |string | |
-| nível basicexception [0] parsedStack [0] |número inteiro | |
-| basicexception [0] parsedStack [0] linha |número inteiro | |
-| método basicexception [0] parsedStack [0] |string | |
-| basicexception [0] pilha |string |Comprimento máximo 10K |
-| typeName de basicexception [0] |string | |
+| básicoExcepção [0] montagem |string | |
+| básicoExcepção [0] contagem |número inteiro |100/(taxa[de amostragem).](../../azure-monitor/app/sampling.md) Por exemplo 4 =&gt; 25%. |
+| basesExcepção [0] excepçãoGrupo |string | |
+| basicException [0] exceptionType |string | |
+| basicException [0] failedUserCodeMethod |string | |
+| básicoExcepção [0] falhouUserCodeAssembly |string | |
+| basicException [0] handledAt |string | |
+| basicException [0] hasFullStack |boolean | |
+| básicoExcepção [0] id |string | |
+| método básicoDe exceção [0] |string | |
+| basicException [0] mensagem |string |Mensagem de exceção. Comprimento máximo 10k. |
+| basicException [0] outerExceptionMessage |string | |
+| basicException [0] outerExceptionThrownAtAssembly |string | |
+| basicException [0] outerExceptionThrownAtMethod |string | |
+| básicoExcepção [0] exteriorExceptionType |string | |
+| basicException [0] outerId |string | |
+| básicoExcepção [0] parsedStack [0] montagem |string | |
+| basicException [0] parsedStack [0] fileName |string | |
+| básicoExcepção [0] parsedStack [0] nível |número inteiro | |
+| basicException [0] linha parsedStack [0] |número inteiro | |
+| básicoExcepção [0] método parsedStack [0] |string | |
+| basicException [0] stack |string |Comprimento máximo 10k |
+| básicoExcepção [0] tipoNome |string | |
 
-## <a name="trace-messages"></a>Mensagens de rastreamento
-Enviado por [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)e pelos [adaptadores de registro em log](../../azure-monitor/app/asp-net-trace-logs.md).
+## <a name="trace-messages"></a>Rastrear mensagens
+Enviado por [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace), e pelos adaptadores de [exploração madeireira](../../azure-monitor/app/asp-net-trace-logs.md).
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| mensagem [0] loggername |string | |
-| parâmetros da mensagem [0] |string | |
-| mensagem [0] RAW |string |A mensagem de log, comprimento máximo 10K. |
-| mensagem [0] nível |string | |
+| mensagem [0] loggerName |string | |
+| parâmetros de mensagem [0] |string | |
+| mensagem [0] cru |string |A mensagem de registo, comprimento máximo 10k. |
+| mensagem [0] gravidadeN |string | |
 
 ## <a name="remote-dependency"></a>Dependência remota
-Enviado por TrackDependency. Usado para relatar o desempenho e o uso de [chamadas para dependências](../../azure-monitor/app/asp-net-dependencies.md) no servidor e chamadas AJAX no navegador.
+Enviado pela TrackDependency. Usado para relatar desempenho e uso de [chamadas para dependências](../../azure-monitor/app/asp-net-dependencies.md) no servidor, e chamadas AJAX no navegador.
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| remoteDependency [0] Async |boolean | |
-| remoteDependency [0] baseName |string | |
-| remoteDependency [0] commandName |string |Por exemplo, "home/index" |
-| contagem de remoteDependency [0] |número inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo 4 = &gt; 25%. |
-| remoteDependency [0] dependencyTypeName |string |HTTP, SQL,... |
-| remoteDependency [0] durationMetric. Value |número |Tempo desde a chamada até a conclusão da resposta por dependência |
-| remoteDependency [0] ID |string | |
-| remoteDependency [0] nome |string |URL. Comprimento máximo de 250. |
-| remoteDependency [0] resultCode |string |da dependência HTTP |
-| remoteDependency [0] êxito |boolean | |
-| remoteDependency [0] tipo |string |Http, SQL,... |
-| URL do remoteDependency [0] |string |Comprimento máximo de 2000 |
-| remoteDependency [0] urlData. base |string |Comprimento máximo de 2000 |
-| remoteDependency [0] urlData. hashTag |string | |
-| remoteDependency [0] urlData. host |string |Comprimento máximo de 200 |
+| remotaDependência [0] asincronização |boolean | |
+| remotaDependência [0] nome base |string | |
+| remotaDependência [0] nome de comando |string |Por exemplo, "casa/índice" |
+| remotaDependência [0] contagem |número inteiro |100/(taxa[de amostragem).](../../azure-monitor/app/sampling.md) Por exemplo 4 =&gt; 25%. |
+| remotaDependência [0] dependênciaTypeName |string |HTTP, SQL, ... |
+| remotaDependência [0] duraçãoMetric.value |número |Tempo da chamada à conclusão da resposta por dependência |
+| remotaDependência [0] id |string | |
+| nome remotaDependência [0] |string |Url. Comprimento máximo 250. |
+| remotaDependência [0] resultadoCódigo |string |da dependência do HTTP |
+| remotoDependência [0] sucesso |boolean | |
+| tipo de dependência remota [0] |string |Http, Sql,... |
+| remotaDependência [0] url |string |Comprimento máximo 2000 |
+| remotaDependência [0] urlData.base |string |Comprimento máximo 2000 |
+| remotaDependência [0] urlData.hashTag |string | |
+| remotaDependência [0] urlData.host |string |Comprimento máximo 200 |
 
 ## <a name="requests"></a>Pedidos
-Enviado por [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Os módulos padrão usam isso para relatar o tempo de resposta do servidor, medido no servidor.
+Enviado por [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Os módulos padrão usam isto para reportar o tempo de resposta do servidor, medido no servidor.
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| contagem [0] da solicitação |número inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo: 4 = &gt; 25%. |
-| solicitação [0] durationMetric. Value |número |Tempo da solicitação que chega à resposta. 1e7 = = 1s |
-| ID da solicitação [0] |string |ID da operação |
-| nome da solicitação [0] |string |GET/POST + URL base.  Comprimento máximo de 250 |
-| solicitar [0] responseCode |número inteiro |Resposta HTTP enviada ao cliente |
-| solicitação [0] com êxito |boolean |Padrão = = (responseCode &lt; 400) |
-| URL da solicitação [0] |string |Não incluindo host |
-| solicitação [0] urlData. base |string | |
-| solicitação [0] urlData. hashTag |string | |
-| solicitação [0] urlData. host |string | |
+| pedido [0] contagem |número inteiro |100/(taxa[de amostragem).](../../azure-monitor/app/sampling.md) Por exemplo: 4 =&gt; 25%. |
+| pedido [0] duraçãoMetric.value |número |Tempo do pedido chegar à resposta. 1e7 == 1s |
+| pedido [0] id |string |Operação id |
+| solicitar [0] nome |string |GET/POST + url base.  Comprimento máximo 250 |
+| solicitar [0] respostaCódigo |número inteiro |Resposta HTTP enviada ao cliente |
+| solicitar [0] sucesso |boolean |Padrão == (código de resposta &lt; 400) |
+| pedido [0] url |string |Sem incluir o hospedeiro |
+| pedido [0] urlData.base |string | |
+| pedido [0] urlData.hashTag |string | |
+| pedido [0] urlData.host |string | |
 
-## <a name="page-view-performance"></a>Desempenho de exibição de página
-Enviado pelo navegador. Mede o tempo para processar uma página, desde o usuário iniciar a solicitação para exibir a conclusão (excluindo chamadas assíncronas AJAX).
+## <a name="page-view-performance"></a>Desempenho da visualização da página
+Enviado pelo navegador. Mede o tempo para processar uma página, desde o utilizador que dá início ao pedido de exibição completo (excluindo chamadas ajax asincronizadas).
 
-Os valores de contexto mostram o so do cliente e a versão do navegador.
-
-| Caminho | Tipo | Notas |
-| --- | --- | --- |
-| clientPerformance [0] clientProcess. Value |número inteiro |Tempo desde o fim do recebimento do HTML até a exibição da página. |
-| clientPerformance [0] nome |string | |
-| clientPerformance [0] networkConnection. Value |número inteiro |Tempo necessário para estabelecer uma conexão de rede. |
-| clientPerformance [0] receiveRequest. Value |número inteiro |Tempo desde o fim do envio da solicitação até o recebimento do HTML em resposta. |
-| clientPerformance [0] sendRequest. Value |número inteiro |Tempo desde que foi levado para enviar a solicitação HTTP. |
-| clientPerformance [0] total. valor |número inteiro |Tempo desde o início até o envio da solicitação para exibir a página. |
-| URL do clientPerformance [0] |string |URL desta solicitação |
-| clientPerformance [0] urlData. base |string | |
-| clientPerformance [0] urlData. hashTag |string | |
-| clientPerformance [0] urlData. host |string | |
-| clientPerformance [0] urlData. Protocol |string | |
-
-## <a name="page-views"></a>Exibições de página
-Enviado por trackPageView () ou [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
+Os valores de contexto mostram o CLIENTE OS e a versão do navegador.
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| Exibir [0] contagem |número inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo 4 = &gt; 25%. |
-| Exibir [0] durationMetric. Value |número inteiro |Valor opcionalmente definido em trackPageView () ou por startTrackPage ()-stopTrackPage (). Não é o mesmo que os valores de clientPerformance. |
-| Exibir [0] nome |string |Título da página.  Comprimento máximo de 250 |
-| Exibir [0] URL |string | |
-| Exibir [0] urlData. base |string | |
-| Exibir [0] urlData. hashTag |string | |
-| Exibir [0] urlData. host |string | |
+| clientePerformance [0] clienteProcess.value |número inteiro |Tempo desde o fim da receção do HTML até exibir a página. |
+| clientePerformance [0] nome |string | |
+| clientePerformance [0] networkConnection.value |número inteiro |Tempo demorou a estabelecer uma ligação de rede. |
+| clientePerformance [0] receberRequest.value |número inteiro |Tempo a partir do final do envio do pedido para receber o HTML em resposta. |
+| clientePerformance [0] enviarRequest.value |número inteiro |Tempo de tomada para enviar o pedido HTTP. |
+| clientePerformance [0] total.valor |número inteiro |Hora de começar a enviar o pedido para exibir a página. |
+| clientePerformance [0] url |string |URL deste pedido |
+| clientePerformance [0] urlData.base |string | |
+| clientePerformance [0] urlData.hashTag |string | |
+| clientePerformance [0] urlData.host |string | |
+| clientePerformance [0] urlData.protocol |string | |
+
+## <a name="page-views"></a>Vistas da página
+Enviado por trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
+
+| Caminho | Tipo | Notas |
+| --- | --- | --- |
+| ver [0] contagem |número inteiro |100/(taxa[de amostragem).](../../azure-monitor/app/sampling.md) Por exemplo 4 =&gt; 25%. |
+| ver [0] duraçãoMetric.value |número inteiro |Valor opcionalmente definido na trackPageView() ou por startTrackPage() - stopTrackPage(). Não é o mesmo que os valores de desempenho do cliente. |
+| ver [0] nome |string |Título da página.  Comprimento máximo 250 |
+| ver [0] url |string | |
+| ver [0] urlData.base |string | |
+| ver [0] urlData.hashTag |string | |
+| ver [0] urlData.host |string | |
 
 ## <a name="availability"></a>Disponibilidade
-Relata [testes da Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md).
+Relatórios de disponibilidade de [testes web](../../azure-monitor/app/monitor-web-app-availability.md).
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
 | disponibilidade [0] availabilityMetric.name |string |availability |
-| disponibilidade [0] availabilityMetric. Value |número |1,0 ou 0,0 |
-| contagem de disponibilidade [0] |número inteiro |100/(taxa de[amostragem](../../azure-monitor/app/sampling.md) ). Por exemplo 4 = &gt; 25%. |
+| disponibilidade [0] disponibilidadeMetric.value |número |1.0 ou 0,0 |
+| disponibilidade [0] contagem |número inteiro |100/(taxa[de amostragem).](../../azure-monitor/app/sampling.md) Por exemplo 4 =&gt; 25%. |
 | disponibilidade [0] dataSizeMetric.name |string | |
-| disponibilidade [0] dataSizeMetric. Value |número inteiro | |
+| disponibilidade [0] dadosTamanhoMétrico.valor |número inteiro | |
 | disponibilidade [0] durationMetric.name |string | |
-| disponibilidade [0] durationMetric. Value |número |Duração do teste. 1e7 = = 1s |
+| disponibilidade [0] duraçãoMetric.value |número |Duração do teste. 1e7==1s |
 | mensagem de disponibilidade [0] |string |Diagnóstico de falha |
-| resultado da disponibilidade [0] |string |Aprovado/reprovado |
-| disponibilidade [0] runLocation |string |Fonte geográfica de req. http |
-| disponibilidade [0] TestName |string | |
-| disponibilidade [0] testRunId |string | |
+| resultado da disponibilidade [0] |string |Passe/Falha |
+| disponibilidade [0] runLocation |string |Geo fonte de http req |
+| disponibilidade [0] testName |string | |
+| disponibilidade [0] testeRunId |string | |
 | disponibilidade [0] testTimestamp |string | |
 
 ## <a name="metrics"></a>Métricas
-Gerado por TrackMetric ().
+Gerado por TrackMetric().
 
-O valor da métrica é encontrado em Context. Custom. métricas [0]
+O valor métrico encontra-se no contexto.custom.metrics[0]
 
 Por exemplo:
 
@@ -321,8 +317,8 @@ Por exemplo:
          } ] }
     }
 
-## <a name="about-metric-values"></a>Sobre valores de métrica
-Os valores de métrica, tanto em relatórios de métricas quanto em outro lugar, são relatados com uma estrutura de objeto padrão. Por exemplo:
+## <a name="about-metric-values"></a>Sobre valores métricos
+Os valores métricos, tanto em relatórios métricos como noutros locais, são relatados com uma estrutura padrão de objetos. Por exemplo:
 
       "durationMetric": {
         "name": "contoso.org",
@@ -335,18 +331,18 @@ Os valores de métrica, tanto em relatórios de métricas quanto em outro lugar,
         "sampledValue": 468.71603053650279
       }
 
-Atualmente, embora isso possa mudar no futuro, em todos os valores relatados dos módulos padrão do SDK, `count==1` e somente os campos `name` e `value` são úteis. O único caso em que seria diferente seria se você escrevesse suas próprias chamadas TrackMetric, nas quais você definiu os outros parâmetros.
+Atualmente - embora isso possa mudar no futuro - em todos os valores reportados a partir dos módulos Padrão SDK, `count==1` e apenas os campos `name` e `value` são úteis. O único caso em que seriam diferentes seria se escrevesses as tuas próprias chamadas TrackMetric em que definiste os outros parâmetros.
 
-A finalidade dos outros campos é permitir que as métricas sejam agregadas no SDK, para reduzir o tráfego para o Portal. Por exemplo, você pode calcular várias leituras sucessivas antes de enviar cada relatório de métrica. Em seguida, você calcularia o desvio mínimo, máximo, padrão e o valor agregado (Sum ou Average) e definirá Count como o número de leituras representadas pelo relatório.
+O objetivo dos outros campos é permitir que as métricas sejam agregadas no SDK, para reduzir o tráfego para o portal. Por exemplo, pode fazer uma média de várias leituras sucessivas antes de enviar cada relatório métrico. Em seguida, calcularia o min, máximo, desvio padrão e valor agregado (soma ou média) e definiria a contagem para o número de leituras representadas pelo relatório.
 
-Nas tabelas acima, omitimos a contagem de campos raramente utilizados, min, Max, stdDev e sampledValue.
+Nas tabelas acima, omitimos a contagem de campos raramente utilizados, min, max, stdDev e sampledValue.
 
-Em vez de agregar previamente as métricas, você pode usar a [amostragem](../../azure-monitor/app/sampling.md) se precisar reduzir o volume de telemetria.
+Em vez de métricas pré-agregasantes, pode utilizar [amostras](../../azure-monitor/app/sampling.md) se precisar de reduzir o volume de telemetria.
 
 ### <a name="durations"></a>Durações
-Exceto quando indicado de outra forma, as durações são representadas em décimos de um microssegundo, de modo que 10000000,0 significa 1 segundo.
+Salvo indicação em contrário, as durações são representadas em décimos de microsegundo, de modo que 100000000.0 significa 1 segundo.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
-* [Exportação contínua](export-telemetry.md)
+* [Exportação Contínua](export-telemetry.md)
 * [Exemplos de código](export-telemetry.md#code-samples)

@@ -1,70 +1,70 @@
 ---
-title: Visão geral da integridade do serviço | Microsoft Docs
-description: Informações personalizadas sobre como seus aplicativos do Azure são afetados por problemas e manutenção atuais e futuros do serviço do Azure.
-ms.topic: article
+title: Visão geral da Saúde do Serviço  Microsoft Docs
+description: Informações personalizadas sobre como as suas aplicações Azure são afetadas por problemas e manutenção de serviços atuais e futuros do Azure.
+ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 6a06ae22493292e33c94cc83cba1f17361bce45f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: db9d74e2883e755c3e5c3dbbe9d6570f1e78c4a6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451579"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654023"
 ---
-# <a name="service-health-overview"></a>Visão geral da integridade do serviço
+# <a name="service-health-overview"></a>Visão geral da Saúde do Serviço
 
-A integridade do serviço fornece um painel personalizável que controla a integridade dos serviços do Azure nas regiões em que você os utiliza. Nesse painel, você pode acompanhar eventos ativos, como problemas de serviço contínuos, manutenção planejada futura ou comunicados de integridade relevantes. Quando os eventos se tornam inativos, eles são colocados em seu histórico de integridade por até 90 dias. Por fim, você pode usar o painel de integridade do serviço para criar e gerenciar alertas de integridade do serviço que notificam proativamente quando problemas de serviço estão afetando você.
+O Serviço De Saúde fornece-lhe um dashboard personalizável que acompanha a saúde dos seus serviços Azure nas regiões onde os utiliza. Neste dashboard, você pode rastrear eventos ativos como questões de serviço em curso, manutenção planeada próxima ou avisos de saúde relevantes. Quando os eventos ficam inativos, são colocados no seu histórico de saúde por até 90 dias. Finalmente, pode utilizar o dashboard Service Health para criar e gerir alertas de saúde de serviço que o notificam proativamente quando os problemas de serviço estão a afetá-lo.
 
-## <a name="service-health-events"></a>Eventos de integridade do serviço
+## <a name="service-health-events"></a>Eventos de Saúde de Serviço
 
-A integridade do serviço rastreia três tipos de eventos de integridade que podem afetar seus recursos:
+Serviço Saúde rastreia três tipos de eventos de saúde que podem afetar os seus recursos:
 
-1. **Problemas de serviço** -problemas nos serviços do Azure que afetam você no momento. 
-2. **Manutenção planejada** – manutenção futura que pode afetar a disponibilidade de seus serviços no futuro.  
-3. **Comunicados de integridade** – alterações nos serviços do Azure que exigem sua atenção. Os exemplos incluem quando os recursos do Azure são preteridos ou se você excede uma cota de uso.
+1. **Problemas** de serviço - Problemas nos serviços Azure que o afetam neste momento. 
+2. **Manutenção planeada** - Manutenção futura que poderá afetar a disponibilidade dos seus serviços no futuro.  
+3. **Avisos de saúde** - Alterações nos serviços Azure que requerem a sua atenção. Exemplos incluem quando as funcionalidades do Azure são depreciadas ou se exceder uma quota de utilização.
 
 > [!NOTE]
-> Para exibir eventos de integridade do serviço, os usuários devem receber [a função leitor](../role-based-access-control/role-assignments-portal.md) em uma assinatura.
+> Para ver os eventos de Saúde de Serviço, os utilizadores devem receber [o papel de Leitor](../role-based-access-control/role-assignments-portal.md) numa subscrição.
 
-## <a name="get-started-with-service-health"></a>Introdução à integridade do serviço
+## <a name="get-started-with-service-health"></a>Começar com a Saúde do Serviço
 
-Para iniciar o painel de integridade do serviço, selecione o bloco integridade do serviço no painel do Portal. Se você tiver removido o bloco anteriormente ou estiver usando o painel personalizado, procure serviço de integridade do serviço em "mais serviços" (no canto inferior esquerdo no painel).
+Para lançar o seu dashboard Service Health, selecione o azulejo de Saúde de Serviço no seu portal dashboard. Se já removeu previamente o azulejo ou estiver a utilizar o dashboard personalizado, procure o serviço de saúde de serviço em "Mais serviços" (inferior à esquerda no seu painel).
 
-![Introdução à integridade do serviço](./media/service-health-overview/azure-service-health-overview-1.png)
+![Começar com a Saúde do Serviço](./media/service-health-overview/azure-service-health-overview-1.png)
 
-## <a name="see-current-issues-which-impact-your-services"></a>Veja os problemas atuais que afetam seus serviços
+## <a name="see-current-issues-which-impact-your-services"></a>Veja as questões atuais que impactam os seus serviços
 
-A exibição **problemas de serviço** mostra os problemas em andamento nos serviços do Azure que estão afetando seus recursos. Você pode entender quando o problema começou e quais serviços e regiões são afetados. Você também pode ler a atualização mais recente para entender o que o Azure está fazendo para resolver o problema. 
+A visão **de questões** de Serviço mostra quaisquer problemas em curso nos serviços Azure que estão a afetar os seus recursos. Compreende-se quando a questão começou e que serviços e regiões são impactados. Pode também ler a mais recente atualização para perceber o que o Azure está a fazer para resolver o problema. 
 
-![Gerenciar problema de serviço](./media/service-health-overview/azure-service-health-overview-2.png)
+![Gerir a emissão de serviço](./media/service-health-overview/azure-service-health-overview-2.png)
 
-Escolha a guia **impacto potencial** para ver a lista específica de recursos que você possui que podem ser afetados pelo problema. Você pode baixar uma lista CSV desses recursos para compartilhar com sua equipe.
+Escolha o separador **de impacto Potencial** para ver a lista específica de recursos que possui que podem ser impactados pelo problema. Você pode baixar uma lista de CSV destes recursos para partilhar com a sua equipa.
 
-![Gerenciar problema de serviço-impacto](./media/service-health-overview/azure-service-health-overview-4.png)
+![Gerir a emissão de serviço - Impacto](./media/service-health-overview/azure-service-health-overview-4.png)
 
-## <a name="get-links-and-downloadable-explanations"></a>Obter links e explicações para download 
+## <a name="get-links-and-downloadable-explanations"></a>Obtenha links e explicações transferíveis 
 
-Você pode obter um link para o problema a ser usado no sistema de gerenciamento de problemas. Você pode baixar PDF e, às vezes, arquivos CSV para compartilhar com pessoas que não têm acesso ao portal do Azure.   
+Pode obter um link para o problema usar no seu sistema de gestão de problemas. Você pode baixar ficheiros PDF e, por vezes, CSV para partilhar com pessoas que não têm acesso ao portal Azure.   
 
-![Gerenciar problema de serviço-gerenciamento de problemas](./media/service-health-overview/azure-service-health-overview-3.png)
+![Gerir a questão do serviço - Gestão de problemas](./media/service-health-overview/azure-service-health-overview-3.png)
 
-## <a name="get-support-from-microsoft"></a>Obter suporte da Microsoft
+## <a name="get-support-from-microsoft"></a>Obtenha suporte da Microsoft
 
-Contate o suporte se o recurso for deixado em um estado inadequado mesmo depois que o problema for resolvido.  Use os links de suporte à direita da página.  
+Suporte de contato se o seu recurso for deixado em mau estado mesmo após a resolução do problema.  Utilize os links de suporte à direita da página.  
 
-## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Fixar um mapa de integridade personalizado em seu painel
+## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Coloque um mapa de saúde personalizado no seu painel de instrumentos
 
-Filtre a integridade do serviço para mostrar suas assinaturas, regiões e tipos de recursos críticos para os negócios. Salve o filtro e fixe um mapa do World Health personalizado no painel do Portal. 
+Serviço de Filtro Saúde para mostrar as suas assinaturas, regiões e tipos de recursos críticos do negócio. Guarde o filtro e coloque um mapa do mundo da saúde personalizado no seu portal dashboard. 
 
-![Filtrar mapa de integridade personalizado](./media/service-health-overview/azure-service-health-overview-6a.png)
+![Filtrar mapa de saúde personalizado](./media/service-health-overview/azure-service-health-overview-6a.png)
 
-![Fixar um mapa de integridade personalizado](./media/service-health-overview/azure-service-health-overview-6b.png)
+![Pin um mapa de saúde personalizado](./media/service-health-overview/azure-service-health-overview-6b.png)
 
-## <a name="configure-service-health-alerts"></a>Configurar alertas de integridade do serviço
+## <a name="configure-service-health-alerts"></a>Configurar alertas de saúde de serviço
 
-A integridade do serviço integra-se com o Azure Monitor para alertá-lo por emails, mensagens de texto e notificações de webhook quando seus recursos críticos para os negócios são afetados. Configure um alerta do log de atividades para o evento de integridade do serviço apropriado. Encaminhe esse alerta para as pessoas apropriadas em sua organização usando grupos de ação. Para obter mais informações, consulte [configurar alertas para integridade do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+O Service Health integra-se com o Azure Monitor para o alertar através de e-mails, mensagens de texto e notificações de webhook quando os seus recursos críticos de negócio são impactados. Instale um alerta de registo de atividade para o evento de saúde de serviço apropriado. Encaminhe esse alerta para as pessoas apropriadas da sua organização usando Grupos de Ação. Para mais informações, consulte [Configure Alerts para a Saúde do Serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Configure alertas para que você seja notificado sobre problemas de integridade. Para obter mais informações, consulte [práticas recomendadas para configurar alertas de integridade do serviço do Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 
+Instale alertas para que seja notificado de problemas de saúde. Para mais informações, consulte [as melhores práticas para a criação de Alertas de Saúde do Serviço Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

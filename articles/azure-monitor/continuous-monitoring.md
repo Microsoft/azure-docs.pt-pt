@@ -1,90 +1,89 @@
 ---
-title: Monitoramento contínuo com Azure Monitor | Microsoft Docs
-description: Descreve as etapas específicas para usar Azure Monitor para habilitar o monitoramento contínuo em todos os fluxos de trabalho.
-ms.service: azure-monitor
+title: Monitorização contínua com o Monitor Azure [ Monitor Azure] Microsoft Docs
+description: Descreve passos específicos para a utilização do Monitor Azure para permitir a monitorização contínua em todos os seus fluxos de trabalho.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 7dc8001d74ea026625d7496fb84053b4e9109dce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406161"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667198"
 ---
-# <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com Azure Monitor
+# <a name="continuous-monitoring-with-azure-monitor"></a>Monitorização contínua com o Monitor Azure
 
-O monitoramento contínuo refere-se ao processo e à tecnologia necessária para incorporar o monitoramento em cada fase de seus ciclos de vida de operações de ti e DevOps. Ele ajuda a garantir continuamente a integridade, o desempenho e a confiabilidade do seu aplicativo e da infraestrutura à medida que ele se move do desenvolvimento para a produção. O monitoramento contínuo baseia-se nos conceitos de integração contínua e implantação contínua (CI/CD) que ajudam você a desenvolver e entregar software de forma mais rápida e confiável para fornecer valor contínuo aos seus usuários.
+A monitorização contínua refere-se ao processo e à tecnologia necessários para incorporar a monitorização em cada fase dos seus Ciclos de vida de operações de DevOps e TI. Ajuda a garantir continuamente a saúde, desempenho e fiabilidade da sua aplicação e infraestrutura à medida que passa do desenvolvimento para a produção. A monitorização contínua baseia-se nos conceitos de Integração Contínua e Implantação Contínua (CI/CD) que o ajudam a desenvolver e fornecer software de forma mais rápida e fiável para fornecer valor contínuo aos seus utilizadores.
 
-[Azure monitor](overview.md) é a solução de monitoramento unificada no Azure que fornece a observação de uma pilha completa entre aplicativos e infraestrutura na nuvem e no local. Ele funciona perfeitamente com o [Visual Studio e Visual Studio Code](https://visualstudio.microsoft.com/) durante o desenvolvimento e o teste e integra-se com o [Azure DevOps](/azure/devops/user-guide/index) para gerenciamento de versão e gerenciamento de itens de trabalho durante a implantação e as operações. Ele se integra a todas as ferramentas de ITSM e SIEM de sua escolha para ajudar a acompanhar problemas e incidentes em seus processos de ti existentes.
+[O Azure Monitor](overview.md) é a solução de monitorização unificada em Azure que proporciona observabilidade em pilhas completas através de aplicações e infraestruturas na nuvem e no local. Funciona perfeitamente com [o Visual Studio e visual Studio Code](https://visualstudio.microsoft.com/) durante o desenvolvimento e teste e integra-se com a [Azure DevOps](/azure/devops/user-guide/index) para gestão de lançamentos e gestão de itens de trabalho durante a implantação e operações. Até se integra em todas as ferramentas ITSM e SIEM à sua escolha para ajudar a rastrear problemas e incidentes dentro dos processos de TI existentes.
 
-Este artigo descreve as etapas específicas para usar Azure Monitor para habilitar o monitoramento contínuo em todos os fluxos de trabalho. Ele inclui links para outras documentações que fornecem detalhes sobre a implementação de recursos diferentes.
-
-
-## <a name="enable-monitoring-for-all-your-applications"></a>Habilitar o monitoramento de todos os seus aplicativos
-Para obter uma observação de desempenho em todo o ambiente, você precisa habilitar o monitoramento em todos os seus aplicativos e serviços Web. Isso permitirá que você visualize facilmente transações e conexões de ponta a ponta em todos os componentes.
-
-- [Azure DevOps Projects](../devops-project/overview.md) oferece uma experiência simplificada com seu código existente e o repositório git, ou escolha um dos aplicativos de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure.
-- O [monitoramento contínuo em seu pipeline de versão do DevOps](../azure-monitor/app/continuous-monitoring.md) permite que você portão ou reverta sua implantação com base nos dados de monitoramento.
-- [Status monitor](../azure-monitor/app/monitor-performance-live-website-now.md) permite instrumentar um aplicativo .net ativo no Windows com o aplicativo Azure insights, sem a necessidade de modificar ou reimplantar seu código.
-- Se você tiver acesso ao código para seu aplicativo, habilite o monitoramento completo com [Application insights](../azure-monitor/app/app-insights-overview.md) instalando o SDK do Application Insights do Azure monitor para [.net](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/app/java-get-started.md), [node. js](../azure-monitor/learn/nodejs-quick-start.md)ou [qualquer outra linguagem de programação](../azure-monitor/app/platforms.md). Isso permite que você especifique eventos personalizados, métricas ou exibições de página que são relevantes para seu aplicativo e seu negócio.
+Este artigo descreve passos específicos para a utilização do Monitor Azure para permitir uma monitorização contínua em todos os seus fluxos de trabalho. Inclui links para outra documentação que fornece detalhes sobre a implementação de diferentes funcionalidades.
 
 
+## <a name="enable-monitoring-for-all-your-applications"></a>Ativar a monitorização de todas as suas aplicações
+Para obter a observabilidade em todo o seu ambiente, precisa de permitir a monitorização de todas as suas aplicações e serviços web. Isto permitirá visualizar facilmente transações e ligações de ponta a ponta em todos os componentes.
 
-## <a name="enable-monitoring-for-your-entire-infrastructure"></a>Habilitar o monitoramento para toda a sua infraestrutura
-Os aplicativos são tão confiáveis quanto sua infraestrutura subjacente. Ter o monitoramento habilitado em toda a sua infraestrutura ajudará você a obter uma observação completa e facilitar a descoberta de uma possível causa raiz quando algo falhar. Azure Monitor ajuda a acompanhar a integridade e o desempenho de toda a sua infraestrutura híbrida, incluindo recursos como VMs, contêineres, armazenamento e rede.
-
-- Você obtém automaticamente [métricas de plataforma, logs de atividades e logs de diagnóstico](platform/data-sources.md) da maioria dos recursos do Azure sem configuração.
-- Habilite o monitoramento mais profundo para VMs com [Azure monitor para VMs](insights/vminsights-overview.md).
--  Habilite o monitoramento mais profundo para clusters AKS com [Azure monitor para contêineres](insights/container-insights-overview.md).
-- Adicione [soluções de monitoramento](insights/solutions-inventory.md) para diferentes aplicativos e serviços em seu ambiente.
-
-
-A [Infraestrutura como código](/azure/devops/learn/what-is-infrastructure-as-code) é o gerenciamento da infraestrutura em um modelo descritivo, usando o mesmo controle de versão que as equipes DevOps usam para o código-fonte. Ele adiciona confiabilidade e escalabilidade ao seu ambiente e permite que você aproveite processos semelhantes usados para gerenciar seus aplicativos.
-
--  Use [modelos do Resource Manager](platform/template-workspace-configuration.md) para habilitar o monitoramento e configurar alertas em um grande conjunto de recursos.
-- Use [Azure Policy](../governance/policy/overview.md) para impor regras diferentes sobre seus recursos. Isso garante que esses recursos permaneçam em conformidade com seus padrões corporativos e contratos de nível de serviço. 
+- Os [Projetos Azure DevOps](../devops-project/overview.md) oferecem-lhe uma experiência simplificada com o seu código existente e repositório Git, ou escolha entre uma das aplicações de amostra para criar um pipeline de Integração Contínua (CI) e Entrega Contínua (CD) para o Azure.
+- [A monitorização contínua no seu pipeline de libertação DevOps](../azure-monitor/app/continuous-monitoring.md) permite-lhe portalar ou reverter a sua implementação com base em dados de monitorização.
+- [O Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md) permite-lhe instrumentar uma aplicação live .NET no Windows com insights de aplicação Azure, sem ter de modificar ou reimplementar o seu código.
+- Se tiver acesso ao código da sua aplicação, então ative a monitorização completa com os Insights de [Aplicação,](../azure-monitor/app/app-insights-overview.md) instalando o Azure Monitor Application Insights SDK para [.NET,](../azure-monitor/learn/quick-monitor-portal.md) [Java,](../azure-monitor/app/java-get-started.md) [Node.js,](../azure-monitor/learn/nodejs-quick-start.md)ou [quaisquer outros idiomas de programação.](../azure-monitor/app/platforms.md) Isto permite especificar eventos, métricas ou visualizações de página personalizadas que sejam relevantes para a sua aplicação e para o seu negócio.
 
 
-##  <a name="combine-resources-in-azure-resource-groups"></a>Combinar recursos em grupos de recursos do Azure
-Um aplicativo típico no Azure atualmente inclui vários recursos, como VMs e serviços de aplicativo ou microservices hospedados em serviços de nuvem, clusters AKS ou Service Fabric. Esses aplicativos frequentemente utilizam dependências como hubs de eventos, armazenamento, SQL e barramento de serviço.
 
-- Combine recursos nos grupos de recursos do Azure para obter visibilidade total de todos os seus recursos que compõem seus aplicativos diferentes. [Azure monitor para grupos de recursos](../azure-monitor/insights/resource-group-insights.md) fornece uma maneira simples de controlar a integridade e o desempenho de todo o seu aplicativo completo de pilha e permite a busca detalhada dos respectivos componentes para qualquer investigação ou depuração.
+## <a name="enable-monitoring-for-your-entire-infrastructure"></a>Ativar a monitorização de toda a sua infraestrutura
+As aplicações são tão fiáveis como as suas infraestruturas subjacentes. Ter monitorização ativada em toda a sua infraestrutura irá ajudá-lo a alcançar a observabilidade total e facilitar a descoberta de uma potencial causa raiz quando algo falha. O Azure Monitor ajuda-o a acompanhar a saúde e o desempenho de toda a sua infraestrutura híbrida, incluindo recursos como VMs, contentores, armazenamento e rede.
 
-## <a name="ensure-quality-through-continuous-deployment"></a>Garantir a qualidade por meio da implantação contínua
-A integração contínua/implantação contínua permite que você integre e implante automaticamente as alterações de código em seu aplicativo com base nos resultados do teste automatizado. Ele simplifica o processo de implantação e garante a qualidade das alterações antes que elas se movam para a produção.
-
-
-- Use [Azure pipelines](/azure/devops/pipelines) para implementar a implantação contínua e automatizar todo o processo desde a confirmação do código até a produção com base nos testes de CI/CD.
-- Use [Gates de qualidade](/azure/devops/pipelines/release/approvals/gates) para integrar o monitoramento à pré-implantação ou pós-implantação. Isso garante que você esteja atendendo às principais métricas de integridade/desempenho (KPIs), uma vez que seus aplicativos se movem de desenvolvimento para produção e quaisquer diferenças no ambiente de infraestrutura ou escala não afetem negativamente os KPIs.
-- [Mantenha instâncias de monitoramento separadas](../azure-monitor/app/separate-resources.md) entre seus diferentes ambientes de implantação, como dev, Test, canário e prod. Isso garante que os dados coletados sejam relevantes entre os aplicativos e a infraestrutura associados. Se você precisar correlacionar dados entre ambientes, poderá usar [gráficos de vários recursos em Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou criar [consultas entre recursos no Azure monitor](log-query/cross-workspace-query.md).
+- Obtém automaticamente métricas de [plataforma, registos](platform/data-sources.md) de atividade e registos de diagnóstico da maioria dos seus recursos Azure sem configuração.
+- Ative uma monitorização mais profunda para VMs com [Monitor Azure para VMs](insights/vminsights-overview.md).
+-  Permitir uma monitorização mais profunda dos clusters AKS com [o Monitor Azure para os contentores](insights/container-insights-overview.md).
+- Adicione soluções de [monitorização](insights/solutions-inventory.md) para diferentes aplicações e serviços no seu ambiente.
 
 
-## <a name="create-actionable-alerts-with-actions"></a>Criar alertas acionáveis com ações
-Um aspecto crítico do monitoramento é notificar de forma proativa os administradores de quaisquer problemas atuais e previstos. 
+[A infraestrutura como código](/azure/devops/learn/what-is-infrastructure-as-code) é a gestão da infraestrutura num modelo descritivo, utilizando a mesma versão que as equipas de DevOps usam para código fonte. Adiciona fiabilidade e escalabilidade ao seu ambiente e permite-lhe alavancar processos semelhantes que costumavam gerir as suas aplicações.
 
-- Crie [alertas no Azure monitor](../azure-monitor/platform/alerts-overview.md) com base em logs e métricas para identificar Estados de falha previsíveis. Você deve ter uma meta de tornar todos os alertas acionáveis, o que significa que eles representam as condições críticas reais e buscam reduzir os falsos positivos. Use [limites dinâmicos](platform/alerts-dynamic-thresholds.md) para calcular automaticamente linhas de base em dados de métrica em vez de definir seus próprios limites estáticos. 
-- Defina ações para que os alertas usem o meio mais eficaz de notificar seus administradores. As [ações disponíveis para notificação](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) são SMS, emails, notificações por Push ou chamadas de voz.
-- Use ações mais avançadas para [se conectar à sua ferramenta de ITSM](platform/itsmc-overview.md) ou a outros sistemas de gerenciamento de alertas por meio de [WebHooks](platform/activity-log-alerts-webhook.md).
-- Corrija as situações identificadas em alertas também com os [runbooks de automação do Azure](../automation/automation-webhooks.md) ou os [aplicativos lógicos](/connectors/custom-connectors/create-webhook-trigger) que podem ser iniciados por meio de um alerta usando WebHooks. 
-- Use o [dimensionamento](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md) automático para aumentar e diminuir dinamicamente seus recursos de computação com base nas métricas coletadas.
+-  Utilize [os modelos do Gestor](platform/template-workspace-configuration.md) de Recursos para permitir a monitorização e configuração de alertas sobre um grande conjunto de recursos.
+- Use a [Política Azure](../governance/policy/overview.md) para impor regras diferentes sobre os seus recursos. Isto garante que esses recursos se mantenham em conformidade com os seus padrões corporativos e acordos de nível de serviço. 
 
-## <a name="prepare-dashboards-and-workbooks"></a>Preparar painéis e pastas de trabalho
-Garantir que seu desenvolvimento e suas operações tenham acesso à mesma telemetria e ferramentas permite que eles exibam padrões em todo o ambiente e minimizem o tempo médio de detecção (MTTD) e o tempo médio de restauração (MTTR).
 
-- Prepare [painéis personalizados](../azure-monitor/learn/tutorial-app-dashboards.md) com base em métricas e logs comuns para as diferentes funções em sua organização. Os painéis podem combinar dados de todos os recursos do Azure.
-- Prepare [pastas de trabalho](../azure-monitor/app/usage-workbooks.md) para garantir o compartilhamento de conhecimento entre desenvolvimento e operações. Eles podem ser preparados como relatórios dinâmicos com gráficos de métricas e consultas de log, ou até mesmo como guias de solução de problemas preparados por desenvolvedores que ajudam o atendimento ao cliente ou operações para lidar com problemas básicos.
+##  <a name="combine-resources-in-azure-resource-groups"></a>Combine recursos em grupos de recursos azure
+Uma aplicação típica no Azure hoje inclui vários recursos, como VMs e App Services ou microserviços hospedados em Serviços cloud, clusters AKS ou Service Fabric. Estas aplicações utilizam frequentemente dependências como Hubs de Eventos, Armazenamento, SQL e Ônibus de Serviço.
+
+- Combine recursos em Grupos de Recursos Azure para obter total visibilidade em todos os seus recursos que compõem as suas diferentes aplicações. [O Monitor Azure para Grupos](../azure-monitor/insights/resource-group-insights.md) de Recursos fornece uma forma simples de acompanhar a saúde e o desempenho de toda a sua aplicação de pilha completa e permite perfurar os respetivos componentes para quaisquer investigações ou depuração.
+
+## <a name="ensure-quality-through-continuous-deployment"></a>Garantir a qualidade através da Implantação Contínua
+A Integração Contínua / Implantação Contínua permite-lhe integrar e implementar automaticamente alterações de código na sua aplicação com base nos resultados dos testes automatizados. Simplifica o processo de implantação e assegura a qualidade de quaisquer alterações antes de entrarem em produção.
+
+
+- Utilize [os Gasodutos Azure](/azure/devops/pipelines) para implementar a Implantação Contínua e automatizar todo o seu processo a partir do código compromete-se com a produção com base nos seus testes CI/CD.
+- Utilize [portões](/azure/devops/pipelines/release/approvals/gates) de qualidade para integrar a monitorização na pré-implantação ou pós-implantação. Isto garante que está a cumprir as principais métricas de saúde/desempenho (KPIs) à medida que as suas aplicações passam de dev para produção e quaisquer diferenças no ambiente ou escala da infraestrutura não estão a afetar negativamente os seus KPIs.
+- [Mantenha casos de monitorização separados](../azure-monitor/app/separate-resources.md) entre os seus diferentes ambientes de implantação, tais como Dev, Test, Canary e Prod. Isto garante que os dados recolhidos são relevantes em todas as aplicações e infraestruturas associadas. Se precisar de correlacionar dados em ambientes, pode utilizar [gráficos de vários recursos no Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou criar [consultas de recursos cruzados no Monitor Azure](log-query/cross-workspace-query.md).
+
+
+## <a name="create-actionable-alerts-with-actions"></a>Criar alertas atoráveis com ações
+Um aspeto crítico da monitorização é notificar proactivamente os administradores de quaisquer problemas atuais e previsíveis. 
+
+- Crie [alertas no Monitor Azure](../azure-monitor/platform/alerts-overview.md) com base em registos e métricas para identificar estados de falha previsíveis. Deve ter o objetivo de tornar todos os alertas atoveis, o que significa que representam condições críticas reais e procurar reduzir falsos positivos. Utilize [limiares dinâmicos](platform/alerts-dynamic-thresholds.md) para calcular automaticamente as linhas de base em dados métricos em vez de definir os seus próprios limiares estáticos. 
+- Defina ações para alertas para usar os meios mais eficazes de notificar os seus administradores. As ações disponíveis [para notificação](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) são SMS, e-mails, notificações push ou chamadas de voz.
+- Utilize ações mais avançadas para [se conectar à sua ferramenta ITSM](platform/itsmc-overview.md) ou a outros sistemas de gestão de alerta através de [webhooks](platform/activity-log-alerts-webhook.md).
+- Remediar situações identificadas em alertas também com os livros de [execução da Azure Automation](../automation/automation-webhooks.md) ou [aplicações lógicas](/connectors/custom-connectors/create-webhook-trigger) que podem ser lançadas a partir de um alerta usando webhooks. 
+- Utilize [a autoscalcificação](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md) para aumentar e diminuir dinamicamente os seus recursos computacionais com base em métricas recolhidas.
+
+## <a name="prepare-dashboards-and-workbooks"></a>Preparar dashboards e livros
+Garantir que o seu desenvolvimento e operações têm acesso à mesma telemetria e ferramentas que lhes permite visualizar padrões em todo o seu ambiente e minimizar o seu tempo médio para detetar (MTTD) e tempo médio para restaurar (MTTR).
+
+- Prepare [dashboards personalizados](../azure-monitor/learn/tutorial-app-dashboards.md) com base em métricas e registos comuns para as diferentes funções da sua organização. Os dashboards podem combinar dados de todos os recursos do Azure.
+- Prepare livros de [trabalho](../azure-monitor/app/usage-workbooks.md) para garantir a partilha de conhecimentos entre desenvolvimento e operações. Estes poderiam ser preparados como relatórios dinâmicos com gráficos métricos e consultas de registo, ou mesmo como guias de resolução de problemas preparados por desenvolvedores ajudando o apoio ao cliente ou operações para lidar com problemas básicos.
 
 ## <a name="continuously-optimize"></a>Otimizar continuamente
- O monitoramento é um dos aspectos fundamentais da filosofia popular de avaliação de compilação-aprendizado, que recomenda controlar continuamente os KPIs e as métricas de comportamento do usuário e, em seguida, se empenhar em otimizá-los por meio de iterações de planejamento. Azure Monitor ajuda a coletar métricas e logs relevantes para seus negócios e adicionar novos pontos de dados na próxima implantação, conforme necessário.
+ A monitorização é um dos aspetos fundamentais da popular filosofia Build-Measure-Learn, que recomenda o acompanhamento contínuo das suas métricas de comportamento do utilizador e, em seguida, esforçando-se por otimizá-los através de iterações de planeamento. O Azure Monitor ajuda-o a recolher métricas e registos relevantes para o seu negócio e a adicionar novos pontos de dados na próxima implementação, conforme necessário.
 
-- Use as ferramentas no Application Insights para [controlar o comportamento e o envolvimento do usuário final](../azure-monitor/learn/tutorial-users.md).
-- Use a [análise de impacto](../azure-monitor/app/usage-impact.md) para ajudá-lo a priorizar em quais áreas concentrar-se em direcionar para KPIs importantes.
+- Utilize ferramentas em Insights de Aplicação para rastrear o [comportamento e o envolvimento do utilizador final.](../azure-monitor/learn/tutorial-users.md)
+- Use [a Análise](../azure-monitor/app/usage-impact.md) de Impacto para ajudá-lo a priorizar quais áreas para se concentrar para conduzir a KPIs importantes.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os componentes de diferença do [Azure monitor](overview.md).
-- [Adicione monitoramento contínuo](../azure-monitor/app/continuous-monitoring.md) ao seu pipeline de lançamento.
+- Conheça a diferença de componentes do [Monitor Azure.](overview.md)
+- [Adicione uma monitorização contínua](../azure-monitor/app/continuous-monitoring.md) ao seu gasoduto de libertação.

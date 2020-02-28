@@ -1,61 +1,60 @@
 ---
-title: Coletar e analisar mensagens de syslog no Azure Monitor | Microsoft Docs
-description: Syslog é um protocolo de registo de eventos que é comum para Linux. Este artigo descreve como configurar a coleta de mensagens de syslog no Log Analytics e os detalhes dos registros que eles criam.
-ms.service: azure-monitor
+title: Recolher e analisar mensagens Syslog no Monitor Azure Microsoft Docs
+description: Syslog é um protocolo de registo de eventos que é comum para Linux. Este artigo descreve como configurar a recolha de mensagens Syslog no Log Analytics e detalhes dos registos que criam.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: ffc6c48a6b49edded97570fd1ac421933b5f6b72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d68a8d6d28d79c50a92cd2d18df2abab26c30ec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450641"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670496"
 ---
-# <a name="syslog-data-sources-in-azure-monitor"></a>Fontes de dados syslog no Azure Monitor
-Syslog é um protocolo de registo de eventos que é comum para Linux. Aplicativos enviará as mensagens que podem ser armazenadas no computador local ou entregues a um recoletor de Syslog. Quando o agente de Log Analytics para Linux é instalado, ele configura o daemon do syslog local para encaminhar mensagens para o agente. Em seguida, o agente envia a mensagem para Azure Monitor onde um registro correspondente é criado.  
+# <a name="syslog-data-sources-in-azure-monitor"></a>Fontes de dados do Syslog no Monitor Azure
+Syslog é um protocolo de registo de eventos que é comum para Linux. Aplicativos enviará as mensagens que podem ser armazenadas no computador local ou entregues a um recoletor de Syslog. Quando o agente Log Analytics para o Linux é instalado, ele confunde o daemon syslog local para encaminhar mensagens para o agente. O agente envia então a mensagem para o Monitor Azure onde é criado um registo correspondente.  
 
 > [!NOTE]
-> Azure Monitor dá suporte à coleta de mensagens enviadas por rsyslog ou syslog-ng, em que rsyslog é o daemon padrão. O daemon de syslog padrão na versão 5 da versão do Oracle Linux, CentOS e Red Hat Enterprise Linux (sysklog) não é suportado para a recolha de eventos do syslog. Para recolher dados de syslog nesta versão nessas distribuições, o [rsyslog daemon](http://rsyslog.com) deve ser instalado e configurado para substituir sysklog.
+> O Azure Monitor suporta a recolha de mensagens enviadas por rsyslog ou syslog-ng, onde o rsyslog é o daemon padrão. O daemon de syslog padrão na versão 5 da versão do Oracle Linux, CentOS e Red Hat Enterprise Linux (sysklog) não é suportado para a recolha de eventos do syslog. Para recolher dados syslog desta versão destas distribuições, o [daemon rsyslog](http://rsyslog.com) deve ser instalado e configurado para substituir o sysklog.
 >
 >
 
 ![Recolha de syslog](media/data-sources-syslog/overview.png)
 
-Os seguintes recursos têm suporte com o coletor de syslog:
+As seguintes instalações são suportadas com o colecionador Syslog:
 
-* Kern
+* núcleo
 * Utilizador
-* correio
-* Demonstração
-* propósito
+* mail
+* daemon
+* auth
 * syslog
-* LPR
-* news
+* Rio Lpr
+* notícias
 * uucp
 * cron
 * authpriv
 * ftp
 * local0-local7
 
-Para qualquer outro recurso, [Configure uma fonte de dados de logs personalizados](data-sources-custom-logs.md) no Azure monitor.
+Para qualquer outra instalação, configure uma fonte de [dados de Registos Personalizados](data-sources-custom-logs.md) no Monitor Azure.
  
 ## <a name="configuring-syslog"></a>Configurar Syslog
-O agente Log Analytics para Linux coletará apenas eventos com as instalações e severidades especificadas em sua configuração. Pode configurar Syslog através do portal do Azure ou através da gestão de ficheiros de configuração nos agentes do Linux.
+O agente Log Analytics para o Linux apenas irá recolher eventos com as instalações e severidades especificadas na sua configuração. Pode configurar Syslog através do portal do Azure ou através da gestão de ficheiros de configuração nos agentes do Linux.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurar o Syslog no portal do Azure
-Configure o syslog no [menu dados em configurações avançadas](agent-data-sources.md#configuring-data-sources). Esta configuração é entregue ao arquivo de configuração em cada agente do Linux.
+Configure o Syslog a partir do [menu Dados em Definições Avançadas](agent-data-sources.md#configuring-data-sources). Esta configuração é entregue ao arquivo de configuração em cada agente do Linux.
 
-Você pode adicionar um novo recurso selecionando primeiro a opção **aplicar abaixo a configuração em meus computadores** e, em seguida, digitando seu nome e clicando em **+** . Para cada recurso, apenas as mensagens com as gravidades selecionadas serão recolhidas.  Verifique as gravidades do recurso específico que pretende recolher. Não é possível fornecer quaisquer critérios adicionais para filtrar mensagens.
+Pode adicionar uma nova facilidade selecionando primeiro a opção Aplicar abaixo a **configuração às minhas máquinas** e, em seguida, digitar em seu nome e clicar **+** . Para cada recurso, apenas as mensagens com as gravidades selecionadas serão recolhidas.  Verifique as gravidades do recurso específico que pretende recolher. Não é possível fornecer quaisquer critérios adicionais para filtrar mensagens.
 
 ![Configurar o Syslog](media/data-sources-syslog/configure.png)
 
-Por predefinição, todas as alterações de configuração são automaticamente enviados por push para todos os agentes. Se você quiser configurar o syslog manualmente em cada agente do Linux, desmarque a caixa *aplicar configuração abaixo a meus computadores*.
+Por predefinição, todas as alterações de configuração são automaticamente enviados por push para todos os agentes. Se pretender configurar o Syslog manualmente em cada agente Linux, então desverifique a caixa Aplique abaixo a *configuração para as minhas máquinas*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurar o Syslog no agente do Linux
-Quando o [agente de log Analytics é instalado em um cliente Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), ele instala um arquivo de configuração de syslog padrão que define a instalação e a gravidade das mensagens que são coletadas. Pode modificar esse arquivo para alterar a configuração. O ficheiro de configuração é diferente consoante o daemon de Syslog que tem instalado o cliente.
+Quando o [agente Log Analytics é instalado num cliente Linux,](../../azure-monitor/learn/quick-collect-linux-computer.md)instala um ficheiro de configuração de sislog predefinido que define a instalação e a gravidade das mensagens que são recolhidas. Pode modificar esse arquivo para alterar a configuração. O ficheiro de configuração é diferente consoante o daemon de Syslog que tem instalado o cliente.
 
 > [!NOTE]
 > Se editar a configuração do syslog, tem de reiniciar o syslog daemon para que as alterações entrem em vigor.
@@ -89,7 +88,7 @@ Pode remover um recurso ao remover a secção do ficheiro de configuração. Pod
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-O ficheiro de configuração para syslog-ng é o local em **/etc/syslog-ng/syslog-ng.conf**.  Seu conteúdo padrão é mostrado abaixo. Esta secção reúne as mensagens do syslog enviadas a partir do agente local para todas as instalações e todas as gravidades.   
+O ficheiro de configuração para syslog-ng é localização em **/etc/syslog-ng/syslog-ng.conf**.  Seu conteúdo padrão é mostrado abaixo. Esta secção reúne as mensagens do syslog enviadas a partir do agente local para todas as instalações e todas as gravidades.   
 
     #
     # Warnings (except iptables) in one file:
@@ -148,14 +147,14 @@ Pode remover um recurso ao remover a secção do ficheiro de configuração. Pod
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Recolha de dados de portas adicionais do Syslog
-O agente de Log Analytics escuta mensagens de syslog no cliente local na porta 25224.  Quando o agente está instalado, uma configuração de syslog predefinida é aplicada e foi encontrada na seguinte localização:
+O agente Log Analytics ouve mensagens Syslog no cliente local no porto 25224.  Quando o agente está instalado, uma configuração de syslog predefinida é aplicada e foi encontrada na seguinte localização:
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
 Pode alterar o número da porta através da criação de dois ficheiros de configuração: um ficheiro de configuração FluentD e um arquivo de rsyslog-ou-syslog-ng consoante o daemon de Syslog que instalou.  
 
-* O ficheiro de configuração FluentD deve ser um novo ficheiro, localizado em: `/etc/opt/microsoft/omsagent/conf/omsagent.d` e substitua o valor no **porta** entrada com o seu número de porta personalizado.
+* O ficheiro config FluentD deve ser um novo ficheiro localizado em: `/etc/opt/microsoft/omsagent/conf/omsagent.d` e substituir o valor na entrada da **porta** pelo seu número de porta personalizado.
 
         <source>
           type syslog
@@ -168,10 +167,10 @@ Pode alterar o número da porta através da criação de dois ficheiros de confi
           type filter_syslog
         </filter>
 
-* Para rsyslog, deve criar um novo ficheiro de configuração localizado em: `/etc/rsyslog.d/` e substitua o valor % SYSLOG_PORT % com o seu número de porta personalizado.  
+* Para rsyslog, deve criar um novo ficheiro de configuração localizado em: `/etc/rsyslog.d/` e substituir o valor %SYSLOG_PORT% com o seu número de porta personalizado.  
 
     > [!NOTE]
-    > Se modificar este valor no ficheiro de configuração `95-omsagent.conf`, esta será substituída quando o agente aplica-se uma configuração predefinida.
+    > Se modificar este valor no ficheiro de configuração `95-omsagent.conf`, será substituído quando o agente aplicar uma configuração predefinida.
     >
 
         # OMS Syslog collection for workspace %WORKSPACE_ID%
@@ -180,7 +179,7 @@ Pode alterar o número da porta através da criação de dois ficheiros de confi
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* A configuração do syslog-ng deve ser modificada ao copiar a configuração de exemplo mostrada abaixo e adicionar as definições de modificação personalizadas ao fim do ficheiro de configuração do syslog ng.conf localizado no `/etc/syslog-ng/`. Fazer **não** utilize a etiqueta predefinida **% WORKSPACE_ID % _oms** ou **% WORKSPACE_ID_OMS**, definir uma etiqueta personalizada para o ajudar a distinguir as suas alterações.  
+* A config syslog-ng deve ser modificada copiando a configuração do exemplo abaixo e adicionando as definições modificadas personalizadas à extremidade do ficheiro de configuração syslog-ng.conf localizado em `/etc/syslog-ng/`. **Não** utilize a etiqueta predefinida **%WORKSPACE_ID%_oms** ou **%WORKSPACE_ID_OMS,** defina uma etiqueta personalizada para ajudar a distinguir as suas alterações.  
 
     > [!NOTE]
     > Se modificar os valores predefinidos no ficheiro de configuração, estas serão substituídas quando o agente aplica-se uma configuração predefinida.
@@ -190,18 +189,18 @@ Pode alterar o número da porta através da criação de dois ficheiros de confi
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
         log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
 
-Depois de concluir as alterações, o syslog e o serviço do agente de Log Analytics precisam ser reiniciados para garantir que as alterações de configuração tenham efeito.   
+Após a conclusão das alterações, o serviço syslog e o serviço de agente Log Analytics precisam de ser reiniciados para garantir que as alterações de configuração tenham efeito.   
 
 ## <a name="syslog-record-properties"></a>Propriedades de registo do syslog
-Registos de syslog têm um tipo de **Syslog** e ter as propriedades na tabela seguinte.
+Os registos syslog têm um tipo de **Syslog** e têm as propriedades na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | Computador |Computador que o evento foi recolhido a partir de. |
-| Recurso |Define a parte do sistema que gerou a mensagem. |
+| Função |Define a parte do sistema que gerou a mensagem. |
 | HostIP |Endereço IP do sistema enviar a mensagem. |
 | nome de anfitrião |Nome do sistema enviar a mensagem. |
-| SeverityLevel |Nível de gravidade do evento. |
+| Nível de Gravidade |Nível de gravidade do evento. |
 | SyslogMessage |Texto da mensagem. |
 | ProcessID |ID do processo que gerou a mensagem. |
 | eventTime |Data e hora em que o evento foi gerado. |
@@ -217,6 +216,6 @@ A tabela seguinte fornece exemplos diferentes de consultas de registo que obter 
 | Syslog &#124; resumir AggregatedValue = count () por instalação |Registos de contagem de Syslog por instalação. |
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre [registar as consultas](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
-* Uso [campos personalizados](../../azure-monitor/platform/custom-fields.md) para analisar dados de registos de syslog em campos individuais.
-* [Configurar os agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) para recolher outros tipos de dados.
+* Saiba mais sobre consultas de [registo](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes e soluções de dados.
+* Utilize [campos personalizados](../../azure-monitor/platform/custom-fields.md) para analisar dados de registos syslog em campos individuais.
+* [Configure os agentes Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) para recolher outros tipos de dados.

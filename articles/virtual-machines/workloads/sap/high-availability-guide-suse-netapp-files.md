@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 18aecfc5ea40c8368fbf4d4a07f86e71047265f7
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 493414d6e903dba02f126c10c2f4d6a34e0b1549
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598651"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661228"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP
 
@@ -97,10 +97,6 @@ Agora é possível alcançar o SAP Netweaver HA utilizando armazenamento partilh
 ![Visão geral de alta disponibilidade da SAP NetWeaver](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados SAP HANA usam o nome de anfitrião virtual e endereços IP virtuais. No Azure, [é](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) necessário utilizar um endereço IP virtual. Recomendamos a utilização do [equilíbrio de carga Standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). A lista seguinte mostra a configuração do (A)SCS e do equilibrador de carga ERS.
-
-> [!IMPORTANT]
-> O agrupamento multi-SID do SAP ASCS/ERS com o SUSE Linux como sistema operativo convidado em VMs Azure NÃO é **suportado**. O clustering multi-SID descreve a instalação de múltiplas instâncias SAP ASCS/ERS com diferentes SIDs num cluster Pacemaker
-
 
 ### <a name="ascs"></a>A SCS
 
@@ -1420,6 +1416,7 @@ Os seguintes ensaios são uma cópia dos casos de teste nos [guias de boas prát
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [HA para SAP NW em VMs Azure em SLES para aplicações SAP guia multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
 * [Planeamento e implementação de Máquinas Virtuais Azure para SAP][planning-guide]
 * [Implantação de Máquinas Virtuais Azure para SAP][deployment-guide]
 * [Implantação de DBMS de Máquinas Virtuais Azure para SAP][dbms-guide]

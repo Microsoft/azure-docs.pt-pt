@@ -1,18 +1,14 @@
 ---
 title: Monitorize um site do SharePoint com o Application Insights
 description: Comece a monitorizar uma nova aplicação com uma nova chave de instrumentação
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/11/2018
-ms.openlocfilehash: 041368d6310aca2183c7acbfe49d57d7e9683765
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048332"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671448"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorize um site do SharePoint com o Application Insights
 O Azure Application Insights monitoriza a disponibilidade, o desempenho e a utilização das suas aplicações. Aqui, irá aprender a configurá-lo para um site do SharePoint.

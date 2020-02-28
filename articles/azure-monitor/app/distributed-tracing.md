@@ -1,61 +1,59 @@
 ---
-title: Rastreamento distribuído no insights do Aplicativo Azure | Microsoft Docs
-description: Fornece informações sobre o suporte da Microsoft para rastreamento distribuído por meio de nosso encaminhador local e parceria no projeto OpenCensus
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Rastreio distribuído em Insights de Aplicação Azure  Microsoft Docs
+description: Fornece informações sobre o suporte da Microsoft para rastreio distribuído através do nosso avançado local e parceria no projeto OpenCensus
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5c07fac0590b833aa19909849271c59d65d42ad6
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 49e61a7677007c52d1a584c4b49ccaadc3a02df3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242451"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669595"
 ---
-# <a name="what-is-distributed-tracing"></a>O que é o rastreamento distribuído?
+# <a name="what-is-distributed-tracing"></a>O que é Rastreio Distribuído?
 
-O advento das arquiteturas modernas de nuvem e de [microserviço](https://azure.com/microservices) deu origem aos serviços simples e implantáveis de forma independente que podem ajudar a reduzir os custos enquanto aumentam a disponibilidade e a taxa de transferência. Mas embora esses movimentos tenham tornado serviços individuais mais fáceis de entender como um todo, eles tornaram os sistemas em geral mais difíceis de descobrir e depurar.
+O advento das arquiteturas modernas de nuvem e [microserviços](https://azure.com/microservices) deu origem a serviços simples e independentes que podem ajudar a reduzir custos, ao mesmo tempo que aumentam a disponibilidade e a entrada. Mas, embora estes movimentos tenham facilitado a compreensão dos serviços individuais como um todo, tornaram os sistemas globais mais difíceis de raciocinar e depurar.
 
-Em arquiteturas monolíticos, estamos acostumados a depurar com pilhas de chamadas. As pilhas de chamadas são ferramentas brilhantes para mostrar o fluxo de execução (o método A chamou o método B, que chamou o método C), juntamente com detalhes e parâmetros sobre cada uma dessas chamadas. Isso é ótimo para os monolíticos ou serviços em execução em um único processo, mas como Depuramos quando a chamada está em um limite de processo, e não simplesmente uma referência na pilha local? 
+Em arquiteturas monolíticas, habituámo-nos a depurar com pilhas de chamadas. As pilhas de chamadas são ferramentas brilhantes para mostrar o fluxo de execução (método A chamado Método B, que chamou método C), juntamente com detalhes e parâmetros sobre cada uma dessas chamadas. Isto é ótimo para monólitos ou serviços que executam num único processo, mas como depuramos quando a chamada é transversal a um limite de processo, e não apenas uma referência na pilha local? 
 
-É aí que entra o rastreamento distribuído.  
+É aí que entra o rastreio distribuído.  
 
-O rastreamento distribuído é o equivalente a pilhas de chamadas para arquiteturas de microserviço e nuvem modernas, com a adição de um criador de perfil de desempenho simplista lançado no. No Azure Monitor, fornecemos duas experiências para consumir dados de rastreamento distribuídos. A primeira é nossa exibição de [diagnóstico de transação](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) , que é como uma pilha de chamadas com uma dimensão de tempo adicionada no. A exibição de diagnóstico de transação fornece visibilidade em uma única transação/solicitação e é útil para encontrar a causa raiz de problemas de confiabilidade e gargalos de desempenho de acordo com a solicitação.
+O rastreio distribuído é o equivalente a pilhas de chamadas para arquiteturas modernas de nuvem e microserviços, com a adição de um perfil de desempenho simplista. No Monitor Azure, fornecemos duas experiências para consumir dados de vestígios distribuídos. A primeira é a nossa visão de [diagnóstico de transações,](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) que é como uma pilha de chamadas com uma dimensão temporal adicionada. A visão de diagnóstico de transações proporciona visibilidade numa única transação/pedido, e é útil para encontrar a causa principal de problemas de fiabilidade e estrangulamentos de desempenho por pedido.
 
-O Azure Monitor também oferece uma exibição de [mapa do aplicativo](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) que agrega muitas transações para mostrar uma exibição topológica de como os sistemas interagem e quais são as taxas médias de desempenho e de erro. 
+O Azure Monitor também oferece uma visão do mapa de [aplicações](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) que agrega muitas transações para mostrar uma visão topológica de como os sistemas interagem, e quais são as taxas médias de desempenho e erro. 
 
-## <a name="how-to-enable-distributed-tracing"></a>Como habilitar o rastreamento distribuído
+## <a name="how-to-enable-distributed-tracing"></a>Como ativar o rastreio distribuído
 
-Habilitar o rastreamento distribuído entre os serviços em um aplicativo é tão simples quanto adicionar o SDK ou a biblioteca apropriada a cada serviço, com base no idioma em que o serviço foi implementado.
+Permitir o rastreio distribuído pelos serviços numa aplicação é tão simples como adicionar o SDK ou biblioteca adequado a cada serviço, com base na linguagem em que o serviço foi implementado.
 
-## <a name="enabling-via-application-insights-sdks"></a>Habilitando o via SDKs de Application Insights
+## <a name="enabling-via-application-insights-sdks"></a>Habilitação através de SDKs de Insights de Aplicação
 
-Os SDKs do Application Insights para .NET, .NET Core, Java, Node. js e JavaScript oferecem suporte ao rastreamento distribuído nativamente. As instruções para instalar e configurar cada SDK do Application Insights estão disponíveis abaixo:
+Os SDKs de Insights de Aplicação para .NET, .NET Core, Java, Node.js e JavaScript todos os suportes distribuídos de forma nativa. As instruções para a instalação e configuração de cada aplicação Insights SDK estão disponíveis abaixo:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
-* [Python (versão prévia)](opencensus-python.md)
+* [Python (pré-visualização)](opencensus-python.md)
 
-Com o SDK do Application Insights adequado instalado e configurado, as informações de rastreamento são coletadas automaticamente para estruturas, bibliotecas e tecnologias populares por coletores automáticos de dependências do SDK. A lista completa de tecnologias com suporte está disponível na [documentação da coleção de dependências automáticas](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
+Com a aplicação adequada Insights SDK instalada e configurada, a informação de rastreio é recolhida automaticamente para quadros populares, bibliotecas e tecnologias por auto-coleccionadores de dependência sdK. A lista completa de tecnologias suportadas está disponível na documentação de [recolha automática dependency.](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)
 
- Além disso, qualquer tecnologia pode ser controlada manualmente com uma chamada para [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) no [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ Além disso, qualquer tecnologia pode ser rastreada manualmente com uma chamada para [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) no [TelemettryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
 
-## <a name="enable-via-opencensus"></a>Habilitar via OpenCensus
+## <a name="enable-via-opencensus"></a>Ativar via OpenCensus
 
-Além dos SDKs de Application Insights, o Application Insights também dá suporte ao rastreamento distribuído por meio do [OpenCensus](https://opencensus.io/). O OpenCensus é uma distribuição única de software livre, independente de fornecedor, de bibliotecas para fornecer coleta de métricas e rastreamento distribuído para serviços. Ele também permite que a comunidade de software livre habilite o rastreamento distribuído com tecnologias populares como Redis, memcached ou MongoDB. [A Microsoft colabora em OpenCensus com vários outros parceiros de monitoramento e de nuvem](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
+Além dos SDKs de Insights de Aplicação, a Application Insights também suporta o rastreio distribuído através do [OpenCensus](https://opencensus.io/). OpenCensus é uma distribuição única de bibliotecas de código aberto, fornecedor-agnóstico, para fornecer recolha de métricas e rastreio distribuído para serviços. Também permite à comunidade de código aberto permitir rastreios distribuídos com tecnologias populares como Redis, Memcached ou MongoDB. A [Microsoft colabora no OpenCensus com vários outros parceiros de monitorização e nuvem.](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/)
 
-[Python (versão prévia)](opencensus-python.md) 
+[Python (pré-visualização)](opencensus-python.md) 
 
-O site do OpenCensus mantém a documentação de referência de API para [Python](https://opencensus.io/api/python/trace/usage.html) e [go](https://godoc.org/go.opencensus.io), bem como vários guias diferentes para usar o OpenCensus. 
+O site OpenCensus mantém documentação de referência da API para [Python](https://opencensus.io/api/python/trace/usage.html) e [Go,](https://godoc.org/go.opencensus.io)bem como vários guias diferentes para a utilização do OpenCensus. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Guia de uso do OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
-* [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
-* [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)
+* [Guia de utilização OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
+* [Mapa de aplicações](./../../azure-monitor/app/app-map.md)
+* [Monitorização do desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

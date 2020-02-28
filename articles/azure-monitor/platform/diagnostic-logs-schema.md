@@ -1,322 +1,319 @@
 ---
-title: Serviços e esquemas com suporte dos logs de recursos do Azure
-description: Entenda os serviços com suporte e o esquema de eventos para logs de recursos do Azure.
-ms.service: azure-monitor
+title: Os registos de recursos da Azure suportam serviços e schemas
+description: Compreenda os serviços suportados e o esquema de eventos para os registos de recursos do Azure.
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-author: rboucher
-ms.author: robb
-ms.openlocfilehash: 044c453152d44420d5e78855751a2680698e89f3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120150"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670394"
 ---
-# <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Serviços, esquemas e categorias com suporte para logs de recursos do Azure
+# <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Serviços suportados, schemas e categorias para Registos de Recursos Azure
 
 > [!NOTE]
-> Os logs de recursos eram anteriormente conhecidos como logs de diagnóstico.
+> Os registos de recursos eram anteriormente conhecidos como registos de diagnóstico.
 
-[Azure monitor logs de recursos](../../azure-monitor/platform/platform-logs-overview.md) são logs emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos.
+Os registos de [recursos do Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md) são registos emitidos pelos serviços azure que descrevem o funcionamento desses serviços ou recursos. Todos os registos de recursos disponíveis através do Azure Monitor partilham um esquema comum de alto nível, com flexibilidade para cada serviço emitir propriedades únicas para os seus próprios eventos.
 
-Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e o `category` identificar exclusivamente um esquema. Este artigo descreve o esquema de nível superior para logs de recursos e links para o Schemata para cada serviço.
+Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e a `category` identificar de forma única um esquema. Este artigo descreve o esquema de alto nível para registos de recursos e ligações aos schemata schemata para cada serviço.
 
-## <a name="top-level-resource-logs-schema"></a>Esquema de logs de recursos de nível superior
+## <a name="top-level-resource-logs-schema"></a>Esquema de registos de recursos de alto nível
 
 | Nome | Obrigatório/Opcional | Descrição |
 |---|---|---|
-| hora | Obrigatório | O carimbo de data/hora (UTC) do evento. |
-| resourceId | Obrigatório | A ID de recurso do recurso que emitiu o evento. Para serviços de locatário, esse é o formato/Tenants/Tenant-ID/Providers/Provider-Name. |
-| tenantId | Necessário para logs de locatário | A ID de locatário do locatário de Active Directory ao qual esse evento está vinculado. Essa propriedade é usada somente para logs em nível de locatário, ela não aparece em logs de nível de recurso. |
-| operationName | Obrigatório | O nome da operação representada por este evento. Se o evento representar uma operação RBAC, esse será o nome da operação RBAC (por exemplo, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Normalmente modelados na forma de uma operação do Resource Manager, mesmo que não sejam operações reais documentadas do Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | Opcional | A versão de API associada à operação, se a operationName tiver sido executada usando uma API (por exemplo, `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se não houver nenhuma API que corresponda a essa operação, a versão representará a versão dessa operação, caso as propriedades associadas à operação sejam alteradas no futuro. |
-| categoria | Obrigatório | A categoria de log do evento. Categoria é a granularidade na qual você pode habilitar ou desabilitar logs em um recurso específico. As propriedades que aparecem dentro do blob de propriedades de um evento são as mesmas dentro de uma categoria de log e tipo de recurso específicos. As categorias de log típicas são "auditoria" "operacional" "execução" e "solicitação". |
-| resultType | Opcional | O status do evento. Os valores típicos incluem iniciado, em andamento, bem-sucedido, com falha, ativo e resolvido. |
-| resultSignature | Opcional | O substatus do evento. Se essa operação corresponder a uma chamada à API REST, esse será o código de status HTTP da chamada REST correspondente. |
-| resultDescription | Opcional | A descrição de texto estático desta operação, por exemplo, "Obter arquivo de armazenamento". |
+| hora | Necessário | A marca de tempo (UTC) do evento. |
+| resourceId | Necessário | A identificação de recursos do recurso que emitia o evento. Para os serviços de inquilinos, este é do formulário /inquilinos/inquilino-id/fornecedores/nome do fornecedor. |
+| tenantId | Obrigatório para registos de inquilinos | A identificação do inquilino do Diretório Ativo a que este evento está ligado. Esta propriedade é usada apenas para registos ao nível do inquilino, não aparece em registos ao nível de recursos. |
+| operationName | Necessário | O nome da operação representada por este evento. Se o evento representar uma operação RBAC, este é o nome de operação RBAC (por exemplo. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Normalmente modelados sob a forma de uma operação do Gestor de Recursos, mesmo que não sejam operações de Gestão de Recursos documentadas (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationVersion | Opcional | A versão api associada à operação, se o nome da operação foi realizado com uma API (por exemplo. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se não houver API que corresponda a esta operação, a versão representa a versão dessa operação no caso de as propriedades associadas à operação mudarem no futuro. |
+| categoria | Necessário | A categoria de registo do evento. Categoria é a granularidade na qual pode ativar ou desativar os registos num determinado recurso. As propriedades que aparecem dentro das propriedades blob de um evento são as mesmas dentro de uma determinada categoria de log e tipo de recursos. As categorias típicas de registo são "Auditoria" "Operacional" "Execução" e "Pedido". |
+| resultType | Opcional | O estado do evento. Os valores típicos incluem Iniciado, Em Progresso, Bem Sucedido, Falhado, Ativo e Resolvido. |
+| resultSignature | Opcional | O sub-estatuto do evento. Se esta operação corresponder a uma chamada REST API, este é o código de estado HTTP da chamada REPOUSA correspondente. |
+| resultDescription | Opcional | A descrição do texto estático desta operação, por exemplo. "Obter arquivo de armazenamento." |
 | durationMs | Opcional | A duração da operação em milissegundos. |
-| callerIpAddress | Opcional | O endereço IP do chamador, se a operação corresponder a uma chamada à API que venha de uma entidade com um endereço IP disponível publicamente. |
-| correlationId | Opcional | Um GUID usado para agrupar um conjunto de eventos relacionados. Normalmente, se dois eventos tiverem a mesma operationName, mas dois status diferentes (por exemplo, "Iniciado" e "êxito"), eles compartilham a mesma ID de correlação. Isso também pode representar outras relações entre eventos. |
-| identidade | Opcional | Um blob JSON que descreve a identidade do usuário ou aplicativo que realizou a operação. Normalmente, isso incluirá a autorização e o token de declarações/JWT do Active Directory. |
-| Nível | Opcional | O nível de severidade do evento. Deve ser uma das informações, aviso, erro ou crítico. |
-| localização | Opcional | A região do recurso que emite o evento, por exemplo, "Leste dos EUA" ou "sul da França" |
-| propriedades | Opcional | Todas as propriedades estendidas relacionadas a esta determinada categoria de eventos. Todas as propriedades personalizadas/exclusivas devem ser colocadas dentro dessa "parte B" do esquema. |
+| callerIpAddress | Opcional | O endereço IP do chamador, se a operação corresponder a uma chamada da API que provém de uma entidade com um endereço IP disponível ao público. |
+| correlationId | Opcional | Um GUID costumava agrupar um conjunto de eventos relacionados. Normalmente, se dois eventos tiverem o mesmo nome de operação, mas dois estados diferentes (por exemplo. "Iniciado" e "bem sucedido"), partilham a mesma identificação de correlação. Isto também pode representar outras relações entre eventos. |
+| identidade | Opcional | Uma bolha JSON que descreve a identidade do utilizador ou aplicação que realizou a operação. Normalmente isto incluirá a autorização e reclamações / símbolo JWT do diretório ativo. |
+| Nível | Opcional | O nível de gravidade do evento. Deve ser de Informação, Aviso, Erro ou Crítico. |
+| localização | Opcional | A região do recurso que emite o evento, por exemplo. "East US" ou "France South" |
+| propriedades | Opcional | Quaisquer propriedades estendidas relacionadas com esta categoria particular de eventos. Todas as propriedades personalizadas/únicas devem ser colocadas dentro desta "Parte B" do esquema. |
 
-## <a name="service-specific-schemas-for-resource-logs"></a>Esquemas específicos do serviço para logs de recursos
-O esquema para logs de diagnóstico de recurso varia de acordo com a categoria de recurso e log. Esta lista mostra todos os serviços que disponibilizam logs de recursos e links para o serviço e o esquema específico de categoria, quando disponíveis.
+## <a name="service-specific-schemas-for-resource-logs"></a>Esquemos específicos do serviço para registos de recursos
+O esquema para os registos de diagnóstico de recursos varia consoante o recurso e a categoria de registo. Esta lista mostra todos os serviços que disponibilizam registos de recursos e ligações ao serviço e esquemaespecífico de categoria, sempre que disponível.
 
-| Serviço | Documentos de & de esquema |
+| Serviço | Schema e Docs |
 | --- | --- |
-| Azure Active Directory | [Visão geral](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), esquema de [log de auditoria](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [esquemas de entradas](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Visão geral](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), Esquema de [registo de auditoria](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e esquema de [sign-ins](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
-| Gestão de API | [Logs de recursos de gerenciamento de API](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
-| Gateways da Aplicação |[Registro em log do gateway de aplicativo](../../application-gateway/application-gateway-diagnostics.md) |
-| Automatização do Azure |[Log Analytics para automação do Azure](../../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Azure Batch |[Log do lote do Azure](../../batch/batch-diagnostics.md) |
-| Base de Dados do Azure para MySQL | [Logs de diagnóstico do banco de dados do Azure para MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Base de Dados do Azure para PostgreSQL | [Logs do banco de dados do Azure para PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Explorador de Dados do Azure | [Logs de Data Explorer do Azure](../../data-explorer/using-diagnostic-logs.md) |
-| Serviços Cognitivos | [Registro em log para serviços cognitivas do Azure](../../cognitive-services/diagnostic-logging.md) |
-| Container Registry | [Registro em log do registro de contêiner do Azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
-| Rede de Entrega de Conteúdos | [Logs do Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
-| CosmosDB | [Log de Azure Cosmos DB](../../cosmos-db/logging.md) |
-| Gestor de Dados | [Monitorar fábricas de dados usando Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
-| Data Lake Analytics |[Acessando logs para Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Arquivo do Data Lake |[Acessando logs para Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Event Hubs |[Logs de hubs de eventos do Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
-| Express Route | Esquema não disponível. |
-| Azure Firewall | Esquema não disponível. |
-| Hub IoT | [Operações do Hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Registo do Cofre de Chaves do Azure](../../key-vault/key-vault-logging.md) |
-| Serviço Kubernetes |[Log de kubernetes do Azure](../../aks/view-master-logs.md#log-event-schema) |
-| Load Balancer |[Log Analytics para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
-| Logic Apps |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Gestão de API | [Registos de Recursos de Gestão API](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| Gateways de Aplicação |[Login para Gateway de Aplicação](../../application-gateway/application-gateway-diagnostics.md) |
+| Automatização do Azure |[Análise de log para automação azure](../../automation/automation-manage-send-joblogs-log-analytics.md) |
+| Azure Batch |[Exploração madeireira de lote azure](../../batch/batch-diagnostics.md) |
+| Base de Dados do Azure para MySQL | [Base de Dados Azure para registos de diagnóstico MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Base de Dados do Azure para PostgreSQL | [Base de Dados Azure para registos PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Data Explorer | [Registos do Explorador de Dados Azure](../../data-explorer/using-diagnostic-logs.md) |
+| Serviços Cognitivos | [Exploração madeireira para serviços cognitivos azure](../../cognitive-services/diagnostic-logging.md) |
+| Registo de Contentor | [Exploração madeireira para registo de contentores azure](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Rede de Entrega de Conteúdos | [Registos Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
+| CosmosDB | [Extração de DB Azure Cosmos](../../cosmos-db/logging.md) |
+| Data Factory | [Monitor fábricas de dados usando o Monitor Azure](../../data-factory/monitor-using-azure-monitor.md) |
+| Data Lake Analytics |[Acesso a registos para Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Data Lake Store |[Acesso a registos para Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Hubs de Eventos |[Registos de Hubs de Eventos Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
+| ExpressRoute | Schema não está disponível. |
+| Azure Firewall | Schema não está disponível. |
+| IoT Hub | [Operações do Hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| Cofre de Chaves |[Registo do Cofre de Chaves do Azure](../../key-vault/key-vault-logging.md) |
+| Serviço Kubernetes |[Exploração Madeireira Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
+| Balanceador de Carga |[Log Analytics para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
+| Aplicações Lógicas |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de Segurança de Rede |[Análise de registos para grupos de segurança de rede (NSGs) (Log analytics for network security groups (NSGs))](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| Proteção contra DDOS | [Gerenciar a proteção contra DDoS do Azure Standard](../../virtual-network/manage-ddos-protection.md) |
-| Power BI Dedicado | [Registro em log para Power BI Embedded no Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
-| Serviços de Recuperação | [Modelo de dados para o backup do Azure](../../backup/backup-azure-reports-data-model.md)|
-| Search |[Habilitando e usando o Análise de Tráfego de pesquisa](../../search/search-traffic-analytics.md) |
-| Service Bus |[Logs do barramento de serviço do Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Log do banco de dados SQL do Azure](../../sql-database/sql-database-metrics-diag-logging.md) |
-| Stream Analytics |[Logs de trabalho](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Gestor de Tráfego | [Esquema de log do Gerenciador de tráfego](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
-| Redes Virtuais | Esquema não disponível. |
-| Gateways de Rede Virtual | Esquema não disponível. |
+| Proteção contra DDOS | [Gerir a Norma de Proteção DDoS Azure](../../virtual-network/manage-ddos-protection.md) |
+| Power BI Dedicado | [Exploração madeireira para Power BI incorporada em Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
+| Serviços de Recuperação | [Modelo de dados para backup azure](../../backup/backup-azure-reports-data-model.md)|
+| Pesquisa |[Habilitar e utilizar a análise do tráfego de pesquisa](../../search/search-traffic-analytics.md) |
+| Service Bus |[Registos de ônibus de serviço azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
+| Base de Dados SQL | [Exploração da Base de Dados Azure SQL](../../sql-database/sql-database-metrics-diag-logging.md) |
+| Stream Analytics |[Registos de emprego](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Gestor de Tráfego | [Esquema de log do gestor de tráfego](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
+| Redes Virtuais | Schema não está disponível. |
+| Gateways de Rede Virtual | Schema não está disponível. |
 
-## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
+## <a name="supported-log-categories-per-resource-type"></a>Categorias de registo suportadas por tipo de recurso
 
-Algumas categorias só podem ter suporte para tipos específicos de recursos. Essa é uma lista de todas as que estão disponíveis em algum formato.  Por exemplo, as categorias Microsoft. SQL/servidores/bancos de dados não estão disponíveis para todos os tipos de bancos de dados. Para obter mais informações, consulte [informações sobre o log de diagnóstico do banco de dados SQL](../../sql-database/sql-database-metrics-diag-logging.md). 
+Algumas categorias só podem ser apoiadas para tipos específicos de recursos. Esta é a lista de todos os que estão disponíveis de alguma forma.  Por exemplo, as categorias microsoft.Sql/servidores/bases de dados não estão disponíveis para todos os tipos de bases de dados. Para mais informações, consulte a informação sobre o registo de diagnóstico da Base de [Dados SQL](../../sql-database/sql-database-metrics-diag-logging.md). 
 
-|Tipo de Recurso|Categoria|Nome de exibição da categoria|
+|Tipo de Recurso|Categoria|Nome de exibição de categoria|
 |---|---|---|
-|Microsoft. AAD/DomainServices|SystemSecurity|SystemSecurity|
-|Microsoft. AAD/DomainServices|AccountManagement|AccountManagement|
-|Microsoft. AAD/DomainServices|LogonLogoff|LogonLogoff|
-|Microsoft. AAD/DomainServices|Objectaccess|Objectaccess|
-|Microsoft. AAD/DomainServices|PolicyChange|PolicyChange|
-|Microsoft. AAD/DomainServices|PrivilegeUse|PrivilegeUse|
-|Microsoft. AAD/DomainServices|DetailTracking|DetailTracking|
-|Microsoft. AAD/DomainServices|DirectoryServiceAccess|DirectoryServiceAccess|
-|Microsoft. AAD/DomainServices|AccountLogon|AccountLogon|
-|Microsoft. aadiam/locatários|Entrada|Entrada|
+|Microsoft.AAD/domainServices|Segurança do Sistema|Segurança do Sistema|
+|Microsoft.AAD/domainServices|Gestão de Contas|Gestão de Contas|
+|Microsoft.AAD/domainServices|LogonLogoff|LogonLogoff|
+|Microsoft.AAD/domainServices|ObjectAccess|ObjectAccess|
+|Microsoft.AAD/domainServices|Mudança de Política|Mudança de Política|
+|Microsoft.AAD/domainServices|PrivilégioS|PrivilégioS|
+|Microsoft.AAD/domainServices|Rastreio de Detalhes|Rastreio de Detalhes|
+|Microsoft.AAD/domainServices|DirectórioServiceAccess|DirectórioServiceAccess|
+|Microsoft.AAD/domainServices|AccountLogon|AccountLogon|
+|microsoft.aadiam/inquilinos|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Motor|Motor|
 |Microsoft.AnalysisServices/servers|Serviço|Serviço|
-|Microsoft.ApiManagement/service|GatewayLogs|Logs relacionados ao gateway ApiManagement|
-|Microsoft. AppPlatform/Spring|ApplicationConsole|Console de aplicativo|
-|Microsoft.Automation/automationAccounts|JobLogs|Logs de trabalho|
-|Microsoft.Automation/automationAccounts|JobStreams|Fluxos de trabalho|
-|Microsoft.Automation/automationAccounts|DscNodeStatus|Status do nó DSC|
-|Microsoft.Batch/batchAccounts|ServiceLog|Logs de serviço|
-|Microsoft. BatchAI/Workspaces|BaiClusterEvent|BaiClusterEvent|
-|Microsoft. BatchAI/Workspaces|BaiClusterNodeEvent|BaiClusterNodeEvent|
-|Microsoft. BatchAI/Workspaces|BaiJobEvent|BaiJobEvent|
-|Microsoft.Blockchain/blockchainMembers|BlockchainApplication|Aplicativo Blockchain|
+|Microsoft.ApiManagement/service|GatewayLogs|Registos relacionados com Gateway apiManagement|
+|Microsoft.AppPlatform/Spring|ApplicationConsole|Consola de aplicação|
+|Microsoft.Automation/automationAccounts|JobLogs|Registos de Emprego|
+|Microsoft.Automation/automationAccounts|JobStreams|Fluxos de Emprego|
+|Microsoft.Automation/automationAccounts|DscNodeStatus|Estado do Nó Dsc|
+|Microsoft.Batch/batchAccounts|ServiceLog|Registos de Serviço|
+|Microsoft.BatchAI/espaços de trabalho|Evento BaiCluster|Evento BaiCluster|
+|Microsoft.BatchAI/espaços de trabalho|BaiClusterNodeEvent|BaiClusterNodeEvent|
+|Microsoft.BatchAI/espaços de trabalho|Evento BaiJob|Evento BaiJob|
+|Microsoft.Blockchain/blockchainMembers|BlockchainApplication|Aplicação Blockchain|
 |Microsoft.Blockchain/blockchainMembers|Proxy|Proxy|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto de extremidade, por exemplo, largura de banda, saída etc.|
-|Microsoft.ClassicNetwork/networksecuritygroups|Evento de fluxo de regra do grupo de segurança de rede|Evento de fluxo de regra do grupo de segurança de rede|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto final, por exemplo, largura de banda, saída, etc.|
+|Microsoft.ClassicNetwork/networksecuritygroups|Evento de fluxo de regras do grupo de segurança da rede|Evento de fluxo de regras do grupo de segurança da rede|
 |Microsoft.CognitiveServices/accounts|Auditoria|Registos de Auditoria|
-|Microsoft.CognitiveServices/accounts|RequestResponse|Logs de solicitação e resposta|
-|Microsoft.ContainerRegistry/registries|ContainerRegistryRepositoryEvents|Logs do RepositoryEvent (visualização)|
-|Microsoft.ContainerRegistry/registries|ContainerRegistryLoginEvents|Eventos de logon (versão prévia)|
-|Microsoft.ContainerService/managedClusters|Kube-apiserver|Servidor de API kubernetes|
-|Microsoft.ContainerService/managedClusters|Kube-Controller-Manager|Gerenciador do controlador kubernetes|
-|Microsoft.ContainerService/managedClusters|Kube-Agendador|Agendador de kubernetes|
-|Microsoft.ContainerService/managedClusters|Kube-auditoria|Kubernetes auditoria|
-|Microsoft.ContainerService/managedClusters|cluster-autoescalar|Autoescalar do cluster kubernetes|
-|Microsoft. databricks/espaços de trabalho|dBFS|Sistema de Ficheiros do Databricks|
-|Microsoft. databricks/espaços de trabalho|clusters|Clusters do databricks|
-|Microsoft. databricks/espaços de trabalho|accounts|Contas do databricks|
-|Microsoft. databricks/espaços de trabalho|sejam|Tarefas do Databricks|
-|Microsoft. databricks/espaços de trabalho|D430|Databricks Notebook|
-|Microsoft. databricks/espaços de trabalho|SSH|SSH do databricks|
-|Microsoft. databricks/espaços de trabalho|área de trabalho|Área de Trabalho do Databricks|
-|Microsoft. databricks/espaços de trabalho|confidenciais|Segredos do databricks|
-|Microsoft. databricks/espaços de trabalho|sqlpermissions|Sqlpermissões do databricks|
-|Microsoft. databricks/espaços de trabalho|instancePools|Conjuntos de Instâncias|
-|Microsoft. datacatalog/datacatalogs|ScanStatusLogEvent|ScanStatus|
-|Microsoft.DataFactory/factories|ActivityRuns|Log de execuções de atividade de pipeline|
-|Microsoft.DataFactory/factories|PipelineRuns|Log de execuções de pipeline|
-|Microsoft.DataFactory/factories|TriggerRuns|Log de execuções de gatilho|
+|Microsoft.CognitiveServices/accounts|Resposta de pedido|Registos de Pedido e Resposta|
+|Microsoft.ContainerRegistry/registries|Eventos De Registo de ContentoresRepositórios|Registos repositóriosEvento (Pré-visualização)|
+|Microsoft.ContainerRegistry/registries|Eventos De Registo de ContentoresLoginEvents|Eventos de Login (Pré-visualização)|
+|Microsoft.ContainerService/managedClusters|kube-apiserver|Servidor Kubernetes API|
+|Microsoft.ContainerService/managedClusters|kube-controlador-manager|Gestor de Controladores Kubernetes|
+|Microsoft.ContainerService/managedClusters|kube-scheduler|Programador Kubernetes|
+|Microsoft.ContainerService/managedClusters|kube-auditoria|Auditoria Kubernetes|
+|Microsoft.ContainerService/managedClusters|cluster-autoscaler|Kubernetes Cluster Autoscaler|
+|Microsoft.Databricks/espaços de trabalho|dbfs|Sistema de Ficheiros do Databricks|
+|Microsoft.Databricks/espaços de trabalho|aglomerados|Clusters de tijolos de dados|
+|Microsoft.Databricks/espaços de trabalho|accounts|Contas databricks|
+|Microsoft.Databricks/espaços de trabalho|Empregos|Empregos de Databricks|
+|Microsoft.Databricks/espaços de trabalho|caderno|Databricks Notebook|
+|Microsoft.Databricks/espaços de trabalho|SSH|Databricks SSH|
+|Microsoft.Databricks/espaços de trabalho|área de trabalho|Espaço de trabalho de Databricks|
+|Microsoft.Databricks/espaços de trabalho|segredos|Segredos de Databricks|
+|Microsoft.Databricks/espaços de trabalho|sqlPermissions|Databricks SQLPermissions|
+|Microsoft.Databricks/espaços de trabalho|casosPools|Piscinas de Instância|
+|Microsoft.DataCatalog/datacatalogs|Evento ScanStatusLogEvent|ScanStatus|
+|Microsoft.DataFactory/factories|Corridas de Atividades|A atividade do gasoduto executa o log|
+|Microsoft.DataFactory/factories|PipelineRuns|Pipeline executa log|
+|Microsoft.DataFactory/factories|TriggerRuns|Gatilho executa log|
 |Microsoft.DataLakeAnalytics/accounts|Auditoria|Registos de Auditoria|
-|Microsoft.DataLakeAnalytics/accounts|Pedidos|Logs de solicitação|
+|Microsoft.DataLakeAnalytics/accounts|Pedidos|Registos de Pedidos|
 |Microsoft.DataLakeStore/accounts|Auditoria|Registos de Auditoria|
-|Microsoft.DataLakeStore/accounts|Pedidos|Logs de solicitação|
-|Microsoft. DataShare/accounts|Partilhas|Partilhas|
-|Microsoft. DataShare/accounts|ShareSubscriptions|Compartilhar assinaturas|
-|Microsoft. DataShare/accounts|SentShareSnapshots|Instantâneos de compartilhamento enviados|
-|Microsoft. DataShare/accounts|ReceivedShareSnapshots|Instantâneos de compartilhamento recebidos|
-|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Logs do servidor MySQL|
-|Microsoft.DBforMySQL/servers|MySqlAuditLogs|Logs de auditoria do MySQL|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Logs do servidor PostgreSQL|
-|Microsoft.DBforPostgreSQL/servers|QueryStoreRuntimeStatistics|As estatísticas de tempo de execução Repositório de Consultas PostgreSQL|
-|Microsoft.DBforPostgreSQL/servers|QueryStoreWaitStatistics|Estatísticas de espera Repositório de Consultas PostgreSQL|
-|Microsoft.DBforPostgreSQL/serversv2|PostgreSQLLogs|Logs do servidor PostgreSQL|
-|Microsoft.DBforPostgreSQL/serversv2|QueryStoreRuntimeStatistics|As estatísticas de tempo de execução Repositório de Consultas PostgreSQL|
-|Microsoft.DBforPostgreSQL/serversv2|QueryStoreWaitStatistics|Estatísticas de espera Repositório de Consultas PostgreSQL|
-|Microsoft. DesktopVirtualization/Workspaces|Checkpoint|Checkpoint|
-|Microsoft. DesktopVirtualization/Workspaces|Erro|Erro|
-|Microsoft. DesktopVirtualization/Workspaces|Gestão|Gestão|
-|Microsoft. DesktopVirtualization/Workspaces|Feed|Feed|
-|Microsoft. DesktopVirtualization/applicationGroups|Checkpoint|Checkpoint|
-|Microsoft. DesktopVirtualization/applicationGroups|Erro|Erro|
-|Microsoft. DesktopVirtualization/applicationGroups|Gestão|Gestão|
-|Microsoft. DesktopVirtualization/hostPools|Checkpoint|Checkpoint|
-|Microsoft. DesktopVirtualization/hostPools|Erro|Erro|
-|Microsoft. DesktopVirtualization/hostPools|Gestão|Gestão|
-|Microsoft. DesktopVirtualization/hostPools|Ligação|Ligação|
-|Microsoft. DesktopVirtualization/hostPools|HostRegistration|HostRegistration|
+|Microsoft.DataLakeStore/accounts|Pedidos|Registos de Pedidos|
+|Microsoft.DataShare/contas|Partilhas|Partilhas|
+|Microsoft.DataShare/contas|Subscrições de Partilha|Subscrições de partilha|
+|Microsoft.DataShare/contas|SentShareSnapshots|Snapshots de partilha enviados|
+|Microsoft.DataShare/contas|ReceivedShareSnapshots|Fotos de partilha recebidas|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Registos do servidor MySQL|
+|Microsoft.DBforMySQL/servers|MySqlAuditLogs|Registos de Auditoria MySQL|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Registos do servidor PostgreSQL|
+|Microsoft.DBforPostgreSQL/servers|QueryStoreRuntimeStatistics|Estatísticas de prazo de execução da loja de consulta postgresQL|
+|Microsoft.DBforPostgreSQL/servers|QueryStoreWaitStatistics|Estatísticas de espera da loja de consulta postgresQL|
+|Microsoft.DBforPostgreSQL/serversv2|PostgreSQLLogs|Registos do servidor PostgreSQL|
+|Microsoft.DBforPostgreSQL/serversv2|QueryStoreRuntimeStatistics|Estatísticas de prazo de execução da loja de consulta postgresQL|
+|Microsoft.DBforPostgreSQL/serversv2|QueryStoreWaitStatistics|Estatísticas de espera da loja de consulta postgresQL|
+|Microsoft.DesktopVirtualization/workspaces|Check Point|Check Point|
+|Microsoft.DesktopVirtualization/workspaces|Erro|Erro|
+|Microsoft.DesktopVirtualization/workspaces|Gestão|Gestão|
+|Microsoft.DesktopVirtualization/workspaces|Alimentação|Alimentação|
+|Microsoft.DesktopVirtualization/applicationGroups|Check Point|Check Point|
+|Microsoft.DesktopVirtualization/applicationGroups|Erro|Erro|
+|Microsoft.DesktopVirtualization/applicationGroups|Gestão|Gestão|
+|Microsoft.DesktopVirtualization/hostPools|Check Point|Check Point|
+|Microsoft.DesktopVirtualization/hostPools|Erro|Erro|
+|Microsoft.DesktopVirtualization/hostPools|Gestão|Gestão|
+|Microsoft.DesktopVirtualization/hostPools|Ligação|Ligação|
+|Microsoft.DesktopVirtualization/hostPools|Registo de anfitriões|Registo de anfitriões|
 |Microsoft.Devices/IotHubs|Ligações|Ligações|
-|Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetria do Dispositivo|
+|Microsoft.Devices/IotHubs|Telemetria|Telemetria do Dispositivo|
 |Microsoft.Devices/IotHubs|C2DCommands|Comandos C2D|
-|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Operações de identidade do dispositivo|
-|Microsoft.Devices/IotHubs|FileUploadOperations|Operações de upload de arquivo|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Operações de Identidade do Dispositivo|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Operações de upload de ficheiros|
 |Microsoft.Devices/IotHubs|Rotas|Rotas|
 |Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
-|Microsoft.Devices/IotHubs|C2DTwinOperations|Operações C2D|
-|Microsoft.Devices/IotHubs|TwinQueries|Consultas de entrelaçamento|
-|Microsoft.Devices/IotHubs|JobsOperations|Operações de trabalhos|
-|Microsoft.Devices/IotHubs|DirectMethods|Métodos diretos|
-|Microsoft.Devices/IotHubs|DistributedTracing|Rastreamento distribuído (visualização)|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|Operações Gémeas C2D|
+|Microsoft.Devices/IotHubs|TwinQueries|Consultas Gémeas|
+|Microsoft.Devices/IotHubs|JobsOperations|Operações de Emprego|
+|Microsoft.Devices/IotHubs|Métodos Diretos|Métodos Diretos|
+|Microsoft.Devices/IotHubs|DistributedTracing|Rastreio distribuído (Pré-visualização)|
 |Microsoft.Devices/IotHubs|Configurações|Configurações|
-|Microsoft.Devices/IotHubs|DeviceStreams|Fluxos de dispositivo (visualização)|
-|Microsoft.Devices/provisioningServices|DeviceOperations|Operações do dispositivo|
-|Microsoft.Devices/provisioningServices|ServiceOperations|Operações de serviço|
+|Microsoft.Devices/IotHubs|DeviceStreams|Fluxos de dispositivos (Pré-visualização)|
+|Microsoft.Devices/provisioningServices|Operações de Dispositivos|Operações de Dispositivos|
+|Microsoft.Devices/provisioningServices|ServiceOperations|Operações de Serviço|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
-|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
+|Microsoft.DocumentDB/databaseAccounts|Pedidos de Mongo|Pedidos de Mongo|
 |Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
-|Microsoft.DocumentDB/databaseAccounts|PartitionKeyStatistics|PartitionKeyStatistics|
-|Microsoft.DocumentDB/databaseAccounts|ControlPlaneRequests|ControlPlaneRequests|
-|Microsoft. EnterpriseKnowledgeGraph/serviços|AuditEvent|Log do AuditEvent|
-|Microsoft. EnterpriseKnowledgeGraph/serviços|Emissão de problemas|Log de emissão de problemas|
-|Microsoft. EnterpriseKnowledgeGraph/serviços|Pedidos|Log de configuração|
-|Microsoft.EventHub/namespaces|ArchiveLogs|Logs de arquivo|
-|Microsoft.EventHub/namespaces|OperationalLogs|Logs operacionais|
-|Microsoft.EventHub/namespaces|AutoScaleLogs|Logs de dimensionamento automático|
-|Microsoft.EventHub/namespaces|KafkaCoordinatorLogs|Logs do coordenador de Kafka|
-|Microsoft.EventHub/namespaces|KafkaUserErrorLogs|Logs de erros do usuário Kafka|
-|Microsoft.EventHub/namespaces|EventHubVNetConnectionEvent|Logs de conexão de filtragem de VNet/IP|
-|Microsoft.EventHub/namespaces|CustomerManagedKeyUserLogs|Logs de chave gerenciado pelo cliente|
-|Microsoft. HealthcareApis/serviços|AuditLogs|Registos de auditoria|
-|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Avaliações de dimensionamento automático|
-|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Ações de escala de dimensionamento automático|
-|Microsoft. IoTSpaces/Graph|Rastreio|Rastreio|
-|Microsoft. IoTSpaces/Graph|Eficiência|Eficiência|
-|Microsoft. IoTSpaces/Graph|Auditoria|Auditoria|
-|Microsoft. IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
-|Microsoft. IoTSpaces/Graph|Entrada|Entrada|
-|Microsoft. IoTSpaces/Graph|Saída|Saída|
+|Microsoft.DocumentDB/databaseAccounts|Estatísticas de Divisóriakey|Estatísticas de Divisóriakey|
+|Microsoft.DocumentDB/databaseAccounts|Pedidos de ControlPlane|Pedidos de ControlPlane|
+|Microsoft.EnterpriseKnowledgeGraph/services|AuditEvent|Registo de eventos de auditoria|
+|Microsoft.EnterpriseKnowledgeGraph/services|DataIssue|Registo dataE|
+|Microsoft.EnterpriseKnowledgeGraph/services|Pedidos|Registo de configuração|
+|Microsoft.EventHub/namespaces|ArchiveLogs|Registos de Arquivo|
+|Microsoft.EventHub/namespaces|OperationalLogs|Registos Operacionais|
+|Microsoft.EventHub/namespaces|AutoScaleLogs|Registos de escala automática|
+|Microsoft.EventHub/namespaces|KafkaCoordenadorLogs|Registos coordenadores de Kafka|
+|Microsoft.EventHub/namespaces|KafkaUserErrorLogs|Registos de erros do utilizador de Kafka|
+|Microsoft.EventHub/namespaces|EventoHubVNetConnectionEvent|Registos de ligação de filtragem VNet/IP|
+|Microsoft.EventHub/namespaces|CustomerManagedKeyUserLogs|Registos de chaves geridos pelo cliente|
+|Microsoft.HealthcareApis/serviços|AuditLogs|Registos de auditoria|
+|Microsoft.Insights/AutoscaleSettings|Avaliações de escala automática|Avaliações de escala automática|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Ações de escala automática|
+|Microsoft.IoTSpaces/Graph|Rastreio|Rastreio|
+|Microsoft.IoTSpaces/Graph|Operacional|Operacional|
+|Microsoft.IoTSpaces/Graph|Auditoria|Auditoria|
+|Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
+|Microsoft.IoTSpaces/Graph|Entrada|Entrada|
+|Microsoft.IoTSpaces/Graph|Saída|Saída|
 |Microsoft.KeyVault/vaults|AuditEvent|Registos de Auditoria|
-|Microsoft. Kusto/clusters|SucceededIngestion|Operações de ingestão com êxito|
-|Microsoft. Kusto/clusters|FailedIngestion|Operações de ingestão com falha|
-|Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico do Workflow Runtime|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventos de acompanhamento da conta de integração|
+|Microsoft.Kusto/Clusters|SucessoIngestion|Operações de ingestão bem sucedidas|
+|Microsoft.Kusto/Clusters|Ingestion falhado|Operações falhadas de ingerir|
+|Microsoft.Logic/workflows|WorkflowTempo|Eventos de diagnóstico de tempo de funcionamento do workflow|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Conta de Integração acompanha eventos|
 |Microsoft.MachineLearningServices/workspaces|AmlComputeClusterEvent|AmlComputeClusterEvent|
 |Microsoft.MachineLearningServices/workspaces|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
 |Microsoft.MachineLearningServices/workspaces|AmlComputeJobEvent|AmlComputeJobEvent|
-|Microsoft. Media/mediaservices|KeyDeliveryRequests|Solicitações de entrega de chave|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Evento de grupo de segurança de rede|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de regras do grupo de segurança de rede|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de fluxo de regra do grupo de segurança de rede|
-|Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notificações de proteção contra DDoS|
-|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|Logs de fluxo de decisões de mitigação de DDoS|
-|Microsoft.Network/publicIPAddresses|DDoSMitigationReports|Relatórios de mitigações de DDoS|
-|Microsoft.Network/virtualNetworks|VMProtectionAlerts|Alertas de proteção da VM|
-|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log de acesso do gateway de aplicativo|
-|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log de desempenho do gateway de aplicativo|
-|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log do firewall do gateway de aplicativo|
-|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Regra de aplicativo de firewall do Azure|
-|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Regra de rede do firewall do Azure|
-|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Logs de diagnóstico do gateway|
-|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Logs de diagnóstico de túnel|
-|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Rotear logs de diagnóstico|
-|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|Logs de diagnóstico do IKE|
-|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Logs de diagnóstico do P2S|
-|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento de resultados de integridade de investigação do Traffic Manager|
-|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Logs de tabela de rotas de emparelhamento|
-|Microsoft. Network/vpnGateways|GatewayDiagnosticLog|Logs de diagnóstico do gateway|
-|Microsoft. Network/vpnGateways|TunnelDiagnosticLog|Logs de diagnóstico de túnel|
-|Microsoft. Network/vpnGateways|RouteDiagnosticLog|Rotear logs de diagnóstico|
-|Microsoft. Network/vpnGateways|IKEDiagnosticLog|Logs de diagnóstico do IKE|
-|Microsoft.Network/frontdoors|FrontdoorAccessLog|Log de acesso do frontdoor|
-|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Log do firewall do aplicativo Web frontdoor|
-|Microsoft. Network/p2sVpnGateways|GatewayDiagnosticLog|Logs de diagnóstico do gateway|
-|Microsoft. Network/p2sVpnGateways|IKEDiagnosticLog|Logs de diagnóstico do IKE|
-|Microsoft. Network/p2sVpnGateways|P2SDiagnosticLog|Logs de diagnóstico do P2S|
-|Microsoft. Network/bastionHosts|BastionAuditLogs|Logs de auditoria de bastiões|
-|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer eventos de alerta|
-|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Status de integridade da investigação de Load Balancer|
+|Microsoft.Media/mediaservices|Pedidos de entrega de chaves|Pedidos de entrega de chaves|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Evento do Grupo de Segurança da Rede|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de regras do grupo de segurança da rede|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de fluxo de regras do grupo de segurança da rede|
+|Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notificações de proteção DDoS|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|Registos de fluxo de decisões de mitigação do DDoS|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationReports|Relatórios de mitigações do DDoS|
+|Microsoft.Network/virtualNetworks|VMProtectionAlerts|Alertas de proteção VM|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Registo de acesso ao gateway da aplicação|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Registo de desempenho do gateway da aplicação|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Registo de firewall de gateway de aplicação|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Regra de aplicação da firewall azure|
+|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Regra da rede de firewall azure|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Registos de Diagnóstico gateway|
+|Microsoft.Network/virtualNetworkGateways|TúnelDiagnosticLog|Registos de diagnóstico do túnel|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Registos de Diagnóstico de Rota|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|Logs de Diagnóstico IKE|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticlog|Registos de Diagnóstico P2S|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento de Resultados da Saúde do Gestor de Tráfego|
+|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Registos de tabelas de rotas de observação|
+|Microsoft.Network/vpnGateways|GatewayDiagnosticLog|Registos de Diagnóstico gateway|
+|Microsoft.Network/vpnGateways|TúnelDiagnosticLog|Registos de diagnóstico do túnel|
+|Microsoft.Network/vpnGateways|RouteDiagnosticLog|Registos de Diagnóstico de Rota|
+|Microsoft.Network/vpnGateways|IKEDiagnosticLog|Logs de Diagnóstico IKE|
+|Microsoft.Network/frontdoors|FrontdoorAccessLog|Log de acesso frontdoor|
+|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Log de firewall de aplicação web frontdoor|
+|Microsoft.Network/p2sVpnGateways|GatewayDiagnosticLog|Registos de Diagnóstico gateway|
+|Microsoft.Network/p2sVpnGateways|IKEDiagnosticLog|Logs de Diagnóstico IKE|
+|Microsoft.Network/p2sVpnGateways|P2SDiagnosticlog|Registos de Diagnóstico P2S|
+|Microsoft.Network/bastionHosts|BastionAuditLogs|Registos de Auditoria bastião|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta de balanceadores de carga|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Estado de saúde da sonda do balanço de carga|
 |Microsoft.PowerBIDedicated/capacities|Motor|Motor|
-|Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dados de relatórios de backup do Azure|
-|Microsoft.RecoveryServices/Vaults|CoreAzureBackup|Principais dados de backup do Azure|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupJobs|Dados do trabalho de backup do Azure addon|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupAlerts|Dados de alerta de backup do Azure addon|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupPolicy|Dados de política de backup do Azure addon|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupStorage|Dados de armazenamento de backup do Azure addon|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupProtectedInstance|Dados de instância protegida do backup do Azure addon|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Trabalhos de Azure Site Recovery|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventos de Azure Site Recovery|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery itens replicados|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Estatísticas de replicação Azure Site Recovery|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Pontos de recuperação do Azure Site Recovery|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Taxa de upload de dados de replicação Azure Site Recovery|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery a rotatividade de dados de disco protegido|
-|Microsoft.Search/searchServices|OperationLogs|Logs de operação|
-|Microsoft.ServiceBus/namespaces|OperationalLogs|Logs operacionais|
-|Microsoft.Sql/servers/databases|SQLInsights|Insights do SQL|
-|Microsoft.Sql/servers/databases|AutomaticTuning|Ajuste automático|
-|Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estatísticas de tempo de execução Repositório de Consultas|
-|Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Estatísticas de espera Repositório de Consultas|
+|Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dados de Relatórios de Backup Azure|
+|Microsoft.RecoveryServices/Vaults|CoreAzureBackup|Dados de backup core Azure|
+|Microsoft.RecoveryServices/Vaults|AddonAzureBackupJobs|Dados do trabalho de backup addon Azure|
+|Microsoft.RecoveryServices/Vaults|AddonAzureBackupAlerts|Dados de alerta de backup Addon Azure|
+|Microsoft.RecoveryServices/Vaults|Política addonAzureBackup|Dados da política de backup Addon Azure|
+|Microsoft.RecoveryServices/Vaults|AddonAzureBackupStorage|Dados de armazenamento de backup Addon Azure|
+|Microsoft.RecoveryServices/Vaults|AddonAzureBackupProtectedInstance|Dados de instância protegidos de backup addon Azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Empregos de recuperação de sítios de Azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventos de recuperação do site azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Itens replicados de recuperação do site Azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Estatísticas de replicação de recuperação do site azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Pontos de recuperação do site Azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Taxa de carregamento de dados de replicação do site Azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Recuperação de site azure dados protegidos do disco churn|
+|Microsoft.Search/searchServices|OperationLogs|Registos de Operação|
+|Microsoft.ServiceBus/namespaces|OperationalLogs|Registos Operacionais|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|Afinação Automática|Ajuste automático|
+|Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estatísticas de tempo de execução da loja de consulta|
+|Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Estatísticas de espera da Loja de Consulta|
 |Microsoft.Sql/servers/databases|Erros|Erros|
-|Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Estatísticas de espera do banco de dados|
+|Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Estatísticas de espera de base de dados|
 |Microsoft.Sql/servers/databases|Tempos limite|Tempos limite|
 |Microsoft.Sql/servers/databases|Blocos|Blocos|
-|Microsoft.Sql/servers/databases|Deadlocks|Deadlocks|
+|Microsoft.Sql/servers/databases|Impasses|Impasses|
 |Microsoft.Sql/servers/databases|Auditoria|Registos de Auditoria|
-|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Evento de auditoria de segurança do SQL|
-|Microsoft.Sql/servers/databases|DmsWorkers|Trabalhos DMS|
-|Microsoft.Sql/servers/databases|ExecRequests|Solicitações de exec|
-|Microsoft.Sql/servers/databases|RequestSteps|Etapas da solicitação|
-|Microsoft.Sql/servers/databases|Requests|Solicitações SQL|
-|Microsoft.Sql/servers/databases|Aguarda|Aguarda|
-|Microsoft.Sql/managedInstances|ResourceUsageStats|Estatísticas de uso de recursos|
-|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Evento de auditoria de segurança do SQL|
-|Microsoft.Sql/managedInstances/databases|SQLInsights|Insights do SQL|
-|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Estatísticas de tempo de execução Repositório de Consultas|
-|Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Estatísticas de espera Repositório de Consultas|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Evento de Auditoria de Segurança SQL|
+|Microsoft.Sql/servers/databases|DmsWorkers|Trabalhadores da DMS|
+|Microsoft.Sql/servers/databases|ExecRequests|Pedidos executivos|
+|Microsoft.Sql/servers/databases|RequestSteps|Passos de pedido|
+|Microsoft.Sql/servers/databases|Pedidos de Sql|Pedidos Sql|
+|Microsoft.Sql/servers/databases|Espera|Espera|
+|Microsoft.Sql/managedInstances|ResourceUsageStats|Estatísticas de Utilização de Recursos|
+|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Evento de Auditoria de Segurança SQL|
+|Microsoft.Sql/managedInstances/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Estatísticas de tempo de execução da loja de consulta|
+|Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Estatísticas de espera da Loja de Consulta|
 |Microsoft.Sql/managedInstances/databases|Erros|Erros|
-|Microsoft.Storage/storageAccounts/tableServices|StorageRead|StorageRead|
+|Microsoft.Storage/storageAccounts/tableServices|Leitura de armazenamento|Leitura de armazenamento|
 |Microsoft.Storage/storageAccounts/tableServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/tableServices|StorageDelete|StorageDelete|
-|Microsoft.Storage/storageAccounts/blobServices|StorageRead|StorageRead|
+|Microsoft.Storage/storageAccounts/tableServices|ArmazenamentoDelete|ArmazenamentoDelete|
+|Microsoft.Storage/storageAccounts/blobServices|Leitura de armazenamento|Leitura de armazenamento|
 |Microsoft.Storage/storageAccounts/blobServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/blobServices|StorageDelete|StorageDelete|
-|Microsoft.Storage/storageAccounts/fileServices|StorageRead|StorageRead|
+|Microsoft.Storage/storageAccounts/blobServices|ArmazenamentoDelete|ArmazenamentoDelete|
+|Microsoft.Storage/storageAccounts/fileServices|Leitura de armazenamento|Leitura de armazenamento|
 |Microsoft.Storage/storageAccounts/fileServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/fileServices|StorageDelete|StorageDelete|
-|Microsoft.Storage/storageAccounts/queueServices|StorageRead|StorageRead|
+|Microsoft.Storage/storageAccounts/fileServices|ArmazenamentoDelete|ArmazenamentoDelete|
+|Microsoft.Storage/storageAccounts/queueServices|Leitura de armazenamento|Leitura de armazenamento|
 |Microsoft.Storage/storageAccounts/queueServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/queueServices|StorageDelete|StorageDelete|
+|Microsoft.Storage/storageAccounts/queueServices|ArmazenamentoDelete|ArmazenamentoDelete|
 |Microsoft.StreamAnalytics/streamingjobs|Execução|Execução|
 |Microsoft.StreamAnalytics/streamingjobs|Criação|Criação|
-|Microsoft. Web/hostingenvironments|AppServiceEnvironmentPlatformLogs|Ambiente do Serviço de Aplicativondo logs da plataforma|
-|microsoft.web/sites|FunctionAppLogs|Logs do aplicativo de funções|
-|microsoft.web/sites|AppServiceHTTPLogs|Logs de HTTP|
-|microsoft.web/sites|AppServiceConsoleLogs|Logs do console do serviço de aplicativo|
-|microsoft.web/sites|AppServiceAppLogs|Logs de aplicativo do serviço de aplicativo|
-|microsoft.web/sites|AppServiceFileAuditLogs|Logs de auditoria de alteração de conteúdo do site|
-|microsoft.web/sites|AppServiceAuditLogs|Acessar logs de auditoria|
-|microsoft.web/sites/slots|FunctionAppLogs|Logs do aplicativo de funções|
-|microsoft.web/sites/slots|AppServiceHTTPLogs|Logs de HTTP|
-|microsoft.web/sites/slots|AppServiceConsoleLogs|Logs do console|
+|ambientes microsoft.web/hosting|AppServiceEnvironmentPlatformLogs|Registos da plataforma ambiente do serviço de aplicações|
+|microsoft.web/sites|AppLogs de funções|Registos de aplicação de função|
+|microsoft.web/sites|AppServiceHTTPLogs|Registos HTTP|
+|microsoft.web/sites|AppServiceConsoleLogs|Registos de consolas de serviço de aplicativo|
+|microsoft.web/sites|AppServiceAppLogs|Registos de aplicações de serviço de aplicações|
+|microsoft.web/sites|AppServiceFileAuditLogs|Registos de auditoria de alteração de conteúdo do site|
+|microsoft.web/sites|AppServiceAuditLogs|Acesso registos de auditoria|
+|microsoft.web/sites/slots|AppLogs de funções|Registos de aplicação de função|
+|microsoft.web/sites/slots|AppServiceHTTPLogs|Registos HTTP|
+|microsoft.web/sites/slots|AppServiceConsoleLogs|Registos de Consolas|
 |microsoft.web/sites/slots|AppServiceAppLogs|Registos de Aplicações|
-|microsoft.web/sites/slots|AppServiceFileAuditLogs|Logs de auditoria de alteração de conteúdo do site|
-|microsoft.web/sites/slots|AppServiceAuditLogs|Acessar logs de auditoria|
+|microsoft.web/sites/slots|AppServiceFileAuditLogs|Registos de auditoria de alteração de conteúdo do site|
+|microsoft.web/sites/slots|AppServiceAuditLogs|Acesso registos de auditoria|
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Saiba mais sobre os logs de recursos](../../azure-monitor/platform/platform-logs-overview.md)
-* [Transmitir logs de recurso de recurso para **hubs de eventos**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Alterar as configurações de diagnóstico do log de recursos usando a API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analisar registos do armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Saiba mais sobre os registos de recursos](../../azure-monitor/platform/platform-logs-overview.md)
+* [Fluxo de registos de recursos para Centros de **Eventos**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+* [Alterar as definições de diagnóstico de registo de recursos utilizando a API REST do Monitor Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
+* [Analise os registos do armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

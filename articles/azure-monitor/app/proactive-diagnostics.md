@@ -1,68 +1,64 @@
 ---
-title: Detecção inteligente no insights Aplicativo Azure | Microsoft Docs
-description: Application Insights executa uma análise profunda automática da telemetria de seu aplicativo e avisa sobre possíveis problemas.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Deteção Inteligente em Insights de Aplicação Azure  Microsoft Docs
+description: Application Insights realiza análises profundas automáticas da sua telemetria de aplicações e alerta-o para potenciais problemas.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/07/2019
-ms.openlocfilehash: ae9af5721e53277f6c939840721ca50ea67ca51e
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818812"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671805"
 ---
-# <a name="smart-detection-in-application-insights"></a>Detecção inteligente no Application Insights
- A detecção inteligente avisa automaticamente sobre possíveis problemas de desempenho e anomalias de falha em seu aplicativo Web. Ele executa uma análise proativa da telemetria que seu aplicativo envia para [Application insights](../../azure-monitor/app/app-insights-overview.md). Se houver um aumento repentino nas taxas de falha ou padrões anormais no desempenho do cliente ou do servidor, você receberá um alerta. Este recurso não precisa de configuração. Ele funcionará se seu aplicativo enviar telemetria suficiente.
+# <a name="smart-detection-in-application-insights"></a>Deteção Inteligente em Insights de Aplicação
+ A Deteção Inteligente avisa-o automaticamente de potenciais problemas de desempenho e anomalias de falha na sua aplicação web. Realiza uma análise proativa da telemetria que a sua aplicação envia para [Application Insights](../../azure-monitor/app/app-insights-overview.md). Se houver um aumento repentino das taxas de falha, ou padrões anormais no desempenho do cliente ou do servidor, recebe um alerta. Esta funcionalidade não necessita de configuração. Funciona se a sua aplicação enviar telemetria suficiente.
 
-Você pode acessar as detecções emitidas pela detecção inteligente a partir dos emails recebidos e da folha detecção inteligente.
+Pode aceder às deteções emitidas pela Smart Detection tanto a partir dos e-mails que recebe, como da lâmina de deteção inteligente.
 
-## <a name="review-your-smart-detections"></a>Examine suas detecções inteligentes
-Você pode descobrir detecções de duas maneiras:
+## <a name="review-your-smart-detections"></a>Reveja as suas Deteções Inteligentes
+Pode descobrir deteções de duas formas:
 
-* **Você receberá um email** de Application insights. Veja um exemplo típico:
+* **Recebe um e-mail** da Application Insights. Aqui está um exemplo típico:
   
-    ![Alerta de email](./media/proactive-diagnostics/03.png)
+    ![Alerta de e-mail](./media/proactive-diagnostics/03.png)
   
-    Clique no botão grande para abrir mais detalhes no Portal.
-* **A folha detecção inteligente** no Application insights. Selecione **detecção inteligente** no menu **investigar** para ver uma lista de detecções recentes.
+    Clique no botão grande para abrir mais detalhes no portal.
+* **A lâmina de deteção inteligente** em Insights de Aplicação. Selecione **Deteção Inteligente** no menu **Investigar** para ver uma lista de deteções recentes.
 
-![Exibir detecções recentes](./media/proactive-diagnostics/04.png)
+![Ver deteções recentes](./media/proactive-diagnostics/04.png)
 
-Selecione uma detecção para ver seus detalhes.
+Selecione uma deteção para ver os seus detalhes.
 
-## <a name="what-problems-are-detected"></a>Quais problemas são detectados?
-A detecção inteligente detecta e notifica sobre uma variedade de problemas, como:
+## <a name="what-problems-are-detected"></a>Que problemas são detetados?
+A Deteção Inteligente deteta e notifica sobre uma variedade de questões, tais como:
 
-* [Detecção inteligente-anomalias de falha](../../azure-monitor/app/proactive-failure-diagnostics.md). Usamos o Machine Learning para definir a taxa esperada de solicitações com falha para seu aplicativo, correlacionando-se com a carga e outros fatores. Se a taxa de falha ficar fora do envelope esperado, enviaremos um alerta.
-* [Detecção inteligente-anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md). Você receberá notificações se o tempo de resposta de uma operação ou a duração da dependência estiver diminuindo em comparação com a linha de base histórica ou se identificarmos um padrão anormal no tempo de resposta ou no tempo de carregamento da página.   
-* Degradações gerais e problemas, como [rastreamento percebido](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [vazamento de memória](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), [aumento anormal no volume de exceção](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) e [antipadrões de segurança](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
+* [Deteção inteligente - Anomalias de Falha.](../../azure-monitor/app/proactive-failure-diagnostics.md) Utilizamos machine learning para definir a taxa esperada de pedidos falhados para a sua app, correlacionadocom a carga e outros fatores. Se a taxa de insucesso sair do envelope esperado, enviamos um alerta.
+* [Deteção inteligente - Anomalias](../../azure-monitor/app/proactive-performance-diagnostics.md)de Desempenho . Recebe notificações se o tempo de resposta de uma operação ou duração da dependência estiver a abrandar em comparação com a linha de base histórica ou se identificarmos um padrão anómalo no tempo de resposta ou no tempo de carregamento da página.   
+* Degradações e problemas gerais, como [trace degredation](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), Fuga de [memória,](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak) [aumento anormal no volume](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) de exceção e [anti-padrões](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack)de segurança .
 
-(Os links da ajuda em cada notificação levam você aos artigos relevantes.)
+(Os links de ajuda em cada notificação levam-no aos artigos relevantes.)
 
-## <a name="smart-detection-email-notifications"></a>Notificações por email de detecção inteligente
+## <a name="smart-detection-email-notifications"></a>Notificações de e-mail de Deteção Inteligente
 
-Todas as regras de detecção inteligente, exceto as regras marcadas como _Visualização_, são configuradas por padrão para enviar notificações por email quando as detecções são encontradas.
+Todas as regras de Deteção Inteligente, com exceção das regras marcadas como _pré-visualização,_ são configuradas por padrão para enviar notificações de e-mail quando as deteções forem encontradas.
 
-Configurar notificações por email para uma regra de detecção inteligente específica pode ser feito abrindo a folha **configurações** de detecção inteligente e selecionando a regra, que abrirá a folha **Editar regra** .
+Configurar notificações de e-mail para uma regra específica de Deteção Inteligente pode ser feita abrindo a lâmina de **Definições** de Deteção Inteligente e selecionando a regra, que abrirá a lâmina de **regra Editar.**
 
-Como alternativa, você pode alterar a configuração usando modelos de Azure Resource Manager. [Consulte gerenciar Application insights regras de detecção inteligente usando modelos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) para obter mais detalhes.
+Em alternativa, pode alterar a configuração utilizando modelos do Gestor de Recursos Do Azure. [Consulte a Manage Application Insights regras de deteção inteligente utilizando modelos](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) de Gestor de Recursos Azure para mais detalhes.
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Passos seguintes
-Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
+Estas ferramentas de diagnóstico ajudam-no a inspecionar a telemetria da sua aplicação:
 
-* [Gerenciador de métricas](../../azure-monitor/app/metrics-explorer.md)
-* [Gerenciador de pesquisa](../../azure-monitor/app/diagnostic-search.md)
-* [Análise – linguagem de consulta eficiente](../../azure-monitor/log-query/get-started-portal.md)
+* [Explorador métrico](../../azure-monitor/app/metrics-explorer.md)
+* [Explorador de pesquisa](../../azure-monitor/app/diagnostic-search.md)
+* [Analytics - linguagem de consulta poderosa](../../azure-monitor/log-query/get-started-portal.md)
 
-A detecção inteligente é completamente automática. Mas talvez você queira configurar mais alguns alertas?
+A Deteção Inteligente é completamente automática. Mas talvez queira criar mais alguns alertas?
 
-* [Alertas de métrica configurados manualmente](../../azure-monitor/app/alerts.md)
-* [Testes da Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) 
+* [Alertas métricos configurados manualmente](../../azure-monitor/app/alerts.md)
+* [Disponibilidade de testes web](../../azure-monitor/app/monitor-web-app-availability.md) 
 

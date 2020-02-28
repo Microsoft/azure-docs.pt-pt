@@ -1,32 +1,31 @@
 ---
-title: Agregações em consultas de log de Azure Monitor | Microsoft Docs
-description: Descreve as funções de agregação no Azure Monitor consultas de log que oferecem maneiras úteis de analisar seus dados.
-ms.service: azure-monitor
+title: Agregações em consultas de registo do Monitor Azure Microsoft Docs
+description: Descreve funções de agregação em consultas de registo do Monitor Azure que oferecem formas úteis de analisar os seus dados.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 86b84e76b4716c1fddda23a6d52c65c0700c5663
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900420"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670309"
 ---
-# <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações em consultas de log Azure Monitor
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações em consultas de registo do Monitor Azure
 
 > [!NOTE]
-> Você deve concluir [a introdução ao portal de análise](get-started-portal.md) e [começar a usar as consultas antes de](get-started-queries.md) concluir esta lição.
+> Você deve completar [Começar com o portal Analytics](get-started-portal.md) e começar com [consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve as funções de agregação em Azure Monitor consultas de log que oferecem maneiras úteis de analisar seus dados. Todas essas funções funcionam com o operador de `summarize` que produz uma tabela com resultados agregados da tabela de entrada.
+Este artigo descreve funções de agregação em consultas de registo do Monitor Azure que oferecem formas úteis de analisar os seus dados. Todas estas funções funcionam com o operador `summarize` que produz uma tabela com resultados agregados da tabela de entrada.
 
 ## <a name="counts"></a>Contagens
 
 ### <a name="count"></a>count
-Conte o número de linhas no conjunto de resultados após a aplicação de qualquer filtro. O exemplo a seguir retorna o número total de linhas na tabela _perf_ dos últimos 30 minutos. O resultado é retornado em uma coluna chamada *count_* , a menos que você atribua um nome específico a ele:
+Conte o número de linhas no resultado definido após a aplicação de filtros. O exemplo seguinte devolve o número total de linhas na tabela _Perf_ dos últimos 30 minutos. O resultado é devolvido numa coluna chamada *count_* a menos que lhe atribua um nome específico:
 
 
 ```Kusto
@@ -41,7 +40,7 @@ Perf
 | summarize num_of_records=count() 
 ```
 
-Uma visualização de gráfico temporal pode ser útil para ver uma tendência ao longo do tempo:
+Uma visualização de um timechart pode ser útil para ver uma tendência ao longo do tempo:
 
 ```Kusto
 Perf 
@@ -50,13 +49,13 @@ Perf
 | render timechart
 ```
 
-A saída deste exemplo mostra a soma de tendência contagem de registros perf em intervalos de 5 minutos:
+A saída deste exemplo mostra a linha de tendência da contagem de registos perf em intervalos de 5 minutos:
 
 ![Tendência de contagem](media/aggregations/count-trend.png)
 
 
-### <a name="dcount-dcountif"></a>DContar, dcountif
-Use `dcount` e `dcountif` para contar valores distintos em uma coluna específica. A consulta a seguir avalia quantos computadores distintos enviaram pulsações na última hora:
+### <a name="dcount-dcountif"></a>contagem, dcountif
+Use `dcount` e `dcountif` para contar valores distintos numa coluna específica. A seguinte consulta avalia quantos computadores distintos enviaram batimentos cardíacos na última hora:
 
 ```Kusto
 Heartbeat 
@@ -64,7 +63,7 @@ Heartbeat
 | summarize dcount(Computer)
 ```
 
-Para contar apenas os computadores Linux que enviaram pulsações, use `dcountif`:
+Para contar apenas os computadores Linux que enviaram batimentos cardíacos, use `dcountif`:
 
 ```Kusto
 Heartbeat 
@@ -72,8 +71,8 @@ Heartbeat
 | summarize dcountif(Computer, OSType=="Linux")
 ```
 
-### <a name="evaluating-subgroups"></a>Avaliando subgrupos
-Para executar uma contagem ou outras agregações em subgrupos em seus dados, use a palavra-chave `by`. Por exemplo, para contar o número de computadores Linux distintos que enviaram pulsações em cada país/região:
+### <a name="evaluating-subgroups"></a>Avaliação de subgrupos
+Para efetuar uma contagem ou outras agregações em subgrupos nos seus dados, utilize a palavra-chave `by`. Por exemplo, para contar o número de computadores Linux distintos que enviaram batimentos cardíacos em cada país/região:
 
 ```Kusto
 Heartbeat 
@@ -90,7 +89,7 @@ Heartbeat
 |Países Baixos      | 2                   |
 
 
-Para analisar até mesmo subgrupos menores de seus dados, adicione nomes de coluna adicionais à seção `by`. Por exemplo, talvez você queira contar os computadores distintos de cada país/região por OSType:
+Para analisar subgrupos ainda mais pequenos dos seus dados, adicione nomes de colunas adicionais à secção `by`. Por exemplo, é melhor contar os computadores distintos de cada país/região por OSType:
 
 ```Kusto
 Heartbeat 
@@ -98,11 +97,11 @@ Heartbeat
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
 ```
 
-## <a name="percentiles-and-variance"></a>Percentuais e variância
-Ao avaliar valores numéricos, uma prática comum é fazer a média deles usando `summarize avg(expression)`. As médias são afetadas por valores extremos que caracterizam apenas alguns casos. Para resolver esse problema, você pode usar funções menos confidenciais, como `median` ou `variance`.
+## <a name="percentiles-and-variance"></a>Percentiles e Variação
+Ao avaliar valores numéricos, uma prática comum é média-los usando `summarize avg(expression)`. As médias são afetadas por valores extremos que caracterizam apenas alguns casos. Para resolver este problema, pode utilizar funções menos sensíveis, como `median` ou `variance`.
 
 ### <a name="percentile"></a>Percentil
-Para localizar o valor mediano, use a função `percentile` com um valor para especificar o percentil:
+Para encontrar o valor mediano, utilize a função `percentile` com um valor para especificar o percentil:
 
 ```Kusto
 Perf
@@ -111,7 +110,7 @@ Perf
 | summarize percentiles(CounterValue, 50) by Computer
 ```
 
-Você também pode especificar percentuais diferentes para obter um resultado agregado para cada um:
+Também pode especificar percentículos diferentes para obter um resultado agregado para cada um:
 
 ```Kusto
 Perf
@@ -120,10 +119,10 @@ Perf
 | summarize percentiles(CounterValue, 25, 50, 75, 90) by Computer
 ```
 
-Isso pode mostrar que algumas CPUs de computador têm valores medianos semelhantes, mas embora algumas estejam em constante parte da mediana, outros computadores relataram valores de CPU muito menores e mais altos, o que significa que eles tiveram picos.
+Isto pode mostrar que alguns CPUs de computador têm valores medianos semelhantes, mas enquanto alguns são constantes em torno da mediana, outros computadores reportaram valores de CPU muito mais baixos e mais altos, o que significa que experimentaram picos.
 
-### <a name="variance"></a>Varia
-Para avaliar diretamente a variância de um valor, use os métodos padrão de desvio e variação:
+### <a name="variance"></a>Variância
+Para avaliar diretamente a variação de um valor, utilize os métodos de desvio e variação padrão:
 
 ```Kusto
 Perf
@@ -132,7 +131,7 @@ Perf
 | summarize stdev(CounterValue), variance(CounterValue) by Computer
 ```
 
-Uma boa maneira de analisar a estabilidade do uso da CPU é combinar DESVPAD com o cálculo mediano:
+Uma boa forma de analisar a estabilidade da utilização do CPU é combinar stdev com o cálculo mediano:
 
 ```Kusto
 Perf
@@ -141,12 +140,12 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com Azure monitor dados de log:
+Consulte outras lições para utilizar a linguagem de [consulta Kusto](/azure/kusto/query/) com dados de registo do Monitor Azure:
 
-- [Operações de cadeia de caracteres](string-operations.md)
+- [Operações de cordas](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Agregações avançadas](advanced-aggregations.md)
 - [JSON e estruturas de dados](json-data-structures.md)
-- [Gravação de consulta avançada](advanced-query-writing.md)
-- [Junções](joins.md)
-- [Spersão](charts.md)
+- [Escrita de consulta avançada](advanced-query-writing.md)
+- [Junta-se](joins.md)
+- [Gráficos](charts.md)

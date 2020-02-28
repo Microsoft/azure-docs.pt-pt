@@ -1,19 +1,19 @@
 ---
-title: 'Quickstart: Use Node.js para consultar a conta API Da Azure Cosmos DB SQL'
+title: Quickstart- Use Node.js para consultar a conta API Da Azure Cosmos DB SQL
 description: Como usar o Node.js para criar uma app que se conecta à conta API Da Azure Cosmos DB SQL e consulta dados.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 02/26/2020
 ms.author: dech
-ms.openlocfilehash: d8b17472bb531ec799be227706261962d7914d68
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 2e1f0313b6e611eac6968c17cececd382a6d45fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134472"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664083"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Quickstart: Use Node.js para ligar e consultar dados da conta API Da Azure Cosmos DB SQL
 
@@ -33,13 +33,32 @@ Neste arranque rápido, cria e gere uma conta API Azure Cosmos DB SQL a partir d
 - [Node.js 6.0.0+](https://nodejs.org/).
 - [Git](https://www.git-scm.com/downloads).
 
-## <a name="create-a-database"></a>Criar uma base de dados 
+## <a name="create-a-database"></a>Criar uma base de dados
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-container"></a>Adicione um recipiente
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+Agora pode utilizar a ferramenta Data Explorer no portal Azure para criar uma base de dados e um recipiente. 
+
+1. Selecione **Data Explorer** > **Novo Recipiente**. 
+    
+    A área **add container** é exibida na extrema-direita, pode ser necessário rolar para a direita para vê-lo.
+
+    ![O portal Azure Data Explorer, Adicionar painel de contentores](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
+
+2. Na página **'Adicionar',** introduza as definições para o novo recipiente.
+
+    |Definição|Valor sugerido|Descrição
+    |---|---|---|
+    |**ID da Base de Dados**|Tarefas|Designe a nova base de dados como *Tarefas*. Os nomes da base de dados devem conter de 1 a 255 caracteres, e não podem conter `/, \\, #, ?`, ou um espaço de fuga. Consulte a opção de entrada da base de **dados Provision,** permite-lhe partilhar a entrada disponibilizada na base de dados em todos os recipientes da base de dados. Esta opção também ajuda na poupança de custos. |
+    |**Débito**|400|Deixe a entrada em 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
+    |**ID do contentor**|Itens|Introduza *itens* como o nome do seu novo recipiente. Os IDs de contentores têm os mesmos requisitos de caracteres que os nomes da base de dados.|
+    |**Chave de partição**| /categoria| A amostra descrita neste artigo *utiliza/categoria* como chave de partição.|
+    
+    Além das definições anteriores, pode adicionar **opcionalmente chaves Únicas** para o recipiente. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política chave única ao criar um recipiente, você garante a singularidade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
+    
+    Selecione **OK**. O Data Explorer exibe a nova base de dados e o recipiente.
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
@@ -53,98 +72,99 @@ Neste arranque rápido, cria e gere uma conta API Azure Cosmos DB SQL a partir d
 
 Agora vamos clonar uma aplicação Node.js do GitHub, definir a cadeia de ligação e executá-la.
 
-1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
+1. Execute o seguinte comando para clonar o repositório de exemplo. Este comando cria uma cópia da aplicação de exemplo no seu computador.
 
-    ```bash
-    md "C:\git-samples"
-    ```
-
-2. Abra uma janela de terminal do git, como o git bash e utilize o comando `cd` para alterar para uma nova pasta e instalar a aplicação de exemplo.
-
-    ```bash
-    cd "C:\git-samples"
-    ```
-
-3. Execute o seguinte comando para clonar o repositório de exemplo. Este comando cria uma cópia da aplicação de exemplo no seu computador.
-
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started.git
-    ```
+   ```bash
+   git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started.git
+   ```
 
 ## <a name="review-the-code"></a>Rever o código
 
-Este passo é opcional. Se estiver interessado em saber como os recursos da base de dados Azure Cosmos são criados no código, pode rever os seguintes cortes. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). 
+Este passo é opcional. Se estiver interessado em saber como os recursos da base de dados Azure Cosmos são criados no código, pode rever os seguintes cortes. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string).
 
-Se estiver familiarizado com a versão anterior do SQL JavaScript SDK, poderá estar habituado a ver os termos *de recolha* e *documento*. Uma vez que o Azure Cosmos DB suporta [vários modelos API](introduction.md), a [versão 2.0+ do JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) utiliza o *recipiente*de termos genéricos , que pode ser uma coleção, gráfico ou tabela, e *item* para descrever o conteúdo do recipiente.
+Se estiver familiarizado com a versão anterior do SQL JavaScript SDK, poderá estar habituado a ver os termos _de recolha_ e _documento_. Uma vez que o Azure Cosmos DB suporta [vários modelos API](introduction.md), a [versão 2.0+ do JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) utiliza o _recipiente_de termos genéricos , que pode ser uma coleção, gráfico ou tabela, e _item_ para descrever o conteúdo do recipiente.
 
-Os seguintes fragmentos são retirados do ficheiro *app.js*.
+Os seguintes fragmentos são retirados do ficheiro _app.js_.
 
-* O `CosmosClient` objeto é inicializado.
+- O `CosmosClient` objeto é inicializado.
 
-    ```javascript
-    const client = new CosmosClient({ endpoint, key });
-    ```
+  ```javascript
+  const client = new CosmosClient({ endpoint, key });
+  ```
 
-* Crie uma nova base de dados Azure Cosmos.
+- Selecione a base de dados "Tarefas".
 
-    ```javascript
-    const { database } = await client.databases.createIfNotExists({ id: databaseId });
-    ```
+  ```javascript
+  const database = await client.databases(databaseId);
+  ```
 
-* Um novo recipiente (recolha) é criado dentro da base de dados.
+- Selecione o recipiente/recolha "Itens".
 
-    ```javascript
-    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
-    ```
+  ```javascript
+  const container = await client.databases(containerId);
+  ```
 
-* É criado um item (documento).
+- Selecione todos os itens do recipiente "Itens".
 
-    ```javascript
-    const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
-    ```
+  ```javascript
+  // query to return all items
+  const querySpec = {
+    query: "SELECT * from c"
+  };
 
-* Uma consulta SQL sobre jSON é realizada na base de dados da família. A consulta devolve todas as crianças da família "Anderson". 
+  const { resources: results } = await container.items
+    .query(querySpec)
+    .fetchAll();
 
-    ```javascript
-      const querySpec = {
-        query: 'SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName',
-        parameters: [
-          {
-            name: '@lastName',
-            value: 'Andersen'
-          }
-        ]
-      }
+  return results;
+  ```
 
-      const { resources: results } = await client
-        .database(databaseId)
-        .container(containerId)
-        .items.query(querySpec)
-        .fetchAll()
-      for (var queryResult of results) {
-        let resultString = JSON.stringify(queryResult)
-        console.log(`\tQuery returned ${resultString}\n`)
-      }
-    ```    
+- Criar um novo item
+
+  ```javascript
+  const { resource: createdItem } = await container.items.create(newItem);
+  ```
+
+- Atualizar um item
+
+  ```javascript
+  const { id, category } = createdItem;
+
+  createdItem.isComplete = true;
+  const { resource: itemToUpdate } = await container
+    .item(id, category)
+    .replace(itemToUpdate);
+
+  return result;
+  ```
+
+- Apagar um item
+
+  ```javascript
+  const { resource: result } = await this.container.item(id, category).delete();
+  ```
+
+> [!NOTE]
+> Tanto nos métodos de "atualização" como de "apagar", o item tem de ser selecionado a partir da base de dados, ligando para `conatiner.item()`. Os dois parâmetros passados são a identificação do item e a chave de partição do item. Neste caso, a chave de parição é o valor do campo "categoria".
 
 ## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação
 
 Agora volte ao portal Azure para obter os detalhes da linha de ligação da sua conta Azure Cosmos. Copie a cadeia de ligação para a aplicação de modo a que possa ligar-se à sua base de dados.
 
-1. Na sua conta Azure Cosmos DB no [portal Azure,](https://portal.azure.com/)selecione **Chaves** da navegação à esquerda e, em seguida, selecione **Teclas de leitura .** Utilize os botões de cópia no lado direito do ecrã para copiar a chave URI e Primary no ficheiro *config.js* no próximo passo.
+1. Na sua conta Azure Cosmos DB no [portal Azure,](https://portal.azure.com/)selecione **Chaves** da navegação à esquerda e, em seguida, selecione **Teclas de leitura .** Utilize os botões de cópia no lado direito do ecrã para copiar o uri e a Chave Primária no ficheiro _app.js_ no próximo passo.
 
-    ![Ver e copiar uma chave de acesso no portal do Azure, painel Chaves](./media/create-sql-api-dotnet/keys.png)
+   ![Ver e copiar uma chave de acesso no portal do Azure, painel Chaves](./media/create-sql-api-dotnet/keys.png)
 
-2. Em Abrir o ficheiro *config.js.* 
+2. Em Abrir o ficheiro _config.js._
 
-3. Copie o seu valor URI a partir do portal (utilizando o botão de cópia) e faça-o com o valor da chave de ponto final em *config.js*. 
+3. Copie o seu valor URI a partir do portal (utilizando o botão de cópia) e faça-o com o valor da chave de ponto final em _config.js_.
 
-    `config.endpoint = "<Your Azure Cosmos account URI>"`
+   `endpoint: "<Your Azure Cosmos account URI>"`
 
-4. Em seguida, copie o seu valor PRINCIPAL CHAVE do portal e faça dele o valor do `config.key` em *config.js*. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
+4. Em seguida, copie o seu valor PRINCIPAL CHAVE do portal e faça dele o valor do `config.key` em _config.js_. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB.
 
-    `config.key = "<Your Azure Cosmos account key>"`
-    
+   `key: "<Your Azure Cosmos account key>"`
+
 ## <a name="run-the-app"></a>Executar a aplicação
 
 1. Executar `npm install` num terminal para instalar os módulos npm necessários
@@ -163,9 +183,7 @@ Agora pode voltar ao Data Explorer, modificar e trabalhar com estes novos dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a criar uma conta Azure Cosmos DB, criar um recipiente usando o Data Explorer e executar uma app Node.js. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
+Neste arranque rápido, aprendeu a criar uma conta Azure Cosmos DB, criar um recipiente usando o Data Explorer e executar uma app Node.js. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).
-
-

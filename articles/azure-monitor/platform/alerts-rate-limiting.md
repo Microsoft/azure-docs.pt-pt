@@ -1,38 +1,36 @@
 ---
-title: Taxa de limitação para mensagens de e-mail, SMS e webhooks e notificações push da aplicação do Azure
-description: Compreenda como o Azure limita o número de possíveis SMS, e-mail e as notificações de push ou webhook de aplicação do Azure a partir de um grupo de ação.
+title: Limitação da taxa para SMS, e-mails, notificações push da App Azure e webhooks
+description: Compreenda como o Azure limita o número de possíveis SMS, e-mail, push da App Azure ou notificações de webhook de um grupo de ação.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
-ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 066fcac24571c8e982784a3845a010525ff9088a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60346653"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665532"
 ---
-# <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Taxa de limitação para voz, SMS, mensagens de correio eletrónico, notificações push da aplicação do Azure e webhook de mensagens
-Limitação de velocidade é uma suspensão de notificações que ocorre quando demasiados são enviados para um número de telefone específico, o endereço de e-mail ou o dispositivo. Limitação de velocidade garante que os alertas são gerenciáveis e passíveis de ação.
+# <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitação de tarifas para voz, SMS, e-mails, notificações push da App Azure e posts webhook
+A limitação da taxa é uma suspensão de notificações que ocorre quando muitas são enviadas para um determinado número de telefone, endereço de e-mail ou dispositivo. A limitação da taxa garante que os alertas são controláveis e exequíveis.
 
-Os limiares de limite de taxa são:
+Os limiares-limite da taxa são:
 
-- **SMS**: SMS não mais de 1 a cada 5 minutos.
-- **Voz**: Chamada de voz não mais de 1 a cada 5 minutos.
-- **e-mail**: Não mais do que 100 mensagens de e-mail numa hora.
+- **SMS**: Não mais do que 1 SMS a cada 5 minutos.
+- **Voz**: Não mais do que 1 Chamada de voz a cada 5 minutos.
+- **E-mail**: Não mais de 100 e-mails numa hora.
  
-  Outras ações não são o limite de taxa.
+  Outras ações não são limitadas.
 
-## <a name="rate-limit-rules"></a>Regras de limite de taxa
-- Um número de telefone específico ou o e-mail é limitada ao receber mais mensagens do que permite o limiar de taxa.
-- Um número de telefone ou e-mail pode ser parte de grupos de ação em várias subscrições. Limitação de velocidade aplica-se em todas as subscrições. Aplica-se assim que o limiar for atingido, mesmo que as mensagens são enviadas a partir de várias subscrições.
-- Quando um endereço de e-mail é taxa limitada, é enviada uma notificação adicional para comunicar a limitação de velocidade. Os Estados de e-mail quando a limitação de velocidade expira.
+## <a name="rate-limit-rules"></a>Regras de limite de taxas
+- Um número de telefone ou e-mail específico é limitado quando recebe mais mensagens do que o limiar permite.
+- Um número de telefone ou e-mail pode fazer parte de grupos de ação em muitas subscrições. A limitação da taxa aplica-se em todas as subscrições. Aplica-se logo que o limiar é atingido, mesmo que as mensagens sejam enviadas de várias subscrições.
+- Quando um endereço de e-mail é limitado, uma notificação adicional é enviada para comunicar a limitação da taxa. O e-mail diz quando a taxa limite expirar.
 
-## <a name="next-steps"></a>Passos Seguintes ##
-* Saiba mais sobre [comportamento de alertas do SMS](alerts-sms-behavior.md).
-* Obter um [descrição geral dos alertas de registo de atividade](alerts-overview.md)e saiba como receber alertas.  
-* Saiba como [configurar alertas sempre que uma notificação de estado de funcionamento do serviço é lançada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+## <a name="next-steps"></a>Passos seguintes ##
+* Saiba mais sobre o comportamento de [alerta de SMS.](alerts-sms-behavior.md)
+* Obtenha uma [visão geral dos alertas de registo de atividadee](alerts-overview.md)aprenda a receber alertas.  
+* Saiba [configurar alertas sempre que é publicada uma notificação](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)de saúde de serviço.
 

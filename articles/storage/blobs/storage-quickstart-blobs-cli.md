@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: 57ab56fe3028da9011e86c589209e7505e69e719
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 785f68b98d819a58ce43837dc3c9b5a855beeb0a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650935"
+ms.locfileid: "77672519"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Quickstart: Criar, descarregar e listar bolhas com o Azure CLI
 
@@ -27,6 +27,8 @@ A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+## <a name="use-the-azure-cli-locally"></a>Use o Azure CLI localmente
 
 Se optar por instalar e utilizar o Azure CLI localmente, este quickstart requer que esteja a executar a versão Azure CLI 2.0.46 ou posterior. Execute `az --version` para determinar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 

@@ -3,18 +3,17 @@ title: Dimensionamento automático dos recursos do Azure com base nos dados de d
 description: Criar uma definição de dimensionamento automático para um plano do serviço de aplicações através de dados métricos e de uma agenda
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85ae76d9dcb0b4a1f95992c2f5da48a81fb12677
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637242"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661657"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Definição de Dimensionamento Automático para recursos do Azure com base nos dados de desempenho ou numa agenda
 
@@ -22,7 +21,7 @@ As definições de dimensionamento automático permitem adicionar/remover instâ
 
 Neste tutorial, irá: 
 > [!div class="checklist"]
-> * Criar uma Aplicação Web e um Plano do Serviço de Aplicações
+> * Crie uma Aplicação Web e um Plano do Serviço de Aplicações
 > * Configurar regras de dimensionamento automático para aumentar e reduzir horizontalmente com base no número de pedidos recebidos por uma Aplicação Web
 > * Acionar uma ação de aumento horizontal e ver o número de instâncias aumentar
 > * Acionar uma ação de redução horizontal e ver o número de instâncias diminuir
@@ -34,10 +33,10 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-web-app-and-app-service-plan"></a>Criar uma Aplicação Web e um Plano do Serviço de Aplicações
+## <a name="create-a-web-app-and-app-service-plan"></a>Crie uma Aplicação Web e um Plano do Serviço de Aplicações
 1. Clique na opção **Criar um recurso** no painel de navegação esquerdo.
 2. Procure e selecione o item *Aplicação Web* e clique em **Criar**.
-3. Selecione um nome de aplicação, como *MyTestScaleWebApp*. Criar um novo grupo de recursos * myResourceGroup' ou coloque-o no grupo de recursos à sua escolha.
+3. Selecione um nome de aplicação, como *MyTestScaleWebApp*. Crie um novo grupo de recursos *myResourceGroup' ou coloque-o num grupo de recursos à sua escolha.
 
 Dentro de alguns minutos, os recursos deverão ser aprovisionados. Utilize a Aplicação Web e o Plano do Serviço de Aplicações correspondente no resto deste tutorial.
 
@@ -63,7 +62,7 @@ Os passos seguintes ajudam-no a preencher o ecrã de dimensionamento automático
    ![Navegar para as definições de dimensionamento automático](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrence-profile"></a>Criar perfil de periodicidade
+## <a name="create-recurrence-profile"></a>Criar perfil de recorrência
 
 1. Clique na ligação **Adicionar uma condição de dimensionamento** no perfil predefinido.
 
@@ -181,8 +180,8 @@ Neste tutorial:
 > * Limpou os recursos
 
 
-Para saber mais sobre definições de dimensionamento automático, avance para a [descrição geral de dimensionamento automático](../../azure-monitor/platform/autoscale-overview.md).
+Para saber mais sobre as definições de dimensionamento automático, avance para [Autoscale overview](../../azure-monitor/platform/autoscale-overview.md) (descrição geral de dimensionamento automático).
 
 > [!div class="nextstepaction"]
-> [Arquivamento dos dados de monitorização](tutorial-archive-data.md)
+> [Archive your monitoring data](tutorial-archive-data.md) (Arquivar os dados de monitorização)
 

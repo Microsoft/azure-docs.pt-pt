@@ -1,51 +1,50 @@
 ---
-title: Experiência de logs simples em Azure Monitor (versão prévia) | Microsoft Docs
-description: A experiência de logs simples permite que você crie consultas básicas no Azure Monitor sem interagir diretamente com o KQL.
-ms.service: azure-monitor
+title: Experiência de Registos Simples no Monitor Azure (Pré-visualização) / Microsoft Docs
+description: A experiência Simple Logs permite-lhe criar consultas básicas no Monitor Azure sem interagir diretamente com a KQL.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 0b8b23d5d355614bf74b1b22c6a8443b9a2f9391
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932975"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660262"
 ---
-# <a name="simple-logs-experience-in-azure-monitor-preview"></a>Experiência de logs simples em Azure Monitor (versão prévia)
-Azure Monitor fornece uma [experiência rica](get-started-portal.md) para criar [consultas de log](log-query-overview.md) usando a linguagem KQL. Talvez você não precise de toda a potência do KQL, mas prefira uma experiência simplificada para os requisitos básicos de consulta. A experiência de logs simples permite que você crie consultas básicas sem interagir diretamente com o KQL. Você também pode usar logs simples como uma ferramenta de aprendizado para KQL, pois você precisa de consultas mais sofisticadas.
+# <a name="simple-logs-experience-in-azure-monitor-preview"></a>Experiência de Registos Simples no Monitor Azure (Pré-visualização)
+O Azure Monitor proporciona uma [experiência rica](get-started-portal.md) para criar consultas de [log](log-query-overview.md) utilizando a língua KQL. No entanto, pode não necessitar de toda a potência da KQL e preferir uma experiência simplificada para requisitos básicos de consulta. A experiência Simple Logs permite-lhe criar consultas básicas sem interagir diretamente com a KQL. Também pode utilizar registos simples como ferramenta de aprendizagem para a KQL, uma vez que necessita de consultas mais sofisticadas.
 
 > [!NOTE]
-> Atualmente, os logs simples são implementados como um teste para apenas Cosmos DB e cofres de chaves. Compartilhe sua experiência com a Microsoft por meio do [User Voice](https://feedback.azure.com/forums/913690-azure-monitor) para nos ajudar a determinar se iremos expandir e lançar esse recurso.
+> A Simple Logs é atualmente implementada como um teste apenas para Cosmos DB e Key Vaults. Por favor, partilhe a sua experiência com a Microsoft através do [User Voice](https://feedback.azure.com/forums/913690-azure-monitor) para nos ajudar a determinar se vamos expandir e lançar esta funcionalidade.
 
 
 ## <a name="scope"></a>Âmbito
-A experiência de logs simples recupera dados da tabela *AzureDiagnostics*, *AzureMetrics*e *AzureActivity* para o recurso selecionado. 
+A experiência Simple Logs recupera dados da tabela *AzureDiagnostics,* *AzureMetrics*e *AzureActivity* para o recurso selecionado. 
 
-## <a name="using-simple-logs"></a>Usando logs simples
-Navegue até qualquer Cosmos DB ou Key Vault em sua assinatura do Azure com [as configurações de diagnóstico configuradas para coletar logs em um espaço de trabalho log Analytics](../platform/resource-logs-collect-storage.md). Clique em **logs** no menu **monitoramento** para abrir a experiência de logs simples.
+## <a name="using-simple-logs"></a>Usando registos simples
+Navegue para qualquer Cosmos DB ou Key Vault na sua subscrição Azure com configurações de [diagnóstico configuradas para recolher registos num espaço](../platform/resource-logs-collect-storage.md)de trabalho de Log Analytics . Clique em **Registos** no menu **de Monitorização** para abrir a experiência De Registos Simples.
 
 ![Menu](media/simple-logs/menu.png)
 
-Selecione um **campo** e um **operador** e especifique um **valor** para comparação. Clique em **+** e especifique **e/ou** para adicionar critérios adicionais.
+Selecione um **Campo** e um **Operador** e especifique um **Valor** para comparação. Clique em **+** e especifique **E/Ou** para adicionar critérios adicionais.
 
 ![Critérios](media/simple-logs/criteria.png)
 
-Clique em **executar** para exibir os resultados da consulta.
+Clique **em Correr** para ver os resultados da consulta.
 
-## <a name="view-and-edit-kql"></a>Exibir e editar KQL
-Selecione **Editor de consultas** para abrir o KQL gerado pela consulta de logs simples na experiência de log Analytics completa. 
+## <a name="view-and-edit-kql"></a>Ver e editar KQL
+Selecione **O editor** da Consulta para abrir o KQL gerado pela consulta de Registos Simples em toda a experiência Log Analytics. 
 
-![Editor de consultas](media/simple-logs/query-editor.png)
+![Editor de consulta](media/simple-logs/query-editor.png)
 
-Você pode editar diretamente o KQL e usar outros recursos em Log Analytics como filtros para refinar ainda mais seus resultados.
+Pode editar diretamente o KQL e utilizar outras funcionalidades no Log Analytics, como filtros para aperfeiçoar ainda mais os seus resultados.
 
 ![Editar KQL](media/simple-logs/edit-kql.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conclua um tutorial sobre como [usar log Analytics no portal do Azure](get-started-portal.md).
-- Conclua um tutorial sobre como [escrever consultas de log](get-started-portal.md).
+- Complete um tutorial sobre [a utilização de Log Analytics no portal Azure](get-started-portal.md).
+- Complete um tutorial sobre consultas de [registo de escrita.](get-started-portal.md)

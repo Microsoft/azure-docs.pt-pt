@@ -1,28 +1,27 @@
 ---
-title: Exemplos de consulta de log de Azure Monitor | Microsoft Docs
-description: Exemplos de consultas de log no Azure Monitor usando a linguagem de consulta Kusto.
-ms.service: azure-monitor
+title: Exemplos de consulta de log Do Monitor Azure / Microsoft Docs
+description: Exemplos de consultas de log no Monitor Azure utilizando a linguagem de consulta Kusto.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: 8850aef8b5d45f236385551a1455e6fe7b540340
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 9bfadf55e4f68bb7188b27e4ef5bc03e3955f375
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614448"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662053"
 ---
-# <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log de Azure Monitor
-Este artigo inclui vários exemplos de [consultas](log-query-overview.md) que usam a [linguagem de consulta Kusto](/azure/kusto/query/) para recuperar diferentes tipos de dados de log de Azure monitor. Métodos diferentes são usados para consolidar e analisar dados, para que você possa usar esses exemplos para identificar estratégias diferentes que podem ser usadas para seus próprios requisitos.  
+# <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log Do Monitor Azure
+Este artigo inclui vários exemplos de [consultas](log-query-overview.md) usando a [linguagem de consulta Kusto](/azure/kusto/query/) para recuperar diferentes tipos de dados de registo do Azure Monitor. Diferentes métodos são usados para consolidar e analisar dados, para que você possa usar estas amostras para identificar diferentes estratégias que você pode usar para os seus próprios requisitos.  
 
-Consulte a [referência de linguagem Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave usadas nesses exemplos. Siga uma [lição sobre como criar consultas](get-started-queries.md) se você for novo no Azure monitor.
+Consulte a [referência linguística kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave utilizadas nestas amostras. Passe por uma [lição sobre a criação](get-started-queries.md) de consultas se for novo no Monitor Azure.
 
 ## <a name="events"></a>Eventos
 
-### <a name="search-application-level-events-described-as-cryptographic"></a>Pesquisar eventos no nível do aplicativo descritos como "criptografia"
-Este exemplo pesquisa a tabela de **eventos** em busca de registros nos quais **EventLog** é _Application_ e **RenderedDescription** contém _criptografia_. Inclui registros das últimas 24 horas.
+### <a name="search-application-level-events-described-as-cryptographic"></a>Eventos de nível de aplicação de pesquisa descritos como "Criptográficos"
+Este exemplo procura na tabela **Eventos** registos em que **o EventLog** é _Application_ e **renderedDescription** contém _criptográfico_. Inclui registos das últimas 24 horas.
 
 ```Kusto
 Event
@@ -31,18 +30,18 @@ Event
 | where RenderedDescription contains "cryptographic"
 ```
 
-### <a name="search-events-related-to-unmarshaling"></a>Eventos de pesquisa relacionados ao desempacotamento
-**Evento** de tabelas de pesquisa e **SecurityEvents** para registros que mencionam o _desempacotamento_.
+### <a name="search-events-related-to-unmarshaling"></a>Eventos de pesquisa relacionados com unmarshaling
+Tabelas de pesquisa **Eventos** e **Eventos** de Segurança para registos que _mencionem unmarshaling_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"
 ```
 
-## <a name="heartbeat"></a>Batida
+## <a name="heartbeat"></a>Heartbeat
 
-### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>Gráfico uma exibição semana a semana do número de computadores que enviam dados
+### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>Cartografe uma visão semanal do número de computadores que enviam dados
 
-O exemplo a seguir mostra o número de computadores distintos que enviaram pulsações, a cada semana.
+O exemplo seguinte traça o número de computadores distintos que enviavam batimentos cardíacos, todas as semanas.
 
 ```Kusto
 Heartbeat
@@ -50,9 +49,9 @@ Heartbeat
 | summarize dcount(Computer) by endofweek(TimeGenerated) | render barchart kind=default
 ```
 
-### <a name="find-stale-computers"></a>Localizar computadores obsoletos
+### <a name="find-stale-computers"></a>Encontre computadores velhos
 
-O exemplo a seguir localiza computadores que estavam ativos no último dia, mas que não enviaram pulsações na última hora.
+O exemplo seguinte encontra computadores que estavam ativos no último dia, mas que não enviaram batimentos cardíacos na última hora.
 
 ```Kusto
 Heartbeat
@@ -62,18 +61,18 @@ Heartbeat
 | where LastHeartbeat < ago(1h)
 ```
 
-### <a name="get-the-latest-heartbeat-record-per-computer-ip"></a>Obter o registro de pulsação mais recente por IP do computador
+### <a name="get-the-latest-heartbeat-record-per-computer-ip"></a>Obtenha o mais recente recorde de batimentos cardíacos por IP do computador
 
-Este exemplo retorna o último registro de pulsação para cada IP do computador.
+Este exemplo devolve o último registo de batimentos cardíacos para cada IP do computador.
 ```Kusto
 Heartbeat
 | summarize arg_max(TimeGenerated, *) by ComputerIP
 ```
 
-### <a name="match-protected-status-records-with-heartbeat-records"></a>Corresponder registros de status protegidos com registros de pulsação
+### <a name="match-protected-status-records-with-heartbeat-records"></a>Combine registos de estado protegidos com registos de batimentos cardíacos
 
-Este exemplo localiza registros de status de proteção relacionados e registros de pulsação, com correspondência no computador e no horário.
-Observe que o campo de tempo é arredondado para o minuto mais próximo. Usamos o cálculo do compartimento de tempo de execução para fazer isso: `round_time=bin(TimeGenerated, 1m)`.
+Este exemplo encontra registos de estado de proteção relacionados e registos de batimentos cardíacos, combinados tanto no Computador como no tempo.
+Note que o campo de tempo é arredondado para o minuto mais próximo. Usámos o cálculo do caixote do tempo de execução para o fazer: `round_time=bin(TimeGenerated, 1m)`.
 
 ```Kusto
 let protection_data = ProtectionStatus
@@ -85,8 +84,8 @@ protection_data | join (heartbeat_data) on Computer, round_time
 
 ### <a name="server-availability-rate"></a>Taxa de disponibilidade do servidor
 
-Calcule a taxa de disponibilidade do servidor com base nos registros de pulsação. A disponibilidade é definida como "pelo menos 1 pulsação por hora".
-Portanto, se um servidor estava disponível 98 de 100 horas, a taxa de disponibilidade é 98%.
+Calcular a taxa de disponibilidade do servidor com base em registos de batimentos cardíacos. A disponibilidade é definida como "pelo menos 1 batimento cardíaco por hora".
+Então, se um servidor estava disponível 98 de 100 horas, a taxa de disponibilidade é de 98%.
 
 ```Kusto
 let start_time=startofday(datetime("2018-03-01"));
@@ -103,8 +102,8 @@ Heartbeat
 
 ## <a name="multiple-data-types"></a>Vários tipos de dados
 
-### <a name="chart-the-record-count-per-table"></a>Gráfico do registro-contagem por tabela
-O exemplo a seguir coleta todos os registros de todas as tabelas das últimas cinco horas e conta o número de registros em cada tabela. Os resultados são mostrados em um gráfico de time.
+### <a name="chart-the-record-count-per-table"></a>Cartografe a contagem de recordes por tabela
+O exemplo seguinte recolhe todos os registos de todas as tabelas das últimas cinco horas e conta quantos registos estavam em cada mesa. Os resultados são mostrados num gráfico de tempo.
 
 ```Kusto
 union withsource=sourceTable *
@@ -113,8 +112,8 @@ union withsource=sourceTable *
 | render timechart
 ```
 
-### <a name="count-all-logs-collected-over-the-last-hour-by-type"></a>Contar todos os logs coletados pela última hora por tipo
-O exemplo a seguir pesquisa tudo relatado na última hora e conta os registros de cada tabela por **tipo**. Os resultados são exibidos em um gráfico de barras.
+### <a name="count-all-logs-collected-over-the-last-hour-by-type"></a>Conte todos os registos recolhidos durante a última hora por tipo
+O exemplo seguinte pesquisa tudo o que foi relatado na última hora e conta os registos de cada tabela por **Tipo**. Os resultados são apresentados num gráfico de barras.
 
 ```Kusto
 search *
@@ -125,8 +124,8 @@ search *
 
 ## <a name="azurediagnostics"></a>AzureDiagnostics
 
-### <a name="count-azure-diagnostics-records-per-category"></a>Contar registros de diagnóstico do Azure por categoria
-Este exemplo conta todos os registros de diagnóstico do Azure para cada categoria exclusiva.
+### <a name="count-azure-diagnostics-records-per-category"></a>Registos de diagnóstico sinuoso do Conde Azure por categoria
+Este exemplo conta todos os registos de diagnóstico do Azure para cada categoria única.
 
 ```Kusto
 AzureDiagnostics 
@@ -134,8 +133,8 @@ AzureDiagnostics
 | summarize count() by Category
 ```
 
-### <a name="get-a-random-record-for-each-unique-category"></a>Obter um registro aleatório para cada categoria exclusiva
-Este exemplo obtém um único registro aleatório do diagnóstico do Azure para cada categoria exclusiva.
+### <a name="get-a-random-record-for-each-unique-category"></a>Obtenha um recorde aleatório para cada categoria única
+Este exemplo obtém um único registo de diagnóstico sacana do Azure para cada categoria única.
 
 ```Kusto
 AzureDiagnostics
@@ -143,8 +142,8 @@ AzureDiagnostics
 | summarize any(*) by Category
 ```
 
-### <a name="get-the-latest-record-per-category"></a>Obter o registro mais recente por categoria
-Este exemplo obtém o registro mais recente do diagnóstico do Azure em cada categoria exclusiva.
+### <a name="get-the-latest-record-per-category"></a>Obtenha o mais recente recorde por categoria
+Este exemplo obtém o mais recente registo de diagnósticos Azure em cada categoria única.
 
 ```Kusto
 AzureDiagnostics
@@ -154,8 +153,8 @@ AzureDiagnostics
 
 ## <a name="network-monitoring"></a>Monitorização de rede
 
-### <a name="computers-with-unhealthy-latency"></a>Computadores com latência não íntegra
-Este exemplo cria uma lista de computadores distintos com latência não íntegra.
+### <a name="computers-with-unhealthy-latency"></a>Computadores com latência pouco saudável
+Este exemplo cria uma lista de computadores distintos com latência pouco saudável.
 
 ```Kusto
 NetworkMonitoring 
@@ -166,8 +165,8 @@ NetworkMonitoring
 
 ## <a name="performance"></a>Desempenho
 
-### <a name="join-computer-perf-records-to-correlate-memory-and-cpu"></a>Ingresse os registros de desempenho do computador para correlacionar a memória e a CPU
-Este exemplo correlaciona os registros de **desempenho** de um computador específico e cria dois gráficos de tempo, a média de CPU e máximo de memória.
+### <a name="join-computer-perf-records-to-correlate-memory-and-cpu"></a>Junte-se aos registos de perf do computador para correlacionar a memória e cpU
+Este exemplo correlaciona os registos **perf** de um computador específico e cria dois gráficos de tempo, o CPU médio e a memória máxima.
 
 ```Kusto
 let StartTime = now()-5d;
@@ -186,8 +185,8 @@ Perf
 | render timechart
 ```
 
-### <a name="perf-cpu-utilization-graph-per-computer"></a>Grafo de utilização de CPU de desempenho por computador
-Este exemplo calcula e gráficos a utilização da CPU de computadores que começam com _contoso_.
+### <a name="perf-cpu-utilization-graph-per-computer"></a>Gráfico de utilização perf CPU por computador
+Este exemplo calcula e traça a utilização do CPU de computadores que começam com _Contoso._
 
 ```Kusto
 Perf
@@ -198,10 +197,10 @@ Perf
 | render timechart
 ```
 
-## <a name="protection-status"></a>Status de proteção
+## <a name="protection-status"></a>Estado de proteção
 
-### <a name="computers-with-non-reporting-protection-status-duration"></a>Computadores com duração de status de proteção sem relatórios
-Este exemplo lista os computadores que tiveram um status de proteção de _não relatório_ e a duração em que estavam nesse status.
+### <a name="computers-with-non-reporting-protection-status-duration"></a>Computadores com duração do estado de proteção não inquirida
+Este exemplo lista computadores que tinham um estado de proteção de _Not Reporting_ e a duração em que estavam neste estado.
 
 ```Kusto
 ProtectionStatus
@@ -212,9 +211,9 @@ ProtectionStatus
 | extend durationNotReporting = endNotReporting - startNotReporting
 ```
 
-### <a name="match-protected-status-records-with-heartbeat-records"></a>Corresponder registros de status protegidos com registros de pulsação
-Este exemplo localiza registros de status de proteção relacionados e registros de pulsação correspondentes no computador e no horário.
-O campo de tempo é arredondado para o minuto mais próximo usando **bin**.
+### <a name="match-protected-status-records-with-heartbeat-records"></a>Combine registos de estado protegidos com registos de batimentos cardíacos
+Este exemplo encontra registos de estado de proteção relacionados e registos de batimentos cardíacos combinados tanto no Computador como no tempo.
+O campo de tempo é arredondado para o minuto mais próximo usando **o caixote**do lixo .
 
 ```Kusto
 let protection_data = ProtectionStatus
@@ -225,13 +224,13 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ```
 
 
-## <a name="security-records"></a>Registros de segurança
+## <a name="security-records"></a>Registos de segurança
 
-### <a name="count-security-events-by-activity-id"></a>Contar eventos de segurança por ID de atividade
+### <a name="count-security-events-by-activity-id"></a>Contagem de eventos de segurança por ID de atividade
 
 
-Este exemplo se baseia na estrutura fixa da coluna **atividade** : \<ID\>-nome \<\>.
-Ele analisa o valor da **atividade** em duas novas colunas e conta a ocorrência de cada **ActivityId**.
+Este exemplo baseia-se na estrutura fixa da coluna **atividade:** \<id\>-\<Nome\>.
+Analisa o valor da **Atividade** em duas novas colunas, e conta a ocorrência de cada **id de atividade**.
 
 ```Kusto
 SecurityEvent
@@ -241,8 +240,8 @@ SecurityEvent
 | summarize count() by activityID
 ```
 
-### <a name="count-security-events-related-to-permissions"></a>Contar eventos de segurança relacionados a permissões
-Este exemplo mostra o número de registros **securityEvent** , no qual a coluna **atividade** contém as _permissões_de termo inteiro. A consulta se aplica aos registros criados nos últimos 30 minutos.
+### <a name="count-security-events-related-to-permissions"></a>Contar eventos de segurança relacionados com permissões
+Este exemplo mostra o número de registos **de segurançaEvento,** em que a coluna **Atividade** contém todo o termo _Permissões_. A consulta aplica-se a registos criados nos últimos 30 minutos.
 
 ```Kusto
 SecurityEvent
@@ -250,8 +249,8 @@ SecurityEvent
 | summarize EventCount = countif(Activity has "Permissions")
 ```
 
-### <a name="find-accounts-that-failed-to-log-in-from-computers-with-a-security-detection"></a>Localizar contas que falharam ao fazer logon de computadores com uma detecção de segurança
-Este exemplo localiza e conta contas que falharam ao fazer logon de computadores nos quais identificamos uma detecção de segurança.
+### <a name="find-accounts-that-failed-to-log-in-from-computers-with-a-security-detection"></a>Encontre contas que não conseguiram fazer login a partir de computadores com uma deteção de segurança
+Este exemplo encontra e conta contas que não conseguiram entrar a partir de computadores nos quais identificamos uma deteção de segurança.
 
 ```Kusto
 let detections = toscalar(SecurityDetection
@@ -261,8 +260,8 @@ SecurityEvent
 | summarize count() by Account
 ```
 
-### <a name="is-my-security-data-available"></a>Meus dados de segurança estão disponíveis?
-Iniciar a exploração de dados geralmente começa com a verificação de disponibilidade de dados. Este exemplo mostra o número de registros **SecurityEvent** nos últimos 30 minutos.
+### <a name="is-my-security-data-available"></a>Os meus dados de segurança estão disponíveis?
+Iniciar a exploração de dados começa frequentemente com a verificação da disponibilidade de dados. Este exemplo mostra o número de registos do **SecurityEvent** nos últimos 30 minutos.
 
 ```Kusto
 SecurityEvent 
@@ -270,8 +269,8 @@ SecurityEvent
 | count
 ```
 
-### <a name="parse-activity-name-and-id"></a>Nome e ID da atividade de análise
-Os dois exemplos abaixo dependem da estrutura fixa da coluna **atividade** : \<ID\>-nome \<\>. O primeiro exemplo usa o operador **Parse** para atribuir valores a duas novas colunas: **ActivityId** e **activityDesc**.
+### <a name="parse-activity-name-and-id"></a>Nome e ID da atividade parse
+Os dois exemplos abaixo dependem da estrutura fixa da coluna **Atividade:** \<ID\>-\<Nome\>. O primeiro exemplo utiliza o operador **de parse** para atribuir valores a duas novas colunas: **activityID** e **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -280,7 +279,7 @@ SecurityEvent
 | parse Activity with activityID " - " activityDesc
 ```
 
-Este exemplo usa o operador **Split** para criar uma matriz de valores separados
+Este exemplo usa o operador **dividido** para criar uma variedade de valores separados
 ```Kusto
 SecurityEvent
 | take 100
@@ -290,7 +289,7 @@ SecurityEvent
 ```
 
 ### <a name="explicit-credentials-processes"></a>Processos de credenciais explícitas
-O exemplo a seguir mostra um gráfico de pizza de processos que usaram credenciais explícitas na última semana
+O exemplo seguinte mostra um gráfico de tortas de processos que usaram credenciais explícitas na última semana
 
 ```Kusto
 SecurityEvent
@@ -301,9 +300,9 @@ SecurityEvent
 | render piechart 
 ```
 
-### <a name="top-running-processes"></a>Principais processos em execução
+### <a name="top-running-processes"></a>Processos de execução de topo
 
-O exemplo a seguir mostra uma linha de tempo de atividade para os cinco processos mais comuns, nos últimos três dias.
+O exemplo seguinte mostra uma linha temporal de atividade para os cinco processos mais comuns, nos últimos três dias.
 
 ```Kusto
 // Find all processes that started in the last three days. ID 4688: A new process has been created.
@@ -324,9 +323,9 @@ RunProcesses
 ```
 
 
-### <a name="find-repeating-failed-login-attempts-by-the-same-account-from-different-ips"></a>Localizar tentativas de logon com falha repetidas pela mesma conta de IPs diferentes
+### <a name="find-repeating-failed-login-attempts-by-the-same-account-from-different-ips"></a>Encontre tentativas de login falhadas repetidas pela mesma conta de diferentes IPs
 
-O exemplo a seguir localiza tentativas de logon com falha pela mesma conta de mais de cinco IPs diferentes nas últimas seis horas.
+O exemplo seguinte encontra tentativas falhadas de login pela mesma conta de mais de cinco IPs diferentes nas últimas seis horas.
 
 ```Kusto
 SecurityEvent 
@@ -336,8 +335,8 @@ SecurityEvent
 | sort by IPCount desc
 ```
 
-### <a name="find-user-accounts-that-failed-to-log-in"></a>Localizar contas de usuário que falharam ao fazer logon 
-O exemplo a seguir identifica as contas de usuário que falharam ao fazer logon mais de cinco vezes no último dia e a última tentativa de fazer logon.
+### <a name="find-user-accounts-that-failed-to-log-in"></a>Encontre contas de utilizador que não conseguiram fazer login 
+O exemplo seguinte identifica as contas dos utilizadores que não conseguiram fazer login mais de cinco vezes no último dia, e quando tentaram fazer o login pela última vez.
 
 ```Kusto
 let timeframe = 1d;
@@ -349,7 +348,7 @@ SecurityEvent
 | project-away Account1
 ```
 
-Usando **Join**e **Let** de instruções, podemos verificar se as mesmas contas suspeitas foram mais tarde capazes de fazer logon com êxito.
+Usando **a adesão**, e **deixe** declarações podemos verificar se as mesmas contas suspeitas foram mais tarde capazes de fazer login com sucesso.
 
 ```Kusto
 let timeframe = 1d;
@@ -376,10 +375,10 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Utilização
 
-### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>Calcular o tamanho médio dos relatórios de uso de desempenho por computador
+### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>Calcular o tamanho médio dos relatórios de utilização perf por computador
 
-Este exemplo calcula o tamanho médio dos relatórios de uso de desempenho por computador, nas últimas 3 horas.
-Os resultados são mostrados em um gráfico de barras.
+Este exemplo calcula o tamanho médio dos relatórios de utilização perf por computador, nas últimas 3 horas.
+Os resultados são mostrados num gráfico de barras.
 ```Kusto
 Usage 
 | where TimeGenerated > ago(3h)
@@ -390,9 +389,9 @@ Usage
 | render barchart
 ```
 
-### <a name="timechart-latency-percentiles-50-and-95"></a>Latência do gráfico de timepercentils 50 e 95
+### <a name="timechart-latency-percentiles-50-and-95"></a>Percentilde de latência do timechart 50 e 95
 
-Este exemplo calcula e gráficos os 50 º e 95 º percentils de **avgLatency** relatados por hora nas últimas 24 horas.
+Este exemplo calcula e regista os percentículos 50 e 95 de **avgLatency** reportados por hora nas últimas 24 horas.
 
 ```Kusto
 Usage
@@ -401,8 +400,8 @@ Usage
 | render timechart
 ```
 
-### <a name="usage-of-specific-computers-today"></a>Uso de computadores específicos hoje
-Este exemplo recupera dados de **uso** do último dia para nomes de computador que contêm a cadeia de caracteres _contosofile_. Os resultados são classificados por **TimeGenerated**.
+### <a name="usage-of-specific-computers-today"></a>Utilização de computadores específicos hoje em dia
+Este exemplo recupera dados de **utilização** do último dia para nomes de computador que contêm a corda _ContosoFile_. Os resultados são classificados pela **TimeGenerated**.
 
 ```Kusto
 Usage
@@ -413,8 +412,8 @@ Usage
 
 ## <a name="updates"></a>Atualizações
 
-### <a name="computers-still-missing-updates"></a>Os computadores ainda estão com atualizações ausentes
-Este exemplo mostra uma lista de computadores que estavam sem uma ou mais atualizações críticas há alguns dias e ainda estão com atualizações ausentes.
+### <a name="computers-still-missing-updates"></a>Computadores ainda faltam atualizações
+Este exemplo mostra uma lista de computadores que faltavam uma ou mais atualizações críticas há alguns dias e que ainda faltam atualizações.
 
 ```Kusto
 let ComputersMissingUpdates3DaysAgo = Update
@@ -431,5 +430,5 @@ Update
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [referência de linguagem Kusto](/azure/kusto/query) para obter detalhes sobre o idioma.
-- Percorra uma [lição sobre como escrever consultas de log em Azure monitor](get-started-queries.md).
+- Consulte a [referência linguística kusto](/azure/kusto/query) para obter detalhes sobre a língua.
+- Passeie por uma lição sobre escrever consultas de [registo no Monitor Azure.](get-started-queries.md)

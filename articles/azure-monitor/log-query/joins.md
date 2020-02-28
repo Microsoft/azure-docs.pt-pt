@@ -1,27 +1,26 @@
 ---
-title: Junções em consultas de log de Azure Monitor | Microsoft Docs
-description: Este artigo inclui uma lição sobre como usar junções em consultas Azure Monitor log.
-ms.service: azure-monitor
+title: Junta-se a consultas de registo do Monitor Azure  Microsoft Docs
+description: Este artigo inclui uma lição sobre a utilização de juntas em consultas de registo do Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397844"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670207"
 ---
-# <a name="joins-in-azure-monitor-log-queries"></a>Junções em consultas de log de Azure Monitor
+# <a name="joins-in-azure-monitor-log-queries"></a>Junta-se a consultas de registo do Monitor Azure
 
 > [!NOTE]
-> Você deve concluir a [introdução às consultas Azure Monitor log Analytics](get-started-portal.md) e [Azure monitor log](get-started-queries.md) antes de concluir esta lição.
+> Deve completar O Get started com o [Azure Monitor Log Analytics](get-started-portal.md) e o [Azure Monitor consultas](get-started-queries.md) de registo antes de concluir esta aula.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-As junções permitem que você analise dados de várias tabelas, na mesma consulta. Eles mesclam as linhas de dois conjuntos de dados por valores correspondentes de colunas especificadas.
+Adesão permite-lhe analisar dados de várias tabelas, na mesma consulta. Fundem as linhas de dois conjuntos de dados combinando valores de colunas especificadas.
 
 
 ```Kusto
@@ -38,23 +37,23 @@ SecurityEvent
 | top 10 by Duration desc
 ```
 
-Neste exemplo, o primeiro conjunto de os filtros para todos os eventos de entrada. Isso é Unido a um segundo conjunto de um que filtra todos os eventos de saída. As colunas projetadas são _computador_, _conta_, _TargetLogonId_e _TimeGenerated_. Os conjuntos de valores são correlacionados por uma coluna compartilhada, _TargetLogonId_. A saída é um registro único por correlação, que tem o tempo de entrada e saída.
+Neste exemplo, os primeiros filtros de conjunto de dados para todos os eventos de início de sessão. Isto é acompanhado por um segundo conjunto de dados que filtra todos os eventos de inscrição. As colunas projetadas são _Computador,_ _Conta,_ _TargetLogonId_e _TimeGenerated_. Os conjuntos de dados são correlacionados por uma coluna partilhada, _TargetLogonId_. A saída é um único recorde por correlação, que tem tanto o tempo de inscrição como o tempo de inscrição.
 
-Se ambos os conjuntos de dados tiverem colunas com os mesmos nomes, as colunas do conjunto de dados do lado direito receberão um número de índice, portanto, neste exemplo, os resultados mostrarão _TargetLogonId_ com valores da tabela do lado esquerdo e _TargetLogonId1_ com valores da tabela do lado direito. Nesse caso, a segunda coluna _TargetLogonId1_ foi removida usando o operador `project-away`.
+Se ambos os conjuntos de dados tiverem colunas com os mesmos nomes, as colunas do conjunto de dados do lado direito receberiam um número de índice, pelo que, neste exemplo, os resultados mostrariam _targetLogonId_ com valores da tabela do lado esquerdo e _TargetLogonId1_ com valores da tabela do lado direito. Neste caso, a segunda coluna _TargetLogonId1_ foi removida utilizando o operador `project-away`.
 
 > [!NOTE]
-> Para melhorar o desempenho, mantenha apenas as colunas relevantes dos conjuntos de dados associados, usando o operador de `project`.
+> Para melhorar o desempenho, mantenha apenas as colunas relevantes dos conjuntos de dados unidos, utilizando o operador `project`.
 
 
-Use a sintaxe a seguir para unir dois conjuntos de valores e a chave unida tem um nome diferente entre as duas tabelas:
+Utilize a seguinte sintaxe para se juntar a dois conjuntos de dados e a chave unida tem um nome diferente entre as duas tabelas:
 ```
 Table1
 | join ( Table2 ) 
 on $left.key1 == $right.key2
 ```
 
-## <a name="lookup-tables"></a>Tabelas de pesquisa
-Um uso comum de junções é o uso de mapeamento estático de valores usando `datatable` que pode ajudar a transformar os resultados em uma maneira mais apresentável. Por exemplo, para enriquecer os dados de evento de segurança com o nome do evento para cada ID de evento.
+## <a name="lookup-tables"></a>Mesas de lookup
+Um uso comum de juntas é usar o mapeamento estático de valores usando `datatable` que podem ajudar a transformar os resultados em forma mais apresentável. Por exemplo, para enriquecer os dados do evento de segurança com o nome do evento para cada ID do evento.
 
 ```Kusto
 let DimTable = datatable(EventID:int, eventName:string)
@@ -75,35 +74,35 @@ SecurityEvent
 | summarize count() by eventName
 ```
 
-![Unir com uma DataTable](media/joins/dim-table.png)
+![Junte-se a uma datatable](media/joins/dim-table.png)
 
-## <a name="join-kinds"></a>Tipos de junção
-Especifique o tipo de junção com o argumento _Kind_ . Cada tipo executa uma correspondência diferente entre os registros das tabelas determinadas, conforme descrito na tabela a seguir.
+## <a name="join-kinds"></a>Junte-se a tipos
+Especifique o tipo de juntar-se ao argumento _do tipo._ Cada tipo executa uma correspondência diferente entre os registos das tabelas dadas, conforme descrito na tabela seguinte.
 
-| Tipo de associação | Descrição |
+| Tipo de adesão | Descrição |
 |:---|:---|
-| innerunique | Esse é o modo de junção padrão. Primeiro, os valores da coluna correspondente na tabela esquerda são encontrados e os valores duplicados são removidos.  Em seguida, o conjunto de valores exclusivos é correspondido na tabela direita. |
-| Inner | Somente os registros correspondentes em ambas as tabelas são incluídos nos resultados. |
-| leftouter | Todos os registros na tabela esquerda e os registros correspondentes na tabela à direita são incluídos nos resultados. As propriedades de saída sem correspondência contêm nulos.  |
-| leftanti | Os registros do lado esquerdo que não têm correspondências da direita são incluídos nos resultados. A tabela de resultados tem apenas colunas da tabela esquerda. |
-| leftsemi | Registros do lado esquerdo que têm correspondências da direita são incluídos nos resultados. A tabela de resultados tem apenas colunas da tabela esquerda. |
+| innerunique | Este é o modo de união padrão. Primeiro são encontrados os valores da coluna em correspondência na mesa esquerda e os valores duplicados são removidos.  Em seguida, o conjunto de valores únicos é igualado contra a mesa certa. |
+| interior | Apenas os registos correspondentes em ambas as tabelas estão incluídos nos resultados. |
+| leftouter | Todos os registos na mesa esquerda e registos correspondentes na mesa direita estão incluídos nos resultados. Propriedades de saída incomparáveis contêm nulos.  |
+| esquerdaanti | Os registos do lado esquerdo que não têm correspondências da direita estão incluídos nos resultados. A tabela de resultados tem apenas colunas da mesa esquerda. |
+| leftsemi | Os registos do lado esquerdo que têm correspondências da direita estão incluídos nos resultados. A tabela de resultados tem apenas colunas da mesa esquerda. |
 
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Considere os seguintes pontos para um desempenho ideal:
+Considere os seguintes pontos para um desempenho ótimo:
 
-- Use um filtro de tempo em cada tabela para reduzir os registros que devem ser avaliados para a junção.
-- Use `where` e `project` para reduzir os números de linhas e colunas nas tabelas de entrada antes da junção.
-- Se uma tabela for sempre menor do que a outra, use-a como o lado esquerdo da junção.
+- Utilize um filtro de tempo em cada mesa para reduzir os registos que devem ser avaliados para a adesão.
+- Utilize `where` e `project` para reduzir o número de linhas e colunas nas tabelas de entrada antes da adesão.
+- Se uma mesa for sempre mais pequena que a outra, use-a como o lado esquerdo da união.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte outras lições para usar Azure Monitor consultas de log:
+Consulte outras lições para utilizar consultas de registo do Monitor Azure:
 
-- [Operações de cadeia de caracteres](string-operations.md)
+- [Operações de cordas](string-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)
 - [JSON e estruturas de dados](json-data-structures.md)
-- [Gravação de consulta avançada](advanced-query-writing.md)
-- [Spersão](charts.md)
+- [Escrita de consulta avançada](advanced-query-writing.md)
+- [Gráficos](charts.md)

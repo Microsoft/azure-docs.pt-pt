@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a65f20e04603403a1d3a180e364626d5b4440661
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208289"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664528"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapas suportados pelo Azure Maps
 O Azure Maps suporta vários diferentes estilos de mapas incorporados, como descrito abaixo.
@@ -52,7 +52,7 @@ O estilo **satélite** é uma combinação de imagens de satélite e antena.
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de imagens de satélite e antena.
 
-![satellite_road_labels estilo mapa](./media/supported-map-styles/satellite_road_labels.png)
+![satellite_road_labels estilo mapa](./media/supported-map-styles/satellite-road-labels.png)
 
 **APIs aplicáveis:**
 * Controlo do mapa Web SDK
@@ -61,7 +61,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 ## <a name="grayscale_dark"></a>grayscale_dark
 **cinza em tons escuros** é uma versão escura do estilo do roteiro.
 
-![estilo de mapa gray_scale](./media/supported-map-styles/grayscale_dark.png)
+![estilo de mapa gray_scale](./media/supported-map-styles/grayscale-dark.png)
 
 **APIs aplicáveis:**
 * [Imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -73,7 +73,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 ## <a name="grayscale_light"></a>grayscale_light
 **a luz em tons de cinza** é uma versão leve do estilo do roteiro.
 
-![estilo de mapa de luz de escala cinzenta](./media/supported-map-styles/grayscale_light.png)
+![estilo de mapa de luz de escala cinzenta](./media/supported-map-styles/grayscale-light.png)
 
 **APIs aplicáveis:**
 * Controlo do mapa Web SDK
@@ -99,6 +99,14 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 * Controlo do mapa Web SDK
 * Controlo de mapas Android
 
+## <a name="high_contrast_dark"></a>high_contrast_dark
+
+**high_contrast_dark** é um estilo de mapa escuro com um contraste maior do que os outros estilos.
+
+![estilo de mapa escuro de alto contraste](./media/supported-map-styles/high-contrast-dark.png)
+
+**APIs aplicáveis:**
+* Controlo do mapa Web SDK
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: b926e651200a4ab23306b0ec2443cb64400b8f7b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 061f812e7567d96bba092ebc9625756c14c46940
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605246"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662472"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -484,3 +484,14 @@ Para resolver este problema:
 
 * Use `az aks use-dev-spaces -g <resource group name> -n <cluster name>` para atualizar o contexto atual. Esse comando também habilita Azure Dev Spaces no cluster AKS se o ainda não estiver habilitado. Em alternativa, pode utilizar `kubectl config use-context <cluster name>` para atualizar o contexto atual.
 * Use `az account show` para mostrar a subscrição atual do Azure que está a visar e verificar se está correta. Pode alterar a subscrição que está a ser alvo usando `az account set`.
+
+### <a name="error-using-dev-spaces-after-rotating-aks-certificates"></a>Erro utilizando Espaços Dev após rotação de certificados AKS
+
+Depois [de rodar os certificados no seu cluster AKS,](../aks/certificate-rotation.md)certas operações, como `azds space list` e `azds up` falharão. Também precisa de atualizar os certificados no seu controlador Azure Dev Spaces depois de rodar os certificados no seu cluster.
+
+Para corrigir este problema, certifique-se de que o seu *kubeconfig* tem os certificados atualizados utilizando `az aks get-credentials` em seguida, executar o comando `azds controller refresh-credentials`. Por exemplo:
+
+```azurecli
+az aks get-credentials -g <resource group name> -n <cluster name>
+azds controller refresh-credentials -g <resource group name> -n <cluster name>
+```

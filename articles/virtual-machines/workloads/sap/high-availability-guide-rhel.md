@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2020
+ms.date: 02/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 8f2de656473d52c7a40bef83237bf2aed563e111
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 94dc0b5da348989c60922fdd8c95e3e22d2b4a83
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566170"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661248"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Máquinas Virtuais Azure alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux
 
@@ -85,9 +85,6 @@ Para alcançar uma elevada disponibilidade, o SAP NetWeaver requer armazenamento
 ![Visão geral de alta disponibilidade da SAP NetWeaver](./media/high-availability-guide-rhel/ha-rhel.png)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados SAP HANA usam o nome de anfitrião virtual e endereços IP virtuais. No Azure, é necessário utilizar um endereço IP virtual. Recomendamos a utilização do [equilíbrio de carga Standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). A lista seguinte mostra a configuração do (A)SCS e do equilibrador de carga ERS.
-
-> [!IMPORTANT]
-> O agrupamento multi-SID do SAP ASCS/ERS com o Red Hat Linux como sistema operativo convidado em VMs Azure NÃO é **suportado**. O clustering multi-SID descreve a instalação de múltiplas instâncias SAP ASCS/ERS com diferentes SIDs num cluster Pacemaker.
 
 ### <a name="ascs"></a>A SCS
 
@@ -1053,6 +1050,7 @@ Siga estes passos para instalar um servidor de aplicação SAP.
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [HA para SAP NW em VMs Azure em RHEL para aplicações SAP guia multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 * [Planeamento e implementação de Máquinas Virtuais Azure para SAP][planning-guide]
 * [Implantação de Máquinas Virtuais Azure para SAP][deployment-guide]
 * [Implantação de DBMS de Máquinas Virtuais Azure para SAP][dbms-guide]

@@ -1,48 +1,47 @@
 ---
-title: expressão de App () em consultas de log de Azure Monitor | Microsoft Docs
-description: A expressão do aplicativo é usada em uma consulta Azure Monitor log para recuperar dados de um aplicativo Application Insights específico no mesmo grupo de recursos, em outro grupo de recursos ou em outra assinatura.
-ms.service: azure-monitor
+title: app() expressão em consultas de registo do Monitor Azure  Microsoft Docs
+description: A expressão da aplicação é usada numa consulta de registo do Azure Monitor para recuperar dados de uma aplicação específica da Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2019
-ms.openlocfilehash: ffef73f88c8679d0b0be81222b1b61c4eaef5098
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933087"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670264"
 ---
-# <a name="app-expression-in-azure-monitor-query"></a>expressão de aplicativo () na consulta Azure Monitor
+# <a name="app-expression-in-azure-monitor-query"></a>app() expressão na consulta do Monitor Azure
 
-A expressão `app` é usada em uma consulta Azure Monitor para recuperar dados de um aplicativo Application Insights específico no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura. Isso é útil para incluir dados de aplicativo em uma Azure Monitor consulta de log e consultar dados entre vários aplicativos em uma consulta Application Insights.
+A expressão `app` é usada numa consulta do Azure Monitor para recuperar dados de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isto é útil para incluir dados de aplicação numa consulta de registo do Monitor Azure e para consultar dados em várias aplicações numa consulta de Insights de Aplicação.
 
 
 
 ## <a name="syntax"></a>Sintaxe
 
-*identificador* de `app(``)`
+`)` *de identificador* `app(`
 
 
 ## <a name="arguments"></a>Argumentos
 
-- *Identificador*: identifica o aplicativo usando um dos formatos na tabela a seguir.
+- *Identificador*: Identifica a aplicação utilizando um dos formatos na tabela abaixo.
 
 | Identificador | Descrição | Exemplo
 |:---|:---|:---|
-| Nome do Recurso | Nome legível por humanos do aplicativo (também conhecido como "nome do componente") | aplicativo ("fabrikamapp") |
-| Nome qualificado | Nome completo do aplicativo no formato: "subscriptionname/resourcegroup/ComponentName" | aplicativo (' AI-Prototype/Fabrikam/fabrikamapp ') |
-| ID | GUID do aplicativo | aplicativo ("988ba129-363e-4415-8fe7-8cbab5447518") |
-| ID de recurso do Azure | Identificador para o recurso do Azure |aplicativo ("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
+| Nome do Recurso | Nome legível humano da app (aka "nome componente") | app("fabrikamapp") |
+| Nome Qualificado | Nome completo da aplicação no formulário: "subscriçãoName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
+| ID | GUIA da app | app("988ba129-363e-4415-8fe7-8cbab5447518") |
+| ID de recursos azure | Identificador para o recurso Azure |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
 ## <a name="notes"></a>Notas
 
-* Você deve ter acesso de leitura ao aplicativo.
-* A identificação de um aplicativo por seu nome pressupõe que ele seja exclusivo em todas as assinaturas acessíveis. Se você tiver vários aplicativos com o nome especificado, a consulta falhará devido à ambiguidade. Nesse caso, você deve usar um dos outros identificadores.
-* Use o espaço de [trabalho](workspace-expression.md) de expressão relacionada para consultar em log Analytics espaços de trabalho.
-* A expressão de aplicativo () atualmente não tem suporte na consulta de pesquisa ao usar o portal do Azure para criar uma [regra de alerta de pesquisa de logs personalizada](../platform/alerts-log.md), a menos que um aplicativo de Application insights seja usado como o recurso para a regra de alerta.
+* Deve ter lido o acesso à aplicação.
+* Identificar uma aplicação pelo seu nome assume que é única em todas as subscrições acessíveis. Se tiver várias aplicações com o nome especificado, a consulta falhará devido à ambiguidade. Neste caso, deve utilizar um dos outros identificadores.
+* Utilize o [espaço](workspace-expression.md) de trabalho de expressão relacionado para consultar os espaços de trabalho do Log Analytics.
+* A expressão da aplicação() não é atualmente suportada na consulta de pesquisa ao utilizar o portal Azure para criar uma regra de alerta de pesquisa de [registo personalizado,](../platform/alerts-log.md)a menos que uma aplicação Application Insights seja usada como recurso para a regra de alerta.
 
 ## <a name="examples"></a>Exemplos
 
@@ -72,6 +71,6 @@ union
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [expressão de espaço de trabalho](workspace-expression.md) para se referir a um espaço de trabalho log Analytics.
-- Leia sobre como [Azure monitor dados](../../azure-monitor/log-query/log-query-overview.md) são armazenados.
-- Acesse a documentação completa para a [linguagem de consulta Kusto](/azure/kusto/query/).
+- Consulte a [expressão espaço](workspace-expression.md) de trabalho para se referir a um espaço de trabalho do Log Analytics.
+- Leia sobre como os [dados do Monitor Azure](../../azure-monitor/log-query/log-query-overview.md) são armazenados.
+- Aceda à documentação completa para a [linguagem de consulta kusto.](/azure/kusto/query/)

@@ -1,43 +1,42 @@
 ---
-title: Conectividade do serviço de solução Monitor de Desempenho de Rede-Log Analytics do Azure
-description: Use o recurso monitor de conectividade de serviço no Monitor de Desempenho de Rede para monitorar a conectividade de rede para qualquer ponto de extremidade que tenha uma porta TCP aberta.
-ms.service: azure-monitor
+title: Conectividade do serviço de suporte de desempenho da rede - Azure Log Analytics
+description: Utilize a capacidade do Monitor de Conectividade do Serviço no Monitor de Desempenho da Rede para monitorizar a conectividade da rede a qualquer ponto final que tenha uma porta TCP aberta.
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 11975a86b5d9135b42dd51bdd787c2f76cabe259
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551510"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654550"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 
-Você pode usar o recurso do monitor de conectividade de serviço no [Monitor de desempenho de rede](network-performance-monitor.md) para monitorar a conectividade de rede para qualquer ponto de extremidade que tenha uma porta TCP aberta. Esses pontos de extremidade incluem sites, aplicativos SaaS, aplicativos PaaS e bancos de dados SQL. 
+Pode utilizar a capacidade do Monitor de Conectividade do Serviço no Monitor de Desempenho da [Rede](network-performance-monitor.md) para monitorizar a conectividade da rede a qualquer ponto final que tenha uma porta TCP aberta. Estes pontos finais incluem websites, aplicações SaaS, aplicações PaaS e bases de dados SQL. 
 
-Você pode executar as seguintes funções com o monitor de conectividade de serviço: 
+Pode desempenhar as seguintes funções com o Monitor de Conectividade do Serviço: 
 
-- Monitore a conectividade de rede para seus aplicativos e serviços de rede de várias filiais ou locais. Aplicativos e serviços de rede incluem o Office 365, Dynamics CRM, aplicativos internos de linha de negócios e bancos de dados SQL.
-- Use testes internos para monitorar a conectividade de rede com os pontos de extremidade do Office 365 e do Dynamics 365. 
-- Determine o tempo de resposta, a latência de rede e a perda de pacotes enfrentados durante a conexão com o ponto de extremidade.
-- Determine se o desempenho insatisfatório do aplicativo é devido à rede ou devido a algum problema no fim do provedor do aplicativo.
-- Identifique pontos de acesso na rede que podem estar causando mau desempenho de aplicativo exibindo a latência contribuída por cada salto em um mapa de topologia.
+- Monitorize a conectividade da rede com as suas aplicações e serviços de rede a partir de várias agências ou locais. As aplicações e serviços de rede incluem o Office 365, Dynamics CRM, aplicações internas de linha de negócioe bases de dados SQL.
+- Utilize testes incorporados para monitorizar a conectividade da rede com o Office 365 e os pontos finais Da Dinâmica 365. 
+- Determine o tempo de resposta, a latência da rede e a perda de pacotes experimentadas ao ligar-se ao ponto final.
+- Determine se o fraco desempenho da aplicação se deve à rede ou devido a algum problema no final do fornecedor de aplicações.
+- Identifique pontos quentes na rede que possam estar a causar um fraco desempenho de aplicação ao ver a latência contribuída por cada salto num mapa de topologia.
 
 
 ![Monitor de Conectividade do Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuração 
-Para abrir a configuração para Monitor de Desempenho de Rede, abra a [solução monitor de desempenho de rede](network-performance-monitor.md) e selecione **Configurar**.
+Para abrir a configuração do Monitor de Desempenho da Rede, abra a [solução](network-performance-monitor.md) do Monitor de Desempenho da Rede e selecione **Configurar**.
 
 ![Configurar o Monitor de Desempenho de Rede](media/network-performance-monitor-service-endpoint/npm-configure-button.png)
 
 
-### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurar agentes de Log Analytics para monitoramento
-Habilite as seguintes regras de firewall nos nós usados para monitoramento para que a solução possa descobrir a topologia de seus nós para o ponto de extremidade de serviço: 
+### <a name="configure-log-analytics-agents-for-monitoring"></a>Configure os agentes de Log Analytics para monitorização
+Ative as seguintes regras de firewall nos nódosos utilizados para monitorização para que a solução possa descobrir a topologia dos seus nódosos até ao ponto final do serviço: 
 
 ```
 netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -48,90 +47,90 @@ netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmp
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### <a name="create-service-connectivity-monitor-tests"></a>Criar testes do monitor de conectividade de serviço 
+### <a name="create-service-connectivity-monitor-tests"></a>Criar testes de Monitor de Conectividade de Serviço 
 
-Comece a criar seus testes para monitorar a conectividade de rede com os pontos de extremidade de serviço.
+Comece a criar os seus testes para monitorizar a conectividade da rede com os pontos finais do serviço.
 
-1. Selecione a guia **Monitor de conectividade de serviço** .
-2. Selecione **Adicionar teste**e insira o nome e a descrição do teste. Você pode criar um máximo de 450 testes por espaço de trabalho. 
+1. Selecione o separador Monitor de Conectividade do **Serviço.**
+2. Selecione **Adicionar Teste**e introduza o nome e a descrição do teste. Pode criar no máximo 450 testes por espaço de trabalho. 
 3. Selecione o tipo de teste:<br>
 
-    * Selecione **Web** para monitorar a conectividade com um serviço que responde a solicitações HTTP/S, como outlook.office365.com ou Bing.com.<br>
-    * Selecione **rede** para monitorar a conectividade com um serviço que responde às solicitações TCP, mas não responde a solicitações HTTP/S, como um SQL Server, servidor FTP ou porta SSH. 
-    * Por exemplo: para criar um teste na Web para uma conta de armazenamento de BLOBs, selecione **Web** e insira destino como *yourstorageaccount*. blob.Core.Windows.net. Da mesma forma, você pode criar testes para outros armazenamentos de tabelas, armazenamento de fila e arquivos do Azure usando [este link.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
-4. Se você não quiser executar medidas de rede, como latência de rede, perda de pacotes e descoberta de topologia, desmarque a caixa de seleção **executar medidas de rede** . Mantenha-o selecionado para obter o máximo benefício do recurso. 
-5. Em **destino**, insira a URL/FQDN/endereço IP para o qual você deseja monitorar a conectividade de rede.
-6. Em **número da porta**, insira o número da porta do serviço de destino. 
-7. Em **frequência de teste**, insira um valor para a frequência com que você deseja que o teste seja executado. 
-8. Selecione os nós dos quais você deseja monitorar a conectividade de rede com o serviço. Verifique se o número de agentes adicionados por teste é menor que 150. Qualquer agente pode testar o máximo de 150 pontos de extremidade/agentes.
+    * Selecione **Web** para monitorizar a conectividade com um serviço que responda a pedidos HTTP/S, como outlook.office365.com ou bing.com.<br>
+    * Selecione **Rede** para monitorizar a conectividade com um serviço que responda aos pedidos de TCP mas não responda a pedidos HTTP/S, tais como um servidor SQL, servidor FTP ou porta SSH. 
+    * Por exemplo: Para criar um teste web para uma conta de armazenamento blob, selecione **Web** e introduza o alvo como *a sua conta de armazenamento*.blob.core.windows.net. Da mesma forma, pode criar testes para outros armazenamento de mesa, armazenamento de filas e Ficheiros Azure utilizando [este link.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+4. Se não quiser efetuar medições de rede, tais como latência de rede, perda de pacotes e descoberta de topologia, limpe a caixa de verificação de medições de **rede Perform.** Mantenha-o selecionado para obter o máximo benefício da capacidade. 
+5. No **Target,** introduza o endereço URL/FQDN/IP para o qual pretende monitorizar a conectividade da rede.
+6. No **número do Porto,** insira o número de porta do serviço alvo. 
+7. Na Frequência de **Teste,** introduza um valor para a frequência com que pretende que o teste seja executado. 
+8. Selecione os nódosos a partir dos quais pretende monitorizar a conectividade da rede ao serviço. Certifique-se de que o número de agentes adicionados por teste é inferior a 150. Qualquer agente pode testar no máximo 150 pontos/agentes finais.
 
     >[!NOTE]
-    > Para nós baseados no Windows Server, a funcionalidade usa solicitações baseadas em TCP para executar as medições de rede. Para nós baseados no cliente Windows, a funcionalidade usa solicitações baseadas em ICMP para executar as medições de rede. Em alguns casos, o aplicativo de destino bloqueia solicitações baseadas em ICMP de entrada quando os nós são baseados no cliente Windows. A solução não pode executar medições de rede. Recomendamos que você use nós baseados no Windows Server nesses casos. 
+    > Para os nós baseados no servidor do Windows, a capacidade utiliza pedidos baseados em TCP para realizar as medições de rede. Para os nós baseados no cliente do Windows, a capacidade utiliza pedidos baseados no ICMP para realizar as medições de rede. Em alguns casos, a aplicação alvo bloqueia os pedidos baseados no ICMP quando os nós são baseados no cliente do Windows. A solução é incapaz de efetuar medições de rede. Recomendamos que utilize nós baseados no servidor do Windows nestes casos. 
 
-9. Se você não quiser criar eventos de integridade para os itens selecionados, desmarque **habilitar monitoramento de integridade nos destinos cobertos por este teste**. 
-10. Escolha as condições de monitoramento. Você pode definir limites personalizados para a geração de eventos de integridade inserindo valores de limite. Sempre que o valor da condição ficar acima do limite selecionado para o par de rede ou de sub-rede selecionado, um evento de integridade será gerado. 
-11. Selecione **salvar** para salvar a configuração. 
+9. Se não quiser criar eventos de saúde para os itens que seleciona, limpe a monitorização da **saúde dos alvos abrangidos por este teste**. 
+10. Escolha as condições de monitorização. Pode estabelecer limiares personalizados para a geração de eventos de saúde, entrando em valores-limiar. Sempre que o valor da circunstância ultrapassa o limiar selecionado para o par de rede ou subrede selecionado, gera-se um evento de saúde. 
+11. Selecione **Guardar** para salvar a configuração. 
 
-    ![Configurações de teste do monitor de conectividade de serviço](media/network-performance-monitor-service-endpoint/service-endpoint-configuration.png)
+    ![Configurações de teste do Monitor de Conectividade do Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-configuration.png)
 
 
 
 ## <a name="walkthrough"></a>Instruções 
 
-Vá para a exibição de painel do Monitor de Desempenho de Rede. Para obter um resumo da integridade dos diferentes testes que você criou, consulte a página **Monitor de conectividade de serviço** . 
+Vá à vista do painel de instrumentos do Monitor de Desempenho da Rede. Para obter um resumo da saúde dos diferentes testes que criou, veja a página do Monitor de Conectividade do **Serviço.** 
 
-![Página do monitor de conectividade de serviço](media/network-performance-monitor-service-endpoint/service-endpoint-blade.png)
+![Página do Monitor de Conectividade do Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-blade.png)
 
-Selecione o bloco para exibir os detalhes dos testes na página **testes** . Na tabela à esquerda, você pode exibir a integridade pontual e o valor do tempo de resposta do serviço, a latência da rede e a perda de pacotes para todos os testes. Use o controle gravador de estado de rede para exibir o instantâneo de rede em outro momento no passado. Selecione o teste na tabela que você deseja investigar. Nos gráficos no painel à direita, você pode exibir a tendência histórica dos valores de perda, latência e tempo de resposta. Selecione o link **detalhes do teste** para exibir o desempenho de cada nó.
+Selecione o azulejo para visualizar os detalhes dos testes na página **de Testes.** Na mesa à esquerda, pode ver a saúde pontual e o valor do tempo de resposta ao serviço, latência da rede e perda de pacotes para todos os testes. Utilize o controlo do gravador de rede para visualizar o instantâneo da rede noutra altura no passado. Selecione o teste na tabela que pretende investigar. Nas tabelas do painel à direita, pode-se ver a tendência histórica dos valores de perda, latência e tempo de resposta. Selecione a ligação Detalhes de **Teste** para visualizar o desempenho de cada nó.
 
-![Testes do monitor de conectividade de serviço](media/network-performance-monitor-service-endpoint/service-endpoint-tests.png)
+![Testes de Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-tests.png)
 
-Na exibição **nós de teste** , você pode observar a conectividade de rede de cada nó. Selecione o nó que tem degradação de desempenho. Este é o nó em que o aplicativo está sendo executado lentamente.
+Na vista **Test Nodes,** pode observar a conectividade da rede a partir de cada nó. Selecione o nó que tem degradação do desempenho. Este é o nó onde a aplicação é observada como sendo lenta.
 
-Determine se o desempenho insatisfatório do aplicativo é devido à rede ou a um problema no fim do provedor de aplicativo, observando a correlação entre o tempo de resposta do aplicativo e a latência de rede. 
+Determine se o fraco desempenho da aplicação se deve à rede ou a um problema no fim do fornecedor de aplicações observando a correlação entre o tempo de resposta da aplicação e a latência da rede. 
 
-* **Problema do aplicativo:** Um pico no tempo de resposta, mas a consistência na latência de rede sugere que a rede está funcionando bem e o problema pode ser devido a um problema na finalização do aplicativo. 
+* **Emissão de candidatura:** Um aumento no tempo de resposta, mas a coerência na latência da rede sugere que a rede está a funcionar bem e que o problema pode dever-se a um problema no final da aplicação. 
 
-    ![Problema do aplicativo monitor de conectividade de serviço](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
+    ![Problema de aplicação do Monitor de Conectividade do Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
-* **Problema de rede:** Um pico no tempo de resposta acompanhado de um pico correspondente na latência de rede sugere que o aumento no tempo de resposta pode ser devido a um aumento na latência de rede. 
+* **Problema da rede:** Um pico no tempo de resposta acompanhado de um aumento correspondente na latência da rede sugere que o aumento do tempo de resposta pode dever-se a um aumento da latência da rede. 
 
-    ![Problema de rede do monitor de conectividade de serviço](media/network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
+    ![Problema da rede de monitor de conectividade de serviço](media/network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 
-Depois de determinar que o problema é devido à rede, selecione o link de exibição de **topologia** para identificar o salto problemático no mapa de topologia. Um exemplo é mostrado na imagem a seguir. Fora da latência total de 105 a MS entre o nó e o ponto de extremidade do aplicativo, 96 MS é devido ao salto marcado em vermelho. Depois de identificar o salto problemático, você pode tomar uma ação corretiva. 
+Depois de determinar que o problema se deve à rede, selecione o link de visão **topologia** para identificar o salto problemático no mapa de topologia. Um exemplo é mostrado na imagem seguinte. Da latência total de 105 ms entre o nó e o ponto final da aplicação, 96 ms é devido ao lúpulo marcado a vermelho. Depois de identificar o salto problemático, pode tomar medidas corretivas. 
 
-![Testes do monitor de conectividade de serviço](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Testes de Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
-## <a name="diagnostics"></a>Diagnósticos 
+## <a name="diagnostics"></a>Diagnóstico 
 
-Se você observar uma anormalidade, siga estas etapas:
+Se observar uma anormalidade, siga estes passos:
 
-* Se o tempo de resposta do serviço, a perda de rede e a latência forem mostrados como NA, um ou mais dos seguintes motivos pode ser a causa:
+* Se o tempo de resposta ao serviço, a perda da rede e a latência forem mostrados como NA, uma ou mais das seguintes razões podem ser a causa:
 
-    - O aplicativo está inoperante.
-    - O nó usado para verificar a conectividade de rede com o serviço está inoperante.
-    - O destino inserido na configuração de teste está incorreto.
-    - O nó não tem nenhuma conectividade de rede.
+    - A aplicação está em baixo.
+    - O nó usado para verificar a conectividade da rede com o serviço está em baixo.
+    - O alvo introduzido na configuração do teste está incorreto.
+    - O nó não tem conectividade de rede.
 
-* Se um tempo de resposta de serviço válido for mostrado, mas a perda de rede, bem como a latência, for mostrada como NA, um ou mais dos seguintes motivos pode ser a causa:
+* Se for demonstrado um tempo de resposta ao serviço válido, mas a perda de rede e a latência são mostradas como NA, uma ou mais das seguintes razões podem ser a causa:
 
-    - Se o nó usado para verificar a conectividade de rede com o serviço for um computador cliente Windows, o serviço de destino está bloqueando solicitações ICMP ou um firewall de rede está bloqueando solicitações ICMP originadas do nó.
-    - A caixa de seleção **executar medidas de rede** está em branco na configuração de teste. 
+    - Se o nó utilizado para verificar a conectividade da rede com o serviço for uma máquina cliente Do Windows, ou o serviço alvo está a bloquear pedidos do ICMP ou uma firewall de rede está a bloquear pedidos do ICMP originários do nó.
+    - A caixa de verificação de **medições** de rede Executar está em branco na configuração do teste. 
 
-* Se o tempo de resposta do serviço for NA, mas a perda de rede e a latência forem válidas, o serviço de destino poderá não ser um aplicativo Web. Edite a configuração de teste e escolha o tipo de teste como **rede** em vez de **Web**. 
+* Se o tempo de resposta ao serviço for NA, mas a perda de rede e a latência são válidas, o serviço-alvo pode não ser uma aplicação web. Editar a configuração do teste e escolher o tipo de teste como **Rede** em vez de **Web**. 
 
-* Se o aplicativo estiver em execução lenta, determine se o desempenho insatisfatório do aplicativo é devido à rede ou a um problema no fim do provedor de aplicativos.
+* Se a aplicação estiver a decorrer lentamente, determine se o fraco desempenho da aplicação se deve à rede ou a um problema no final do fornecedor de aplicações.
 
-## <a name="gcc-office-urls-for-us-government-customers"></a>URLs de GCC Office para clientes do governo dos EUA
-Para a região da Virgínia do governo dos EUA, somente as URLs do DOD são NPM internas. Os clientes que usam URLs GCC precisam criar testes personalizados e adicionar cada URL individualmente.
+## <a name="gcc-office-urls-for-us-government-customers"></a>GCC Office URLs para clientes do Governo dos EUA
+Para a região do Governo dos EUA, a Virgínia, apenas urLs DOD são incorporados em NPM. Os clientes que usam URLs GCC precisam de criar testes personalizados e adicionar cada URL individualmente.
 
-| Campo | GCC |
+| Campo | CcG |
 |:---   |:--- |
-| Portal do Office 365 e compartilhado | portal.apps.mil |
-| Identidade e autenticação do Office 365 | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
-| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www. office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
-| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
-| MS Teams | gov.teams.microsoft.us | 
+| Office 365 Portal e partilhado | portal.apps.mil |
+| Escritório 365 auth e identidade | Login.microsoftonline.us <br> Api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> login.microsoftonline.com <br> Login.microsoftonline-p.com <br> Login.windows.net <br> loginex.microsoftonline.com <br> Login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> Officehome.msocdn.us <br> * prod.msocdn.us <br> Portal.office365.us <br> * webshell.suite.office365.us <br> * www.office365.us <br> Activation.sls.microsoft.com <br> Crl.microsoft.com <br> Go.microsoft.com <br> Insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>Officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> Officepreviewredir.microsoft.com <br> officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> Manage.office365.us <br> * scc.office365.us |
+| Equipas MS | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Passos seguintes
-[Pesquisar logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros de dados de desempenho de rede detalhados.
+[Pesquisar registos](../../azure-monitor/log-query/log-query-overview.md) para visualizar registos de desempenho de rede detalhados.

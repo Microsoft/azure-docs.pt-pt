@@ -1,19 +1,18 @@
 ---
 title: Conhecer os seus clientes no Azure Application Insights | Microsoft Docs
 description: Tutorial sobre como utilizar o Azure Application Insights para compreender de que forma os clientes estão a utilizar a sua aplicação.
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 08da1ad5d934116db8f110d7b75a8e0a60ffc84a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894672"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670360"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Utilize o Azure Application Insights para compreender de que forma os clientes estão a utilizar a sua aplicação
 
@@ -33,7 +32,7 @@ O Azure Application Insights recolhe informações de utilização que o ajudam 
 
 Para concluir este tutorial:
 
-- Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+- Instale o [Estúdio Visual 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
 - Transfira e instale o [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -57,11 +56,11 @@ O painel **Users** (Utilizadores) permite-lhe ficar a par de detalhes importante
 
     ![Alterar o Intervalo de Tempo](media/tutorial-users/TimeRange.png)
 
-4. Clique no menu pendente **Split by** (Dividir por) para adicionar uma discriminação por propriedade do utilizador ao gráfico.  Selecione **Country or region** (País ou região).  O grafo inclui os mesmos dados, mas permite que você exiba uma divisão do número de usuários para cada país/região.
+4. Clique no menu pendente **Split by** (Dividir por) para adicionar uma discriminação por propriedade do utilizador ao gráfico.  Selecione **Country or region** (País ou região).  O gráfico inclui os mesmos dados, mas permite-lhe visualizar uma desagregação do número de utilizadores para cada país/região.
 
     ![Gráfico de País ou Região](media/tutorial-users/CountryorRegion.png)
 
-5. Posicione o cursor sobre diferentes barras no gráfico e observe que a contagem de cada país/região reflete apenas a janela de tempo representada por essa barra.
+5. Posicione o cursor sobre diferentes barras na tabela e note que a contagem para cada país/região reflete apenas o prazo representado por essa barra.
 6. Veja a coluna **Insights** (Informações), no lado direito, que analisam os seus dados de utilizador.  Essas análises disponibilizam informações como o número de sessões únicas durante o período de tempo e registos com propriedades comuns significativas dos dados dos utilizadores 
 
     ![Coluna Informações](media/tutorial-users/insights.png)
@@ -84,7 +83,7 @@ O painel **Sessions** (Sessões) é semelhante ao painel **Users** (Utilizadores
     ![Linha Cronológica das Sessões](media/tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Agrupar utilizadores semelhantes
-Um **coorte** é um conjunto de usuários agrupados em características semelhantes.  Pode utilizar coortes para filtrar os dados de outros painéis, o que lhe permite analisar grupos específicos de utilizadores.  Por exemplo, poderá querer analisar apenas utilizadores que tenham concluído uma compra.
+A **Cohort** é um conjunto de utilizadores agrupados em características semelhantes.  Pode utilizar coortes para filtrar os dados de outros painéis, o que lhe permite analisar grupos específicos de utilizadores.  Por exemplo, poderá querer analisar apenas utilizadores que tenham concluído uma compra.
 
 1.  Selecione **Cohorts** (Coortes), no menu.
 2.  Clique em **New** (Novo) para criar um coorte novo.

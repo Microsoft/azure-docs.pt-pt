@@ -1,36 +1,35 @@
 ---
-title: Pesquisar consultas em logs de Azure Monitor | Microsoft Docs
-description: Este artigo fornece um tutorial para começar a usar a pesquisa em Azure Monitor consultas de log.
-ms.service: azure-monitor
+title: Consultas de pesquisa nos registos do Monitor Azure / Microsoft Docs
+description: Este artigo fornece um tutorial para começar a usar a pesquisa em consultas de registo do Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
-ms.openlocfilehash: d92cd42f0fceadee16035b605e8d25c6bc23bc67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933007"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660245"
 ---
-# <a name="search-queries-in-azure-monitor-logs"></a>Pesquisar consultas em logs de Azure Monitor
-Azure Monitor consultas de log podem começar com um nome de tabela ou um comando de pesquisa. Este tutorial aborda as consultas baseadas em pesquisa. Há vantagens para cada método.
+# <a name="search-queries-in-azure-monitor-logs"></a>Consultas de pesquisa em registos do Monitor Azure
+As consultas de registo do Azure Monitor podem começar com um nome de mesa ou um comando de pesquisa. Este tutorial cobre consultas baseadas em pesquisa. Há vantagens em cada método.
 
-As consultas baseadas em tabela começam com o escopo da consulta e, portanto, tendem a ser mais eficientes do que as consultas de pesquisa. As consultas de pesquisa são menos estruturadas, o que as torna a melhor opção ao pesquisar um valor específico entre colunas ou tabelas. a **pesquisa** pode verificar todas as colunas em uma determinada tabela ou, em todas as tabelas, para o valor especificado. A quantidade de dados que estão sendo processados pode ser enorme, motivo pelo qual essas consultas podem levar mais tempo para serem concluídas e podem retornar conjuntos de resultados muito grandes.
+As consultas baseadas em mesas começam por pesquisar a consulta e, portanto, tendem a ser mais eficientes do que consultas de pesquisa. As consultas de pesquisa são menos estruturadas, o que as torna a melhor escolha quando procuram um valor específico entre colunas ou tabelas. **pesquisar** pode digitalizar todas as colunas numa determinada tabela, ou em todas as tabelas, pelo valor especificado. A quantidade de dados que estão a ser tratados pode ser enorme, razão pela qual estas consultas podem demorar mais tempo a ser concluídas e podem devolver conjuntos de resultados muito grandes.
 
 ## <a name="search-a-term"></a>Pesquisar um termo
-O comando de **pesquisa** normalmente é usado para pesquisar um termo específico. No exemplo a seguir, todas as colunas em todas as tabelas são verificadas para o termo "erro":
+O comando de **pesquisa** é normalmente usado para pesquisar um termo específico. No exemplo seguinte, todas as colunas em todas as tabelas são digitalizadas para o termo "erro":
 
 ```Kusto
 search "error"
 | take 100
 ```
 
-Embora eles sejam fáceis de usar, as consultas sem escopo como a mostrada acima não são eficientes e provavelmente retornarão muitos resultados irrelevantes. Uma prática melhor seria Pesquisar na tabela relevante ou até mesmo em uma coluna específica.
+Embora sejam fáceis de usar, consultas desmeparadas como a que se apresentam acima não são eficientes e são suscetíveis de devolver muitos resultados irrelevantes. Uma prática melhor seria procurar na tabela relevante, ou mesmo numa coluna específica.
 
-### <a name="table-scoping"></a>Escopo da tabela
-Para pesquisar um termo em uma tabela específica, adicione `in (table-name)` logo após o operador de **pesquisa** :
+### <a name="table-scoping"></a>Scoping de mesa
+Para pesquisar um termo numa tabela específica, adicione `in (table-name)` logo após o operador de **pesquisa:**
 
 ```Kusto
 search in (Event) "error"
@@ -43,8 +42,8 @@ search in (Event, SecurityEvent) "error"
 | take 100
 ```
 
-### <a name="table-and-column-scoping"></a>Escopo de tabela e coluna
-Por padrão, a **pesquisa** avaliará todas as colunas no conjunto de dados. Para pesquisar apenas uma coluna específica (denominada *origem* no exemplo abaixo), use esta sintaxe:
+### <a name="table-and-column-scoping"></a>Deteção de tabelas e colunas
+Por predefinição, **a pesquisa** avaliará todas as colunas do conjunto de dados. Para pesquisar apenas uma coluna específica (denominada *Fonte* no exemplo abaixo), utilize esta sintaxe:
 
 ```Kusto
 search in (Event) Source:"error"
@@ -52,26 +51,26 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Se você usar `==` em vez de `:`, os resultados incluirão registros em que a coluna de *origem* tem o valor exato de "erro" e, nesse caso exato. Usar ': ' incluirá registros em que a *origem* tem valores como "código de erro 404" ou "erro".
+> Se utilizar `==` em vez de `:`, os resultados incluem registos em que a coluna *Fonte* tem o valor exato de "erro", e neste caso exato. A utilização de ':' incluirá registos em que a *Fonte* tem valores como "error code 404" ou "Error".
 
-## <a name="case-sensitivity"></a>Diferenciação de maiúsculas e minúsculas
-Por padrão, a pesquisa de termo não diferencia maiúsculas de minúsculas, então Pesquisar "DNS" pode produzir resultados como "DNS", "DNS" ou "DNS". Para fazer a pesquisa diferenciar maiúsculas de minúsculas, use a opção `kind`:
+## <a name="case-sensitivity"></a>Sensibilidade ao caso
+Por predefinição, a pesquisa a prazo é insensível a casos, pelo que pesquisar "DNS" pode produzir resultados como "DNS", "DNS" ou "Dns". Para tornar o caso de pesquisa sensível, utilize a opção `kind`:
 
 ```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
 
-## <a name="use-wild-cards"></a>Usar curingas
-O comando **Search** dá suporte a curingas, no início, no final ou no meio de um termo.
+## <a name="use-wild-cards"></a>Use cartões selvagens
+O comando de **busca** suporta cartões selvagens, no início, fim ou meio de um termo.
 
-Para pesquisar os termos que começam com "win":
+Para pesquisar termos que começam com "win":
 ```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
-Para pesquisar termos que terminem com ". com":
+Para pesquisar termos que terminam com ".com":
 ```Kusto
 search in (Event) "*.com"
 | take 100
@@ -83,44 +82,44 @@ search in (Event) "*www*"
 | take 100
 ```
 
-Para pesquisar termos que comecem com "Corp" e terminem em ". com", como "corp.mydomain.com" "
+Para pesquisar termos que começam com "corp" e termina em ".com", como "corp.mydomain.com".
 
 ```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
 
-Você também pode obter tudo em uma tabela usando apenas um curinga: `search in (Event) *`, mas isso seria o mesmo que escrever apenas `Event`.
+Você também pode colocar tudo em uma mesa usando apenas um wild card: `search in (Event) *`, mas isso seria o mesmo que escrever apenas `Event`.
 
 > [!TIP]
-> Embora você possa usar `search *` para obter todas as colunas de cada tabela, é recomendável que você sempre faça o escopo de suas consultas para tabelas específicas. As consultas sem escopo podem demorar um pouco para serem concluídas e podem retornar muitos resultados.
+> Embora possa usar `search *` para obter todas as colunas de cada tabela, recomenda-se que consulte sempre as suas consultas para tabelas específicas. Consultas desmeparadas podem demorar algum tempo a ser completadas e podem devolver demasiados resultados.
 
-## <a name="add-and--or-to-search-queries"></a>Adicionar *e* / *ou* para pesquisar consultas
-Use **e** para procurar registros que contenham vários termos:
+## <a name="add-and--or-to-search-queries"></a>Adicionar *e* / *ou* pesquisar consultas
+Utilizar **e** procurar registos que contenham vários termos:
 
 ```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
-Use **ou** para obter registros que contenham pelo menos um dos termos:
+Utilize **ou** para obter registos que contenham pelo menos um dos termos:
 
 ```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
-Se você tiver vários critérios de pesquisa, poderá combiná-los na mesma consulta usando parênteses:
+Se tiver múltiplas condições de pesquisa, pode combiná-las na mesma consulta usando parênteses:
 
 ```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
 
-Os resultados desse exemplo seriam registros que contêm o termo "erro" e também contêm "registro" ou algo que começa com "Marshal".
+Os resultados deste exemplo seriam registos que contêm o termo "erro" e também contêm "registo" ou algo que comece com "marechal".
 
-## <a name="pipe-search-queries"></a>Consultas de pesquisa de pipe
-Assim como qualquer outro comando, a **pesquisa** pode ser canalizada para que os resultados da pesquisa possam ser filtrados, classificados e agregados. Por exemplo, para obter o número de registros de *eventos* que contêm "win":
+## <a name="pipe-search-queries"></a>Consultas de pesquisa de tubos
+Tal como qualquer outro comando, a **procura** pode ser canalizada para que os resultados da pesquisa possam ser filtrados, classificados e agregados. Por exemplo, para obter o número de registos do *Evento* que contêm "win":
 
 ```Kusto
 search in (Event) "win"
@@ -132,4 +131,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte mais tutoriais no [site de linguagem de consulta do Kusto](/azure/kusto/query/).
+- Consulte mais tutoriais no site de [linguagem de consulta kusto](/azure/kusto/query/).

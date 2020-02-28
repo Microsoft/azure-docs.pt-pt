@@ -1,63 +1,62 @@
 ---
-title: Preparar para alterar o formato para Azure Monitor logs de recursos
-description: Descreve o impacto e como atualizar suas ferramentas para lidar com os novos logs de recursos do Azure que foram alterados para usar blobs de acréscimo em 1º de novembro de 2018.
+title: Prepare-se para a alteração do formato para os registos de recursos do Monitor Azure
+description: Descreve o impacto e como atualizar a sua ferramenta para lidar com os novos registos de recursos Do Azure que foram alterados para utilizar bolhas de apêndice a 1 de novembro de 2018.
 author: johnkemnetz
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: dc7fd8916f356414437d4def21f26f0b651ee76f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d30652d4e068cbceb79e6da60b48176b9de64647
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893523"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670445"
 ---
-# <a name="prepare-for-format-change-to-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Preparar para alterar o formato para Azure Monitor logs de recursos arquivados em uma conta de armazenamento
+# <a name="prepare-for-format-change-to-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Prepare-se para a alteração do formato para os registos de recursos do Monitor Azure arquivados numa conta de armazenamento
 
 > [!WARNING]
-> Se você estiver enviando [logs de recursos de recursos do Azure ou métricas para uma conta de armazenamento usando configurações de diagnóstico de recurso](./../../azure-monitor/platform/archive-diagnostic-logs.md) ou [logs de atividade para uma conta de armazenamento usando perfis de log](./../../azure-monitor/platform/archive-activity-log.md), o formato dos dados na conta de armazenamento será alterado para linhas JSON em Nov. 1, 2018. As instruções a seguir descrevem o impacto e como atualizar suas ferramentas para lidar com o novo formato. 
+> Se estiver a enviar [registos ou métricas](./../../azure-monitor/platform/archive-diagnostic-logs.md) de recursos azure para uma conta de armazenamento utilizando configurações de diagnóstico de recursos ou [registos](./../../azure-monitor/platform/archive-activity-log.md)de atividade para uma conta de armazenamento utilizando perfis de registo , o formato dos dados na conta de armazenamento mudará para JSON Lines no dia 1 de novembro de 2018. As instruções abaixo descrevem o impacto e como atualizar a sua ferramenta para lidar com o novo formato. 
 >
 > 
 
-## <a name="what-is-changing"></a>O que está sendo alterado
+## <a name="what-is-changing"></a>O que está a mudar
 
-O Azure Monitor oferece uma funcionalidade que permite enviar dados de diagnóstico de recursos e dados de log de atividades para uma conta de armazenamento do Azure, namespace de hubs de eventos ou em um espaço de trabalho Log Analytics no Azure Monitor. Para resolver um problema de desempenho do sistema, em **1º de novembro de 2018 às 12:00, meia-noite UTC** o formato dos dados de log enviados para o armazenamento de BLOBs será alterado. Se você tiver ferramentas que estão lendo dados fora do armazenamento de BLOBs, precisará atualizar suas ferramentas para entender o novo formato de dados.
+O Azure Monitor oferece uma capacidade que lhe permite enviar dados de diagnóstico de recursos e dados de registo de atividade saem para uma conta de armazenamento Azure, espaço de nome De Event Hubs ou para um espaço de trabalho de Log Analytics no Monitor Azure. Para resolver um problema de desempenho do sistema, no dia 1 de novembro de **2018 às 12:00 UTC,** o formato de dados de registo enviados para o armazenamento de blob mudará. Se tiver uma ferramenta que esteja a ler dados a partir do armazenamento de blob, precisa de atualizar a sua ferramenta para compreender o novo formato de dados.
 
-* Na quinta-feira, 1º de novembro de 2018 às 12:00, meia-noite UTC, o formato de blob será alterado para [as linhas JSON](http://jsonlines.org/). Isso significa que cada registro será delimitado por uma nova linha, sem nenhuma matriz de registros externos e sem vírgulas entre os registros JSON.
-* O formato de blob é alterado para todas as configurações de diagnóstico em todas as assinaturas de uma só vez. O primeiro arquivo PT1H. JSON emitido para 1º de novembro usará esse novo formato. Os nomes de BLOB e contêiner permanecem os mesmos.
-* Definir uma configuração de diagnóstico entre agora e 1 de novembro continuará emitindo dados no formato atual até 1º de novembro.
-* Essa alteração ocorrerá de uma só vez em todas as regiões de nuvem pública. A alteração não ocorrerá no Microsoft Azure operado pelas nuvens da 21Vianet, do Azure Alemanha ou do Azure governamental ainda.
-* Essa alteração afeta os seguintes tipos de dados:
-  * [Logs de recursos de recursos do Azure](archive-diagnostic-logs.md) ([consulte a lista de recursos aqui](diagnostic-logs-schema.md))
-  * [Métricas de recursos do Azure sendo exportadas pelas configurações de diagnóstico](diagnostic-settings.md)
-  * [Dados do log de atividades do Azure sendo exportados por perfis de log](archive-activity-log.md)
-* Essa alteração não afeta:
-  * Logs de fluxo de rede
-  * Logs de serviço do Azure não disponibilizados por meio do Azure Monitor ainda (por exemplo, Azure App logs de recursos do serviço, logs de análise de armazenamento)
-  * Roteamento de logs de recursos do Azure e logs de atividade para outros destinos (hubs de eventos, Log Analytics)
+* Na quinta-feira, 1 de novembro de 2018, às 12:00 UTC, o formato blob mudará para ser [JSON Lines](http://jsonlines.org/). Isto significa que cada disco será delimitado por uma novalinha, sem matriz de registos externos e sem vírgulas entre os registos da JSON.
+* O formato blob muda para todas as definições de diagnóstico em todas as subscrições de uma só vez. O primeiro ficheiro PT1H.json emitido para 1 de novembro utilizará este novo formato. Os nomes de blob e contentor permanecem os mesmos.
+* A definição de um diagnóstico entre hoje e 1 de novembro continua a emitir dados no formato atual até 1 de novembro.
+* Esta mudança ocorrerá de uma só vez em todas as regiões públicas de nuvem. A mudança não ocorrerá ainda na Microsoft Azure Operada pela 21Vianet, Azure Germany ou azure Government.
+* Esta alteração tem impacto nos seguintes tipos de dados:
+  * [Registos](archive-diagnostic-logs.md) de recursos azure[(ver lista de recursos aqui)](diagnostic-logs-schema.md)
+  * [Métricas de recursos azure exportadas por configurações de diagnóstico](diagnostic-settings.md)
+  * [Dados de registo da Atividade Azure que são exportados por perfis de registo](archive-activity-log.md)
+* Esta alteração não tem impacto:
+  * Registos de fluxo de rede
+  * Registos de serviço azure ainda não disponibilizados através do Azure Monitor (por exemplo, registos de recursos do Serviço de Aplicações Azure, registos de análise de armazenamento)
+  * Encaminhamento de registos de recursos Azure e registos de atividade para outros destinos (Hubs de Eventos, Log Analytics)
 
-### <a name="how-to-see-if-you-are-impacted"></a>Como ver se você está impactado
+### <a name="how-to-see-if-you-are-impacted"></a>Como ver se é impactado
 
-Você só será afetado por essa alteração se:
-1. Está enviando dados de log para uma conta de armazenamento do Azure usando uma configuração de diagnóstico de recurso e
-2. Têm ferramentas que dependem da estrutura JSON desses logs no armazenamento.
+Só é afetado por esta mudança se:
+1. Estão a enviar dados de registo para uma conta de armazenamento Azure usando uma definição de diagnóstico de recursos, e
+2. Ter ferramentas que dependem da estrutura JSON destes troncos no armazenamento.
  
-Para identificar se você tem configurações de diagnóstico de recurso que estão enviando dados para uma conta de armazenamento do Azure, navegue até a seção **Monitor** do portal, clique em **configurações de diagnóstico**e identifique todos os recursos que têm o status de **diagnóstico** definido como **habilitado**:
+Para identificar se tem configurações de diagnóstico de recursos que estão a enviar dados para uma conta de armazenamento Azure, pode navegar para a secção **Monitor** do portal, clicar em Definições de **Diagnóstico,** e identificar quaisquer recursos que tenham **o Estado** de Diagnóstico definido para **Ativado:**
 
-![Folha configurações de diagnóstico Azure Monitor](./media/diagnostic-logs-append-blobs/portal-diag-settings.png)
+![Lâmina de definições de diagnóstico do Monitor Azure](./media/diagnostic-logs-append-blobs/portal-diag-settings.png)
 
-Se o status de diagnóstico for definido como habilitado, você terá uma configuração de diagnóstico ativo nesse recurso. Clique no recurso para ver se as configurações de diagnóstico estão enviando dados para uma conta de armazenamento:
+Se o Estado de Diagnóstico estiver programado para ativar, tem uma definição de diagnóstico ativa nesse recurso. Clique no recurso para ver se alguma definição de diagnóstico está a enviar dados para uma conta de armazenamento:
 
-![Conta de armazenamento habilitada](./media/diagnostic-logs-append-blobs/portal-storage-enabled.png)
+![Conta de armazenamento ativada](./media/diagnostic-logs-append-blobs/portal-storage-enabled.png)
 
-Se você tiver recursos que enviam dados para uma conta de armazenamento usando essas configurações de diagnóstico de recurso, o formato dos dados nessa conta de armazenamento será afetado por essa alteração. A menos que você tenha ferramentas personalizadas que operem dessas contas de armazenamento, a alteração de formato não afetará você.
+Se tiver recursos para enviar dados para uma conta de armazenamento utilizando estas definições de diagnóstico de recursos, o formato dos dados nessa conta de armazenamento será impactado por esta alteração. A menos que tenha ferramentas personalizadas que operam fora destas contas de armazenamento, a alteração do formato não irá impactá-lo.
 
-### <a name="details-of-the-format-change"></a>Detalhes da alteração de formato
+### <a name="details-of-the-format-change"></a>Detalhes da mudança de formato
 
-O formato atual do arquivo PT1H. JSON no armazenamento de BLOBs do Azure usa uma matriz JSON de registros. Aqui está um exemplo de um arquivo de log do keyvault agora:
+O formato atual do ficheiro PT1H.json no armazenamento de blob Azure utiliza um conjunto de registos JSON. Aqui está uma amostra de um ficheiro de registo KeyVault agora:
 
 ```json
 {
@@ -118,23 +117,23 @@ O formato atual do arquivo PT1H. JSON no armazenamento de BLOBs do Azure usa uma
 }
 ```
 
-O novo formato usa [linhas JSON](http://jsonlines.org/), em que cada evento é uma linha e o caractere de linhagem indica um novo evento. Veja a seguir a aparência do exemplo acima no arquivo PT1H. JSON após a alteração:
+O novo formato utiliza [linhas JSON,](http://jsonlines.org/)onde cada evento é uma linha e o personagem newline indica um novo evento. Aqui está o que a amostra acima será no ficheiro PT1H.json após a mudança:
 
 ```json
 {"time": "2016-01-05T01:32:01.2691226Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "78","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 {"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 ```
 
-Esse novo formato permite que Azure Monitor envie arquivos de log usando [blobs de acréscimo](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), que são mais eficientes para anexar continuamente novos dados de evento.
+Este novo formato permite ao Azure Monitor empurrar ficheiros de registo utilizando bolhas de [apêndice](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), que são mais eficientes para a utilização contínua de novos dados de eventos.
 
 ## <a name="how-to-update"></a>Como atualizar
 
-Você só precisa fazer atualizações se tiver ferramentas personalizadas que insomem esses arquivos de log para processamento adicional. Se você estiver usando uma ferramenta de log Analytics ou SIEM externa, é recomendável [usar os hubs de eventos para ingerir esses dados em vez disso](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). A integração dos hubs de eventos é mais fácil em termos de processamento de logs de vários serviços e do local de indicadores em um log específico.
+Só precisa de fazer atualizações se tiver ferramentas personalizadas que ingerirestes ficheiros de registo para posterior processamento. Se estiver a utilizar uma ferramenta externa de análise de registo ou SIEM, recomendamos a utilização de centros de [eventos para ingerir estes dados](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). A integração de centros de eventos é mais fácil em termos de processamento de registos de muitos serviços e localização de marcação num determinado registo.
 
-As ferramentas personalizadas devem ser atualizadas para lidar com o formato atual e o formato das linhas JSON descritas acima. Isso garantirá que quando os dados começarem a aparecer no novo formato, suas ferramentas não serão interrompidas.
+As ferramentas personalizadas devem ser atualizadas para lidar tanto com o formato atual como com o formato JSON Lines acima descrito. Isto garantirá que quando os dados começarem a aparecer no novo formato, as suas ferramentas não se partem.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre como [arquivar logs de recursos de recurso em uma conta de armazenamento](./../../azure-monitor/platform/archive-diagnostic-logs.md)
-* Saiba mais sobre como [arquivar dados de log de atividades em uma conta de armazenamento](./../../azure-monitor/platform/archive-activity-log.md)
+* Saiba mais sobre o arquivamento de [registos](./../../azure-monitor/platform/archive-diagnostic-logs.md) de recursos para uma conta de armazenamento
+* Conheça os dados de registo de [atividades](./../../azure-monitor/platform/archive-activity-log.md) de arquivamento numa conta de armazenamento
 

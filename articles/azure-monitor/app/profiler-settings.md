@@ -1,114 +1,112 @@
 ---
-title: Usar o painel de configurações do profiler do Aplicativo Azure insights | Microsoft Docs
-description: Consulte status do Profiler e iniciar sessões de criação de perfil
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Utilize o painel de definições do perfil de insights de aplicação Azure / Microsoft Docs
+description: Consulte o estado do Profiler e inicie sessões de perfis
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b383ef8c92325b0ad6561bee9b654c78e4054338
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: f66a23c0562ec9f1987bd119a45b7b767f2dfe46
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820485"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671635"
 ---
-# <a name="configure-application-insights-profiler"></a>Configurar Application Insights Profiler
+# <a name="configure-application-insights-profiler"></a>Configure Perfil de Insights de Aplicação
 
-## <a name="updated-profiler-agent"></a>Agente do criador de perfil atualizado
-Os recursos do gatilho funcionam apenas com a versão 2,6 ou mais recente do agente do criador de perfil. Se você estiver executando um serviço de Azure App, o agente será atualizado automaticamente. Você pode ver qual versão do agente está executando se você vai para a URL do kudu para seu site e acrescentar \DiagnosticServices ao final dele, desta forma: https://yourwebsite.scm.azurewebsites.net/diagnosticservices. A Application Insights Profiler Webjob deve ter a versão 2,6 ou mais recente. Você pode forçar uma atualização reiniciando seu aplicativo Web. 
+## <a name="updated-profiler-agent"></a>Agente de perfil atualizado
+O gatilho funciona apenas com a versão 2.6 ou mais recente do agente de perfis. Se estiver a executar um Serviço de Aplicações Azure, o seu agente será atualizado automaticamente. Pode ver que versão do agente está a executar se for ao URL kudu para o seu website e anexar \DiagnosticServices até ao fim, como esta: https://yourwebsite.scm.azurewebsites.net/diagnosticservices. O Webjob do Perfil de Insights de Aplicação deve ver a versão 2.6 ou mais recente. Pode forçar uma atualização reiniciando a sua aplicação web. 
 
-Se você estiver executando o criador de perfil em um serviço de nuvem ou VM, precisará ter a extensão do Windows Diagnóstico do Azure (WAD) 16.0.4 ou mais recente instalada. Você pode verificar a versão do WAD fazendo logon em sua VM e procurando este diretório: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. O nome do diretório é a versão do WAD que está instalada. O agente de VM do Azure atualizará o WAD automaticamente quando novas versões estiverem disponíveis.
+Se estiver a executar o perfil num VM ou cloud Service, precisa de ter a versão 16.0.4 ou mais recente do Windows Azure Diagnostics (WAD) ou mais recente. Pode verificar a versão do WAD iniciando login no seu VM e olhando para este diretório: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. O nome do diretório é a versão do WAD que está instalada. O agente Azure VM atualizará o WAD automaticamente quando estiverem disponíveis novas versões.
 
-## <a name="profiler-settings-page"></a>Página de configurações do criador de perfil
+## <a name="profiler-settings-page"></a>Página de definições de perfis
 
-Para abrir o painel configurações do profiler do Aplicativo Azure insights, vá para o painel de desempenho Application Insights e, em seguida, selecione o botão **Configurar criador de perfil** .
+Para abrir o painel de definições do perfil de insights de aplicação Azure, vá ao painel de desempenho de Insights de Aplicação e, em seguida, selecione o botão **'Perfil de Configuração'.**
 
-![Link para abrir a página de configurações do criador de perfil][configure-profiler-entry]
+![Link para abrir página de definições de Perfil][configure-profiler-entry]
 
-Isso abre uma página parecida com esta:
+Abre uma página que se parece com esta:
 
-![Página de configurações do criador de perfil][configure-profiler-page]
+![Página de definições de perfis][configure-profiler-page]
 
-A página **configurar Application insights Profiler** tem estes recursos:
-
-| | |
-|-|-|
-Perfil agora | Inicia as sessões de criação de perfil para todos os aplicativos que estão vinculados a esta instância do Application Insights.
-Acionadores | Permite configurar gatilhos que fazem com que o criador de perfil seja executado. 
-Sessões de criação de perfil recentes | Exibe informações sobre as sessões de criação de perfil anteriores.
-
-## <a name="profile-now"></a>Perfil agora
-Essa opção permite que você inicie uma sessão de criação de perfil sob demanda. Quando você clica nesse link, todos os agentes do criador de perfil que estão enviando dados para esse Application Insights instância começarão a capturar um perfil. Após 5 a 10 minutos, a sessão de perfil será mostrada na lista abaixo.
-
-Para que um usuário acione manualmente uma sessão de criador de perfil, ele precisa de pelo menos acesso de "gravação" em sua função para o componente de Application Insights. Na maioria dos casos, você obtém esse acesso automaticamente e nenhum trabalho adicional é necessário. Se você estiver tendo problemas, a função de escopo da assinatura a ser adicionada seria a função "colaborador do componente do Application Insights". [Veja mais sobre o controle de acesso de função com o monitoramento do Azure](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
-
-## <a name="trigger-settings"></a>Configurações do gatilho
-![Submenu configurações do gatilho][trigger-settings-flyout]
-
-Clicar no botão gatilhos na barra de menus abre a caixa configurações do gatilho. Você pode configurar o gatilho para iniciar a criação de perfil quando a porcentagem de utilização de CPU ou memória atingir o nível definido.
+A página de Perfilde Insights de **Aplicação Configure** tem estas funcionalidades:
 
 | | |
 |-|-|
-Botão ligar/desligar | Em: o profiler pode ser iniciado por este gatilho; Desativada: o criador de perfil não será iniciado por este gatilho.
-Limite de memória | Quando esse percentual de memória estiver em uso, o criador de perfil será iniciado.
-Duração | Define o período de tempo que o profiler executará quando for disparado.
-Cooldown | Define o período de tempo que o profiler aguardará antes de verificar a memória ou o uso da CPU novamente depois que ele for disparado.
+Perfil Agora | Inicia sessões de perfis para todas as aplicações que estão ligadas a este exemplo de Insights de Aplicação.
+Acionadores | Permite configurar gatilhos que fazem com que o perfil seja executado. 
+Sessões recentes de perfis | Exibe informações sobre sessões de perfis passados.
 
-## <a name="recent-profiling-sessions"></a>Sessões de criação de perfil recentes
-Esta seção da página mostra informações sobre as sessões de criação de perfil recentes. Uma sessão de criação de perfil representa o período de tempo em que o agente do criador de perfil estava usando um perfil em um dos computadores que hospedam seu aplicativo. Você pode abrir os perfis de uma sessão clicando em uma das linhas. Para cada sessão, mostramos:
+## <a name="profile-now"></a>Perfil Agora
+Esta opção permite-lhe iniciar uma sessão de perfis a pedido. Quando clicar neste link, todos os agentes de perfil que estão a enviar dados para esta instância de Insights de Aplicação começarão a capturar um perfil. Após 5 a 10 minutos, a sessão de perfil aparecerá na lista abaixo.
+
+Para que um utilizador desencadeie manualmente uma sessão de perfis, exige miná-lo no acesso mínimo de "escrever" sobre a sua função para o componente Application Insights. Na maioria dos casos, obtém-se este acesso automaticamente e não é necessário trabalho adicional. Se tiver problemas, a função de âmbito de subscrição a adicionar seria a função "Application Insights Component Contributor". Veja mais sobre o controlo de acesso de [funções com a Monitorização Azure](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+
+## <a name="trigger-settings"></a>Definições do gatilho
+![Definições de gatilho Flyout][trigger-settings-flyout]
+
+Clicar no botão Triggers na barra de menu abre a caixa de definições do gatilho. Pode configurar o gatilho para iniciar perfis quando a percentagem de UTILIZAÇÃO de CPU ou Memória atingir o nível que definiu.
 
 | | |
 |-|-|
-Disparado por | Como a sessão foi iniciada por um gatilho, perfil agora ou amostragem padrão. 
-Nome do aplicativo | Nome do aplicativo cujo perfil foi criado.
-Instância do computador | Nome do computador no qual o agente do criador de perfil foi executado.
-Carimbo de data/hora | Hora em que o perfil foi capturado.
-Rastrear | Número de rastreamentos que foram anexados a solicitações individuais.
-CPUs | Porcentagem da CPU que estava sendo usada enquanto o criador de perfil estava em execução.
-Memória | Porcentagem de memória que estava sendo usada enquanto o criador de perfil estava em execução.
+On / Off Botão | Em: o perfil pode ser iniciado por este gatilho; Desligado: o perfil não será iniciado por este gatilho.
+Limiar de memória | Quando esta percentagem de memória estiver em uso, o perfil será iniciado.
+Duração | Define o tempo que o perfil executará quando acionado.
+Arrefecimento | Define o tempo que o profiler irá esperar antes de verificar a memória ou o uso do CPU novamente depois de acionado.
 
-## <a id="profileondemand"></a>Usar testes de desempenho da Web para gerar tráfego para seu aplicativo
+## <a name="recent-profiling-sessions"></a>Sessões recentes de perfis
+Esta secção da página mostra informações sobre sessões de perfis recentes. Uma sessão de perfis representa o período de tempo em que o agente de perfis estava a tirar um perfil numa das máquinas que hospedam a sua aplicação. Pode abrir os perfis a partir de uma sessão clicando numa das linhas. Para cada sessão, mostramos:
 
-Você pode disparar o criador de perfil manualmente com um único clique. Suponha que você esteja executando um teste de desempenho da Web. Você precisará de rastreamentos para ajudá-lo a entender como seu aplicativo Web está sendo executado sob carga. Ter controle sobre quando os rastreamentos são capturados é crucial, pois você saberá quando o teste de carga estará em execução. Mas o intervalo de amostragem aleatória pode perder isso.
+| | |
+|-|-|
+Desencadeado por | Como a sessão foi iniciada, seja por um gatilho, Profile Now, ou por amostragem padrão. 
+Nome da Aplicação | Nome da aplicação que foi perfilada.
+Instância da Máquina | Nome da máquina que o agente de perfis correu.
+Carimbo de data/hora | Está na altura em que o perfil foi capturado.
+Tracee | Número de vestígios ligados a pedidos individuais.
+CPU % | Percentagem de CPU que estava a ser usada enquanto o perfil estava a funcionar.
+Memória % | Percentagem de memória que estava a ser usada enquanto o profiler estava a funcionar.
 
-As próximas seções ilustram como esse cenário funciona:
+## <a id="profileondemand"></a>Utilize testes de desempenho web para gerar tráfego na sua aplicação
 
-### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Etapa 1: gerar o tráfego para seu aplicativo Web iniciando um teste de desempenho da Web
+Pode ativar o Profiler manualmente com um único clique. Suponha que esteja a fazer um teste de desempenho na web. Você precisará de vestígios para ajudá-lo a entender como a sua aplicação web está a funcionar sob carga. Ter controlo sobre quando os vestígios são capturados é crucial, porque sabe quando o teste de carga estará em execução. Mas o intervalo de amostragem aleatório pode perdê-lo.
 
-Se seu aplicativo Web já tiver tráfego de entrada ou se você quiser apenas gerar o tráfego manualmente, pule esta seção e continue na etapa 2.
+As próximas secções ilustram como este cenário funciona:
 
-1. No portal de Application Insights, selecione **configurar** > **teste de desempenho**. 
+### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Passo 1: Gere tráfego para a sua aplicação web iniciando um teste de desempenho web
 
-1. Para iniciar um novo teste de desempenho, selecione o botão **novo** .
+Se a sua aplicação já tiver tráfego de entrada ou se apenas quiser gerar tráfego manualmente, ignore esta secção e continue até ao Passo 2.
+
+1. No portal Insights da Aplicação, **selecione Configure** > Teste de **Desempenho**. 
+
+1. Para iniciar um novo teste de desempenho, selecione o botão **Novo.**
 
    ![criar novo teste de desempenho][create-performance-test]
 
-1. No painel **novo teste de desempenho** , configure a URL de destino do teste. Aceite todas as configurações padrão e, em seguida, selecione **Executar teste** para iniciar a execução do teste de carga.
+1. No novo painel de teste de **desempenho,** configure o URL do alvo de teste. Aceite todas as definições predefinidas e, em seguida, selecione **teste executar** para começar a executar o teste de carga.
 
-    ![Configurar teste de carga][configure-performance-test]
+    ![Configure teste de carga][configure-performance-test]
 
-    O novo teste é enfileirado primeiro, seguido por um status de *em andamento*.
+    O novo teste está em fila primeiro, seguido de um estado em *curso.*
 
-    ![O teste de carga foi enviado e colocado na fila][load-test-queued]
+    ![O teste de carga é submetido e feito em fila][load-test-queued]
 
-    ![O teste de carga está sendo executado em andamento][load-test-in-progress]
+    ![O teste de carga está em andamento][load-test-in-progress]
 
-### <a name="step-2-start-a-profiler-on-demand-session"></a>Etapa 2: iniciar uma sessão sob demanda do profiler
+### <a name="step-2-start-a-profiler-on-demand-session"></a>Passo 2: Iniciar uma sessão de Profiler a pedido
 
-1. Quando o teste de carga estiver em execução, inicie o Profiler para capturar rastreamentos no aplicativo Web enquanto ele está recebendo carga.
+1. Quando o teste de carga estiver em execução, inicie o Profiler para capturar vestígios na aplicação web enquanto está a receber carga.
 
-1. Vá para o painel **Configurar criador de perfil** .
+1. Vá ao painel de perfis **de configuração.**
 
 
-### <a name="step-3-view-traces"></a>Etapa 3: Exibir rastreamentos
+### <a name="step-3-view-traces"></a>Passo 3: Ver vestígios
 
-Após a conclusão da execução do Profiler, siga as instruções em notificação para ir para o painel de desempenho e exibir os rastreamentos.
+Depois de o Profiler terminar a execução, siga as instruções na notificação para ir ao painel performance e ver os vestígios.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Habilitar criador de perfil e exibir rastreamentos](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[Ativar perfis e ver vestígios](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png
