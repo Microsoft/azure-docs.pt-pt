@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 01/21/2020
-  ms.openlocfilehash: f39f2a6360363131eb346f613cf0f7a25910404a
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 6f49c2e645ba0ecf48c8c111b9afd7c12722f4ad
+  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77560767"
+  ms.lasthandoff: 02/28/2020
+  ms.locfileid: "77919333"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -114,36 +114,6 @@ conceptualContent:
     - url: ./Bing-web-search/index.yml
       itemType: overview
       text: Página do hub das APIs de Pesquisa do Bing
-    - url: ./Bing-Autosuggest/get-suggested-search-terms.md
-      itemType: overview
-      text: Pesquisa com Sugestão Automática
-    - url: ./bing-custom-search/overview.md
-      itemType: overview
-      text: Pesquisa Personalizada
-    - url: ./bing-entities-search/overview.md
-      itemType: overview
-      text: Pesquisa de Entidades
-    - url: ./bing-image-search/overview.md
-      itemType: overview
-      text: Pesquisa de Imagens
-    - url: ./bing-local-business-search/overview.md
-      itemType: overview
-      text: Pesquisa de Negócios Locais (Pré-visualização)
-    - url: ./bing-news-search/search-the-web.md
-      itemType: overview
-      text: Pesquisa de Notícias
-    - url: ./bing-spell-check/overview.md
-      itemType: overview
-      text: Verificação Ortográfica
-    - url: ./Bing-Video-Search/overview.md
-      itemType: overview
-      text: Pesquisa de Vídeos
-    - url: ./bing-visual-search/overview.md
-      itemType: overview
-      text: Pesquisa Visual
-    - url: ./bing-web-search/overview.md
-      itemType: overview
-      text: Pesquisa na Web
   - title: Contentores dos Serviços Cognitivos
     summary: O suporte de contentores nos Serviços Cognitivos do Azure permite que os programadores utilizem as mesmas APIs avançadas que estão disponíveis no Azure. Além disso, permite grande flexibilidade em relação ao local onde implementar e alojar os serviços fornecidos com os contentores do Docker.
     links:

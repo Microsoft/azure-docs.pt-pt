@@ -11,12 +11,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: bf2e3801669e78e3d658f5d4839d609e8e4bc419
-  ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+  ms.openlocfilehash: 04321e19787c6cfee2315be77a47025636a016dc
+  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/21/2020
-  ms.locfileid: "77539489"
+  ms.lasthandoff: 02/28/2020
+  ms.locfileid: "77918126"
 highlightedContent:
   items:
   - title: Criar uma máquina virtual do Linux com a CLI do Azure
@@ -71,7 +71,7 @@ conceptualContent:
       itemType: how-to-guide
       text: Resolver problemas de máquinas virtuais do Windows
     footerLink:
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/
+      url: https://docs.microsoft.com/azure/virtual-machines/windows/
       text: Ver mais
   - title: Conjuntos de dimensionamento de máquinas virtuais
     links:

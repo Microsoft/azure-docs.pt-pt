@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 5b5ef5ee550100eed4bd8a236fb102c2870c70ed
-  ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+  ms.openlocfilehash: f19ce0f1e088d2360f4afb2925d2a5d67b4c0252
+  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/20/2020
-  ms.locfileid: "77519279"
+  ms.lasthandoff: 02/28/2020
+  ms.locfileid: "77920846"
 landingContent:
 - title: Resolver falhas de implementação
   linkLists:
@@ -134,6 +134,6 @@ landingContent:
     - text: Resolução de problemas do Azure Backup Server
       url: https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot
     - text: Rever as funcionalidades do Azure Backup
-      url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#using-premium-storage-vms-with-azure-backup
+      url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup
     - text: Aprender a fazer cópias de segurança de máquinas virtuais do Azure para cofres dos Serviços de Recuperação
       url: https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm
