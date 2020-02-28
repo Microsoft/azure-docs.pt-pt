@@ -515,6 +515,8 @@
           href: data-flow-unpivot.md
         - name: Janela
           href: data-flow-window.md
+        - name: Aplanar
+          href: data-flow-flatten.md
     - name: Parametrizar
       items:
         - name: Parametrizar os serviços ligados
