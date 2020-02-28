@@ -375,6 +375,8 @@
           href: kube-advisor-tool.md
         - name: Acesso de nó SSH
           href: ssh.md
+        - name: Ferramentas de desempenho do Linux
+          href: troubleshoot-linux.md
 - name: Referência
   items:
     - name: CLI do Azure

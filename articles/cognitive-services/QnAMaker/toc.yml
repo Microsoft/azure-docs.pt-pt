@@ -88,6 +88,8 @@
         - name: Ciclo de vida de desenvolvimento
           href: Concepts/development-lifecycle-knowledge-base.md
           displayName: 'version control, test, index, publish, monitor usage, create'
+        - name: Melhorar com sugestões de aprendizagem ativa
+          href: Concepts/active-learning-suggestions.md
     - name: Consultar base de dados de conhecimento
       items:
         - name: Obter resposta

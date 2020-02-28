@@ -6,22 +6,18 @@
       href: private-link-overview.md
 - name: Guias de Início Rápido
   items:
-    - name: Criar um Ponto Final Privado
-      items:
-        - name: Portal do Azure
-          href: create-private-endpoint-portal.md
-        - name: CLI do Azure
-          href: create-private-endpoint-cli.md
-        - name: Azure PowerShell
-          href: create-private-endpoint-powershell.md
-    - name: Criar um serviço de Ligação Privada
-      items:
-        - name: Portal do Azure
-          href: create-private-link-service-portal.md
-        - name: Azure PowerShell
-          href: create-private-link-service-powershell.md
-        - name: CLI do Azure
-          href: create-private-link-service-cli.md
+    - name: Criar um Ponto Final Privado - Portal
+      href: create-private-endpoint-portal.md
+    - name: Criar um Ponto Final Privado - PowerShell
+      href: create-private-endpoint-powershell.md
+    - name: Criar um Ponto Final Privado - CLI do Azure
+      href: create-private-endpoint-cli.md
+    - name: Criar um serviço Private Link - Portal
+      href: create-private-link-service-portal.md
+    - name: Criar um serviço Private Link - PowerShell
+      href: create-private-link-service-powershell.md
+    - name: Criar um serviço Private Link - CLI do Azure
+      href: create-private-link-service-cli.md
 - name: Conceitos
   items:
     - name: Ponto Final Privado

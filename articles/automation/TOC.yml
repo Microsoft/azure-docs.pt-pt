@@ -4,6 +4,8 @@
   items:
     - name: O que é a Automatização?
       href: automation-intro.md
+    - name: FAQ
+      href: automation-faq.md
 - name: Conta de Automatização
   items:
     - name: Criar uma conta de Automatização
@@ -136,6 +138,8 @@
       displayName: 'dynamic groups, pre scripts, post scripts, reboot control, first party, pre download, inclusion'
     - name: Inclusão
       items:
+        - name: Utilizar um modelo do Resource Manager
+          href: automation-update-management-deploy-template.md
         - name: Incluir várias VMs a partir do portal
           href: automation-onboard-solutions-from-browse.md
         - name: Inclusão a partir de uma VM do Azure

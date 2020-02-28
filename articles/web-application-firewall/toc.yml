@@ -50,6 +50,8 @@
       items:
         - name: Regras personalizadas
           href: ./afds/waf-front-door-custom-rules.md
+        - name: Listas de exclusão
+          href: ./afds/waf-front-door-exclusion.md
         - name: Definições de política
           href: ./afds/waf-front-door-policy-settings.md
         - name: Filtro geográfico
