@@ -1,22 +1,18 @@
 ---
 title: Monitorizar serviços Node.js com o Azure Application Insights | Microsoft Docs
 description: Monitorize o desempenho e diagnostique problemas em serviços Node.js com o Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820718"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670020"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
-O [aplicativo Azure insights](../../azure-monitor/app/app-insights-overview.md) monitora seus serviços de back-end e componentes após a implantação, para ajudá-lo a descobrir e diagnosticar rapidamente o desempenho e outros problemas. Pode utilizar o Application Insights para os serviços Node.js que estão alojados no seu datacenter, em VMs do Azure, em aplicações Web e inclusivamente noutras clouds privadas.
+[A Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoriza os seus serviços e componentes de backend após a implantação, para ajudá-lo a descobrir e diagnosticar rapidamente o desempenho e outros problemas. Pode utilizar o Application Insights para os serviços Node.js que estão alojados no seu datacenter, em VMs do Azure, em aplicações Web e inclusivamente noutras clouds privadas.
 
 Para receber, armazenar e explorar os seus dados de monitorização, inclua o SDK no seu código e configure um recurso do Application Insights correspondente no Azure. O SDK envia dados para esse recurso para análise e exploração adicionais.
 
@@ -30,7 +26,7 @@ Conclua as tarefas seguintes para configurar a monitorização para uma aplicaç
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, verifique se você tem uma assinatura do Azure ou [obtenha uma nova gratuitamente][azure-free-offer]. Se sua organização já tiver uma assinatura do Azure, um administrador poderá seguir [estas instruções][add-aad-user] para adicioná-lo a ela.
+Antes de começar, certifique-se de que tem uma subscrição Azure, ou [obtenha uma nova de graça.][azure-free-offer] Se a sua organização já tiver uma subscrição Azure, um administrador pode seguir [estas instruções][add-aad-user] para adicioná-lo a ele.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
@@ -78,7 +74,7 @@ Inclua o SDK na sua aplicação, para que esta possa recolher dados.
 
 O SDK recolhe automaticamente telemetria sobre o runtime de Node.js e sobre alguns módulos de terceiros comuns. Utilize a sua aplicação para gerar alguns destes dados.
 
-Em seguida, na [portal do Azure][portal] vá para o recurso Application insights que você criou anteriormente. Na **Linha cronológica geral**, procure os seus primeiros pontos de dados. Para ver dados mais detalhadas, selecione diferentes componentes nos gráficos.
+Em seguida, no [portal Azure][portal] vá para o recurso Application Insights que criou anteriormente. Na **Linha cronológica geral**, procure os seus primeiros pontos de dados. Para ver dados mais detalhadas, selecione diferentes componentes nos gráficos.
 
 Para ver a topologia que é detetada para a sua aplicação, selecione o botão **Mapa da aplicação**. Selecione os componentes no mapa para ver mais detalhes.
 
@@ -88,7 +84,7 @@ Para saber mais sobre a sua aplicação e resolver problemas, selecione as resta
 
 ![Secção Investigar](./media/nodejs/007-investigate-pane.png)
 
-#### <a name="no-data"></a>Não tem dados?
+#### <a name="no-data"></a>Não existem dados?
 
 Visto que o SDK põe os dados em lotes para a submissão, poderá haver um atraso antes de os itens aparecerem no portal. Se não vir dados no seu recurso, experimente algumas das correções seguintes:
 

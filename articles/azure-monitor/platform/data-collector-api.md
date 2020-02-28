@@ -1,75 +1,74 @@
 ---
-title: Azure Monitor API do coletor de dados HTTP | Microsoft Docs
-description: Você pode usar a API do coletor de dados HTTP Azure Monitor para adicionar dados JSON de POST a um espaço de trabalho Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação.
-ms.service: azure-monitor
+title: Azure Monitor HTTP Data Collector API  Microsoft Docs
+description: Pode utilizar a API do Colecionador de Dados Do Monitor Azure Para adicionar dados POST JSON a um espaço de trabalho de Log Analytics de qualquer cliente que possa ligar para a API REST. Este artigo descreve como usar a API, e tem exemplos de como publicar dados utilizando diferentes linguagens de programação.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: 136644dbcfe9e2835f799b284d21263913bc67b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932597"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666757"
 ---
-# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de log para Azure Monitor com a API do coletor de dados HTTP (visualização pública)
-Este artigo mostra como usar a API do coletor de dados HTTP para enviar dados de log para Azure Monitor de um cliente de API REST.  Ele descreve como formatar dados coletados pelo seu script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada por Azure Monitor.  Os exemplos são fornecidos para PowerShell C#, e Python.
+# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envie dados de registo para o Monitor Azure com a Http Data Collector API (pré-visualização pública)
+Este artigo mostra-lhe como utilizar a API http Data Collector para enviar dados de registo para o Monitor Azure de um cliente rest API.  Descreve como formatar os dados recolhidos pelo seu script ou aplicação, incluí-lo num pedido, e ter esse pedido autorizado pelo Monitor Azure.  Exemplos são fornecidos para C#PowerShell, e Python.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
-> A API do coletor de dados HTTP Azure Monitor está em visualização pública.
+> A API de Colecionador de Dados Azure Monitor HTTP está em pré-visualização pública.
 
 ## <a name="concepts"></a>Conceitos
-Você pode usar a API do coletor de dados HTTP para enviar dados de log para um espaço de trabalho Log Analytics no Azure Monitor de qualquer cliente que possa chamar uma API REST.  Isso pode ser um runbook na automação do Azure que coleta dados de gerenciamento do Azure ou de outra nuvem, ou pode ser um sistema de gerenciamento alternativo que usa Azure Monitor para consolidar e analisar dados de log.
+Pode utilizar a API http Data Collector para enviar dados de registo para um espaço de trabalho de Log Analytics no Monitor Azure de qualquer cliente que possa chamar um Rest API.  Este pode ser um livro de execução na Azure Automation que recolhe dados de gestão do Azure ou de outra nuvem, ou pode ser um sistema de gestão alternativo que usa o Monitor Azure para consolidar e analisar dados de registo.
 
-Todos os dados no espaço de trabalho Log Analytics são armazenados como um registro com um tipo de registro específico.  Você formata seus dados para enviar para a API do coletor de dados HTTP como vários registros em JSON.  Quando você envia os dados, um registro individual é criado no repositório para cada registro na carga de solicitação.
-
-
-![Visão geral do coletor de dados HTTP](media/data-collector-api/overview.png)
+Todos os dados do espaço de trabalho log Analytics são armazenados como um registo com um determinado tipo de registo.  Formata os seus dados para enviar para a Http Data Collector API como múltiplos registos em JSON.  Quando submete os dados, é criado um registo individual no repositório para cada registo na carga útil do pedido.
 
 
+![Visão geral do Colecionador de Dados HTTP](media/data-collector-api/overview.png)
 
-## <a name="create-a-request"></a>Criar uma solicitação
-Para usar a API do coletor de dados HTTP, você cria uma solicitação POST que inclui os dados a serem enviados em JavaScript Object Notation (JSON).  As próximas três tabelas listam os atributos necessários para cada solicitação. Descrevemos cada atributo em mais detalhes posteriormente neste artigo.
 
-### <a name="request-uri"></a>URI de solicitação
+
+## <a name="create-a-request"></a>Criar um pedido
+Para utilizar a API http Data Collector, cria um pedido post que inclui os dados a enviar em JavaScript Object Notation (JSON).  As próximas três tabelas listam os atributos que são necessários para cada pedido. Descrevemos cada atributo mais detalhadamente mais tarde no artigo.
+
+### <a name="request-uri"></a>URI do pedido
 | Atributo | Propriedade |
 |:--- |:--- |
-| Método |Postar |
-| URI |https://\<CustomerId\>. ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| Método |POST |
+| URI |https://\<\>clienteid .ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Tipo de conteúdo |application/json |
 
-### <a name="request-uri-parameters"></a>Parâmetros de URI de solicitação
+### <a name="request-uri-parameters"></a>Solicitar parâmetros URI
 | Parâmetro | Descrição |
 |:--- |:--- |
-| CustomerID |O identificador exclusivo para o espaço de trabalho Log Analytics. |
-| Recurso |O nome do recurso de API:/API/logs. |
-| Versão da API |A versão da API a ser usada com esta solicitação. Atualmente, é 2016-04-01. |
+| customerID |O identificador único para o espaço de trabalho log Analytics. |
+| Recurso |O nome do recurso API: /api/logs. |
+| Versão API |A versão da API para utilizar com este pedido. Atualmente, é 2016-04-01. |
 
-### <a name="request-headers"></a>Cabeçalhos de solicitação
+### <a name="request-headers"></a>Cabeçalhos do pedido
 | Cabeçalho | Descrição |
 |:--- |:--- |
-| Autorização |A assinatura de autorização. Mais adiante neste artigo, você pode ler sobre como criar um cabeçalho HMAC-SHA256. |
-| Tipo de log |Especifique o tipo de registro dos dados que estão sendo enviados. Pode conter apenas letras, números e sublinhado (_) e não pode exceder 100 caracteres. |
-| x-MS-Date |A data em que a solicitação foi processada, no formato RFC 1123. |
-| x-MS-AzureResourceId | ID de recurso do recurso do Azure ao qual os dados devem ser associados. Isso popula a propriedade [_ResourceId](log-standard-properties.md#_resourceid) e permite que os dados sejam incluídos em consultas de [contexto de recurso](design-logs-deployment.md#access-mode) . Se esse campo não for especificado, os dados não serão incluídos nas consultas de contexto de recurso. |
-| tempo gerado-campo | O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** é a hora em que a mensagem é ingerida. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh: mm: ssZ. |
+| Autorização |A assinatura da autorização. Mais tarde no artigo, pode ler sobre como criar um cabeçalho HMAC-SHA256. |
+| Tipo de log |Especifique o tipo de registo dos dados que estão a ser submetidos. Só pode conter letras, números e sublinhado (_), e não pode exceder 100 caracteres. |
+| x-ms-date |A data em que o pedido foi processado, em formato RFC 1123. |
+| x-ms-AzureResourceId | Identificação de recursos do recurso Azure os dados devem ser associados. Isto povoa a [propriedade _ResourceId](log-standard-properties.md#_resourceid) e permite que os dados sejam incluídos em consultas de contexto [de recursos.](design-logs-deployment.md#access-mode) Se este campo não for especificado, os dados não serão incluídos em consultas de contexto de recursos. |
+| campo gerado pelo tempo | O nome de um campo nos dados que contém o carimbo temporal do item de dados. Se especificar um campo, o seu conteúdo é utilizado para o **TimeGenerated**. Se este campo não for especificado, o padrão para **TimeGenerated** é o momento em que a mensagem é ingerida. O conteúdo do campo de mensagens deve seguir o formato ISO 8601 YYYY-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorização
-Qualquer solicitação para a API do coletor de dados HTTP Azure Monitor deve incluir um cabeçalho de autorização. Para autenticar uma solicitação, você deve assinar a solicitação com a chave primária ou secundária para o espaço de trabalho que está fazendo a solicitação. Em seguida, passe essa assinatura como parte da solicitação.   
+Qualquer pedido ao API do Coletor de Dados Do Monitor Azure deve incluir um cabeçalho de autorização. Para autenticar um pedido, deve assinar o pedido com a chave primária ou secundária para o espaço de trabalho que está a fazer o pedido. Então, passe a assinatura como parte do pedido.   
 
-Este é o formato do cabeçalho de autorização:
+Aqui está o formato para o cabeçalho de autorização:
 
 ```
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*Workspaceid* é o identificador exclusivo para o espaço de trabalho log Analytics. *Assinatura* é um [HMAC (Message Authentication Code baseado em hash)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) que é construído a partir da solicitação e, em seguida, calculado usando o [algoritmo SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Em seguida, você o codifica usando a codificação Base64.
+*WorkspaceID* é o identificador único para o espaço de trabalho Log Analytics. *A assinatura* é um [Código de Autenticação de Mensagens (HMAC) baseado em Hash](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) que é construído a partir do pedido e depois calculado usando o algoritmo [SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Em seguida, codifica-se utilizando a codificação Base64.
 
-Use este formato para codificar a cadeia de caracteres de assinatura **SharedKey** :
+Utilize este formato para codificar a cadeia de assinatura **SharedKey:**
 
 ```
 StringToSign = VERB + "\n" +
@@ -79,22 +78,22 @@ StringToSign = VERB + "\n" +
                   "/api/logs";
 ```
 
-Aqui está um exemplo de uma cadeia de caracteres de assinatura:
+Aqui está um exemplo de uma corda de assinatura:
 
 ```
 POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
 ```
 
-Quando você tiver a cadeia de caracteres de assinatura, codifique-a usando o algoritmo HMAC-SHA256 na cadeia de caracteres codificada em UTF-8 e, em seguida, codifique o resultado como Base64. Use este formato:
+Quando tiver a cadeia de assinaturas, codifique-a utilizando o algoritmo HMAC-SHA256 na cadeia codificada UTF-8 e, em seguida, codificar o resultado como Base64. Utilize este formato:
 
 ```
 Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
-Os exemplos nas seções a seguir têm um código de exemplo para ajudá-lo a criar um cabeçalho de autorização.
+As amostras nas secções seguintes têm código de amostra para ajudá-lo a criar um cabeçalho de autorização.
 
 ## <a name="request-body"></a>Corpo do pedido
-O corpo da mensagem deve estar em JSON. Ele deve incluir um ou mais registros com os pares nome e valor da propriedade no formato a seguir. O nome da propriedade só pode conter letras, números e sublinhado (_).
+O corpo da mensagem deve estar na JSON. Deve incluir um ou mais registos com o nome da propriedade e pares de valor no seguinte formato. O nome da propriedade só pode conter letras, números e sublinhado (_).
 
 ```json
 [
@@ -107,7 +106,7 @@ O corpo da mensagem deve estar em JSON. Ele deve incluir um ou mais registros co
 ]
 ```
 
-Você pode agrupar vários registros em lote em uma única solicitação usando o formato a seguir. Todos os registros devem ser do mesmo tipo de registro.
+Pode juntar vários registos num único pedido utilizando o seguinte formato. Todos os registos devem ser do mesmo tipo de gravação.
 
 ```json
 [
@@ -126,93 +125,93 @@ Você pode agrupar vários registros em lote em uma única solicitação usando 
 ]
 ```
 
-## <a name="record-type-and-properties"></a>Tipo de registro e propriedades
-Você define um tipo de registro personalizado ao enviar dados por meio da API do coletor de dados HTTP Azure Monitor. No momento, não é possível gravar dados em tipos de registros existentes que foram criados por outros tipos de dados e soluções. Azure Monitor lê os dados de entrada e, em seguida, cria propriedades que correspondem aos tipos de dados dos valores inseridos.
+## <a name="record-type-and-properties"></a>Tipo de registo e propriedades
+Define um tipo de registo personalizado quando envia dados através da API de Coleção de Dados do Monitor Azure Monitor HTTP. Atualmente, não é possível escrever dados para tipos de registo existentes que foram criados por outros tipos e soluções de dados. O Azure Monitor lê os dados de entrada e cria propriedades que correspondem aos tipos de dados dos valores em que entra.
 
-Cada solicitação para a API do coletor de dados deve incluir um cabeçalho de **tipo de log** com o nome para o tipo de registro. O sufixo **_CL** é automaticamente anexado ao nome inserido para distingui-lo de outros tipos de log como um log personalizado. Por exemplo, se você inserir o nome **MyNewRecordType**, Azure monitor criará um registro com o tipo **MyNewRecordType_CL**. Isso ajuda a garantir que não haja conflitos entre os nomes de tipo criados pelo usuário e os fornecidos nas soluções atuais ou futuras da Microsoft.
+Cada pedido à API do Coletor de Dados deve incluir um cabeçalho de **Log-Type** com o nome para o tipo de registo. O sufixo **_CL** é automaticamente anexado ao nome que introduz para distingui-lo de outros tipos de registo como um registo personalizado. Por exemplo, se introduzir o nome **MyNewRecordType,** o Monitor Azure cria um registo com o tipo **MyNewRecordType_CL**. Isto ajuda a garantir que não existem conflitos entre nomes de tipo criados pelo utilizador e os enviados em soluções atuais ou futuras da Microsoft.
 
-Para identificar o tipo de dados de uma propriedade, Azure Monitor adiciona um sufixo ao nome da propriedade. Se uma propriedade contiver um valor nulo, a propriedade não será incluída nesse registro. Esta tabela lista o tipo de dados de propriedade e o sufixo correspondente:
+Para identificar o tipo de dados de uma propriedade, o Azure Monitor adiciona um sufixo ao nome da propriedade. Se uma propriedade contiver um valor nulo, a propriedade não está incluída nesse registo. Esta tabela lista o tipo de dados da propriedade e o sufixo correspondente:
 
 | Tipo de dados de propriedade | Sufixo |
 |:--- |:--- |
 | String |_s |
 | Booleano |_b |
-| Clique |_d |
+| Valor de duplo |_d |
 | Data/hora |_t |
-| GUID (armazenado como uma cadeia de caracteres) |_g |
+| GUID (armazenado como uma corda) |_g |
 
-O tipo de dados que Azure Monitor usa para cada propriedade depende se o tipo de registro para o novo registro já existe.
+O tipo de dados que o Azure Monitor utiliza para cada imóvel depende se o tipo de registo para o novo registo já existe.
 
-* Se o tipo de registro não existir, Azure Monitor criará um novo usando a inferência de tipo JSON para determinar o tipo de dados para cada propriedade para o novo registro.
-* Se o tipo de registro existir, Azure Monitor tentará criar um novo registro com base nas propriedades existentes. Se o tipo de dados de uma propriedade no novo registro não corresponder e não puder ser convertido para o tipo existente, ou se o registro incluir uma propriedade que não existe, Azure Monitor criará uma nova propriedade com o sufixo relevante.
+* Se o tipo de registo não existir, o Azure Monitor cria um novo utilizando a inferência do tipo JSON para determinar o tipo de dados de cada imóvel para o novo registo.
+* Se o tipo de gravação existir, o Azure Monitor tenta criar um novo registo baseado nas propriedades existentes. Se o tipo de dados de uma propriedade no novo registo não corresponder e não puder ser convertido para o tipo existente, ou se o registo inclui uma propriedade que não existe, o Azure Monitor cria uma nova propriedade que tem o sufixo relevante.
 
-Por exemplo, essa entrada de envio criaria um registro com três propriedades, **number_d**, **boolean_b**e **string_s**:
+Por exemplo, esta inscrição de submissão criaria um registo com três propriedades, **number_d,** **boolean_b**e **string_s:**
 
-![Registro de exemplo 1](media/data-collector-api/record-01.png)
+![Registo da amostra 1](media/data-collector-api/record-01.png)
 
-Se você enviou essa próxima entrada, com todos os valores formatados como cadeias de caracteres, as propriedades não seriam alteradas. Esses valores podem ser convertidos em tipos de dados existentes:
+Se, em seguida, submeteu esta próxima entrada, com todos os valores formatados como cordas, as propriedades não mudariam. Estes valores podem ser convertidos para tipos de dados existentes:
 
-![Registro de exemplo 2](media/data-collector-api/record-02.png)
+![Recorde de amostra2](media/data-collector-api/record-02.png)
 
-Mas, se você fez esse próximo envio, Azure Monitor criaria as novas propriedades **boolean_d** e **string_d**. Esses valores não podem ser convertidos:
+Mas, se então fizesse esta próxima submissão, o Azure Monitor criaria as novas propriedades **boolean_d** e **string_d.** Estes valores não podem ser convertidos:
 
-![Registro de exemplo 3](media/data-collector-api/record-03.png)
+![Recorde de amostra3](media/data-collector-api/record-03.png)
 
-Se você tiver enviado a seguinte entrada, antes de o tipo de registro ter sido criado, Azure Monitor criaria um registro com três propriedades, **núm_s**, **boolean_s**e **string_s**. Nessa entrada, cada um dos valores iniciais é formatado como uma cadeia de caracteres:
+Se, em seguida, submeteu a seguinte entrada, antes de o tipo de gravação ser criado, o Azure Monitor criaria um registo com três propriedades, **number_s,** **boolean_s**e **string_s**. Nesta entrada, cada um dos valores iniciais é formatado como uma corda:
 
-![Registro de exemplo 4](media/data-collector-api/record-04.png)
+![Registo da amostra 4](media/data-collector-api/record-04.png)
 
 ## <a name="reserved-properties"></a>Propriedades reservadas
-As propriedades a seguir são reservadas e não devem ser usadas em um tipo de registro personalizado. Você receberá um erro se sua carga incluir qualquer um desses nomes de propriedade.
+As seguintes propriedades são reservadas e não devem ser utilizadas num tipo de registo personalizado. Receberá um erro se a sua carga útil incluir algum destes nomes de propriedade.
 
-- vários
+- tenant
 
 ## <a name="data-limits"></a>Limites de dados
-Há algumas restrições em relação aos dados postados na API de coleta de dados do Azure Monitor.
+Existem alguns constrangimentos em torno dos dados publicados na API de recolha de dados do Monitor Do T.A.
 
-* Máximo de 30 MB por postagem para Azure Monitor API do coletor de dados. Esse é um limite de tamanho para uma única postagem. Se os dados de uma única postagem excederem 30 MB, você deverá dividir os dados em partes de tamanho menor e enviá-los simultaneamente.
-* Limite máximo de 32 KB para valores de campo. Se o valor do campo for maior que 32 KB, os dados serão truncados.
-* O número máximo recomendado de campos para um determinado tipo é 50. Esse é um limite prático de uma perspectiva de experiência de pesquisa e usabilidade.  
-* Uma tabela em um espaço de trabalho Log Analytics só dá suporte a até 500 colunas (conhecidas como um campo neste artigo). 
-* O número máximo de caracteres para o nome da coluna é 500.
+* Máximo de 30 MB por post para API de Coleção de Dados do Monitor Azure. Este é um limite de tamanho para um único poste. Se os dados de uma única publicação superior a 30 MB, deve dividir os dados em pedaços de tamanho menor e enviá-los simultaneamente.
+* Limite máximo de 32 KB para valores de campo. Se o valor de campo for superior a 32 KB, os dados serão truncados.
+* O número máximo recomendado de campos para um dado tipo é de 50. Este é um limite prático do ponto de vista da utilização e da experiência de pesquisa.  
+* Uma tabela num espaço de trabalho log Analytics suporta apenas até 500 colunas (referida como um campo neste artigo). 
+* O número máximo de caracteres para o nome da coluna é de 500.
 
-## <a name="return-codes"></a>Códigos de retorno
-O código de status HTTP 200 significa que a solicitação foi recebida para processamento. Isso indica que a operação foi concluída com êxito.
+## <a name="return-codes"></a>Códigos de devolução
+O código de estado HTTP 200 significa que o pedido foi recebido para processamento. Isto indica que a operação foi concluída com sucesso.
 
-Esta tabela lista o conjunto completo de códigos de status que o serviço pode retornar:
+Esta tabela lista o conjunto completo de códigos de estado que o serviço pode devolver:
 
 | Código | Estado | Código de erro | Descrição |
 |:--- |:--- |:--- |:--- |
-| 200 |OK | |A solicitação foi aceita com êxito. |
-| 400 |Solicitação inadequada |InactiveCustomer |O espaço de trabalho foi fechado. |
-| 400 |Solicitação inadequada |InvalidApiVersion |A versão da API que você especificou não foi reconhecida pelo serviço. |
-| 400 |Solicitação inadequada |InvalidCustomerId |A ID do espaço de trabalho especificada é inválida. |
-| 400 |Solicitação inadequada |InvalidDataFormat |JSON inválido foi enviado. O corpo da resposta pode conter mais informações sobre como resolver o erro. |
-| 400 |Solicitação inadequada |InvalidLogType |O tipo de log especificado continha caracteres especiais ou numéricos. |
-| 400 |Solicitação inadequada |MissingApiVersion |A versão da API não foi especificada. |
-| 400 |Solicitação inadequada |MissingContentType |O tipo de conteúdo não foi especificado. |
-| 400 |Solicitação inadequada |MissingLogType |O tipo de log de valor necessário não foi especificado. |
-| 400 |Solicitação inadequada |UnsupportedContentType |O tipo de conteúdo não foi definido como **Application/JSON**. |
-| 403 |Proibido |InvalidAuthorization |Falha do serviço ao autenticar a solicitação. Verifique se a ID do espaço de trabalho e a chave de conexão são válidas. |
-| 404 |Não encontrado | | A URL fornecida está incorreta ou a solicitação é muito grande. |
-| 429 |Número excessivo de solicitações | | O serviço está apresentando um alto volume de dados de sua conta. Repita a solicitação mais tarde. |
-| 500 |Erro interno do servidor |UnspecifiedError |O serviço encontrou um erro interno. Repita a solicitação. |
-| 503 |Serviço indisponível |ServiceUnavailable |O serviço atualmente não está disponível para receber solicitações. Repita a solicitação. |
+| 200 |OK | |O pedido foi aceite com sucesso. |
+| 400 |Pedido incorreto |Cliente Inativo |O espaço de trabalho foi fechado. |
+| 400 |Pedido incorreto |InvalidApiVersion |A versão API que especificou não foi reconhecida pelo serviço. |
+| 400 |Pedido incorreto |InválidoCustomerId |O ID do espaço de trabalho especificado é inválido. |
+| 400 |Pedido incorreto |InvalidDataFormat |JSON inválida foi submetida. O corpo de resposta pode conter mais informações sobre como resolver o erro. |
+| 400 |Pedido incorreto |InvalidLogType |O tipo de registo especificado continha caracteres especiais ou numéricos. |
+| 400 |Pedido incorreto |MissingApiVersion |A versão API não foi especificada. |
+| 400 |Pedido incorreto |MissingContentType |O tipo de conteúdo não foi especificado. |
+| 400 |Pedido incorreto |MissingLogType |O tipo de registo de valor exigido não foi especificado. |
+| 400 |Pedido incorreto |UnsupportedContentType |O tipo de conteúdo não foi definido para **aplicação/json**. |
+| 403 |Proibido |Autorização Inválida |O serviço não conseguiu autenticar o pedido. Verifique se o ID do espaço de trabalho e a chave de ligação são válidos. |
+| 404 |Não foi encontrado | | Ou o URL fornecido está incorreto, ou o pedido é demasiado grande. |
+| 429 |Demasiados Pedidos | | O serviço está a registar um elevado volume de dados da sua conta. Por favor, tente o pedido mais tarde. |
+| 500 |Erro interno do servidor |Erro não especificado |O serviço encontrou um erro interno. Por favor, tente novamente o pedido. |
+| 503 |Serviço Indisponível |ServiceUnavailable |O serviço atualmente não está disponível para receber pedidos. Por favor, tente o seu pedido. |
 
 ## <a name="query-data"></a>Consultar dados
-Para consultar os dados enviados pelo Azure Monitor API do coletor de dados HTTP, pesquise registros com o **tipo** que seja igual ao valor de **LogType** que você especificou, anexado com **_CL**. Por exemplo, se você usou **MyCustomLog**, retornará todos os registros com `MyCustomLog_CL`.
+Para consultar os dados apresentados pela API do Coletor de Dados do Monitor Azure HTTP, procure registos com **Tipo** que seja igual ao valor **do LogType** que especificou, anexado com **_CL**. Por exemplo, se usasse **o MyCustomLog,** devolveria todos os registos com `MyCustomLog_CL`.
 
-## <a name="sample-requests"></a>Solicitações de amostra
-Nas próximas seções, você encontrará exemplos de como enviar dados para a API do coletor de dados HTTP Azure Monitor usando linguagens de programação diferentes.
+## <a name="sample-requests"></a>Pedidos de amostra
+Nas secções seguintes, encontrará amostras de como enviar dados para a API do Colecionador de Dados Do Monitor Azure, utilizando diferentes linguagens de programação.
 
-Para cada exemplo, siga estas etapas para definir as variáveis para o cabeçalho de autorização:
+Para cada amostra, faça estes passos para definir as variáveis para o cabeçalho de autorização:
 
-1. Na portal do Azure, localize seu espaço de trabalho do Log Analytics.
-2. Selecione **Configurações avançadas** e, em seguida, **fontes conectadas**.
-2. À direita da **ID do espaço de trabalho**, selecione o ícone de cópia e cole a ID como o valor da variável **Customer ID** .
-3. À direita da **chave primária**, selecione o ícone de cópia e cole a ID como o valor da variável de **chave compartilhada** .
+1. No portal Azure, localize o seu espaço de trabalho Log Analytics.
+2. Selecione **Definições Avançadas** e, em seguida, **Fontes Conectadas**.
+2. À direita do **Id workspace,** selecione o ícone da cópia e, em seguida, cole o ID como o valor da variável id do **cliente.**
+3. À direita da **Chave Primária,** selecione o ícone da cópia e, em seguida, cole o ID como o valor da variável **Chave Partilhada.**
 
-Como alternativa, você pode alterar as variáveis para o tipo de log e dados JSON.
+Em alternativa, pode alterar as variáveis para o tipo de registo e os dados JSON.
 
 ### <a name="powershell-sample"></a>Exemplo do PowerShell
 ```powershell
@@ -383,7 +382,7 @@ namespace OIAPIExample
 
 ```
 
-### <a name="python-2-sample"></a>Exemplo de Python 2
+### <a name="python-2-sample"></a>Amostra Python 2
 ```python
 import json
 import requests
@@ -466,16 +465,16 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 ## <a name="alternatives-and-considerations"></a>Alternativas e considerações
-Embora a API do coletor de dados deva abranger a maioria das suas necessidades de coletar dados de forma livre nos logs do Azure, há instâncias em que uma alternativa pode ser necessária para superar algumas das limitações da API. Todas as suas opções são as seguintes principais considerações incluídas:
+Embora a API de Recolha de Dados cubra a maioria das suas necessidades de recolher dados de formulários gratuitos em Registos Azure, existem casos em que uma alternativa pode ser necessária para superar algumas das limitações da API. Todas as suas opções são as seguintes, grandes considerações incluídas:
 
-| Opcional | Descrição | Mais adequado para |
+| Alternativa | Descrição | Mais adequado para |
 |---|---|---|
-| [Eventos personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): ingestão baseada em SDK nativo no Application insights | Application Insights, normalmente instrumentados por meio de um SDK dentro de seu aplicativo, oferece a capacidade de enviar dados personalizados por meio de eventos personalizados. | <ul><li> Dados que são gerados em seu aplicativo, mas não são selecionados pelo SDK por meio de um dos tipos de dados padrão (solicitações, dependências, exceções e assim por diante).</li><li> Dados que costumam ser correlacionados a outros dados de aplicativo no Application Insights </li></ul> |
-| API do coletor de dados em logs de Azure Monitor | A API do coletor de dados em logs de Azure Monitor é uma maneira completamente aberta de ingerir dados. Todos os dados formatados em um objeto JSON podem ser enviados aqui. Depois de enviado, ele será processado e estará disponível nos logs para serem correlacionados a outros dados nos logs ou a outros dados de Application Insights. <br/><br/> É bem fácil carregar os dados como arquivos em um blob de blob do Azure, de onde esses arquivos serão processados e carregados em Log Analytics. Consulte [este](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artigo para obter uma implementação de exemplo desse pipeline. | <ul><li> Dados que não são necessariamente gerados em um aplicativo instrumentado dentro de Application Insights.</li><li> Os exemplos incluem tabelas de pesquisa e de fatos, dados de referência, estatísticas pré-configuradas e assim por diante. </li><li> Destinado a dados que serão referenciados entre outros dados de Azure Monitor (Application Insights, outros tipos de dados de logs, central de segurança, Azure Monitor para contêineres/VMs e assim por diante). </li></ul> |
-| [Data Explorer do Azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | O Azure Data Explorer (ADX) é a plataforma de dados que capacita Application Insights análise e Azure Monitor logs. Agora disponível ("GA"), usar a plataforma de dados em sua forma bruta oferece flexibilidade total (mas exigindo a sobrecarga de gerenciamento) sobre o cluster (RBAC, taxa de retenção, esquema e assim por diante). O ADX fornece muitas [Opções de ingestão](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) , incluindo arquivos [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) . | <ul><li> Dados que não serão correlacionados a outros dados em Application Insights ou logs. </li><li> Os dados que exigem recursos avançados de ingestão ou processamento não estão disponíveis atualmente nos logs de Azure Monitor. </li></ul> |
+| [Eventos personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingestão baseada em SDK nativo em Insights de Aplicação | Os Insights de Aplicação, normalmente instrumentados através de um SDK dentro da sua aplicação, oferecem a capacidade de enviar dados personalizados através de Eventos Personalizados. | <ul><li> Dados gerados dentro da sua aplicação, mas não captados pela SDK através de um dos tipos de dados predefinidos (pedidos, dependências, exceções, e assim por diante).</li><li> Dados que são mais frequentemente correlacionados com outros dados de aplicação em Insights de Aplicação </li></ul> |
+| API de colecionador de dados em registos de monitores azure | A API do Coletor de Dados em Registos de Monitores Azure é uma forma completamente aberta de ingerir dados. Qualquer dado formatado num objeto JSON pode ser enviado para cá. Uma vez enviado, será processado e disponível em Registos para ser correlacionado com outros dados em Registos ou contra outros dados do Application Insights. <br/><br/> É bastante fácil fazer o upload dos dados como ficheiros para uma bolha De Blob Azure, de onde estes ficheiros serão processados e enviados para o Log Analytics. Por favor, consulte [este](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artigo para uma amostra de implementação de tal oleoduto. | <ul><li> Dados que não são necessariamente gerados dentro de uma aplicação instrumentada no âmbito do Application Insights.</li><li> Exemplos incluem tabelas de verificação e factos, dados de referência, estatísticas pré-agregadas, e assim por diante. </li><li> Destinado a dados que serão cruzados com outros dados do Monitor do Azure (Insights de aplicação, outros tipos de dados de registos, Centro de Segurança, Monitor Azure para Contentores/VMs, e assim por diante). </li></ul> |
+| [Explorador de dados azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | O Azure Data Explorer (ADX) é a plataforma de dados que alimenta os Registos de Análise de Aplicações Insights Analytics e Azure Monitor. Agora Geralmente Disponível ("GA"), utilizando a plataforma de dados na sua forma bruta, proporciona-lhe total flexibilidade (mas exigindo a sobrecarga de gestão) sobre o cluster (RBAC, taxa de retenção, esquema, e assim por diante). O ADX fornece muitas opções de [ingestão,](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [ficheiros CSV, TSV e JSON.](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) | <ul><li> Dados que não serão correlacionados com quaisquer outros dados no âmbito de Insights ou Registos de Aplicações. </li><li> Dados que requerem capacidades avançadas de ingestão ou processamento que não estão disponíveis hoje em Registos do Monitor Do Azure. </li></ul> |
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Use a [API de pesquisa de log](../log-query/log-query-overview.md) para recuperar dados do espaço de trabalho log Analytics.
+- Utilize a [API de pesquisa](../log-query/log-query-overview.md) de registo para recolher dados do espaço de trabalho log analytics.
 
-- Saiba mais sobre como [criar um pipeline de dados com a API do coletor de dados usando o](create-pipeline-datacollector-api.md) fluxo de trabalho de aplicativos lógicos para Azure monitor.
+- Saiba mais sobre como [criar um pipeline de dados com a API](create-pipeline-datacollector-api.md) de Recolha de Dados utilizando o fluxo de trabalho de Aplicações Lógicas para o Monitor Azure.

@@ -1,18 +1,18 @@
 ---
 title: Identificar recursos em não conformidade
 description: Este guia acompanha-o através da remediação de recursos que não estão em conformidade com as políticas da Política Azure.
-ms.date: 09/09/2019
+ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: e3db0f5f8ae1be4a6ab6eb281801958bfb816228
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 5cf26f5235fbc35cdc9bfc8527967c3cc5ca91b8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544186"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670802"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não compatíveis com o Azure Policy
 
-Os recursos que não estão em conformidade com uma **implementação IfNotExists** ou **modificam** a política podem ser colocados num estado conforme através **da Reparação**. A reparação é realizada instruindo a Política Azure a executar o efeito **deployIfNotExists** ou as **operações** de etiqueta da política atribuída nos seus recursos existentes. Este artigo mostra os passos necessários para compreender e realizar a reparação com a Política Azure.
+Os recursos que não estão em conformidade com uma **implementação IfNotExists** ou **modificam** a política podem ser colocados num estado conforme através **da Reparação**. A reparação é realizada instruindo a Política Azure a executar o efeito **deployIfNotExists** ou as **operações** de etiqueta da política atribuída nos seus recursos existentes, seja para um grupo de gestão, uma subscrição, um grupo de recursos ou um recurso individual. Este artigo mostra os passos necessários para compreender e realizar a reparação com a Política Azure.
 
 ## <a name="how-remediation-security-works"></a>Como funciona a segurança de remediação
 

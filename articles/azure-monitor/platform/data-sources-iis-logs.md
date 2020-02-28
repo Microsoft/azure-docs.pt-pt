@@ -1,74 +1,73 @@
 ---
-title: Logs do IIS no Azure Monitor | Microsoft Docs
-description: O Serviços de Informações da Internet (IIS) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor.  Este artigo descreve como configurar a coleta de logs do IIS e detalhes dos registros que eles criam no Azure Monitor.
-ms.service: azure-monitor
+title: IIS regista no Monitor Azure  Monitor De Acesso) Microsoft Docs
+description: O Internet Information Services (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo Monitor Azure.  Este artigo descreve como configurar a recolha de registos IIS e detalhes dos registos que criam no Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: a865f43585ccbb31569e2ca0987aae62a89a9281
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932490"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670581"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Coletar logs do IIS no Azure Monitor
-O Serviços de Informações da Internet (IIS) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor e armazenados como [dados de log](data-platform.md).
+# <a name="collect-iis-logs-in-azure-monitor"></a>Recolher registos IIS no Monitor Azure
+O Serviço de Informação de Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo Monitor Azure e armazenados como dados de [registo](data-platform.md).
 
-![Registos IIS](media/data-sources-iis-logs/overview.png)
+![Registos do IIS](media/data-sources-iis-logs/overview.png)
 
-## <a name="configuring-iis-logs"></a>Configurando logs do IIS
-Azure Monitor coleta entradas de arquivos de log criados pelo IIS, portanto, você deve [Configurar o IIS para registro em log](https://technet.microsoft.com/library/hh831775.aspx).
+## <a name="configuring-iis-logs"></a>Configurar registos IIS
+O Monitor Azure recolhe entradas de ficheiros de registo criados pelo IIS, pelo que tem de [configurar o IIS para a exploração de madeira](https://technet.microsoft.com/library/hh831775.aspx).
 
-Azure Monitor só dá suporte a arquivos de log do IIS armazenados no formato W3C e não oferece suporte a campos personalizados ou logs avançados do IIS. Ele não coleta logs em formato nativo NCSA ou IIS.
+O Azure Monitor apenas suporta ficheiros de registo IIS armazenados em formato W3C e não suporta campos personalizados ou IIS Advanced Logging. Não recolhe registos em formato nativo NCSA ou IIS.
 
-Configure os logs do IIS no Azure Monitor no [menu configurações avançadas](agent-data-sources.md#configuring-data-sources).  Não há nenhuma configuração necessária além de selecionar **coletar arquivos de log do IIS no formato W3C**.
+Configure os registos IIS no Monitor Azure a partir do [menu Definições Avançadas](agent-data-sources.md#configuring-data-sources).  Não é necessária qualquer configuração que não seja selecionar ficheiros de **registo Do formato W3C IIS**.
 
 
 ## <a name="data-collection"></a>Recolha de dados
-Azure Monitor coleta entradas de log do IIS de cada agente sempre que o carimbo de data/hora do log é alterado. O log é lido a cada **5 minutos**. Se, por algum motivo, o IIS não atualizar o carimbo de data/hora antes do horário de substituição quando um novo arquivo for criado, as entradas serão coletadas após a criação do novo arquivo. A frequência da criação do novo arquivo é controlada pela configuração **agenda de substituição do arquivo de log** para o site do IIS, que é uma vez por dia por padrão. Se a configuração for por **hora**, Azure monitor coletará o log a cada hora. Se a configuração for **diária**, Azure monitor coletará o log a cada 24 horas.
+O Monitor Azure recolhe entradas de registo IIS de cada agente sempre que o carimbo de tempo de registo muda. O registo é lido a cada **5 minutos**. Se, por alguma razão, o IIS não atualizar o carimbo de tempo antes do tempo de reversão quando um novo ficheiro for criado, as entradas serão recolhidas após a criação do novo ficheiro. A frequência da criação de novos ficheiros é controlada pela definição de **'Rollover Schedule'** de registo para o site IIS, que é uma vez por dia por padrão. Se a definição for **horada,** o Monitor Azure recolhe o registo a cada hora. Se a definição for **Diária,** o Azure Monitor recolhe o registo a cada 24 horas.
 
 
-## <a name="iis-log-record-properties"></a>Propriedades de registro de log do IIS
-Os registros de log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabela a seguir:
+## <a name="iis-log-record-properties"></a>Propriedades de registo de registo iIS
+Os registos de registo iIS têm um tipo de **W3CIISLog** e têm as propriedades na tabela seguinte:
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Computador |Nome do computador do qual o evento foi coletado. |
+| Computador |Nome do computador de que o evento foi recolhido. |
 | cIP |Endereço IP do cliente. |
-| csMethod |Método da solicitação, como GET ou POST. |
-| csReferer |Site do qual o usuário seguiu um link para o site atual. |
+| csMétodo |Método do pedido, como GET ou POST. |
+| csReferer |Site que o utilizador seguiu um link de para o site atual. |
 | csUserAgent |Tipo de navegador do cliente. |
-| csUserName |Nome do usuário autenticado que acessou o servidor. Os usuários anônimos são indicados por um hífen. |
-| csUriStem |Destino da solicitação, como uma página da Web. |
-| csUriQuery |Consulta, se houver, que o cliente estava tentando executar. |
-| ManagementGroupName |Nome do grupo de gerenciamento para agentes de Operations Manager.  Para outros agentes, isso é AOI-\<ID do espaço de trabalho\> |
+| csUserName |Nome do utilizador autenticado que acedeu ao servidor. Os utilizadores anónimos são indicados por um hífen. |
+| csUriStem |Alvo do pedido, como uma página web. |
+| csUriQuery |Pergunta, se houver, que o cliente estava a tentar atuar. |
+| ManagementGroupName |Nome do grupo de gestão dos agentes do Gestor de Operações.  Para outros agentes, trata-se de\> de identificação do espaço de trabalho AOI-\< |
 | RemoteIPCountry |País/região do endereço IP do cliente. |
 | RemoteIPLatitude |Latitude do endereço IP do cliente. |
 | RemoteIPLongitude |Longitude do endereço IP do cliente. |
-| scStatus |Código de status HTTP. |
-| scSubStatus |Código de erro de substatus. |
-| scWin32Status |Código de status do Windows. |
-| sIP |Endereço IP do servidor Web. |
-| SourceSystem |Mom |
-| Esporte |Porta no servidor ao qual o cliente se conectou. |
+| scStatus |Código de estado HTTP. |
+| scSubStatus |Código de erro de subestatuto. |
+| scWin32Status |Código de estado do Windows. |
+| SIP |Endereço IP do servidor web. |
+| SourceSystem |OpsMgr |
+| sPort |Porta no servidor ao qual o cliente ligou. |
 | sSiteName |Nome do site do IIS. |
-| TimeGenerated |Data e hora em que a entrada foi registrada. |
-| timeTaken |Período de tempo para processar a solicitação em milissegundos. |
+| TimeGenerated |Data e hora da entrada foi registada. |
+| Tempo tomado |Duração do tempo para processar o pedido em milissegundos. |
 
-## <a name="log-queries-with-iis-logs"></a>Consultas de log com logs do IIS
-A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros de log do IIS.
+## <a name="log-queries-with-iis-logs"></a>Consultas de log com registos IIS
+A tabela seguinte fornece diferentes exemplos de consultas de registo que recuperam registos de registos IIS.
 
 | Consulta | Descrição |
 |:--- |:--- |
-| W3CIISLog |Todos os registros de log do IIS. |
-| W3CIISLog &#124; em que scStatus = = 500 |Todos os registros de log do IIS com um status de retorno de 500. |
-| Contagem &#124; de Resumo de W3CIISLog () por cIP |Contagem de entradas de log do IIS por endereço IP do cliente. |
-| W3CIISLog &#124; em que csHost = = "www\.contoso.com &#124; " resumir contagem () por csUriStem |Contagem de entradas de log do IIS por URL para o host www\.contoso.com. |
-| W3CIISLog &#124; resumite Sum (csBytes) por &#124; computador, pegue 500000 |Total de bytes recebidos por cada computador do IIS. |
+| W3CIISLog |Todos os registos de registos do IIS. |
+| W3CIISLog &#124; onde scStatus==500 |Todos os registos de registo sinuoso iIS com um estado de devolução de 500. |
+| Resumo do W3CIISLog() &#124; por cIP |Contagem das entradas de log IIS pelo endereço IP do cliente. |
+| W3CIISLog &#124; onde csHost="www\.&#124; contoso.com" resumo() por csUriStem |Contagem das entradas de log IIS por URL para o anfitrião www\.contoso.com. |
+| W3CIISLog &#124; resumir soma (csBytes) &#124; por Computador tomar 500000 |Bytes totais recebidos por cada computador IIS. |
 
 ## <a name="next-steps"></a>Passos seguintes
-* Configure Azure Monitor para coletar outras [fontes de dados](agent-data-sources.md) para análise.
-* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.
+* Configure o Monitor Azure para recolher [outras fontes de dados](agent-data-sources.md) para análise.
+* Saiba mais sobre consultas de [registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes e soluções de dados.

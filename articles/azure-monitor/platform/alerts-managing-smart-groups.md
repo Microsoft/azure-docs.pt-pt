@@ -1,29 +1,30 @@
 ---
 title: Gerir grupos inteligentes
-description: Gerenciando grupos inteligentes criados em suas instâncias de alerta
-ms.service: azure-monitor
-ms.subservice: alerts
+description: Gerir Grupos Inteligentes criados sobre os seus casos de alerta
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 09/24/2018
-ms.openlocfilehash: cf972c350a5bcad31dfae5bf393ef968ed1ba209
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d7077e51282864f1208080838a1bb94ddd773b7d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552397"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667470"
 ---
 # <a name="manage-smart-groups"></a>Gerir grupos inteligentes
-Os [grupos inteligentes](https://aka.ms/smart-groups) usam algoritmos de aprendizado de máquina para agrupar alertas com base em coocorrências ou similaridade, para que o usuário possa gerenciar grupos inteligentes em vez de ter que gerenciar cada alerta individualmente. Este artigo explicará como acessar e usar os grupos inteligentes no Azure Monitor.
-1.  Para ver os grupos inteligentes criados para suas instâncias de alerta, você pode
-     1. Clique em **grupos inteligentes** na página **Resumo de alertas**    
+
+[Os grupos inteligentes](https://aka.ms/smart-groups) usam algoritmos de aprendizagem automática para agrupar alertas com base na coocorrência ou semelhança, para que o utilizador possa agora gerir grupos inteligentes em vez de ter de gerir cada alerta individualmente. Este artigo irá acompanhá-lo sobre como aceder e usar grupos inteligentes no Monitor Azure.
+
+1. Para ver os Smart Groups criados para os seus casos de alerta, pode ou
+
+     1. Clique em **Smart Groups** a partir da página **Sumária** de Alertas    
     ![Monitorização](./media/alerts-managing-smart-groups/sg-alerts-summary.jpg)
-     2. Clique em alertas por grupos inteligentes na página todos os alertas   
+    
+     1. Clique em Alertas por Grupos Inteligentes a partir da página All Alerts   
      ![Monitorização](./media/alerts-managing-smart-groups/sg-all-alerts.jpg)
-2.  Isso o levará para a exibição de lista de todos os grupos inteligentes criados em suas instâncias de alerta. Em vez de percorrer vários alertas, agora você pode lidar com os grupos inteligentes.   
+
+2. Isto leva-o à vista da lista para todos os Grupos Inteligentes criados sobre as suas instâncias de alerta. Em vez de analisar vários alertas, agora pode lidar com os grupos inteligentes.   
 ![Monitorização](./media/alerts-managing-smart-groups/sg-list.jpg)
-3.  Clicar em qualquer grupo inteligente abre a página de detalhes, onde você pode ver o motivo do agrupamento, junto com os alertas de membro. Essa agregação permite que você lide com um grupo inteligente singular, em vez de percorrer vários alertas.   
+
+3. Clicar em qualquer Smart Group abre a página de detalhes, onde pode ver a razão do agrupamento, juntamente com os alertas dos membros. Esta agregação permite-lhe lidar com um grupo inteligente singular, em vez de peneirar vários alertas.   
 ![Monitorização](./media/alerts-managing-smart-groups/sg-details.jpg)
-
-

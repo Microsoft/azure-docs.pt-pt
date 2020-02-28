@@ -1,134 +1,133 @@
 ---
-title: Exportar o log de atividades do Azure
-description: Exportar o log de atividades do Azure para o armazenamento para arquivamento ou hubs de eventos do Azure para exportação fora do Azure.
+title: Exportar o Registo de Atividades Do Azure
+description: Export e Azure Activity log to storage for arquivamento ou Azure Event Hubs para exportação fora de Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 1c2047fc4b92ecd5776cb835a2f2138c25f5cb65
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845459"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668966"
 ---
-# <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar o log de atividades do Azure para o armazenamento ou hubs de eventos do Azure
+# <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Export Azure Activity log to storage or Azure Event Hubs
 
 > [!IMPORTANT]
 > O método para enviar o registo da Atividade Azure para o Azure Storage e os Centros de Eventos Azure mudou para [configurações](diagnostic-settings.md)de diagnóstico . Este artigo descreve o método legado que está em processo de ser depreciado. Consulte a recolha e exportação de registos da [Atividade Azure](diagnostic-settings-legacy.md) para uma comparação.
 
 
-O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Além de exibir o log de atividades no portal do Azure ou copiá-lo para um espaço de trabalho Log Analytics onde ele pode ser analisado com outros dados coletados pelo Azure Monitor, você pode criar um perfil de log para arquivar o log de atividades em uma conta de armazenamento do Azure ou transmiti-lo para um  Hub de eventos.
+O [Registo de Atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos de nível de subscrição que ocorreram na sua subscrição Azure. Além de visualizar o registo de atividade no portal Azure ou copiá-lo para um espaço de trabalho de Log Analytics onde pode ser analisado com outros dados recolhidos pelo Azure Monitor, pode criar um perfil de registo para arquivar o registo de atividade sacana para uma conta de armazenamento Azure ou transmiti-lo para um  Centro de Eventos.
 
-## <a name="archive-activity-log"></a>Log de atividades de arquivamento
-O arquivamento do log de atividades em uma conta de armazenamento é útil se você quiser manter seus dados de log por mais de 90 dias (com controle total sobre a política de retenção) para auditoria, análise estática ou backup. Se você só precisa reter seus eventos por 90 dias ou menos, não é necessário configurar o arquivamento para uma conta de armazenamento, pois os eventos do log de atividades são mantidos na plataforma do Azure por 90 dias.
+## <a name="archive-activity-log"></a>Registo de Atividades de Arquivo
+Arquivar o Registo de Atividade saqueado numa conta de armazenamento é útil se quiser reter os seus dados de registo por mais de 90 dias (com controlo total sobre a política de retenção) para auditoria, análise estática ou backup. Se necessitar apenas de reter os seus eventos durante 90 dias ou menos, não precisa de configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de Registo de Atividade saem retidos na plataforma Azure durante 90 dias.
 
-## <a name="stream-activity-log-to-event-hub"></a>Transmitir log de atividades para o Hub de eventos
-Os [hubs de eventos do Azure](/azure/event-hubs/) são uma plataforma de streaming de dados e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Duas maneiras de usar o recurso de streaming para o log de atividades são:
-* **Transmitir para sistemas de registro em log e telemetria de**terceiros: ao longo do tempo, o streaming de hubs de eventos do Azure se tornará o mecanismo para canalizar seu log de atividades em soluções de Siem e do log Analytics de terceiros.
-* **Crie uma plataforma de registro em log e telemetria personalizada**: se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos hubs de eventos permite ingerir o log de atividades com flexibilidade.
+## <a name="stream-activity-log-to-event-hub"></a>Registo de atividade de fluxo para centro de eventos
+[O Azure Event Hubs](/azure/event-hubs/) é uma plataforma de streaming de dados e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Duas formas de utilizar a capacidade de streaming para o Registo de Atividades são:
+* **Stream para sistemas de registo e telemetria de terceiros**: Com o tempo, o streaming de Hubs de Eventos Azure tornar-se-á o mecanismo para canalizar o seu Registo de Atividade em SIEMs de terceiros e soluções de análise de registo.
+* **Construa uma plataforma personalizada de telemetria e exploração madeireira**: Se já tem uma plataforma de telemetria personalizada ou está a pensar em construir uma, a natureza altamente escalável de subscrição de registos de eventos permite-lhe ingerir de forma flexível o registo de atividade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="storage-account"></a>Conta de armazenamento
-Se você estiver arquivando o log de atividades, precisará [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) se ainda não tiver uma. Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados de monitoramento. Se você também estiver arquivando logs e métricas em uma conta de armazenamento, poderá optar por usar essa mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.
+Se estiver a arquivar o seu Registo de Atividades, precisa [de criar uma conta](../../storage/common/storage-account-create.md) de armazenamento se ainda não tiver uma. Não deve utilizar uma conta de armazenamento existente que tenha outros dados não monitorizadores armazenados na si para que possa controlar melhor o acesso aos dados de monitorização. Se também estiver a arquivar registos e métricas para uma conta de armazenamento, pode optar por utilizar essa mesma conta de armazenamento para manter todos os dados de monitorização num local central.
 
-A conta de armazenamento não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas. 
+A conta de armazenamento não tem de estar na mesma subscrição que os registos emissores de subscrição, desde que o utilizador que configura a definição tenha acesso rBAC adequado a ambas as subscrições. 
 
 > [!TIP]
 > Consulte [as firewalls de Armazenamento Configure Azure e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para fornecer acesso a uma conta de armazenamento por trás de uma rede virtual segura.
 
-### <a name="event-hubs"></a>Event Hubs
-Se você estiver enviando o log de atividades para um hub de eventos, você precisará [criar um hub de eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se você tiver transmitido anteriormente eventos do log de atividades para esse namespace de hubs de eventos, esse Hub de eventos será reutilizado.
+### <a name="event-hubs"></a>Hubs de Eventos
+Se está a enviar o seu Registo de Atividades para um centro de eventos, então precisa de criar um centro de [eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se já transmitiu eventos de Registo de Atividade para este espaço de nome sinuoso do Event Hubs, então esse centro de eventos será reutilizado.
 
-A política de acesso compartilhado define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Você pode criar ou modificar políticas de acesso compartilhado para o namespace de hubs de eventos na portal do Azure na guia Configurar para seu namespace de hubs de eventos.
+A política de acesso partilhado define as permissões que o mecanismo de streaming tem. O streaming para centros de eventos requer permissões de Gestão, Envio e Escuta. Pode criar ou modificar políticas de acesso partilhado para o espaço de nome sem nome do Event Hubs no portal Azure sob o separador Configure para o seu espaço de nome Sem Evento.
 
-Para atualizar o perfil de log do log de atividades para incluir streaming, você deve ter a permissão ListKey nessa regra de autorização de hubs de eventos. O namespace de hubs de eventos não precisa estar na mesma assinatura que a assinatura que está emitindo logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas e ambas as assinaturas estejam no mesmo locatário do AAD.
+Para atualizar o perfil de registo de registo de atividade para incluir o streaming, deve ter a permissão ListKey nessa regra de autorização do Event Hubs. O espaço de nome sem nome do Event Hubs não tem de estar na mesma subscrição que a subscrição que está a emitir registos, desde que o utilizador que configura a definição tenha acesso rBAC adequado a ambas as subscrições e ambas as subscrições estejam no mesmo inquilino AAD.
 
-Transmita o log de atividades para um hub de eventos [criando um perfil de log](#create-a-log-profile).
+Transmita o Registo de Atividades para um Hub de [Eventos criando um Perfil](#create-a-log-profile)de Registo .
 
-## <a name="create-a-log-profile"></a>Criar um perfil de log
-Você define como o log de atividades do Azure é exportado usando um **perfil de log**. Cada assinatura do Azure pode ter apenas um perfil de log. Essas configurações podem ser definidas por meio da opção **Exportar** na folha log de atividades no Portal. Eles também podem ser configurados programaticamente [usando a API REST do Azure monitor, os](https://msdn.microsoft.com/library/azure/dn931927.aspx)cmdlets do PowerShell ou a CLI.
+## <a name="create-a-log-profile"></a>Criar um perfil de registo
+Define como o seu registo de Atividade Azure é exportado através de um perfil de **registo**. Cada subscrição do Azure só pode ter um perfil de registo. Estas definições podem ser configuradas através da opção **Export** na lâmina de registo de atividade no portal. Também podem ser configurados programáticamente [utilizando a API,](https://msdn.microsoft.com/library/azure/dn931927.aspx)PowerShell cmdlets ou CLI do Monitor Azure.
 
-O perfil de log define o seguinte.
+O perfil de registo define o seguinte.
 
-**Onde o log de atividades deve ser enviado.** Atualmente, as opções disponíveis são conta de armazenamento ou hubs de eventos.
+**Para onde deve ser enviado o Registo de Atividades.** Atualmente, as opções disponíveis são Conta de Armazenamento ou Centros de Eventos.
 
-**Quais categorias de evento devem ser enviadas.** O significado da *categoria* nos perfis de log e nos eventos do log de atividades é diferente. No perfil de log, *categoria* representa o tipo de operação (gravação, exclusão, ação). Em um evento do log de atividades, a propriedade *categoria*"* representa a origem ou o tipo de evento (por exemplo, administração, integridade e alerta).
+**Que categorias de eventos devem ser enviadas.** O significado da *categoria* em perfis de registo e eventos de Registo de Atividadeé diferente. No perfil de registo, *a categoria* representa o tipo de funcionamento (Escrever, Excluir, Ação). Num evento de Registo de Atividades, a *categoria*"* propriedade representa a fonte ou tipo de evento (por exemplo, Administração, ServiceHealth e Alerta).
 
-**Quais regiões (locais) devem ser exportadas.** Você deve incluir todos os locais, pois muitos eventos no log de atividades são eventos globais.
+**Que regiões (locais) devem ser exportadas.** Você deve incluir todos os locais, uma vez que muitos eventos no Registo de Atividades são eventos globais.
 
-**Por quanto tempo o log de atividades deve ser retido em uma conta de armazenamento.** A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
+**Quanto tempo o Registo de Atividade deve ser conservado numa Conta de Armazenamento.** A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
 
-Se as políticas de retenção forem definidas, mas o armazenamento de logs em uma conta de armazenamento estiver desabilitado, as políticas de retenção não terão nenhum efeito. Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
+Se as políticas de retenção forem definidas, mas armazenar registos numa conta de armazenamento é desativada, então as políticas de retenção não têm qualquer efeito. Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
 
 
 > [!IMPORTANT]
-> Você pode receber um erro ao criar um perfil de log se o provedor de recursos Microsoft. insights não estiver registrado. Consulte [provedores de recursos do Azure e tipos](../../azure-resource-manager/management/resource-providers-and-types.md) para registrar este provedor.
+> Pode receber um erro ao criar um perfil de registo se o fornecedor de recursos Microsoft.Insights não estiver registado. Consulte [os fornecedores e tipos](../../azure-resource-manager/management/resource-providers-and-types.md) de recursos azure para registar este fornecedor.
 
 
-### <a name="create-log-profile-using-the-azure-portal"></a>Criar perfil de log usando o portal do Azure
+### <a name="create-log-profile-using-the-azure-portal"></a>Criar perfil de registo utilizando o portal Azure
 
-Crie ou edite um perfil de log com a opção **exportar para o Hub de eventos** no portal do Azure.
+Crie ou edite um perfil de registo com a opção **Export to Event Hub** no portal Azure.
 
-1. No menu **Azure monitor** na portal do Azure, selecione log de **atividades**.
+1. A partir do menu **Azure Monitor** no portal Azure, selecione **registo de atividade**.
 3. Clique em **Definições de diagnóstico**.
 
    ![Definições de diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
 
-4. Clique na faixa roxa para a experiência herdada.
+4. Clique no banner roxo para a experiência do legado.
 
-    ![Experiência herdada](media/diagnostic-settings-subscription/legacy-experience.png)
+    ![Experiência legado](media/diagnostic-settings-subscription/legacy-experience.png)
 
-3. Na folha que aparece, especifique o seguinte:
-   * Regiões com os eventos a serem exportados. Você deve selecionar todas as regiões para garantir que não perca eventos de chave, pois o log de atividades é um log global (não regional) e, portanto, a maioria dos eventos não tem uma região associada a eles.
-   * Se você quiser gravar na conta de armazenamento:
-       * A conta de armazenamento na qual você deseja salvar eventos.
-       * O número de dias que você deseja manter esses eventos no armazenamento. Uma configuração de 0 dias mantém os logs para sempre.
-   * Se você quiser gravar no Hub de eventos:
-       * O namespace do barramento de serviço no qual você deseja que um hub de eventos seja criado para transmitir esses eventos.
+3. Na lâmina que aparece, especifique o seguinte:
+   * Regiões com eventos para exportar. Você deve selecionar todas as regiões para garantir que você não perca eventos chave, uma vez que o Registo de Atividades é um registo global (não regional) e, por isso, a maioria dos eventos não tem uma região associada a eles.
+   * Se quiser escrever na conta de armazenamento:
+       * A Conta de Armazenamento à qual gostaria de guardar eventos.
+       * O número de dias que pretende manter estes eventos armazenados. Um ajuste de 0 dias mantém os troncos para sempre.
+   * Se quiser escrever para o centro de eventos:
+       * O Service Bus Namespace no qual você gostaria que um Hub de eventos fosse criado para transmitir estes eventos.
 
-     ![Folha exportar log de atividades](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
-
-
-4. Clique em **salvar** para salvar essas configurações. As definições são imediatamente aplicadas à sua subscrição.
+     ![Lâmina de registo de atividade de exportação](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 
 
-### <a name="configure-log-profile-using-powershell"></a>Configurar o perfil de log usando o PowerShell
+4. Clique em **Guardar** para guardar estas definições. As definições são imediatamente aplicadas à sua subscrição.
+
+
+### <a name="configure-log-profile-using-powershell"></a>Configure o perfil de registo usando powerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Se um perfil de log já existir, primeiro você precisará remover o perfil de log existente e, em seguida, criar um novo.
+Se já existir um perfil de registo, é necessário remover primeiro o perfil de registo existente e, em seguida, criar um novo.
 
-1. Use `Get-AzLogProfile` para identificar se um perfil de log existe.  Se houver um perfil de log, observe a propriedade *Name* .
+1. Utilize `Get-AzLogProfile` para identificar se existe um perfil de registo.  Se existir um perfil de registo, note a propriedade do *nome.*
 
-1. Use `Remove-AzLogProfile` para remover o perfil de log usando o valor da propriedade *Name* .
+1. Utilize `Remove-AzLogProfile` para remover o perfil de registo utilizando o valor da propriedade *do nome.*
 
     ```powershell
     # For example, if the log profile name is 'default'
     Remove-AzLogProfile -Name "default"
     ```
 
-3. Use `Add-AzLogProfile` para criar um novo perfil de log:
+3. Utilize `Add-AzLogProfile` para criar um novo perfil de registo:
 
     ```powershell
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Propriedade | Obrigatório | Descrição |
+    | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
-    | Nome |Sim |Nome do seu perfil de log. |
-    | StorageAccountId |Não |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
-    | serviceBusRuleId |Não |ID da regra do barramento de serviço para o namespace do barramento de serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Localização |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do log de atividades. |
-    | RetentionInDays |Sim |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os logs indefinidamente. |
-    | Categoria |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletadas. Os valores possíveis são _gravação_, _exclusão_e _ação_. |
+    | Nome |Sim |Nome do seu perfil de registo. |
+    | StorageAccountId |Não |Identificação de recursos da Conta de Armazenamento onde o Registo de Atividade deve ser guardado. |
+    | serviceBusRuleId |Não |Service Bus Rule ID para o espaço de nome do ônibus de serviço em que você gostaria de ter centros de eventos criados. Esta é uma cadeia com o formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+    | Localização |Sim |Lista separada da vírposta de regiões para as quais gostaria de recolher eventos de Registo de Atividades. |
+    | Dias de Retenção |Sim |Número de dias para os quais os eventos devem ser mantidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os registos indefinidamente. |
+    | Categoria |Não |Lista separada da vírposta das categorias de eventos que devem ser recolhidas. Os valores possíveis são _Escrever,_ _Apagar_e _Ação._ |
 
 ### <a name="example-script"></a>Script de exemplo
-Veja a seguir um exemplo de script do PowerShell para criar um perfil de log que grava o log de atividades em uma conta de armazenamento e no Hub de eventos.
+Segue-se um script powerShell de amostra para criar um perfil de registo que escreve o Registo de Atividade sacar tanto para uma conta de armazenamento como para um centro de eventos.
 
    ```powershell
    # Settings needed for the new log profile
@@ -149,30 +148,30 @@ Veja a seguir um exemplo de script do PowerShell para criar um perfil de log que
    ```
 
 
-### <a name="configure-log-profile-using-azure-cli"></a>Configurar o perfil de log usando CLI do Azure
+### <a name="configure-log-profile-using-azure-cli"></a>Configure o perfil de registo utilizando o Azure CLI
 
-Se um perfil de log já existir, primeiro você precisará remover o perfil de log existente e, em seguida, criar um novo perfil de log.
+Se já existir um perfil de registo, é necessário remover primeiro o perfil de registo existente e, em seguida, criar um novo perfil de registo.
 
-1. Use `az monitor log-profiles list` para identificar se um perfil de log existe.
-2. Use `az monitor log-profiles delete --name "<log profile name>` para remover o perfil de log usando o valor da propriedade *Name* .
-3. Use `az monitor log-profiles create` para criar um novo perfil de log:
+1. Utilize `az monitor log-profiles list` para identificar se existe um perfil de registo.
+2. Utilize `az monitor log-profiles delete --name "<log profile name>` para remover o perfil de registo utilizando o valor da propriedade *do nome.*
+3. Utilize `az monitor log-profiles create` para criar um novo perfil de registo:
 
    ```azurecli-interactive
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Propriedade | Obrigatório | Descrição |
+    | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
-    | nome |Sim |Nome do seu perfil de log. |
-    | storage-account-id |Sim |ID de recurso da conta de armazenamento na qual os logs de atividade devem ser salvos. |
-    | locations |Sim |Lista separada por espaços de regiões para as quais você gostaria de coletar eventos do log de atividades. Pode ver uma lista de todas as regiões para a sua subscrição usando `az account list-locations --query [].name`. |
-    | days |Sim |Número de dias pelos quais os eventos devem ser retidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se for zero, o parâmetro Enabled deverá ser definido como false. |
-    |enabled | Sim |VERDADEIRO ou FALSO.  Usado para habilitar ou desabilitar a política de retenção.  Se for true, o parâmetro Days deverá ser um valor maior que 0.
-    | categories |Sim |Lista separada por espaços de categorias de eventos que devem ser coletadas. Os valores possíveis são gravação, exclusão e ação. |
+    | nome |Sim |Nome do seu perfil de registo. |
+    | storage-account-id |Sim |Identificação de recursos da Conta de Armazenamento para a qual os Registos de Atividade devem ser guardados. |
+    | locations |Sim |Lista de regiões separadas pelo espaço para as quais gostaria de recolher eventos de Registo de Atividades. Pode ver uma lista de todas as regiões para a sua subscrição usando `az account list-locations --query [].name`. |
+    | dias |Sim |Número de dias para os quais os eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazenará os registos indefinidamente (para sempre).  Se zero, então o parâmetro ativado deve ser definido como falso. |
+    |enabled | Sim |VERDADEIRO ou FALSO.  Usado para ativar ou desativar a política de retenção.  Se for verdade, então o parâmetro dos dias deve ser um valor superior a 0.
+    | categories |Sim |Lista separada do espaço das categorias de eventos que devem ser recolhidas. Os valores possíveis são Escrever, Apagar e Agir. |
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o log de atividades](../../azure-resource-manager/management/view-activity-logs.md)
-* [Coletar log de atividades em logs de Azure Monitor](activity-log-collect.md)
+* [Saiba mais sobre o Registo de Atividades](../../azure-resource-manager/management/view-activity-logs.md)
+* [Recolher Registo de Atividades em Registos de Monitor Estoque Azure](activity-log-collect.md)

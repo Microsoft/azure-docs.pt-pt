@@ -1,83 +1,81 @@
 ---
-title: Solucionar os testes de disponibilidade do Aplicativo Azure insights | Microsoft Docs
-description: Solucionar problemas de testes na Web no Aplicativo Azure insights. Receber alertas se um site ficar indisponível ou responder lentamente.
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Problemas de resolução dos seus testes de disponibilidade de Insights de Aplicação Azure / Microsoft Docs
+description: Testes web de resolução de problemas em Insights de Aplicação Azure. Receber alertas se um site ficar indisponível ou responder lentamente.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 71c16fa005710bb5816ec69716573b79fcae620a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f135aa6c0a4a55f8a42fd858572cc811e25b27c5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899531"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671108"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
-Este artigo o ajudará a solucionar problemas comuns que podem ocorrer ao usar o monitoramento de disponibilidade.
+Este artigo irá ajudá-lo a resolver problemas comuns que podem ocorrer ao utilizar a monitorização da disponibilidade.
 
-## <a name="ssltls-errors"></a>Erros de SSL/TLS
+## <a name="ssltls-errors"></a>Erros SSL/TLS
 
-|Sintoma/mensagem de erro| Possíveis causas|
+|Mensagem de sintoma/erro| Possíveis causas|
 |--------|------|
-|Não foi possível criar o canal seguro SSL/TLS  | Versão do SSL. Somente há suporte para TLS 1,0, 1,1 e 1,2. **Não há suporte para SSLv3.**
-|Camada de registro do TLSv 1.2: alerta (nível: fatal, descrição: MAC de registro inadequado)| Consulte thread do StackExchange para obter [mais informações](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake).
-|A URL que está falhando é para uma CDN (rede de distribuição de conteúdo) | Isso pode ser causado por uma configuração incorreta na CDN |  
+|Não poderia criar canal seguro SSL/TLS  | Versão SSL. Apenas são suportados TLS 1.0, 1.1 e 1.2. **O SSLv3 não é suportado.**
+|Camada de registo TLSv1.2: Alerta (Nível: Fatal, Descrição: Bad Record MAC)| Consulte o fio StackExchange para [obter mais informações](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake).
+|URL que está falhando é para um CDN (Rede de Entrega de Conteúdos) | Isto pode ser causado por uma configuração errada no seu CDN |  
 
-### <a name="possible-workaround"></a>Possível solução alternativa
+### <a name="possible-workaround"></a>Possível supor
 
-* Se as URLs que estão enfrentando o problema forem sempre de recursos dependentes, é recomendável desabilitar a **análise de solicitações dependentes** para o teste na Web.
+* Se os URLs que estão a passar pelo problema forem sempre para recursos dependentes, recomenda-se desativar **os pedidos dependentes** da análise para o teste web.
 
-## <a name="test-fails-only-from-certain-locations"></a>O teste falha apenas de determinados locais
+## <a name="test-fails-only-from-certain-locations"></a>O teste falha apenas em determinados locais
 
-|Sintoma/mensagem de erro| Possíveis causas|
+|Mensagem de sintoma/erro| Possíveis causas|
 |----|---------|
-|Uma tentativa de conexão falhou porque a parte conectada não respondeu corretamente após um período de tempo  | Os agentes de teste em determinados locais estão sendo bloqueados por um firewall.|
-|    |O redirecionamento de determinados endereços IP está ocorrendo via (balanceadores de carga, gerenciadores de tráfego geográficos, rota expressa do Azure). 
-|    |Se estiver usando o Azure ExpressRoute, há cenários em que os pacotes podem ser descartados em casos em que o [Roteamento Assimétrico ocorre](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
+|Uma tentativa de ligação falhou porque a parte ligada não respondeu corretamente após um período de tempo  | Agentes de teste em certos locais estão a ser bloqueados por uma firewall.|
+|    |O reencaminhamento de certos endereços IP está a ocorrer através de (Balancers de Carga, Gestores de Tráfego Geo, Rota Expresso Azure.) 
+|    |Se utilizar o Azure ExpressRoute, existem cenários em que os pacotes podem ser abandonados nos casos em que [ocorre encaminhamento assimétrico](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
 
 ## <a name="test-failure-with-a-protocol-violation-error"></a>Falha de teste com um erro de violação de protocolo
 
-|Sintoma/mensagem de erro| Possíveis causas| Possíveis resoluções |
+|Mensagem de sintoma/erro| Possíveis causas| Possíveis Resoluções |
 |----|---------|-----|
-|O servidor confirmou uma violação de protocolo. Seção = ResponseHeader Detail = CR deve ser seguido por LF | Isso ocorre quando cabeçalhos malformados são detectados. Especificamente, alguns cabeçalhos podem não estar usando CRLF para indicar o fim da linha, que viola a especificação de HTTP. Application Insights impõe essa especificação HTTP e falha em respostas com cabeçalhos malformados.| a. Contate o provedor de host/provedor de CDN do site para corrigir os servidores com falha. <br> b. Caso as solicitações com falha sejam recursos (por exemplo, arquivos de estilo, imagens, scripts), você pode considerar desabilitar a análise de solicitações dependentes. Tenha em mente, se você fizer isso, perderá a capacidade de monitorar a disponibilidade desses arquivos).
+|O servidor cometeu uma violação do protocolo. Secção=RespostaHeader Detalhe=CR deve ser seguido por LF | Isto ocorre quando são detetados cabeçalhos mal formados. Especificamente, alguns cabeçalhos podem não estar a usar o CRLF para indicar o fim da linha, o que viola a especificação HTTP. Aplicação Insights aplica esta especificação HTTP e falha respostas com cabeçalhos mal formados.| a. Contacte o fornecedor de anfitriões do site / fornecedor CDN para corrigir os servidores defeituosos. <br> b. Caso os pedidos falhados sejam recursos (por exemplo, ficheiros de estilo, imagens, scripts), pode considerar desativar a análise de pedidos dependentes. Tenha em mente que, se o fizer, perderá a capacidade de monitorizar a disponibilidade desses ficheiros).
 
 > [!NOTE]
-> A URL pode não falhar em navegadores que têm uma validação reduzida de cabeçalhos HTTP. Veja esta mensagem de blogue para uma explicação detalhada deste problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+> O URL pode não falhar nos navegadores que têm uma validação descontraída de cabeçalhos HTTP. Veja esta mensagem de blogue para uma explicação detalhada deste problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
 
-## <a name="common-troubleshooting-questions"></a>Perguntas de resolução de problemas comuns
+## <a name="common-troubleshooting-questions"></a>Questões comuns de resolução de problemas
 
-### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>O site parece ok, mas eu vejo falhas de teste? Por que Application Insights alertar-me?
+### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>O site parece estar bem, mas vejo falhas nos testes? Porque é que a Application Insights está a alertar-me?
 
-   * Seu teste tem **solicitações dependentes de análise** habilitadas? Isso resulta em uma verificação estrita de recursos como scripts, imagens, etc. Esses tipos de falhas podem não ser perceptíveis em um navegador. Verifique todas as imagens, scripts, folhas de estilo e outros ficheiros carregados pela página. Se qualquer um deles falhar, o teste será relatado como com falha, mesmo que a página HTML principal seja carregada sem problema. Para dessensibilizar o teste para essas falhas de recurso, basta desmarcar as solicitações de análise dependentes da configuração de teste.
+   * O seu teste tem **pedidos dependentes da Parse** ativados? Isto resulta numa verificação rigorosa de recursos como scripts, imagens, etc. Este tipo de falhas pode não ser percetível num navegador. Verifique todas as imagens, scripts, folhas de estilo e outros ficheiros carregados pela página. Se algum deles falhar, o teste é reportado como falhado, mesmo que a página principal de HTML carregue sem problemas. Para dessensibilizar o teste para tais falhas de recursos, basta desmarque os Pedidos Dependentes de Parse da configuração do teste.
 
-   * Para reduzir as chances de ruído de blips de rede transitórias, etc., certifique-se de que habilitar novas tentativas para a configuração de falhas de teste esteja marcada. Você também pode testar de mais locais e gerenciar o limite da regra de alerta de forma adequada para evitar problemas específicos do local, causando alertas indevidos.
+   * Para reduzir as probabilidades de ruído de blips de rede transitórias, etc., certifique-se de que é verificada a configuração de falhas de teste. Também pode testar a partir de mais locais e gerir o limiar de regra de alerta em conformidade para evitar problemas específicos de localização que causem alertas indevidos.
 
-   * Clique em qualquer um dos pontos vermelhos da experiência de disponibilidade ou em qualquer falha de disponibilidade do Gerenciador de pesquisa para ver os detalhes do motivo pelo qual relatamos a falha. O resultado do teste, juntamente com a telemetria correlacionada do lado do servidor (se habilitada), deve ajudar a entender por que o teste falhou. Causas comuns de problemas transitórios são problemas de rede ou conexão.
+   * Clique em qualquer um dos pontos vermelhos da experiência disponibilidade, ou qualquer falha de disponibilidade do explorador de pesquisa para ver os detalhes do porquê de termos reportado a falha. O resultado do teste, juntamente com a telemetria do lado do servidor correlacionado (se ativado) deve ajudar a entender por que razão o teste falhou. As causas comuns de problemas transitórios são questões de rede ou de ligação.
 
-   * O tempo limite do teste foi atingido? Anulamos testes após 2 minutos. Se o seu teste de ping ou de várias etapas demorar mais de 2 minutos, relataremos como uma falha. Considere dividir o teste em vários que podem ser concluídos em durações menores.
+   * O tempo de teste? Abortamos os testes após 2 minutos. Se o seu teste de ping ou multi-etapa demorar mais de 2 minutos, vamos denunciá-lo como uma falha. Considere quebrar o teste em vários que podem completar em durações mais curtas.
 
-   * Todos os locais relataram falha ou apenas alguns deles? Se apenas algumas falhas relatadas, isso pode ser devido a problemas de rede/CDN. Novamente, clicar nos pontos vermelhos deve ajudar a entender por que o local relatou falhas.
+   * Todos os locais reportaram falhas, ou apenas alguns deles? Se apenas algumas falhas reportadas, pode ser devido a problemas de rede/CDN. Mais uma vez, clicar nos pontos vermelhos deve ajudar a entender por que a localização reportou falhas.
 
-### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>Eu não recebi um email quando o alerta foi disparado ou resolvido ou ambos?
+### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>Não recebi um e-mail quando o alerta disparou, ou resolveu ou ambos?
 
-Verifique a configuração de alertas clássicos para confirmar se seu email está listado diretamente ou se uma lista de distribuição em que você está está configurada para receber notificações. Se for, verifique a configuração da lista de distribuição para confirmar se ela pode receber emails externos. Verifique também se o administrador de email pode ter qualquer política configurada que possa causar esse problema.
+Verifique a configuração de alertas clássicos para confirmar que o seu e-mail está diretamente listado, ou uma lista de distribuição em que está está configurada para receber notificações. Se for, verifique a configuração da lista de distribuição para confirmar que pode receber e-mails externos. Verifique também se o seu administrador de correio pode ter alguma apólice configurada que possa causar este problema.
 
-### <a name="i-did-not-receive-the-webhook-notification"></a>Eu não recebi a notificação de webhook?
+### <a name="i-did-not-receive-the-webhook-notification"></a>Não recebi a notificação do webhook?
 
-Verifique se o aplicativo que está recebendo a notificação de webhook está disponível e processa com êxito as solicitações de webhook. Consulte [isso](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) para obter mais informações.
+Verifique para garantir que a aplicação que recebe a notificação do webhook está disponível e processa com sucesso os pedidos do webhook. Veja [isto](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) para mais informações.
 
-### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Falha de teste intermitente com um erro de violação de protocolo?
+### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Falha intermitente de teste com um erro de violação de protocolo?
 
-O erro ("violação do protocolo.. CR tem de ser seguido por LF") indica um problema com o servidor (ou dependências). Isto acontece quando há cabeçalhos mal formados estão definidos na resposta. Pode ser causado por balanceadores de carga ou CDNs. Especificamente, alguns cabeçalhos podem não estar usando CRLF para indicar o fim da linha, que viola a especificação HTTP e, portanto, falha na validação no nível de WebRequest do .NET. Inspecione a resposta para os cabeçalhos de spot, que podem estar em violação.
+O erro ("violação do protocolo.. CR tem de ser seguido por LF") indica um problema com o servidor (ou dependências). Isto acontece quando há cabeçalhos mal formados estão definidos na resposta. Pode ser causado por balanceadores de carga ou CDNs. Especificamente, alguns cabeçalhos podem não estar a usar o CRLF para indicar o fim da linha, o que viola a especificação HTTP e, portanto, falha a validação ao nível .NET WebRequest. Inspecione a resposta aos cabeçalhos, o que pode estar a violar.
 
 > [!NOTE]
-> A URL pode não falhar em navegadores que têm uma validação reduzida de cabeçalhos HTTP. Veja esta mensagem de blogue para uma explicação detalhada deste problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+> O URL pode não falhar nos navegadores que têm uma validação descontraída de cabeçalhos HTTP. Veja esta mensagem de blogue para uma explicação detalhada deste problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
 
-### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>Não vejo nenhuma telemetria relacionada no lado do servidor para diagnosticar falhas de teste? *
+### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>Não vejo nenhuma telemetria relacionada com o servidor para diagnosticar falhas nos testes?
 
 Se tiver o Application Insights configurado para a sua aplicação do lado do servidor, poderá dever-se ao facto de a [amostragem](../../azure-monitor/app/sampling.md) estar em curso. Selecione um resultado de disponibilidade diferente.
 
@@ -95,11 +93,11 @@ Ambos os termos podem ser utilizados alternadamente. “Testes de disponibilidad
    Existem duas soluções possíveis:
 
    * Configure a firewall para permitir pedidos recebidos a partir dos [endereços IP dos nossos agentes de teste Web](../../azure-monitor/app/ip-addresses.md).
-   * Escreva o seu próprio código para testar periodicamente o seu servidor interno. Execute o código como um processo em segundo plano num servidor de teste atrás da firewall. O processo de teste pode enviar os resultados para o Application Insights através da API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) no pacote SDK core. Isto requer que o servidor de teste tenha acesso de envio para o ponto final de ingestão do Application Insights, mas é um risco de segurança muito inferior do que a alternativa de permitir pedidos recebidos. Os resultados aparecerão nas folhas de testes da Web de disponibilidade, embora a experiência seja ligeiramente simplificada do que está disponível para testes criados por meio do Portal. Os testes de disponibilidade personalizados também serão exibidos como resultados de disponibilidade em análises, pesquisa e métricas.
+   * Escreva o seu próprio código para testar periodicamente o seu servidor interno. Execute o código como um processo em segundo plano num servidor de teste atrás da firewall. O processo de teste pode enviar os resultados para o Application Insights através da API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) no pacote SDK core. Isto requer que o servidor de teste tenha acesso de envio para o ponto final de ingestão do Application Insights, mas é um risco de segurança muito inferior do que a alternativa de permitir pedidos recebidos. Os resultados aparecerão na disponibilidade de lâminas de teste web, embora a experiência seja ligeiramente simplificada do que está disponível para testes criados através do portal. Os testes de disponibilidade personalizados também aparecerão como resultados de disponibilidade em Analytics, Search e Metrics.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>O carregamento de um teste Web com vários passos falhou
 
-Alguns motivos podem acontecer:
+Algumas razões para isto acontecer:
    * Existe um limite de tamanho de 300 K.
    * Os ciclos não são suportados.
    * As referências a outros testes Web não são suportadas.
@@ -107,28 +105,28 @@ Alguns motivos podem acontecer:
 
 ### <a name="my-multi-step-test-doesnt-complete"></a>O meu teste com vários passos não é concluído
 
-Existe um limite de 100 pedidos por teste. Além disso, o teste será interrompido se for executado por mais de dois minutos.
+Existe um limite de 100 pedidos por teste. Além disso, o teste é interrompido se demorar mais de dois minutos.
 
 ### <a name="how-can-i-run-a-test-with-client-certificates"></a>Como executar um teste com certificados de cliente?
 
-Não há suporte para isso no momento.
+Isto não é atualmente apoiado.
 
-## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássico)?
+## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
 
-Esta seção se aplica somente a alertas clássicos e ajudará você a otimizar suas notificações de alerta para garantir que somente os destinatários desejados recebam notificações. Para entender mais sobre a diferença entre os [alertas clássicos](../platform/alerts-classic.overview.md)e a nova experiência de alertas, consulte o [artigo Visão geral de alertas](../platform/alerts-overview.md). Para controlar a notificação de alerta na nova experiência de alertas, use [grupos de ação](../platform/action-groups.md).
+Esta secção aplica-se apenas a alertas clássicos e irá ajudá-lo a otimizar as notificações de alerta para garantir que apenas os destinatários pretendidos recebam notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md)e a experiência dos novos alertas, consulte o artigo sobre visão geral dos [alertas.](../platform/alerts-overview.md) Para controlar a notificação de alerta nos novos alertas, utilize [grupos](../platform/action-groups.md)de ação .
 
-* Recomendamos o uso de destinatários específicos para notificações de alerta clássicas.
+* Recomendamos a utilização de destinatários específicos para notificações clássicas de alerta.
 
-* Para alertas sobre falhas de X fora dos locais Y, a opção de caixa de seleção **em massa/grupo** , se habilitada, envia aos usuários com funções de administrador/coadministrador.  Essencialmente, _todos_ os administradores da _assinatura_ receberão notificações.
+* Para alertas sobre falhas de X fora dos locais De Y, a opção de caixa de verificação **a granel/grupo,** se ativada, envia para os utilizadores com funções de administrador/coadministrador.  _Essencialmente, todos os_ administradores da _subscrição_ receberão notificações.
 
-* Para alertas sobre as métricas de disponibilidade, a opção de caixa de seleção **em massa/grupo** , se habilitada, enviará aos usuários com funções de leitor, colaborador ou proprietário na assinatura. Na verdade, _todos_ os usuários com acesso à assinatura o recurso Application insights estão no escopo e receberão notificações. 
+* Para alertas sobre métricas de disponibilidade, a opção de caixa de verificação **a granel/grupo,** se ativada, envia para os utilizadores com funções de proprietário, colaborador ou leitor na subscrição. Com efeito, _todos os_ utilizadores com acesso à subscrição o recurso Application Insights estão no âmbito e receberão notificações. 
 
 > [!NOTE]
-> Se você usar a opção de caixa de seleção **Bulk/Group** no momento e desabilitá-la, não será possível reverter a alteração.
+> Se utilizar atualmente a opção de caixa de verificação **a granel/grupo** e a desativar, não poderá reverter a alteração.
 
-Use a nova experiência de alerta/alertas quase em tempo real se você precisar notificar os usuários com base em suas funções. Com os [grupos de ação](../platform/action-groups.md), você pode configurar notificações por email para os usuários com qualquer uma das funções colaborador/proprietário/leitor (não combinadas como uma única opção).
+Utilize a nova experiência de alerta/alertas em tempo quase real se precisar notificar os utilizadores com base nas suas funções. Com grupos de [ação,](../platform/action-groups.md)pode configurar notificações de e-mail para utilizadores com qualquer uma das funções de contribuinte/proprietário/leitor (não combinadas como uma única opção).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Teste na Web de várias etapas](availability-multistep.md)
-* [Testes de ping de URL](monitor-web-app-availability.md)
+* [Testes web em várias etapas](availability-multistep.md)
+* [Testes de ping URL](monitor-web-app-availability.md)

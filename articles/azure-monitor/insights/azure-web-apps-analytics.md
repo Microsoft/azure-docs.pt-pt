@@ -1,25 +1,24 @@
 ---
-title: Exibir dados analíticos de aplicativos Web do Azure | Microsoft Docs
-description: Você pode usar a solução Análise de Aplicativos Web do Azure para obter informações sobre seus aplicativos Web do Azure coletando métricas diferentes em todos os recursos do aplicativo Web do Azure.
-ms.service: azure-monitor
+title: Ver dados analíticos da Azure Web Apps / Microsoft Docs
+description: Pode utilizar a solução Azure Web Apps Analytics para obter informações sobre as suas Aplicações Web Azure, recolhendo diferentes métricas em todos os seus recursos da Web App Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/02/2018
-ms.openlocfilehash: 999b461447578fd6273cf5d16c9d354cca4ff985
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93d378e334d2f6443ac8a59c9022501d3023a2a4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406041"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666918"
 ---
-# <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Exibir dados analíticos para métricas em todos os recursos do aplicativo Web do Azure
+# <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Veja dados analíticos para métricas em todos os seus recursos da Web App Azure
 
-![Símbolo de aplicativos Web](./media/azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+![Símbolo de Aplicativos Web](./media/azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
 
 > [!NOTE]
-> A solução de análise de aplicativo Web do Azure foi movida para o suporte da Comunidade.  
->- A solução não está mais disponível no Azure Marketplace, mas pode ser instalada a partir de [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-webappazure-oms-monitoring/) , onde há suporte da Comunidade.
->- Os clientes que já instalaram a solução podem continuar a usá-lo com alterações.  
->- A Microsoft recomenda que você use [Application insights](../../azure-monitor/app/app-insights-overview.md) para monitorar seus aplicativos Web.
+> A solução Azure Web App Analytics passou para o apoio da comunidade.  
+>- A solução já não está disponível no Azure Marketplace, mas pode ser instalada a partir de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-webappazure-oms-monitoring/) onde é apoiada pela comunidade.
+>- Os clientes que já instalaram a solução podem continuar a utilizá-la com alterações.  
+>- A Microsoft recomenda que utilize [o Application Insights](../../azure-monitor/app/app-insights-overview.md) para monitorizar as suas aplicações web.

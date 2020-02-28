@@ -1,48 +1,44 @@
 ---
-title: Acompanhar operações personalizadas com o SDK do .NET do Aplicativo Azure insights
-description: Controlando operações personalizadas com o SDK do .NET do Aplicativo Azure insights
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Acompanhe as operações personalizadas com insights de aplicação Azure .NET SDK
+description: Rastreio de operações personalizadas com Insights de Aplicação Azure .NET SDK
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 7b92a386d691e15975f18de169d7924b82ec5c5f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951348"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671822"
 ---
-# <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com Application Insights SDK do .NET
+# <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhe as operações personalizadas com Insights de Aplicação .NET SDK
 
-Aplicativo Azure os SDKs do insights rastreiam automaticamente as solicitações HTTP de entrada e chamadas para serviços dependentes, como solicitações HTTP e consultas SQL. O acompanhamento e a correlação de solicitações e dependências proporcionam visibilidade da capacidade de resposta e da confiabilidade do aplicativo inteiro em todos os microserviços que combinam esse aplicativo. 
+Os SDKs da Aplicação Azure acompanham automaticamente os pedidos de HTTP e chamadas para serviços dependentes, tais como pedidos HTTP e consultas SQL. O rastreio e a correlação de pedidos e dependências dão-lhe visibilidade em toda a capacidade de resposta e fiabilidade de toda a aplicação em todos os microserviços que combinam esta aplicação. 
 
-Há uma classe de padrões de aplicativo que não pode ser suportada genericamente. O monitoramento adequado de tais padrões requer a instrumentação de código manual. Este artigo aborda alguns padrões que podem exigir a instrumentação manual, como o processamento de filas personalizado e a execução de tarefas em segundo plano de execução longa.
+Há uma classe de padrões de aplicação que não podem ser suportados genericamente. Uma monitorização adequada destes padrões requer uma instrumentação manual do código. Este artigo abrange alguns padrões que podem exigir instrumentação manual, tais como processamento de fila personalizada e tarefas de fundo de longa duração.
 
-Este documento fornece orientação sobre como controlar operações personalizadas com o SDK do Application Insights. Esta documentação é relevante para:
+Este documento fornece orientações sobre como rastrear operações personalizadas com o SDK de Insights de Aplicação. Esta documentação é relevante para:
 
-- Application Insights para .NET (também conhecido como SDK base) versão 2.4 +.
-- Application Insights para aplicativos Web (executando ASP.NET) versão 2.4 +.
-- Application Insights para ASP.NET Core versão 2.1 +.
+- Informações de aplicação para .NET (também conhecido como Base SDK) versão 2.4+.
+- Informações de aplicação para aplicações web (executando ASP.NET) versão 2.4+.
+- Informações de aplicação para ASP.NET versão Core 2.1+.
 
-## <a name="overview"></a>Visão geral
-Uma operação é uma parte lógica do trabalho executada por um aplicativo. Ele tem um nome, uma hora de início, uma duração, um resultado e um contexto de execução, como nome de usuário, propriedades e resultado. Se A operação A foi iniciada pela operação B, A operação B é definida como um pai para um. Uma operação pode ter apenas um pai, mas pode ter muitas operações filhas. Para obter mais informações sobre a correlação de operações e telemetria, consulte [correlação de telemetria do aplicativo Azure insights](correlation.md).
+## <a name="overview"></a>Descrição geral
+Uma operação é uma peça de trabalho lógica gerida por uma aplicação. Tem um nome, hora de início, duração, resultado, e um contexto de execução como nome de utilizador, propriedades e resultado. Se a operação A foi iniciada pela operação B, então a operação B é definida como um pai para A. Uma operação pode ter apenas um pai, mas pode ter muitas operações infantis. Para obter mais informações sobre operações e correlação de telemetria, consulte a correlação de [telemetria Azure Application Insights](correlation.md).
 
-No SDK Application Insights .NET, a operação é descrita pela classe abstrata [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) e seus descendentes [RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) e [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
+Na Aplicação Insights .NET SDK, a operação é descrita pela classe abstrata [OperationTelemetria](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) e pelos seus descendentes [RequestTelemettry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) e [DependencyTelemettry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
-## <a name="incoming-operations-tracking"></a>Acompanhamento de operações de entrada 
-O SDK do Application Insights Web coleta automaticamente solicitações HTTP para aplicativos ASP.NET executados em um pipeline do IIS e todos os aplicativos ASP.NET Core. Há soluções com suporte da Comunidade para outras plataformas e estruturas. No entanto, se o aplicativo não tiver suporte de nenhuma das soluções padrão ou com suporte da Comunidade, você poderá instrumentá-lo manualmente.
+## <a name="incoming-operations-tracking"></a>Rastreio de operações de entrada 
+O Web SDK da Application Insights recolhe automaticamente pedidos de HTTP para aplicações ASP.NET que funcionam num pipeline IIS e todas as aplicações ASP.NET Core. Existem soluções apoiadas pela comunidade para outras plataformas e quadros. No entanto, se a aplicação não for suportada por nenhuma das soluções standard ou apoiadas pela comunidade, pode instrumentá-la manualmente.
 
-Outro exemplo que requer acompanhamento personalizado é o trabalhador que recebe itens da fila. Para algumas filas, a chamada para adicionar uma mensagem a essa fila é controlada como uma dependência. No entanto, a operação de alto nível que descreve o processamento de mensagens não é coletada automaticamente.
+Outro exemplo que requer rastreio personalizado é o trabalhador que recebe itens da fila. Para algumas filas, a chamada para adicionar uma mensagem a esta fila é rastreada como uma dependência. No entanto, a operação de alto nível que descreve o processamento de mensagens não é recolhida automaticamente.
 
-Vamos ver como essas operações poderiam ser rastreadas.
+Vamos ver como tais operações podem ser rastreadas.
 
-Em um alto nível, a tarefa é criar `RequestTelemetry` e definir propriedades conhecidas. Depois que a operação for concluída, você acompanhará a telemetria. O exemplo a seguir demonstra essa tarefa.
+Em um alto nível, a tarefa é criar `RequestTelemetry` e definir propriedades conhecidas. Depois da operação estar terminada, rastreia a telemetria. O exemplo que se segue demonstra esta tarefa.
 
-### <a name="http-request-in-owin-self-hosted-app"></a>Solicitação HTTP no aplicativo Owin auto-hospedado
-Neste exemplo, o contexto de rastreamento é propagado de acordo com o [protocolo http para correlação](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Você deve esperar receber cabeçalhos descritos lá.
+### <a name="http-request-in-owin-self-hosted-app"></a>Pedido http na app auto-hospedada em Owin
+Neste exemplo, o contexto do vestígio é propagado de acordo com o [Protocolo HTTP para a Correlação](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Deve esperar receber cabeçalhos que sejam descritos lá.
 
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -118,22 +114,22 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 }
 ```
 
-O protocolo HTTP para correlação também declara o cabeçalho `Correlation-Context`. No entanto, ele é omitido aqui para simplificar.
+O Protocolo HTTP para a Correlação também declara o cabeçalho `Correlation-Context`. No entanto, é omitido aqui por simplicidade.
 
 ## <a name="queue-instrumentation"></a>Instrumentação de fila
-Embora haja um [contexto de rastreamento do W3C](https://www.w3.org/TR/trace-context/) e o [protocolo http para correlação](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) para passar detalhes de correlação com a solicitação HTTP, cada protocolo de fila tem que definir como os mesmos detalhes são passados pela mensagem da fila. Alguns protocolos de fila (como AMQP) permitem passar metadados adicionais e alguns outros (como a fila de armazenamento do Azure) exigem que o contexto seja codificado na carga da mensagem.
+Embora existam [o W3C Trace Context](https://www.w3.org/TR/trace-context/) e o HTTP Protocol for Correlation [para](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) passar detalhes de correlação com o pedido http, cada protocolo de fila tem que definir como os mesmos detalhes são passados ao longo da mensagem de fila. Alguns protocolos de fila (como amqp) permitem a passagem de metadados adicionais e alguns outros (tal Fila de Armazenamento Azure) exigem que o contexto seja codificado na carga útil da mensagem.
 
 > [!NOTE]
-> * O **rastreamento entre componentes ainda não tem suporte para filas** Com o HTTP, se o produtor e o consumidor enviarem telemetria a diferentes recursos de Application Insights, a experiência de diagnóstico de transação e o mapa do aplicativo mostrarão as transações e o mapa de ponta a ponta. No caso de filas, isso ainda não é suportado. 
+> * **O rastreio de componentes cruzados ainda não é suportado para filas** Com o HTTP, se o seu produtor e consumidor enviarem telemetria para diferentes recursos de Insights de Aplicação, a Experiência de Diagnóstico de Transações e o Mapa de Aplicações mostram transações e mapas de ponta a ponta. Em caso de filas, isso ainda não é apoiado. 
 
 ### <a name="service-bus-queue"></a>Fila do Service Bus
-Application Insights rastreia chamadas de mensagens do barramento de serviço com o novo [cliente do ServiceBus Microsoft Azure para .net](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) versão 3.0.0 e superior.
-Se você usar o [padrão de manipulador de mensagens](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para processar mensagens, você concluiu: todas as chamadas do barramento de serviço feitas pelo serviço são automaticamente rastreadas e correlacionadas com outros itens de telemetria. Consulte o [rastreamento de cliente do barramento de serviço com o Microsoft Application insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) se você processar mensagens manualmente.
+Application Insights rastreia chamadas de Mensagens de Ônibus de serviço com o novo [Cliente Microsoft Azure ServiceBus para a](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) versão 3.0.0 e superior.
+Se utilizar o padrão de manipulador de [mensagens](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para processar mensagens, está feito: todas as chamadas de Ônibus de serviço feitas pelo seu serviço são automaticamente rastreadas e correlacionadas com outros itens de telemetria. Consulte o [cliente do Service Bus a rastrear com o Microsoft Application Insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) se processar manualmente as mensagens.
 
-Se você usar o pacote [WindowsAzure. ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) , leia mais-os exemplos a seguir demonstram como rastrear (e correlacionar) chamadas para o barramento de serviço como a fila do barramento de serviço usa o protocolo AMQP e Application insights não rastreia automaticamente as operações de fila.
+Se utilizar o pacote [WindowsAzure.ServiceBus,](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) leia mais - seguindo exemplos demonstram como rastrear (e correlacionar) chamadas para o Ônibus de serviço, uma vez que a fila de ônibus de serviço utiliza o protocolo AMQP e os Insights de Aplicação não rastreiam automaticamente as operações de fila.
 Os identificadores de correlação são passados nas propriedades da mensagem.
 
-#### <a name="enqueue"></a>Enfileirar
+#### <a name="enqueue"></a>Enfila
 
 ```csharp
 public async Task Enqueue(string payload)
@@ -206,23 +202,23 @@ public async Task Process(BrokeredMessage message)
 }
 ```
 
-### <a name="azure-storage-queue"></a>Fila de armazenamento do Azure
-O exemplo a seguir mostra como controlar as operações de [fila do armazenamento do Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md) e correlacionar a telemetria entre o produtor, o consumidor e o armazenamento do Azure. 
+### <a name="azure-storage-queue"></a>Fila de armazenamento azure
+O exemplo que se segue mostra como acompanhar as operações de fila de [armazenamento azure](../../storage/queues/storage-dotnet-how-to-use-queues.md) e correlacionar a telemetria entre o produtor, o consumidor e o Armazenamento Azure. 
 
-A fila de armazenamento tem uma API HTTP. Todas as chamadas para a fila são rastreadas pelo coletor de dependência Application Insights para solicitações HTTP.
-Ele é configurado por padrão em aplicativos ASP.NET e ASP.NET Core, com outros tipos de aplicativo, você pode consultar a [documentação de aplicativos de console](../../azure-monitor/app/console.md)
+A fila de armazenamento tem um HTTP API. Todas as chamadas para a fila são rastreadas pelo Application Insights Dependency Collector para pedidos HTTP.
+É configurado por padrão em aplicações ASP.NET e ASP.NET Core, com outros tipos de aplicações, pode consultar a documentação de [aplicações](../../azure-monitor/app/console.md) de consola
 
-Você também pode querer correlacionar a ID da operação de Application Insights com a ID de solicitação de armazenamento. Para obter informações sobre como definir e obter um cliente de solicitação de armazenamento e uma ID de solicitação do servidor, consulte [monitorar, diagnosticar e solucionar problemas do armazenamento do Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
+Também pode querer correlacionar a operação Application Insights ID com o ID do pedido de armazenamento. Para obter informações sobre como definir e obter um cliente de pedido de armazenamento e um id de pedido de servidor, consulte [Monitor, diagnosticar e resolver problemas no Armazenamento Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
-#### <a name="enqueue"></a>Enfileirar
-Como as filas de armazenamento dão suporte à API HTTP, todas as operações com a fila são automaticamente controladas pelo Application Insights. Em muitos casos, essa instrumentação deve ser suficiente. No entanto, para correlacionar rastreamentos no lado do consumidor com rastreamentos de produtor, você deve passar um contexto de correlação de forma semelhante a como fazemos isso no protocolo HTTP para correlação. 
+#### <a name="enqueue"></a>Enfila
+Como as filas de armazenamento suportam a Http API, todas as operações com a fila são automaticamente rastreadas por Insights de Aplicação. Em muitos casos, esta instrumentação deve ser suficiente. No entanto, para correlacionar os vestígios do lado do consumidor com os vestígios dos produtores, deve passar um contexto de correlação semelhante à forma como o fazemos no Protocolo http para a Correlação. 
 
-Este exemplo mostra como controlar a operação de `Enqueue`. Pode:
+Este exemplo mostra como rastrear a operação `Enqueue`. Pode:
 
- - **Correlacionar repetições (se houver)** : todas têm um pai comum que é a operação de `Enqueue`. Caso contrário, eles serão rastreados como filhos da solicitação de entrada. Se houver várias solicitações lógicas para a fila, talvez seja difícil descobrir qual chamada resultou em repetições.
- - **Correlacione os logs de armazenamento (se e quando necessário)** : eles estão correlacionados com a telemetria de Application insights.
+ - **Correlacionar as tentativas (se houver)** : Todos têm um pai comum que é a operação `Enqueue`. Caso contrário, são seguidos como crianças do pedido de entrada. Se houver múltiplos pedidos lógicos para a fila, pode ser difícil encontrar qual chamada resultou em repetições.
+ - **Registos de armazenamento correlacionados (se e quando necessário)** : Estão correlacionados com a telemetria de Insights de Aplicação.
 
-A operação de `Enqueue` é o filho de uma operação pai (por exemplo, uma solicitação HTTP de entrada). A chamada de dependência HTTP é o filho da operação de `Enqueue` e o neto da solicitação de entrada:
+A operação `Enqueue` é o filho de uma operação dos pais (por exemplo, um pedido http vindo). A chamada de dependência http é a criança da operação `Enqueue` e o neto do pedido de entrada:
 
 ```csharp
 public async Task Enqueue(CloudQueue queue, string message)
@@ -265,16 +261,16 @@ public async Task Enqueue(CloudQueue queue, string message)
 }  
 ```
 
-Para reduzir a quantidade de telemetria que seu aplicativo relata ou se você não deseja controlar a operação de `Enqueue` por outros motivos, use a API de `Activity` diretamente:
+Para reduzir a quantidade de telemetria dos seus relatórios de candidatura ou se não quiser acompanhar a operação `Enqueue` por outras razões, utilize a API `Activity` diretamente:
 
-- Crie (e inicie) um novo `Activity` em vez de iniciar a operação de Application Insights. Você *não* precisa atribuir nenhuma propriedade a ele, exceto o nome da operação.
-- Serialize `yourActivity.Id` na carga da mensagem em vez de `operation.Telemetry.Id`. Você também pode usar `Activity.Current.Id`.
+- Criar (e iniciar) um novo `Activity` em vez de iniciar a operação Application Insights. Não *precisa* de atribuir propriedades, exceto o nome de operação.
+- Serialize `yourActivity.Id` na carga útil da mensagem em vez de `operation.Telemetry.Id`. Também pode usar `Activity.Current.Id`.
 
 
-#### <a name="dequeue"></a>Remoção da fila
-Da mesma forma que `Enqueue`, uma solicitação HTTP real para a fila de armazenamento é automaticamente controlada por Application Insights. No entanto, a operação `Enqueue` supostamente ocorre no contexto pai, como um contexto de solicitação de entrada. Os SDKs de Application Insights correlacionam automaticamente tal operação (e sua parte HTTP) com a solicitação pai e outra telemetria relatada no mesmo escopo.
+#### <a name="dequeue"></a>Defila
+Da mesma forma que `Enqueue`, um pedido http real para a fila de armazenamento é automaticamente rastreado por Insights de Aplicação. No entanto, a operação `Enqueue` presumivelmente acontece no contexto dos pais, como um contexto de pedido de entrada. Os SDKs de Aplicação correlacionaram automaticamente tal operação (e a sua parte HTTP) com o pedido dos pais e outra telemetria reportada no mesmo âmbito.
 
-A operação de `Dequeue` é complicada. O SDK do Application Insights rastreia automaticamente as solicitações HTTP. No entanto, ele não sabe o contexto de correlação até que a mensagem seja analisada. Não é possível correlacionar a solicitação HTTP para obter a mensagem com o restante da telemetria, especialmente quando mais de uma mensagem é recebida.
+A operação `Dequeue` é complicada. O SDK de Insights de Aplicação rastreia automaticamente os pedidos http. No entanto, não conhece o contexto de correlação até que a mensagem seja analisada. Não é possível correlacionar o pedido http para obter a mensagem com o resto da telemetria especialmente quando mais de uma mensagem é recebida.
 
 ```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
@@ -306,7 +302,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### <a name="process"></a>Processo
 
-No exemplo a seguir, uma mensagem de entrada é rastreada de maneira semelhante à solicitação HTTP de entrada:
+No exemplo seguinte, uma mensagem de entrada é rastreada de forma semelhante ao pedido http:
 
 ```csharp
 public async Task Process(MessagePayload message)
@@ -337,32 +333,32 @@ public async Task Process(MessagePayload message)
 }
 ```
 
-Da mesma forma, outras operações de fila podem ser instrumentadas. Uma operação de inspeção deve ser instrumentada de forma semelhante à de uma operação de remoção da fila. A instrumentação de operações de gerenciamento de filas não é necessária. Application Insights rastreia operações como HTTP e, na maioria dos casos, é suficiente.
+Da mesma forma, outras operações de fila podem ser instrumentadas. Uma operação de espreitar deve ser instrumentada de forma semelhante à de uma operação de desfila. A instrumentação de operações de gestão de filas não é necessária. Application Insights rastreia operações como HTTP, e na maioria dos casos, é suficiente.
 
-Quando você instrumenta a exclusão de mensagens, certifique-se de definir os identificadores de operação (correlação). Como alternativa, você pode usar a API `Activity`. Em seguida, você não precisa definir identificadores de operação nos itens de telemetria porque Application Insights SDK faz isso para você:
+Quando a eliminação da mensagem do instrumento, certifique-se de que define os identificadores de funcionamento (correlação). Em alternativa, pode utilizar a `Activity` API. Em seguida, não precisa de definir identificadores de operação nos itens de telemetria porque o Application Insights SDK faz isso por si:
 
 - Crie um novo `Activity` depois de ter um item da fila.
-- Use `Activity.SetParentId(message.ParentId)` para correlacionar os logs de produtor e de consumidor.
-- Iniciar a `Activity`.
-- Acompanhe as operações de remover da fila, processar e excluir usando `Start/StopOperation` auxiliares. Faça isso no mesmo fluxo de controle assíncrono (contexto de execução). Dessa forma, eles são correlacionados corretamente.
+- Utilize `Activity.SetParentId(message.ParentId)` para correlacionar os registos dos consumidores e dos produtores.
+- Inicie a `Activity`.
+- Acompanhe a desfila, processe e elimine as operações utilizando `Start/StopOperation` ajudantes. Faça-o a partir do mesmo fluxo de controlo assíncrono (contexto de execução). Desta forma, estão devidamente correlacionados.
 - Pare o `Activity`.
-- Use `Start/StopOperation`ou chame a telemetria de `Track` manualmente.
+- Utilize `Start/StopOperation`ou ligue para `Track` telemetria manualmente.
 
-### <a name="dependency-types"></a>Tipos de dependência
+### <a name="dependency-types"></a>Tipos de Dependência
 
-Application Insights usa o tipo de dependência para experiências de interface do usuário do Personalizar. Para filas, ele reconhece os seguintes tipos de `DependencyTelemetry` que aprimoram a [experiência de diagnóstico de transação](/azure/azure-monitor/app/transaction-diagnostics):
-- `Azure queue` para filas de armazenamento do Azure
-- `Azure Event Hubs` para os hubs de eventos do Azure
-- `Azure Service Bus` para o barramento de serviço do Azure
+Application Insights usa tipo de dependência para cusomizar experiências de UI. Para as filas reconhece os seguintes tipos de `DependencyTelemetry` que melhoram a experiência de [diagnóstico de transações:](/azure/azure-monitor/app/transaction-diagnostics)
+- `Azure queue` para filas de armazenamento azure
+- `Azure Event Hubs` para hubs de eventos azure
+- `Azure Service Bus` para o ônibus de serviço azure
 
 ### <a name="batch-processing"></a>Processamento em lotes
-Com algumas filas, você pode remover a fila de várias mensagens com uma solicitação. O processamento dessas mensagens é supostamente independente e pertence às diferentes operações lógicas. Não é possível correlacionar a operação de `Dequeue` a uma mensagem específica que está sendo processada.
+Com algumas filas, pode fazer fila múltiplas com um pedido. O processamento destas mensagens é presumivelmente independente e pertence às diferentes operações lógicas. Não é possível relacionar a operação `Dequeue` a uma determinada mensagem que está a ser processada.
 
-Cada mensagem deve ser processada em seu próprio fluxo de controle assíncrono. Para obter mais informações, consulte a seção [acompanhamento de dependências de saída](#outgoing-dependencies-tracking) .
+Cada mensagem deve ser processada no seu próprio fluxo de controlo assíncrono. Para mais informações, consulte a secção de rastreio de [dependências de saída.](#outgoing-dependencies-tracking)
 
-## <a name="long-running-background-tasks"></a>Tarefas em segundo plano de execução longa
+## <a name="long-running-background-tasks"></a>Tarefas de fundo de longa duração
 
-Alguns aplicativos iniciam operações de longa execução que podem ser causadas por solicitações do usuário. Da perspectiva de rastreamento/instrumentação, não é diferente da instrumentação de solicitação ou de dependência: 
+Algumas aplicações iniciam operações de longo prazo que podem ser causadas por pedidos de utilizador. Do ponto de vista do rastreio/instrumentação, não é diferente do pedido ou da instrumentação da dependência: 
 
 ```csharp
 async Task BackgroundTask()
@@ -392,22 +388,22 @@ async Task BackgroundTask()
 }
 ```
 
-Neste exemplo, `telemetryClient.StartOperation` cria `DependencyTelemetry` e preenche o contexto de correlação. Digamos que você tenha uma operação pai que foi criada por solicitações de entrada que agendaram a operação. Desde que `BackgroundTask` comece no mesmo fluxo de controle assíncrono que uma solicitação de entrada, ela será correlacionada com essa operação pai. `BackgroundTask` e todos os itens de telemetria aninhados são automaticamente correlacionados com a solicitação que o causou, mesmo após o término da solicitação.
+Neste exemplo, `telemetryClient.StartOperation` cria `DependencyTelemetry` e preenche o contexto de correlação. Digamos que tem uma operação aos pais que foi criada por pedidos que programaram a operação. Desde que `BackgroundTask` comece no mesmo fluxo de controlo assíncrono que um pedido de entrada, está correlacionado com a operação dos pais. `BackgroundTask` e todos os itens de telemetria aninhados estão automaticamente correlacionados com o pedido que o causou, mesmo após o fim do pedido.
 
-Quando a tarefa é iniciada a partir do thread em segundo plano que não tem nenhuma operação (`Activity`) associada a ela, `BackgroundTask` não tem nenhum pai. No entanto, ele pode ter operações aninhadas. Todos os itens de telemetria relatados da tarefa estão correlacionados ao `DependencyTelemetry` criado no `BackgroundTask`.
+Quando a tarefa começa a partir do fio de fundo que não tem qualquer operação (`Activity`) associada a ela, `BackgroundTask` não tem nenhum progenitor. No entanto, pode ter operações aninhadas. Todos os artigos de telemetria relatados da tarefa estão correlacionados com o `DependencyTelemetry` criado em `BackgroundTask`.
 
-## <a name="outgoing-dependencies-tracking"></a>Rastreamento de dependências de saída
-Você pode acompanhar seu próprio tipo de dependência ou uma operação que não tem suporte pelo Application Insights.
+## <a name="outgoing-dependencies-tracking"></a>Rastreio de dependências de saída
+Pode rastrear o seu próprio tipo de dependência ou uma operação que não seja suportada pela Application Insights.
 
-O método `Enqueue` na fila do barramento de serviço ou na fila de armazenamento pode servir como exemplos para esse controle personalizado.
+O método `Enqueue` na fila do Ônibus de serviço ou na fila de armazenamento pode servir como exemplos para tal rastreio personalizado.
 
-A abordagem geral para o acompanhamento de dependência personalizado é:
+A abordagem geral para o rastreio da dependência personalizada é:
 
-- Chame o método `TelemetryClient.StartOperation` (extensão) que preenche as propriedades de `DependencyTelemetry` que são necessárias para a correlação e outras propriedades (carimbo de data/hora de início, duração).
-- Defina outras propriedades personalizadas na `DependencyTelemetry`, como o nome e qualquer outro contexto necessário.
-- Faça uma chamada de dependência e aguarde.
-- Pare a operação com `StopOperation` quando ela for concluída.
-- Tratar exceções.
+- Ligue para o método `TelemetryClient.StartOperation` (extensão) que preenche as propriedades `DependencyTelemetry` que são necessárias para a correlação e algumas outras propriedades (carimbo de tempo de início, duração).
+- Detete outras propriedades personalizadas no `DependencyTelemetry`, como o nome e qualquer outro contexto que você precisar.
+- Faça uma ligação de dependência e espere por isso.
+- Pare a operação com `StopOperation` quando terminar.
+- Manuseie exceções.
 
 ```csharp
 public async Task RunMyTaskAsync()
@@ -427,13 +423,13 @@ public async Task RunMyTaskAsync()
 }
 ```
 
-A operação de descarte faz com que a operação seja interrompida, portanto, você pode fazer isso em vez de chamar `StopOperation`.
+A eliminação da operação faz com que a operação seja interrompida, pelo que pode fazê-lo em vez de chamar `StopOperation`.
 
-*Aviso*: em alguns casos, uma exceção não disponível pode [impedir](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) que `finally` seja chamado para que as operações não sejam rastreadas.
+*Aviso:* em alguns casos, uma exceção não handedpode [impedir](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) que `finally` de serem chamados para que as operações não possam ser rastreadas.
 
-### <a name="parallel-operations-processing-and-tracking"></a>Processamento e acompanhamento de operações paralelas
+### <a name="parallel-operations-processing-and-tracking"></a>Processamento e rastreio de operações paralelas
 
-`StopOperation` interrompe apenas a operação que foi iniciada. Se a operação em execução atual não corresponder à que você deseja parar, `StopOperation` não fará nada. Essa situação pode acontecer se você iniciar várias operações em paralelo no mesmo contexto de execução:
+`StopOperation` só para a operação que foi iniciada. Se a operação atual não corresponder à que queres parar, `StopOperation` não faz nada. Esta situação pode acontecer se iniciar várias operações paralelas no mesmo contexto de execução:
 
 ```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
@@ -451,7 +447,7 @@ telemetryClient.StopOperation(firstOperation);
 await secondTask;
 ```
 
-Certifique-se de sempre chamar `StartOperation` e processar a operação no mesmo método **assíncrono** para isolar as operações em execução em paralelo. Se a operação for síncrona (ou não assíncrona), empacote o processo e controle com `Task.Run`:
+Certifique-se de que chama sempre `StartOperation` e processa o funcionamento no mesmo método **de sincronização** para isolar as operações em paralelo. Se o funcionamento for sincronizado (ou não asincronizar), envolvê-lo e acompanhar com `Task.Run`:
 
 ```csharp
 public void RunMyTask(string name)
@@ -472,18 +468,18 @@ public async Task RunAllTasks()
 }
 ```
 
-## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>Operações de ApplicationInsights vs System. Diagnostics. Activity
-`System.Diagnostics.Activity` representa o contexto de rastreamento distribuído e é usado por estruturas e bibliotecas para criar e propagar o contexto dentro e fora do processo e correlacionar os itens de telemetria. A atividade funciona junto com `System.Diagnostics.DiagnosticSource`-o mecanismo de notificação entre a estrutura/biblioteca para notificar sobre eventos interessantes (solicitações de entrada ou de saída, exceções, etc.).
+## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>ApplicationInsights operações vs System.Diagnostics.Activity
+`System.Diagnostics.Activity` representa o contexto de rastreio distribuído e é utilizado por quadros e bibliotecas para criar e propagar o contexto dentro e fora do processo e correlacionar itens de telemetria. A atividade funciona em conjunto com `System.Diagnostics.DiagnosticSource` - o mecanismo de notificação entre o quadro/biblioteca para notificar sobre eventos interessantes (pedidos de entrada ou saída, exceções, etc.).
 
-As atividades são cidadãos de primeira classe em Application Insights, e a coleção de solicitações e dependência automáticas depende muito delas junto com os eventos de `DiagnosticSource`. Se você criar atividade em seu aplicativo, ele não resultará na criação de Application Insights telemetria. Application Insights precisa receber eventos de diagnóstico e conhecer os nomes de eventos e as cargas para converter a atividade na telemetria.
+As atividades são cidadãos de primeira classe em Insights de Aplicação e dependência automática e a recolha de pedidos depende fortemente deles juntamente com eventos `DiagnosticSource`. Se criar atividade na sua aplicação - não resultaria na criação de telemetria de Insights de Aplicação. Application Insights precisa receber eventos DiagnosticSource e conhecer os nomes dos eventos e cargas para traduzir a Atividade em telemetria.
 
-Cada operação de Application Insights (solicitação ou dependência) envolve `Activity`-quando `StartOperation` é chamado, ele cria a atividade abaixo. `StartOperation` é a maneira recomendada de controlar a telemetrias de solicitação ou de dependência manualmente e garantir que tudo esteja correlacionado.
+Cada operação de Insights de Aplicação (pedido ou dependência) envolve `Activity` - quando `StartOperation` é chamado, cria atividade por baixo. `StartOperation` é a forma recomendada de rastrear o pedido ou as telemetrias de dependência manualmente e garantir que tudo está correlacionado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Aprenda os conceitos básicos da [correlação de telemetria](correlation.md) no Application insights.
-- Confira como os dados correlacionados alimentam a [experiência de diagnóstico de transação](../../azure-monitor/app/transaction-diagnostics.md) e o mapa do [aplicativo](../../azure-monitor/app/app-map.md).
-- Consulte o [modelo de dados](../../azure-monitor/app/data-model.md) para tipos de Application insights e modelo de dados.
-- Relatar [eventos e métricas](../../azure-monitor/app/api-custom-events-metrics.md) personalizados para Application insights.
-- Confira a [configuração](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) padrão da coleção de propriedades de contexto.
-- Verifique o [Guia do usuário System. Diagnostics. Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para ver como correlacionamos a telemetria.
+- Aprenda o básico da correlação de [telemetria](correlation.md) em Insights de Aplicação.
+- Confira como os poderes de dados correlacionados Experiência de Diagnóstico de [Transações](../../azure-monitor/app/transaction-diagnostics.md) e Mapa de [Aplicações](../../azure-monitor/app/app-map.md).
+- Consulte o modelo de [dados](../../azure-monitor/app/data-model.md) para tipos de Insights de Aplicação e modelo de dados.
+- Reporte [eventos e métricas personalizados](../../azure-monitor/app/api-custom-events-metrics.md) para Application Insights.
+- Confira a [configuração](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) padrão para a recolha de propriedades de contexto.
+- Consulte o [System.Diagnostics.Activity User Guide](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para ver como correlacionar a telemetria.

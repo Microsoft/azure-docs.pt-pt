@@ -1,33 +1,29 @@
 ---
-title: Alerta sobre problemas nos serviços de nuvem do Azure usando a integração de Diagnóstico do Azure com o Aplicativo Azure insights | Microsoft Docs
-description: Monitorar problemas como falhas de inicialização, panes e loops de reciclagem de função nos serviços de nuvem do Azure com informações de Aplicativo Azure
-ms.service: azure-monitor
-ms.subservice: application-insights
+title: Alerta sobre questões nos Serviços Azure Cloud utilizando a integração de Diagnósticos Azure com insights de aplicação Azure  Microsoft Docs
+description: Monitor para problemas como falhas de startups, falhas e ciclos de reciclagem de papéis em Azure Cloud Services com Insights de Aplicação Azure
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/07/2018
 ms.reviewer: harelbr
-ms.openlocfilehash: b4404f033f5bdf221590e155640e4c0442601e18
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820630"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669748"
 ---
-# <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre problemas nos serviços de nuvem do Azure usando a integração do diagnóstico do Azure com o Aplicativo Azure insights
+# <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre questões nos Serviços Azure Cloud utilizando a integração de diagnósticos Azure com insights de aplicação Azure
 
-Neste artigo, descreveremos como configurar as regras de alerta que monitoram problemas como falhas de inicialização, panes e loops de reciclagem de função nos serviços de nuvem do Azure (funções Web e de trabalho).
+Neste artigo, descreveremos como criar regras de alerta que monitorizam questões como falhas de startups, falhas e ciclos de reciclagem de papéis nos Serviços azure cloud (funções web e trabalhadores).
 
-O método descrito neste artigo baseia-se na [integração de diagnóstico do Azure com o Application insights](https://azure.microsoft.com/blog/azure-diagnostics-integration-with-application-insights/)e nos alertas de log lançados recentemente [para Application insights](https://azure.microsoft.com/blog/log-alerts-for-application-insights-preview/) recurso.
+O método descrito neste artigo baseia-se na integração de [Diagnósticos Azure com Insights](https://azure.microsoft.com/blog/azure-diagnostics-integration-with-application-insights/)de Aplicação , e nos recentes alertas de log para a capacidade de Insights de [Aplicação.](https://azure.microsoft.com/blog/log-alerts-for-application-insights-preview/)
 
-## <a name="define-a-base-query"></a>Definir uma consulta base
+## <a name="define-a-base-query"></a>Defina uma consulta base
 
-Para começar, definiremos uma consulta base que recupera os eventos do log de eventos do Windows do canal do Windows Azure, que são capturados em Application Insights como registros de rastreamento.
-Esses registros podem ser usados para detectar uma variedade de problemas nos serviços de nuvem do Azure, como falhas de inicialização, falhas de tempo de execução e loops de reciclagem.
+Para começar, vamos definir uma consulta base que recupera os eventos do Windows Event Log do canal Windows Azure, que são capturados em Application Insights como registos de vestígios.
+Estes registos podem ser usados para detetar uma variedade de problemas nos Serviços Azure Cloud, como falhas de arranque, falhas no tempo de execução e ciclos de reciclagem.
 
 > [!NOTE]
-> A consulta base abaixo verifica problemas em uma janela de tempo de 30 minutos e pressupõe uma latência de 10 minutos para ingerir os registros de telemetria. Esses padrões podem ser configurados como você pode ver adequado.
+> A consulta de base abaixo verifica os problemas numa janela temporal de 30 minutos, e assume uma latência de 10 minutos na ingestão dos registos de telemetria. Estes predefinições podem ser configurados como entender.
 
 ```
 let window = 30m;
@@ -40,13 +36,13 @@ let EventLogs = traces
 | project timestamp, channel, eventId, message, cloud_RoleInstance, cloud_RoleName, itemCount;
 ```
 
-## <a name="check-for-specific-event-ids"></a>Verificar identificações de evento específicas
+## <a name="check-for-specific-event-ids"></a>Verifique se existem iDs de eventos específicos
 
-Depois de recuperar os eventos do log de eventos do Windows, problemas específicos podem ser detectados verificando suas respectivas IDs de evento e propriedades de mensagem (veja os exemplos abaixo).
-Basta combinar a consulta base acima com uma das consultas abaixo e usar essa consulta combinada ao definir a regra de alerta de log.
+Após a recuperação dos eventos do Windows Event Log, problemas específicos podem ser detetados verificando as suas propriedades de ID e mensagem de eventos respetivos (ver exemplos abaixo).
+Basta combinar a consulta de base acima com uma das consultas abaixo, e usou essa consulta combinada ao definir a regra de alerta de registo.
 
 > [!NOTE]
-> Nos exemplos abaixo, um problema será detectado se mais de três eventos forem encontrados durante a janela de tempo analisada. Esse padrão pode ser configurado para alterar a sensibilidade da regra de alerta.
+> Nos exemplos abaixo, será detetado um problema se forem encontrados mais de três eventos durante a janela de tempo analisada. Esta predefinição pode ser configurada para alterar a sensibilidade da regra de alerta.
 
 ```
 // Detect failures in the OnStart method
@@ -84,38 +80,38 @@ EventLogs
 
 ## <a name="create-an-alert"></a>Criar um alerta
 
-No menu de navegação do recurso Application Insights, vá para **alertas**e selecione **nova regra de alerta**.
+No menu de navegação dentro do seu recurso Application Insights, vá a **Alertas**e, em seguida, selecione **Nova Regra**de Alerta .
 
-![Captura de tela de criar regra](./media/proactive-cloud-services/001.png)
+![Screenshot da regra Criar](./media/proactive-cloud-services/001.png)
 
-Na janela **criar regra** , na seção **definir condição de alerta** , clique em **Adicionar critérios**e selecione pesquisa de **logs personalizada**.
+Na janela de **regra Criar,** sob a secção de condição de **alerta Definir,** clique nos **critérios adicionar**e, em seguida, selecione procurar registo **personalizado**.
 
-![Captura de tela de definir critérios de condição para o alerta](./media/proactive-cloud-services/002.png)
+![Screenshot dos critérios de condição de definição para alerta](./media/proactive-cloud-services/002.png)
 
-Na caixa **Pesquisar consulta** , Cole a consulta combinada que você preparou na etapa anterior.
+Na caixa de **consulta de pesquisa,** colhe a consulta combinada que preparou no passo anterior.
 
-Em seguida, continue até a caixa de **limite** e defina seu valor como 0. Você pode, opcionalmente, ajustar os **campos**de **período** e frequência.
+Em seguida, continue para a caixa **Threshold,** e definir o seu valor para 0. Pode ajustar opcionalmente **os** **campos**periode e frequência .
 Clique em **Concluído**.
 
-![Captura de tela de configurar consulta lógica de sinal](./media/proactive-cloud-services/003.png)
+![Screenshot da consulta lógica de sinal configurar](./media/proactive-cloud-services/003.png)
 
-Na seção **definir detalhes do alerta** , forneça um **nome** e uma **Descrição** para a regra de alerta e defina sua **gravidade**.
-Além disso, verifique se o botão **habilitar regra no momento da criação** está definido como **Sim**.
+Na secção de detalhes de **alerta Definido,** forneça um **Nome** e **Descrição** à regra de alerta e defina a sua **gravidade**.
+Além disso, **certifique-se** de que a regra Enable sobre o botão de criação está definida para **Sim**.
 
-![Detalhes do alerta de captura de tela](./media/proactive-cloud-services/004.png)
+![Detalhes de alerta de screenshot](./media/proactive-cloud-services/004.png)
 
-Na seção **definir grupo de ações** , você pode selecionar um **grupo de ações** existente ou criar um novo.
-Você pode optar por fazer com que o grupo de ações contenha várias ações de vários tipos.
+Na secção de grupo de **ação Define,** pode selecionar um grupo de **Ação** existente ou criar um novo.
+Pode optar por que o grupo de ação contenha múltiplas ações de vários tipos.
 
-![Grupo de ações de captura de tela](./media/proactive-cloud-services/005.png)
+![Grupo de ação de screenshot](./media/proactive-cloud-services/005.png)
 
-Depois de definir o grupo de ações, confirme as alterações e clique em **criar regra de alerta**.
+Depois de definir o grupo Action, confirme as suas alterações e clique em **Criar a regra**de alerta .
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre a detecção automática de:
+Saiba mais sobre a deteção automática:
 
-[Anomalias de falha](../../azure-monitor/app/proactive-failure-diagnostics.md)
-[vazamentos de memória](../../azure-monitor/app/proactive-potential-memory-leak.md)
-[anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)
+[Anomalias](../../azure-monitor/app/proactive-failure-diagnostics.md) de falha
+fugas de [memória](../../azure-monitor/app/proactive-potential-memory-leak.md)
+[anomalias](../../azure-monitor/app/proactive-performance-diagnostics.md) de desempenho
 

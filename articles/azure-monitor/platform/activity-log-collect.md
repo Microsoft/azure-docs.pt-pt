@@ -1,79 +1,78 @@
 ---
-title: Coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics | Microsoft Docs
-description: Colete o log de atividades do Azure em logs de Azure Monitor e use a solução de monitoramento para analisar e pesquisar o log de atividades do Azure em todas as suas assinaturas do Azure.
-ms.service: azure-monitor
+title: Recolher e analisar registos de atividade do Azure no espaço de trabalho do Log Analytics Microsoft Docs
+description: Recolher o Registo de Atividades do Azure em Registos de MonitorEs Azure e utilizar a solução de monitorização para analisar e pesquisar o registo de atividade do Azure em todas as suas subscrições do Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 2bf2f012e553e08a1eb829f93d9af0f0e74f638b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 044f974d83eba098820639e67412110329d5ad7d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977660"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668983"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recolher e analisar registos de atividade do Azure no espaço de trabalho do Log Analytics no Monitor Azure
 
 > [!WARNING]
-> Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](diagnostic-settings-legacy.md).
+> Agora pode recolher o log da Atividade num espaço de trabalho do Log Analytics utilizando uma definição de diagnóstico semelhante à forma como recolhe registos de recursos. Consulte recolher e analisar registos de atividade do Azure no espaço de [trabalho do Log Analytics no Monitor Azure](diagnostic-settings-legacy.md).
 
-O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Este artigo descreve como coletar o log de atividades em um espaço de trabalho Log Analytics e como usar a [solução de monitoramento](../insights/solutions.md)de análise do log de atividades, que fornece consultas de log e exibições para a análise desses dados. 
+O [Registo de Atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos de nível de subscrição que ocorreram na sua subscrição Azure. Este artigo descreve como recolher o Registo de Atividades num espaço de trabalho do Log Analytics e como utilizar a solução de [monitorização](../insights/solutions.md)do Log Analytics de Atividades, que fornece consultas de registo e vistas para analisar estes dados. 
 
-Conectar o log de atividades a um espaço de trabalho Log Analytics fornece os seguintes benefícios:
+Ligar o Registo de Atividade a um espaço de trabalho de Log Analytics proporciona os seguintes benefícios:
 
-- Consolide o log de atividades de várias assinaturas do Azure em um local para análise.
-- Armazene entradas do log de atividades por mais de 90 dias.
-- Correlacione os dados do log de atividades com outros dados de monitoramento coletados pelo Azure Monitor.
-- Use [consultas de log](../log-query/log-query-overview.md) para executar uma análise complexa e obter informações aprofundadas sobre entradas do log de atividades.
+- Consolidar o Registo de Atividades de várias subscrições do Azure num único local para análise.
+- Registo de Atividades da Loja por mais de 90 dias.
+- Correlacionar dados do Registo de Atividades com outros dados de monitorização recolhidos pelo Monitor Azure.
+- Utilize consultas de [registo](../log-query/log-query-overview.md) para realizar análises complexas e obter informações profundas sobre as entradas de Registo de Atividade.
 
-## <a name="connect-to-log-analytics-workspace"></a>Conectar-se ao Log Analytics espaço de trabalho
-Um único espaço de trabalho pode ser conectado ao log de atividades para várias assinaturas no mesmo locatário do Azure. Para a coleta em vários locatários, consulte [coletar logs de atividades do Azure em um espaço de trabalho log Analytics entre assinaturas em locatários diferentes do Azure Active Directory](activity-log-collect-tenants.md).
+## <a name="connect-to-log-analytics-workspace"></a>Ligue-se ao espaço de trabalho log Analytics
+Um único espaço de trabalho pode ser ligado ao Registo de Atividades para múltiplas subscrições no mesmo inquilino Azure. Para recolha em vários inquilinos, consulte Collect Azure Activity Logs num espaço de trabalho log Analytics através de [subscrições em diferentes inquilinos do Azure Ative Directory.](activity-log-collect-tenants.md)
 
 > [!IMPORTANT]
-> Você poderá receber um erro com o procedimento a seguir se os provedores de recursos Microsoft. OperationalInsights e Microsoft. OperationsManagement não estiverem registrados para sua assinatura. Consulte [provedores de recursos do Azure e tipos](../../azure-resource-manager/management/resource-providers-and-types.md) para registrar esses provedores.
+> Poderá receber um erro com o seguinte procedimento se os fornecedores de recursos Microsoft.OperationalInsights e Microsoft.OperationsManagement não estiverem registados para a sua subscrição. Consulte [os fornecedores e tipos](../../azure-resource-manager/management/resource-providers-and-types.md) de recursos azure para registar estes fornecedores.
 
-Use o procedimento a seguir para conectar o log de atividades ao seu espaço de trabalho do Log Analytics:
+Utilize o seguinte procedimento para ligar o Registo de Atividade ao seu espaço de trabalho Log Analytics:
 
-1. No menu **log Analytics espaços de trabalho** na portal do Azure, selecione o espaço de trabalho para coletar o log de atividades.
-1. Na seção **fontes de dados de espaço de trabalho** do menu do espaço de trabalho, selecione **log de atividades do Azure**.
-1. Clique na assinatura que você deseja conectar.
+1. A partir do menu de espaços de **trabalho Log Analytics** no portal Azure, selecione o espaço de trabalho para recolher o Registo de Atividades.
+1. Na secção **Fontes** de Dados do Espaço de Trabalho do menu do espaço de trabalho, selecione **o registo da Atividade Do Azure**.
+1. Clique na subscrição que pretende ligar.
 
-    ![Áreas de trabalho](media/activity-log-export/workspaces.png)
+    ![Áreas de Trabalho](media/activity-log-export/workspaces.png)
 
-1. Clique em **conectar** para conectar o log de atividades na assinatura ao espaço de trabalho selecionado. Se a assinatura já estiver conectada a outro espaço de trabalho, clique em **Desconectar** primeiro para desconectá-la.
+1. Clique em Ligar o **Connect** para ligar o registo de atividade na subscrição ao espaço de trabalho selecionado. Se a subscrição já estiver ligada a outro espaço de trabalho, clique em **Desligar** primeiro para desconectá-la.
 
     ![Conectar espaços de trabalho](media/activity-log-export/connect-workspace.png)
 
-## <a name="analyze-in-log-analytics-workspace"></a>Analisar no espaço de trabalho Log Analytics
-Quando você conecta um log de atividades a um espaço de trabalho Log Analytics, as entradas são gravadas no espaço de trabalho em uma tabela chamada **AzureActivity** que você pode recuperar com uma [consulta de log](../log-query/log-query-overview.md). A estrutura dessa tabela varia dependendo da [categoria da entrada de log](activity-log-view.md#categories-in-the-activity-log). Consulte [esquema de eventos do log de atividades do Azure](activity-log-schema.md) para obter uma descrição de cada categoria.
+## <a name="analyze-in-log-analytics-workspace"></a>Analisar no espaço de trabalho log Analytics
+Quando ligar um Registo de Atividade a um espaço de trabalho de Log Analytics, as entradas serão escritas para o espaço de trabalho numa tabela chamada **AzureActivity** que pode recuperar com uma consulta de [log](../log-query/log-query-overview.md). A estrutura deste quadro varia consoante a [categoria de entrada de registo](activity-log-view.md#categories-in-the-activity-log). Consulte o esquema do evento De Log de Atividade do [Azure](activity-log-schema.md) para obter uma descrição de cada categoria.
 
-## <a name="activity-logs-analytics-monitoring-solution"></a>Solução de monitoramento de análise de logs de atividades
-A solução de monitoramento de Log Analytics do Azure inclui várias consultas de log e exibições para analisar os registros de log de atividades em seu espaço de trabalho do Log Analytics.
+## <a name="activity-logs-analytics-monitoring-solution"></a>Solução de monitorização de Logs de Atividade Analytics
+A solução de monitorização do Azure Log Analytics inclui múltiplas consultas de registo e vistas para analisar os registos de Registo de Atividade sintetizadores no seu espaço de trabalho Log Analytics.
 
 ### <a name="install-the-solution"></a>Instalar a solução
-Use o procedimento em [instalar uma solução de monitoramento](../insights/solutions.md#install-a-monitoring-solution) para instalar a solução de **análise do log de atividades** . Não há nenhuma configuração adicional necessária.
+Utilize o procedimento em [Instalar uma solução de monitorização](../insights/solutions.md#install-a-monitoring-solution) para instalar a solução **Activity Log Analytics.** Não é necessária uma configuração adicional.
 
 ### <a name="use-the-solution"></a>Utilizar a solução
-As soluções de monitoramento são acessadas no menu **monitorar** na portal do Azure. Selecione **mais** na seção **insights** para abrir a página **visão geral** com os blocos de solução. O bloco **logs de atividade do Azure** exibe uma contagem do número de registros **AzureActivity** em seu espaço de trabalho.
+As soluções de monitorização são acedidas a partir do menu **Monitor** no portal Azure. Selecione **Mais** na secção **Insights** para abrir a página **'Overview'** com os azulejos da solução. O azulejo **Azure Activity Logs** apresenta uma contagem do número de registos **azureActivity** no seu espaço de trabalho.
 
 ![Mosaico de registos de atividades do Azure](media/collect-activity-logs/azure-activity-logs-tile.png)
 
 
-Clique no bloco **logs de atividade do Azure** para abrir a exibição **logs de atividade do Azure** . A exibição inclui as partes de visualização na tabela a seguir. Cada parte lista até 10 itens que correspondem aos critérios das partes para o intervalo de tempo especificado. Você pode executar uma consulta de log que retorna todos os registros correspondentes clicando em **Ver todos** na parte inferior da parte.
+Clique no azulejo **Azure Activity Logs** para abrir a vista Registos de Atividade sintetizações **do Azure.** A vista inclui as peças de visualização na tabela a seguir. Cada peça lista até 10 itens que correspondam aos critérios dessas peças para o intervalo de tempo especificado. Pode executar uma consulta de registo que devolve todos os registos correspondentes clicando **Ver tudo** na parte inferior da peça.
 
 ![Dashboard de registos de atividades do Azure](media/collect-activity-logs/activity-log-dash.png)
 
 | Parte de visualização | Descrição |
 | --- | --- |
-| Entradas de registo de atividades do Azure | Mostra um gráfico de barras dos totais principais registros de entrada do log de atividades do Azure para o intervalo de datas selecionado e mostra uma lista dos 10 principais chamadores de atividade. Clique para executar uma pesquisa de registos para o gráfico de barras `AzureActivity`. Clique em um item do chamador para executar uma pesquisa de logs retornando todas as entradas do log de atividades para esse item. |
-| Registos de atividades por Estado | Mostra um gráfico de rosca para o status do log de atividades do Azure para o intervalo de datas selecionado e uma lista dos dez principais registros de status. Clique no gráfico para executar uma consulta de log para `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Clique em um item de status para executar uma pesquisa de logs que retorna todas as entradas do log de atividades para esse registro de status. |
-| Registos de atividades por recurso | Mostra o número total de recursos com logs de atividade e lista os dez principais recursos com contagens de registros para cada recurso. Clique na área total para executar uma pesquisa de registos para `AzureActivity | summarize AggregatedValue = count() by Resource`, que mostra todos os recursos do Azure disponíveis para a solução. Clique em um recurso para executar uma consulta de log que retorna todos os registros de atividade para esse recurso. |
-| Registos de atividade pelo fornecedor de recursos | Mostra o número total de provedores de recursos que produzem logs de atividades e lista os dez principais. Clique na área total para executar uma consulta de log para `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, que mostra todos os provedores de recursos do Azure. Clique em um provedor de recursos para executar uma consulta de log que retorna todos os registros de atividade do provedor. |
+| Entradas de registo de atividades do Azure | Mostra um gráfico de barras do top Azure Activity Log registo total total para o intervalo de data que selecionou e mostra uma lista dos 10 melhores participantes da atividade. Clique na tabela de barras para fazer uma pesquisa de registo para `AzureActivity`. Clique num item de chamada para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse item. |
+| Registos de atividades por Estado | Mostra um gráfico de donut para o estado de Registo de Atividade seletiva do Azure para a gama de datas selecionada e uma lista dos dez melhores registos de estado. Clique na tabela para fazer uma consulta de registo para `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Clique num item de estado para executar uma pesquisa de registo devolvendo todas as entradas de Registo de Atividade para esse registo de estado. |
+| Registos de atividades por recurso | Mostra o número total de recursos com Registos de Atividade e lista os dez melhores recursos com contagens recorde para cada recurso. Clique na área total para fazer uma pesquisa de registo para `AzureActivity | summarize AggregatedValue = count() by Resource`, que mostra todos os recursos Do Azure disponíveis para a solução. Clique num recurso para executar uma consulta de registo devolvendo todos os registos de atividade para esse recurso. |
+| Registos de atividade pelo fornecedor de recursos | Mostra o número total de fornecedores de recursos que produzem Registos de Atividade e lista o top 10. Clique na área total para fazer uma consulta de registo para `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, que mostra todos os fornecedores de recursos Azure. Clique num fornecedor de recursos para executar uma consulta de registo devolvendo todos os registos de atividade para o fornecedor. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [log de atividades](platform-logs-overview.md).
-- Saiba mais sobre a [plataforma de dados Azure monitor](data-platform.md).
-- Use [consultas de log](../log-query/log-query-overview.md) para exibir informações detalhadas do seu log de atividades.
+- Saiba mais sobre o [Registo de Atividades](platform-logs-overview.md).
+- Saiba mais sobre a plataforma de [dados Azure Monitor.](data-platform.md)
+- Utilize consultas de [registo](../log-query/log-query-overview.md) para visualizar informações detalhadas do seu Registo de Atividades.

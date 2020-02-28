@@ -1,221 +1,218 @@
 ---
-title: Regras de ação para alertas de Azure Monitor
-description: Noções básicas sobre as regras de ação no Azure Monitor são e como configurá-las e gerenciá-las.
-ms.service: azure-monitor
-ms.subservice: alerts
+title: Regras de ação para alertas do Monitor Azure
+description: Compreender quais são as regras de ação no Monitor Azure e como configurá-las e geri-las.
 ms.topic: conceptual
-author: anantr
-ms.author: robb
 ms.date: 04/25/2019
-ms.openlocfilehash: e9de7a1fe4cee16cd1d22ba764ab9eccdf3979fd
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.subservice: alerts
+ms.openlocfilehash: 42f8d9cd30caa48376cda049f6404aa897a6866c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767692"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668473"
 ---
-# <a name="action-rules-preview"></a>Regras de ação (visualização)
+# <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 
-As regras de ação ajudam a definir ou suprimir ações em qualquer escopo de Azure Resource Manager (assinatura do Azure, grupo de recursos ou recurso de destino). Eles têm vários filtros que ajudam a restringir o subconjunto específico de instâncias de alerta nas quais você deseja agir.
+As regras de ação ajudam-no a definir ou suprimir ações em qualquer âmbito do Gestor de Recursos Azure (subscrição do Azure, grupo de recursos ou recurso-alvo). Eles têm vários filtros que o ajudam a reduzir o subconjunto específico de casos de alerta que você quer agir.
 
-## <a name="why-and-when-should-you-use-action-rules"></a>Por que e quando você deve usar regras de ação?
+## <a name="why-and-when-should-you-use-action-rules"></a>Porquê e quando deve usar as regras de ação?
 
 ### <a name="suppression-of-alerts"></a>Supressão de alertas
 
-Há muitos cenários em que é útil suprimir as notificações que os alertas geram. Esses cenários variam desde a supressão durante uma janela de manutenção planejada até a supressão fora do horário comercial. Por exemplo, a equipe responsável pelo **ContosoVM** deseja suprimir notificações de alerta para o próximo final de semana, pois o **ContosoVM** está passando por manutenção planejada. 
+Há muitos cenários em que é útil suprimir as notificações que os alertas geram. Estes cenários vão desde a supressão durante uma janela de manutenção planeada até à supressão durante o horário não-comercial. Por exemplo, a equipa responsável pela **ContosoVM** quer suprimir notificações de alerta para o próximo fim de semana, porque a **ContosoVM** está a sofrer uma manutenção planeada. 
 
-Embora a equipe possa desabilitar cada regra de alerta configurada no **ContosoVM** manualmente (e habilitá-la novamente após a manutenção), não é um processo simples. As regras de ação ajudam a definir a supressão de alerta em escala com a capacidade de configurar com flexibilidade o período de supressão. No exemplo anterior, a equipe pode definir uma regra de ação em **ContosoVM** que suprime todas as notificações de alerta do fim de semana.
+Embora a equipa possa desativar cada regra de alerta configurada manualmente em **ContosoVM** (e acioná-la novamente após a manutenção), não é um processo simples. As regras de ação ajudam-no a definir a supressão de alerta supressão em escala com a capacidade de configurar de forma flexível o período de supressão. No exemplo anterior, a equipa pode definir uma regra de ação sobre **ContosoVM** que suprime todas as notificações de alerta para o fim de semana.
 
 
-### <a name="actions-at-scale"></a>Ações em escala
+### <a name="actions-at-scale"></a>Ações à escala
 
-Embora as regras de alerta ajudem a definir o grupo de ações que dispara quando o alerta é gerado, os clientes geralmente têm um grupo de ação comum em seu escopo de operações. Por exemplo, uma equipe responsável pelo grupo de recursos **ContosoRG** provavelmente definirá o mesmo grupo de ações para todas as regras de alerta definidas em **ContosoRG**. 
+Embora as regras de alerta o ajudem a definir o grupo de ação que dispara quando o alerta é gerado, os clientes têm frequentemente um grupo de ação comum em todo o seu âmbito de operações. Por exemplo, uma equipa responsável pelo grupo de recursos **ContosoRG** provavelmente definirá o mesmo grupo de ação para todas as regras de alerta definidas dentro de **ContosoRG**. 
 
-As regras de ação ajudam a simplificar esse processo. Ao definir as ações em escala, um grupo de ações pode ser disparado para qualquer alerta gerado no escopo configurado. No exemplo anterior, a equipe pode definir uma regra de ação em **ContosoRG** que disparará o mesmo grupo de ações para todos os alertas gerados nele.
+As regras de ação ajudam a simplificar este processo. Ao definir ações em escala, um grupo de ação pode ser desencadeado para qualquer alerta que seja gerado no âmbito configurado. No exemplo anterior, a equipa pode definir uma regra de ação sobre **ContosoRG** que irá desencadear o mesmo grupo de ação para todos os alertas gerados dentro dela.
 
 > [!NOTE]
-> Regras de ação atualmente não se aplicam aos alertas de integridade do serviço do Azure.
+> As regras de ação atualmente não se aplicam aos alertas de Saúde do Serviço Azure.
 
-## <a name="configuring-an-action-rule"></a>Configurando uma regra de ação
+## <a name="configuring-an-action-rule"></a>Configurar uma regra de ação
 
-Você pode acessar o recurso selecionando **Gerenciar ações** na página de aterrissagem de **alertas** no Azure monitor. Em seguida, selecione **regras de ação (versão prévia)** . Você pode acessar as regras selecionando **regras de ação (versão prévia)** no painel da página de aterrissagem para alertas.
+Pode aceder à funcionalidade selecionando as ações de **Gestão** a partir da página de aterragem de **Alertas** no Monitor Azure. Em seguida, selecione regras de **ação (pré-visualização)** . Pode aceder às regras selecionando regras de **ação (pré-visualização)** a partir do painel de instrumentos da página de aterragem para alertas.
 
-![Regras de ação da página de aterrissagem de Azure Monitor](media/alerts-action-rules/action-rules-landing-page.png)
+![Regras de ação da página de aterragem do Monitor Azure](media/alerts-action-rules/action-rules-landing-page.png)
 
-Selecione **+ nova regra de ação**. 
+Selecione **+ Nova Regra de Ação**. 
 
-![Adicionar nova regra de ação](media/alerts-action-rules/action-rules-new-rule.png)
+![Adicione nova regra de ação](media/alerts-action-rules/action-rules-new-rule.png)
 
-Como alternativa, você pode criar uma regra de ação enquanto estiver configurando uma regra de alerta.
+Em alternativa, pode criar uma regra de ação enquanto está a configurar uma regra de alerta.
 
-![Adicionar nova regra de ação](media/alerts-action-rules/action-rules-alert-rule.png)
+![Adicione nova regra de ação](media/alerts-action-rules/action-rules-alert-rule.png)
 
-Agora você deve ver a página de fluxo para criar regras de ação. Configure os seguintes elementos: 
+Agora deve ver a página de fluxo para criar regras de ação. Configure os seguintes elementos: 
 
-![Novo fluxo de criação de regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
+![Fluxo de criação de novas regras de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
 ### <a name="scope"></a>Âmbito
 
-Primeiro, escolha o escopo (assinatura do Azure, grupo de recursos ou recurso de destino). Você também pode selecionar uma combinação de escopos em uma única assinatura.
+Primeiro escolha o âmbito (subscrição Azure, grupo de recursos ou recurso-alvo). Também pode selecionar uma combinação de âmbitos de várias formas dentro de uma única subscrição.
 
-![Escopo da regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
+![Âmbito da regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-scope.png)
 
-### <a name="filter-criteria"></a>Critérios de filtro
+### <a name="filter-criteria"></a>Critérios de filtragem
 
-Além disso, você pode definir filtros para limitá-los a um subconjunto específico de alertas. 
+Pode ainda definir filtros para reduzi-los a um subconjunto específico dos alertas. 
 
 Os filtros disponíveis são: 
 
-* **Severidade**: a opção para selecionar uma ou mais severidades de alerta. **Severity = Sev1** significa que a regra de ação é aplicável a todos os alertas definidos como Sev1.
-* **Monitorar serviço**: um filtro baseado no serviço de monitoramento de origem. Esse filtro também é de seleção múltipla. Por exemplo, **Monitor Service = "Application insights"** significa que a regra de ação é aplicável a todos os alertas baseados em Application insights.
-* **Tipo de recurso**: um filtro com base em um tipo de recurso específico. Esse filtro também é de seleção múltipla. Por exemplo, **tipo de recurso = "máquinas virtuais"** significa que a regra de ação é aplicável para todas as máquinas virtuais.
-* **ID da regra de alerta**: uma opção para filtrar regras de alerta específicas usando a ID do Gerenciador de recursos da regra de alerta.
-* **Condição do monitor**: um filtro para instâncias de alerta com disparado ou **resolvido** como a condição do monitor.
-* **Descrição**: uma correspondência de Regex (expressão regular) que define uma correspondência de cadeia de caracteres com a descrição, definida como parte da regra de alerta. Por exemplo, a **Descrição contém ' prod '** corresponderá a todos os alertas que contêm a cadeia de caracteres "Prod" em suas descrições.
-* **Contexto de alerta (carga)** : uma correspondência Regex que define uma correspondência de cadeia de caracteres em relação aos campos de contexto de alerta da carga de um alerta. Por exemplo, o **contexto de alerta (carga) contém ' computador-01 '** que corresponderá a todos os alertas cujas cargas contenham a cadeia de caracteres "computador-01".
+* **Severidade**: A opção de selecionar uma ou mais severidades de alerta. **Gravidade = Sev1** significa que a regra de ação é aplicável para todos os alertas definidos para sev1.
+* **Serviço de monitorização**: Um filtro baseado no serviço de monitorização de origem. Este filtro também é várias seleções. Por exemplo, **Monitor Service = "Application Insights"** significa que a regra de ação é aplicável para todos os alertas baseados em Insights de Aplicação.
+* **Tipo de recurso**: Um filtro baseado num tipo de recurso específico. Este filtro também é várias seleções. Por exemplo, **Tipo de Recurso = "Máquinas Virtuais"** significa que a regra de ação é aplicável a todas as máquinas virtuais.
+* **Id**da regra de alerta : Uma opção para filtrar regras específicas de alerta utilizando o ID do Gestor de Recursos da regra de alerta.
+* **Condição do monitor**: Um filtro para casos de alerta com **disparados** ou **resolvidos** como condição do monitor.
+* **Descrição**: Uma correspondência regex (expressão regular) que define uma correspondência de cordas com a descrição, definida como parte da regra de alerta. Por exemplo, a **descrição contém 'prod'** corresponde a todos os alertas que contenham a corda "prod" nas suas descrições.
+* **Contexto de alerta (carga útil)** : Uma correspondência regex que define uma correspondência de cordas com os campos de contexto de alerta da carga útil de um alerta. Por exemplo, o contexto de **alerta (carga útil) contém 'Computer-01'** corresponderá a todos os alertas cujas cargas contêm a corda "Computador-01".
 
-Esses filtros são aplicados em conjunto um com o outro. Por exemplo, se você definir o **tipo de recurso ' = máquinas virtuais** e **severidade ' = Sev0**, você filtrou para todos os alertas do **Sev0** somente em suas VMs. 
+Estes filtros são aplicados em conjunto uns com os outros. Por exemplo, se definir o **tipo de Recurso = Máquinas Virtuais** e **Gravidade' = Sev0,** então filtrado para todos os alertas **Sev0** apenas nos seus VMs. 
 
 ![Filtros de regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
-### <a name="suppression-or-action-group-configuration"></a>Configuração de grupo de ação ou supressão
+### <a name="suppression-or-action-group-configuration"></a>Configuração de grupo de supressão ou ação
 
-Em seguida, configure a regra de ação para o suporte de supressão de alerta ou grupo de ações. Você não pode escolher ambos. A configuração atua em todas as instâncias de alerta que correspondem ao escopo e aos filtros definidos anteriormente.
+Em seguida, configure a regra de ação para a supressão de alerta ou suporte do grupo de ação. Não pode escolher os dois. A configuração atua em todas as instâncias de alerta que correspondem ao âmbito e filtros previamente definidos.
 
 #### <a name="suppression"></a>Supressão
 
-Se você selecionar **supressão**, configure a duração da supressão de ações e notificações. Selecione uma das seguintes opções:
-* **De agora (sempre)** : suprime todas as notificações indefinidamente.
-* **Em um horário agendado**: suprime notificações dentro de uma duração limitada.
-* **Com uma recorrência**: suprime notificações em uma agenda recorrente diária, semanal ou mensal.
+Se selecionar **a supressão,** configure a duração para a supressão de ações e notificações. Selecione uma das seguintes opções:
+* **A partir de agora (Sempre)** : Suprime todas as notificações indefinidamente.
+* **Numa hora programada**: Suprime as notificações num prazo limitado.
+* **Com uma recorrência**: Suprime notificações num horário diário, semanal ou mensal recorrente.
 
-![Supressão da regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
+![Supressão de regras de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
 #### <a name="action-group"></a>Grupo de ação
 
-Se você selecionar **grupo de ações** na alternância, adicione um grupo de ações existente ou crie um novo. 
+Se selecionar o **grupo Action** no alternância, adicione um grupo de ação existente ou crie um novo. 
 
 > [!NOTE]
-> Você pode associar apenas um grupo de ações a uma regra de ação.
+> Só se pode associar um grupo de ação a uma regra de ação.
 
-![Adicionar ou criar nova regra de ação selecionando grupo de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-action-group.png)
+![Adicione ou crie nova regra de ação selecionando grupo de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-action-group.png)
 
-### <a name="action-rule-details"></a>Detalhes da regra de ação
+### <a name="action-rule-details"></a>Detalhes da regra da ação
 
-Por fim, configure os seguintes detalhes para a regra de ação:
+Por último, configure os seguintes detalhes para a regra de ação:
 * Nome
-* Grupo de recursos no qual ele foi salvo
+* Grupo de recursos em que é salvo
 * Descrição 
 
 ## <a name="example-scenarios"></a>Cenários de exemplo
 
-### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>Cenário 1: supressão de alertas com base na severidade
+### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>Cenário 1: Supressão de alertas com base na gravidade
 
-A contoso deseja suprimir notificações para todos os alertas do Sev4 em todas as VMs na assinatura **ContosoSub** todos os finais de semana.
+Contoso quer suprimir notificações para todos os alertas sev4 em todos os VMs dentro da subscrição **ContosoSub** todos os fins de semana.
 
-**Solução:** Crie uma regra de ação com:
-* Scope = **ContosoSub**
+**Solução:** Criar uma regra de ação com:
+* Âmbito = **ContosoSub**
 * Filtros
-    * Severidade = **Sev4**
-    * Tipo de recurso = **máquinas virtuais**
-* Supressão com recorrência definida como semanal e **sábado** e **domingo** verificados
+    * Gravidade = **Sev4**
+    * Tipo de recurso = **Máquinas Virtuais**
+* Supressão com recorrência definida para semana, e **sábado** e **domingo** verificado
 
-### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>Cenário 2: supressão de alertas com base no contexto de alerta (carga)
+### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>Cenário 2: Supressão de alertas com base no contexto de alerta (carga útil)
 
-A contoso deseja suprimir as notificações de todos os alertas de log gerados para o **computador-01** no **ContosoSub** indefinidamente, pois ele passa por manutenção.
+Contoso quer suprimir notificações para todos os alertas de registo gerados para **Computer-01** em **ContosoSub** indefinidamente, uma vez que está a passar pela manutenção.
 
-**Solução:** Crie uma regra de ação com:
-* Scope = **ContosoSub**
+**Solução:** Criar uma regra de ação com:
+* Âmbito = **ContosoSub**
 * Filtros
-    * Monitorar serviço = **log Analytics**
-    * O contexto do alerta (carga) contém o **computador-01**
-* Supressão definida como **de Now (Always)**
+    * Monitor Service = **Log Analytics**
+    * Contexto de alerta (carga útil) contém **Computador-01**
+* Supressão definida para **a partir de agora (Sempre)**
 
-### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Cenário 3: grupo de ações definido em um grupo de recursos
+### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Cenário 3: Grupo de ação definido num grupo de recursos
 
-A contoso definiu [um alerta de métrica em um nível de assinatura](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Mas ele deseja definir as ações que disparam especificamente para alertas gerados a partir do grupo de recursos **ContosoRG**.
+Contoso definiu [um alerta métrico a nível de subscrição.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor) Mas quer definir as ações que desencadeiam especificamente para alertas gerados pelo grupo de recursos **ContosoRG.**
 
-**Solução:** Crie uma regra de ação com:
-* Scope = **ContosoRG**
+**Solução:** Criar uma regra de ação com:
+* Âmbito = **ContosoRG**
 * Sem filtros
-* Grupo de ação definido como **ContosoActionGroup**
+* Grupo de ação definido para **ContosoActionGroup**
 
 > [!NOTE]
-> *Grupos de ação definidos em regras de ação e regras de alerta operam de forma independente, sem eliminação de duplicação.* No cenário descrito anteriormente, se um grupo de ações for definido para a regra de alerta, ele será disparado em conjunto com o grupo de ação definido na regra de ação. 
+> *Os grupos de ação definidos dentro das regras de ação e das regras de alerta funcionam de forma independente, sem qualquer duplicação.* No cenário descrito anteriormente, se um grupo de ação for definido para a regra de alerta, dispara em conjunto com o grupo de ação definido na regra de ação. 
 
-## <a name="managing-your-action-rules"></a>Gerenciando suas regras de ação
+## <a name="managing-your-action-rules"></a>Gerir as suas regras de ação
 
-Você pode exibir e gerenciar suas regras de ação no modo de exibição de lista:
+Pode ver e gerir as suas regras de ação a partir da vista da lista:
 
-![Exibição de lista de regras de ação](media/alerts-action-rules/action-rules-list-view.png)
+![Visão de lista de regras de ação](media/alerts-action-rules/action-rules-list-view.png)
 
-A partir daqui, você pode habilitar, desabilitar ou excluir regras de ação em escala, marcando a caixa de seleção ao lado delas. Quando você seleciona uma regra de ação, sua página de configuração é aberta. A página ajuda a atualizar a definição da regra de ação e a habilitá-la ou desabilitá-la.
+A partir daqui, pode ativar, desativar ou eliminar regras de ação em escala, selecionando a caixa de verificação ao lado delas. Quando seleciona uma regra de ação, a sua página de configuração abre-se. A página ajuda-o a atualizar a definição da regra de ação e a ativar ou desativar.
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Os alertas de log que você cria com a opção [número de resultados](alerts-unified-log.md) geram uma única instância de alerta usando o resultado da pesquisa inteiro (que pode se estender por vários computadores). Nesse cenário, se uma regra de ação usar o filtro de **contexto de alerta (carga)** , ela agirá na instância de alerta contanto que haja uma correspondência. No cenário 2, descrito anteriormente, se os resultados da pesquisa para o alerta de log gerado contiverem o **computador-01** e o **computador-02**, toda a notificação será suprimida. Não há nenhuma notificação gerada para o **computador-02** .
+Os alertas de registo que cria com o [número de resultados](alerts-unified-log.md) geram uma única instância de alerta utilizando todo o resultado de pesquisa (que pode abranger vários computadores). Neste cenário, se uma regra de ação usar o filtro **Alert Context (carga útil),** atua na instância de alerta desde que haja uma correspondência. No Cenário 2, descrito anteriormente, se os resultados da pesquisa para o alerta de registo gerado contiverem **computador-01** e **Computador-02,** toda a notificação é suprimida. Não há nenhuma notificação gerada para **o Computador-02.**
 
-![Regras de ação e alertas de log (número de resultados)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![Regras de ação e alertas de registo (número de resultados)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Para usar melhor os alertas de log com regras de ação, crie alertas de log com a opção [medição de métrica](alerts-unified-log.md) . As instâncias de alerta separadas são geradas por essa opção, com base em seu campo de grupo definido. Em seguida, no cenário 2, as instâncias de alerta separadas são geradas para o **computador-01** e o **computador-02**. Devido à regra de ação descrita no cenário, somente a notificação para o **computador-01** é suprimida. A notificação para o **computador-02** continua a ser acionada normalmente.
+Para melhor utilizar alertas de registo com regras de ação, crie alertas de registo com a opção de [medição métrica.](alerts-unified-log.md) Casos de alerta separados são gerados por esta opção, com base no seu campo de grupo definido. Em seguida, no Cenário 2, são geradas instâncias de alerta separadas para **Computador-01** e **Computador-02**. Devido à regra de ação descrita no cenário, apenas a notificação para **Computador-01** é suprimida. A notificação para **o Computador-02** continua a disparar normalmente.
 
-![Regras de ação e alertas de log (número de resultados)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
+![Regras de ação e alertas de registo (número de resultados)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
 ## <a name="faq"></a>FAQ
 
-### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>Enquanto estou Configurando uma regra de ação, gostaria de ver todas as regras de ação sobrepostas possíveis, para evitar notificações duplicadas. É possível fazer isso?
+### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>Enquanto estou a configurar uma regra de ação, gostaria de ver todas as possíveis regras de ação sobrepostas, para evitar notificações duplicadas. É possível fazer isto?
 
-Depois de definir um escopo ao configurar uma regra de ação, você poderá ver uma lista de regras de ação que se sobrepõem no mesmo escopo (se houver). Essa sobreposição pode ser uma das seguintes opções:
+Depois de definir um âmbito à medida que configura uma regra de ação, pode ver uma lista de regras de ação que se sobrepõem no mesmo âmbito (se houver). Esta sobreposição pode ser uma das seguintes opções:
 
-* Uma correspondência exata: por exemplo, a regra de ação que você está definindo e a regra de ação sobreposta estão na mesma assinatura.
-* Um subconjunto: por exemplo, a regra de ação que você está definindo está em uma assinatura e a regra de ação sobreposta está em um grupo de recursos dentro da assinatura.
-* Um superconjunto: por exemplo, a regra de ação que você está definindo está em um grupo de recursos e a regra de ação sobreposta está na assinatura que contém o grupo de recursos.
-* Uma interseção: por exemplo, a regra de ação que você está definindo está em **VM1** e **VM2**, e a regra de ação sobreposta está em **VM2** e **VM3**.
+* Uma correspondência exata: Por exemplo, a regra de ação que está a definir e a regra de ação sobreposta estão na mesma subscrição.
+* Um subconjunto: Por exemplo, a regra de ação que está a definir está numa subscrição, e a regra de ação sobreposta está num grupo de recursos dentro da subscrição.
+* Um superconjunto: Por exemplo, a regra de ação que está a definir está num grupo de recursos, e a regra de ação sobreposta está na subscrição que contém o grupo de recursos.
+* Uma intersecção: Por exemplo, a regra de ação que está a definir é em **VM1** e **VM2**, e a regra de ação sobreposta é em **VM2** e **VM3**.
 
 ![Regras de ação sobrepostas](media/alerts-action-rules/action-rules-overlapping.png)
 
-### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>Enquanto estou Configurando uma regra de alerta, é possível saber se já existem regras de ação definidas que possam atuar na regra de alerta que estou definindo?
+### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>Enquanto estou a configurar uma regra de alerta, é possível saber se já existem regras de ação definidas que possam agir na regra de alerta que estou a definir?
 
-Depois de definir o recurso de destino para sua regra de alerta, você pode ver a lista de regras de ação que agem no mesmo escopo (se houver) selecionando **Exibir ações configuradas** na seção **ações** . Essa lista é preenchida com base nos seguintes cenários para o escopo:
+Depois de definir o recurso-alvo para a sua regra de alerta, pode ver a lista de regras de ação que atuam no mesmo âmbito (se houver) selecionando **as ações configuradas do View** na secção **Ações.** Esta lista é povoada com base nos seguintes cenários para o âmbito:
 
-* Uma correspondência exata: por exemplo, a regra de alerta que você está definindo e a regra de ação estão na mesma assinatura.
-* Um subconjunto: por exemplo, a regra de alerta que você está definindo está em uma assinatura e a regra de ação está em um grupo de recursos dentro da assinatura.
-* Um superconjunto: por exemplo, a regra de alerta que você está definindo está em um grupo de recursos e a regra de ação está na assinatura que contém o grupo de recursos.
-* Uma interseção: por exemplo, a regra de alerta que você está definindo está em **VM1** e **VM2**, e a regra de ação está em **VM2** e **VM3**.
+* Uma correspondência exata: Por exemplo, a regra de alerta que está a definir e a regra de ação estão na mesma subscrição.
+* Um subconjunto: Por exemplo, a regra de alerta que está a definir está numa subscrição, e a regra de ação está num grupo de recursos dentro da subscrição.
+* Um superconjunto: Por exemplo, a regra de alerta que está a definir está num grupo de recursos, e a regra de ação está na subscrição que contém o grupo de recursos.
+* Um cruzamento: Por exemplo, a regra de alerta que está a definir é em **VM1** e **VM2**, e a regra de ação é em **VM2** e **VM3**.
     
 ![Regras de ação sobrepostas](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>Posso ver os alertas que foram suprimidos por uma regra de ação?
 
-Na [página lista de alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances), você pode escolher uma coluna adicional chamada **status de supressão**. Se a notificação de uma instância de alerta foi suprimida, ela mostraria esse status na lista.
+Na página da lista de [alertas,](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances)pode escolher uma coluna adicional chamada **Estado de Supressão**. Se a notificação para uma instância de alerta fosse suprimida, mostraria esse estado na lista.
 
-![Instâncias de alerta suprimidas](media/alerts-action-rules/action-rules-suppressed-alerts.png)
+![Casos de alerta suprimidos](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
-### <a name="if-theres-an-action-rule-with-an-action-group-and-another-with-suppression-active-on-the-same-scope-what-happens"></a>Se houver uma regra de ação com um grupo de ação e outra com supressão ativa no mesmo escopo, o que acontecerá?
+### <a name="if-theres-an-action-rule-with-an-action-group-and-another-with-suppression-active-on-the-same-scope-what-happens"></a>Se há uma regra de ação com um grupo de ação e outra com supressão ativa no mesmo âmbito, o que acontece?
 
-A supressão sempre tem precedência no mesmo escopo.
+A supressão tem sempre precedência sobre o mesmo âmbito.
 
-### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>O que acontece se eu tiver um recurso que é monitorado em duas regras de ação separadas? Obtenho uma ou duas notificações? Por exemplo, **VM2** no cenário a seguir:
+### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>O que acontece se eu tiver um recurso que é monitorizado em duas regras de ação separadas? Recebo uma ou duas notificações? Por exemplo, **VM2** no seguinte cenário:
 
       action rule AR1 defined for VM1 and VM2 with action group AG1
       action rule AR2 defined for VM2 and VM3 with action group AG1
 
-Para cada alerta em VM1 e VM3, o grupo de ações AG1 seria disparado uma vez. Para cada alerta no **VM2**, o grupo de ações AG1 seria disparado duas vezes, porque as regras de ação não eliminam a duplicação de ações. 
+Para cada alerta em VM1 e VM3, o grupo de ação AG1 seria acionado uma vez. Para cada alerta sobre **vM2**, o grupo de ação AG1 seria desencadeado duas vezes, porque as regras de ação não desduplicam as ações. 
 
-### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>O que acontece se eu tiver um recurso monitorado em duas regras de ação separadas e uma chamada para ação enquanto outra para supressão? Por exemplo, **VM2** no cenário a seguir:
+### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>O que acontece se eu tiver um recurso controlado em duas regras de ação separadas e um apela à ação e outro à supressão? Por exemplo, **VM2** no seguinte cenário:
 
       action rule AR1 defined for VM1 and VM2 with action group AG1 
       action rule AR2 defined for VM2 and VM3 with suppression
 
-Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. As ações e notificações para cada alerta em VM2 e VM3 serão suprimidas. 
+Para cada alerta em VM1, o grupo de ação AG1 seria acionado uma vez. As ações e notificações para cada alerta sobre VM2 e VM3 serão suprimidas. 
 
-### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>O que acontece se eu tiver uma regra de alerta e uma regra de ação definida para o mesmo recurso chamando grupos de ação diferentes? Por exemplo, **VM1** no cenário a seguir:
+### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>O que acontece se eu tiver uma regra de alerta e uma regra de ação definida para o mesmo recurso chamando diferentes grupos de ação? Por exemplo, **VM1** no seguinte cenário:
 
       alert rule rule1 on VM1 with action group AG2
       action rule AR1 defined for VM1 with action group AG1 
  
-Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. Sempre que a regra de alerta "rule1" for disparada, ela também disparará o AG2 adicionalmente. Grupos de ação definidos em regras de ação e regras de alerta operam de forma independente, sem eliminação de duplicação. 
+Para cada alerta em VM1, o grupo de ação AG1 seria acionado uma vez. Sempre que a regra de alerta "regra1" for acionada, também irá acionar a AG2 adicionalmente. Os grupos de ação definidos dentro das regras de ação e das regras de alerta funcionam de forma independente, sem qualquer duplicação. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba mais sobre alertas no Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)
+- [Saiba mais sobre alertas em Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)

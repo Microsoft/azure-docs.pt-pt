@@ -1,72 +1,71 @@
 ---
-title: Exibindo e analisando dados no Azure Log Analytics | Microsoft Docs
-description: Assistência para usuários de Log Analytics pesquisa de log para Azure Monitor experiência de consulta de log.
-ms.service: azure-monitor
+title: Visualização e análise de dados no Azure Log Analytics Microsoft Docs
+description: Assistência para utilizadores de log analytics pesquisa para experiência de consulta de log Do Monitor Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: a8d0469d57901f53d8e615f800b5d804944163fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398151"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670139"
 ---
-# <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição de Log Analytics pesquisa de log para logs de Azure Monitor
-A pesquisa de log no Log Analytics foi substituída recentemente por uma nova experiência para analisar os logs de Azure Monitor. A página pesquisa de logs ainda está acessível no momento por meio do item de menu **logs (clássico)** na página **log Analytics espaços de trabalho** no portal do Azure, mas será removida em 15 de fevereiro de 2019. Este artigo descreve as diferenças entre as duas experiências para ajudá-lo a fazer a transição da pesquisa de logs. 
+# <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição da pesquisa de log Analytics para registos do Monitor Azure
+A pesquisa de log no Log Analytics foi recentemente substituída por uma nova experiência para analisar os registos do Monitor Azure. A página de pesquisa de Registos ainda está acessível através do item do menu **Logs (clássico)** na página de espaços de **trabalho Log Analytics** no portal Azure, mas será removida a 15 de fevereiro de 2019. Este artigo descreve diferenças entre as duas experiências para ajudá-lo a transitar da pesquisa de registo. 
 
-## <a name="filter-results-of-a-query"></a>Filtrar os resultados de uma consulta
-Na pesquisa de logs, uma lista de filtros é exibida à medida que os resultados da pesquisa são entregues. Selecione um filtro e clique em **aplicar** para executar a consulta com o filtro selecionado.
+## <a name="filter-results-of-a-query"></a>Filtrar resultados de uma consulta
+No Registo de Pesquisa, é apresentada uma lista de filtros à medida que os resultados da pesquisa são entregues. Selecione um filtro e clique **Em aplicar** a consulta com o filtro selecionado.
 
-![Filtro de pesquisa de log](media/log-search-transition/filter-log-search.png)
+![Filtro de pesquisa de registo](media/log-search-transition/filter-log-search.png)
 
-Em logs de Azure Monitor, selecione *Filtrar (visualização)* para exibir filtros. Clique no ícone de filtro para exibir filtros de adição. Selecione um filtro e clique em **aplicar & executar** para executar a consulta com o filtro selecionado.
+Nos registos do Monitor Azure, selecione *Filter (pré-visualização)* para visualizar filtros. Clique no ícone do filtro para exibir filtros de adição. Selecione um filtro e clique **em Aplicar e executar** para executar a consulta com o filtro selecionado.
 
 ![Filtro de logs](media/log-search-transition/filter-logs.png)
 
 ## <a name="extract-custom-fields"></a>Extrair campos personalizados 
-Na pesquisa de logs, você extrai [campos personalizados](../platform/custom-fields.md) da exibição de lista, onde o menu de um campo inclui a ação _extrair campos da tabela_.
+Em Pesquisa de Registo, extrai [campos personalizados](../platform/custom-fields.md) da vista Lista, onde o menu de um campo inclui os _campos de extrato de_ação da Tabela .
 
-![Campos de extração da pesquisa de logs](media/log-search-transition/extract-fields-log-search.png)
+![Campos de extração de pesquisa de registo](media/log-search-transition/extract-fields-log-search.png)
 
-Nos logs de Azure Monitor, você extrai campos personalizados da exibição de tabela. Expanda um registro clicando na seta à esquerda e, em seguida, clique nas reticências para acessar a ação _extrair campos_ .
+Nos registos do Monitor Azure, extrai-se campos personalizados da vista para a mesa. Expanda um registo clicando na seta à sua esquerda e, em seguida, clique na elipse para aceder à ação dos _campos extrato._
 
-![Os logs extraem campos](media/log-search-transition/extract-fields-logs.png)
+![Campos de extração de troncos](media/log-search-transition/extract-fields-logs.png)
 
-## <a name="functions-and-computer-groups"></a>Funções e grupos de computadores
-Para salvar uma pesquisa na pesquisa de logs, selecione **pesquisas salvas** e **adicione** para fornecer um nome, uma categoria e um texto de consulta. Crie um [grupo de computadores](../platform/computer-groups.md) adicionando um alias de função.
+## <a name="functions-and-computer-groups"></a>Funções e grupos informáticos
+Para guardar uma pesquisa em 'Pesquisa de Registos', selecione **Pesquisas Guardadas** e **Adicione** para fornecer um nome, categoria e texto de consulta. Crie um [grupo de computador](../platform/computer-groups.md) adicionando um pseudónimo de função.
 
-![Salvar pesquisa de logs](media/log-search-transition/save-search-log-search.png)
+![Salvar a pesquisa de registo](media/log-search-transition/save-search-log-search.png)
 
-Para salvar a consulta atual em logs de Azure Monitor, selecione **salvar**. Altere a _função_ **salvar como** para e forneça um **alias de função** para criar uma [função](functions.md). Selecione _salvar esta consulta como um grupo de computadores_ para usar o alias de função para um [grupo de computadores](../platform/computer-groups.md).
+Para guardar a consulta atual nos registos do Monitor Azure, selecione **Save**. Altere **Guardar quanto** à _Função_ e forneça um pseudónimo de **função** para criar uma [função](functions.md). Selecione _Guarde esta consulta como um grupo de computador_ para utilizar o pseudónimo de função para um grupo de [computador](../platform/computer-groups.md).
 
-![Salvar consulta de log](media/log-search-transition/save-query-logs.png)
+![Guardar consulta de registo](media/log-search-transition/save-query-logs.png)
 
-## <a name="saved-queries"></a>Consultas salvas
-Na pesquisa de logs, suas consultas salvas estão disponíveis por meio das **pesquisas salvas**do item da barra de ações. Em logs de Azure Monitor, acesse consultas salvas no [Gerenciador de consultas](../log-query/get-started-portal.md#save-queries).
+## <a name="saved-queries"></a>Consultas guardadas
+Em Pesquisa de Registos, as suas consultas guardadas estão disponíveis através do item de barra de ação **Guardou pesquisas .** Nos registos do Monitor Azure, aceda a consultas guardadas pelo [Query Explorer](../log-query/get-started-portal.md#save-queries).
 
-![Explorador de consultas](media/log-search-transition/query-explorer.png)
+![Explorador de consulta](media/log-search-transition/query-explorer.png)
 
-## <a name="drill-down-on-summarized-rows"></a>Fazer drill down em linhas resumidas
-Na pesquisa de logs, você pode clicar em uma linha em uma consulta resumida para iniciar outra consulta que lista os registros detalhados nessa linha.
+## <a name="drill-down-on-summarized-rows"></a>Perfurar em linhas resumidas
+Em 'Pesquisa de Registos', pode clicar numa linha numa consulta resumida para lançar outra consulta que lista registos detalhados nessa linha.
 
-![Busca detalhada de pesquisa de logs](media/log-search-transition/drilldown-search.png)
+![Perfuração de pesquisa de log](media/log-search-transition/drilldown-search.png)
 
-Nos logs de Azure Monitor, você deve modificar a consulta para retornar esses registros. Expanda uma das linhas nos resultados e clique no **+** ao lado do valor para adicioná-lo à consulta. Em seguida, comente o comando **resumir** e execute a consulta novamente.
+Nos registos do Monitor Azure, tem de modificar a consulta para devolver estes registos. Expanda uma das linhas nos resultados e clique na **+** ao lado do valor para adicioná-lo à consulta. Em seguida, comentar o **comando resumir** e executar a consulta novamente.
 
-![Busca detalhada de logs de Azure Monitor](media/log-search-transition/drilldown-logs.png)
+![Perfuração de logs do Monitor Azure](media/log-search-transition/drilldown-logs.png)
 
-## <a name="take-action"></a>Tome uma atitude
-Na pesquisa de logs, você pode [Iniciar um runbook](take-action.md) de um resultado de pesquisa selecionando **executar ação**.
+## <a name="take-action"></a>Tomar medidas
+Em 'Pesquisa de Registos', pode iniciar um livro de [execução](take-action.md) a partir de um resultado de pesquisa selecionando **Tomar medidas**.
 
-![Tome uma atitude](media/log-search-transition/take-action-log-search.png)
+![Tomar medidas](media/log-search-transition/take-action-log-search.png)
 
-Em logs de Azure Monitor, [crie um alerta da consulta de log](../platform/alerts-log.md). Configure um grupo de ação com uma ou mais ações que serão executadas em resposta ao alerta.
+Nos registos do Monitor Azure, [crie um alerta a partir da consulta de registo](../platform/alerts-log.md). Configure um grupo de ação com uma ou mais ações que irão funcionar em resposta ao alerta.
 
 ![Grupo de ação](media/log-search-transition/action-group.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre a nova [experiência de logs de Azure monitor](get-started-portal.md).
+- Saiba mais sobre a nova experiência de [registos do Azure Monitor.](get-started-portal.md)

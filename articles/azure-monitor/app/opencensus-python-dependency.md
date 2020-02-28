@@ -1,18 +1,16 @@
 ---
 title: Rastreio de dependência em Insights de Aplicação Azure com OpenCensus Python / Microsoft Docs
 description: Monitorize as chamadas de dependência para as suas aplicações Python via OpenCensus Python.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: 6217798f8175e7ecc1c1ec4068d7765444e4d2a2
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: e400669fd96518adead74a81fc332767c5f9b23b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368286"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669935"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Dependências de pista com OpenCensus Python
 
