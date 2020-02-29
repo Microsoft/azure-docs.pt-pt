@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 684e4a410ac8624066c897b4078ea4044a965357
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f331a537c80628a386525e29743807a70a163f0d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848918"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914326"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicione a ADFS como fornecedor de identidade SAML utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -34,11 +34,11 @@ Este artigo mostra-lhe como ativar o início de sessão para uma conta de utiliz
 
 Você precisa armazenar seu certificado no seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
-5. Selecione **chaves de política** e, em seguida, selecione **Adicionar**.
+5. Selecione **Teclas de política** e, em seguida, selecione **Adicionar**.
 6. Para **opções,** escolha `Upload`.
 7. Introduza um **nome** para a chave política. Por exemplo, `SamlCert`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 8. Navegue e selecione o seu ficheiro .pfx com a chave privada.
@@ -48,11 +48,11 @@ Você precisa armazenar seu certificado no seu inquilino Azure AD B2C.
 
 Se pretender que os utilizadores assinem através de uma conta ADFS, tem de definir a conta como um fornecedor de sinistros com o qual o Azure AD B2C pode comunicar através de um ponto final. O ponto final fornece um conjunto de reclamações que são utilizadas pelo Azure AD B2C para verificar se um utilizador específico se autenticou.
 
-Pode definir uma conta ADFS como fornecedor de sinistros adicionando-a ao elemento **Reclamadores** no ficheiro de extensão da sua apólice.
+Pode definir uma conta ADFS como fornecedor de sinistros adicionando-a ao elemento **Reclamadores** no ficheiro de extensão da sua apólice. Para mais informações, consulte [definir um perfil técnico SAML](saml-technical-profile.md).
 
 1. Abra as *Extensões TrustFramework.xml*.
-2. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.
-3. Adicione um novo Fornecedor de **Reclamações** da seguinte forma:
+1. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.
+1. Adicione um novo Fornecedor de **Reclamações** da seguinte forma:
 
     ```xml
     <ClaimsProvider>
@@ -87,14 +87,33 @@ Pode definir uma conta ADFS como fornecedor de sinistros adicionando-a ao elemen
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
           </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-idp"/>
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-4. Substitua `your-ADFS-domain` pelo nome do seu domínio ADFS e substitua o valor da reivindicação de saída do Fornecedor de **identidade** pelo seu DNS (valor arbitrário que indica o seu domínio).
-5. Guarde o ficheiro.
+1. Substitua `your-ADFS-domain` pelo nome do seu domínio ADFS e substitua o valor da reivindicação de saída do Fornecedor de **identidade** pelo seu DNS (valor arbitrário que indica o seu domínio).
+
+1. Localize a secção `<ClaimsProviders>` e adicione o seguinte corte XML. Se a sua política já contiver o perfil técnico `SM-Saml-idp`, salte para o próximo passo. Para mais informações, consulte [a gestão da sessão de inscrição única](custom-policy-reference-sso.md).
+
+    ```XML
+    <ClaimsProvider>
+      <DisplayName>Session Management</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SM-Saml-idp">
+          <DisplayName>Session Management Provider</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="IncludeSessionIndex">false</Item>
+            <Item Key="RegisterServiceProviders">false</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+1. Guarde o ficheiro.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Faça upload do ficheiro de extensão para verificação
 
@@ -167,7 +186,7 @@ Abra um navegador e navegue para o URL. Certifique-se de que escreve o URL corre
 4. Na página **Select Data Source,** selecione **dados de Importação sobre a parte que depende publicar online ou numa rede local,** forneça o seu URL de metadados Azure AD B2C e, em seguida, clique em **Next**.
 5. Na página **'Especificar Nome do ecrã',** introduza um **nome de exibição,** em **Notas,** introduza uma descrição para esta confiança de parte fiducida e, em seguida, clique em **Seguinte**.
 6. Na página **'Escolha a Política de Controlo de Acesso',** selecione uma política e, em seguida, clique **em Seguinte**.
-7. Na página **Ready to Add Trust,** reveja as definições e clique em **Next** para guardar as informações de confiança da sua parte.
+7. Na página **Pronto para Adicionar Confiança**, reveja as definições e, em seguida, clique em **Seguinte** para guardar as informações sobre a confiança da entidade confiadora.
 8. Na página **'Terminar',** clique em **Fechar,** esta ação exibe automaticamente a caixa de diálogo regras de reclamação de **edição.**
 9. Selecione **Adicionar Regra**.
 10. No modelo de **regra de reclamação,** selecione **Enviar atributos LDAP como reclamações**.
@@ -178,7 +197,7 @@ Abra um navegador e navegue para o URL. Certifique-se de que escreve o URL corre
     | Nome-diretor do utilizador | userPrincipalName |
     | Apelido | family_name |
     | Nome dado | given_name |
-    | Endereço de e-mail | e-mail |
+    | Endereço-de-e-mail | e-mail |
     | Nome do ecrã | nome |
 
     Note que estes nomes não serão apresentados no tipo de reclamação de saída. Precisa digitá-los manualmente. (O dropdown é na verdade editável).

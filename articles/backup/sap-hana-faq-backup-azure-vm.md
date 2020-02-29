@@ -1,72 +1,72 @@
 ---
-title: Perguntas frequentes-fazer backup de bancos de dados SAP HANA em VMs do Azure
-description: Neste artigo, descubra respostas para perguntas comuns sobre como fazer backup de bancos de dados SAP HANA usando o serviço de backup do Azure.
+title: FAQ - Fazer a cópia de segurança de bases de dados SAP HANA nas VMs do Azure
+description: Neste artigo, descubra respostas a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: e5684024668103ccbe13be4af3d7a9336651df77
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: d9d10e38885ba814045d8476b83671153feb7b8c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287843"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919690"
 ---
-# <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes – fazer backup de bancos de dados SAP HANA em VMs do Azure
+# <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes – Back up SAP HANA bases de dados em VMs Azure
 
-Este artigo responde a perguntas comuns sobre como fazer backup de bancos de dados do SAP HANA usando o serviço de backup do Azure.
+Este artigo responde a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
-### <a name="how-many-full-backups-are-supported-per-day"></a>Quantos backups completos têm suporte por dia?
+### <a name="how-many-full-backups-are-supported-per-day"></a>Quantos reforços são suportados por dia?
 
-Damos suporte a apenas um backup completo por dia. Não é possível ter backup diferencial e backup completo disparados no mesmo dia.
+Apoiamos apenas um reforço completo por dia. Não pode ter reforço diferencial e cópia de segurança completa desencadeada no mesmo dia.
 
-### <a name="do-successful-backup-jobs-create-alerts"></a>Os trabalhos de backup bem-sucedidos criam alertas?
+### <a name="do-successful-backup-jobs-create-alerts"></a>Os trabalhos de apoio bem sucedidos criam alertas?
 
-Não. Os trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup que falham. O comportamento detalhado para alertas do portal está documentado [aqui](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor). No entanto, se você estiver interessado em ter alertas mesmo para trabalhos bem-sucedidos, poderá usar [Azure monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) No entanto, se estiver interessado em ter alertas mesmo para empregos bem sucedidos, pode utilizar o [Azure Monitor.](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
 
-### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver os trabalhos de backup agendados no menu trabalhos de backup?
+### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva programados no menu Backup Jobs?
 
-O menu trabalho de backup mostrará apenas os trabalhos de backup ad hoc. Para trabalhos agendados, use [Azure monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+O menu Backup Job só mostrará trabalhos de apoio ad-hoc. Para trabalhos regulares, utilize [o Monitor Azure.](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
 
-### <a name="are-future-databases-automatically-added-for-backup"></a>Os bancos de dados futuros são adicionados automaticamente para backup?
+### <a name="are-future-databases-automatically-added-for-backup"></a>As futuras bases de dados são adicionadas automaticamente para cópia de segurança?
 
-Não, não há suporte para isso no momento.
+Não, isto não é apoiado atualmente.
 
-### <a name="if-i-delete-a-database-from-an-instance-what-will-happen-to-the-backups"></a>Se eu excluir um banco de dados de uma instância, o que acontecerá com os backups?
+### <a name="if-i-delete-a-database-from-an-instance-what-will-happen-to-the-backups"></a>Se eu apagar uma base de dados de um caso, o que acontecerá com as cópias de segurança?
 
-Se um banco de dados for descartado de uma instância de SAP HANA, os backups de banco de dados ainda serão tentados. Isso significa que o banco de dados excluído começa a aparecer como não íntegro em **itens de backup** e ainda está protegido.
-A maneira correta de interromper a proteção desse banco de dados é executar o **backup de parar com excluir os dados** neste banco de dado.
+Se uma base de dados for retirada de uma instância SAP HANA, as cópias de dados ainda são tentadas. Isto implica que a base de dados eliminada começa a aparecer como pouco saudável em itens de **backup** e ainda está protegida.
+A forma correta de parar de proteger esta base de dados é executar stop **backup com eliminar dados** nesta base de dados.
 
-### <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-the-behavior-be"></a>Se eu alterar o nome do banco de dados após ele ter sido protegido, qual será o comportamento?
+### <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-the-behavior-be"></a>Se eu mudar o nome da base de dados depois de ter sido protegida, qual será o comportamento?
 
-Um banco de dados renomeado é tratado como um novo banco de dados. Portanto, o serviço tratará essa situação como se o banco de dados não fosse encontrado e com a falha dos backups. O banco de dados renomeado será exibido como um novo banco de dados e deverá ser configurado para proteção.
+Uma base de dados renomeada é tratada como uma nova base de dados. Por conseguinte, o serviço tratará esta situação como se a base de dados não tivesse sido encontrada e com falhas nas cópias de segurança. A base de dados renomeada aparecerá como uma nova base de dados e deve ser configurada para proteção.
 
-### <a name="what-are-the-prerequisites-to-back-up-sap-hana-databases-on-an-azure-vm"></a>Quais são os pré-requisitos para fazer backup de bancos de dados SAP HANA em uma VM do Azure?
+### <a name="what-are-the-prerequisites-to-back-up-sap-hana-databases-on-an-azure-vm"></a>Quais são os pré-requisitos para apoiar as bases de dados da SAP HANA num VM Azure?
 
-Consulte as seções [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [Configurando permissões](tutorial-backup-sap-hana-db.md#setting-up-permissions) .
+Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [o que o script pré-registo faz.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 
-### <a name="what-permissions-should-be-set-for-azure-to-be-able-to-back-up-sap-hana-databases"></a>Quais permissões devem ser definidas para que o Azure possa fazer backup de bancos de dados SAP HANA?
+### <a name="what-permissions-should-be-set-for-azure-to-be-able-to-back-up-sap-hana-databases"></a>Que permissões devem ser definidas para que o Azure possa fazer o backup das bases de dados da SAP HANA?
 
-A execução do script de pré-registro define as permissões necessárias para permitir que o Azure faça backup de bancos de dados SAP HANA. Você pode encontrar mais informações sobre as permissões [aqui](tutorial-backup-sap-hana-db.md#setting-up-permissions).
+A execução do script de pré-registo define as permissões necessárias para permitir que o Azure reserve as bases de dados SAP HANA. Pode encontrar mais o que o script pré-inscrição faz [aqui.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 
-### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>Os backups funcionarão após a migração de SAP HANA de 1,0 para 2,0?
+### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>Os backups funcionarão depois de migrarem o SAP HANA de 1,0 para 2.0?
 
-Consulte [esta seção](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) do guia de solução de problemas.
+Consulte [esta secção](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) do guia de resolução de problemas.
 
 ## <a name="restore"></a>Restauro
 
-### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>Por que não consigo ver o sistema HANA no qual desejo que meu banco de dados seja restaurado?
+### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>Por que não posso ver o sistema HANA a que quero que a minha base de dados seja restaurada?
 
-Verifique se todos os pré-requisitos da restauração para o destino SAP HANA instância foram atendidos. Para obter mais informações, consulte [pré-requisitos-restaurar SAP Hana bancos de dados na VM do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore#prerequisites).
+Verifique se todos os pré-requisitos para o restauro para o alvo SAP HANA instância são cumpridos. Para mais informações, consulte [Pré-requisitos - Restaurar as bases de dados SAP HANA em Azure VM](https://docs.microsoft.com/azure/backup/sap-hana-db-restore#prerequisites).
 
-### <a name="why-is-the-overwrite-db-restore-failing-for-my-database"></a>Por que a restauração do BD de substituição falha para meu banco de dados?
+### <a name="why-is-the-overwrite-db-restore-failing-for-my-database"></a>Porque é que o restauro do OVERwrite DB está a falhar na minha base de dados?
 
-Verifique se a opção **forçar substituição** está selecionada durante a restauração.
+Certifique-se de que a opção **de sobreposição** da força é selecionada durante a restauração.
 
-### <a name="why-do-i-see-the-source-and-target-systems-for-restore-are-incompatible-error"></a>Por que vejo o erro "sistemas de origem e de destino para restauração são incompatíveis"?
+### <a name="why-do-i-see-the-source-and-target-systems-for-restore-are-incompatible-error"></a>Porque é que vejo que os "sistemas de origem e alvo para restauro são incompatíveis"?
 
-Consulte a SAP HANA nota [1642148](https://launchpad.support.sap.com/#/notes/1642148) para ver quais tipos de restauração têm suporte no momento.
+Consulte a Nota SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) para ver que tipos de restauro são suportados atualmente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [fazer backup de bancos de dados SAP Hana](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) em execução em VMs do Azure.
+Saiba como [fazer o back up sap HANA bases de dados](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) em execução em VMs Azure.

@@ -1,5 +1,5 @@
 ---
-title: Proteger o acesso aos dados do aplicativo
+title: Acesso seguro aos dados da aplicação
 titleSuffix: Azure Storage
 description: Utilizar tokens SAS, encriptação e HTTPS para proteger os dados da aplicação na cloud.
 services: storage
@@ -10,14 +10,14 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 1075c03820efba44ceb8dea28aff6302d2667cf2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 654efd8f5fbe31131ae03a8e794bc2113df2d29f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892435"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912193"
 ---
-# <a name="secure-access-to-application-data"></a>Proteger o acesso aos dados do aplicativo
+# <a name="secure-access-to-application-data"></a>Acesso seguro aos dados da aplicação
 
 Este tutorial é a terceira parte de uma série. Ficará a saber como proteger o acesso à conta de armazenamento. 
 
@@ -28,11 +28,11 @@ Na terceira parte da série, ficará a saber como:
 > * Ativar a encriptação do lado do servidor
 > * Ativar o transporte apenas por HTTPS
 
-O [Armazenamento de blobs do Azure](../common/storage-introduction.md#blob-storage) proporciona um serviço robusto para armazenar os ficheiros para as aplicações. Este tutorial estende [o tópico anterior][previous-tutorial] para mostrar como proteger o acesso à sua conta de armazenamento a partir de um aplicativo Web. Quando tiver terminado, as imagens são encriptadas e a aplicação Web utiliza os tokens SAS protegidos para aceder às imagens em miniatura.
+O [Armazenamento de blobs do Azure](../common/storage-introduction.md#blob-storage) proporciona um serviço robusto para armazenar os ficheiros para as aplicações. Este tutorial alarga [o tópico anterior][previous-tutorial] para mostrar como garantir o acesso à sua conta de armazenamento a partir de uma aplicação web. Quando tiver terminado, as imagens são encriptadas e a aplicação Web utiliza os tokens SAS protegidos para aceder às imagens em miniatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você deve ter concluído o tutorial de armazenamento anterior: [automatizar o redimensionamento de imagens carregadas usando a grade de eventos][previous-tutorial].
+Para completar este tutorial deve ter concluído o tutorial de armazenamento anterior: [Automatizar imagens carregadas utilizando][previous-tutorial]a Grelha de Eventos .
 
 ## <a name="set-container-public-access"></a>Definir o acesso público ao contentor
 
@@ -44,13 +44,14 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
---public-access off
+az storage container set-permission \ 
+--account-name $blobStorageAccount --account-key $blobStorageAccountKey \ 
+--name thumbnails --public-access off
 ``` 
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>Configurar os tokens SAS para miniaturas
 
-Na primeira parte desta série de tutoriais, a aplicação Web estava a mostrar imagens de um contentor público. Nesta parte da série, você usa tokens de SAS (assinaturas de acesso compartilhado) para recuperar as imagens em miniatura. Os tokens SAS permitem-lhe proporcionar acesso restrito a um contentor ou blob com base em IP, protocolo, intervalo de tempo ou direitos permitidos. Para obter mais informações sobre SAS, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md).
+Na primeira parte desta série de tutoriais, a aplicação Web estava a mostrar imagens de um contentor público. Nesta parte da série, utiliza fichas de acesso partilhadas (SAS) para recuperar as imagens das miniaturas. Os tokens SAS permitem-lhe proporcionar acesso restrito a um contentor ou blob com base em IP, protocolo, intervalo de tempo ou direitos permitidos. Para obter mais informações sobre o SAS, consulte Grant acesso limitado aos recursos de [Armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).
 
 Neste exemplo, o repositório de código fonte utiliza o ramo `sasTokens`, que tem um exemplo de código atualizado. Elimine a implementação do GitHub existente com [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Em seguida, configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).  
 

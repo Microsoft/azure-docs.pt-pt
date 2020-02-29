@@ -8,51 +8,21 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 02/27/2020
 ms.author: diberry
-ms.openlocfilehash: cadbf5fa88db7d5e524cb7e075745c03a844f750
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dea2bf3b34ca336f3932dd85bf587184ab6881db
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901705"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914998"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
 
-A aprendizagem ativa permite-lhe melhorar a qualidade da sua base de conhecimentos sugerindo perguntas alternativas, baseadas em submissões de utilizador, ao seu par de perguntas e respostas. Revê essas sugestões, quer as adicione às perguntas existentes ou as rejeite.
+[A aprendizagem ativa](../Concepts/active-learning-suggestions.md) permite-lhe melhorar a qualidade da sua base de conhecimentos sugerindo perguntas alternativas, baseadas em submissões de utilizador, ao seu par de perguntas e respostas. Revê essas sugestões, quer as adicione às perguntas existentes ou as rejeite.
 
 A sua base de conhecimento não muda automaticamente. Para que qualquer alteração entre em vigor, deve aceitar as sugestões. Estas sugestões acrescentam perguntas, mas não alteram ou removem as questões existentes.
 
-## <a name="what-is-active-learning"></a>O que é a aprendizagem ativa?
-
-QnA Maker aprende novas variações de perguntas com feedback implícito e explícito.
-
-* [Feedback implícito](#how-qna-makers-implicit-feedback-works) – O ranker compreende quando uma pergunta do utilizador tem múltiplas respostas com pontuações muito próximas e considera isso como feedback. Não precisas de fazer nada para que isto aconteça.
-* [Feedback explícito](#how-you-give-explicit-feedback-with-the-train-api) – Quando várias respostas com pouca variação nas pontuações são devolvidas da base de conhecimento, a aplicação do cliente pergunta ao utilizador qual a pergunta correta. O feedback explícito do utilizador é enviado para o Fabricante qnA com a [API](#train-api)do comboio .
-
-Ambos os métodos fornecem ao ranker consultas semelhantes que são agrupadas.
-
-## <a name="how-active-learning-works"></a>Como funciona a aprendizagem ativa
-
-A aprendizagem ativa é desencadeada com base nas pontuações das poucas respostas mais altas devolvidas pela QnA Maker. Se as diferenças de pontuação estiverem dentro de um pequeno intervalo, então a consulta é considerada uma possível sugestão (como uma pergunta alternativa) para cada um dos possíveis pares QnA. Uma vez que você aceita a pergunta sugerida para um par qnA específico, é rejeitado para os outros pares. Tens de te lembrar de poupar e treinar, depois de aceitarsugestões.
-
-A aprendizagem ativa dá as melhores sugestões possíveis nos casos em que os pontos finais estão recebendo uma quantidade razoável e uma variedade de consultas de uso. Quando 5 ou mais consultas semelhantes são agrupadas, a cada 30 minutos, a QnA Maker sugere que as perguntas baseadas no utilizador ao designer de base de conhecimento aceitem ou rejeitem. Todas as sugestões são agrupadas por semelhanças e as sugestões de topo para perguntas alternativas são apresentadas com base na frequência das consultas específicas pelos utilizadores finais.
-
-Uma vez sugeridas perguntas no portal QnA Maker, é necessário rever e aceitar ou rejeitar essas sugestões. Não há uma API para gerir sugestões.
-
-## <a name="how-qna-makers-implicit-feedback-works"></a>Como funciona o feedback implícito do QnA Maker
-
-O feedback implícito do QnA Maker usa um algoritmo para determinar a proximidade da pontuação e depois fazer sugestões de aprendizagem ativas. O algoritmo para determinar a proximidade não é um cálculo simples. As gamas no exemplo seguinte não devem ser corrigidas, mas devem ser usadas como guia para entender apenas o impacto do algoritmo.
-
-Quando a pontuação de uma pergunta é altamente confiante, como 80%, o leque de pontuações que são consideradas para a aprendizagem ativa são amplas, aproximadamente dentro de 10%. À medida que a pontuação da confiança diminui, como 40%, o intervalo de pontuações também diminui, aproximadamente dentro de 4%.
-
-## <a name="how-you-give-explicit-feedback-with-the-train-api"></a>Como dá feedback explícito com a API do comboio
-
-É importante que a QnA Maker obtenha feedback explícito sobre qual das respostas foi a melhor resposta. Como a melhor resposta é determinada é consigo e pode incluir:
-
-* Feedback do utilizador, selecionando uma das respostas.
-* Lógica empresarial, como determinar um intervalo de pontuação aceitável.
-* Uma combinação de feedback do utilizador e lógica de negócio.
 
 ## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>Atualize a sua versão de tempo de execução para utilizar a aprendizagem ativa
 
@@ -187,24 +157,24 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP solicitar propriedade|Nome|Tipo|Finalidade|
+|HTTP solicitar propriedade|Nome|Tipo|Objetivo|
 |--|--|--|--|
-|Parâmetro de rota URL|ID da base de dados de conhecimento|string|O GUID para a sua base de conhecimento.|
+|Parâmetro de rota URL|ID base de conhecimento|string|O GUID para a sua base de conhecimento.|
 |Subdomínio personalizado|Nome de recurso QnAMaker|string|O nome do recurso é usado como subdomínio personalizado para o seu Fabricante QnA. Isto está disponível na página Definições depois de publicar a base de conhecimentos. Está listado como o `host`.|
 |Cabeçalho|Tipo de conteúdo|string|O tipo de mídia do corpo enviado para a API. O valor predefinido é: `application/json`|
 |Cabeçalho|Autorização|string|A sua chave de ponto final (EndpointKey xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx).|
-|Corpo da postagem|Objeto JSON|JSON|O feedback de treino|
+|Corpo pós|Objeto JSON|JSON|O feedback de treino|
 
 O corpo jSON tem várias configurações:
 
-|Propriedade corporal JSON|Tipo|Finalidade|
+|Propriedade corporal JSON|Tipo|Objetivo|
 |--|--|--|--|
 |`feedbackRecords`|array|Lista de comentários.|
 |`userId`|string|A identificação do utilizador da pessoa que aceita as perguntas sugeridas. O formato ID do utilizador depende de si. Por exemplo, um endereço de e-mail pode ser um ID de utilizador válido na sua arquitetura. Opcional.|
 |`userQuestion`|string|Texto exato da consulta do utilizador. Necessário.|
 |`qnaID`|número|Id de pergunta, encontrado na [resposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
-Um exemplo de corpo JSON é semelhante a:
+Um exemplo do corpo jSON parece:
 
 ```json
 {
@@ -224,7 +194,7 @@ Uma resposta bem sucedida devolve um estatuto de 204 e nenhum corpo de resposta 
 
 Na aplicação do lado do cliente, como um bot, pode armazenar os dados e, em seguida, enviar muitos registos num único corpo JSON na matriz de `feedbackRecords`.
 
-Um exemplo de corpo JSON é semelhante a:
+Um exemplo do corpo jSON parece:
 
 ```json
 {

@@ -8,20 +8,28 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: c923dfed24253ce2e3551c13a457f19d155a1e40
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: a9c045162e650b4468fb53676e367d2c658bf7cc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77068454"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912580"
 ---
+## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
+
+O planeamento e execução da migração depende muito da complexidade da arquitetura e pode demorar alguns meses.  
+
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Qual é a definição de um novo cliente em VMs IaaS (clássico)?
+
+Os clientes que não tinham VMs IaaS (clássicos) nas suas subscrições no mês de Febrauary 2020 (um mês antes do início da depreciação) são considerados novos clientes. 
+
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta algum dos meus serviços ou aplicações existentes que são executados em máquinas virtuais do Azure? 
 
-Não. As VMs (clássicas) são serviços totalmente suportados na disponibilidade geral. Pode continuar a utilizar estes recursos para expandir a sua utilização no Microsoft Azure.
+Só a 1 de março de 2023 para Os VMs IaaS (clássico). Os VMs IaaS (clássicos) são serviços totalmente suportados na disponibilidade geral. Pode continuar a utilizar estes recursos para expandir a sua utilização no Microsoft Azure. No dia 1 de março de 2023, estes VMs serão totalmente aposentados e quaisquer VMs ativos ou atribuídos serão parados e transferidos. Não haverá impacto para outros recursos clássicos como cloud services (Classic), Contas de Armazenamento (Clássico), etc.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>O que acontece às minhas VMs se não pretender migrá-las no futuro próximo? 
 
-Não vamos descontinuar as APIs clássicas nem o modelo de recursos atuais. Queremos facilitar a migração, tendo em conta as funcionalidades avançadas que o modelo de implementação Resource Manager disponibiliza. Recomendamos vivamente que reveja [alguns dos avanços](../articles/azure-resource-manager/management/deployment-models.md) que fazem parte do IaaS no Resource Manager.
+No dia 1 de março de 2023, os VMs IaaS (Clássico) serão totalmente aposentados e quaisquer VMs ativos ou atribuídos serão interrompidos e transferidos. Para evitar o impacto do negócio, recomentamos para começar a planear a sua migração hoje e completá-la antes de 1 de março de 2023. Não estamos a depreciar os APIs clássicos existentes, os Serviços de Nuvem e o modelo de recursos. Queremos facilitar a migração, tendo em conta as funcionalidades avançadas que o modelo de implementação Resource Manager disponibiliza. Recomendamos que comece a planear migrar estes recursos para o Azure Resource Manager. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>O que significa este plano de migração para as minhas ferramentas existentes? 
 
@@ -37,7 +45,7 @@ Pode abortar a migração desde que os recursos estejam no estado preparado. A r
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>Posso reverter a migração se a operação de consolidação falhar? 
 
-Não pode abortar a migração se a operação de consolidação falhar. Todas as operações de migração, incluindo a operação de consolidação, são idempotent. Por isso, recomendamos que repita a operação após um curto período de tempo. Se ainda enfrentar um erro, crie um bilhete de suporte ou crie um post no Fórum na [Microsoft Q&A](https://docs.microsoft.com/answers/index.html).
+Não pode abortar a migração se a operação de consolidação falhar. Todas as operações de migração, incluindo a operação de consolidação, são idempotent. Por isso, recomendamos que repita a operação após um curto período de tempo. Se ainda enfrentar um erro, crie um bilhete de apoio.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Se tiver de utilizar IaaS no Resource Manager, tenho de comprar outro circuito do ExpressRoute? 
 
@@ -47,19 +55,19 @@ Não. Recentemente, ativámos a [passagem dos circuitos do ExpressRoute do model
 
 Durante a migração, os recursos passam da implementação clássica para Resource Manager. Assim, recomendamos que planeie as atualizações das políticas de RBAC que têm de ocorrer após a migração.
 
-## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Fiz backup de minhas VMs clássicas em um cofre. Posso migrar as VMs do modo clássico para o modo Resource Manager e protegê-las num cofre dos Serviços de Recuperação?
+## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Apertei os meus VMs clássicos num cofre. Posso migrar as VMs do modo clássico para o modo Resource Manager e protegê-las num cofre dos Serviços de Recuperação?
 
-Quando se desloca um VM do modo classic para o Modo Gestor de Recursos, as cópias de segurança efetuadas antes da migração não migrarão para o VM do gestor de recursos recém-migrado. No entanto, se você quiser manter seus backups de VMs clássicas, siga estas etapas antes da migração. 
+Quando se desloca um VM do modo classic para o Modo Gestor de Recursos, as cópias de segurança efetuadas antes da migração não migrarão para o VM do gestor de recursos recém-migrado. No entanto, se desejar manter os seus backups de VMs clássicos, siga estes passos antes da migração. 
 
 1. No cofre dos Serviços de Recuperação, vá ao separador **Itens Protegidos** e selecione o VM. 
 2. Clique em Parar Proteção. Deixe a opção *Eliminar dados de cópia de segurança associados***desmarcada**.
 
 > [!NOTE]
-> Você será cobrado pelo custo da instância de backup até manter os dados. As cópias de backup serão removidas de acordo com o período de retenção. No entanto, a última cópia de backup sempre é mantida até que você exclua explicitamente os dados de backup. É aconselhável verificar o período de retenção da máquina virtual e disparar "excluir dados de backup" no item protegido no cofre depois que o período de retenção terminar. 
+> Será cobrado custo de instância de backup até reter dados. Cópias de reserva serão podadas de acordo com o intervalo de retenção. No entanto, a última cópia de cópia de cópia de cópia de cópia de cópia de segurança é sempre mantida até eliminar explicitamente os dados de cópia de segurança. É aconselhável verificar a sua gama de retenção da máquina Virtual e acionar "Eliminar dados de backup" no item protegido no cofre assim que o intervalo de retenção terminar. 
 >
 >
 
-Para migrar a máquina virtual para o modo do Gerenciador de recursos, 
+Para migrar a máquina virtual para o modo Gestor de Recursos, 
 
 1. Elimine a extensão de cópia de segurança/instantâneo da VM.
 2. Migre a máquina virtual do modo clássico para o modo do Resource Manager. Certifique-se de que as informações de armazenamento e rede correspondentes à máquina virtual também são migradas para o modo do Resource Manager.

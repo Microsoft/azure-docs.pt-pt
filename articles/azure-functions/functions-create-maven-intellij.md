@@ -1,24 +1,24 @@
 ---
-title: Criar uma função do Azure com Java e IntelliJ
-description: Saiba como criar e publicar um aplicativo sem servidor simples disparado por HTTP no Azure com Java e IntelliJ.
+title: Criar uma função Azure com Java e IntelliJ
+description: Aprenda a criar e publicar uma simples aplicação em Http-triggered, sem servidores no Azure com Java e IntelliJ.
 author: jeffhollan
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1d3dd0f4f1da4d3815d4d879dd13ed5882f39e8f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46044d4c6dd65944291aff157229be0abc60d3d7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230732"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913247"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Criar sua primeira função do Azure com Java e IntelliJ
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Crie a sua primeira função Azure com Java e IntelliJ
 
-Este artigo mostra:
-- Como criar um projeto de função sem [servidor](https://azure.microsoft.com/overview/serverless-computing/) com o IntelliJ IDEA e o Apache Maven
-- Etapas para testar e depurar a função no ambiente de desenvolvimento integrado (IDE) em seu próprio computador
-- Instruções para implantar o projeto de função no Azure Functions
+Este artigo mostra-lhe:
+- Como criar um projeto de função [sem servidores](https://azure.microsoft.com/overview/serverless-computing/) com IntelliJ IDEA e Apache Maven
+- Passos para testar e depurar a função no ambiente de desenvolvimento integrado (IDE) no seu próprio computador
+- Instruções para a implementação do projeto de função para funções azure
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 
@@ -26,80 +26,78 @@ Este artigo mostra:
 
 ## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
 
-Para desenvolver uma função com Java e IntelliJ, instale o seguinte software:
+Para desenvolver uma função com a Java e a IntelliJ, instale o seguinte software:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), versão 8
-- [Apache Maven](https://maven.apache.org), versão 3,0 ou superior
-- [INTELLIJ Idea](https://www.jetbrains.com/idea/download), Comunidade ou versões finais com Maven
+- [Kit de Desenvolvimento Java](https://www.azul.com/downloads/zulu/) (JDK), versão 8
+- [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Versões Comunitárias ou Ultimate com Maven
 - [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT]
-> A variável de ambiente JAVA_HOME deve ser definida como o local de instalação do JDK para concluir as etapas neste artigo.
+> A variável ambiente JAVA_HOME deve ser definida para a localização de instalação do JDK para completar as etapas deste artigo.
 
- Recomendamos que você instale o [Azure Functions Core Tools, versão 2](functions-run-local.md#v2). Ele fornece um ambiente de desenvolvimento local para gravação, execução e depuração Azure Functions.
+ Recomendamos que [instale ferramentas centrais de funções Azure, versão 2](functions-run-local.md#v2). Proporciona um ambiente de desenvolvimento local para a escrita, execução e depuração das funções azure.
 
-## <a name="create-a-functions-project"></a>Criar um projeto do Functions
+## <a name="create-a-functions-project"></a>Criar um projeto funções
 
-1. Em IntelliJ IDEA, selecione **criar novo projeto**.  
-1. Na janela **novo projeto** , selecione **Maven** no painel esquerdo.
-1. Marque a caixa de seleção **criar do arquétipo** e, em seguida, selecione **Adicionar arquétipo** para o [Azure-Functions-arquétipo](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
-1. Na janela **Adicionar arquétipo** , preencha os campos da seguinte maneira:
-    - _GroupId_: com. Microsoft. Azure
-    - _Artefatoid_: Azure-Functions-arquétipo
-    - _Versão_: Use a versão mais recente **1,22** do [repositório central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![criar um projeto Maven do arquétipo no IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
-1. Selecione **OK**e, em seguida, selecione **Avançar**.
-1. Insira seus detalhes para o projeto atual e selecione **concluir**.
+1. No IntelliJ IDEA, selecione **Create New Project**.  
+1. Na janela **new project,** selecione **Maven** do painel esquerdo.
+1. Selecione o Create a partir da caixa de verificação **do arquétipo** e, em seguida, selecione **Adicionar Arquétipo** para o [arquétipo de funções azuis](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
+1. Na janela **Add Archetype,** complete os campos da seguinte forma:
+    - _GroupId_: com.microsoft.azure
+    - _ArtefactoId_: azure-functions-archetype
+    - _Versão_: Utilize a versão mais recente **1.22** [do repositório central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Criar um projeto Maven a partir do arquétipo no IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+1. Selecione **OK**, e, em seguida, selecione **Next**.
+1. Insira os seus dados para o projeto atual e selecione **Terminar**.
 
-O Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor de _artefatoid_ . O código gerado do projeto é uma função simples [disparada por http](/azure/azure-functions/functions-bindings-http-webhook) que retorna o corpo da solicitação HTTP de disparo.
+A Maven cria os ficheiros do projeto numa nova pasta com o mesmo nome do valor _ArtifactId._ O código gerado do projeto é uma função simples [desencadeada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) que ecoa o corpo do pedido HTTP desencadeado.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Executar funções localmente no IDE
 
 > [!NOTE]
-> Para executar e depurar funções localmente, verifique se você instalou o [Azure Functions Core Tools, versão 2](functions-run-local.md#v2).
+> Para executar e depurar funções localmente, certifique-se de que instalou [ferramentas core funções do Azure, versão 2](functions-run-local.md#v2).
 
-1. Importe alterações manualmente ou habilite a [importação automática](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html).
-1. Abra a barra de ferramentas **projetos do Maven** .
-1. Expanda **ciclo de vida**e abra **pacote**. A solução é compilada e empacotada em um diretório de destino criado recentemente.
-1. Expanda **plug-ins** > **Azure-Functions** e abra **Azure-Functions: Run** para iniciar o Azure Functions tempo de execução local.  
-  ![barra de ferramentas do Maven para Azure Functions](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
+1. A importação muda manualmente ou permite a [importação de automóveis.](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html)
+1. Abra a barra de **ferramentas maven Projects.**
+1. Expandir o Ciclo de **Vida,** e depois abrir **o pacote.** A solução é construída e embalada num diretório alvo recém-criado.
+1. Expandir **os Plugins** > **funções azure** e **funções azure abertas:executar** para iniciar o tempo de funcionamento local das Funções Azure.  
+  ![barra de ferramentas Maven para](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png) de Funções Azure  
 
-1. Feche a caixa de diálogo Executar quando terminar de testar sua função. Somente um host de função pode estar ativo e em execução localmente por vez.
+1. Feche a caixa de diálogo de execução quando terminar de testar a sua função. Apenas um hospedeiro de funções pode estar ativo e a funcionar localmente de cada vez.
 
-## <a name="debug-the-function-in-intellij"></a>Depurar a função em IntelliJ
+## <a name="debug-the-function-in-intellij"></a>Desinvejo a função no IntelliJ
 
-1. Para iniciar o host de função no modo de depuração, adicione **-DenableDebug** como o argumento ao executar a função. Você pode alterar a configuração em [metas do Maven](https://www.jetbrains.com/help/idea/maven-support.html#run_goal) ou executar o seguinte comando em uma janela de terminal:  
+1. Para iniciar o hospedeiro de funções no modo de depuração, adicione **-DenableDebug** como argumento quando executar a sua função. Pode alterar a configuração em [objetivos maven](https://www.jetbrains.com/help/idea/maven-support.html#run_goal) ou executar o seguinte comando numa janela terminal:  
 
    ```
    mvn azure-functions:run -DenableDebug
    ```
 
-   Esse comando faz com que o host de função abra uma porta de depuração em 5005.
+   Este comando faz com que o hospedeiro de funções abra uma porta de depuração a 5005.
 
-1. No menu **executar** , selecione **Editar configurações**.
-1. Selecione **(+)** para adicionar um **remoto**.
-1. Preencha os campos _nome_ e _configurações_ e, em seguida, selecione **OK** para salvar a configuração.
-1. Após a instalação, selecione **depurar < nome da configuração remota >** ou pressione Shift + F9 no teclado para iniciar a depuração.
+1. No menu **Executar,** selecione **Configurações de Edição**.
+1. **Selecione (+)** para adicionar um **Controlo Remoto**.
+1. Complete os campos _nome_ e _definições_ e, em seguida, selecione **OK** para salvar a configuração.
+1. Depois da configuração, selecione **Debug < Nome de Configuração Remota >** ou prima Shift+F9 no teclado para começar a depurar.
 
-   ![Funções de depuração no IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
-
-1. Quando tiver terminado, pare o depurador e o processo em execução. Somente um host de função pode estar ativo e em execução localmente por vez.
+1. Quando terminar, pare o desbugger e o processo de execução. Apenas um hospedeiro de funções pode estar ativo e a funcionar localmente de cada vez.
 
 ## <a name="deploy-the-function-to-azure"></a>Implementar a função no Azure
 
-1. Para poder implantar sua função no Azure, você deve [entrar usando o CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Antes de poder implementar a sua função para o Azure, deve [iniciar sessão utilizando o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    ``` azurecli
    az login
    ```
 
-1. Implante seu código em uma nova função usando o destino `azure-functions:deploy` Maven. Você também pode selecionar a opção **Azure-Functions: Deploy** na janela projetos Maven.
+1. Implemente o seu código numa nova função utilizando o alvo `azure-functions:deploy` Maven. Também pode selecionar as **funções azure:implementar** a opção na janela Maven Projects.
 
    ```
    mvn azure-functions:deploy
    ```
 
-1. Localize a URL para sua função na saída CLI do Azure depois que a função tiver sido implantada com êxito.
+1. Encontre o URL para a sua função na saída Azure CLI depois de a função ter sido implementada com sucesso.
 
    ``` output
    [INFO] Successfully deployed Function App with package.
@@ -112,4 +110,4 @@ O Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o val
 ## <a name="next-steps"></a>Passos seguintes
 
 - Reveja o [Guia para programadores das Funções do Java](functions-reference-java.md) para obter mais informações sobre a programação de funções do Java.
-- Adicione funções adicionais com diferentes gatilhos ao seu projeto usando o destino `azure-functions:add` Maven.
+- Adicione funções adicionais com diferentes gatilhos ao seu projeto utilizando o `azure-functions:add` alvo Maven.

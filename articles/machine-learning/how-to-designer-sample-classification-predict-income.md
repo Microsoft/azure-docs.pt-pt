@@ -1,7 +1,7 @@
 ---
-title: 'Designer: classificar, exemplo de renda de previsão'
+title: 'Designer: Classificar, prever o exemplo do rendimento'
 titleSuffix: Azure Machine Learning
-description: Siga este exemplo criar um classificador sem código para prever a renda com o designer de Azure Machine Learning.
+description: Siga este exemplo construa um classificador sem código para prever o rendimento com o designer de Machine Learning Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,65 +9,65 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
-ms.openlocfilehash: 560339fb04e3bbbe42c4370655e74e8536a7c015
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/22/2020
+ms.openlocfilehash: 7fd51f587ff51e09254741615d3059d038e1205a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963377"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915916"
 ---
-# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Criar um classificador & usar a seleção de recursos para prever a renda com o designer de Azure Machine Learning
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Construa uma seleção de funcionalidades de designe e utilização para prever rendimento com o designer de Machine Learning Azure
 
-**Designer (visualização) exemplo 3**
+**Amostra de designer (pré-visualização) 3**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Saiba como criar um classificador de aprendizado de máquina sem escrever uma única linha de código usando o designer (versão prévia). Este exemplo treina uma **árvore de decisão aumentada de duas classes** para prever censo de renda de adulto (> = 50 mil ou < = 50 mil).
+Aprenda a construir um classificador de machine learning sem escrever uma única linha de código usando o designer (pré-visualização). Esta amostra treina uma **árvore de decisão reforçada de duas classes** para prever o rendimento do recenseamento adulto (>=50K ou <=50K).
 
-Porque a pergunta está respondendo "Qual é?" Isso é chamado de problema de classificação. No entanto, você pode aplicar o mesmo processo fundamental para lidar com qualquer tipo de problema de aprendizado de máquina – regressão, classificação, clustering e assim por diante.
+Porque a pergunta é responder "Qual?", isto é chamado de problema de classificação. No entanto, pode aplicar o mesmo processo fundamental para resolver qualquer tipo de problema de aprendizagem automática - regressão, classificação, agrupamento, e assim por diante.
 
-Este é o grafo de pipeline final para este exemplo:
+Aqui está o gráfico final do pipeline para esta amostra:
 
-![Grafo do pipeline](./media/how-to-designer-sample-classification-predict-income/overall-graph.png)
+![Gráfico do oleoduto](./media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
-4. Clique no exemplo 3 para abri-lo.
+4. Clique na amostra 3 para aabrir.
 
 
 
 ## <a name="data"></a>Dados
 
-O conjunto de conteúdo contém 14 recursos e uma coluna de rótulo. Há vários tipos de recursos, incluindo numéricos e categóricos. O diagrama seguinte mostra um excerto do conjunto de dados: ![dados](media/how-to-designer-sample-classification-predict-income/sample3-dataset-1225.png)
+O conjunto de dados contém 14 funcionalidades e uma coluna de etiqueta. Existem vários tipos de funcionalidades, incluindo numérica e categórica. O diagrama seguinte mostra um excerto do conjunto de dados: ![dados](media/how-to-designer-sample-classification-predict-income/sample3-dataset-1225.png)
 
 
 
-## <a name="pipeline-summary"></a>Resumo do pipeline
+## <a name="pipeline-summary"></a>Resumo do gasoduto
 
-Siga estas etapas para criar o pipeline:
+Siga estes passos para criar o oleoduto:
 
-1. Arraste o módulo conjunto de conteúdo binário censo de renda de adulto para a tela de pipeline.
-1. Adicione um módulo **dividir dados** para criar os conjuntos de treinamento e teste. Defina a fração de linhas no primeiro conjunto de registros de saída como 0,7. Esta definição especifica que 70% dos dados serão de saída para a porta esquerda do módulo e os restantes para a porta direita. Usamos o conjunto de espaço da esquerda para treinamento e o correto para teste.
-1. Adicione o módulo **seleção de recursos baseada em filtro** para selecionar 5 recursos por PearsonCorreclation. 
-1. Adicione um módulo de **árvore de decisão aumentada de duas classes** para inicializar um classificador de árvore de decisão aumentada.
-1. Adicione um módulo **modelo de treinamento** . Conecte o classificador da etapa anterior à porta de entrada à esquerda do **modelo de treinamento**. Conecte o conjunto de texto filtrado do módulo seleção de recursos com base em filtro como conjunto de módulos de treinamento.  O **modelo de treinamento** treinará o classificador.
-1. Adicione a transformação selecionar colunas e aplique o módulo transformação para aplicar a mesma transformação (seleção de recursos com base em filtro) para testar o conjunto de testes.
+1. Arraste o módulo de conjunto de dados binário de rendimento do recenseamento adulto para a tela do gasoduto.
+1. Adicione um módulo **De dados divididos** para criar os conjuntos de treino e teste. Desloque a fração de linhas no primeiro conjunto de dados de saída para 0,7. Esta definição especifica que 70% dos dados serão de saída para a porta esquerda do módulo e os restantes para a porta direita. Usamos o conjunto de dados esquerdo para treino e o direito para testes.
+1. Adicione o módulo de seleção de **funcionalidades baseado** no filtro para selecionar 5 funcionalidades por PearsonCorrelation. 
+1. Adicione um módulo de **árvore de decisão impulsionada de duas classes** para inicializar um classificador de árvore de decisão reforçado.
+1. Adicione um módulo **Modelo de Comboio.** Ligue o classificador do passo anterior à porta de entrada esquerda do Modelo de **Comboio**. Ligue o conjunto de dados filtrado do módulo de seleção de funcionalidades baseado no filtro como conjunto de dados de treino.  O **Modelo de Comboio** vai treinar o classificador.
+1. Adicione o módulo de transformação de colunas selecionadas e aplique o módulo de transformação para aplicar a mesma transformação (seleção de funcionalidades baseada selada filtrada) para testar o conjunto de dados.
 ![](./media/how-to-designer-sample-classification-predict-income/transformation.png) de transformação de aplicações
-1. Adicione o módulo **modelo de Pontuação** e conecte o módulo **modelo de treinamento** a ele. Em seguida, adicione o conjunto de teste (a saída do módulo aplicar transformação que aplica a seleção de recursos também ao conjunto de teste) ao **modelo de Pontuação**. O **modelo de Pontuação** fará as previsões. Você pode selecionar sua porta de saída para ver as previsões e as probabilidades de classe positivas.
+1. Adicione o módulo **'Modelo de Pontuação'** e ligue o módulo **Modelo de Comboio** ao mesmo. Em seguida, adicione o conjunto de teste (a saída do módulo de transformação de aplicação que aplica a seleção de recursos ao conjunto de teste também) ao Modelo de **Pontuação**. O Modelo de **Pontuação** fará as previsões. Pode selecionar a sua porta de saída para ver as previsões e as probabilidades de classe positiva.
 
 
-    Esse pipeline tem dois módulos de pontuação, aquele à direita excluiu a coluna de rótulo antes de fazer a previsão. Isso está preparado para implantar um ponto de extremidade em tempo real, pois a entrada do serviço Web esperará apenas recursos que não são rotulados. 
+    Este gasoduto tem dois módulos de pontuação, o da direita excluiu a coluna de etiquetas antes de fazer a previsão. Isto está preparado para implementar um ponto final em tempo real, porque a entrada do serviço web espera apenas funcionalidades que não sejam etiquetadas. 
 
-1. Adicione um módulo **avaliar modelo** e conecte o conjunto de dados pontuado à sua porta de entrada à esquerda. Para ver os resultados da avaliação, selecione a porta de saída do módulo **avaliar modelo** e selecione **Visualizar**.
+1. Adicione um módulo **'Modelo de Avaliação'** e ligue o conjunto de dados pontuado à sua porta de entrada esquerda. Para ver os resultados da avaliação, selecione a porta de saída do módulo **'Avaliar Modelo'** e selecione **Visualize**.
 
 ## <a name="results"></a>Resultados
 
 ![Avaliar os resultados](media/how-to-designer-sample-classification-predict-income/sample3-evaluate-1225.png)
 
-Nos resultados da avaliação, você pode ver que as curvas, como o ROC, a recuperação de precisão e as métricas de confusão. 
+Nos resultados da avaliação, pode ver-se que as curvas como ROC, Precisão-recall e métricas de confusão. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -75,11 +75,11 @@ Nos resultados da avaliação, você pode ver que as curvas, como o ROC, a recup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore os outros exemplos disponíveis para o designer:
+Explore as outras amostras disponíveis para o designer:
 
-- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exemplo 2-regressão: comparar algoritmos para previsão de preço de automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exemplo 5-classificação: Previsão de rotatividade](how-to-designer-sample-classification-churn.md)
-- [Exemplo 6-classificação: prever atrasos de voo](how-to-designer-sample-classification-flight-delay.md)
-- [Exemplo de classificação de texto 7: conjunto de teste da Wikipédia SP 500](how-to-designer-sample-text-classification.md)
+- [Amostra 1 - Regressão: Prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Amostra 2 - Regressão: Comparar algoritmos para previsão de preços do automóvel](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Amostra 4 - Classificação: Prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Amostra 5 - Classificação: Prever churn](how-to-designer-sample-classification-churn.md)
+- [Amostra 6 - Classificação: Prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
+- [Amostra 7 - Classificação de Texto: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: 925b859de28b8878412ee99402ffd727edcc4e7c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934726"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915644"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall de aplicação web azure na porta da frente do Azure
 
@@ -40,11 +40,11 @@ Uma aplicação web entregue pela Front Door pode ter apenas uma política waf a
 
 ## <a name="waf-modes"></a>Modos WAF
 
-A política WAF pode ser configurada para ser executada nos dois modos a seguir:
+A política waf pode ser configurada para ser executada nos dois modos seguintes:
 
 - **Modo de deteção:** Quando executado em modo de deteção, o WAF não toma outras ações que não os monitores e regista o pedido e a sua regra WAF compatível com os registos WAF. Pode ligar o diagnóstico de registo para a Porta da Frente. Quando utilizar o portal, vá à secção **de Diagnósticos.**
 
-- **Modo de prevenção:** No modo de prevenção, a WAF toma a medida especificada se um pedido corresponder a uma regra. Se for encontrado um jogo, não são avaliadas mais regras com menor prioridade. Todas as solicitações correspondentes também são registradas nos logs do WAF.
+- **Modo de prevenção:** No modo de prevenção, a WAF toma a medida especificada se um pedido corresponder a uma regra. Se for encontrado um jogo, não são avaliadas mais regras com menor prioridade. Quaisquer pedidos combinados também são registados nos registos waf.
 
 ## <a name="waf-actions"></a>Ações waf
 
@@ -77,7 +77,7 @@ Pode configurar regras personalizadas WAF da seguinte forma:
 
 ### <a name="azure-managed-rule-sets"></a>Conjuntos de regras geridos pelo Azure
 
-Os conjuntos de regras geridos pelo Azure proporcionam uma forma fácil de implementar proteção contra um conjunto comum de ameaças à segurança. Uma vez que tais regras são geridas pelo Azure, as regras são atualizadas conforme necessário para proteger contra novas assinaturas de ataque. Na pré-visualização pública, o Conjunto de Regras padrão gerido pelo Azure inclui regras contra as seguintes categorias de ameaças:
+Os conjuntos de regras geridos pelo Azure proporcionam uma forma fácil de implementar proteção contra um conjunto comum de ameaças à segurança. Uma vez que tais regras são geridas pelo Azure, as regras são atualizadas conforme necessário para proteger contra novas assinaturas de ataque. O Conjunto de Regras padrão gerido pelo Azure inclui regras contra as seguintes categorias de ameaças:
 
 - Scripts cross-site
 - Ataques de Java
@@ -91,6 +91,8 @@ Os conjuntos de regras geridos pelo Azure proporcionam uma forma fácil de imple
 
 O número da versão do Conjunto de Regras Padrão aumenta quando novas assinaturas de ataque são adicionadas ao conjunto de regras.
 O conjunto de regras predefinidos é ativado por predefinição no modo de deteção nas suas políticas WAF. Pode desativar ou ativar regras individuais dentro do Conjunto de Regras Predefinidas para satisfazer os seus requisitos de aplicação. Também pode definir ações específicas (ALLOW/BLOCK/REDIRECT/LOG) por regra.
+
+Por vezes, pode ser necessário omitir certos atributos de pedido de uma avaliação waf. Um exemplo comum são as fichas inseridas no Diretório Ativo que são usadas para autenticação. Pode configurar uma lista de exclusão para uma regra gerida, grupo de regras ou para todo o conjunto de regras.  
 
 A ação Padrão é bloquear. Além disso, as regras personalizadas podem ser configuradas na mesma política de WAF se desejar contornar qualquer uma das regras pré-configuradas no Conjunto de Regras Predefinidas.
 

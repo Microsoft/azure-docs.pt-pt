@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: aed9c0a72af063c84c0744757772e11c689ac14c
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 4785356963e7df1d7b175ac21ceebc921f851ffb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561039"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913655"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Melhorar a síntese com a criação de Conteúdo Áudio
 
@@ -43,7 +43,7 @@ Este diagrama mostra os passos que é necessário para afinar e exportar saídas
 
 Siga estes passos para criar um recurso da Fala e conectá-lo com o Speech Studio.
 
-1. Siga estas instruções para [se inscrever para uma conta Azure](get-started.md#try-the-speech-service-using-a-new-azure-account) e criar um recurso da [Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Certifique-se de que o seu nível de preços está definido para **S0**. Se estiver a usar uma das vozes neurais, certifique-se de que cria o seu recurso numa [região apoiada.](regions.md#standard-and-neural-voices)
+1. Siga estas instruções para [se inscrever para uma conta Azure](get-started.md#new-resource) e criar um recurso da [Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Certifique-se de que o seu nível de preços está definido para **S0**. Se estiver a usar uma das vozes neurais, certifique-se de que cria o seu recurso numa [região apoiada.](regions.md#standard-and-neural-voices)
 2. Inscreva-se na [Criação](https://aka.ms/audiocontentcreation)de Conteúdos Áudio .
 3. Selecione um projeto existente ou clique em **Criar Novo**.
 4. Pode modificar a sua subscrição a qualquer momento com a opção **Definições,** localizada na navegação superior.

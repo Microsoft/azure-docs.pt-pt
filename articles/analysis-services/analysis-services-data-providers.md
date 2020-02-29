@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 006e1fb3fcef1ebcd0e09dffb79149e75eec622a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f099546ced64bd911916164879cd533329761c66
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713168"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914675"
 ---
-# <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de clientes para ligação aos Serviços de Análise Azure
+# <a name="client-libraries-for-connecting-to-analysis-services"></a>Bibliotecas de clientes para ligação aos Serviços de Análise
 
 As bibliotecas dos clientes são necessárias para que as aplicações e ferramentas do cliente se conectem aos servidores dos Serviços de Análise. Aplicações de clientes da Microsoft como Power BI Desktop, Excel, SQL Server Management Studio (SSMS) e análise de projetos de projetos para O Estúdio Visual instalam as três bibliotecas de clientes e atualizam-nas juntamente com atualizações regulares de aplicações. Em alguns casos, poderá ter de instalar versões mais recentes das bibliotecas de clientes. Aplicações personalizadas do cliente também requerem a instalação de bibliotecas de clientes.
 
@@ -90,6 +90,6 @@ As bibliotecas de clientes para ligações com clientes são diferentes dos forn
 2. Clique direito **microsoft.AnalysisServices.AdomdClient** > **Properties** > **Detalhes**.  
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Conecte-se com excel](analysis-services-connect-excel.md)    
 [Ligar com o Power BI](analysis-services-connect-pbi.md)

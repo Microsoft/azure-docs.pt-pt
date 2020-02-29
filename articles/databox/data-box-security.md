@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 678bef1b18d60679be6c296a1fd7beef42f721b7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203823"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911729"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
 
@@ -34,7 +34,7 @@ O diagrama seguinte indica o fluxo de dados através da solução Azure Data Box
 
 ![Segurança do Data Box](media/data-box-security/data-box-security-2.png)
 
-À medida que os dados fluem por essa solução, os eventos são registrados em log e os logs são gerados. Para obter mais informações, acesse [rastreamento e log de eventos para sua Azure data Box](data-box-logs.md).
+À medida que os dados fluem através desta solução, os eventos são registados e os registos são gerados. Para mais informações, aceda ao Tracking e ao [registo de eventos para a sua Caixa](data-box-logs.md)de Dados Azure .
 
 ## <a name="security-features"></a>Funcionalidades de segurança
 
@@ -50,7 +50,7 @@ O dispositivo do Data Box está protegido pelas seguintes funcionalidades:
 - Executa apenas o software específico do Data Box.
 - Arranca num estado bloqueado.
 - Controla o acesso do dispositivo através da palavra-passe de desbloqueio do dispositivo.
-- Credenciais de acesso para copiar dados dentro e fora do dispositivo. Todo o acesso à página de **credenciais do dispositivo** no portal do Azure é registrado nos [logs de atividade](data-box-logs.md#query-activity-logs-during-setup).
+- Credenciais de acesso para copiar dados dentro e fora do dispositivo. Todos os acessos à página de **credenciais do Dispositivo** no portal Azure estão registados nos [registos de atividade](data-box-logs.md#query-activity-logs-during-setup).
 
 ### <a name="data-box-data-protection"></a>Proteção de dados do Data Box
 
@@ -58,7 +58,7 @@ O fluxo de dados de entrada e saída do Data Box está protegido pelas seguintes
 
 - Encriptação AES de 256 bits para Dados inativos.
 - Os protocolos encriptados podem ser utilizados para dados em trânsito.
-- Eliminação segura de dados do dispositivo após a conclusão do carregamento de dados para o Azure. A eliminação de dados está de acordo com as diretrizes no [Apêndice A para unidades de disco rígido do ATA nos padrões NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). O evento de eliminação de dados é registrado no [histórico de pedidos](data-box-logs.md#download-order-history).
+- Eliminação segura de dados do dispositivo após a conclusão do carregamento de dados para o Azure. O apagamento de dados está de acordo com as diretrizes do Apêndice A para unidades de [disco rígido ATA nas normas NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). O evento de apagamento de dados é registado no histórico da [ordem.](data-box-logs.md#download-order-history)
 
 ### <a name="data-box-service-protection"></a>Proteção do serviço Data Box
 
@@ -66,7 +66,7 @@ O serviço Data Box está protegido pelas seguintes funcionalidades.
 
 - O acesso ao serviço Data Box requer que a sua organização tenha uma subscrição do Azure que inclua o Data Box. A subscrição controla as funcionalidades a que pode aceder no portal do Azure.
 - Uma vez que o serviço Data Box está alojado no Azure, é protegido pelas funcionalidades de segurança do Azure. Para obter mais informações sobre as funcionalidades de segurança fornecidas pelo Microsoft Azure, aceda ao [Centro de Fidedignidade do Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
-- O acesso ao pedido de Data Box pode ser controlado por meio do uso de funções de RBAC (controle de acesso baseado em função). Para obter mais informações, consulte [Configurar o controle de acesso para a ordem de data Box](data-box-logs.md#set-up-access-control-on-the-order)
+- O acesso à ordem data box pode ser controlado através da utilização de funções de Controlo de Acesso (RBAC) baseados em funções. Para mais informações, consulte [Configurar o controlo de acesso para a ordem data box](data-box-logs.md#set-up-access-control-on-the-order)
 - O serviço Data Box armazena a palavra-passe desbloqueada que serve para desbloquear o dispositivo no serviço.
 - O serviço Data Box armazena os detalhes da encomenda e o estado no serviço. Estas informações são eliminadas quando a encomenda é eliminada.
 
@@ -81,12 +81,12 @@ O Azure Data Box recolhe e apresenta informações pessoais nas seguintes instâ
   - Nome do contacto
   - Número de telefone
   - Email
-  - Rua
+  - Morada
   - Localidade
   - Código postal
-  - State
+  - Estado
   - País/Província/Região
-  - Número de conta da transportadora
+  - Número de conta da operadora
   - Número de controlo de envio
 
     Os detalhes da encomenda são eliminados pelo serviço Data Box quando a tarefa é concluída ou ao eliminar a encomenda.
@@ -106,7 +106,7 @@ As seguintes diretrizes de segurança são implementadas no Data Box:
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Para resistir a condições de transporte adversas          |
 |[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Para a atualização de firmware seguro         |
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Para proteção de dados         |
-|Apêndice A, para unidades de disco rígido do ATA no [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para a limpeza de dados         |
+|Apêndice A, para unidades de disco rígido ATA em [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para a limpeza de dados         |
 
 ## <a name="next-steps"></a>Passos seguintes
 

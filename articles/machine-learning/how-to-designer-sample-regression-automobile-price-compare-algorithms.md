@@ -1,7 +1,7 @@
 ---
-title: 'Designer: prever o exemplo de preços do carro (avançado)'
+title: 'Designer: Prever os preços dos automóveis (avançado) exemplo'
 titleSuffix: Azure Machine Learning
-description: Crie & Compare vários modelos de regressão de ML para prever o preço de um automóvel com base em recursos técnicos com Azure Machine Learning designer.
+description: Build & compare vários modelos de regressão ml para prever o preço de um automóvel com base em características técnicas com o designer de Machine Learning Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,24 +10,24 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 189b36c8d9a7c1d1e247bb2cb34795dc4e3595ce
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: a80a1567c84ff3c2eda8ad22391aa862bb7d9d82
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963347"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915836"
 ---
-# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Treine & comparar vários modelos de regressão para prever os preços de carros com o designer de Azure Machine Learning
+# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Comboio & comparar vários modelos de regressão para prever preços de carro com designer de Machine Learning Azure
 
-**Amostra 2 do designer (visualização)**
+**Amostra de designer (pré-visualização) 2**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Saiba como criar um pipeline de Machine Learning sem escrever uma única linha de código usando o designer (versão prévia). Este exemplo treina e compara vários modelos de regressão para prever o preço de um carro com base em seus recursos técnicos. Forneceremos a lógica para as escolhas feitas nesse pipeline para que você possa lidar com seus próprios problemas de aprendizado de máquina.
+Aprenda a construir um pipeline de aprendizagem automática sem escrever uma única linha de código usando o designer (pré-visualização). Esta amostra treina e compara vários modelos de regressão para prever o preço de um carro com base nas suas características técnicas. Vamos fornecer a lógica das escolhas feitas neste oleoduto para que possa sosseada dos seus próprios problemas de aprendizagem automática.
 
-Se você estiver apenas começando a usar o Machine Learning, dê uma olhada na [versão básica](how-to-designer-sample-regression-automobile-price-basic.md) desse pipeline.
+Se está saindo com machine learning, veja a [versão básica](how-to-designer-sample-regression-automobile-price-basic.md) deste oleoduto.
 
-Este é o grafo concluído para este pipeline:
+Aqui está o gráfico completo para este oleoduto:
 
 [gráfico ![do oleoduto](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png)](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png#lightbox)
 
@@ -35,52 +35,52 @@ Este é o grafo concluído para este pipeline:
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
-4. Clique em exemplo 2 para abri-lo. 
+4. Clique na amostra 2 para abri-la. 
 
-## <a name="pipeline-summary"></a>Resumo do pipeline
+## <a name="pipeline-summary"></a>Resumo do gasoduto
 
-Use as etapas a seguir para criar o pipeline do Machine Learning:
+Utilize os seguintes passos para construir o gasoduto de aprendizagem automática:
 
-1. Obter os dados.
+1. Pegue os dados.
 1. Pré-processar os dados.
 1. Treine o modelo.
 1. Teste, avalie e compare os modelos.
 
 ## <a name="get-the-data"></a>Obter os dados
 
-Este exemplo usa o conjunto de **dados de preço do automóvel (bruto)** , que é do repositório do Machine Learning UCI. Esse conjunto de dados contém 26 colunas que contêm informações sobre autocelular, incluindo marca, modelo, preço, recursos de veículo (como o número de cilindros), MPG e uma pontuação de risco de seguro.
+Esta amostra utiliza o conjunto de dados sobre os preços do **Automóvel (Raw),** que é do Repositório de Aprendizagem Automática uci. Este conjunto de dados contém 26 colunas que contêm informações sobre automóveis, incluindo fabricação, modelo, preço, características do veículo (como o número de cilindros), MPG e uma pontuação de risco de seguro.
 
 ## <a name="pre-process-the-data"></a>Pré-processar os dados
 
-As principais tarefas de preparação de dados incluem limpeza, integração, transformação, redução e discretização ou Quantificação de dados. No designer, você pode encontrar módulos para executar essas operações e outras tarefas de pré-processamento de dados no grupo de **transformação de dados** no painel esquerdo.
+As principais tarefas de preparação de dados incluem limpeza de dados, integração, transformação, redução e discretização ou quantificação. No designer, pode encontrar módulos para realizar estas operações e outras tarefas de pré-processamento de dados no grupo **de Transformação** de Dados no painel esquerdo.
 
-Use o módulo **selecionar colunas no conjunto de DataSet** para excluir as perdas normalizadas que têm muitos valores ausentes. Em seguida, usamos **dados ausentes limpos** para remover as linhas que têm valores ausentes. Isso ajuda a criar um conjunto limpo de dados de treinamento.
+Utilize as **Colunas Select no** módulo Dataset para excluir perdas normalizadas que tenham muitos valores em falta. Em seguida, usamos **Dados Limpos Desaparecidos** para remover as linhas que têm valores em falta. Isto ajuda a criar um conjunto limpo de dados de treino.
 
 ![Pré-processamento de dados](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/data-processing.png)
 
-## <a name="train-the-model"></a>Formar o modelo
+## <a name="train-the-model"></a>Dar formação sobre o modelo
 
-Os problemas de Machine Learning variam. As tarefas comuns de aprendizado de máquina incluem classificação, clustering, regressão e sistemas de recomendação, e cada uma delas pode exigir um algoritmo diferente. A escolha do algoritmo geralmente depende dos requisitos do caso de uso. Depois de escolher um algoritmo, você precisa ajustar seus parâmetros para treinar um modelo mais preciso. Em seguida, você precisa avaliar todos os modelos com base em métricas, como precisão, inteligibilidade e eficiência.
+Os problemas de aprendizagem automática variam. As tarefas comuns de aprendizagem automática incluem sistemas de classificação, agrupamento, regressão e recomendadores, cada um dos quais pode exigir um algoritmo diferente. A sua escolha de algoritmo depende frequentemente dos requisitos do caso de utilização. Depois de escolher um algoritmo, precisa de afinar os seus parâmetros para treinar um modelo mais preciso. Em seguida, é necessário avaliar todos os modelos com base em métricas como precisão, inteligibilidade e eficiência.
 
-Como o objetivo desse pipeline é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear.
+Porque o objetivo deste oleoduto é prever os preços dos automóveis, e porque a coluna de etiquetas (preço) contém números reais, um modelo de regressão é uma boa escolha.
 
-Para comparar o desempenho de algoritmos diferentes, usamos dois algoritmos não lineares, **regressão de árvore de decisão aumentada** e **regressão de floresta de decisão**, para criar modelos. Ambos os algoritmos têm parâmetros que podem ser alterados, mas este exemplo usa os valores padrão para esse pipeline.
+Para comparar o desempenho de diferentes algoritmos, usamos dois algoritmos não lineares, **a Regressão** da Árvore de Decisão Impulsionada e a **Regressão da Floresta**de Decisão, para construir modelos. Ambos os algoritmos têm parâmetros que pode alterar, mas esta amostra utiliza os valores padrão para este pipeline.
 
 Utilize o módulo **De dados divididos** para dividir aleatoriamente os dados de entrada de modo a que o conjunto de dados de formação contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% dos dados originais.
 
 ## <a name="test-evaluate-and-compare-the-models"></a>Testar, avaliar e comparar os modelos
 
-Você usa dois conjuntos diferentes de dados escolhidos aleatoriamente para treinar e testar o modelo, conforme descrito na seção anterior. Divida o conjunto de informações e use conjuntos de valores diferentes para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
+Utiliza dois conjuntos diferentes de dados escolhidos aleatoriamente para treinar e depois testar o modelo, como descrito na secção anterior. Divida o conjunto de dados e use diferentes conjuntos de dados para treinar e testar o modelo para tornar a avaliação do modelo mais objetiva.
 
-Depois que o modelo for treinado, use o **modelo de Pontuação** e avalie os módulos de **modelo** para gerar resultados previstos e avaliar os modelos. O **modelo de Pontuação** gera previsões para o conjunto de teste usando o modelo treinado. Em seguida, passe as pontuações para **avaliar o modelo** para gerar métricas de avaliação.
+Depois de o modelo ser treinado, utilize os módulos **'Modelo de Pontuação'** e avalie os módulos de Modelo de **Pontuação** para gerar resultados previstos e avaliar os modelos. **O Modelo de Pontuação** gera previsões para o conjunto de dados de teste utilizando o modelo treinado. Em seguida, passe as pontuações para **Avaliar O Modelo** para gerar métricas de avaliação.
 
 
 
-Estes são os resultados:
+Aqui estão os resultados:
 
-![Comparar os resultados](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/result.png)
+![Compare os resultados](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/result.png)
 
-Esses resultados mostram que o modelo criado com a **regressão da árvore de decisão aumentada** tem um erro de média de minúsculas raiz inferior ao modelo criado na **regressão da floresta de decisão**.
+Estes resultados mostram que o modelo construído com **a Boosted Decision Tree Regression** tem um erro quadrado de raiz inferior do que o modelo construído sobre a **Regressão da Floresta**de Decisão.
 
 
 
@@ -90,11 +90,11 @@ Esses resultados mostram que o modelo criado com a **regressão da árvore de de
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore os outros exemplos disponíveis para o designer:
+Explore as outras amostras disponíveis para o designer:
 
-- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exemplo 3-classificação com seleção de recursos: Previsão de renda](how-to-designer-sample-classification-predict-income.md)
-- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exemplo 5-classificação: Previsão de rotatividade](how-to-designer-sample-classification-churn.md)
-- [Exemplo 6-classificação: prever atrasos de voo](how-to-designer-sample-classification-flight-delay.md)
-- [Exemplo de classificação de texto 7: conjunto de teste da Wikipédia SP 500](how-to-designer-sample-text-classification.md)
+- [Amostra 1 - Regressão: Prever o preço de um automóvel](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Amostra 3 - Classificação com seleção de características: Previsão do Rendimento](how-to-designer-sample-classification-predict-income.md)
+- [Amostra 4 - Classificação: Prever o risco de crédito (sensível ao custo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Amostra 5 - Classificação: Prever churn](how-to-designer-sample-classification-churn.md)
+- [Amostra 6 - Classificação: Prever atrasos nos voos](how-to-designer-sample-classification-flight-delay.md)
+- [Amostra 7 - Classificação de Texto: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

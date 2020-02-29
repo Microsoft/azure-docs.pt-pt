@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: c23a06c502bd43b52cb35220b711084c7c8c1c7a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: b23c210d7c8a9f1d42e6e1b46e0f7f81bda857b2
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121835"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916087"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Manuseamento de manutenção planeada usando powerShell
 
 **Este artigo aplica-se a máquinas virtuais que executam tanto o Linux como o Windows.**
 
-Pode utilizar o Azure Powershell para ver quando os VMs estão programados para [manutenção](maintenance-notifications.md). As informações de manutenção planeadas estão disponíveis a partir do cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) quando utilizar o parâmetro `-status`.
+Pode utilizar o Azure PowerShell para ver quando os VMs estão programados para [manutenção](maintenance-notifications.md). As informações de manutenção planeadas estão disponíveis a partir do cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) quando utilizar o parâmetro `-status`.
   
 As informações de manutenção só são devolvidas se houver manutenção planeada. Se não estiver prevista qualquer manutenção que tenha impacto no VM, o cmdlet não devolve nenhuma informação de manutenção. 
 
@@ -83,6 +83,8 @@ Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceG
 ```
 
 ## <a name="classic-deployments"></a>Implementações clássicas
+
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 Se ainda tiver VMs legados que foram implantados usando o modelo de implementação clássico, pode usar o PowerShell para consultar VMs e iniciar a manutenção.
 

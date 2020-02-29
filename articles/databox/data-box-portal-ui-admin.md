@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147916"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911819"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utilizar o portal do Azure para administrar o seu disco do Data Box
+# <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utilize o portal Azure para administrar o seu Disco de Caixa de Dados
 
 Os tutoriais neste artigo aplicam-se ao Microsoft Azure Data Box Disk durante a Pré-visualização. Este artigo descreve alguns dos fluxos de trabalho complexos e tarefas de gestão que podem ser executadas no Data Box Disk. 
 
@@ -105,7 +105,7 @@ Execute os seguintes passos para editar a encomenda.
 
 ## <a name="edit-notification-details"></a>Editar detalhes de notificação
 
-Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o disco é entregue ou recolhido. Outro usuário poderá ter de se manter informado sobre o quando a cópia de dados estiver concluída, de modo que podem verificar que os dados estão na conta de armazenamento do Azure antes da partir da origem. Nestes casos, pode editar os detalhes de notificação.
+Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o disco é entregue ou recolhido. Outro utilizador poderá ter de ser informado quando a cópia de dados estiver concluída para que possa verificar se os dados estão na conta de armazenamento do Azure antes de os apagar da fonte. Nestes casos, pode editar os detalhes de notificação.
 
 Execute os seguintes passos para editar os detalhes de notificação.
 
@@ -125,15 +125,15 @@ Execute os seguintes passos para editar os detalhes de notificação.
 |Processado     | O processamento da encomenda está concluído. <br> Durante o processamento da encomenda, ocorrem as ações seguintes:<li>Os discos são encriptados com a encriptação AES-128 BitLocker. </li> <li>O Data Box Disk está bloqueado para impedir qualquer acesso não autorizado.</li><li>A chave de acesso que desbloqueia os discos é gerada durante este processo.</li>        |
 |Expedido     | A encomenda foi enviada. Deverá receber a encomenda dentro de 1 a 2 dias.        |
 |Entregue     | A encomenda foi entregue no endereço especificado na encomenda.        |
-|Recolhido     |O envio para devolução foi recolhido. <br> Depois da remessa é recebida no datacenter do Azure, os dados serão automaticamente carregados para o Azure.         |
+|Recolhido     |O envio para devolução foi recolhido. <br> Assim que o envio for recebido no Centro de Dados Do Azure, os dados serão automaticamente enviados para o Azure.         |
 |Recebido     | Os discos foram recebidos no datacenter do Azure. A cópia dos dados começará em breve.        |
 |Dados copiados     |A cópia dos dados está em curso.<br> Aguarde até que a cópia de dados esteja concluída.         |
 |Concluído       |A encomenda foi concluída com êxito.<br> Verifique se os seus dados estão no Azure antes de eliminar os dados no local dos servidores.         |
-|Concluído com erros| A cópia de dados foi concluída, mas foram recebidos erros. <br> Reveja os registos de erros para o carregamento através do caminho fornecido no **descrição geral**. Para obter mais informações, aceda a [registos de erros de carregamento de Download](data-box-disk-troubleshoot-upload.md#download-logs).   |
+|Concluído com erros| A cópia de dados foi concluída, mas foram recebidos erros. <br> Reveja os registos de erro para upload utilizando o caminho fornecido na **visão geral**. Para mais informações, aceda ao [Download registos](data-box-disk-troubleshoot-upload.md#download-logs)de erros de upload .   |
 |Cancelado            |A encomenda foi cancelada. <br> Cancelou a encomenda ou foi encontrado um erro e o serviço cancelou a encomenda.     |
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Resolver problemas do Data Box Disk](data-box-disk-troubleshoot.md).

@@ -1,126 +1,126 @@
 ---
-title: 'SVD Recomendador de Pontuação: referência de módulo'
+title: 'Recomendador SVD: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo de recomendação do SVD de pontuação no Azure Machine Learning para pontuar previsões de recomendação para um conjunto de informações.
+description: Saiba como utilizar o módulo recomendador Score SVD em Azure Machine Learning para marcar previsões de recomendação para um conjunto de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 0b321f3548910a2bc79e4473609de30eda8c8622
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/10/2020
+ms.openlocfilehash: a3eafc28dc6d0f44a1f1019cb3393259aa2a698a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314356"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920353"
 ---
 # <a name="score-svd-recommender"></a>Classificar Recomendador SVD
 
-Este artigo descreve como usar o módulo de recomendação SVD de pontuação no designer de Azure Machine Learning. Use este módulo para criar previsões usando um modelo de recomendação treinado com base no algoritmo de decomposição de valor único (SVD).
+Este artigo descreve como utilizar o módulo recomendador Score SVD no designer de Machine Learning Azure (pré-visualização). Utilize este módulo para criar previsões utilizando um modelo de recomendação treinado baseado no algoritmo de decomposição de valor único (SVD).
 
 O recomendador SVD pode gerar dois tipos diferentes de previsões:
 
-- [Prever classificações para um determinado usuário e item](#prediction-of-ratings)
-- [Itens recomendados a um usuário](#recommendations-for-users)
+- [Prever classificações para um determinado utilizador e item](#prediction-of-ratings)
+- [Recomendar itens a um utilizador](#recommendations-for-users)
 
-Quando você estiver criando o segundo tipo de previsões, poderá operar em um destes modos:
+Quando está a criar o segundo tipo de previsões, pode operar num destes modos:
 
-- O **modo de produção** considera todos os usuários ou itens. Ele é normalmente usado em um serviço Web.
+- **O modo de produção** considera todos os utilizadores ou itens. É normalmente usado num serviço web.
 
-  Você pode criar pontuações para novos usuários, não apenas os usuários vistos durante o treinamento. Para obter mais informações, consulte as [notas técnicas](#technical-notes). 
+  Pode criar pontuações para novos utilizadores, e não apenas para utilizadores vistos durante o treino. Para mais informações, consulte as [notas técnicas.](#technical-notes) 
 
-- O **modo de avaliação** opera em um conjunto reduzido de usuários ou itens que podem ser avaliados. Normalmente, ele é usado durante operações de pipeline.
+- O modo de **avaliação** funciona num conjunto reduzido de utilizadores ou itens que podem ser avaliados. É normalmente usado durante as operações do oleoduto.
 
-Para obter mais informações sobre o algoritmo de recomendador SVD, consulte as [técnicas de fatoração de matriz de papel de pesquisa para sistemas de recomendação](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
+Para obter mais informações sobre o algoritmo recomendador SVD, consulte as técnicas de factorização matrix do artigo de investigação [para sistemas de recomendação](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
 
-## <a name="how-to-configure-score-svd-recommender"></a>Como configurar o SVD Recomendador de Pontuação
+## <a name="how-to-configure-score-svd-recommender"></a>Como configurar o recomendador SVD de pontuação
 
-Esse módulo dá suporte a dois tipos de previsões, cada um com requisitos diferentes. 
+Este módulo suporta dois tipos de previsões, cada uma com requisitos diferentes. 
 
-###  <a name="prediction-of-ratings"></a>Previsão de classificações
+###  <a name="prediction-of-ratings"></a>Previsão das classificações
 
-Quando você prevê as classificações, o modelo calcula como um usuário reagirá a um determinado item, considerando os dados de treinamento. Os dados de entrada para Pontuação devem fornecer um usuário e o item a serem classificados.
+Quando prevê classificações, o modelo calcula como um utilizador irá reagir a um determinado item, tendo em conta os dados de formação. Os dados de entrada para pontuação devem fornecer ao utilizador e ao item uma classificação.
 
-1. Adicione um modelo de recomendação treinado ao seu pipeline e conecte-o ao **recomendador SVD treinado**. Você deve criar o modelo usando o módulo [treinar recomendador SVD](train-SVD-recommender.md) .
+1. Adicione um modelo de recomendação treinado ao seu pipeline e ligue-o ao **recomendador SVD treinado**. Tem de criar o modelo utilizando o módulo [recomendador Train SVD.](train-SVD-recommender.md)
 
-2. Para **tipo de previsão de recomendação**, selecione **previsão de classificação**. Nenhum outro parâmetro é necessário.
+2. Para o tipo de **previsão do recomendador,** selecione **Previsão de Classificação**. Não são necessários outros parâmetros.
 
-3. Adicione os dados para os quais você deseja fazer previsões e conecte-os ao **DataSet para pontuar**.
+3. Adicione os dados para os quais pretende fazer previsões e conecte-os ao **Dataset para marcar**.
 
-   Para o modelo prever classificações, o conjunto de dados de entrada deve conter pares de item-usuário.
+   Para que o modelo preveja classificações, o conjunto de dados de entrada deve conter pares de itens de utilizador.
 
-   O conjunto de linhas pode conter uma terceira coluna opcional de classificações para o par de item-usuário na primeira e segunda colunas. Mas a terceira coluna será ignorada durante a previsão.
+   O conjunto de dados pode conter uma terceira coluna opcional de classificações para o par de artigos de utilizador na primeira e segunda colunas. Mas a terceira coluna será ignorada durante a previsão.
 
 4. Executar o pipeline.
 
-### <a name="results-for-rating-predictions"></a>Resultados para previsões de classificação 
+### <a name="results-for-rating-predictions"></a>Resultados das previsões de classificação 
 
-O conjunto de dados de saída contém três colunas: usuários, itens e a classificação prevista para cada usuário de entrada e item.
+O conjunto de dados de saída contém três colunas: utilizadores, itens e a classificação prevista para cada utilizador e item de entrada.
 
-###  <a name="recommendations-for-users"></a>Recomendações para usuários 
+###  <a name="recommendations-for-users"></a>Recomendações para utilizadores 
 
-Para recomendar itens para os usuários, você fornece uma lista de usuários e itens como entrada. A partir desses dados, o modelo usa seu conhecimento sobre itens e usuários existentes para gerar uma lista de itens com um apelo provável para cada usuário. Você pode personalizar o número de recomendações retornadas. E você pode definir um limite para o número de recomendações anteriores que são necessárias para gerar uma recomendação.
+Para recomendar itens para utilizadores, fornece uma lista de utilizadores e itens como entrada. A partir destes dados, o modelo utiliza os seus conhecimentos sobre itens e utilizadores existentes para gerar uma lista de itens com provável apelo a cada utilizador. Pode personalizar o número de recomendações devolvidas. E pode estabelecer um limiar para o número de recomendações anteriores que são necessárias para gerar uma recomendação.
 
-1. Adicione um modelo de recomendação treinado ao seu pipeline e conecte-o ao **recomendador SVD treinado**.  Você deve criar o modelo usando o módulo [treinar recomendador SVD](train-svd-recommender.md) .
+1. Adicione um modelo de recomendação treinado ao seu pipeline e ligue-o ao **recomendador SVD treinado**.  Tem de criar o modelo utilizando o módulo [recomendador Train SVD.](train-svd-recommender.md)
 
-2. Para recomendar itens para uma lista de usuários, defina o **tipo de previsão** de recomendação como recomendações de **Item**.
+2. Para recomendar itens para uma lista de utilizadores, detete o tipo de **previsão do Recomendador** para **a Recomendação**do Ponto .
 
-3. Para **seleção de item recomendado**, indique se você está usando o módulo de pontuação em produção ou para avaliação de modelo. Escolha um destes valores:
+3. Para **a seleção recomendada**de itens, indique se está a utilizar o módulo de pontuação em produção ou para avaliação do modelo. Escolha um destes valores:
 
-    - **De todos os itens**: Selecione esta opção se você estiver configurando um pipeline para usar em um serviço Web ou em produção.  Essa opção habilita o *modo de produção*. O módulo faz recomendações de todos os itens vistos durante o treinamento.
+    - **De Todos os itens**: Selecione esta opção se estiver a configurar um pipeline para utilizar num serviço web ou em produção.  Esta opção permite o modo de *produção.* O módulo faz recomendações de todos os itens vistos durante o treino.
 
-    - **De itens classificados (para avaliação de modelo)** : Selecione esta opção se você estiver desenvolvendo ou testando um modelo. Essa opção habilita o *modo de avaliação*. O módulo faz recomendações apenas dos itens no conjunto de dados de entrada que foram classificados.
+    - **A partir de Itens Avaliados (para avaliação**do modelo) : Selecione esta opção se estiver a desenvolver ou a testar um modelo. Esta opção permite o modo de *avaliação*. O módulo faz recomendações apenas a partir dos itens no conjunto de dados de entrada que foram avaliados.
     
-    - **De itens sem classificação (para sugerir novos itens para os usuários)** : Selecione esta opção se desejar que o módulo faça recomendações apenas desses itens no conjunto de módulos de treinamento que não foram classificados. 
+    - **A partir de Itens Não Classificados (para sugerir novos itens aos utilizadores)** : Selecione esta opção se quiser que o módulo faça recomendações apenas a partir desses itens no conjunto de dados de formação que não tenham sido avaliados. 
 
-4. Adicione o conjunto de um para o qual você deseja fazer previsões e conecte-o ao **conjunto de pontos para Pontuação**.
+4. Adicione o conjunto de dados para o qual pretende fazer previsões e conecte-o ao **Dataset para marcar**.
 
-    - Para **de todos os itens**, o conjunto de dados de entrada deve consistir em uma coluna. Ele contém os identificadores de usuários para os quais fazer recomendações.
+    - Para **From All Items,** o conjunto de dados de entrada deve ser composto por uma coluna. Contém os identificadores dos utilizadores para os quais podem fazer recomendações.
 
-      O conjunto de valores pode incluir duas colunas extras de identificadores e classificações de item, mas essas duas colunas são ignoradas. 
+      O conjunto de dados pode incluir duas colunas extra de identificadores e classificações de itens, mas estas duas colunas são ignoradas. 
 
-    - Para **itens classificados (para avaliação de modelo)** , o conjunto de dados de entrada deve consistir em pares de item de usuário. A primeira coluna deve conter o identificador de usuário. A segunda coluna deve conter os identificadores de item correspondentes.
+    - Para **a partir de itens classificados (para avaliação**do modelo), o conjunto de dados de entrada deve consistir em pares de itens de utilizador. A primeira coluna deve conter o identificador do utilizador. A segunda coluna deve conter os identificadores de objectocorrespondentes.
 
-      O conjunto de valores pode incluir uma terceira coluna de classificações de usuário-item, mas essa coluna é ignorada.
+      O conjunto de dados pode incluir uma terceira coluna de classificações de itens de utilizador, mas esta coluna é ignorada.
 
-    - Para **itens sem classificação (para sugerir novos itens para os usuários)** , o conjunto de dados de entrada deve consistir em pares de item-usuário. A primeira coluna deve conter o identificador de usuário. A segunda coluna deve conter os identificadores de item correspondentes.
+    - Para **a partir de itens não avaliados (para sugerir novos itens para os utilizadores)** , o conjunto de dados de entrada deve consistir em pares de itens de utilizador. A primeira coluna deve conter o identificador do utilizador. A segunda coluna deve conter os identificadores de objectocorrespondentes.
 
-     O conjunto de valores pode incluir uma terceira coluna de classificações de usuário-item, mas essa coluna é ignorada.
+     O conjunto de dados pode incluir uma terceira coluna de classificações de itens de utilizador, mas esta coluna é ignorada.
 
-5. **Número máximo de itens para recomendar a um usuário**: Insira o número de itens a serem retornados para cada usuário. Por padrão, o módulo recomenda cinco itens.
+5. **Número máximo de itens a recomendar a um utilizador**: Insira o número de itens a devolver para cada utilizador. Por defeito, o módulo recomenda cinco itens.
 
-6. **Tamanho mínimo do pool de recomendações por usuário**: Insira um valor que indica quantas recomendações anteriores são necessárias. Por padrão, esse parâmetro é definido como **2**, o que significa que pelo menos dois outros usuários recomendam o item.
+6. **Tamanho mínimo do pool de recomendação por utilizador**: Introduza um valor que indique quantas recomendações anteriores são necessárias. Por padrão, este parâmetro está definido para 2, o que significa que pelo menos dois outros utilizadores recomendaram o item.
 
-   Use esta opção somente se você estiver pontuando no modo de avaliação. A opção não estará disponível se você selecionar **de todos os itens** ou **de itens sem classificação (para sugerir novos itens para os usuários)** .
+   Utilize esta opção apenas se estiver a marcar em modo de avaliação. A opção não está disponível se selecionar **De Todos os Itens** ou de Itens Não **Avaliados (para sugerir novos itens aos utilizadores)** .
 
-7.  Para **itens sem classificação (para sugerir novos itens para os usuários)** , use a terceira porta de entrada, denominada **dados de treinamento**, para remover os itens que já foram classificados dos resultados da previsão.
+7.  Para **itens não avaliados (para sugerir novos itens para os utilizadores)** , utilize a terceira porta de entrada, denominada Dados de **Formação,** para remover itens que já tenham sido avaliados a partir dos resultados da previsão.
 
-    Para aplicar esse filtro, conecte o conjunto de dados de treinamento original à porta de entrada.
+    Para aplicar este filtro, ligue o conjunto de dados de treino original à porta de entrada.
 
 8. Executar o pipeline.
 
 ### <a name="results-of-item-recommendation"></a>Resultados da recomendação do item
 
-O conjunto de pontos de Pontuação retornado por Score SVD Recomendador lista os itens recomendados para cada usuário:
+O conjunto de dados pontuado devolvido pelo Recomendante Score SVD lista os itens recomendados para cada utilizador:
 
-- A primeira coluna contém os identificadores de usuário.
-- Várias colunas adicionais são geradas, dependendo do valor que você definiu para o **número máximo de itens a serem recomendados a um usuário**. Cada coluna contém um item recomendado (por identificador). As recomendações são ordenadas por afinidade de usuário-item. O item com a afinidade mais alta é colocado no **Item**de coluna 1.
+- A primeira coluna contém os identificadores do utilizador.
+- São geradas várias colunas adicionais, dependendo do valor que definiu para o **número máximo de itens a recomendar a um utilizador**. Cada coluna contém um item recomendado (por identificador). As recomendações são encomendadas por afinidade de produto de utilizador. O item com maior afinidade é colocado na **coluna Item 1**.
 
 > [!WARNING]
-> Você não pode avaliar esse conjunto de marcação usando o módulo [avaliar recomendador](evaluate-recommender.md) .
+> Não é possível avaliar este conjunto de dados pontuado utilizando o módulo ['Avaliar recomendador'.](evaluate-recommender.md)
 
 
 ##  <a name="technical-notes"></a>Notas técnicas
 
-Se você tiver um pipeline com o recomendador SVD e mover o modelo para produção, lembre-se de que há diferenças importantes entre usar o recomendador no modo de avaliação e usá-lo no modo de produção.
+Se tiver um pipeline com o recomendador SVD e mover o modelo para a produção, esteja ciente de que existem diferenças fundamentais entre utilizar o recomendador no modo de avaliação e utilizá-lo no modo de produção.
 
-A avaliação, por definição, requer previsões que podem ser verificadas em relação à *verdadeira verdade* em um conjunto de teste. Quando você avalia o recomendador, ele deve prever apenas os itens que foram classificados no conjunto de teste. Isso restringe os possíveis valores que são previstos.
+A avaliação, por definição, requer previsões que podem ser verificadas contra a *verdade no solo* num conjunto de testes. Quando avalia o recomendador, deve prever apenas itens que tenham sido classificados no conjunto de testes. Isto restringe os valores possíveis que estão previstos.
 
-Ao colocar o modelo em operação, você normalmente altera o modo de previsão para fazer recomendações com base em todos os itens possíveis, a fim de obter as melhores previsões. Para muitas dessas previsões, não há nenhuma verdade de terra correspondente. Portanto, a precisão da recomendação não pode ser verificada da mesma maneira que durante as operações de pipeline.
+Ao operacionalizar o modelo, normalmente muda o modo de previsão para fazer recomendações com base em todos os itens possíveis, de forma a obter as melhores previsões. Para muitas destas previsões, não há verdade no terreno correspondente. Assim, a exatidão da recomendação não pode ser verificada da mesma forma que durante as operações do gasoduto.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

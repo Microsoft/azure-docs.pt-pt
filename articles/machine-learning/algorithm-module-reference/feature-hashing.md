@@ -1,133 +1,133 @@
 ---
-title: Referência de módulo de hash de recurso
+title: Referência do módulo hashing de recurso
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo hash de recurso no Azure Machine Learning para personalizarr dados de texto.
+description: Saiba como utilizar o módulo De Hashing feature no Azure Machine Learning para apresentar dados de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: 4340ee4ed1edda8590726151e07eec45c0751ed6
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 6ba53793e57be67e2954af870dfa4248fca465ec
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152266"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912210"
 ---
-# <a name="feature-hashing-module-reference"></a>Referência de módulo de hash de recurso
+# <a name="feature-hashing-module-reference"></a>Referência do módulo hashing de recurso
 
 Este artigo descreve um módulo incluído no designer de Machine Learning Azure (pré-visualização).
 
-Use o módulo hash de recurso para transformar um fluxo de texto em inglês em um conjunto de recursos inteiros. Em seguida, você pode passar esse conjunto de recursos com hash para um algoritmo de aprendizado de máquina para treinar um modelo de análise de texto.
+Utilize o módulo De Hashing feature para transformar um fluxo de texto inglês num conjunto de funcionalidades inteiros. Em seguida, pode passar esta funcionalidade de hashed definida para um algoritmo de aprendizagem automática para treinar um modelo de análise de texto.
 
-A funcionalidade de hash de recurso fornecida neste módulo é baseada na estrutura nimbusml. Para mais informações, consulte a [aula de NgramHash.](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)
+A funcionalidade de hashing fornecida neste módulo baseia-se na estrutura nimbusml. Para mais informações, consulte a [aula de NgramHash.](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)
 
-## <a name="what-is-feature-hashing"></a>O que é o hash de recurso?
+## <a name="what-is-feature-hashing"></a>O que é hashing de recurso?
 
-O hash de recurso funciona convertendo tokens exclusivos em inteiros. Ele opera nas cadeias de caracteres exatas que você fornece como entrada e não executa nenhuma análise linguística ou pré-processamento. 
+O hashing de recurso funciona convertendo fichas únicas em inteiros. Opera nas cordas exatas que fornece como entrada e não realiza qualquer análise linguística ou pré-processamento. 
 
-Por exemplo, faça um conjunto de frases simples como essas, seguido por uma pontuação de sentimentos. Suponha que você deseja usar esse texto para criar um modelo.
+Por exemplo, tome um conjunto de frases simples como estas, seguidas de uma pontuação de sentimento. Assuma que pretende usar este texto para construir um modelo.
 
-|Texto do usuário|Sentimento|
+|Texto do utilizador|Sentimento|
 |--------------|---------------|
-|Adorei este livro|3|
-|Eu odiei este livro|1|
-|Este livro foi ótimo|3|
-|Eu adoro livros|2|
+|Adorei este livro.|3|
+|Odiei este livro.|1|
+|Este livro foi ótimo.|3|
+|Adoro livros.|2|
 
-Internamente, o módulo hash de recurso cria um dicionário de n-grams. Por exemplo, a lista de bigrams para esse conjunto de tais seria algo assim:
+Internamente, o módulo de hashing feature cria um dicionário de n-grams. Por exemplo, a lista de bigrams para este conjunto de dados seria algo assim:
 
 |Termo (bigrams)|Frequência|
 |------------|---------------|
 |Este livro|3|
-|Eu adore|1|
-|Eu odiei|1|
-|Eu adoro|1|
+|Eu amava|1|
+|Odiava.|1|
+|Eu amo|1|
 
-Pode controlar o tamanho dos n-gramas utilizando a propriedade **N-grams.** Se você escolher bigrams, unigrams também serão computados. O dicionário também incluiria termos únicos como estes:
+Pode controlar o tamanho dos n-gramas utilizando a propriedade **N-grams.** Se escolher bigrams, os unigramas também são calculados. O dicionário também incluiria termos únicos como estes:
 
-|Termo (unigrams)|Frequência|
+|Termo (unigramas)|Frequência|
 |------------|---------------|
 |livro|3|
 |I|3|
 |livros|1|
-|deveria|1|
+|foi|1|
 
-Depois que o dicionário é criado, o módulo hash de recurso converte os termos do dicionário em valores de hash. Em seguida, ele computa se um recurso foi usado em cada caso. Para cada linha de dados de texto, o módulo gera um conjunto de colunas, uma coluna para cada recurso com hash.
+Após a construção do dicionário, o módulo De Hashing de Recurso converte os termos do dicionário em valores de hash. Em seguida, calcula se uma característica foi usada em cada caso. Para cada linha de dados de texto, o módulo produz um conjunto de colunas, uma coluna para cada característica hashed.
 
-Por exemplo, após o hash, as colunas de recurso podem ter uma aparência semelhante a esta:
+Por exemplo, depois do hashing, as colunas de recurso podem parecer algo assim:
 
-|Classificação|Recurso de hash 1|Recurso de hash 2|Recurso de hash 3|
+|Classificação|Característica de hashing 1|Hashing recurso 2|Característica de hashing 3|
 |-----|-----|-----|-----|
 |4|1|1|0|
 |5|0|0|0|
 
-* Se o valor na coluna for 0, a linha não conterá o recurso com hash.
-* Se o valor for 1, a linha conterá o recurso.
+* Se o valor na coluna for 0, a linha não continha a característica hashed.
+* Se o valor for 1, a linha continha a característica.
 
-O hash de recurso permite que você represente documentos de texto de comprimento variável como vetores de recursos numéricos de comprimento igual para reduzir a dimensionalidade. Se você tentou usar a coluna de texto para treinamento como está, ela seria tratada como uma coluna de recursos categóricos com muitos valores distintos.
+O hashing de recurso permite-lhe representar documentos de texto de comprimento variável como vetores de característica numérica de igual comprimento para reduzir a dimensionalidade. Se tentasse utilizar a coluna de texto para treinar como está, seria tratada como uma coluna de características categóricas com muitos valores distintos.
 
-As saídas numéricas também possibilitam o uso de métodos comuns de aprendizado de máquina, incluindo classificação, clustering e recuperação de informações. Como as operações de pesquisa podem usar hashes inteiros em vez de comparações de cadeias de caracteres, obter os pesos dos recursos também é muito mais rápido.
+As saídas numéricas também tornam possível a utilização de métodos comuns de aprendizagem automática, incluindo classificação, agrupamento e recuperação de informação. Como as operações de procura podem usar hashes inteiros em vez de comparações de cordas, obter os pesos da funcionalidade também é muito mais rápido.
 
-## <a name="configure-the-feature-hashing-module"></a>Configurar o módulo hash de recurso
+## <a name="configure-the-feature-hashing-module"></a>Configure o módulo hashing de funcionalidade
 
-1.  Adicione o módulo hash de recurso ao seu pipeline no designer.
+1.  Adicione o módulo De Hashing feature ao seu pipeline no designer.
 
-1. Conecte o conjunto de um que contém o texto que você deseja analisar.
+1. Ligue o conjunto de dados que contém o texto que pretende analisar.
 
     > [!TIP]
-    > Como o hash de recurso não executa operações léxicas como lematização ou truncamento, às vezes você pode obter resultados melhores por meio de pré-processamento de texto antes de aplicar o hash de recurso. 
+    > Uma vez que o hashing da funcionalidade não realiza operações lexicais, tais como a desposição ou truncação, pode por vezes obter melhores resultados através do texto de pré-processamento antes de aplicar o hashing da funcionalidade. 
 
 1. Defina **as colunas Target** para as colunas de texto que pretende converter para funcionalidades de hashed. Tenha em mente que:
 
-    * As colunas devem ser do tipo de dados de cadeia de caracteres.
+    * As colunas devem ser do tipo de dados de cordas.
     
-    * Escolher várias colunas de texto pode ter um impacto significativo na dimensionalidade do recurso. Por exemplo, o número de colunas para um hash de 10 bits vai de 1.024 para uma única coluna a 2.048 para duas colunas.
+    * Escolher várias colunas de texto pode ter um impacto significativo na dimensionalidade da funcionalidade. Por exemplo, o número de colunas para um hash de 10 bits vai de 1.024 para uma única coluna para 2.048 para duas colunas.
 
 1. Use **o bitsize hashing** para especificar o número de bits a utilizar quando estiver a criar a tabela de haxixe.
     
-    O tamanho de bit padrão é 10. Para muitos problemas, esse valor é adequado. Talvez seja necessário mais espaço para evitar colisões, dependendo do tamanho do vocabulário de n-grams no texto de treinamento.
+    O tamanho da broca padrão é 10. Para muitos problemas, este valor é adequado. Pode precisar de mais espaço para evitar colisões, dependendo do tamanho do vocabulário n-grams no texto de treino.
     
 1. Para **N-grams**, introduza um número que defina o comprimento máximo dos n-gramas para adicionar ao dicionário de formação. Um n-grama é uma sequência *de* n palavras, tratada como uma unidade única.
 
-    Por exemplo, se você inserir 3, unigrams, bigrams e trigrams serão criados.
+    Por exemplo, se introduzir 3, unigramas, bigrams e trigramas serão criados.
 
 1. Executar o pipeline.
 
 ## <a name="results"></a>Resultados
 
-Depois que o processamento é concluído, o módulo gera um conjunto de resultados transformado no qual a coluna de texto original foi convertida em várias colunas. Cada coluna representa um recurso no texto. Dependendo do quão significativo for o dicionário, o conjunto de resultados resultante pode ser grande:
+Após o processamento estar concluído, o módulo produz um conjunto de dados transformado no qual a coluna de texto original foi convertida em várias colunas. Cada coluna representa uma característica no texto. Dependendo da importação do dicionário, o conjunto de dados resultante pode ser grande:
 
-|Nome da coluna 1|Tipo de coluna 2|
+|Nome da coluna 1|Coluna tipo 2|
 |-------------------|-------------------|
-|UserText|Coluna de dados original|
+|TEXTO DE UTILIZADOR|Coluna de dados original|
 |SENTIMENTO|Coluna de dados original|
-|UserText-recurso de hash 1|Coluna de recurso com hash|
-|UserText-recurso de hash 2|Coluna de recurso com hash|
-|UserText-recurso de hash n|Coluna de recurso com hash|
-|UserText-recurso de hashing 1024|Coluna de recurso com hash|
+|USERTEXT - Característica de hashing 1|Coluna de recurso hashed|
+|USERTEXT - Característica de hashing 2|Coluna de recurso hashed|
+|USERTEXT - Característica de hashing n|Coluna de recurso hashed|
+|USERTEXT - Característica de hashing 1024|Coluna de recurso hashed|
 
-Depois de criar o conjunto de dados transformado, você pode usá-lo como a entrada para o módulo modelo de treinamento.
+Depois de criar o conjunto de dados transformado, pode usá-lo como entrada para o módulo Modelo de Comboio.
  
-### <a name="best-practices"></a>Melhores práticas
+## <a name="best-practices"></a>Melhores práticas
 
-As práticas recomendadas a seguir podem ajudá-lo a obter o máximo do módulo de hash de recurso:
+As seguintes boas práticas podem ajudá-lo a tirar o máximo partido do módulo De Hashing feature:
 
-* Adicione um módulo de texto de pré-processamento antes de usar o hash de recurso para pré-processar o texto de entrada. 
+* Adicione um módulo de texto pré-processado antes de utilizar o Hashing de Recurso para pré-processar o texto de entrada. 
 
-* Adicione um módulo selecionar colunas após o módulo hash de recurso para remover as colunas de texto do conjunto de resultados de saída. Você não precisa das colunas de texto depois que os recursos de hash tiverem sido gerados.
+* Adicione um módulo De Colunas Select depois do módulo de hashing de funcionalidade seletiva para remover as colunas de texto do conjunto de dados de saída. Não precisa das colunas de texto depois de geradas as características de hashing.
     
-* Considere usar essas opções de pré-processamento de texto para simplificar os resultados e melhorar a precisão:
+* Considere utilizar estas opções de pré-processamento de texto, para simplificar resultados e melhorar a precisão:
 
     * Quebra de palavras
-    * Parando a remoção do Word
-    * Normalização de caso
-    * Remoção de Pontuação e caracteres especiais
-    * Lematização  
+    * Parar a remoção de palavras
+    * Normalização de casos
+    * Remoção da pontuação e caracteres especiais
+    * Consoante  
 
-O conjunto ideal de métodos de pré-processamento a serem aplicados em qualquer solução depende do domínio, do vocabulário e da necessidade de negócios. Pipeline com seus dados para ver quais métodos de processamento de texto são mais eficazes.
+O conjunto ideal de métodos de pré-processamento para aplicar em qualquer solução depende do domínio, vocabulário e necessidade empresarial. oleoduto com os seus dados para ver quais os métodos de processamento de texto mais eficazes.
 
 ## <a name="next-steps"></a>Passos seguintes
             
