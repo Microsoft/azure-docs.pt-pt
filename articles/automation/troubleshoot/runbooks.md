@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 571be831d337c71a084780da18b480cdd1e42d20
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: b7d876c7f865b8368451ea1b6cc96ade89a59aa8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365204"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190964"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Erros de resolução de problemas com livros de execução
 
@@ -471,17 +471,17 @@ O teu livro mostra-se em estado **de parada** depois de correr 3 horas. Também 
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
-Este comportamento é por design em caixas de areia Azure devido à monitorização "Fair Share" dos processos dentro da Automação Azure. Se executar mais de três horas, a Fair Share para automaticamente um livro de execução. O estatuto de um livro de execução que ultrapassa o prazo de partilha justa difere por tipo de livro de execução. Os livros powerShell e Python estão definidos para um estado **de paragem.** Os livros de fluxo de trabalho PowerShell estão definidos para **falhar**.
+Este comportamento é por design em caixas de areia Azure devido à monitorização [justa](../automation-runbook-execution.md#fair-share) dos processos no âmbito da Automação Azure. Se executar mais de três horas, a parte justa para automaticamente um livro de execução. O estatuto de um livro de execução que ultrapassa o prazo de partilha justa difere por tipo de livro de execução. Os livros powerShell e Python estão definidos para um estado **de paragem.** Os livros de fluxo de trabalho PowerShell estão definidos para **falhar**.
 
 ### <a name="cause"></a>Causa
 
-O livro de corridas ultrapassou o limite de 3 horas permitido pela Fair Share numa Caixa de Areia Azure.
+O livro de corridas ultrapassou o limite de 3 horas permitido por uma participação justa numa caixa de areia Azure.
 
 ### <a name="resolution"></a>Resolução
 
 Uma solução recomendada é executar o livro de corridas num Trabalhador híbrido do livro de [corridas.](../automation-hrw-run-runbooks.md)
 
-Os Trabalhadores Híbridos não estão limitados pelo limite de 3 horas de runbook [da Fair Share](../automation-runbook-execution.md#fair-share) que as caixas de areia Azure têm. Os livros de corridas executados em Trabalhadores híbridos de runbook devem ser desenvolvidos para apoiar comportamentos de reinício se houver problemas inesperados de infraestrutura local.
+Os Trabalhadores Híbridos não estão limitados pelo limite de 3 horas de fair book que as caixas de areia Azure têm. Os livros de corridas executados em Trabalhadores híbridos de runbook devem ser desenvolvidos para apoiar comportamentos de reinício se houver problemas inesperados de infraestrutura local.
 
 Outra opção é otimizar o livro de corridas criando [livros infantis.](../automation-child-runbooks.md) Se o seu livro de recortes passar pela mesma função em vários recursos, como uma operação de base de dados em várias bases de dados, pode mover essa função para um livro de corridas para crianças. Cada um destes livros infantis executa em paralelo em processos separados. Este comportamento diminui a quantidade total de tempo para o livro de execução dos pais completar.
 

@@ -1,42 +1,42 @@
 ---
 title: Perfis técnicos do Azure MFA em políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Referência de política personalizada para perfis técnicos da MFA (autenticação multifator) do Azure no Azure AD B2C.
+description: Referência de política personalizada para perfis técnicos de autenticação multi-factor (MFA) azure em Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a8aaea6b2afb4d89e6e667edba0eeba2f4ddcca8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 05851dba9de06b5dfba2da4f455fbaf5e9376d08
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480219"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184286"
 ---
-# <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico do Azure MFA em uma política personalizada de Azure AD B2C
+# <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Defina um perfil técnico Azure MFA numa política personalizada Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) fornece suporte para verificar um número de telefone usando a MFA (autenticação multifator do Azure). Use este perfil técnico para gerar e enviar um código para um número de telefone e, em seguida, verificar o código.
+O Diretório Ativo Azure B2C (Azure AD B2C) fornece suporte para verificar um número de telefone utilizando a Autenticação Multi-Factor Azure (MFA). Utilize este perfil técnico para gerar e enviar um código para um número de telefone e, em seguida, verifique o código.
 
-O perfil técnico do Azure MFA também pode retornar uma mensagem de erro. Você pode criar a integração com o Azure MFA usando um **perfil técnico de validação**. Um perfil técnico de validação chama o serviço do Azure MFA. O perfil técnico de validação valida os dados fornecidos pelo usuário antes de o percurso do usuário continuar. Com o perfil técnico de validação, uma mensagem de erro é exibida em uma página autodeclarada.
+O perfil técnico do Azure MFA também pode devolver uma mensagem de erro. Pode conceber a integração com o Azure MFA utilizando um **perfil técnico de Validação.** Um perfil técnico de validação chama o serviço Azure MFA. O perfil técnico de validação valida os dados fornecidos pelo utilizador antes da viagem do utilizador continuar. Com o perfil técnico de validação, uma mensagem de erro é exibida numa página autoafirmada.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **Handler** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo que é usado pelo Azure ad B2C:
+O **nome** atributo do elemento **protocolo** tem de ser definido para `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolos que é utilizado pelo Azure AD B2C:
 
 ```
 Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-O exemplo a seguir mostra um perfil técnico do Azure MFA:
+O exemplo que se segue mostra um perfil técnico do Azure MFA:
 
 ```XML
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -47,39 +47,39 @@ O exemplo a seguir mostra um perfil técnico do Azure MFA:
 
 ## <a name="send-sms"></a>Enviar SMS
 
-O primeiro modo deste perfil técnico é gerar um código e enviá-lo. As opções a seguir podem ser configuradas para esse modo.
+O primeiro modo deste perfil técnico é gerar um código e enviá-lo. As seguintes opções podem ser configuradas para este modo.
 
-### <a name="input-claims"></a>Declarações de entrada
+### <a name="input-claims"></a>Reclamações de entrada
 
-O elemento **InputClaims** contém uma lista de declarações a serem enviadas para o Azure MFA. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico do MFA.
+O elemento **InputClaims** contém uma lista de reclamações a enviar para o Azure MFA. Também pode mapear o nome da sua reclamação para o nome definido no perfil técnico do MFA.
 
-| ClaimReferenceId | Obrigatório | Descrição |
+| ReivindicaçãoReferenceid | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| userPrincipalName | Sim | O identificador do usuário que possui o número de telefone. |
-| phoneNumber | Sim | O número de telefone para o qual enviar um código SMS. |
-| companyName | Não |O nome da empresa no SMS. Se não for fornecido, o nome do seu aplicativo será usado. |
-| região | Não | A localidade do SMS. Se não for fornecido, a localidade do navegador do usuário será usada. |
+| userPrincipalName | Sim | O identificador para o utilizador que possui o número de telefone. |
+| phoneNumber | Sim | O número de telefone para enviar um código SMS para. |
+| companyName | Não |O nome da empresa no SMS. Caso não seja fornecido, o nome da sua aplicação é utilizado. |
+| local | Não | O local do SMS. Caso não seja fornecido, é utilizado o local do navegador do utilizador. |
 
-O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **InputClaimsTransformation** que são usados para modificar as declarações de entrada ou gerar novas antes de enviar para o serviço do Azure MFA.
+O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **inputClaimsTransformation** que são usados para modificar as reclamações de entrada ou gerar novos antes de enviar para o serviço Azure MFA.
 
-### <a name="output-claims"></a>Declarações de saída
+### <a name="output-claims"></a>Reclamações de produção
 
-O provedor de protocolo MFA do Azure não retorna nenhum **OutputClaims**, portanto, não é necessário especificar declarações de saída. No entanto, você pode incluir declarações que não são retornadas pelo provedor de identidade do Azure MFA contanto que você defina o atributo `DefaultValue`.
+O prestador de protocolos Azure MFA não devolve quaisquer **OutputClaims,** pelo que não é necessário especificar os pedidos de saída. Pode, no entanto, incluir alegações que não são devolvidas pelo fornecedor de identidade Azure MFA desde que detetete o atributo `DefaultValue`.
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
 
 ### <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Operação | Sim | Deve ser **OneWaySMS**.  |
-| UserMessageIfInvalidFormat | Não | Mensagem de erro personalizada se o número de telefone fornecido não for um número de telefone válido |
+| Operação | Sim | Deve ser **oneWaySMS.**  |
+| UserMessageIfInvalidformat | Não | Mensagem de erro personalizada se o número de telefone fornecido não for um número de telefone válido |
 | UserMessageIfCouldntSendSms | Não | Mensagem de erro personalizada se o número de telefone fornecido não aceitar SMS |
-| UserMessageIfServerError | Não | Mensagem de erro personalizada se o servidor encontrou um erro interno |
+| Erro do servidor usermessageifserver | Não | Mensagem de erro personalizada se o servidor tiver encontrado um erro interno |
 
-### <a name="return-an-error-message"></a>Retornar uma mensagem de erro
+### <a name="return-an-error-message"></a>Devolver uma mensagem de erro
 
-Conforme descrito em [metadados](#metadata), você pode personalizar a mensagem de erro mostrada para o usuário para casos de erro diferentes. Você pode localizar mais essas mensagens prefixando a localidade. Por exemplo:
+Tal como descrito nos [Metadados,](#metadata)pode personalizar a mensagem de erro mostrada ao utilizador para diferentes casos de erro. Pode localizar ainda mais essas mensagens prefixando o local. Por exemplo:
 
 ```XML
 <Item Key="en.UserMessageIfInvalidFormat">Invalid phone number.</Item>
@@ -87,7 +87,7 @@ Conforme descrito em [metadados](#metadata), você pode personalizar a mensagem 
 
 ### <a name="example-send-an-sms"></a>Exemplo: enviar um SMS
 
-O exemplo a seguir mostra um perfil técnico do Azure MFA que é usado para enviar um código via SMS.
+O exemplo seguinte mostra um perfil técnico Azure MFA que é usado para enviar um código via SMS.
 
 ```XML
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -109,39 +109,39 @@ O exemplo a seguir mostra um perfil técnico do Azure MFA que é usado para envi
 
 ## <a name="verify-code"></a>Verificar código
 
-O segundo modo desse perfil técnico é verificar um código. As opções a seguir podem ser configuradas para esse modo.
+O segundo modo deste perfil técnico é verificar um código. As seguintes opções podem ser configuradas para este modo.
 
-### <a name="input-claims"></a>Declarações de entrada
+### <a name="input-claims"></a>Reclamações de entrada
 
-O elemento **InputClaims** contém uma lista de declarações a serem enviadas para o Azure MFA. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico do MFA.
+O elemento **InputClaims** contém uma lista de reclamações a enviar para o Azure MFA. Também pode mapear o nome da sua reclamação para o nome definido no perfil técnico do MFA.
 
-| ClaimReferenceId | Obrigatório | Descrição |
+| ReivindicaçãoReferenceid | Necessário | Descrição |
 | --------- | -------- | ----------- | ----------- |
-| phoneNumber| Sim | Mesmo número de telefone usado anteriormente para enviar um código. Ele também é usado para localizar uma sessão de verificação de telefone. |
-| verificationCode  | Sim | O código de verificação fornecido pelo usuário a ser verificado |
+| phoneNumber| Sim | O mesmo número de telefone usado anteriormente para enviar um código. Também é usado para localizar uma sessão de verificação do telefone. |
+| código de verificação  | Sim | O código de verificação fornecido pelo utilizador a verificar |
 
-O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **InputClaimsTransformation** que são usados para modificar as declarações de entrada ou gerar novas antes de chamar o serviço de MFA do Azure.
+O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **inputClaimsTransformation** que são usados para modificar as reclamações de entrada ou gerar novos antes de chamar o serviço Azure MFA.
 
-### <a name="output-claims"></a>Declarações de saída
+### <a name="output-claims"></a>Reclamações de produção
 
-O provedor de protocolo MFA do Azure não retorna nenhum **OutputClaims**, portanto, não é necessário especificar declarações de saída. No entanto, você pode incluir declarações que não são retornadas pelo provedor de identidade do Azure MFA contanto que você defina o atributo `DefaultValue`.
+O prestador de protocolos Azure MFA não devolve quaisquer **OutputClaims,** pelo que não é necessário especificar os pedidos de saída. Pode, no entanto, incluir alegações que não são devolvidas pelo fornecedor de identidade Azure MFA desde que detetete o atributo `DefaultValue`.
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **outputClaimsTransformation** que são usados para modificar as reclamações de saída ou gerar novos.
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Operação | Sim | Deve ser **verificar** |
-| UserMessageIfInvalidFormat | Não | Mensagem de erro personalizada se o número de telefone fornecido não for um número de telefone válido |
-| UserMessageIfWrongCodeEntered | Não | Mensagem de erro personalizada se o código inserido para verificação estiver errado |
-| UserMessageIfMaxAllowedCodeRetryReached | Não | Mensagem de erro personalizada se o usuário tiver tentado um código de verificação muitas vezes |
-| UserMessageIfThrottled | Não | Mensagem de erro personalizada se o usuário estiver limitado |
-| UserMessageIfServerError | Não | Mensagem de erro personalizada se o servidor encontrou um erro interno |
+| UserMessageIfInvalidformat | Não | Mensagem de erro personalizada se o número de telefone fornecido não for um número de telefone válido |
+| UserMessageifWrongCodeEntered | Não | Mensagem de erro personalizada se o código introduzido para verificação estiver errado |
+| UserMessageIfMaxAllowedCodeRetryReached | Não | Mensagem de erro personalizada se o utilizador tiver tentado um código de verificação demasiadas vezes |
+| UserMessageIfThrottled | Não | Mensagem de erro personalizada se o utilizador estiver estrangulado |
+| Erro do servidor usermessageifserver | Não | Mensagem de erro personalizada se o servidor tiver encontrado um erro interno |
 
-### <a name="return-an-error-message"></a>Retornar uma mensagem de erro
+### <a name="return-an-error-message"></a>Devolver uma mensagem de erro
 
-Conforme descrito em [metadados](#metadata), você pode personalizar a mensagem de erro mostrada para o usuário para casos de erro diferentes. Você pode localizar mais essas mensagens prefixando a localidade. Por exemplo:
+Tal como descrito nos [Metadados,](#metadata)pode personalizar a mensagem de erro mostrada ao utilizador para diferentes casos de erro. Pode localizar ainda mais essas mensagens prefixando o local. Por exemplo:
 
 ```XML
 <Item Key="en.UserMessageIfWrongCodeEntered">Wrong code has been entered.</Item>
@@ -149,7 +149,7 @@ Conforme descrito em [metadados](#metadata), você pode personalizar a mensagem 
 
 ### <a name="example-verify-a-code"></a>Exemplo: verificar um código
 
-O exemplo a seguir mostra um perfil técnico do Azure MFA usado para verificar o código.
+O exemplo que se segue mostra um perfil técnico azure MFA utilizado para verificar o código.
 
 ```XML
 <TechnicalProfile Id="AzureMfa-VerifySms">

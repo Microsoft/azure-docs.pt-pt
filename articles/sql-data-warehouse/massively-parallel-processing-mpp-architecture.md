@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d808210861d971b2915206e7be0fe9b955616c5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 6e4b5bc6d30f6caa2809b7aa1e72be70ae12dbc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720321"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193039"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura Azure Synapse Analytics (ex-SQL DW) 
 
@@ -25,7 +25,7 @@ O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento d
 - SQL Analytics: Análise completa baseada em T-SQL 
     - Piscina SQL (pagamento por DWU provisionado) – Geralmente Disponível
     - SQL on-demand (pagamento por TB processado) – (Pré-visualização)
-- Faísca: Faísca Apache profundamente integrada (Pré-visualização) 
+- Faísca: Faísca Apache profundamente integrada (Pré-visualização)
 - Integração de Dados: Integração de dados híbridos (Pré-visualização)
 - Estúdio: experiência unificada do utilizador.  (Pré-visualização)
 
@@ -69,7 +69,7 @@ Cada nó computacional tem um ID de nó que é visível nas vistas do sistema. V
 ### <a name="data-movement-service"></a>Serviço de Movimento de Dados
 O Serviço de Movimento de Dados (DMS) é a tecnologia de transporte de dados que coordena o movimento de dados entre os nós da Compute. Algumas consultas requerem movimento de dados para garantir que as consultas paralelas retribuem resultados precisos. Quando o movimento de dados é necessário, o DMS garante que os dados certos estão no local certo. 
 
-## <a name="distributions"></a>Distribuições
+## <a name="distributions"></a>Distribuição
 
 Uma distribuição é a unidade básica de armazenamento e processamento para consultas paralelas que funcionam em dados distribuídos. Quando o SQL Analytics executa uma consulta, o trabalho é dividido em 60 consultas menores que correm em paralelo. 
 
@@ -105,7 +105,7 @@ O diagrama abaixo mostra uma tabela replicada que é cached na primeira distribu
 
 ![Mesa replicada](media/sql-data-warehouse-distributed-data/replicated-table.png "Mesa replicada") 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que sabe um pouco sobre o Azure Synapse, aprenda a criar rapidamente [um pool SQL](./sql-data-warehouse-get-started-provision.md) e carregue dados de [amostras.](./sql-data-warehouse-load-sample-databases.md) Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../azure-glossary-cloud-terminology.md) à medida que encontra terminologia nova. Ou olhe para alguns destes outros Recursos Synapse Azure.  
 
 * [Histórias de sucesso de clientes](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)

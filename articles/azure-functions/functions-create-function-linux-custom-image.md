@@ -4,13 +4,13 @@ description: Saiba como criar Funções do Azure em execução numa imagem perso
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+zone_pivot_groups: programming-languages-set-functions
+ms.openlocfilehash: 29b0719670529a486222ef5fad21dd803ea6f195
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482365"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190811"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um recipiente personalizado
 
@@ -70,7 +70,7 @@ Pode seguir este tutorial em qualquer computador que execute Windows, Mac OS ou 
 
 1. Num aviso de terminal ou comando, crie uma pasta para este tutorial num local apropriado e, em seguida, navegue para essa pasta.
 
-1. Siga as instruções sobre [Criar e ativar um ambiente virtual](functions-create-first-function-python.md#create-and-activate-a-virtual-environment) para criar um ambiente virtual para uso com este tutorial.
+1. Siga as instruções sobre [Criar e ativar um ambiente virtual](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) para criar um ambiente virtual para uso com este tutorial.
 
 1. Execute o seguinte comando para o seu idioma escolhido para criar um projeto de aplicação de função numa pasta chamada `LocalFunctionsProject`. A opção `--docker` gera uma `Dockerfile` para o projeto, que define um recipiente personalizado adequado para utilização com funções Azure e o tempo de execução selecionado.
 

@@ -1,16 +1,16 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 02/26/2020
-ms.author: marsma
-ms.openlocfilehash: 4cf8eba9632c51ce9b5bcc42feae2446348890c2
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.author: mimart
+ms.openlocfilehash: 053349996e15dbc0f58f062ffa966d0d894f5e0d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77651735"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189033"
 ---
 ## <a name="use-custom-page-content"></a>Use conteúdo de página personalizado
 

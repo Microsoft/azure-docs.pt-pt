@@ -1,6 +1,6 @@
 ---
 title: Parceiros de integração de dados
-description: Listas de parceiros de terceiros com soluções de integração de dados que dão suporte ao Azure SQL Data Warehouse.
+description: Listas de parceiros de terceiros com soluções de integração de dados que suportam a Azure Synapse Analytics.
 services: sql-data-warehouse
 author: mabasile-MSFT
 manager: craigg
@@ -11,98 +11,36 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d71c4ee7c5d982708c8a3b0a79b453d7196ad02d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d786d945571aa35ff2758b2aff2c4da427cea7cf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923617"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198887"
 ---
-# <a name="sql-data-warehouse-data-integration-partners"></a>Parceiros de integração de dados do SQL Data Warehouse
-Para criar sua solução de data warehouse, escolha entre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca as empresas parceiras da Microsoft com soluções de integração de dados oficiais que dão suporte ao Azure SQL Data Warehouse.
+# <a name="azure-synapse-analytics-data-integration-partners"></a>Parceiros de integração de dados da Azure Synapse Analytics
+Para criar a sua solução de armazém de dados utilizando a funcionalidade SQL Analytics da Azure Synapse, pode escolher entre uma grande variedade de ferramentas líderes no setor. Este artigo destaca as empresas parceiras da Microsoft com soluções oficiais de integração de dados que suportam o Azure Synapse.
 
 ## <a name="data-integration-partners"></a>Parceiros de integração de dados
-| Parceiro | Descrição | Link de site/produto |
+| Partner | Descrição | Website/Link do Produto |
 | ------- | ----------- | -------------------- |
-| ![Alooma][7] |**Alooma**<br> O Alooma é uma solução de ETL que permite às equipes de dados integrar, enriquecer e transmitir dados de vários silos de dados para SQL Data Warehouse tudo em tempo real. |[Página do produto][alooma_website] |
-| ![Alteryx][1] |**Alteryx**<br> O Alteryx designer fornece um fluxo de trabalho repetível para análise de dados de autoatendimento que leva a informações mais aprofundadas em horas, e não às semanas típicas de abordagens tradicionais! O Alteryx designer ajuda os analistas de dados combinando a preparação de dados, a mesclagem de dados e a análise – preditiva, estatística e espacial – usando a mesma interface de usuário intuitiva. |[Página do produto][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
-| ![Attunity][2] |**Attunity (CloudBeam)**<br>O Attunity CloudBeam fornece uma solução automatizada para carregar dados em SQL Data Warehouse. Ele simplifica o carregamento em lote e a replicação incremental de dados de várias fontes-SQL Server, Oracle, DB2, Sybase, MySQL e muito mais. |[Página do produto][attunity_cloudbeam_website]<br>[Azure Marketplace][attunity_marketplace]<br> |
-| ![Denodo][3] |**Denodo**<br>O denodo fornece acesso em tempo real aos dados em diferentes fontes de dados de uma organização. Ele usa a virtualização de dados para a ponte de dados entre várias fontes sem replicação. Ele oferece acesso amplo a dados estruturados e não estruturados que residem em fontes empresariais, Big Data e de nuvem em lote e em tempo real.|[Página do produto][denodo_website]<br>[Azure Marketplace][denodo_marketplace]<br> |
-| ![Fivetran][8] |**Fivetran**<br>O Fivetran ajuda a centralizar dados de fontes diferentes. Ele apresenta um produto de pipeline de dados de configuração zero de manutenção zero com uma lista crescente de conectores internos para todas as fontes de dados populares. A instalação leva cinco minutos após a autenticação em fontes de dados e data warehouse de destino.|[Página do produto][fivetran_website]<br> |
-| ![Informatica][4] |**1. serviços de nuvem informatica para o Azure**<br> O informatica Cloud oferece uma solução de melhor classe para recursos de migração, integração e gerenciamento de dados de autoatendimento. Os clientes podem importar e exportar com rapidez e confiança os petabytes de dados para o Azure de diferentes tipos de fontes. Os serviços de nuvem informatica para o Azure fornecem conectividade nativa, de alto volume e de alto desempenho para o Azure SQL Data Warehouse, banco de dados SQL, armazenamento de BLOBs, Data Lake Store e Azure Cosmos DB. <br><br> **2. informatica PowerCenter** O PowerCenter é uma plataforma de integração de dados controlada por metadados que impulsiona e acelera os projetos de integração de dados para entregar dados para os negócios mais rapidamente do que a codificação manual. Ele serve como base para seus investimentos em integração de dados |**Serviços de nuvem informatica para o Azure**<br>[Página do produto][informatica_Cloud_Services_website]<br>[Azure Marketplace][informatica_Cloud_Services_marketplace]<br><br> **Informatica PowerCenter**<br>[Página do produto][informatica_PowerCenter_website]<br> [Azure Marketplace][informatica_PowerCenter_byol]<br>|
-| ![Construtores de informações][5] |**Construtores de informações (Omni-Gen Gerenciamento de Dados)**<br>A plataforma de gerenciamento de dados Omni-Gen do construtor de informações fornece integração de dados, qualidade de dados e soluções de gerenciamento de dados mestre. Ele facilita o acesso, a movimentação e a mesclagem de todos os dados, independentemente do formato, do local, do volume ou da latência.|[Página do produto][omnifocus_website]<br> [Azure Marketplace][omnigen_marketplace] |
-| ![Qubole][9] |**Qubole**<br>O Qubole fornece uma plataforma nativa de nuvem que permite aos usuários realizar cargas de trabalho ETL, analítica e ia/ML. Ele dá suporte a diferentes tipos de mecanismos de software livre-Apache Spark, TensorFlow, presto, fluxo de ar, Hadoop, Hive e muito mais. Ele fornece ferramentas de usuário final fáceis de usar para processamento de dados de ferramentas de consulta SQL, blocos de anotações e painéis que aproveitam mecanismos avançados de software livre.|[Página do produto][qubole_website]<br> [Azure Marketplace][qubole_marketplace] |
-| ![Segmento][10] |**Explica**<br>O segmento é uma solução de gerenciamento e análise de dados que ajuda você a compreender os dados do cliente provenientes de várias fontes. Ele permite que você conecte seus dados a mais de 200 ferramentas para criar melhores decisões, produtos e experiências. O segmento irá transformar e carregar várias fontes de dados em seu depósito para você usando seus conectores de dados internos|[Página do produto][segment_website]<br> |
-| ![Skyvia][11] |**Skyvia (integração de dados)**<br>A integração de dados do Skyvia fornece um assistente que automatiza importações de dados. Este assistente permite migrar dados entre diferentes tipos de fontes-CRMs, banco de dados de aplicativos, arquivos CSV e muito mais. |[Página do produto][segment_website]<br> |
-| ![SnapLogic][6] |**SnapLogic**<br>A plataforma SnapLogic permite que os clientes transfiram dados rapidamente para dentro e fora do SQL Data Warehouse do Microsoft Azure. Ele oferece a capacidade de integrar centenas de aplicativos, serviços e cenários de IoT em uma solução.|[Página do produto][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
-| ![StreamSets][16] |**StreamSets**<br>O StreamSets fornece uma plataforma de integração de dados para o DataOps. Ele operationalizes o ciclo de vida completo de design-implantação e operação de integração de dados no Azure SQL Data Warehouse. Você não pode apenas ingerir e integrar dados de e para o depósito rapidamente, por meio de métodos de distribuição de dados de transmissão, lote ou dados alterados, mas também garantir operações contínuas com pipelines de dados inteligentes que fornecem visibilidade de fluxo de dados de ponta a ponta e resiliência.|[Página do produto][streamsets_website]|
-| ![Talend][12] |**Nuvem Talend**<br>O Talend Cloud é uma plataforma de integração de dados empresariais para conectar, acessar e transformar quaisquer dados na nuvem ou localmente. É uma oferta de iPaaS (plataforma como serviço) de integração que fornece ampla conectividade, qualidade de dados interna e suporte nativo para as últimas tecnologias de Big Data e nuvem. |[Página do produto][talend_website]<br> [Azure Marketplace][talend_marketplace] |
-| ![Timextender][13] |**Timextender**<br>O Hub de descoberta do timextender ajuda as empresas a criar um estado de dados moderno, fornecendo uma plataforma de gerenciamento de dados integrada que acelera o tempo de insights de dados em até 10 vezes. Indo além de extração, transformação e carregamento (ETL) ou extração, carregamento e transformação (ELT), fornecendo automação e recursos para acesso a dados, modelagem de dados e conformidade em uma única plataforma. O Hub de descoberta fornece uma malha de dados coesa para análise de escala de nuvem, permitindo que você se conecte e integre vários silos de dados, catálogo, modelo, movimentação e dados de documentos para análise e ia. | [Página do produto][timextender_website]<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
-| ![Trifacta][14] |**Trifator Wrangler**<br> Trifator ajuda indivíduos e organizações a explorar e unir diversos dados para análise. Trifator Wrangler foi projetado para lidar com cargas de trabalho de Wrangling de dados que precisam dar suporte a dados em escala e um grande número de usuários finais.|[Página do produto][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
-| ![WhereScape][15] |**WhereScape vermelho**<br> WhereScape RED é um IDE que fornece às equipes ferramentas de automação para simplificar fluxos de trabalho ETL. O IDE fornece uma prática recomendada, código nativo otimizado para destinos de dados populares. Use WhereScape RED para reduzir o tempo para desenvolver, implantar e operar sua infraestrutura de dados.|[Página do produto][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
+| ![Alooma](./media/sql-data-warehouse-partner-data-integration/alooma_logo.png) |**Alooma**<br> A alooma é uma solução de Extrato, Transformação e Carga (ETL) que permite às equipas de dados integrar, enriquecer e transmitir dados de vários silos de dados para um armazém de dados Azure Synapse tudo em tempo real. |[Página do produto](https://www.alooma.com/) |
+| ![Alteryx](./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png) |**Alteryx**<br> Alteryx Designer fornece um fluxo de trabalho repetível para análise de dados de self-service que leva a insights mais profundos em horas, não as semanas típicas das abordagens tradicionais! Alteryx Designer ajuda os analistas de dados combinando a preparação de dados, a mistura de dados e a análise – preditiva, estatística e espacial – utilizando a mesma interface intuitiva do utilizador. |[Página do produto](https://www.alteryx.com/partners/microsoft/)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/)<br>|
+| ![Attunity](./media/sql-data-warehouse-partner-data-integration/attunity_logo.png) |**Attunity (CloudBeam)**<br>A Attunity CloudBeam fornece uma solução automatizada para o carregamento de dados num armazém de dados Azure Synapse. Simplifica o carregamento de lotes e a replicação incremental de dados de muitas fontes - SQL Server, Oracle, DB2, Sybase, MySQL, e muito mais. |[Página do produto](http://www.attunity.com/attunity-cloudbeam-for-azure/)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/) <br> |
+| ![Denodo](./media/sql-data-warehouse-partner-data-integration/denodo_logo.png) |**Denodo**<br>A Denodo fornece acesso em tempo real aos dados através das diversas fontes de dados de uma organização. Utiliza a virtualização de dados para fazer a ponte entre dados de muitas fontes sem replicação. Oferece um amplo acesso a dados estruturados e não estruturados que residem em empresas, big data e fontes de nuvem tanto em lotes como em tempo real.|[Página do produto](https://www.denodo.com/en)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/denodo.denodo-platform-7_0)<br> |
+| ![Fivetran](./media/sql-data-warehouse-partner-data-integration/fivetran_logo.png) |**Fivetran**<br>O Fivetran ajuda-o a centralizar dados de fontes diferentes. Possui um produto de pipeline de dados de manutenção zero, zero configuração com uma lista crescente de conectores incorporados a todas as fontes de dados populares. A configuração demora cinco minutos após a autenticação em fontes de dados e armazém de dados alvo.|[Página do produto](https://fivetran.com/)<br> |
+| ![Informatica](./media/sql-data-warehouse-partner-data-integration/informatica_logo.png) |**1.Serviços de Nuvem Informatica para O Azure**<br> A Informatica Cloud oferece uma solução de melhor classe para a migração, integração e capacidades de gestão de dados de autosserviço. Os clientes podem importar de forma rápida e fiável petabytes de dados para o Azure a partir de diferentes tipos de fontes. Os Serviços Informatica Cloud para o Azure proporcionam conectividade nativa, de alto volume e de alto desempenho à Azure Synapse, SQL Database, Blob Storage, Data Lake Store e Azure Cosmos DB. <br><br> **2.Centro de Energia Informática** PowerCenter é uma plataforma de integração de dados baseada em metadados que inicia e acelera projetos de integração de dados para entregar dados ao negócio mais rapidamente do que codificação manual manual de mãos. Serve de base para os seus investimentos de integração de dados |**Serviços Informatica Cloud para Azure**<br>[Página do produto](https://www.informatica.com/products/cloud-integration.html)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informatica.iics-winter)<br><br> **Centro de Energia Informatica**<br>[Página do produto](https://www.informatica.com/products/data-integration/powercenter.html)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informatica.powercenter/)<br>|
+| ![Construtores de Informação](./media/sql-data-warehouse-partner-data-integration/informationbuilders_logo.png) |**Construtores de Informação (Gestão de Dados Omni-Gen)**<br>A plataforma de gestão de dados Omni-Gen da Information Builder fornece soluções de integração de dados, qualidade de dados e gestão de dados. Torna-se mais fácil aceder, mover-se e misturar todos os dados independentemente do formato, localização, volume ou latência.|[Página do produto](https://www.informationbuilders.com/3i-platform)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informationbuilders.omni-gen-mdm) |
+| ![Qubole](./media/sql-data-warehouse-partner-data-integration/qubole_logo.png) |**Qubole**<br>Qubole fornece uma plataforma nativa da nuvem que permite aos utilizadores realizar cargas de trabalho ETL, analytics e AI/ML. Suporta diferentes tipos de motores de código aberto - Apache Spark, TensorFlow, Presto, Airflow, Hadoop, Hive, e muito mais. Fornece ferramentas de utilizador final fáceis de usar para o processamento de dados a partir de ferramentas de consulta SQL, para cadernos e dashboards que alavancam potentes motores de código aberto.|[Página do produto](https://www.qubole.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview) |
+| ![Segmento](./media/sql-data-warehouse-partner-data-integration/segment_logo.png) |**Segmento**<br>Segment é uma solução de gestão de dados e análise que o ajuda a dar sentido aos dados dos clientes provenientes de várias fontes. Permite-lhe ligar os seus dados a mais de 200 ferramentas para criar melhores decisões, produtos e experiências. O segmento transformará e carregará várias fontes de dados no seu armazém para você usando os seus conectores de dados incorporados|[Página do produto](https://segment.com/)<br> |
+| ![Skyvia](./media/sql-data-warehouse-partner-data-integration/skyvia_logo.png) |**Skyvia (integração de dados)**<br>A integração de dados da Skyvia fornece um assistente que automatiza as importações de dados. Este assistente permite-lhe migrar dados entre diferentes tipos de fontes - CRMs, base de dados de aplicações, ficheiros CSV e muito mais. |[Página do produto](https://skyvia.com/)<br> |
+| ![SnapLogic](./media/sql-data-warehouse-partner-data-integration/snaplogic_logo.png) |**SnapLogic**<br>A Plataforma SnapLogic permite que os clientes transfiram rapidamente dados para dentro e para fora de um armazém de dados Azure Synapse. Oferece a capacidade de integrar centenas de aplicações, serviços e cenários IoT numa única solução.|[Página do produto](https://www.snaplogic.com/)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/)<br> |
+| ![StreamSets](./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png) |**Conjuntos de streaming**<br>O StreamSets fornece uma plataforma de integração de dados para DataOps. Operacionaliza o ciclo de vida operacional completo da implantação de dados num armazém de dados Azure Synapse. Pode ingerir e integrar rapidamente dados de e para o armazém, através de streaming, lote ou alteração de métodos de recolha de dados. Além disso, pode garantir operações contínuas com pipelines de dados inteligentes que proporcionam visibilidade e resiliência do fluxo de dados de ponta a ponta.|[Página do produto](https://streamsets.com/partners/microsoft)|
+| ![Talend](./media/sql-data-warehouse-partner-data-integration/talend_logo.png) |**Nuvem de Talend**<br>Talend Cloud é uma plataforma de integração de dados da empresa para conectar, aceder e transformar quaisquer dados através da nuvem ou no local. É uma plataforma de integração como um serviço (iPaaS) que fornece ampla conectividade, qualidade de dados incorporados e suporte nativo para as mais recentes tecnologias de big data e cloud. |[Página do produto](https://www.talend.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview) |
+| ![TimeXtender](./media/sql-data-warehouse-partner-data-integration/timextender-logo.png) |**TimeXtender**<br>O Discovery Hub da TimeXtender ajuda as empresas a construir uma moderna propriedade de dados, fornecendo uma plataforma integrada de gestão de dados que acelera o tempo para informações de dados até 10 vezes. Indo além do dia-a-dia Extrato, Transformação e Carga (ETL) ou Extrato, Carga e Transformação (ELT) fornecendo automação e capacidades de acesso a dados, modelação de dados e conformidade numa única plataforma. O Discovery Hub fornece um tecido de dados coeso para análise à escala de nuvem, permitindo-lhe conectar e integrar vários silos de dados, catálogo, modelo, mover e documentar dados para análise e IA. | [Página do produto](https://www.timextender.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
+| ![Trifacta](./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png) |**Trifacta Wrangler**<br> Trifacta ajuda indivíduos e organizações a explorar, e juntar dados diversos para análise. Trifacta Wrangler foi projetado para lidar com cargas de trabalho que precisam de suportar dados em escala e um grande número de utilizadores finais.|[Página do produto](https://www.trifacta.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01?source=datamarket&tab=Overview) |
+| ![WhereScape](./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png) |**Wherescape RED**<br> O WhereScape RED é um IDE que fornece às equipas ferramentas de automação para agilizar os fluxos de trabalho da ETL. O IDE fornece as melhores práticas, código nativo otimizado para alvos de dados populares. Utilize o WhereScape RED para reduzir o tempo para desenvolver, implementar e operar a sua infraestrutura de dados.|[Página do produto](https://www.wherescape.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview) |
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre outros parceiros, confira [parceiros de Business Intelligence][bi_partners] e [parceiros de gerenciamento de dados][dm_partners].
-
-<!--Article links-->
-
-[bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
-[di_partners]: ./sql-data-warehouse-partner-data-integration.md
-[dm_partners]: ./sql-data-warehouse-partner-data-management.md
-
-
-<!--Image references-->
-[1]: ./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png
-[2]: ./media/sql-data-warehouse-partner-data-integration/attunity_logo.png
-[3]: ./media/sql-data-warehouse-partner-data-integration/denodo_logo.png
-[4]: ./media/sql-data-warehouse-partner-data-integration/informatica_logo.png
-[5]: ./media/sql-data-warehouse-partner-data-integration/informationbuilders_logo.png
-[6]: ./media/sql-data-warehouse-partner-data-integration/snaplogic_logo.png
-[7]: ./media/sql-data-warehouse-partner-data-integration/alooma_logo.png
-[8]: ./media/sql-data-warehouse-partner-data-integration/fivetran_logo.png
-[9]: ./media/sql-data-warehouse-partner-data-integration/qubole_logo.png
-[10]: ./media/sql-data-warehouse-partner-data-integration/segment_logo.png
-[11]: ./media/sql-data-warehouse-partner-data-integration/skyvia_logo.png
-[12]: ./media/sql-data-warehouse-partner-data-integration/talend_logo.png
-[13]: ./media/sql-data-warehouse-partner-data-integration/timextender-logo.png
-[14]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
-[15]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
-[16]: ./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png
-
-
-
-<!--Website Links -->
-
-[alooma_website]:https://www.alooma.com/
-[alteryx_designer_website]:https://www.alteryx.com/partners/microsoft/
-[attunity_cloudbeam_website]:http://www.attunity.com/attunity-cloudbeam-for-azure/
-[bryte_systems_azure_website]:https://www.bryteflow.com/
-[informatica_Cloud_Services_website]:https://www.informatica.com/products/cloud-integration.html
-[informatica_PowerCenter_website]:https://www.informatica.com/products/data-integration/powercenter.html
-[snaplogic_website]:https://www.snaplogic.com/
-[denodo_website]:https://www.denodo.com/en
-[fivetran_website]:https://fivetran.com/
-[omnifocus_website]:https://www.informationbuilders.com/3i-platform
-[qubole_website]:https://www.qubole.com/
-[segment_website]:https://segment.com/
-[skyvia_website]:https://skyvia.com/
-[talend_website]:https://www.talend.com/
-[timextender_website]:https://www.timextender.com/
-[trifacta_website]:https://www.trifacta.com/
-[wherescape_website]:https://www.wherescape.com/
-[streamsets_website]:https://streamsets.com/partners/microsoft
-
-<!--Marketplace Links -->
-
-[alteryx_marketplace]:https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/
-[attunity_marketplace]:https://azure.microsoft.com/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
-[denodo_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/denodo.denodo-platform-7_0
-[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.iics-winter
-[informatica_PowerCenter_byol]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.powercenter/
-[snaplogic_marketplace]:https://azure.microsoft.com/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
-[omnigen_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informationbuilders.omni-gen-mdm
-[qubole_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview
-[talend_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview
-[trifacta_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01?source=datamarket&tab=Overview
-[wherescape_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview
+Para saber mais sobre outros parceiros, consulte [parceiros](sql-data-warehouse-partner-business-intelligence.md) de Business Intelligence e parceiros de [Gestão de Dados.](sql-data-warehouse-partner-data-management.md)

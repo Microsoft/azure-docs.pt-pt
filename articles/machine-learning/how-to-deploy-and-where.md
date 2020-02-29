@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/27/2019
+ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: fa73cb690fafb67f75abafab1b0dd27ffa0b8e32
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: d3353451057037e5f3fd94347a007a9d3b2c0e15
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210504"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193089"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com Aprendizagem automática Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -538,7 +538,7 @@ A tabela seguinte fornece um exemplo de criação de uma configuração de imple
 
 | Destino de computação | Exemplo de configuração de implementação |
 | ----- | ----- |
-| Localização | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -594,7 +594,7 @@ A tabela seguinte descreve os diferentes estados de serviço:
 | Estado de serviço web | Descrição | Estado final?
 | ----- | ----- | ----- |
 | Transição | O serviço está em fase de implantação. | Não |
-| Estado de funcionamento incorreto | O serviço foi acionado, mas está inacessível.  | Não |
+| Danificado | O serviço foi acionado, mas está inacessível.  | Não |
 | Inescalável | O serviço não pode ser implementado neste momento por falta de recursos. | Não |
 | Falhou | O serviço falhou na sua implantação devido a um erro ou a um acidente. | Sim |
 | Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |
@@ -896,6 +896,8 @@ model = Model.register(workspace=ws,
 service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
+
+Se estiver a utilizar o Pytorch, [os modelos de exportação do PyTorch para o ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) têm os detalhes sobre conversão e limitações. 
 
 ### <a name="scikit-learn-models"></a>Modelos de aprendizagem de scikit
 

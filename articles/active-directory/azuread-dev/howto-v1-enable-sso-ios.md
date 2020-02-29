@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7ea65b64e5a812b717f065c1d8cc6208e0c0ba69
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 00ec2d328265e8d301b9f54b9a6a2013072f1ed4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164568"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190284"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Ativar o SSO de aplicação cruzada no iOS utilizando o ADAL
 
@@ -109,7 +109,7 @@ Se um corretor compatível for instalado no dispositivo, como a aplicação Micr
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>Como garantimos que a aplicação é válida
 
-A necessidade de garantir a identidade de uma chamada de aplicação o corretor é crucial para a segurança que fornecemos em logins assistidos pelo corretor. Nem o iOS nem o Android aplicam identificadores únicos que são válidos apenas para uma determinada aplicação, pelo que aplicações maliciosas podem "falsificar" o identificador de uma aplicação legítima e receber os tokens destinados à aplicação legítima. Para garantir que estamos sempre a comunicar com a aplicação certa no prazo de funcionamento, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registar a sua aplicação com a Microsoft. Como os desenvolvedores devem criar este URI redirecionado é discutido em detalhe abaixo. Este redirectURI personalizado contém o Bundle ID da aplicação e é garantido ser único na aplicação pela Apple App Store. Quando uma aplicação chama o corretor, o corretor pede ao sistema operativo iOS que o forneça com o Id bundle que chamou o corretor. O corretor fornece este Bundle ID à Microsoft na chamada para o nosso sistema de identidade. Se o Bundle ID da aplicação não corresponder ao Id bundle fornecido pelo desenvolvedor durante o registo, negaremos o acesso aos tokens para o recurso que a aplicação está a solicitar. Este cheque garante que apenas a aplicação registada pelo programador recebe fichas.
+A necessidade de garantir a identidade de uma aplicação que chama o corretor é crucial para a segurança que fornecemos em logins assistidos pelo corretor. Nem o iOS nem o Android aplicam identificadores únicos que são válidos apenas para uma determinada aplicação, pelo que aplicações maliciosas podem "falsificar" o identificador de uma aplicação legítima e receber os tokens destinados à aplicação legítima. Para garantir que estamos sempre a comunicar com a aplicação certa no prazo de funcionamento, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registar a sua aplicação com a Microsoft. Como os desenvolvedores devem criar este URI redirecionado é discutido em detalhe abaixo. Este redirectURI personalizado contém o Bundle ID da aplicação e é garantido ser único na aplicação pela Apple App Store. Quando uma aplicação chama o corretor, o corretor pede ao sistema operativo iOS que o forneça com o Id bundle que chamou o corretor. O corretor fornece este Bundle ID à Microsoft na chamada para o nosso sistema de identidade. Se o Bundle ID da aplicação não corresponder ao Id bundle fornecido pelo desenvolvedor durante o registo, negaremos o acesso aos tokens para o recurso que a aplicação está a solicitar. Este cheque garante que apenas a aplicação registada pelo programador recebe fichas.
 
 **O desenvolvedor tem a escolha se o SDK chama o corretor ou utiliza o fluxo assistido não-corretor.** No entanto, se o desenvolvedor optar por não utilizar o fluxo assistido pelo corretor, perde o benefício de utilizar credenciais SSO que o utilizador pode já ter adicionado no dispositivo e impede que a sua aplicação seja utilizada com funcionalidades de negócio que a Microsoft fornece clientes como o Acesso Condicional, capacidades de gestão intune e autenticação baseada em certificados.
 
@@ -173,7 +173,7 @@ Para permitir o SSO através de aplicações que possui, tem de fazer o seguinte
 
 Para que a plataforma de identidade saiba que é permitido partilhar fichas nas suas aplicações, cada uma das suas aplicações terá de partilhar o mesmo ID do Cliente ou ID de aplicação. Este é o identificador único que lhe foi fornecido quando registou a sua primeira aplicação no portal.
 
-Redirecione os URIs que lhe permitem identificar diferentes aplicações para o serviço de identidade da Microsoft se utilizar o mesmo ID de aplicação. Cada aplicação pode ter vários URIs Redirecionados registados no portal de embarque. Cada aplicativo em seu pacote terá um URI de redirecionamento diferente. Um exemplo de como isto parece está abaixo:
+Redirecione os URIs que lhe permitem identificar diferentes aplicações para o serviço de identidade da Microsoft se utilizar o mesmo ID de aplicação. Cada aplicação pode ter vários URIs Redirecionados registados no portal de embarque. Cada aplicação na sua suite terá um URI de redirecionamento diferente. Um exemplo de como isto parece está abaixo:
 
 App1 Redirecionamento URI: `x-msauth-mytestiosapp://com.myapp.mytestapp`
 

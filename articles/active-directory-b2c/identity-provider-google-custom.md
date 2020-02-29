@@ -3,20 +3,20 @@ title: Configurar o início de sessão com uma conta Google utilizando política
 titleSuffix: Azure AD B2C
 description: Instale o início de sessão com uma conta Google no Azure Ative Directory B2C utilizando políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed11fcb24f06eae1b2baa6975a3cd8016042813e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8d02c86a1ff330aa4003299e1494a164089d8470
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847462"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188227"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta Google utilizando políticas personalizadas no Diretório Ativo Do Azure B2C
 
@@ -38,22 +38,22 @@ Para permitir o sessão de sessão para utilizadores a partir de uma conta da Go
 3. Selecione **Credenciais** no menu esquerdo e, em seguida, selecione **Criar credenciais > Oauth cliente ID**.
 4. Selecione o ecrã de **consentimento configurar**.
 5. Selecione ou especifique um endereço de **e-mail**válido, forneça um nome de **produto** mostrado aos utilizadores, introduza `b2clogin.com` em **domínios autorizados**e, em seguida, clique em **Guardar**.
-6. Em **tipo de aplicativo**, selecione **aplicativo Web**.
-7. Insira um **nome** para seu aplicativo.
-8. Nas **origens javaScript autorizadas,** introduza `https://your-tenant-name.b2clogin.com` e em **URIs de redirecionamento autorizados,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua o seu nome de inquilino pelo nome do seu inquilino. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
+6. No **tipo de aplicação,** selecione **aplicação Web**.
+7. Insira um **Nome** para a sua candidatura.
+8. Nas **origens javaScript autorizadas,** introduza `https://your-tenant-name.b2clogin.com` e em **URIs de redirecionamento autorizados,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua o seu nome de inquilino pelo nome do seu inquilino. Você precisa usar todas as letras minúsculas ao introduzir o nome do seu inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C.
 8. Clique em **Criar**.
-9. Copie os valores da **ID do cliente** e do **segredo do cliente**. Você precisará de ambos para configurar o Google como um provedor de identidade em seu locatário. O segredo do cliente é uma importante credencial de segurança.
+9. Copiar os valores do ID do **Cliente** e do segredo do **Cliente.** Você precisará de ambos para configurar o Google como um fornecedor de identidade no seu inquilino. O segredo do cliente é uma importante credencial de segurança.
 
 ## <a name="create-a-policy-key"></a>Criar uma chave política
 
 Você precisa armazenar o segredo do cliente que você gravou anteriormente no seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
-5. Selecione **chaves de política** e, em seguida, selecione **Adicionar**.
-6. Para **Opções**, escolha `Manual`.
+5. Selecione **Teclas de política** e, em seguida, selecione **Adicionar**.
+6. Para **opções,** escolha `Manual`.
 7. Introduza um **nome** para a chave política. Por exemplo, `GoogleSecret`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 8. Em **Segredo,** insira o seu segredo de cliente que gravou anteriormente.
 9. Para **a utilização da chave,** selecione `Signature`.

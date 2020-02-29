@@ -1,6 +1,6 @@
 ---
-title: Atualizar para a última geração
-description: Atualize o Azure SQL Data Warehouse para a última geração de arquitetura de armazenamento e hardware do Azure.
+title: Upgrade para a última geração
+description: Atualize piscina Azure Synapse Analytics SQL para a última geração de hardware e arquitetura de armazenamento Azure.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -11,35 +11,35 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 02c426cd921f4af19f3b8c271e4b1c08eae2c3c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 97cbae93b1ee2dd6ca4916f4efbb964141b33a3f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692447"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200837"
 ---
-# <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
+# <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Otimizar o desempenho através da modernização do pool Azure Synapse Analytics SQL
 
-Atualize o Azure SQL Data Warehouse para a última geração de arquitetura de armazenamento e hardware do Azure.
+Atualize a piscina SQL para a última geração de hardware e arquitetura de armazenamento azure.
 
-## <a name="why-upgrade"></a>Por que atualizar?
+## <a name="why-upgrade"></a>Por que fazer upgrade?
 
-Agora você pode atualizar diretamente para a camada Gen2 otimizada de computação SQL Data Warehouse no portal do Azure para [regiões com suporte](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Se sua região não oferecer suporte à autoatualização, você poderá atualizar para uma região com suporte ou esperar que a autoatualização esteja disponível em sua região. Atualize agora para aproveitar a última geração de hardware do Azure e arquitetura de armazenamento avançada, incluindo desempenho mais rápido, escalabilidade mais alta e armazenamento de coluna ilimitado. 
+Agora pode fazer upgrade perfeitamente para o sql pool Compute Optimized Gen2 no portal Azure para [regiões apoiadas.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) Se a sua região não apoiar a auto-actualização, pode fazer upgrade para uma região apoiada ou esperar que o auto-upgrade esteja disponível na sua região. Atualização agora para aproveitar a última geração de hardware Azure e arquitetura de armazenamento melhorada, incluindo desempenho mais rápido, maior escalabilidade e armazenamento colunairilimitado. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>Aplica-se a
 
-Essa atualização se aplica aos data warehouses da camada Gen1 otimizada de computação em [regiões com suporte](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
+Esta atualização aplica-se às piscinas SQL de nível Compute Otimizadas em [regiões apoiadas.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. Verifique se sua [região](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) tem suporte para a migração de Gen1 para Gen2. Observe as datas de migração automática. Para evitar conflitos com o processo automatizado, planeje a migração manual antes da data de início do processo automatizado.
-2. Se você estiver em uma região que ainda não tem suporte, continue a verificar sua região para ser adicionada ou [atualizada usando restaurar](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) em uma região com suporte.
-3. Se houver suporte para sua região, [atualize por meio do portal do Azure](#upgrade-in-a-supported-region-using-the-azure-portal)
-4. **Selecione o nível de desempenho sugerido** para o data warehouse com base em seu nível de desempenho atual na camada Gen1 otimizada de computação usando o mapeamento abaixo:
+1. Verifique se a sua [região](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) é apoiada para a migração gen1 para gen2. Reparem nas datas de migração automática. Para evitar conflitos com o processo automatizado, planeje a sua migração manual antes da data de início do processo automatizado.
+2. Se estiver numa região que ainda não está apoiada, continue a verificar se a sua região deve ser adicionada ou [atualizada utilizando o restauro](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) de uma região apoiada.
+3. Se a sua região for apoiada, [atualize através do portal Azure](#upgrade-in-a-supported-region-using-the-azure-portal)
+4. **Selecione o nível** de desempenho sugerido para o pool SQL com base no seu nível de desempenho atual no nível Compute Optimized Gen1 utilizando o mapeamento abaixo:
 
-   | Camada Gen1 otimizada de computação | Camada Gen2 otimizada de computação |
+   | Compute Categoria Gen1 Otimizada | Compute Categoria Gen2 Otimizada |
    | :-------------------------: | :-------------------------: |
    |            DW100            |           DW100c            |
    |            DW200            |           DW200c            |
@@ -55,31 +55,31 @@ Essa atualização se aplica aos data warehouses da camada Gen1 otimizada de com
    |           DW6000            |           DW6000c           |
 
 > [!Note]
-> Os níveis de desempenho sugeridos não são uma conversão direta. Por exemplo, é recomendável ir de DW600 para DW500c.
+> Os níveis de desempenho sugeridos não são uma conversão direta. Por exemplo, recomendamos ir de DW600 a DW500c.
 
-## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Atualizar em uma região com suporte usando o portal do Azure
+## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Upgrade em uma região apoiada usando o portal Azure
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> A migração de Gen1 para Gen2 por meio da portal do Azure é permanente. Não há um processo para retornar ao Gen1.  
+> A migração da Gen1 para a Gen2 através do portal Azure é permanente. Não há um processo para o regresso à Gen1.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Se a camada Gen1 otimizada de computação data warehouse a ser atualizada estiver em pausa, [retome o data warehouse](pause-and-resume-compute-portal.md).
+1. Se o pool SQL de nível SQL da Computação otimizado para ser atualizado é interrompido, retomar a [piscina SQL](pause-and-resume-compute-portal.md).
 
    > [!NOTE]
-   > O Azure SQL Data Warehouse deve estar em execução para migrar para o Gen2.
+   > A piscina SQL deve estar a correr para migrar para a Gen2.
 
-2. Esteja preparado por alguns minutos de tempo de inatividade. 
+2. Preparem-se para alguns minutos de tempo de descanso. 
 
-3. Identifique as referências de código para calcular os níveis de desempenho otimizados do Gen1 e modifique-os para seu nível de desempenho Gen2 otimizado de computação equivalente. Abaixo estão dois exemplos de onde você deve atualizar as referências de código antes de atualizar:
+3. Identifique quaisquer referências de código aos níveis de desempenho da Compute Optimized Gen1 e modifique-as para o seu nível de desempenho equivalente compute Optimized Gen2. Abaixo estão dois exemplos de onde deve atualizar referências de código antes de atualizar:
 
-   Comando original do PowerShell do Gen1:
+   Comando Original Gen1 PowerShell:
 
    ```powershell
    Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
@@ -92,10 +92,10 @@ Iniciar sessão no [portal do Azure](https://portal.azure.com/).
    ```
 
    > [!NOTE] 
-   > -RequestedServiceObjectiveName "DW300" é alterado para-RequestedServiceObjectiveName "DW300**c**"
+   > -Serviço SolicitadoNome Objetivo "DW300" é alterado para - RequestedServiceObjectiveName "DW300**c**"
    >
 
-   Comando T-SQL Gen1 original:
+   Comando Original Gen1 T-SQL:
 
    ```SQL
    ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300') ;
@@ -107,35 +107,35 @@ Iniciar sessão no [portal do Azure](https://portal.azure.com/).
    ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ; 
    ```
    > [!NOTE] 
-   > SERVICE_OBJECTIVE = ' DW300 ' é alterado para SERVICE_OBJECTIVE = ' DW300**C'**
+   > SERVICE_OBJETIVE = 'DW300' é alterado para SERVICE_OBJETIVE = 'DW300**c'**
 
-## <a name="start-the-upgrade"></a>Iniciar a atualização
+## <a name="start-the-upgrade"></a>Inicie a atualização
 
-1. Vá para a camada Gen1 otimizada de computação data warehouse na portal do Azure. Se a camada Gen1 otimizada de computação data warehouse a ser atualizada estiver em pausa, [retome o data warehouse](pause-and-resume-compute-portal.md). 
-2. Selecione **atualizar para** o cartão Gen2 na guia tarefas: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Vá à sua piscina Compute Optimized Gen1 SQL no portal Azure. Se o pool SQL de nível SQL da Computação otimizado para ser atualizado é interrompido, retomar a [piscina SQL](pause-and-resume-compute-portal.md). 
+2. Selecione Upgrade para cartão **Gen2** sob o separador Tarefas: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/upgrade-to-gen2-1.png)
     
     > [!NOTE]
-    > Se você não vir a **atualização para** o cartão Gen2 na guia tarefas, o tipo de assinatura será limitado na região atual.
-    > [Envie um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) para colocar sua assinatura na lista de permissões.
+    > Se não vir o cartão **Upgrade para gen2** no separador Tasks, o seu tipo de subscrição é limitado na região atual.
+    > [Envie um bilhete de apoio](sql-data-warehouse-get-started-create-support-ticket.md) para obter a sua subscrição listada.
 
-3. Verifique se sua carga de trabalho concluiu a execução e foi desativada antes da atualização. Você experimentará tempo de inatividade por alguns minutos antes que seu data warehouse esteja novamente online como uma camada de Gen2 otimizada de computação data warehouse. **Selecione Atualizar**:
+3. Certifique-se de que a sua carga de trabalho está concluída a correr e a ser melhorada antes de atualizar. Você vai experimentar o tempo de inatividade por alguns minutos antes que a sua piscina SQL esteja novamente on-line como uma piscina SQL de nível Compute Optimized Gen2. **Selecione Upgrade**:
 
-   ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
+   ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 
-4. **Monitore sua atualização** verificando o status no portal do Azure:
+4. **Monitorize a sua atualização** verificando o estado no portal Azure:
 
-   ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
+   ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/upgrade-to-gen2-3.png)
 
-   A primeira etapa do processo de atualização passa pela operação de dimensionamento ("Atualizando-offline"), em que todas as sessões serão eliminadas e as conexões serão descartadas. 
+   O primeiro passo do processo de atualização passa pela operação de escala ("Upgrade - Offline") onde todas as sessões serão mortas, e as ligações serão retiradas. 
 
-   A segunda etapa do processo de atualização é a migração de dados ("Atualizando-online"). A migração de dados é um processo de segundo plano do trickle online. Esse processo move lentamente os dados de coluna da arquitetura de armazenamento antiga para a nova arquitetura de armazenamento usando um cache SSD local. Durante esse tempo, seu data warehouse estará online para consulta e carregamento. Seus dados estarão disponíveis para consulta, independentemente de terem sido migrados ou não. A migração de dados ocorre em taxas variadas, dependendo do tamanho dos dados, do nível de desempenho e do número de segmentos columnstore. 
+   O segundo passo do processo de upgrade é a migração de dados ("Upgrade - Online"). A migração de dados é um processo de fundo de gotas on-line. Este processo move lentamente dados colunaares da antiga arquitetura de armazenamento para a nova arquitetura de armazenamento usando uma cache SSD local. Durante este tempo, a sua piscina SQL estará online para consulta e carregamento. Os seus dados estarão disponíveis para consulta independentemente de terem sido migrados ou não. A migração de dados ocorre a taxas variadas dependendo do tamanho dos dados, do seu nível de desempenho e do número de segmentos da sua loja de colunas. 
 
-5. **Recomendação opcional:** Quando a operação de dimensionamento for concluída, você poderá acelerar o processo em segundo plano de migração de dados. Você pode forçar a movimentação de dados executando [ALTER INDEX REBUILD](sql-data-warehouse-tables-index.md) em todas as tabelas columnstore primárias que você estaria consultando em uma classe de recurso e SLO maior. Esta operação está **offline** em comparação com o processo de segundo plano do Trickle, que pode levar horas para ser concluída, dependendo do número e dos tamanhos das tabelas. No entanto, uma vez concluída, a migração de dados será muito mais rápida devido à nova arquitetura de armazenamento aprimorada com grupos de alta qualidade.
+5. **Recomendação Opcional:** Uma vez concluída a operação de escala, pode acelerar o processo de fundo de migração de dados. Pode forçar o movimento de dados executando [a reconstrução](sql-data-warehouse-tables-index.md) do Alter Index em todas as tabelas primárias de lojas de colunas que estaria a consultar numa classe de SLO e recursos maiores. Esta operação está **offline** em comparação com o processo de fundo trickle, que pode levar horas a concluir dependendo do número e tamanhos das suas tabelas. No entanto, uma vez concluída, a migração de dados será muito mais rápida devido à nova arquitetura de armazenamento melhorada com grupos de remo de alta qualidade.
  
 > [!NOTE]
-> ALTER INDEX REBUILD é uma operação offline e as tabelas não estarão disponíveis até que a recompilação seja concluída.
+> A reconstrução do Alter Index é uma operação offline e as tabelas não estarão disponíveis até que a reconstrução esteja concluída.
 
-A consulta a seguir gera os comandos necessários ALTER INDEX REBUILD para agilizar a migração de dados:
+A seguinte consulta gera os comandos de Reconstrução de Índice alter necessários para acelerar a migração de dados:
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
@@ -180,53 +180,49 @@ FROM   sys.indexes idx
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
 
-## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Atualizar de uma região geográfica do Azure usando a restauração por meio do portal do Azure
+## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Upgrade de uma região geográfica azure usando restauro através do portal Azure
 
-## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Criar um ponto de restauração definido pelo usuário usando o portal do Azure
+## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Criar um ponto de restauro definido pelo utilizador utilizando o portal Azure
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Navegue até o SQL Data Warehouse para o qual você deseja criar um ponto de restauração.
+2. Navegue até à piscina SQL para a sua necessidade de criar um ponto de restauro.
 
-3. Na parte superior da seção visão geral, selecione **+ novo ponto de restauração**.
+3. Na parte superior da secção 'Visão Geral', **selecione +Novo Ponto**de Restauro .
 
-    ![Novo ponto de restauração](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
+    ![Novo ponto de restauro](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
 
-4. Especifique um nome para o ponto de restauração.
+4. Especifique um nome para o seu ponto de restauro.
 
-    ![Nome do ponto de restauração](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
+    ![Nome do Ponto de Restauro](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
-## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurar um banco de dados ativo ou pausado usando o portal do Azure
+## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurar uma base de dados ativa ou pausada utilizando o portal Azure
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
-2. Navegue até o SQL Data Warehouse do qual você deseja restaurar.
-3. Na parte superior da seção visão geral, selecione **restaurar**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Navegue até à piscina SQL da sua vontade de restaurar.
+3. Na parte superior da secção 'Visão Geral', selecione **Restaurar**.
 
     ![ Descrição geral do Restauro](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
 
-4. Selecione **pontos de restauração automáticos** ou **pontos de restauração definidos pelo usuário**.
+4. Selecione **pontos de restauro automáticos** ou **pontos de restauro definidos pelo utilizador**. Para os pontos de restauro definidos pelo utilizador, **selecione um ponto de restauro definido pelo utilizador** ou **crie um novo ponto de restauro definido pelo utilizador**. Para o servidor, selecione **Criar novo** e escolha um servidor numa região geográfica suportada pela Gen2. 
 
-    ![Pontos de restauração automática](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
+    ![Pontos de restauro automáticos](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
 
-5. Para pontos de restauração definidos pelo usuário, **Selecione um ponto de restauração** ou **crie um novo ponto de restauração definido pelo usuário**. Escolha um servidor em uma região geográfica com suporte do Gen2. 
-
-    ![Pontos de restauração definidos pelo usuário](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
-
-## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Restaurar de uma região geográfica do Azure usando o PowerShell
+## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Restaurar de uma região geográfica azure usando powerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para recuperar um banco de dados, use o cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) .
+Para recuperar uma base de dados, utilize o cmdlet [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase)
 
 > [!NOTE]
-> Você pode executar uma restauração geográfica para Gen2! Para fazer isso, especifique um Gen2name (por exemplo, DW1000**c**) como um parâmetro opcional.
+> Pode realizar um geo-restauro para a Gen2! Para tal, especifique um Nome Objectivodo Serviço Gen2 (por exemplo, DW1000**c**) como parâmetro opcional.
 
 1. Abra o Windows PowerShell.
-2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
-3. Selecione a assinatura que contém o banco de dados a ser restaurado.
-4. Obtenha o banco de dados que você deseja recuperar.
-5. Crie a solicitação de recuperação para o banco de dados, especificando um Gen2 de desobjecname.
-6. Verifique o status do banco de dados restaurado geograficamente.
+2. Ligue-se à sua conta Azure e enumere todas as subscrições associadas à sua conta.
+3. Selecione a subscrição que contém a base de dados a restaurar.
+4. Pegue a base de dados que quer recuperar.
+5. Crie o pedido de recuperação para a base de dados, especificando um Nome objetivo de serviço Gen2.
+6. Verifique o estado da base de dados georestaurada.
 
 ```Powershell
 Connect-AzAccount
@@ -244,13 +240,13 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Para configurar o banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+> Para configurar a sua base de dados depois de concluída a restauração, consulte configure a sua base de [dados após a recuperação](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
-O banco de dados recuperado será habilitado para TDE se o banco de dados de origem estiver habilitado para TDE.
+A base de dados recuperada será ativada pelo TDE se a base de dados de origem estiver ativada pelo TDE.
 
 
-Se você tiver problemas com seu data warehouse, crie uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e faça referência a "atualização Gen2" como a possível causa.
+Se tiver algum problema com o seu pool SQL, crie um pedido de [suporte](sql-data-warehouse-get-started-create-support-ticket.md) e referência "Upgrade Gen2" como a causa possível.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O data warehouse atualizado está online. Para aproveitar a arquitetura avançada, consulte [classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).
+A sua piscina SQL atualizada está online. Para tirar partido da arquitetura melhorada, consulte aulas de [Recursos para Gestão de Carga de Trabalho.](resource-classes-for-workload-management.md)

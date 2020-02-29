@@ -2,20 +2,20 @@
 title: Exemplos de código do Azure Active Directory B2C | Microsoft Docs
 description: Exemplos de código para aplicações móveis, de ambiente de trabalho, Web e de página única do Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: d0a5790e84364bf34072977d5d3976fd880996bb
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: fc37e594984aa4c13fc9e770129a0423ba512737
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620579"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189689"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemplos de código do Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ As tabelas seguintes fornecem ligações para exemplos de aplicações, incluind
 | [android-native-msal](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | Uma aplicação Android simples que mostra como utilizar a MSAL para autenticar os utilizadores através do Azure Active Directory B2C e aceder a uma API Web com os tokens resultantes. |
 | [ios-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth) | Um exemplo que mostra como pode utilizar uma biblioteca de terceiros para criar uma aplicação iOS no Objective-C que autentique os utilizadores de identidade Microsoft no nosso serviço de identidade do Azure AD B2C. |
 | [android-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth) | Um exemplo que mostra como pode utilizar uma biblioteca de terceiros para criar uma aplicação Android que autentique os utilizadores de identidade Microsoft no nosso serviço de identidade B2C e chame uma API Web com os tokens de acesso do OAuth 2.0. |
-| [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | Um exemplo que mostra como uma aplicação .NET do Ambiente de Trabalho do Windows (WPF) pode iniciar a sessão de um utilizador com o Azure AD B2C, obter um token de acesso com MSAL.NET e chamar uma API. | 
+| [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | Um exemplo que mostra como uma aplicação .NET do Ambiente de Trabalho do Windows (WPF) pode iniciar a sessão de um utilizador com o Azure AD B2C, obter um token de acesso com MSAL.NET e chamar uma API. |
 | [xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Uma aplicação Xamarin Forms simples que mostra como utilizar a MSAL para autenticar os utilizadores através do Azure Active Directory B2C e aceder a uma API Web com os tokens resultantes. |
 
 ## <a name="web-apps-and-apis"></a>APIs e aplicações Web
@@ -46,5 +46,5 @@ As tabelas seguintes fornecem ligações para exemplos de aplicações, incluind
 
 | Sample | Descrição |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Uma aplicação de página única (SPA) que chama uma API Web. A autenticação é realizada com o Azure AD B2C ao tirar partido de MSAL.js. | 
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Uma aplicação de página única (SPA) que chama uma API Web. A autenticação é realizada com o Azure AD B2C ao tirar partido de MSAL.js. |
 | [javascript-hellojs-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp) | Uma aplicação de página única, implementada com um back-end de API Web do ASP.NET, que inscreve e inicia a sessão dos utilizadores através do Azure AD B2C e chama a API Web com os tokens de acesso do OAuth 2.0. |

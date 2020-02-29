@@ -3,20 +3,20 @@ title: Reivindicar resolver em políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Saiba como utilizar as reclamações numa política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/02/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 97e51331657c62094996f79483148f2f441e6a44
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161606"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189842"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre pedidos de reclamação em políticas personalizadas do Diretório Ativo Azure B2C
 
@@ -117,9 +117,9 @@ Qualquer nome de parâmetro incluído como parte de um pedido oIDC ou OAuth2 pod
 | {SAML:ForceAuthn} | O valor `ForceAuthN` atributo, a partir do elemento `AuthnRequest` do pedido SAML. | Verdadeiro |
 | {SAML:ProviderName} | O valor `ProviderName` atributo, a partir do elemento `AuthnRequest` do pedido SAML.| Contoso.com |
 
-## <a name="using-claim-resolvers"></a>Utilização de pedidos de indemnização 
+## <a name="using-claim-resolvers"></a>Utilização de pedidos de indemnização
 
-Pode utilizar reclamações com os seguintes elementos: 
+Pode utilizar reclamações com os seguintes elementos:
 
 | Item | Elemento | Definições |
 | ----- | ----------------------- | --------|
@@ -135,7 +135,7 @@ Pode utilizar reclamações com os seguintes elementos:
 |[Parâmetros de Definição de Conteúdo](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |[Perfil](relyingparty.md#technicalprofile) técnico do Partido Da Base| `OutputClaim`| 2 |
 
-Configurações: 
+Configurações:
 1. Os metadados `IncludeClaimResolvingInClaimsHandling` devem ser definidos para `true`.
 1. Os pedidos de entrada ou de saída atribuem `AlwaysUseDefaultValue` devem ser definidos para `true`.
 
@@ -195,7 +195,7 @@ Como resultado, o Azure AD B2C envia os parâmetros acima para a página de cont
 
 ### <a name="content-definition"></a>Definição de conteúdo
 
-Numa `LoadUri`[de Definição](contentdefinitions.md) de Conteúdo, pode enviar pedidos de reclamação para retirar conteúdo de diferentes locais, com base nos parâmetros utilizados. 
+Numa `LoadUri`[de Definição](contentdefinitions.md) de Conteúdo, pode enviar pedidos de reclamação para retirar conteúdo de diferentes locais, com base nos parâmetros utilizados.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -224,7 +224,7 @@ Com o Azure Application Insights e alegações resolver ias pode obter informaç
 
 ### <a name="relying-party-policy"></a>Política partidária de base
 
-Num perfil técnico de política [do partido Relying,](relyingparty.md) pode querer enviar o ID do inquilino, ou identificação de correlação para a aplicação do partido que confia dentro do JWT. 
+Num perfil técnico de política [do partido Relying,](relyingparty.md) pode querer enviar o ID do inquilino, ou identificação de correlação para a aplicação do partido que confia dentro do JWT.
 
 ```XML
 <RelyingParty>

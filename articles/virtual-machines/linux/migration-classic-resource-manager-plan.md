@@ -14,17 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 55d4971a8e25c07dfe2a1cfa5855d21efcc95b33
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: d11098b6bd8c32c04ea1d3007ef465deb90ffc17
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912601"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193701"
 ---
+# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planeamento para migração de recursos IaaS do clássico para OGestor de Recursos Azure
+
 > [!IMPORTANT]
 > Hoje, cerca de 90% dos VMs iaas estão usando O Gestor de [Recursos Azure.](https://azure.microsoft.com/features/resource-manager/) A partir de 28 de fevereiro de 2020, os VMs clássicos foram depreciados e serão totalmente aposentados a 1 de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre esta depreciação e [como isso o afeta.](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)
 
-# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planeamento para migração de recursos IaaS do clássico para OGestor de Recursos Azure
 Embora o Azure Resource Manager ofereça um monte de funcionalidades incríveis, é fundamental planear a sua viagem de migração para garantir que as coisas corram bem. Gastar tempo no planeamento garantirá que não se depara com problemas durante a execução de atividades migratórias.
 
 > [!NOTE]

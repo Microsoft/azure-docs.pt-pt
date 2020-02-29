@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 771ae508aaa46167413c2e701d8193790198cb68
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 2522b31788df294c37db4326985edd6c85774561
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565915"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191848"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Questões conhecidas e resolução de problemas Azure Machine Learning
 
@@ -191,6 +191,14 @@ O widget SDK de aprendizagem automática Azure não é suportado num caderno dat
 
 ```
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+```
+
+### <a name="import-error-cannot-import-name-timedelta-from-pandas_libstslibs"></a>Erro de importação: não pode importar o nome 'Timedelta' de 'pandas._libs.tslibs'
+
+Se vir este erro quando utilizar machine learning automatizado, execute as duas seguintes linhas no seu caderno:
+```
+%sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
+%sh /databricks/python/bin/pip install pandas==0.23.4
 ```
 
 ### <a name="import-error-no-module-named-pandascoreindexes"></a>Erro de importação: Nenhum módulo chamado 'pandas.core.indexes'

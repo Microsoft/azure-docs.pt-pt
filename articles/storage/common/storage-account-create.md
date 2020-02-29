@@ -1,5 +1,5 @@
 ---
-title: Criar uma conta do Storage
+title: Criar uma conta de armazenamento
 titleSuffix: Azure Storage
 description: Aprenda a criar uma conta de armazenamento utilizando o portal Azure, Azure PowerShell ou o Azure CLI. Uma conta de armazenamento Azure fornece um espaço de nome único no Microsoft Azure para armazenar e aceder aos seus dados.
 services: storage
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 86aaebe652968a2ea33fd8e15f9de9c1dff31a30
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086962"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197730"
 ---
 # <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
@@ -28,11 +28,11 @@ Neste artigo de como fazer, aprende-se a criar uma conta de armazenamento utiliz
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Nenhum.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para criar uma conta de armazenamento Azure com a PowerShell, certifique-se de que instalou o módulo Azure PowerShell a versão 0.7 ou posterior. Para mais informações, consulte [A introdução do módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
@@ -44,7 +44,7 @@ Get-InstalledModule -Name "Az"
 
 Para instalar ou atualizar o Azure PowerShell, consulte instalar o [módulo PowerShell Azure](/powershell/azure/install-Az-ps).
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Pode iniciar sessão no Azure e executar comandos Azure CLI de uma de duas formas:
 
@@ -65,7 +65,7 @@ O botão lança uma concha interativa que pode utilizar para executar os passos 
 
 Também pode instalar e utilizar a CLI do Azure localmente. Este artigo de como fazer requer que esteja a executar a versão Azure CLI 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
-# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+# <a name="template"></a>[Modelo](#tab/template)
 
 Nenhum.
 
@@ -73,11 +73,11 @@ Nenhum.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Inscreva-se na sua subscrição Azure com o comando `Connect-AzAccount` e siga as instruções no ecrã para autenticar.
 
@@ -85,7 +85,7 @@ Inscreva-se na sua subscrição Azure com o comando `Connect-AzAccount` e siga a
 Connect-AzAccount
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para lançar a Azure Cloud Shell, inscreva-se no [portal Azure.](https://portal.azure.com)
 
@@ -95,13 +95,13 @@ Para iniciar sessão na instalação local do CLI, execute o comando [de login a
 az login
 ```
 
-# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+# <a name="template"></a>[Modelo](#tab/template)
 
 N/D
 
 ---
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Agora está pronto para criar uma conta de armazenamento.
 
@@ -109,11 +109,11 @@ Cada conta de armazenamento tem de pertencer a um grupo de recursos do Azure. Um
 
 Uma conta de armazenamento **v2 para fins gerais** concede acesso a todos os serviços de Armazenamento do Azure: blobs, ficheiros, filas, tabelas e discos. Os passos aqui descritos criam uma conta de armazenamento v2 de propósito geral, mas os passos para criar qualquer tipo de conta de armazenamento são semelhantes.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Em primeiro lugar, crie um novo grupo de recursos com a PowerShell utilizando o comando [New-AzResourceGroup:](/powershell/module/az.resources/new-azresourcegroup)
 
@@ -155,7 +155,7 @@ Para criar uma conta de armazenamento v2 de uso geral com uma opção de replica
 |Armazenamento geo-zona-redundante (GZRS) (pré-visualização)    |Standard_GZRS         |
 |Armazenamento geo-zona-redundante de acesso de leitura (RA-GZRS) (pré-visualização)    |Standard_RAGZRS         |
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Em primeiro lugar, crie um novo grupo de recursos com a CLI do Azure, através do comando [az group create](/cli/azure/group#az_group_create).
 
@@ -198,7 +198,7 @@ Para criar uma conta de armazenamento v2 de propósito geral com uma opção de 
 |Armazenamento geo-zona-redundante (GZRS) (pré-visualização)    |Standard_GZRS         |
 |Armazenamento geo-zona-redundante de acesso de leitura (RA-GZRS) (pré-visualização)    |Standard_RAGZRS         |
 
-# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+# <a name="template"></a>[Modelo](#tab/template)
 
 Pode utilizar o Azure Powershell ou o Azure CLI para implementar um modelo de Gestor de Recursos para criar uma conta de armazenamento. O modelo utilizado neste artigo de como-a-artigo é de [modelos de quickstart do Gestor](https://azure.microsoft.com/resources/templates/101-storage-account-create/)de Recursos Do Azure . Para executar os scripts, selecione **Experimente-o** para abrir a concha Azure Cloud. Para colar o script, clique na concha e, em seguida, selecione **Pasta**.
 
@@ -219,7 +219,10 @@ az group create --name $resourceGroupName --location "$location" &&
 az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-Para aprender a criar modelos, consulte:
+> [!NOTE]
+> Este modelo serve apenas como um exemplo. Existem muitas definições de conta de armazenamento que não estão configuradas como parte deste modelo. Por exemplo, se quiser utilizar o Armazenamento de [Lagos De Dados Azure,](https://azure.microsoft.com/services/storage/data-lake-storage/)modificaeste este modelo definindo a propriedade `isHnsEnabledad` do objeto `StorageAccountPropertiesCreateParameters` para `true`. 
+
+Para aprender a modificar este modelo ou criar novos, consulte:
 
 - [Documentação do Gestor de Recursos Azure.](/azure/azure-resource-manager/)
 - Referência do modelo da conta de [armazenamento.](/azure/templates/microsoft.storage/allversions)
@@ -233,12 +236,12 @@ Para obter mais informações sobre as opções de replicação disponíveis, ve
 
 A eliminação de uma conta de armazenamento elimina toda a conta, incluindo todos os dados da conta, e não pode ser desfeita.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navegue na conta de armazenamento no [portal Azure.](https://portal.azure.com)
 1. Clique em **Eliminar**.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para eliminar a conta de armazenamento, utilize o comando [Remove-AzStorageAccount:](/powershell/module/az.storage/remove-azstorageaccount)
 
@@ -246,7 +249,7 @@ Para eliminar a conta de armazenamento, utilize o comando [Remove-AzStorageAccou
 Remove-AzStorageAccount -Name <storage-account> -ResourceGroupName <resource-group>
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para eliminar a conta de armazenamento, utilize a conta de [armazenamento az eliminar](/cli/azure/storage/account#az-storage-account-delete) o comando:
 
@@ -254,7 +257,7 @@ Para eliminar a conta de armazenamento, utilize a conta de [armazenamento az eli
 az storage account delete --name <storage-account> --resource-group <resource-group>
 ```
 
-# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+# <a name="template"></a>[Modelo](#tab/template)
 
 Para eliminar a conta de armazenamento, utilize o Azure PowerShell ou o Azure CLI.
 
@@ -285,22 +288,22 @@ Alternadamente, pode eliminar o grupo de recursos, que elimina a conta de armaze
 
 Neste artigo de como fazer, criou uma conta de armazenamento padrão v2 de propósito geral. Para aprender a carregar e descarregar bolhas de e para a sua conta de armazenamento, continue a ser um dos quickstarts de armazenamento blob.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 > [!div class="nextstepaction"]
 > [Trabalhar com blobs ao utilizar o portal do Azure](../blobs/storage-quickstart-blobs-portal.md)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!div class="nextstepaction"]
 > [Trabalhar com blobs ao utilizar o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
 > [Trabalhe com bolhas usando o Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 
-# <a name="templatetabtemplate"></a>[Modelo](#tab/template)
+# <a name="template"></a>[Modelo](#tab/template)
 
 > [!div class="nextstepaction"]
 > [Trabalhar com blobs ao utilizar o portal do Azure](../blobs/storage-quickstart-blobs-portal.md)

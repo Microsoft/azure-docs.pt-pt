@@ -3,20 +3,20 @@ title: Tipos de aplicação suportados por Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Conheça os tipos de aplicações que pode utilizar com o Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ec97f986c4472f793c2d38ded2a1c6873b1ee08d
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e8328db12bde531c2e27936c09247611ff1a3583
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482790"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190148"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicação que podem ser usados no Diretório Ativo B2C
 
@@ -35,7 +35,7 @@ A interação de cada aplicação segue um padrão de alto nível semelhante:
 2. O utilizador conclui a política de acordo com a sua definição.
 3. O pedido recebe um símbolo de segurança do ponto final v2.0.
 4. A aplicação utiliza o símbolo de segurança para aceder a informações protegidas ou a um recurso protegido.
-5. O servidor de recurso valida o token de segurança para verificar que o acesso pode ser concedido.
+5. O servidor de recurso valida o token de segurança para verificar se o acesso pode ser concedido.
 6. A aplicação atualiza periodicamente o token de segurança.
 
 Estes passos podem diferir ligeiramente com base no tipo de aplicação que está a construir.
@@ -140,6 +140,6 @@ Se editar a aplicação Azure AD B2C fora do portal Azure, torna-se uma aplicaç
 
 Para apagar a aplicação, vá ao Portal de Registo de [Aplicações](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) e elimine a aplicação. Para que a aplicação fique visível, tem de ser o proprietário da aplicação (e não apenas um administrador do inquilino).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as políticas incorporadas fornecidas pelos [fluxos de utilizador no Diretório Ativo Azure B2C](user-flow-overview.md).

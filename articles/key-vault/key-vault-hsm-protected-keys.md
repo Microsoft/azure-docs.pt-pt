@@ -6,15 +6,16 @@ author: amitbapat
 manager: devtiw
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 00d2d38801929454110b41be88d133e3af232af7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: d7f9527aa5aa3353dc9087f4bcc5f3a5fb241637
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425753"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184558"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Cofre-Chave
 

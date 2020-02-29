@@ -4,12 +4,12 @@ description: Neste tutorial, vai aprender a configurar a integração contínua 
 keywords: jenkins, azure, devops, máquina virtual, cicd
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 380d547aaee68ad40ae12a4836826d2addae3a18
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: cae28b293a6217996b44c839dc8836ec940c3155
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606469"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192613"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementar a aplicação em máquinas virtuais do Linux no Azure com o Jenkins e os Serviços de DevOps do Azure
 
@@ -96,9 +96,9 @@ Primeiro, tem de configurar dois plug-ins Jenkins: **NodeJS** e **Implementaçã
 5. Selecione **Acionar versão no TFS/Team Services**. Introduza o URI para a sua organização de Serviços de DevOps do Azure, tal como **https://{your-organization-name}.visualstudio.com**.
 6. Introduza o nome do **Projeto**.
 7. Escolha um nome para o pipeline de versão. (Vai criar este pipeline de versão mais tarde nos Serviços de DevOps do Azure.)
-8. Escolha as credenciais para ligar ao seu ambiente dos Serviços de DevOps do Azure ou do Team Foundation Server:
+8. Escolha credenciais para ligar aos seus Serviços Azure DevOps ou ao ambiente do Servidor Azure DevOps:
    - Deixe o **Nome de utilizador** em branco se estiver a utilizar os Serviços de DevOps do Azure. 
-   - Introduza um nome de utilizador e uma palavra-passe, se estiver com uma versão no local do Team Foundation Server.    
+   - Introduza um nome de utilizador e uma palavra-passe se estiver a utilizar uma versão no local do Servidor Azure DevOps.    
    ![Configurar ações pós-compilação do Jenkins](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Guarde o projeto Jenkins.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Ingerir dados de monitorização sem código - Azure Data Explorer'
+title: 'Tutorial: Ingerir dados de monitorização no Azure Data Explorer sem código'
 description: Neste tutorial, aprende-se a ingerir dados de monitorização ao Azure Data Explorer sem uma linha de código e consulta desses dados.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 24e09f6578431e6b7f2a83be13bae59bf2e707de
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3a53a660da2257540f23bc6438fc5933e5229c76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986211"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198053"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Tutorial: Ingerir e consultar dados de monitorização no Azure Data Explorer 
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-portal.md). Neste tutorial, o nome da base de dados é *TestDatabase*.
+* [Um cluster azure Data Explorer e base de dados.](create-cluster-database-portal.md) Neste tutorial, o nome da base de dados é *TestDatabase*.
 
 ## <a name="azure-monitor-data-provider-diagnostic-metrics-and-logs-and-activity-logs"></a>Fornecedor de dados do Monitor Azure: métricas de diagnóstico e registos de atividades
 
@@ -43,7 +43,7 @@ Ver e compreender os dados fornecidos pelas métricas de diagnóstico do Monitor
 
 As métricas de diagnóstico azure e os registos de atividade são emitidos por um serviço Azure e fornecem dados sobre o funcionamento desse serviço. 
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
 #### <a name="example"></a>Exemplo
 
 As métricas de diagnóstico são agregadas com um grão de tempo de 1 minuto. Segue-se um exemplo de um esquema de eventométrico do Azure Data Explorer sobre a duração da consulta:
@@ -77,7 +77,7 @@ As métricas de diagnóstico são agregadas com um grão de tempo de 1 minuto. S
 }
 ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
 #### <a name="example"></a>Exemplo
 
 Segue-se um exemplo de um registo de [ingestão](using-diagnostic-logs.md#diagnostic-logs-schema)de diagnóstico do Azure Data Explorer:
@@ -133,7 +133,7 @@ Segue-se um exemplo de um registo de [ingestão](using-diagnostic-logs.md#diagno
     }
 }
 ```
-# <a name="activity-logstabactivity-logs"></a>[Registos de atividade](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registos de atividade](#tab/activity-logs)
 #### <a name="example"></a>Exemplo
 
 Os registos de atividade do Azure são registos de nível de subscrição que fornecem informações sobre as operações realizadas sobre os recursos na sua subscrição. Segue-se um exemplo de um evento de registo de atividades para verificar o acesso:
@@ -210,7 +210,7 @@ A estrutura dos troncos do Monitor Azure não é tabular. Manipulará os dados e
 
 Utilize a UI Web do Azure Data Explorer para criar as tabelas-alvo na base de dados do Azure Data Explorer.
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
 #### <a name="create-tables-for-the-diagnostic-metrics"></a>Criar tabelas para as métricas de diagnóstico
 
 1. Na base de dados *TestDatabase,* crie uma tabela chamada *DiagnosticMetrics* para armazenar os registos de métricas de diagnóstico. Utilize o seguinte comando de controlo `.create table`:
@@ -235,7 +235,7 @@ Utilize a UI Web do Azure Data Explorer para criar as tabelas-alvo na base de da
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
 #### <a name="create-tables-for-the-diagnostic-logs"></a>Criar tabelas para os registos de diagnóstico 
 
 1. Na base de dados *TestDatabase,* crie uma tabela chamada *DiagnosticLogs* para armazenar os registos de registos de diagnóstico. Utilize o seguinte comando de controlo `.create table`:
@@ -258,7 +258,7 @@ Utilize a UI Web do Azure Data Explorer para criar as tabelas-alvo na base de da
     .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
     ```
 
-# <a name="activity-logstabactivity-logs"></a>[Registos de atividade](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registos de atividade](#tab/activity-logs)
 #### <a name="create-tables-for-the-activity-logs"></a>Criar tabelas para os registos de atividade 
 
 1. Crie uma tabela chamada *ActivityLogs* na base de dados *testDatabase* para receber registos de registos de atividade. Para criar a tabela, execute a seguinte consulta do Explorador de Dados Azure:
@@ -284,7 +284,7 @@ Utilize a UI Web do Azure Data Explorer para criar as tabelas-alvo na base de da
 
  Como o formato de dados é `json`, é necessário mapeamento de dados. O `json` mapeamento mapeia cada caminho json para um nome de coluna de mesa.
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Métricas de diagnóstico / Registos de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Métricas de diagnóstico / Registos de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
 #### <a name="map-diagnostic-metrics-and-logs-to-the-table"></a>Mapeie métricas de diagnóstico e troncos para a mesa
 
 Para mapear a métrica de diagnóstico e registar dados para a tabela, utilize a seguinte consulta:
@@ -293,7 +293,7 @@ Para mapear a métrica de diagnóstico e registar dados para a tabela, utilize a
 .create table DiagnosticRawRecords ingestion json mapping 'DiagnosticRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-# <a name="activity-logstabactivity-logs"></a>[Registos de atividade](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registos de atividade](#tab/activity-logs)
 #### <a name="map-activity-logs-to-the-table"></a>Registos de atividade do mapa para a mesa
 
 Para mapear os dados de registo de atividade para a tabela, utilize a seguinte consulta:
@@ -305,7 +305,7 @@ Para mapear os dados de registo de atividade para a tabela, utilize a seguinte c
 
 ### <a name="create-the-update-policy-for-metric-and-log-data"></a>Criar a política de atualização para dados métricos e de registo
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
 #### <a name="create-data-update-policy-for-diagnostics-metrics"></a>Criar política de atualização de dados para métricas de diagnóstico
 
 1. Crie uma [função](/azure/kusto/management/functions) que expanda a recolha de registos métricos de diagnóstico para que cada valor da coleção receba uma linha separada. Utilize o operador [`mv-expand`:](/azure/kusto/query/mvexpandoperator)
@@ -333,7 +333,7 @@ Para mapear os dados de registo de atividade para a tabela, utilize a seguinte c
     .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
 #### <a name="create-data-update-policy-for-diagnostics-logs"></a>Criar política de atualização de dados para registos de diagnósticos
 
 1. Crie uma [função](/azure/kusto/management/functions) que expanda a recolha de registos de diagnóstico para que cada valor da coleção receba uma linha separada. Você vai ativar registos de ingestão em um cluster Azure Data Explorer, e usar [logs de ingestão schema](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema). Criará uma tabela para o sucesso e para a ingestão falhada, enquanto alguns dos campos estarão vazios para a ingestão bem sucedida (ErrorCode, por exemplo). Utilize o operador [`mv-expand`:](/azure/kusto/query/mvexpandoperator)
@@ -366,7 +366,7 @@ Para mapear os dados de registo de atividade para a tabela, utilize a seguinte c
     .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
-# <a name="activity-logstabactivity-logs"></a>[Registos de atividade](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registos de atividade](#tab/activity-logs)
 #### <a name="create-data-update-policy-for-activity-logs"></a>Criar política de atualização de dados para registos de atividades
 
 1. Crie uma [função](/azure/kusto/management/functions) que expanda a recolha de registos de registos de atividade para que cada valor da coleção receba uma linha separada. Utilize o operador [`mv-expand`:](/azure/kusto/query/mvexpandoperator)
@@ -425,7 +425,7 @@ As definições de diagnóstico azure permitem a exportação de métricas e reg
 
 Agora precisa ligar as suas métricas e registos de diagnóstico e os seus registos de atividade ao centro do evento.
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Métricas de diagnóstico / Registos de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Métricas de diagnóstico / Registos de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
 ### <a name="connect-diagnostic-metrics-and-logs-to-your-event-hub"></a>Ligue métricas e registos de diagnóstico ao seu centro de eventos
 
 Selecione um recurso a partir do qual as métricas de exportação. Vários tipos de recursos suportam a exportação de dados de diagnóstico, incluindo o espaço de nome de Event Hubs, Cofre chave Azure, Hub Azure IoT e clusters Azure Data Explorer. Neste tutorial, usaremos um cluster Azure Data Explorer como nosso recurso, vamos rever métricas de desempenho de consulta e registos de resultados de ingestão.
@@ -442,7 +442,7 @@ Selecione um recurso a partir do qual as métricas de exportação. Vários tipo
    1. Selecione o Stream para uma caixa de verificação do centro de **eventos.**
    1. **Selecione Configurar**.
 
-      ![Painel de configurações de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![Painel de definições de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. No painel de **hub** select, configure como exportar dados de registos de diagnóstico para o centro de eventos que criou:
     1. Na lista de nomes do centro de **eventos Select,** selecione *AzureMonitoringData*.
@@ -452,7 +452,7 @@ Selecione um recurso a partir do qual as métricas de exportação. Vários tipo
 
 1. Selecione **Guardar**.
 
-# <a name="activity-logstabactivity-logs"></a>[Registos de atividade](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registos de atividade](#tab/activity-logs)
 ### <a name="connect-activity-logs-to-your-event-hub"></a>Ligue os registos de atividade ao seu centro de eventos
 
 1. No menu esquerdo do portal Azure, selecione **registo de atividade**.
@@ -501,7 +501,7 @@ Agora precisa de criar as ligações de dados para as suas métricas de diagnós
 
     ![Conexão de dados do hub de eventos](media/ingest-data-no-code/event-hub-data-connection.png)
 
-# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Métricas de diagnóstico / Registos de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
+# <a name="diagnostic-metrics--diagnostic-logs"></a>[Métricas de diagnóstico / Registos de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
 
 1. Utilize as seguintes definições na janela de ligação de **dados:**
 
@@ -528,7 +528,7 @@ Agora precisa de criar as ligações de dados para as suas métricas de diagnós
 
 1. Selecione **Criar**.  
 
-# <a name="activity-logstabactivity-logs"></a>[Registos de atividade](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registos de atividade](#tab/activity-logs)
 
 1. Utilize as seguintes definições na janela de ligação de **dados:**
 
@@ -538,7 +538,7 @@ Agora precisa de criar as ligações de dados para as suas métricas de diagnós
     |---|---|---|
     | **Nome da ligação de dados** | *ActivityLogsConnection* | O nome da ligação que quer criar no Azure Data Explorer.|
     | **Espaço de nome do centro de eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
-    | **Centro de eventos** | *insights-operational-logs* | O hub de eventos que criou. |
+    | **Centro de eventos** | *insights-operaciona-logs* | O hub de eventos que criou. |
     | **Grupo de consumidores** | *$Default* | O grupo de consumidores padrão. Se necessário, pode criar um grupo de consumidores diferente. |
     | | |
 
@@ -560,7 +560,7 @@ Agora precisa de criar as ligações de dados para as suas métricas de diagnós
 
 Agora tem um oleoduto com dados a fluir. A ingestão através do cluster demora 5 minutos por padrão, por isso deixe os dados fluir durante alguns minutos antes de começar a consultar.
 
-# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+# <a name="diagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
 ### <a name="query-the-diagnostic-metrics-table"></a>Consulta da tabela de métricas de diagnóstico
 
 A seguinte consulta analisa os dados de duração da consulta a partir de registos métricos de diagnóstico no Azure Data Explorer:
@@ -579,7 +579,7 @@ Resultados da consulta:
 |   | 00:06.156 |
 | | |
 
-# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
+# <a name="diagnostic-logs"></a>[Registos de diagnóstico](#tab/diagnostic-logs)
 ### <a name="query-the-diagnostic-logs-table"></a>Consulta da tabela de registos de diagnóstico
 
 Este oleoduto produz ingestão através de um centro de eventos. Vai rever os resultados destas ingestão.
@@ -599,7 +599,7 @@ Resultados da consulta:
 |   | 00:06.156 | TestDatabase | DiagnosticRawRecords | https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip
 | | |
 
-# <a name="activity-logstabactivity-logs"></a>[Registos de atividade](#tab/activity-logs)
+# <a name="activity-logs"></a>[Registos de atividade](#tab/activity-logs)
 ### <a name="query-the-activity-logs-table"></a>Consulta da tabela de registos de atividade
 
 A seguinte consulta analisa dados de registos de registos de atividade no Azure Data Explorer:
@@ -624,5 +624,5 @@ Resultados da consulta:
 ## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a escrever muitas mais consultas sobre os dados extraídos do Azure Data Explorer utilizando [consultas de Escrita para o Azure Data Explorer](write-queries.md).
-* [Monitorar operações de ingestão de Data Explorer do Azure usando logs de diagnóstico](using-diagnostic-logs.md)
-* [Usar métricas para monitorar a integridade do cluster](using-metrics.md)
+* [Monitorize operações de ingestão do Explorador de Dados do Azure utilizando registos de diagnóstico](using-diagnostic-logs.md)
+* [Use métricas para monitorizar a saúde do cluster](using-metrics.md)

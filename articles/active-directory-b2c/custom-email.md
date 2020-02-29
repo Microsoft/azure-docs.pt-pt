@@ -1,40 +1,40 @@
 ---
-title: Verificações de email personalizadas
+title: Verificações de e-mail personalizadas
 titleSuffix: Azure AD B2C
-description: Saiba como personalizar o email de verificação enviado para seus clientes quando eles se inscrevem para usar seus aplicativos habilitados para Azure AD B2C.
+description: Saiba como personalizar o e-mail de verificação enviado aos seus clientes quando se inscrevem para utilizar as suas aplicações ativadas pelo Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2bda00924015bf5abc616b7c346eacfeda53c2ed
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 32747e0e7bb1f979203fa886647712e0fd69faee
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045946"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189536"
 ---
-# <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Verificação de email personalizada no Azure Active Directory B2C
+# <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Verificação personalizada de e-mail no Diretório Ativo Azure B2C
 
-Use o email personalizado no Azure Active Directory B2C (Azure AD B2C) para enviar email personalizado aos usuários que se inscrevem para usar seus aplicativos. Ao utilizar o [DisplayControls](display-controls.md) (atualmente em pré-visualização) e um fornecedor de e-mail de terceiros, pode utilizar o seu próprio modelo de e-mail e *A partir:* endereço e assunto, bem como apoiar as definições de localização e senha personalizada (OTP).
+Utilize e-mails personalizados no Azure Ative Directory B2C (Azure AD B2C) para enviar e-mails personalizados aos utilizadores que se inscrevam para utilizar as suas aplicações. Ao utilizar o [DisplayControls](display-controls.md) (atualmente em pré-visualização) e um fornecedor de e-mail de terceiros, pode utilizar o seu próprio modelo de e-mail e *A partir:* endereço e assunto, bem como apoiar as definições de localização e senha personalizada (OTP).
 
-A verificação personalizada de e-mail requer a utilização de um fornecedor de e-mail de terceiros como [sendGrid](https://sendgrid.com) ou [SparkPost,](https://sparkpost.com)um REST API personalizado ou qualquer fornecedor de e-mail baseado em HTTP (incluindo o seu próprio). Este artigo descreve como configurar uma solução que usa SendGrid.
+A verificação personalizada de e-mail requer a utilização de um fornecedor de e-mail de terceiros como [sendGrid](https://sendgrid.com) ou [SparkPost,](https://sparkpost.com)um REST API personalizado ou qualquer fornecedor de e-mail baseado em HTTP (incluindo o seu próprio). Este artigo descreve a criação de uma solução que utiliza a SendGrid.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="create-a-sendgrid-account"></a>Criar uma conta do SendGrid
+## <a name="create-a-sendgrid-account"></a>Criar uma conta SendGrid
 
-Se você ainda não tiver uma, comece Configurando uma conta do SendGrid (os clientes do Azure podem desbloquear 25.000 emails gratuitos por mês). Para obter instruções de configuração, consulte a secção [Criar uma Conta SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) de [Como enviar e-mail utilizando sendGrid com Azure](../sendgrid-dotnet-how-to-send-email.md).
+Se ainda não tiver uma, comece por criar uma conta SendGrid (os clientes Azure podem desbloquear 25.000 e-mails gratuitos todos os meses). Para obter instruções de configuração, consulte a secção [Criar uma Conta SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) de [Como enviar e-mail utilizando sendGrid com Azure](../sendgrid-dotnet-how-to-send-email.md).
 
-Certifique-se de que completa a secção em que [cria uma tecla API SendGrid](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Registre a chave de API para uso em uma etapa posterior.
+Certifique-se de que completa a secção em que [cria uma tecla API SendGrid](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Grave a tecla API para utilização num passo posterior.
 
-## <a name="create-azure-ad-b2c-policy-key"></a>Criar chave de política de Azure AD B2C
+## <a name="create-azure-ad-b2c-policy-key"></a>Criar a chave política Azure AD B2C
 
-Em seguida, armazene a chave de API SendGrid em uma chave de política de Azure AD B2C para que suas políticas façam referência.
+Em seguida, guarde a tecla SendGrid API numa chave de política Azure AD B2C para as suas políticas de referência.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o seu diretório Azure AD B2C.
@@ -47,7 +47,7 @@ Em seguida, armazene a chave de API SendGrid em uma chave de política de Azure 
 1. Para **a utilização da chave,** selecione `Signature`.
 1. Selecione **Criar**.
 
-## <a name="create-sendgrid-template"></a>Criar modelo de SendGrid
+## <a name="create-sendgrid-template"></a>Criar modelo SendGrid
 
 Com uma conta SendGrid criada e chave SendGrid API armazenada numa chave política Azure AD B2C, crie um [modelo de transação dinâmico](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)SendGrid .
 
@@ -55,7 +55,7 @@ Com uma conta SendGrid criada e chave SendGrid API armazenada numa chave políti
 1. Introduza um nome de modelo único como `Verification email` e, em seguida, selecione **Guardar**.
 1. Para começar a editar o seu novo modelo, selecione **Adicionar Versão**.
 1. Selecione Editor de **Código** **e,** em seguida, Continue .
-1. No editor de HTML, Cole o modelo HTML a seguir ou use o seu próprio. Os parâmetros `{{otp}}` e `{{email}}` serão substituídos dinamicamente pelo valor de senha única e pelo endereço de e-mail do utilizador.
+1. No editor HTML, cola o modelo HTML ou usa o teu próprio. Os parâmetros `{{otp}}` e `{{email}}` serão substituídos dinamicamente pelo valor de senha única e pelo endereço de e-mail do utilizador.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -156,11 +156,11 @@ Com uma conta SendGrid criada e chave SendGrid API armazenada numa chave políti
 1. Volte à página de **Modelos Transacionais** selecionando a seta traseira.
 1. Grave a **identificação** do modelo que criou para ser usada num passo posterior. Por exemplo, `d-989077fbba9746e89f3f6411f596fb96`. Especifica este ID quando [adiciona a transformação de sinistros.](#add-the-claims-transformation)
 
-## <a name="add-azure-ad-b2c-claim-types"></a>Adicionar tipos de declaração de Azure AD B2C
+## <a name="add-azure-ad-b2c-claim-types"></a>Adicione tipos de reclamação Azure AD B2C
 
 Na sua política, adicione os seguintes tipos de reclamação ao elemento `<ClaimsSchema>` dentro `<BuildingBlocks>`.
 
-Esses tipos de declarações são necessários para gerar e verificar o endereço de email usando um código de OTP (senha de uso único).
+Estes tipos de reclamações são necessários para gerar e verificar o endereço de e-mail usando um código de senha única (OTP).
 
 ```XML
 <ClaimType Id="Otp">
@@ -179,16 +179,16 @@ Esses tipos de declarações são necessários para gerar e verificar o endereç
 </ClaimType>
 ```
 
-## <a name="add-the-claims-transformation"></a>Adicionar a transformação de declarações
+## <a name="add-the-claims-transformation"></a>Adicione a transformação de sinistros
 
-Em seguida, você precisa de uma transformação declarações para gerar uma declaração de cadeia de caracteres JSON que será o corpo da solicitação enviada para SendGrid.
+Em seguida, você precisa de uma transformação de reclamações para obter uma reivindicação de cadeia JSON que será o corpo do pedido enviado para SendGrid.
 
-A estrutura do objeto JSON é definida pelas IDs na notação de ponto de InputParameters e TransformationClaimTypes do InputClaims. Os números na notação de ponto implicam matrizes. Os valores são provenientes dos valores de InputClaims e das propriedades de "valor" de InputParameters. Para obter mais informações sobre as transformações da JSON, consulte a [JSON alega transformações](json-transformations.md).
+A estrutura do objeto JSON é definida pelos IDs na notação de pontos dos InputParameters e pelos Tipos de Reclamações de Transformação das InputClaims. Os números na notação do ponto implicam matrizes. Os valores provêm dos valores dos InputClaims e das propriedades "Valor" dos InputParameters. Para obter mais informações sobre as transformações da JSON, consulte a [JSON alega transformações](json-transformations.md).
 
-Adicione a seguinte transformação de reclamações ao elemento `<ClaimsTransformations>` dentro `<BuildingBlocks>`. Faça as seguintes atualizações para o XML de transformação de declarações:
+Adicione a seguinte transformação de reclamações ao elemento `<ClaimsTransformations>` dentro `<BuildingBlocks>`. Faça as seguintes atualizações para a transformação de sinistros XML:
 
 * Atualize o valor `template_id` InputParameter com o ID do modelo transacional SendGrid que criou anteriormente no [modelo Create SendGrid](#create-sendgrid-template).
-* Atualize o valor de endereço `from.email`. Use um endereço de email válido para ajudar a impedir que o email de verificação seja marcado como spam.
+* Atualize o valor de endereço `from.email`. Utilize um endereço de e-mail válido para evitar que o e-mail de verificação seja marcado como spam.
 * Atualize o valor do parâmetro de entrada da linha de assunto `personalizations.0.dynamic_template_data.subject` com uma linha de assunto adequada para a sua organização.
 
 ```XML
@@ -225,16 +225,16 @@ Abaixo das transformações de sinistros dentro de `<BuildingBlocks>`, adicione 
 
 ## <a name="create-a-displaycontrol"></a>Criar um DisplayControl
 
-Um controle de exibição de verificação é usado para verificar o endereço de email com um código de verificação que é enviado ao usuário.
+Um controlo de visualização é utilizado para verificar o endereço de e-mail com um código de verificação que é enviado ao utilizador.
 
-Este exemplo de controle de exibição está configurado para:
+Este controlo de exibição de exemplo está configurado para:
 
 1. Recolher o tipo de reclamação de endereço `email` do utilizador.
 1. Aguarde que o utilizador forneça o `verificationCode` tipo de reclamação com o código enviado ao utilizador.
 1. Volte a colocar o `email` ao perfil técnico autoafirmado que tem uma referência a este controlo de exibição.
 1. Utilizando a `SendCode` ação, gere um código OTP e envie um e-mail com o código OTP para o utilizador.
 
-![Enviar ação de email do código de verificação](media/custom-email/display-control-verification-email-action-01.png)
+![Enviar ação de e-mail código de verificação](media/custom-email/display-control-verification-email-action-01.png)
 
 De acordo com as definições de conteúdo, ainda dentro `<BuildingBlocks>`, adicione o seguinte [DisplayControl](display-controls.md) do tipo [VerificationControl](display-control-verification.md) à sua política.
 
@@ -265,9 +265,9 @@ De acordo com as definições de conteúdo, ainda dentro `<BuildingBlocks>`, adi
 </DisplayControls>
 ```
 
-## <a name="add-otp-technical-profiles"></a>Adicionar perfis técnicos de OTP
+## <a name="add-otp-technical-profiles"></a>Adicionar perfis técnicos OTP
 
-O perfil técnico `GenerateOtp` gera um código para o endereço de e-mail. O perfil técnico `VerifyOtp` verifica o código associado ao endereço de e-mail. Você pode alterar a configuração do formato e a expiração da senha de uso único. Para obter mais informações sobre os perfis técnicos da OTP, consulte [Definir um perfil técnico de senha única](one-time-password-technical-profile.md).
+O perfil técnico `GenerateOtp` gera um código para o endereço de e-mail. O perfil técnico `VerifyOtp` verifica o código associado ao endereço de e-mail. Pode alterar a configuração do formato e a expiração da senha única. Para obter mais informações sobre os perfis técnicos da OTP, consulte [Definir um perfil técnico de senha única](one-time-password-technical-profile.md).
 
 Adicione os seguintes perfis técnicos ao elemento `<ClaimsProviders>`.
 
@@ -313,9 +313,9 @@ Adicione os seguintes perfis técnicos ao elemento `<ClaimsProviders>`.
 </ClaimsProvider>
 ```
 
-## <a name="add-a-rest-api-technical-profile"></a>Adicionar um perfil técnico da API REST
+## <a name="add-a-rest-api-technical-profile"></a>Adicione um perfil técnico REST API
 
-Esse perfil técnico da API REST gera o conteúdo do email (usando o formato SendGrid). Para obter mais informações sobre perfis técnicos RESTful, consulte [Definir um perfil técnico RESTful](restful-technical-profile.md).
+Este perfil técnico REST API gera o conteúdo de e-mail (utilizando o formato SendGrid). Para obter mais informações sobre perfis técnicos RESTful, consulte [Definir um perfil técnico RESTful](restful-technical-profile.md).
 
 Tal como acontece com os perfis técnicos da OTP, adicione os seguintes perfis técnicos ao elemento `<ClaimsProviders>`.
 
@@ -346,9 +346,9 @@ Tal como acontece com os perfis técnicos da OTP, adicione os seguintes perfis t
 </ClaimsProvider>
 ```
 
-## <a name="make-a-reference-to-the-displaycontrol"></a>Fazer uma referência para o DisplayControl
+## <a name="make-a-reference-to-the-displaycontrol"></a>Faça uma referência ao DisplayControl
 
-Na etapa final, adicione uma referência para o DisplayControl que você criou. Substitua o seu perfil técnico `LocalAccountSignUpWithLogonEmail` autoafirmado com o seguinte se tiver utilizado uma versão anterior da política Azure AD B2C. Este perfil técnico utiliza `DisplayClaims` com referência ao DisplayControl.
+No passo final, adicione uma referência ao DisplayControl que criou. Substitua o seu perfil técnico `LocalAccountSignUpWithLogonEmail` autoafirmado com o seguinte se tiver utilizado uma versão anterior da política Azure AD B2C. Este perfil técnico utiliza `DisplayClaims` com referência ao DisplayControl.
 
 Para mais informações, consulte o [perfil técnico autoafirmado](restful-technical-profile.md) e o [DisplayControl](display-controls.md).
 
@@ -423,7 +423,7 @@ Para localizar o e-mail, tem de enviar cordas localizadas para a SendGrid ou par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você pode encontrar um exemplo de uma política de verificação de email personalizada no GitHub:
+Pode encontrar um exemplo de uma política personalizada de verificação de e-mails no GitHub:
 
 [Verificação personalizada de e-mail - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 

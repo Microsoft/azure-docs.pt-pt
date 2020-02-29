@@ -3,20 +3,20 @@ title: 'Tutorial: Conceder acesso a um ASP.NET Core web API a partir de uma apli
 titleSuffix: Azure AD B2C
 description: Neste tutorial, aprenda a usar o Ative Directory B2C para proteger uma API web .NET Core e ligue para a API a partir de uma aplicação nóde.js de página única.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 80b2165b0ec652358a3eb8ac9d55b64f525e4690
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f6f9ff7bb0d504ecc163f6ce1f87477b1ea9c2d1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850021"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186152"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a um ASP.NET Core web API a partir de uma aplicação de uma página única usando o Diretório Ativo Azure B2C
 
@@ -28,7 +28,7 @@ Neste tutorial, ficará a saber como:
 > * Adicionar uma aplicação de API Web
 > * Configurar os âmbitos para uma API web
 > * Conceder permissões à Web API
-> * Configurar o exemplo para usar o aplicativo
+> * Configure a amostra para utilizar a aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +59,7 @@ No tutorial pré-requisito, criou uma aplicação web chamada *webapp1*. Neste t
 
 A sua aplicação web de uma página está registada para chamar a API da web protegida. Um utilizador autentica com Azure AD B2C para utilizar a aplicação de uma página única. A aplicação de uma página única obtém uma autorização do Azure AD B2C para aceder à API web protegida.
 
-## <a name="configure-the-sample"></a>Configurar o exemplo
+## <a name="configure-the-sample"></a>Configure a amostra
 
 Agora que a Web API está registada e tem âmbitos definidos, configura o código Web API para utilizar o seu inquilino Azure AD B2C. Neste tutorial, configura uma aplicação web .NET Core que descarrega a partir do GitHub.
 
@@ -211,7 +211,7 @@ Neste tutorial, ficou a saber como:
 > * Adicionar uma aplicação de API Web
 > * Configurar os âmbitos para uma API web
 > * Conceder permissões à Web API
-> * Configurar o exemplo para usar o aplicativo
+> * Configure a amostra para utilizar a aplicação
 
 Agora que viu um SPA solicitar um recurso de uma API web protegida, obtenha uma compreensão mais profunda de como estes tipos de aplicações interagem entre si e com O Azure AD B2C.
 

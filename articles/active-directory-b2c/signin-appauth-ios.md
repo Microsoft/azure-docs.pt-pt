@@ -3,20 +3,20 @@ title: Use appAuth numa aplicação iOS
 titleSuffix: Azure AD B2C
 description: Como criar uma aplicação iOS que utiliza o AppAuth com o Azure Ative Directory B2C para gerir as identidades dos utilizadores e autenticar os utilizadores.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5433867b0676ffa644160251c9aacd81ba04dda7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c659280ebc8c91b53cbc3a176c84397edd942c23
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848359"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186833"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Iniciar sessão utilizando uma aplicação iOS
 
@@ -38,7 +38,7 @@ Em seguida, registe uma inscrição no seu inquilino Azure AD B2C. Isto dá ao A
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior.
+Grave o ID de **Aplicação (cliente)** para utilização num passo posterior.
 
 Também grave o seu URI personalizado para utilização num passo posterior. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
@@ -133,4 +133,4 @@ Para configurar a sua aplicação para lidar com o redirecionamento para o URI c
 
 Consulte o [guia AppAuth](https://openid.github.io/AppAuth-iOS/) sobre como completar o resto do processo. Se precisar de começar rapidamente com uma aplicação de trabalho, confira [a amostra](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Siga os passos do [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) para introduzir a sua própria configuração Azure AD AD B2C.
 
-Estamos sempre abertos para comentários e sugestões! Se tiver alguma dificuldade com este artigo, ou tiver recomendações para melhorar este conteúdo, gostaríamos do seu feedback na parte inferior da página. Para pedidos de funcionalidade, adicione-os ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Estamos sempre abertos a feedback e sugestões! Se tiver alguma dificuldade com este artigo, ou tiver recomendações para melhorar este conteúdo, gostaríamos do seu feedback na parte inferior da página. Para pedidos de funcionalidade, adicione-os ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

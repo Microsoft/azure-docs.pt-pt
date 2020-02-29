@@ -3,20 +3,20 @@ title: Referência de controlo de exibição
 titleSuffix: Azure AD B2C
 description: Referência para os comandos de exibição Azure AD B2C. Utilize controlos de exibição para personalizar as viagens de utilizador definidas nas suas políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7cbd088ed7b4f6ae242cce2067e52def2dad61c9
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136347"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188737"
 ---
 # <a name="display-controls"></a>Controlos de exibição
 

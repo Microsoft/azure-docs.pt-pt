@@ -3,20 +3,20 @@ title: Passe um sinal de acesso através de uma política personalizada para a s
 titleSuffix: Azure AD B2C
 description: Saiba como pode passar um sinal de acesso para fornecedores de identidade OAuth 2.0 como reivindicação através de uma política personalizada à sua aplicação no Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ff5ef8f742914129d868152814d84d2112267c09
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76839096"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187800"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passe um sinal de acesso através de uma política personalizada para a sua aplicação no Azure Ative Directory B2C
 
@@ -84,10 +84,10 @@ Ao testar as suas aplicações em Azure AD B2C, pode ser útil que o token Azure
 
 ### <a name="upload-the-files"></a>Faça upload dos ficheiros
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C clicando no filtro de **subscrição Do Diretório +** + no menu superior e escolhendo o diretório que contém o seu inquilino.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-4. Selecione **Identity Experience Framework**.
+3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+4. Selecione Quadro de **Experiência de Identidade**.
 5. Na página Políticas Personalizadas, clique na **Política de Upload**.
 6. **Selecione Sobrepor a apólice se ela existir**, e depois procurar e selecionar o ficheiro *TrustframeworkExtensions.xml.*
 7. Selecione **Upload**.
@@ -97,7 +97,7 @@ Ao testar as suas aplicações em Azure AD B2C, pode ser útil que o token Azure
 
 1. Abre a política que mudaste. Por exemplo, *B2C_1A_signup_signin.*
 2. Para **Aplicação,** selecione a sua aplicação que registou anteriormente. Para ver o símbolo no exemplo abaixo, o URL de **resposta** deve mostrar `https://jwt.ms`.
-3. Selecione **executar agora**.
+3. Selecione **Executar agora**.
 
     Deve ver algo semelhante ao seguinte exemplo:
 

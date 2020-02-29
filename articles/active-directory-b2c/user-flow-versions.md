@@ -2,20 +2,20 @@
 title: Versões de fluxo de utilizador no Diretório Ativo Do Azure B2C / Microsoft Docs
 description: Conheça as versões dos fluxos de utilizadores disponíveis no Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d7e174245755659494dfe1243c39619ae37f0f33
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 40d21d3390396e0cb7e44d4e19598f9b0b691087
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840082"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185627"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versões de fluxo de utilizador no Diretório Ativo Azure B2C
 
@@ -34,10 +34,10 @@ Novos fluxos de utilizadores são adicionados como novas versões. À medida que
 | Edição de perfil | Sim | Permite que um utilizador configure os seus atributos de utilizador. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Token vida](tokens-overview.md)</li><li>Definições de compatibilidade simbólica</li><li>Comportamento da sessão</li></ul> |
 | Inscreva-se usando ROPC | Não | Permite a um utilizador com uma conta local iniciar sessão diretamente em aplicações nativas (sem necessidade de navegador). Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Token vida](tokens-overview.md)</li><li>Definições de compatibilidade simbólica</li></ul> |
 | Iniciar sessão | Não | Permite que um utilizador inscrete na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Multi-Factor Authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token vida](tokens-overview.md)</li><li>Definições de compatibilidade simbólica</li><li>Comportamento da sessão</li><li>Bloquear a inscrição</li><li>Reset de palavra-passe de força</li><li>Mantenha-me assinado (KMSI)</ul><br>Não é possível personalizar a interface do utilizador com este fluxo de utilizador. |
-| Inscrição | Não | Permite que um utilizador crie uma conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Multi-Factor Authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token vida](tokens-overview.md)</li><li>Definições de compatibilidade simbólica</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de palavras-passe](user-flow-password-complexity.md)</li></ul> |
+| Inscrever-se | Não | Permite que um utilizador crie uma conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Multi-Factor Authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token vida](tokens-overview.md)</li><li>Definições de compatibilidade simbólica</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de palavras-passe](user-flow-password-complexity.md)</li></ul> |
 | Inscrever-se e iniciar sessão | Sim | Permite que um utilizador crie uma conta ou inscreva-se na sua conta. Utilizando este fluxo de utilizador, pode configurar: <ul><li>[Multi-Factor Authentication](custom-policy-multi-factor-authentication.md)</li><li>[Token vida](tokens-overview.md)</li><li>Definições de compatibilidade simbólica</li><li>Comportamento da sessão</li><li>[Requisitos de complexidade de palavras-passe](user-flow-password-complexity.md)</li></ul>|
 
-## <a name="v11"></a>V1.1
+## <a name="v11"></a>V 1.1
 
 | Fluxo de utilizador | Recomendado | Descrição |
 | --------- | ----------- | ----------- |

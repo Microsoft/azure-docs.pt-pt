@@ -1,16 +1,16 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
-ms.author: marsma
-ms.openlocfilehash: e5201dfee83ec5360e55533e923e2b55c24c09d9
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.author: mimart
+ms.openlocfilehash: bf8b9370abc58902d9c751505f633dee852210a6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492932"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184363"
 ---
 #### <a name="applications"></a>[Aplicações](#tab/applications/)
 

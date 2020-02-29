@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: 061f812e7567d96bba092ebc9625756c14c46940
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2b5a6f14899ec41b1740563f4e8174f65aa679c7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662472"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198002"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -422,9 +422,8 @@ Poderá ver este erro ao tentar aceder ao seu serviço. Por exemplo, quando pass
 Para resolver este problema:
 
 1. Se o contentor está no processo a ser criado/implementado, pode aguardar 2 a 3 segundos e tente acessar o serviço novamente. 
-1. Verifique a configuração de porta. Os números de porta especificados devem ser **idênticos** em todos os seguintes ativos:
-    * **Dockerfile:** Especificado pela instrução `EXPOSE`.
-    * **[Gráfico de leme:](https://docs.helm.sh)** Especificados pelos valores `externalPort` e `internalPort` para um serviço (muitas vezes localizado num ficheiro `values.yml`),
+1. Verifique a configuração da sua porta nos seguintes ativos:
+    * **[Gráfico de leme:](https://docs.helm.sh)** Especificado pelo `service.port` e `deployment.containerPort` em valores.yaml andaimes por `azds prep` comando.
     * Quaisquer portas abertas no código de aplicação, por exemplo no Nó.js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>Não foi possível encontrar o nome do namespace ou tipo "MyLibrary"

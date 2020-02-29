@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: gerenciar a computação com o Azure Functions'
-description: Como utilizar as funções do Azure para gerir a computação do seu armazém de dados.
+title: 'Tutorial: Gerir a computação com funções azure'
+description: Como utilizar as funções Azure para gerir a computação da sua piscina SQL no Azure Synapse Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -10,39 +10,39 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: a08c2c3c0167f0d82fe901e19b02db22b0ad56c5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693014"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193241"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Usar Azure Functions para gerenciar recursos de computação no Azure SQL Data Warehouse
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Use funções Azure para gerir recursos de computação em piscina Azure Synapse Analytics SQL
 
-Este tutorial usa Azure Functions para gerenciar recursos de computação para um data warehouse no Azure SQL Data Warehouse.
+Este tutorial utiliza funções Azure para gerir recursos de computação para uma piscina SQL em Azure Synapse Analytics.
 
-Para utilizar o Azure Function App com o SQL Data Warehouse, tem de criar uma [Conta de Principal de Serviço](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) com acesso de contribuidor na mesma subscrição da sua instância do armazém de dados. 
+Para utilizar a App de Função Azure com piscina SQL, deve criar uma [Conta Principal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) de Serviço com acesso ao contribuinte sob a mesma subscrição que a sua instância de piscina SQL. 
 
-## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Implantar o dimensionamento baseado em temporizador com um modelo de Azure Resource Manager
+## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Implante a escala baseada no temporizador com um modelo de Gestor de Recursos Azure
 
-Para implantar o modelo, você precisará das seguintes informações:
+Para implementar o modelo, precisa das seguintes informações:
 
-- Nome do grupo de recursos em que a sua instância do armazém do SQL DW se encontra
-- Nome do servidor lógico em que a sua instância do armazém do SQL DW se encontra
-- Nome da sua instância do SQL DW
+- Nome do grupo de recursos em que a sua instância de piscina SQL está em
+- Nome do servidor lógico em que a sua instância de piscina SQL está em
+- Nome da sua instância de piscina SQL
 - ID do inquilino (ID do Diretório) do seu Azure Active Directory
 - ID da subscrição 
 - ID da Aplicação Principal de Serviço
 - Chave do Segredo do Principal de Serviço
 
-Depois de ter as informações anteriores, implante este modelo:
+Assim que tiver as informações anteriores, implemente este modelo:
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
-Depois de implantar o modelo, você deve encontrar três novos recursos: um plano de serviço Azure App gratuito, um plano de Aplicativo de funções baseado em consumo e uma conta de armazenamento que manipula o log e a fila de operações. Continue a ler as outras secções para ver como modificar as funções implementadas de acordo com as suas necessidades.
+Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano de Serviço de Aplicações Azure gratuito, um plano de aplicação de função baseado no consumo e uma conta de armazenamento que trate da exploração madeireira e da fila de operações. Continue a ler as outras secções para ver como modificar as funções implementadas de acordo com as suas necessidades.
 
 ## <a name="change-the-compute-level"></a>Alterar o nível de computação
 
@@ -50,11 +50,11 @@ Depois de implantar o modelo, você deve encontrar três novos recursos: um plan
 
    ![Funções que são implementadas com o modelo](media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger*, dependendo se quer alterar a hora de aumento ou redução vertical. No menu suspenso, selecione integrar.
+2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger*, dependendo se quer alterar a hora de aumento ou redução vertical. No menu suspenso, selecione Integrar.
 
    ![Selecionar Integrate para a função](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Atualmente, o valor apresentado deverá indicar *%ScaleDownTime%* ou *%ScaleUpTime%* . Esses valores indicam que a agenda é baseada em valores definidos nas [configurações do aplicativo][Application Settings]. Por enquanto, você pode ignorar esse valor e alterar a agenda para sua hora preferida com base nas próximas etapas.
+3. Atualmente, o valor apresentado deverá indicar *%ScaleDownTime%* ou *%ScaleUpTime%* . Estes valores indicam que o calendário se baseia em valores definidos nas definições da sua [aplicação.][Application Settings] Por enquanto, pode ignorar este valor e alterar o horário para o seu tempo preferido com base nos próximos passos.
 
 4. Na área “schedule”, adicione a hora na expressão CRON que pretende que reflita a frequência com que quer aumentar verticalmente o SQL Data Warehouse. 
 
@@ -65,10 +65,10 @@ Depois de implantar o modelo, você deve encontrar três novos recursos: um plan
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   Por exemplo, *"0 30 9 * * 1-5"* refletiria um gatilho todo dia da semana em 9: às 9h30. Para obter mais informações, visite Azure Functions [exemplos de agendamento][schedule examples].
+   Por exemplo, *"0 30 9 * 1-5"* refletiria um gatilho todos os dias da semana às 9:30 da manhã. Para mais informações, visite as Funções Azure [exemplos][schedule examples]de horários.
 
 
-## <a name="change-the-time-of-the-scale-operation"></a>Alterar a hora da operação de dimensionamento
+## <a name="change-the-time-of-the-scale-operation"></a>Alterar o tempo da operação de escala
 
 1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations*. Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App. 
 
@@ -76,7 +76,7 @@ Depois de implantar o modelo, você deve encontrar três novos recursos: um plan
 
    ![Alterar o nível de computação do acionador de função](media/manage-compute-with-azure-functions/index-js.png)
 
-3. Altere o valor de *ServiceLevelObjective* para o nível que pretende e prima “Save”. Esse valor é o nível de computação para o qual sua instância do data warehouse será dimensionada com base na agenda definida na seção integrar.
+3. Altere o valor de *ServiceLevelObjective* para o nível que pretende e prima “Save”. Este valor é o nível de cálculo que a sua instância de armazém de dados irá escalar com base no calendário definido na secção Integração.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Utilizar a pausa ou a retoma em vez do dimensionamento 
 
@@ -93,14 +93,14 @@ Atualmente, as funções ligadas por predefinição são *DWScaleDownTrigger* e 
 3. Navegue para os separadores *Integrate* de cada acionador, para alterar as agendas dos mesmos.
 
    > [!NOTE]
-   > A diferença funcional entre os gatilhos de dimensionamento e a pausa/retomada é a mensagem que é enviada para a fila. Para obter mais informações, consulte [Adicionar uma nova função de gatilho][Add a new trigger function].
+   > A diferença funcional entre os gatilhos de escala e os gatilhos de pausa/retoma é a mensagem que é enviada para a fila. Para mais informações, consulte [Adicionar uma nova função][Add a new trigger function]de gatilho .
 
 
 ## <a name="add-a-new-trigger-function"></a>Adicionar uma nova função de acionador
 
-Atualmente, o modelo inclui apenas duas funções de dimensionamento. Com essas funções, durante o curso de um dia, você só pode reduzir verticalmente uma vez e até mesmo. Para um controle mais granular, como reduzir verticalmente várias vezes por dia ou ter um comportamento de dimensionamento diferente nos fins de semana, você precisa adicionar outro gatilho.
+Atualmente, o modelo inclui apenas duas funções de dimensionamento. Com estas funções, durante um dia, só se pode escalar uma vez por dia. Para um controlo mais granular, como escalonar várias vezes por dia ou ter um comportamento de escala diferente aos fins de semana, precisa adicionar outro gatilho.
 
-1. Crie uma função em branco nova. Selecione o botão de *+* próximo ao local de funções para mostrar o painel de modelo de função.
+1. Crie uma função em branco nova. Selecione o botão *+* perto da localização das suas Funções para mostrar o painel do modelo de função.
 
    ![Criar função nova](media/manage-compute-with-azure-functions/create-new-function.png)
 
@@ -116,20 +116,20 @@ Atualmente, o modelo inclui apenas duas funções de dimensionamento. Com essas 
 
    ![Copiar index js](media/manage-compute-with-azure-functions/index-js.png)
 
-5. Defina a variável de operação para o comportamento desejado da seguinte maneira:
+5. Desloque a sua variável de operação ao comportamento desejado da seguinte forma:
 
    ```javascript
-   // Resume the data warehouse instance
+   // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the data warehouse instance
+   // Pause the SQL pool instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the data warehouse instance to DW600
+   // Scale the SQL pool instance to DW600
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600"
@@ -139,7 +139,7 @@ Atualmente, o modelo inclui apenas duas funções de dimensionamento. Com essas 
 
 ## <a name="complex-scheduling"></a>Agendamento complexo
 
-Esta seção demonstra brevemente o que é necessário para obter um agendamento mais complexo de recursos de pausa, retomada e dimensionamento.
+Esta secção demonstra brevemente o que é necessário para obter um agendamento mais complexo de capacidades de pausa, currículo e escala.
 
 ### <a name="example-1"></a>Exemplo 1:
 
@@ -152,7 +152,7 @@ Todos os dias, aumente verticalmente às 8:00 para DW600 e reduza verticalmente 
 
 ### <a name="example-2"></a>Exemplo 2: 
 
-Escalar verticalmente verticalmente às 8:00 para DW1000, reduzir horizontalmente uma vez para DW600 em 16:00 e reduzir verticalmente em 19:10 para DW200.
+Escala diária até às 8h 00 00 000, escala uma vez para DW600 às 16:00 e escala para baixo às 22h para DW200.
 
 | Função  | Agenda     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
@@ -177,7 +177,7 @@ Aumentar verticalmente às 8:00 para DW1000 e reduzir verticalmente uma vez para
 
 Saiba mais sobre as funções do Azure de [acionador de temporização](../azure-functions/functions-create-scheduled-function.md).
 
-Veja o [repositório de exemplos](https://github.com/Microsoft/sql-data-warehouse-samples) do SQL Data Warehouse.
+Check-out o [repositório](https://github.com/Microsoft/sql-data-warehouse-samples)de amostras de piscina SQL .
 
 
 

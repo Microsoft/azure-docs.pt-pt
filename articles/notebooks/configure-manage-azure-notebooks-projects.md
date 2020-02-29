@@ -1,46 +1,46 @@
 ---
-title: Configurar e gerenciar Azure Notebooks visualização
-description: Saiba como gerenciar metadados de projeto, arquivos de projeto, o ambiente do projeto e as etapas de instalação por meio da interface do usuário do Azure Notebooks e acesso direto ao terminal.
+title: Configure e gerencie a pré-visualização de cadernos Azure
+description: Saiba como gerir metadados de projetos, ficheiros de projetos, ambiente do projeto e etapas de configuração através tanto do Azure Notebooks UI como do acesso ao terminal direto.
 ms.topic: how-to
-ms.date: 05/13/2019
-ms.openlocfilehash: 5c97372133315e6f0bcd3b854793b6b4746b5ba5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/28/2020
+ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646267"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197696"
 ---
-# <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> gerenciar e configurar projetos no Azure Notebooks Preview
+# <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Gerir e configurar projetos na Pré-visualização de cadernos Azure
 
-Um projeto no Azure Notebooks Preview é essencialmente uma configuração da máquina virtual do Linux subjacente na qual os notebooks Jupyter são executados, juntamente com uma pasta de arquivos e metadados descritivos. 
+Um projeto em Azure Notebooks Preview é essencialmente uma configuração da máquina virtual linux subjacente em que os cadernos Jupyter funcionam, juntamente com uma pasta de ficheiros e metadados descritivos. 
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Dashboard do projeto em blocos de notas do Azure permite-lhe gerir os ficheiros e caso contrário, configure características do projeto:
 
-- A camada de computação na qual o projeto é executado, que pode ser a camada gratuita ou uma máquina virtual do Azure.
-- Metadados do projeto, que incluem um nome, uma descrição, um identificador que é usado ao compartilhar o projeto e se o projeto é público ou privado.
-- O bloco de anotações, os dados e outros arquivos do projeto, que você gerencia como qualquer outro sistema de arquivos.
-- O ambiente de um projeto, que você gerencia por meio dos scripts de inicialização ou diretamente por meio do terminal.
-- Logs, que você acessa por meio do terminal.
+- O nível de computação em que o projeto funciona, que pode ser o nível livre ou uma máquina virtual Azure.
+- Os metadados do projeto, que inclui um nome, descrição, um identificador que é usado na partilha do projeto, e se o projeto é público ou privado.
+- O caderno do projeto, dados e outros ficheiros, que gere como qualquer outro sistema de ficheiros.
+- O ambiente de um projeto, que gere quer através de scripts de arranque, quer diretamente através do terminal.
+- Registos, a que se acede através do terminal.
 
 > [!Note]
-> Os recursos de gerenciamento e configuração descritos aqui estão disponíveis apenas para o proprietário do projeto que criou o projeto inicialmente. No entanto, você pode clonar o projeto em sua própria conta, caso em que você se torna o proprietário e pode configurar o projeto conforme desejado.
+> As funcionalidades de gestão e configuração aqui descritas estão disponíveis apenas para o proprietário do projeto que criou o projeto inicialmente. Pode, no entanto, clonar o projeto na sua própria conta, caso em que se torna o proprietário e pode configurar o projeto conforme desejado.
 
-Blocos de notas do Azure inicia a máquina virtual subjacente sempre que executar um bloco de notas ou outro ficheiro. O servidor automaticamente guarda ficheiros e encerra após 60 minutos de inatividade. Também pode parar o servidor em qualquer altura com o **encerramento** comando (atalho de teclado: h).
+Blocos de notas do Azure inicia a máquina virtual subjacente sempre que executar um bloco de notas ou outro ficheiro. O servidor automaticamente guarda ficheiros e encerra após 60 minutos de inatividade. Também pode parar o servidor a qualquer momento com o comando **'Desligar'** (atalho do teclado: h).
 
-## <a name="compute-tier"></a>Camada de computação
+## <a name="compute-tier"></a>Nível de computação
 
-Por padrão, os projetos são executados na camada de **computação gratuita** , que é limitada a 4 GB de memória e 1GB de dados para evitar abusos. Você pode ignorar essas limitações e aumentar a capacidade de computação usando uma máquina virtual diferente que você provisionou em uma assinatura do Azure. Para obter mais informações, consulte [como usar máquinas virtuais de ciência de dados](use-data-science-virtual-machine.md).
+Por padrão, os projetos funcionam no nível **De Computação Livre,** que está limitado a 4GB de memória e 1GB de dados para prevenir abusos. Pode contornar estas limitações e aumentar a potência da computação utilizando uma máquina virtual diferente que você disponibilizou numa subscrição Azure. Para mais informações, consulte [Como utilizar máquinas virtuais](use-data-science-virtual-machine.md)de ciência de dados .
 
 ## <a name="edit-project-metadata"></a>Editar metadados do projeto
 
-No dashboard do projeto, selecione **definições do projeto**, em seguida, selecione a **informações** tab, contendo os metadados do projeto, conforme descrito na tabela seguinte. Pode alterar os metadados de projeto em qualquer altura.
+No painel de instrumentos do projeto, selecione Definições de **Projeto,** em seguida, selecione o separador **Informação,** que contém os metadados do projeto, conforme descrito na tabela seguinte. Pode alterar os metadados de projeto em qualquer altura.
 
 | Definição | Descrição |
 | --- | --- |
 | Nome do projeto | Um nome amigável para o seu projeto que blocos de notas do Azure utiliza para fins de exibição. Por exemplo, "Hello World no Python". |
-| ID do Projeto | Um identificador personalizado que se tornará parte do URL que utilizar para partilhar um projeto. Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](create-clone-jupyter-notebooks.md#reserved-project-ids). Se tiver dúvidas sobre o que usar, uma convenção comum é utilizar uma versão em minúsculas do nome do seu projeto em que os espaços são transformados em hífenes, por exemplo, "meu-bloco de notas-project" (truncado se necessário, para ajustar o limite de comprimento). |
+| ID do Projeto | Um identificador personalizado que se tornará parte do URL que utilizar para partilhar um projeto. Este ID só pode usar letras, números e hífenes, está limitado a 30 caracteres, e não pode ser um [ID de projeto reservado](create-clone-jupyter-notebooks.md#reserved-project-ids). Se tiver dúvidas sobre o que usar, uma convenção comum é utilizar uma versão em minúsculas do nome do seu projeto em que os espaços são transformados em hífenes, por exemplo, "meu-bloco de notas-project" (truncado se necessário, para ajustar o limite de comprimento). |
 | Projeto público | Se definido, permite que qualquer pessoa com a ligação para acessar o projeto. Ao criar um projeto privado, desmarque esta opção. |
 | Ocultar clones | Se definido, outros utilizadores não podem ver uma lista de clones que foram feitos para este projeto. Ocultar clones é útil para os projetos que são partilhados com muitas pessoas que não fazem parte da mesma organização, tal como quando utiliza um bloco de notas para ensinar uma classe. |
 
@@ -54,18 +54,18 @@ Dashboard do projeto mostra o conteúdo do sistema de pasta do projeto. Pode uti
 
 ### <a name="create-new-files-and-folders"></a>Criar novos ficheiros e pastas
 
-O **+ novo** comando (atalho de teclado: n) cria novos ficheiros ou pastas. Ao utilizar o comando, primeiro selecione o tipo de item para criar:
+O **comando + Novo** (atalho de teclado: n) cria novos ficheiros ou pastas. Ao utilizar o comando, primeiro selecione o tipo de item para criar:
 
 | Tipo de item | Descrição | Comportamento do comando |
 | --- | --- | --- |
-| **Bloco de notas** | Um bloco de notas do Jupyter | Apresenta um pop-up no qual especifique os nome de ficheiro e o idioma do bloco de notas. |
+| **Caderno** | Um bloco de notas do Jupyter | Apresenta um pop-up no qual especifique os nome de ficheiro e o idioma do bloco de notas. |
 | **Pasta** | Uma subpasta | Cria um campo de edição na lista de ficheiros do projeto no qual inserir o nome da pasta. |
-| **Ficheiro em branco** | Um ficheiro no qual pode armazenar qualquer conteúdo, como texto, dados, etc. | Cria um campo de edição na lista de ficheiros do projeto no qual inserir o nome de ficheiro. |
-| **Markdown** | Um ficheiro de Markdown. | Cria um campo de edição na lista de ficheiros do projeto no qual inserir o nome de ficheiro. |
+| **Arquivo Em Branco** | Um ficheiro no qual pode armazenar qualquer conteúdo, como texto, dados, etc. | Cria um campo de edição na lista de ficheiros do projeto no qual inserir o nome de ficheiro. |
+| **Marcação** | Um ficheiro de Markdown. | Cria um campo de edição na lista de ficheiros do projeto no qual inserir o nome de ficheiro. |
 
 ### <a name="upload-files"></a>Carregar ficheiros
 
-O **carregue** comando fornece duas opções para importar dados a partir de outras localizações: **de URL** e **de computador**. Para obter mais informações, consulte [trabalhar com arquivos de dados em projetos de bloco de notas do Azure](work-with-project-data-files.md).
+O comando **upload** fornece duas opções para importar dados de outros locais: **De URL** e **From Computer**. Para mais informações, consulte [Trabalhar com ficheiros de dados em projetos do Caderno Azure.](work-with-project-data-files.md)
 
 ### <a name="select-file-specific-commands"></a>Selecione a comandos específicos de ficheiro
 
@@ -78,10 +78,10 @@ Cada item na lista de ficheiros do projeto fornece comandos por meio de um menu 
 | Executar | r (ou clique) | Executa um ficheiro do bloco de notas. Outros tipos de arquivos estão abertos para visualização.  |
 | Copiar ligação | Y | Copia um link para o ficheiro para a área de transferência. |
 | Execute no laboratório do Jupyter | J | Executa um bloco de notas no JupyterLab, que é que o Jupyter normalmente fornece uma interface mais orientadas a desenvolvedores. |
-| Pré-visualização | p | Abre-se de uma visualização HTML do arquivo; para blocos de notas, a pré-visualização é um processamento só de leitura do bloco de notas. Para obter mais informações, consulte a [pré-visualização](#preview) secção. |
+| Pré-visualização | p | Abre-se de uma visualização HTML do arquivo; para blocos de notas, a pré-visualização é um processamento só de leitura do bloco de notas. Para mais informações, consulte a secção [Preview.](#preview) |
 | Editar ficheiro | Eu | Abre o arquivo para edição. |
-| Transferir | d | Transfere um ficheiro zip que contém o ficheiro ou o conteúdo de uma pasta. |
-| Mudar o nome | a | Pedidos de um novo nome para o ficheiro ou pasta. |
+| Transferência | d | Transfere um ficheiro zip que contém o ficheiro ou o conteúdo de uma pasta. |
+| Mudar o Nome | a | Pedidos de um novo nome para o ficheiro ou pasta. |
 | Eliminar | x | Solicita a confirmação e, em seguida, remove permanentemente o arquivo do projeto. As eliminações não podem ser anuladas. |
 | Mover | m | Move um ficheiro para uma pasta diferente no mesmo projeto. |
 
@@ -93,10 +93,10 @@ A página de pré-visualização suporta vários comandos de barra de ferramenta
 
 | Comando | Atalho de teclado | Ação |
 | --- | --- | --- |
-| Partilhar | s | Apresenta o popup partilha a partir da qual pode obter uma ligação, partilhar a mídia social, obter o HTML para incorporar e enviar um e-mail. |
+| Partilha | s | Apresenta o popup partilha a partir da qual pode obter uma ligação, partilhar a mídia social, obter o HTML para incorporar e enviar um e-mail. |
 | Clone | c  | Clone o bloco de notas à sua conta. |
 | Executar | R | Se tem permissão para fazer isso, é executado o bloco de notas. |
-| Transferir | d | Transfere uma cópia do bloco de notas. |
+| Transferência | d | Transfere uma cópia do bloco de notas. |
 
 ## <a name="configure-the-project-environment"></a>Configurar o ambiente de projeto
 
@@ -110,44 +110,47 @@ São aplicados a todos os formulários de configuração do projeto sempre que a
 
 ### <a name="one-time-initialization-script"></a>Script de inicialização única
 
-O Azure Notebooks da primeira vez que cria um servidor para o projeto, ele procura um arquivo no projeto chamado *aznbsetup.sh*. Se esse arquivo estiver presente, Azure Notebooks o executará. A saída do script é armazenada na pasta do projeto, como *. aznbsetup.log*.
+Os primeiros Cadernos Azure criam um servidor para o projeto, procura um ficheiro no projeto chamado *aznbsetup.sh*. Se este ficheiro estiver presente, os Cadernos Azure executam-no. A saída do script é armazenada na sua pasta de projeto como *.aznbsetup.log*.
 
 ### <a name="environment-setup-steps"></a>Passos de configuração do ambiente
 
 Pode utilizar definições de ambiente do projeto para criar passos individuais que configurar o ambiente.
 
-No dashboard do projeto, selecione **definições do projeto**, em seguida, selecione a **ambiente** separador em que adicionar, remover e modificar os passos de configuração para o projeto:
+No painel de instrumentos do projeto, selecione Definições de **Projeto,** em seguida, selecione o separador **Ambiente** no qual adiciona, remove e modifica os passos de configuração para o projeto:
 
 ![Pop-up de definições de projeto com o separador de ambiente selecionado](media/project-settings-environment-steps.png)
 
-Para adicionar um passo, selecione **+ adicionar**, em seguida, selecione um tipo de passo no **operação** na lista pendente:
+Para adicionar um passo, primeiro selecione **+ Adicione,** em seguida, selecione um tipo de passo na lista de drop-down **da Operação:**
 
 ![Seletor de operação para um novo passo de configuração do ambiente](media/project-settings-environment-details.png)
 
 As informações que, em seguida, do projeto dependem do tipo de operação que escolheu:
 
-- **Requirements. txt**: na segunda lista pendente, selecione uma *Requirements. txt* ficheiros que já se encontra no projeto. Em seguida, selecione uma versão de Python a terceiro na lista pendente que é apresentada. Ao utilizar um *Requirements. txt* execuções de blocos de notas do Azure, de ficheiros `pip install -r` com o *Requirements. txt* quando a partir de um servidor de ficheiros. Não precisa de instalar explicitamente os pacotes a partir do bloco de notas.
+- **Requisitos.txt**: Na segunda lista de drop-down, selecione um ficheiro *requirements.txt* que já está no projeto. Em seguida, selecione uma versão de Python a terceiro na lista pendente que é apresentada. Ao utilizar um ficheiro *requirements.txt,* os Notebooks Do Azure executam `pip install -r` com o ficheiro *requirements.txt* ao iniciar um servidor de portátil. Não precisa de instalar explicitamente os pacotes a partir do bloco de notas.
 
-- **Script de shell**: na segunda lista pendente, selecione um script de shell de bash no projeto (normalmente, um ficheiro com o *. SH* extensão) que contém todos os comandos que pretende executar para inicializar o ambiente.
+- **Script shell**: Na segunda lista de drop-down, selecione um script de concha de bash no projeto (tipicamente um ficheiro com a extensão *.sh)* que contenha quaisquer comandos que deseje executar para inicializar o ambiente.
 
-- **Environment.yml**: na segunda lista pendente, selecione uma *environments.yml* ficheiro para projetos Python usando um ambiente de conda.
+- **Ambiente.yml**: Na segunda lista de descidas, selecione um ficheiro *ambientes.yml* para projetos Python utilizando um ambiente conda.
 
-Quando tiver terminado de adicionar passos, selecione **guardar**.
+   > [!WARNING]
+   > Como este é um serviço de pré-visualização em desenvolvimento, existe atualmente uma questão conhecida em que a definição de `Environment.yml` não é aplicada ao seu projeto como esperado. O projeto e os cadernos Jupyter no interior não carregam atualmente o ficheiro ambiente especificado.
+
+Quando terminar de adicionar passos, selecione **Guardar**.
 
 ### <a name="use-the-terminal"></a>Utilizar o terminal
 
-No dashboard do projeto, o **Terminal** comando abre um terminal do Linux que lhe dá acesso direto ao servidor. No terminal pode transferir dados, editar ou gerir ficheiros, Inspecione os processos e até mesmo usar ferramentas como o vi e nano.
+No painel de instrumentos do projeto, o comando **Terminal** abre um terminal Linux que lhe dá acesso direto ao servidor. No terminal pode transferir dados, editar ou gerir ficheiros, Inspecione os processos e até mesmo usar ferramentas como o vi e nano.
 
 > [!Note]
 > Se tiver scripts de inicialização no ambiente do seu projeto, abrir o terminal pode exibir uma mensagem a indicar que a instalação ainda está em curso.
 
-Pode emitir quaisquer comandos de Linux padrão no terminal. Também pode utilizar `ls` na pasta raiz para ver os diferentes ambientes que existe na máquina virtual, tais como *anaconda2_501*, *anaconda3_420*, *anaconda3_501*, *IfSharp*, e *R*, juntamente com um *projeto* pasta que contém o projeto:
+Pode emitir quaisquer comandos de Linux padrão no terminal. Também pode utilizar `ls` na pasta inicial para ver os diferentes ambientes que existem na máquina virtual, como *anaconda2_501,* *anaconda3_420,* *anaconda3_501,* *IfSharp*e *R,* juntamente com uma pasta de *projeto* que contém o projeto:
 
 ![Terminal de projeto em blocos de notas do Azure](media/project-terminal.png)
 
 Para afetar um ambiente específico, altere os diretórios dentro dessa pasta de ambiente em primeiro lugar.
 
-Para os ambientes do Python, pode encontrar `pip` e `conda` na *bin* pasta de cada ambiente. Também pode utilizar aliases incorporadas para os ambientes:
+Para os ambientes Python, você pode encontrar `pip` e `conda` *na* pasta bin de cada ambiente. Também pode utilizar aliases incorporadas para os ambientes:
 
 ```bash
 # Anaconda 2 5.3.0/Python 2.7: python27
@@ -160,14 +163,14 @@ python35 -m pip install <package>
 python36 -m pip install <package>
 ```
 
-As alterações efetuadas no servidor aplicam-se apenas à sessão atual, exceto para os ficheiros e pastas que criar no *projeto* pasta em si. Por exemplo, editar um arquivo na pasta de projeto é mantido entre sessões, mas de pacotes com `pip install` não são.
+As alterações feitas no servidor aplicam-se apenas à sessão atual, com exceção dos ficheiros e pastas que cria na própria pasta do *projeto.* Por exemplo, a edição de um ficheiro na pasta do projeto é persistente entre sessões, mas pacotes com `pip install` não são.
 
 > [!Note]
-> Se usar `python` ou `python3`, invoca as versões de instalação de sistema de mensagens em fila do Python, que não é usadas para blocos de notas. Não tem permissões para operações como `pip install` pode ser, por isso, não se esqueça de utilizar os aliases de versão específico.
+> Se utilizar `python` ou `python3`, invoque as versões instaladas pelo sistema de Python, que não são utilizadas para cadernos. Também não tem permissões para operações como `pip install`, por isso não se esqueça de usar os pseudónimos específicos da versão.
 
 ## <a name="access-notebook-logs"></a>Aceder aos registos de bloco de notas
 
-Caso se depare com problemas ao executar um bloco de notas, a saída do Jupyter é armazenada numa pasta chamada *. nb.log*. Pode aceder a estes registos através da **Terminal** comando ou dashboard do projeto.
+Se tiver problemas ao executar um caderno, a saída da Jupyter é armazenada numa pasta chamada *.nb.log*. Pode aceder a estes registos através do comando **terminal** ou do painel de instrumentos do projeto.
 
 Normalmente, quando estiver a executar localmente Jupyter talvez tenha começado-lo a partir de uma janela de terminal. A janela de terminal mostra a saída, tais como estado de kernel.
 
@@ -185,5 +188,5 @@ Também pode utilizar o comando a partir de uma célula de código num bloco de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Como: trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
-- [Aceder a dados na cloud num bloco de notas](access-data-resources-jupyter-notebooks.md)
+- [Como: Trabalhar com ficheiros de dados do projeto](work-with-project-data-files.md)
+- [Aceda aos dados da nuvem num caderno](access-data-resources-jupyter-notebooks.md)

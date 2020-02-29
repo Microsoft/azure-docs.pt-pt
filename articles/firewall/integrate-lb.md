@@ -1,64 +1,80 @@
 ---
 title: Integrar o Azure Firewall no Balanceador de Carga Standard do Azure
-description: Você pode integrar um firewall do Azure em uma rede virtual com um Standard Load Balancer do Azure (público ou interno).
+description: Pode integrar uma Firewall Azure numa rede virtual com um Balancer de Carga Padrão Azure (público ou interno).
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167070"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196729"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Azure Firewall no Balanceador de Carga Standard do Azure
 
-Você pode integrar um firewall do Azure em uma rede virtual com um Standard Load Balancer do Azure (público ou interno). 
+Pode integrar uma Firewall Azure numa rede virtual com um Balancer de Carga Padrão Azure (público ou interno). 
 
-O design preferencial é integrar um balanceador de carga interno com o Firewall do Azure, pois esse é um design muito mais simples. Você pode usar um balanceador de carga público se já tiver um implantado e desejar mantê-lo em vigor. No entanto, você precisa estar ciente de um problema de roteamento assimétrico que pode interromper a funcionalidade com o cenário de balanceador de carga público.
+O design preferido é integrar um equilibrista de carga interna com a sua firewall Azure, uma vez que este é um design muito mais simples. Pode utilizar um equilibrador de carga pública se já tiver um implantado e quiser mantê-lo no lugar. No entanto, é preciso estar atento a um problema de encaminhamento assimétrico que pode quebrar a funcionalidade com o cenário de equilíbrio de carga pública.
 
-Para obter mais informações sobre Azure Load Balancer, consulte [o que é Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
+Para mais informações sobre o Azure Load Balancer, consulte [o que é o Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
-## <a name="public-load-balancer"></a>Balanceador de carga público
+## <a name="public-load-balancer"></a>Equilibrador de carga pública
 
-Com um balanceador de carga público, o balanceador de carga é implantado com um endereço IP de front-end público.
+Com um equilibrista de carga pública, o equilibrador de carga é implantado com um endereço IP frontal público.
 
 ### <a name="asymmetric-routing"></a>Encaminhamento assimétrico
 
-O roteamento assimétrico é onde um pacote usa um caminho para o destino e usa outro caminho ao retornar à origem. Esse problema ocorre quando uma sub-rede tem uma rota padrão indo para o endereço IP privado do firewall e você está usando um balanceador de carga público. Nesse caso, o tráfego do balanceador de carga de entrada é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como o firewall tem monitoração de estado, ele descarta o pacote de retorno porque o firewall não está ciente dessa sessão estabelecida.
+O encaminhamento assimétrico é onde um pacote toma um caminho para o destino e toma outro caminho ao regressar à fonte. Este problema ocorre quando uma subnet tem uma rota padrão indo para o endereço IP privado da firewall e você está usando um equilibrador de carga público. Nesse caso, o tráfego do balanceador de carga de entrada é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como a firewall é imponente, deixa cair o pacote de retorno porque a firewall não está ciente de uma sessão tão estabelecida.
 
-### <a name="fix-the-routing-issue"></a>Corrigir o problema de roteamento
+### <a name="fix-the-routing-issue"></a>Corrija a questão do encaminhamento
 
-Quando você implanta um firewall do Azure em uma sub-rede, uma etapa é criar uma rota padrão para a sub-rede direcionando pacotes por meio do endereço IP privado do firewall localizado no AzureFirewallSubnet. Para obter mais informações, consulte [tutorial: implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md#create-a-default-route).
+Quando coloca uma Firewall Azure numa sub-rede, um passo é criar uma rota padrão para os pacotes de direção da sub-rede através do endereço IP privado da firewall localizado na AzureFirewallSubnet. Para mais informações, consulte [Tutorial: Desloque e configure a Firewall Azure utilizando o portal Azure](tutorial-firewall-deploy-portal.md#create-a-default-route).
 
-Ao introduzir o firewall em seu cenário de balanceador de carga, você deseja que seu tráfego de Internet chegue por meio do endereço IP público do firewall. A partir daí, o firewall aplica suas regras de firewall e NATs os pacotes para o endereço IP público do balanceador de carga. É aí que o problema ocorre. Os pacotes chegam no endereço IP público do firewall, mas retornam ao firewall por meio do endereço IP privado (usando a rota padrão).
-Para evitar esse problema, crie uma rota de host adicional para o endereço IP público do firewall. Os pacotes que vão para o endereço IP público do firewall são roteados pela Internet. Isso evita pegar a rota padrão para o endereço IP privado do firewall.
+Quando introduzir a firewall no seu cenário de equilíbrio de carga, pretende que o seu tráfego de Internet entre no endereço IP público da sua firewall. A partir daí, a firewall aplica as suas regras de firewall e NATs os pacotes para o endereço IP público do seu equilibrador de carga. É aqui que o problema ocorre. Os pacotes chegam no endereço IP público da firewall, mas regressam à firewall através do endereço IP privado (utilizando a rota padrão).
+Para evitar este problema, crie uma rota adicional de hospedagem para o endereço IP público da firewall. Os pacotes que vão para o endereço IP público da firewall são encaminhados através da Internet. Isto evita a rota padrão para o endereço IP privado da firewall.
 
 ![Encaminhamento assimétrico](media/integrate-lb/Firewall-LB-asymmetric.png)
 
-Por exemplo, as rotas a seguir são para um firewall no endereço IP público 13.86.122.41 e o endereço IP privado 10.3.1.4.
+### <a name="route-table-example"></a>Exemplo de tabela de rotas
 
-![Tabela de rota](media/integrate-lb/route-table.png)
+Por exemplo, as seguintes rotas são para uma firewall no endereço IP público 20.185.97.136 e endereço IP privado 10.0.1.4.
+
+> [!div class="mx-imgBorder"]
+> ![Tabela de rotas](media/integrate-lb/route-table.png)
+
+### <a name="nat-rule-example"></a>Exemplo de regra na NAT
+
+No exemplo seguinte, uma regra NAT traduz o tráfego de RDP para a firewall em 20.185.97.136 para o equilibrista de carga em 20.42.98.220:
+
+> [!div class="mx-imgBorder"]
+> ![](media/integrate-lb/nat-rule-02.png) de regras na nat
+
+### <a name="health-probes"></a>Sondas do estado de funcionamento
+
+Lembre-se, precisa de ter um serviço web a funcionar nos anfitriões na piscina de equilibradores de carga se utilizar sondas de saúde TCP para a porta 80, ou sondas HTTP/HTTPS.
 
 ## <a name="internal-load-balancer"></a>Balanceador de carga interno
 
-Com um balanceador de carga interno, o balanceador de carga é implantado com um endereço IP de front-end privado.
+Com um equilibrante de carga interna, o equilibrador de carga é implantado com um endereço IP frontal privado.
 
-Não há nenhum problema de roteamento assimétrico com esse cenário. Os pacotes de entrada chegam ao endereço IP público do firewall, são convertidos no endereço IP privado do balanceador de carga e, em seguida, retorna ao endereço IP privado do firewall usando o mesmo caminho de retorno.
+Não há problema de encaminhamento assimétrico com este cenário. Os pacotes de entrada chegam ao endereço IP público da firewall, são traduzidos para o endereço IP privado do equilibrador de carga, e depois retornam ao endereço IP privado da firewall usando o mesmo caminho de retorno.
 
-Portanto, você pode implantar esse cenário de forma semelhante ao cenário do Load Balancer público, mas sem a necessidade da rota de host de endereço IP público do firewall.
+Assim, pode implementar este cenário semelhante ao cenário do equilíbrio de carga pública, mas sem a necessidade da rota de anfitriões de endereços IP públicos firewall.
 
 ## <a name="additional-security"></a>Segurança adicional
 
-Para aprimorar ainda mais a segurança do cenário de balanceamento de carga, você pode usar NSGs (grupos de segurança de rede).
+Para aumentar ainda mais a segurança do seu cenário equilibrado em carga, pode utilizar grupos de segurança de rede (NSGs).
 
-Por exemplo, você pode criar um NSG na sub-rede de back-end onde as máquinas virtuais com balanceamento de carga estão localizadas. Permitir tráfego de entrada proveniente da porta/endereço IP do firewall.
+Por exemplo, pode criar um NSG na subnet de backend onde estão localizadas as máquinas virtuais equilibradas em carga. Permitir o tráfego de entrada originário do endereço/porta IP firewall.
 
-Para obter mais informações sobre NSGs, consulte [grupos de segurança](../virtual-network/security-overview.md).
+![Grupo de segurança de rede](media/integrate-lb/nsg-01.png)
+
+Para obter mais informações sobre nsgs, consulte [grupos de segurança](../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [implantar e configurar um firewall do Azure](tutorial-firewall-deploy-portal.md).
+- Aprenda a [implementar e configurar uma Firewall Azure](tutorial-firewall-deploy-portal.md).

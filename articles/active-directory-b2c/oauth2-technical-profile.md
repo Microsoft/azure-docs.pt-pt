@@ -3,20 +3,20 @@ title: Defina um perfil técnico OAuth2 numa política personalizada
 titleSuffix: Azure AD B2C
 description: Defina um perfil técnico OAuth2 numa política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f9db8fd0865b7dba869795526cf6b68f4ad3ffb9
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 86ec7a5745a58546faf6f0ff15d6dc5f452baa88
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585786"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184048"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth2 numa política personalizada do Diretório Ativo Azure B2C
 

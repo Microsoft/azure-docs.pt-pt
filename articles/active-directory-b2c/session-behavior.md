@@ -2,20 +2,20 @@
 title: Configure comportamento de sessão - Diretório Ativo Azure B2C / Microsoft Docs
 description: Configure o comportamento da sessão no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6147dc64833f44f24afe14cd1da34432a3735519
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c1d39fdbca9484f47ce0c8537c82247b75b2e3db
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840235"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186816"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configure comportamento de sessão no Diretório Ativo Azure B2C
 
@@ -48,10 +48,10 @@ Os seguintes casos de utilização são ativados utilizando estas propriedades:
 
 ## <a name="configure-the-properties"></a>Configure as propriedades
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD B2C.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-4. Selecione **fluxos de usuário (políticas)** .
+3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+4. Selecione **fluxos de utilizador (políticas)** .
 5. Abra o fluxo de utilizador que criou anteriormente.
 6. Selecione **Propriedades**.
 7. Configure o tempo de vida da sessão da **web (minutos)** , tempo limite de sessão de **aplicações web**, **configuração de início de sessão individual**e exija ID Token em pedidos de **logout** conforme necessário.

@@ -3,20 +3,20 @@ title: Configurar o início de sessão com uma conta Amazon usando políticas pe
 titleSuffix: Azure AD B2C
 description: Instale o início de sessão com uma conta Amazon no Azure Ative Directory B2C utilizando políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/05/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a0767938f8a470c63ec7fe3d7789212b1baf871
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846630"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188516"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta Amazon utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como ativar o início de sessão para utilizadores a part
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Conclua as etapas em introdução [às políticas personalizadas](custom-policy-get-started.md).
+- Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md)
 - Se ainda não tem uma conta Amazon, crie uma em [https://www.amazon.com/](https://www.amazon.com/).
 
 ## <a name="register-the-application"></a>Registar a aplicação
@@ -38,19 +38,19 @@ Para permitir o sessão de sessão para utilizadores a partir de uma conta Amazo
 3. Selecione **Registar nova aplicação**.
 4. Introduza um URL de Aviso de **Nome,** **Descrição**e Aviso de **Privacidade,** e, em seguida, clique em **Guardar**. O aviso de privacidade é uma página que gere que fornece informações de privacidade aos utilizadores.
 5. Na secção **Definições Web,** copie os valores do ID do **Cliente**. Selecione **Show Secret** para obter o segredo do cliente e, em seguida, copiá-lo. Você precisa de ambos para configurar uma conta Amazon como um fornecedor de identidade no seu inquilino. **Client Secret** é uma importante credencial de segurança.
-6. Na secção **Definições Web,** selecione **Editar**, e, em seguida, introduza `https://your-tenant-name.b2clogin.com` em **Origens JavaScript permitidas** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URLs de Retorno Permitidos**. Substitua `your-tenant-name` pelo nome do seu locatário. Utilize só letras minúsculas, ao introduzir o nome do seu inquilino, mesmo que o inquilino está definido com letras maiúsculas no Azure AD B2C.
+6. Na secção **Definições Web,** selecione **Editar**, e, em seguida, introduza `https://your-tenant-name.b2clogin.com` em **Origens JavaScript permitidas** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URLs de Retorno Permitidos**. Substitua `your-tenant-name` pelo nome do seu inquilino. Utilize só letras minúsculas, ao introduzir o nome do seu inquilino, mesmo que o inquilino está definido com letras maiúsculas no Azure AD B2C.
 7. Clique em **Guardar**.
 
 ## <a name="create-a-policy-key"></a>Criar uma chave política
 
 Você precisa armazenar o segredo do cliente que você gravou anteriormente no seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
+3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
-5. Selecione **chaves de política** e, em seguida, selecione **Adicionar**.
-6. Para **Opções**, escolha `Manual`.
+5. Selecione **Teclas de política** e, em seguida, selecione **Adicionar**.
+6. Para **opções,** escolha `Manual`.
 7. Introduza um **nome** para a chave política. Por exemplo, `AmazonSecret`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 8. Em **Segredo,** insira o seu segredo de cliente que gravou anteriormente.
 9. Para **a utilização da chave,** selecione `Signature`.

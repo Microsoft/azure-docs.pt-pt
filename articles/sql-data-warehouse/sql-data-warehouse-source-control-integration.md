@@ -1,6 +1,6 @@
 ---
 title: Integração do Controlo de Origem
-description: Base de Dados de classe empresarial DevOps experiência para SQL Data Warehouse com integração de controlo de fonte nativa usando Azure Repos (Git e GitHub).
+description: Base de Dados de classe empresarial DevOps experiência para piscina SQL com integração de controlo de fonte nativa usando Azure Repos (Git e GitHub).
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fc1fdddc7a157828fcc4770c4e8237af9a45fdc3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1a4939e8c349f36fe745becb811717983caa95c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720032"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198230"
 ---
-# <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integração de Controlo de Fontes para Armazém de Dados Azure SQL
+# <a name="source-control-integration-for-sql-pool"></a>Integração de Controlo de Fonte para piscina SQL
 
-Este tutorial descreve como integrar o seu projeto de base de dados de dados sQL Server Data (SSDT) com controlo de fonte.  A integração do controlo de fontes é o primeiro passo para a construção do seu oleoduto de integração e implantação contínua com o SQL Data Warehouse. 
+Este tutorial descreve como integrar o seu projeto de base de dados de dados sQL Server Data (SSDT) com controlo de fonte.  A integração do controlo de fontes é o primeiro passo na construção do seu oleoduto de integração e implantação contínua com o recurso de piscina SQL em Azure Synapse Analytics. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -79,6 +79,6 @@ Este tutorial descreve como integrar o seu projeto de base de dados de dados sQL
 
 4. **(Opcional)** Utilize o Schema Compare e atualize as alterações no seu armazém de dados-alvo utilizando o SSDT para garantir que as definições de objeto no seu repositório Azure Repo e repositório local refletem o seu armazém de dados
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Desenvolvimento para Armazém de Dados Azure SQL](sql-data-warehouse-overview-develop.md)
+- [Desenvolvimento para piscina SQL](sql-data-warehouse-overview-develop.md)

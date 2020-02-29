@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: escala de computação-PowerShell '
-description: Dimensionar a computação do Azure SQL Data Warehouse no PowerShell. Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
+title: 'Quickstart: Scale compute - PowerShell '
+description: Calcular em escala em piscina SQL em PowerShell. Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f4c2087052e4c3b4fac4d27bb4ecdc2ebf8a42f6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5952f17c83b778e8713488b5c53c9f210c84a146
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692959"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200481"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>Início rápido: dimensionar a computação no Azure SQL Data Warehouse no Azure PowerShell
+# <a name="quickstart-scale-compute-in-in-azure-synapse-analytics-sql-pool-using-azure-powershell"></a>Quickstart: Scale compute in in Azure Synapse Analytics SQL pool usando Azure PowerShell
 
-Dimensionar a computação no Azure SQL Data Warehouse usando Azure PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
+Calcular em escala na piscina SQL utilizando o Azure PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -28,23 +28,23 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este guia de início rápido pressupõe que você já tem um SQL Data Warehouse que pode ser dimensionado. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
+Este quickstart assume que já tem uma piscina SQL que pode escalar. Se precisar de criar um, use [o Portal Create and Connect para](create-data-warehouse-portal.md) criar um pool SQL chamado **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Faça logon na sua assinatura do Azure usando o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e siga as instruções na tela.
+Inicie sessão na subscrição do Azure utilizando o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e siga as instruções no ecrã.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Para ver qual assinatura você está usando, execute [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Para ver que subscrição está a utilizar, execute [a Subscrição Get-Az](/powershell/module/az.accounts/get-azsubscription).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Se você precisar usar uma assinatura diferente da padrão, execute [set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Se precisar de utilizar uma subscrição diferente da predefinida, execute o [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -56,39 +56,38 @@ Localize o nome da base de dados, nome do servidor e grupo de recursos para o ar
 
 Siga estes passos para encontrar as informações de localização para o seu armazém de dados.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
-2. Clique em **Armazéns de dados SQL** na página da esquerda do portal do Azure.
-3. Selecione **mySampleDataWarehouse** na página de **Armazéns de dados SQL**. Esta ação abre o armazém de dados.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Clique em **Azure Synapse Analytics (anteriormente SQL DW)** na página de navegação esquerda do portal Azure.
+3. Selecione **mySampleDataWarehouse** da página **Azure Synapse Analytics (anteriormente SQL DW)** para abrir o armazém de dados.
 
     ![O nome do servidor e grupo de recursos](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Escreva o nome do armazém de dados, que vai ser utilizado como o nome da base de dados. Recorde-se que um armazém de dados é um tipo de base de dados. Anote também o nome do servidor e do grupo de recursos. Vai utilizá-los nos comandos de pausa e retomar.
-5. Se o servidor for foo.database.windows.net, utilize apenas a primeira parte como nome de servidor nos cmdlets do PowerShell. Na imagem anterior, o nome completo do servidor é newserver-20171113.database.windows.net. Utilizamos **newserver 20180430** como o nome do servidor no cmdlet do PowerShell.
+4. Escreva o nome do armazém de dados, que vai ser utilizado como o nome da base de dados. Recorde-se que um armazém de dados é um tipo de base de dados. Anote também o nome do servidor e do grupo de recursos. Utilizará o nome do servidor e o nome do grupo de recursos na pausa e retomará os comandos.
+5. Utilize apenas a primeira parte do nome do servidor nos cmdlets PowerShell. Na imagem anterior, o nome completo do servidor é sqlpoolservername.database.windows.net. Utilizamos o **nome de servidor sqlpoolcomo** nome de servidor no cmdlet PowerShell.
 
 ## <a name="scale-compute"></a>Dimensionar computação
 
-No SQL Data Warehouse, pode aumentar ou diminuir os recursos de computação ao ajustar unidades do data warehouse. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
+No pool SQL, pode aumentar ou diminuir os recursos computacionais ajustando unidades de armazém de dados. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
 
-Para alterar data warehouse unidades, use o cmdlet do PowerShell [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) . O exemplo a seguir define as unidades de data warehouse como DW300c para o banco de dados **mySampleDataWarehouse** que está hospedado no grupo de recursos **MyResource** Group no servidor **mynewserver-20180430**.
+Para alterar as unidades de armazém de dados, utilize o [cmdlet Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell. O exemplo seguinte define as unidades de armazém de dados para DW300c para a base de dados **mySampleDataWarehouse**, que está hospedada no **grupo resourcegroup name** no **nome do servidor de**servidores do servidor .
 
 ```Powershell
-Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
 ```
 
 ## <a name="check-data-warehouse-state"></a>Verifique o estado do armazém de dados
 
-Para ver o estado atual do data warehouse, use o cmdlet [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) do PowerShell. Este obtém o estado da base de dados **mySampleDataWarehouse** no ResourceGroup **myResourceGroup** e do servidor **mynewserver 20180430.database.windows.net**.
+Para ver o estado atual do armazém de dados, utilize o cmdlet [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) PowerShell. Este cmdlet mostra o estado da base de dados **mySampleDataWarehouse** em nome de grupo de **recursos** do ResourceGroup e **sqlpoolservername.database.windows.net servidor**.
 
 ```powershell
-$database = Get-AzSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
-$database
+$database = Get-AzSqlDatabase -ResourceGroupName resourcegroupname -ServerName sqlpoolservername -DatabaseName mySampleDataWarehouse
 ```
 
 Que resulta em algo como:
 
 ```powershell
-ResourceGroupName             : myResourceGroup
-ServerName                    : mynewserver-20171113
+ResourceGroupName             : resourcegroupname
+ServerName                    : sqlpoolservername
 DatabaseName                  : mySampleDataWarehouse
 Location                      : North Europe
 DatabaseId                    : 34d2ffb8-b70a-40b2-b4f9-b0a39833c974
@@ -106,7 +105,7 @@ ElasticPoolName               :
 EarliestRestoreDate           :
 Tags                          :
 ResourceId                    : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/
-                                resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/mynewserver-20171113/databases/mySampleDataWarehouse
+                                resourceGroups/resourcegroupname/providers/Microsoft.Sql/servers/sqlpoolservername/databases/mySampleDataWarehouse
 CreateMode                    :
 ReadScale                     : Disabled
 ZoneRedundant                 : False
@@ -121,7 +120,7 @@ $database | Select-Object DatabaseName,Status
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora já aprendeu como dimensionar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
+Agora aprendeu a escalar a computação para piscina SQL. Para saber mais sobre o pool SQL, continue ao tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
->[Carregar dados em um SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Carregue os dados num pool SQL](load-data-from-azure-blob-storage-using-polybase.md)

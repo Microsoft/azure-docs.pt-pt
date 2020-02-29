@@ -8,18 +8,18 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.openlocfilehash: 85fb709dfcca45b6ca8141c6d3de1941044f5ee5
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0c37f1ce2f173f4bf527e7cca30f010101b01720
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163205"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190692"
 ---
 # <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: C# Use e IA para gerar conteúdo pesquisável a partir de blobs Azure
 
 Se tiver texto ou imagens não estruturadas no armazenamento do Azure Blob, um pipeline de enriquecimento de [IA](cognitive-search-concept-intro.md) pode extrair informações e criar novos conteúdos que são úteis para cenários de pesquisa de texto completo ou de mineração de conhecimento. Neste C# tutorial, aplique reconhecimento ótico de caracteres (OCR) em imagens e execute o processamento de linguagem natural para criar novos campos que você pode aproveitar em consultas, facetas e filtros.
 
-Neste tutorial, C# utilize e o [.NET SDK](https://aka.ms/search-sdk) para executar as seguintes tarefas:
+Este tutorial C# utiliza e o [.NET SDK](https://aka.ms/search-sdk) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Comece com ficheiros de aplicações e imagens no armazenamento do Azure Blob.
@@ -929,11 +929,11 @@ Repita para campos adicionais: conteúdo, idiomaCódigo, tecladoS e organizaçõ
 
 ## <a name="reset-and-rerun"></a>Repor e executar novamente
 
-Nas fases experimentais iniciais de desenvolvimento, a abordagem mais prática para iterações de design é apagar os objetos da Pesquisa Cognitiva Azure e permitir que o seu código os reconstrua. Os nomes dos recursos são exclusivos. Quando elimina um objeto, pode recriá-lo com o mesmo nome.
+Nas fases experimentais iniciais de desenvolvimento, a abordagem mais prática para a iteração do design é apagar os objetos da Pesquisa Cognitiva Azure e permitir que o seu código os reconstrua. Os nomes dos recursos são exclusivos. Quando elimina um objeto, pode recriá-lo com o mesmo nome.
 
-Este tutorial tratou de verificar os indexadores e índices existentes e apagando-os se já existiam para que possa reexecutar o seu código.
+O código de amostra para este tutorial verifica os objetos existentes e elimina-os para que possa reexecutar o seu código.
 
-Também pode usar o portal para eliminar índices, indexadores e habilidades.
+Também pode usar o portal para eliminar índices, indexadores, fontes de dados e habilidades.
 
 ## <a name="takeaways"></a>Conclusões
 
@@ -945,11 +945,13 @@ Por fim, aprendeu como testar os resultados e repor o sistema para iterações f
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A forma mais rápida de limpar depois de um tutorial é apagando o grupo de recursos que contém o serviço de Pesquisa Cognitiva Azure e o serviço Azure Blob. Assumindo que coloca ambos os serviços no mesmo grupo, elimine o grupo de recursos agora para eliminar definitivamente todo o seu conteúdo, incluindo os serviços e quaisquer conteúdos armazenados criados para este tutorial. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
+Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+
+Pode encontrar e gerir recursos no portal, utilizando a ligação De Todos os recursos ou grupos de Recursos no painel de navegação à esquerda.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu.
+Agora que está familiarizado com todos os objetos num oleoduto de enriquecimento de IA, vamos ver mais de perto as definições de habilidades e habilidades individuais.
 
 > [!div class="nextstepaction"]
-> [Exemplo: Criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md)
+> [Como criar uma habilidade](cognitive-search-defining-skillset.md)

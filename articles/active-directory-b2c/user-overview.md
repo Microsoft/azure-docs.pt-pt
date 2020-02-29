@@ -2,20 +2,20 @@
 title: Visão geral das contas dos utilizadores no Diretório Ativo Azure B2C
 description: Conheça os tipos de contas de utilizador que podem ser utilizadas no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f34fe324f22be41d8cdff0df67777bc254bbc290
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9630e1f23b6595ca690ecafcf0c4b9bfff603f2e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484269"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185663"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas dos utilizadores no Diretório Ativo Azure B2C
 

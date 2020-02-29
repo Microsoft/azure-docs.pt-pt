@@ -1,54 +1,54 @@
 ---
-title: Gerenciar aplicativos para vários ambientes
-description: Os aplicativos de Service Fabric do Azure podem ser executados em clusters que variam de tamanho de um computador para milhares de computadores. Em alguns casos, você desejará configurar seu aplicativo de forma diferente para esses ambientes variados. Este artigo aborda como definir parâmetros de aplicativo diferentes por ambiente.
+title: Gerir aplicativos para vários ambientes
+description: As aplicações azure Service Fabric podem ser executadas em clusters que variam em tamanho de uma máquina a milhares de máquinas. Em alguns casos, você vai querer configurar a sua aplicação de forma diferente para esses ambientes variados. Este artigo abrange como definir diferentes parâmetros de aplicação por ambiente.
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609847"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196984"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gerir as aplicações para vários ambientes
 
-Os clusters Service Fabric do Azure permitem que você crie clusters usando qualquer lugar de um a muitos milhares de máquinas. Na maioria dos casos, você tem de implantar seu aplicativo em várias configurações de cluster: seu cluster de desenvolvimento local, um cluster de desenvolvimento compartilhado e seu cluster de produção. Todos esses clusters são considerados diferentes ambientes em que seu código precisa ser executado. Os binários de aplicativo podem ser executados sem modificação nesse amplo espectro, mas muitas vezes você deseja configurar o aplicativo de forma diferente.
+Os clusters azure Service Fabric permitem criar clusters usando em qualquer lugar de uma a muitas milhares de máquinas. Na maioria dos casos, encontra-se obrigado a implementar a sua aplicação em várias configurações de cluster: o seu cluster de desenvolvimento local, um cluster de desenvolvimento partilhado e o seu cluster de produção. Todos estes aglomerados são considerados ambientes diferentes que o seu código tem de ser executado. Os binários de aplicação podem ser executados sem modificações em todo este amplo espectro, mas muitas vezes pretende configurar a aplicação de forma diferente.
 
 Considere dois exemplos simples:
-  - seu serviço escuta em uma porta definida, mas você precisa que essa porta seja diferente entre os ambientes
-  - Você precisa fornecer credenciais de associação diferentes para um banco de dados entre os ambientes
+  - seu serviço escuta em uma porta definida, mas você precisa que o porto seja diferente em todos os ambientes
+  - você precisa fornecer diferentes credenciais vinculativas para uma base de dados em todos os ambientes
 
-## <a name="specifying-configuration"></a>Especificando a configuração
+## <a name="specifying-configuration"></a>Especificação da configuração
 
-A configuração que você fornece pode ser dividida em duas categorias:
+A configuração que fornece pode ser dividida em duas categorias:
 
-- Configuração que se aplica a como os serviços são executados
-  - Por exemplo, o número da porta para um ponto de extremidade ou o número de instâncias de um serviço
-  - Essa configuração é especificada no arquivo de manifesto do aplicativo ou do serviço
-- Configuração que se aplica ao código do aplicativo
-  - Por exemplo, informações de associação para um banco de dados
-  - Essa configuração pode ser fornecida por meio de arquivos de configuração ou variáveis de ambiente
+- Configuração que se aplica à forma como os seus serviços são executados
+  - Por exemplo, o número da porta para um ponto final ou o número de instâncias de um serviço
+  - Esta configuração é especificada no ficheiro de formulário de aplicação ou de serviço
+- Configuração que se aplica ao seu código de aplicação
+  - Por exemplo, informações vinculativas para uma base de dados
+  - Esta configuração pode ser fornecida através de ficheiros de configuração ou variáveis ambientais
 
 > [!NOTE]
-> Nem todos os atributos no arquivo de manifesto do aplicativo e do serviço dão suporte a parâmetros.
-> Nesses casos, você precisa contar com a substituição de cadeias de caracteres como parte de seu fluxo de trabalho de implantação. No Azure DevOps, você pode usar uma extensão como substituir tokens: https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens ou no Jenkins você pode executar uma tarefa Script para substituir os valores.
+> Nem todos os atributos nos parâmetros de suporte de ficheiros manifesto de aplicação e serviço.
+> Nesses casos, tem de confiar na substituição das cordas como parte do seu fluxo de trabalho de implantação. Em Azure DevOps pode utilizar uma extensão como Substituir Tokens: https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens ou em Jenkins pode executar uma tarefa de script para substituir os valores.
 >
 
-## <a name="specifying-parameters-during-application-creation"></a>Especificando parâmetros durante a criação do aplicativo
+## <a name="specifying-parameters-during-application-creation"></a>Especificação de parâmetros durante a criação de candidaturas
 
-Ao criar instâncias de um aplicativo nomeado no Service Fabric, você tem a opção de passar parâmetros. A maneira como você faz isso depende de como você cria a instância do aplicativo.
+Ao criar uma aplicação nomeada no Tecido de Serviço, tem a opção de passar em parâmetros. A forma como o faz depende da forma como cria a instância de candidatura.
 
-  - No PowerShell, o cmdlet [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) usa os parâmetros do aplicativo como uma tabela de hash.
-  - Usando sfctl, o comando [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) usa parâmetros como uma cadeia de caracteres JSON. O script install.sh usa sfctl.
-  - O Visual Studio fornece um conjunto de arquivos de parâmetro na pasta Parameters no projeto de aplicativo. Esses arquivos de parâmetro são usados durante a publicação do Visual Studio, usando Azure DevOps Services ou Team Foundation Server. No Visual Studio, os arquivos de parâmetro estão sendo passados para o script Deploy-FabricApplication. ps1.
+  - No PowerShell, o [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet toma os parâmetros de aplicação como um hashtable.
+  - Usando o sfctl, o comando [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) toma parâmetros como uma corda JSON. O guião install.sh usa sfctl.
+  - O Visual Studio fornece-lhe um conjunto de ficheiros parâmetros na pasta Parâmetros no projeto de aplicação. Estes ficheiros de parâmetros são utilizados na publicação do Visual Studio, utilizando os Serviços Azure DevOps ou o Azure DevOps Server. No Estúdio Visual, os ficheiros de parâmetros estão a ser transmitidos para o script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Passos seguintes
-Os artigos a seguir mostram como usar alguns dos conceitos descritos aqui:
+Os seguintes artigos mostram-lhe como usar alguns dos conceitos aqui descritos:
 
-- [Como especificar variáveis de ambiente para serviços no Service Fabric](service-fabric-how-to-specify-environment-variables.md)
-- [Como especificar o número da porta de um serviço usando parâmetros em Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [Como parametrizar arquivos de configuração](service-fabric-how-to-parameterize-configuration-files.md)
+- [Como especificar variáveis ambientais para serviços em Tecido de Serviço](service-fabric-how-to-specify-environment-variables.md)
+- [Como especificar o número de porta de um serviço utilizando parâmetros em Tecido de Serviço](service-fabric-how-to-specify-port-number-using-parameters.md)
+- [Como parametrizar ficheiros de configuração](service-fabric-how-to-parameterize-configuration-files.md)
 
-- [Referência de variável de ambiente](service-fabric-environment-variables-reference.md)
+- [Referência variável ambiental](service-fabric-environment-variables-reference.md)

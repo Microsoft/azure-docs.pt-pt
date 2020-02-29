@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 9b156193035d87472c462bae37e405e0317d8402
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e53fb46b7c13e1feb0cc24663fb0782b4de06f2b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650304"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198036"
 ---
 # <a name="vcore-model-overview"></a>Descrição geral do modelo vCore
 
@@ -98,10 +98,11 @@ Para permitir o hardware da série M para uma subscrição e região, deve ser a
 |Geração de hardware  |Computação  |Memória  |
 |:---------|:---------|:---------|
 |Gen4     |- Processadores Intel E5-2673 v3 (Haswell) 2.4 GHz<br>- Provisão até 24 vCores (1 vCore = 1 núcleo físico)  |- 7 GB por vCore<br>- Provisão até 168 GB|
-|Gen5     |**Cálculo provisionado**<br>- Processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz e Intel SP-8160 (Skylake)<br>- Provisão até 80 vCores (1 vCore = 1 hiper-fio)<br><br>**Computação sem servidor**<br>- Processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz e Intel SP-8160 (Skylake)<br>- Auto-escala até 16 vCores (1 vCore = 1 hiper-fio)|**Cálculo provisionado**<br>- 5,1 GB por vCore<br>- Provisão até 408 GB<br><br>**Computação sem servidor**<br>- Auto-escala até 24 GB por vCore<br>- Auto-escala até 48 GB max|
+|Gen5     |**Cálculo provisionado**<br>- Processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz e Intel SP-8160 (Skylake)*<br>- Provisão até 80 vCores (1 vCore = 1 hiper-fio)<br><br>**Computação sem servidor**<br>- Processadores Intel E5-2673 v4 (Broadwell) 2.3-GHz e Intel SP-8160 (Skylake)*<br>- Auto-escala até 16 vCores (1 vCore = 1 hiper-fio)|**Cálculo provisionado**<br>- 5,1 GB por vCore<br>- Provisão até 408 GB<br><br>**Computação sem servidor**<br>- Auto-escala até 24 GB por vCore<br>- Auto-escala até 48 GB max|
 |Série Fsv2     |- Processadores Intel Xeon Platinum 8168 (SkyLake)<br>- Com uma velocidade de relógio turbo de 3,4 GHz e uma velocidade máxima de 3,7 GHz no relógio turbo do núcleo único.<br>- Provisão 72 vCores (1 vCore = 1 hiper-fio)|- 1,9 GB por vCore<br>- Provisão 136 GB|
 |Série M     |- Processadores Intel Xeon E7-8890 v3 2.5 GHz<br>- Provisão 128 vCores (1 vCore = 1 hiper-fio)|- 29 GB por vCore<br>- Provisão 3.7 TB|
 
+\* Na visão dinâmica de gestão da [sys.dm_user_db_resource_governance,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) a geração de hardware para bases de dados gen5 utilizando processadores Intel SP-8160 (Skylake) aparece como Gen6. Os limites de recursos para todas as bases de dados gen5 são os mesmos, independentemente do tipo de processador (Broadwell ou Skylake).
 
 Para obter mais informações sobre os limites dos recursos, consulte [os limites de recursos para bases de dados únicas (vCore)](sql-database-vcore-resource-limits-single-databases.md)ou limites de [recursos para piscinas elásticas (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
 

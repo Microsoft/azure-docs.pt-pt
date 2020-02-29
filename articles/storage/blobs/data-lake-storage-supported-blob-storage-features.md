@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: debc674184e6846128b0b8cff857c75a805e365a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 215244204aa58cc2fdedc639d48e01b514759694
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925699"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196013"
 ---
-# <a name="blobstoragefeaturesavailableinazuredatalakestoragegen2"></a>Funcionalidades de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
+# <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funcionalidades de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
-As funcionalidades de armazenamento blob, tais como [a exploração madeireira de diagnóstico,](../common/storage-analytics-logging.md)os níveis de [acesso,](storage-blob-storage-tiers.md)e as políticas de gestão do ciclo de [vida blob Storage](storage-lifecycle-management-concepts.md) funcionam agora com contas que têm um espaço de nome hierárquico. Por isso, pode ativar espaços hierárquicos nas suas contas de armazenamento Blob sem perder acesso a estas funcionalidades.
+As funcionalidades de armazenamento blob, tais como [a exploração madeireira de diagnóstico,](../common/storage-analytics-logging.md)os níveis de [acesso,](storage-blob-storage-tiers.md)e as políticas de gestão do ciclo de [vida blob Storage](storage-lifecycle-management-concepts.md) funcionam agora com contas que têm um espaço de nome hierárquico. Por isso, pode ativar espaços hierárquicos nas suas contas de armazenamento Blob sem perder acesso a estas funcionalidades.
 
 Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com o Azure Data Lake Storage Gen2. Os itens que aparecem nestas tabelas vão mudar ao longo do tempo à medida que o apoio continua a expandir-se.
 
-## <a name="supportedblobstoragefeatures"></a>Recursos de armazenamento Blob suportados
+## <a name="supported-blob-storage-features"></a>Recursos de armazenamento Blob suportados
 
 > [!NOTE]
 > O nível de suporte refere-se apenas à forma como a funcionalidade é suportada com data lake storage Gen2.
 
-|Recurso de armazenamento blob |Nível de apoio |Artigos relacionados |
+|Recurso de armazenamento blob |Nível de apoio |Artigos relacionados |
 |---------------|-------------------|---|
-|Escalão de acesso frequente |Disponível em geral|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
-|Escalão de acesso esporádico |Disponível em geral|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
+|Escalão de acesso frequente|Disponível em geral|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
+|Escalão de acesso esporádico|Disponível em geral|[Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo](storage-blob-storage-tiers.md)|
 |Eventos|Disponível em geral|[Reagir aos eventos de armazenamento de Blobs](storage-blob-event-overview.md)|
 |Métricas (Clássico)|Disponível em geral|[Métricas de análise de armazenamento azure (Clássico)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Métricas no Azure Monitor|Disponível em geral|[Métricas do Armazenamento do Microsoft Azure no Azure Monitor](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

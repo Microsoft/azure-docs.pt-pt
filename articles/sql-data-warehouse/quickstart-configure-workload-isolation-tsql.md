@@ -1,45 +1,45 @@
 ---
-title: 'Início rápido: configurar o isolamento de carga de trabalho-T-SQL'
-description: Use o T-SQL para configurar o isolamento da carga de trabalho.
+title: 'Quickstart: Configure o isolamento da carga de trabalho - T-SQL'
+description: Utilize o T-SQL para configurar o isolamento da carga de trabalho.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 11/21/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 2a6c5ca9f7d2ceaef08b28e78b38b94a459548f5
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.custom: azure-synapse
+ms.openlocfilehash: bd3ad98116b18a77a77e8f6f327689d0ebb7dd21
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304758"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200520"
 ---
-# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Início rápido: configurar o isolamento de carga de trabalho usando o T-SQL
+# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Quickstart: Configure o isolamento da carga de trabalho utilizando t-SQL
 
-Neste guia de início rápido, você criará rapidamente um grupo de carga de trabalho e um classificador para reservar recursos para o carregamento de dados. O grupo de cargas de trabalho alocará 20% dos recursos do sistema para um carregamento de dados.  O classificador de carga de trabalho atribuirá solicitações ao grupo de cargas de trabalho de cargas de dados.  Com isolamento de 20% para cargas de dados, eles são recursos garantidos para atingir SLAs.
+Neste arranque rápido, criará rapidamente um grupo de carga de trabalho e um classificador para reservar recursos para o carregamento de dados. O grupo de carga de trabalho irá atribuir 20% dos recursos do sistema a uma carga de dados.  O classificador de carga de trabalho atribuirá pedidos ao grupo de carga de trabalho de carga de carga de carga de carga de carga de dados.  Com 20% de isolamento para cargas de dados, são recursos garantidos para atingir Os SLAs.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!NOTE]
-> A criação de um SQL Data Warehouse poderá resultar num novo serviço sujeito a faturação.  Para obter mais informações, veja [Preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> A criação de um caso SQL Analytics no Azure Synapse Analytics pode resultar num novo serviço de faturação.  Para mais informações, consulte o preço da [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
  
-Este início rápido pressupõe que você já tem um SQL Data Warehouse e que tem permissões de controle de banco de dados. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
+Este quickstart pressupõe que já tem uma instância SQL Analytics em Azure Synapse e que tem permissões de BASE DE DADOS CONTROL. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-login-for-dataloads"></a>Criar logon para cargas de carregamento
+## <a name="create-login-for-dataloads"></a>Criar login para DataLoads
 
-Crie um logon de autenticação SQL Server no banco de dados `master` usando [Create login](/sql/t-sql/statements/create-login-transact-sql) para ' ELTLogin'.
+Crie um login de autenticação do Servidor SQL na base de dados `master` utilizando [login CREATE](/sql/t-sql/statements/create-login-transact-sql) para 'ELTLogin'.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'ELTLogin')
@@ -51,7 +51,7 @@ END
 
 ## <a name="create-user"></a>Criar utilizador
 
-[Criar usuário](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "ELTLogin", em mySampleDataWarehouse
+[Criar utilizador](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "ELTLogin", no mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'ELTLogin')
@@ -61,8 +61,8 @@ END
 ;
 ```
 
-## <a name="create-a-workload-group"></a>Criar um grupo de cargas de trabalho
-Crie um [grupo de carga de trabalho](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) para carregamentos de carga com 20% de isolamento.
+## <a name="create-a-workload-group"></a>Criar um grupo de carga de trabalho
+Crie um [grupo de carga de trabalho](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) para DataLoads com 20% de isolamento.
 ```sql
 CREATE WORKLOAD GROUP DataLoads
 WITH ( MIN_PERCENTAGE_RESOURCE = 20   
@@ -73,7 +73,7 @@ WITH ( MIN_PERCENTAGE_RESOURCE = 20
 
 ## <a name="create-a-workload-classifier"></a>Criar um classificador de carga de trabalho
 
-Crie um [classificador de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) para mapear ELTLogin para o grupo de carga de trabalho de carregamentos.
+Crie um [classificador](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) de carga de trabalho para mapear ELTLogin para o grupo de carga de trabalho DataLoads.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
@@ -82,7 +82,7 @@ WITH (WORKLOAD_GROUP = 'DataLoads'
 ;
 ```
 
-## <a name="view-existing-workload-groups-and-classifiers-and-run-time-values"></a>Exibir grupos de cargas de trabalho e classificadores e valores de tempo de execução existentes
+## <a name="view-existing-workload-groups-and-classifiers-and-run-time-values"></a>Ver grupos de carga de trabalho existentes e classificadores e valores de tempo de execução
 
 ```sql
 --Workload groups
@@ -107,26 +107,26 @@ DROP USER [ELTLogin]
 ;
 ```
 
-Você está sendo cobrado por unidades de data warehouse e dados armazenados em seu data warehouse. Estes recursos de computação e armazenamento são faturados em separado.
+Está a ser cobrado por unidades de armazém de dados e dados armazenados no seu armazém de dados. Estes recursos de computação e armazenamento são faturados em separado.
 
-- Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao pausar a computação, você é cobrado apenas pelo armazenamento de dados. Quando você estiver pronto para trabalhar com os dados, retome a computação.
+- Se quiser manter os dados armazenados, pode parar a computação quando não estiver a utilizar a piscina SQL. Ao fazer uma pausa na computação, só é cobrado para armazenamento de dados. Quando estiver pronto para trabalhar com os dados, retome a computação.
 - Se quiser remover futuras cobranças, pode eliminar o armazém de dados.
 
-Siga estas etapas para limpar os recursos.
+Siga estes passos para limpar recursos.
 
-1. Entre no [portal do Azure](https://portal.azure.com), selecione na sua data warehouse.
+1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione no seu armazém de dados.
 
     ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Para pausar a computação, selecione o botão **Pausar** . Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
+2. Para parar a computação, selecione o botão **Pausa.** Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
 
-3. Para remover o data warehouse para que você não seja cobrado pela computação ou pelo armazenamento, selecione **excluir**.
+3. Para remover o armazém de dados para que não seja cobrado para computação ou armazenamento, **selecione Eliminar**.
 
-4. Para remover o SQL Server que você criou, selecione **mynewserver-20180430.Database.Windows.net** na imagem anterior e, em seguida, selecione **excluir**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
+4. Para remover o servidor SQL que criou, selecione **mynewserver-20180430.database.windows.net** na imagem anterior e, em seguida, selecione **Delete**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
 
-5. Para remover o grupo de recursos, selecione **MyResource**Group e, em seguida, selecione **excluir grupo de recursos**.
+5. Para remover o grupo de recursos, selecione **myResourceGroup**, e, em seguida, **selecione Eliminar o grupo de recursos**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Agora você criou um grupo de cargas de trabalho. Execute algumas consultas como ELTLogin para ver como elas são executadas. Consulte [Sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir consultas e o grupo de carga de trabalho atribuído.
-- Para obter mais informações sobre o gerenciamento de carga de trabalho SQL Data Warehouse do Azure, consulte [Gerenciamento de carga](sql-data-warehouse-workload-management.md) de trabalho e [isolamento de carga](sql-data-warehouse-workload-isolation.md)
+- Agora criaste um grupo de carga de trabalho. Faça algumas perguntas como ELTLogin para ver como se apresentam. Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para ver consultas e o grupo de carga de trabalho atribuído.
+- Para obter mais informações sobre a gestão da carga de trabalho da SQL Analytics, consulte [a Gestão da Carga de Trabalho](sql-data-warehouse-workload-management.md) e o Isolamento da Carga de [Trabalho.](sql-data-warehouse-workload-isolation.md)

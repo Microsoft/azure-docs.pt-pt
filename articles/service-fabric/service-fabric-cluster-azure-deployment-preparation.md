@@ -1,45 +1,45 @@
 ---
-title: Planejar uma implantação de Cluster Service Fabric do Azure
-description: Saiba mais sobre planejamento e preparação para uma implantação de cluster de Service Fabric de produção no Azure.
+title: Planeie uma implantação de cluster de tecido de serviço Azure
+description: Saiba mais sobre planeamento e preparação para uma implantação de cluster de serviço de produção para o Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 32d48f9ffa056d252bdf762304340f245d80fd26
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834455"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193481"
 ---
-# <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planejar e preparar uma implantação de cluster
+# <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planeie e prepare-se para uma implantação de cluster
 
-O planejamento e a preparação para uma implantação de cluster de produção são muito importantes.  Há muitos fatores a serem considerados.  Este artigo orienta você pelas etapas de preparação de sua implantação de cluster.
+O planeamento e preparação para uma implantação de clusters de produção é muito importante.  Há muitos fatores a considerar.  Este artigo acompanha-o através dos passos de preparação da sua implantação do cluster.
 
-## <a name="read-the-best-practices-information"></a>Leia as informações de práticas recomendadas
-Para gerenciar aplicativos e clusters do Azure Service Fabric com êxito, há operações que recomendamos que você execute para otimizar a confiabilidade do seu ambiente de produção.  Para obter mais informações, leia [Service Fabric práticas recomendadas de aplicativo e cluster](service-fabric-best-practices-overview.md).
+## <a name="read-the-best-practices-information"></a>Leia as informações sobre as melhores práticas
+Para gerir com sucesso aplicações e clusters azure Service Fabric, existem operações que recomendamos vivamente que realize para otimizar a fiabilidade do seu ambiente de produção.  Para mais informações, leia a [aplicação Service Fabric e cluster as melhores práticas.](service-fabric-best-practices-overview.md)
 
-## <a name="select-the-os-for-the-cluster"></a>Selecione o sistema operacional para o cluster
-Service Fabric permite a criação de clusters de Service Fabric em qualquer VM ou computadores que executam o Windows Server ou o Linux.  Antes de implantar o cluster, você deve escolher o sistema operacional: Windows ou Linux.  Cada nó (máquina virtual) no cluster executa o mesmo sistema operacional, não é possível misturar VMs Windows e Linux no mesmo cluster.
+## <a name="select-the-os-for-the-cluster"></a>Selecione o S para o cluster
+O Service Fabric permite a criação de clusters de Tecido de Serviço em quaisquer VMs ou computadores que executem o Windows Server ou o Linux.  Antes de implementar o seu cluster, deve escolher o SISTEMA: Windows ou Linux.  Cada nó (máquina virtual) do cluster executa o mesmo SISTEMA, não pode misturar Windows e VMs Linux no mesmo cluster.
 
 ## <a name="capacity-planning"></a>Planeamento de capacidade
-Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Seguem-se alguns aspetos a considerar como parte do processo.
+Para qualquer implantação de produção, o planeamento da capacidade é um passo importante. Seguem-se alguns aspetos a considerar como parte do processo.
 
-* O número inicial de tipos de nó para o cluster 
-* As propriedades de cada tipo de nó (tamanho, número de instâncias, primária, voltada para a Internet, número de VMs, etc.)
+* O número inicial de tipos de nó para o seu cluster 
+* As propriedades de cada tipo de nó (tamanho, número de instâncias, primárias, viradas para a Internet, número de VMs, etc.)
 * As características de fiabilidade e durabilidade do cluster
 
-### <a name="select-the-initial-number-of-node-types"></a>Selecionar o número inicial de tipos de nó
-Primeiro, você precisa descobrir o que o cluster que está criando será usado para o. Que tipos de aplicativos você pretende implantar nesse cluster? Seu aplicativo tem vários serviços e qualquer um deles precisa ser público ou voltado para a Internet? Seus serviços (que compõem seu aplicativo) têm necessidades de infraestrutura diferentes, como maior RAM ou mais ciclos de CPU? Um Cluster Service Fabric pode consistir em mais de um tipo de nó: um tipo de nó primário e um ou mais tipos de nós não primários. Cada tipo de nó é mapeado para um conjunto de dimensionamento de máquinas virtuais. Cada tipo de nó pode então ser aumentado ou reduzido verticalmente de forma independente, pode ter conjuntos diferentes de portas abertas e ter métricas de capacidade diferente. [As propriedades de nó e as restrições de posicionamento][placementconstraints] podem ser configuradas para restringir serviços específicos a tipos de nó específicos.  Para obter mais informações, leia [o número de tipos de nós dos quais o cluster precisa iniciar](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
+### <a name="select-the-initial-number-of-node-types"></a>Selecione o número inicial de tipos de nó
+Primeiro, tens de descobrir para que o cluster que estás a criar vai ser usado. Que tipo de aplicações está a planear implementar neste cluster? A sua aplicação tem vários serviços, e algum deles precisa de ser público ou virado para a internet? Os seus serviços (que compõem a sua aplicação) têm diferentes necessidades de infraestrutura, tais como maiores ciclos de RAM ou CPU mais elevados? Um cluster de tecido de serviço pode consistir em mais do que um tipo de nó: um tipo de nó primário e um ou mais tipos de nó não primário. Cada tipo de nó é mapeado para um conjunto de escala de máquina virtual. Cada tipo de nó pode então ser aumentado ou reduzido verticalmente de forma independente, pode ter conjuntos diferentes de portas abertas e ter métricas de capacidade diferente. [As propriedades do nó e os constrangimentos][placementconstraints] de colocação podem ser criados para restringir serviços específicos a tipos específicos de nó.  Para mais informações, leia [O número de tipos de nós que o seu cluster precisa de começar](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
 
-### <a name="select-node-properties-for-each-node-type"></a>Selecionar Propriedades de nó para cada tipo de nó
-Os tipos de nó definem a SKU, o número e as propriedades da VM no conjunto de dimensionamento associado.
+### <a name="select-node-properties-for-each-node-type"></a>Selecione propriedades do nó para cada tipo de nó
+Os tipos de nó definem o VM SKU, o número e as propriedades dos VMs no conjunto de escala associado.
 
-O tamanho mínimo das VMs para cada tipo de nó é determinado pela [camada de durabilidade][durability] que você escolhe para o tipo de nó.
+O tamanho mínimo de VMs para cada tipo de nó é determinado pelo nível de [durabilidade][durability] que escolher para o tipo de nó.
 
-O número mínimo de VMs para o tipo de nó primário é determinado pela [camada de confiabilidade][reliability] que você escolher.
+O número mínimo de VMs para o tipo de nó primário é determinado pelo nível de [fiabilidade][reliability] que escolher.
 
-Consulte as recomendações mínimas para [tipos de nós primários](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [cargas de trabalho com estado em tipos de nós não primários](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)e [cargas de trabalho sem estado em tipos de nós não primários](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
+Consulte as recomendações mínimas para os tipos de [nó primários,](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance) [cargas de trabalho atemdáveis em tipos de nó não primários](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)e cargas de [trabalho apátridas em tipos de nó não primários](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
 
-Um número mínimo de nós deve ser baseado no número de réplicas do aplicativo/serviços que você deseja executar nesse tipo de nó.  O [planejamento de capacidade para aplicativos Service Fabric](service-fabric-capacity-planning.md) ajuda a estimar os recursos de que você precisa para executar seus aplicativos. Você sempre pode dimensionar o cluster para cima ou para baixo mais tarde para ajustar a carga de trabalho do aplicativo em alteração. 
+Mais do que o número mínimo de nós deve basear-se no número de réplicas da aplicação/serviços que pretende executar neste tipo de nó.  [O planeamento de capacidade para aplicações de Tecido](service-fabric-capacity-planning.md) de Serviço ajuda-o a estimar os recursos necessários para executar as suas aplicações. Pode sempre escalar o cluster para cima ou para baixo mais tarde para se ajustar para alterar a carga de trabalho da aplicação. 
 
 #### <a name="use-ephemeral-os-disks-for-virtual-machine-scale-sets"></a>Utilize discos efémeros de OS para conjuntos de escala de máquinas virtuais
 
@@ -77,7 +77,6 @@ Os discos Ephemeral OS não são uma característica específica do Tecido de Se
         "virtualMachineProfile": {
             "storageProfile": {
                 "osDisk": {
-                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
                         "caching": "ReadOnly",
                         "createOption": "FromImage",
                         "diffDiskSettings": {
@@ -91,27 +90,27 @@ Os discos Ephemeral OS não são uma característica específica do Tecido de Se
 Para mais informações e mais opções de configuração, consulte [discos Ephemeral OS para VMs Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
 
 
-### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Selecione os níveis de durabilidade e confiabilidade para o cluster
-A camada de durabilidade é usada para indicar ao sistema os privilégios que suas VMs têm com a infraestrutura subjacente do Azure. No tipo de nó primário, esse privilégio permite que Service Fabric Pause qualquer solicitação de infraestrutura de nível de VM (como uma reinicialização de VM, reimagem de VM ou migração de VM) que afete os requisitos de quorum para os serviços do sistema e seus serviços com estado. Nos tipos de nó não primários, esse privilégio permite que Service Fabric Pause quaisquer solicitações de infraestrutura de nível de VM (como reinicialização de VM, reimagem de VM e migração de VM) que afetem os requisitos de quorum para seus serviços com estado.  Para obter as vantagens dos diferentes níveis e recomendações sobre qual nível usar e quando, consulte [as características de durabilidade do cluster][durability].
+### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Selecione os níveis de durabilidade e fiabilidade do cluster
+O nível de durabilidade é utilizado para indicar ao sistema os privilégios que os seus VMs têm com a infraestrutura Azure subjacente. No tipo de nó primário, este privilégio permite ao Service Fabric interromper qualquer pedido de infraestrutura de nível VM (como um reboot vM, reimagem VM ou migração VM) que impactam os requisitos de quórum para os serviços do sistema e seus serviços estatais. Nos tipos de nó não primário, este privilégio permite ao Service Fabric interromper quaisquer pedidos de infraestrutura de nível VM (como reboot vM, reimagem vm e migração VM) que impactam os requisitos de quórum para os seus serviços de estado.  Para obter vantagens dos diferentes níveis e recomendações em que nível utilizar e quando, ver [as características de durabilidade do cluster][durability].
 
-A camada de confiabilidade é usada para definir o número de réplicas dos serviços do sistema que você deseja executar neste cluster no tipo de nó primário. Quanto mais o número de réplicas, mais confiável os serviços do sistema estão no cluster.  Para obter as vantagens dos diferentes níveis e recomendações sobre qual nível usar e quando, consulte [as características de confiabilidade do cluster][reliability]. 
+O nível de fiabilidade é utilizado para definir o número de réplicas dos serviços do sistema que pretende executar neste cluster no tipo de nó primário. Quanto mais o número de réplicas, mais fiáveis estão os serviços do sistema no seu cluster.  Para obter vantagens dos diferentes níveis e recomendações em que nível utilizar e quando, ver [as características de fiabilidade do cluster][reliability]. 
 
-## <a name="enable-reverse-proxy-andor-dns"></a>Habilitar proxy reverso e/ou DNS
-Serviços que se conectam entre si dentro de um cluster geralmente podem acessar diretamente os pontos de extremidade de outros serviços, pois os nós em um cluster estão na mesma rede local. Para facilitar a conexão entre os serviços do, Service Fabric fornece serviços adicionais: um [serviço DNS](service-fabric-dnsservice.md) e um [serviço de proxy reverso](service-fabric-reverseproxy.md).  Ambos os serviços podem ser habilitados durante a implantação de um cluster.
+## <a name="enable-reverse-proxy-andor-dns"></a>Ativar procuração inversa e/ou DNS
+Os serviços que se ligam entre si dentro de um cluster geralmente podem aceder diretamente aos pontos finais de outros serviços porque os nós de um cluster estão na mesma rede local. Para facilitar a ligação entre serviços, o Service Fabric presta serviços adicionais: um [serviço DNS](service-fabric-dnsservice.md) e um serviço de [procuração inversa.](service-fabric-reverseproxy.md)  Ambos os serviços podem ser ativados ao implantar um cluster.
 
-Como muitos serviços, especialmente serviços em contêineres, podem ter um nome de URL existente, poder resolvê-los usando o protocolo DNS padrão (em vez do protocolo Serviço de Nomenclatura) é conveniente, especialmente em cenários de "desvio e deslocamento" do aplicativo. Isso é exatamente o que o serviço DNS faz. Ele permite mapear nomes DNS para um nome de serviço e, portanto, resolver endereços IP de ponto de extremidade.
+Uma vez que muitos serviços, especialmente serviços contentorizados, podem ter um nome URL existente, poder resolvê-los usando o protocolo Padrão DNS (em vez do protocolo de Serviço de Nomeação) é conveniente, especialmente em cenários de aplicação "levantar e mudar". Isto é exatamente o que o serviço DNS faz. Permite-lhe mapear os nomes dNS para um nome de serviço e, portanto, resolver endereços IP do ponto final.
 
-O proxy reverso lida com os serviços no cluster que expõem pontos de extremidade HTTP (incluindo HTTPS). O proxy reverso simplifica muito a chamada de outros serviços, fornecendo um formato de URI específico.  O proxy reverso também lida com as etapas de resolução, conexão e repetição necessárias para que um serviço se comunique com outro.
+O proxy inverso aborda os serviços no cluster que expõe mistos DEHTTP (incluindo HTTPS). O representante inverso simplifica consideravelmente a chamada de outros serviços, fornecendo um formato URI específico.  O proxy invertido também lida com as etapas de determinação, ligação e retry necessárias para que um serviço se comunique com outro.
 
 ## <a name="prepare-for-disaster-recovery"></a>Preparar para a recuperação após desastre
-Uma parte crítica da entrega de alta disponibilidade é garantir que os serviços possam sobreviver a todos os diferentes tipos de falhas. Isso é especialmente importante para falhas não planejadas e fora do seu controle. [Preparar para a recuperação de desastres](service-fabric-disaster-recovery.md) descreve alguns modos de falha comuns que poderiam ser desastres se não forem modelados e gerenciados corretamente. Ele também aborda atenuações e ações a serem tomadas se um desastre ocorrer mesmo assim.
+Uma parte crítica da prestação de alta disponibilidade é garantir que os serviços possam sobreviver a todos os tipos de falhas. Isto é especialmente importante para falhas que não são planeadas e fora do seu controlo. [Prepare-se para a recuperação](service-fabric-disaster-recovery.md) de desastres descreve alguns modos comuns de falha que podem ser desastres se não forem modelados e geridos corretamente. Também discute atenuações e ações a tomar se um desastre aconteceu de qualquer forma.
 
 ## <a name="production-readiness-checklist"></a>Lista de verificação da preparação de produção
-Seu aplicativo e cluster estão prontos para fazer o tráfego de produção? Antes de implantar o cluster para produção, execute a [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md). Mantenha seu aplicativo e o cluster em execução sem problemas trabalhando nos itens desta lista de verificação. É altamente recomendável que todos esses itens sejam verificados antes de entrar em produção.
+A sua aplicação e cluster estão prontos para tomar tráfego de produção? Antes de implantar o seu cluster para produção, passe pela lista de verificação de [prontidão](service-fabric-production-readiness-checklist.md)de produção . Mantenha a sua aplicação e cluster funcionando sem problemas, trabalhando através dos itens nesta lista de verificação. Recomendamos vivamente que todos estes itens sejam verificados antes de entrarem em produção.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Criar um Cluster Service Fabric executando o Windows](service-fabric-best-practices-overview.md)
-* [Criar um Cluster Service Fabric executando o Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* [Criar um cluster de tecido de serviço que executa janelas](service-fabric-best-practices-overview.md)
+* [Criar um cluster de tecido de serviço executando Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

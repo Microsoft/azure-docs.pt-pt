@@ -5,15 +5,16 @@ services: key-vault
 author: amitbapat
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 870064406c86e9cef6a45dfbe47c61cdaa9ecab0
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 8f483f8d383da1f9ba05eb172db185bec9406c7e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426314"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195163"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configure firewalls e redes virtuais do Cofre de Chaves
 

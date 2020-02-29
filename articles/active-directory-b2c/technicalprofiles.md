@@ -3,20 +3,20 @@ title: TechnicalProfiles
 titleSuffix: Azure AD B2C
 description: Especifique o elemento TechnicalProfiles de uma política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/17/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5dc9bc56ac717d355f0fb0ebcc482430662378ca
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: d4dbe5a62e69f4c30d55fa1318ca79c06640a10f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425617"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186748"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 

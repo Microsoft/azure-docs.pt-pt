@@ -1,19 +1,19 @@
 ---
-title: Usar Python e TensorFlow para aprendizado de máquina no Azure
+title: Use Python e TensorFlow para machine learning em Azure
 description: Utilize as funções Python, TensorFlow e Azure com um modelo de aprendizagem automática para classificar uma imagem com base no seu conteúdo.
 author: anthonychu
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e98655dca7d682e5c42f3b0ae7f26c892bd12377
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c64d87b2430cc1d733a67bbc1e803590a37b1714
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710721"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190777"
 ---
-# <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: aplicar modelos de aprendizado de máquina em Azure Functions com Python e TensorFlow
+# <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de machine learning em funções Azure com Python e TensorFlow
 
 Neste artigo, aprende-se a utilizar as Funções Python, TensorFlow e Azure com um modelo de aprendizagem automática para classificar uma imagem com base nos seus conteúdos. Como todos trabalham localmente e não criam recursos Azure na nuvem, não há qualquer custo para completar este tutorial.
 
@@ -35,7 +35,7 @@ Neste artigo, aprende-se a utilizar as Funções Python, TensorFlow e Azure com 
 1. Numa janela de terminais ou comando, faça `func --version` para verificar se as Ferramentas Core funções Do Azure são a versão 2.7.1846 ou posterior.
 1. Execute `python --version` (Linux/MacOS) ou `py --version` (Windows) para verificar os relatórios da versão Python 3.7.x.
 
-## <a name="clone-the-tutorial-repository"></a>Clonar o repositório do tutorial
+## <a name="clone-the-tutorial-repository"></a>Clone o repositório tutorial
 
 1. Numa janela de terminais ou comando, clone o seguinte repositório utilizando Git:
 
@@ -59,7 +59,7 @@ Neste artigo, aprende-se a utilizar as Funções Python, TensorFlow e Azure com 
 Navegue até *à* pasta inicial e execute os seguintes comandos para criar e ativar um ambiente virtual chamado `.venv`. Certifique-se de utilizar python 3.7, que é suportado por Funções Azure.
 
 
-# <a name="bashtabbash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```bash
 cd start
@@ -79,7 +79,7 @@ Se python não instalou o pacote de veado na sua distribuição Linux, execute o
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -93,7 +93,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 cd start
@@ -133,7 +133,7 @@ Nas Funções Azure, um projeto de função é um recipiente para uma ou mais fu
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando cria uma pasta que corresponde ao nome da função, *classifica.* Nessa pasta encontram-se dois ficheiros: *\_\_inite\_\_.py*, que contém o código de função, e *função.json*, que descreve o gatilho da função e as suas encadernações de entrada e saída. Para obter informações sobre o conteúdo destes ficheiros, consulte [Criar uma função DE Python ativada em Http em Azure - Examine o conteúdo do ficheiro](functions-create-first-function-python.md#optional-examine-the-file-contents).
+    Este comando cria uma pasta que corresponde ao nome da função, *classifica.* Nessa pasta encontram-se dois ficheiros: *\_\_inite\_\_.py*, que contém o código de função, e *função.json*, que descreve o gatilho da função e as suas encadernações de entrada e saída. Para obter informações sobre o conteúdo destes ficheiros, consulte [Examinar o conteúdo do ficheiro](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) no arranque rápido da Python.
 
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
@@ -158,19 +158,19 @@ Para modificar a função `classify` para classificar uma imagem com base no seu
 
 1. Na pasta *inicial,* executar o comando seguinte para copiar os ficheiros do modelo na pasta *de classificação.* Certifique-se de incluir `\*` no comando. 
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     cp ../resources/model/* classify
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\model\* classify
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     copy ..\resources\model\* classify
@@ -182,19 +182,19 @@ Para modificar a função `classify` para classificar uma imagem com base no seu
 
 1. Na pasta *inicial,* execute o seguinte comando para copiar um ficheiro com código de ajudante na pasta *de classificação:*
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     cp ../resources/predict.py classify
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\predict.py classify
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     copy ..\resources\predict.py classify
@@ -235,7 +235,7 @@ Para modificar a função `classify` para classificar uma imagem com base no seu
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="8-19":::
 
-    Esta função recebe um URL de imagem num parâmetro de corda de consulta chamado `img`. Em seguida, chama `predict_image_from_url` da biblioteca de ajudantes para descarregar e classificar a imagem usando o modelo TensorFlow. Em seguida, a função retorna uma resposta HTTP com os resultados. 
+    Esta função recebe um URL de imagem num parâmetro de corda de consulta chamado `img`. Em seguida, chama `predict_image_from_url` da biblioteca de ajudantes para descarregar e classificar a imagem usando o modelo TensorFlow. A função devolve então uma resposta HTTP com os resultados. 
 
     > [!IMPORTANT]
     > Como este ponto final http é chamado por uma página web hospedada em outro domínio, a resposta inclui um cabeçalho `Access-Control-Allow-Origin` para satisfazer os requisitos de Partilha de Recursos De Origem Cruzada (CORS) do navegador.
@@ -266,19 +266,19 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
 
 1. Inicie um servidor HTTP com Python:
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```bash 
     python -m http.server
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server
     ```
 
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
 
     ```cmd
     py -m http.server
@@ -293,7 +293,7 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
     
 1. Selecione **Submeter** para invocar o ponto final da função para classificar a imagem.
 
-    ![Captura de tela do projeto concluído](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
+    ![Screenshot do projeto acabado](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
 
     Se o navegador reportar um erro ao submeter o URL de imagem, verifique o terminal em que está a executar a aplicação de funções. Se vir um erro como "Nenhum módulo encontrado 'PIL'", pode ter iniciado a aplicação de funções na *pasta* inicial sem antes ativar o ambiente virtual que criou anteriormente. Se ainda vir erros, volte a `pip install -r requirements.txt` com o ambiente virtual ativado e procure erros.
 
@@ -304,9 +304,9 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
 
 Como todo este tutorial funciona localmente na sua máquina, não existem recursos ou serviços Azure para limpar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a construir e personalizar um ponto final http API com funções Azure para classificar imagens usando um modelo TensorFlow. Também aprendeu a chamar a API de uma aplicação web. Você pode usar as técnicas deste tutorial para criar APIs de qualquer complexidade, tudo durante a execução no modelo de computação sem servidor fornecido pelo Azure Functions.
+Neste tutorial, aprendeu a construir e personalizar um ponto final http API com funções Azure para classificar imagens usando um modelo TensorFlow. Também aprendeu a chamar a API de uma aplicação web. Pode utilizar as técnicas deste tutorial para construir APIs de qualquer complexidade, tudo enquanto executa o modelo de computação sem servidor fornecido pela Azure Functions.
 
 > [!div class="nextstepaction"]
 > [Implementar a função para funções Azure utilizando o Guia CLI Azure](./functions-run-local.md#publish)

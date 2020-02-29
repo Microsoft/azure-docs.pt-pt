@@ -1,40 +1,40 @@
 ---
-title: Exemplos de transformação de declarações JSON para políticas personalizadas
+title: JSON reclama exemplos de transformação para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Exemplos de transformação de declarações JSON para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
+description: A JSON reclama exemplos de transformação para o quadro de experiência de identidade (IEF) do Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56c46b8f2804e37544c94ec2d6ced7e8879b1ffa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367132"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187598"
 ---
-# <a name="json-claims-transformations"></a>Transformações de declarações JSON
+# <a name="json-claims-transformations"></a>JSON reclama transformações
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos de como usar as transformações de declarações JSON do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para a utilização do JSON alega transformações do quadro de experiência de identidade em Azure Ative Directory B2C (Azure AD B2C). Para mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
-## <a name="generatejson"></a>GenerateJson
+## <a name="generatejson"></a>GeraçãoJson
 
-Use valores de declaração ou constantes para gerar uma cadeia de caracteres JSON. A cadeia de caracteres de caminho após a notação de ponto é usada para indicar onde inserir os dados em uma cadeia de caracteres JSON. Após a divisão por pontos, todos os inteiros são interpretados como o índice de uma matriz JSON e não inteiros são interpretados como o índice de um objeto JSON.
+Utilize valores de reivindicação ou constantes para gerar uma cadeia JSON. A cadeia de caminhos que seguem a notação do ponto é utilizada para indicar onde inserir os dados numa cadeia JSON. Após a divisão por pontos, quaisquer inteiros são interpretados como o índice de uma matriz JSON e os não-inteiros são interpretados como o índice de um objeto JSON.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Qualquer cadeia de caracteres após a notação de ponto | string | O JsonPath do JSON em que o valor da declaração será inserido. |
-| InputParameter | Qualquer cadeia de caracteres após a notação de ponto | string | O JsonPath do JSON em que o valor da cadeia de caracteres constante será inserido. |
-| OutputClaim | outputClaim | string | A cadeia de caracteres JSON gerada. |
+| inputClaim | Qualquer notação de corda que se seguisse | string | O JsonPath da JSON onde o valor da reclamação será inserido. |
+| EntradaParametro | Qualquer notação de corda que se seguisse | string | O JsonPath da JSON onde o valor constante da cadeia será inserido. |
+| OutputClaim | outputClaim | string | A cadeia JSON gerada. |
 
-O exemplo a seguir gera uma cadeia de caracteres JSON com base no valor de declaração de "email" e "OTP", bem como cadeias de caracteres constantes.
+O exemplo seguinte gera uma cadeia JSON baseada no valor de reclamação de "e-mail" e "otp" bem como cordas constantes.
 
 ```XML
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
@@ -55,17 +55,17 @@ O exemplo a seguir gera uma cadeia de caracteres JSON com base no valor de decla
 
 ### <a name="example"></a>Exemplo
 
-A transformação declarações a seguir gera uma declaração de cadeia de caracteres JSON que será o corpo da solicitação enviada para SendGrid (um provedor de email de terceiros). A estrutura do objeto JSON é definida pelas IDs na notação de ponto de InputParameters e TransformationClaimTypes do InputClaims. Os números na notação de ponto implicam matrizes. Os valores são provenientes dos valores de InputClaims e das propriedades de "valor" de InputParameters.
+As seguintes receitas de transformação de sinistros uma reivindicação de cadeia JSON que será o corpo do pedido enviado à SendGrid (um fornecedor de e-mail de terceiros). A estrutura do objeto JSON é definida pelos IDs na notação de pontos dos InputParameters e pelos Tipos de Reclamações de Transformação das InputClaims. Os números na notação do ponto implicam matrizes. Os valores provêm dos valores dos InputClaims e das propriedades "Valor" dos InputParameters.
 
-- Declarações de entrada:
-  - **email**, personalizações de tipo de Declaração **de transformação. 0. para. 0. email**: "someone@example.com"
-  - **OTP**, as personalizações de tipo de declaração de transformação **. 0. dynamic_template_data. OTP** "346349"
+- Créditos de entrada:
+  - **e-mail**, transformação reivindicação tipo **personalizações.0.to.0.email**: "someone@example.com"
+  - **otp**, transformação reivindicações tipo **personalizações.0.dynamic_template_data.otp** "346349"
 - Parâmetro de entrada:
-  - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
-  - **de. email**: "service@contoso.com"
-  - **personalizações. 0. assunto** "código de verificação de email da conta contoso"
-- Declaração de saída:
-  - **requestBody**: valor JSON
+  - **template_id**: "d-4c56ffb40fa648b1aa682283df94f60"
+  - **from.email**: "service@contoso.com"
+  - **personalizações.0.sujeito** "Código de verificação de email saquetado"
+- Reivindicação de saída:
+  - **requestBody**: Valor JSON
 
 ```JSON
 {
@@ -92,15 +92,15 @@ A transformação declarações a seguir gera uma declaração de cadeia de cara
 
 ## <a name="getclaimfromjson"></a>GetClaimFromJson
 
-Obter um elemento especificado de dados JSON.
+Obtenha um elemento especificado a partir de um dado JSON.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | string | Os ClaimTypes que são usados pela transformação de declarações para obter o item. |
-| InputParameter | claimToExtract | string | o nome do elemento JSON a ser extraído. |
-| OutputClaim | extractedClaim | string | O ClaimType que é produzido após essa transformação de declarações foi invocado, o valor do elemento especificado no parâmetro de entrada _claimToExtract_ . |
+| inputClaim | inputJson | string | Os Tipos de Reclamação que são utilizados pela transformação de sinistros para obter o item. |
+| EntradaParametro | claimToExtract | string | o nome do elemento JSON a extrair. |
+| OutputClaim | extractedClaim | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado, o valor do elemento especificado no parâmetro de entrada _claimToExtract._ |
 
-No exemplo a seguir, a transformação declarações extraiu o elemento `emailAddress` dos dados JSON: `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
+No exemplo seguinte, a transformação de sinistros extraiu o elemento `emailAddress` dos dados da JSON: `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
 ```XML
 <ClaimsTransformation Id="GetEmailClaimFromJson" TransformationMethod="GetClaimFromJson">
@@ -118,28 +118,28 @@ No exemplo a seguir, a transformação declarações extraiu o elemento `emailAd
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
-  - **inputJson**: {"EmailAddress": "someone@example.com", "DisplayName": "alguém"}
+- Créditos de entrada:
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
 - Parâmetro de entrada:
-    - **claimToExtract**: EmailAddress
-- Declarações de saída:
-  - **extractedClaim**: someone@example.com
+    - **reivindicaçãoToExtrair**: endereço de e-mail
+- Alegações de saída:
+  - **extractida :** someone@example.com
 
 
 ## <a name="getclaimsfromjsonarray"></a>GetClaimsFromJsonArray
 
-Obter uma lista de elementos especificados de dados JSON.
+Obtenha uma lista de elementos especificados a partir de dados da Json.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | jsonSourceClaim | string | Os ClaimTypes que são usados pela transformação de declarações para obter as declarações. |
-| InputParameter | errorOnMissingClaims | boolean | Especifica se um erro deve ser gerado se uma das declarações estiver ausente. |
-| InputParameter | includeEmptyClaims | string | Especifique se deseja incluir declarações vazias. |
-| InputParameter | jsonSourceKeyName | string | Nome da chave do elemento |
-| InputParameter | jsonSourceValueName | string | Nome do valor do elemento |
-| OutputClaim | Coleção | Cadeia de caracteres, int, booliano e DateTime |Lista de declarações a serem extraídas. O nome da declaração deve ser igual ao especificado na declaração de entrada _jsonSourceClaim_ . |
+| inputClaim | jsonSourceClaim | string | Os Tipos de Reclamação que são utilizados pela transformação de sinistros para obter as reclamações. |
+| EntradaParametro | errorOnMissingClaims | boolean | Especifica se deve lançar um erro se falta uma das reclamações. |
+| EntradaParametro | includeEmptyClaims | string | Especifique se deve incluir reclamações vazias. |
+| EntradaParametro | jsonSourceKeyName | string | Nome da chave do elemento |
+| EntradaParametro | jsonSourceValueName | string | Nome do valor do elemento |
+| OutputClaim | Coleção | corda, int, boolean, e data |Lista de alegações a extrair. O nome da reclamação deve ser igual ao especificado na alegação de entrada _jsonSourceClaim._ |
 
-No exemplo a seguir, a transformação declarações extrai as seguintes declarações: email (cadeia de caracteres), displayName (cadeia de caracteres), membershipNum (int), ativo (booliano) e DataDeNascimento (DateTime) dos dados JSON.
+No exemplo seguinte, a transformação de sinistros extrai as seguintes alegações: e-mail (string), displayName (string), membershipNum (int), ative (boolean) e data de nascimento (data de data) dos dados jSON.
 
 ```JSON
 [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
@@ -166,31 +166,31 @@ No exemplo a seguir, a transformação declarações extrai as seguintes declara
 </ClaimsTransformation>
 ```
 
-- Declarações de entrada:
-  - **jsonSourceClaim**: [{"Key": "email", "value": "someone@example.com"}, {"Key": "DisplayName", "value": "alguém"}, {"Key": "membershipNum", "value": 6353399}, {"Key": "active", "value": true}, {"Key": "BirthDate", "value": "1980-09-23T00:00:00Z"}]
+- Créditos de entrada:
+  - **jsonSourceClaim**: [{"key":"email","valor":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key""membershipNum,"value":6353399}, {"key":"ative","value": true}, {"key":"data de nascimento","valor":"1980-09-23T00:00:00:00"}"}
 - Parâmetros de entrada:
-    - **errorOnMissingClaims**: false
-    - **includeEmptyClaims**: false
-    - **jsonSourceKeyName**: key
-    - **jsonSourceValueName**: value
-- Declarações de saída:
-  - **email**: "someone@example.com"
-  - **DisplayName**: "alguém"
-  - **membershipNum**: 6353399
+    - **errorOnMissingClaims**: falso
+    - **incluir EmptyClaims**: falso
+    - **jsonSourceKeyName**: chave
+    - **jsonSourceValueName**: valor
+- Alegações de saída:
+  - **e-mail**: "someone@example.com"
+  - **nome do ecrã**: "Alguém"
+  - **membrosNo:** 6353399
   - **ativo**: verdadeiro
-  - **DataDeNascimento**: 1980-09-23T00:00:00Z
+  - **data**de nascimento : 1980-09-23T00:00:00Z
 
 ## <a name="getnumericclaimfromjson"></a>GetNumericClaimFromJson
 
-Obtém um elemento numérico (longo) especificado de um dado JSON.
+Obtém um elemento numérico (longo) especificado a partir de um dado JSON.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | string | Os ClaimTypes que são usados pela transformação de declarações para obter a declaração. |
-| InputParameter | claimToExtract | string | O nome do elemento JSON a ser extraído. |
-| OutputClaim | extractedClaim | longa | O ClaimType que é produzido após esse ClaimsTransformation foi invocado, o valor do elemento especificado nos parâmetros de entrada _claimToExtract_ . |
+| inputClaim | inputJson | string | Os Tipos de Reclamação que são utilizados pela transformação de sinistros para obter a reclamação. |
+| EntradaParametro | claimToExtract | string | O nome do elemento JSON para extrair. |
+| OutputClaim | extractedClaim | longa | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado, o valor do elemento especificado nos parâmetros de entrada _do claimToExtract._ |
 
-No exemplo a seguir, a transformação declarações extrai o elemento `id` dos dados JSON.
+No exemplo seguinte, a transformação de sinistros extrai o elemento `id` dos dados jSON.
 
 ```JSON
 {
@@ -216,23 +216,23 @@ No exemplo a seguir, a transformação declarações extrai o elemento `id` dos 
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
-  - **inputJson**: {"EmailAddress": "someone@example.com", "DisplayName": "alguém", "ID": 6353399}
+- Créditos de entrada:
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
 - Parâmetros de entrada
-    - **claimToExtract**: ID
-- Declarações de saída:
-    - **extractedClaim**: 6353399
+    - **reivindicaçãoToExtrair**: id
+- Alegações de saída:
+    - **extractida:** 6353399
 
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray
 
-Obtém o primeiro elemento de uma matriz de dados JSON.
+Obtém o primeiro elemento de uma matriz de dados DaJSON.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJsonClaim | string | Os ClaimTypes que são usados pela transformação de declarações para obter o item da matriz JSON. |
-| OutputClaim | extractedClaim | string | O ClaimType que é produzido após esse ClaimsTransformation foi invocado, o primeiro elemento na matriz JSON. |
+| inputClaim | inputJsonClaim | string | Os Tipos de Reclamação que são utilizados pela transformação de sinistros para obter o item da matriz JSON. |
+| OutputClaim | extractedClaim | string | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado, o primeiro elemento na matriz JSON. |
 
-No exemplo a seguir, a transformação declarações extrai o primeiro elemento (endereço de email) da matriz JSON `["someone@example.com", "Someone", 6353399]`.
+No exemplo seguinte, a transformação de sinistros extrai o primeiro elemento (endereço de e-mail) da matriz JSON `["someone@example.com", "Someone", 6353399]`.
 
 ```XML
 <ClaimsTransformation Id="GetEmailFromJson" TransformationMethod="GetSingleValueFromJsonArray">
@@ -247,19 +247,19 @@ No exemplo a seguir, a transformação declarações extrai o primeiro elemento 
 
 ### <a name="example"></a>Exemplo
 
-- Declarações de entrada:
-  - **inputJsonClaim**: ["someone@example.com", "alguém", 6353399]
-- Declarações de saída:
-  - **extractedClaim**: someone@example.com
+- Créditos de entrada:
+  - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
+- Alegações de saída:
+  - **extractida :** someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 
-Converte dados XML em formato JSON.
+Converte os dados XML para o formato JSON.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | xml | string | Os ClaimTypes que são usados pela transformação de declarações para converter os dados de XML para o formato JSON. |
-| OutputClaim | json | string | O ClaimType que é produzido após esse ClaimsTransformation foi invocado, os dados no formato JSON. |
+| inputClaim | xml | string | Os Tipos de Reclamação que são utilizados pela transformação de sinistros para converter os dados do formato XML para jSON. |
+| OutputClaim | json | string | O ClaimType que é produzido após esta Transformação de Reclamações foi invocado, os dados em formato JSON. |
 
 ```XML
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">
@@ -272,10 +272,10 @@ Converte dados XML em formato JSON.
 </ClaimsTransformation>
 ```
 
-No exemplo a seguir, a transformação declarações converte os seguintes dados XML no formato JSON.
+No exemplo seguinte, a transformação de sinistros converte os seguintes dados XML para o formato JSON.
 
 #### <a name="example"></a>Exemplo
-Declaração de entrada:
+Pedido de entrada:
 
 ```XML
 <user>
@@ -284,7 +284,7 @@ Declaração de entrada:
 </user>
 ```
 
-Declaração de saída:
+Reivindicação de saída:
 
 ```JSON
 {

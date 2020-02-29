@@ -1,130 +1,131 @@
 ---
-title: Introdução aos certificados Key Vault
-description: Os cenários a seguir descrevem vários dos usos principais do serviço de gerenciamento de certificados de Key Vault, incluindo as etapas adicionais necessárias para criar seu primeiro certificado no cofre de chaves.
+title: Começar com certificados key vault
+description: Os seguintes cenários descrevem vários dos principais usos do serviço de gestão de certificados da Key Vault, incluindo os passos adicionais necessários para a criação do seu primeiro certificado no seu cofre chave.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b6a44bc31e21a63b12a0d06c537cc026ed77e386
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 32a453678fe3702fcb4b77f0b04a8ed5c889ef59
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832860"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197628"
 ---
-# <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados Key Vault
-Os cenários a seguir descrevem vários dos usos principais do serviço de gerenciamento de certificados de Key Vault, incluindo as etapas adicionais necessárias para criar seu primeiro certificado no cofre de chaves.
+# <a name="get-started-with-key-vault-certificates"></a>Começar com certificados key vault
+Os seguintes cenários descrevem vários dos principais usos do serviço de gestão de certificados da Key Vault, incluindo os passos adicionais necessários para a criação do seu primeiro certificado no seu cofre chave.
 
-Os itens a seguir são descritos:
-- Criando seu primeiro certificado de Key Vault
-- Criando um certificado com uma autoridade de certificação que é parceira com Key Vault
-- Criando um certificado com uma autoridade de certificação que não é parceira com Key Vault
+São delineados os seguintes:
+- Criando o seu primeiro certificado key vault
+- Criação de um certificado com uma Autoridade de Certificados que é parceira da Key Vault
+- Criação de um certificado com uma Autoridade de Certificados que não seja parceira da Key Vault
 - Importar um certificado
 
 ## <a name="certificates-are-complex-objects"></a>Os certificados são objetos complexos
-Os certificados são compostos por três recursos inter-relacionados vinculados como um certificado de Key Vault; metadados de certificado, uma chave e um segredo.
+Os certificados são compostos por três recursos interligados ligados entre si como certificado key vault; metadados de certificados, uma chave, e um segredo.
 
 
 ![Os certificados são complexos](media/azure-key-vault.png)
 
 
-## <a name="creating-your-first-key-vault-certificate"></a>Criando seu primeiro certificado de Key Vault  
- Antes que um certificado possa ser criado em um Key Vault (KV), as etapas de pré-requisito 1 e 2 devem ser realizadas com êxito e um cofre de chaves deve existir para este usuário/organização.  
+## <a name="creating-your-first-key-vault-certificate"></a>Criando o seu primeiro certificado key vault  
+ Antes de um certificado poder ser criado num Cofre chave (KV), os passos 1 e 2 pré-requisitos devem ser realizados com sucesso e deve existir um cofre chave para este utilizador/organização.  
 
-**Etapa 1** -provedores de autoridade de certificação (CA)  
--   Integração como administrador de ti, administrador PKI ou qualquer pessoa que gerencia contas com CAs, para uma determinada empresa (por exemplo, Contoso) é um pré-requisito para usar Key Vault certificados.  
-    As seguintes CAs são os provedores parceiros atuais com Key Vault:  
-    -   O DigiCert-Key Vault oferece certificados OV TLS/SSL com DigiCert.  
-    -   O GlobalSign-Key Vault oferece certificados OV TLS/SSL com GlobalSign.  
+**Passo 1** - Prestadores da Autoridade de Certificados (CA)  
+-   Embarque como administrador de TI, Administrador PKI ou qualquer pessoa que gere contas com CA, para uma determinada empresa (ex. Contoso) é um pré-requisito para a utilização de certificados key vault.  
+    Os seguintes CA são os atuais fornecedores parceiros com a Key Vault:  
+    -   DigiCert - Key Vault oferece certificados OV TLS/SSL com DigiCert.  
+    -   GlobalSign - Key Vault oferece certificados OV TLS/SSL com GlobalSign.  
 
-**Etapa 2** -um administrador de conta para um provedor de autoridade de certificação cria credenciais a serem usadas pelo Key Vault para registrar, renovar e usar certificados TLS/SSL via Key Vault.
+**Passo 2** - Um administrador de conta para um fornecedor de CA cria credenciais a utilizar pela Key Vault para inscrever, renovar e utilizar certificados TLS/SSL via Key Vault.
 
-**Etapa 3** -um administrador da Contoso, junto com um funcionário da contoso (Key Vault usuário) que possui certificados, dependendo da autoridade de certificação, pode obter um certificado do administrador ou diretamente da conta com a autoridade de certificação.  
+**Passo 3** - Um administrador da Contoso, juntamente com um funcionário da Contoso (utilizador do Key Vault) que possua certificados, dependendo da AC, pode obter um certificado do administrador ou diretamente da conta com a AC.  
 
-- Inicie uma operação de adição de credencial em um cofre de chaves [definindo um recurso de emissor de certificado](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) . Um emissor de certificado é uma entidade representada em Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.
+- Inicie uma operação de credencial adicionada a um cofre [chave, definindo um](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) recurso emissor de certificado. Um emitente de certificado é uma entidade representada no Cofre chave azure (KV) como recurso CertificateIssuer. É utilizado para fornecer informações sobre a origem de um certificado KV; nome emitente, fornecedor, credenciais e outros detalhes administrativos.
   - Ex. MyDigiCertIssuer  
     -   Fornecedor  
-    -   Credenciais – credenciais da conta de CA. Cada CA tem seus próprios dados específicos.  
+    -   Credenciais – Credenciais de conta CA. Cada AC tem os seus próprios dados específicos.  
 
-    Para obter mais informações sobre como criar contas com provedores de autoridade de certificação, consulte a postagem relacionada no [blog de Key Vault](https://aka.ms/kvcertsblog).  
+    Para obter mais informações sobre a criação de contas com fornecedores ca, consulte a publicação relacionada no [blog Key Vault](https://aka.ms/kvcertsblog).  
 
-**Etapa 3,1** -configurar os [contatos de certificado](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contato para o usuário Key Vault. Key Vault não impõe essa etapa.  
+**Passo 3.1** - Configurar contactos de [certificados](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contacto para o utilizador do Cofre chave. O Cofre chave não aplica este passo.  
 
-Observação-esse processo, por meio da etapa 3,1, é uma operação de OneTime.  
+Nota - Este processo, através do passo 3.1, é uma operação única.  
 
-## <a name="creating-a-certificate-with-a-ca-partnered-with-key-vault"></a>Criando um certificado com uma autoridade de certificação parceira com Key Vault
+## <a name="creating-a-certificate-with-a-ca-partnered-with-key-vault"></a>Criação de um certificado com uma AC em parceria com o Key Vault
 
-![Criar um certificado com uma autoridade de certificação Key Vault parceria](media/certificate-authority-2.png)
+![Criar um certificado com uma autoridade de certificados parceira da Key Vault](media/certificate-authority-2.png)
 
-**Etapa 4** -as descrições a seguir correspondem às etapas numeradas verdes no diagrama anterior.  
-  (1)-no diagrama acima, seu aplicativo está criando um certificado que começa internamente criando uma chave no cofre de chaves.  
-  (2)-Key Vault envia uma solicitação de certificado TLS/SSL para a autoridade de certificação.  
-  (3)-seu aplicativo pesquisa, em um loop e espera processo, para sua Key Vault para a conclusão do certificado. A criação do certificado é concluída quando o Key Vault receber a resposta da AC com o certificado x509.  
-  (4)-a autoridade de certificação responde à solicitação de certificado TLS/SSL de Key Vault com um certificado de TLS/SSL X509.  
-  (5)-a nova criação de certificado é concluída com a fusão do certificado X509 para a autoridade de certificação.  
+**Passo 4** - As seguintes descrições correspondem aos passos numerados verdes no diagrama anterior.  
+  (1) - No diagrama acima, a sua aplicação está a criar um certificado que começa internamente por criar uma chave no seu cofre chave.  
+  (2) - O Cofre-Chave envia um Pedido de Certificado TLS/SSL para a AC.  
+  (3) - As suas sondagens de candidatura, num processo de loop e espera, para o seu Cofre Chave para a conclusão do certificado. A criação do certificado fica completa quando a Key Vault recebe a resposta da AC com certificado x509.  
+  (4) - A AC responde ao pedido de certificado TLS/SSL da Key Vault com um Certificado X509 TLS/SSL.  
+  (5) - A sua nova criação de certificado completa com a fusão do Certificado X509 para a AC.  
 
-  Key Vault usuário – cria um certificado especificando uma política
+  Utilizador chave Vault - cria um certificado especificando uma política
 
-  -   Repetir conforme necessário  
-  -   Restrições de política  
+  -   Repita conforme necessário  
+  -   Restrições políticas  
       -   Propriedades X509  
       -   Propriedades da chave  
-      -   Referência do provedor-> ex. MyDigiCertIssure  
-      -   Informações de renovação-> ex. 90 dias antes da expiração  
+      -   Referência do fornecedor - > ex. MyDigiCertIssure  
+      -   Informação de renovação - > ex. 90 dias antes do termo  
 
-  - Um processo de criação de certificado geralmente é um processo assíncrono e envolve a sondagem do cofre de chaves para o estado da operação criar certificado.  
-[Operação de obtenção de certificado](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
-      -   Status: concluído, falha com informações de erro ou cancelado  
-      -   Devido ao atraso a ser criado, uma operação de cancelamento pode ser iniciada. O cancelamento pode ou não ser eficaz.  
+  - Um processo de criação de certificadoé geralmente um processo assíncrono e envolve a sondagem do seu cofre chave para o estado da operação de certificado de criação.  
+[Obter operação de certificado](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
+      -   Estado: concluído, falhado com informações de erro ou, cancelado  
+      -   Devido ao atraso na criação, pode ser iniciada uma operação de cancelamento. O cancelamento pode ou não ser eficaz.  
 
 ## <a name="import-a-certificate"></a>Importar um certificado  
- Como alternativa – um certificado pode ser importado para Key Vault – PFX ou PEM.  
+ Alternativamente – um certificado pode ser importado para Key Vault – PFX ou PEM.  
 
- Para obter mais informações sobre o formato PEM, consulte a seção certificados de [sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md).  
+ Para obter mais informações sobre o formato PEM, consulte a secção de certificados de [Sobre chaves, segredos e certificados.](about-keys-secrets-and-certificates.md)  
 
- Importar certificado – requer que um PEM ou PFX esteja no disco e tenha uma chave privada. 
--   Você deve especificar: nome do cofre e nome do certificado (a política é opcional)
+ Certificado de importação – requer que um PEM ou PFX esteja em disco e tenha uma chave privada. 
+-   Deve especificar: nome do cofre e nome do certificado (a política é opcional)
 
--   Os arquivos PEM/PFX contêm atributos que o KV pode analisar e usar para popular a política de certificado. Se uma política de certificado já estiver especificada, o KV tentará corresponder os dados do arquivo PFX/PEM.  
+-   Os ficheiros PEM/PFX contêm atributos que o KV pode analisar e usar para preencher a política de certificados. Se uma política de certificado já estiver especificada, a KV tentará comparar os dados do ficheiro PFX/PEM.  
 
--   Depois que a importação for final, as operações subsequentes usarão a nova política (novas versões).  
+-   Uma vez que a importação seja final, as operações subsequentes utilizarão a nova política (novas versões).  
 
--   Se não houver nenhuma outra operação, a primeira coisa que o Key Vault faz é enviar um aviso de expiração. 
+-   Se não houver mais operações, a primeira coisa que o Cofre chave faz é enviar um aviso de validade. 
 
--   Além disso, o usuário pode editar a política, que é funcional no momento da importação, mas contém padrões em que nenhuma informação foi especificada na importação. Ex. nenhuma informação do emissor  
+-   Além disso, o utilizador pode editar a política, que é funcional no momento da importação, mas contém incumprimentos em que nenhuma informação foi especificada na importação. Ex. nenhuma informação emitente  
 
-### <a name="formats-of-import-we-support"></a>Formatos de importação para os quais damos suporte
-Damos suporte ao seguinte tipo de importação para o formato de arquivo PEM. Um único certificado codificado por PEM junto com uma chave codificada e não criptografada PKCS # 8 que tem o seguinte
+### <a name="formats-of-import-we-support"></a>Formatos de Importação que apoiamos
+Apoiamos o seguinte tipo de Importação para o formato de ficheiro PEM. Um único certificado codificado pEM juntamente com uma chave codificada e não encriptada PKCS#8 que tem o seguinte
 
------INICIAR CERTIFICADO----------FIM DO CERTIFICADO-----
+-----CERTIFICADO ----- -----FIM CERTIFICADODEDEDEDEDEDE-----
 
------INICIAR CHAVE PRIVADA----------ENCERRAR CHAVE PRIVADA-----
+-----BEGIN CHAVE PRIVADA----- -----CHAVE PRIVADA-----
 
-Na mesclagem de certificados, damos suporte a dois formatos baseados em PEM. Você pode mesclar um único certificado codificado PKCS # 8 ou um arquivo P7B codificado em base64. -----INICIAR CERTIFICADO----------FIM DO CERTIFICADO-----
+Na fusão de certificados suportamos 2 formatos baseados em PEM. Pode fundir um único certificado codificado PKCS#8 ou um ficheiro P7B codificado com base64. -----CERTIFICADO ----- -----FIM CERTIFICADODEDEDEDEDEDE-----
 
-No momento, não há suporte para chaves do EC no formato PEM.
+Atualmente não suportamos chaves EC em formato PEM.
 
-## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Criando um certificado com uma AC não parceira com Key Vault  
- Esse método permite trabalhar com outras CAs do que os provedores parceiros de Key Vault, o que significa que sua organização pode trabalhar com uma CA de sua escolha.  
+## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Criar um certificado com um CA não em parceria com o Key Vault  
+ Este método permite trabalhar com outros CAs que não os fornecedores parceiros da Key Vault, o que significa que a sua organização pode trabalhar com um CA à sua escolha.  
 
-![Criar um certificado com sua própria autoridade de certificação](media/certificate-authority-1.png)  
+![Crie um certificado com a sua própria autoridade de certificados](media/certificate-authority-1.png)  
 
- As descrições de etapa a seguir correspondem às etapas de letra verde no diagrama anterior.  
+ As seguintes descrições do passo correspondem aos passos com letras verdes no diagrama anterior.  
 
-  (1)-no diagrama acima, seu aplicativo está criando um certificado, que é iniciado internamente pela criação de uma chave no cofre de chaves.  
+  (1) - No diagrama acima, a sua aplicação está a criar um certificado, que começa internamente por criar uma chave no seu cofre chave.  
 
-  (2)-Key Vault retorna ao seu aplicativo uma solicitação de assinatura de certificado (CSR).  
+  (2) - O Cofre-Chave devolve à sua aplicação um Pedido de Assinatura de Certificado (CSR).  
 
-  (3)-seu aplicativo passa o CSR para a autoridade de certificação escolhida.  
+  (3) - A sua candidatura passa a RSE para a sua CA escolhida.  
 
-  (4)-a autoridade de certificação escolhida responde com um certificado X509.  
+  (4) - A sua CA escolhida responde com um Certificado X509.  
 
-  (5)-o aplicativo conclui a criação do novo certificado com uma fusão do certificado X509 de sua autoridade de certificação.
+  (5) - O seu pedido completa a criação do novo certificado com uma fusão do Certificado X509 da sua CA.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Veja Também
 
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

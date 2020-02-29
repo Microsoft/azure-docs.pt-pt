@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: 743c6fa6545342f2a7655059016637fc54158b64
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: e7708b0043b7f5baf2c12e813306595cc358a01d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164020"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194059"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use Python e IA para gerar conteúdo pesquisável a partir de blobs Azure
 
 Se tiver texto ou imagens não estruturadas no armazenamento do Azure Blob, um pipeline de enriquecimento de [IA](cognitive-search-concept-intro.md) pode extrair informações e criar novos conteúdos que são úteis para cenários de pesquisa de texto completo ou de mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial python foca-se no texto, aplicando a deteção de linguagem e processamento de linguagem natural para criar novos campos que você pode alavancar em consultas, facetas e filtros.
 
-Neste tutorial, utilize Python e [REST](https://docs.microsoft.com/rest/api/searchservice/) para executar as seguintes tarefas:
+Este tutorial utiliza a Python e as [APIs](https://docs.microsoft.com/rest/api/searchservice/) de Repouso de Pesquisa para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Comece com documentos inteiros (texto não estruturado) tais como PDF, HTML, DOCX e PPTX no armazenamento azure Blob.
@@ -512,19 +512,13 @@ Pode utilizar GET ou POST, dependendo da complexidade da cadeia de consulta e do
 
 ## <a name="reset-and-rerun"></a>Repor e executar novamente
 
-Nas fases iniciais do desenvolvimento, é prático apagar objetos da Pesquisa Cognitiva Azure e permitir que o seu código os reconstrua. Os nomes dos recursos são exclusivos. Quando elimina um objeto, pode recriá-lo com o mesmo nome.
+Nas fases experimentais iniciais de desenvolvimento, a abordagem mais prática para a iteração do design é apagar os objetos da Pesquisa Cognitiva Azure e permitir que o seu código os reconstrua. Os nomes dos recursos são exclusivos. Quando elimina um objeto, pode recriá-lo com o mesmo nome.
 
-Para reindexar os seus documentos com as novas definições:
-
-1. Elimine o indexador, índice e habilidade.
-2. Modificar definições de objetos.
-3. Recrie objetos ao seu serviço. Recriar o indexante gere o oleoduto. 
-
-Pode utilizar o portal para eliminar índices, indexadores e habilidades. Ao eliminar o indexante, pode eliminar opcionalmente, seletivamente, o índice, a skillset e a fonte de dados ao mesmo tempo.
+Pode utilizar o portal para eliminar índices, indexadores, fontes de dados e competências. Ao eliminar o indexante, pode eliminar opcionalmente, seletivamente, o índice, a skillset e a fonte de dados ao mesmo tempo.
 
 ![Eliminar objetos de pesquisa](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Eliminar objetos de pesquisa no portal")
 
-Também pode eliminá-los usando um script. O seguinte script eliminará a habilidade que criamos. Pode modificar facilmente o pedido de eliminação do índice, indexador e fonte de dados.
+Também pode eliminá-los usando um script. O seguinte guião mostra como eliminar uma habilidade. 
 
 ```python
 # delete the skillset
@@ -545,11 +539,13 @@ Finalmente, aprendeu a testar os resultados e a redefinir o sistema para mais it
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A forma mais rápida de limpar depois de um tutorial é apagando o grupo de recursos que contém o serviço de Pesquisa Cognitiva Azure e o serviço Azure Blob. Assumindo que coloca ambos os serviços no mesmo grupo, apague o grupo de recursos para apagar permanentemente tudo o que nele está, incluindo os serviços e qualquer conteúdo armazenado que tenha criado para este tutorial. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
+Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+
+Pode encontrar e gerir recursos no portal, utilizando a ligação De Todos os recursos ou grupos de Recursos no painel de navegação à esquerda.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu.
+Agora que está familiarizado com todos os objetos num oleoduto de enriquecimento de IA, vamos ver mais de perto as definições de habilidades e habilidades individuais.
 
 > [!div class="nextstepaction"]
-> [Exemplo: Criar uma habilidade personalizada para enriquecimento de IA](cognitive-search-create-custom-skill-example.md)
+> [Como criar uma habilidade](cognitive-search-defining-skillset.md)

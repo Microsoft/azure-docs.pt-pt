@@ -1,24 +1,24 @@
 ---
-title: Adicionar um aplicativo cliente nativo-Azure Active Directory B2C | Microsoft Docs
-description: Saiba como adicionar um aplicativo cliente nativo ao seu locatário Active Directory B2C.
+title: Adicione uma aplicação de cliente nativo - Azure Ative Directory B2C  Microsoft Docs
+description: Saiba como adicionar uma aplicação de cliente nativo ao seu inquilino Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 07c34b4cb794fa6636a8eb17eb2c4dfdf816ff5d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b05e2eaa71b99db1979f9575d59580238e8fe093
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474940"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190250"
 ---
-# <a name="add-a-native-client-application-to-your-azure-active-directory-b2c-tenant"></a>Adicionar um aplicativo cliente nativo ao seu locatário do Azure Active Directory B2C
+# <a name="add-a-native-client-application-to-your-azure-active-directory-b2c-tenant"></a>Adicione uma aplicação de cliente nativo ao seu inquilino Azure Ative Directory B2C
 
-Os recursos nativos do cliente precisam ser registrados em seu locatário antes que seu aplicativo possa se comunicar com Azure Active Directory B2C.
+Os recursos dos clientes nativos precisam de ser registados no seu inquilino antes que a sua candidatura possa comunicar com o Azure Ative Directory B2C.
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]

@@ -3,12 +3,12 @@ title: Compreender o bloqueio de recursos
 description: Conheça as opções de bloqueio em Plantas Azure para proteger os recursos ao atribuir uma planta.
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1491af0ddfb0f6f5fbea322bd00dc9838c155983
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919877"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199704"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreenda o bloqueio de recursos em Plantas Azure
 
@@ -83,6 +83,9 @@ O corpo de pedido da atribuição da planta é assim:
 ```
 
 A diferença fundamental neste órgão de pedido e uma a ser atribuída a uma subscrição é a propriedade `properties.scope`. Este imóvel necessário deve ser definido para a subscrição a que a atribuição do projeto se aplica. A subscrição deve ser uma criança direta da hierarquia do grupo de gestão onde a atribuição do projeto está armazenada.
+
+> [!NOTE]
+> Um projeto atribuído ao âmbito do grupo de gestão ainda funciona como uma atribuição de modelo de nível de subscrição. A única diferença é onde a atribuição do projeto é armazenada para impedir que os proprietários de subscrições removam a atribuição e fechaduras associadas.
 
 ## <a name="removing-locking-states"></a>Remoção de estados de bloqueio
 

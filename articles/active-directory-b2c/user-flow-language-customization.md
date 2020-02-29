@@ -2,20 +2,20 @@
 title: Personalização linguística no Diretório Ativo Azure B2C
 description: Aprenda a personalizar a experiência linguística nos fluxos de utilizador.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ab34c1c34c2d2a67b5e3fdd6a5e84f0663455e20
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5b3af812b2b78c276b5345b9b19226e6e1dba80b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847917"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185765"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização linguística no Diretório Ativo Azure B2C
 
@@ -175,7 +175,7 @@ Também pode adicionar idiomas para os quais a Microsoft não fornece atualmente
 >[!IMPORTANT]
 >Tem de ativar os idiomas personalizados ou fazer upload para os mesmos antes de poder economizar.
 
-## <a name="additional-information"></a>Informação adicional
+## <a name="additional-information"></a>Informações adicionais
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>Etiquetas de personalização da página UI como sobreposições
 
@@ -201,7 +201,7 @@ Chrome e Firefox ambos pedem a sua linguagem definida. Se for uma língua apoiad
 
 O Azure AD B2C inclui suporte para as seguintes línguas. Os idiomas de fluxo do utilizador são fornecidos pelo Azure AD B2C. As línguas de notificação de autenticação multifactor (MFA) são fornecidas pelo [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md).
 
-| Linguagem              | Código do idioma | Fluxos do utilizador         | Notificações de MFA  |
+| Idioma              | Código do idioma | Fluxos do utilizador         | Notificações de MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
 | Árabe                | ar            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |
 | Búlgaro             | bg            | ![não](./media/user-flow-language-customization/no.png) | ![sim](./media/user-flow-language-customization/yes.png) |

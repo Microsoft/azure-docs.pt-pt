@@ -3,20 +3,20 @@ title: Configurar o início e iniciar sessão com o OpenID Connect
 titleSuffix: Azure AD B2C
 description: Instale o início e o início de sessão com qualquer fornecedor de identidade OpenID Connect (IdP) no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a7896e0385978c4221edc233c931bad720c60f8a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c72abf79f0a420309ebe229673be9439fd99b74c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847605"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188261"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurar o sign-up e iniciar sessão com o OpenID Connect utilizando o Diretório Ativo Azure B2C
 
@@ -31,7 +31,7 @@ ms.locfileid: "76847605"
 
 ## <a name="configure-the-identity-provider"></a>Configure o fornecedor de identidade
 
-Todos os fornecedores de identidade OpenID Connect descrevem um documento de metadados que contém a maioria das informações necessárias para realizar o sessão. Isso inclui informações como as URLs a serem usadas e o local das chaves de assinatura públicas do serviço. O documento de metadados OpenID Connect está sempre localizado num ponto final que termina em `.well-known\openid-configuration`. Para o fornecedor de identidade OpenID Connect que procura adicionar, introduza o seu URL de metadados.
+Todos os fornecedores de identidade OpenID Connect descrevem um documento de metadados que contém a maioria das informações necessárias para realizar o sessão. Isto inclui informações como os URLs a utilizar e a localização das chaves de assinatura pública do serviço. O documento de metadados OpenID Connect está sempre localizado num ponto final que termina em `.well-known\openid-configuration`. Para o fornecedor de identidade OpenID Connect que procura adicionar, introduza o seu URL de metadados.
 
 ## <a name="client-id-and-secret"></a>ID do cliente e segredo
 

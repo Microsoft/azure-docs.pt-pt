@@ -3,20 +3,20 @@ title: Disponibilidade da região e residência de dados
 titleSuffix: Azure AD B2C
 description: Disponibilidade da região, residência de dados e informações sobre os inquilinos de pré-visualização do Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 532136be69356b634959a762f4eeb1c1c4af5a82
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3df0f581d0d2a1e5ca02202b4eeaede5a1dd5362
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849178"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188855"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Diretório Ativo Azure B2C: Disponibilidade e residência de dados da região
 
@@ -28,7 +28,7 @@ O Azure AD B2C está **geralmente disponível em todo o mundo** com a opção de
 
 [A residência](#data-residency) de dados refere-se ao local onde os dados do utilizador são armazenados.
 
-## <a name="region-availability"></a>Disponibilidade regional
+## <a name="region-availability"></a>Disponibilidade de região
 
 O Azure AD B2C está disponível em todo o mundo através da nuvem pública de Azure.
 
@@ -48,7 +48,7 @@ Os dados residem nos **Estados Unidos** para os seguintes países/regiões:
 
 Os dados residem na **Europa** para os seguintes países/regiões:
 
-> Argélia, Áustria, Azerbaijão, Bahrein, Bielorrússia, Bélgica, Bulgária, Croácia, Chipre, República Checa, Dinamarca, Egito, Estónia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordânia, Cazaquistão, Quénia, Kuwait, Letónia, Líbano, Liechtenstein, Lituânia, Luxemburgo, Macedónia do Norte, Malta, Montenegro, Marrocos, Países Baixos, Nigéria, Noruega, Omã, Paquistão, Polónia, Portugal, Qatar, Roménia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovénia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Emirados Árabes Unidos e Reino Unido.
+> Argélia, Áustria, Azerbaijão, Bahrein, Bielorrússia, Bélgica, Bulgária, Croácia, Chipre, República Checa, Dinamarca, Egito, Estónia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordânia, Cazaquistão, Quénia, Kuwait, Letónia, Líbano, Liechtenstein, Lituânia, Luxemburgo, Macedónia do Norte, Malta, Montenegro, Marrocos, Holanda, Nigéria, Noruega, Omã, Paquistão, Polónia, Portugal, Qatar, Roménia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovénia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Emirados Árabes Unidos e Reino Unido.
 
 Os dados residem na **Ásia-Pacífico** para os seguintes países/regiões:
 

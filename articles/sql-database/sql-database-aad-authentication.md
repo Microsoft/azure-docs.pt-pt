@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory
-description: Saiba mais sobre como usar Azure Active Directory para autenticação com o banco de dados SQL, Instância Gerenciada e SQL Data Warehouse
+description: Saiba como utilizar o Diretório Ativo Azure para autenticação com base de dados SQL, Instância Gerida e Synapse Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,87 +10,88 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 02/20/2019
-ms.openlocfilehash: e0eeb48490c869c4a3b46bfd71fca72e0ab1c2ff
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/05/2020
+tags: azure-synapse
+ms.openlocfilehash: 818337f478a506f80ba87979aa1915d54e6457cf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816543"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193786"
 ---
-# <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usar a autenticação Azure Active Directory para autenticação com o SQL
+# <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Utilize autenticação de diretório ativo Azure para autenticação com SQL
 
-A autenticação Azure Active Directory é um mecanismo de conexão com o [banco de dados SQL](sql-database-technical-overview.md)do azure, [instância gerenciada](sql-database-managed-instance.md)e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure Active Directory (AD do Azure). 
+A autenticação do Diretório Ativo Azure é um mecanismo de ligação à Base de Dados Azure [SQL,](sql-database-technical-overview.md) [Instância Gerida](sql-database-managed-instance.md)e [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando identidades no Azure Ative Directory (Azure AD). 
 
 > [!NOTE]
-> Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
+> Este tópico aplica-se ao servidor Azure SQL, e tanto à Base de Dados SQL como ao Synapse Azure que são criados no servidor Azure SQL. Para a simplicidade, a Base de Dados SQL é utilizada quando se refere tanto à Base de Dados SQL como ao Synapse Azure.
 
-Com a autenticação do Azure Active Directory, pode gerir centralmente as identidades dos utilizadores da base de dados e de outros serviços da Microsoft num local central. O gerenciamento de identificação central fornece um único local para gerenciar usuários de banco de dados e simplifica o gerenciamento de permissões. Os benefícios incluem o seguinte:
+Com a autenticação do Azure Active Directory, pode gerir centralmente as identidades dos utilizadores da base de dados e de outros serviços da Microsoft num local central. A gestão central de ID fornece um único lugar para gerir utilizadores de bases de dados e simplifica a gestão de permissões. Os benefícios incluem o seguinte:
 
-- Ele fornece uma alternativa para SQL Server autenticação.
-- Ajuda a interromper a proliferação de identidades de usuário entre servidores de banco de dados.
-- Permite a rotação de senha em um único lugar.
-- Os clientes podem gerenciar permissões de banco de dados usando grupos externos (AD do Azure).
-- Ele pode eliminar o armazenamento de senhas habilitando a autenticação integrada do Windows e outras formas de autenticação com suporte pelo Azure Active Directory.
-- A autenticação do Azure AD usa usuários de banco de dados independente para autenticar identidades no nível do banco de dados.
-- O Azure AD dá suporte à autenticação baseada em token para aplicativos que se conectam ao banco de dados SQL.
-- A autenticação do Azure AD dá suporte ao ADFS (Federação de domínio) ou à autenticação nativa de usuário/senha para um Azure Active Directory local sem sincronização de domínio.
-- O Azure Active Directory suporta ligações do SQL Server Management Studio que utilizam a Autenticação Universal do Active Directory, o que inclui a Multi-Factor Authentication (MFA).  A MFA inclui uma autenticação segura com um conjunto de opções de verificação simples: telefonema, mensagem de texto, cartões inteligentes com PIN ou notificação de aplicação móvel. Para obter mais informações, veja [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md) (Suporte do SQL Server Management Studio para a MFA do Azure Active Directory com Base de Dados SQL e SQL Data Warehouse).
+- Fornece uma alternativa à autenticação do Servidor SQL.
+- Ajuda a parar a proliferação de identidades de utilizadores através de servidores de base de dados.
+- Permite a rotação da palavra-passe num único local.
+- Os clientes podem gerir permissões de base de dados utilizando grupos externos (Azure AD).
+- Pode eliminar o armazenamento de palavras-passe permitindo a autenticação integrada do Windows e outras formas de autenticação suportadas pelo Diretório Ativo do Azure.
+- A autenticação azure AD utiliza utilizadores de bases de dados contidos para autenticar identidades ao nível da base de dados.
+- A Azure AD suporta a autenticação baseada em token para aplicações que liguem à Base de Dados SQL.
+- A autenticação Azure AD suporta a Autenticação ADFS (federação de domínio) ou autenticação de utilizador/palavra-passe nativo para um Diretório Ativo Azure local sem sincronização de domínio.
+- O Azure Active Directory suporta ligações do SQL Server Management Studio que utilizam a Autenticação Universal do Active Directory, o que inclui a Multi-Factor Authentication (MFA).  A MFA inclui uma autenticação segura com um conjunto de opções de verificação simples: telefonema, mensagem de texto, cartões inteligentes com PIN ou notificação de aplicação móvel. Para mais informações, consulte o [suporte sSMS para O MFA Azure AD com base de dados SQL e Azure Synapse](sql-database-ssms-mfa-authentication.md).
 - O Azure Active Directory suporta ligações semelhante do SQL Server Data Tools (SSDT), que utilizam a Autenticação Interativa do Active Directory. Para obter mais informações, veja [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory)(Suporte do Azure Active Directory no SQL Server Data Tools [SSDT]).
 
 > [!NOTE]  
-> Não há suporte para a conexão com SQL Server em execução em uma VM do Azure usando uma conta de Azure Active Directory. Em vez disso, use uma conta de Active Directory de domínio.  
+> A ligação ao SQL Server em execução num VM Azure não é suportada utilizando uma conta de Diretório Ativo Azure. Utilize uma conta de diretório ativo de domínio.  
 
-As etapas de configuração incluem os procedimentos a seguir para configurar e usar Azure Active Directory autenticação.
+Os passos de configuração incluem os seguintes procedimentos para configurar e utilizar a autenticação do Diretório Ativo Azure.
 
-1. Crie e popule o Azure AD.
-2. Opcional: associe ou altere o Active Directory que está associado atualmente à sua assinatura do Azure.
-3. Crie um administrador de Azure Active Directory para o servidor de banco de dados SQL do Azure, o Instância Gerenciada ou o [SQL data warehouse do Azure](https://azure.microsoft.com/services/sql-data-warehouse/).
-4. Configure seus computadores cliente.
-5. Crie usuários de banco de dados independente em seu banco de dados mapeado para identidades do Azure AD.
-6. Conecte-se ao banco de dados usando identidades do Azure AD.
+1. Crie e povoea o Azure AD.
+2. Opcional: Associar ou alterar o diretório ativo que está atualmente associado à sua Subscrição Azure.
+3. Crie um administrador de diretório Ativo Azure para o servidor de base de dados Azure SQL, a Instância Gerida ou o [Pool SQL](https://azure.microsoft.com/services/sql-data-warehouse/).
+4. Configure os computadores dos seus clientes.
+5. Crie utilizadores de bases de dados contidos na sua base de dados mapeada para identidades da AD Azure.
+6. Ligue-se à sua base de dados utilizando identidades AD Azure.
 
 > [!NOTE]
-> Para saber como criar e popular o Azure AD e, em seguida, configurar o Azure AD com o banco de dados SQL do Azure, Instância Gerenciada e SQL Data Warehouse, consulte [Configurar o Azure AD com o banco de dados SQL do Azure](sql-database-aad-authentication-configure.md).
+> Para aprender a criar e povoar o Azure AD, e depois configurar o Azure AD com base de dados Azure SQL, Managed Instance e SQL pool, consulte [Configure Azure AD com Base de Dados Azure SQL](sql-database-aad-authentication-configure.md).
 
 ## <a name="trust-architecture"></a>Arquitetura de confiança
 
-O diagrama de alto nível a seguir resume a arquitetura da solução de uso da autenticação do Azure AD com o banco de dados SQL do Azure. Os mesmos conceitos se aplicam a SQL Data Warehouse. Para dar suporte à senha de usuário nativo do Azure AD, somente a parte da nuvem e o banco de dados SQL do Azure AD/Azure são considerados. Para dar suporte à autenticação federada (ou usuário/senha para credenciais do Windows), a comunicação com o bloco do ADFS é necessária. As setas indicam os caminhos de comunicação.
+O diagrama de alto nível que se segue resume a arquitetura de solução de utilização da autenticação Azure AD com base de dados Azure SQL. Os mesmos conceitos aplicam-se ao Azure Synapse. Para suportar a palavra-passe do utilizador nativo da AD Azure, apenas é considerada a porção Cloud e a Base de Dados SQL Azure AD/Azure. Para suportar a autenticação federada (ou utilizador/palavra-passe para credenciais do Windows), é necessária a comunicação com o bloco ADFS. As setas indicam vias de comunicação.
 
-![diagrama de autenticação do AAD][1]
+![aad auth diagrama][1]
 
-O diagrama a seguir indica a Federação, a confiança e as relações de hospedagem que permitem que um cliente se conecte a um banco de dados enviando um token. O token é autenticado por um Azure AD e é confiável para o banco de dados. O cliente 1 pode representar um Azure Active Directory com usuários nativos ou um Azure AD com usuários federados. O cliente 2 representa uma possível solução, incluindo os usuários importados; Neste exemplo proveniente de um Azure Active Directory federado com o ADFS sendo sincronizado com Azure Active Directory. É importante entender que o acesso a um banco de dados usando a autenticação do Azure AD requer que a assinatura de hospedagem esteja associada ao Azure AD. A mesma assinatura deve ser usada para criar o SQL Server que hospeda o banco de dados SQL do Azure ou SQL Data Warehouse.
+O diagrama seguinte indica a federação, a confiança e as relações de hospedagem que permitem a um cliente ligar-se a uma base de dados, enviando um símbolo. O símbolo é autenticado por um Anúncio Azure, e é confiável pela base de dados. O cliente 1 pode representar um Diretório Ativo Azure com utilizadores nativos ou um Azure AD com utilizadores federados. O Cliente 2 representa uma possível solução, incluindo utilizadores importados; neste exemplo vindo de um Diretório Ativo Azure federado com a ADFS a ser sincronizada com o Diretório Ativo Azure. É importante entender que o acesso a uma base de dados utilizando a autenticação Azure AD requer que a subscrição de hospedagem esteja associada ao Anúncio Azure. A mesma subscrição deve ser utilizada para criar o Servidor SQL que acolhe a Base de Dados Azure SQL ou o Azure Synapse.
 
-![relação de assinatura][2]
+![relação de subscrição][2]
 
-## <a name="administrator-structure"></a>Estrutura do administrador
+## <a name="administrator-structure"></a>Estrutura de administrador
 
-Ao usar a autenticação do Azure AD, há duas contas de administrador para o servidor do banco de dados SQL e Instância Gerenciada; o administrador de SQL Server original e o administrador do Azure AD. Os mesmos conceitos se aplicam a SQL Data Warehouse. Somente o administrador com base em uma conta do Azure AD pode criar o primeiro usuário de banco de dados independente do Azure AD em um banco de dados de usuário. O logon de administrador do Azure AD pode ser um usuário do Azure AD ou um grupo do Azure AD. Quando o administrador é uma conta de grupo, ele pode ser usado por qualquer membro do grupo, habilitando vários administradores do Azure AD para a instância de SQL Server. O uso da conta de grupo como administrador aprimora a capacidade de gerenciamento, permitindo adicionar e remover centralmente membros do grupo no Azure AD sem alterar os usuários ou as permissões no banco de dados SQL. Somente um administrador do Azure AD (um usuário ou grupo) pode ser configurado a qualquer momento.
+Ao utilizar a autenticação AD Azure, existem duas contas de Administrador para o servidor de base de dados SQL e Instância Gerida; o administrador original do SQL Server e o administrador da AD Azure. Os mesmos conceitos aplicam-se ao Azure Synapse. Apenas o administrador com base numa conta Azure AD pode criar o primeiro utilizador de base de dados Azure AD numa base de dados de utilizador. O login do administrador da AD Azure pode ser um utilizador de Anúncios Azure ou um grupo Azure AD. Quando o administrador é uma conta de grupo, pode ser usado por qualquer membro do grupo, permitindo vários administradores de AD Azure para a instância Do Servidor SQL. A utilização da conta de grupo como administrador aumenta a capacidade de gestão, permitindo-lhe adicionar e remover centralmente membros do grupo em AD Azure sem alterar os utilizadores ou permissões na Base de Dados SQL. Apenas um administrador da AD Azure (utilizador ou grupo) pode ser configurado a qualquer momento.
 
 ![estrutura de administração][3]
 
 ## <a name="permissions"></a>Permissões
 
-Para criar novos usuários, você deve ter a permissão `ALTER ANY USER` no banco de dados. A permissão `ALTER ANY USER` pode ser concedida a qualquer usuário de banco de dados. A permissão `ALTER ANY USER` também é mantida pelas contas de administrador do servidor e usuários de banco de dados com a permissão `CONTROL ON DATABASE` ou `ALTER ON DATABASE` para esse banco de dados e por membros da função de banco de dados `db_owner`.
+Para criar novos utilizadores, tem de ter a `ALTER ANY USER` permissão na base de dados. A `ALTER ANY USER` permissão pode ser concedida a qualquer utilizador de base de dados. A `ALTER ANY USER` permissão também é detida pelas contas do administrador do servidor, e pelos utilizadores de bases de dados com a `CONTROL ON DATABASE` ou `ALTER ON DATABASE` permissão para essa base de dados, e por membros da função de base de dados `db_owner`.
 
-Para criar um usuário de banco de dados independente no banco de dados SQL do Azure, Instância Gerenciada ou SQL Data Warehouse, você deve se conectar ao banco de dados ou instância usando uma identidade do Azure AD. Para criar o primeiro usuário de banco de dados independente, você deve se conectar ao banco de dados usando um administrador do Azure AD (que é o proprietário do banco de dados). Isso é demonstrado em [configurar e gerenciar a autenticação de Azure Active Directory com o banco de dados SQL ou SQL data warehouse](sql-database-aad-authentication-configure.md). Qualquer autenticação do Azure AD só será possível se o administrador do Azure AD tiver sido criado para o banco de dados SQL do Azure ou o SQL Data Warehouse Server. Se o administrador do Azure Active Directory tiver sido removido do servidor, Azure Active Directory usuários existentes criados anteriormente dentro do SQL Server não poderão mais se conectar ao banco de dados usando suas credenciais Azure Active Directory.
+Para criar um utilizador de base de dados contido na Base de Dados Azure SQL, Na instância gerida ou no Azure Synapse, deve ligar-se à base de dados ou à instância utilizando uma identidade Azure AD. Para criar o primeiro utilizador de base de dados contido, deve ligar-se à base de dados utilizando um administrador da AD Azure (que é o proprietário da base de dados). Isto é demonstrado na [Configuração e gere a autenticação do Diretório Ativo Azure com base de dados SQL ou Azure Synapse](sql-database-aad-authentication-configure.md). Qualquer autenticação Azure AD só é possível se o administrador da AD Azure tiver sido criado para a Base de Dados Azure SQL ou para o servidor Azure Synapse. Se o administrador do Diretório Ativo Azure foi removido do servidor, os atuais utilizadores do Diretório Ativo Do Azure criados anteriormente dentro do SQL Server já não podem ligar-se à base de dados utilizando as suas credenciais de Diretório Ativo Azure.
 
-## <a name="azure-ad-features-and-limitations"></a>Recursos e limitações do Azure AD
+## <a name="azure-ad-features-and-limitations"></a>Funcionalidades e limitações da AD Azure
 
-- Os seguintes membros do Azure AD podem ser provisionados no Azure SQL Server ou SQL Data Warehouse:
+- Os seguintes membros da Azure AD podem ser aprovisionados no servidor Azure SQL ou azure Synapse:
 
-  - Membros nativos: um membro criado no Azure AD no domínio gerenciado ou em um domínio de cliente. Para obter mais informações, consulte [Adicionar seu próprio nome de domínio ao Azure ad](../active-directory/active-directory-domains-add-azure-portal.md).
-  - Membros do domínio federado: um membro criado no Azure AD com um domínio federado. Para obter mais informações, consulte [Microsoft Azure agora dá suporte à Federação com o Active Directory do Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
-  - Membros importados de outros AD do Azure que são membros de domínio nativos ou federados.
-  - Active Directory grupos criados como grupos de segurança.
+  - Membros nativos: Um membro criado em Azure AD no domínio gerido ou num domínio de cliente. Para mais informações, consulte [Adicionar o seu próprio nome de domínio ao Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
+  - Membros federados de domínio: Um membro criado em Azure AD com um domínio federado. Para mais informações, consulte o Microsoft Azure agora suporta a [federação com o Diretório Ativo do Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
+  - Membros importados de outros AD's azure que são membros nativos ou federados de domínio.
+  - Grupos de Diretórios Ativos criados como grupos de segurança.
 
-- Os usuários do Azure AD que fazem parte de um grupo que tem a função de servidor `db_owner` não podem usar a sintaxe **[CREATE DATABASE no escopo da credencial](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)** em relação ao banco de dados SQL do Azure e ao Azure SQL data warehouse. Você verá o seguinte erro:
+- Os utilizadores de AD Azure que fazem parte de um grupo que tem `db_owner` função de servidor não podem utilizar a sintaxe **[CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)** DE BASE DE DADOS CREATE DATABASE CONTRA a Base de Dados Azure SQL e a Azure Synapse. Verá o seguinte erro:
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-    Conceda a `db_owner` função diretamente ao usuário individual do Azure AD para mitigar o problema de **criação de credencial de escopo do banco de dados** .
+    Conceda o papel `db_owner` diretamente ao utilizador da AD Azure para mitigar a questão **CREDENTIAL** DE BASE DE DADOS CREATE DATABASE.
 
-- Essas funções do sistema retornam valores nulos quando executadas em entidades de segurança do Azure AD:
+- Estas funções de sistema devolvem valores NULOs quando executados sob os principais da AD Azure:
 
   - `SUSER_ID()`
   - `SUSER_NAME(<admin ID>)`
@@ -100,58 +101,58 @@ Para criar um usuário de banco de dados independente no banco de dados SQL do A
 
 ### <a name="managed-instances"></a>Instâncias Geridas
 
-- As entidades de segurança do servidor do Azure AD (logons) e os usuários têm suporte como um recurso de visualização para [instâncias gerenciadas](sql-database-managed-instance.md).
-- A definição de entidades de segurança do Azure AD (logons) mapeados para um grupo do Azure AD como proprietário do banco de dados não tem suporte em [instâncias gerenciadas](sql-database-managed-instance.md).
-    - Uma extensão disso é que, quando um grupo é adicionado como parte da função de servidor `dbcreator`, os usuários desse grupo podem se conectar ao Instância Gerenciada e criar novos bancos de dados, mas não poderão acessar o banco. Isso ocorre porque o novo proprietário do banco de dados é SA e não o usuário do Azure AD. Esse problema não se manifestará se o usuário individual for adicionado à função de servidor `dbcreator`.
-- A execução de gerenciamento e trabalhos do SQL Agent tem suporte para entidades de segurança do servidor do Azure AD (logons).
-- As operações de backup e restauração do banco de dados podem ser executadas por entidades de segurança do servidor do Azure AD (logons).
-- Há suporte para a auditoria de todas as instruções relacionadas às entidades de segurança do servidor do Azure AD (logons) e aos eventos de autenticação.
-- Há suporte para a conexão de administrador dedicada para entidades de segurança de servidor do Azure AD (logons) que são membros da função de servidor sysadmin.
-    - Com suporte por meio do utilitário SQLCMD e SQL Server Management Studio.
-- Os gatilhos de logon têm suporte para eventos de logon provenientes de entidades de segurança de servidor do Azure AD (logons).
-- Service Broker e o email de BD podem ser configurados usando uma entidade de servidor do Azure AD (logon).
+- Os diretores de servidores da AD Azure (logins) e os utilizadores são suportados como uma funcionalidade de pré-visualização para [Instâncias Geridas](sql-database-managed-instance.md).
+- Definir os diretores de servidores da AD Azure (logins) mapeados para um grupo Azure AD como proprietário de base de dados não é suportado em [Instâncias Geridas](sql-database-managed-instance.md).
+    - Uma extensão disto é que quando um grupo é adicionado como parte da função de servidor `dbcreator`, os utilizadores deste grupo podem ligar-se à Instância Gerida e criar novas bases de dados, mas não poderão aceder à base de dados. Isto porque o novo proprietário da base de dados é SA, e não o utilizador da AD Azure. Este problema não se manifesta se o utilizador individual for adicionado à função `dbcreator` servidor.
+- A gestão de agentes da SQL e a execução de postos de trabalho são suportadas para os diretores de servidores da AD Azure (logins).
+- As operações de backup e restauro da base de dados podem ser executadas pelos diretores do servidor Azure AD (logins).
+- É suportada a auditoria de todas as declarações relacionadas com os diretores de servidores da AD Azure (logins) e eventos de autenticação.
+- A ligação dedicada do administrador para os diretores de servidores DaAzure AD (logins) que são membros da função do servidor sysadmin é suportada.
+    - Suportado através do Utilitário SQLCMD e do Estúdio de Gestão de Servidores SQL.
+- Os gatilhos de logon são suportados para eventos de logon provenientes de diretores de servidores DaAzure AD (logins).
+- O Corretor de Serviços e o correio DB podem ser configurados utilizando um servidor Azure AD (login).
 
 
-## <a name="connecting-using-azure-ad-identities"></a>Conectando-se usando identidades do Azure AD
+## <a name="connecting-using-azure-ad-identities"></a>Ligação utilizando identidades da AD Azure
 
-Azure Active Directory autenticação dá suporte aos seguintes métodos de conexão a um banco de dados usando identidades do Azure AD:
+A autenticação do Diretório Ativo Azure suporta os seguintes métodos de ligação a uma base de dados utilizando identidades da AD Azure:
 
-- Azure Active Directory senha
-- Azure Active Directory integrado
-- Azure Active Directory universal com MFA
-- Usando a autenticação de token de aplicativo
+- Senha de direção ativa azure
+- Diretório Ativo Azure Integrado
+- Diretório Ativo Azure Universal com MFA
+- Utilização da autenticação simbólica da Aplicação
 
-Os seguintes métodos de autenticação têm suporte para entidades de segurança do servidor do Azure AD (logons) (**Visualização pública**):
+Os seguintes métodos de autenticação são suportados para os diretores de servidores DaA Azure **(logins) (pré-visualização pública):**
 
-- Azure Active Directory senha
-- Azure Active Directory integrado
-- Azure Active Directory universal com MFA
+- Senha de direção ativa azure
+- Diretório Ativo Azure Integrado
+- Diretório Ativo Azure Universal com MFA
 
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 
-- Para melhorar a capacidade de gerenciamento, recomendamos que você provisione um grupo dedicado do Azure AD como administrador.   
-- Somente um administrador do Azure AD (um usuário ou grupo) pode ser configurado para um servidor de banco de dados SQL do Azure ou o Azure SQL Data Warehouse a qualquer momento.
-  - A adição de entidades de segurança de servidor do Azure AD (logons) para instâncias gerenciadas (**Visualização pública**) permite a possibilidade de criar várias entidades de segurança de servidor do Azure AD (logons) que podem ser adicionadas à função de `sysadmin`.
-- Somente um administrador do Azure AD para SQL Server pode inicialmente se conectar ao servidor do banco de dados SQL do Azure, Instância Gerenciada ou Azure SQL Data Warehouse usando uma conta de Azure Active Directory. O administrador de Active Directory pode configurar os usuários de banco de dados do Azure AD subsequentes.   
-- É recomendável definir o tempo limite de conexão para 30 segundos.   
-- SQL Server 2016 Management Studio e SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1 de abril de 2016 ou posterior) dão suporte à autenticação Azure Active Directory. (A autenticação do Azure AD tem suporte pelo **Provedor de Dados .NET Framework para SqlServer**; pelo menos a versão .NET Framework 4,6). Portanto, as versões mais recentes dessas ferramentas e aplicativos da camada de dados (DAC e. BACPAC) pode usar a autenticação do Azure AD.   
-- A partir da versão 15.0.1, o [utilitário sqlcmd](/sql/tools/sqlcmd-utility) e o [utilitário bcp](/sql/tools/bcp-utility) suportam Active Directory autenticação interativa com MFA.
-- O SQL Server Data Tools para Visual Studio 2015 requer pelo menos a versão de abril de 2016 das ferramentas de dados (versão 14.0.60311.1). Atualmente, os usuários do Azure AD não são mostrados no Pesquisador de objetos do SSDT. Como alternativa, exiba os usuários em [Sys. database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
-- [O Microsoft JDBC Driver 6,0 para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) dá suporte à autenticação do Azure AD. Além disso, consulte [definindo as propriedades de conexão](https://msdn.microsoft.com/library/ms378988.aspx).   
-- O polybase não pode autenticar usando a autenticação do Azure AD.   
-- A autenticação do Azure AD tem suporte para o banco de dados SQL pelas folhas portal do Azure **importar banco de dados** e exportar banco de **dados** . Também há suporte para importar e exportar usando a autenticação do Azure AD no comando do PowerShell.   
-- A autenticação do Azure AD tem suporte para o banco de dados SQL, Instância Gerenciada e SQL Data Warehouse pelo uso da CLI. Para obter mais informações, consulte [configurar e gerenciar a autenticação de Azure Active Directory com o banco de dados SQL ou SQL data warehouse](sql-database-aad-authentication-configure.md) e [SQL Server-AZ SQL Server](https://docs.microsoft.com/cli/azure/sql/server).
+- Para melhorar a capacidade de gestão, recomendamos que provisão de um grupo Azure AD dedicado como administrador.   
+- Apenas um administrador da AD Azure (um utilizador ou grupo) pode ser configurado para um servidor de base de dados Azure SQL ou Azure Synapse a qualquer momento.
+  - A adição de diretores de servidores Azure AD (logins) para Instâncias Geridas **(pré-visualização pública)** permite a possibilidade de criar vários diretores de servidores Azure AD (logins) que podem ser adicionados ao `sysadmin` função.
+- Apenas um administrador de AD Azure para o SQL Server pode inicialmente ligar-se ao servidor de base de dados Azure SQL, À Instância Gerida ou ao Synapse Azure SQL utilizando uma conta de Diretório Ativo Azure. O administrador de Diretório Ativo pode configurar os utilizadores subsequentes da base de dados Azure AD.   
+- Recomendamos que o tempo de ligação se ajuste a 30 segundos.   
+- SQL Server 2016 Management Studio e SQL Server Data Tools for Visual Studio 2015 (versão 14.0.60311.1abril 2016 ou mais tarde) suportam a autenticação do Diretório Ativo azure. (A autenticação Azure AD é suportada pelo Fornecedor de **Dados-Quadro .NET para SqlServer;** pelo menos versão .NET Framework 4.6). Por conseguinte, as versões mais recentes destas ferramentas e aplicações a nível de dados (DAC e . BACPAC) pode utilizar a autenticação Azure AD.   
+- Começando com a versão 15.0.1, [utilitário sqlcmd](/sql/tools/sqlcmd-utility) e [suporte utilitário BCP](/sql/tools/bcp-utility) Ative Directory Interactive autenticação com MFA.
+- SQL Server Data Tools for Visual Studio 2015 requer pelo menos a versão abril de 2016 das Ferramentas de Dados (versão 14.0.60311.1). Atualmente, os utilizadores de Anúncios Azure não são mostrados no SSDT Object Explorer. Como uma suposição, veja os utilizadores em [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
+- [O Microsoft JDBC Driver 6.0 para o SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) suporta a autenticação Azure AD. Consulte também [a definição das propriedades de ligação](https://msdn.microsoft.com/library/ms378988.aspx).   
+- A PolyBase não pode autenticar utilizando a autenticação Azure AD.   
+- A autenticação Azure AD é suportada para base de dados SQL pelo portal Azure **Import Database** and **Export Database** blades. A importação e exportação utilizando a autenticação Azure AD também é suportada a partir do comando PowerShell.   
+- A autenticação Azure AD é suportada para base de dados SQL, Instância Gerida e Synapse Azure através do uso CLI. Para mais informações, consulte [Configure e gerea autenticação de Diretório Ativo Azure com Base de Dados SQL ou Azure Synapse](sql-database-aad-authentication-configure.md) e [SQL Server - servidor az sql](https://docs.microsoft.com/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber como criar e popular o Azure AD e, em seguida, configurar o Azure AD com o banco de dados SQL do Azure ou o Azure SQL Data Warehouse, consulte [configurar e gerenciar a autenticação Azure Active Directory com o banco de dados SQL, instância gerenciada ou SQL data warehouse](sql-database-aad-authentication-configure.md).
-- Para obter um tutorial de como usar entidades de segurança de servidor do Azure AD (logons) com instâncias gerenciadas, consulte [entidades de segurança do Azure Ad Server (logons) com instâncias gerenciadas](sql-database-managed-instance-aad-security-tutorial.md)
+- Para aprender a criar e povoar o Azure AD, e depois configurar o Azure AD com a Base de Dados Azure SQL ou azure Synapse, consulte configurar e gerir a [autenticação do Diretório Ativo Azure com base de dados SQL, Instância Gerida ou Synapse Azure.](sql-database-aad-authentication-configure.md)
+- Para um tutorial de utilização de diretores de servidores Azure AD (logins) com instâncias geridas, consulte os diretores do [servidor Azure AD (logins) com Instâncias Geridas](sql-database-managed-instance-aad-security-tutorial.md)
 - Para obter uma descrição geral do acesso e controlo na Base de Dados SQL, veja [Acesso e controlo da Base de Dados SQL](sql-database-control-access.md).
 - Para obter uma descrição geral de inícios de sessão, utilizadores e funções de base de dados da Base de Dados SQL, veja [Inícios de sessão, utilizadores e funções de base de dados](sql-database-manage-logins.md).
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](https://msdn.microsoft.com/library/ms189121.aspx).
-- Para obter a sintaxe sobre a criação de entidades de segurança do servidor do Azure AD (logons) para instâncias gerenciadas, consulte [criar logon](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Para sintaxe sobre a criação de diretores de servidores Azure AD (logins) para Instâncias Geridas, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Para obter mais informações sobre as regras de firewall na Base de Dados SQL, veja [Regras de firewall da Base de Dados SQL](sql-database-firewall-configure.md).
 
 <!--Image references-->

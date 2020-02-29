@@ -2,20 +2,20 @@
 title: Criar e eliminar contas de utilizadores de consumo Azure AD B2C no portal Azure
 description: Aprenda a utilizar o portal Azure para criar e eliminar utilizadores de consumidores no seu diretório Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d96db5cf062da1b2e8badd80a9a00620b724fd4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c8fad8b5bd2dccba36c0c6888712fa806f3cbfc8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840422"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187224"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Utilize o portal Azure para criar e eliminar utilizadores de consumidores em Azure AD B2C
 
@@ -25,21 +25,21 @@ Para adicionar ou excluir utilizadores, a sua conta deve ser atribuída ao admin
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="types-of-user-accounts"></a>Tipos de contas de usuário
+## <a name="types-of-user-accounts"></a>Tipos de contas de utilizador
 
 Tal como descrito na [visão geral das contas dos utilizadores no Azure AD B2C,](user-overview.md)existem três tipos de contas de utilizador que podem ser criadas num diretório Azure AD B2C:
 
 * Trabalho
-* Convidado
+* Hóspede
 * Consumidor
 
 Este artigo centra-se em trabalhar com **as contas** de consumo no portal Azure. Para obter informações sobre a criação e eliminação de contas de trabalho e de hóspedes, consulte [Adicionar ou excluir utilizadores utilizando o Diretório Ativo do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## <a name="create-a-consumer-user"></a>Criar um utilizador de consumo
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
+1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
 1. Em **Gerir**, selecione **Utilizadores**.
 1. Selecione **Novo utilizador**.
 1. Selecione **Criar o utilizador AD B2C Azure**.

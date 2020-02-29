@@ -3,20 +3,20 @@ title: Gerir utilizadores com a Microsoft Graph API
 titleSuffix: Azure AD B2C
 description: Como gerir os utilizadores num inquilino Azure AD B2C, ligando para a Microsoft Graph API e usando uma identidade de aplicação para automatizar o processo.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b53405d199072211304e21b681de646c4e41243c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 8d65217a109a851275d3ba9205024f32bd182d4f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585633"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187321"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerir contas de utilizadores do Azure AD B2C com o Microsoft Graph
 

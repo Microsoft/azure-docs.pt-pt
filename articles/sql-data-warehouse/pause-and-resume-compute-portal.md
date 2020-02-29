@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: pausar & retomar computação-portal do Azure '
-description: Use o portal do Azure para pausar a computação no Azure SQL Data Warehouse para economizar custos. Retome a computação quando estiver pronto para usar o data warehouse.
+title: 'Quickstart: Pause & resume compute - Portal Azure '
+description: Utilize o portal Azure para parar a computação para a piscina SQL para economizar custos. Retome a computação quando estiver pronto para utilizar o armazém de dados.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,98 +10,99 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 14f66f71948f75a723c9fdbed7490d54c2c3e2b2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 49684e6844c2d9f58e9b750b12991428218e4426
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692993"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200648"
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: pausar e retomar a computação para uma SQL Data Warehouse do Azure no portal do Azure
+# <a name="quickstart-pause-and-resume-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>Quickstart: Pausa e retoma a computação na piscina Azure Synapse Analytics SQL no portal Azure
 
-Use o portal do Azure para pausar a computação no Azure SQL Data Warehouse para economizar custos. [Retome a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para usar o data warehouse.
+Utilize o portal Azure para parar a computação para a piscina SQL para economizar custos. [Retome](sql-data-warehouse-manage-compute-overview.md) a computação quando estiver pronto para utilizar o armazém de dados.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Use [Create e Connect-portal](create-data-warehouse-portal.md) para criar um data warehouse chamado **mySampleDataWarehouse**. 
+Use [Create and Connect - portal](create-data-warehouse-portal.md) para criar um pool SQL chamado **mySampleDataWarehouse**. 
 
-## <a name="pause-compute"></a>Pausar computação
+## <a name="pause-compute"></a>Computação de pausa
 
-Para economizar custos, você pode pausar e retomar os recursos de computação sob demanda. Por exemplo, se você não estiver usando o banco de dados durante a noite e nos finais de semana, poderá pausá-lo durante esses horários e retomá-lo durante o dia. Você não será cobrado pelos recursos de computação enquanto o banco de dados estiver em pausa. No entanto, você continuará a ser cobrado pelo armazenamento. 
+Para poupar custos, pode parar e retomar os recursos de computação a pedido. Por exemplo, se não utilizar a base de dados durante a noite e aos fins de semana, pode fazer uma pausa durante esses tempos e retomá-la durante o dia. Não será cobrado pelos recursos da computação enquanto a base de dados estiver em pausa. No entanto, continuará a ser cobrado para armazenamento. 
 
-Siga estas etapas para pausar uma SQL Data Warehouse.
+Siga estes passos para fazer uma pausa numa piscina SQL.
 
-1. Clique em **bases de dados SQL** na página da esquerda do Portal do Azure.
-2. Selecione **mySampleDataWarehouse** da página de **bases de dados SQL**. Esta ação abre o armazém de dados. 
-3. Na página **mySampleDataWarehouse** , observe que **status** está **online**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Clique em **Azure Synapse Analytics (anteriormente SQL DW)** na página de navegação esquerda do portal Azure.
+2. Selecione **mySampleDataWarehouse** da página **Azure Synapse Analytics (anteriormente SQL DW)** para abrir a piscina SQL. 
+3. Na página **mySampleDataWarehouse,** o **estado do** aviso está **online**.
 
-    ![Computação online](media/pause-and-resume-compute-portal/compute-online.png)
+    ![Compute online](media/pause-and-resume-compute-portal/compute-online.png)
 
-4. Para pausar a data warehouse, clique no botão **Pausar** . 
-5. Uma pergunta de confirmação é exibida perguntando se você deseja continuar. Clique em **Sim**.
-6. Aguarde alguns instantes e observe que o **status** está sendo **pausando**.
+4. Para parar a piscina SQL, clique no botão **Pausa.** 
+5. Uma pergunta de confirmação aparece perguntando se quer continuar. Clique em **Sim**.
+6. Espere alguns momentos e depois note que o **Estado** está **a fazer uma pausa.**
 
     ![Pausa](media/pause-and-resume-compute-portal/pausing.png)
 
-7. Quando a operação de pausa for concluída, o status será **pausado** e o botão de opção será **iniciado**.
-8. Os recursos de computação para os data warehouse agora estão offline. Você não será cobrado pela computação até que você retome o serviço.
+7. Quando o funcionamento da pausa estiver concluído, o estado é **interrompido** e o botão de opção é **Retomado**.
+8. Os recursos computacionais para o pool SQL estão agora offline. Não será cobrado pela computação até que retome o serviço.
 
-    ![Computação offline](media/pause-and-resume-compute-portal/compute-offline.png)
+    ![Compute offline](media/pause-and-resume-compute-portal/compute-offline.png)
 
 
-## <a name="resume-compute"></a>Retomar computação
+## <a name="resume-compute"></a>Retomar a computação
 
-Siga estas etapas para retomar uma SQL Data Warehouse.
+Siga estes passos para retomar a piscina SQL.
 
-1. Clique em **bases de dados SQL** na página da esquerda do Portal do Azure.
-2. Selecione **mySampleDataWarehouse** da página de **bases de dados SQL**. Esta ação abre o armazém de dados. 
-3. Na página **mySampleDataWarehouse** , observe que **status** está em **pausa**.
+1. Clique em **Azure Synapse Analytics (anteriormente SQL DW)** na página esquerda do portal Azure.
+2. Selecione **mySampleDataWarehouse** da página **Azure Synapse Analytics (anteriormente SQL DW)** para abrir a página de piscina SQL. 
+3. Na página **mySampleDataWarehouse,** o **estado do** aviso é **interrompido**.
 
-    ![Computação offline](media/pause-and-resume-compute-portal/compute-offline.png)
+    ![Compute offline](media/pause-and-resume-compute-portal/compute-offline.png)
 
-4. Para retomar o data warehouse, clique em **Iniciar**. 
-5. Uma pergunta de confirmação é exibida perguntando se você deseja iniciar. Clique em **Sim**.
-6. Observe que o **status** é **retomado**.
+4. Para retomar a piscina SQL, clique em **Resume**. 
+5. Uma pergunta de confirmação aparece perguntando se quer começar. Clique em **Sim**.
+6. Note que o **Estado** está **a retomar**.
 
-    ![Retomar](media/pause-and-resume-compute-portal/resuming.png)
+    ![A retomar](media/pause-and-resume-compute-portal/resuming.png)
 
-7. Quando o data warehouse está online novamente, o status é **online** e o botão de opção é **Pausar**.
-8. Os recursos de computação para os data warehouse agora estão online e você pode usar o serviço. Os encargos para computação foram retomados.
+7. Quando a piscina SQL está novamente on-line, o estado é **Online** e o botão de opção é **Pausa**.
+8. Os recursos computacionais para piscina SQL estão agora on-line e você pode usar o serviço. As acusações de computação foram retomadas.
 
-    ![Computação online](media/pause-and-resume-compute-portal/compute-online.png)
+    ![Compute online](media/pause-and-resume-compute-portal/compute-online.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Você está sendo cobrado pelas unidades de data warehouse e pelos dados armazenados em seu data warehouse. Estes recursos de computação e armazenamento são faturados em separado. 
+Está a ser cobrado pelas unidades de armazém de dados e pelos dados armazenados no seu armazém de dados. Estes recursos de computação e armazenamento são faturados em separado. 
 
-- Se você quiser manter os dados no armazenamento, Pause a computação.
-- Se quiser remover futuras cobranças, pode eliminar o armazém de dados. 
+- Se quiser manter os dados armazenados, faça uma pausa no cálculo.
+- Se quiser remover futuras tarifas, pode eliminar a piscina SQL. 
 
 Siga estes passos para limpar os recursos conforme quiser.
 
-1. Entre no [portal do Azure](https://portal.azure.com)e clique em seu data warehouse.
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e clique na sua piscina SQL.
 
-    ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar recursos](media/pause-and-resume-compute-portal/clean-up-resources.png)
 
-1. Para interromper a computação, clique no botão **Pausar**. Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, clique em **Iniciar**.
+1. Para interromper a computação, clique no botão **Pausar**. 
 
-2. Para remover o armazém de dados para não lhe ser cobrada a computação ou o armazenamento, clique em **Eliminar**.
+2. Para remover a piscina SQL para que não seja cobrado para computação ou armazenamento, clique **em Eliminar**.
 
-3. Para remover o SQL Server que você criou, clique em **mynewserver-20171113.Database.Windows.net**e em **excluir**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
+3. Para remover o servidor SQL que criou, clique **em sqlpoolservername.database.windows.net**, e, em seguida, clique em **Eliminar**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
 
 4. Para remover o grupo de recursos, clique em **myResourceGroup** e, em seguida, clique em **Eliminar grupo de recursos**.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora você está pausado e retomou a computação para seu data warehouse. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
+Fez agora uma pausa e retomou a computação para a sua piscina SQL. Para os próximos passos continuam no tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
-> [Carregar dados em um SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Carregue os dados no pool SQL](load-data-from-azure-blob-storage-using-polybase.md)

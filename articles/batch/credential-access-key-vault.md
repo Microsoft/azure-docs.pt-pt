@@ -9,14 +9,14 @@ ms.workload: big-compute
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: lahugh
-ms.openlocfilehash: 14cbacf43e83dc768e9a85620df131533b746671
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463105"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192307"
 ---
-# <a name="securely-access-key-vault-with-batch"></a>Acesso seguro cofre chave com lote
+# <a name="securely-access-key-vault-with-batch"></a>Acesso seguro ao Key Vault com o Batch
 
 Neste artigo, você aprenderá a configurar nós de Lote para aceder de forma segura às credenciais armazenadas no Cofre chave Azure. Não vale a pena colocar as suas credenciais de administração no Cofre chave, e depois credenciais de codificação rígida para aceder ao Cofre chave a partir de um guião. A solução é usar um certificado que conceda aos seus nódes de Lote acesso ao Cofre chave. Com alguns passos, podemos implementar armazenamento de chaves seguras para o Lote.
 
@@ -40,7 +40,7 @@ cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 Em seguida, utilize a ferramenta `makecert` para criar ficheiros de certificados auto-assinados chamados `batchcertificate.cer` e `batchcertificate.pvk`. O nome comum (CN) usado não é importante para esta aplicação, mas é útil torná-lo algo que lhe diga para que o certificado é usado.
 
 ```console
-makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
+makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
 O lote requer um ficheiro `.pfx`. Utilize a ferramenta [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) para converter os ficheiros `.cer` e `.pvk` criados por `makecert` para um único ficheiro `.pfx`.

@@ -3,20 +3,20 @@ title: Configurar o início de sessão com uma conta LinkedIn utilizando políti
 titleSuffix: Azure AD B2C
 description: Instale o início de sessão com uma conta LinkedIn no Azure Ative Directory B2C utilizando políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f4ad74104d34e7e2c3f4d6aafc05b36574f8e287
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 80bd1b65d04ea49fc742033e1850d95a85021c9f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847436"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188176"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta LinkedIn utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -60,12 +60,12 @@ Para utilizar o LinkedIn como fornecedor de identidade no Azure AD B2C, é neces
 
 Você precisa armazenar o segredo do cliente que você gravou anteriormente no seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
 5. Selecione **teclas Policy** e, em seguida, selecione **Adicionar**.
-6. Para **Opções**, escolha `Manual`.
+6. Para **opções,** escolha `Manual`.
 7. Introduza um **nome** para a chave política. Por exemplo, `LinkedInSecret`. O prefixo *B2C_1A_* é adicionado automaticamente ao nome da sua chave.
 8. Em **Segredo,** insira o segredo do cliente que gravou anteriormente.
 9. Para **a utilização da chave,** selecione `Signature`.
@@ -77,7 +77,7 @@ Se pretender que os utilizadores assinem através de uma conta LinkedIn, tem de 
 
 Defina uma conta LinkedIn como fornecedor de sinistros adicionando-a ao elemento **Reclamações Fornecedores** no ficheiro de extensão da sua apólice.
 
-1. Abra o arquivo *SocialAndLocalAccounts/ **TrustFrameworkExtensions. xml*** em seu editor. Este ficheiro está no pacote de arranque de [política personalizado][starter-pack] que descarregou como parte de um dos pré-requisitos.
+1. Abra o ficheiro *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml*** no seu editor. Este ficheiro está no pacote de arranque de [política personalizado][starter-pack] que descarregou como parte de um dos pré-requisitos.
 1. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.
 1. Adicione um novo Fornecedor de **Reclamações** da seguinte forma:
 

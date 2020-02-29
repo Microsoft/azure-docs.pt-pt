@@ -9,16 +9,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.custom: azure-synapse
+ms.openlocfilehash: 70f37c70f685ee139db4b417c1c498f9eefb8205
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212892"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184762"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Começar com a auditoria da base de dados SQL
 
-A auditoria da Base de Dados Azure [SQL](sql-database-technical-overview.md) e do [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos de base de dados e escreve-os num registo de auditoria na sua conta de armazenamento Azure, log Analytics espaço de trabalho ou Hubs de Eventos. Auditoria também:
+A auditoria da Azure [SQL Database](sql-database-technical-overview.md) e [da Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos de base de dados e escreve-os num registo de auditoria na sua conta de armazenamento Azure, log Analytics espaço de trabalho ou Hubs de Eventos. Auditoria também:
 
 - Ajuda-o a manter o cumprimento regulamentar, a compreender a atividade da base de dados e a obter informações sobre discrepâncias e anomalias que possam indicar preocupações comerciais ou suspeitas de violações de segurança.
 
@@ -26,7 +27,7 @@ A auditoria da Base de Dados Azure [SQL](sql-database-technical-overview.md) e d
 
 
 > [!NOTE] 
-> Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
+> Este tópico aplica-se ao servidor Azure SQL e tanto às bases de dados SQL como à Azure Synapse Analytics que são criadas no servidor Azure SQL. Para a simplicidade, a Base de Dados SQL é utilizada quando se refere tanto à Base de Dados SQL como ao Synapse Azure.
 
 ## <a id="subheading-1"></a>Visão geral de auditoria da base de dados Azure SQL
 
@@ -80,6 +81,16 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
 
     ![Painel de navegação][3]
 
+5. **Novo** - Tem agora várias opções para configurar onde serão escritos registos de auditoria. Pode escrever registos numa conta de armazenamento Azure, num espaço de trabalho de Log Analytics para consumo por registos do Azure Monitor ou para o centro de eventos para consumo através do hub de eventos. Pode configurar qualquer combinação destas opções, e os registos de auditoria serão escritos a cada um.
+  
+   > [!NOTE]
+   > O cliente que pretenda configurar uma loja de registoiveível imutável para os seus eventos de auditoria ao nível do servidor ou da base de dados deve seguir as [instruções fornecidas pelo Armazenamento Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
+  
+   > [!WARNING]
+   > Permitir a auditoria ao Log Analytics incorrerá em custos baseados em taxas de ingestão. Tenha em conta o custo associado com a utilização desta [opção,](https://azure.microsoft.com/pricing/details/monitor/)ou considere armazenar os registos de auditoria numa conta de armazenamento Azure.
+
+   ![opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
+   
 ### <a id="audit-storage-destination">Auditoria ao destino de armazenamento</a>
 
 Para configurar registos de auditoria de escrita numa conta de armazenamento, selecione **detalhes de Armazenamento** e **armazenamento**aberto. Selecione a conta de armazenamento Azure onde os registos serão guardados e, em seguida, selecione o período de retenção. Em seguida, clique em **OK**. Os registos mais antigos do que o período de retenção são eliminados.
@@ -105,9 +116,22 @@ Para configurar os registos de auditoria de escrita para um espaço de trabalho 
 
 ### <a id="audit-event-hub-destination">Auditoria ao destino Event Hub</a>
 
+<<<<<<< HEAD <<<<<<<<<< HEAD=========
+>>>>>>> a8190987e07da4c5ced6de5f58d394ace4ca31d
+> [!IMPORTANT]
+> Não é possível permitir a auditoria a um pool SQL pausado. Para o ativar, desfaça a piscina SQL.
+
+> [!WARNING]
+> Permitir a auditoria num servidor que tenha um pool SQL nele **resultará no reinício do pool SQL e novamente interrompido,** o que pode incorrer em taxas de faturação.
+<<<<<<<< HEAD ========= Para configurar registos de auditoria de escrita para um hub de eventos, selecione **Event Hub (Preview)** e abra detalhes do **Event Hub.** Selecione o centro de eventos onde os registos serão escritos e, em seguida, clique EM **OK**. Certifique-se de que o centro de eventos está na mesma região que a sua base de dados e servidor.
+
+   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+>>>>>>> <a name="bf6444e83361ab743aca04ae233c420e51ea1e03"></a>bf6444e8361ab743aca04ae23c420e51ea1ea1e03
+=======
 Para configurar registos de auditoria de escrita para um centro de eventos, selecione **Event Hub (Pré-visualização)** e abra detalhes do **Event Hub**. Selecione o centro de eventos onde os registos serão escritos e, em seguida, clique EM **OK**. Certifique-se de que o centro de eventos está na mesma região que a sua base de dados e servidor.
 
    ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+>>>>>>> a8190987e07da4c5ced6de5f58d394ace4ca31d
 
 ## <a id="subheading-3"></a>Analisar registos e relatórios de auditoria
 

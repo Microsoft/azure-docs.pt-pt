@@ -1,6 +1,6 @@
 ---
-title: Parceiros de Business Intelligence
-description: Listas de parceiros de business intelligence de terceiros com soluções que dão suporte a SQL Data Warehouse do Azure.
+title: Parceiros de Inteligência Empresarial
+description: Listas de parceiros de inteligência empresarial de terceiros com soluções que suportam a Azure Synapse Analytics.
 services: sql-data-warehouse
 author: mabasile-MSFT
 manager: craigg
@@ -11,85 +11,37 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 32e7251c7c47e7ccc03e313b939c917557a31417
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a4ecc5af0bf40c1a2f3c8e088bcb71d27697ba1a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772215"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199585"
 ---
-# <a name="sql-data-warehouse-business-intelligence-partners"></a>Parceiros de business intelligence SQL Data Warehouse
-Para criar sua solução de data warehouse de ponta a ponta, escolha entre uma ampla variedade de ferramentas líderes do setor.  Este artigo destaca as empresas parceiras da Microsoft com soluções de business intelligence oficial (BI) que dão suporte aos SQL Data Warehouse do Azure.
+# <a name="azure-synapse-analytics-business-intelligence-partners"></a>Parceiros de inteligência empresarial Azure Synapse Analytics
+Para criar a sua solução completa de armazém de dados utilizando o SQL Analytics dentro do Azure Synapse, pode escolher entre uma grande variedade de ferramentas líderes no setor.  Este artigo destaca empresas parceiras da Microsoft com soluções oficiais de inteligência empresarial (BI) que suportam o Azure SQL Data Warehouse.
 
-## <a name="our-business-intelligence-partners"></a>Nossos parceiros de business intelligence
-| Parceiro | Descrição | Link de site/produto |
+## <a name="our-business-intelligence-partners"></a>Os nossos parceiros de inteligência empresarial
+| Partner | Descrição | Website/Link do Produto |
 | ------- | ----------- | -------------------- |
-| ![Birst][1] |**Birst**<br>Birst conecta toda a organização por meio de uma rede de instâncias de BI virtualizadas entrelaçadas na parte superior de uma malha analítica comum compartilhada|[Página do produto][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
-| ![Dados do ClearStory][2] |**Dados do ClearStory (percepções de negócios contínuas)**<br>Os dados do ClearStory permitem a análise de ciclo rápido em dados diferentes armazenados no SQL Data Warehouse. O aplicativo de análise e a plataforma integrada com base em Spark ClearStory aceleram o acesso a dados e a harmonização de conjuntos de dados diferentes. Eles permitem uma exploração rápida e colaborativa que capacita os usuários empresariais a se autodependentes para obter informações. |[Página do produto][clearstory_website]<br> |
-| ![Dundas][4] |**Dundas BI**<br>A Dundas data visualization é um provedor global e líder de software de Business Intelligence e de visualização de dados.  Os painéis da Dundas, os relatórios e a análise de dados visuais fornecem integração direta a aplicativos de negócios, permitindo melhores decisões e insights mais rápidos.|[Página do produto][dundas_bi_website]<br>[Azure Marketplace][dundas_bi_marketplace]<br> |
-| ![IBM Cognos][3] |**Análise de Cognos da IBM**<br>A análise de Cognos inclui recursos inteligentes de autoatendimento que tornam simples, claro e fácil usar se você é um analista de negócios experiente examinando o Kinks em uma vasta cadeia de fornecedores ou um mercado otimizando uma única campanha. A análise de Cognos usa ia e outros recursos inteligentes para fazer o trabalho pesado para orientar a exploração de dados e tornar mais fácil para os usuários obter as respostas de que precisam|[Página do produto][cognosanalytics_website]<br>|
-| ![Construtores de informações][13] |**Construtores de informações (WebFOCUS)**<br>O business intelligence de WebFOCUS ajuda as empresas a usarem dados de forma mais estratégica em toda a empresa. Ele permite que os usuários e administradores criem rapidamente painéis que combinam conteúdo de várias fontes de dados e formatos, além de fornecer segurança robusta e governança abrangente que permitem diverly e compartilhamento contínuo e seguro de qualquer BI e análise disputa|[Página do produto][informationbuilders_website]<br> |
-![Jinfonet][5] |**JinfoNet JReport**<br>JReport é uma solução de BI incorporável para a empresa. A solução permite que os usuários criem relatórios, painéis e análises de dados na nuvem, Big Data e fontes de dados transacionais. Ao Visualizar dados, você pode executar seus próprios relatórios e descoberta de dados para tomada de decisão ágil e dinâmica. |[Página do produto][jinfonet_website]<br> |
-| ![LogiAnalytics][6] |**LOGI Analytics**<br>Juntos, o LOGI Analytics e o Azure SQL Data Warehouse permitem que sua organização colete, analise e aja imediatamente nos maiores e mais diversificados conjuntos de dados do mundo. |[Página do produto][logianalytics_website]<br>|
-| ![Looker][7] |**BI de pesquisa**<br>A pesquisa oferece a todos em sua empresa a capacidade de explorar e entender os dados que conduzem seus negócios. Também fornece ao analista de dados uma camada de modelagem flexível e reutilizável para controlar e organizar esses dados.  As empresas transformaram fundamentalmente sua cultura usando a aparência do Catalyst.|[Página do produto][looker_website]<br> [Azure Marketplace][looker_marketplace]<br> |
-| ![Microestratégia][14] |**Microestratégia**<br>A plataforma de microestratégia oferece um conjunto completo de recursos de business intelligence e análise que permitem que as organizações obtenham valor de seus dados corporativos. Mecanismo analítico avançado da microestratégia, conjuntos de ferramentas abrangentes, vários conectores de dados e arquitetura escalonável aberta garantem que você tenha tudo o que precisa para estender o acesso à análise em cada equipe e função de negócios |[Página do produto][microstrategy_website]<br> [Azure Marketplace][microstrategy_marketplace]<br> |
-| ![Qlik][8] |**Qlik Sense Sense Enterprise**<br>Gere a descoberta do Insight com o aplicativo de visualização de dados que qualquer pessoa pode usar. Com o Qlik Sense Sense, todos em sua organização podem criar facilmente visualizações interativas e flexíveis e tomar decisões significativas. |[Página do produto][qlik_website]<br> |
-| ![SiSense][9] |**SiSense**<br>O SiSense é um software de Business Intelligence de pilha completa que vem com ferramentas de que uma empresa precisa para analisar e Visualizar dados: um banco de dados analítico de alto desempenho, a capacidade de unir várias fontes, ETL (extração de dados simples) e dados baseados na Web visualização. Comece a analisar e Visualizar grandes conjuntos de dados com o SiSense BI e a análise hoje mesmo. |[Página do produto][sisense_website]<br> |
-| ![Tableau][10] |**Tableau**<br>A análise de autoatendimento do tableau ajuda qualquer pessoa a ver e entender seus dados, em vários tipos de dados de arquivos simples para bancos de dado. O tableau tem um conector nativo e otimizado para SQL Data Warehouse do Microsoft Azure que dá suporte a dados dinâmicos e a análise na memória. |[Página do produto][tableau_website]<br> [Azure Marketplace][tableau_marketplace]<br>|
-| ![TARGIT][11] |**TARGIT (conjunto de decisões)**<br>O TARGIT Decision Suite fornece uma plataforma de BI e de análise que fornece painéis em tempo real, análise de autoatendimento, relatórios amigáveis, recursos móveis impressionantes e tecnologia de descoberta de dados simples em uma única solução coesa. O TARGIT dá às empresas o que aconselham a agir. |[Página do produto][targit_website]<br> [Azure Marketplace][targit_marketplace]<br> |
-| ![YellowFin][12] |**Yellowfin**<br>YellowFin é um fornecedor de BI de nuvem mais classificado para relatórios ad hoc e painéis por BARC; Pesquisa de BI. Conecte-se ao Azure SQL Data Warehouse, crie e compartilhe belas relatórios e painéis com os premiados recursos de BI e inteligência de local de colaboração. |[Página do produto][yellowfin_website]<br> [Azure Marketplace][yellowfin_marketplace] |
+| ![Rio Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Rio Birst**<br>Birst liga toda a organização através de uma rede de instâncias de BI virtualizadas entrelaçadas no topo de um tecido analítico comum comum comum|[Página do produto](https://www.birst.com/)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/birst/birst/)<br> |
+| ![Dados clearstory](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**Dados ClearStory (Insights Comerciais Contínuos)**<br>ClearStory Data permite a análise de ciclo rápido através de dados díspares armazenados no SQL Analytics. Plataforma integrada baseada em Spark e análise de acesso de dados de aplicações e harmonização de conjuntos de dados díspares. Permitem uma exploração rápida e colaborativa que apoia os utilizadores empresariais a serem autossuficientes para obter em rápida informação. |[Página do produto](https://www.clearstorydata.com/product/continuous-insights/)<br> |
+| ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Dundas Data Visualization é um fornecedor líder e global de software de Inteligência Empresarial e Visualização de Dados.  Os dashboards dundas, relatórios e análise de dados visuais proporcionam uma integração perfeita nas aplicações empresariais, permitindo melhores decisões e insights mais rápidos.|[Página do produto](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/)<br> |
+| ![IBM Cognos](./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png) |**IBM Cognos Analytics**<br>A Cognos Analytics inclui capacidades inteligentes de self-service que o tornam simples, claro e fácil de usar se você é um analista de negócios experiente examinando as dobras em uma vasta cadeia de fornecimento ou um marketer otimizando uma única campanha. A Cognos Analytics utiliza IA e outras capacidades inteligentes para fazer o levantamento pesado para orientar a exploração de dados, e facilitar aos utilizadores obter as respostas de que precisam|[Página do produto](https://www.ibm.com/products/cognos-analytics)<br>|
+| ![Construtores de Informação](./media/sql-data-warehouse-partner-business-intelligence/informationbuilders_logo.png) |**Construtores de Informação (WebFOCUS)**<br>A inteligência empresarial WebFOCUS ajuda as empresas a usar dados de forma mais estratégica em toda e para além da empresa. Permite que utilizadores e administradores criem rapidamente dashboards que combinam conteúdo a partir de múltiplas fontes e formatos de dados. Também proporciona uma segurança robusta e uma governação abrangente que permite uma partilha perfeita e segura de qualquer conteúdo bi e analítico|[Página do produto](https://www.informationbuilders.com/products/bi-and-analytics-platform)<br> |
+![Jinfonet](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_logo.png) |**Jinfonet JReport**<br>JReport é uma solução BI incorporado para a empresa. A solução oferece uma multiplicidade de capacidades como criação de relatórios, dashboards e análise de dados em nuvem, big data e fontes de dados transacionais. Ao visualizar dados, pode realizar os seus próprios relatórios e descobertade dados para uma tomada de decisão ágil e em movimento. |[Página do produto](https://www.jinfonet.com/product/jreport-designer)<br> |
+| ![LogiAnalytics](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_logo.png) |**Logi Analytics**<br>Juntos, a Logi Analytics permite à sua organização recolher, analisar e agir imediatamente nos maiores e mais diversos conjuntos de dados do mundo. |[Página do produto](https://www.logianalytics.com/)<br>|
+| ![Looker](./media/sql-data-warehouse-partner-business-intelligence/looker_logo.png) |**Looker BI**<br>A Looker dá a todos na sua empresa a capacidade de explorar e compreender os dados que impulsionam o seu negócio. A Looker também dá ao analista de dados uma camada de modelação flexível e reutilizável para controlar e curar esses dados.  As empresas transformaram fundamentalmente a sua cultura usando o Looker como catalisador.|[Página do produto](https://looker.com/partners/microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20)<br> |
+| ![Microestratégia](./media/sql-data-warehouse-partner-business-intelligence/microstrategy_logo.png) |**MicroEstratégia**<br>A plataforma MicroStrategy oferece um conjunto completo de capacidades de inteligência e análise de negócios que permitem às organizações obter valor a partir dos seus dados de negócio. O poderoso motor analítico da MicroStrategy, conjuntos de ferramentas abrangentes, variedade de conectores de dados e arquitetura aberta escalável garantem que tem tudo o que precisa para estender o acesso à análise em todas as equipas e funções empresariais |[Página do produto](https://www.microstrategy.com/us/product/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm)<br> |
+| ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Empresa Qlik Sense**<br>Conduza a descoberta de insights com a aplicação de visualização de dados que qualquer um pode usar. Com a Qlik Sense, todos na sua organização podem facilmente criar visualizações flexíveis e interativas e tomar decisões significativas. |[Página do produto](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/) |
+| ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>O SiSense é um software de Business Intelligence de grande pilha que vem com ferramentas que uma empresa precisa para analisar e visualizar dados: uma base de dados analítica de alto desempenho, a capacidade de juntar várias fontes, extração simples de dados (ETL) e dados baseados na Web visualização. Comece a analisar e visualizar grandes conjuntos de dados com o SiSense BI e o Analytics hoje. |[Página do produto](https://www.sisense.com/product/)<br> |
+| ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>A análise de self-service de Tableau ajuda qualquer pessoa a ver e entender os seus dados, através de muitos tipos de dados, desde ficheiros planos a bases de dados. Tableau tem um conector nativo e otimizado para o SQL Analytics que suporta dados ao vivo e análise na memória. |[Página do produto](https://www.tableau.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/)<br>|
+| ![Rio Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Decision Suite)**<br>A Targit Decision Suite fornece a plataforma BI e Analytics que fornece dashboards em tempo real, análise de self-service, relatórios fáceis de utilizar, capacidades móveis impressionantes e tecnologia simples de descoberta de dados numa única solução coesa. Targit dá às empresas a coragem de agir. |[Página do produto](https://www.targit.com/en/software/deployment/targitonazure)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
+| ![Barbatana amarela](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Barbatana amarela**<br>Yellowfin é um fornecedor de Cloud BI com melhor classificação para relatórios ad hoc e dashboards por BARC; A Pesquisa bi. Ligue-se ao SQL Analytics, em seguida, crie e partilhe belos relatórios e dashboards com funcionalidades de bi colaborativa e inteligência de localização premiadas. |[Página do produto](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
-## <a name="next-steps"></a>Próximos Passos
-Para saber mais sobre alguns de nossos outros parceiros, consulte [parceiros de integração de dados][di_partners] e [parceiros de gerenciamento de dados][dm_partners].
+## <a name="next-steps"></a>Passos Seguintes
+Para saber mais sobre alguns dos nossos outros parceiros, consulte parceiros de [Integração](sql-data-warehouse-partner-data-integration.md) de Dados e parceiros de [Gestão de Dados.](sql-data-warehouse-partner-data-management.md)
 
-<!--Image references-->
-[1]: ./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png
-[2]: ./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png
-[3]: ./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png
-[4]: ./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png
-[5]: ./media/sql-data-warehouse-partner-business-intelligence/jinfonet_logo.png
-[6]: ./media/sql-data-warehouse-partner-business-intelligence/logianalytics_logo.png
-[7]: ./media/sql-data-warehouse-partner-business-intelligence/looker_logo.png
-[8]: ./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png
-[9]: ./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png
-[10]: ./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png
-[11]: ./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png
-[12]: ./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png
-[13]: ./media/sql-data-warehouse-partner-business-intelligence/informationbuilders_logo.png
-[14]: ./media/sql-data-warehouse-partner-business-intelligence/microstrategy_logo.png
-
-<!--Article links-->
-
-[bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
-[di_partners]: ./sql-data-warehouse-partner-data-integration.md
-[dm_partners]: ./sql-data-warehouse-partner-data-management.md
-
-<!--Website links -->
-
-[birst_website]:https://www.birst.com/
-[clearstory_website]:https://www.clearstorydata.com/product/continuous-insights/
-[dundas_bi_website]:https://www.dundas.com/dundas-bi
-[jinfonet_website]:https://www.jinfonet.com/product/jreport-designer
-[logianalytics_website]:https://www.logianalytics.com/
-[looker_website]:https://looker.com/partners/microsoft-azure/
-[cognosanalytics_website]:https://www.ibm.com/products/cognos-analytics
-[qlik_website]:https://www.qlik.com/us/products/qlik-sense/enterprise
-[sisense_website]:https://www.sisense.com/product/
-[tableau_website]:https://www.tableau.com/
-[targit_website]:https://www.targit.com/en/software/deployment/targitonazure
-[yellowfin_website]:https://www.yellowfinbi.com/
-[informationbuilders_website]:https://www.informationbuilders.com/products/bi-and-analytics-platform
-[microstrategy_website]:https://www.microstrategy.com/us/product/analytics
-
-<!--Marketplace Links -->
-
-[birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
-[dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
-[looker_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20
-[qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
-[tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
-[targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 
-[yellowfin_marketplace]:https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
-[microstrategy_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm
+ 

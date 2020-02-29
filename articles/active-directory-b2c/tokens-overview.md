@@ -2,20 +2,20 @@
 title: Visão geral dos tokens - Azure Ative Directory B2C
 description: Conheça as fichas utilizadas no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 543a3558333933e9d8d6262c76c1e6e9419be877
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848190"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186493"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Diretório Ativo Azure B2C
 
@@ -52,7 +52,7 @@ A tabela que se segue lista as alegações que pode esperar em fichas de identif
 
 | Nome | Afirmação | Valor de exemplo | Descrição |
 | ---- | ----- | ------------- | ----------- |
-| Audiência | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica o destinatário pretendido do token. Para o Azure AD B2C, o público é o ID da aplicação. A sua aplicação deve validar este valor e rejeitar o símbolo se não corresponder. O público é sinónimo de recurso. |
+| Audiência | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica o destinatário pretendido do símbolo. Para o Azure AD B2C, o público é o ID da aplicação. A sua aplicação deve validar este valor e rejeitar o símbolo se não corresponder. O público é sinónimo de recurso. |
 | Emissor | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica o serviço de fichas de segurança (STS) que constrói e devolve o símbolo. Identifica também o diretório em que o utilizador foi autenticado. O seu pedido deve validar a alegação do emitente para se certificar de que o símbolo veio do ponto final apropriado. |
 | Emitido em | `iat` | `1438535543` | O tempo em que o símbolo foi emitido, representado na época. |
 | Tempo de validade | `exp` | `1438539443` | O tempo em que o símbolo se torna inválido, representado na época. O seu pedido deve utilizar esta alegação para verificar a validade da vida útil do símbolo. |
@@ -61,7 +61,7 @@ A tabela que se segue lista as alegações que pode esperar em fichas de identif
 | Código hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Um hash de código incluído num token de identificação apenas quando o símbolo é emitido juntamente com um código de autorização OAuth 2.0. Um hash código pode ser usado para validar a autenticidade de um código de autorização. Para obter mais informações sobre como realizar esta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Hash token de acesso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Um hash de acesso incluído num token de identificação apenas quando o token é emitido juntamente com um token de acesso OAuth 2.0. Um hash de acesso pode ser usado para validar a autenticidade de um token de acesso. Para obter mais informações sobre como realizar esta validação, consulte a [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce | `nonce` | `12345` | Um nonce é uma estratégia usada para mitigar ataques de repetição de tokens. O seu pedido pode especificar um nonce num pedido de autorização utilizando o parâmetro de consulta `nonce`. O valor que fornece no pedido é emitido não modificado na `nonce` reivindicação de um token de identificação apenas. Esta reclamação permite que a sua aplicação verifique o valor em relação ao valor especificado no pedido. A sua aplicação deverá efetuar esta validação durante o processo de validação do token ID. |
-| Assunto | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | O principal sobre o qual o símbolo afirma informações, como o utilizador de uma aplicação. Esse valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser utilizado para efetuar controlos de autorização com segurança, como quando o símbolo é usado para aceder a um recurso. Por padrão, a declaração de assunto é populada com a ID de objeto do usuário no diretório. |
+| Requerente | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | O principal sobre o qual o símbolo afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser utilizado para efetuar controlos de autorização com segurança, como quando o símbolo é usado para aceder a um recurso. Por predefinição, a reclamação do sujeito é povoada com o ID do objeto do utilizador no diretório. |
 | Referência de classe de contexto de autenticação | `acr` | Não aplicável | Usado apenas com políticas mais antigas. |
 | Política-quadro de confiança | `tfp` | `b2c_1_signupsignin1` | O nome da apólice que foi usada para adquirir o símbolo de identificação. |
 | Tempo de autenticação | `auth_time` | `1438535543` | O momento em que um utilizador entrou pela última vez credenciais, representadas na época. Não existe discriminação entre essa autenticação ser um novo login, uma única sessão de inscrição (SSO) ou outro tipo de inscrição. O `auth_time` é a última vez que a aplicação (ou utilizador) iniciou uma tentativa de autenticação contra o Azure AD B2C. O método utilizado para autenticar não é diferenciado. |
@@ -121,7 +121,7 @@ O cabeçalho do token contém informações sobre o método chave e encriptaçã
 
 O valor da reivindicação da **Alg** é o algoritmo que foi usado para assinar o símbolo. O valor da **alegação** infantil é a chave pública que foi usada para assinar o símbolo. A qualquer momento, o Azure AD B2C pode assinar um símbolo usando qualquer um de um conjunto de pares de chaves público-privados. Azure AD B2C gira periodicamente o possível conjunto de teclas. A sua aplicação deve ser escrita para lidar automaticamente com essas alterações de chave. Uma frequência razoável para verificar se há atualizações das teclas públicas utilizadas pelo Azure AD B2C é a cada 24 horas.
 
-O Azure AD B2C tem um ponto final de metadados OpenID Connect. Utilizando este ponto final, as aplicações podem solicitar informações sobre o Azure AD B2C em tempo de execução. Essas informações incluem pontos de extremidade, conteúdos de token e chaves de assinatura de token. O seu inquilino Azure AD B2C contém um documento de metadados JSON para cada política. O documento de metadados é um objeto JSON que contém várias peças de informação úteis. Os metadados contêm **jwks_uri,** que dá a localização do conjunto de chaves públicas que são usadas para assinar fichas. Essa localização é fornecida aqui, mas o melhor é obter a localização dinamicamente usando o documento de metadados e analisando **jwks_uri:**
+O Azure AD B2C tem um ponto final de metadados OpenID Connect. Utilizando este ponto final, as aplicações podem solicitar informações sobre o Azure AD B2C em tempo de execução. Estas informações incluem pontos finais, conteúdo simbólico e chaves de assinatura simbólicas. O seu inquilino Azure AD B2C contém um documento de metadados JSON para cada política. O documento de metadados é um objeto JSON que contém várias peças de informação úteis. Os metadados contêm **jwks_uri,** que dá a localização do conjunto de chaves públicas que são usadas para assinar fichas. Essa localização é fornecida aqui, mas o melhor é obter a localização dinamicamente usando o documento de metadados e analisando **jwks_uri:**
 
 ```
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_signupsignin1
@@ -134,7 +134,7 @@ O documento de metadados para a política de `B2C_1_signupsignin1` no `contoso.o
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_signupsignin1
 ```
 
-Para determinar que política foi usada para assinar um símbolo (e para onde ir para solicitar os metadados), tem duas opções. Em primeiro lugar, o nome da política está incluído na alegação `acr` no símbolo. Pode analisar as alegações do corpo do JWT descodificando o corpo e desserializando a cadeia JSON que resulta. A alegação `acr` é o nome da política que foi usada para emitir o símbolo. A outra opção é codificar a política no valor do parâmetro `state` quando emitir o pedido e, em seguida, descodificá-la para determinar qual a política utilizada. O método é válido.
+Para determinar que política foi usada para assinar um símbolo (e para onde ir para solicitar os metadados), tem duas opções. Em primeiro lugar, o nome da política está incluído na alegação `acr` no símbolo. Pode analisar as alegações do corpo do JWT descodificando o corpo e desserializando a cadeia JSON que resulta. A alegação `acr` é o nome da política que foi usada para emitir o símbolo. A outra opção é codificar a política no valor do parâmetro `state` quando emitir o pedido e, em seguida, descodificá-la para determinar qual a política utilizada. Qualquer um dos métodos é válido.
 
 Uma descrição de como realizar a validação de assinaturas está fora do âmbito deste documento. Muitas bibliotecas de código aberto estão disponíveis para ajudá-lo a validar um símbolo.
 

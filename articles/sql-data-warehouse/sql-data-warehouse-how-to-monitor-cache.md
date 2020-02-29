@@ -10,28 +10,36 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 924705b7ce1d324583077797714491bdf3fc5cc9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: 257b33802ea95138ef8149ef9302b14ca379e7ac
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721222"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195576"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Como monitorizar a cache gen2
-A arquitetura de armazenamento Gen2 automaticamente nivete os seus segmentos de colunas mais frequentemente consultados numa cache residente em SSDs baseados em NVMe projetados para armazéns de dados Gen2. Um maior desempenho é realizado quando as suas consultas recuperam segmentos que residem na cache. Este artigo descreve como monitorizar e resolver problemas o desempenho da consulta lenta, determinando se a sua carga de trabalho está a aproveitar idealmente a cache gen2.  
+
+Este artigo descreve como monitorizar e resolver problemas o desempenho da consulta lenta, determinando se a sua carga de trabalho está a aproveitar idealmente a cache gen2.
+
+A arquitetura de armazenamento Gen2 automaticamente nivete os seus segmentos de colunas mais frequentemente consultados numa cache residente em SSDs baseados em NVMe projetados para armazéns de dados Gen2. Um maior desempenho é realizado quando as suas consultas recuperam segmentos que residem na cache.
+ 
 ## <a name="troubleshoot-using-the-azure-portal"></a>Resolução de problemas usando o portal Azure
-Pode utilizar o Monitor Azure para ver as métricas de cache gen2 para resolver o desempenho da consulta. Primeiro vá ao portal Azure e clique no Monitor:
 
-![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache_0.png)
+Pode utilizar o Monitor Azure para ver as métricas de cache gen2 para resolver o desempenho da consulta. Primeiro vá ao portal Azure e clique no **Monitor,** **Métricas** e **+ Selecione um âmbito:**
 
-Selecione o botão métricas e preencha o grupo **de subscrição,** **grupo** **de recursos,** **tipo de recurso**e nome **de recurso** do seu armazém de dados.
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-0.png)
 
-As métricas-chave para a resolução de problemas da cache Gen2 são **a percentagem** de impacto cache e **a percentagem usada por Cache**. Configure o gráfico métrico Azure para exibir estas duas métricas.
+Use a pesquisa e deixe cair as barras para localizar o seu armazém de dados. Em seguida, selecione aplicar.
 
-![Métricas cache](./media/sql-data-warehouse-cache-portal/cache_1.png)
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-1.png)
 
+As métricas-chave para a resolução de problemas da cache Gen2 são **a percentagem** de impacto cache e **a percentagem usada por Cache**. Selecione **a percentagem de impacto** da Cache e, em seguida, use o botão métrica de **adição** para adicionar **a percentagem usada cache**. 
+
+![Métricas cache](./media/sql-data-warehouse-cache-portal/cache-2.png)
 
 ## <a name="cache-hit-and-used-percentage"></a>Cache hit e percentagem usada
+
 A matriz abaixo descreve cenários baseados nos valores das métricas de cache:
 
 |                                | **Alta percentagem de impacto de Cache** | **Baixa percentagem de impacto de Cache** |
@@ -50,5 +58,5 @@ A matriz abaixo descreve cenários baseados nos valores das métricas de cache:
 > [!IMPORTANT]
 > Se a percentagem de impacto da cache ou a percentagem utilizada não estiver em atualização após a reexecução da sua carga de trabalho, o seu conjunto de trabalho já pode residir na memória. Apenas as mesas de lojas de colunas agrupadas estão em cache.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a sintonização geral do desempenho da consulta, consulte a [execução](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution)da consulta do Monitor .

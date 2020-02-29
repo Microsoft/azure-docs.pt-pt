@@ -1,6 +1,6 @@
 ---
-title: Restaurar um armazém de dados eliminado
-description: Como orientar para restaurar um Armazém de Dados Azure SQL eliminado.
+title: Restaurar uma piscina SQL eliminada
+description: Como orientar para restaurar uma piscina SQL eliminada.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e508eff3b322b49a6dc50d818c8bcccc3e924ff2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 34851203432b7e2daf44e840e45275de76bc3b3a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759677"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196646"
 ---
-# <a name="restore-a-deleted-azure-sql-data-warehouse"></a>Restaurar um armazém de dados Azure SQL eliminado
+# <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Restaurar uma piscina SQL eliminada usando azure Synapse Analytics
 
-Neste artigo, aprende-se a restaurar um Armazém de Dados SQL eliminado utilizando o portal Azure e a PowerShell:
+Neste artigo, aprende-se a restaurar um SQL utilizando o portal Azure ou o PowerShell.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verifique a sua capacidade de DTU.** Cada Armazém de Dados SQL é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma quota DTU padrão.  Verifique se o servidor SQL tem quota DTU suficiente para a base de dados ser restaurada. Para aprender a calcular o DTU necessário ou para solicitar mais DTU, consulte [Solicite uma alteração](sql-data-warehouse-get-started-create-support-ticket.md)de quota DTU .
+**Verifique a sua capacidade de DTU.** Cada piscina SQL é hospedada por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma quota DTU padrão.  Verifique se o servidor SQL tem quota DTU suficiente para a base de dados ser restaurada. Para aprender a calcular o DTU necessário ou para solicitar mais DTU, consulte [Solicite uma alteração](sql-data-warehouse-get-started-create-support-ticket.md)de quota DTU .
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Restaurar um armazém de dados eliminado através da PowerShell
 
-Para restaurar um Armazém de Dados SQL eliminado, utilize o cmdlet [Restore-AzSqlDatabase.](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) Se o servidor lógico correspondente também tiver sido eliminado, não pode restaurar o armazém de dados.
+Para restaurar uma piscina SQL eliminada, utilize o cmdlet [Restore-AzSqlDatabase.](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) Se o servidor lógico correspondente também tiver sido eliminado, não pode restaurar o armazém de dados.
 
 1. Antes de começar, certifique-se de instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Abra o PowerShell.
@@ -71,7 +71,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Restaurar uma base de dados eliminada utilizando o portal Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Navegue para o servidor SQL onde o seu armazém de dados eliminado foi hospedado.
 3. Selecione o ícone de bases de **dados Eliminado** na tabela de conteúdos.
 
@@ -85,6 +85,6 @@ $RestoredDatabase.status
 
     ![Especificar nome da base de dados](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
-## <a name="next-steps"></a>Próximos Passos
-- [Restaurar um armazém de dados existente](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restaurar a partir de um armazém de dados de geo-backup](sql-data-warehouse-restore-from-geo-backup.md)
+## <a name="next-steps"></a>Passos Seguintes
+- [Restaurar uma piscina SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurar a partir de uma piscina SQL geo-backup](sql-data-warehouse-restore-from-geo-backup.md)

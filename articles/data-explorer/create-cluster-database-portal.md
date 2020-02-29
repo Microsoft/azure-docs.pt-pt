@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar cluster e base de dados do Explorador de Dados Azure'
+title: 'Quickstart: Criar um cluster e DB do Explorador de Dados Azure'
 description: Neste início rápido, aprenderá a criar um cluster e uma base de dados do Azure Data Explorer, e dados para ingerir (carregar).
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: 895b26fc7f35303cbef6c9df543c87ca435c2290
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: e97a712664a5864062fef2bba36dda76175af715
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984358"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199857"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início Rápido: criar um cluster e uma base de dados do Azure Data Explorer
 
@@ -21,17 +21,17 @@ ms.locfileid: "76984358"
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
-> * [Python](create-cluster-database-python.md)
+> * [python](create-cluster-database-python.md)
 > * [Modelo ARM](create-cluster-database-resource-manager.md)
 
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Para usar o Azure Data Explorer, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, você pode ingerir (carregar) dados em um banco de dado para poder executar consultas nele. Neste início rápido, irá criar um cluster e uma base de dados.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Para utilizar o Azure Data Explorer, cria-se primeiro um cluster e cria-se uma ou mais bases de dados nesse cluster. Em seguida, ingere (carregar) dados numa base de dados para que possa fazer perguntas contra ele. Neste início rápido, irá criar um cluster e uma base de dados.
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
@@ -52,7 +52,7 @@ Crie um cluster Azure Data Explorer com um conjunto definido de recursos de comp
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o cluster.|
-    | Grupo de recursos | Seu grupo de recursos | Use um grupo de recursos existente ou crie um novo grupo de recursos. |
+    | Grupo de recursos | O seu grupo de recursos | Utilize um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Nome do cluster | Um nome exclusivo de cluster | Escolha um nome exclusivo que identifique o seu cluster. O nome de domínio *[região].kusto.windows.net* é anexado ao nome de cluster que indicar. O nome pode conter apenas letras minúsculas e números. Deve conter de 4 a 22 caracteres.
     | Região | *Oeste dos EUA* ou *Oeste DOS EUA 2* | Selecione *West US* ou *West US 2* (se utilizar zonas de disponibilidade) para este arranque rápido. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades.
     | Zonas de disponibilidade | *1,* *2,* e/ou *3* | Coloque as instâncias de cluster em várias zonas de disponibilidade na mesma região (opcional). [As Zonas de Disponibilidade Azure](/azure/availability-zones/az-overview) são localizações físicas únicas dentro da mesma região de Azure. Protegem um cluster do Azure Data Explorer e dados de falhas parciais da região. Os nós de cluster são criados, por padrão, no mesmo centro de dados. Ao selecionar várias zonas de disponibilidade, pode eliminar um único ponto de falha e garantir uma elevada disponibilidade. A implantação para zonas de disponibilidade só é possível durante a criação do cluster e não pode ser modificada mais tarde.
@@ -61,7 +61,7 @@ Crie um cluster Azure Data Explorer com um conjunto definido de recursos de comp
 
 1. Selecione **Review + crie** para rever os detalhes do cluster e **crie** para fornecer o cluster. O provisionamento normalmente demora cerca de 10 minutos.
 
-1. Quando a implantação for concluída, selecione **ir para o recurso**.
+1. Quando a implementação estiver concluída, selecione **Ir para o recurso**.
 
     ![Ir para recurso](media/create-cluster-database-portal/notification-resource.png)
 
@@ -123,6 +123,6 @@ Se planeia seguir outros quickstarts e tutoriais, guarde os recursos que criou. 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Ingerir dados do Hub de Eventos para o Azure Data Explorer](ingest-data-event-hub.md)
+> [Início Rápido: ingerir dados do Hub de Eventos para o Azure Data Explorer](ingest-data-event-hub.md)
 
 

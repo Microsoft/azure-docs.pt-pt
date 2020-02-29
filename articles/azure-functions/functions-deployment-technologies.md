@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gwallace
-ms.openlocfilehash: bfb7d3ad6f918d91061fa226ae2dbfcd7f27852d
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 43352117d149abbe41ba7bf49a1ffb68e46d2707
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210162"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190758"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
@@ -104,7 +104,7 @@ Pode utilizar um URL de pacote externo para fazer referência a um ficheiro de p
 
 Utilize o zip deploy para empurrar um ficheiro .zip que contenha a sua aplicação de função para o Azure. Opcionalmente, pode configurar a sua aplicação para começar a funcionar a [partir do pacote](run-functions-from-deployment-package.md), ou especificar que ocorre uma [construção remota.](#remote-build)
 
->__Como usá-lo:__ Implemente utilizando a sua ferramenta cliente favorita: [Visual Studio Code,](functions-create-first-function-vs-code.md#publish-the-project-to-azure) [Visual Studio,](functions-develop-vs.md#publish-to-azure)as [Ferramentas Core funções Do Azure](functions-run-local.md)ou o [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Por predefinição, estas ferramentas utilizam a implantação de zíper e [funcionam a partir da embalagem](run-functions-from-deployment-package.md). As Ferramentas Core e a extensão do Código do Estúdio Visual permitem a [construção remota](#remote-build) ao ser implantado para o Linux. Para implementar manualmente um ficheiro .zip na sua aplicação de funções, siga as instruções de [implantação a partir de um ficheiro .zip ou URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+>__Como usá-lo:__ Implemente utilizando a sua ferramenta cliente favorita: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), Visual [Studio,](functions-develop-vs.md#publish-to-azure)ou da linha de comando utilizando as [Ferramentas Core funções Azure](functions-run-local.md#project-file-deployment). Por predefinição, estas ferramentas utilizam a implantação de zíper e [funcionam a partir da embalagem](run-functions-from-deployment-package.md). As Ferramentas Core e a extensão do Código do Estúdio Visual permitem a [construção remota](#remote-build) ao ser implantado para o Linux. Para implementar manualmente um ficheiro .zip na sua aplicação de funções, siga as instruções de [implantação a partir de um ficheiro .zip ou URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 >Quando implementar utilizando a implementação de zip, pode definir a sua aplicação para executar a [partir do pacote](run-functions-from-deployment-package.md). Para correr a partir do pacote, defina o valor de definição de aplicação `WEBSITE_RUN_FROM_PACKAGE` para `1`. Recomendamos a implantação de zip. Produz tempos de carregamento mais rápidos para as suas aplicações, e é o padrão para vs Code, Visual Studio e o Azure CLI. 
 

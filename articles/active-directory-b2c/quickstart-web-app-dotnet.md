@@ -3,30 +3,30 @@ title: 'Quickstart: Configurar o início para uma aplicação web ASP.NET'
 titleSuffix: Azure AD B2C
 description: Neste Quickstart, execute uma amostra ASP.NET aplicação web que utiliza o Azure Ative Directory B2C para fornecer o sessão de conta.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7ee56e69befb220a742077326956efa996979105
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 197155650bf7b8d113f96dbcfd6d9e2b58924b7f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850175"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187207"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Quickstart: Instale o sinal para uma aplicação ASP.NET utilizando o Diretório Ativo Azure B2C
 
-O Azure Active Directory B2C (Azure AD B2C) fornece gerenciamento de identidade de nuvem para manter seus aplicativos, negócios e clientes protegidos. O Azure AD B2C permite às aplicações fazer a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos. Neste início rápido, vai utilizar uma aplicação ASP.NET para iniciar sessão com um fornecedor de identidade de redes sociais e chamar uma API Web protegida pelo Azure AD B2C.
+O Azure Ative Directory B2C (Azure AD B2C) fornece gestão de identidade na nuvem para manter a sua aplicação, negócio e clientes protegidos. O Azure AD B2C permite às aplicações fazer a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos. Neste início rápido, vai utilizar uma aplicação ASP.NET para iniciar sessão com um fornecedor de identidade de redes sociais e chamar uma API Web protegida pelo Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a ASP.net e a carga de trabalho de **desenvolvimento da Web** .
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a **carga de trabalho de ASP.NET e desenvolvimento web.**
 - Uma conta social do Facebook, Google ou Microsoft.
 - [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
 
@@ -56,19 +56,19 @@ O Azure Active Directory B2C (Azure AD B2C) fornece gerenciamento de identidade 
 
     ![Experimente ASP.NET aplicação web no navegador com link de inscrição/sinal destacado](./media/quickstart-web-app-dotnet/web-app-sign-in.png)
 
-    O exemplo suporta várias opções de inscrição, incluindo através de um fornecedor de identidade de redes sociais ou criando uma conta local com um endereço de e-mail. Para este guia de início rápido, use uma conta de provedor de identidade social do Facebook, do Google ou da Microsoft.
+    O exemplo suporta várias opções de inscrição, incluindo através de um fornecedor de identidade de redes sociais ou criando uma conta local com um endereço de e-mail. Para este arranque rápido, utilize uma conta de fornecedor de identidade social do Facebook, Google ou Microsoft.
 
-2. Azure AD B2C apresenta uma página de entrada para uma empresa fictícia chamada Fabrikam para o aplicativo Web de exemplo. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
+2. O Azure AD B2C apresenta uma página de entrada para uma empresa fictícia chamada Fabrikam para a aplicação web da amostra. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
 
     ![Inscreva-se ou inscreva-se na página mostrando botões de fornecedor de identidade](./media/quickstart-web-app-dotnet/sign-in-or-sign-up-web.png)
 
-    Você autentica (entra) usando suas credenciais de conta social e autoriza o aplicativo a ler informações de sua conta social. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade.
+    Autentica (iniciar sessão) usando as credenciais da sua conta social e autorizar o pedido de leitura de informação na sua conta social. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade.
 
 3. Conclua o processo de início de sessão para o fornecedor de identidade.
 
 ## <a name="edit-your-profile"></a>Editar o seu perfil
 
-O Azure Active Directory B2C fornece funcionalidades para permitir que os utilizadores atualizem os seus perfis. O aplicativo Web de exemplo usa um fluxo de usuário de Azure AD B2C Editar perfil para o fluxo de trabalho.
+O Azure Active Directory B2C fornece funcionalidades para permitir que os utilizadores atualizem os seus perfis. A aplicação web da amostra utiliza um fluxo de utilizador de perfil de edição Azure AD B2C para o fluxo de trabalho.
 
 1. Na barra de menus da aplicação, clique no nome do perfil e selecione **Editar perfil** para editar o perfil que criou.
 
@@ -98,10 +98,10 @@ Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros início
 
 Neste arranque rápido, utilizou uma amostra ASP.NET aplicação para:
 
-* Entrar com uma página de logon personalizada
-* Entrar com um provedor de identidade social
-* Criar uma conta de Azure AD B2C
-* Chamar uma API da Web protegida por Azure AD B2C
+* Inscreva-se com uma página de login personalizada
+* Inscreva-se com um fornecedor de identidade social
+* Criar uma conta Azure AD B2C
+* Ligue para uma Web API protegida por Azure AD B2C
 
 Comece a criar o seu próprio inquilino do Azure AD B2C.
 

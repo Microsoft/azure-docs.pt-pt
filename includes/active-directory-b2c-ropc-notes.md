@@ -1,16 +1,16 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 02/27/2020
-ms.author: marsma
-ms.openlocfilehash: fc70fb163ae1f6198f66743a739a0d9720f764f1
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.author: mimart
+ms.openlocfilehash: f4944881e6eff3e9a56a74bc997c280f9fff6be8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912410"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187010"
 ---
 ## <a name="ropc-flow-notes"></a>Notas de fluxo ROPC
 No Diretório Ativo Azure B2C (Azure AD B2C), são suportadas as seguintes opções:

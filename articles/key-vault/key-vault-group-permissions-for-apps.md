@@ -1,91 +1,92 @@
 ---
-title: Conceder permissão a aplicativos para acessar um cofre de chaves do Azure-Azure Key Vault | Microsoft Docs
-description: Saiba como conceder permissão a muitos aplicativos para acessar um cofre de chaves
+title: Autorize os pedidos de acesso a um cofre de chaves Azure - Cofre chave Azure [ Cofre chave ] Microsoft Docs
+description: Saiba como conceder permissão a muitas aplicações para aceder a um cofre chave
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 10445aba9c52c5367a8ea03729462d14e2d51085
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d5086377b0bb7f3ca2ece643f82a4e45156f1955
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707188"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184881"
 ---
-# <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornecer Key Vault autenticação com uma política de controle de acesso
+# <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Forneça a autenticação do Cofre chave com uma política de controlo de acesso
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-A maneira mais simples de autenticar um aplicativo baseado em nuvem para Key Vault é com uma identidade gerenciada; consulte [usar uma identidade gerenciada do serviço de aplicativo para acessar Azure Key Vault](managed-identity.md) para obter detalhes.  Se você estiver criando um aplicativo local, fazendo o desenvolvimento ou não puder usar uma identidade gerenciada, poderá registrar uma entidade de serviço manualmente e fornecer acesso ao seu cofre de chaves usando uma política de controle de acesso.  
+A forma mais simples de autenticar uma aplicação baseada na nuvem no Key Vault é com uma identidade gerida; ver Utilize um Serviço de [Aplicações gerido identidade para aceder ao Cofre de Chaves Azure](managed-identity.md) para obter mais detalhes.  Se estiver a criar uma aplicação on-prem, a fazer desenvolvimento local ou a não conseguir utilizar uma identidade gerida, pode, em vez disso, registar manualmente um serviço principal e fornecer acesso ao seu cofre chave utilizando uma política de controlo de acesso.  
 
-O Key Vault dá suporte a até 1024 entradas de política de acesso, sendo que cada entrada concede um conjunto distinto de permissões a uma "entidade de segurança": por exemplo, é assim que o aplicativo de console no [início rápido da biblioteca de cliente Azure Key Vault para .net](quick-create-net.md) acessa o cofre de chaves.
+O cofre de chaves suporta até 1024 entradas de política de acesso, com cada entrada a conceder um conjunto distinto de permissões a um "principal": Por exemplo, é assim que a aplicação de consola na biblioteca de [clientes Azure Key Vault para .NET quickstart](quick-create-net.md) acessa o cofre chave.
 
-Para obter detalhes completos sobre Key Vault controle de acesso, consulte [segurança de Azure Key Vault: gerenciamento de identidade e acesso](overview-security.md#identity-and-access-management). Para obter detalhes completos sobre [chaves, segredos e](about-keys-secrets-and-certificates.md) controle de acesso de certificados, consulte: 
+Para mais detalhes sobre o controlo de acesso ao Cofre chave, consulte a [segurança do Cofre chave Azure: Identidade e gestão de acesso](overview-security.md#identity-and-access-management). Para mais detalhes sobre o controlo de acesso de [Chaves, Segredos e Certificados,](about-keys-secrets-and-certificates.md) consulte: 
 
-- [Controle de acesso de chaves](about-keys-secrets-and-certificates.md#key-access-control)
-- [Controle de acesso de segredos](about-keys-secrets-and-certificates.md#secret-access-control)
-- [Controle de acesso de certificados](about-keys-secrets-and-certificates.md#certificate-access-control)
+- [Controlo de acesso de chaves](about-keys-secrets-and-certificates.md#key-access-control)
+- [Controlo de acesso a segredos](about-keys-secrets-and-certificates.md#secret-access-control)
+- [Controlo de acesso de certificados](about-keys-secrets-and-certificates.md#certificate-access-control)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um cofre de chaves. Você pode usar um cofre de chaves existente ou criar um novo seguindo as etapas em um destes guias de início rápido:
-   - [Criar um cofre de chaves com o CLI do Azure](quick-create-cli.md)
-   - [Criar um cofre de chaves com Azure PowerShell](quick-create-powershell.md)
-   - [Crie um cofre de chaves com o portal do Azure](quick-create-portal.md).
-- O [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Como alternativa, você pode usar o [portal do Azure](https://portal.azure.com).
+- Um cofre chave. Você pode usar um cofre chave existente, ou criar um novo seguindo os passos em um destes quickstarts:
+   - [Crie um cofre chave com o Azure CLI](quick-create-cli.md)
+   - [Crie um cofre chave com Azure PowerShell](quick-create-powershell.md)
+   - [Crie um cofre chave com o portal Azure.](quick-create-portal.md)
+- O [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [O Azure PowerShell](/powershell/azure/overview). Em alternativa, pode utilizar o [portal Azure.](https://portal.azure.com)
 
-## <a name="grant-access-to-your-key-vault"></a>Conceder acesso ao cofre de chaves
+## <a name="grant-access-to-your-key-vault"></a>Conceda acesso ao seu cofre chave
 
-Cada entrada de política de acesso do cofre de chaves concede um conjunto distinto de permissões a uma entidade de segurança:
+Cada entrada na política de acesso ao cofre chave concede um conjunto distinto de permissões a um diretor:
 
-- **Um aplicativo** Se o aplicativo for baseado em nuvem, você deverá [usar uma identidade gerenciada para acessar Azure Key Vault](managed-identity.md), se possível
-- **Um grupo do Azure ad** Embora o Key Vault dê suporte apenas a entradas de política de acesso 1024, você pode adicionar vários aplicativos e usuários a um único grupo do Azure AD e, em seguida, adicionar esse grupo como uma única entrada à sua política de controle de acesso.
-- **Um usuário** Não é **recomendável**fornecer aos usuários acesso direto a um cofre de chaves. O ideal é que os usuários sejam adicionados a um grupo do Azure AD, que, por sua vez, recebe acesso ao cofre de chaves. Consulte [segurança de Azure Key Vault: gerenciamento de identidade e acesso](overview-security.md#identity-and-access-management).
+- **Uma aplicação** Se a aplicação for baseada em nuvem, deve [utilizar uma identidade gerida para aceder ao Cofre chave Azure,](managed-identity.md)se possível
+- **Um grupo De AD Azure** Embora o cofre de chaves suporte apenas 1024 entradas de política de acesso, você pode adicionar múltiplas aplicações e utilizadores a um único grupo Azure AD, e, em seguida, adicionar esse grupo como uma única entrada na sua política de controlo de acesso.
+- **Um Utilizador** Dar aos utilizadores acesso direto a um cofre chave é **desencorajado.** Idealmente, os utilizadores devem ser adicionados a um grupo Azure AD, que por sua vez é dado acesso ao cofre chave. Ver Segurança do [Cofre chave Azure: Identidade e gestão de acesso.](overview-security.md#identity-and-access-management)
 
 
-### <a name="get-the-objectid"></a>Obter o objectID
+### <a name="get-the-objectid"></a>Obtenha o objectID
 
-Para dar a um aplicativo, grupo do Azure AD ou acesso de usuário ao cofre de chaves, primeiro você deve obter seu objectId.
+Para dar uma aplicação, grupo Azure AD ou acesso ao utilizador ao seu cofre chave, tem primeiro de obter o seu objectid.
 
 #### <a name="applications"></a>Aplicações
 
-O objectId de um aplicativo corresponde à sua entidade de serviço associada. Para obter detalhes completos sobre entidades de serviço. consulte [objetos de aplicativo e entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
+O objectid para aplicações corresponde ao seu diretor de serviço associado. Para mais detalhes sobre os diretores de serviço. ver [Aplicação e serviço principais objetos no Diretório Ativo Azure](../active-directory/develop/app-objects-and-service-principals.md). 
 
-Há duas maneiras de obter um objectId para um aplicativo.  A primeira é registrar seu aplicativo com Azure Active Directory. Para fazer isso, siga as etapas no início rápido [registrar um aplicativo com a plataforma de identidade da Microsoft](../active-directory/develop/quickstart-register-app.md). Quando o registro for concluído, o objectID será listado como "ID do aplicativo (cliente)".
+Existem duas formas de obter um objectId para uma aplicação.  A primeira é registar a sua candidatura no Azure Ative Directory. Para tal, siga os passos no quickstart [Registe uma aplicação com a plataforma de identidade Microsoft](../active-directory/develop/quickstart-register-app.md). Quando o registo estiver concluído, o objectid será listado como o "Id de aplicação (cliente) ".
 
-A segunda é criar uma entidade de serviço em uma janela de terminal. Com o CLI do Azure, use o comando [AZ ad SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) .
+A segunda é criar um diretor de serviço numa janela terminal. Com o Azure CLI, utilize o comando [az ad sp create-for-rbac.](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
 
 ```azurecli-interactive
 az ad sp create-for-rbac -n "http://mySP"
 ```
 
-O objectId será listado na saída como `clientID`.
+O objectid será listado na saída como `clientID`.
 
-Com Azure PowerShell, use o cmdlet [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal?view=azps-2.7.0) .
+Com a Azure PowerShell, utilize o cmdlet [New-AzADServicePrincipal.](/powershell/module/Az.Resources/New-AzADServicePrincipal?view=azps-2.7.0)
 
 
 ```azurepowershell-interactive
 New-AzADServicePrincipal -DisplayName mySP
 ```
 
-O objectId será listado na saída como `Id` (não `ApplicationId`).
+O objectid será listado na saída como `Id` (não `ApplicationId`).
 
-#### <a name="azure-ad-groups"></a>Grupos do Azure AD
+#### <a name="azure-ad-groups"></a>Grupos AD Azure
 
-Você pode adicionar vários aplicativos e usuários a um grupo do Azure AD e, em seguida, conceder ao grupo acesso ao seu cofre de chaves.  Para obter mais detalhes, consulte a seção [criando e adicionando membros a um grupo do Azure ad](#creating-and-adding-members-to-an-azure-ad-group) , abaixo.
+Pode adicionar várias aplicações e utilizadores a um grupo Azure AD e, em seguida, dar ao grupo acesso ao seu cofre chave.  Para mais detalhes, consulte a Criação e adição de membros a uma secção de [grupo Azure AD,](#creating-and-adding-members-to-an-azure-ad-group) abaixo.
 
-Para localizar o objectId de um grupo do Azure AD com o CLI do Azure, use o comando [AZ ad Group List](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) . Devido ao grande número de grupos que podem estar em sua organização, você também deve fornecer uma cadeia de caracteres de pesquisa para o parâmetro `--display-name`.
+Para encontrar o objectid de um grupo Azure AD com o Azure CLI, utilize o comando da [lista de grupos az ad.](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) Devido ao grande número de grupos que podem estar na sua organização, você também deve fornecer uma cadeia de pesquisa para o parâmetro `--display-name`.
 
 ```azurecli-interactive
 az ad group list --display-name <search-string>
 ```
-O objectId será retornado no JSON:
+O objectid será devolvido no JSON:
 
 ```json
     "objectId": "48b21bfb-74d6-48d2-868f-ff9eeaf38a64",
@@ -93,13 +94,13 @@ O objectId será retornado no JSON:
     "odata.type": "Microsoft.DirectoryServices.Group",
 ```
 
-Para localizar o objectId de um grupo do Azure AD com Azure PowerShell, use o cmdlet [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup?view=azps-2.7.0) . Devido ao grande número de grupos que podem estar em sua organização, você provavelmente também desejará fornecer uma cadeia de caracteres de pesquisa para o parâmetro `-SearchString`.
+Para encontrar o objectid de um grupo Azure AD com a Azure PowerShell, utilize o cmdlet [Get-AzADGroup.](/powershell/module/az.resources/get-azadgroup?view=azps-2.7.0) Devido ao grande número de grupos que podem estar na sua organização, provavelmente também desejará fornecer uma cadeia de pesquisa ao parâmetro `-SearchString`.
 
 ```azurepowershell-interactive
 Get-AzADGroup -SearchString <search-string>
 ```
 
-Na saída, o objectId é listado como `Id`:
+Na saída, o objectid é listado como `Id`:
 
 ```console
 ...
@@ -109,16 +110,16 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 
 #### <a name="users"></a>Utilizadores
 
-Você também pode adicionar um usuário individual à política de controle de acesso de um cofre de chaves. **Não recomendamos isso.** Em vez disso, incentivamos você a adicionar usuários a um grupo do Azure AD e adicionar o grupo nas políticas.
+Também pode adicionar um utilizador individual à política de controlo de acesso de um cofre chave. **Não recomendamos isto.** Em vez disso, encorajamo-lo a adicionar utilizadores a um grupo De AD Azure e a adicionar o grupo sobre as políticas.
 
-Se, mesmo assim, você quiser encontrar um usuário com o CLI do Azure, use o comando [AZ ad User show](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-show) , passando o endereço de email dos usuários para o parâmetro `--id`.
+Se, no entanto, desejar encontrar um utilizador com o Azure CLI, utilize o comando de [show de anúncios az,](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-show) passando o endereço de e-mail dos utilizadores para o parâmetro `--id`.
 
 
 ```azurecli-interactive
 az ad user show --id <email-address-of-user>
 ```
 
-O objectId do usuário será retornado na saída:
+O objectid do utilizador será devolvido na saída:
 
 ```console
   ...
@@ -127,13 +128,13 @@ O objectId do usuário será retornado na saída:
   ...
 ```
 
-Para localizar um usuário com Azure PowerShell, use o cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser?view=azps-2.7.0) , passando o endereço de email dos usuários para o parâmetro `-UserPrincipalName`.
+Para encontrar um utilizador com o Azure PowerShell, utilize o cmdlet [Get-AzADUser,](/powershell/module/az.resources/get-azaduser?view=azps-2.7.0) passando o endereço de e-mail dos utilizadores para o parâmetro `-UserPrincipalName`.
 
 ```azurepowershell-interactive
  Get-AzAdUser -UserPrincipalName <email-address-of-user>
 ```
 
-O objectId do usuário será retornado na saída como `Id`.
+O objectid do utilizador será devolvido na saída à medida que `Id`.
 
 ```console
 ...
@@ -141,36 +142,36 @@ Id                : f76a2a6f-3b6d-4735-9abd-14dccbf70fd9
 Type              :
 ```
 
-### <a name="give-the-principal-access-to-your-key-vault"></a>Fornecer acesso principal ao cofre de chaves
+### <a name="give-the-principal-access-to-your-key-vault"></a>Dê ao principal acesso ao seu cofre chave
 
-Agora que você tem um objectID de sua entidade de segurança, você pode criar uma política de acesso para o cofre de chaves que fornece permissões de Get, lista, definição e exclusão para chaves e segredos, além de quaisquer permissões adicionais que desejar.
+Agora que tem um objectid do seu diretor, pode criar uma política de acesso para o seu cofre chave que lhe dê obter, lista, definir e eliminar permissões tanto para chaves como segredos, além de quaisquer permissões adicionais que desejar.
 
-Com o CLI do Azure, isso é feito passando o objectId para o comando [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) .
+Com o Azure CLI, isto é feito passando o objectId para o comando [de definição de teclado az.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)
 
 ```azurecli-interactive
 az keyvault set-policy -n <your-unique-keyvault-name> --spn <ApplicationID-of-your-service-principal> --secret-permissions get list set delete --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
-Com Azure PowerShell, isso é feito passando o objectId para o cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) . 
+Com o Azure PowerShell, isto é feito passando o objectid para o [cmdlet Set-AzKeyVaultAccessPolicy.](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) 
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys create,decrypt,delete,encrypt,get,list,unwrapKey,wrapKey -PermissionsToSecrets get,list,set,delete -ApplicationId <Id>
 
 ```
 
-## <a name="creating-and-adding-members-to-an-azure-ad-group"></a>Criando e adicionando membros a um grupo do Azure AD
+## <a name="creating-and-adding-members-to-an-azure-ad-group"></a>Criação e adição de membros a um grupo Azure AD
 
-Você pode criar um grupo do Azure AD, adicionar aplicativos e usuários ao grupo e conceder ao grupo acesso ao seu cofre de chaves.  Isso permite que você adicione vários aplicativos a um cofre de chaves como uma entrada de política de acesso único e elimina a necessidade de fornecer aos usuários acesso direto ao cofre de chaves (o que desencorajamos). Para obter mais detalhes, consulte [gerenciar o acesso a aplicativos e recursos usando grupos de Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md).
+Pode criar um grupo Azure AD, adicionar aplicações e utilizadores ao grupo e dar ao grupo acesso ao seu cofre chave.  Isto permite-lhe adicionar uma série de aplicações a um cofre chave como uma única entrada de política de acesso, e elimina a necessidade de dar aos utilizadores acesso direto ao seu cofre chave (o que desencorajamos). Para mais detalhes, consulte Gerir app e acesso a [recursos utilizando grupos de Diretórios Ativos Do Azure](../active-directory/fundamentals/active-directory-manage-groups.md).
 
 ### <a name="additional-prerequisites"></a>Pré-requisitos adicionais
 
-Além dos [pré-requisitos acima](#prerequisites), você precisará de permissões para criar/editar grupos em seu locatário Azure Active Directory. Se você não tiver permissões, talvez seja necessário entrar em contato com o administrador do Azure Active Directory.
+Além dos [pré-requisitos acima referidos,](#prerequisites)necessitará de permissões para criar/editar grupos no seu inquilino do Diretório Ativo Azure. Se não tiver permissões, poderá ter de contactar o administrador do Diretório Ativo Azure.
 
-Se você pretende usar o PowerShell, também precisará do [módulo do PowerShell do Azure ad](https://www.powershellgallery.com/packages/AzureAD/2.0.2.50)
+Se pretende utilizar o PowerShell, também necessitará do [módulo PowerShell Azure AD](https://www.powershellgallery.com/packages/AzureAD/2.0.2.50)
 
-### <a name="create-an-azure-active-directory-group"></a>Criar um grupo de Azure Active Directory
+### <a name="create-an-azure-active-directory-group"></a>Criar um grupo de Diretório Ativo Azure
 
-Crie um novo grupo de Azure Active Directory usando o comando CLI do Azure [AZ ad Group Create](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-create) ou o cmdlet Azure PowerShell [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup?view=azureadps-2.0) .
+Crie um novo grupo azure Ative Directory utilizando o grupo de anúncios Azure CLI [az criar](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-create) comando, ou o Cmdlet Azure PowerShell [New-AzureADGroup.](/powershell/module/azuread/new-azureadgroup?view=azureadps-2.0)
 
 
 ```azurecli-interactive
@@ -181,52 +182,52 @@ az ad group create --display-name <your-group-display-name> --mail-nickname <you
 New-AzADGroup -DisplayName <your-group-display-name> -MailNickName <your-group-mail-nickname>
 ```
 
-Em ambos os casos, anote os grupos recém-criados GroupId, pois será necessário para as etapas abaixo.
+Em qualquer dos casos, tome nota nos grupos recém-criados GroupId, uma vez que vai precisar dele para os passos abaixo.
 
-### <a name="find-the-objectids-of-your-applications-and-users"></a>Localize os objectIds de seus aplicativos e usuários
+### <a name="find-the-objectids-of-your-applications-and-users"></a>Encontre os objetoIds das suas aplicações e utilizadores
 
-Você pode encontrar as objectIds de seus aplicativos usando o CLI do Azure com o comando [AZ ad SP List](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) , com o parâmetro `--show-mine`.
+Pode encontrar os objectIds das suas aplicações utilizando o Azure CLI com o comando da [lista az ad,](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) com o parâmetro `--show-mine`.
 
 ```azurecli-interactive
 az ad sp list --show-mine
 ```
 
-Localize os objectIds de seus aplicativos usando Azure PowerShell com o cmdlet [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal?view=azps-2.7.0) , passando uma cadeia de caracteres de pesquisa para o parâmetro `-SearchString`.
+Encontre os objectIds das suas aplicações utilizando o Azure PowerShell com o cmdlet [Get-AzADServicePrincipal,](/powershell/module/az.resources/get-azadserviceprincipal?view=azps-2.7.0) passando uma cadeia de pesquisa para o parâmetro `-SearchString`.
 
 ```azurepowershell-interactive
 Get-AzADServicePrincipal -SearchString <search-string>
 ```
 
-Para localizar as objectIds dos usuários, siga as etapas na seção [usuários](#users) , acima.
+Para encontrar os objectIds dos seus Utilizadores, siga os passos na secção [Utilizadores,](#users) acima.
 
-### <a name="add-your-applications-and-users-to-the-group"></a>Adicionar seus aplicativos e usuários ao grupo
+### <a name="add-your-applications-and-users-to-the-group"></a>Adicione as suas aplicações e utilizadores ao grupo
 
-Agora, adicione objectIds a seu grupo do Azure AD recém-criado.
+Agora, adicione os objectIds ao seu recém-criado grupo Azure AD.
 
-Com o CLI do Azure, use o [membro do grupo AZ ad Add](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add), passando o ObjectID para o parâmetro `--member-id`.
+Com o Azure CLI, utilize o [add az ad group,](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add)passando o objectId para o parâmetro `--member-id`.
 
 
 ```azurecli-interactive
 az ad group member add -g <groupId> --member-id <objectId>
 ```
 
-Com Azure PowerShell, use o cmdlet [Add-AzADGroupMember](/powershell/module/az.resources/add-azadgroupmember?view=azps-2.7.0) , passando o ObjectID para o parâmetro `-MemberObjectId`.
+Com o Azure PowerShell, utilize o cmdlet [Add-AzADGroupMember,](/powershell/module/az.resources/add-azadgroupmember?view=azps-2.7.0) passando o objectid para o parâmetro `-MemberObjectId`.
 
 ```azurepowershell-interactive
 Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId> 
 ```
 
-### <a name="give-the-ad-group-access-to-your-key-vault"></a>Conceder ao grupo do AD acesso ao cofre de chaves
+### <a name="give-the-ad-group-access-to-your-key-vault"></a>Dê ao grupo AD acesso ao seu cofre chave
 
-Por fim, conceda ao grupo do AD permissões para seu cofre de chaves usando o comando CLI do Azure [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) ou o cmdlet Azure PowerShell [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) . Para obter exemplos, consulte a seção [fornecer o aplicativo, o grupo do Azure ad ou o acesso do usuário ao seu cofre de chaves](#give-the-principal-access-to-your-key-vault) , acima.
+Por último, dê permissões ao grupo AD para o seu cofre chave utilizando o comando de definição de definição de teclado Azure CLI [az,](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) ou o cmdlet Azure PowerShell [Set-AzKeyVaultAccessPolicy.](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) Por exemplo, consulte a [aplicação Give, o grupo Azure AD ou o acesso do utilizador à sua](#give-the-principal-access-to-your-key-vault) secção de cofre chave, acima.
 
-O aplicativo também precisa de pelo menos uma função IAM (gerenciamento de acesso e identidade) atribuída ao cofre de chaves. Caso contrário, não será possível fazer logon e falhará com direitos insuficientes para acessar a assinatura.
+A aplicação também necessita de pelo menos uma função de Gestão de Identidade e Acesso (IAM) atribuída ao cofre chave. Caso contrário, não poderá entrar em sessão e falhará com direitos insuficientes de acesso à subscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Segurança de Azure Key Vault: gerenciamento de acesso e identidade](overview-security.md#identity-and-access-management)
-- [Fornecer autenticação de Key Vault com uma identidade gerenciada do serviço de aplicativo](managed-identity.md)
+- [Segurança do Cofre chave Azure: Gestão de identidade e acesso](overview-security.md#identity-and-access-management)
+- [Forneça a autenticação chave vault com uma identidade gerida pelo Serviço de Aplicações](managed-identity.md)
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
-- [Proteja seu cofre de chaves](key-vault-secure-your-key-vault.md).
-- [Guia do desenvolvedor de Azure Key Vault](key-vault-developers-guide.md)
-- Examinar [Azure Key Vault práticas recomendadas](key-vault-best-practices.md)
+- [Proteja o cofre da chave.](key-vault-secure-your-key-vault.md)
+- [Guia de desenvolvedor do Cofre de Chaves Azure](key-vault-developers-guide.md)
+- Rever [as melhores práticas do Cofre de Chaves Azure](key-vault-best-practices.md)

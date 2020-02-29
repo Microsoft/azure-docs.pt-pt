@@ -3,20 +3,20 @@ title: Adicione os seus próprios atributos a políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Um walkthrough sobre a utilização de propriedades de extensão e atributos personalizados e incluindo-os na interface do utilizador.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c2361192a612cfd92003b1e3c36e85dbbd9090bb
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c145b0efa2f1c06710e1d41f606f918a7439820a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482773"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189502"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Diretório Ativo Azure B2C: Use atributos personalizados numa política de edição de perfil personalizado
 
@@ -257,7 +257,7 @@ O símbolo de identificação enviado de volta para a sua aplicação inclui a n
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 1. Adicione a nova reivindicação aos fluxos de entrada nas contas sociais alterando os **seguintes Perfis Técnicos**. Contas sociais e federadas usam estes dois **Perfis Técnicos** para iniciar sessão. Escrevem e lêem os dados dos utilizadores utilizando o **SecurityId alternativo** como localizador do objeto do utilizador.
 
