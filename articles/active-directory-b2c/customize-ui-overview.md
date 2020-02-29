@@ -3,20 +3,20 @@ title: Personalizar a interface de utilizador
 titleSuffix: Azure AD B2C
 description: Saiba como personalizar a interface de utilizador para as suas aplicações que utilizam o Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2dcdc67f884d1f566c794ab9e996a74984ab61a4
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: dad4c156b088c28ccf199cb155278ac9a189e4be
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373154"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189060"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface de utilizador no Diretório Ativo Azure B2C
 
@@ -41,7 +41,7 @@ Se estiver a utilizar [políticas personalizadas](custom-policy-overview.md) par
 
 Se precisar de fornecer conteúdo dinâmico com base na decisão do cliente, utilize políticas personalizadas que possam [alterar o conteúdo da página dinamicamente](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) dependendo de um parâmetro que é enviado numa cadeia de consulta. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou inscrição do Azure AD B2C com base num parâmetro que passa da sua aplicação web ou móvel.
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 Pode ativar o código JavaScript do lado do cliente tanto nos [fluxos](user-flow-javascript-overview.md) do utilizador como nas [políticas personalizadas.](page-layout.md)
 
@@ -165,7 +165,7 @@ Para personalizar as páginas de fluxo do utilizador, configura primeiro a marca
 
 Comece por definir o logotipo do banner, imagem de fundo e cor de fundo dentro **da marca da Empresa.**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. Under **Manage**, selecione **marca da Empresa.**

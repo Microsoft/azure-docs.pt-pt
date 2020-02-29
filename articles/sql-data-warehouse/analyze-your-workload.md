@@ -1,34 +1,34 @@
 ---
 title: Analisar a sua carga de trabalho
-description: Técnicas para analisar a priorização de consulta para sua carga de trabalho no Azure SQL Data Warehouse.
+description: Técnicas para analisar a priorização da consulta para a sua carga de trabalho no Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 03/13/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 14e53c1ebe63fac0f7c8e29f66ee5aa0cb3b9526
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 9b1432c41e56c6e0bc3fd80f9c2dbb36374d9e2a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693126"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200000"
 ---
-# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analise sua carga de trabalho no Azure SQL Data Warehouse
+# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analise a sua carga de trabalho no Azure Synapse Analytics
 
-Técnicas para analisar sua carga de trabalho no Azure SQL Data Warehouse.
+Técnicas para analisar a sua carga de trabalho SQL Analytics em Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Classes de Recursos
 
-SQL Data Warehouse fornece classes de recurso para atribuir recursos do sistema a consultas.  Para obter mais informações sobre classes de recursos, consulte [classes de recursos & gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).  As consultas aguardarão se a classe de recurso atribuída a uma consulta precisar de mais recursos do que o disponível no momento.
+A SQL Analytics fornece classes de recursos para atribuir recursos do sistema a consultas.  Para obter mais informações sobre as classes de recursos, consulte [aulas de recursos e gestão](resource-classes-for-workload-management.md)de carga de trabalho.  As consultas vão esperar se a classe de recursos atribuída a uma consulta precisa de mais recursos do que estão atualmente disponíveis.
 
-## <a name="queued-query-detection-and-other-dmvs"></a>Detecção de consulta em fila e outros DMVs
+## <a name="queued-query-detection-and-other-dmvs"></a>Deteção de consultas na fila e outros DMVs
 
-Você pode usar o `sys.dm_pdw_exec_requests` DMV para identificar consultas que estão aguardando em uma fila de simultaneidade. As consultas que aguardam um slot de simultaneidade têm o status **suspenso**.
+Pode usar o `sys.dm_pdw_exec_requests` DMV para identificar consultas que estão à espera numa fila de moedas. As consultas à espera de uma ranhura de condivisa têm um estatuto de **suspensa**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -41,7 +41,7 @@ FROM    sys.dm_pdw_exec_requests r
 ;
 ```
 
-As funções de gerenciamento de carga de trabalho podem ser exibidas com `sys.database_principals`.
+As funções de gestão da carga de trabalho podem ser vistas com `sys.database_principals`.
 
 ```sql
 SELECT  ro.[name]           AS [db_role_name]
@@ -51,7 +51,7 @@ AND     ro.[is_fixed_role]  = 0
 ;
 ```
 
-A consulta a seguir mostra a qual função cada usuário está atribuído.
+A seguinte consulta mostra qual a função a que cada utilizador é atribuído.
 
 ```sql
 SELECT  r.name AS role_principal_name
@@ -63,14 +63,14 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL Data Warehouse tem os seguintes tipos de espera:
+A SQL Analytics tem os seguintes tipos de espera:
 
-* **LocalQueriesConcurrencyResourceType**: consultas que ficam fora da estrutura de slot de simultaneidade. Consultas DMV e funções do sistema, como `SELECT @@VERSION`, são exemplos de consultas locais.
-* **UserConcurrencyResourceType**: consultas que ficam dentro da estrutura do slot de simultaneidade. As consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
-* **DmsConcurrencyResourceType**: esperas resultantes de operações de movimentação de dados.
-* **BackupConcurrencyResourceType**: essa espera indica que um banco de dados está sendo submetido a backup. O valor máximo para esse tipo de recurso é 1. Se vários backups tiverem sido solicitados ao mesmo tempo, as outras filas. Em geral, recomendamos um tempo mínimo entre os instantâneos consecutivos de 10 minutos. 
+* **LocaiSQueriesConcurrencyResourceType**: Consultas que se sentam fora do quadro de slot de moeda slot. Consultas de DMV e funções do sistema, como `SELECT @@VERSION` são exemplos de consultas locais.
+* **UserConcurrencyResourceType**: Consultas que se sentam dentro da estrutura de slot de moeda slot. As consultas contra as tabelas de utilizador final representam exemplos que utilizariam este tipo de recursos.
+* **DmsConcurrencyResourceType**: Espera resultante de operações de movimento de dados.
+* **BackupConcurrencyResourceType**: Esta espera indica que uma base de dados está a ser apoiada. O valor máximo para este tipo de recurso é 1. Se várias cópias de segurança foram solicitadas ao mesmo tempo, os outros fazem fila. Em geral, recomendamos um tempo mínimo entre instantâneos consecutivos de 10 minutos. 
 
-A DMV `sys.dm_pdw_waits` pode ser usada para ver quais recursos uma solicitação está aguardando.
+O `sys.dm_pdw_waits` DMV pode ser usado para ver que recursos um pedido está à espera.
 
 ```sql
 SELECT  w.[wait_id]
@@ -107,7 +107,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-A DMV `sys.dm_pdw_resource_waits` mostra as informações de espera de uma determinada consulta. O tempo de espera do recurso mede o tempo aguardando que os recursos sejam fornecidos. O tempo de espera do sinal é o tempo que leva para os SQL Servers subjacentes agendarem a consulta na CPU.
+O DMV `sys.dm_pdw_resource_waits` mostra a informação de espera para uma determinada consulta. O tempo de espera dos recursos mede o tempo de espera para que os recursos sejam disponibilizados. O tempo de espera do sinal é o tempo que os servidores SQL subjacentes demoram a agendar a consulta para o CPU.
 
 ```sql
 SELECT  [session_id]
@@ -126,7 +126,7 @@ WHERE    [session_id] <> SESSION_ID()
 ;
 ```
 
-Você também pode usar o `sys.dm_pdw_resource_waits` DMV calcula quantos slots de simultaneidade foram concedidos.
+Também pode utilizar o `sys.dm_pdw_resource_waits` DMV calcular quantas ranhuras de condivisões foram concedidas.
 
 ```sql
 SELECT  SUM([concurrency_slots_used]) as total_granted_slots
@@ -137,7 +137,7 @@ AND     [session_id]     <> session_id()
 ;
 ```
 
-A DMV `sys.dm_pdw_wait_stats` pode ser usada para análise de tendência histórica de esperas.
+O `sys.dm_pdw_wait_stats` DMV pode ser usado para análise de tendências históricas de esperas.
 
 ```sql
 SELECT   w.[pdw_node_id]
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como gerenciar usuários e segurança de banco de dados, consulte [proteger um banco de dados no SQL data warehouse](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como as classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [recriando índices para melhorar a qualidade do segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para obter mais informações sobre a gestão de utilizadores de bases de dados e segurança, consulte [Secure a database in SQL Analytics](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como as classes de recursos maiores podem melhorar a qualidade do índice de colunas agrupadas, consulte índices de [reconstrução para melhorar a qualidade](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)do segmento.

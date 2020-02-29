@@ -2,17 +2,17 @@
 title: DC-series - Máquinas Virtuais Azure
 description: Especificações para os VMs da série DC.
 services: virtual-machines
-author: joelpelley
+author: susaxen
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: 41b08a921b4cc71275c216e86e89e49b59fc950a
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: d500f7a1f28eff1f638a244022226b0aa0e715cb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163748"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199602"
 ---
 # <a name="preview-dcv2-series"></a>Pré-visualização: DCv2-series
 

@@ -9,18 +9,18 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 405b2fb9d9b8ef3bce17a9370ac87592a3437026
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: a3f7d7c9af807120457b119e0be047c7a342b961
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585956"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190539"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações que precisa sincronizar suas senhas de usuário de uma instância do Active Directory no local para uma instância do Azure Active Directory (Azure AD) com base na cloud.
@@ -136,10 +136,10 @@ Para suportar senhas temporárias no Azure AD para utilizadores sincronizados, p
 `Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
-> Forçar um utilizador a alterar a sua palavra-passe no próximo login requer uma alteração de palavra-passe ao mesmo tempo.  O AD Connect não captará por si só a bandeira de alteração da palavra-passe de força; é suplementar à alteração de palavra-passe detetada que ocorre durante a sincronização de hash password.
+> Forçar um utilizador a alterar a sua palavra-passe no próximo login requer uma alteração de palavra-passe ao mesmo tempo.  O Azure AD Connect não captará por si só a bandeira de mudança de senha de força; é suplementar à alteração de palavra-passe detetada que ocorre durante a sincronização de hash password.
 
 > [!CAUTION]
-> Se não ativar o Reset de Passwords (SSPR) em Utilizadores de Anúncios Azure terá uma experiência confusa quando redefinirem a sua palavra-passe em Azure AD e depois tentarem iniciar sessão no Ative Directory com a nova palavra-passe, uma vez que a nova palavra-passe não é válida no Ative Directory . Só deve utilizar esta funcionalidade quando o SSPR e a Password Writeback estiverem ativados no inquilino.
+> Só deve utilizar esta funcionalidade quando o SSPR e a Password Writeback estiverem ativados no inquilino.  Isto é para que, se um utilizador alterar a sua palavra-passe via SSPR, será sincronizada para o Diretório Ativo.
 
 > [!NOTE]
 > Esta funcionalidade está em pré-visualização pública neste momento.

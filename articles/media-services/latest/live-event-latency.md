@@ -1,6 +1,6 @@
 ---
-title: Latência de LiveEvent nos serviços de multimédia do Azure | Documentos da Microsoft
-description: Este tópico fornece uma visão geral de latência de LiveEvent e mostra como definir a baixa latência.
+title: LiveEvent baixa latência nos Serviços De Mídia Azure  Microsoft Docs
+description: Este tópico dá uma visão geral das definições de baixa latência do LiveEvent e mostra como definir baixa latência.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,23 +13,23 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702793"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199653"
 ---
-# <a name="live-event-latency-in-media-services"></a>Latência de evento em direto nos serviços de multimédia
+# <a name="live-event-low-latency-settings"></a>Definições de baixa latência do Evento Ao Vivo
 
-Este artigo mostra como definir a baixa latência num [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents). Ele também aborda típicos resultados que vê ao usar as definições de baixa latência em diversos leitores. Os resultados variam com base na latência de rede e da CDN.
+Este artigo mostra como definir baixa latência num [Evento Ao Vivo.](https://docs.microsoft.com/rest/api/media/liveevents) Também discute resultados típicos que se vê ao utilizar as definições de latência baixa em vários jogadores. Os resultados variam em função da CDN e da latência da rede.
 
-Utilizar a nova **LowLatency** conjunto de recursos, o **StreamOptionsFlag** para **LowLatency** sobre a **LiveEvent**. Ao criar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) para reproduzir HLS, defina [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) como 1. Depois do fluxo está em execução, pode utilizar o [leitor de multimédia do Azure](https://ampdemo.azureedge.net/) (página de demonstração de AMP) e definir as opções de reprodução para utilizar o "baixa latência heurística perfil".
+Para utilizar a nova funcionalidade **LowLatency,** desloque a **StreamOptionsFlag** para **LowLatency** no **LiveEvent**. Ao criar [liveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) para reprodução HLS, coloque [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) a 1. Uma vez que o fluxo esteja em funcionamento, pode utilizar o [Azure Media Player](https://ampdemo.azureedge.net/) (página de demonstração AMP), e definir as opções de reprodução para utilizar o "Perfil heurístico de baixa latência".
 
 > [!NOTE]
-> Atualmente, o LowLatency HeuristicProfile no leitor de multimédia do Azure foi concebida para reproduzir fluxos no protocolo de MPEG-DASH, com o formato CSF ou CMAF (por exemplo, `format=mdp-time-csf` ou `format=mdp-time-cmaf`). 
+> Atualmente, o LowLatency HeuristicProfile in Azure Media Player foi concebido para reproduzir streams no protocolo MPEG-DASH, com formato CSF ou CMAF (por exemplo, `format=mdp-time-csf` ou `format=mdp-time-cmaf`). 
 
-O exemplo de .NET seguinte mostra como definir **LowLatency** sobre o **LiveEvent**:
+O exemplo a seguir .NET mostra como definir **LowLatency** no **LiveEvent**:
 
 ```csharp
 LiveEvent liveEvent = new LiveEvent(
@@ -54,29 +54,29 @@ LiveEvent liveEvent = new LiveEvent(
 
 Veja o exemplo completo: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## <a name="live-events-latency"></a>Latência de eventos em direto
+## <a name="live-events-latency"></a>Latência de Eventos Ao Vivo
 
-As tabelas seguintes mostram os resultados típicos para latência (quando o sinalizador de LowLatency está ativado) nos serviços de multimédia, medido a partir do momento no feed de contribuição atinge o serviço para quando um visualizador vê a reprodução no leitor. Para utilizar a baixa latência ideal, deve ajustar as definições de codificador para baixo até 1 segundo comprimento de "Grupo de imagens" (GOP). Quando utiliza um comprimento de GOP superior, minimizar o consumo de largura de banda e reduzir a velocidade de transmissão na mesma taxa de quadros. É particularmente vantajoso em vídeos com menos movimento.
+As tabelas seguintes mostram resultados típicos para a latência (quando a bandeira lowLatency está ativada) nos Serviços de Media, medido a partir do momento em que o feed de contribuição chega ao serviço até quando um espectador vê a reprodução no leitor. Para utilizar a latência baixa da melhor forma, deve afinar as definições do codificador até 1 segundo de comprimento "Grupo de Imagens" (GOP). Ao utilizar um comprimento GOP mais elevado, minimiza o consumo de largura de banda e reduz-se o bitrate na mesma taxa de fotogramas. É especialmente benéfico em vídeos com menos movimento.
 
 ### <a name="pass-through"></a>Pass-through 
 
-||2s GOP baixa latência ativada|1s GOP baixa latência ativada|
+||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
-|TRAVESSÃO no AMP|10s|8s|
-|HLS no player de iOS nativo|14s|10s|
+|TRAÇO em AMP|10s|8s|
+|HLS no jogador nativo iOS|14s|10s|
 
 ### <a name="live-encoding"></a>Live Encoding
 
-||2s GOP baixa latência ativada|1s GOP baixa latência ativada|
+||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
-|TRAVESSÃO no AMP|14s|10s|
-|HLS no player de iOS nativo|18s|13s|
+|TRAÇO em AMP|14s|10s|
+|HLS no jogador nativo iOS|18s|13s|
 
 > [!NOTE]
-> A latência de ponto a ponto pode variar dependendo das condições de rede local ou com a introdução de uma camada de colocação em cache da CDN. Deve testar suas configurações exatas.
+> A latência de ponta a ponta pode variar consoante as condições da rede local ou introduzindo uma camada de cache CDN. Devia testar as suas configurações exatas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição geral de transmissão em fluxo em direto](live-streaming-overview.md)
-- [Tutorial de transmissão em fluxo em direto](stream-live-tutorial-with-api.md)
+- [Visão geral do streaming ao vivo](live-streaming-overview.md)
+- [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
 

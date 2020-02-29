@@ -1,17 +1,18 @@
 ---
 title: Apaga suave mente o Cofre de Chaves Azure Microsoft Docs
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 8559dc357d34d505d45cd0a6491183345ae5cf61
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 31d3556609737212ee1257015d12e9e0621ea4ee
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526591"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197390"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de soft-delete do Cofre de Chaves Azure
 

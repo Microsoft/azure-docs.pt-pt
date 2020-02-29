@@ -1,157 +1,158 @@
 ---
-title: Gerenciar chaves de conta de armazenamento com Azure Key Vault e o CLI do Azure
-description: As chaves da conta de armazenamento fornecem integração direta entre Azure Key Vault e o acesso baseado em chave a uma conta de armazenamento do Azure.
+title: Gerir as chaves da conta de armazenamento com o Cofre de Chaves Azure e o Azure CLI
+description: As chaves da conta de armazenamento proporcionam uma integração perfeita entre o Cofre chave azure e o acesso baseado em chaves a uma conta de armazenamento Azure.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 880a85676ff7a0364431b33b90093298b12bffed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 104f3423b07eaa3269ffccc054cd2f779bbdabf8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980466"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199823"
 ---
-# <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerenciar chaves de conta de armazenamento com Key Vault e o CLI do Azure
+# <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir as chaves da conta de armazenamento com o Key Vault e o Azure CLI
 
-Uma conta de armazenamento do Azure usa credenciais que compreendem um nome de conta e uma chave. A chave é gerada automaticamente e serve como uma senha, em vez de uma como uma chave de criptografia. Key Vault gerencia chaves de conta de armazenamento armazenando-as como [segredos Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+Uma conta de armazenamento Azure usa credenciais que incluem um nome de conta e uma chave. A chave é gerada automaticamente e serve como uma senha, em vez de uma chave criptográfica. Key Vault gere as chaves da conta de armazenamento armazenando-as como [segredos do Cofre chave.](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets) 
 
-Você pode usar o Key Vault recurso chave de conta de armazenamento gerenciado para listar (sincronizar) chaves com uma conta de armazenamento do Azure e regenerar (girar) as chaves periodicamente. Você pode gerenciar chaves para contas de armazenamento e contas de armazenamento clássicas.
+Pode utilizar a função de chave de armazenamento gerida pelo Key Vault para listar (sincronizar) chaves com uma conta de armazenamento Azure e regenerar (rodar) as teclas periodicamente. Você pode gerir chaves para contas de armazenamento e contas de armazenamento clássicas.
 
-Ao usar o recurso chave de conta de armazenamento gerenciado, considere os seguintes pontos:
+Quando utilizar a função chave da conta de armazenamento gerida, considere os seguintes pontos:
 
-- Os valores de chave nunca são retornados em resposta a um chamador.
-- Somente Key Vault deve gerenciar suas chaves de conta de armazenamento. Não gerencie as chaves por conta própria e evite interferir nos processos de Key Vault.
-- Apenas um único objeto Key Vault deve gerenciar chaves de conta de armazenamento. Não permita o gerenciamento de chaves de vários objetos.
-- Você pode solicitar Key Vault para gerenciar sua conta de armazenamento com uma entidade de usuário, mas não com uma entidade de serviço.
-- Regenerar chaves usando apenas Key Vault. Não regenere manualmente as chaves da conta de armazenamento.
+- Os valores-chave nunca são devolvidos em resposta a um ouvinte.
+- Só o Cofre chave deve gerir as chaves da sua conta de armazenamento. Não gereas as chaves sozinho e evita interferir nos processos do Cofre chave.
+- Apenas um único objeto key vault deve gerir as chaves da conta de armazenamento. Não permita a gestão da chave a partir de vários objetos.
+- Pode solicitar ao Key Vault que gere a sua conta de armazenamento com um diretor de utilizador, mas não com um diretor de serviço.
+- Regenerar as teclas usando apenas o Cofre chave. Não regenerar manualmente as chaves da sua conta de armazenamento.
 
-É recomendável usar a integração do armazenamento do Azure com o Azure Active Directory (Azure AD), o serviço de gerenciamento de acesso e identidade baseado em nuvem da Microsoft. A integração do Azure AD está disponível para [BLOBs e filas do Azure](../storage/common/storage-auth-aad.md)e fornece acesso baseado em token OAuth2 ao armazenamento do Azure (assim como Azure Key Vault).
+Recomendamos a utilização da integração do Armazenamento Azure com o Azure Ative Directory (Azure AD), o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. A integração da Azure AD está disponível para [blobs e filas Azure,](../storage/common/storage-auth-aad.md)e fornece acesso baseado em token OAuth2 ao Armazenamento Azure (tal como o Azure Key Vault).
 
-O Azure AD permite que você autentique seu aplicativo cliente usando uma identidade de aplicativo ou de usuário, em vez de credenciais de conta de armazenamento. Você pode usar uma [identidade gerenciada do Azure ad](/azure/active-directory/managed-identities-azure-resources/) ao executar o no Azure. Identidades gerenciadas eliminam a necessidade de autenticação de cliente e armazenamento de credenciais no ou com seu aplicativo.
+A Azure AD permite-lhe autenticar a sua aplicação cliente utilizando uma aplicação ou identidade de utilizador, em vez de credenciais de conta de armazenamento. Pode usar uma identidade gerida pelo [Azure](/azure/active-directory/managed-identities-azure-resources/) Quando correr em Azure. As identidades geridas removem a necessidade de autenticação do cliente e armazenam credenciais dentro ou com a sua aplicação.
 
-O Azure AD usa o RBAC (controle de acesso baseado em função) para gerenciar a autorização, que também tem suporte pelo Key Vault.
+A Azure AD utiliza o controlo de acesso baseado em funções (RBAC) para gerir a autorização, que também é apoiada pela Key Vault.
 
-## <a name="service-principal-application-id"></a>ID do aplicativo da entidade de serviço
+## <a name="service-principal-application-id"></a>ID de aplicação principal de serviço
 
-Um locatário do Azure AD fornece a cada aplicativo registrado uma [entidade de serviço](/azure/active-directory/develop/developer-glossary#service-principal-object). A entidade de serviço serve como a ID do aplicativo, que é usada durante a configuração de autorização para acesso a outros recursos do Azure via RBAC.
+Um inquilino da AD Azure fornece cada pedido registado com um [diretor de serviço.](/azure/active-directory/develop/developer-glossary#service-principal-object) O diretor de serviço serve como id de aplicação, que é usado durante a configuração de autorização para acesso a outros recursos Azure via RBAC.
 
-Key Vault é um aplicativo da Microsoft que é previamente registrado em todos os locatários do Azure AD. Key Vault é registrado sob a mesma ID de aplicativo em cada nuvem do Azure.
+Key Vault é uma aplicação da Microsoft que está pré-registada em todos os inquilinos da AD Azure. O Cofre chave está registado sob o mesmo ID de aplicação em cada nuvem Azure.
 
-| Inquilinos | Nuvem | ID da aplicação |
+| Inquilinos | Cloud | ID da aplicação |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
-| Azure AD | Azure público | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Azure AD | Público de Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia, primeiro você deve fazer o seguinte:
+Para completar este guia, primeiro deve fazer o seguinte:
 
-- [Instale o CLI do Azure](/cli/azure/install-azure-cli).
-- [Criar um cofre de chaves](quick-create-cli.md)
-- [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-cli). O nome da conta de armazenamento deve usar apenas letras minúsculas e números. O comprimento do nome deve ter entre 3 e 24 caracteres.
+- [Instale o Azure CLI](/cli/azure/install-azure-cli).
+- [Criar um cofre chave](quick-create-cli.md)
+- [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-cli). O nome da conta de armazenamento deve utilizar apenas letras minúsculas e números. O comprimento do nome deve ser entre 3 e 24 caracteres.
       
-## <a name="manage-storage-account-keys"></a>Gerenciar chaves de conta de armazenamento
+## <a name="manage-storage-account-keys"></a>Gerir as chaves da conta de armazenamento
 
 ### <a name="connect-to-your-azure-account"></a>Ligar à sua conta do Azure
 
-Autentique sua sessão de CLI do Azure usando os comandos [AZ login](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) .
+Autenticar a sua sessão Azure CLI utilizando os comandos [de login az.](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0)
 
 ```azurecli-interactive
 az login
 ``` 
 
-### <a name="give-key-vault-access-to-your-storage-account"></a>Conceder Key Vault acesso à sua conta de armazenamento
+### <a name="give-key-vault-access-to-your-storage-account"></a>Dê acesso ao Cofre chave à sua conta de armazenamento
 
-Use o comando CLI do Azure [AZ role Assignment Create](/cli/azure/role/assignment?view=azure-cli-latest) para fornecer Key Vault acessar sua conta de armazenamento. Forneça o comando aos seguintes valores de parâmetro:
+Utilize a atribuição de funções Azure CLI [az criar](/cli/azure/role/assignment?view=azure-cli-latest) comando para dar acesso ao Cofre Chave na sua conta de armazenamento. Fornecer ao comando os seguintes valores de parâmetro:
 
-- `--role`: passe a função RBAC "função de serviço do operador chave da conta de armazenamento". Essa função limita o escopo de acesso à sua conta de armazenamento. Para uma conta de armazenamento clássica, passe "função de serviço do operador de chave de conta de armazenamento clássica".
-- `--assignee-object-id`: passe o valor "93c27d83-f79b-4cb2-8dd4-4aa716542e74", que é a ID de objeto para Key Vault na nuvem pública do Azure. (Para obter a ID de objeto para Key Vault na nuvem do Azure governamental, consulte [ID do aplicativo de entidade de serviço](#service-principal-application-id).)
-- `--scope`: passe a sua ID de recurso da conta de armazenamento, que está no formato `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Para localizar sua ID de assinatura, use o comando CLI do Azure [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) ; para localizar o nome da conta de armazenamento e o grupo de recursos da conta de armazenamento, use o comando CLI do Azure [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
+- `--role`: Passe a função RBAC "Chave de Depósito" RBAC. Esta função limita o âmbito de acesso à sua conta de armazenamento. Para uma conta de armazenamento clássica, passe "Classic Storage Account Key Operator Service Role".
+- `--assignee-object-id`: Passe o valor "93c27d83-f79b-4cb2-8dd4-4aa716542e74", que é o ID do Objeto para O Cofre chave na nuvem pública azure. (Para obter o ID do objeto para o cofre chave na nuvem do Governo Azure, consulte o [id de aplicação principal do serviço](#service-principal-application-id).)
+- `--scope`: Passe o ID do recurso da sua conta de armazenamento, que está na forma `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Para encontrar o seu ID de subscrição, utilize o comando da lista de contas Azure CLI [az;](/cli/azure/account?view=azure-cli-latest#az-account-list) para encontrar o nome da sua conta de armazenamento e o grupo de recursos da conta de armazenamento, utilize o comando da lista de conta de armazenamento Azure CLI [az.](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list)
 
 ```azurecli-interactive
 az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
 
-### <a name="create-a-key-vault-managed-storage-account"></a>Criar uma conta de armazenamento gerenciado Key Vault
+### <a name="create-a-key-vault-managed-storage-account"></a>Criar uma conta de armazenamento gerida por cofre chave
 
- Crie uma conta de armazenamento gerenciado Key Vault usando o comando de [armazenamento CLI do Azure AZ keyvault](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) . Defina um período de regeneração de 90 dias. Após 90 dias, Key Vault regenera `key1` e troca a chave ativa de `key2` para `key1`. `key1` é marcado como a chave ativa. Forneça o comando aos seguintes valores de parâmetro:
+ Crie uma conta de armazenamento gerida pela Key Vault utilizando o comando de armazenamento do cofre de keyvault Azure CLI [az.](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) Estabeleça um período de regeneração de 90 dias. Após 90 dias, o Key Vault regenera-se `key1` e troca a chave ativa de `key2` para `key1`. `key1` é então marcado como a chave ativa. Fornecer ao comando os seguintes valores de parâmetro:
 
-- `--vault-name`: passe o nome do seu cofre de chaves. Para localizar o nome do cofre de chaves, use o comando CLI do Azure [AZ keyvault List](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) .
-- `-n`: passe o nome da sua conta de armazenamento. Para localizar o nome da sua conta de armazenamento, use o comando CLI do Azure [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
-- `--resource-id`: passe a sua ID de recurso da conta de armazenamento, que está no formato `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Para localizar sua ID de assinatura, use o comando CLI do Azure [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) ; para localizar o nome da conta de armazenamento e o grupo de recursos da conta de armazenamento, use o comando CLI do Azure [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
+- `--vault-name`: Passe o nome do seu cofre chave. Para encontrar o nome do seu cofre chave, use o comando da lista de cofres Azure CLI [az.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list)
+- `-n`: Passe o nome da sua conta de armazenamento. Para encontrar o nome da sua conta de armazenamento, utilize o comando da lista de armazenamento Azure CLI [az.](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list)
+- `--resource-id`: Passe o ID do recurso da sua conta de armazenamento, que está na forma `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Para encontrar o seu ID de subscrição, utilize o comando da lista de contas Azure CLI [az;](/cli/azure/account?view=azure-cli-latest#az-account-list) para encontrar o nome da sua conta de armazenamento e o grupo de recursos da conta de armazenamento, utilize o comando da lista de conta de armazenamento Azure CLI [az.](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list)
    
  ```azurecli-interactive
 az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
 
-## <a name="shared-access-signature-tokens"></a>Tokens de assinatura de acesso compartilhado
+## <a name="shared-access-signature-tokens"></a>Fichas de assinatura de acesso partilhado
 
-Você também pode solicitar Key Vault para gerar tokens de assinatura de acesso compartilhado. Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Você pode conceder aos clientes acesso aos recursos em sua conta de armazenamento sem compartilhar suas chaves de conta. Uma assinatura de acesso compartilhado fornece uma maneira segura de compartilhar seus recursos de armazenamento sem comprometer suas chaves de conta.
+Também pode pedir ao Key Vault que gere fichas de assinatura de acesso partilhado. Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Pode conceder aos clientes acesso aos recursos na sua conta de armazenamento sem partilhar as chaves da sua conta. Uma assinatura de acesso partilhado fornece-lhe uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da sua conta.
 
-Os comandos nesta seção concluem as seguintes ações:
+Os comandos desta secção completam as seguintes ações:
 
-- Defina uma `<YourSASDefinitionName>`de definição de assinatura de acesso compartilhado de conta. A definição é definida em uma Key Vault conta de armazenamento gerenciada `<YourStorageAccountName>` no seu Key Vault `<YourKeyVaultName>`.
-- Crie um token de assinatura de acesso compartilhado de conta para serviços BLOB, arquivo, tabela e fila. O token é criado para os tipos de recursos Service, container e Object. O token é criado com todas as permissões, via HTTPS e com as datas de início e término especificadas.
-- Defina uma definição de assinatura de acesso compartilhado de armazenamento gerenciado Key Vault no cofre. A definição tem o URI do modelo do token de assinatura de acesso compartilhado que foi criado. A definição tem o tipo de assinatura de acesso compartilhado `account` e é válida por N dias.
-- Verifique se a assinatura de acesso compartilhado foi salva em seu cofre de chaves como um segredo.
+- Definir uma definição de assinatura de acesso partilhado de conta `<YourSASDefinitionName>`. A definição está definida numa conta de armazenamento gerida pelo Key Vault `<YourStorageAccountName>` no seu cofre chave `<YourKeyVaultName>`.
+- Crie um símbolo de assinatura de acesso partilhado de conta para os serviços Blob, File, Table e Queue. O símbolo é criado para tipos de recursos Serviço, Contentor e Objeto. O símbolo é criado com todas as permissões, em https, e com as datas de início e fim especificadas.
+- Delineie uma definição de assinatura de acesso compartilhado de armazenamento no cofre. A definição tem o modelo URI do símbolo de assinatura de acesso partilhado que foi criado. A definição tem o tipo de assinatura de acesso partilhado `account` e é válida para os dias N.
+- Verifique se a assinatura de acesso partilhado foi guardada no seu cofre como segredo.
 
-### <a name="create-a-shared-access-signature-token"></a>Criar um token de assinatura de acesso compartilhado
+### <a name="create-a-shared-access-signature-token"></a>Criar um símbolo de assinatura de acesso partilhado
 
-Crie uma definição de assinatura de acesso compartilhado usando o comando CLI do Azure [AZ Storage Account Generate-SAS](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) . Esta operação requer as permissões `storage` e `setsas`.
+Crie uma definição de assinatura de acesso partilhado utilizando o comando de armazenamento da conta Azure CLI [az generate-sas.](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) Esta operação requer permissões `storage` e `setsas`.
 
 
 ```azurecli-interactive
 az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name <YourStorageAccountName> --account-key 00000000
 ```
-Depois que a operação for executada com êxito, copie a saída.
+Depois de a operação funcionar com sucesso, copie a saída.
 
 ```console
 "se=2020-01-01&sp=***"
 ```
 
-Essa saída será passada para o parâmetro `--template-id` na próxima etapa.
+Esta saída será a passada para o parâmetro `--template-id` no próximo passo.
 
-### <a name="generate-a-shared-access-signature-definition"></a>Gerar uma definição de assinatura de acesso compartilhado
+### <a name="generate-a-shared-access-signature-definition"></a>Gerar uma definição de assinatura de acesso partilhado
 
-Use o comando CLI do Azure [AZ keyvault Storage SAS-Definition Create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) , passando a saída da etapa anterior para o parâmetro `--template-id`, para criar uma definição de assinatura de acesso compartilhado.  Você pode fornecer o nome de sua escolha para o parâmetro `-n`.
+Utilize o comando de armazenamento de cofres Azure CLI [az criar](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) comando, passando a saída do passo anterior para o parâmetro `--template-id`, para criar uma definição de assinatura de acesso partilhado.  Pode fornecer o nome da sua escolha ao parâmetro `-n`.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
 ```
 
-### <a name="verify-the-shared-access-signature-definition"></a>Verificar a definição de assinatura de acesso compartilhado
+### <a name="verify-the-shared-access-signature-definition"></a>Verifique a definição de assinatura de acesso partilhado
 
-Você pode verificar se a definição da assinatura de acesso compartilhado foi armazenada no cofre de chaves usando o CLI do Azure a [lista de segredos AZ keyvault](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) e [AZ keyvault segredo show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) .
+Pode verificar se a definição de assinatura de acesso partilhado foi armazenada no seu cofre de chaves utilizando a [lista secreta](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) do cofre do cofre do Cofre de Chaves Azure CLI e comandos secretos do [keyvault.](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show)
 
-Primeiro, localize a definição de assinatura de acesso compartilhado no cofre de chaves usando o comando [AZ keyvault secreto List](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) .
+Primeiro, encontre a definição de assinatura de acesso partilhado no seu cofre usando o comando secreto da lista de [cofres az.](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list)
 
 ```azurecli-interactive
 az keyvault secret list --vault-name <YourKeyVaultName>
 ```
 
-O segredo correspondente à sua definição de SAS terá essas propriedades:
+O segredo correspondente à sua definição SAS terá estas propriedades:
 
 ```console
     "contentType": "application/vnd.ms-sastoken-storage",
     "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
 ```
 
-Agora você pode usar o comando [AZ keyvault segredo show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) e a propriedade `id` para exibir o conteúdo desse segredo.
+Você pode agora usar o comando secreto do [az keyvault show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) e a propriedade `id` para ver o conteúdo desse segredo.
 
 ```azurecli-interactive
 az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
 ```
 
-A saída desse comando mostrará a cadeia de caracteres de definição de SAS como`value`.
+A saída deste comando mostrará a sua cadeia de definição SAS como`value`.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [chaves, segredos e certificados](https://docs.microsoft.com/rest/api/keyvault/).
-- Examine os artigos no [blog da equipe do Azure Key Vault](https://blogs.technet.microsoft.com/kv/).
-- Consulte a documentação de referência de [armazenamento AZ keyvault](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest) .
+- Saiba mais sobre [chaves, segredos e certificados.](https://docs.microsoft.com/rest/api/keyvault/)
+- Reveja artigos no blog da [equipa Azure Key Vault](https://blogs.technet.microsoft.com/kv/).
+- Consulte a documentação de referência de armazenamento de [cofre az.](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)

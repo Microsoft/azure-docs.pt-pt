@@ -3,20 +3,20 @@ title: Gerir ameaças a recursos e dados
 titleSuffix: Azure AD B2C
 description: Conheça técnicas de deteção e mitigação para ataques de negação de serviço e ataques de senha sacado no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fbccfe170b72770a1b14994e506a117ce0e4371e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a438363b054361420222804dffac7973470e82e7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848203"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183606"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gerir ameaças a recursos e dados no Diretório Ativo Azure B2C
 
@@ -40,7 +40,7 @@ Para gerir as definições de proteção de passwords, incluindo o limiar de blo
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Utilize o filtro de **subscrição Diretório +** no menu superior para selecionar o diretório que contém o seu inquilino Azure AD B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
 1. Em **Segurança,** selecione métodos de **autenticação (Pré-visualização)** e, em seguida, selecione **a proteção da palavra-passe**.
 1. Introduza as definições de proteção de senha desejadas e, em seguida, selecione **Guardar**.
 

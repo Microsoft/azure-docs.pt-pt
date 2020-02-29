@@ -3,20 +3,20 @@ title: Configurar o início e iniciar sessão com uma conta WeChat
 titleSuffix: Azure AD B2C
 description: Forneça inscrição e inscrição aos clientes com contas WeChat nas suas aplicações utilizando o Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7cbc41247d7b99eb63730ae4326808e64c663e8f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c53210939358255b20d0e976df9c4bff88580a80
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849529"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184441"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configurar o sign-up e iniciar sessão com uma conta WeChat utilizando o Diretório Ativo Azure B2C
 
@@ -32,15 +32,15 @@ Para utilizar uma conta WeChat como fornecedor de identidade no Azure Ative Dire
 1. **Selecione** (centro de gestão).
 1. Siga os passos para registar uma nova aplicação.
 1. Insira `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **(URL** de callback). Por exemplo, se o nome do seu inquilino for contoso, defino o URL para ser `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
-1. Copie a **ID do aplicativo** e a **chave do aplicativo**. Você precisará destes para adicionar o fornecedor de identidade ao seu inquilino.
+1. Copie o ID da **APP** e **a CHAVE APP**. Você precisará destes para adicionar o fornecedor de identidade ao seu inquilino.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Configure o WeChat como fornecedor de identidade no seu inquilino
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
-1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
+1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 1. Selecione **fornecedores de identidade**e, em seguida, selecione **WeChat (Pré-visualização)** .
-1. Insira um **nome**. Por exemplo, *WeChat*.
+1. Introduza um **Nome**. Por exemplo, *WeChat*.
 1. Para o ID do **Cliente,** insira o ID app da aplicação WeChat que criou anteriormente.
-1. Para o **segredo do cliente**, insira a chave do aplicativo que você registrou.
+1. Para o **segredo do Cliente,** introduza a CHAVE APP que gravou.
 1. Selecione **Guardar**.

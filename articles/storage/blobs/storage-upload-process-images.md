@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/16/2019
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: 68a3784d4625e29865ac3b95627e8e0ebd5d9e27
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e4a2b1ee1b2b2726b7e0a807a965dbf4bc6b9500
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921237"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197016"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na cloud com o armazenamento do Azure
 
@@ -132,7 +132,7 @@ O Serviço de Aplicações suporta várias formas de implementar conteúdo numa 
 O projeto de amostra contém uma aplicação [ASP.NET MVC.](https://www.asp.net/mvc) A aplicação aceita uma imagem, guarda-a numa conta de armazenamento e apresenta imagens a partir de um contentor de miniaturas. A aplicação web utiliza a [Microsoft.Azure.Storage,](/dotnet/api/overview/azure/storage) [Microsoft.Azure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob), e os espaços de nome Microsoft.Azure.Storage.Auth da biblioteca de clientes Azure Storage para interagir com o armazenamento Azure.
 
 ```azurecli-interactive
-az webapp deployment source config --name nwebapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+az webapp deployment source config --name $webapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 
 ```
 

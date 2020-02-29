@@ -1,6 +1,6 @@
 ---
-title: Transparent Data Encryption (T-SQL)
-description: TDE (Transparent Data Encryption) no SQL Data Warehouse (T-SQL)
+title: Encriptação transparente de dados (T-SQL)
+description: Encriptação transparente de dados (TDE) em Azure Synapse Analytics (T-SQL)
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,55 +11,55 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4e7f4f31cd8b899e3fcf79568ea62830313936b9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bd6f40b8389284c1932a2f16a70060cd56e412fb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822609"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195810"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde"></a>Introdução ao Transparent Data Encryption (TDE)
+# <a name="get-started-with-transparent-data-encryption-tde"></a>Começar com encriptação de dados transparentes (TDE)
 > [!div class="op_single_selector"]
 > * [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticação](sql-data-warehouse-authentication.md)
-> * [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> * [Encriptação (Portal)](sql-data-warehouse-encryption-tde.md)
+> * [Encriptação (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 > 
 > 
 
 ## <a name="required-permissions"></a>Permissões necessárias
-Para habilitar Transparent Data Encryption (TDE), você deve ser um administrador ou um membro da função dbmanager.
+Para ativar a Encriptação transparente de dados (TDE), deve ser um administrador ou um membro do papel de dbmanager.
 
-## <a name="enabling-encryption"></a>Habilitando a criptografia
-Siga estas etapas para habilitar o TDE para um SQL Data Warehouse:
+## <a name="enabling-encryption"></a>Ativar a encriptação
+Siga estes passos para permitir o TDE:
 
-1. Conecte-se ao banco de dados *mestre* no servidor que hospeda o banco de dados usando um logon que seja um administrador ou membro da função **DBManager** no banco de dados mestre
-2. Execute a instrução a seguir para criptografar o banco de dados.
+1. Ligue-se à base de dados *principal* do servidor que acolhe a base de dados utilizando um login que é um administrador ou um membro do papel **de gestor** na base de dados principal
+2. Execute a seguinte declaração para encriptar a base de dados.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
-## <a name="disabling-encryption"></a>Desabilitando a criptografia
-Siga estas etapas para desabilitar o TDE para um SQL Data Warehouse:
+## <a name="disabling-encryption"></a>Encriptação incapacitante
+Siga estes passos para desativar o TDE:
 
-1. Conectar-se ao banco de dados *mestre* usando um logon que seja um administrador ou membro da função **DBManager** no banco de dados mestre
-2. Execute a instrução a seguir para criptografar o banco de dados.
+1. Ligue-se à base de dados *principal* utilizando um login que seja um administrador ou um membro do papel **de gestor na** base de dados principal
+2. Execute a seguinte declaração para encriptar a base de dados.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> Um SQL Data Warehouse em pausa deve ser retomado antes de fazer alterações nas configurações de TDE.
+> Uma piscina SQL pausada deve ser retomada antes de efazer alterações nas definições do TDE.
 > 
 > 
 
-## <a name="verifying-encryption"></a>Verificando a criptografia
-Para verificar o status de criptografia de um SQL Data Warehouse, siga as etapas abaixo:
+## <a name="verifying-encryption"></a>Verificação da encriptação
+Para verificar o estado da encriptação, siga os passos abaixo:
 
-1. Conecte-se ao banco de dados *mestre* ou de instância usando um logon que seja um administrador ou membro da função **DBManager** no banco de dados mestre
-2. Execute a instrução a seguir para criptografar o banco de dados.
+1. Ligue-se à base de dados *master* ou instância utilizando um login que seja um administrador ou um membro do papel **de gestor na** base de dados principal
+2. Execute a seguinte declaração para encriptar a base de dados.
 
 ```sql
 SELECT
@@ -69,11 +69,11 @@ FROM
     sys.databases;
 ```
 
-Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica um banco de dados não criptografado.
+Um resultado de ```1``` indica uma base de dados encriptada, ```0``` indica uma base de dados não encriptada.
 
-## <a name="encryption-dmvs"></a>DMVs de criptografia
-* [sys. databases][sys.databases] 
-* [sys. dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]
+## <a name="encryption-dmvs"></a>DMVs de encriptação
+* [bases de dados sys.][sys.databases] 
+* [sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx

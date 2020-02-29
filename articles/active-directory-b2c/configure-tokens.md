@@ -2,20 +2,20 @@
 title: Fichas de configuração - Diretório Ativo Azure B2C / Microsoft Docs
 description: Saiba como configurar as definições de vida simbólica e compatibilidade no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d6b18596082df6f1cfbe2a47627712b8b69cb355
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836614"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189622"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configure fichas no Diretório Ativo Azure B2C
 
@@ -29,10 +29,10 @@ Neste artigo, aprende-se a configurar a vida e a [compatibilidade de um símbolo
 
 Pode configurar a vida útil do token em qualquer fluxo do utilizador.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino Azure AD B2C.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-4. Selecione **fluxos de usuário (políticas)** .
+3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+4. Selecione **fluxos de utilizador (políticas)** .
 5. Abra o fluxo de utilizador que criou anteriormente.
 6. Selecione **Propriedades**.
 7. Ao longo **da vida token,** ajuste as seguintes propriedades para se adaptar às necessidades da sua aplicação:
@@ -43,7 +43,7 @@ Pode configurar a vida útil do token em qualquer fluxo do utilizador.
 
 ## <a name="configure-token-compatibility"></a>Configure compatibilidade simbólica
 
-1. Selecione **fluxos de usuário (políticas)** .
+1. Selecione **fluxos de utilizador (políticas)** .
 2. Abra o fluxo de utilizador que criou anteriormente.
 3. Selecione **Propriedades**.
 4. Sob as definições de **compatibilidade token,** ajuste as seguintes propriedades para se adaptar às necessidades da sua aplicação:

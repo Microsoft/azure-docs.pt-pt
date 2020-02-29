@@ -3,20 +3,20 @@ title: Configurar o início de inscrição para a AD Azure multi-inquilino por p
 titleSuffix: Azure AD B2C
 description: Adicione um fornecedor de identidade Azure AD multi-inquilino usando políticas personalizadas no Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d8d13ec955867eb574b5f0d782727d6ff8d063a
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111542"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188448"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sign-in para o diretório ativo azure multi-inquilino utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -32,7 +32,7 @@ Complete os passos em [Get started com políticas personalizadas no Azure Ative 
 
 Para permitir o início de sessão para utilizadores de uma organização específica da AD Azure, é necessário registar uma aplicação dentro do inquilino da AD Azure organizacional.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino ad organizacional Azure (por exemplo, contoso.com). Selecione o filtro de **subscrição Do Diretório +** no menu superior e, em seguida, escolha o diretório que contém o seu inquilino.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
 1. Selecione **Novo registo**.
@@ -54,7 +54,7 @@ Para permitir o início de sessão para utilizadores de uma organização espec�
 
 Se pretender obter as `family_name` e `given_name` reclamações da Azure AD, pode configurar reclamações opcionais para a sua aplicação no portal Azure UI ou manifesto de aplicação. Para mais informações, consulte [Como fornecer reclamações opcionais à sua aplicação Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Procure e selecione **Azure Ative Directory**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Procure e selecione **Azure Ative Directory**.
 1. A partir da secção **Gerir,** selecione registos de **Aplicações**.
 1. Selecione a aplicação que pretende configurar reclamações opcionais na lista.
 1. A partir da secção **Gerir,** selecione **configuração token (pré-visualização)** .

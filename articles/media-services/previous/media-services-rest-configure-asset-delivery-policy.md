@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9e46d92812b8e6db1f07e27fbfad8f4e3d05c3a9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 09f0371bc189fcf7b25ec3261e2e1f5eaf1892ae
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774992"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194498"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configurar políticas de entrega de ativos
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -47,11 +47,11 @@ Streaming suave:
 
 HLS:
 
-{nome do ponto de extremidade de streaming-nome da conta dos serviços de mídia}. streaming. mediaservices. Windows. net/{ID do localizador}/{nome (Format = M3U8-AAPL)
+{nome da conta de serviços de nome supérdico de fim de ponto final}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest (formato=m3u8-aapl)
 
 MPEG DASH
 
-{nome do ponto de extremidade de streaming-nome da conta dos serviços de mídia}. streaming. mediaservices. Windows. net/{ID do localizador}/{nome (Format = MPD-time-CSF)
+{nome da conta de serviços de nome sem fim de ponto final}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest (formato=mpd-time-csf)
 
 
 Para obter instruções sobre como publicar um elemento e compilar um URL de transmissão em fluxo, consulte [Compilar um URL de transmissão em fluxo](media-services-deliver-streaming-content.md).
@@ -66,7 +66,7 @@ Para obter instruções sobre como publicar um elemento e compilar um URL de tra
 > 
 > Ao aceder a entidades em Serviços de Media, deve definir campos e valores específicos nos seus pedidos HTTP. Para mais informações, consulte [Configuração para Media Services REST API Development](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
+## <a name="connect-to-media-services"></a>Ligar aos Media Services
 
 Para obter informações sobre como se conectar à AMS API, consulte [Aceda à API dos Serviços de Mídia Azure com autenticação Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -258,7 +258,7 @@ Pedido:
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-Se pretender proteger o seu conteúdo utilizando o Widevine DRM, atualize os valores de AssetDeliveryConfiguration para utilizar o WidevineLicenseAcquisitionUrl (que tem o valor de 7) e especifique o URL de um serviço de entrega de licença. Pode utilizar os seguintes parceiros AMS para o ajudar a entregar licenças Widevine: [Axinom,](https://www.axinom.com/press/ibc-axinom-drm-6/) [EZDRM,](https://ezdrm.com/) [castLabs](https://castlabs.com/company/partners/azure/).
+Se pretender proteger o seu conteúdo utilizando o Widevine DRM, atualize os valores de AssetDeliveryConfiguration para utilizar o WidevineLicenseAcquisitionUrl (que tem o valor de 7) e especifique o URL de um serviço de entrega de licença. Pode utilizar os seguintes parceiros AMS para o ajudar a entregar licenças Widevine: [Axinom,](https://www.axinom.com) [EZDRM,](https://ezdrm.com/) [castLabs](https://castlabs.com/company/partners/azure/).
 
 Por exemplo: 
 
@@ -424,7 +424,7 @@ O enum seguinte descreve valores que pode definir para configurar teclas usadas 
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

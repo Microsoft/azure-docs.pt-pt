@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 31ad7a9d1108adc9071812454419252a813cb93e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621936"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194874"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -63,7 +63,8 @@ Se a carga de trabalho numa divisória lógica consumir mais do que a entrada at
 Os contentores numa base de dados de entradas partilhadas partilham o resultado (RU/s) atribuído a essa base de dados. Pode ter até quatro contentores com um mínimo de 400 RU/s na base de dados. Cada recipiente novo após os quatro primeiros exigirá um mínimo adicional de 100 RU/s. Por exemplo, se tiver uma base de dados de entrada partilhada com oito contentores, o mínimo de RU/s na base de dados será de 800 RU/s.
 
 > [!NOTE]
-> Numa base de dados de entrada partilhada, pode ter um máximo de 25 contentores na base de dados. Se já tiver mais de 25 contentores numa base de dados de entrada partilhada, não poderá criar recipientes adicionais até que a contagem de contentores seja inferior a 25.
+> Em fevereiro de 2020, introduzimos uma alteração que lhe permite ter um máximo de 25 contentores numa base de dados de entrada partilhada, o que permite melhor a partilha de entrada em todos os contentores. Após os primeiros 25 contentores, só pode adicionar mais contentores à base de dados se forem [aprovisionados com uma entrada dedicada](#set-throughput-on-a-database-and-a-container), que é separada da entrada partilhada da base de dados.<br>
+Se a sua conta Azure Cosmos DB já contiver uma base de dados de entrada partilhada com recipientes >=25, a conta e todas as outras contas na mesma subscrição do Azure estão isentas desta alteração. Contacte [o suporte do produto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se tiver feedback ou dúvidas. 
 
 Se as suas cargas de trabalho implicarem a eliminar e recriar todas as coleções numa base de dados, recomenda-se que deixe cair a base de dados vazia e recrie uma nova base de dados antes da criação da recolha. A imagem que se segue mostra como uma divisória física pode alojar uma ou mais divisórias lógicas que pertencem a diferentes contentores dentro de uma base de dados:
 

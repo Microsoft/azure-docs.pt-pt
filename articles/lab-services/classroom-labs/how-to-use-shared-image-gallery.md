@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 79aea7d8a4a969e0ccd42ef94d77a9aa396ab91c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: c611ecdb5a2534f7368e533e3e19e6e3f96de57f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591324"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190454"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Use uma galeria de imagens partilhada nos Serviços de Laboratório Azure
 Este artigo mostra como professores/administrador de laboratório podem guardar uma imagem de máquina virtual modelo para que seja reutilizada por outros. Estas imagens são guardadas numa galeria de [imagens partilhada selada](../../virtual-machines/windows/shared-image-galleries.md)em Azure. Como primeiro passo, o administrador do laboratório anexa uma galeria de imagens partilhadas existente à conta do laboratório. Uma vez anexada a galeria de imagens partilhadas, os laboratórios criados na conta de laboratório podem guardar imagens para a galeria de imagens partilhada. Outros professores podem selecionar esta imagem a partir da galeria de imagens partilhadas para criar um modelo para as suas aulas. 
 
 > [!NOTE]
-> Atualmente, a Azure Lab Services apoia a criação de VMs com base apenas em imagens **VM generalizadas** (imagens não especializadas) numa galeria de imagens partilhadas. 
+> Atualmente, a Azure Lab Services apoia a criação de VMs de modelo baseados apenas em imagens **VM generalizadas** (imagens não especializadas) numa galeria de imagens partilhadas. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Crie uma galeria de imagens partilhada utilizando o [Azure PowerShell](../../virtual-machines/windows/shared-images.md) ou [o Azure CLI](../../virtual-machines/linux/shared-images.md).

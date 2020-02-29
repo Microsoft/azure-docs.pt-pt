@@ -3,20 +3,20 @@ title: Migrar apis web baseados em OWIN para b2clogin.com
 titleSuffix: Azure AD B2C
 description: Saiba como permitir que uma API web .NET suporte tokens emitidos por vários emitentes de token enquanto migra as suas aplicações para b2clogin.com.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e6a92d12e7f2f24289aafa7e4a9acc9edccbd34c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5daf88e746ea803f345c79bd31d656f2615b6754
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840405"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184099"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API web baseada em OWIN para b2clogin.com
 
@@ -88,7 +88,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 Nesta secção, atualiza o código para especificar que ambos os pontos finais do emitente simbólico são válidos.
 
 1. Abra a solução **B2C-WebAPI-DotNet.sln** no Estúdio Visual
-1. No projeto **TaskService** , abra o arquivo *TaskService\\App_Start\\**Startup.auth.cs**.* em seu editor
+1. No projeto **TaskService,** abra o ficheiro *taskService\\App_Start \\**Startup.Auth.cs*** no seu editor
 1. Adicione a seguinte diretiva `using` ao topo do ficheiro:
 
     `using System.Collections.Generic;`
@@ -123,7 +123,7 @@ Como mencionado anteriormente, outras bibliotecas OWIN normalmente fornecem uma 
 
 Com ambas as URIs agora suportadas pela sua Web API, agora precisa de atualizar a sua aplicação web para que recupere tokens do b2clogin.com ponto final.
 
-Por exemplo, você pode configurar o aplicativo Web de exemplo para usar o novo ponto de extremidade `ida:AadInstance` modificando o valor no arquivo *TaskWebApp\\**Web. config**.* do projeto **TaskWebApp** .
+Por exemplo, pode configurar a aplicação web da amostra para utilizar o novo ponto final modificando o valor `ida:AadInstance` no ficheiro *TaskWebApp\\**Web.config*** do projeto **TaskWebApp.**
 
 Altere o valor `ida:AadInstance` no *Web.config* do TaskWebApp de modo a que se refira `{your-b2c-tenant-name}.b2clogin.com` em vez de `login.microsoftonline.com`.
 

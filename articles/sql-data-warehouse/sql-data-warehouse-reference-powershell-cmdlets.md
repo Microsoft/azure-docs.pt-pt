@@ -1,6 +1,6 @@
 ---
-title: Cmdlets do PowerShell
-description: Encontre os cmdlets powerShell superiores para o Azure SQL Data Warehouse, incluindo como parar e retomar uma base de dados.
+title: PowerShell e REST APIs
+description: Encontre os cmdlets powerShell superiores para o pool Azure Synapse Analytics SQL, incluindo como parar e retomar uma base de dados.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,19 +11,21 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c5f85f102d72ac2e4a0315109748d48573f49407
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c0c8b1e9b7526bd45d037f053715613b53ec163f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721188"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198461"
 ---
-# <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>PowerShell cmdlets e APIs REST para Armazém de Dados SQL
-Muitas tarefas de administração do SQL Data Warehouse podem ser geridas usando cmdlets Azure PowerShell ou REST APIs.  Abaixo estão alguns exemplos de como usar comandos PowerShell para automatizar tarefas comuns no seu Armazém de Dados SQL.  Para alguns bons exemplos de REST, consulte o artigo [Gerir a escalabilidade com O REST](sql-data-warehouse-manage-compute-rest-api.md).
+# <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>PowerShell & REST APIs para piscina Azure Synapse Analytics SQL
+
+Muitas tarefas administrativas de piscina Azure Synapse Analytics SQL podem ser geridas usando cmdlets Azure PowerShell ou REST APIs.  Abaixo estão alguns exemplos de como usar comandos PowerShell para automatizar tarefas comuns na sua piscina SQL.  Para alguns bons exemplos de REST, consulte o artigo [Gerir a escalabilidade com O REST](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-azure-powershell-cmdlets"></a>Começar com cmdlets Azure PowerShell
+
 1. Abra o Windows PowerShell.
 2. Na solicitação da PowerShell, execute estes comandos para iniciar sessão no Gestor de Recursos Do Azure e selecione a sua subscrição.
    
@@ -33,12 +35,13 @@ Muitas tarefas de administração do SQL Data Warehouse podem ser geridas usando
     Select-AzSubscription -SubscriptionName "MySubscription"
     ```
 
-## <a name="pause-sql-data-warehouse-example"></a>Exemplo de armazém de dados de pausa SQL
+## <a name="pause-data-warehouse-example"></a>Pausa exemplo de armazém de dados
 Faça uma pausa numa base de dados chamada "Database02" hospedada num servidor chamado "Server01".  O servidor está num grupo de recursos Azure chamado "ResourceGroup1".
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
+
 Uma variação, este exemplo canaliza o objeto recuperado para [suspender a Base de Dados Suspend-AzSql](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase).  Como resultado, a base de dados é interrompida. O comando final mostra os resultados.
 
 ```Powershell
@@ -47,7 +50,8 @@ $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
-## <a name="start-sql-data-warehouse-example"></a>Inicie o exemplo do Armazém de Dados SQL
+## <a name="start-data-warehouse-example"></a>Iniciar exemplo de armazém de dados
+
 Retomar a operação de uma base de dados chamada "Database02" hospedada num servidor chamado "Server01". O servidor está contido num grupo de recursos chamado "ResourceGroup1".
 
 ```Powershell
@@ -67,7 +71,7 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 > 
 
 ## <a name="other-supported-powershell-cmdlets"></a>Outros cmdlets PowerShell suportados
-Estes cmdlets PowerShell são suportados com o Azure SQL Data Warehouse.
+Estes cmdlets PowerShell são suportados com o armazém de dados Azure Synapse Analytics.
 
 * [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)
 * [Get-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup)
@@ -80,10 +84,10 @@ Estes cmdlets PowerShell são suportados com o Azure SQL Data Warehouse.
 * [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
 * [Suspender-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para mais exemplos powerShell, consulte:
 
-* [Criar um Armazém de Dados SQL usando powerShell](create-data-warehouse-powershell.md)
+* [Criar um armazém de dados usando o PowerShell](create-data-warehouse-powershell.md)
 * [Restauro da base de dados](sql-data-warehouse-restore-database-powershell.md)
 
-Para outras tarefas que podem ser automatizadas com powerShell, consulte Os Cmdlets de Base de [Dados Azure SQL](https://docs.microsoft.com/powershell/module/az.sql). Nem todos os cmdlets de base de dados Azure SQL são suportados para o Azure SQL Data Warehouse.  Para obter uma lista de tarefas que podem ser automatizadas com REST, consulte [Operações para Base de Dados SQL Azure](https://msdn.microsoft.com/library/azure/dn505719.aspx).
+Para outras tarefas que podem ser automatizadas com powerShell, consulte os cmdlets de base de [dados Azure SQL](https://docs.microsoft.com/powershell/module/az.sql). Nem todos os cmdlets de base de dados Azure SQL são suportados para o armazém de dados Azure Synapse Analytics.  Para obter uma lista de tarefas que podem ser automatizadas com REST, consulte [Operações para Base de Dados SQL Azure](/rest/api/sql/).

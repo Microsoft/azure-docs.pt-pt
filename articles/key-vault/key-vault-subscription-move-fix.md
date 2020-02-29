@@ -1,20 +1,21 @@
 ---
-title: Alterar a ID de locatário do cofre de chaves após uma Azure Key Vault de uma assinatura | Microsoft Docs
+title: Mude o ID do inquilino do cofre chave após um movimento de subscrição - Azure Key Vault / Microsoft Docs
 description: Saiba como mudar o ID do inquilino para um cofre de chaves depois de mover uma subscrição para um inquilino diferente
 services: key-vault
 author: amitbapat
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: bc2e73d037b05c012002d7a07e2a2af2431423fa
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 4531d3bdeab96cb4a753060d59d07e155f4a358e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428904"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197339"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Alterar um ID do inquilino do cofre de chaves após a movimentação de uma subscrição
 
@@ -23,13 +24,13 @@ ms.locfileid: "72428904"
 
 Ao criar um novo cofre de chaves numa subscrição, é automaticamente associado ao ID de inquilino do Azure Active Directory predefinido nessa subscrição. Todas as entradas de política de acesso também estão associadas a este ID de inquilino. 
 
-Se você mover sua assinatura do Azure do locatário A para o locatário B, seus cofres de chaves existentes ficarão inacessíveis pelas entidades de segurança (usuários e aplicativos) no locatário B. Para corrigir esse problema, você precisa:
+Se transferir a sua assinatura Azure do inquilino A para o inquilino B, os seus cofres-chave existentes são inacessíveis pelos principais (utilizadores e aplicações) no inquilino B. Para resolver este problema, é preciso:
 
-* Altere a ID de locatário associada a todos os cofres de chaves existentes na assinatura para o locatário B.
+* Mude a identificação do inquilino associada a todos os cofres-chave existentes na subscrição do inquilino B.
 * Remover todas as entradas de política de acesso existentes.
-* Adicione novas entradas de política de acesso associadas ao locatário B.
+* Adicione novas entradas de política de acesso associadas ao inquilino B.
 
-Por exemplo, se você tiver o cofre de chaves ' myvault ' em uma assinatura que foi movida do locatário A para o locatário B, você poderá usar Azure PowerShell para alterar a ID do locatário e remover as políticas de acesso antigas.
+Por exemplo, se você tiver o cofre chave 'myvault' em uma subscrição que foi transferida do inquilino A para o inquilino B, você pode usar Azure PowerShell para alterar o ID do inquilino e remover políticas de acesso antigas.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
@@ -42,7 +43,7 @@ $vault.Properties.AccessPolicies = @()                                     # Acc
 Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties  # Modifies the key vault's properties.
 ````
 
-Ou você pode usar o CLI do Azure.
+Ou pode usar o Azure CLI.
 
 ```azurecli
 az account set <your-subscriptionId>                                       # Select your Azure Subscription
@@ -51,12 +52,12 @@ az keyvault update -n myvault --remove Properties.accessPolicies           # Rem
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
 ```
 
-Agora que o cofre está associado à ID de locatário correta e as entradas de política de acesso antigas foram removidas, defina novas entradas de política de acesso com o cmdlet Azure PowerShell [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) ou o comando CLI do Azure [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) .
+Agora que o seu cofre está associado ao ID correto do inquilino e as entradas antigas da política de acesso são removidas, detete novas entradas de política de acesso com o Cmdlet Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) ou o comando de definição de teclado Azure CLI [az.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)
 
-Se você estiver usando uma identidade gerenciada para recursos do Azure, será necessário atualizá-la para o novo locatário do Azure AD também. Para obter mais informações sobre identidades gerenciadas, consulte [fornecer autenticação de Key Vault com uma identidade gerenciada](managed-identity.md).
+Se estiver a usar uma identidade gerida para os recursos do Azure, também terá de a atualizar para o novo inquilino da AD Azure. Para obter mais informações sobre identidades geridas, consulte [A autenticação do Cofre-Chave com uma identidade gerida](managed-identity.md).
 
 
-Se você estiver usando o MSI, também precisará atualizar a identidade do MSI, já que a identidade antiga não estará mais no locatário do AAD correto.
+Se estiver a usar o MSI, também terá de atualizar a identidade MSI, uma vez que a identidade antiga deixará de estar no inquilino aD correto.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,22 +1,22 @@
 ---
 title: Definições de cookies
 titleSuffix: Azure AD B2C
-description: Fornece definições para os cookies usados no Azure Active Directory B2C.
+description: Fornece definições para os cookies utilizados no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c6e48a663e4d1702851e11bc5124e56c52309d08
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b984b75b3a12606aa0d82c7e7b399d5dce59df33
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908875"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189519"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Definições de cookies para Azure AD B2C
 
@@ -30,7 +30,7 @@ Para salvaguardar o acesso aos sites, os navegadores da Web introduzirão um nov
 
 Os desenvolvedores devem usar a nova definição de cookies, `SameSite=None`, para designar cookies para acesso ao cross-site. Quando o atributo `SameSite=None` estiver presente, deve ser utilizado um atributo adicional `Secure` para que os cookies transversais só possam ser acedidos sobre ligações HTTPS. Valide e teste todas as suas aplicações, incluindo as aplicações que utilizam o Azure AD B2C.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Lidar com as alterações de cookies do Mesmo Site no navegador Chrome](../active-directory/develop/howto-handle-samesite-cookie-changes-chrome-browser.md)
 * [Efeito nos websites dos clientes e serviços e produtos da Microsoft na versão 80 do Chrome ou posterior](https://support.microsoft.com/help/4522904/potential-disruption-to-customer-websites-in-latest-chrome)
@@ -39,15 +39,15 @@ Para obter mais informações, veja:
 
 A tabela seguinte lista os cookies utilizados no Azure AD B2C.
 
-| Nome | Domain | Expiração | Finalidade |
+| Nome | Domain | Expiração | Objetivo |
 | ----------- | ------ | -------------------------- | --------- |
-| `x-ms-cpim-admin` | main.b2cadmin.ext.azure.com | Fim da [sessão do navegador](session-behavior.md) | Mantém os dados de associação do usuário entre locatários. Os locatários de que um usuário é membro e nível de associação (administrador ou usuário). |
-| `x-ms-cpim-slice` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão do navegador](session-behavior.md) | Usado para rotear solicitações para a instância de produção apropriada. |
-| `x-ms-cpim-trans` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão do navegador](session-behavior.md) | Usado para acompanhar as transações (número de solicitações de autenticação para Azure AD B2C) e a transação atual. |
-| `x-ms-cpim-sso:{Id}` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão do navegador](session-behavior.md) | Usado para manter a sessão de SSO. |
-| `x-ms-cpim-cache:{id}_n` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão do navegador](session-behavior.md), autenticação bem-sucedida | Usado para manter o estado da solicitação. |
-| `x-ms-cpim-csrf` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão do navegador](session-behavior.md) | Token de solicitação entre sites forjado usado para proteção CRSF. |
-| `x-ms-cpim-dc` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão do navegador](session-behavior.md) | Usado para Azure AD B2C roteamento de rede. |
-| `x-ms-cpim-ctx` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão do navegador](session-behavior.md) | Contexto |
-| `x-ms-cpim-rp` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão do navegador](session-behavior.md) | Usado para armazenar dados de associação para o locatário do provedor de recursos. |
-| `x-ms-cpim-rc` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão do navegador](session-behavior.md) | Usado para armazenar o cookie de retransmissão. |
+| `x-ms-cpim-admin` | main.b2cadmin.ext.azure.com | Fim da [sessão](session-behavior.md) do navegador | Detém dados de adesão ao utilizador entre inquilinos. Os inquilinos um utilizador é membro e nível de adesão (Administrador ou Utilizador). |
+| `x-ms-cpim-slice` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão](session-behavior.md) do navegador | Utilizado para encaminhar pedidos para a instância de produção adequada. |
+| `x-ms-cpim-trans` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão](session-behavior.md) do navegador | Utilizado para acompanhar as transações (número de pedidos de autenticação ao Azure AD B2C) e a transação atual. |
+| `x-ms-cpim-sso:{Id}` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão](session-behavior.md) do navegador | Usado para manter a sessão SSO. |
+| `x-ms-cpim-cache:{id}_n` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da sessão do [navegador,](session-behavior.md)autenticação bem-sucedida | Usado para manter o estado de pedido. |
+| `x-ms-cpim-csrf` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão](session-behavior.md) do navegador | Ficha de falsificação de pedido transversal utilizada para a proteção do CRSF. |
+| `x-ms-cpim-dc` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão](session-behavior.md) do navegador | Utilizado para o encaminhamento da rede Azure AD B2C. |
+| `x-ms-cpim-ctx` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão](session-behavior.md) do navegador | Contexto |
+| `x-ms-cpim-rp` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão](session-behavior.md) do navegador | Usado para armazenar dados de adesão para o inquilino fornecedor de recursos. |
+| `x-ms-cpim-rc` | b2clogin.com, login.microsoftonline.com, domínio de marca | Fim da [sessão](session-behavior.md) do navegador | Usado para armazenar o cookie de retransmissão. |

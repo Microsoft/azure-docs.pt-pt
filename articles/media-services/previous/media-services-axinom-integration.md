@@ -1,6 +1,6 @@
 ---
-title: Usando o Axinom para fornecer licenças Widevine para os serviços de mídia do Azure | Microsoft Docs
-description: Este artigo descreve como você pode usar o AMS (serviços de mídia do Azure) para fornecer um fluxo que é criptografado dinamicamente pelo AMS com o PlayReady e o Widevine DRMs. A licença do PlayReady vem do servidor de licença do PlayReady dos serviços de mídia e a licença do Widevine é fornecida pelo servidor de licença do Axinom.
+title: Utilização da Axinom para entregar licenças da Widevine à Azure Media Services [ Axinom] Microsoft Docs
+description: Este artigo descreve como pode utilizar o Azure Media Services (AMS) para fornecer um stream que é encriptado dinamicamente pela AMS com drMs PlayReady e Widevine. A licença PlayReady provém do servidor de licença PlayReady dos Media Services e a licença Widevine é entregue pelo servidor de licença axinom.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 275fa173c5005c4d1609a858c8edb39b5c307c5e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2ec3276b9b02c29b80d46e5fd31298c909857182
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974619"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197169"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure 
 > [!div class="op_single_selector"]
@@ -29,54 +29,54 @@ ms.locfileid: "74974619"
 > 
 > 
 
-## <a name="overview"></a>Visão geral
-O AMS (serviços de mídia do Azure) adicionou a proteção dinâmica do Google Widevine (consulte o [blog de Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) para obter detalhes). Além disso, Player de Mídia do Azure (AMP) também adicionou suporte Widevine (consulte [amp Document](https://amp.azure.net/libs/amp/latest/docs/) para obter detalhes). Essa é uma grande realização no conteúdo de streaming DASH protegido por CENC com vários DRM nativos (PlayReady e Widevine) em navegadores modernos equipados com o MSE e o EME.
+## <a name="overview"></a>Descrição geral
+A Azure Media Services (AMS) adicionou a proteção dinâmica do Google Widevine (ver blog [de Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) para mais detalhes). Além disso, o Azure Media Player (AMP) também acrescentou suporte widevine (ver [documento AMP](https://amp.azure.net/libs/amp/latest/docs/) para mais detalhes). Esta é uma grande realização no streaming de conteúdo DASH protegido pelo CENC com multi-nativo-DRM (PlayReady e Widevine) em navegadores modernos equipados com MSE e EME.
 
-A partir do SDK do .NET dos serviços de mídia versão 3.5.2, os serviços de mídia permitem que você configure o modelo de licença do Widevine e obtenha licenças do Widevine. Também pode utilizar os seguintes parceiros de AMS para o ajudar a fornecer licenças Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/) e [castLabs](https://castlabs.com/company/partners/azure/).
+Começando pelo Media Services .NET SDK versão 3.5.2, os Media Services permitem configurar o modelo de licença Widevine e obter licenças Widevine. Também pode utilizar os seguintes parceiros de AMS para o ajudar a fornecer licenças Widevine: [Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/) e [castLabs](https://castlabs.com/company/partners/azure/).
 
-Este artigo descreve como integrar e testar o servidor de licença Widevine gerenciado pelo Axinom. Especificamente, ele abrange:  
+Este artigo descreve como integrar e testar o servidor de licença widevine gerido pela Axinom. Especificamente, abrange:  
 
-* Configurando o Criptografia Comum dinâmico com vários DRM (PlayReady e Widevine) com as URLs de aquisição de licença correspondentes;
-* Gerando um token JWT para atender aos requisitos do servidor de licença;
-* Desenvolvendo Player de Mídia do Azure aplicativo, que lida com a aquisição de licença com autenticação de token JWT;
+* Configurar encriptação comum dinâmica com multi-DRM (PlayReady e Widevine) com URLs de aquisição de licença correspondentes;
+* Gerar um símbolo JWT para satisfazer os requisitos do servidor de licença;
+* Desenvolver a app Azure Media Player, que trata da aquisição de licença com autenticação simbólica JWT;
 
-O sistema completo e o fluxo de chave de conteúdo, ID de chave, semente de chave, token JTW e suas declarações podem ser mais bem descritos pelo seguinte diagrama:
+O sistema completo e o fluxo da chave de conteúdo, id chave, semente chave, símbolo JTW, e suas alegações podem ser melhor descritos pelo seguinte diagrama:
 
 ![DASH e CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Proteção de Conteúdo
-Para configurar a política de proteção dinâmica e de distribuição de chaves, consulte o blog de Mingfei: [como configurar o empacotamento de Widevine com os serviços de mídia do Azure](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+Para configurar a política de proteção dinâmica e chave, consulte o blog da Mingfei: [Como configurar a embalagem widevine com a Azure Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
-Você pode configurar a proteção de CENC dinâmico com vários DRM para streaming de DASH tendo os dois procedimentos a seguir:
+Pode configurar uma proteção dinâmica do CENC com multi-DRM para o streaming DASH com ambos os seguintes:
 
-1. Proteção PlayReady para Microsoft Edge e IE11, que pode ter uma restrição de autorização de token. A política restrita de token deve ser acompanhada por um token emitido por um serviço de token seguro (STS), como Azure Active Directory;
-2. Proteção Widevine para Chrome, ela pode exigir autenticação de token com token emitido por outro STS. 
+1. Proteção PlayReady para Microsoft Edge e IE11, que pode ter uma restrição de autorização simbólica. A política restrita simbólica deve ser acompanhada por um símbolo emitido por um Serviço de Token Seguro (STS), como o Azure Ative Directory;
+2. A proteção widevine para o Chrome, pode exigir autenticação simbólica com token emitido por outro STS. 
 
-Consulte a seção [geração de tokens JWT](media-services-axinom-integration.md#jwt-token-generation) para saber por que Azure Active Directory não pode ser usada como um STS para o servidor de licença do Widevine da Axinom.
+Consulte a secção [JWT Token Generation](media-services-axinom-integration.md#jwt-token-generation) para saber por que razão o Azure Ative Directory não pode ser usado como sTS para o servidor de licença Widevine da Axinom.
 
 ### <a name="considerations"></a>Considerações
-1. Você deve usar a semente de chave Axinom especificada (8888000000000000000000000000000000000000) e a ID de chave gerada ou selecionada para gerar a chave de conteúdo para configurar o serviço de distribuição de chaves. O servidor de licença Axinom emite todas as licenças que contêm chaves de conteúdo com base na mesma semente de chave, que é válida para teste e produção.
-2. A URL de aquisição de licença do Widevine para teste: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). HTTP e HTTS são permitidos.
+1. Deve utilizar a semente-chave especificada a Axinom (8888000000000000000000000000000000000000000000) e o seu ID chave gerado ou selecionado para gerar a chave de conteúdo para configurar o serviço de entrega de chaves. O servidor de licença axinom emite todas as licenças que contenham chaves de conteúdo com base na mesma semente chave, que é válida tanto para testes como para produção.
+2. O URL de aquisição da licença Widevine para testes: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Tanto o HTTP como o HTTS são permitidos.
 
-## <a name="azure-media-player-preparation"></a>Preparação de Player de Mídia do Azure
-O 1.4.0 de AMP v dá suporte à reprodução de conteúdo do AMS que é empacotado dinamicamente com o PlayReady e o Widevine DRM.
-Se o servidor de licença do Widevine não exigir autenticação de token, não há nada adicional que você precise fazer para testar um conteúdo de traço protegido pelo Widevine. Por exemplo, a equipe de AMP fornece um [exemplo](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html)simples, onde você pode vê-lo funcionando no Microsoft Edge e no IE11 com PlayReady e Chrome com Widevine.
-O servidor de licença Widevine fornecido pelo Axinom requer autenticação de token JWT. O token JWT precisa ser enviado com a solicitação de licença por meio de um cabeçalho HTTP "X-AxDRM-Message". Para essa finalidade, você precisa adicionar o seguinte JavaScript na página da Web que está hospedando AMP antes de definir a origem:
+## <a name="azure-media-player-preparation"></a>Preparação de jogador estomados azure media
+AMP v1.4.0 suporta a reprodução de conteúdo AMS que é embalado dinamicamente com o PlayReady e o Widevine DRM.
+Se o servidor de licença Widevine não necessitar de autenticação simbólica, não há nada adicional que precise de fazer para testar um conteúdo DASH protegido pela Widevine. Por exemplo, a equipa AMP fornece uma [amostra](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html)simples, onde pode vê-la a trabalhar no Microsoft Edge e iE11 com playReady e Chrome com Widevine.
+O servidor de licença Widevine fornecido pela Axinom requer autenticação simbólica JWT. O símbolo JWT precisa de ser submetido com pedido de licença através de um cabeçalho HTTP "X-AxDRM-Message". Para o efeito, é necessário adicionar o seguinte javascript na página web que acolhe a AMP antes de definir a fonte:
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
-O restante do código AMP é a API de AMP padrão como no documento AMP [aqui](https://amp.azure.net/libs/amp/latest/docs/).
+O resto do código AMP é a Amp API padrão como no documento AMP [aqui](https://amp.azure.net/libs/amp/latest/docs/).
 
-O JavaScript acima para definir o cabeçalho de autorização personalizado ainda é uma abordagem de curto prazo antes que a abordagem oficial de longo prazo no AMP seja liberada.
+O javascript acima para definir o cabeçalho de autorização personalizada ainda é uma abordagem a curto prazo antes da abordagem oficial a longo prazo na AMP ser lançada.
 
-## <a name="jwt-token-generation"></a>Geração de token JWT
-O servidor de licença Axinom Widevine para teste requer autenticação de token JWT. Além disso, uma das declarações no token JWT é de um tipo de objeto complexo em vez de um tipo de dados primitivo.
+## <a name="jwt-token-generation"></a>JWT Token Generation
+O servidor de licença Axinom Widevine para testes requer autenticação simbólica JWT. Além disso, uma das alegações no símbolo JWT é de um tipo de objeto complexo em vez de tipo de dados primitivos.
 
-Infelizmente, o Azure AD só pode emitir tokens JWT com tipos primitivos. Da mesma forma, .NET Framework API (System. IdentityModel. Tokens. SecurityTokenHandler e JwtPayload) só permite que você insira o tipo de objeto complexo como declarações. No entanto, as declarações ainda são serializadas como cadeia de caracteres. Portanto, não podemos usar nenhum dos dois para gerar o token JWT para a solicitação de licença Widevine.
+Infelizmente, a AD Azure só pode emitir fichas JWT com tipos primitivos. Da mesma forma, a .NET Framework API (System.IdentityModel.Tokens.SecurityTokenHandler e JwtPayload) apenas permite inserir o tipo de objeto complexo como alegações. No entanto, as alegações ainda são serializadas como cordas. Por conseguinte, não podemos utilizar nenhum dos dois para gerar o símbolo JWT para o pedido de licença widevine.
 
-O [pacote NuGet do JWT](https://www.nuget.org/packages/JWT) de John Sheehan atende às necessidades para que vamos usar esse pacote NuGet.
+O [pacote JWT NuGet](https://www.nuget.org/packages/JWT) de John Sheehan satisfaz as necessidades, por isso vamos usar este pacote NuGet.
 
-Abaixo está o código para gerar o token JWT com as declarações necessárias, conforme exigido pelo servidor de licença Axinom Widevine para teste:
+Abaixo está o código para gerar token JWT com as reivindicações necessárias, conforme exigido pelo servidor de licença Axinom Widevine para testes:
 
     using System;
     using System.Collections.Generic;
@@ -129,7 +129,7 @@ Abaixo está o código para gerar o token JWT com as declarações necessárias,
 
     }  
 
-Servidor de licença do Axinom Widevine
+Servidor de licença Axinom Widevine
 
     <add key="ax:laurl" value="https://drm-widevine-licensing.axtest.net/AcquireLicense" />
     <add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
@@ -137,13 +137,13 @@ Servidor de licença do Axinom Widevine
     <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
 
 ### <a name="considerations"></a>Considerações
-1. Embora o serviço de entrega de licença do PlayReady do AMS exija "portador =" antes de um token de autenticação, o servidor de licença Axinom Widevine não o utiliza.
-2. A chave de comunicação Axinom é usada como chave de assinatura. A chave é uma cadeia de caracteres hexadecimal, no entanto, ela deve ser tratada como uma série de bytes e não uma cadeia de caracteres durante a codificação. Isso é conseguido pelo método ConvertHexStringToByteArray.
+1. Mesmo que o serviço de entrega de licenças AMS PlayReady exija "Bearer=" antes de um símbolo de autenticação, o servidor de licença Axinom Widevine não o utiliza.
+2. A chave de comunicação Axinom é usada como chave de assinatura. A chave é uma corda hexéeis, no entanto deve ser tratada como uma série de bytes e não uma corda ao codificar. Isto é conseguido pelo método ConvertHexStringToByteArray.
 
-## <a name="retrieving-key-id"></a>Recuperando a ID da chave
-Você pode ter notado que, no código para gerar um token JWT, a ID da chave é necessária. Como o token JWT precisa estar pronto antes de carregar o AMP Player, a ID de chave precisa ser recuperada para gerar o token JWT.
+## <a name="retrieving-key-id"></a>Recuperação do ID da chave
+Pode ter reparado que no código para gerar um símbolo JWT, é necessário identificar a chave. Uma vez que o símbolo JWT precisa de estar pronto antes de carregar o leitor AMP, o ID chave precisa de ser recuperado para gerar ficha JWT.
 
-É claro que há várias maneiras de obter a ID da chave. Por exemplo, uma pode armazenar a ID de chave junto com metadados de conteúdo em um banco de dados. Ou você pode recuperar a ID de chave do arquivo de traço MPD (descrição de apresentação de mídia). O código a seguir é para o último.
+Claro, há várias maneiras de obter a identificação chave. Por exemplo, pode-se armazenar o ID da chave juntamente com os metadados de conteúdo numa base de dados. Ou pode obter o ID da chave do ficheiro DASH MPD (Descrição da Apresentação dos Media). O código abaixo é para este último.
 
     //get key_id from DASH MPD
     public static string GetKeyID(string dashUrl)
@@ -178,26 +178,26 @@ Você pode ter notado que, no código para gerar um token JWT, a ID da chave é 
 
 ## <a name="summary"></a>Resumo
 
-Com a adição mais recente do suporte a Widevine nos serviços de mídia do Azure Proteção de Conteúdo e Player de Mídia do Azure, podemos implementar streaming de DASH + multinativo-DRM (PlayReady + Widevine) com o serviço de licença do PlayReady no AMS e licença do Widevine servidor da Axinom para os seguintes navegadores modernos:
+Com a mais recente adição de suporte da Widevine tanto na Proteção de Conteúdos dos Serviços de Mídia Azure como no Azure Media Player, somos capazes de implementar o streaming de DASH + Multi-native-DRM (PlayReady + Widevine) com tanto o serviço de licença PlayReady na licença AMS e Widevine servidor da Axinom para os seguintes navegadores modernos:
 
 * Chrome
 * Microsoft Edge no Windows 10
-* IE 11 em Windows 8.1 e Windows 10
-* O Firefox (Desktop) e o Safari no Mac (não iOS) também têm suporte por meio do Silverlight e da mesma URL com Player de Mídia do Azure
+* IE 11 no Windows 8.1 e Windows 10
+* Tanto o Firefox (Desktop) como o Safari no Mac (não iOS) também são suportados via Silverlight e o mesmo URL com O Leitor de Mídia Azure
 
-Os parâmetros a seguir são necessários na mini-solução utilizando o servidor de licença Axinom Widevine. Exceto para ID de chave, o restante dos parâmetros é fornecido pelo Axinom com base na configuração do servidor Widevine.
+São necessários os seguintes parâmetros na mini-solução alavancando o servidor de licença Axinom Widevine. Com exceção da identificação da chave, o resto dos parâmetros são fornecidos pela Axinom com base na configuração do servidor Widevine.
 
-| Parâmetro | Como ele é usado |
+| Parâmetro | Como é usado |
 | --- | --- |
-| ID da chave de comunicação |Deve ser incluído como o valor da declaração "com_key_id" no token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) seção). |
-| Chave de comunicação |Deve ser usado como a chave de assinatura do token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) seção). |
-| Semente de chave |Deve ser usado para gerar a chave de conteúdo com qualquer ID de chave de conteúdo específica (consulte [esta](media-services-axinom-integration.md#content-protection) seção). |
-| URL de aquisição de licença do Widevine |Deve ser usado na configuração da política de entrega de ativos para streaming de DASH (consulte [esta](media-services-axinom-integration.md#content-protection) seção). |
-| ID da chave de conteúdo |Deve ser incluído como parte do valor da declaração de mensagem de autorização do token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) seção). |
+| ID chave de comunicação |Deve ser incluído como valor da reclamação "com_key_id" em símbolo JWT (ver [esta](media-services-axinom-integration.md#jwt-token-generation) secção). |
+| Chave de comunicação |Deve ser utilizado como chave de assinatura do símbolo JWT (ver [esta](media-services-axinom-integration.md#jwt-token-generation) secção). |
+| Semente-chave |Deve ser utilizado para gerar a chave de conteúdo com qualquer id da chave de conteúdo (ver [esta](media-services-axinom-integration.md#content-protection) secção). |
+| URL de aquisição da Licença Widevine |Deve ser utilizado na configuração da política de entrega de ativos para o streaming DASH (ver [esta](media-services-axinom-integration.md#content-protection) secção). |
+| ID da chave de conteúdo |Deve ser incluído como parte do valor da reclamação da mensagem de direito do símbolo JWT (ver [esta](media-services-axinom-integration.md#jwt-token-generation) secção). |
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -206,5 +206,5 @@ Os parâmetros a seguir são necessários na mini-solução utilizando o servido
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Agradecimentos
-Gostaríamos de reconhecer as seguintes pessoas que contribuíram para criar este documento: Kristjan jõgi of Axinom, Mingfei Yan e Amit Rajput.
+Gostaríamos de reconhecer as seguintes pessoas que contribuíram para a criação deste documento: Kristjan Jõgi, da Axinom, Mingfei Yan, e Amit Rajput.
 

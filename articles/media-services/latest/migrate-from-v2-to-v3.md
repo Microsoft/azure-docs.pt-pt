@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/02/2019
+ms.date: 02/28/2020
 ms.author: juliako
-ms.openlocfilehash: dc3b122ab7f4a243f3a4ecd6f220caa00beb044e
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 2a670c7bce113de8854b33e407c7de2236edd794
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505786"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197866"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para a mudança dos Serviços de Media v2 para v3
 
@@ -77,7 +77,26 @@ Se tiver um serviço de vídeo desenvolvido hoje em cima do [legado Media Servic
 * As Saídas ao Vivo começam na criação e param quando eliminadas. Os programas funcionavam de forma diferente nas APIs v2, tinham de ser iniciados após a criação.
 * Para obter informações sobre um trabalho, precisa saber o nome Transform em que o trabalho foi criado. 
 * Em v2, os ficheiros de [entrada](../previous/media-services-input-metadata-schema.md) e [de saída](../previous/media-services-output-metadata-schema.md) de metadados XML são gerados como resultado de um trabalho de codificação. Em v3, o formato de metadados mudou de XML para JSON. 
+* Nos Serviços de Media v2, o vetor de inicialização (IV) pode ser especificado. Nos Serviços de Media v3, o FairPlay IV não pode ser especificado. Embora não tenha impacto nos clientes que utilizam os Serviços de Media tanto para a embalagem como para a entrega de licenças, pode ser um problema quando se utiliza um sistema DEDR De terceiros para entregar as licenças FairPlay (modo híbrido). Nesse caso, é importante saber que o FairPlay IV é derivado da chave CBCS ID e pode ser recuperado usando esta fórmula:
 
+    ```
+    string cbcsIV =  Convert.ToBase64String(HexStringToByteArray(cbcsGuid.ToString().Replace("-", string.Empty)));
+    ```
+
+    por
+
+    ``` 
+    public static byte[] HexStringToByteArray(string hex)
+    {
+        return Enumerable.Range(0, hex.Length)
+            .Where(x => x % 2 == 0)
+            .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+            .ToArray();
+    }
+    ```
+
+    Para mais informações, consulte o [código funções Do Azure para C# serviços de mídia v3 em modo híbrido para operações ao vivo e vod](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3).
+ 
 > [!NOTE]
 > Reveja as convenções de nomeação que são aplicadas aos [recursos v3 dos Media Services.](media-services-apis-overview.md#naming-conventions) Também reveja [as bolhas de nome.](assets-concept.md#naming)
 
@@ -126,7 +145,7 @@ A tabela que se segue mostra as diferenças de código entre v2 e v3 para cenár
 
 Confira o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Serviços de Media.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver como é fácil começar a codificar e a transmitir ficheiros de vídeo, veja [Stream files](stream-files-dotnet-quickstart.md) (Transmitir ficheiros). 
 

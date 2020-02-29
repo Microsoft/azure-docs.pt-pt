@@ -3,20 +3,20 @@ title: Adicione reclamações e personalize a entrada do utilizador em política
 titleSuffix: Azure AD B2C
 description: Saiba como personalizar a entrada do utilizador e adicionar reclamações à viagem de inscrição ou inscrição no Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebbc0c8ac067635d31714468f1aee047b3683eb0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 737f373fb71494492f633d3297463cbef797f3d6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846981"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189553"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicione reclamações e personalize a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C
 
@@ -261,7 +261,7 @@ São utilizados os seguintes elementos para definir a alegação:
 
 ## <a name="test-the-custom-policy"></a>Testar a política personalizada
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
 3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
 4. Selecione Quadro de **Experiência de Identidade (Pré-visualização)** .

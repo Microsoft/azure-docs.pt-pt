@@ -2,20 +2,20 @@
 title: 'Tutorial: Conceder acesso a uma API web Node.js a partir de uma aplicação de ambiente de trabalho'
 description: Tutorial sobre como usar o Ative Directory B2C para proteger uma API web Node.js e chamá-lo de uma aplicação de ambiente de trabalho .NET.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a72c45f80d03cda7b176c421cc5498dd16c242ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850042"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183393"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web Node.js a partir de uma aplicação de ambiente de trabalho com o Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Para chamar uma API web protegida de uma aplicação de cliente nativo, você pr
 
 No tutorial pré-requisito, registou uma aplicação de cliente nativo chamada *nativeapp1*. Os seguintes passos configuram o registo de aplicação nativa com os âmbitos da API que expôs para *webapi1* na secção anterior. Isto permite que a aplicação de ambiente de trabalho obtenha um sinal de acesso do Azure AD B2C que a API web pode usar para verificar e fornecer acesso acessível aos seus recursos. Configura e executa tanto a aplicação de ambiente de trabalho como as amostras de código API web mais tarde no tutorial.
 
-#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications"></a>[Aplicações](#tab/applications/)
 
 1. Selecione **Aplicações**e, em seguida, selecione *nativeapp1*.
 1. Selecione **o acesso API,** e, em seguida, selecione **Adicionar**.
@@ -59,19 +59,19 @@ No tutorial pré-requisito, registou uma aplicação de cliente nativo chamada *
 1. No **dropdown Select Scopes,** selecione os âmbitos que definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
 1. Selecione **OK**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
 1. Selecione registos de **aplicativos (Pré-visualização)** e, em seguida, selecione a aplicação do cliente nativo que deve ter acesso à API. Por exemplo, *nativeapp1*.
-1. Em **gerenciar**, selecione **permissões de API**.
-1. Em **permissões configuradas**, selecione **Adicionar uma permissão**.
-1. Selecione a guia **minhas APIs** .
+1. Em **Gerir,** selecione **permissões API**.
+1. Sob **permissões configuradas,** **selecione Adicionar uma permissão**.
+1. Selecione o separador **My APIs.**
 1. Selecione a API a que a aplicação do cliente nativo deve ter acesso. Por exemplo, *webapi1*.
 1. Sob **Permissão,** expanda a **demonstração**e, em seguida, selecione os âmbitos que definiu anteriormente. Por exemplo, *demo.read* e *demo.write*.
-1. Selecione **adicionar permissões**. Conforme indicado, aguarde alguns minutos antes de prosseguir para a próxima etapa.
-1. Selecione **conceder consentimento de administrador para (seu nome de locatário)** .
-1. Selecione sua conta de administrador conectada no momento ou entre com uma conta em seu locatário Azure AD B2C que tenha sido atribuído pelo menos à função *administrador de aplicativos de nuvem* .
+1. **Selecione Adicionar permissões**. Como foi dirigido, aguarde alguns minutos antes de passar para o próximo passo.
+1. Selecione **Grant administrador consentimento para (o nome do seu inquilino)** .
+1. Selecione a sua conta de administrador atualmente assinada ou inscreva-se com uma conta no seu inquilino Azure AD B2C que tenha sido atribuída pelo menos a função de administrador de *aplicação Cloud.*
 1. Selecione **Aceitar**.
-1. Selecione **Atualizar**e, em seguida, verifique se "concedido para..." aparece em **status** para ambos os escopos. Pode levar alguns minutos para que as permissões se propaguem.
+1. Selecione **Refresh**, e, em seguida, verifique se "Granted for ..." aparece em **Status** para ambos os âmbitos. Pode levar alguns minutos para as permissões se propagarem.
 
 * * *
 

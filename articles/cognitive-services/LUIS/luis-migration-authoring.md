@@ -1,7 +1,7 @@
 ---
-title: Migrar para o recurso do Azure para criação
+title: Migrar para o recurso Azure para autoria
 titleSuffix: Azure Cognitive Services
-description: Migre para uma chave de recurso de criação do Azure.
+description: Migrar para uma chave de recursos de autoria Azure.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,108 +9,116 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: 6e1005e3d9c3769de3249f3244d65a656edc963e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec6f9592a4c149be382fab66cca27d929644d988
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891750"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194514"
 ---
-# <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de criação de recursos do Azure
+# <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
 
-A autenticação de criação de Reconhecimento vocal (LUIS) mudou de uma conta de email para um recurso do Azure. Embora não seja necessário no momento, a alternância para um recurso do Azure será imposta no futuro.
+A compreensão linguística (LUIS) a autenticação passou de uma conta de e-mail para um recurso Azure. Embora não seja atualmente necessário, a mudança para um recurso Azure será aplicada no futuro.
 
 ## <a name="why-migrate"></a>Por que migrar?
 
-O uso de um recurso do Azure para a criação permite que você, como o proprietário do recurso, controle o acesso à criação. Você pode criar e nomear recursos de criação para gerenciar diferentes grupos de autores.
+A utilização de um recurso Azure para autoria permite-lhe, enquanto proprietário do recurso, controlar o acesso à autoria. Você pode criar e nomear recursos de autor para gerir diferentes grupos de autores.
 
-Por exemplo, você é o proprietário de 2 aplicativos LUIS e tem membros diferentes que são colaboradores em cada aplicativo. Você pode criar dois recursos de criação diferentes e atribuir cada aplicativo a cada recurso separado. Em seguida, atribua cada membro como um colaborador para o recurso de criação adequado, dependendo de em qual aplicativo eles colaboram. O recurso de criação do Azure controla a autorização.
+Por exemplo, você é o proprietário de 2 aplicações LUIS, e você tem diferentes membros que são colaboradores em cada app. Pode criar dois recursos de autoria diferentes e atribuir cada app a cada recurso separado. Em seguida, atribua cada membro como contribuinte para o recurso de autor adequado, dependendo da aplicação em que colaboram. O recurso de autoria Azure controla a autorização.
 
 > [!Note]
-> Antes da migração, os coautores são conhecidos como _colaboradores_ no nível do aplicativo Luis. Após a migração, a função de _colaborador_ do Azure é usada para a mesma funcionalidade, mas no nível de recurso do Azure.
+> Antes da migração, os coautores são conhecidos como _colaboradores_ a nível da aplicação LUIS. Após a migração, o papel azure de _contribuinte_ é usado para a mesma funcionalidade, mas no nível de recursos Azure.
 
 ## <a name="what-is-migrating"></a>O que é migrar?
 
 A migração inclui:
 
-* Todos os usuários de LUIS, proprietários e colaboradores.
-* **Todos os** aplicativos.
-* Uma migração **unidirecional** .
+* Todos os utilizadores do LUIS, proprietários e colaboradores.
+* **Todas as** aplicações.
+* Uma migração **só de ida.**
 
-O proprietário não pode escolher um subconjunto de aplicativos para migrar e o processo não é reversível.
+O proprietário não pode escolher um subconjunto de apps para migrar e o processo não é reversível.
 
 A migração não é:
 
-* Um processo que coleta colaboradores e move ou adiciona automaticamente o recurso de criação do Azure. Você, como o proprietário do aplicativo, precisa concluir esta etapa. Esta etapa requer permissões para o recurso apropriado.
-* Um processo para criar e atribuir um recurso de tempo de execução de previsão. Se você precisar de um recurso de tempo de execução de previsão, isso será [um processo separado](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) e não será alterado.
+* Um processo que recolhe colaboradores e se move automaticamente ou adiciona ao recurso de autoria Azure. Você, como proprietário da aplicação, precisa completar este passo. Este passo requer permissões ao recurso apropriado.
+* Um processo para criar e atribuir um recurso de tempo de execução de previsão. Se precisar de um recurso de tempo de execução de previsão, este é [um processo separado](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) e é inalterado.
 
-## <a name="how-are-the-apps-migrating"></a>Como os aplicativos são migrados?
+## <a name="how-are-the-apps-migrating"></a>Como estão as aplicações a migrar?
 
-O [portal do Luis](https://www.luis.ai) fornece o processo de migração.
+O [portal LUIS](https://www.luis.ai) fornece o processo de migração.
 
-Você será solicitado a migrar se:
+Será-lhe pedido que migrasse se:
 
-* Você tem aplicativos no sistema de autenticação de email para criação.
-* E você é o proprietário do aplicativo.
+* Tem aplicações no sistema de autenticação de e-mail para autoria.
+* E tu és o dono da aplicação.
 
-Você pode atrasar o processo de migração cancelando a janela. Periodicamente, você será solicitado a migrar até migrar ou o prazo de migração for passado. Você pode iniciar o processo de migração no ícone de bloqueio da barra de navegação superior.
+Pode atrasar o processo de migração cancelando pela janela. É-lhe pedido periodicamente que emigra até migrar ou o prazo de migração seja ultrapassado. Pode iniciar o processo de migração a partir do ícone de bloqueio da barra de navegação superior.
 
-## <a name="migration-for-the-app-owner"></a>Migração para o proprietário do aplicativo
+## <a name="migration-for-the-app-owner"></a>Migração para o proprietário da app
 
 ### <a name="before-you-migrate"></a>Antes de migrar
 
-* **Necessário**, você precisa ter uma [assinatura do Azure](https://azure.microsoft.com/free/). Uma parte do processo de assinatura requer informações de cobrança. No entanto, você pode usar o tipo de preço gratuito (`F0`) ao usar o LUIS.
-* **Opcionalmente**, faça backup dos aplicativos da lista de aplicativos do portal do Luis exportando cada aplicativo ou usando a [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)de exportação.
-* **Opcionalmente**, salve a lista de collaborator's de cada aplicativo. Essa lista de emails é fornecida como parte do processo de migração.
+* **Necessário,** precisa de ter uma [subscrição Azure.](https://azure.microsoft.com/free/) Uma parte do processo de subscrição requer informações de faturação. No entanto, pode utilizar o nível de preços Free (`F0`) quando utilizar o LUIS.
+* **Opcionalmente,** faça backup das aplicações da lista de aplicações do portal LUIS exportando cada aplicação ou utilizar a [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)de exportação.
+* **Opcionalmente,** guarde a lista de colaboradores de cada aplicação. Esta lista de e-mails é fornecida como parte do processo de migração.
 
 
-A **criação de seu aplicativo Luis é gratuita**, indicada pela camada de `F0`. Saiba [mais sobre os tipos de preço](luis-boundaries.md#key-limits).
+A autoria da **sua aplicação LUIS é gratuita**, indicada pelo `F0` nível. Saiba [mais sobre os níveis de preços.](luis-boundaries.md#key-limits)
 
-Se você não tiver uma assinatura do Azure, [Inscreva-](https://azure.microsoft.com/free/)se.
+Se não tiver uma assinatura Azure, [inscreva-se.](https://azure.microsoft.com/free/)
 
 ### <a name="migration-steps"></a>Passos de migração
 
-Siga [estas etapas de migração](luis-migration-authoring-steps.md).
+Siga [estes passos de migração.](luis-migration-authoring-steps.md)
 
-### <a name="after-you-migrate"></a>Após a migração
+### <a name="after-you-migrate"></a>Depois de migrar
 
-Após o processo de migração, todos os seus aplicativos LUIS agora são atribuídos a um único recurso de criação de LUIS.
+Após o processo de migração, todas as suas aplicações LUIS são agora atribuídas a um único recurso de autoria LUIS.
 
-Você pode criar mais recursos de criação e atribuir na página **gerenciar > do Azure Resources** no _portal do Luis_.
+Pode criar mais recursos de autoria e atribuir a partir da página **de recursos Manage &> Azure** no _portal LUIS._
 
-Você pode adicionar colaboradores ao recurso de criação do _portal do Azure_, na página de controle de **acesso (iam)** para esse recurso. Consulte [Adicionar acesso de colaborador](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource) para obter mais informações.
+Pode adicionar colaboradores ao recurso de autoria do _portal Azure,_ na página de Controlo de **Acesso (IAM)** para esse recurso. Para mais informações, consulte [adicionar acesso ao contribuinte.](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource)
 
-|Portal|Finalidade|
+|Portal|Objetivo|
 |--|--|
-|[Azure](https://azure.microsoft.com/free/)|* Crie recursos de previsão e criação.<br>* Atribuir colaboradores.|
-|[LUIS](https://www.luis.ai)|* Migre para novos recursos de criação.<br>* Atribuir ou cancelar a atribuição de recursos de previsão e de criação a aplicativos da página **gerenciar > recursos do Azure** .|
+|[Azure](https://azure.microsoft.com/free/)|* Criar recursos de previsão e autoria.<br>* Atribuir contribuintes.|
+|[LUIS](https://www.luis.ai)|* Migrar para novos recursos de autoria.<br>* Atribuir ou designar a previsão e a autoria de recursos para apps da página **de recursos Manage &> Azure.**|
 
-## <a name="migration-for-the-app-contributor"></a>Migração para o colaborador do aplicativo
+## <a name="migration-for-the-app-contributor"></a>Migração para o contribuinte da aplicação
 
-Cada usuário do LUIS precisa migrar, incluindo colaboradores/contribuidores. Um colaborador deve migrar para ter acesso ao aplicativo.
+Todos os utilizadores do LUIS precisam de migrar, incluindo colaboradores/colaboradores. Um colaborador deve migrar para ter acesso à app.
 
 > [!Note]
-> Se o proprietário do aplicativo LUIS migrou e adicionou o colaborador como um colaborador no recurso do Azure, o colaborador ainda não terá acesso ao aplicativo, a menos que eles também migrem.
+> Se o proprietário da app LUIS migrar e adicionar o colaborador como colaborador no recurso Azure, o colaborador continuará a não ter acesso à app a menos que também emigrasse.
 
-### <a name="before-the-app-is-migrated"></a>Antes que o aplicativo seja migrado
+### <a name="before-the-app-is-migrated"></a>Antes da aplicação ser migrada
 
-Você pode optar por exportar um aplicativo no qual você é um colaborador e, em seguida, importar o aplicativo de volta para o LUIS. O processo de importação cria um novo aplicativo com uma nova ID do aplicativo, para o qual você é o proprietário.
+Pode optar por exportar uma app em que é colaborador e, em seguida, importar a app de volta para O LUIS. O processo de importação cria uma nova app com um novo ID de aplicação, para o qual é o proprietário.
 
-### <a name="after-the-app-is-migrated"></a>Depois que o aplicativo for migrado
+### <a name="after-the-app-is-migrated"></a>Depois da aplicação ser migrada
 
-O proprietário do aplicativo precisa [Adicionar seu email ao recurso de criação do Azure como um colaborador](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource).
+O proprietário da aplicação precisa [adicionar o seu e-mail ao recurso de autor do Azure como colaborador.](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource)
 
-Após o processo de migração, todos os aplicativos que você possui estão disponíveis na página **meus aplicativos** do portal do Luis.
+Após o processo de migração, quaisquer aplicações que possua estão disponíveis na página das **minhas apps** do portal LUIS.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting-the-migration-process-for-luis-authoring"></a>Resolução de problemas no processo de migração para a autoria do LUIS
 
-* As chaves de criação do LUIS só ficam visíveis no portal do LUIS após a conclusão do processo de migração. Se você criar as chaves de criação, como com a CLI do LUIS, o usuário ainda precisará concluir o processo de migração.
-* Se um usuário migrado adicionar um usuário não migrado como um colaborador em seu recurso do Azure, o usuário não migrado não terá acesso aos aplicativos, a menos que eles migrem.
-* Se um usuário não migrado não for um proprietário de nenhum aplicativo, mas ele for um colaborador de outros aplicativos pertencentes a outros usuários e os proprietários passarem pelo processo de migração, esse usuário precisará migrar para ter acesso aos aplicativos.
-* Se um usuário não migrado tiver adicionado outro usuário migrado como um colaborador de seu aplicativo, ocorrerá um erro, pois você não poderá adicionar um usuário migrado como um colaborador a um aplicativo. O usuário não migrado precisará passar pelo processo de migração e criar um recurso do Azure e adicionar o usuário migrado como um colaborador para esse recurso.
+* As chaves de autoria luis só são visíveis no portal LUIS após o processo de migração estar concluído. Se criar as chaves de autor, como é o caso do CLI LUIS, o utilizador ainda precisa de concluir o processo de migração no portal LUIS.
+* Se um utilizador migrado adicionar um utilizador não migrado como contribuinte no seu recurso azul, o utilizador não migrado não terá acesso às aplicações a menos que migrasse.
+* Se um utilizador não migrado não for proprietário de nenhuma aplicação, mas for colaborador de outras aplicações que são propriedade de outras e os proprietários tenham sido submetidos ao processo de migração, este utilizador terá de migrar para ter acesso às apps.
+* Se um utilizador não migrado adicionar outro utilizador migrado como colaborador à sua aplicação, ocorrerá um erro, uma vez que não será capaz de adicionar um utilizador migrado como colaborador a uma aplicação. O utilizador não migrado terá então de passar pelo processo de migração e criar um recurso azul e adicionar o utilizador migrado como contribuinte a esse recurso.
+
+Recebe um erro durante o processo de migração se:
+* A sua subscrição não o autoriza a criar recursos de Serviços Cognitivos
+* A sua migração impacta negativamente qualquer tempo de execução de aplicações. Ao migrar, quaisquer colaboradores são removidos das suas apps e você é removido como um colaborador de outras apps. Este processo significa que as chaves que atribuiu também são removidas. A migração fica bloqueada se tiver chaves atribuídas noutras aplicações. Retire a chave que atribuiu com segurança antes de migrar. Se sabe que a chave que atribuiu não é usada no tempo de funcionação, então precisa removê-la para poder progredir na migração.
+
+Aceda à lista de recursos Azure da sua aplicação utilizando o seguinte formato URL:
+
+`https://www.luis.ai/applications/REPLACE-WITH-YOUR-APP-ID/versions/REPLACE-WITH-YOUR-VERSION-ID/manage/resources`
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Como migrar seu aplicativo para um recurso de criação](luis-migration-authoring-steps.md)
+* [Como migrar a sua app para um recurso de autoria](luis-migration-authoring-steps.md)

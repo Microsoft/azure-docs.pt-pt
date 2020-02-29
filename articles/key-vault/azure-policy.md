@@ -5,13 +5,14 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/28/2020
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 9bf33aae5de600d6e5b0ab836c99da1d56935db3
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 8c49b53cae08415633e1405317742a8a5d4e64b0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169385"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196897"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar o cofre chave azure com a política azure
 

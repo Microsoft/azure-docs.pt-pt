@@ -6,16 +6,17 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490407"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197764"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com o portal do Azure
 
@@ -29,14 +30,14 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
-1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**.
+1. A partir do menu do portal Azure, ou da página **Inicial,** selecione **Criar um recurso**.
 2. Na caixa Pesquisar, introduza **Key Vault**.
 3. Na lista de resultados, selecione **Key Vault**.
 4. Na secção Key Vault, selecione **Criar**.
 5. Na secção **Criar cofre de chaves**, forneça as seguintes informações:
-    - **Nome**: é necessário um nome exclusivo. Para este guia de início rápido, usamos **contoso-vault2**. 
+    - **Nome**: é necessário um nome exclusivo. Para este arranque rápido, usamos **Contoso-abóbada2.** 
     - **Subscrição**: selecione uma subscrição.
-    - Em **grupo de recursos**, escolha **criar novo** e insira um nome de grupo de recursos.
+    - No **Grupo de Recursos,** escolha **Criar novos** e insira um nome de grupo de recursos.
     - No menu pendente **Localização**, selecione uma localização.
     - Deixe as outras opções com os valores predefinidos.
 6. Depois de fornecer as informações acima, selecione **Criar**.
@@ -52,9 +53,9 @@ Nesta altura, a sua conta do Azure é a única autorizada a realizar as operaç�
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
-Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos adicionais. Neste caso, vamos adicionar uma palavra-passe que possa ser utilizada por uma aplicação. A senha é chamada de **ExamplePassword** e armazenamos o valor de **hVFkk965BuUv** nela.
+Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos adicionais. Neste caso, vamos adicionar uma palavra-passe que possa ser utilizada por uma aplicação. A palavra-passe **chama-se ExemploPassword** e armazenamos o valor do **hVFkk965BuUv** na seleção.
 
-1. Nas páginas de propriedades do Key Vault, selecione **segredos**.
+1. Nas páginas de propriedades do Cofre chave, selecione **Segredos**.
 2. Clique em **Gerar/Importar**.
 3. No ecrã **Criar um segredo**, selecione os seguintes valores:
     - **Opções de carregamento**: Manual.
@@ -66,9 +67,9 @@ Depois de receber a mensagem de que o segredo foi criado com êxito, pode clicar
 
 ![Propriedades do segredo](./media/quick-create-portal/current-version-hidden.png)
 
-Ao clicar no botão "mostrar valor secreto" no painel direito, você pode ver o valor oculto. 
+Ao clicar no botão "Mostrar valor secreto" no painel direito, pode ver o valor escondido. 
 
-![O valor secreto apareceu](./media/quick-create-portal/current-version-shown.png)
+![Valor secreto apareceu](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -82,9 +83,9 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina o Key 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou um Key Vault e armazenou um segredo nele. Para saber mais sobre Key Vault e como integrá-lo a seus aplicativos, continue nos artigos abaixo.
+Neste arranque rápido, criaste um Cofre chave e guardaste um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
-- Leia uma [visão geral do Azure Key Vault](key-vault-overview.md)
-- Consulte o [Guia do desenvolvedor do Azure Key Vault](key-vault-developers-guide.md)
+- Leia uma [visão geral do Cofre chave Azure](key-vault-overview.md)
+- Consulte o guia do desenvolvedor do Cofre de [Chaves Azure](key-vault-developers-guide.md)
 - Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
-- Examinar [Azure Key Vault práticas recomendadas](key-vault-best-practices.md)
+- Rever [as melhores práticas do Cofre de Chaves Azure](key-vault-best-practices.md)

@@ -6,25 +6,26 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 26309bb9a7b9785dbac7f42b0c20de99bca10a17
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c27cde85952ca6d982accddad59eceae76e3f1e8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769251"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194462"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificados
 
  Um certificado key vault (KV) pode ser criado ou importado para um cofre chave. Quando um certificado KV é criado, a chave privada é criada dentro do cofre chave e nunca exposta ao proprietário do certificado. Seguem-se formas de criar um certificado no Cofre Chave:  
 
--   **Criar um certificado auto-assinado:** Isto criará um par de chaves público-privado e associá-lo-á a um certificado. O certificado será assinado por sua própria chave.  
+-   **Criar um certificado auto-assinado:** Isto criará um par de chaves público-privado e associá-lo-á a um certificado. O certificado será assinado pela sua própria chave.  
 
--    **Crie um novo certificado manualmente:** Isto criará um par de chaves público-privado e gerará um pedido de assinatura de certificado X.509. A solicitação de assinatura pode ser assinada pela autoridade de registro ou autoridade de certificação. O certificado X509 assinado pode ser mesclado com o par de chaves pendente para concluir o certificado KV no Key Vault. Embora esse método exija mais etapas, ele fornece maior segurança, pois a chave privada é criada e restrita a Key Vault. Isso é explicado no diagrama a seguir.  
+-    **Crie um novo certificado manualmente:** Isto criará um par de chaves público-privado e gerará um pedido de assinatura de certificado X.509. O pedido de assinatura pode ser assinado pela sua autoridade de registo ou autoridade de certificação. O certificado x509 assinado pode ser fundido com o par de chaves pendente para completar o certificado KV no Key Vault. Embora este método exija mais passos, proporciona-lhe maior segurança porque a chave privada é criada e restrita ao Cofre chave. Isto é explicado no diagrama abaixo.  
 
-![Criar um certificado com sua própria autoridade de certificação](media/certificate-authority-1.png)  
+![Crie um certificado com a sua própria autoridade de certificados](media/certificate-authority-1.png)  
 
 As seguintes descrições correspondem aos passos com letras verdes no diagrama anterior.
 
@@ -36,7 +37,7 @@ As seguintes descrições correspondem aos passos com letras verdes no diagrama 
 
 -   **Criar um certificado com um fornecedor de emitente conhecido:** Este método requer que faça uma tarefa única de criar um objeto emitente. Uma vez criado um objeto emitente no seu cofre chave, o seu nome pode ser referenciado na política do certificado KV. Um pedido para criar tal certificado KV criará um par chave no cofre e comunicará com o serviço de emitente fornecedor usando a informação no objeto emissor referenciado para obter um certificado x509. O certificado x509 é recuperado do serviço emitente e é fundido com o par chave para completar a criação do certificado KV.  
 
-![Criar um certificado com uma autoridade de certificação Key Vault parceria](media/certificate-authority-2.png)  
+![Criar um certificado com uma autoridade de certificados parceira da Key Vault](media/certificate-authority-2.png)  
 
 As seguintes descrições correspondem aos passos com letras verdes no diagrama anterior.
 
@@ -84,12 +85,12 @@ A criação de certificadopode ser concluída manualmente ou utilizando um emite
 |DigiCert|Key Vault oferece certificados OV ou EV SSL com DigiCert|
 |GlobalSign|Key Vault oferece certificados OV ou EV SSL com GlobalSign|
 
- Um emissor de certificado é uma entidade representada em Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.
+ Um emitente de certificado é uma entidade representada no Cofre chave azure (KV) como recurso CertificateIssuer. É utilizado para fornecer informações sobre a origem de um certificado KV; nome emitente, fornecedor, credenciais e outros detalhes administrativos.
 
 Note que quando uma encomenda é feita com o provedor emitente, pode honrar ou anular as extensões do certificado x509 e o período de validade do certificado com base no tipo de certificado.  
 
  Autorização: Requer os certificados/criar permissão.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Veja Também
  - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
  - [Monitorizar e gerir a criação do certificados](create-certificate-scenarios.md)

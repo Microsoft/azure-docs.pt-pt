@@ -1,6 +1,6 @@
 ---
-title: Diretrizes de design de tabelas distribuídas
-description: Recomendações para a criação de tabelas distribuídas por hash e de Round Robin no Azure SQL Data Warehouse.
+title: Orientação de design de tabelas distribuídas
+description: Recomendações para a conceção de mesas distribuídas por hash e rodada distribuídas no SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,66 +10,66 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.custom: azure-synapse
+ms.openlocfilehash: 3a07dd6ccd5d0bf3440df21b2af4e67cbcf663c9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049121"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199449"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Diretrizes para criar tabelas distribuídas no Azure SQL Data Warehouse
-Recomendações para a criação de tabelas distribuídas por hash e de Round Robin no Azure SQL Data Warehouse.
+# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>Orientação para a conceção de tabelas distribuídas no SQL Analytics
+Recomendações para a conceção de mesas distribuídas por hash e rodada distribuídas no SQL Analytics.
 
-Este artigo pressupõe que você esteja familiarizado com os conceitos de distribuição de dados e movimentação de dados em SQL Data Warehouse.  Para obter mais informações, consulte [arquitetura de processamento paralelo maciço (MPP) do Azure SQL data warehouse](massively-parallel-processing-mpp-architecture.md). 
+Este artigo assume que está familiarizado com os conceitos de distribuição de dados e movimento de dados no SQL Analytics.  Para mais informações, consulte a [arquitetura de processamento paralelo (MPP) da SQL Analytics.](massively-parallel-processing-mpp-architecture.md) 
 
-## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
-Uma tabela distribuída aparece como uma única tabela, mas as linhas são realmente armazenadas entre 60 distribuições. As linhas são distribuídas com um algoritmo de hash ou Round Robin.  
+## <a name="what-is-a-distributed-table"></a>O que é uma mesa distribuída?
+Uma tabela distribuída aparece como uma única mesa, mas as filas são realmente armazenadas em 60 distribuições. As linhas são distribuídas com um algoritmo de hash ou robin redondo.  
 
-As **tabelas distribuídas por hash** melhoram o desempenho da consulta em grandes tabelas de fatos e são o foco deste artigo. As **tabelas de Round Robin** são úteis para melhorar a velocidade de carregamento. Essas opções de design têm um impacto significativo no aprimoramento do desempenho da consulta e do carregamento.
+**As tabelas distribuídas por hash** melhoram o desempenho da consulta em grandes tabelas de factos, e são o foco deste artigo. **As mesas de rodapé** são úteis para melhorar a velocidade de carregamento. Estas escolhas de design têm um impacto significativo na melhoria da consulta e do desempenho de carregamento.
 
-Outra opção de armazenamento de tabela é replicar uma pequena tabela em todos os nós de computação. Para obter mais informações, consulte [diretrizes de design para tabelas replicadas](design-guidance-for-replicated-tables.md). Para escolher rapidamente entre as três opções, consulte tabelas distribuídas na [visão geral de tabelas](sql-data-warehouse-tables-overview.md). 
+Outra opção de armazenamento de mesa é replicar uma pequena tabela em todos os nós computados. Para obter mais informações, consulte [a orientação do Design para tabelas replicadas](design-guidance-for-replicated-tables.md). Para escolher rapidamente entre as três opções, consulte tabelas distribuídas na visão geral das [tabelas](sql-data-warehouse-tables-overview.md). 
 
-Como parte do design da tabela, entenda o máximo possível sobre seus dados e como os dados são consultados.  Por exemplo, considere estas perguntas:
+Como parte do design de tabela, compreenda o máximo possível sobre os seus dados e como os dados são consultados.  Por exemplo, considere estas questões:
 
-- Qual é o tamanho da tabela?   
-- Com que frequência a tabela é atualizada?   
-- Tenho tabelas de dimensões e de fatos em um data warehouse?   
+- Qual é o tamanho da mesa?   
+- Quantas vezes a mesa é refrescada?   
+- Tenho tabelas de factos e dimensões numa base de dados da SQL Analytics?   
 
 
 ### <a name="hash-distributed"></a>Hash distribuído
-Uma tabela distribuída por hash distribui linhas de tabela nos nós de computação usando uma função de hash determinística para atribuir cada linha a uma [distribuição](massively-parallel-processing-mpp-architecture.md#distributions). 
+Uma tabela distribuída por hash distribui linhas de mesa através dos nós computacionais utilizando uma função de hash determinista para atribuir cada linha a uma [distribuição](massively-parallel-processing-mpp-architecture.md#distributions). 
 
-![Tabela distribuída](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Tabela distribuída")  
+![Mesa distribuída](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Mesa distribuída")  
 
-Como valores idênticos sempre são hash para a mesma distribuição, o data warehouse tem conhecimento interno dos locais de linha. SQL Data Warehouse usa esse conhecimento para minimizar a movimentação de dados durante consultas, o que melhora o desempenho da consulta. 
+Uma vez que valores idênticos sempre têm a mesma distribuição, o SQL Analytics tem conhecimento incorporado das localizações da linha. O SQL Analytics utiliza este conhecimento para minimizar o movimento de dados durante as consultas, o que melhora o desempenho da consulta. 
 
-As tabelas distribuídas por hash funcionam bem para grandes tabelas de fatos em um esquema em estrela. Eles podem ter um número muito grande de linhas e ainda obter alto desempenho. Há, é claro, algumas considerações de design que ajudam você a obter o desempenho que o sistema distribuído foi projetado para fornecer. Escolher uma boa coluna de distribuição é uma das considerações descritas neste artigo. 
+As mesas distribuídas por hash funcionam bem para grandes mesas de facto saem num esquema estelar. Podem ter um grande número de linhas e ainda alcançar um alto desempenho. Existem, naturalmente, algumas considerações de design que o ajudam a obter o desempenho que o sistema distribuído foi projetado para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo. 
 
-Considere usar uma tabela distribuída por hash quando:
+Considere utilizar uma tabela distribuída por hash quando:
 
-- O tamanho da tabela em disco é maior que 2 GB.
+- O tamanho da mesa no disco é superior a 2 GB.
 - A tabela tem operações frequentes de inserção, atualização e exclusão. 
 
-### <a name="round-robin-distributed"></a>Round Robin distribuído
-Uma tabela distribuída por Round Robin distribui linhas de tabela uniformemente em todas as distribuições. A atribuição de linhas a distribuições é aleatória. Diferentemente de tabelas distribuídas por hash, não há garantia de que as linhas com valores iguais sejam atribuídas à mesma distribuição. 
+### <a name="round-robin-distributed"></a>Robin redondo distribuído
+Uma mesa distribuída por robin redondo distribui linhas de mesa uniformemente em todas as distribuições. A atribuição de filas para distribuição é aleatória. Ao contrário das tabelas distribuídas por hash, as filas com valores iguais não estão garantidas para serem atribuídas à mesma distribuição. 
 
-Como resultado, o sistema às vezes precisa invocar uma operação de movimentação de dados para organizar melhor seus dados antes de poder resolver uma consulta.  Essa etapa extra pode retardar suas consultas. Por exemplo, ingressar em uma tabela Round Robin geralmente requer embaralhando as linhas, o que é um impacto no desempenho.
+Como resultado, o sistema às vezes precisa invocar uma operação de movimento de dados para organizar melhor os seus dados antes que possa resolver uma consulta.  Este passo extra pode abrandar as suas consultas. Por exemplo, juntar-se a uma mesa de robin redondo geralmente requer remodelação das linhas, o que é um sucesso de desempenho.
 
-Considere usar a distribuição Round Robin para sua tabela nos seguintes cenários:
+Considere utilizar a distribuição de robin redondo para a sua tabela nos seguintes cenários:
 
-- Ao começar como um ponto de partida simples, pois ele é o padrão
-- Se não houver nenhuma chave de junção óbvia
-- Se não houver uma boa coluna candidata para a distribuição de hash da tabela
-- Se a tabela não compartilhar uma chave de junção comum com outras tabelas
-- Se a junção for menos significativa do que outras junções na consulta
-- Quando a tabela é uma tabela de preparo temporária
+- Quando começar como um simples ponto de partida, uma vez que é o padrão
+- Se não houver uma chave de adesão óbvia
+- Se não houver uma boa coluna de candidatos para o hash distribuir a tabela
+- Se a tabela não partilhar uma chave de juntar comum com outras tabelas
+- Se a adesão for menos significativa do que outras juntas na consulta
+- Quando a mesa é uma mesa de preparação temporária
 
-O tutorial [carregar dados de dos táxis de Nova York no Azure SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) fornece um exemplo de carregamento de dados em uma tabela de preparo de Round-Robin.
+Os dados do tutorial [Load New York taxicab](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) dão um exemplo de carregamento de dados numa mesa de preparação de robin redondo no SQL Analytics.
 
 
-## <a name="choosing-a-distribution-column"></a>Escolhendo uma coluna de distribuição
-Uma tabela distribuída por hash tem uma coluna de distribuição que é a chave de hash. Por exemplo, o código a seguir cria uma tabela distribuída por hash com ProductKey como a coluna de distribuição.
+## <a name="choosing-a-distribution-column"></a>Escolher uma coluna de distribuição
+Uma tabela distribuída por hash tem uma coluna de distribuição que é a chave hash. Por exemplo, o seguinte código cria uma tabela distribuída por hash com ProductKey como coluna de distribuição.
 
 ```SQL
 CREATE TABLE [dbo].[FactInternetSales]
@@ -89,54 +89,54 @@ WITH
 ;
 ``` 
 
-Escolher uma coluna de distribuição é uma decisão de design importante, pois os valores nesta coluna determinam como as linhas são distribuídas. A melhor opção depende de vários fatores e geralmente envolve as compensações. No entanto, se você não escolher a melhor coluna na primeira vez, poderá usar [CREATE TABLE como SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para recriar a tabela com uma coluna de distribuição diferente. 
+Escolher uma coluna de distribuição é uma decisão importante de design, uma vez que os valores desta coluna determinam como as linhas são distribuídas. A melhor escolha depende de vários fatores, e geralmente envolve compensações. No entanto, se não escolher a melhor coluna da primeira vez, pode utilizar a [TABELA CREATE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para recriar a tabela com uma coluna de distribuição diferente. 
 
-### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Escolha uma coluna de distribuição que não exija atualizações
-Não é possível atualizar uma coluna de distribuição a menos que você exclua a linha e insira uma nova linha com os valores atualizados. Portanto, selecione uma coluna com valores estáticos. 
+### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Escolha uma coluna de distribuição que não requeira atualizações
+Não é possível atualizar uma coluna de distribuição a não ser que apague a linha e insira uma nova linha com os valores atualizados. Portanto, selecione uma coluna com valores estáticos. 
 
-### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Escolha uma coluna de distribuição com dados que distribui uniformemente
+### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Escolha uma coluna de distribuição com dados que distribuam uniformemente
 
-Para obter o melhor desempenho, todas as distribuições devem ter aproximadamente o mesmo número de linhas. Quando uma ou mais distribuições têm um número desproporcional de linhas, algumas distribuições terminam sua parte de uma consulta paralela antes de outras. Como a consulta não pode ser concluída até que todas as distribuições tenham terminado o processamento, cada consulta é tão rápida quanto a distribuição mais lenta.
+Para um melhor desempenho, todas as distribuições devem ter aproximadamente o mesmo número de linhas. Quando uma ou mais distribuições têm um número desproporcionado de linhas, algumas distribuições terminam a sua parte de uma consulta paralela antes de outras. Uma vez que a consulta não pode ser completada até que todas as distribuições tenham terminado o processamento, cada consulta é tão rápida quanto a distribuição mais lenta.
 
-- Distorção de dados significa que os dados não são distribuídos uniformemente entre as distribuições
-- O processamento de distorção significa que algumas distribuições demoram mais do que outras ao executar consultas paralelas. Isso pode acontecer quando os dados estão distorcidos.
+- O enviesamento de dados significa que os dados não são distribuídos uniformemente pelas distribuições
+- O processamento de distorções significa que algumas distribuições demoram mais tempo do que outras quando executam consultas paralelas. Isto pode acontecer quando os dados são distorcidos.
   
-Para balancear o processamento paralelo, selecione uma coluna de distribuição que:
+Para equilibrar o processamento paralelo, selecione uma coluna de distribuição que:
 
-- **Tem muitos valores exclusivos.** A coluna pode ter alguns valores duplicados. No entanto, todas as linhas com o mesmo valor são atribuídas à mesma distribuição. Como há 60 distribuições, a coluna deve ter pelo menos 60 valores exclusivos.  Geralmente, o número de valores exclusivos é muito maior.
-- **Não tem valores nulos ou tem apenas alguns valores nulos.** Para um exemplo extremo, se todos os valores na coluna forem nulos, todas as linhas serão atribuídas à mesma distribuição. Como resultado, o processamento de consultas é distorcido para uma distribuição e não se beneficia do processamento paralelo. 
-- **Não é uma coluna de data**. Todos os dados da mesma data ficam na mesma distribuição. Se vários usuários estiverem todos filtrando na mesma data, somente uma das distribuições 60 fará todo o trabalho de processamento. 
+- **Tem muitos valores únicos.** A coluna pode ter alguns valores duplicados. No entanto, todas as linhas com o mesmo valor são atribuídas à mesma distribuição. Uma vez que existem 60 distribuições, a coluna deve ter pelo menos 60 valores únicos.  Normalmente, o número de valores únicos é muito maior.
+- **Não tem NULLs, ou tem apenas alguns NULLs.** Para um exemplo extremo, se todos os valores da coluna forem NULOS, todas as linhas são atribuídas à mesma distribuição. Como resultado, o processamento de consultas é desviado para uma distribuição, e não beneficia do processamento paralelo. 
+- **Não é uma coluna de data.** Todos os dados para a mesma data aterram na mesma distribuição. Se vários utilizadores estiverem todos a filtrar na mesma data, então apenas 1 das 60 distribuições fazem todo o trabalho de processamento. 
 
-### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Escolha uma coluna de distribuição que minimize a movimentação de dados
+### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Escolha uma coluna de distribuição que minimize o movimento de dados
 
-Para obter as consultas corretas do resultado da consulta, é possível mover dados de um nó de computação para outro. A movimentação de dados normalmente ocorre quando as consultas têm junções e agregações em tabelas distribuídas. Escolher uma coluna de distribuição que ajude a minimizar a movimentação de dados é uma das estratégias mais importantes para otimizar o desempenho do seu SQL Data Warehouse.
+Para obter as consultas de resultados corretos, as consultas podem mover dados de um nó computacional para outro. O movimento de dados geralmente acontece quando as consultas têm adenárias e agregações em tabelas distribuídas. Escolher uma coluna de distribuição que ajude a minimizar o movimento de dados é uma das estratégias mais importantes para otimizar o desempenho da sua base de dados SQL Analytics.
 
-Para minimizar a movimentação de dados, selecione uma coluna de distribuição que:
+Para minimizar o movimento de dados, selecione uma coluna de distribuição que:
 
-- É usado nas cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`e `HAVING`. Quando duas grandes tabelas de fatos têm junções frequentes, o desempenho da consulta melhora quando você distribui ambas as tabelas em uma das colunas de junção.  Quando uma tabela não é usada em junções, considere distribuir a tabela em uma coluna com frequência na cláusula de `GROUP BY`.
-- *Não* é usado em cláusulas `WHERE`. Isso poderia restringir a consulta para não ser executada em todas as distribuições. 
-- *Não* é uma coluna de data. As cláusulas WHERE geralmente filtram por data.  Quando isso acontece, todo o processamento podia ser executado em apenas algumas distribuições.
+- É utilizado em cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`e `HAVING`. Quando duas grandes tabelas de fatos têm juntas frequentes, o desempenho da consulta melhora quando distribui ambas as tabelas numa das colunas de adesão.  Quando uma mesa não for utilizada em juntas, considere distribuir a tabela numa coluna que esteja frequentemente na cláusula `GROUP BY`.
+- *Não* é usado em cláusulas `WHERE`. Isto poderia limitar a consulta para não funcionar em todas as distribuições. 
+- *Não* é uma coluna de data. Onde as cláusulas filtram frequentemente por data.  Quando isto acontece, todo o processamento pode funcionar em apenas algumas distribuições.
 
-### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>O que fazer quando nenhuma das colunas for uma boa coluna de distribuição
+### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>O que fazer quando nenhuma das colunas é uma boa coluna de distribuição
 
-Se nenhuma das suas colunas tiver valores distintos suficientes para uma coluna de distribuição, você poderá criar uma nova coluna como uma composição de um ou mais valores. Para evitar a movimentação de dados durante a execução da consulta, use a coluna de distribuição composta como uma coluna de junção em consultas.
+Se nenhuma das suas colunas tiver valores distintos suficientes para uma coluna de distribuição, pode criar uma nova coluna como um composto de um ou mais valores. Para evitar o movimento de dados durante a execução da consulta, utilize a coluna de distribuição composta como coluna de adesão em consultas.
 
-Depois de criar uma tabela distribuída por hash, a próxima etapa é carregar dados na tabela.  Para obter diretrizes de carregamento, consulte [carregando visão geral](sql-data-warehouse-overview-load.md). 
+Uma vez que você projeta uma tabela distribuída por hash, o próximo passo é carregar dados na tabela.  Para obter orientação de carregamento, consulte [a visão geral do carregamento](sql-data-warehouse-overview-load.md). 
 
-## <a name="how-to-tell-if-your-distribution-column-is-a-good-choice"></a>Como saber se a coluna de distribuição é uma boa opção
-Depois que os dados são carregados em uma tabela distribuída por hash, verifique para ver como as linhas são distribuídas uniformemente entre as distribuições 60. As linhas por distribuição podem variar até 10% sem um impacto perceptível no desempenho. 
+## <a name="how-to-tell-if-your-distribution-column-is-a-good-choice"></a>Como dizer se a sua coluna de distribuição é uma boa escolha
+Depois de os dados serem carregados numa tabela distribuída por hash, verifique se as linhas são distribuídas uniformemente pelas 60 distribuições. As linhas por distribuição podem variar até 10% sem um impacto notável no desempenho. 
 
-### <a name="determine-if-the-table-has-data-skew"></a>Determinar se a tabela tem distorção de dados
-Uma maneira rápida de verificar a distorção de dados é usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). O código SQL a seguir retorna o número de linhas de tabela que são armazenadas em cada uma das distribuições 60. Para o desempenho equilibrado, as linhas em sua tabela distribuída devem ser distribuídas uniformemente entre todas as distribuições.
+### <a name="determine-if-the-table-has-data-skew"></a>Determine se a tabela tem dados distorcidos
+Uma forma rápida de verificar se os dados são distorcidos é utilizar [o DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). O seguinte código SQL devolve o número de linhas de mesa que são armazenadas em cada uma das 60 distribuições. Para um desempenho equilibrado, as linhas da sua tabela distribuída devem ser distribuídas uniformemente por todas as distribuições.
 
 ```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Para identificar quais tabelas têm mais de 10% de distorção de dados:
+Para identificar quais as tabelas que têm mais de 10% de distorção de dados:
 
-1. Crie o modo de exibição dbo. vTableSizes que é mostrado no artigo [visão geral de tabelas](sql-data-warehouse-tables-overview.md#table-size-queries) .  
+1. Crie a vista dbo.vTableSizes que é mostrada no artigo de visão geral das [tabelas.](sql-data-warehouse-tables-overview.md#table-size-queries)  
 2. Execute a seguinte consulta:
 
 ```sql
@@ -154,28 +154,28 @@ order by two_part_name, row_count
 ;
 ```
 
-### <a name="check-query-plans-for-data-movement"></a>Verificar planos de consulta para movimentação de dados
-Uma boa coluna de distribuição permite que junções e agregações tenham uma movimentação mínima de dados. Isso afeta a maneira como as junções devem ser gravadas. Para obter uma movimentação mínima de dados para uma junção em duas tabelas distribuídas por hash, uma das colunas de junção precisa ser a coluna de distribuição.  Quando duas tabelas distribuídas por hash ingressam em uma coluna de distribuição do mesmo tipo de dados, a junção não requer a movimentação de dados. As junções podem usar colunas adicionais sem incorrer em movimento de dados.
+### <a name="check-query-plans-for-data-movement"></a>Verifique os planos de consulta para o movimento de dados
+Uma boa coluna de distribuição permite que as juntas e agregações tenham o mínimo de movimento de dados. Isto afeta a forma como as juntas devem ser escritas. Para obter o mínimo de movimento de dados para uma adesão em duas tabelas distribuídas por hash, uma das colunas de união precisa ser a coluna de distribuição.  Quando duas tabelas distribuídas por hash se juntam a uma coluna de distribuição do mesmo tipo de dados, a adesão não requer movimento de dados. A adesão pode utilizar colunas adicionais sem incorrer no movimento de dados.
 
-Para evitar a movimentação de dados durante uma junção:
+Para evitar o movimento de dados durante uma adesão:
 
-- As tabelas envolvidas na junção devem ser distribuídas por hash em **uma** das colunas que participam da junção.
-- Os tipos de dados das colunas de junção devem corresponder entre ambas as tabelas.
-- As colunas devem ser unidas com um operador Equals.
-- O tipo de junção pode não ser um `CROSS JOIN`.
+- As tabelas envolvidas na adesão devem ser distribuídas hash numa **das** colunas participantes na adesão.
+- Os tipos de dados das colunas de adesão devem coincidir entre ambas as tabelas.
+- As colunas devem ser unidas a um operador igual.
+- O tipo de adesão pode não ser uma `CROSS JOIN`.
 
-Para ver se as consultas estão passando por movimentação de dados, você pode examinar o plano de consulta.  
+Para ver se as consultas estão experimentando o movimento de dados, você pode olhar para o plano de consulta.  
 
 
 ## <a name="resolve-a-distribution-column-problem"></a>Resolver um problema de coluna de distribuição
-Não é necessário resolver todos os casos de distorção de dados. A distribuição de dados é uma questão de encontrar o equilíbrio certo entre minimizar a distorção de dados e a movimentação de dados. Nem sempre é possível minimizar a distorção de dados e a movimentação de dados. Às vezes, o benefício de ter a movimentação mínima de dados pode superar o impacto da distorção de dados.
+Não é necessário resolver todos os casos de distorção de dados. A distribuição de dados é uma questão de encontrar o equilíbrio certo entre minimizar o enviesamento de dados e o movimento de dados. Nem sempre é possível minimizar tanto o enviesamento de dados como o movimento de dados. Por vezes, o benefício de ter o movimento mínimo de dados pode superar o impacto de ter dados distorcidos.
 
-Para decidir se você deve resolver a distorção de dados em uma tabela, você deve entender o máximo possível sobre os volumes de dados e consultas em sua carga de trabalho. Você pode usar as etapas no artigo [monitoramento de consultas](sql-data-warehouse-manage-monitor.md) para monitorar o impacto da distorção no desempenho da consulta. Especificamente, procure por quanto tempo as consultas grandes são concluídas em distribuições individuais.
+Para decidir se deve resolver o enviesamento de dados numa tabela, deve compreender o máximo possível sobre os volumes de dados e consultas na sua carga de trabalho. Pode utilizar os passos do artigo de [monitorização](sql-data-warehouse-manage-monitor.md) da Consulta para monitorizar o impacto do enviesamento no desempenho da consulta. Especificamente, procure quanto tempo leva grandes consultas para completar em distribuições individuais.
 
-Como você não pode alterar a coluna de distribuição em uma tabela existente, a maneira típica de resolver a distorção de dados é recriar a tabela com uma coluna de distribuição diferente.  
+Uma vez que não é possível alterar a coluna de distribuição numa tabela existente, a forma típica de resolver o enviesamento de dados é recriar a tabela com uma coluna de distribuição diferente.  
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>Recriar a tabela com uma nova coluna de distribuição
-Este exemplo usa [CREATE TABLE como SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) para recriar uma tabela com uma coluna de distribuição de hash diferente.
+Este exemplo utiliza a [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) para recriar uma tabela com uma coluna de distribuição de hash diferente.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -215,9 +215,9 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para criar uma tabela distribuída, use uma destas instruções:
+Para criar uma tabela distribuída, utilize uma destas declarações:
 
-- [CREATE TABLE (SQL Data Warehouse do Azure)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE como SELECT (Azure SQL Data Warehouse](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [TABELA CREATE (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CRIAR TABELA AS SELECT (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

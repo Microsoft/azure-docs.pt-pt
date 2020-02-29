@@ -1,46 +1,47 @@
 ---
-title: Azure Key Vault mundos de segurança | Microsoft Docs
+title: Mundos de segurança do Cofre Chave Azure Microsoft Docs
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 1e18befe05e5a1d33aa4e5445b80c6d6fd7239af
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 35d2683495a12b864378f8fb6f5edb6663d92c27
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883185"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194925"
 ---
-# <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Azure Key Vault os mundos de segurança e os limites geográficos
+# <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Mundos de segurança do Cofre-Chave Azure e fronteiras geográficas
 
-Azure Key Vault é um serviço multilocatário e usa um pool de HSMs (módulos de segurança de hardware) em cada local do Azure. 
+O Azure Key Vault é um serviço multi-inquilino e utiliza uma piscina de Módulos de Segurança de Hardware (HSMs) em cada local do Azure. 
 
-Todos os HSMs em locais do Azure na mesma região geográfica compartilham o mesmo limite de criptografia (Thales Security World). Por exemplo, leste dos EUA e oeste dos EUA compartilham o mesmo mundo de segurança porque eles pertencem à localização geográfica dos EUA. Da mesma forma, todos os locais do Azure no Japão compartilham o mesmo mundo de segurança e todos os locais do Azure na Austrália, na Índia e assim por diante. 
+Todos os HSMs em localizações de Azure na mesma região geográfica partilham a mesma fronteira criptográfica (Thales Security World). Por exemplo, os EUA Orientais e os EUA Ocidentais partilham o mesmo mundo de segurança porque pertencem à localização geosnorte dos EUA. Da mesma forma, todas as localizações do Azure no Japão partilham o mesmo mundo de segurança e todas as localizações do Azure na Austrália, Índia, e assim por diante. 
 
-## <a name="backup-and-restore-behavior"></a>Comportamento de backup e restauração
+## <a name="backup-and-restore-behavior"></a>Backup e restaurar o comportamento
 
-Um backup feito de uma chave de um cofre de chaves em um local do Azure pode ser restaurado para um cofre de chaves em outro local do Azure, desde que ambas as condições sejam verdadeiras:
+Uma cópia de segurança tirada de uma chave de um cofre chave em uma localização Azure pode ser restaurada para um cofre chave em outro local Azure, desde que ambas as condições sejam verdadeiras:
 
-- Os dois locais do Azure pertencem à mesma localização geográfica
-- Ambos os cofres de chaves pertencem à mesma assinatura do Azure
+- Ambas as localizações do Azure pertencem à mesma localização geográfica
+- Ambos os cofres principais pertencem à mesma assinatura Azure
 
-Por exemplo, um backup feito por uma determinada assinatura de uma chave em um cofre de chaves na Índia ocidental, só pode ser restaurado para outro cofre de chaves na mesma assinatura e localização geográfica; Índia ocidental, Índia central ou sul da Índia.
+Por exemplo, uma cópia de segurança tomada por uma dada assinatura de uma chave num cofre chave na Índia Ocidental, só pode ser restaurada para outro cofre chave na mesma subscrição e localização geo; Índia Ocidental, Índia Central ou Sul da Índia.
 
 ## <a name="regions-and-products"></a>Regiões e produtos
 
 - [Regiões do Azure](https://azure.microsoft.com/regions/)
-- [Produtos da Microsoft por região](https://azure.microsoft.com/regions/services/)
+- [Produtos microsoft por região](https://azure.microsoft.com/regions/services/)
 
-As regiões são mapeadas para os mundos de segurança, mostrados como principais títulos nas tabelas:
+As regiões são mapeadas para mundos de segurança, mostrados como principais títulos nas tabelas:
 
-No artigo produtos por região, por exemplo, a guia **Américas** contém leste dos EUA, EUA Central, oeste dos EUA todos mapeando para a região das Américas. 
+No artigo de produtos por região, por exemplo, o separador **Americas** contém LESTE DOS, EUA Centrais, OESTE DOS EUA todos mapeando para a região das Américas. 
 
 >[!NOTE]
->Uma exceção é que US DOD leste e US DOD CENTRAL têm seus próprios mundos de segurança. 
+>Uma exceção é que o DOD EAST e o US DOD CENTRAL têm os seus próprios mundos de segurança. 
 
-Da mesma forma, na guia **Europa** , norte da Europa e Europa Ocidental mapeiam para a região da Europa. O mesmo também é verdadeiro na guia **Pacífico Asiático** .
+Do mesmo modo, no separador **Europa,** a EUROPA DO Norte e a EUROPA Ocidental mapeiam ambos para a região da Europa. O mesmo acontece no separador **Ásia-Pacífico.**
 
 
 

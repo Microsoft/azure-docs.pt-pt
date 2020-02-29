@@ -1,6 +1,6 @@
 ---
-title: CREATE TABLE COMO SELECT (CTAS)
-description: Explicação e exemplos da instrução CREATE TABLE como SELECT (CTAS) no Azure SQL Data Warehouse para desenvolver soluções.
+title: CRIAR TABELA COMO SELECIONADO (CTAS)
+description: Explicação e exemplos da declaração CREATE TABLE AS SELECT (CTAS) no SQL Analytics para o desenvolvimento de soluções.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,27 +10,27 @@ ms.subservice: development
 ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 4992bb00fa5397ef6a4e055e08b445d35f5ed77a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 09a543ac4b4f77f0c7b7efd2411b962fa9fa2769
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685861"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195911"
 ---
-# <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>CREATE TABLE como SELECT (CTAS) no Azure SQL Data Warehouse
+# <a name="create-table-as-select-ctas-in-sql-analytics"></a>CRIAR TABELA COMO SELECT (CTAS) em SQL Analytics
 
-Este artigo explica a instrução T-SQL CREATE TABLE como SELECT (CTAS) no Azure SQL Data Warehouse para desenvolver soluções. O artigo também fornece exemplos de código.
+Este artigo explica a declaração de CriaÇÃO COMO SELECT (CTAS) T-SQL no SQL Analytics para o desenvolvimento de soluções. O artigo também fornece exemplos de código.
 
-## <a name="create-table-as-select"></a>CREATE TABLE COMO SELECT
+## <a name="create-table-as-select"></a>CRIAR TABELA COMO SELECIONADO
 
-A instrução [CREATE TABLE as Select](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) é um dos recursos mais importantes do T-SQL disponíveis. CTAS é uma operação paralela que cria uma nova tabela com base na saída de uma instrução SELECT. O CTAS é a maneira mais simples e rápida de criar e inserir dados em uma tabela com um único comando.
+A declaração [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) é uma das funcionalidades T-SQL mais importantes disponíveis. CtAS é uma operação paralela que cria uma nova tabela com base na saída de uma declaração SELECT. CtAS é a forma mais simples e rápida de criar e inserir dados numa tabela com um único comando.
 
-## <a name="selectinto-vs-ctas"></a>SELECIONAR... NO vs. CTAS
+## <a name="selectinto-vs-ctas"></a>SELECIONE... INTO vs CTAS
 
-CTAS é uma versão mais personalizável do [Select... Instrução INTO](/sql/t-sql/queries/select-into-clause-transact-sql) .
+CTAS é uma versão mais personalizável do [SELECT... EM](/sql/t-sql/queries/select-into-clause-transact-sql) declaração.
 
-Veja a seguir um exemplo de uma simples seleção... PORTA
+Segue-se um exemplo de um simples SELECT... EM:
 
 ```sql
 SELECT *
@@ -38,9 +38,9 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-SELECIONAR... INTO não permite que você altere o método de distribuição ou o tipo de índice como parte da operação. Você cria `[dbo].[FactInternetSales_new]` usando o tipo de distribuição padrão de ROUND_ROBIN e a estrutura de tabela padrão do índice COLUMNSTORE CLUSTERIZAdo.
+SELECIONE... O INTO não permite alterar nem o método de distribuição nem o tipo de índice como parte da operação. Cria-se `[dbo].[FactInternetSales_new]` utilizando o tipo de ROUND_ROBIN de distribuição predefinido e a estrutura de tabela padrão do ÍNDICE DE COLUNAS CLUSTERED.
 
-Com o CTAS, por outro lado, você pode especificar a distribuição dos dados da tabela, bem como o tipo de estrutura da tabela. Para converter o exemplo anterior em CTAS:
+Com o CTAS, por outro lado, pode especificar tanto a distribuição dos dados da tabela como o tipo de estrutura de tabela. Para converter o exemplo anterior em CTAS:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -55,13 +55,13 @@ FROM    [dbo].[FactInternetSales];
 ```
 
 > [!NOTE]
-> Se você estiver apenas tentando alterar o índice em sua operação CTAS e a tabela de origem for de hash distribuído, mantenha a mesma coluna de distribuição e tipo de dados. Isso evita a movimentação de dados de distribuição cruzada durante a operação, o que é mais eficiente.
+> Se estiver apenas a tentar alterar o índice na sua operação CTAS, e a tabela de origem for distribuída por hash, mantenha a mesma coluna de distribuição e tipo de dados. Isto evita o movimento de dados de distribuição cruzada durante a operação, o que é mais eficiente.
 
-## <a name="use-ctas-to-copy-a-table"></a>Usar CTAS para copiar uma tabela
+## <a name="use-ctas-to-copy-a-table"></a>Utilize CTAS para copiar uma tabela
 
-Talvez um dos usos mais comuns de CTAS seja a criação de uma cópia de uma tabela para alterar o DDL. Digamos que você criou sua tabela originalmente como `ROUND_ROBIN`e agora deseja alterá-la para uma tabela distribuída em uma coluna. CTAS é como você alteraria a coluna de distribuição. Você também pode usar CTAS para alterar o particionamento, a indexação ou os tipos de coluna.
+Talvez um dos usos mais comuns do CTAS seja criar uma cópia de uma tabela para alterar o DDL. Digamos que criou a sua mesa como `ROUND_ROBIN`, e agora quer mudá-la para uma mesa distribuída numa coluna. CTAS é como mudaria a coluna de distribuição. Também pode utilizar CTAS para alterar os tipos de divisórias, indexação ou colunas.
 
-Digamos que você criou essa tabela usando o tipo de distribuição padrão de `ROUND_ROBIN`, não especificando uma coluna de distribuição na `CREATE TABLE`.
+Digamos que criou esta tabela utilizando o tipo de `ROUND_ROBIN`de distribuição predefinido, não especificando uma coluna de distribuição no `CREATE TABLE`.
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -91,7 +91,7 @@ CREATE TABLE FactInternetSales
     CustomerPONumber nvarchar(25));
 ```
 
-Agora você deseja criar uma nova cópia dessa tabela, com um `Clustered Columnstore Index`, para poder aproveitar o desempenho das tabelas Columnstore clusterizadas. Você também deseja distribuir essa tabela no `ProductKey`, pois você está prevendo junções nesta coluna e deseja evitar a movimentação de dados durante junções em `ProductKey`. Por fim, você também deseja adicionar o particionamento em `OrderDateKey`, para que possa excluir rapidamente dados antigos descartando partições antigas. Aqui está a instrução CTAS, que copia sua tabela antiga em uma nova tabela.
+Agora quer criar uma nova cópia desta tabela, com uma `Clustered Columnstore Index`, para que possa aproveitar o desempenho das tabelas clustered Columnstore. Também quer distribuir esta tabela na `ProductKey`, porque está a antecipar juntas nesta coluna e quer evitar o movimento de dados durante as juntas à `ProductKey`. Por último, também pretende adicionar divisórias sobre `OrderDateKey`, para que possa eliminar rapidamente dados antigos, deixando cair divisórias antigas. Aqui está a declaração ctas, que copia a sua antiga mesa numa nova mesa.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -112,7 +112,7 @@ WITH
 AS SELECT * FROM FactInternetSales;
 ```
 
-Por fim, você pode renomear suas tabelas, para alternar em sua nova tabela e, em seguida, descartar a tabela antiga.
+Finalmente, pode mudar o nome das suas mesas, trocar na sua nova mesa e depois largar a sua velha mesa.
 
 ```sql
 RENAME OBJECT FactInternetSales TO FactInternetSales_old;
@@ -121,22 +121,22 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-## <a name="use-ctas-to-work-around-unsupported-features"></a>Use CTAS para contornar recursos sem suporte
+## <a name="use-ctas-to-work-around-unsupported-features"></a>Utilize ctas para trabalhar em torno de características não suportadas
 
-Você também pode usar o CTAS para contornar uma série de recursos sem suporte listados abaixo. Esse método pode, muitas vezes, provar útil, pois não apenas seu código será compatível, mas será executado com frequência mais rápido no SQL Data Warehouse. Esse desempenho é resultado de seu design totalmente paralelizado. Os cenários incluem:
+Também pode utilizar ctas para trabalhar em torno de uma série de funcionalidades não suportadas listadas abaixo. Este método pode muitas vezes revelar-se útil, porque não só o seu código será compatível, como muitas vezes será executado mais rapidamente no SQL Analytics. Este desempenho é o resultado do seu design totalmente paralparado. Os cenários incluem:
 
-* JUNÇÕES ANSI em atualizações
-* JUNÇÕES ANSI em exclusões
-* Instrução MERGE
+* ANSI junta-se em UPDATEs
+* ANSI JOINs em DELETEs
+* Declaração da MERGE
 
 > [!TIP]
-> Tente imaginar "CTAS primeiro". Resolver um problema usando CTAS geralmente é uma boa abordagem, mesmo que você esteja escrevendo mais dados como resultado.
+> Tente pensar "CTAS primeiro". Resolver um problema usando CTAS é geralmente uma boa abordagem, mesmo que esteja a escrever mais dados como resultado.
 
-## <a name="ansi-join-replacement-for-update-statements"></a>Substituição de junção ANSI para instruções UPDATE
+## <a name="ansi-join-replacement-for-update-statements"></a>ANSI junta-se à substituição de declarações de atualização
 
-Você pode achar que tem uma atualização complexa. A atualização une mais de duas tabelas usando a sintaxe de junção ANSI para executar a atualização ou exclusão.
+Pode descobrir que tem uma atualização complexa. A atualização junta mais de duas tabelas utilizando a ANSI para se juntar à sintaxe para realizar a Atualização ou DELETE.
 
-Imagine que você precisava atualizar esta tabela:
+Imagine que tinha que atualizar esta tabela:
 
 ```sql
 CREATE TABLE [dbo].[AnnualCategorySales]
@@ -150,7 +150,7 @@ WITH
 );
 ```
 
-A consulta original pode ter se visto como neste exemplo:
+A consulta original pode ter parecido com este exemplo:
 
 ```sql
 UPDATE    acs
@@ -174,9 +174,9 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-SQL Data Warehouse não dá suporte a junções ANSI na cláusula `FROM` de uma instrução `UPDATE`, portanto, você não pode usar o exemplo anterior sem modificá-lo.
+O SQL Analytics não suporta que a ANSI se junte à cláusula `FROM` de uma declaração `UPDATE`, pelo que não pode utilizar o exemplo anterior sem o modificar.
 
-Você pode usar uma combinação de um CTAS e uma junção implícita para substituir o exemplo anterior:
+Pode utilizar uma combinação de um CTAS e uma união implícita para substituir o exemplo anterior:
 
 ```sql
 -- Create an interim table
@@ -206,11 +206,11 @@ AND     CTAS_acs.[CalendarYear]  = AnnualCategorySales.[CalendarYear] ;
 DROP TABLE CTAS_acs;
 ```
 
-## <a name="ansi-join-replacement-for-delete-statements"></a>Substituição de junção ANSI para instruções DELETE
+## <a name="ansi-join-replacement-for-delete-statements"></a>ANSI junta-se à substituição para eliminar declarações
 
-Às vezes, a melhor abordagem para excluir dados é usar o CTAS, especialmente para `DELETE` instruções que usam a sintaxe de junção ANSI. Isso ocorre porque SQL Data Warehouse não dá suporte a junções ANSI na cláusula `FROM` de uma instrução `DELETE`. Em vez de excluir os dados, selecione os dados que deseja manter.
+Por vezes, a melhor abordagem para a apagar dados é utilizar ctas, especialmente para declarações `DELETE` que usam ANSI aderir à sintaxe. Isto porque a SQL Analytics não suporta a ANSI junta-se à cláusula de `FROM` de uma declaração `DELETE`. Em vez de apagar os dados, selecione os dados que pretende guardar.
 
-Veja a seguir um exemplo de uma instrução de `DELETE` convertida:
+Segue-se um exemplo de uma declaração `DELETE` convertida:
 
 ```sql
 CREATE TABLE dbo.DimProduct_upsert
@@ -230,11 +230,11 @@ RENAME OBJECT dbo.DimProduct TO DimProduct_old;
 RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
-## <a name="replace-merge-statements"></a>Substituir instruções MERGE
+## <a name="replace-merge-statements"></a>Substituir as demonstrações de fusão
 
-Você pode substituir instruções MERGE, pelo menos em parte, usando CTAS. Você pode combinar o `INSERT` e o `UPDATE` em uma única instrução. Todos os registros excluídos devem ser restritos da instrução `SELECT` para omitir dos resultados.
+Pode substituir as declarações de fusão, pelo menos em parte, utilizando CTAS. Pode combinar o `INSERT` e o `UPDATE` numa única declaração. Os registos apagados devem ser restringidos da declaração `SELECT` a omitir os resultados.
 
-O exemplo a seguir é para um `UPSERT`:
+O exemplo que se segue é para um `UPSERT`:
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -264,9 +264,9 @@ RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
 RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 ```
 
-## <a name="explicitly-state-data-type-and-nullability-of-output"></a>Declarar explicitamente o tipo de dados e a nulidade da saída
+## <a name="explicitly-state-data-type-and-nullability-of-output"></a>Explicitamente estado tipo de dados e nulidade da saída
 
-Ao migrar o código, você pode achar que é executado por esse tipo de padrão de codificação:
+Ao migrar código, pode descobrir que atravessa este tipo de padrão de codificação:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -281,9 +281,9 @@ INSERT INTO result
 SELECT @d*@f;
 ```
 
-Você pode pensar que deve migrar esse código para CTAS e estaria correto. No entanto, há um problema oculto aqui.
+Podes pensar que devias migrar este código para o CTAS, e estarias correto. No entanto, há um problema escondido aqui.
 
-O código a seguir não produz o mesmo resultado:
+O seguinte código não produz o mesmo resultado:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -295,7 +295,7 @@ AS
 SELECT @d*@f as result;
 ```
 
-Observe que a coluna "resultado" transporta o tipo de dados e os valores de nulidade da expressão. A realização do tipo de dados Forward pode levar a variações sutis em valores se você não tiver cuidado.
+Note que o "resultado" da coluna transporta para a frente os valores de tipo de dados e de nulidade da expressão. Transportar o tipo de dados para a frente pode levar a variações subtis de valores se não tiver cuidado.
 
 Experimente este exemplo:
 
@@ -307,18 +307,18 @@ SELECT result,result*@d
 from ctas_r;
 ```
 
-O valor armazenado para o resultado é diferente. Como o valor persistente na coluna de resultado é usado em outras expressões, o erro se torna ainda mais significativo.
+O valor armazenado para o resultado é diferente. À medida que o valor persistente na coluna de resultados é usado noutras expressões, o erro torna-se ainda mais significativo.
 
-![Captura de tela dos resultados do CTAS](media/sql-data-warehouse-develop-ctas/ctas-results.png)
+![Screenshot dos resultados do CTAS](media/sql-data-warehouse-develop-ctas/ctas-results.png)
 
-Isso é importante para migrações de dados. Embora a segunda consulta seja, de forma alguma, mais precisa, há um problema. Os dados seriam diferentes em comparação com o sistema de origem e isso leva a perguntas de integridade na migração. Esse é um dos raros casos em que a resposta "errada" é, na verdade, a certa!
+Isto é importante para as migrações de dados. Mesmo que a segunda consulta seja indiscutivelmente mais precisa, há um problema. Os dados seriam diferentes em comparação com o sistema de origem, o que leva a questões de integridade na migração. Este é um daqueles casos raros em que a resposta "errada" é, na verdade, a correta!
 
-O motivo pelo qual vemos uma diparidade entre os dois resultados é devido à conversão de tipo implícito. No primeiro exemplo, a tabela define a definição de coluna. Quando a linha é inserida, ocorre uma conversão implícita de tipo. No segundo exemplo, não há nenhuma conversão implícita de tipo, pois a expressão define o tipo de dados da coluna.
+A razão pela qual vemos uma disparidade entre os dois resultados deve-se ao tipo implícito de casting. No primeiro exemplo, a tabela define a definição da coluna. Quando a linha é inserida, ocorre uma conversão de tipo implícito. No segundo exemplo, não existe conversão de tipo implícito, uma vez que a expressão define o tipo de dados da coluna.
 
-Observe também que a coluna no segundo exemplo foi definida como uma coluna anulável, enquanto que no primeiro exemplo não tem. Quando a tabela foi criada no primeiro exemplo, a nulidade da coluna foi explicitamente definida. No segundo exemplo, ele foi deixado para a expressão e, por padrão, resultaria em uma definição nula.
+Note-se também que a coluna no segundo exemplo foi definida como uma coluna NULLable, enquanto que no primeiro exemplo não o fez. Quando a tabela foi criada no primeiro exemplo, a nulidade da coluna foi explicitamente definida. No segundo exemplo, foi deixado à expressão, e por padrão resultaria numa definição NULA.
 
-Para resolver esses problemas, você deve definir explicitamente a conversão de tipo e a nulidade na parte SELECT da instrução CTAS. Você não pode definir essas propriedades em ' CREATE TABLE '.
-O exemplo a seguir demonstra como corrigir o código:
+Para resolver estes problemas, deve definir explicitamente a conversão do tipo e a nulidade na parte SELECT da declaração CTAS. Não é possível definir estas propriedades em 'CREATE TABLE'.
+O exemplo que se segue demonstra como corrigir o código:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -332,15 +332,15 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 
 Tenha em atenção o seguinte:
 
-* Você pode usar CAST ou CONVERT.
-* Use ISNULL, not enunidas, para forçar a nulidade. Consulte a observação a seguir.
-* ISNULL é a função mais externa.
-* A segunda parte de ISNULL é uma constante, 0.
+* Pode utilizar CAST ou CONVERT.
+* Utilize isnull, não COALESCE, para forçar a NULLability. Consulte a seguinte nota.
+* ISNULL é a função ultraperiférica.
+* A segunda parte do ISNULL é uma constante, 0.
 
 > [!NOTE]
-> Para que a nulidade seja definida corretamente, é vital usar ISNULL e não adesão. A adesão não é uma função determinística e, portanto, o resultado da expressão sempre será anulável. ISNULL é diferente. É determinístico. Portanto, quando a segunda parte da função ISNULL for uma constante ou um literal, o valor resultante não será nulo.
+> Para que a nulidade seja corretamente definida, é vital utilizar a ISNULL e não a COALESCE. A COALESCE não é uma função determinista, pelo que o resultado da expressão será sempre NULLable. ISNULL é diferente. É determinístico. Portanto, quando a segunda parte da função ISNULL for uma constante ou literal, o valor resultante não será NULO.
 
-Garantir a integridade dos cálculos também é importante para a alternância de partição de tabela. Imagine que você tenha essa tabela definida como uma tabela de fatos:
+Garantir a integridade dos seus cálculos também é importante para a troca de divisórias de mesa. Imagine que tem esta tabela definida como uma tabela de factos:
 
 ```sql
 CREATE TABLE [dbo].[Sales]
@@ -362,9 +362,9 @@ WITH
 );
 ```
 
-No entanto, o campo Amount é uma expressão calculada. Ele não faz parte dos dados de origem.
+No entanto, o campo de montante é uma expressão calculada. Não faz parte dos dados da fonte.
 
-Para criar seu conjunto de espaço de os, você pode desejar usar o seguinte código:
+Para criar o seu conjunto de dados dividido, é melhor utilizar o seguinte código:
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -387,7 +387,7 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-A consulta seria executada perfeitamente bem. O problema surge quando você tenta fazer a alternância de partição. As definições de tabela não correspondem. Para que as definições de tabela coincidam, modifique o CTAS para adicionar uma função de `ISNULL` para preservar o atributo de nulidade da coluna.
+A consulta correria perfeitamente bem. O problema surge quando se tenta fazer o interruptor de partição. As definições de mesa não coincidem. Para que as definições de tabela correspondam, modifique os CTAS para adicionar uma função `ISNULL` para preservar o atributo de nulidade da coluna.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -410,11 +410,11 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-Você pode ver que a consistência de tipo e a manutenção de propriedades de nulidade em um CTAS é uma prática recomendada de engenharia. Ele ajuda a manter a integridade em seus cálculos e também garante que a alternância de partição seja possível.
+Pode ver que a consistência do tipo e a manutenção de propriedades de nulidade num CTAS são uma boa prática de engenharia. Ajuda a manter a integridade nos seus cálculos, e também garante que a troca de divisórias é possível.
 
-CTAS é uma das instruções mais importantes em SQL Data Warehouse. Verifique se você entendeu totalmente. Consulte a [documentação do CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+CtAS é uma das declarações mais importantes na SQL Analytics. Certifique-se de que entende completamente. Consulte a [documentação CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais dicas de desenvolvimento, consulte a [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).
+Para obter mais dicas de desenvolvimento, consulte a visão geral do [desenvolvimento.](sql-data-warehouse-overview-develop.md)
 

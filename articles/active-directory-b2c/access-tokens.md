@@ -2,20 +2,20 @@
 title: Solicite um sinal de acesso - Diretório Ativo Azure B2C / Microsoft Docs
 description: Saiba como solicitar um sinal de acesso ao Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d808bca17012d46d1c32658ec0069ca2e2e6a3ac
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962038"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184422"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicite um sinal de acesso no Diretório Ativo Azure B2C
 

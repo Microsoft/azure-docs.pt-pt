@@ -1,28 +1,28 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: 10baf2b1f9a0e22d4b422b82cce877f604a86ca4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: mimart
+ms.openlocfilehash: c88048e3fc62c0414cac45dab9917fe7b2f57922
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641813"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183335"
 ---
-#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Em **acesso à API**, selecione **chaves**.
-1. Insira uma descrição para a chave na caixa **Descrição da chave** . Por exemplo, *clientsecret1*.
-1. Selecione uma **duração** de validade e, em seguida, selecione **salvar**.
-1. Registre o **valor**da chave. Você usará esse valor para configuração em uma etapa posterior.
+1. Em **acesso API,** selecione **Keys**.
+1. Introduza uma descrição para a chave na caixa de **descrição da chave.** Por exemplo, *clientsecret1*.
+1. Selecione uma **duração** de validade e, em seguida, selecione **Guardar**.
+1. Grave o **VALOR**da chave. Utiliza este valor para configuração num passo posterior.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
-1. Em **gerenciar**, selecione **certificados & segredos**.
+1. Em **Gerir**, selecione **Certificados e segredos.**
 1. Selecione **Novo segredo do cliente**.
-1. Insira uma descrição para o segredo do cliente na caixa **Descrição** . Por exemplo, *clientsecret1*.
-1. Em **expirar**, selecione uma duração para a qual o segredo é válido e, em seguida, selecione **Adicionar**.
-1. Registre o **valor**do segredo. Você usará esse valor para configuração em uma etapa posterior.
+1. Insira uma descrição para o segredo do cliente na caixa **descrição.** Por exemplo, *clientsecret1*.
+1. Em **Expirações,** selecione uma duração para a qual o segredo é válido e, em seguida, selecione **Adicionar**.
+1. Grave o **valor**do segredo. Utiliza este valor para configuração num passo posterior.

@@ -3,20 +3,20 @@ title: Notas de desenvolvedor para políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Notas para desenvolvedores sobre configuração e manutenção Azure AD B2C com políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6439393b72eb724ca017edc17ce7a7c36c275fca
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: ee3b5bd3278412949074b77f9d1c53d63a467280
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166965"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189400"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas de desenvolvedor espreitapara políticas personalizadas no Diretório Ativo Azure B2C
 

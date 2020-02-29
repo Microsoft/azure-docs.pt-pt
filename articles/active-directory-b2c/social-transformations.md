@@ -3,20 +3,20 @@ title: Conta social reclama exemplos de transformação para políticas personal
 titleSuffix: Azure AD B2C
 description: Conta Social reclama exemplos de transformação para o Quadro de Experiência de Identidade (IEF) do Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: acf358b530c61dcbac38faf92e2ba672a7d4abef
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: cb713651aca266ab2546ff26c3cd0175a4cbc289
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484388"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183759"
 ---
 # <a name="social-accounts-claims-transformations"></a>Contas sociais reclamam transformações
 
@@ -43,9 +43,9 @@ Cria uma representação JSON da propriedade alternativa SecurityId do utilizado
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | key | Cadeia de caracteres | O ClaimType que especifica o identificador único do utilizador utilizado pelo fornecedor de identidade social. |
-| inputClaim | identityProvider | Cadeia de caracteres | O ClaimType que especifica o nome do fornecedor de identidade da conta social, como facebook.com. |
-| OutputClaim | alternativeSecurityId | Cadeia de caracteres | O ClaimType que é produzido após a invocação da Transformação de Reclamações. Contém informações sobre a identidade de um utilizador de conta social. O **emitente** é o valor da reivindicação `identityProvider`. O **emitenteUserId** é o valor da reclamação `key` no formato base64. |
+| inputClaim | key | string | O ClaimType que especifica o identificador único do utilizador utilizado pelo fornecedor de identidade social. |
+| inputClaim | identityProvider | string | O ClaimType que especifica o nome do fornecedor de identidade da conta social, como facebook.com. |
+| OutputClaim | alternativeSecurityId | string | O ClaimType que é produzido após a invocação da Transformação de Reclamações. Contém informações sobre a identidade de um utilizador de conta social. O **emitente** é o valor da reivindicação `identityProvider`. O **emitenteUserId** é o valor da reclamação `key` no formato base64. |
 
 Utilize esta transformação de sinistros para gerar um `alternativeSecurityId` ClaimType. É usado por todos os perfis técnicos do fornecedor de identidade social, como `Facebook-OAUTH`. A seguinte transformação de sinistros recebe o ID da conta social do utilizador e o nome do fornecedor de identidade. A saída deste perfil técnico é um formato de cadeia JSON que pode ser usado em serviços de diretório Azure AD.
 
@@ -75,7 +75,7 @@ Acrescenta um `AlternativeSecurityId` a uma reivindicação `alternativeSecurity
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | item | Cadeia de caracteres | O ClaimType a adicionar à reivindicação de saída. |
+| inputClaim | item | string | O ClaimType a adicionar à reivindicação de saída. |
 | inputClaim | coleção | alternativeSecurityIdCollection | Os Tipos de Reclamação que são utilizados pela transformação de sinistros se disponíveis na política. Se for fornecida, a transformação de sinistros adiciona o `item` no final da coleção. |
 | OutputClaim | coleção | alternativeSecurityIdCollection | Os Tipos de Reclamação que são produzidos após esta Transformação de Reclamações foi invocado. A nova coleção que contém tanto os itens da entrada `collection` como `item`. |
 
@@ -139,7 +139,7 @@ Remove um **Id De Segurança Alternativa** de uma reivindicação **alternativaS
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | identityProvider | Cadeia de caracteres | O ClaimType que contém o nome do fornecedor de identidade a ser removido da coleção. |
+| inputClaim | identityProvider | string | O ClaimType que contém o nome do fornecedor de identidade a ser removido da coleção. |
 | inputClaim | coleção | alternativeSecurityIdCollection | Os Tipos de Reclamação que são utilizados pela transformação de sinistros. A transformação de sinistros retira a identidadeFornecedor da coleção. |
 | OutputClaim | coleção | alternativeSecurityIdCollection | Os Tipos de Reclamação que são produzidos após esta Transformação de Reclamações foi invocado. A nova coleção, após a identidade Fornecedor removida da coleção. |
 

@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 37055d9b59d49091261109e3553f99bcc03d8e14
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 48c28831d1fbbfc4fe78ebe12e5a158a8259cf44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164581"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190301"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como: Ativar o SSO cross-app no Android usando o ADAL
 
@@ -60,7 +60,7 @@ Se um corretor compatível for instalado no dispositivo, como a aplicação Micr
 
 #### <a name="how-microsoft-ensures-the-application-is-valid"></a>Como a Microsoft garante que a aplicação é válida
 
-A necessidade de garantir a identidade de uma chamada de aplicação o corretor é crucial para a segurança fornecida em logins assistidos pelo corretor. O iOS e o Android não aplicam identificadores únicos que sejam válidos apenas para uma determinada aplicação, pelo que aplicações maliciosas podem "falsificar" o identificador de uma aplicação legítima e receber os tokens destinados à aplicação legítima. Para garantir que a Microsoft está sempre a comunicar com a aplicação certa no prazo de execução, o desenvolvedor é solicitado a fornecer um redirectURI personalizado ao registar a sua aplicação com a Microsoft. **Como os desenvolvedores devem criar este URI redirecionado é discutido em detalhe abaixo.** Este redirecionamento personalizado contém a impressão digital do certificado da aplicação e é garantido ser único na aplicação pela Google Play Store. Quando uma aplicação chama o corretor, o corretor pede ao sistema operativo Android que lhe forneça a impressão digital do certificado que chamou o corretor. O corretor fornece este certificado de impressão digital à Microsoft na chamada para o sistema de identidade. Se a impressão digital do certificado da aplicação não corresponder à impressão digital do certificado que nos foi fornecida pelo desenvolvedor durante o registo, o acesso é negado às fichas para o recurso que a aplicação está a solicitar. Este cheque garante que apenas a aplicação registada pelo programador recebe fichas.
+A necessidade de garantir a identidade de uma aplicação que chama o corretor é crucial para a segurança fornecida em logins assistidos pelo corretor. O iOS e o Android não aplicam identificadores únicos que sejam válidos apenas para uma determinada aplicação, pelo que aplicações maliciosas podem "falsificar" o identificador de uma aplicação legítima e receber os tokens destinados à aplicação legítima. Para garantir que a Microsoft está sempre a comunicar com a aplicação certa no prazo de execução, o desenvolvedor é solicitado a fornecer um redirectURI personalizado ao registar a sua aplicação com a Microsoft. **Como os desenvolvedores devem criar este URI redirecionado é discutido em detalhe abaixo.** Este redirecionamento personalizado contém a impressão digital do certificado da aplicação e é garantido ser único na aplicação pela Google Play Store. Quando uma aplicação chama o corretor, o corretor pede ao sistema operativo Android que lhe forneça a impressão digital do certificado que chamou o corretor. O corretor fornece este certificado de impressão digital à Microsoft na chamada para o sistema de identidade. Se a impressão digital do certificado da aplicação não corresponder à impressão digital do certificado que nos foi fornecida pelo desenvolvedor durante o registo, o acesso é negado às fichas para o recurso que a aplicação está a solicitar. Este cheque garante que apenas a aplicação registada pelo programador recebe fichas.
 
 Os logins brokered-SSO têm os seguintes benefícios:
 

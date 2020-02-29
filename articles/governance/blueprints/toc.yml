@@ -140,6 +140,17 @@
         - name: Passos para implementar
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
+    - name: Meios de comunicação social
+      items:
+        - name: Descrição geral
+          displayName: 'standards, Media MPAA'
+          href: ./samples/media/index.md
+        - name: Mapeamento de controlo
+          displayName: 'standards, Media'
+          href: ./samples/media/control-mapping.md
+        - name: Passos para implementar
+          displayName: 'standards, Media'
+          href: ./samples/media/deploy.md
     - name: NIST SP 800-53 Rev4
       items:
         - name: Descrição geral

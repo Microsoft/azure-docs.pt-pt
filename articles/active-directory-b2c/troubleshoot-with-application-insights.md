@@ -3,20 +3,20 @@ title: Políticas personalizadas de resolução de problemas com Insights de Apl
 titleSuffix: Azure AD B2C
 description: Como configurar insights de aplicação para rastrear a execução das suas políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3aeef1614f22563e0fd348c5bc6ae7ff1e7b0b03
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848151"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186272"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Colete logs de Diretório Ativo Azure B2C com Insights de Aplicação
 
@@ -31,7 +31,7 @@ Os registos de atividade detalhados aqui descritos só devem ser **ativados** du
 
 Se ainda não tem um, crie uma instância de Informações de Aplicação na sua subscrição.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém a sua subscrição Azure (não o seu diretório Azure AD B2C).
 1. Selecione **Criar um recurso** no menu de navegação à esquerda.
 1. Procure e selecione **Insights de Aplicação,** em seguida, selecione **Criar**.

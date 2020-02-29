@@ -2,20 +2,20 @@
 title: TrustFrameworkPolicy - Diretório Ativo Azure B2C  Microsoft Docs
 description: Especifique o elemento TrustFrameworkPolicy de uma política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/31/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b49c873112358db4fec2992ef3d2d61161e8b373
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982420"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186391"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,12 +38,12 @@ Uma política personalizada é representada como um ou mais ficheiros formatos X
 
 O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sim | A versão do esquema que deve ser usada para executar a política. O valor deve ser `0.3.0.0` |
 | TenantObjectId | Não | O identificador de objeto único do inquilino Azure Ative Directory B2C (Azure AD B2C). |
 | TenantId | Sim | O identificador único do inquilino a que pertence esta apólice. |
-| `PolicyId` | Sim | O identificador único para a apólice. Este identificador deve ser pré-fixado *B2C_1A_* |
+| PolicyId | Sim | O identificador único para a apólice. Este identificador deve ser pré-fixado *B2C_1A_* |
 | PublicPolicyUri | Sim | O URI para a apólice, que é a combinação da identificação do inquilino e da identificação política. |
 | DeploymentMode | Não | Valores possíveis: `Production`, ou `Development`. `Production` é a predefinição. Use esta propriedade para desinbugijá-lo. Para mais informações, consulte [Registos de Recolha](troubleshoot-with-application-insights.md). |
 | UserJourneyRecorderEndpoint | Não | O ponto final utilizado quando o **Modo de Implantação** está programado para `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para mais informações, consulte [Registos de Recolha](troubleshoot-with-application-insights.md). |
@@ -91,7 +91,7 @@ O elemento **BasePolicy** contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | O identificador do seu inquilino Azure AD B2C. |
-| `PolicyId` | 1:1 | O identificador da política dos pais. |
+| PolicyId | 1:1 | O identificador da política dos pais. |
 
 
 O exemplo que se segue mostra como especificar uma política de base. Esta **política B2C_1A_TrustFrameworkExtensions** deriva da política **B2C_1A_TrustFrameworkBase.**
@@ -116,7 +116,7 @@ O exemplo que se segue mostra como especificar uma política de base. Esta **pol
 
 ## <a name="policy-execution"></a>Execução política
 
-Uma aplicação partidária de base, como uma aplicação web, móvel ou desktop, chama a política do [partido que confia (RP).](relyingparty.md) O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir uma senha ou editar um perfil. A política de RP configura a lista de reclamações que a candidatura do partido que confia recebe como parte do símbolo que é emitido. Várias aplicações podem usar a mesma política. Todas as aplicações recebem o mesmo sinal com reclamações, e o utilizador passa pela mesma viagem de utilizador. Uma única aplicação pode usar múltiplas políticas.
+Uma aplicação partidária de base, como uma aplicação web, móvel ou desktop, chama a política do [partido que confia (RP).](relyingparty.md) O ficheiro de política de RP executa uma tarefa específica, como iniciar sessão, repor uma palavra-passe ou editar um perfil. A política de RP configura a lista de reclamações que a candidatura do partido que confia recebe como parte do símbolo que é emitido. Várias aplicações podem usar a mesma política. Todas as aplicações recebem o mesmo sinal com reclamações, e o utilizador passa pela mesma viagem de utilizador. Uma única aplicação pode usar múltiplas políticas.
 
 Dentro do ficheiro de política RP, especifica o elemento **DefaultUserJourney,** que aponta para a [UserJourney](userjourneys.md). A viagem de utilizador é geralmente definida na política base ou extensões.
 
@@ -154,6 +154,6 @@ Os passos de orquestração podem chamar um [Perfil Técnico](technicalprofiles.
 
 - Política de Base conforme especificado acima
 - [Blocos de Construção](buildingblocks.md)
-- [ClaimsProviders](claimsproviders.md)
+- [ReclamaçõesProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [Partido De Conta](relyingparty.md)

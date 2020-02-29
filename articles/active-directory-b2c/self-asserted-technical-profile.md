@@ -3,20 +3,20 @@ title: Defina um perfil técnico autoafirmado numa política personalizada
 titleSuffix: Azure AD B2C
 description: Defina um perfil técnico autoafirmado numa política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/17/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f2a86f72f16a23b0133601cfe41b9e636d8866d
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e0a282be9b8a20c64cd3e74e7860a289baa5aec6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425611"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183810"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autoafirmado numa política personalizada do Diretório Ativo Azure B2C
 
@@ -198,7 +198,7 @@ Também pode ligar para um perfil técnico REST API com a sua lógica de negóci
 | setting.showCancelButton | Não | Exibe o botão de cancelamento. Valores possíveis: `true` (padrão) ou `false` |
 | setting.showContinueButton | Não | Exibe o botão de continuação. Valores possíveis: `true` (padrão) ou `false` |
 | definição.showSignupLink <sup>2</sup>| Não | Exibe o botão de inscrição. Valores possíveis: `true` (padrão) ou `false` |
-| definição.esqueciPasswordLinkLocation <sup>2</sup>| Não| Exibe o link de senha esquecido. Valores possíveis: `AfterInput` (predefinido) o link é apresentado na parte inferior da página ou `None` remove o link de senha esquecido.| 
+| definição.esqueciPasswordLinkLocation <sup>2</sup>| Não| Exibe o link de senha esquecido. Valores possíveis: `AfterInput` (predefinido) o link é apresentado na parte inferior da página ou `None` remove o link de senha esquecido.|
 | Incluir Requerer Resolução de Reclamações  | Não | Para pedidos de entrada e saída, especifica se a resolução de [sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`, ou `false` (predefinido). Se pretender utilizar uma reclamação no perfil técnico, desempente-a para `true`. |
 
 Notas:

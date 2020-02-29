@@ -1,56 +1,56 @@
 ---
-title: Tutorial-disparar grupo de contêineres por função do Azure
-description: Criar uma função do PowerShell sem servidor disparada por HTTP para automatizar a criação de instâncias de contêiner do Azure
+title: Tutorial - Grupo de contentores de gatilho por função Azure
+description: Criar uma função PowerShell ativada por HTTP para automatizar a criação de instâncias de contentores Azure
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 49eb0721972a92f33bda2532367bc78280b6e655
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533381"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196540"
 ---
-# <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: usar uma função do Azure disparada por HTTP para criar um grupo de contêineres
+# <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Utilize uma função Azure desencadeada por HTTP para criar um grupo de contentores
 
-[Azure Functions](../azure-functions/functions-overview.md) é um serviço de computação sem servidor que pode executar scripts ou código em resposta a uma variedade de eventos, como uma solicitação HTTP, um temporizador ou uma mensagem em uma fila de armazenamento do Azure.
+[O Azure Functions](../azure-functions/functions-overview.md) é um serviço de computação sem servidor que pode executar scripts ou código em resposta a uma variedade de eventos, tais como um pedido HTTP, um temporizador ou uma mensagem numa fila de Armazenamento Azure.
 
-Neste tutorial, você cria uma função do Azure que usa uma solicitação HTTP e dispara a implantação de um [grupo de contêineres](container-instances-container-groups.md). Este exemplo mostra as noções básicas do uso de Azure Functions para criar automaticamente recursos em instâncias de contêiner do Azure. Modifique ou estenda o exemplo para cenários mais complexos ou outros disparadores de eventos. 
+Neste tutorial, cria-se uma função Azure que requer um pedido HTTP e desencadeie a implantação de um grupo de [contentores](container-instances-container-groups.md). Este exemplo mostra o básico da utilização de Funções Azure para criar automaticamente recursos em instâncias de contentores Azure. Modifique ou estenda o exemplo para cenários mais complexos ou outros gatilhos de eventos. 
 
 Saiba como:
 
 > [!div class="checklist"]
-> * Use Visual Studio Code com a [extensão Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para criar uma função básica do PowerShell acionada por http.
-> * Habilite uma identidade no aplicativo de funções e conceda a ela permissões para criar recursos do Azure.
-> * Modifique e Republique a função do PowerShell para automatizar a implantação de um grupo de contêineres de contêiner único.
-> * Verifique a implantação disparada por HTTP do contêiner.
+> * Utilize o Código de Estúdio Visual com a [extensão funções Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para criar uma função básica de PowerShell ativada por HTTP.
+> * Ative uma identidade na aplicação de funções e dê-lhe permissões para criar recursos Azure.
+> * Modificar e reeditar a função PowerShell para automatizar a implantação de um grupo de contentores de um único contentor.
+> * Verifique a implantação do recipiente ativado em HTTP.
 
 > [!IMPORTANT]
-> O PowerShell para Azure Functions está atualmente em visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> PowerShell para Funções Azure está atualmente em pré-visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Consulte [criar sua primeira função do PowerShell no Azure](../azure-functions/functions-create-first-function-powershell.md#prerequisites) para obter os pré-requisitos para instalar e usar Visual Studio Code com o Azure Functions no seu sistema operacional.
+Consulte [Criar a sua primeira função em Azure](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell#configure-your-environment) para pré-requisitos para instalar e utilizar o Código de Estúdio Visual com as Funções Azure no seu SISTEMA.
 
-Algumas etapas neste artigo usam o CLI do Azure. Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para concluir essas etapas. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Alguns passos neste artigo usam o Azure CLI. Pode utilizar a Casca de Nuvem Azure ou uma instalação local do Azure CLI para completar estes passos. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
-## <a name="create-a-basic-powershell-function"></a>Criar uma função básica do PowerShell
+## <a name="create-a-basic-powershell-function"></a>Criar uma função básica powerShell
 
-Siga as etapas em [criar sua primeira função do PowerShell no Azure](../azure-functions/functions-create-first-function-powershell.md) para criar uma função do PowerShell usando o modelo de gatilho http. Use o nome da função do Azure padrão **HttpTrigger**. Conforme mostrado no guia de início rápido, teste a função localmente e publique o projeto em um aplicativo de funções no Azure. Este exemplo é uma função básica disparada por HTTP que retorna uma cadeia de texto. Em etapas posteriores neste artigo, você modifica a função para criar um grupo de contêineres.
+Siga os passos em Criar a [sua primeira função PowerShell em Azure](../azure-functions/functions-create-first-function-powershell.md) para criar uma função PowerShell utilizando o modelo http Trigger. Utilize o nome de função de função Azure padrão **HttpTrigger**. Como mostrado no arranque rápido, teste a função localmente e publique o projeto numa aplicação de função em Azure. Este exemplo é uma função básica desencadeada por HTTP que devolve uma cadeia de texto. Em etapas posteriores neste artigo, modifica-se a função para criar um grupo de contentores.
 
-Este artigo pressupõe que você publique o projeto usando o nome *myfunctionapp*, em um grupo de recursos do Azure automaticamente nomeado de acordo com o nome do aplicativo de funções (também *myfunctionapp*). Substitua o nome do aplicativo de funções exclusivo e o nome do grupo de recursos em etapas posteriores.
+Este artigo assume que publica o projeto usando o nome *myfunctionapp*, num grupo de recursos Azure automaticamente nomeado de acordo com o nome da app de função (também *myfunctionapp).* Substitua o nome da sua aplicação de função única e o nome do grupo de recursos em etapas posteriores.
 
-## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>Habilitar uma identidade gerenciada pelo Azure no aplicativo de funções
+## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>Ativar uma identidade gerida pelo Azure na aplicação de função
 
-Agora, habilite uma [identidade gerenciada](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity) atribuída pelo sistema em seu aplicativo de funções. O host do PowerShell que executa o aplicativo pode se autenticar automaticamente usando essa identidade, permitindo que as funções executem ações nos serviços do Azure aos quais a identidade recebeu acesso. Neste tutorial, você concede as permissões de identidade gerenciadas para criar recursos no grupo de recursos do aplicativo de funções. 
+Agora, ative uma [identidade gerida](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity) atribuída pelo sistema na sua aplicação de função. O anfitrião powerShell que executa a aplicação pode autenticar automaticamente usando esta identidade, permitindo que as funções tomem ações sobre os serviços Do Azure a que a identidade foi dada acesso. Neste tutorial, você concede as permissões de identidade geridas para criar recursos no grupo de recursos da app de função. 
 
-Primeiro, use o comando [AZ Group show][az-group-show] para obter a ID do grupo de recursos do aplicativo de funções e armazená-lo em uma variável de ambiente. Este exemplo pressupõe que você execute o comando em um shell bash.
+Primeiro use o comando de show do [grupo AZ][az-group-show] para obter a identificação do grupo de recursos da aplicação de função e armazená-lo em uma variável ambiental. Este exemplo pressupõe que dirige o comando numa concha bash.
 
 ```azurecli
 rgID=$(az group show --name myfunctionapp --query id --output tsv)
 ```
 
-Execute [AZ functionapp Identity app Assign][az-functionapp-identity-app-assign] para atribuir uma identidade local ao aplicativo de funções e atribuir uma função de colaborador ao grupo de recursos. Essa função permite que a identidade crie recursos adicionais, como grupos de contêineres no grupo de recursos.
+Executar app [de identidade az functionapp atribuir][az-functionapp-identity-app-assign] para atribuir uma identidade local à aplicação de função e atribuir uma função de contribuinte ao grupo de recursos. Esta função permite que a identidade crie recursos adicionais, como grupos de contentores no grupo de recursos.
 
 ```azurecli
 az functionapp identity assign \
@@ -61,7 +61,7 @@ az functionapp identity assign \
 
 ## <a name="modify-httptrigger-function"></a>Modificar função HttpTrigger
 
-Modifique o código do PowerShell para a função **HttpTrigger** para criar um grupo de contêineres. No arquivo `run.ps1` para a função, localize o bloco de código a seguir. Esse código exibirá um valor de nome, se um for passado como uma cadeia de caracteres de consulta na URL da função:
+Modifique o código PowerShell para a função **HttpTrigger** para criar um grupo de contentores. No ficheiro `run.ps1` para a função, encontre o seguinte bloco de código. Este código apresenta um valor de nome, se um for passado como uma cadeia de consulta no URL de função:
 
 ```powershell
 [...]
@@ -72,7 +72,7 @@ if ($name) {
 [...]
 ```
 
-Substitua este código pelo bloco de exemplo a seguir. Aqui, se um valor de nome for passado na cadeia de caracteres de consulta, ele será usado para nomear e criar um grupo de contêineres usando o cmdlet [New-AzContainerGroup][new-azcontainergroup] . Certifique-se de substituir o nome do grupo de recursos *myfunctionapp* pelo nome do grupo de recursos para seu aplicativo de funções:
+Substitua este código pelo seguinte bloco de exemplo. Aqui, se um valor de nome for passado na cadeia de consulta, é usado para nomear e criar um grupo de contentores usando o cmdlet [New-AzContainerGroup.][new-azcontainergroup] Certifique-se de substituir o nome de grupo de recursos *myfunctionapp* pelo nome do grupo de recursos para a sua aplicação de função:
 
 ```powershell
 [...]
@@ -87,31 +87,31 @@ if ($name) {
 [...]
 ```
 
-Este exemplo cria um grupo de contêineres que consiste em uma única instância de contêiner que executa a imagem de `alpine`. O contêiner executa um único comando `echo` e, em seguida, termina. Em um exemplo do mundo real, você pode disparar a criação de um ou mais grupos de contêineres para executar um trabalho em lotes.
+Este exemplo cria um grupo de contentores constituído por uma única instância de contentores que executa a imagem `alpine`. O contentor executa um único comando `echo` e termina. Num exemplo do mundo real, você pode desencadear a criação de um ou mais grupos de contentores para executar um trabalho de lote.
  
-## <a name="test-function-app-locally"></a>Testar o aplicativo de funções localmente
+## <a name="test-function-app-locally"></a>App de função de teste local
 
-Certifique-se de que a função seja executada corretamente localmente antes de republicar o projeto de aplicativo de funções no Azure. Conforme mostrado no [início rápido do PowerShell](../azure-functions/functions-create-first-function-powershell.md), insira um ponto de interrupção local no script do PowerShell e uma `Wait-Debugger` chamada acima dele. Para obter diretrizes de depuração, consulte [depurar o PowerShell Azure Functions localmente](../azure-functions/functions-debug-powershell-local.md).
+Certifique-se de que a função funciona corretamente localmente antes de reeditar o projeto da aplicação de funções para o Azure. Como mostrado no [quickstart PowerShell,](../azure-functions/functions-create-first-function-powershell.md)insira um ponto de rutura local no script PowerShell e uma chamada `Wait-Debugger` acima dele. Para obter orientação de depuração, consulte [debug PowerShell Azure Functions localmente](../azure-functions/functions-debug-powershell-local.md).
 
 
-## <a name="republish-azure-function-app"></a>Republicar o aplicativo de funções do Azure
+## <a name="republish-azure-function-app"></a>Republique a aplicação de função Azure
 
-Depois de verificar que a função é executada corretamente no computador local, é hora de republicar o projeto no aplicativo de funções existente no Azure.
+Depois de verificar que a função funciona corretamente no seu computador local, é hora de reeditar o projeto para a aplicação de funções existente em Azure.
 
 > [!NOTE]
-> Lembre-se de remover todas as chamadas para `Wait-Debugger` antes de publicar suas funções no Azure.
+> Lembre-se de remover quaisquer chamadas para `Wait-Debugger` antes de publicar as suas funções no Azure.
 
-1. Em Visual Studio Code, abra a paleta de comandos. Procure e selecione `Azure Functions: Deploy to function app...`.
-1. Selecione a pasta de trabalho atual para zip e implantar.
-1. Selecione a assinatura e o nome do aplicativo de funções existente (*myfunctionapp*). Confirme que você deseja substituir a implantação anterior.
+1. No Código do Estúdio Visual, abra a Paleta de Comando. Procure e selecione `Azure Functions: Deploy to function app...`.
+1. Selecione a atual pasta de trabalho para fechar e implementar.
+1. Selecione a subscrição e, em seguida, o nome da aplicação de funções existente *(myfunctionapp).* Confirme que pretende substituir a implantação anterior.
 
-Depois de criar a aplicação de funções, é apresentada uma notificação e o pacote de implementação é aplicado. Selecione **Exibir saída** nesta notificação para exibir os resultados de criação e implantação, incluindo os recursos do Azure que você atualizou.
+Depois de criar a aplicação de funções, é apresentada uma notificação e o pacote de implementação é aplicado. Selecione **Ver Output** nesta notificação para visualizar os resultados da criação e implementação, incluindo os recursos Azure que atualizou.
 
-## <a name="run-the-function-in-azure"></a>Executar a função no Azure
+## <a name="run-the-function-in-azure"></a>Executar a função em Azure
 
-Depois que a implantação for concluída com êxito, obtenha a URL da função. Por exemplo, use a área **Azure: Functions** no Visual Studio Code para copiar a URL da função **HttpTrigger** ou obter a url da função no [portal do Azure](../azure-functions/functions-create-first-azure-function.md#test-the-function).
+Depois de a implementação completar com sucesso, obtenha o URL de função. Por exemplo, utilize a área **Azure: Funções** no código estúdio visual para copiar o URL de função **HttpTrigger** ou obter o URL de função no [portal Azure](../azure-functions/functions-create-first-azure-function.md#test-the-function).
 
-A URL da função inclui um código exclusivo e está no formato:
+O URL de função inclui um código único e é do formulário:
 
 ```
 https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M==
@@ -119,13 +119,13 @@ https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0Gng
 
 ### <a name="run-function-without-passing-a-name"></a>Executar função sem passar um nome
 
-Como um primeiro teste, execute o comando `curl` e passe a URL da função sem acrescentar uma cadeia de caracteres de consulta `name`. Certifique-se de incluir o código exclusivo da função.
+Como primeiro teste, execute o comando `curl` e passe o URL de função sem apencarar uma `name` corda de consulta. Certifique-se de incluir o código único da sua função.
 
 ```bash
 curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M=="
 ```
 
-A função retorna o código de status 400 e o texto `Please pass a name on the query string or in the request body`:
+A função devolve o código de estado 400 e o texto `Please pass a name on the query string or in the request body`:
 
 ```
 [...]
@@ -144,15 +144,15 @@ A função retorna o código de status 400 e o texto `Please pass a name on the 
 Please pass a name on the query string or in the request body.
 ```
 
-### <a name="run-function-and-pass-the-name-of-a-container-group"></a>Executar a função e passar o nome de um grupo de contêineres
+### <a name="run-function-and-pass-the-name-of-a-container-group"></a>Executar função e passar o nome de um grupo de contentores
 
-Agora, execute o comando `curl` acrescentando o nome de um grupo de contêineres (*MyContainer*Group) como uma cadeia de caracteres de consulta `&name=mycontainergroup`:
+Agora execute o comando `curl`, anexando o nome de um grupo de contentores (*mycontainergroup*) como uma corda de consulta `&name=mycontainergroup`:
 
 ```bash
 curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M==&name=mycontainergroup"
 ```
 
-A função retorna o código de status 200 e dispara a criação do grupo de contêineres:
+A função devolve o código de estado 200 e desencadeia a criação do grupo de contentores:
 
 ```
 [...]
@@ -171,7 +171,7 @@ A função retorna o código de status 200 e dispara a criação do grupo de con
 Started container group mycontainergroup
 ```
 
-Verifique se o contêiner foi executado com o comando [AZ container logs][az-container-logs] :
+Verifique se o recipiente funcionava com o comando de troncos de [contentora az:][az-container-logs]
 
 ```azurecli
 az container logs --resource-group myfunctionapp --name mycontainergroup
@@ -185,7 +185,7 @@ Hello from an Azure container instance triggered by an Azure function
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não precisar mais de nenhum dos recursos criados neste tutorial, poderá executar o comando [AZ Group Delete][az-group-delete] para remover o grupo de recursos e todos os recursos que ele contém. Este comando elimina o registo de contentor criado, bem como o contentor em execução, e todos os recursos relacionados.
+Se já não precisar de nenhum dos recursos que criou neste tutorial, pode executar o comando de eliminação do [grupo AZ][az-group-delete] para remover o grupo de recursos e todos os recursos que contém. Este comando elimina o registo de contentor criado, bem como o contentor em execução, e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myfunctionapp
@@ -193,17 +193,17 @@ az group delete --name myfunctionapp
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você criou uma função do Azure que usa uma solicitação HTTP e dispara a implantação de um grupo de contêineres. Aprendeu a:
+Neste tutorial, criou uma função Azure que requer um pedido HTTP e desencadeia a implantação de um grupo de contentores. Aprendeu a:
 
 > [!div class="checklist"]
-> * Use Visual Studio Code com a extensão Azure Functions para criar uma função básica do PowerShell acionada por HTTP.
-> * Habilite uma identidade no aplicativo de funções e conceda a ela permissões para criar recursos do Azure.
-> * Modifique o código de função do PowerShell para automatizar a implantação de um grupo de contêineres de contêiner único.
-> * Verifique a implantação disparada por HTTP do contêiner.
+> * Utilize o Código de Estúdio Visual com a extensão funções Azure para criar uma função básica de PowerShell ativada por HTTP.
+> * Ative uma identidade na aplicação de funções e dê-lhe permissões para criar recursos Azure.
+> * Modificar o código de função PowerShell para automatizar a implantação de um grupo de contentores de um único contentor.
+> * Verifique a implantação do recipiente ativado em HTTP.
 
-Para obter um exemplo detalhado para iniciar e monitorar um trabalho em contêiner, consulte a postagem no blog [contêineres sem servidor controlados por evento com o PowerShell Azure Functions e instâncias de contêiner do Azure](https://dev.to/azure/event-driven-serverless-containers-with-powershell-azure-functions-and-azure-container-instances-e9b) e o [exemplo de código](https://github.com/anthonychu/functions-powershell-run-aci)fornecido.
+Para um exemplo detalhado para lançar e monitorizar um trabalho contentorizado, consulte o blog post [Serverless Containers com funções PowerShell Azure e instâncias de contentores Azure](https://dev.to/azure/event-driven-serverless-containers-with-powershell-azure-functions-and-azure-container-instances-e9b) e [a amostra](https://github.com/anthonychu/functions-powershell-run-aci)de código de acompanhamento .
 
-Consulte a [documentação do Azure Functions](/azure/azure-functions/) para obter orientações detalhadas sobre como criar o Azure Functions e publicar um projeto do functions. 
+Consulte a documentação das [Funções Azure](/azure/azure-functions/) para obter orientações detalhadas sobre a criação de funções do Azure e a publicação de um projeto de funções. 
 
 <!-- IMAGES -->
 

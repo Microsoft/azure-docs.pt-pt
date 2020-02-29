@@ -3,20 +3,20 @@ title: Boolean reclama exemplos de transformação para políticas personalizada
 titleSuffix: Azure AD B2C
 description: Boolean reclama exemplos de transformação para o quadro de experiência de identidade (IEF) do Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 130fca4d5894316e7684270ff9d6361e9d9f9dd3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 65f5b9bc09bb74ccbc63a457ba8e5681de8eefab
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620842"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189946"
 ---
 # <a name="boolean-claims-transformations"></a>Boolean reclama transformações
 
@@ -116,7 +116,7 @@ O perfil técnico autoafirmado chama o perfil técnico **login-nonInteractive** 
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-Verifica se o valor booleano de uma reclamação é igual a `true` ou `false`, e devolve o resultado da compressão. 
+Verifica se o valor booleano de uma reclamação é igual a `true` ou `false`, e devolve o resultado da compressão.
 
 | Item | TransformationClaimType  | Tipo de Dados  | Notas |
 | ---- | ------------------------ | ---------- | ----- |
@@ -148,7 +148,7 @@ A transformação de reclamações seguinte demonstra como verificar o valor de 
 - Parâmetros de entrada:
     - **valorToCompareTo:** verdadeiro
 - Alegações de saída:
-    - **compararResultado:** falso 
+    - **compararResultado:** falso
 
 
 

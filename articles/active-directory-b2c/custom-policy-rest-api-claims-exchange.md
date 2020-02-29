@@ -2,20 +2,20 @@
 title: REST API reclama trocas - Azure Ative Directory B2C
 description: Adicione as trocas de reclamações rest API a políticas personalizadas no Diretório Ativo B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1caf0b3f6396cc008e77bb96e686fe78f462850b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 351b41f45fb84384ec0193f8e3130347d0b19401
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849100"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189094"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Adicionar REST API reclama trocas de pedidos a políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -38,7 +38,7 @@ O cenário que está representado neste artigo inclui as seguintes ações:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Conclua as etapas em introdução [às políticas personalizadas](custom-policy-get-started.md).
+- Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md)
 - Um ponto final da API REST para interagir. Este artigo usa uma função Azure simples como exemplo. Para criar a função Azure, consulte [Criar a sua primeira função no portal Azure](../azure-functions/functions-create-first-azure-function.md).
 
 ## <a name="prepare-the-api"></a>Preparar a API
@@ -117,7 +117,7 @@ Abra o ficheiro *TrustFrameworkExtensions.xml* e adicione o seguinte elemento **
 
 O elemento **InputClaims** define as reclamações que são enviadas para o serviço REST. Neste exemplo, o valor da reclamação `givenName` é enviado para o serviço REST à medida que a reclamação `email`. O elemento **OutputClaims** define as reclamações que são esperadas do serviço REST.
 
-Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que você deve fazer ao mudar para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, consulte [proteger APIs RESTful com autenticação básica](secure-rest-api-dotnet-basic-auth.md) e [proteger APIs RESTful com autenticação de certificado](secure-rest-api-dotnet-certificate-auth.md).
+Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificar alterações que deve fazer quando se muda para um ambiente de produção. Para aprender a proteger as suas APIs RESTful para produção, consulte [APIs RESTful Seguros com APIs](secure-rest-api-dotnet-basic-auth.md) resstful básicos e [SECURE RESTful com auth](secure-rest-api-dotnet-certificate-auth.md)certificado .
 
 ## <a name="add-the-claim-definition"></a>Adicione a definição de reclamação
 
@@ -232,7 +232,7 @@ Depois de adicionar a nova reclamação, o perfil técnico parece este exemplo:
 1. (Opcional:) Guarde a versão existente (transferindo) os ficheiros antes de proceder.
 2. Faça upload das *Extensões TrustFramework.xml* e *ProfileEdit.xml* e selecione para substituir o ficheiro existente.
 3. Selecione **B2C_1A_ProfileEdit**.
-4. Para **Selecionar aplicativo** na página Visão geral da política personalizada, selecione o aplicativo Web chamado *webapp1* que você registrou anteriormente. Verifique se a **URL de resposta** está `https://jwt.ms`.
+4. Para selecionar a **aplicação** na página geral da política personalizada, selecione a aplicação web chamada *webapp1* que registou anteriormente. Certifique-se de que o **URL de resposta** é `https://jwt.ms`.
 4. Selecione **Executar agora**. Inscreva-se com as credenciais da sua conta e clique em **Continuar**.
 
 Se tudo estiver corretamente configurado, o símbolo inclui a nova reclamação `city`, com o valor `Redmond`.
@@ -263,5 +263,5 @@ Também pode projetar a interação como um perfil de validação. Para mais inf
 
 Para aprender como proteger as suas APIs, consulte os seguintes artigos:
 
-* [Proteger sua API RESTful com autenticação básica (nome de usuário e senha)](secure-rest-api-dotnet-basic-auth.md)
-* [Proteger sua API RESTful com certificados de cliente](secure-rest-api-dotnet-certificate-auth.md)
+* [Proteja a sua API RESTful com autenticação básica (nome de utilizador e senha)](secure-rest-api-dotnet-basic-auth.md)
+* [Proteja a sua API RESTful com certificados de cliente](secure-rest-api-dotnet-certificate-auth.md)

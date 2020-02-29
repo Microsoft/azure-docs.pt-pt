@@ -1,28 +1,28 @@
 ---
 title: BuildingBlocks
 titleSuffix: Azure AD B2C
-description: Especifique o elemento BuildingBlocks de uma política personalizada em Azure Active Directory B2C.
+description: Especifique o elemento BuildingBlocks de uma política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87157980a352f9665852c78a94dcfc227c08b487
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cf9c333af48e1c148dcd20ccf5ce91b284bd728b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367559"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189876"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **BuildingBlocks** é adicionado dentro do elemento [TrustFrameworkPolicy](trustframeworkpolicy.md) .
+O elemento **BuildingBlocks** é adicionado dentro do elemento [TrustFrameworkPolicy.](trustframeworkpolicy.md)
 
 ```XML
 <TrustFrameworkPolicy
@@ -61,21 +61,21 @@ O elemento **BuildingBlocks** é adicionado dentro do elemento [TrustFrameworkPo
 
 O elemento **BuildingBlocks** contém os seguintes elementos que devem ser especificados na ordem definida:
 
-- [ClaimsSchema](claimsschema.md) – define os tipos de declaração que podem ser referenciados como parte da política. O esquema de declarações é o local onde você declara os tipos de declaração. Um tipo de declaração é semelhante a uma variável em muitas linguagens programáticas. Você pode usar o tipo de declaração para coletar dados do usuário do seu aplicativo, receber declarações de provedores de identidade social, enviar e receber dados de uma API REST personalizada ou armazenar quaisquer dados internos usados por sua política personalizada.
+- [ClaimsSchema](claimsschema.md) - Define os tipos de reclamação que podem ser referenciados como parte da política. O esquema de reclamações é o lugar onde declara os seus tipos de reclamações. Um tipo de reivindicação é semelhante a uma variável em muitas línguas programáticas. Pode utilizar o tipo de reclamação para recolher dados do utilizador da sua aplicação, receber reclamações de fornecedores de identidade social, enviar e receber dados de uma API REST personalizada, ou armazenar quaisquer dados internos utilizados pela sua política personalizada.
 
-- [Predicados e PredicateValidationsInput](predicates.md) -permite que você execute um processo de validação para garantir que apenas dados formados corretamente sejam inseridos em uma declaração.
+- [Predicados e PredicadosValidaçõesInputput -](predicates.md) Permite-lhe realizar um processo de validação para garantir que apenas os dados devidamente formados são introduzidos numa reclamação.
 
-- [ClaimsTransformations](claimstransformations.md) -contém uma lista de transformações de declarações que podem ser usadas em sua política.  Uma transformação de declarações converte uma declaração em outra. Na transformação declarações, você especifica um método de transformação, como:
-  - Alteração do caso de uma declaração de cadeia de caracteres para aquela especificada. Por exemplo, alterar uma cadeia de caracteres de minúsculas para maiúsculas.
-  - Comparar duas declarações e retornar uma declaração com true indicando que as declarações correspondem, caso contrário, false.
-  - Criando uma declaração de cadeia de caracteres a partir do parâmetro fornecido na política.
-  - Criando uma cadeia de caracteres aleatória usando o gerador de números aleatórios.
-  - Formatando uma declaração de acordo com a cadeia de caracteres de formato fornecida. Essa transformação usa o C# método `String.Format`.
+- [ClaimsTransformations](claimstransformations.md) - Contém uma lista de transformações de sinistros que podem ser usadas na sua política.  Uma transformação de reivindicações converte uma reivindicação em outra. Na transformação de sinistros, especifica-se um método de transformação, como:
+  - Alterar o caso de uma reclamação de cordas para a especificada. Por exemplo, mudar uma corda de minúscula para maiúscula.
+  - Comparar duas reclamações e devolver uma reclamação com o facto de as reclamações corresponderem, caso contrário, falsas.
+  - Criando uma reivindicação de cordas a partir do parâmetro fornecido na política.
+  - Criar uma cadeia aleatória usando o gerador de números aleatórios.
+  - Formando uma reclamação de acordo com a cadeia de formato fornecida. Esta transformação C# usa o método `String.Format`.
 
-- InputValidation-esse elemento permite que você execute agregações booleanas que são semelhantes a *and* e *or*.
+- Validação de entrada - Este elemento permite-lhe realizar agregações booleanas semelhantes *e e* *ou*.
 
-- [ContentDefinitions](contentdefinitions.md) -contém URLs para modelos HTML5 a serem usados no percurso do usuário. Em uma política personalizada, uma definição de conteúdo define o URI da página HTML5 que é usado para uma etapa especificada no percurso do usuário. Por exemplo, as páginas de entrada, de inscrição, de redefinição de senha ou de erro. Você pode modificar a aparência substituindo o LoadUri para o arquivo HTML5. Ou você pode criar novas definições de conteúdo de acordo com suas necessidades. Esse elemento pode conter uma referência de recursos localizados usando uma ID de localização.
+- [Definições de conteúdo](contentdefinitions.md) - Contém URLs para modelos HTML5 para utilizar na sua viagem de utilizador. Numa política personalizada, uma definição de conteúdo define a página HTML5 URI que é usada para um passo especificado na viagem do utilizador. Por exemplo, o início ou inscrição, o reset da palavra-passe ou as páginas de erro. Pode modificar a aparência e sentir substituindo o LoadUri para o ficheiro HTML5. Ou pode criar novas definições de conteúdo de acordo com as suas necessidades. Este elemento pode conter uma referência de recursos localizados utilizando um ID de localização.
 
-- [Localização](localization.md) – permite que você dê suporte a vários idiomas. O suporte à localização em políticas permite que você configure a lista de idiomas com suporte em uma política e escolha um idioma padrão. Também há suporte para cadeias de caracteres e coleções específicas de idioma.
+- [Localização](localization.md) - Permite-lhe apoiar várias línguas. O apoio à localização em políticas permite-lhe configurar a lista de línguas apoiadas numa política e escolher uma linguagem padrão. Também são apoiadas cordas e coleções específicas da linguagem.
 
-- [DisplayControls](display-controls.md) – define os controles a serem exibidos em uma página. Os controles de exibição têm funcionalidade especial e interagem com perfis técnicos de validação de back-end. Os controles de exibição estão atualmente em **Visualização**.
+- [DisplayControls](display-controls.md) - Define os controlos a exibir numa página. Os controlos de ecrã têm uma funcionalidade especial e interagem com perfis técnicos de validação de back-end. Os controlos de visualização estão atualmente em **pré-visualização**.

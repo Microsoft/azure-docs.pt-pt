@@ -1,44 +1,45 @@
 ---
-title: 'Início rápido: criar um classificador de carga de trabalho-T-SQL '
-description: Use o T-SQL para criar um classificador de carga de trabalho com alta importância.
+title: 'Quickstart: Criar um classificador de carga de trabalho - T-SQL'
+description: Utilize o T-SQL para criar um classificador de carga de trabalho com grande importância.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1375605b6dab385b53af9212023767003e686e60
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.custom: azure-synapse
+ms.openlocfilehash: 9f15317141e56614cf6fe04f46ff478a73266775
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646296"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200503"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Início rápido: criar um classificador de carga de trabalho usando o T-SQL
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Quickstart: Criar um classificador de carga de trabalho usando T-SQL
 
-Neste guia de início rápido, você criará rapidamente um classificador de carga de trabalho com alta importância para o CEO da sua organização. Esse classificador de carga de trabalho permitirá que as consultas do CEO tenham precedência sobre outras consultas com menor importância na fila.
+Neste arranque rápido, você rapidamente criará um classificador de carga de trabalho com alta importância para o CEO da sua organização. Este classificador de carga de trabalho permitirá que as consultas de CEO tomem precedência sobre outras consultas com menor importância na fila.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!NOTE]
-> A criação de um SQL Data Warehouse poderá resultar num novo serviço sujeito a faturação.  Para obter mais informações, veja [Preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> A criação de um caso SQL Analytics no Azure Synapse Analytics pode resultar num novo serviço de faturação.  Para mais informações, consulte o preço da [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido pressupõe que você já tem um SQL Data Warehouse e que tem permissões de controle de banco de dados. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
+Este quickstart assume que já tem um Armazém de Dados SQL e que tem permissões DE BASE DE DADOS CONTROL. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-login-for-theceo"></a>Criar logon para TheCEO
+## <a name="create-login-for-theceo"></a>Criar login para o TheCEO
 
-Crie um logon de autenticação SQL Server no banco de dados `master` usando [Create login](/sql/t-sql/statements/create-login-transact-sql) para ' TheCEO '.
+Crie um login de autenticação do Servidor SQL na base de dados `master` utilizando [o CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql) para 'TheCEO'.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'TheCEO')
@@ -48,9 +49,9 @@ END
 ;
 ```
 
-## <a name="create-user"></a>Criar usuário
+## <a name="create-user"></a>Criar utilizador
 
-[Criar usuário](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "TheCEO", em mySampleDataWarehouse
+[Criar utilizador](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "TheCEO", no mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
@@ -62,7 +63,7 @@ END
 
 ## <a name="create-a-workload-classifier"></a>Criar um classificador de carga de trabalho
 
-Crie um [classificador de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) para "TheCEO" com alta importância.
+Crie um [classificador](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) de carga de trabalho para "TheCEO" com grande importância.
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];
@@ -72,7 +73,7 @@ WITH (WORKLOAD_GROUP = 'xlargerc'
       ,IMPORTANCE = HIGH);
 ```
 
-## <a name="view-existing-classifiers"></a>Exibir classificadores existentes
+## <a name="view-existing-classifiers"></a>Ver classificadores existentes
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers
@@ -86,27 +87,27 @@ DROP USER [TheCEO]
 ;
 ```
 
-Você está sendo cobrado por unidades de data warehouse e dados armazenados em seu data warehouse. Estes recursos de computação e armazenamento são faturados em separado.
+Está a ser cobrado por unidades de armazém de dados e dados armazenados no seu armazém de dados. Estes recursos de computação e armazenamento são faturados em separado.
 
-- Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao pausar a computação, você é cobrado apenas pelo armazenamento de dados. Quando você estiver pronto para trabalhar com os dados, retome a computação.
+- Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao fazer uma pausa na computação, só é cobrado para armazenamento de dados. Quando estiver pronto para trabalhar com os dados, retome a computação.
 - Se quiser remover futuras cobranças, pode eliminar o armazém de dados.
 
-Siga estas etapas para limpar os recursos.
+Siga estes passos para limpar recursos.
 
-1. Entre no [portal do Azure](https://portal.azure.com), selecione na sua data warehouse.
+1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione no seu armazém de dados.
 
     ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Para pausar a computação, selecione o botão **Pausar** . Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
+2. Para parar a computação, selecione o botão **Pausa.** Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
 
-3. Para remover o data warehouse para que você não seja cobrado pela computação ou pelo armazenamento, selecione **excluir**.
+3. Para remover o armazém de dados para que não seja cobrado para computação ou armazenamento, **selecione Eliminar**.
 
-4. Para remover o SQL Server que você criou, selecione **mynewserver-20180430.Database.Windows.net** na imagem anterior e, em seguida, selecione **excluir**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
+4. Para remover o servidor SQL que criou, selecione **mynewserver-20180430.database.windows.net** na imagem anterior e, em seguida, selecione **Delete**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
 
-5. Para remover o grupo de recursos, selecione **MyResource**Group e, em seguida, selecione **excluir grupo de recursos**.
+5. Para remover o grupo de recursos, selecione **myResourceGroup**, e, em seguida, **selecione Eliminar o grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Agora você criou um classificador de carga de trabalho. Execute algumas consultas como TheCEO para ver como elas são executadas. Consulte [Sys. dm _pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir consultas e a importância atribuída.
-- Para obter mais informações sobre o gerenciamento de carga de trabalho SQL Data Warehouse do Azure, consulte [importância da carga](sql-data-warehouse-workload-importance.md) de trabalho e [classificação de carga](sql-data-warehouse-workload-classification.md)
-- Consulte os artigos de instruções para [Configurar a importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md) e como [gerenciar e monitorar o gerenciamento de carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Agora criaste um classificador de carga de trabalho. Faça algumas perguntas como TheCEO para ver como se apresentam. Veja [](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) dm_pdw_exec_requests para ver as consultas e a importância atribuída.
+- Para obter mais informações sobre a gestão da carga de trabalho da SQL Analytics, consulte a [importância da carga de trabalho](sql-data-warehouse-workload-importance.md) e a [classificação da carga de trabalho.](sql-data-warehouse-workload-classification.md)
+- Consulte os artigos de como [configurar](sql-data-warehouse-how-to-configure-workload-importance.md) a importância da carga de trabalho e como gerir e monitorizar a Gestão da [Carga de Trabalho.](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

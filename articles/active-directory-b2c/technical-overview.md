@@ -2,20 +2,20 @@
 title: Visão geral técnica e de funcionalidade - Diretório Ativo Azure B2C
 description: Uma introdução aprofundada às funcionalidades e tecnologias no Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 09/19/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5801cc4fdfeb4bbdf7c22e2be2f686558611a7f6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1aed1b0a13482bc932024a9d2a131ec5f1d948ba
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840218"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186901"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Visão geral técnica e característica do Diretório Ativo Azure B2C
 

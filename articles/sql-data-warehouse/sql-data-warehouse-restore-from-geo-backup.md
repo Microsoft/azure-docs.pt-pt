@@ -1,6 +1,6 @@
 ---
 title: Restaurar um armazém de dados a partir de um geo-backup
-description: Como orientar para a restauração de geo-restauração de um Armazém de Dados Azure SQL.
+description: Como guiar para geo-restaurar uma piscina SQL.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 69ba3ed981a27dfff41ea9ea52e1da769a9366c4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 624c6665e70802907be8a41015b78d36cca7df1c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759640"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198393"
 ---
-# <a name="geo-restore-azure-sql-data-warehouse"></a>Armazém de dados Azure SQL
+# <a name="geo-restore-for-sql-pool"></a>Geo-restauro para piscina SQL
 
-Neste artigo, você aprende a restaurar o seu armazém de dados a partir de um geo-backup através do portal Azure e PowerShell.
+Neste artigo, você aprende a restaurar a sua piscina SQL a partir de um geo-backup através do portal Azure e PowerShell.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verifique a sua capacidade de DTU.** Cada Armazém de Dados SQL é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma quota DTU padrão. Verifique se o servidor SQL tem quota DTU suficiente para a base de dados ser restaurada. Para aprender a calcular o DTU necessário ou para solicitar mais DTU, consulte [Solicite uma alteração](sql-data-warehouse-get-started-create-support-ticket.md)de quota DTU .
+**Verifique a sua capacidade de DTU.** Cada piscina SQL é hospedada por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma quota DTU padrão. Verifique se o servidor SQL tem quota DTU suficiente para a base de dados ser restaurada. Para aprender a calcular o DTU necessário ou para solicitar mais DTU, consulte [Solicite uma alteração](sql-data-warehouse-get-started-create-support-ticket.md)de quota DTU .
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurar de uma região geográfica azure através da PowerShell
 
@@ -74,20 +74,27 @@ A base de dados recuperada será ativada pelo TDE se a base de dados de origem e
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Restaurar de uma região geográfica de Azure através do portal Azure
 
-Siga os passos descritos abaixo para restaurar um Armazém de Dados Azure SQL de uma geocópia:
+Siga os passos descritos abaixo para restaurar uma piscina SQL a partir de um geo-backup:
 
 1. Inscreva-se na sua conta [do portal Azure.](https://portal.azure.com/)
-1. Clique **+ Criar um recurso** e procurar o SQL Data Warehouse e clique em **Criar**.
+1. Clique **+ Criar um recurso**. 
 
-    ![Novo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
-1. Preencha as informações **solicitadas** no separador Basics e clique **em Seguinte: Definições adicionais**.
+![Novo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-    ![Noções básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
-1. Para utilizar o parâmetro de **dados existente,** selecione **Backup** e selecione a cópia de segurança apropriada a partir das opções de deslocamento para baixo. Clique em **Rever + Criar**.
+3. Clique em **Bases de Dados** e, em seguida, **Azure Synapse Analytics (anteriormente SQL DW) **.
+
+![Novo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+
+4. Preencha as informações **solicitadas** no separador Basics e clique **em Seguinte: Definições adicionais**.
+
+![Noções básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+
+5. Para utilizar o parâmetro de **dados existente,** selecione **Backup** e selecione a cópia de segurança apropriada a partir das opções de deslocamento para baixo. Clique em **Rever + Criar**.
  
-   ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
-2. Uma vez restaurado o armazém de dados, verifique se o **Estado** está Online.
+![cópia de segurança](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
-## <a name="next-steps"></a>Próximos Passos
-- [Restaurar um armazém de dados existente](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restaurar um armazém de dados eliminado](sql-data-warehouse-restore-deleted-dw.md)
+6. Uma vez restaurado o armazém de dados, verifique se o **Estado** está Online.
+
+## <a name="next-steps"></a>Passos Seguintes
+- [Restaurar uma piscina SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurar uma piscina SQL eliminada](sql-data-warehouse-restore-deleted-dw.md)

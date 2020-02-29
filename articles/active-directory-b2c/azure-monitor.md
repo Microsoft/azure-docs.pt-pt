@@ -3,20 +3,20 @@ title: Monitor Azure AD B2C com Monitor Azure
 titleSuffix: Azure AD B2C
 description: Saiba como registar eventos Azure AD B2C com o Azure Monitor utilizando a gestão de recursos delegada.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 6f7f0252a6377397ccaccdc44c9c8561da7c9d29
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121376"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190063"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitor Azure AD B2C com Monitor Azure
 
@@ -223,10 +223,10 @@ Está pronto para [criar configurações](../active-directory/reports-monitoring
 
 Para configurar as definições de monitorização dos registos de atividade do Azure AD B2C:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. Selecione **Diretório Ativo Azure**
-1. Sob **monitorização,** selecione **definições de diagnóstico**.
+1. Em **Monitorização**, selecione **Definições de diagnóstico**.
 1. Se existirem definições existentes no recurso, verá uma lista de definições já configuradas. **Selecione Adicionar definição de diagnóstico** para adicionar uma nova definição, ou **editar** a definição para editar uma existente. Cada definição não pode ter mais do que um dos tipos de destino..
 
     ![Painel de definições de diagnóstico no portal Azure](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)

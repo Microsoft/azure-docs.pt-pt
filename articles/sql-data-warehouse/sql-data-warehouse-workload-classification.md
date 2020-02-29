@@ -1,26 +1,26 @@
 ---
 title: Classificação da carga de trabalho
-description: Orientação para a utilização da classificação para gerir a conmoeda, a importância e a computação de recursos para consultas no Azure SQL Data Warehouse.
+description: Orientação para a utilização da classificação para gerir a conmoeda, a importância e a computação de recursos para consultas em Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/27/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: ab7c8ba64057b4f27e00a2928a65de8eadc78c4b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.custom: azure-synapse
+ms.openlocfilehash: f350885c2d25860c7dc83310534ca9d8c9d72555
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768834"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191772"
 ---
-# <a name="azure-sql-data-warehouse-workload-classification"></a>Classificação da carga de trabalho do Armazém de Dados Azure SQL
+# <a name="azure-synapse-analytics-workload-classification"></a>Classificação da carga de trabalho da Azure Synapse Analytics
 
-Este artigo explica o processo de classificação da carga de trabalho do SQL Data Warehouse de atribuição de uma classe de recursos e importância para os pedidos de entrada.
+Este artigo explica o processo de classificação da carga de trabalho de atribuição de um grupo de carga de trabalho e importância para os pedidos de entrada com a SQL Analytics em Azure Synapse.
 
 ## <a name="classification"></a>Classificação
 
@@ -36,7 +36,7 @@ Nem todas as declarações são classificadas porque não requerem recursos ou p
 
 ## <a name="classification-process"></a>Processo de classificação
 
-A classificação no SQL Data Warehouse é alcançada hoje, atribuindo aos utilizadores uma função que tem uma classe de recursos correspondente que lhe é atribuída utilizando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). A capacidade de caracterizar pedidos para além de um login para uma classe de recursos é limitada a esta capacidade. Um método mais rico para a classificação está agora disponível com a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql)  Com esta sintaxe, os utilizadores do SQL Data Warehouse podem atribuir importância e quanto recursos do sistema são atribuídos a um pedido através do parâmetro `workload_group`. 
+A classificação para SQL Analytics em Azure Synapse é alcançada hoje, atribuindo aos utilizadores uma função que tem uma classe de recursos correspondente atribuída a ela usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). A capacidade de caracterizar pedidos para além de um login para uma classe de recursos é limitada a esta capacidade. Um método mais rico para a classificação está agora disponível com a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql)  Com esta sintaxe, os utilizadores do SQL Analytics podem atribuir importância e quanto recursos do sistema são atribuídos a um pedido através do parâmetro `workload_group`. 
 
 > [!NOTE]
 > A classificação é avaliada por pedido. Vários pedidos numa única sessão podem ser classificados de forma diferente.

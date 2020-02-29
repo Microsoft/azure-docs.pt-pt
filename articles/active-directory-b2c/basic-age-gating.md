@@ -2,20 +2,20 @@
 title: Permitir a marcha da idade no Diretório Ativo Azure B2C  Microsoft Docs
 description: Saiba como identificar menores usando a sua aplicação.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1fc63b222fd2f08bb4b5596d58f825c8f6b1910e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836241"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189978"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Ativar a gating idade no Diretório Ativo Azure B2C
 
@@ -33,24 +33,24 @@ A marcha etária envolve dois valores etários: a idade em que alguém já não 
 
 | País/Região | Nome país/região | Idade de consentimento menor | Idade menor |
 | -------------- | ------------------- | ----------------- | --------- |
-| Predefinição | Nenhuma | Nenhuma | 18 |
-| AE | Emirados Árabes Unidos | Nenhuma | 21 |
+| Predefinição | Nenhum | Nenhum | 18 |
+| AE | Emirados Árabes Unidos | Nenhum | 21 |
 | AT | Áustria | 14 | 18 |
 | BE | Bélgica | 14 | 18 |
 | BG | Bulgária | 16 | 18 |
-| BH | Bahrain | Nenhuma | 21 |
-| CM | Camarões | Nenhuma | 21 |
+| BH | Barém | Nenhum | 21 |
+| CM | Camarões | Nenhum | 21 |
 | CY | Chipre | 16 | 18 |
 | CZ | República Checa | 16 | 18 |
 | DE | Alemanha | 16 | 18 |
 | DK | Dinamarca | 16 | 18 |
 | EE | Estónia | 16 | 18 |
-| EG | Egito | Nenhuma | 21 |
+| EG | Egito | Nenhum | 21 |
 | ES | Espanha | 13 | 18 |
 | FR | França | 16 | 18 |
 | GB | Reino Unido | 13 | 18 |
 | GR | Grécia | 16 | 18 |
-| RH | Croácia | 16 | 18 |
+| HR | Croácia | 16 | 18 |
 | HU | Hungria | 16 | 18 |
 | IE | Irlanda | 13 | 18 |
 | TI | Itália | 16 | 18 |
@@ -59,18 +59,18 @@ A marcha etária envolve dois valores etários: a idade em que alguém já não 
 | LU | Luxemburgo | 16 | 18 |
 | LV | Letónia | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| N/D | Namíbia | Nenhuma | 21 |
+| ND | Namíbia | Nenhum | 21 |
 | NL | Países Baixos | 16 | 18 |
 | PL | Polónia | 13 | 18 |
 | PT | Portugal | 16 | 18 |
 | RO | Roménia | 16 | 18 |
 | SE | Suécia | 13 | 18 |
-| SG | Singapura | Nenhuma | 21 |
+| SG | Singapura | Nenhum | 21 |
 | SI | Eslovénia | 16 | 18 |
 | SK | Eslováquia | 16 | 18 |
-| TD | Rio Chade | Nenhuma | 21 |
-| TH | Tailândia | Nenhuma | 20 |
-| TW | Taiwan | Nenhuma | 20 |
+| TD | Rio Chade | Nenhum | 21 |
+| TH | Tailândia | Nenhum | 20 |
+| TW | Taiwan | Nenhum | 20 |
 | EUA | Estados Unidos | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Opções de gating de idade

@@ -2,20 +2,20 @@
 title: Fluxos de utilizadores em Azure Ative Directory B2C  Microsoft Docs
 description: Saiba mais sobre o quadro de política extensível do Azure Ative Directory B2C e como criar vários fluxos de utilizadores.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fdc7d9fce3ebce4603369262f164ba72b1e39499
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c11bc48742c398d2048a236c7d00af044971f845
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484320"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185615"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos de utilizadores em Diretório Ativo Azure B2C
 
@@ -83,6 +83,6 @@ O endereço de e-mail não é garantido para ser verificado em nenhum destes cas
 
 Apenas os **outros Mails** e **propriedades signInNames** são expostos através da API do Microsoft Graph. O endereço de e-mail na propriedade de detalhes de autenticação forte não está disponível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para criar os fluxos recomendados do utilizador, siga as instruções no [Tutorial: Criar um fluxo de utilizador](tutorial-create-user-flows.md).

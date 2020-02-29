@@ -3,20 +3,20 @@ title: Rest API reclama trocas como validação
 titleSuffix: Azure AD B2C
 description: Um passeio para criar uma viagem de utilizador Azure AD B2C que interage com serviços RESTful.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 209cddcc8648f7d396f048057bb4367e2ae9f66c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7100498d99068941bcd7ca48b6cbcaa271fbb095
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846617"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189077"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Walkthrough: Integrar rest API reclama trocas de créditos na sua viagem de utilizador Azure AD B2C como validação na entrada do utilizador
 
@@ -114,7 +114,7 @@ Um perfil técnico é a configuração completa da troca desejada com o serviço
 
 O elemento `InputClaims` define as reclamações que serão enviadas do IEF para o serviço REST. Neste exemplo, o conteúdo da reclamação `givenName` será enviado para o serviço REST como `playerTag`. Neste exemplo, o IEF não espera reclamações de volta. Em vez disso, aguarda uma resposta do serviço REST e atua com base nos códigos de estado que recebe.
 
-Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que você deve fazer ao mudar para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, consulte [proteger APIs RESTful com autenticação básica](secure-rest-api-dotnet-basic-auth.md) e [proteger APIs RESTful com autenticação de certificado](secure-rest-api-dotnet-certificate-auth.md).
+Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificar alterações que deve fazer quando se muda para um ambiente de produção. Para aprender a proteger as suas APIs RESTful para produção, consulte [APIs RESTful Seguros com APIs](secure-rest-api-dotnet-basic-auth.md) resstful básicos e [SECURE RESTful com auth](secure-rest-api-dotnet-certificate-auth.md)certificado .
 
 ## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Passo 3: Incluir a troca de reclamações de serviço RESTful no perfil técnico autoafirmado onde pretende validar a entrada do utilizador
 
@@ -140,7 +140,7 @@ Para adicionar a troca de reclamações ao perfil técnico autoafirmado:
 
 [Referência: Perfil técnico RESTful](restful-technical-profile.md)
 
-Para saber como proteger suas APIs, consulte os seguintes artigos:
+Para aprender a proteger as suas APIs, consulte os seguintes artigos:
 
-* [Proteger sua API RESTful com autenticação básica (nome de usuário e senha)](secure-rest-api-dotnet-basic-auth.md)
-* [Proteger sua API RESTful com certificados de cliente](secure-rest-api-dotnet-certificate-auth.md)
+* [Proteja a sua API RESTful com autenticação básica (nome de utilizador e senha)](secure-rest-api-dotnet-basic-auth.md)
+* [Proteja a sua API RESTful com certificados de cliente](secure-rest-api-dotnet-certificate-auth.md)

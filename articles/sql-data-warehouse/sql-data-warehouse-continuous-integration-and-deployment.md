@@ -1,25 +1,26 @@
 ---
 title: Integração e implementação contínua
-description: Base de Dados de classe empresarial DevOps experiência para SQL Data Warehouse com suporte incorporado para integração contínua e implantação usando Pipelines Azure.
+description: Base de Dados de classe empresarial DevOps experiência para armazenamento de dados com suporte incorporado para integração contínua e implantação usando Pipelines Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: integration
-ms.date: 08/28/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8178e5ff9ff4816ddd422d3c45cfc0e1e0b3d41
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: cb28afc84c423c5c5321a8f948e82f82031888a0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712996"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195945"
 ---
-# <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integração e implantação contínua sql data Warehouse
+# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração e implantação contínuas para armazenamento de dados
 
-Este simples tutorial descreve como integrar o seu projeto de base de dados SQL Server Data (SSDT) com o Azure DevOps e alavancar os Pipelines Azure para configurar a integração e implementação contínuas. Este tutorial é o segundo passo na construção do seu oleoduto de integração e implantação contínua com o SQL Data Warehouse. 
+Este simples tutorial descreve como integrar o seu projeto de base de dados SQL Server Data (SSDT) com o Azure DevOps e alavancar os Pipelines Azure para configurar a integração e implementação contínuas. Este tutorial é o segundo passo na construção do seu pipeline de integração contínua e implementação para armazenamento de dados. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -53,15 +54,15 @@ Neste ponto, você tem um ambiente simples onde qualquer check-in no seu ramo pr
 
 2. Se estiver a utilizar um agente auto-hospedado, certifique-se de que define a sua variável ambiental para utilizar o SqlPackage.exe correto para o SQL Data Warehouse. O caminho deve ser parecido com isto:
 
-      ![Variável ambiental](media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variável de ambiente")
+      ![Variável ambiental](media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variável ambiental")
 
    C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  
 
    Corra e valide o seu oleoduto. Pode fazer alterações localmente e verificar alterações no seu controlo de origem que devem gerar uma construção e implementação automáticas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Explore a [arquitetura azure SQL Data Warehouse](massively-parallel-processing-mpp-architecture.md)
-- Crie rapidamente um Armazém de [Dados SQL](create-data-warehouse-portal.md)
+- Explore a [arquitetura MPP sQL Analytics](massively-parallel-processing-mpp-architecture.md)
+- Crie rapidamente [uma piscina SQL](create-data-warehouse-portal.md)
 - [Dados da amostra de carga](sql-data-warehouse-load-sample-databases.md)
 - Explore [vídeos](/azure/sql-data-warehouse/sql-data-warehouse-videos)

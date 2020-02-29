@@ -3,20 +3,20 @@ title: 'Tutorial: Adicione fornecedores de identidade às suas apps'
 titleSuffix: Azure AD B2C
 description: Saiba como adicionar fornecedores de identidade às suas aplicações no Azure Ative Directory B2C utilizando o portal Azure.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 07/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2bc02433be9ee7955b0e10ac659ee40e315e5a5e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1f49061210ca8e3c106b0569f77a67d1f10757a1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840167"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183521"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Adicione fornecedores de identidade às suas aplicações no Diretório Ativo Azure B2C
 
@@ -41,14 +41,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 As aplicações de fornecedor de identidade fornecem o identificador e a chave para permitir a comunicação com o seu inquilino Azure AD B2C. Nesta secção do tutorial, cria-se uma aplicação Azure AD e uma aplicação do Facebook a partir da qual obtém identificadores e chaves para adicionar os fornecedores de identidade ao seu inquilino. Se está a adicionar apenas um dos fornecedores de identidade, só precisa de criar a aplicação para esse fornecedor.
 
-### <a name="create-an-azure-active-directory-application"></a>Criar um aplicativo Azure Active Directory
+### <a name="create-an-azure-active-directory-application"></a>Criar uma aplicação azure ative diretório
 
 Para permitir o início de sessão para utilizadores a partir de Azure AD, é necessário registar uma aplicação dentro do inquilino Azure AD. O inquilino da Azure AD não é o mesmo que o seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione registos de **Aplicações**.
-1. Selecione **novo registro**.
+1. Selecione **Novo registo**.
 1. Introduza um nome para a aplicação. Por exemplo, `Azure AD B2C App`.
 1. Aceite a seleção de **Contas neste diretório organizacional apenas** para esta aplicação.
 1. Para o **Redirect URI,** aceite o valor da **Web** e introduza o seguinte URL em todas as letras minúsculas, substituindo `your-B2C-tenant-name` pelo nome do seu inquilino Azure AD B2C.
@@ -59,7 +59,7 @@ Para permitir o início de sessão para utilizadores a partir de Azure AD, é ne
 
     Por exemplo, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
-    Todas as URLs agora devem estar usando [b2clogin.com](b2clogin.md).
+    Todos os URLs devem agora utilizar [b2clogin.com](b2clogin.md).
 
 1. Selecione **Register,** em seguida, grave o ID de **Aplicação (cliente)** que utiliza num passo posterior.
 1. No âmbito **do 'Gerir'** no menu de candidaturas, selecione **Certificados e segredos,** em seguida, selecione **novo segredo de cliente**.
@@ -86,7 +86,7 @@ Para utilizar uma conta no Facebook como fornecedor de identidade no Azure AD B2
 1. Ao lado da **App Secret,** selecione **Show** e grave o seu valor. Usa tanto o ID da App como o App Secret para configurar o Facebook como fornecedor de identidade no seu inquilino. **App Secret** é uma importante credencial de segurança que deve armazenar de forma segura.
 1. Selecione o sinal de mais ao lado de **PRODUTOS,** em seguida, em **login do Facebook,** selecione **Configurar**.
 1. No **Facebook Iniciar sessão** no menu à esquerda, selecione **Definições**.
-1. Em **Redirecionamento Válido de IUrIs,** introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua `your-tenant-name` pelo nome do seu locatário. Selecione **Guardar Alterações** na parte inferior da página.
+1. Em **Redirecionamento Válido de IUrIs,** introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua `your-tenant-name` pelo nome do seu inquilino. Selecione **Guardar Alterações** na parte inferior da página.
 1. Para disponibilizar a sua aplicação do Facebook ao Azure AD B2C, clique no seletor **de Estado** no canto superior direito da página e **ligue-o** para tornar a Aplicação pública e, em seguida, clique em **Confirmar**. Neste momento, o Estatuto deve mudar de **Desenvolvimento** para **Viver.**
 
 ## <a name="add-the-identity-providers"></a>Adicione os fornecedores de identidade
@@ -96,9 +96,9 @@ Depois de criar o pedido para o fornecedor de identidade que pretende adicionar,
 ### <a name="add-the-azure-active-directory-identity-provider"></a>Adicione o fornecedor de identidade de Diretório Ativo Azure
 
 1. Certifique-se de que está a usar o diretório que contém inquilino Azure AD B2C. Selecione o filtro de **subscrição Diretório +** no menu superior e escolha o diretório que contém o seu inquilino Azure AD B2C.
-1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 1. Selecione **fornecedores de identidade**e, em seguida, selecione **o fornecedor New OpenID Connect**.
-1. Insira um **nome**. Por exemplo, introduza *Contoso Azure AD*.
+1. Introduza um **Nome**. Por exemplo, introduza *Contoso Azure AD*.
 1. Para url **de Metadados,** introduza o seguinte URL substituindo `your-AD-tenant-domain` com o nome de domínio do seu inquilino Azure AD:
 
     ```
@@ -124,7 +124,7 @@ Depois de criar o pedido para o fornecedor de identidade que pretende adicionar,
 ### <a name="add-the-facebook-identity-provider"></a>Adicione o fornecedor de identidade do Facebook
 
 1. Selecione **fornecedores de Identidade**e, em seguida, selecione **Facebook**.
-1. Insira um **nome**. Por exemplo, *Facebook*.
+1. Introduza um **Nome**. Por exemplo, *Facebook*.
 1. Para o ID do **cliente**, insira o ID da app da aplicação do Facebook que criou anteriormente.
 1. Para o segredo do **Cliente,** insira o Segredo da App que gravou.
 1. Selecione **Guardar**.
@@ -137,7 +137,7 @@ No tutorial que completou como parte dos pré-requisitos, criou um fluxo de util
 2. Selecione **fornecedores**de Identidade , selecione os fornecedores de identidade do **Facebook** e do **Contoso Azure ad** que adicionou.
 3. Selecione **Guardar**.
 
-## <a name="test-the-user-flow"></a>Testar o fluxo do usuário
+## <a name="test-the-user-flow"></a>Testar o fluxo do utilizador
 
 1. Na página 'Visão Geral' do fluxo de utilizador que criou, selecione **Executar o fluxo do utilizador**.
 1. Para **Aplicação**, selecione a aplicação web chamada *webapp1* que registou anteriormente. O **URL de resposta** deve mostrar `https://jwt.ms`.
@@ -170,7 +170,7 @@ Se o sinal em funcionamento for bem sucedido, é redirecionado para `https://jwt
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a:
+Neste artigo, aprendeu a:
 
 > [!div class="checklist"]
 > * Criar os pedidos de fornecedor de identidade

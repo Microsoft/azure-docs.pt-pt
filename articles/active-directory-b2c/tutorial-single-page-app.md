@@ -3,31 +3,31 @@ title: 'Tutorial: Ativar a autenticação numa aplicação de uma só página'
 titleSuffix: Azure AD B2C
 description: Neste tutorial, aprenda a utilizar o Azure Ative Directory B2C para fornecer login ao utilizador para uma aplicação de página única baseada no JavaScript (SPA).
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: f66d8e229535346525f117d8ebbfb37b893fe022
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 435800d9c6bfd9131d50681a9808f9836104fac0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850000"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183351"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutorial: Permitir a autenticação numa aplicação de uma só página utilizando o Diretório Ativo Azure B2C (Azure AD B2C)
 
-Este tutorial mostra-lhe como utilizar o Azure Ative Directory B2C (Azure AD B2C) para iniciar sessão e inscrever os utilizadores numa aplicação de uma única página (SPA). O Azure AD B2C permite que seus aplicativos se autentiquem em contas sociais, contas corporativas e Azure Active Directory contas usando protocolos padrão abertos.
+Este tutorial mostra-lhe como utilizar o Azure Ative Directory B2C (Azure AD B2C) para iniciar sessão e inscrever os utilizadores numa aplicação de uma única página (SPA). O Azure AD B2C permite que as suas aplicações se autentiquem a contas sociais, contas empresariais e contas de Diretório Ativo Azure utilizando protocolos padrão abertos.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Atualizar o aplicativo no Azure AD B2C
-> * Configurar o exemplo para usar o aplicativo
-> * Inscrever-se usando o fluxo do usuário
+> * Atualizar a aplicação em Azure AD B2C
+> * Configure a amostra para utilizar a aplicação
+> * Inscreva-se utilizando o fluxo do utilizador
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +35,7 @@ Neste tutorial, ficará a saber como:
 
 Você precisa dos seguintes recursos Azure AD B2C em vigor antes de continuar com os passos neste tutorial:
 
-* [Azure AD B2C locatário](tutorial-create-tenant.md)
+* [Inquilino Azure AD B2C](tutorial-create-tenant.md)
 * [Pedido registado](tutorial-register-applications.md) no seu inquilino
 * [Fluxos de utilizador criados](tutorial-create-user-flows.md) no seu inquilino
 
@@ -49,25 +49,25 @@ Além disso, precisa do seguinte no seu ambiente de desenvolvimento local:
 
 No segundo tutorial que completou como parte dos pré-requisitos, registou uma aplicação web no Azure AD B2C. Para permitir a comunicação com a amostra no tutorial, é necessário adicionar um URI redirecionado à aplicação em Azure AD B2C.
 
-Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** para atualizar o aplicativo. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Pode utilizar a experiência atual de **Aplicações** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização)** para atualizar a aplicação. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
 1. Selecione **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
-1. Selecione **aplicativos**e, em seguida, selecione o aplicativo *webapp1* .
+1. Selecione **Aplicações**e, em seguida, selecione a aplicação *webapp1.*
 1. No URL **de resposta,** adicione `http://localhost:6420`.
 1. Selecione **Guardar**.
 1. Na página de propriedades, grave o ID da **Aplicação**. Utiliza o ID da aplicação num passo posterior quando atualiza o código na aplicação web de uma página única.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
-1. Selecione **registros de aplicativo (versão prévia)** , selecione a guia **aplicativos de propriedade** e, em seguida, selecione o aplicativo *webapp1* .
-1. Selecione **autenticação**e, em seguida, selecione **experimentar a nova experiência** (se mostrado).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
+1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
+1. Selecione registos de **aplicações (Pré-visualização)** - selecione o separador **de aplicações Owned** e, em seguida, selecione a aplicação *webapp1.*
+1. **Selecione Autenticação**e, em seguida, selecione **Experimente a nova experiência** (se mostrada).
 1. No **Web,** selecione a ligação **Adicionar URI,** introduza `http://localhost:6420`e, em seguida, selecione **Guardar**.
 1. Selecione **Descrição geral**.
 1. Grave o ID da **Aplicação (cliente)** para utilização num passo posterior quando atualizar o código na aplicação web de página única.
@@ -138,7 +138,7 @@ A amostra suporta o início de inscrição, inscrição, edição de perfil e re
 
 1. Selecione **O Login** para iniciar o fluxo *de utilizador B2C_1_signupsignin1* especificado num passo anterior.
 1. O Azure AD B2C apresenta uma página de início de sessão com uma ligação de inscrição. Uma vez que ainda não tem uma conta, selecione o link **'Iniciar' agora.**
-1. O fluxo de trabalho de inscrição apresenta uma página para recolher e verificar a identidade do utilizador através de um endereço de e-mail. O fluxo de trabalho de inscrição também coleta a senha do usuário e os atributos solicitados definidos no fluxo do usuário.
+1. O fluxo de trabalho de inscrição apresenta uma página para recolher e verificar a identidade do utilizador através de um endereço de e-mail. O fluxo de trabalho de inscrição também recolhe a palavra-passe do utilizador e os atributos solicitados definidos no fluxo do utilizador.
 
     Utilize um endereço de e-mail válido e valide com o código de verificação. Defina uma palavra-passe. Introduza os valores para os atributos solicitados.
 
@@ -166,12 +166,12 @@ Para corrigir este erro, continue para o próximo tutorial da série (ver [Passo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a:
+Neste artigo, aprendeu a:
 
 > [!div class="checklist"]
-> * Atualizar o aplicativo no Azure AD B2C
-> * Configurar o exemplo para usar o aplicativo
-> * Inscrever-se usando o fluxo do usuário
+> * Atualizar a aplicação em Azure AD B2C
+> * Configure a amostra para utilizar a aplicação
+> * Inscreva-se utilizando o fluxo do utilizador
 
 Agora passe para o próximo tutorial da série para dar acesso a uma API web protegida do SPA:
 

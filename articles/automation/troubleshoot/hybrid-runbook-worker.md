@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4d804499116631be6f922f67f8b8f6c7063a6d5c
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 137623e4c52d24061aec8ec11fca0fc02ca54c7f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030732"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190981"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Trabalhadores do livro híbrido de troubleshoot
 
@@ -54,7 +54,7 @@ Os computadores que executam o Hybrid Runbook Worker devem cumprir os requisitos
 
 Confirme que o computador para executar a função Hybrid Runbook Worker cumpre os requisitos mínimos de hardware. Se isso acontecer, monitorize o CPU e o uso da memória para determinar qualquer correlação entre o desempenho dos processos híbridos do Runbook Worker e do Windows. Qualquer pressão de memória ou CPU pode indicar a necessidade de atualizar os recursos. Também pode selecionar um recurso computacional diferente que suporte os requisitos mínimos e a escala quando as exigências de carga de trabalho indicam que é necessário um aumento.
 
-Verifique o registo do evento **Microsoft-SMA** para um evento correspondente com descrição *Win32 Process Exited with code [4294967295]* . A causa deste erro é que não configurau a autenticação nos seus livros de execução ou especificou a Execução Como credenciais para o grupo Trabalhador Híbrido. Reveja [as permissões do Livro](../automation-hrw-run-runbooks.md#runbook-permissions) de Execução para confirmar que configuracorrectamente a autenticação para os seus livros de execução.
+Verifique o registo do evento **Microsoft-SMA** para um evento correspondente com descrição *Win32 Process Exited with code [4294967295]* . A causa deste erro é que não configurau a autenticação nos seus livros de execução ou especificou a Execução Como credenciais para o grupo Operário de Runbook Híbrido. Reveja as permissões do livro de execução em runbook running [on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) para confirmar que você tem corretamente configurado a autenticação para os seus livros de execução.
 
 ### <a name="no-cert-found"></a>Cenário: Não foi encontrado nenhum certificado na loja de certificados da Hybrid Runbook Worker
 
@@ -233,8 +233,8 @@ Para resolver este problema, remova a seguinte chave de registo e reinicie a `He
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
+Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
 * Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Se precisar de mais ajuda, você poderá arquivar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+* Se precisar de mais ajuda, pode apresentar um incidente de apoio ao Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

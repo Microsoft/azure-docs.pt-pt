@@ -2,20 +2,20 @@
 title: Políticas personalizadas do Diretório Ativo Azure B2C Microsoft Docs
 description: Conheça as políticas personalizadas do Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b1f3bbcba562d126d503920cb7b6787e2ca0025c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847046"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189247"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -29,9 +29,9 @@ As políticas personalizadas são ficheiros de configuração que definem o comp
 |-|-------------------|-----------------|
 | Utilizadores-alvo | Todos os desenvolvedores de aplicações com ou sem conhecimentos de identidade. | Profissionais de identidade, integradores de sistemas, consultores e equipas de identidade interna. Eles são confortáveis com os fluxos OpenID Connect e compreendem fornecedores de identidade e autenticação baseada em sinistros. |
 | Método de configuração | Portal Azure com uma interface de utilizador amigável (UI). | Editar diretamente ficheiros XML e, em seguida, fazer o upload para o portal Azure. |
-| Personalização da UI | Personalização completa de UI incluindo HTML, CSS e JavaScript.<br><br>Suporte multilingmístico com cordas personalizadas. | Idêntica |
-| Personalização de atributos | Atributos padrão e personalizados. | Idêntica |
-| Token e gestão de sessões | Token personalizado e várias opções de sessão. | Idêntica |
+| Personalização da UI | Personalização completa de UI incluindo HTML, CSS e JavaScript.<br><br>Suporte multilingmístico com cordas personalizadas. | mesmo |
+| Personalização de atributos | Atributos padrão e personalizados. | mesmo |
+| Token e gestão de sessões | Token personalizado e várias opções de sessão. | mesmo |
 | Fornecedores de Identidade | Prestador local ou social predefinido e a maioria dos fornecedores de identidade da OIDC, como a federação com inquilinos do Diretório Ativo Azure. | OIDC, OAUTH e SAML.  A autenticação também é possível através da integração com APIs REST. |
 | Tarefas de Identidade | Inscreva-se ou inscreva-se com contas sociais locais ou muitas.<br><br>Reset de senha de autosserviço.<br><br>Edição de perfil.<br><br>Autenticação multi-factor.<br><br>Personalize fichas e sessões.<br><br>Fluxos de fichas de acesso. | Complete as mesmas tarefas que os fluxos do utilizador utilizando fornecedores de identidade personalizados ou utilize âmbitos personalizados.<br><br>Fornecer uma conta de utilizador noutro sistema no momento do registo.<br><br>Envie um e-mail de boas-vindas usando o seu próprio fornecedor de serviços de e-mail.<br><br>Utilize uma loja de utilizadores fora do Azure AD B2C.<br><br>Validar o utilizador forneceu informações com um sistema fidedigno utilizando uma API. |
 

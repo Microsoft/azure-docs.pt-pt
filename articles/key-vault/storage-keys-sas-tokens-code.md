@@ -1,26 +1,27 @@
 ---
-title: Conta de armazenamento gerenciado Azure Key Vault-versão do PowerShell
-description: O recurso de conta de armazenamento gerenciado fornece uma integração direta, entre Azure Key Vault e uma conta de armazenamento do Azure.
+title: Conta de armazenamento gerida pela Azure Key Vault - versão PowerShell
+description: A funcionalidade de conta de armazenamento gerida proporciona uma integração perfeita, entre o Azure Key Vault e uma conta de armazenamento Azure.
 ms.topic: conceptual
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 75561c643c2b8881e4b390be885b77f2fff4971d
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: cbd7bd034c5cbbdf5308ec660a96dc52a9a2b310
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673462"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200707"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>Obter tokens de assinatura de acesso partilhado no código
 
-Você pode gerenciar sua conta de armazenamento com os [tokens de assinatura de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) em seu cofre de chaves. Este artigo fornece exemplos de C# código que busca um token SAS e executa operações com ele.  Para obter informações sobre como criar e armazenar tokens SAS, consulte [gerenciar chaves de conta de armazenamento com Key Vault e o CLI do Azure](key-vault-ovw-storage-keys.md) ou [gerenciar chaves de conta de armazenamento com Key Vault e Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
+Você pode gerir a sua conta de armazenamento com as [fichas](../storage/common/storage-dotnet-shared-access-signature-part-1.md) de assinatura de acesso partilhada no seu cofre chave. Este artigo fornece exemplos de C# código que adquire um token SAS e executa operações com ele.  Para obter informações sobre como criar e armazenar tokens SAS, consulte Gerir as chaves da conta de [armazenamento com o Key Vault e o Azure CLI](key-vault-ovw-storage-keys.md) ou gerir as chaves da conta de armazenamento com key vault e [Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Neste exemplo, o código busca um token SAS do cofre de chaves, usa-o para criar uma nova conta de armazenamento e cria um novo cliente de serviço BLOB.  
+Neste exemplo, o código requer um token SAS do seu cofre chave, usa-o para criar uma nova conta de armazenamento, e cria um novo cliente de serviço Blob.  
 
 ```cs
 // After you get a security token, create KeyVaultClient with vault credentials.
@@ -39,7 +40,7 @@ var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("htt
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
 ```
 
-Se o token de assinatura de acesso compartilhado estiver prestes a expirar, você poderá buscar o token de assinatura de acesso compartilhado do cofre de chaves e atualizar o código.
+Se o seu token de assinatura de acesso partilhado estiver prestes a expirar, pode obter o símbolo da assinatura de acesso partilhado do seu cofre de chaves e atualizar o código.
 
 ```cs
 // If your shared access signature token is about to expire,
@@ -50,7 +51,7 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba como [gerenciar chaves de conta de armazenamento com Key Vault e o CLI do Azure](key-vault-ovw-storage-keys.md) ou [Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
-- Consulte [exemplos de chave da conta de armazenamento gerenciado](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
+- Saiba como gerir as chaves da conta de [armazenamento com o Key Vault e o Azure CLI](key-vault-ovw-storage-keys.md) ou [Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
+- Ver [amostras-chave](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=) da conta de armazenamento gerida
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
-- [Referência do Key Vault PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
+- [Referência de Key Vault PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)

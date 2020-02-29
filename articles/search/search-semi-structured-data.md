@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Dados semi-estruturados do índice nas bolhas JSON'
+title: 'Tutorial: Dados semi-estruturados do índice em bolhas JSON'
 titleSuffix: Azure Cognitive Search
 description: Aprenda a indexar e pesquisar bolhas Azure JSON semi-estruturadas usando APIs de pesquisa cognitiva azure e carteiro.
 manager: nitinme
@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 0603ad1fbecf33e5880fd7f18d35af51795f8e39
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 02/28/2020
+ms.openlocfilehash: f025b3357943014a6d9c6e331c47f019fe94c5bf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251996"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196948"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>TUTORDE REST: Index e pesquisa de dados semi-estruturados (bolhas JSON) em Pesquisa Cognitiva Azure
+# <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Bolhas de Índice JSON do Armazenamento Azure usando REST
 
 A Pesquisa Cognitiva Azure pode indexar documentos e matrizes JSON no armazenamento de blob Azure usando um [indexante](search-indexer-overview.md) que sabe ler dados semi-estruturados. Os dados semiestruturados contêm etiquetas ou marcações que separam o conteúdo dentro dos dados. Divide a diferença entre dados não estruturados, que devem ser totalmente indexados, e dados formalmente estruturados que aderem a um modelo de dados, como um esquema de base de dados relacional, que pode ser indexado numa base por campo.
 
-Neste tutorial, utilize as APIs de [REPOUSO de Pesquisa Cognitiva Azure](https://docs.microsoft.com/rest/api/searchservice/) e um cliente REST para executar as seguintes tarefas:
+Este tutorial utiliza o Carteiro e as [APIs](https://docs.microsoft.com/rest/api/searchservice/) de Repouso de Pesquisa para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Configure uma fonte de dados de pesquisa cognitiva Azure para um recipiente de blob Azure
@@ -27,15 +27,18 @@ Neste tutorial, utilize as APIs de [REPOUSO de Pesquisa Cognitiva Azure](https:/
 > * Configure e execute um indexante para ler o recipiente e extrair conteúdo pesquisável do armazenamento de blob Azure
 > * Pesquisar o índice que acabou de criar
 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os seguintes serviços, ferramentas e dados são utilizados neste arranque rápido. 
++ [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Aplicação de ambiente de trabalho Postman](https://www.getpostman.com/)
++ [Criar](search-create-service-portal.md) ou [encontrar um serviço](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de pesquisa existente 
 
-[Crie um serviço de Pesquisa Cognitiva Azure](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Você pode usar um serviço gratuito para este tutorial. 
+> [!Note]
+> Pode utilizar o serviço gratuito para este tutorial. Um serviço de pesquisa gratuito limita-o a três índices, três indexadores e três fontes de dados. Este tutorial cria um de cada. Antes de começar, certifique-se de que tem espaço ao seu serviço para aceitar os novos recursos.
 
-[Crie uma conta](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) de armazenamento Azure para armazenar os dados da amostra.
-
-Aplicativo de [secretária postman](https://www.getpostman.com/) para envio de pedidos para Pesquisa Cognitiva Azure.
+## <a name="download-files"></a>Transferir ficheiros
 
 [Os ensaios clínicos-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contém os dados utilizados neste tutorial. Descarregue e desaperte este ficheiro para a sua própria pasta. Os dados são originários de [clinicaltrials.gov,](https://clinicaltrials.gov/ct2/results)convertidos para JSON para este tutorial.
 
@@ -283,13 +286,27 @@ Se quiser experimentar e tentar fazer sozinho mais algumas consultas, pode fazê
 
 O parâmetro `$filter` só funciona com os metadados que foram marcados como «filtrável» na criação do seu índice.
 
+## <a name="reset-and-rerun"></a>Repor e executar novamente
+
+Nas fases experimentais iniciais de desenvolvimento, a abordagem mais prática para a iteração do design é apagar os objetos da Pesquisa Cognitiva Azure e permitir que o seu código os reconstrua. Os nomes dos recursos são exclusivos. Quando elimina um objeto, pode recriá-lo com o mesmo nome.
+
+Pode utilizar o portal para eliminar índices, indexadores e fontes de dados. Ou use **DELETE** e forneça URLs a cada objeto. O comando seguinte elimina um indexante.
+
+```http
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+```
+
+O código de estado 204 é devolvido após uma eliminação com êxito.
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A forma mais rápida de limpar depois de um tutorial é apagando o grupo de recursos que contém o serviço de Pesquisa Cognitiva Azure. Pode eliminar o grupo de recursos agora para eliminar definitivamente tudo o que este contém. No portal, o nome do grupo de recursos está na página geral do serviço de Pesquisa Cognitiva Azure.
+Quando se trabalha na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos deixados a funcionar podem custar-lhe dinheiro. Pode eliminar os recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+
+Pode encontrar e gerir recursos no portal, utilizando a ligação De Todos os recursos ou grupos de Recursos no painel de navegação à esquerda.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Existem várias abordagens e múltiplas opções para indexar bolhas JSON. Como próximo passo, reveja e teste as várias opções para ver o que funciona melhor para o seu cenário.
+Agora que está familiarizado com o básico da indexação do Azure Blob, vamos ver mais de perto a configuração do indexante.
 
 > [!div class="nextstepaction"]
-> [Como indexar as bolhas JSON usando o indexante de blob de pesquisa cognitiva Azure](search-howto-index-json-blobs.md)
+> [Configure um indexador de armazenamento Azure Blob](search-howto-indexing-azure-blob-storage.md)

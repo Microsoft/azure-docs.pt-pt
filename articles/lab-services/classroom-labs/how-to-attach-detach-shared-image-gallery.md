@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 3e915c26e9469b37ac8bc345c4d5cd1712e7acdb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 00dbef7b4453ffcb54020340bde51f55827759a0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597733"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190522"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou separar uma galeria de imagens partilhadas nos Serviços de Laboratório Azure
 Professores/administrador de laboratório podem guardar uma imagem VM modelo numa galeria de [imagens partilhada](../../virtual-machines/windows/shared-image-galleries.md) azure para que seja reutilizada por outros. Como primeiro passo, o administrador do laboratório anexa uma galeria de imagens partilhadas existente à conta do laboratório. Uma vez anexada a galeria de imagens partilhadas, os laboratórios criados na conta de laboratório podem guardar imagens para a galeria de imagens partilhada. Outros professores podem selecionar esta imagem a partir da galeria de imagens partilhadas para criar um modelo para as suas aulas. 
@@ -28,7 +28,7 @@ Quando uma imagem é guardada numa galeria de imagens partilhada, a Azure Lab Se
 Este artigo mostra-lhe como anexar ou separar uma galeria de imagens partilhadas a uma conta de laboratório. 
 
 > [!NOTE]
-> Atualmente, a Azure Lab Services apoia a criação de VMs com base apenas em imagens **VM generalizadas** (imagens não especializadas) numa galeria de imagens partilhadas. 
+> Atualmente, a Azure Lab Services apoia a criação de VMs de modelo baseados apenas em imagens **VM generalizadas** (imagens não especializadas) numa galeria de imagens partilhadas. 
 
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configure no momento da criação de conta de laboratório

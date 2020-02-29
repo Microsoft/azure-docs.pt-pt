@@ -1,39 +1,39 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: 59cf0b81363c724d709d85105525bece13743f26
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: mimart
+ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474864"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183394"
 ---
-#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Selecione **aplicativos**.
-1. Selecione o aplicativo *webapi1* para abrir sua página de **Propriedades** .
-1. Selecione **escopos publicados**. Os escopos publicados podem ser usados para conceder a um aplicativo cliente determinadas permissões para a API da Web.
-1. Para **escopo**, insira `demo.read`e, para **descrição**, insira `Read access to the web API`.
-1. Para **escopo**, insira `demo.write`e, para **descrição**, insira `Write access to the web API`.
+1. Selecione **Aplicações**.
+1. Selecione a aplicação *webapi1* para abrir a sua página **Propriedades.**
+1. Selecione **os âmbitos publicados**. Os âmbitos publicados podem ser utilizados para conceder a uma aplicação de cliente determinadas permissões à Web API.
+1. Para **o SCOPE,** insira `demo.read`, e para **DESCRIÇÃO,** introduza `Read access to the web API`.
+1. Para **o SCOPE,** insira `demo.write`, e para **DESCRIÇÃO,** introduza `Write access to the web API`.
 1. Selecione **Guardar**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
-1. Selecione **registros de aplicativo (versão prévia)** .
-1. Selecione o aplicativo *webapi1* para abrir sua página de **visão geral** .
-1. Em **gerenciar**, selecione **expor uma API**.
-1. Ao lado de **ID do aplicativo URI**, selecione o link **definir** .
-1. Substitua o valor padrão (um GUID) por `api`e, em seguida, selecione **salvar**. O URI completo é mostrado e deve estar no formato `https://your-tenant-name.onmicrosoft.com/api`. Quando o aplicativo Web solicita um token de acesso para a API, ele deve adicionar esse URI como o prefixo para cada escopo que você definir para a API.
-1. Em **escopos definidos por essa API**, selecione **Adicionar um escopo**.
-1. Insira os valores a seguir para criar um escopo que define o acesso de leitura à API e, em seguida, selecione **Adicionar escopo**:
-    1. **Nome do escopo**: `demo.read`
-    1. **Nome de exibição do consentimento do administrador**: `Read access to demo API`
-    1. **Descrição do consentimento do administrador**: `Allows read access to the demo API`
-1. Selecione **Adicionar um escopo**, insira os valores a seguir para adicionar um escopo que define o acesso de gravação à API e, em seguida, selecione **Adicionar escopo**:
-    1. **Nome do escopo**: `demo.write`
-    1. **Nome de exibição do consentimento do administrador**: `Write access to demo API`
-    1. **Descrição do consentimento do administrador**: `Allows write access to the demo API`
+1. Selecione **registos de aplicativos (Pré-visualização)** .
+1. Selecione a aplicação *webapi1* para abrir a sua página **de visão geral.**
+1. Em **'Gerir',** selecione **Expor uma API**.
+1. Ao lado do **ID de aplicação URI,** selecione o link **set.**
+1. Substitua o valor predefinido (um GUID) por `api`e, em seguida, selecione **Guardar**. O URI completo é mostrado, e deve estar no formato `https://your-tenant-name.onmicrosoft.com/api`. Quando a sua aplicação web solicita um sinal de acesso para a API, deve adicionar este URI como prefixo para cada âmbito que define para a API.
+1. Em **Âmbitos definidos por este API,** selecione **Adicionar um âmbito**.
+1. Introduza os seguintes valores para criar um âmbito que define o acesso à API e, em seguida, **selecione Adicionar o âmbito:**
+    1. **Nome do âmbito**: `demo.read`
+    1. Nome de **exibição de consentimento do administrador**: `Read access to demo API`
+    1. **Descrição**do consentimento do administrador : `Allows read access to the demo API`
+1. **Selecione Adicionar um âmbito,** introduzir os seguintes valores para adicionar um âmbito que define o acesso à API e, em seguida, selecione **Adicionar o âmbito:**
+    1. **Nome do âmbito**: `demo.write`
+    1. Nome de **exibição de consentimento do administrador**: `Write access to demo API`
+    1. **Descrição**do consentimento do administrador : `Allows write access to the demo API`

@@ -1,22 +1,23 @@
 ---
 title: Analisar dados com o Azure Machine Learning
-description: Utilize o Azure Machine Learning para criar um modelo preditivo de machine learning com base em dados armazenados no Azure SQL Data Warehouse.
+description: Utilize o Azure Machine Learning para construir um modelo de aprendizagem automática preditivo baseado em dados armazenados em Azure Synapse.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: integration
-ms.date: 03/22/2019
+ms.date: 02/05/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 892d4642d700949d1d1169c69926021c751cef67
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+tag: azure-Synapse
+ms.openlocfilehash: f6765fdbb65f62bb790d1e8781512db572170b10
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721290"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195894"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -28,7 +29,7 @@ ms.locfileid: "76721290"
 > 
 > 
 
-Este tutorial utiliza o Azure Machine Learning para criar um modelo preditivo de machine learning com base em dados armazenados no Azure SQL Data Warehouse. Mais especificamente, cria uma campanha de marketing direcionada para Adventure Works, a loja de bicicletas, ao prever se existe ou não probabilidade de um cliente comprar uma bicicleta.
+Este tutorial utiliza o Azure Machine Learning para construir um modelo de aprendizagem automática preditivo baseado em dados armazenados em Azure Synapse. Mais especificamente, cria uma campanha de marketing direcionada para Adventure Works, a loja de bicicletas, ao prever se existe ou não probabilidade de um cliente comprar uma bicicleta.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
@@ -37,7 +38,7 @@ Este tutorial utiliza o Azure Machine Learning para criar um modelo preditivo de
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este tutorial, é necessário:
 
-* Um SQL Data Warehouse pré-carregado com dados de exemplo da AdventureWorksDW. Para proceder ao aprovisionamento, consulte [Create a SQL Data Warehouse (Criar um SQL Data Warehouse)](create-data-warehouse-portal.md) e opte por carregar os dados de exemplo. Se já tiver um armazém de dados, mas não tiver dados de exemplo, pode [carregar dados de exemplo manualmente](sql-data-warehouse-load-sample-databases.md).
+* Um pool SQL pré-carregado com dados da amostra AdventureWorksDW. Para fornecer isto, consulte [Criar um pool SQL](create-data-warehouse-portal.md) e optar por carregar os dados da amostra. Se já tiver um armazém de dados, mas não tiver dados de exemplo, pode [carregar dados de exemplo manualmente](sql-data-warehouse-load-sample-databases.md).
 
 ## <a name="1-get-the-data"></a>1. Obter os dados
 Os dados encontram-se na vista dbo.vTargetMail na base de dados AdventureWorksDW. Para ler estes dados:
@@ -46,7 +47,7 @@ Os dados encontram-se na vista dbo.vTargetMail na base de dados AdventureWorksDW
 2. Clique **+NEW** na parte inferior esquerda do ecrã e selecione **Blank Experiment**.
 3. Introduza um nome para a experimentação: Marketing Direcionado.
 4. Arraste o módulo de **dados de Importação** sob a entrada de dados e a **saída** dos módulos para a tela.
-5. Especifique os detalhes da sua base de dados SQL Data Warehouse no painel Propriedades.
+5. Especifique os detalhes da sua piscina SQL no painel Propriedades.
 6. Especifique a **consulta** de base de dados para ler os dados de interesse.
 
 ```sql
@@ -128,7 +129,7 @@ Verá mais duas colunas adicionadas ao conjunto de dados de teste.
 * Probabilidades Classificadas: a probabilidade de um cliente ser comprador de uma bicicleta.
 * Etiquetas Classificadas: a classificação efetuada pelo modelo – comprador de bicicleta (1) ou não (0). Este limiar de probabilidade para etiquetas está definido como 50% e pode ser ajustado.
 
-Ao comparar a coluna BikeBuyer (real) com as Etiquetas Classificadas (predição), pode ver quão bom foi o desempenho do modelo. Em seguida, pode utilizar este modelo para fazer previsões para novos clientes e publicar este modelo como um serviço web ou escrever resultados de volta ao SQL Data Warehouse.
+Ao comparar a coluna BikeBuyer (real) com as Etiquetas Classificadas (predição), pode ver quão bom foi o desempenho do modelo. Em seguida, pode utilizar este modelo para fazer previsões para novos clientes e publicar este modelo como um serviço web ou escrever resultados de volta ao Azure Synapse.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre como criar modelos preditivos de machine learning, consulte [Introdução ao Machine Learning no Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).

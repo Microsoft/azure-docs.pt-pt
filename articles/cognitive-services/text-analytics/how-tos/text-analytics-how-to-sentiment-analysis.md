@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 84ef01b5e7fc3f628b1cdf7a1f13175604ebcdd4
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 60f6443e041c2f3a76a9027bebd33dc29a07f445
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137949"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197475"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar o sentimento utilizando a API de Análise de Texto
 
@@ -50,7 +50,7 @@ O Text Analytics API oferece duas versões de Análise de Sentimentos - v2 e v3.
 | Rotulagem de sentimentos                        |                       | X                     |
 | Versão do modelo                   |                       | X                     |
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 ### <a name="sentiment-scoring"></a>Pontuação de sentimento
 
@@ -76,10 +76,10 @@ A Análise de Sentimento st23 pode devolver pontuações e etiquetas a nível de
 
 ### <a name="example-c-code"></a>Código C# de exemplo
 
-Pode encontrar uma C# aplicação de exemplo que chama esta versão de Análise de Sentimento [sondar no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
+Pode encontrar uma C# aplicação de exemplo que chama esta versão de Análise de Sentimento [sondar no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs).
 
 
-#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 ### <a name="sentiment-scoring"></a>Pontuação de sentimento
 
@@ -101,11 +101,11 @@ O tamanho do documento deve ser inferior a 5.120 caracteres por documento. Pode 
 
 Crie um pedido post. Pode [utilizar](text-analytics-how-to-call-api.md) o Carteiro ou a consola de **teste API** nos seguintes links de referência para estruturar e enviar uma. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 [Referência de Análise de Sentimento v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
 
-#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 [Referência de Análise de Sentimento v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
@@ -116,11 +116,11 @@ Detete o ponto final HTTPS para análise de sentimentos utilizando um recurso De
 > [!NOTE]
 > Pode encontrar a sua chave e ponto final para o seu recurso Text Analytics no portal azul. Eles estarão localizados na página de **arranque rápida** do recurso, sob gestão de **recursos.** 
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
 
-#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
@@ -162,7 +162,7 @@ O analisador de sentimentos classifica o texto como predominantemente positivo o
 
 O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite a JSON ou guardar a saída para um ficheiro no sistema local. Em seguida, importe a produção para uma aplicação que pode usar para classificar, pesquisar e manipular os dados.
 
-#### <a name="version-30-previewtabversion-3"></a>[Versão 3.0-pré-visualização](#tab/version-3)
+#### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Resposta exemplo de análise de sentimento v3
 
@@ -238,7 +238,7 @@ As respostas da Sentiment Analysis v3 contêm etiquetas de sentimento e pontuaç
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[Versão 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 ### <a name="sentiment-analysis-v2-example-response"></a>Resposta de exemplo de análise de sentimento v2
 
@@ -268,7 +268,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para análise de sentimento
 + O pedido do POST é para um ponto final `/sentiment` utilizando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta, que consiste numa pontuação de sentimento para cada id de documento, pode ser transmitida para qualquer aplicação que aceite a JSON. Por exemplo, Excel e Power BI.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Descrição Geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)

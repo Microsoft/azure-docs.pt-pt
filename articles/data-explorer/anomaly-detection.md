@@ -1,5 +1,5 @@
 ---
-title: Deteção e previsão de anomalias da série temporal - Azure Data Explorer
+title: Deteção e previsão de anomalias da série temporal no Azure Data Explorer
 description: Saiba como analisar os dados da série de tempo para deteção e previsão de anomalias usando o Azure Data Explorer.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 4a7463d6149a921a4a29b43eaebb78a01543323a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a482fef93d43f92257608b65c9c0e2ade535bcca
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985830"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194162"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Deteção e previsão de anomalias no Azure Data Explorer
 
@@ -77,7 +77,7 @@ demo_make_series2
 * O componente de base (sazonal + tendência) (em azul).
 * Os pontos anómalos (em roxo) em cima da série de horários original. Os pontos anómalos desviam-se significativamente dos valores de base esperados.
 
-## <a name="time-series-forecasting"></a>Previsão de série temporal
+## <a name="time-series-forecasting"></a>Previsão de séries temporais
 
 A função [`series_decompose_forecast()`](/azure/kusto/query/series-decompose-forecastfunction) prevê valores futuros de um conjunto de séries temporais. Esta função chama `series_decompose()` para construir o modelo de decomposição e, em seguida, para cada série de tempo, extrapolar o componente de base para o futuro.
 
@@ -97,7 +97,7 @@ demo_make_series2
 | render timechart with(title='Web app. traffic of a month, forecasting the next week by Time Series Decomposition')
 ```
 
-![Previsão de série temporal](media/anomaly-detection/series-forecasting.png)
+![Previsão de séries temporais](media/anomaly-detection/series-forecasting.png)
 
 * Métrica original (em vermelho). Os valores futuros estão em falta e definidos para 0, por defeito.
 * Extrapolar o componente de base (em azul) para prever os valores da próxima semana.

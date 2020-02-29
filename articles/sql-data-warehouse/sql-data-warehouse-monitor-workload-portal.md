@@ -1,46 +1,46 @@
 ---
-title: Monitorar carga de trabalho-portal do Azure
-description: Monitorar SQL Data Warehouse do Azure usando o portal do Azure
+title: Monitorizar a carga de trabalho - Portal Azure
+description: Monitor SQL Analytics utilizando o portal Azure
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/22/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 73d837c34dd5a480cae08a41c89939414899052a
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 7e93aee405d8a66d850a4e3f07f2e788f1004ef8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645624"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197246"
 ---
-# <a name="monitor-workload---azure-portal"></a>Monitorar carga de trabalho-portal do Azure
+# <a name="monitor-workload---azure-portal"></a>Monitorizar a carga de trabalho - Portal Azure
 
-Este artigo descreve como usar o portal do Azure para monitorar sua carga de trabalho. Isso inclui a configuração de logs de Azure Monitor para investigar a execução da consulta e as tendências de carga de trabalho usando o log Analytics para o [SQL data warehouse do Azure](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
+Este artigo descreve como usar o portal Azure para monitorizar a sua carga de trabalho. Isto inclui a criação de registos do Monitor Azure para investigar as tendências de execução de consultas e de carga de trabalho utilizando análises de registo para [o SQL Analytics](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure: se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- SQL Data Warehouse do Azure: coletaremos logs para um SQL Data Warehouse. Se você não tiver um SQL Data Warehouse provisionado, consulte as instruções em [criar um SQL data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- Assinatura Azure: Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- Piscina SQL: Vamos recolher registos para uma piscina SQL. Se não tiver uma piscina SQL aprovisionada, consulte as instruções em [Create a SQL pool](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
 
-## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho Log Analytics
+## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho log Analytics
 
-Navegue até a folha procurar por Log Analytics espaços de trabalho e crie um espaço de trabalho 
+Navegue para a lâmina de navegação para espaços de trabalho log Analytics e crie um espaço de trabalho 
 
 ![Áreas de trabalho do Log Analytics](media/sql-data-warehouse-monitor/log_analytics_workspaces.png)
 
-![Adicionar espaço de trabalho de análise](media/sql-data-warehouse-monitor/add_analytics_workspace.png)
+![Adicionar espaço de trabalho analytics](media/sql-data-warehouse-monitor/add_analytics_workspace.png)
 
-![Adicionar espaço de trabalho de análise](media/sql-data-warehouse-monitor/add_analytics_workspace_2.png)
+![Adicionar espaço de trabalho analytics](media/sql-data-warehouse-monitor/add_analytics_workspace_2.png)
 
-Para obter mais detalhes sobre espaços de trabalho, visite a [documentação](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace)a seguir.
+Para mais detalhes sobre espaços de trabalho, visite a seguinte [documentação.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace)
 
-## <a name="turn-on-diagnostic-logs"></a>Ativar logs de diagnóstico 
+## <a name="turn-on-diagnostic-logs"></a>Ligue os registos de diagnóstico
 
-Defina as configurações de diagnóstico para emitir logs de seu SQL Data Warehouse. Os logs consistem em exibições de telemetria do seu data warehouse equivalente às DMVs de solução de problemas de desempenho mais usadas para SQL Data Warehouse. Atualmente, há suporte para as seguintes exibições:
+Configure as definições de diagnóstico para emitir registos da sua piscina SQL. Os registos consistem em vistas de telemetria equivalentes às DMVs de resolução de problemas de desempenho mais comumente usadas. Atualmente, são apoiadas as seguintes opiniões:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=aps-pdw-2016-au7)
@@ -49,30 +49,30 @@ Defina as configurações de diagnóstico para emitir logs de seu SQL Data Wareh
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=aps-pdw-2016-au7)
 
 
-![Habilitando logs de diagnóstico](media/sql-data-warehouse-monitor/enable_diagnostic_logs.png)
+![Habilitar registos de diagnóstico](media/sql-data-warehouse-monitor/enable_diagnostic_logs.png)
 
-Os logs podem ser emitidos para o armazenamento do Azure, Stream Analytics ou Log Analytics. Para este tutorial, selecione Log Analytics.
+Os registos podem ser emitidos para o Armazenamento Azure, Stream Analytics ou Log Analytics. Para este tutorial, selecione Log Analytics.
 
-![Especificar logs](media/sql-data-warehouse-monitor/specify_logs.png)
+![Especificar registos](media/sql-data-warehouse-monitor/specify_logs.png)
 
-## <a name="run-queries-against-log-analytics"></a>Executar consultas no Log Analytics
+## <a name="run-queries-against-log-analytics"></a>Executar consultas contra log analytics
 
-Navegue até o espaço de trabalho Log Analytics onde você pode fazer o seguinte:
+Navegue para o seu espaço de trabalho Log Analytics onde pode fazer o seguinte:
 
-- Analisar logs usando consultas de log e salvar consultas para reutilização
-- Salvar consultas para reutilização
+- Analise os registos usando consultas de registo e guarde consultas para reutilização
+- Guarde as consultas para reutilizar
 - Criar alertas de registos
-- Fixar resultados da consulta em um painel
+- Resultados da consulta de pin para um dashboard
 
-Para obter detalhes sobre os recursos das consultas de log, visite a [documentação](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language)a seguir.
+Para mais informações sobre as capacidades das consultas de registo, visite a seguinte [documentação](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
 
 ![Editor de espaço de trabalho Log Analytics](media/sql-data-warehouse-monitor/log_analytics_workspace_editor.png)
 
 
 
-![Log Analytics consultas de espaço de trabalho](media/sql-data-warehouse-monitor/log_analytics_workspace_queries.png)
+![Consultas de espaço de trabalho de Log Analytics](media/sql-data-warehouse-monitor/log_analytics_workspace_queries.png)
 
-## <a name="sample-log-queries"></a>Consultas de log de exemplo
+## <a name="sample-log-queries"></a>Consultas de registo de amostras
 
 
 
@@ -99,4 +99,4 @@ AzureDiagnostics
 ```
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você configurou e configurou os logs do Azure monitor, [Personalize os painéis do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) para compartilhar em sua equipe.
+Agora que criou e configurou os registos de monitores Azure, [personalize os dashboards Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) para partilhar em toda a sua equipa.

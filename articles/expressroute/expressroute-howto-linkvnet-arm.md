@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute: vincular uma VNet a um circuito: Azure PowerShell'
+title: 'ExpressRoute: Ligue um VNet a um circuito: Azure PowerShell'
 description: Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute com o modelo de implementação do Resource Manager e PowerShell.
 services: expressroute
 author: ganesr
@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 22e235b16f834198f5edc2f9365d2b13e1e9c49f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2685b9b519eaac453726f4923c46f1604cbd4681
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031723"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197832"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Ligar uma rede virtual a um circuito do ExpressRoute
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [CLI do Azure](howto-linkvnet-cli.md)
-> * [Vídeo - portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Vídeo - Portal Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-linkvnet-classic.md)
 >
 
@@ -30,18 +30,18 @@ Este artigo ajuda-o a ligar redes virtuais (VNets) para circuitos do ExpressRout
 
 * Pode ser associada uma VNet única para até quatro circuitos do ExpressRoute. Utilize os passos neste artigo para criar um novo objeto de ligação para cada circuito de ExpressRoute que está a ligar. Os circuitos do ExpressRoute podem ser na mesma subscrição, subscrições diferentes ou uma combinação de ambos.
 
-* Pode ligar redes virtuais fora da região geopolítica do circuito ExpressRoute ou ligar um grande número de redes virtuais para o seu circuito do ExpressRoute, se tiver ativado o suplemento ExpressRoute premium. Verifique os [FAQ](expressroute-faqs.md) para obter mais detalhes sobre o suplemento premium.
+* Pode ligar redes virtuais fora da região geopolítica do circuito ExpressRoute ou ligar um grande número de redes virtuais para o seu circuito do ExpressRoute, se tiver ativado o suplemento ExpressRoute premium. Verifique as [FAQ](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Reveja os [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md), e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
+* Reveja os [pré-requisitos,](expressroute-prerequisites.md) [os requisitos de encaminhamento](expressroute-routing.md)e [os fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
 
 * Deve ter um circuito ExpressRoute ativo. 
-  * Siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md) e ter o circuito ativado pelo seu fornecedor de conectividade. 
-  * Certifique-se de que tem o peering privado do Azure configurado para o seu circuito. Consulte a [configurar o encaminhamento](expressroute-howto-routing-arm.md) artigo para obter instruções de encaminhamento. 
+  * Siga as instruções para [criar um circuito ExpressRoute](expressroute-howto-circuit-arm.md) e tenha o circuito ativado pelo seu fornecedor de conectividade. 
+  * Certifique-se de que tem o peering privado do Azure configurado para o seu circuito. Consulte o artigo de [encaminhamento configurado](expressroute-howto-routing-arm.md) para obter instruções de encaminhamento. 
   * Certifique-se de que o peering privado do Azure está configurado e o peering de BGP entre a rede e a Microsoft está ativo, para que pode habilitar a conectividade de ponto-a-ponto.
-  * Certifique-se de que tem uma rede virtual e um gateway de rede virtual criada e totalmente aprovisionado. Siga as instruções para [criar um gateway de rede virtual para o ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Um gateway de rede virtual para o ExpressRoute utiliza o GatewayType "ExpressRoute", não VPN.
+  * Certifique-se de que tem uma rede virtual e um gateway de rede virtual criada e totalmente aprovisionado. Siga as instruções para criar uma porta de entrada de rede virtual para a [ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Um gateway de rede virtual para o ExpressRoute utiliza o GatewayType "ExpressRoute", não VPN.
 
 ### <a name="working-with-azure-powershell"></a>Trabalhar com o Azure PowerShell
 
@@ -106,7 +106,7 @@ A resposta a esta irá conter a chave de autorização e o estado:
 
 
 
-**Para rever as autorizações**
+**Rever as autorizações**
 
 O proprietário do circuito pode rever todas as autorizações emitidos num determinado circuito, execute o seguinte cmdlet:
 
@@ -115,7 +115,7 @@ $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $authorizations = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 ```
 
-**Para adicionar as autorizações**
+**Para adicionar autorizações**
 
 O proprietário do circuito pode adicionar as autorizações utilizando o cmdlet seguinte:
 
@@ -147,7 +147,7 @@ ID de ponto a ponto pode ser verificado no comando seguinte:
 Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
-**Para resgatar uma autorização de conexão**
+**Para resgatar uma autorização de ligação**
 
 O utilizador de circuito pode executar o cmdlet seguinte para resgatar uma autorização de ligação:
 
@@ -157,16 +157,16 @@ $gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyR
 $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
-**Para liberar uma autorização de conexão**
+**Para libertar uma autorização de ligação**
 
 Pode libertar uma autorização ao eliminar a ligação que ligue o circuito do ExpressRoute para a rede virtual.
 
 ## <a name="modify-a-virtual-network-connection"></a>Modificar uma ligação de rede virtual
 Pode atualizar determinadas propriedades de uma ligação de rede virtual. 
 
-**Para atualizar o peso de ligação**
+**Para atualizar o peso da ligação**
 
-A rede virtual pode ser ligada a vários circuitos do ExpressRoute. Poderá receber o mesmo prefixo de mais do que um circuito do ExpressRoute. Para escolher qual a ligação para enviar o tráfego destinado a este prefixo, pode alterar *RoutingWeight* de uma ligação. Será possível enviar o tráfego na conexão com a mais alta *RoutingWeight*.
+A rede virtual pode ser ligada a vários circuitos do ExpressRoute. Poderá receber o mesmo prefixo de mais do que um circuito do ExpressRoute. Para escolher qual a ligação para enviar tráfego destinado a este prefixo, pode alterar *o Peso de Encaminhamento* de uma ligação. O tráfego será enviado na ligação com o peso de *encaminhamento*mais elevado .
 
 ```azurepowershell-interactive
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
@@ -174,20 +174,25 @@ $connection.RoutingWeight = 100
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ```
 
-O intervalo de *RoutingWeight* é 0 para 32000. O valor predefinido é 0.
+O intervalo de *Peso-Encaminhamento* é de 0 a 32000. O valor predefinido é 0.
 
-## <a name="configure-expressroute-fastpath"></a>Configurar o ExpressRoute FastPath 
-Você pode habilitar o [Expressroute FastPath](expressroute-about-virtual-network-gateways.md) se o circuito do expressroute estiver no [expressroute Direct](expressroute-erdirect-about.md) e seu gateway de rede virtual for ultra performance ou ErGw3AZ. O FastPath melhora o desempenho do caminho de dados, como pacotes por segundo e conexões por segundo entre sua rede local e sua rede virtual. 
+## <a name="configure-expressroute-fastpath"></a>Configure ExpressRoute FastPath 
+Pode ativar o [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se o seu circuito ExpressRoute estiver no [ExpressRoute Direct](expressroute-erdirect-about.md) e o seu portal de rede virtual for Ultra Performance ou ErGw3AZ. O FastPath melhora o desempenho do caminho de dados, como pacotes por segundo e ligações por segundo entre a sua rede no local e a sua rede virtual. 
 
-> [!NOTE] 
-> Se você já tiver uma conexão de rede virtual, mas não tiver habilitado FastPath, precisará excluir a conexão de rede virtual e criar uma nova. 
-> 
->  
+**Configure fastPath numa nova ligação**
 
 ```azurepowershell-interactive 
 $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG" 
 $gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG" 
 $connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
+``` 
+
+**Atualizar uma ligação existente para ativar o FastPath**
+
+```azurepowershell-interactive 
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" 
+$connection.ExpressRouteGatewayBypass = $True
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
 
 ## <a name="next-steps"></a>Passos seguintes

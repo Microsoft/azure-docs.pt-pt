@@ -3,21 +3,21 @@ title: Registos de auditoria de acesso e revisão
 titleSuffix: Azure AD B2C
 description: Como aceder aos registos de auditoria Azure AD B2C programáticamente e no portal Azure.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/20/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 62a969519ebefaab919505d9c8faae830f55f4c6
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505618"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185782"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acesso a registos de auditoria Azure AD B2C
 
@@ -221,6 +221,6 @@ Aqui está a representação da JSON do evento de atividade de exemplo mostrado 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Pode automatizar outras tarefas de administração, por exemplo, gerir contas de [utilizadores Do Azure AD B2C com](manage-user-accounts-graph-api.md)o Microsoft Graph .

@@ -2,20 +2,20 @@
 title: Protocolos de autenticação no Diretório Ativo Azure B2C  Microsoft Docs
 description: Como construir aplicações diretamente utilizando os protocolos que são suportados pelo Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7d5ff0fa22f3ded559a5c6cd726e7ae5e12dd92c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ed393f721d4461ebadea41f8dad707d4881865cd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848788"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183910"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protocolos de autenticação
 O Azure Ative Directory B2C (Azure AD B2C) fornece identidade como serviço para as suas apps, suportando dois protocolos padrão da indústria: OpenID Connect e OAuth 2.0. O serviço é compatível com as normas, mas quaisquer duas implementações destes protocolos podem ter diferenças subtis.
@@ -64,7 +64,7 @@ O portador é qualquer partido que possa apresentar o símbolo. A Azure AD deve 
 
 Algumas fichas de segurança têm mecanismos incorporados que impedem as partes não autorizadas de usá-los, mas os símbolos do portador não têm este mecanismo. Devem ser transportados num canal seguro, como uma segurança da camada de transporte (HTTPS).
 
-Se um token portador for transmitido fora de um canal seguro, uma parte maliciosa pode usar um ataque homem-no-meio para adquirir o símbolo e usá-lo para obter acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança aplicam-se quando as fichas do portador são armazenadas ou em cache para posterior utilização. Sempre verifique se seu aplicativo transmite e armazena tokens de portador de maneira segura.
+Se um token portador for transmitido fora de um canal seguro, uma parte maliciosa pode usar um ataque homem-no-meio para adquirir o símbolo e usá-lo para obter acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança aplicam-se quando as fichas do portador são armazenadas ou em cache para posterior utilização. Certifique-se sempre de que a sua aplicação transmite e armazena fichas ao portador de forma segura.
 
 Para obter considerações adicionais de segurança simbólicas, consulte [a Secção 5 rFC 6750](https://tools.ietf.org/html/rfc6750).
 

@@ -1,43 +1,43 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: 0b5c5fdddeea961858a2c3b8cd69c365bb28f26e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: mimart
+ms.openlocfilehash: d3a323a28d92e2a5834b65316d61c7d53a42aacf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73800040"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183788"
 ---
-Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada **de registros de aplicativo (versão prévia)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a experiência atual de **Aplicações,** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização).** [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
-1. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
-1. Insira um nome para o aplicativo. Por exemplo, *nativeapp1*.
-1. Para **cliente nativo**, selecione **Sim**.
-1. Insira um **URI de redirecionamento personalizado** com um esquema exclusivo. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`. Há duas considerações importantes ao escolher um URI de redirecionamento:
-    * **Exclusivo**: o esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. No exemplo `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`, `com.onmicrosoft.contosob2c.exampleapp` é o esquema. Esse padrão deve ser seguido. Se dois aplicativos compartilharem o mesmo esquema, o usuário terá a opção de escolher um aplicativo. Se o usuário escolher incorretamente, a entrada falhará.
-    * **Concluído**: o URI de redirecionamento deve ter um esquema e um caminho. O caminho deve conter pelo menos uma barra após o domínio. Por exemplo, `//oauth/` funciona enquanto `//oauth` falha. Não inclua caracteres especiais no URI, por exemplo, sublinhados.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
+1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
+1. Selecione **Aplicações,** e, em seguida, **selecione Adicionar**.
+1. Insira um nome para a aplicação. Por exemplo, *nativeapp1*.
+1. Para **cliente nativo,** selecione **Sim**.
+1. Introduza um **Custom Redirect URI** com um esquema único. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`. Existem duas considerações importantes na escolha de um URI redirecionado:
+    * **Único:** O esquema do URI redirecionado deve ser único para cada aplicação. No exemplo `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`, `com.onmicrosoft.contosob2c.exampleapp` é o esquema. Este padrão deve ser seguido. Se duas aplicações partilharem o mesmo esquema, é dada ao utilizador a opção de escolher uma aplicação. Se o utilizador escolher incorretamente, o inserido falha.
+    * **Completo**: O redirecionamento URI deve ter um esquema e um caminho. O caminho deve conter pelo menos um corte para a frente após o domínio. Por exemplo, `//oauth/` funciona enquanto `//oauth` falha. Não inclua personagens especiais no URI, por exemplo, sublinha.
 1. Selecione **Criar**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
-1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione **novo registro**.
-1. Insira um **nome** para o aplicativo. Por exemplo, *nativeapp1*.
-1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional ou qualquer provedor de identidade**.
-1. Em **URI de redirecionamento**, use a lista suspensa para selecionar **cliente público/nativo (Mobile & Desktop)** .
-1. Insira um URI de redirecionamento com um esquema exclusivo. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`. Há duas considerações importantes ao escolher um URI de redirecionamento:
-    * **Exclusivo**: o esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. No exemplo `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`, `com.onmicrosoft.contosob2c.exampleapp` é o esquema. Esse padrão deve ser seguido. Se dois aplicativos compartilharem o mesmo esquema, o usuário terá a opção de escolher um aplicativo. Se o usuário escolher incorretamente, a entrada falhará.
-    * **Concluído**: o URI de redirecionamento deve ter um esquema e um caminho. O caminho deve conter pelo menos uma barra após o domínio. Por exemplo, `//oauth/` funciona enquanto `//oauth` falha. Não inclua caracteres especiais no URI, por exemplo, sublinhados.
-1. Em **permissões**, marque a caixa de seleção *conceder consentimento de administrador às permissões OpenID e offline_access* .
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro de **subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
+1. No menu esquerdo, **selecione Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
+1. Selecione **registos de aplicativos (Pré-visualização)** e, em seguida, selecione **Nova inscrição**.
+1. Insira um **Nome** para a aplicação. Por exemplo, *nativeapp1*.
+1. Nos tipos de **conta suportada,** selecione **Contas em qualquer diretório organizacional ou qualquer fornecedor**de identidade.
+1. Em **Redirect URI,** utilize a gota para selecionar **cliente/nativo público (mobile & desktop)** .
+1. Introduza um URI redirecionamento com um esquema único. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`. Existem duas considerações importantes na escolha de um URI redirecionado:
+    * **Único:** O esquema do URI redirecionado deve ser único para cada aplicação. No exemplo `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`, `com.onmicrosoft.contosob2c.exampleapp` é o esquema. Este padrão deve ser seguido. Se duas aplicações partilharem o mesmo esquema, é dada ao utilizador a opção de escolher uma aplicação. Se o utilizador escolher incorretamente, o inserido falha.
+    * **Completo**: O redirecionamento URI deve ter um esquema e um caminho. O caminho deve conter pelo menos um corte para a frente após o domínio. Por exemplo, `//oauth/` funciona enquanto `//oauth` falha. Não inclua personagens especiais no URI, por exemplo, sublinha.
+1. Em **Permissões**, selecione o consentimento do *administrador grant para abrir e offline_access permissões* verifiquem a caixa.
 1. Selecione **Registar**.

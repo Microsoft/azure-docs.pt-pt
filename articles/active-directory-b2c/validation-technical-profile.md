@@ -1,28 +1,28 @@
 ---
-title: Definir um perfil técnico de validação em uma política personalizada
+title: Defina um perfil técnico de validação numa política personalizada
 titleSuffix: Azure AD B2C
-description: Valide as declarações usando um perfil técnico de validação em uma política personalizada no Azure Active Directory B2C.
+description: Validar as reclamações utilizando um perfil técnico de validação numa política personalizada no Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: facef1e1288f2a64872efbf37a9a31fa05244a7e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 65a2eab05e7c475431602d9c2d3fc44b59bbc8f7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950804"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185731"
 ---
-# <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de validação em uma política personalizada de Azure Active Directory B2C
+# <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de validação numa política personalizada do Diretório Ativo Azure B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Um perfil técnico de validação é um perfil técnico comum de qualquer protocolo, como [Azure Active Directory](active-directory-technical-profile.md) ou uma [API REST](restful-technical-profile.md). O perfil técnico de validação retorna declarações de saída ou retorna uma mensagem de erro HTTP 409 (código de status de resposta de conflito), com os seguintes dados:
+Um perfil técnico de validação é um perfil técnico comum de qualquer protocolo, como [o Azure Ative Directory](active-directory-technical-profile.md) ou um [REST API](restful-technical-profile.md). O perfil técnico de validação devolve reclamações de saída ou devolve uma mensagem de erro HTTP 409 (código de estado de resposta a conflitos), com os seguintes dados:
 
 ```JSON
 {
@@ -32,60 +32,60 @@ Um perfil técnico de validação é um perfil técnico comum de qualquer protoc
 }
 ```
 
-As declarações que são retornadas de um perfil técnico de validação são adicionadas de volta ao recipiente de declarações. Você pode usar essas declarações na próxima validação de perfis técnicos.
+As reclamações devolvidas de um perfil técnico de validação são adicionadas ao saco de reclamações. Pode utilizar essas reclamações nos perfis técnicos de validação seguintes.
 
-Os perfis técnicos de validação são executados na sequência que aparecem no elemento **ValidationTechnicalProfiles** . Você pode configurar o em um perfil técnico de validação se a execução de quaisquer perfis técnicos de validação subsequentes deve continuar se o perfil técnico de validação gerar um erro ou for bem-sucedido.
+Os perfis técnicos de validação são executados na sequência que aparecem no elemento **ValidaçãoPerfis Técnicos.** Pode configurar num perfil técnico de validação se a execução de quaisquer perfis técnicos de validação subsequentedeve continuar se o perfil técnico de validação levantar um erro ou for bem sucedido.
 
-Um perfil técnico de validação pode ser executado condicionalmente com base nas pré-condições definidas no elemento **ValidationTechnicalProfile** . Por exemplo, você pode verificar se há declarações específicas ou se uma declaração é igual ou não ao valor especificado.
+Um perfil técnico de validação pode ser executado condicionalmente com base nas condições prévias definidas no elemento **ValidaçãoTechnicalProfile.** Por exemplo, pode verificar se existe uma reclamação específica, ou se uma reclamação é igual ou não ao valor especificado.
 
-Um perfil técnico autodeclarado pode definir um perfil técnico de validação a ser usado para validar algumas ou todas as suas declarações de saída. Todas as declarações de entrada do perfil técnico referenciado devem aparecer nas declarações de saída do perfil técnico de validação de referência.
+Um perfil técnico autoafirmado pode definir um perfil técnico de validação a utilizar para validar algumas ou todas as suas reclamações de saída. Todas as reclamações de entrada do perfil técnico referenciado devem figurar nas alegações de saída do perfil técnico de validação de referência.
 
 > [!NOTE]
-> Somente perfis técnicos autodeclarados podem usar perfis técnicos de validação. Se você precisar validar as declarações de saída de perfis técnicos não autodeclarados, considere o uso de uma etapa de orquestração adicional no percurso do usuário para acomodar o perfil técnico responsável pela validação.
+> Apenas perfis técnicos autoafirmados podem utilizar perfis técnicos de validação. Se precisar de validar as reclamações de saída de perfis técnicos não autoafirmados, considere utilizar um passo de orquestração adicional na sua viagem de utilizador para acomodar o perfil técnico responsável pela validação.
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
-O elemento **ValidationTechnicalProfiles** contém os seguintes elementos:
+O elemento **ValidaçãoPerfis Técnicos** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1: n | Um perfil técnico a ser usado para validar algumas ou todas as declarações de saída do perfil técnico de referência. |
+| ValidationTechnicalProfile | 1:n | Um perfil técnico a utilizar para validar algumas ou todas as reclamações de saída do perfil técnico de referência. |
 
-O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
+O elemento **ValidaçãoTechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador de um perfil técnico já definido na política ou diretiva pai. |
-|ContinueOnError|Não| Indicando se a validação de quaisquer perfis técnicos de validação subsequentes deve continuar se esse perfil técnico de validação gerar um erro. Valores possíveis: `true` ou `false` (padrão, o processamento de mais perfis de validação será interrompido e um erro retornará). |
-|ContinueOnSuccess | Não | Indicando se a validação de quaisquer perfis de validação subsequentes deve continuar se esse perfil técnico de validação tiver sucesso. Valores possíveis: `true` ou `false`. O padrão é `true`, o que significa que o processamento de perfis de validação adicionais continuará. |
+| ReferenceId | Sim | Identificador de um perfil técnico já definido na política ou na política dos pais. |
+|ContinueOnError|Não| Indicando se a validação de quaisquer perfis técnicos de validação subsequente deve continuar se este perfil técnico de validação levantar um erro. Valores possíveis: `true` ou `false` (padrão, o processamento de perfis de validação posteriores para e um erro devolvido). |
+|ContinueOnSuccess | Não | Indicando se a validação de quaisquer perfis de validação subsequentes deve continuar se este perfil técnico de validação for bem sucedido. Valores possíveis: `true` ou `false`. O padrão é `true`, o que significa que o processamento de perfis de validação continuará. |
 
-O elemento **ValidationTechnicalProfile** contém o seguinte elemento:
+O elemento **ValidaçãoTechnicalProfile** contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Pré-condições | 0:1 | Uma lista de pré-condições que devem ser satisfeitas para que o perfil técnico de validação seja executado. |
+| Condições prévias | 0:1 | Uma lista de condições prévias que deve ser satisfeita para que o perfil técnico de validação seja executado. |
 
-O elemento de **pré-condição** contém o seguinte atributo:
+O elemento **Pré-condição** contém o seguinte atributo:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| `Type` | Sim | O tipo de verificação ou consulta a ser executada para a pré-condição. Qualquer um `ClaimsExist` é especificado para garantir que as ações sejam executadas se as declarações especificadas existirem no conjunto de declarações atual do usuário ou `ClaimEquals` for especificado que as ações devem ser executadas se a declaração especificada existir e seu valor for igual ao valor especificado. |
-| `ExecuteActionsIf` | Sim | Indica se as ações na pré-condição devem ser executadas se o teste for verdadeiro ou falso. |
+| `Type` | Sim | O tipo de verificação ou consulta a realizar para a pré-condição. Ou é especificado `ClaimsExist` para garantir que as ações devem ser executadas se as reclamações especificadas existirem no conjunto de reclamações do utilizador, ou `ClaimEquals` é especificado que as ações devem ser executadas se a reclamação especificada existir e o seu valor for igual ao valor especificado. |
+| `ExecuteActionsIf` | Sim | Indica se as ações na condição prévia devem ser realizadas se o teste for verdadeiro ou falso. |
 
-O elemento de **pré-condição** contém os seguintes elementos:
+O elemento **Pré-condição** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Valor | 1: n | Os dados que são usados pela verificação. Se o tipo dessa verificação for `ClaimsExist`, esse campo especificará um ClaimTypeReferenceId a ser consultado. Se o tipo de verificação for `ClaimEquals`, esse campo especificará um ClaimTypeReferenceId a ser consultado. Enquanto outro elemento Value contém o valor a ser verificado.|
-| Ação | 1:1 | A ação que deve ser executada se a verificação de pré-condição dentro de uma etapa de orquestração for verdadeira. O valor da **ação** é definido como `SkipThisValidationTechnicalProfile`. Especifica que o perfil técnico de validação associado não deve ser executado. |
+| Valor | 1:n | Os dados que são usados pela verificação. Se o tipo desta verificação for `ClaimsExist`, este campo especifica um ClaimTypeReferenceId para consultar. Se o tipo de verificação for `ClaimEquals`, este campo especifica um ClaimTypeReferenceId para consultar. Enquanto outro elemento de valor contém o valor a ser verificado.|
+| Ação | 1:1 | A ação que deve ser tomada se o controlo prévio dentro de um passo de orquestração for verdadeira. O valor da **Ação** está definido para `SkipThisValidationTechnicalProfile`. Especifica que o perfil técnico de validação associado não deve ser executado. |
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir usa estes perfis técnicos de validação:
+O exemplo seguinte utiliza estes perfis técnicos de validação:
 
-1. O primeiro perfil técnico de validação verifica as credenciais do usuário e não continua se ocorrer um erro, como nome de usuário inválido ou senha inválida.
-2. O próximo perfil técnico de validação, não será executado se a declaração UserType não existir, ou se o valor do UserType for `Partner`. O perfil técnico de validação tenta ler o perfil do usuário do banco de dados interno do cliente e continuar se ocorrer um erro, como o serviço de API REST não disponível ou qualquer erro interno.
-3. O último perfil técnico de validação, não será executado se a declaração UserType não existir, ou se o valor de UserType for `Customer`. O perfil técnico de validação tenta ler o perfil do usuário do banco de dados do parceiro interno e continua se ocorrer um erro, como o serviço de API REST não disponível ou qualquer erro interno.
+1. O primeiro perfil técnico de validação verifica as credenciais do utilizador e não continua se ocorrer um erro, como o nome de utilizador inválido ou a má palavra-passe.
+2. O próximo perfil técnico de validação não executa se a reclamação do userType não existir, ou se o valor do utilizadorType for `Partner`. O perfil técnico de validação tenta ler o perfil do utilizador a partir da base de dados interna do cliente e continuar se ocorrer um erro, como o serviço REST API não disponível, ou qualquer erro interno.
+3. O último perfil técnico de validação não executa se a reclamação do utilizadorType não existiu, ou se o valor do utilizadorType for `Customer`. O perfil técnico de validação tenta ler o perfil do utilizador a partir da base de dados interna do parceiro e continua se ocorrer um erro, como o serviço REST API não disponível, ou qualquer erro interno.
 
 ```XML
 <ValidationTechnicalProfiles>

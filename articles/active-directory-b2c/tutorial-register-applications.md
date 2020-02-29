@@ -3,20 +3,20 @@ title: 'Tutorial: Registe uma candidatura'
 titleSuffix: Azure AD B2C
 description: Saiba como registar uma aplicação web no Azure Ative Directory B2C utilizando o portal Azure.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dbb689182a45367061ae129304a98a8ee9962051
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a688f5e75f7513d0ea4308b751f87f75a2c9510a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840116"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183096"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: Registe uma candidatura no Diretório Ativo Azure B2C
 
@@ -26,7 +26,7 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Registar uma aplicação Web
-> * Criar um segredo do cliente
+> * Criar um segredo de cliente
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -36,13 +36,13 @@ Se ainda não criou o seu próprio [Inquilino B2C Azure AD,](tutorial-create-ten
 
 ## <a name="register-a-web-application"></a>Registar uma aplicação Web
 
-Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada **de registros de aplicativo (versão prévia)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a experiência atual de **Aplicações,** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização).** [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
-1. Na portal do Azure, procure e selecione **Azure ad B2C**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
+1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. Selecione **Aplicações,** e, em seguida, **selecione Adicionar**.
 1. Insira um nome para a aplicação. Por exemplo, *webapp1*.
 1. Para **incluir web app/ web API** e **permitir fluxo implícito,** selecione **Sim**.
@@ -55,15 +55,15 @@ Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a e
     * O URL de resposta deve começar com o esquema `https`.
     * O URL de resposta é sensível a casos. O seu caso deve coincidir com o caso do percurso url da sua aplicação de execução. Por exemplo, se a sua aplicação incluir como parte do seu caminho `.../abc/response-oidc`, não especifique `.../ABC/response-oidc` no URL de resposta. Uma vez que o navegador da Web trata os caminhos como sensíveis a casos, os cookies associados à `.../abc/response-oidc` podem ser excluídos se forem redirecionados para o URL de `.../ABC/response-oidc` desajustado.
 
-1. Selecione **criar** para concluir o registro do aplicativo.
+1. Selecione **Criar** para completar o registo de candidatura.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
-1. Na portal do Azure, procure e selecione **Azure ad B2C**.
-1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione **novo registro**.
-1. Insira um **nome** para o aplicativo. Por exemplo, *webapp1*.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
+1. No portal Azure, procure e selecione **Azure AD B2C**.
+1. Selecione **registos de aplicativos (Pré-visualização)** e, em seguida, selecione **Nova inscrição**.
+1. Insira um **Nome** para a aplicação. Por exemplo, *webapp1*.
 1. Selecione **Contas em qualquer diretório organizacional ou qualquer fornecedor**de identidade.
 1. Em **Redirecione o URI,** selecione **Web**e introduza `https://jwt.ms` na caixa de texto URL.
 
@@ -79,24 +79,24 @@ Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a e
 
 Uma vez concluído o registo de candidatura, ative o fluxo implícito de subvenção:
 
-1. Em **gerenciar**, selecione **autenticação**.
-1. Selecione **experimentar a nova experiência** (se mostrado).
+1. Em **'Gerir',** **selecione Autenticação**.
+1. Selecione **Experimente a nova experiência** (se mostrada).
 1. Sob **a subvenção Implícita,** selecione tanto as **fichas** de acesso como as **fichas de identificação** das caixas de verificação.
 1. Selecione **Guardar**.
 
 * * *
 
-## <a name="create-a-client-secret"></a>Criar um segredo do cliente
+## <a name="create-a-client-secret"></a>Criar um segredo de cliente
 
 Se o seu pedido trocar um código de autorização para um sinal de acesso, precisa de criar um segredo de aplicação.
 
-#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications"></a>[Aplicações](#tab/applications/)
 
 1. Na página **Azure AD B2C - Aplicações,** selecione a aplicação que criou, por exemplo *webapp1*.
 1. Selecione **Teclas** e, em seguida, **selecione A tecla Generate**.
 1. Selecione **Guardar** para visualizar a tecla. Anote o valor da **Chave da aplicação**. Usa este valor como segredo de aplicação no código da sua aplicação.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
 1. Na página **Azure AD B2C - Registos de aplicações (Pré-visualização),** selecione a aplicação que criou, por exemplo *webapp1*.
 1. Em **Gerir**, selecione **Certificados e segredos.**
@@ -109,11 +109,11 @@ Se o seu pedido trocar um código de autorização para um sinal de acesso, prec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a:
+Neste artigo, aprendeu a:
 
 > [!div class="checklist"]
 > * Registar uma aplicação Web
-> * Criar um segredo do cliente
+> * Criar um segredo de cliente
 
 Em seguida, aprenda a criar fluxos de utilizador para permitir que os seus utilizadores se inscrevam, inscrevam-se e gerem os seus perfis.
 

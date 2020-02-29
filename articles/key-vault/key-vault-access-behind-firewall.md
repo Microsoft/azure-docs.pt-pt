@@ -1,24 +1,25 @@
 ---
-title: Acessar Key Vault por trás de um firewall-Azure Key Vault | Microsoft Docs
+title: Cofre chave de acesso atrás de uma firewall - Cofre chave Azure / Microsoft Docs
 description: Saiba como aceder ao Azure Key Vault a partir de uma aplicação protegida por uma firewall
 services: key-vault
 author: amitbapat
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 57c5e3f2741f81bce2eff2d5ef2b0f2d029096e3
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 36dada57e587da6e023a83c8ebb6555abe44b9ba
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976376"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184851"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Aceder ao Cofre de Chaves do Azure protegido por firewall
 
-## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Quais portas, hosts ou endereços IP devo abrir para habilitar meu aplicativo cliente do cofre de chaves por trás de um firewall para acessar o cofre de chaves?
+## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Que portas, anfitriões ou endereços IP devo abrir para permitir a aplicação do meu cliente chave vault atrás de uma firewall para aceder ao cofre da chave?
 
 Para aceder a um cofre de chaves, a sua aplicação cliente do cofre de chaves tem de aceder a vários pontos finais para várias funcionalidades:
 
@@ -32,7 +33,7 @@ Dependendo da configuração e do ambiente, existem algumas variações.
 
 Todo o tráfego para um cofre de chaves para as três funções (autenticação, gestão e acesso ao plano de dados) é feito por HTTPS: porta 443. No entanto, existirá ocasionalmente tráfego HTTP (porta 80) para CRL. Os clientes que suportam o OCSP não devem alcançar o CRL, mas podem, ocasionalmente, alcançar [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 As aplicações cliente do Cofre de Chaves terão de aceder a pontos finais do Azure Active Directory para autenticação. O ponto final utilizado depende da configuração do inquilino do Azure AD, do tipo de principal (principal de utilizador ou principal de serviço) e do tipo de conta - por exemplo, uma conta Microsoft ou uma conta escolar ou profissional.  
 
@@ -65,6 +66,6 @@ Para todas as operações criptográficas e de gestão de objetos do cofre de ch
 
 O serviço Cofre de Chaves utiliza outros recursos do Azure, como a infraestrutura PaaS. Por isso, não é possível fornecer um intervalo de endereços IP específico que os pontos finais do serviço Cofre de Chaves terão num determinado momento. Se a sua firewall só suporta intervalos de endereço IP, consulte o documento [Intervalos IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). A Autenticação e Identidade (Azure Active Directory) é um serviço global e pode efetuar a ativação pós-falha noutras regiões ou mover tráfego sem aviso prévio. Neste cenário, todos os intervalos de IP listados em [Endereços IP de Identidade e Autenticação](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) devem ser adicionados à firewall.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver perguntas sobre o Cofre de Chaves, visite os [Fóruns do Cofre de Chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

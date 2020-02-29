@@ -3,20 +3,20 @@ title: Número de telefone reclama transformações em políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Referência política personalizada para número de telefone reclama transformações em Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/26/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 34a6d15090cd13a775ad3faa694718ec58738471
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: bd26b2b475e293a1fda1b007289ba7c3eef35136
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620636"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183941"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definir número de telefone reclama transformações em Azure AD B2C
 
@@ -107,7 +107,7 @@ O perfil técnico autoafirmado que chama o perfil técnico de validação que co
 
 - Créditos de entrada:
   - **telefoneNumberString:** +1 (123) 456-7890
-- Alegações de saída: 
+- Alegações de saída:
   - **saídaSReclamação:** +11234567890
 
 

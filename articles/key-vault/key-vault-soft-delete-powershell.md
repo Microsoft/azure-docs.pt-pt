@@ -1,62 +1,63 @@
 ---
-title: Azure Key Vault-como usar a exclusão reversível com o PowerShell
-description: Usar exemplos de caso de exclusão reversível com o código do PowerShell
+title: Cofre de Chaves Azure - Como usar soft-delete com powerShell
+description: Utilize exemplos de casos de soft-delete com snips de código PowerShell
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f026957b5f9fceab8a0df1f339e7cb459ec1078d
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 26c309eeebd7226c6777ec41ae674587da796dd4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562141"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199670"
 ---
-# <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar Key Vault exclusão reversível com o PowerShell
+# <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar o Soft-Delete key Vault com powerShell
 
-O recurso de exclusão reversível do Azure Key Vault permite a recuperação de cofres excluídos e objetos de cofre. Especificamente, a exclusão reversível resolve os seguintes cenários:
+A função de eliminação suave do Cofre de Chaves Azure permite a recuperação de cofres apagados e objetos de cofre. Especificamente, a eliminação suave aborda os seguintes cenários:
 
-- Suporte para exclusão recuperável de um cofre de chaves
-- Suporte para exclusão recuperável de objetos do cofre de chaves; chaves, segredos e certificados
+- Suporte para eliminação recuperável de um cofre chave
+- Suporte para eliminação recuperável de objetos chave do cofre; chaves, segredos e.certificados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Azure PowerShell 1.0.0 ou posterior-se você ainda não tiver essa configuração, instale o Azure PowerShell e associe-o à sua assinatura do Azure, confira [como instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+- Azure PowerShell 1.0.0 ou mais tarde - Se ainda não tiver esta configuração, instale o Azure PowerShell e associe-o à sua subscrição Azure, consulte Como instalar e configurar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
 >[!NOTE]
-> Há uma versão desatualizada do nosso Key Vault arquivo de formatação de saída do PowerShell que **pode** ser carregado em seu ambiente em vez da versão correta. Estamos prevendo uma versão atualizada do PowerShell para conter a correção necessária para a formatação de saída e atualizaremos esse tópico nesse momento. A solução alternativa atual, caso você encontre esse problema de formatação, é:
-> - Use a consulta a seguir se você observar que não está vendo a propriedade habilitado para exclusão reversível descrita neste tópico: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+> Existe uma versão desatualizada do nosso ficheiro de formatação de saída Key Vault PowerShell que **pode** ser carregado para o seu ambiente em vez da versão correta. Estamos a antecipar uma versão atualizada do PowerShell para conter a correção necessária para a formatação de saída e atualizaremos este tópico nessa altura. A suposição atual, caso encontre este problema de formatação, é:
+> - Utilize a seguinte consulta se notar que não está a ver a propriedade ativada soft-delete descrita neste tópico: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
 
 
-Para Key Vault informações de referência específicas para o PowerShell, consulte [referência do Azure Key Vault PowerShell](/powershell/module/az.keyvault).
+Para obter informações específicas de referência para o PowerShell, consulte a [referência powerShell do Cofre de Chaves Azure](/powershell/module/az.keyvault).
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-As operações de Key Vault são gerenciadas separadamente por meio de permissões de RBAC (controle de acesso baseado em função) da seguinte maneira:
+As operações do Key Vault são geridas separadamente através de permissões de controlo de acesso baseadas em funções (RBAC) da seguinte forma:
 
-| Operação | Descrição | Permissão de usuário |
+| Operação | Descrição | Permissão do utilizador |
 |:--|:--|:--|
-|Lista|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
-|Recuperar|Restaura um cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
-|Remover|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
+|Lista|Listas apagadas cofres chave.|Microsoft.KeyVault/deletedVaults/read|
+|Recuperar|Restaura um cofre de chaves apagado.|Microsoft.KeyVault/vaults/write|
+|Remover|Remove permanentemente um cofre de chaves apagado e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-Para obter mais informações sobre permissões e controle de acesso, consulte [proteger seu cofre de chaves](key-vault-secure-your-key-vault.md).
+Para obter mais informações sobre permissões e controlo de acesso, consulte [Proteja o seu cofre de chaves](key-vault-secure-your-key-vault.md).
 
-## <a name="enabling-soft-delete"></a>Habilitando a exclusão reversível
+## <a name="enabling-soft-delete"></a>Habilitar a eliminar suavemente
 
-Você habilita a "exclusão reversível" para permitir a recuperação de um cofre de chaves excluído ou de objetos armazenados em um cofre de chaves.
+Ativa o "soft-delete" para permitir a recuperação de um cofre de chave apagado ou objetos armazenados num cofre de chaves.
 
 > [!IMPORTANT]
-> A habilitação de ' exclusão reversível ' em um cofre de chaves é uma ação irreversível. Depois que a propriedade de exclusão reversível tiver sido definida como "true", ela não poderá ser alterada ou removida.  
+> Permitir a "eliminação suave" num cofre chave é uma ação irreversível. Uma vez que a propriedade de eliminação suave tenha sido definida como "verdadeira", não pode ser alterada ou removida.  
 
-### <a name="existing-key-vault"></a>Cofre de chaves existente
+### <a name="existing-key-vault"></a>Cofre-chave existente
 
-Para um cofre de chaves existente chamado ContosoVault, habilite a exclusão reversível da seguinte maneira. 
+Para um cofre de chaves existente chamado ContosoVault, ative a eliminação suave da seguinte forma. 
 
 ```powershell
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
@@ -64,72 +65,72 @@ Para um cofre de chaves existente chamado ContosoVault, habilite a exclusão rev
 Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
 
-### <a name="new-key-vault"></a>Novo cofre de chaves
+### <a name="new-key-vault"></a>Novo cofre-chave
 
-A habilitação da exclusão reversível para um novo cofre de chaves é feita no momento da criação, adicionando o sinalizador de habilitação de exclusão reversível ao comando Create.
+Permitir a eliminação suave de um novo cofre chave é feito no momento da criação, adicionando a bandeira de eliminação suave ao seu comando de criação.
 
 ```powershell
 New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
 ```
 
-### <a name="verify-soft-delete-enablement"></a>Verificar a habilitação de exclusão reversível
+### <a name="verify-soft-delete-enablement"></a>Verifique a ativação de eliminação suave
 
-Para verificar se um cofre de chaves tem a exclusão reversível habilitada, execute o comando *show* e procure a ' exclusão reversível habilitada? ' Attribute
+Para verificar se um cofre de chaves tem soft-delete ativado, execute o comando do *show* e procure o 'Soft Delete Enabled?' Atributo:
 
 ```powershell
 Get-AzKeyVault -VaultName "ContosoVault"
 ```
 
-## <a name="deleting-a-soft-delete-protected-key-vault"></a>Excluindo um cofre de chaves protegido por exclusão reversível
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>Eliminação de um cofre de chaves protegido de eliminação suave
 
-O comando para excluir um cofre de chaves muda de comportamento, dependendo se a exclusão reversível está habilitada.
+O comando para eliminar uma chave do cofre muda de comportamento, dependendo se o soft-delete está ativado.
 
 > [!IMPORTANT]
->Se você executar o comando a seguir para um cofre de chaves que não tenha a exclusão reversível habilitada, você excluirá permanentemente esse cofre de chaves e todo o seu conteúdo sem opções de recuperação!
+>Se executar o seguinte comando para um cofre chave que não tenha soft-delete ativado, eliminará permanentemente este cofre chave e todo o seu conteúdo sem opções de recuperação!
 
 ```powershell
 Remove-AzKeyVault -VaultName 'ContosoVault'
 ```
 
-### <a name="how-soft-delete-protects-your-key-vaults"></a>Como a exclusão reversível protege seus cofres de chaves
+### <a name="how-soft-delete-protects-your-key-vaults"></a>Como a eliminação suave protege os seus cofres chave
 
-Com a exclusão reversível habilitada:
+Com eliminação suave ativada:
 
-- Um cofre de chaves excluído é removido de seu grupo de recursos e colocado em um namespace reservado, associado ao local onde ele foi criado. 
-- Objetos excluídos, como chaves, segredos e certificados, ficam inacessíveis desde que o cofre de chaves que o contém esteja no estado excluído. 
-- O nome DNS para um cofre de chaves excluído é reservado, impedindo que um novo cofre de chaves com o mesmo nome seja criado.  
+- Um cofre de chave eliminado é removido do seu grupo de recursos e colocado num espaço de nome reservado, associado ao local onde foi criado. 
+- Objetos apagados, tais como chaves, segredos e certificados, são inacessíveis desde que o cofre da chave que contenha esteja no estado apagado. 
+- O nome DNS para um cofre de chave apagado está reservado, impedindo que um novo cofre com o mesmo nome seja criado.  
 
-Você pode exibir cofres de chaves de estado excluídos, associados à sua assinatura, usando o seguinte comando:
+Pode visualizar cofres de chaves de estado eliminados, associados à sua subscrição, utilizando o seguinte comando:
 
 ```powershell
 Get-AzKeyVault -InRemovedState 
 ```
 
-- A *ID* pode ser usada para identificar o recurso durante a recuperação ou a limpeza. 
-- *ID de recurso* é a ID de recurso original deste cofre. Como esse cofre de chaves agora está em um estado excluído, não existe nenhum recurso com essa ID de recurso. 
-- A *data de limpeza agendada* é quando o cofre será excluído permanentemente, se nenhuma ação for executada. O período de retenção padrão, usado para calcular a *data de limpeza agendada*, é de 90 dias.
+- *O ID* pode ser usado para identificar o recurso quando se recupera ou purga. 
+- *A identificação* de recursos é a identificação original deste cofre. Uma vez que este cofre chave está agora num estado apagado, não existe nenhum recurso com o ID do recurso. 
+- *Data de purga programada* é quando o cofre será permanentemente apagado, se não forem tomadas medidas. O período de retenção predefinido, utilizado para calcular a Data de *Purga Programada,* é de 90 dias.
 
-## <a name="recovering-a-key-vault"></a>Recuperando um cofre de chaves
+## <a name="recovering-a-key-vault"></a>Recuperando um cofre chave
 
-Para recuperar um cofre de chaves, especifique o nome do cofre de chaves, o grupo de recursos e o local. Observe o local e o grupo de recursos do cofre de chaves excluído, pois você precisa deles para o processo de recuperação.
+Para recuperar um cofre chave, especifique o nome do cofre chave, o grupo de recursos e a localização. Note a localização e o grupo de recursos do cofre de chaves apagados, pois precisa deles para o processo de recuperação.
 
 ```powershell
 Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
 ```
 
-Quando um cofre de chaves é recuperado, um novo recurso é criado com a ID de recurso original do cofre de chaves. Se o grupo de recursos original for removido, será necessário criá-lo com o mesmo nome antes de tentar a recuperação.
+Quando um cofre chave é recuperado, um novo recurso é criado com o ID original do cofre chave. Se o grupo de recursos original for removido, deve ser criado com o mesmo nome antes de tentar a recuperação.
 
-## <a name="deleting-and-purging-key-vault-objects"></a>Excluindo e limpando objetos do cofre de chaves
+## <a name="deleting-and-purging-key-vault-objects"></a>Apagar e purgar objetos chave do cofre
 
-O comando a seguir excluirá a chave ' ContosoFirstKey ' em um cofre de chaves chamado ' ContosoVault ', que tem a exclusão reversível habilitada:
+O seguinte comando eliminará a tecla 'ContosoFirstKey', num cofre de chaves chamado 'ContosoVault', que tem soft-delete ativado:
 
 ```powershell
 Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
-Com o cofre de chaves habilitado para exclusão reversível, uma chave excluída ainda parece ser excluída, a menos que você liste explicitamente as chaves excluídas. A maioria das operações em uma chave no estado excluído falhará, exceto para listagem, recuperação, limpeza de uma chave excluída. 
+Com o cofre da chave ativado para apagar suavemente, uma tecla apagada ainda parece ser eliminada, a menos que indique explicitamente as teclas apagadas. A maioria das operações numa chave no estado eliminado falhará, exceto para a listagem, recuperação, purgar uma chave eliminada. 
 
-Por exemplo, o comando a seguir lista as chaves excluídas no cofre de chaves ' ContosoVault ':
+Por exemplo, as seguintes listas de comando apagaram as teclas no cofre da chave 'ContosoVault':
 
 ```powershell
 Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
@@ -137,116 +138,116 @@ Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
 
 ### <a name="transition-state"></a>Estado de transição 
 
-Quando você exclui uma chave em um cofre de chaves com exclusão reversível habilitada, pode levar alguns segundos para que a transição seja concluída. Durante essa transição, pode parecer que a chave não está no estado ativo ou no estado excluído. 
+Quando eliminar uma chave num cofre com eliminação suave ativada, pode demorar alguns segundos para que a transição esteja concluída. Durante esta transição, pode parecer que a chave não está no estado ativo ou no estado apagado. 
 
-### <a name="using-soft-delete-with-key-vault-objects"></a>Usando a exclusão reversível com objetos do Key Vault
+### <a name="using-soft-delete-with-key-vault-objects"></a>Utilização soft-delete com objetos de cofre chave
 
-Assim como os cofres de chaves, uma chave excluída, um segredo ou um certificado, permanece em estado excluído por até 90 dias, a menos que você o recupere ou limpe. 
+Tal como os cofres chave, uma chave apagada, segredo ou certificado, permanece em estado apagado por até 90 dias, a menos que recupere ou purgue. 
 
 #### <a name="keys"></a>Chaves
 
-Para recuperar uma chave excluída de maneira reversível:
+Para recuperar uma chave suavemente apagada:
 
 ```powershell
 Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
-Para excluir permanentemente (também conhecido como limpeza) uma chave excluída por software:
+Para eliminar permanentemente (também conhecido como purgar) uma chave suavemente eliminada:
 
 > [!IMPORTANT]
-> Limpar uma chave irá excluí-la permanentemente e ela não será recuperável! 
+> A purga de uma chave irá apagá-la permanentemente, e não será recuperável! 
 
 ```powershell
 Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
-As ações de **recuperação** e **limpeza** têm suas próprias permissões associadas em uma política de acesso do cofre de chaves. Para que um usuário ou entidade de serviço possa executar uma ação de **recuperação** ou **limpeza** , ele deve ter a respectiva permissão para essa chave ou segredo. Por padrão, a **limpeza** não é adicionada à política de acesso do Key Vault, quando o atalho ' all' é usado para conceder todas as permissões. Você deve conceder especificamente a permissão de **limpeza** . 
+As ações de **recuperação** e **purga** têm as suas próprias permissões associadas a uma política chave de acesso ao cofre. Para que um utilizador ou um diretor de serviço possa executar uma ação de **recuperação** ou **purga,** devem ter a respetiva permissão para essa chave ou segredo. Por padrão, a **purga** não é adicionada à política de acesso de um cofre chave, quando o atalho "all" é usado para conceder todas as permissões. Deve conceder especificamente permissão de **purga.** 
 
-#### <a name="set-a-key-vault-access-policy"></a>Definir uma política de acesso do cofre de chaves
+#### <a name="set-a-key-vault-access-policy"></a>Desestabeleça uma política de acesso ao cofre chave
 
-O comando a seguir concede user@contoso.com permissão para usar várias operações em chaves no *ContosoVault* , incluindo a **limpeza**:
+Os seguintes subsídios de comando user@contoso.com autorização para utilizar várias operações em chaves em *ContosoVault,* incluindo **purga:**
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
 ```
 
 >[!NOTE] 
-> Se você tiver um cofre de chaves existente que tenha tido a exclusão reversível habilitada, talvez você não tenha permissões de **recuperação** e **limpeza** .
+> Se tiver um cofre chave existente que acaba de ter uma eliminação suave ativada, pode não ter **permissões de recuperação** e **purga.**
 
 #### <a name="secrets"></a>Segredos
 
-Como as chaves, os segredos são gerenciados com seus próprios comandos:
+Como chaves, os segredos são geridos com os seus próprios comandos:
 
-- Exclua um segredo chamado SQLPassword: 
+- Elimine um segredo chamado SQLPassword: 
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
   ```
 
-- Listar todos os segredos excluídos em um cofre de chaves: 
+- Liste todos os segredos apagados num cofre chave: 
   ```powershell
   Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
   ```
 
-- Recuperar um segredo no estado excluído: 
+- Recuperar um segredo no estado apagado: 
   ```powershell
   Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   ```
 
-- Limpar um segredo no estado excluído: 
+- Expurgar um segredo em estado apagado: 
 
   > [!IMPORTANT]
-  > A limpeza de um segredo irá excluí-lo permanentemente e ele não será recuperável!
+  > Purgar um segredo irá apagá-lo permanentemente, e não será recuperável!
 
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
-## <a name="purging-a-soft-delete-protected-key-vault"></a>Limpando um cofre de chaves protegido por exclusão reversível
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Purgar um cofre de chave protegido de eliminação suave
 
 > [!IMPORTANT]
-> A limpeza de um cofre de chaves ou de um de seus objetos contidos irá excluí-lo permanentemente, o que significa que ele não será recuperável!
+> Purgar um cofre chave ou um dos seus objetos contidos, irá apagá-lo permanentemente, o que significa que não será recuperável!
 
-A função de limpeza é usada para excluir permanentemente um objeto do cofre de chaves ou um cofre de chaves inteiro, que anteriormente foi excluído de forma reversível. Conforme demonstrado na seção anterior, os objetos armazenados em um cofre de chaves com o recurso de exclusão reversível habilitada podem passar por vários Estados:
-- **Ativo**: antes da exclusão.
-- **Excluído de forma reversível**: após a exclusão, pode ser listado e recuperado novamente para o estado ativo.
-- **Excluído permanentemente**: após a limpeza, não é possível recuperá-lo.
+A função de purga é usada para eliminar permanentemente um objeto de cofre chave ou um cofre completo, que foi previamente apagado. Como demonstrado na secção anterior, os objetos armazenados num cofre chave com a função soft-delete ativada podem passar por vários estados:
+- **Ativo:** antes da eliminação.
+- **Soft-Deleted**: após eliminação, capaz de ser listado e recuperado de volta ao estado ativo.
+- **Eliminado permanentemente:** após purga, não pode ser recuperado.
 
 
-O mesmo é verdadeiro para o cofre de chaves. Para excluir permanentemente um cofre de chaves com exclusão reversível e seu conteúdo, você deve limpar o cofre de chaves em si.
+O mesmo acontece com o cofre da chave. Para eliminar permanentemente um cofre de chaves apagado e o seu conteúdo, deve expurgar o cofre chave em si.
 
-### <a name="purging-a-key-vault"></a>Limpando um cofre de chaves
+### <a name="purging-a-key-vault"></a>Purgando um cofre chave
 
-Quando um cofre de chaves é limpo, seu conteúdo inteiro é excluído permanentemente, incluindo chaves, segredos e certificados. Para limpar um cofre de chaves com exclusão reversível, use o comando `Remove-AzKeyVault` com a opção `-InRemovedState` e especificando o local do cofre de chaves excluído com o argumento `-Location location`. Você pode encontrar o local de um cofre excluído usando o comando `Get-AzKeyVault -InRemovedState`.
+Quando um cofre chave é purgado, todo o seu conteúdo é permanentemente apagado, incluindo chaves, segredos e certificados. Para purgar um cofre de chaves eliminado suavemente, utilize o comando `Remove-AzKeyVault` com a opção `-InRemovedState` e especificando a localização do cofre de chaves apagado com o argumento `-Location location`. Pode encontrar a localização de um cofre apagado usando o comando `Get-AzKeyVault -InRemovedState`.
 
 ```powershell
 Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 ```
 
-### <a name="purge-permissions-required"></a>Permissões de limpeza necessárias
-- Para limpar um cofre de chaves excluído, o usuário precisa de permissão RBAC para a operação *Microsoft. keyvault/Locations/deletedVaults/limpeza/ação* . 
-- Para listar um cofre de chaves excluído, o usuário precisa de permissão RBAC para a operação *Microsoft. keyvault/deletedVaults/Read* . 
-- Por padrão, somente um administrador de assinatura tem essas permissões. 
+### <a name="purge-permissions-required"></a>Purgar permissões necessárias
+- Para expurgar um cofre de chaves eliminado, o utilizador necessita de permissão RBAC para o *Microsoft.KeyVault/locations/deletedVaults/purge/action* operation. 
+- Para listar um cofre de chaves eliminado, o utilizador necessita de permissão RBAC para a operação *Microsoft.KeyVault/deletedVaults/read.* 
+- Por predefinição apenas um administrador de subscrição tem estas permissões. 
 
-### <a name="scheduled-purge"></a>Limpeza agendada
+### <a name="scheduled-purge"></a>Purga programada
 
-A listagem de objetos do cofre de chaves excluídos também mostra quando eles estão agendados para serem limpos pelo Key Vault. *Data de limpeza agendada* indica quando um objeto do cofre de chaves será excluído permanentemente, se nenhuma ação for executada. Por padrão, o período de retenção para um objeto de cofre de chaves excluído é de 90 dias.
+A listagem de objetos de cofre apagados também mostra quando estão programados para serem purgados pelo Cofre chave. Data de *purga programada* indica quando um objeto de cofre chave será permanentemente eliminado, se não forem tomadas medidas. Por padrão, o período de retenção para um objeto de cofre de chave eliminado é de 90 dias.
 
 >[!IMPORTANT]
->Um objeto de cofre limpo, disparado por seu campo de *data de limpeza agendado* , é excluído permanentemente. Não é recuperável!
+>Um objeto de abóbada purgado, desencadeado pelo seu campo de data de *purga programada,* é permanentemente eliminado. Não é recuperável!
 
-## <a name="enabling-purge-protection"></a>Habilitando a proteção de limpeza
+## <a name="enabling-purge-protection"></a>Habilitar a proteção da purga
 
-Quando a proteção de limpeza é ativada, um cofre ou um objeto no estado excluído não pode ser limpo até que o período de retenção de 90 dias tenha passado. Esse cofre ou objeto ainda pode ser recuperado. Esse recurso fornece garantia adicional de que um cofre ou um objeto nunca pode ser excluído permanentemente até que o período de retenção tenha passado.
+Quando a proteção da purga é ligada, um cofre ou um objeto em estado apagado não podem ser purgados até que o período de retenção de 90 dias tenha passado. Tal cofre ou objeto ainda pode ser recuperado. Esta funcionalidade dá garantias adicionais de que um cofre ou um objeto nunca podem ser eliminados permanentemente até que o período de retenção tenha passado.
 
-Você poderá habilitar a proteção de limpeza somente se a exclusão reversível também estiver habilitada. 
+Só é possível ativar a proteção da purga se estiver ativada uma eliminação suave. 
 
-Para ativar a exclusão reversível e limpar a proteção ao criar um cofre, use o cmdlet [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) :
+Para ligar a proteção de eliminação suave e purga quando criar um cofre, utilize o cmdlet [New-AzKeyVault:](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0)
 
 ```powershell
 New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
 ```
 
-Para adicionar a proteção de limpeza a um cofre existente (que já tem exclusão reversível habilitada), use os cmdlets [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0)e [set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) :
+Para adicionar proteção de purga a um cofre existente (que já tem soft delete enabled), utilize os cmdlets [Get-AzKeyVault,](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0) [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0)e [Set-AzResource:](/powershell/module/az.resources/set-azresource?view=azps-1.5.0)
 
 ```
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
@@ -256,5 +257,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## <a name="other-resources"></a>Outros recursos
 
-- Para obter uma visão geral do recurso de exclusão reversível do Key Vault, consulte [visão geral da exclusão reversível Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Para obter uma visão geral do uso de Azure Key Vault, consulte [o que é Azure Key Vault?](key-vault-overview.md).
+- Para uma visão geral da função de eliminação suave do Key Vault, consulte a visão geral do [Cofre de Chaves Azure](key-vault-ovw-soft-delete.md).
+- Para uma visão geral do uso do Cofre chave Azure, veja [o que é o Cofre chave Azure?](key-vault-overview.md)

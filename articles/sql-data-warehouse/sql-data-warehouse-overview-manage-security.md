@@ -11,14 +11,15 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 26cdbb1fc2899d1b03fea6199074467623706c63
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+tags: azure-synapse
+ms.openlocfilehash: 89ec405a348e3ace851fd5f5e17283a8036692a5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153286"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199415"
 ---
-# <a name="secure-a-database-in-sql-data-warehouse"></a>Proteja uma base de dados no Armazém de Dados SQL
+# <a name="secure-a-database-in-azure-synapse"></a>Proteja uma base de dados em Azure Synapse
 > [!div class="op_single_selector"]
 > * [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticação](sql-data-warehouse-authentication.md)
@@ -32,7 +33,7 @@ Este artigo irá acompanhá-lo através do básico de garantir a sua piscina SQL
 ## <a name="connection-security"></a>Segurança da Ligação
 A Segurança da Ligação diz respeito à forma como restringe e protege as ligações à sua base de dados através de regras de firewall e de encriptação da ligação.
 
-As regras de firewall são utilizadas tanto pelo servidor como pela base de dados para rejeitar tentativas de ligação a partir de endereços IP que não tenham sido explicitamente listadas com a lista de permissões. Para permitir ligações a partir da sua aplicação ou endereço IP público da máquina cliente, você deve primeiro criar uma regra de firewall ao nível do servidor usando o portal Azure, REST API ou PowerShell. 
+As regras de firewall são utilizadas tanto pelo servidor como pela base de dados para rejeitar tentativas de ligação a partir de endereços IP que não tenham sido explicitamente listadas com a lista branca. Para permitir ligações a partir da sua aplicação ou endereço IP público da máquina cliente, você deve primeiro criar uma regra de firewall ao nível do servidor usando o portal Azure, REST API ou PowerShell. 
 
 Como melhor prática, deve restringir o máximo possível os intervalos de endereços IP permitidos na firewall do servidor.  Para aceder à piscina SQL a partir do seu computador local, certifique-se de que a firewall na sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
 
@@ -47,7 +48,7 @@ Quando criou o servidor lógico para a sua base de dados, especificou um início
 
 No entanto, como uma boa prática, os utilizadores da sua organização devem usar uma conta diferente para autenticar. Desta forma, pode limitar as permissões concedidas à aplicação e reduzir os riscos de atividade maliciosa caso o seu código de aplicação seja vulnerável a um ataque de injeção SQL. 
 
-Para criar um utilizador Autenticado do Servidor SQL, ligue-se à base de dados **principal** do seu servidor com o seu servidor e crie um novo login do servidor.  É uma boa ideia também criar um utilizador na base de dados principal dos utilizadores do Azure Synapse. A criação de um utilizador em mestrado permite que um utilizador inicie sessão utilizando ferramentas como O SSMS sem especificar um nome de base de dados.  Também permite que utilizem o explorador de objetos para visualizar todas as bases de dados de um servidor SQL.
+Para criar um utilizador Autenticado do Servidor SQL, ligue-se à base de dados **principal** do seu servidor com o seu servidor e crie um novo login do servidor.  É uma boa ideia também criar um utilizador na base de dados principal. A criação de um utilizador em mestrado permite que um utilizador inicie sessão utilizando ferramentas como O SSMS sem especificar um nome de base de dados.  Também permite que utilizem o explorador de objetos para visualizar todas as bases de dados de um servidor SQL.
 
 ```sql
 -- Connect to master database and create a login
@@ -58,7 +59,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 Em seguida, ligue-se à sua base de dados de **piscina SQL** com o seu servidor de login e crie um utilizador de base de dados com base no login do servidor que criou.
 
 ```sql
--- Connect to SQL DW database and create a database user
+-- Connect to the database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
@@ -76,7 +77,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 A conta de administrador do servidor que está a ligar é membro de db_owner, que tem autoridade para fazer todas as operações na base de dados. Guarde esta conta para a implementação de atualizações de esquema e outras operações de gestão. Utilize a conta "ApplicationUser" com permissões mais limitadas para se ligar da sua aplicação à base de dados com o mínimo de privilégios necessários para a sua aplicação.
 
-Existem formas de limitar ainda mais o que um utilizador pode fazer dentro de um armazém de dados:
+Existem formas de limitar ainda mais o que um utilizador pode fazer dentro da base de dados:
 
 * As [Permissões](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine?view=sql-server-ver15) Granular permitem controlar quais as operações que pode fazer em colunas individuais, tabelas, vistas, esquemas, procedimentos e outros objetos na base de dados. Utilize permissões granulares para ter o maior controlo e conceder as permissões mínimas necessárias. 
 * [Funções](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15) de base de dados que não db_datareader e db_datawriter podem ser usadas para criar contas de utilizadores de aplicações mais poderosas ou contas de gestão menos poderosas. As funções de base de dados fixas incorporadas fornecem uma forma fácil de conceder permissões, mas podem resultar na concessão de mais permissões do que as necessárias.

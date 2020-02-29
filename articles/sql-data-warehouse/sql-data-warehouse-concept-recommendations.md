@@ -1,66 +1,64 @@
 ---
-title: Recomendações de SQL Data Warehouse
-description: Saiba mais sobre as recomendações de SQL Data Warehouse e como elas são geradas
+title: Recomendações da SQL Analytics
+description: Conheça as recomendações da SQL Analytics e como são geradas
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/05/2018
+ms.date: 02/05/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a93339b99c6591ee9ed615c032d0eac58a372fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.custom: azure-synapse
+ms.openlocfilehash: 5471236c09737eeef2d4cb7542c245d3087e726c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827510"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195962"
 ---
-# <a name="sql-data-warehouse-recommendations"></a>Recomendações de SQL Data Warehouse
+# <a name="sql-analytics-recommendations"></a>Recomendações da SQL Analytics
 
-Este artigo descreve as recomendações servidas por SQL Data Warehouse por meio do Azure Advisor.  
+Este artigo descreve as recomendações da SQL Analytics servidas através do Azure Advisor.  
 
-SQL Data Warehouse fornece recomendações para garantir que sua data warehouse seja otimizada consistentemente para o desempenho. As recomendações de data warehouse são totalmente integradas ao assistente [do Azure](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) para fornecer as práticas recomendadas diretamente dentro do [portal do Azure](https://aka.ms/Azureadvisor). SQL Data Warehouse analisa o estado atual do seu data warehouse, coleta a telemetria e as recomendações de superfícies para sua carga de trabalho ativa em uma cadência diária. Os cenários de recomendação data warehouse com suporte são descritos abaixo, juntamente com como aplicar as ações recomendadas.
+A SQL Analytics fornece recomendações para garantir que a carga de trabalho do seu armazém de dados seja consistentemente otimizada para o desempenho. As recomendações estão fortemente integradas com o [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) para lhe proporcionar as melhores práticas diretamente dentro do [portal Azure.](https://aka.ms/Azureadvisor) A SQL Analytics recolhe recomendações de telemetria e superfícies para a sua carga de trabalho ativa numa cadência diária. Os cenários de recomendação apoiados são descritos abaixo juntamente com a forma de aplicar as ações recomendadas.
 
-Se você tiver algum comentário sobre o SQL Data Warehouse Advisor ou encontrar problemas, acesse [sqldwadvisor@service.microsoft.com](mailto:sqldwadvisor@service.microsoft.com).   
-
-Clique [aqui](https://aka.ms/Azureadvisor) para verificar suas recomendações hoje mesmo! Atualmente, esse recurso é aplicável somente a data warehouses Gen2. 
+Pode [consultar as suas recomendações](https://aka.ms/Azureadvisor) hoje! Atualmente esta funcionalidade é aplicável apenas aos armazéns de dados gen2. 
 
 ## <a name="data-skew"></a>Distorção de dados
 
-A distorção de dados pode causar gargalos de recursos ou movimentação de dados adicionais ao executar sua carga de trabalho. A documentação a seguir descreve mostrar como identificar a distorção de dados e impedir que ele aconteça selecionando uma chave de distribuição ideal.
+O desvio de dados pode causar movimentos adicionais de dados ou estrangulamentos de recursos ao executar a sua carga de trabalho. A seguinte documentação descreve mostrar para identificar dados distorcidos e impedir que isso aconteça selecionando uma chave de distribuição ideal.
 
-- [Identificar e remover a distorção](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice) 
+- [Identificar e remover o enviesamento](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice) 
 
-## <a name="no-or-outdated-statistics"></a>Estatísticas não ou desatualizadas
+## <a name="no-or-outdated-statistics"></a>Nenhuma estatística ou desatualizada
 
-Ter estatísticas de qualidade inferior pode afetar seriamente o desempenho da consulta, pois isso pode fazer com que o SQL Data Warehouse otimizador de consulta gere planos de consulta de qualidade inferior. A documentação a seguir descreve as práticas recomendadas em relação à criação e atualização de estatísticas:
+Ter estatísticas subóptimas pode afetar severamente o desempenho da consulta, uma vez que pode fazer com que o optimizador de consultas SQL gere planos de consulta sub-ideais. A seguinte documentação descreve as melhores práticas em torno da criação e atualização de estatísticas:
 
-- [Criando e atualizando estatísticas de tabela](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
+- [Criação e atualização de estatísticas de tabelas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
-Para ver a lista de tabelas afetadas por essas recomendações, execute o [script T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables)a seguir. O Advisor executa continuamente o mesmo script T-SQL para gerar essas recomendações.
+Para ver a lista de tabelas impactadas por estas recomendações, execute o seguinte [script T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). O Advisor executa continuamente o mesmo script T-SQL para gerar estas recomendações.
 
 ## <a name="replicate-tables"></a>Replicar tabelas
 
-Para recomendações de tabelas replicadas, o Advisor detecta candidatos à tabela com base nas seguintes características físicas:
+Para recomendações de tabela replicadas, o Advisor deteta candidatos à tabela com base nas seguintes características físicas:
 
-- Tamanho da tabela replicada
+- Tamanho da mesa replicada
 - Número de colunas
-- Tipo de distribuição de tabela
-- Número de partições
+- Tipo de distribuição de tabelas
+- Número de divisórias
 
-O Advisor aproveita continuamente a heurística baseada em carga de trabalho, como frequência de acesso à tabela, linhas retornadas em média e limites em relação ao tamanho data warehouse e à atividade para garantir que as recomendações de alta qualidade sejam geradas. 
+O advisor aproveita continuamente a heurística baseada na carga de trabalho, como a frequência de acesso à mesa, as filas devolvidas em média, e os limiares em torno do tamanho e atividade dos armazéns de dados para garantir a geração de recomendações de alta qualidade. 
 
-O seguinte descreve a heurística baseada em carga de trabalho que você pode encontrar na portal do Azure para cada recomendação de tabela replicada:
+O seguinte descreve heurística baseada em carga de trabalho que pode encontrar no portal Azure para cada recomendação de tabela replicada:
 
-- Verificação média-a porcentagem média de linhas que foram retornadas da tabela para cada acesso de tabela nos últimos sete dias
-- Leitura frequente, sem atualização-indica que a tabela não foi atualizada nos últimos sete dias ao mostrar a atividade de acesso
-- Taxa de leitura/atualização-a taxa de quão frequente a tabela foi acessada em relação ao quando ela é atualizada nos últimos sete dias
-- Atividade – mede o uso com base na atividade de acesso. Isso compara a atividade de acesso à tabela relativa à atividade média de acesso à tabela no data warehouse nos últimos sete dias. 
+- Scan avg- a percentagem média de filas que foram devolvidas da mesa para cada acesso à mesa nos últimos sete dias
+- Leitura frequente, sem atualização - indica que a tabela não foi atualizada nos últimos sete dias enquanto mostra atividade de acesso
+- Relação leitura/atualização - o rácio de frequência da tabela foi acedido em relação ao momento em que é atualizado nos últimos sete dias
+- Atividade - mede o uso com base na atividade de acesso. Isto compara a atividade de acesso à tabela em relação à atividade média de acesso à tabela em todo o armazém de dados nos últimos sete dias. 
 
-Atualmente, o Advisor mostrará apenas no máximo quatro candidatos à tabela replicada de uma só vez com índices columnstore clusterizados priorizando a atividade mais alta.
+Atualmente, o Advisor só irá apresentar no máximo quatro candidatos de tabela replicados ao mesmo tempo com índices de colunas agrupadas priorizando a maior atividade.
 
 > [!IMPORTANT]
-> A recomendação de tabela replicada não é uma prova completa e não leva em conta as operações de movimentação de dados. Estamos trabalhando para adicionar isso como uma heurística, mas enquanto isso, você sempre deve validar sua carga de trabalho depois de aplicar a recomendação. Entre em contato com sqldwadvisor@service.microsoft.com se você descobrir as recomendações da tabela replicada que faz com que sua carga de trabalho seja regressiva. Para saber mais sobre tabelas replicadas, visite a [documentação](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table)a seguir.
+> A recomendação do quadro replicado não é prova completa e não tem em conta as operações de movimento de dados. Estamos a trabalhar para adicionar isto como um heurístico, mas entretanto, deve sempre validar a sua carga de trabalho depois de aplicar a recomendação. Contacte sqldwadvisor@service.microsoft.com se descobrir recomendações de mesa replicadas que fazem com que a sua carga de trabalho regredi. Para saber mais sobre as tabelas replicadas, visite a seguinte [documentação.](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table)

@@ -3,20 +3,20 @@ title: Configure a complexidade da palavra-passe utilizando políticas personali
 titleSuffix: Azure AD B2C
 description: Como configurar os requisitos de complexidade da palavra-passe utilizando uma política personalizada no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d0caa029bd33da499db23f218b2392344c4585ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2de1130e28b5071913e4cf3632c3fe4407597a98
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849074"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189145"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configure a complexidade da palavra-passe utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -112,10 +112,10 @@ Ao testar as suas aplicações em Azure AD B2C, pode ser útil que o token Azure
 
 ### <a name="upload-the-files"></a>Faça upload dos ficheiros
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
-4. Selecione **Identity Experience Framework**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
+3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+4. Selecione Quadro de **Experiência de Identidade**.
 5. Na página Políticas Personalizadas, clique na **Política de Upload**.
 6. **Selecione Sobrepor a apólice se ela existir,** e depois procurar e selecionar o ficheiro *SingUpOrSignInPasswordComplexity.xml.*
 7. Clique em **Carregar**.

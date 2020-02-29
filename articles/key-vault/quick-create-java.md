@@ -5,19 +5,20 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: b5748824590f40e30af8f462d4c8ff25521cfd94
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: be76a274671b0112ca0a5e326f6bb6bb8852842b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136079"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197560"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Java
 
 Começa com a biblioteca de clientes azure Key Vault para Java. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
-O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Utilize a biblioteca de clientes Key Vault para Java para:
+O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Utilize a biblioteca de clientes Key Vault para Java para:
 
 - Aumentar a segurança e o controlo sobre chaves e senhas.
 - Crie e importe chaves de encriptação em minutos.

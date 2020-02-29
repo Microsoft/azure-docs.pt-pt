@@ -1,71 +1,72 @@
 ---
-title: Receber e responder a notificações do Key Vault com a grade de eventos do Azure
-description: Saiba como integrar o Key Vault com a grade de eventos do Azure.
+title: Receba e responda a notificações chave do cofre com a Grelha de Eventos Azure
+description: Saiba como integrar o Key Vault com a Grelha de Eventos Azure.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5c959dc7fa36fb41307d286b1e7d0b475d5b56c6
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5eaf4cf702e56df932a61ab277dff6b34d97854d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988469"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185034"
 ---
-# <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Receber e responder a notificações do cofre de chaves com a grade de eventos do Azure (versão prévia)
+# <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Receber e responder a notificações chave do cofre com a Grelha de Eventos Azure (pré-visualização)
 
-Azure Key Vault integração com a grade de eventos do Azure (atualmente em visualização) habilita a notificação do usuário quando o status de um segredo armazenado em um cofre de chaves é alterado. Para obter uma visão geral desse recurso, consulte [monitoramento Key Vault com a grade de eventos](event-grid-overview.md).
+A integração do Cofre chave Azure com a Azure Event Grid (atualmente em pré-visualização) permite a notificação do utilizador quando o estado de um segredo armazenado num cofre chave mudou. Para uma visão geral desta funcionalidade, consulte [o Cofre de Chaves de Monitorização com Grelha](event-grid-overview.md)de Eventos .
 
-Este guia descreve como receber notificações de Key Vault por meio da grade de eventos e como responder a alterações de status por meio da automação do Azure.
+Este guia descreve como receber notificações do Cofre chave através da Grelha de Eventos e como responder às alterações de estado através da Automação Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Um cofre de chaves em sua assinatura do Azure. Você pode criar rapidamente um novo cofre de chaves seguindo as etapas em [definir e recuperar um segredo de Azure Key Vault usando CLI do Azure](quick-create-cli.md).
+- Um cofre chave na sua assinatura Azure. Você pode rapidamente criar um novo cofre chave seguindo os passos em [set e recuperar um segredo de Azure Key Vault usando Azure CLI](quick-create-cli.md).
 
 ## <a name="concepts"></a>Conceitos
 
-A grade de eventos é um serviço de eventos para a nuvem. Seguindo as etapas neste guia, você assinará eventos para Key Vault e rotear eventos para automação. Quando um dos segredos no cofre de chaves está prestes a expirar, a grade de eventos é notificada sobre a alteração de status e faz um HTTP POST para o ponto de extremidade. Um gancho da Web dispara uma execução de automação de um script do PowerShell.
+Event Grid é um serviço de eventos para a nuvem. Seguindo os passos deste guia, subscreverá eventos para Key Vault e eventos de rota para automação. Quando um dos segredos do cofre chave está prestes a expirar, a Grelha de Eventos é notificada da mudança de estado e faz um POST HTTP para o ponto final. Um gancho web então desencadeia uma execução de Automação de um script PowerShell.
 
-![Fluxograma HTTP POST](media/image1.png)
+![HTTP POST flowchart](media/image1.png)
 
 ## <a name="create-an-automation-account"></a>Criar uma conta de Automatização
 
-Crie uma conta de automação por meio do [portal do Azure](https://portal.azure.com):
+Criar uma conta de Automação através do [portal Azure:](https://portal.azure.com)
 
-1.  Acesse portal.azure.com e faça logon em sua assinatura.
+1.  Vá para portal.azure.com e faça login na sua subscrição.
 
-1.  Na caixa de pesquisa, insira **contas de automação**.
+1.  Na caixa de pesquisa, **introduza Contas de Automação**.
 
-1.  Na seção **Serviços** da lista suspensa na barra de pesquisa, selecione **contas de automação**.
+1.  Na secção **Serviços** da lista de abandono na barra de pesquisa, selecione **Contas de Automação**.
 
 1.  Selecione **Adicionar**.
 
     ![Painel de contas de automação](media/image2.png)
 
-1.  Insira as informações necessárias no painel **adicionar conta de automação** e, em seguida, selecione **criar**.
+1.  Introduza as informações necessárias no painel **da Conta Add Automation** e, em seguida, selecione **Criar**.
 
 ## <a name="create-a-runbook"></a>Criar um runbook
 
-Depois que sua conta de automação estiver pronta, crie um runbook.
+Depois da sua conta Deautomação estar pronta, crie um livro de execução.
 
-![Criar uma interface do usuário do runbook](media/image3.png)
+![Criar um livro de corridas UI](media/image3.png)
 
-1.  Selecione a conta de automação que você acabou de criar.
+1.  Selecione a conta Automation que acabou de criar.
 
-1.  Selecione **Runbooks** em **automação de processo**.
+1.  Selecione **Runbooks** em **Automação de Processos**.
 
-1.  Selecione **criar um runbook**.
+1.  Selecione **Criar um livro de execução**.
 
-1.  Nomeie seu runbook e selecione **PowerShell** como o tipo de runbook.
+1.  Nomeie o seu livro de execução e selecione **PowerShell** como o tipo de livro de execução.
 
-1.  Selecione o runbook que você criou e, em seguida, selecione o botão **Editar** .
+1.  Selecione o livro de execução que criou e, em seguida, selecione o botão **Editar.**
 
-1.  Insira o código a seguir (para fins de teste) e selecione o botão **publicar** . Essa ação retorna o resultado da solicitação POST recebida.
+1.  Introduza o seguinte código (para efeitos de teste) e selecione o botão **Publicar.** Esta ação devolve o resultado do pedido do POST recebido.
 
 ```azurepowershell
 param
@@ -91,111 +92,111 @@ write-Error "No input data found."
 }
 ```
 
-![Publicar interface do usuário do runbook](media/image4.png)
+![Publicar livro de execução UI](media/image4.png)
 
 ## <a name="create-a-webhook"></a>Criar um webhook
 
-Crie um webhook para disparar seu runbook recém-criado.
+Crie um webhook para desencadear o seu livro de execução recém-criado.
 
-1.  Selecione **WebHooks** na seção de **recursos** do runbook que você acabou de publicar.
+1.  Selecione **Webhooks** da secção **Recursos** do livro de execução que acaba de publicar.
 
-1.  Selecione **Adicionar webhook**.
+1.  **Selecione Adicionar Webhook**.
 
-    ![Botão Adicionar webhook](media/image5.png)
+    ![Adicionar botão Webhook](media/image5.png)
 
-1.  Selecione **criar novo webhook**.
+1.  Selecione **Criar um novo Webhook**.
 
-1. Nomeie o webhook, defina uma data de validade e copie a URL.
+1. Nomeie o webhook, estabeleça uma data de validade e copie o URL.
 
     > [!IMPORTANT] 
-    > Você não pode exibir a URL depois de criá-la. Lembre-se de salvar uma cópia em um local seguro, onde você pode acessá-la no restante deste guia.
+    > Não se pode ver a URL depois de a criar. Certifique-se de que guarda uma cópia num local seguro onde poderá aceder-lhe durante o resto deste guia.
 
-1. Selecione **parâmetros e configurações de execução** e, em seguida, selecione **OK**. Não insira nenhum parâmetro. Isso habilitará o botão **criar** .
+1. **Selecione Parâmetros e executar definições** e, em seguida, selecione **OK**. Não introduza parâmetros. Isto ativará o botão **Criar.**
 
-1. Selecione **OK** e, em seguida, selecione **criar**.
+1. Selecione **OK** e, em seguida, selecione **Criar**.
 
-    ![Criar nova interface do usuário do webhook](media/image6.png)
+    ![Criar novo Webhook UI](media/image6.png)
 
 ## <a name="create-an-event-grid-subscription"></a>Criar uma subscrição do Event Grid
 
-Crie uma assinatura de grade de eventos por meio do [portal do Azure](https://portal.azure.com).
+Crie uma subscrição da Rede de Eventos através do [portal Azure.](https://portal.azure.com)
 
-1.  Vá para o cofre de chaves e selecione a guia **eventos** . Se você não conseguir vê-lo, verifique se está usando a [versão de visualização do portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
+1.  Vá ao seu cofre de chaves e selecione o separador **Eventos.** Se não conseguir vê-lo, certifique-se de que está a utilizar a [versão de pré-visualização do portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
-    ![Guia eventos no portal do Azure](media/image7.png)
+    ![Separador de eventos no portal Azure](media/image7.png)
 
-1.  Selecione o botão **assinatura de evento** .
+1.  Selecione o botão **de subscrição** do evento.
 
-1.  Crie um nome descritivo para a assinatura.
+1.  Crie um nome descritivo para a subscrição.
 
-1.  Escolha o **esquema da grade de eventos**.
+1.  Escolha a **Grelha de Eventos Schema**.
 
-1.  O **recurso de tópico** deve ser o cofre de chaves que você deseja monitorar para as alterações de status.
+1.  **O Recurso tópico** deve ser o cofre chave que pretende monitorizar para alterações de estado.
 
-1.  Para **filtrar os tipos de evento**, deixe todas as opções selecionadas (**9 selecionadas**).
+1.  Para filtrar os tipos de **eventos,** deixe todas as opções selecionadas **(9 selecionadas).**
 
 1.  No **Tipo de Ponto Final**, selecione **Webhook**.
 
-1.  Escolha **selecionar um ponto de extremidade**. No novo painel de contexto, Cole a URL do webhook na etapa [criar um webhook](#create-a-webhook) no campo **ponto de extremidade do assinante** .
+1.  Escolha **Selecione um ponto final**. No novo painel de contexto, colhe o URL webhook do lado da [Criação de um](#create-a-webhook) passo webhook no campo **Delineio do Assinante.**
 
-1.  Selecione **confirmar seleção** no painel de contexto.
+1.  Selecione **Confirmar Seleção** no painel de contexto.
 
 1.  Selecione **Criar**.
 
-    ![Criar assinatura de evento](media/image8.png)
+    ![Criar subscrição de eventos](media/image8.png)
 
 ## <a name="test-and-verify"></a>Testar e verificar
 
-Verifique se sua assinatura da grade de eventos está configurada corretamente. Este teste pressupõe que você se inscreveu na notificação "nova versão secreta criada" na [assinatura criar uma grade de eventos](#create-an-event-grid-subscription)e que você tem as permissões necessárias para criar uma nova versão de um segredo em um cofre de chaves.
+Verifique se a subscrição da Grelha de Eventos está corretamente configurada. Este teste pressupõe que subscreveu a notificação "Secret New Version Created" na [subscrição Create a Event Grid](#create-an-event-grid-subscription), e que tem as permissões necessárias para criar uma nova versão de um segredo num cofre chave.
 
-![Configuração de teste da assinatura da grade de eventos](media/image9.png)
+![Config de teste da assinatura da Grelha de Eventos](media/image9.png)
 
-![Painel criar-a-segredo](media/image10.png)
+![Crie um painel secreto](media/image10.png)
 
-1.  Vá para o cofre de chaves na portal do Azure.
+1.  Vá ao seu cofre chave no portal Azure.
 
-1.  Crie um novo segredo. Para fins de teste, defina a expiração como data para o dia seguinte.
+1.  Criar um novo segredo. Para efeitos de teste, determina a expiração até ao dia seguinte.
 
-1.  Na guia **eventos** do cofre de chaves, selecione a assinatura da grade de eventos que você criou.
+1.  No separador **Eventos** no seu cofre de chaves, selecione a subscrição da Grelha de Eventos que criou.
 
-1.  Em **métricas**, verifique se um evento foi capturado. Dois eventos são esperados: SecretNewVersion e SecretNearExpiry. Esses eventos validam que a grade de eventos capturou com êxito a alteração de status do segredo em seu cofre de chaves.
+1.  Segundo **as Métricas,** verifique se um evento foi capturado. Esperam-se dois eventos: SecretNewVersion e SecretNearExpiry. Estes eventos validam que a Rede de Eventos capturou com sucesso a mudança de estado do segredo no seu cofre chave.
 
-    ![Painel de métricas: verificar eventos capturados](media/image11.png)
+    ![Painel de métricas: verifique se há eventos capturados](media/image11.png)
 
-1.  Acesse sua conta de automação.
+1.  Vá à sua conta de Automação.
 
-1.  Selecione a guia **Runbooks** e, em seguida, selecione o runbook que você criou.
+1.  Selecione o separador **'Livros de Execução'** e, em seguida, selecione o livro de execução que criou.
 
-1.  Selecione a guia **WebHooks** e confirme se o carimbo de data/hora "último disparado" está dentro de 60 segundos de quando você criou o novo segredo. Esse resultado confirma que a grade de eventos fez uma POSTAgem no webhook com os detalhes do evento da alteração de status no cofre de chaves e que o webhook foi disparado.
+1.  Selecione o separador **Webhooks** e confirme que o carimbo de tempo "último desencadeado" está dentro de 60 segundos a quando criou o novo segredo. Este resultado confirma que a Rede de Eventos fez um POST no webhook com os detalhes do evento da mudança de estado no seu cofre chave e que o webhook foi acionado.
 
-    ![Guia WebHooks, carimbo de data/hora do último disparo](media/image12.png)
+    ![Separador Webhooks, Último carimbo de tempo desencadeado](media/image12.png)
 
-1. Retorne ao seu runbook e selecione a guia **visão geral** .
+1. Volte ao seu livro de execução e selecione o separador **Overview.**
 
-1. Examine a lista de **trabalhos recentes** . Você deve ver que um trabalho foi criado e que o status foi concluído. Isso confirma que o webhook disparou o runbook para iniciar a execução do script.
+1. Veja a lista de **Empregos Recentes.** Devias ver que foi criado um trabalho e que o estatuto está completo. Isto confirma que o webhook desencadeou o livro de execução para começar a executar o seu script.
 
-    ![Lista de trabalhos recentes de webhook](media/image13.png)
+    ![Lista de Empregos Recentes webhook](media/image13.png)
 
-1. Selecione o trabalho recente e examine a solicitação POST enviada da grade de eventos para o webhook. Examine o JSON e certifique-se de que os parâmetros para o cofre de chaves e o tipo de evento estejam corretos. Se o parâmetro "tipo de evento" no objeto JSON corresponder ao evento que ocorreu no cofre de chaves (neste exemplo, Microsoft. keyvault. SecretNearExpiry), o teste foi bem-sucedido.
+1. Selecione o trabalho recente e veja o pedido do POST que foi enviado da Rede de Eventos para o webhook. Examine o JSON e certifique-se de que os parâmetros para o seu cofre chave e tipo de evento estão corretos. Se o parâmetro "tipo de evento" no objeto JSON corresponder ao evento que ocorreu no cofre da chave (neste exemplo, Microsoft.KeyVault.SecretNearExpiry), o teste foi bem sucedido.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-### <a name="you-cant-create-an-event-subscription"></a>Não é possível criar uma assinatura de evento
+### <a name="you-cant-create-an-event-subscription"></a>Não pode criar uma subscrição de evento
 
-Registre novamente a grade de eventos e o provedor do cofre de chaves em seus provedores de recursos de assinatura do Azure. Consulte [provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+Reregistre a Rede de Eventos e o fornecedor chave do cofre nos seus fornecedores de recursos de subscrição Azure. Consulte [os fornecedores e tipos](../azure-resource-manager/management/resource-providers-and-types.md)de recursos Azure .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Parabéns! Se você seguiu corretamente todas essas etapas, agora você está pronto para responder programaticamente às alterações de status dos segredos armazenados no cofre de chaves.
+Parabéns! Se seguiu corretamente todos estes passos, está agora pronto para responder programáticamente às mudanças de estado dos segredos armazenados no seu cofre chave.
 
-Se você estiver usando um sistema baseado em sondagem para procurar alterações de status de segredos em seus cofres de chaves, agora você pode começar a usar esse recurso de notificação. Você também pode substituir o script de teste em seu runbook por código para renovar de forma programática seus segredos quando eles estiverem prestes a expirar.
+Se tem usado um sistema baseado em sondagens para procurar mudanças de estado nos seus cofres chave, pode agora começar a usar esta funcionalidade de notificação. Também pode substituir o script de teste no seu livro de execução por código para renovar programaticamente os seus segredos quando estão prestes a expirar.
 
-Mais informações:
+Saiba mais:
 
 
-- Visão geral: [monitoramento Key Vault com a grade de eventos do Azure (versão prévia)](event-grid-overview.md)
-- Como: [receber email quando um segredo do cofre de chaves for alterado](event-grid-logicapps.md)
-- [Esquema de evento da grade de eventos do Azure para Azure Key Vault (versão prévia)](../event-grid/event-schema-key-vault.md)
-- [Visão geral de Azure Key Vault](key-vault-overview.md)
-- [Visão geral da grade de eventos do Azure](../event-grid/overview.md)
+- Visão geral: Cofre de chaves de monitorização com grelha de [eventos Azure (pré-visualização)](event-grid-overview.md)
+- Como: [Receber e-mail quando um cofre chave muda](event-grid-logicapps.md)
+- [Esquema de evento sinuoso do evento Azure Event Grid para cofre de chaves Azure (pré-visualização)](../event-grid/event-schema-key-vault.md)
+- [Visão geral do cofre da chave azure](key-vault-overview.md)
+- [Visão geral da Grelha de Eventos Azure](../event-grid/overview.md)
 - [Descrição geral da Automatização do Azure](../automation/index.yml)

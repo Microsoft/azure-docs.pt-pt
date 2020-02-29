@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 0b15b35f6fc83097e94f7d69815a163a0e98a228
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 559c9ee237f95f9d175aaefb487131466700e899
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523276"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190794"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com ferramentas centrais de funções azure
 
@@ -327,7 +327,7 @@ Na versão 2.x do tempo de execução, o comando inicial varia, dependendo da li
 func start --build
 ```
 
-#### <a name="javascript"></a>Javascript
+#### <a name="javascript"></a>JavaScript
 
 ```command
 func start
@@ -463,7 +463,7 @@ As Ferramentas Core funções Do Azure suportam dois tipos de implementação: i
 
 Uma pasta do projeto pode conter ficheiros e diretórios específicos da linguagem que não devem ser publicados. Os itens excluídos estão listados num ficheiro .funcignore na pasta do projeto raiz.     
 
-### <a name="project-file-deployment"></a>Implantação (ficheiros de projeto)
+### <a name="project-file-deployment"></a>Implementar ficheiros de projeto
 
 Para publicar o seu código local numa aplicação de função em Azure, utilize o comando `publish`:
 
@@ -500,7 +500,7 @@ As seguintes opções de publicação são suportadas apenas na versão 2.x:
 | **`--no-build`** | Não construa funções de biblioteca de classes .NET. |
 | **`--dotnet-cli-params`** | Ao publicar funções compiladas C# (.csproj), as ferramentas principais chamam de "dotnet build --output bin/publish". Quaisquer parâmetros passados a isto serão anexados à linha de comando. |
 
-### <a name="deployment-custom-container"></a>Implantação (recipiente personalizado)
+### <a name="deploy-custom-container"></a>Implementar recipiente personalizado
 
 As Funções Azure permitem-lhe implementar o seu projeto de função num [recipiente personalizado do Docker](functions-deployment-technologies.md#docker-container). Para mais informações, consulte [Criar uma função no Linux utilizando uma imagem personalizada](functions-create-function-linux-custom-image.md). Os recipientes personalizados devem ter um Dockerfile. Para criar uma aplicação com um Dockerfile, utilize a opção --dockerfile no `func init`.
 

@@ -1,31 +1,31 @@
 ---
 title: Gerir e monitorizar a importância da carga de trabalho
-description: Saiba como gerenciar e monitorar a importância do nível de solicitação no SQL Data Warehouse do Azure.
+description: Saiba como gerir e monitorizar a importância do nível de pedido no Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: workload-management
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: ee9acb873c5118733de142045457028c3f4d5f61
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 6274bff9f9c57bfb06e58e1c4bfce6b6e265ac62
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692706"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195622"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>Gerenciar e monitorar a importância da carga de trabalho no Azure SQL Data Warehouse
+# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gerir e monitorizar a importância da carga de trabalho no Azure Synapse Analytics
 
-Gerencie e monitore a importância do nível de solicitação no Azure SQL Data Warehouse usando DMVs e exibições de catálogo.
+Gerir e monitorizar a importância do nível de pedido da SQL Analytics no Azure Synapse utilizando DMVs e vistas de catálogo.
 
-## <a name="monitor-importance"></a>Importância do monitor
+## <a name="monitor-importance"></a>Monitorizar a importância
 
-Monitore a importância usando a nova coluna importância na exibição de gerenciamento dinâmico [Sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) .
-A consulta de monitoramento abaixo mostra o tempo de envio e a hora de início das consultas. Examine a hora de envio e a hora de início junto com a importância para ver como a importância influencia o agendamento.
+Monitorize a importância utilizando a nova coluna de importância na visão dinâmica de gestão da [sys.dm_pdw_exec_requests.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)
+A consulta de monitorização abaixo mostra a hora de submissão e a hora de início para consultas. Reveja o tempo de apresentação e o tempo de início juntamente com a importância para ver a importância do agendamento.
 
 ```sql
 SELECT s.login_name, r.status, r.importance, r.submit_time, r.start_time
@@ -35,11 +35,11 @@ SELECT s.login_name, r.status, r.importance, r.submit_time, r.start_time
 ORDER BY r.start_time
 ```
 
-Para ver mais detalhadamente como as consultas estão sendo agendadas, use as exibições do catálogo.
+Para ver mais aprofundadamente como as consultas estão a ser agendadas, utilize as vistas do catálogo.
 
-## <a name="manage-importance-with-catalog-views"></a>Gerenciar importância com exibições de catálogo
+## <a name="manage-importance-with-catalog-views"></a>Gerir a importância com vistas para o catálogo
 
-A exibição de catálogo sys. workload_management_workload_classifiers contém informações sobre classificadores em sua instância do SQL Data Warehouse do Azure. Para excluir os classificadores definidos pelo sistema que são mapeados para classes de recurso, execute o seguinte código:
+A vista de catálogo sys.workload_management_workload_classifiers contém informações sobre os classificadores. Para excluir os classificadores definidos pelo sistema que mapeiam as classes de recursos executam o seguinte código:
 
 ```sql
 SELECT *
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-A exibição de catálogo, [Sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest), contém informações sobre os parâmetros usados na criação do classificador.  A consulta abaixo mostra que ExecReportsClassifier foi criado no parâmetro ```membername``` para valores com ExecutiveReports:
+A vista do catálogo, [sys.workload_management_workload_classifier_details,](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest)contém informações sobre os parâmetros utilizados na criação do classificador.  A consulta abaixo mostra que o ExecReportsClassifier foi criado no parâmetro ```membername``` para valores com Relatórios Executivos:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value
@@ -57,10 +57,10 @@ SELECT c.name,cd.classifier_type, classifier_value
   WHERE c.name = 'ExecReportsClassifier'
 ```
 
-![resultados da consulta](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm-query-results.png)
+![resultados de consulta](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm-query-results.png)
 
-Para simplificar a solução de problemas de classificação indesejada, recomendamos que você remova os mapeamentos de função de classe de recurso ao criar classificadores de carga de trabalho. O código a seguir retorna associações de função de classe de recurso existentes. Execute sp_droprolemember para cada ```membername``` retornado da classe de recurso correspondente.
-Abaixo está um exemplo de verificação de existência antes de remover um classificador de carga de trabalho:
+Para simplificar a resolução de problemas, recomendamos que remova mapeamentos de papéis de classe de recursos à medida que cria classificadores de carga de trabalho. O código abaixo retorna os membros de classe de recursos existentes. Executar sp_droprolemember para cada ```membername``` devolvidos da classe de recursos correspondente.
+Abaixo está um exemplo de verificação da existência antes de deixar cair um classificador de carga de trabalho:
 
 ```sql
 IF EXISTS (SELECT 1 FROM sys.workload_management_workload_classifiers WHERE name = 'ExecReportsClassifier')
@@ -69,8 +69,8 @@ GO
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- Para obter mais informações sobre classificação, consulte [classificação de carga de trabalho](sql-data-warehouse-workload-classification.md).
-- Para obter mais informações sobre importância, consulte [importância da carga de trabalho](sql-data-warehouse-workload-importance.md)
+- Para obter mais informações sobre classificação, consulte [classificação da carga de trabalho](sql-data-warehouse-workload-classification.md).
+- Para mais informações sobre Importância, consulte [A Importância da Carga de Trabalho](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
 > [Ir para configurar a importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md)

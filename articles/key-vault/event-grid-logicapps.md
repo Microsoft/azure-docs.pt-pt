@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c2a15393c5c8e685e9a565f1099eeee935c0d5da
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8d43a254ad79a13320fa2c5a19cf4bc8d6e2c968
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845837"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199755"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Use aplicativos lógicos para receber e-mail sobre mudanças de estado dos segredos do cofre
 
@@ -26,13 +27,13 @@ Para uma visão geral da integração da Chave Abóbada azul / Azure Event Grid,
 
 - Uma conta de e-mail de qualquer fornecedor de e-mail que seja suportado por Aplicações Lógicas Azure (como o Office 365 Outlook). Esta conta de e-mail é utilizada para enviar notificações de eventos. Para obter uma lista completa dos conectores suportados do Logic Apps, consulte a [Descrição geral de conectores](/connectors)
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Um cofre de chaves em sua assinatura do Azure. Você pode criar rapidamente um novo cofre de chaves seguindo as etapas em [definir e recuperar um segredo de Azure Key Vault usando CLI do Azure](quick-create-cli.md).
+- Um cofre chave na sua assinatura Azure. Você pode rapidamente criar um novo cofre chave seguindo os passos em [set e recuperar um segredo de Azure Key Vault usando Azure CLI](quick-create-cli.md).
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Criar uma Aplicação Lógica via Grelha de Eventos
 
 Primeiro, crie a Logic App com o manipulador de grelhas de eventos e subscreva os eventos "SecretNewVersionCreated" do Cofre de Chaves azure.
 
-Para criar uma assinatura da grade de eventos do Azure, siga estas etapas:
+Para criar uma subscrição da Rede de Eventos Azure, siga estes passos:
 
 1. No portal Azure, vá ao seu cofre chave, selecione **Eventos > Get Started** e clique em **Logic Apps**
 
@@ -85,8 +86,8 @@ Quando o segredo for criado, um e-mail será recebido nos endereços configurado
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Visão geral: [monitoramento Key Vault com a grade de eventos do Azure (versão prévia)](event-grid-overview.md)
+- Visão geral: Cofre de chaves de monitorização com grelha de [eventos Azure (pré-visualização)](event-grid-overview.md)
 - Como: [Encaminha as notificações do cofre chave para a Automação Azure](event-grid-tutorial.md).
-- [Esquema de evento da grade de eventos do Azure para Azure Key Vault (versão prévia)](../event-grid/event-schema-key-vault.md)
+- [Esquema de evento sinuoso do evento Azure Event Grid para cofre de chaves Azure (pré-visualização)](../event-grid/event-schema-key-vault.md)
 - Saiba mais sobre o [Azure Event Grid](../event-grid/index.yml).
 - Saiba mais sobre a [funcionalidade Logic Apps do Serviço de Aplicações do Azure](../logic-apps/index.yml).

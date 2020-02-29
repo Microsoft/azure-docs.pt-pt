@@ -4,34 +4,21 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: glenga
-ms.openlocfilehash: 4db460a5dcefb49de3ad2b594d3957cbcf7445c3
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 5e1a2622df0038141dd5cb05237f93d5e33e0bfb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592788"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190925"
 ---
-Em um C# projeto de biblioteca de classes, as associações são definidas como atributos de associação no método de função. O arquivo *Function. JSON* é gerado automaticamente com base nesses atributos.
+Num C# projeto de biblioteca de classes, as encadernações são definidas como atributos vinculativos no método da função. O ficheiro *função.json* exigido pelas Funções é então gerado automaticamente com base nestes atributos.
 
-Abra o arquivo de projeto *HttpTrigger.cs* e adicione a `using` seguinte instrução:
+Abra o ficheiro *HttpExample.cs* do projeto e adicione o seguinte parâmetro à definição de método `Run`:
 
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 
-Adicione o seguinte parâmetro à definição `Run` do método:
+O parâmetro `msg` é um tipo `ICollector<T>`, que representa uma coleção de mensagens que são escritas para uma ligação de saída quando a função completa. Neste caso, a saída é uma fila de armazenamento chamada `outqueue`. A cadeia de ligação para a conta de armazenamento é definida pelo `StorageAccountAttribute`. Este atributo indica a definição que contém a cadeia de ligação da conta de armazenamento e pode ser aplicada ao nível de classe, método ou parâmetro. Neste caso, pode omitir `StorageAccountAttribute` porque já está a utilizar a conta de armazenamento predefinida.
 
-```cs
-[Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
-```
+A definição do método executar deve agora parecer a seguinte:  
 
-O `msg` parâmetro é um `ICollector<T>` tipo, que representa uma coleção de mensagens que são gravadas em uma associação de saída quando a função é concluída. Nesse caso, a saída é uma fila de armazenamento chamada `outqueue`. A cadeia de conexão para a conta de armazenamento é definida `StorageAccountAttribute`pelo. Esse atributo indica a configuração que contém a cadeia de conexão da conta de armazenamento e pode ser aplicada no nível de classe, método ou parâmetro. Nesse caso, você pode omitir `StorageAccountAttribute` porque já está usando a conta de armazenamento padrão.
-
-A definição do método Run agora deve ser semelhante ao seguinte:  
-
-```cs
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-```
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18":::

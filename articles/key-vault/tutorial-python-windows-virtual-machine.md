@@ -5,16 +5,17 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 4078f2a005dcd324fa9c1d31cdca4b1f8337eecd
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3b965ab7dfafd6c78c801cf3692463efe366c852
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988384"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198087"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Tutorial: Use cofre de chave Azure com uma máquina virtual Windows em Python
 
@@ -34,13 +35,13 @@ Este tutorial mostra-lhe como:
 
 Antes de começar, leia [os conceitos básicos do Key Vault.](basic-concepts.md) 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
-  * Este tutorial requer que você execute o CLI do Azure localmente. Tem de ter a versão 2.0.4 do Azure CLI ou posteriormente instalada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI 2.0 do Azure](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * Este tutorial requer que você dirija o Azure CLI localmente. Tem de ter a versão 2.0.4 do Azure CLI ou posteriormente instalada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI 2.0 do Azure](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="about-managed-service-identity"></a>Sobre a Identidade de Serviço Gerida
 
@@ -60,7 +61,7 @@ Para iniciar sessão no Azure com a CLI do Azure, introduza:
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -100,10 +101,10 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Este segredo armazena o valor **MySecret.**
 
-## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 Pode criar uma máquina virtual utilizando um dos seguintes métodos:
 
-* [A CLI do Azure](../virtual-machines/windows/quick-create-cli.md)
+* [O Azure CLI](../virtual-machines/windows/quick-create-cli.md)
 * [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
 * [O portal do Azure](../virtual-machines/windows/quick-create-portal.md)
 

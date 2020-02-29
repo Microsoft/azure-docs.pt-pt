@@ -3,20 +3,20 @@ title: Acompanhe o comportamento do utilizador com insights de aplicação
 titleSuffix: Azure AD B2C
 description: Saiba como ativar os registos de eventos em Insights de Aplicação a partir de viagens de utilizadores Do Azure AD B2C utilizando políticas personalizadas.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 002221bc69659a3be6fee950319909c9fc63ea9c
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: f36b04113a753607b9242681cb62270e37bf7067
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136314"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190200"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Acompanhe o comportamento do utilizador no Diretório Ativo Azure B2C utilizando insights de aplicação
 
@@ -45,7 +45,7 @@ Complete os passos em [Get started com políticas personalizadas.](custom-policy
 
 Quando estiver a usar insights de aplicação com AD B2C Azure, tudo o que precisa de fazer é criar um recurso e obter a chave de instrumentação.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a utilizar o diretório que contém a sua subscrição Azure selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém a sua subscrição. Este inquilino não é o seu inquilino Azure AD B2C.
 3. Escolha **Criar um recurso** no canto superior esquerdo do portal Azure e, em seguida, procurar e selecionar Insights de **Aplicação**.
 4. Clique em **Criar**.

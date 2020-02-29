@@ -1,41 +1,44 @@
 ---
-title: Transmitir logs de aplicativo do Spring Cloud do Azure em tempo real
-description: Como usar o streaming de log para exibir logs de aplicativo instantaneamente
+title: Transmitir em fluxo registos de aplicação do Azure Spring Cloud em tempo real
+description: Como utilizar o streaming de registos para visualizar os registos de aplicações instantaneamente
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
-ms.openlocfilehash: 27978d367ded7a31d73949cd675ae9e6f8cb887c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: fc208a3542528fb4554a365a02e13c2da3055cf2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264004"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192205"
 ---
-# <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Transmitir logs de aplicativo do Spring Cloud do Azure em tempo real
-O Azure Spring Cloud permite o streaming de log no CLI do Azure para obter os logs do console do aplicativo em tempo real para solução de problemas. Você também pode [analisar logs e métricas com configurações de diagnóstico](./diagnostic-services.md).
+# <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Transmitir em fluxo registos de aplicação do Azure Spring Cloud em tempo real
+A Azure Spring Cloud permite que o streaming de log no Azure CLI obtenha registos de consolas de aplicações em tempo real para resolução de problemas. Também pode [analisar registos e métricas com definições](./diagnostic-services.md)de diagnóstico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instalar a [extensão de CLI do Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) para Spring Cloud, versão mínima 0.2.0.
-* Uma instância do **Azure Spring Cloud** com um aplicativo em execução, por exemplo, [aplicativo Spring Cloud](./spring-cloud-quickstart-launch-app-cli.md).
+* Instale [a extensão Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) para spring cloud, versão mínima 0.2.0 .
+* Uma instância de **Azure Spring Cloud** com uma aplicação em execução, por exemplo, [aplicação Spring Cloud](./spring-cloud-quickstart-launch-app-cli.md).
 
-## <a name="use-cli-to-tail-logs"></a>Usar a CLI para os logs de cauda
+> [!NOTE]
+>  A extensão CLI ASC é atualizada da versão 0.2.0 para 0.2.1. Esta alteração afeta a sintaxe do comando para o streaming de registos: `az spring-cloud app log tail`, que é substituída por: `az spring-cloud app logs`. O comando: `az spring-cloud app log tail` será depreciado numa futura libertação. Se tiver usado a versão 0.2.0, pode fazer o upgrade para 0.2.1. Primeiro, retire a versão antiga com o comando: `az extension remove -n spring-cloud`.  Em seguida, instale 0.2.1 pelo comando: `az extension add -n spring-cloud`.
 
-Para evitar especificar repetidamente o seu grupo de recursos e o nome da instância de serviço, defina o nome do grupo de recursos padrão e o nome do cluster.
+## <a name="use-cli-to-tail-logs"></a>Use CLI para troncos de cauda
+
+Para evitar especificar repetidamente o nome do seu grupo de recursos e da instância de serviço, detete o nome do grupo de recursos predefinido e o nome do cluster.
 ```
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
-Nos exemplos a seguir, o grupo de recursos e o nome do serviço serão omitidos nos comandos.
+Nos exemplos seguintes, o grupo de recursos e o nome do serviço serão omitidos nos comandos.
 
-### <a name="tail-log-for-app-with-single-instance"></a>Log final do aplicativo com instância única
-Se um aplicativo chamado auth-Service tiver apenas uma instância, você poderá exibir o log da instância do aplicativo com o seguinte comando:
+### <a name="tail-log-for-app-with-single-instance"></a>Log de cauda para app com instância única
+Se uma aplicação chamada auth-service tiver apenas uma instância, pode ver o registo da instância da aplicação com o seguinte comando:
 ```
-az spring-cloud app log tail -n auth-service
+az spring-cloud app logs -n auth-service
 ```
-Isso retornará logs:
+Isto devolverá os registos:
 ```
 ...
 2020-01-15 01:54:40.481  INFO [auth-service,,,] 1 --- [main] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
@@ -46,10 +49,10 @@ Isso retornará logs:
 ...
 ```
 
-### <a name="tail-log-for-app-with-multiple-instances"></a>Log final do aplicativo com várias instâncias
-Se existirem várias instâncias para o aplicativo chamado `auth-service`, você poderá exibir o log da instância usando a opção `-i/--instance`. 
+### <a name="tail-log-for-app-with-multiple-instances"></a>Log de cauda para app com múltiplas instâncias
+Se existirem várias instâncias para a aplicação denominada `auth-service`, pode ver o registo da instância utilizando a opção `-i/--instance`. 
 
-Primeiro, você pode obter os nomes de instância do aplicativo com o comando a seguir.
+Em primeiro lugar, pode obter os nomes da instância da aplicação com o seguinte comando.
 
 ```
 az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
@@ -63,28 +66,28 @@ auth-service-default-12-75cc4577fc-pw7hb  Running   UP
 auth-service-default-12-75cc4577fc-8nt4m  Running   UP
 auth-service-default-12-75cc4577fc-n25mh  Running   UP
 ``` 
-Em seguida, você pode transmitir logs de uma instância de aplicativo com a opção `-i/--instance` opção:
+Em seguida, pode transmitir registos de uma instância de aplicação com a opção `-i/--instance` opção:
 
 ```
-az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
+az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 
-Você também pode obter detalhes das instâncias do aplicativo do portal do Azure.  Depois de selecionar **aplicativos** no painel de navegação esquerdo do serviço de nuvem do Azure Spring, selecione **instâncias do aplicativo**.
+Também pode obter detalhes de instâncias de aplicações do portal Azure.  Depois de selecionar **Apps** no painel de navegação esquerdo do seu serviço Azure Spring Cloud, selecione **App Instances**.
 
-### <a name="continuously-stream-new-logs"></a>Transmitir continuamente novos logs
-Por padrão, `az spring-cloud ap log tail` imprime somente os logs existentes transmitidos para o console do aplicativo e, em seguida, são encerrados. Se você quiser transmitir novos logs, adicione-f (--follow):  
+### <a name="continuously-stream-new-logs"></a>Stream continuamente novos troncos
+Por padrão, `az spring-cloud ap log tail` impressões apenas registos existentes transmitidos para a consola da aplicação e depois saem. Se quiser transmitir novos registos, adicione -f (-follow):  
 
 ```
-az spring-cloud app log tail -n auth-service -f
+az spring-cloud app logs -n auth-service -f
 ``` 
-Para verificar todas as opções de log com suporte:
+Para verificar todas as opções de exploração de madeira suportadas:
 ``` 
-az spring-cloud app log tail -h 
+az spring-cloud app logs -h 
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Analisar logs e métricas com configurações de diagnóstico](./diagnostic-services.md)
+* [Analisar registos e métricas com definições de diagnóstico](./diagnostic-services.md)
 
  
 

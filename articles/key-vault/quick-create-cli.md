@@ -6,16 +6,17 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1b5ebbcd3a891149a72b3dbe8cb19b3c8de528a1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6f71dd0f928f75deff0a483dda0aed621d6ead19
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773771"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197611"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com a CLI do Azure
 
@@ -36,7 +37,7 @@ az login
 
 Para obter mais informações sobre as opções de login através do CLI, dê uma olhada no [login com o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *ContosoResourceGroup* na localização *eastus*.
 
@@ -94,9 +95,9 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criaste um Cofre chave e guardaste um segredo nele. Para saber mais sobre Key Vault e como integrá-lo a seus aplicativos, continue nos artigos abaixo.
+Neste arranque rápido, criaste um Cofre chave e guardaste um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
-- Leia uma [visão geral do Azure Key Vault](key-vault-overview.md)
+- Leia uma [visão geral do Cofre chave Azure](key-vault-overview.md)
 - Consulte a referência para os [comandos do cofre azure CLI az](/cli/azure/keyvault?view=azure-cli-latest)
 - Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
-- Examinar [Azure Key Vault práticas recomendadas](key-vault-best-practices.md)
+- Rever [as melhores práticas do Cofre de Chaves Azure](key-vault-best-practices.md)

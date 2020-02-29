@@ -3,20 +3,20 @@ title: Exemplos de transformação de reivindicações de cadeias para política
 titleSuffix: Azure AD B2C
 description: Os exemplos de transformação de string claims para o quadro de experiência de identidade (IEF) do Azure Ative Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 678385d9ed16a9821fc61be476e7eb9eaf6fd4f1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585735"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183708"
 ---
 # <a name="string-claims-transformations"></a>Transformações de sinistros de cordas
 
@@ -363,7 +363,7 @@ Utilize esta transformação de sinistros para formatar qualquer cadeia com dois
 - Alegações de saída:
     - **saídaSClaim**: Joe Fernando
 
-## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
 Cópias localizadas cordas em reivindicações.
 
@@ -428,9 +428,9 @@ A transformação de sinistros define o valor do *sujeito* do tipo de reclamaç�
 
 - Alegações de saída:
   - **assunto**: Código de verificação de email de conta Contoso
-  - **mensagem**: Obrigado por verificar a sua conta! 
-  - **codeIntro**: O seu código é 
-  - **assinatura**: Sinceramente  
+  - **mensagem**: Obrigado por verificar a sua conta!
+  - **codeIntro**: O seu código é
+  - **assinatura**: Sinceramente
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -618,7 +618,7 @@ Verifica se uma reclamação de cadeia sou `claimToMatch` e `matchTo` parâmetro
 | OutputClaim | outputClaim | string | Se a expressão regular for compatível, esta alegação de saída contém o valor do parâmetro de entrada `outputClaimIfMatched`. Ou nulo, se não corresponder. |
 | OutputClaim | regexCompareResultClaim | boolean | O tipo de resultado de correspondência de expressão regular, que deve ser definido como `true` ou `false` com base no resultado da correspondência. |
 
-Por exemplo, verifica se o número de telefone fornecido é válido, com base no padrão de expressão regular do número de telefone.  
+Por exemplo, verifica se o número de telefone fornecido é válido, com base no padrão de expressão regular do número de telefone.
 
 ```XML
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
@@ -755,7 +755,7 @@ Determine se ocorre uma subcadeia especificada dentro da alegação de entrada. 
 Utilize esta transformação de reclamações para verificar se um tipo de reclamação de cordas contém um substring. Seguindo o exemplo, verifica se o tipo de reclamação de cadeias `roles` contém o valor da **administração**.
 
 ```XML
-<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
   </InputClaims>
@@ -765,7 +765,7 @@ Utilize esta transformação de reclamações para verificar se um tipo de recla
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -777,7 +777,7 @@ Utilize esta transformação de reclamações para verificar se um tipo de recla
     - **contém**: "administrador",
     - **ignoraCaso:** verdadeiro
 - Alegações de saída:
-    - **saídaReivindicação**: verdadeiro 
+    - **saídaReivindicação**: verdadeiro
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -790,7 +790,7 @@ Extrai partes de um tipo de reclamação de cordas, começando pelo personagem n
 | EntradaParametro | length | int | O número de caracteres na subcadeia. |
 | OutputClaim | outputClaim | boolean | Uma cadeia equivalente à subcadeia de comprimento que começa no inícioIndex neste caso, ou Empty se o startIndex for igual ao comprimento desta instância e comprimento é zero. |
 
-Por exemplo, obtenha o prefixo do país do número de telefone.  
+Por exemplo, obtenha o prefixo do país do número de telefone.
 
 
 ```XML
@@ -828,7 +828,7 @@ Procura uma cadeia de tipo de reclamação por um valor especificado e devolve u
 | EntradaParametro | newValue | string | A corda para substituir todas as ocorrências de `oldValue` |
 | OutputClaim | outputClaim | boolean | Uma cadeia equivalente à cadeia atual, exceto que todos os casos de oldValue são substituídos por newValue. Se o oldValue não for encontrado na instância atual, o método devolve a instância atual inalterada. |
 
-Por exemplo, normalizar um número de telefone, removendo os caracteres `-`  
+Por exemplo, normalizar um número de telefone, removendo os caracteres `-`
 
 
 ```XML
@@ -864,7 +864,7 @@ Concatena os elementos de um tipo de reivindicação de recolha de cordas especi
 | inputClaim | inputClaim | stringCollection | Uma coleção que contém as cordas para concatenar. |
 | EntradaParametro | delimitador | string | A corda para usar como separador, como vírpara `,`. |
 | OutputClaim | outputClaim | string | Uma cadeia que consiste nos membros da coleção de cordas `inputClaim`, delimitada pelo parâmetro de entrada `delimiter`. |
-  
+
 O exemplo seguinte pega numa coleção de cordas de funções de utilizador e converte-a numa cadeia de delimitador de vírposta. Pode utilizar este método para armazenar uma coleção de cordas na conta de utilizador da AD Azure. Mais tarde, quando ler a conta do diretório, use o `StringSplit` para converter a corda de limitador da vírce de volta à coleção de cordas.
 
 ```XML
@@ -900,7 +900,7 @@ Devolve uma cadeia de cordas que contém as subcordas neste caso que são delimi
 | inputClaim | inputClaim | string | Um tipo de reivindicação de cordas que contém as cadeias sub para dividir. |
 | EntradaParametro | delimitador | string | A corda para usar como separador, como vírpara `,`. |
 | OutputClaim | outputClaim | stringCollection | Uma coleção de cordas cujos elementos contêm as subcordas desta cadeia que são delimitadas pelo parâmetro de entrada `delimiter`. |
-  
+
 O exemplo seguinte pega numa cadeia de funções de utilizador de comma e converte-a numa coleção de cordas.
 
 ```XML
@@ -925,7 +925,7 @@ O exemplo seguinte pega numa cadeia de funções de utilizador de comma e conver
   - **delimitador**: ""
 - Alegações de saída:
   - **saídasReivindicação**: [ "Administrador", "Autor", "Leitor" ]
-  
+
 ## <a name="string-claim-transformations-expressions"></a>Expressões de transformações de reivindicação de cordas
 As expressões de transformações de reivindicação em políticas personalizadas Azure AD B2C fornecem informações de contexto sobre o ID do inquilino e identificação de perfil técnico.
 
