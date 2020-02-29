@@ -1,76 +1,103 @@
 ---
-title: Executar seu aplicativo de um pacote ZIP
-description: Implante o pacote ZIP do aplicativo com atomicidade. Melhore a previsibilidade e a confiabilidade do comportamento do seu aplicativo durante o processo de implantação ZIP.
+title: Execute a sua aplicação a partir de um pacote ZIP
+description: Implemente o pacote ZIP da sua aplicação com atómico. Melhore a previsibilidade e fiabilidade do comportamento da sua aplicação durante o processo de implementação do ZIP.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 316ada7700a5cf45ee90f515336039702bab48c0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945841"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920727"
 ---
-# <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Executar seu aplicativo no serviço Azure App diretamente de um pacote ZIP
+# <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Execute a sua aplicação no Serviço de Aplicações Azure diretamente de um pacote ZIP
 
-No [Azure app Service](overview.md), você pode executar seus aplicativos diretamente de um arquivo de pacote zip de implantação. Este artigo mostra como habilitar essa funcionalidade em seu aplicativo.
+No [Azure App Service,](overview.md)pode executar as suas aplicações diretamente a partir de um ficheiro de pacote ZIP de implementação. Este artigo mostra como ativar esta funcionalidade na sua aplicação.
 
-Todos os outros métodos de implantação no serviço de aplicativo têm algo em comum: os arquivos são implantados no *D:\home\site\wwwroot* em seu aplicativo (ou */Home/site/wwwroot* para aplicativos Linux). Como o mesmo diretório é usado pelo seu aplicativo em tempo de execução, é possível que a implantação falhe devido a conflitos de bloqueio de arquivo, e para que o aplicativo se comporte de forma inesperada porque alguns dos arquivos ainda não foram atualizados.
+Todos os outros métodos de implementação no App Service têm algo em comum: os seus ficheiros são implantados para *D:\home\site\wwwroot* na sua app (ou */home/site/wwwroot* para aplicações Linux). Uma vez que o mesmo diretório é utilizado pela sua app em tempo de execução, é possível que a implementação falhe devido a conflitos de bloqueio de ficheiros, e para que a app se compore de forma imprevisível porque alguns dos ficheiros ainda não estão atualizados.
 
-Por outro lado, quando você executa diretamente de um pacote, os arquivos no pacote não são copiados para o diretório *wwwroot* . Em vez disso, o próprio pacote ZIP é montado diretamente como o diretório *wwwroot* somente leitura. Há vários benefícios em executar diretamente a partir de um pacote:
+Em contrapartida, quando se executa diretamente de um pacote, os ficheiros da embalagem não são copiados para o diretório *wwwroot.* Em vez disso, o pacote ZIP em si é montado diretamente como o diretório *wwwroot* apenas de leitura. Existem vários benefícios para correr diretamente a partir de um pacote:
 
-- Elimina conflitos de bloqueio de arquivo entre implantação e tempo de execução.
-- Garante que somente aplicativos de implantação completa estejam em execução a qualquer momento.
-- Pode ser implantado em um aplicativo de produção (com reinicialização).
-- Melhora o desempenho de implantações de Azure Resource Manager.
-- Pode reduzir os horários de início frio, especialmente para funções de JavaScript com árvores de pacote NPM de grande porte.
+- Elimina os conflitos de bloqueio de ficheiros entre a implantação e o tempo de execução.
+- Garante que apenas as aplicações totalmente implementadas estão a funcionar a qualquer momento.
+- Pode ser implantado numa aplicação de produção (com reinício).
+- Melhora o desempenho das implementações do Gestor de Recursos Azure.
+- Pode reduzir os tempos de arranque a frio, particularmente para funções JavaScript com grandes árvores de embalagem npm.
 
 > [!NOTE]
-> Atualmente, há suporte apenas para arquivos de pacote ZIP.
+> Atualmente, apenas os ficheiros de pacotezip são suportados.
 
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
-## <a name="enable-running-from-package"></a>Habilitar execução do pacote
+## <a name="enable-running-from-package"></a>Ativar o funcionamento do pacote
 
-A configuração do aplicativo `WEBSITE_RUN_FROM_PACKAGE` permite a execução de um pacote. Para defini-lo, execute o comando a seguir com CLI do Azure.
+A definição de aplicações `WEBSITE_RUN_FROM_PACKAGE` permite funcionar a partir de um pacote. Para o definir, execute o seguinte comando com o Azure CLI.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_RUN_FROM_PACKAGE="1"
 ```
 
-`WEBSITE_RUN_FROM_PACKAGE="1"` permite executar seu aplicativo de um pacote local para seu aplicativo. Você também pode [executar a partir de um pacote remoto](#run-from-external-url-instead).
+`WEBSITE_RUN_FROM_PACKAGE="1"` permite executar a sua aplicação de um pacote local para a sua aplicação. Também pode correr a [partir de um pacote remoto.](#run-from-external-url-instead)
 
 ## <a name="run-the-package"></a>Executar o pacote
 
-A maneira mais fácil de executar um pacote em seu serviço de aplicativo é com o comando CLI do Azure [AZ webapp Deployment Source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) . Por exemplo:
+The easiest way to run a package in your App Service is with the Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command. Por exemplo:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
 ```
 
-Como a configuração do aplicativo `WEBSITE_RUN_FROM_PACKAGE` está definida, esse comando não extrai o conteúdo do pacote para o diretório *D:\home\site\wwwroot* do seu aplicativo. Em vez disso, ele carrega o arquivo ZIP como está para *D:\home\data\SitePackages*e cria um *PackageName. txt* no mesmo diretório, que contém o nome do pacote zip a ser carregado no tempo de execução. Se você carregar o pacote ZIP de uma maneira diferente (como [FTP](deploy-ftp.md)), precisará criar o diretório *D:\home\data\SitePackages* e o arquivo *PackageName. txt* manualmente.
+Uma vez definida a definição de `WEBSITE_RUN_FROM_PACKAGE` aplicações, este comando não extrai o conteúdo do pacote para o *d:\home\site\wwwroot* diretório da sua aplicação. Em vez disso, ele envia o ficheiro ZIP como é para *D:\home\data\SitePackages*, e cria um *nome de pacote.txt* no mesmo diretório, que contém o nome do pacote ZIP para carregar no tempo de execução. Se fizer o upload do seu pacote ZIP de uma forma diferente (como [FTP),](deploy-ftp.md)tem de criar manualmente o diretório *D:\home\data\SitePackages* e o ficheiro *packagename.txt* manualmente.
 
-O comando também reinicia o aplicativo. Como `WEBSITE_RUN_FROM_PACKAGE` é definido, o serviço de aplicativo monta o pacote carregado como o diretório *wwwroot* somente leitura e executa o aplicativo diretamente desse diretório montado.
+O comando também reinicia a aplicação. Como `WEBSITE_RUN_FROM_PACKAGE` está definido, o App Service monta o pacote carregado como o diretório *wwwroot* apenas de leitura e executa a app diretamente a partir desse diretório montado.
 
-## <a name="run-from-external-url-instead"></a>Executar da URL externa em vez disso
+## <a name="run-from-external-url-instead"></a>Executar a partir de URL externo em vez
 
-Você também pode executar um pacote de uma URL externa, como o armazenamento de BLOBs do Azure. Você pode usar o [Gerenciador de armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote na sua conta de armazenamento de BLOBs. Você deve usar um contêiner de armazenamento privado com uma [SAS (assinatura de acesso compartilhado)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para permitir que o tempo de execução do serviço de aplicativo acesse o pacote com segurança. 
+Também pode executar uma embalagem a partir de um URL externo, como o Armazenamento De Blob Azure. Pode utilizar o [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) para fazer o upload de ficheiros de pacotes para a sua conta de armazenamento Blob. Deve utilizar um recipiente de armazenamento privado com uma Assinatura de [Acesso Partilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para permitir que o tempo de execução do Serviço de Aplicações aceda de forma segura à embalagem. 
 
-Depois de carregar o arquivo no armazenamento de BLOBs e ter uma URL SAS para o arquivo, defina a configuração `WEBSITE_RUN_FROM_PACKAGE` aplicativo como a URL. O exemplo a seguir faz isso usando CLI do Azure:
+Assim que enviar o seu ficheiro para o armazenamento blob e tiver um URL SAS para o ficheiro, defina a definição de aplicação `WEBSITE_RUN_FROM_PACKAGE` para o URL. O exemplo seguinte fá-lo utilizando o Azure CLI:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="https://myblobstorage.blob.core.windows.net/content/SampleCoreMVCApp.zip?st=2018-02-13T09%3A48%3A00Z&se=2044-06-14T09%3A48%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=bNrVrEFzRHQB17GFJ7boEanetyJ9DGwBSV8OM3Mdh%2FM%3D"
 ```
 
-Se você publicar um pacote atualizado com o mesmo nome para o armazenamento de BLOBs, será necessário reiniciar o aplicativo para que o pacote atualizado seja carregado no serviço de aplicativo.
+Se publicar um pacote atualizado com o mesmo nome para o armazenamento Blob, precisa de reiniciar a sua aplicação para que o pacote atualizado seja carregado no Serviço de Aplicações.
+
+### <a name="use-key-vault-references"></a>Utilizar referências de cofre de chaves
+
+Para uma maior segurança, pode utilizar referências de cofre de chave em conjunto com o seu URL externo. Isto mantém o URL encriptado em repouso e permite alavancar o Key Vault para gestão e rotação secretas. Recomenda-se utilizar o armazenamento Azure Blob para que possa rodar facilmente a tecla SAS associada. O armazenamento do Azure Blob é encriptado em repouso, o que mantém os dados da sua aplicação seguros quando não é implementado no Serviço de Aplicações.
+
+1. Crie um cofre de chaves Azure.
+
+    ```azurecli
+    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
+    ```
+
+1. Adicione o seu URL externo como um segredo no Cofre chave.
+
+    ```azurecli
+    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
+    ```
+
+1. Crie a definição de aplicações `WEBSITE_RUN_FROM_PACKAGE` e defina o valor como uma referência de cofre chave ao URL externo.
+
+    ```azurecli
+    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
+    ```
+
+Consulte os seguintes artigos para obter mais informações.
+
+- [Referências chave vault para serviço de aplicações](app-service-key-vault-references.md)
+- [Encriptação azure storage para dados em repouso](../storage/common/storage-service-encryption.md)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-- A execução direta de um pacote torna `wwwroot` somente leitura. Seu aplicativo receberá um erro se tentar gravar arquivos nesse diretório.
-- Não há suporte para formatos TAR e GZIP.
-- Este recurso não é compatível com o [cache local](overview-local-cache.md).
-- Para obter um desempenho de inicialização a frio aprimorado, use a opção de zip local (`WEBSITE_RUN_FROM_PACKAGE`= 1).
+- Correr diretamente de um pacote faz `wwwroot` apenas para leitura. A sua aplicação receberá um erro se tentar escrever ficheiros para este diretório.
+- Os formatos TAR e GZIP não são suportados.
+- Esta função não é compatível com [cache local](overview-local-cache.md).
+- Para um melhor desempenho a frio, utilize a opção Zip local (`WEBSITE_RUN_FROM_PACKAGE`=1).
 
 ## <a name="more-resources"></a>Mais recursos
 
-- [Implantação contínua para o serviço Azure App](deploy-continuous-deployment.md)
-- [Implantar código com um arquivo ZIP ou WAR](deploy-zip.md)
+- [Implantação contínua para o Serviço de Aplicações Azure](deploy-continuous-deployment.md)
+- [Implementar código com um ficheiro ZIP ou WAR](deploy-zip.md)

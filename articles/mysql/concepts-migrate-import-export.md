@@ -1,115 +1,115 @@
 ---
-title: Importar e exportar-banco de dados do Azure para MySQL
-description: Este artigo explica maneiras comuns de importar e exportar bancos de dados no banco de dados do Azure para MySQL, usando ferramentas como o MySQL Workbench.
+title: Importação e exportação - Base de Dados Azure para MySQL
+description: Este artigo explica formas comuns de importar e exportar bases de dados na Base de Dados Azure para o MySQL, utilizando ferramentas como a Bancada de Trabalho MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 8cf0b88ddc24bfc6bc293dd62416417f1eec3a06
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 2/27/2020
+ms.openlocfilehash: 83b0a69e063e9427c726216ef873f5a1c97f9582
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770956"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163731"
 ---
-# <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrar seu banco de dados MySQL usando importação e exportação
-Este artigo explica duas abordagens comuns para importar e exportar dados para um servidor do Azure para MySQL usando o MySQL Workbench. 
+# <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrar a sua base de dados MySQL utilizando a importação e a exportação
+Este artigo explica duas abordagens comuns para importar e exportar dados para uma Base de Dados Azure para servidor MySQL utilizando a Bancada de Trabalho MySQL. 
 
 ## <a name="before-you-begin"></a>Antes de começar
-Para percorrer este guia de instruções, você precisa de:
-- Um banco de dados do Azure para servidor MySQL, seguindo [criar um banco de dados do Azure para o servidor MySQL usando portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md).
-- O MySQL Workbench [foi baixado](https://dev.mysql.com/downloads/workbench/)ou outra ferramenta MySQL para importar e exportar.
+Para passar por este guia de como guiar, você precisa:
+- Uma base de dados Azure para servidor MySQL, seguindo [criar uma base de dados Azure para servidor MySQL utilizando](quickstart-create-mysql-server-database-using-azure-portal.md)o portal Azure .
+- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/) ou outra ferramenta MySQL de terceiros para fazer a importação/exportação.
 
-## <a name="use-common-tools"></a>Usar ferramentas comuns
-Use ferramentas comuns, como MySQL Workbench, Toad ou Navicat para se conectar e importar ou exportar dados remotamente para o Azure Database para MySQL. 
+## <a name="use-common-tools"></a>Use ferramentas comuns
+Utilize utilitários e ferramentas comuns, como a Bancada de Trabalho MySQL ou a mysqldump, para ligar e importar ou exportar dados remotamente para a Base de Dados Azure para o MySQL. 
 
-Use essas ferramentas no computador cliente com uma conexão com a Internet para se conectar ao banco de dados do Azure para MySQL. Use uma conexão criptografada por SSL para práticas recomendadas de segurança, conforme descrito em [configurar conectividade SSL no banco de dados do Azure para MySQL](concepts-ssl-connection-security.md).
+Utilize estas ferramentas na sua máquina cliente com uma ligação à Internet para ligar à Base de Dados Azure para o MySQL. Utilize uma ligação encriptada por SSL para as melhores práticas de segurança, conforme descrito na [conectividade Configure SSL na Base de Dados Azure para MySQL](concepts-ssl-connection-security.md).
 
-Você não precisa mover os arquivos de importação e exportação para qualquer local de nuvem especial ao migrar para o banco de dados do Azure para MySQL. 
+Não precisa de mover os seus ficheiros de importação e exportação para qualquer local especial na nuvem ao migrar para a Base de Dados Azure para o MySQL. 
 
-## <a name="create-a-database-on-the-azure-database-for-mysql-server"></a>Criar um banco de dados no servidor de banco de dados do Azure para MySQL
-Crie um banco de dados vazio no banco de dados do Azure para o servidor MySQL no qual você deseja migrá-los. Use uma ferramenta como MySQL Workbench, Toad ou Navicat para criar o banco de dados. O banco de dados pode ter o mesmo nome que o banco de dado que contém o despejado ou você pode criar um banco de dados com um nome diferente.
+## <a name="create-a-database-on-the-azure-database-for-mysql-server"></a>Criar uma base de dados na Base de Dados Azure para servidor MySQL
+Crie uma base de dados vazia na Base de Dados Azure para o servidor MySQL onde pretende migrar os dados. Utilize uma ferramenta como a bancada mySQL, sapo ou Navicat para criar a base de dados. A base de dados pode ter o mesmo nome que a base de dados que contém os dados despejados, ou pode criar uma base de dados com um nome diferente.
 
-Para se conectar, localize as informações de conexão na **visão geral** do banco de dados do Azure para MySQL.
+Para se ligar, localize as informações de ligação na **visão geral** da sua Base de Dados Azure para MySQL.
 
-![Localizar as informações de conexão no portal do Azure](./media/concepts-migrate-import-export/1_server-overview-name-login.png)
+![Encontre as informações de ligação no portal Azure](./media/concepts-migrate-import-export/1_server-overview-name-login.png)
 
-Adicione as informações de conexão ao MySQL Workbench.
+Adicione as informações de ligação à bancada mySQL.
 
-![Cadeia de conexão do MySQL Workbench](./media/concepts-migrate-import-export/2_setup-new-connection.png)
+![Cadeia de ligação à bancada de trabalho MySQL](./media/concepts-migrate-import-export/2_setup-new-connection.png)
 
-## <a name="determine-when-to-use-import-and-export-techniques-instead-of-a-dump-and-restore"></a>Determinar quando usar as técnicas de importação e exportação em vez de um despejo e uma restauração
-Use as ferramentas do MySQL para importar e exportar bancos de dados para o Azure MySQL, nos cenários a seguir. Em outros cenários, você pode se beneficiar do uso da abordagem de [despejo e restauração](concepts-migrate-dump-restore.md) em vez disso. 
+## <a name="determine-when-to-use-import-and-export-techniques-instead-of-a-dump-and-restore"></a>Determinar quando utilizar técnicas de importação e exportação em vez de um despejo e restaurar
+Utilize ferramentas MySQL para importar e exportar bases de dados para a Base de Dados Azure MySQL nos seguintes cenários. Noutros cenários, poderá beneficiar-se da utilização da [abordagem de despejo e restauro.](concepts-migrate-dump-restore.md) 
 
-- Quando você precisa escolher seletivamente algumas tabelas para importar de um banco de dados MySQL existente para o banco de dados MySQL do Azure, é melhor usar a técnica de importação e exportação.  Ao fazer isso, você pode omitir as tabelas desnecessárias da migração para economizar tempo e recursos. Por exemplo, use a opção `--include-tables` ou `--exclude-tables` com [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) e a opção `--tables` com [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
-- Quando você estiver movendo os objetos de banco de dados diferentes de tabelas, crie explicitamente esses objetos. Inclua restrições (chave primária, chave estrangeira, índices), exibições, funções, procedimentos, gatilhos e outros objetos de banco de dados que você deseja migrar.
-- Quando você estiver migrando dados de fontes de dados externas que não sejam do MySQL, Crie arquivos simples e importe-os usando o [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
+- Quando você precisa escolher seletivamente algumas tabelas para importar de uma base de dados MySQL existente para A Base de Dados Azure MySQL, o melhor é usar a técnica de importação e exportação.  Ao fazê-lo, pode omitir quaisquer mesas desnecessárias da migração para poupar tempo e recursos. Por exemplo, utilize o interruptor `--include-tables` ou `--exclude-tables` com [a misqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) e o interruptor de `--tables` com [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
+- Quando estiver a mover os objetos da base de dados para além das tabelas, crie explicitamente esses objetos. Inclua constrangimentos (chave primária, chave estrangeira, índices), vistas, funções, procedimentos, gatilhos e quaisquer outros objetos de base de dados que queira migrar.
+- Quando estiver a migrar dados de fontes de dados externas que não uma base de dados MySQL, crie ficheiros planos e importe-os utilizando [a mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
-Certifique-se de que todas as tabelas no banco de dados usem o mecanismo de armazenamento InnoDB quando você estiver carregando dados no Azure Database para MySQL. O banco de dados do Azure para MySQL dá suporte apenas ao mecanismo de armazenamento InnoDB, portanto, ele não dá suporte a mecanismos de armazenamento alternativos. Se suas tabelas exigirem mecanismos de armazenamento alternativos, certifique-se de convertê-las para usar o formato de mecanismo InnoDB antes da migração para o banco de dados do Azure para MySQL. 
+Certifique-se de que todas as tabelas da base de dados utilizam o motor de armazenamento InnoDB quando estiver a carregar dados para a Base de Dados Azure para o MySQL. A Base de Dados Azure para MySQL suporta apenas o motor de armazenamento InnoDB, pelo que não suporta motores de armazenamento alternativos. Se as suas tabelas necessitarem de motores de armazenamento alternativos, certifique-se de que os converte para utilizar o formato do motor InnoDB antes da migração para a Base de Dados Azure para o MySQL. 
 
-Por exemplo, se você tiver um WordPress ou um aplicativo Web que usa o mecanismo MyISAM, primeiro converta as tabelas migrando os dados para tabelas InnoDB. Em seguida, restaure para o banco de dados do Azure para MySQL. Use a cláusula `ENGINE=INNODB` para definir o mecanismo para criar uma tabela e, em seguida, transferir os dados para a tabela compatível antes da migração. 
+Por exemplo, se tiver uma aplicação WordPress ou web que utilize o motor MyISAM, converta primeiro as tabelas migrando os dados para tabelas InnoDB. Em seguida, restaurar para azure Base de dados para MySQL. Utilize a cláusula `ENGINE=INNODB` para definir o motor para a criação de uma tabela e, em seguida, transferir os dados para a tabela compatível antes da migração. 
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
 
 ## <a name="performance-recommendations-for-import-and-export"></a>Recomendações de desempenho para importação e exportação
--   Crie índices clusterizados e chaves primárias antes de carregar dados. Carregar dados na ordem de chave primária. 
--   Atrasar a criação de índices secundários até que os dados sejam carregados. Crie todos os índices secundários após o carregamento. 
--   Desabilite as restrições de chave estrangeira antes de carregar. A desabilitação de verificações de chave estrangeira fornece ganhos de desempenho significativos. Habilite as restrições e verifique os dados após a carga para garantir a integridade referencial.
--   Carregar dados em paralelo. Evite muito paralelismo que poderia fazer com que você atinja um limite de recursos e monitore os recursos usando as métricas disponíveis no portal do Azure. 
--   Use tabelas particionadas quando apropriado.
+-   Crie índices agrupados e chaves primárias antes de carregar dados. Carregue os dados na ordem principal. 
+-   Adiar a criação de índices secundários até depois de os dados estarem carregados. Crie todos os índices secundários após o carregamento. 
+-   Desative os constrangimentos das chaves estrangeiras antes de carregar. A desativação de controlos de chaves estrangeiras proporciona ganhos significativos de desempenho. Ative os constrangimentos e verifique os dados após a carga para garantir a integridade referencial.
+-   Carregue os dados em paralelo. Evite demasiado paralelismo que o faça atingir um limite de recursos e monitorize os recursos utilizando as métricas disponíveis no portal Azure. 
+-   Utilize mesas divididas quando apropriado.
 
-## <a name="import-and-export-by-using-mysql-workbench"></a>Importar e exportar usando o MySQL Workbench
-Há duas maneiras de exportar e importar dados no MySQL Workbench. Cada um atende a uma finalidade diferente. 
+## <a name="import-and-export-by-using-mysql-workbench"></a>Importação e exportação utilizando a bancada MySQL
+Existem duas formas de exportar e importar dados na bancada mySQL. Cada um tem um propósito diferente. 
 
-### <a name="table-data-export-and-import-wizards-from-the-object-browsers-context-menu"></a>Assistentes de importação e exportação de dados de tabela no menu de contexto do pesquisador de objetos
-![Assistentes do MySQL Workbench no menu de contexto do pesquisador de objetos](./media/concepts-migrate-import-export/p1.png)
+### <a name="table-data-export-and-import-wizards-from-the-object-browsers-context-menu"></a>Dados de tabela supremia e importadores do menu de contexto do navegador de objetos
+![Assistentes da bancada de trabalho MySQL no menu de contexto do navegador de objetos](./media/concepts-migrate-import-export/p1.png)
 
-Os assistentes para dados de tabela dão suporte a operações de importação e exportação usando arquivos CSV e JSON. Eles incluem várias opções de configuração, como separadores, seleção de coluna e seleção de codificação. Você pode executar cada assistente em servidores MySQL locais ou conectados remotamente. A ação de importação inclui o mapeamento de tabela, coluna e tipo. 
+Os assistentes para dados de tabela suportam operações de importação e exportação utilizando ficheiros CSV e JSON. Incluem várias opções de configuração, tais como separadores, seleção de colunas e seleção de codificação. Pode executar cada assistente contra servidores MySQL locais ou ligados remotamente. A ação de importação inclui o mapeamento de tabelas, colunas e tipos. 
 
-Você pode acessar esses assistentes no menu de contexto do pesquisador de objetos clicando com o botão direito do mouse em uma tabela. Em seguida, escolha **Assistente de exportação de dados de tabela** ou assistente de importação de dados de **tabela**. 
+Pode aceder a estes assistentes a partir do menu de contexto do navegador de objetos clicando numa tabela. Em seguida, escolha o Assistente de **Exportação** de Dados de Tabela ou **o Assistente de Importação de Dados**de Tabela . 
 
 #### <a name="table-data-export-wizard"></a>Assistente de exportação de dados de tabela
-O exemplo a seguir exporta a tabela para um arquivo CSV: 
-1. Clique com o botão direito do mouse na tabela do banco de dados a ser exportada. 
-2. Selecione **Assistente de exportação de dados de tabela**. Selecione as colunas a serem exportadas, o deslocamento da linha (se houver) e a contagem (se houver). 
-3. Na página **selecionar dados para exportação** , clique em **Avançar**. Selecione o caminho do arquivo, CSV ou tipo de arquivo JSON. Selecione também o separador de linha, o método de cadeias de caracteres de circunscrição e separador de campo. 
-4. Na página **selecionar local do arquivo de saída** , clique em **Avançar**. 
-5. Na página **exportar dados** , clique em **Avançar**.
+O exemplo seguinte exporta a tabela para um ficheiro CSV: 
+1. Clique na tabela da base de dados a exportar. 
+2. Selecione **Assistente de Exportação**de Dados de Tabela . Selecione as colunas a exportar, remar offset (se houver) e contar (se houver). 
+3. Nos **dados Select para página de exportação,** clique em **Seguinte**. Selecione o caminho de ficheiro, CSV ou tipo de ficheiro JSON. Selecione também o separador de linha, o método de fecho de cordas e o separador de campo. 
+4. Na página de localização do **ficheiro de saída Select,** clique em **Seguinte**. 
+5. Na página de dados da **Exportação,** clique em **Seguinte**.
 
 #### <a name="table-data-import-wizard"></a>Assistente de importação de dados de tabela
-O exemplo a seguir importa a tabela de um arquivo CSV:
-1. Clique com o botão direito do mouse na tabela do banco de dados a ser importado. 
-2. Navegue até o arquivo CSV a ser importado e selecione-o e clique em **Avançar**. 
-3. Selecione a tabela de destino (nova ou existente) e marque ou desmarque a caixa de seleção **Truncar tabela antes de importar** . Clique em **Seguinte**.
-4. Selecione codificação e as colunas a serem importadas e clique em **Avançar**. 
-5. Na página **importar dados** , clique em **Avançar**. O assistente importa os dados de acordo.
+O exemplo que se segue importa a tabela de um ficheiro CSV:
+1. Clique na tabela da base de dados para ser importada. 
+2. Navegue e selecione o ficheiro CSV a importar e, em seguida, clique em **Seguinte**. 
+3. Selecione a tabela de destino (nova ou existente) e selecione ou limpe a tabela Truncate antes da caixa de **verificação de importação.** Clique em **Seguinte**.
+4. Selecione codificação e as colunas a importar e, em seguida, clique em **Seguinte**. 
+5. Na página de **dados da Importação,** clique em **Seguinte**. O assistente importa os dados em conformidade.
 
-### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>Assistentes de exportação e importação de dados SQL no painel navegador
-Use um assistente para exportar ou importar o SQL gerado do MySQL Workbench ou gerado a partir do comando mysqldump. Acesse esses assistentes no painel **navegador** ou selecionando **servidor** no menu principal. Em seguida, selecione **exportação de dados** ou **importação de dados**. 
+### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>SQL data exportando e importando feiticeiros do painel Navigator
+Utilize um assistente para exportar ou importar SQL gerado a partir da Bancada de Trabalho MySQL ou gerado a partir do comando mysqldump. Aceda a estes assistentes a partir do painel **do Navegador** ou selecionando o **Servidor** a partir do menu principal. Em seguida, selecione **Dados Exportação** ou Importação de **Dados**. 
 
-#### <a name="data-export"></a>Exportação de dados
-![Exportação de dados do MySQL Workbench usando o painel navegador](./media/concepts-migrate-import-export/p2.png)
+#### <a name="data-export"></a>Exportação de Dados
+![Exportação de dados da bancada de trabalho MySQL utilizando o painel Navigator](./media/concepts-migrate-import-export/p2.png)
 
-Você pode usar a guia **exportação de dados** para exportar os dados do MySQL. 
-1. Selecione cada esquema que você deseja exportar, opcionalmente, escolha objetos/tabelas de esquema específicos de cada esquema e gere a exportação. As opções de configuração incluem exportar para uma pasta de projeto ou arquivo SQL independente, despejar rotinas e eventos armazenados ou ignorar dados de tabela. 
+Pode utilizar o separador **Exportação** de Dados para exportar os seus dados MySQL. 
+1. Selecione cada esquema que pretende exportar, escolha opcionalmente objetos/tabelas de esquemas específicos de cada esquema e gere a exportação. As opções de configuração incluem exportação para uma pasta de projeto ou ficheiro SQL autossuficiente, rotinas e eventos armazenados de despejo, ou dados de tabela de salto. 
  
-   Como alternativa, use **exportar um conjunto de resultados** para exportar um conjunto de resultados específico no editor SQL para outro formato, como CSV, JSON, HTML e XML. 
-3. Selecione os objetos de banco de dados a serem exportados e configure as opções relacionadas.
-4. Clique em **Atualizar** para carregar os objetos atuais.
-5. Opcionalmente, abra a guia **Opções avançadas** para refinar a operação de exportação. Por exemplo, adicionar bloqueios de tabela, usar instruções Replace em vez de INSERT e identificadores de aspas com caracteres de acento grave.
-6. Clique em **Iniciar exportação** para iniciar o processo de exportação.
+   Em alternativa, utilize **a Exportação de um Conjunto** de Resultados para exportar um resultado específico definido no editor SQL para outro formato, tais como CSV, JSON, HTML e XML. 
+3. Selecione os objetos de base de dados para exportar e configure as opções relacionadas.
+4. Clique em **Refresh** para carregar os objetos atuais.
+5. Opcionalmente, abra o separador **Opções Avançadas** para aperfeiçoar a operação de exportação. Por exemplo, adicione fechaduras de mesa, substitua em vez de inserir declarações e cite identificadores com caracteres de backtick.
+6. Clique **em Iniciar exportação** para iniciar o processo de exportação.
 
 
-#### <a name="data-import"></a>Importação de dados
-![Importação de dados do MySQL Workbench usando o Management Navigator](./media/concepts-migrate-import-export/p3.png)
+#### <a name="data-import"></a>Importação de Dados
+![Importação de dados da bancada de trabalho MySQL usando o Navegador de Gestão](./media/concepts-migrate-import-export/p3.png)
 
-Você pode usar a guia **importação de dados** para importar ou restaurar dados exportados da operação de exportação de dados ou do comando mysqldump. 
-1. Escolha a pasta do projeto ou o arquivo SQL independente, escolha o esquema para importar ou escolha **novo** para definir um novo esquema. 
-2. Clique em **Iniciar importação** para iniciar o processo de importação.
+Pode utilizar o separador **Data Import** para importar ou restaurar os dados exportados da operação de exportação de dados ou do comando mysqldump. 
+1. Escolha a pasta do projeto ou o ficheiro SQL autossuficiente, escolha o esquema para importar ou escolha **o Novo** para definir um novo esquema. 
+2. Clique **em Iniciar importar** para iniciar o processo de importação.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Como outra abordagem de migração, leia [migrar seu banco de dados MySQL usando despejo e restauração no banco de dados do Azure para MySQL](concepts-migrate-dump-restore.md).
-- Para obter mais informações sobre como migrar bancos de dados do para o Azure para MySQL, consulte o [Guia de migração de banco de dados](https://aka.ms/datamigration). 
+- Como outra abordagem de migração, leia Migrate a sua base de [dados MySQL usando lixeira e restauro na Base de Dados Azure para mySQL](concepts-migrate-dump-restore.md).
+- Para mais informações sobre bases de dados migratórias para a Base de Dados Azure para MySQL, consulte o Guia de [Migração](https://aka.ms/datamigration)da Base de Dados . 

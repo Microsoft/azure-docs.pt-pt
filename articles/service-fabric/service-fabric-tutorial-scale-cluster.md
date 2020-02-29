@@ -1,31 +1,31 @@
 ---
-title: Dimensionar um Cluster Service Fabric no Azure
-description: Neste tutorial, você aprenderá a dimensionar um Cluster Service Fabric no Azure para dentro e para fora e como limpar recursos restantes.
+title: Escala de um cluster de tecido de serviço em Azure
+description: Neste tutorial, aprende-se a escalar um cluster de Tecido sinuoso em Azure para fora e para dentro, e como limpar os recursos que sobra.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 9f3049f5a46918d9e70e27fe862372de2cf577ae
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f33f1a9b3e3132475f9a35a3703327b1a193d1e1
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639059"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921424"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
-Este tutorial é a parte três de uma série e mostra como dimensionar seu cluster existente para fora e para dentro. Quando tiver terminado, saberá como dimensionar o seu cluster e como limpar quaisquer recursos restantes.  Para obter mais informações sobre como dimensionar um cluster em execução no Azure, leia o [dimensionamento de Service Fabric clusters](service-fabric-cluster-scaling.md).
+Este tutorial é a terceira parte de uma série, e mostra-lhe como escalar o seu aglomerado existente para fora e para dentro. Quando tiver terminado, saberá como dimensionar o seu cluster e como limpar quaisquer recursos restantes.  Para obter mais informações sobre a escala de um cluster em funcionamento em Azure, leia os [clusters de Tecido de Serviço de Escala.](service-fabric-cluster-scaling.md)
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Adicionar e remover nós (escalar horizontalmente e reduzir horizontalmente)
-> * Adicionar e remover tipos de nó (escalar horizontalmente e reduzir horizontalmente)
-> * Aumentar os recursos do nó (escalar verticalmente)
+> * Adicione e remova os nós (escala para fora e escala dentro)
+> * Adicione e remova os tipos de nó (escala para fora e escala dentro)
+> * Aumentar os recursos do nó (escala para cima)
 
 Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
-> * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure usando um modelo
-> * [Monitorar um cluster](service-fabric-tutorial-monitor-cluster.md)
+> * Criar um [cluster windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro em Azure usando um modelo
+> * [Monitorize um cluster](service-fabric-tutorial-monitor-cluster.md)
 > * Reduzir ou aumentar horizontalmente um cluster
 > * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Eliminar um cluster](service-fabric-tutorial-delete-cluster.md)
@@ -38,76 +38,76 @@ Nesta série de tutoriais, ficará a saber como:
 Antes de começar este tutorial:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [CLI do Azure](/cli/azure/install-azure-cli).
-* Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure
+* Instale [a Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [o Azure CLI](/cli/azure/install-azure-cli).
+* Criar um [cluster windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro em Azure
 
-## <a name="important-considerations-and-guidelines"></a>Considerações e diretrizes importantes
+## <a name="important-considerations-and-guidelines"></a>Considerações e orientações importantes
 
-As cargas de trabalho do aplicativo mudam com o tempo, os serviços existentes precisam de mais (ou menos) recursos?  [Adicione ou remova nós](#add-nodes-to-or-remove-nodes-from-a-node-type) de um tipo de nó para aumentar ou diminuir os recursos de cluster.
+As cargas de trabalho das aplicações mudam ao longo do tempo, os seus serviços existentes precisam de mais (ou menos) recursos?  [Adicione ou remova os nós](#add-nodes-to-or-remove-nodes-from-a-node-type) de um tipo de nó para aumentar ou diminuir os recursos de cluster.
 
-Você precisa adicionar mais de 100 nós ao seu cluster?  Um único tipo de nó de Service Fabric/conjunto de dimensionamento não pode conter mais de 100 nós/VMs.  Para dimensionar um cluster além de 100 nós, [adicione outros tipos de nó](#add-nodes-to-or-remove-nodes-from-a-node-type).
+Precisa adicionar mais de 100 nós ao seu aglomerado?  Um único conjunto de nó/escala de tecido de serviço não pode conter mais de 100 nós/VMs.  Para escalar um cluster para além de 100 nós, [adicione tipos adicionais de nó](#add-nodes-to-or-remove-nodes-from-a-node-type).
 
-Seu aplicativo tem vários serviços e qualquer um deles precisa ser público ou voltado para a Internet?  Os aplicativos típicos contêm um serviço de gateway de front-end que recebe entrada de um cliente e um ou mais serviços de back-end que se comunicam com os serviços de front-end. Nesse caso, recomendamos que você [adicione pelo menos dois tipos de nó](#add-nodes-to-or-remove-nodes-from-a-node-type) ao cluster.  
+A sua aplicação tem vários serviços, e algum deles precisa de ser público ou virado para a internet?  As aplicações típicas contêm um serviço de gateway frontal que recebe entrada de um cliente e um ou mais serviços de back-end que comunicam com os serviços front-end. Neste caso, recomendamos que [adicione pelo menos dois tipos de nós](#add-nodes-to-or-remove-nodes-from-a-node-type) ao cluster.  
 
-Seus serviços têm necessidades de infraestrutura diferentes, como maior RAM ou mais ciclos de CPU? Por exemplo, seu aplicativo contém um serviço de front-end e um serviço de back-end. O serviço de front-end pode ser executado em VMs menores (tamanhos de VM, como D2) que têm portas abertas para a Internet. O serviço de back-end, no entanto, é de computação intensiva e precisa ser executado em VMs maiores (com tamanhos de VM como D4, D6, D15) que não são voltados para a Internet. Nesse caso, recomendamos que você [adicione dois ou mais tipos de nó](#add-nodes-to-or-remove-nodes-from-a-node-type) ao cluster. Isso permite que cada tipo de nó tenha propriedades distintas, como conectividade da Internet ou tamanho da VM. O número de VMs também pode ser dimensionado de forma independente.
+Os seus serviços têm diferentes necessidades de infraestruturas, tais como maiores ciclos de RAM ou CPU mais elevados? Por exemplo, a sua aplicação contém um serviço frontal e um serviço de back-end. O serviço frontal pode funcionar em VMs menores (tamanhos VM como D2) que têm portas abertas à internet. O serviço back-end, no entanto, é intensivo em computação e precisa de funcionar em VMs maiores (com tamanhos VM como D4, D6, D15) que não estão virados para a internet. Neste caso, recomendamos que [adicione dois ou mais tipos de nós](#add-nodes-to-or-remove-nodes-from-a-node-type) ao seu cluster. Isto permite que cada tipo de nó tenha propriedades distintas, como conectividade de internet ou tamanho VM. O número de VMs também pode ser dimensionado de forma independente.
 
-Ao dimensionar um cluster do Azure, tenha em mente as seguintes diretrizes:
+Ao escalonar um cluster Azure, tenha em mente as seguintes orientações:
 
-* Um único tipo de nó de Service Fabric/conjunto de dimensionamento não pode conter mais de 100 nós/VMs.  Para dimensionar um cluster além de 100 nós, adicione outros tipos de nó.
-* Os tipos de nó primários que executam cargas de trabalho de produção devem ter um [nível de durabilidade][durability] ouro ou prata e ter sempre cinco ou mais nós.
-* os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós.
-* os tipos de nó não primário que executam cargas de trabalho de produção sem monitoração de estado sempre devem ter dois ou mais nós.
-* Qualquer tipo de nó de [nível de durabilidade][durability] Gold ou prata sempre deve ter cinco ou mais nós.
-* Se estiver dimensionando (removendo nós de) um tipo de nó primário, você nunca deverá diminuir o número de instâncias para menos do que o [nível de confiabilidade][reliability] requer.
+* Um único conjunto de nó/escala de tecido de serviço não pode conter mais de 100 nós/VMs.  Para escalar um cluster para além de 100 nós, adicione tipos adicionais de nó.
+* Os tipos primários de nós que executam cargas de trabalho de produção devem ter um nível de [durabilidade][durability] de Ouro ou Prata e ter sempre cinco ou mais nós.
+* Os tipos de nós não primários que executam cargas horárias de produção audais devem ter sempre cinco ou mais nós.
+* Os tipos não primários de nó que executam cargas de trabalho apátridas de produção apátrida devem ter sempre dois ou mais nós.
+* Qualquer nó de nível de [durabilidade][durability] de Ouro ou Prata deve ter sempre cinco ou mais nós.
+* Se escalonar (removendo nós de) um nó primário, nunca deve diminuir o número de instâncias para menos do que o nível de [fiabilidade][reliability] requer.
 
-Para obter mais informações, leia [diretrizes de capacidade de cluster](service-fabric-cluster-capacity.md).
+Para mais informações, leia a sua capacidade de [cluster.](service-fabric-cluster-capacity.md)
 
 ## <a name="export-the-template-for-the-resource-group"></a>Exportar o modelo para o grupo de recursos
 
-Depois de criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro e configurar o grupo de recursos com êxito, exporte o modelo do Resource Manager para o grupo de recursos. Exportar o modelo permite automatizar futuras implantações do cluster e seus recursos, pois o modelo contém toda a infraestrutura completa.  Para obter mais informações sobre como exportar modelos, leia [gerenciar Azure Resource Manager grupos de recursos usando o portal do Azure](/azure/azure-resource-manager/manage-resource-groups-portal).
+Depois de criar um [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro e de criar o seu grupo de recursos com sucesso, exporte o modelo de Gestor de Recursos para o grupo de recursos. A exportação do modelo permite-lhe automatizar futuras implantações do cluster e dos seus recursos porque o modelo contém toda a infraestrutura completa.  Para obter mais informações sobre modelos de exportação, leia [Manage Azure Resource Manager grupos de recursos utilizando o portal Azure](/azure/azure-resource-manager/manage-resource-groups-portal).
 
-1. No [portal do Azure](https://portal.azure.com), vá para o grupo de recursos que contém o cluster (**sfclustertutorialgroup**, se você estiver seguindo este tutorial). 
+1. No [portal Azure,](https://portal.azure.com)vá ao grupo de recursos que contém o cluster **(sfclustertutorialgroup,** se estiver a seguir este tutorial). 
 
-2. No painel esquerdo, selecione **implantações**ou selecione o link em **implantações**. 
+2. No painel esquerdo, selecione **Implantações**, ou selecione o link em **implementações**. 
 
-3. Selecione a implantação bem-sucedida mais recente na lista.
+3. Selecione a mais recente implementação bem sucedida da lista.
 
-4. No painel esquerdo, selecione **modelo** e, em seguida, selecione **baixar** para exportar o modelo como um arquivo zip.  Salve o modelo e os parâmetros em seu computador local.
+4. No painel esquerdo, selecione **Template** e, em seguida, selecione **Baixar** para exportar o modelo como um ficheiro ZIP.  Guarde o modelo e os parâmetros para o seu computador local.
 
-## <a name="add-nodes-to-or-remove-nodes-from-a-node-type"></a>Adicionar nós ou remover nós de um tipo de nó
+## <a name="add-nodes-to-or-remove-nodes-from-a-node-type"></a>Adicione os nódosos ou remova os nódosos de um tipo de nó
 
-A colocação em escala horizontal e vertical ou dimensionamento vertical altera o número de nós no cluster. Quando você reduz ou reduz horizontalmente, adiciona mais instâncias de máquina virtual ao conjunto de dimensionamento. Estas instâncias tornam-se os nós que o Service Fabric utiliza. O Service Fabric sabe quando são adicionadas mais instâncias ao conjunto de dimensionamento (ao aumentar horizontalmente) e reage automaticamente. Você pode dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.
+A escala para dentro e para fora, ou escalação horizontal, altera o número de nós no cluster. Quando escala para dentro ou para fora, adiciona mais casos de máquinas virtuais ao conjunto de escala. Estas instâncias tornam-se os nós que o Service Fabric utiliza. O Service Fabric sabe quando são adicionadas mais instâncias ao conjunto de dimensionamento (ao aumentar horizontalmente) e reage automaticamente. Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a decorrer no cluster.
 
 ### <a name="update-the-template"></a>Atualizar o modelo
 
-[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo *Parameters. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster e três parâmetros que definem o número de nós para cada tipo de nó: *nt0InstanceCount*, *nt1InstanceCount*e *nt2InstanceCount*.  O parâmetro *nt1InstanceCount* , por exemplo, define a contagem de instâncias para o segundo tipo de nó e define o número de VMs no conjunto de dimensionamento de máquinas virtuais associado.
+[Exportar um modelo e um ficheiro](#export-the-template-for-the-resource-group) de parâmetros do grupo de recursos para a mais recente implantação.  Abra o ficheiro *parâmetros.json.*  Se implementou o cluster utilizando o [modelo][template] de amostra neste tutorial, existem três tipos de nó no cluster e três parâmetros que definiram o número de nós para cada tipo de nó: *nt0Count,* *nt1InstanceCount*, e *nt2InstanceCount*.  O parâmetro *nt1InstanceCount,* por exemplo, define a contagem de exemplos para o segundo tipo de nó e define o número de VMs no conjunto de escala de máquina virtual associado.
 
-Portanto, ao atualizar o valor de *nt1InstanceCount* , você altera o número de nós no segundo tipo de nó.  Lembre-se de que você não pode dimensionar um tipo de nó para mais de 100 nós.  os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós. os tipos de nó não primário que executam cargas de trabalho de produção sem monitoração de estado sempre devem ter dois ou mais nós.
+Assim, ao atualizar o valor do *nt1InstanceCount* muda o número de nós no segundo tipo de nó.  Lembre-se, não pode escalar um nó para mais de 100 nós.  Os tipos de nós não primários que executam cargas horárias de produção audais devem ter sempre cinco ou mais nós. Os tipos não primários de nó que executam cargas de trabalho apátridas de produção apátrida devem ter sempre dois ou mais nós.
 
-Se você estiver dimensionando, removendo nós de, um tipo de nó de [nível de durabilidade][durability] bronze, deverá [remover manualmente o estado desses nós](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para a camada de durabilidade prata e ouro, essas etapas são feitas automaticamente pela plataforma.
+Se estiver a escalonar, retirando os nós de um [nível][durability] de durabilidade de bronze, deve [remover manualmente o estado desses nós](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para o nível de durabilidade prata e ouro, estes passos são feitos automaticamente pela plataforma.
 
-### <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
-Salve as alterações nos arquivos *Template. JSON* e *Parameters. JSON* .  Para implantar o modelo atualizado, execute o seguinte comando:
+### <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
+Guarde quaisquer alterações nos *ficheiros template.json* e *parâmetros.json.*  Para implementar o modelo atualizado, execute o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
-Ou o seguinte comando de CLI do Azure:
+Ou o seguinte comando Azure CLI:
 ```azure-cli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
-## <a name="add-a-node-type-to-the-cluster"></a>Adicionar um tipo de nó ao cluster
+## <a name="add-a-node-type-to-the-cluster"></a>Adicione um tipo de nó ao cluster
 
-Cada tipo de nó definido em um Cluster Service Fabric em execução no Azure é configurado como um [conjunto de dimensionamento de máquinas virtuais separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerenciado separadamente. Você pode dimensionar de forma independente cada tipo de nó para cima ou para baixo, ter diferentes conjuntos de portas abertas e usar métricas de capacidade diferentes. Você também pode alterar independentemente a SKU do sistema operacional em execução em cada nó do cluster, mas observe que não é possível ter uma combinação do Windows e Linux em execução no cluster de exemplo. Um conjunto de dimensionamento/tipo de nó único não pode conter mais de 100 nós.  Você pode dimensionar um cluster horizontalmente em mais de 100 nós Adicionando tipos de nó/conjuntos de dimensionamento adicionais. Você pode dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.
+Todos os tipos de nó que são definidos num cluster de tecido de serviço que funciona em Azure são configurados como um conjunto de escala de [máquina virtual separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode então ser gerido separadamente. Você pode escalar de forma independente cada nó tipo para cima ou para baixo, ter diferentes conjuntos de portas abertas, e usar métricas de capacidade diferentes. Também pode alterar de forma independente o OS SKU em cada nó de cluster, mas note que não pode ter uma mistura de Windows e Linux em execução no cluster de amostras. Um único conjunto de tipo/escala de nó não pode conter mais de 100 nós.  Pode escalar um cluster horizontalmente para mais de 100 nós adicionando tipos/conjuntos de escala adicionais. Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a decorrer no cluster.
 
 ### <a name="update-the-template"></a>Atualizar o modelo
 
-[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo *Parameters. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster.  Nesta seção, você adiciona um quarto tipo de nó atualizando e implantando um modelo do Resource Manager. 
+[Exportar um modelo e um ficheiro](#export-the-template-for-the-resource-group) de parâmetros do grupo de recursos para a mais recente implantação.  Abra o ficheiro *parâmetros.json.*  Se você implantou o cluster usando o modelo de [amostra][template] neste tutorial, existem três tipos de nó no cluster.  Nesta secção, adicione um quarto tipo de nó atualizando e implementando um modelo de Gestor de Recursos. 
 
-Além do novo tipo de nó, você também adiciona o conjunto de dimensionamento de máquinas virtuais associado (que é executado em uma sub-rede separada da rede virtual) e o grupo de segurança de rede.  Você pode optar por adicionar um endereço IP público novo ou existente e recursos do Azure Load Balancer para o novo conjunto de dimensionamento.  O novo tipo de nó tem um [nível de durabilidade][durability] de prata e tamanho de "Standard_D2_V2".
+Além do novo tipo de nó, adicione também o conjunto de escala de máquina virtual associada (que funciona numa sub-rede separada da rede virtual) e o grupo de segurança da rede.  Pode optar por adicionar novos ou existentes recursos de ip público sinuoso ou já existente sapateado para o novo conjunto de escala.  O novo tipo de nó tem um nível de [durabilidade][durability] de Prata e tamanho de "Standard_D2_V2".
 
-No arquivo *Template. JSON* , adicione os seguintes novos parâmetros:
+No ficheiro *template.json,* adicione os seguintes novos parâmetros:
 ```json
 "nt3InstanceCount": {
     "defaultValue": 5,
@@ -122,7 +122,7 @@ No arquivo *Template. JSON* , adicione os seguintes novos parâmetros:
 },
 ```
 
-No arquivo *Template. JSON* , adicione as seguintes novas variáveis:
+No ficheiro *template.json,* adicione as seguintes novas variáveis:
 ```json
 "lbID3": "[resourceId('Microsoft.Network/loadBalancers',concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType3Name')))]",
 "lbIPConfig3": "[concat(variables('lbID3'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
@@ -144,7 +144,7 @@ No arquivo *Template. JSON* , adicione as seguintes novas variáveis:
 "subnet3Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet3Name'))]",
 ```
 
-No arquivo *Template. JSON* , adicione uma nova sub-rede ao recurso de rede virtual:
+No ficheiro *template.json,* adicione uma nova sub-rede ao recurso de rede virtual:
 ```json
 {
     "type": "Microsoft.Network/virtualNetworks",
@@ -181,7 +181,7 @@ No arquivo *Template. JSON* , adicione uma nova sub-rede ao recurso de rede virt
 },
 ```
 
-No arquivo *Template. JSON* , adicione novos recursos de endereço IP público e balanceador de carga:
+No ficheiro *template.json,* adicione novos recursos de endereço IP público e de equilíbrio de carga:
 ```json
 {
     "type": "Microsoft.Network/publicIPAddresses",
@@ -362,7 +362,7 @@ No arquivo *Template. JSON* , adicione novos recursos de endereço IP público e
 },
 ```
 
-No arquivo *Template. JSON* , adicione novos recursos de grupo de segurança de rede e conjunto de dimensionamento de máquinas virtuais.  A propriedade NodeTypeRef dentro das propriedades de extensão de Service Fabric do conjunto de dimensionamento de máquinas virtuais mapeia o tipo de nó especificado para o conjunto de dimensionamento.
+No ficheiro *template.json,* adicione novos recursos conjuntos de grupo de segurança de rede e máquina virtual.  A propriedade NodeTypeRef dentro das propriedades de extensão de tecido de serviço do conjunto de escala de máquina virtual mapeia o tipo de nó especificado para o conjunto de escala.
 
 ```json
 {
@@ -746,7 +746,7 @@ No arquivo *Template. JSON* , adicione novos recursos de grupo de segurança de 
 },
 ```
 
-No arquivo *Template. JSON* , atualize o recurso de cluster e adicione um novo tipo de nó:
+No ficheiro *template.json,* atualize o recurso do cluster e adicione um novo tipo de nó:
 ```json
 {
     "type": "Microsoft.ServiceFabric/clusters",
@@ -782,7 +782,7 @@ No arquivo *Template. JSON* , atualize o recurso de cluster e adicione um novo t
 }                
 ```
 
-No arquivo *Parameters. JSON* , adicione os seguintes novos parâmetros e valores:
+No ficheiro *parâmetros.json,* adicione os seguintes novos parâmetros e valores:
 ```json
 "nt3InstanceCount": {
     "Value": 5    
@@ -792,24 +792,24 @@ No arquivo *Parameters. JSON* , adicione os seguintes novos parâmetros e valore
 },
 ```
 
-### <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
-Salve as alterações nos arquivos *Template. JSON* e *Parameters. JSON* .  Para implantar o modelo atualizado, execute o seguinte comando:
+### <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
+Guarde quaisquer alterações nos *ficheiros template.json* e *parâmetros.json.*  Para implementar o modelo atualizado, execute o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
-Ou o seguinte comando de CLI do Azure:
+Ou o seguinte comando Azure CLI:
 ```azure-cli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
-## <a name="remove-a-node-type-from-the-cluster"></a>Remover um tipo de nó do cluster
-Depois de criar um Cluster Service Fabric, você pode dimensionar horizontalmente um cluster removendo um tipo de nó (conjunto de dimensionamento de máquinas virtuais) e todos os seus nós. Você pode dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster. À medida que o cluster é dimensionado, os aplicativos também são dimensionados automaticamente.
+## <a name="remove-a-node-type-from-the-cluster"></a>Remova um tipo de nó do cluster
+Depois de criar um cluster de Tecido de Serviço, pode escalar um cluster horizontalmente removendo um tipo de nó (conjunto de escala de máquina virtual) e todos os seus nós. Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a decorrer no cluster. À medida que o cluster escala, as suas aplicações também escalam automaticamente.
 
 > [!WARNING]
-> O uso de Remove-AzServiceFabricNodeType para remover um tipo de nó de um cluster de produção não é recomendado para ser usado com frequência. É um comando perigoso, pois exclui o recurso do conjunto de dimensionamento de máquinas virtuais por trás do tipo de nó. 
+> Não é recomendável que se utilize o Remove-AzServiceFabricNodeType para remover um tipo de nó de um cluster de produção. É um comando perigoso pois elimina o recurso de conjunto de escala de máquina virtual por trás do tipo de nó. 
 
-Para remover o tipo de nó, execute o cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) .  O tipo de nó deve ser um [nível de durabilidade][durability] prata ou ouro o cmdlet exclui o conjunto de dimensionamento associado ao tipo de nó e leva algum tempo para ser concluído.  Em seguida, execute o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em cada um dos nós a serem removidos, o que exclui o estado do nó e remove os nós do cluster. Se houver serviços nos nós, os serviços serão movidos primeiro para outro nó. Se o Gerenciador de cluster não conseguir localizar um nó para a réplica/serviço, a operação será atrasada/bloqueada.
+Para remover o tipo de nó, execute o cmdlet [Remove-AzServiceFabricNodeType.](/powershell/module/az.servicefabric/remove-azservicefabricnodetype)  O tipo de nó deve ser de prata ou nível de [durabilidade][durability] de ouro O cmdlet elimina o conjunto de escala associado ao tipo de nó e demora algum tempo a ser concluído.  Em seguida, execute o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em cada um dos nós para remover, o que elimina o estado do nó e remove os nós do cluster. Se houver serviços nos nós, então os serviços são transferidos primeiro para outro nó. Se o gestor do cluster não encontrar um nó para a réplica/serviço, então a operação é adiada/bloqueada.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -833,29 +833,29 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Aumentar os recursos do nó 
-Depois de criar um cluster de Service Fabric, você pode dimensionar um tipo de nó de cluster verticalmente (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó.  
+Depois de criar um cluster de Tecido de Serviço, pode escalar um tipo de nó de cluster verticalmente (alterar os recursos dos nós) ou atualizar o sistema operativo dos VMs do tipo nó.  
 
 > [!WARNING]
-> Recomendamos que você não altere a SKU da VM de um conjunto de dimensionamento/tipo de nó, a menos que ele esteja sendo executado na durabilidade de prata ou superior. Alterar o tamanho do SKU da VM é uma operação de infraestrutura in-loco destrutiva de dados. Sem alguma capacidade de atrasar ou monitorar essa alteração, é possível que a operação possa causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem estado.
+> Recomendamos que não altere o VM SKU de um tipo de conjunto/nó de escala, a menos que esteja a funcionar na durabilidade da Prata ou maior. Mudar o tamanho VM SKU é uma operação de infraestrutura destrutiva em dados. Sem alguma capacidade de atrasar ou monitorizar esta alteração, é possível que a operação possa causar perda de dados para serviços estatais ou causar outras questões operacionais imprevistas, mesmo para cargas de trabalho apátridas.
 
 > [!WARNING]
-> Recomendamos que você não altere a SKU da VM do tipo de nó primário, que é uma operação perigosa e sem suporte.  Se você precisar de mais capacidade de cluster, poderá adicionar mais instâncias de VM ou tipos de nós adicionais.  Se isso não for possível, você poderá criar um novo cluster e [restaurar o estado do aplicativo](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo.  Se isso não for possível, você poderá [alterar o SKU da VM do tipo de nó primário](service-fabric-scale-up-node-type.md).
+> Recomendamos que não altere o VM SKU do tipo de nó primário, que é uma operação perigosa e não suportado.  Se precisar de mais capacidade de cluster, pode adicionar mais instâncias vm ou tipos de nó adicionais.  Se isso não for possível, pode criar um novo cluster e restaurar o estado de [aplicação](service-fabric-reliable-services-backup-restore.md) (se aplicável) a partir do seu antigo cluster.  Se isso não for possível, pode [alterar o VM SKU do tipo de nó primário](service-fabric-scale-up-node-type.md).
 
 ### <a name="update-the-template"></a>Atualizar o modelo
 
-[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo *Parameters. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster.  
+[Exportar um modelo e um ficheiro](#export-the-template-for-the-resource-group) de parâmetros do grupo de recursos para a mais recente implantação.  Abra o ficheiro *parâmetros.json.*  Se você implantou o cluster usando o modelo de [amostra][template] neste tutorial, existem três tipos de nó no cluster.  
 
-O tamanho das VMs no segundo tipo de nó é definido no parâmetro *vmNodeType1Size* .  Altere o valor do parâmetro *vmNodeType1Size* de Standard_D2_V2 para [Standard_D3_V2](/azure/virtual-machines/windows/sizes-general#dv2-series), que dobra os recursos de cada instância de VM.
+O tamanho dos VMs no segundo tipo de nó é definido no parâmetro *vmNodeType1Size.*  Altere o valor do parâmetro *vmNodeType1Size* de Standard_D2_V2 para [Standard_D3_V2,](../virtual-machines/dv2-dsv2-series.md)o que duplica os recursos de cada instância VM.
 
-A SKU da VM para todos os três tipos de nó é definida no parâmetro *vmImageSku* .  Novamente, a alteração do SKU da VM de um tipo de nó deve ser abordada com cautela e não é recomendada para o tipo de nó primário.
+O VM SKU para todos os três tipos de nó está definido no parâmetro *vmImageSku.*  Mais uma vez, a alteração do VM SKU de um tipo de nó deve ser abordada com cuidado e não é recomendada para o tipo de nó primário.
 
-### <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
-Salve as alterações nos arquivos *Template. JSON* e *Parameters. JSON* .  Para implantar o modelo atualizado, execute o seguinte comando:
+### <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
+Guarde quaisquer alterações nos *ficheiros template.json* e *parâmetros.json.*  Para implementar o modelo atualizado, execute o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
-Ou o seguinte comando de CLI do Azure:
+Ou o seguinte comando Azure CLI:
 ```azure-cli
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
@@ -865,9 +865,9 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Adicionar e remover nós (escalar horizontalmente e reduzir horizontalmente)
-> * Adicionar e remover tipos de nó (escalar horizontalmente e reduzir horizontalmente)
-> * Aumentar os recursos do nó (escalar verticalmente)
+> * Adicione e remova os nós (escala para fora e escala dentro)
+> * Adicione e remova os tipos de nó (escala para fora e escala dentro)
+> * Aumentar os recursos do nó (escala para cima)
 
 Em seguida, avance para o tutorial seguinte para saber como atualizar o runtime de um cluster.
 > [!div class="nextstepaction"]
@@ -878,8 +878,8 @@ Em seguida, avance para o tutorial seguinte para saber como atualizar o runtime 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
 
-> * Adicionar e remover tipos de nó (escalar horizontalmente e reduzir horizontalmente)
-> * Aumentar os recursos do nó (escalar verticalmente)
+> * Adicione e remova os tipos de nó (escala para fora e escala dentro)
+> * Aumentar os recursos do nó (escala para cima)
 
 Em seguida, avance para o tutorial seguinte para saber como atualizar o runtime de um cluster.
 > [!div class="nextstepaction"]

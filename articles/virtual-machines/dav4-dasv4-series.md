@@ -2,19 +2,19 @@
 title: Série Dav4 e Dasv4 - Máquinas Virtuais Azure
 description: Especificações para os VMs da série Dav4 e Dasv4.
 services: virtual-machines
-author: jonbeck7
+author: migerdes
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: f371281e4072902f9946eb9fd107b68a1e4bf4f6
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 809843bddc4216df4dab44330172d36778248b1a
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493881"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162184"
 ---
-# <a name="dav4-and-dasv4-series"></a>Série Dav4 e Dasv4
+# <a name="dav4-and-dasv4-series"></a>Séries Dav4 e Dasv4
 
 As séries Dav4 e dasséries Dasv4 são novos tamanhos utilizando o processador 2.35Ghz EPYC<sup>TM</sup> 7452 da AMD numa configuração multi-roscada com até 256 MB L3 cache dedicando 8 GB dessa cache L3 a cada 8 núcleos aumentando as opções de cliente para executar as suas cargas de trabalho para fins gerais. As séries Dav4 e Dasv4 têm as mesmas configurações de memória e disco que a série D & Dsv3.
 
@@ -25,6 +25,10 @@ ACU: 230-260
 Armazenamento Premium: Não Suportado
 
 Caching de armazenamento premium: Não suportado
+
+Migração Ao Vivo: Apoiado
+
+Atualizações de preservação da memória: Suportado
 
 Os tamanhos da série Dav4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</sup> 7452 que pode alcançar uma frequência máxima aumentada de 3.35GHz. Os tamanhos da série Dav4 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para utilizar sSD premium, utilize os tamanhos Dasv4. Os contadores de preços e faturação para tamanhos Dasv4 são os mesmos que a série Dav4.
 
@@ -48,6 +52,10 @@ ACU: 230-260
 Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Suportado
+
+Migração Ao Vivo: Apoiado
+
+Atualizações de preservação da memória: Suportado
 
 Os tamanhos da série Dasv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</sup> 7452 que pode alcançar uma frequência máxima aumentada de 3,35GHz e utilizar sSD premium. Os tamanhos da série Dasv4 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
@@ -75,6 +83,6 @@ Os tamanhos da série Dasv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</s
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.

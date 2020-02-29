@@ -1,134 +1,134 @@
 ---
-title: Treinar novamente os modelos usando o designer de Azure Machine Learning
+title: Remodelar modelos utilizando o designer de machine learning Azure (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Saiba como treinar novamente modelos com pipelines publicados no Azure Machine Learning designer.
+description: Saiba como retreinar modelos com oleodutos publicados no designer de Machine Learning Azure (pré-visualização).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 12/15/2019
-ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.author: keli19
+author: likebupt
+ms.date: 02/24/2020
+ms.openlocfilehash: b69cd4c8459ffae363f02247b1f20488afe1cd9b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311874"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921606"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Readaptação de modelos com o Azure Machine Learning designer
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Remodelar modelos com designer de Machine Learning Azure (pré-visualização)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Neste "como", você aprenderá a usar Azure Machine Learning designer para treinar novamente um modelo de aprendizado de máquina. Descubra como usar pipelines publicados para automatizar fluxos de trabalho de aprendizado de máquina para readaptação.
+Neste como-fazer, aprende-se a usar o designer de Machine Learning Azure para retreinar um modelo de aprendizagem automática. Descubra como utilizar os gasodutos publicados para automatizar fluxos de trabalho de aprendizagem automática para reciclagem.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Treinar um modelo de aprendizado de máquina.
-> * Crie um parâmetro de pipeline.
-> * Publique seu pipeline de treinamento.
-> * Readaptação de seu modelo.
+> * Treine um modelo de aprendizagem automática.
+> * Crie um parâmetro de gasoduto.
+> * Publique o seu oleoduto de treino.
+> * Retrete o seu modelo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
+* Uma subscrição do Azure. Se não tiver uma subscrição Azure, crie uma [conta gratuita.](https://aka.ms/AMLFree)
 
-* Um espaço de trabalho Azure Machine Learning com o SKU corporativo.
+* Um espaço de trabalho azure machine learning com a Enterprise SKU.
 
-Este "como" pressupõe que você tenha conhecimento básico da criação de pipelines no designer. Para obter uma introdução guiada ao designer, conclua o [tutorial](tutorial-designer-automobile-price-train-score.md). 
+Este como-assumir você tem conhecimento básico de construir oleodutos no designer. Para uma introdução guiada ao designer, complete o [tutorial.](tutorial-designer-automobile-price-train-score.md) 
 
-### <a name="sample-pipeline"></a>Pipeline de exemplo
+### <a name="sample-pipeline"></a>Gasoduto de amostra
 
-O pipeline usado neste artigo é uma versão alterada do encontrada no [exemplo de previsão de 3 rendas](how-to-designer-sample-classification-predict-income.md). Ele usa o módulo [importar dados](algorithm-module-reference/import-data.md) em vez do conjunto de exemplo para mostrar como treinar um modelo usando seus próprios dados.
+O gasoduto utilizado neste artigo é uma versão alterada da encontrada na [Amostra 3 - Previsão](how-to-designer-sample-classification-predict-income.md)do Rendimento . Utiliza o módulo [Dados de Importação](algorithm-module-reference/import-data.md) em vez do conjunto de dados da amostra para lhe mostrar como treinar um modelo utilizando os seus próprios dados.
 
-![Captura de tela mostrando o pipeline de exemplo modificado com uma caixa realçando o módulo importar dados](./media/how-to-retrain-designer/modified-sample-pipeline.png)
+![Screenshot mostrando o pipeline de amostra modificado com uma caixa realçando o módulo de dados de importação](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
-## <a name="train-a-machine-learning-model"></a>Treinar um modelo de aprendizado de máquina
+## <a name="train-a-machine-learning-model"></a>Treine um modelo de aprendizagem automática
 
-Para treinar novamente um modelo, você precisa de um modelo inicial. Nesta seção, você aprenderá a treinar um modelo e acessar o modelo salvo usando o designer.
+Para retreinar um modelo, precisa de um modelo inicial. Nesta secção, aprende-se a treinar um modelo e a aceder ao modelo guardado utilizando o designer.
 
-1. Selecione o módulo **importar dados** .
-1. No painel Propriedades, especifique uma fonte de dados.
+1. Selecione o módulo **dados de importação.**
+1. No painel de propriedades, especifique uma fonte de dados.
 
-    ![Captura de tela mostrando um exemplo de configuração do módulo importar dados](./media/how-to-retrain-designer/import-data-settings.png)
+    ![Screenshot mostrando uma configuração de amostra do módulo de dados de importação](./media/how-to-retrain-designer/import-data-settings.png)
 
-    Para este exemplo, os dados são armazenados em um [Azure datastore](how-to-access-data.md). Se você ainda não tiver um repositório de armazenamento, poderá criar um agora selecionando **novo repositório de armazenamento**.
+    Para este exemplo, os dados são armazenados numa loja de [dados Azure.](how-to-access-data.md) Se ainda não tiver uma datastore, pode criar uma agora selecionando **a New datastore**.
 
-1. Especifique o caminho para seus dados. Você também pode selecionar **procurar caminho** para navegar visualmente no seu repositório de armazenamento. 
+1. Especifique o caminho para os seus dados. Também pode selecionar o **caminho do Browse** para navegar visualmente na sua loja de dados. 
 
-1. Selecione **executar** na parte superior da tela.
+1. Selecione **Executar** na parte superior da tela.
     
     > [!NOTE]
-    > Se você já tiver definido uma computação padrão para esse rascunho de pipeline, o pipeline será executado automaticamente. Caso contrário, você pode seguir os prompts no painel configurações que aparece para definir um agora.
+    > Se já definiu uma computação predefinida para este projeto de gasoduto, o gasoduto funcionará automaticamente. Caso contrário, pode seguir as instruções no painel de definições que parece definir uma agora.
 
-### <a name="locate-your-trained-model"></a>Localize seu modelo treinado
+### <a name="locate-your-trained-model"></a>Localize o seu modelo treinado
 
-O designer salva todas as saídas de pipeline, incluindo modelos treinados, para a conta de armazenamento padrão. Você também pode acessar o modelo treinado diretamente no designer:
+O designer guarda todas as saídas de gasoduto, incluindo modelos treinados, para a conta de armazenamento padrão. Também pode aceder ao modelo treinado diretamente no designer:
 
-1. Aguarde até que o pipeline termine a execução.
+1. Espere que o oleoduto termine de funcionar.
 
-1. Selecione o módulo **modelo de treinamento** .
+1. Selecione o módulo **Modelo de Comboio.**
 
-1. No painel configurações, selecione **saídas**.
+1. No painel de definições, selecione **Outputs+logs**.
 
-1. Selecione **Trained_model** para baixar o modelo.
+1. Clique no ícone **de saída do Ver** e siga as instruções na janela pop-up para localizar o modelo treinado.
 
-![Captura de tela mostrando como baixar o modelo treinado](./media/how-to-retrain-designer/download-model.png)
+![Screenshot mostrando como descarregar o modelo treinado](./media/how-to-retrain-designer/trained-model-view-output.png)
 
-## <a name="create-a-pipeline-parameter"></a>Criar um parâmetro de pipeline
+## <a name="create-a-pipeline-parameter"></a>Criar um parâmetro de gasoduto
 
-Adicione parâmetros de pipeline para definir variáveis dinamicamente em tempo de execução. Para este pipeline, adicione um parâmetro para o caminho de dados de treinamento para que você possa treinar novamente seu modelo em um novo conjunto.
+Adicione parâmetros de gasoduto para definir variáveis dinâmicamente no tempo de execução. Para este pipeline, adicione um parâmetro para o caminho de dados de treino para que possa retreinar o seu modelo num novo conjunto de dados.
 
-1. Selecione o módulo **importar dados** .
-1. No painel configurações, selecione as reticências acima do campo **caminho** .
-1. Selecione **Adicionar ao parâmetro de pipeline**.
-1. Forneça um nome de parâmetro e um valor padrão.
-
-    > [!NOTE]
-    > Você pode inspecionar e editar os parâmetros de pipeline selecionando o **ícone de engrenagem configurações** ao lado do título do rascunho do seu pipeline. 
-
-![Captura de tela mostrando como criar um parâmetro de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
-## <a name="publish-a-training-pipeline"></a>Publicar um pipeline de treinamento
-
-Quando você publica um pipeline, ele cria um ponto de extremidade de pipeline. Os pontos de extremidade do pipeline permitem que você reutilize e gerencie seus pipelines para repetição e automação. Neste exemplo, você configurou seu pipeline para treinar novamente.
-
-1. Selecione **publicar** acima da tela do designer.
-1. Selecione, ou crie, um novo ponto de extremidade de pipeline.
+1. Selecione o módulo **dados de importação.**
+1. No painel de definições, selecione as elipses acima do campo **Caminho.**
+1. **Selecione Adicionar ao parâmetro do gasoduto**.
+1. Forneça um nome de parâmetro e valor predefinido.
 
     > [!NOTE]
-    > Você pode publicar vários pipelines em um único ponto de extremidade. Cada pipeline no ponto de extremidade recebe um número de versão, que você pode especificar ao chamar o ponto de extremidade do pipeline.
+    > Pode inspecionar e editar os parâmetros do gasoduto selecionando o ícone de **engrenagem Definições** ao lado do título da sua corrente de gasoduto. 
+
+![Screenshot mostrando como criar um parâmetro de gasoduto](media/how-to-retrain-designer/add-pipeline-parameter.png)
+
+## <a name="publish-a-training-pipeline"></a>Publicar um pipeline de formação
+
+Quando se publica um oleoduto, cria-se um ponto final de gasoduto. Os pontos finais do gasoduto permitem-lhe reutilizar e gerir os seus oleodutos para a repetição e automação. Neste exemplo, instalou o seu oleoduto para reconversão.
+
+1. **Selecione Publicar** acima da tela do designer.
+1. Selecione, ou crie, um novo ponto final do oleoduto.
+
+    > [!NOTE]
+    > Pode publicar vários oleodutos num único ponto final. Cada gasoduto no ponto final recebe um número de versão, que pode especificar quando ligar para o ponto final do gasoduto.
 
 1. Selecione **Publicar**.
 
-## <a name="retrain-your-model"></a>Treinar novamente seu modelo
+## <a name="retrain-your-model"></a>Retrete o seu modelo
 
-Agora que você tem um pipeline de treinamento publicado, você pode usá-lo para treinar novamente seu modelo usando novos dados. Você pode enviar execuções de um ponto de extremidade de pipeline de um portal ou de forma programática.
+Agora que tem um pipeline de treino publicado, pode usá-lo para retreinar o seu modelo usando novos dados. Pode submeter execuções a partir de um ponto final de gasoduto a partir de um portal ou programaticamente.
 
-### <a name="submit-runs-with-the-designer"></a>Enviar execuções com o designer
+### <a name="submit-runs-with-the-designer"></a>Submeter corridas com o designer
 
-Use as etapas a seguir para enviar uma execução de ponto de extremidade de pipeline do designer:
+Utilize os seguintes passos para submeter um ponto final de gasoduto executado pelo designer:
 
-1. Vá para a página **pontos de extremidade** .
+1. Vá para a página **Endpoints.**
 
-1. Selecione a guia **pontos de extremidade do pipeline** .
+1. Selecione o separador de **pontos finais do Pipeline.**
 
-1. Selecione o ponto de extremidade do pipeline.
+1. Selecione o ponto final do seu pipeline.
 
-1. Selecione a guia **pipelines publicados** .
+1. Selecione o separador **de gasodutos Publicados.**
 
-1. Selecione o pipeline que você deseja executar.
+1. Selecione o oleoduto que pretende executar.
 
 1. Selecione **Executar**.
 
-1. Na caixa de diálogo de instalação, você pode especificar um novo valor de caminho de dados de entrada, que aponta para o novo conjunto.
+1. No diálogo de configuração, pode especificar um novo valor de percurso de dados de entrada, que aponta para o seu novo conjunto de dados.
 
-![Captura de tela mostrando como configurar uma execução de pipeline com parâmetros no designer](./media/how-to-retrain-designer/published-pipeline-run.png)
+![Screenshot mostrando como configurar um pipeline parametrizado executado no designer](./media/how-to-retrain-designer/published-pipeline-run.png)
 
-### <a name="submit-runs-with-code"></a>Enviar execuções com código
+### <a name="submit-runs-with-code"></a>Submeter corre com código
 
-Há várias maneiras de acessar seu ponto de extremidade REST de forma programática, dependendo do ambiente de desenvolvimento. Você pode encontrar exemplos de código que mostram como enviar execuções de pipeline com parâmetros na guia **consumir** do pipeline.
+Existem várias formas de aceder ao seu ponto final REST programaticamente dependendo do seu ambiente de desenvolvimento. Pode encontrar amostras de código que lhe mostrem como submeter o gasoduto funciona com parâmetros no separador **Consumir** do seu oleoduto.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Siga o [tutorial](tutorial-designer-automobile-price-train-score.md) do designer para treinar e implantar um modelo de regressão.
+Siga o [tutorial](tutorial-designer-automobile-price-train-score.md) do designer para treinar e implementar um modelo de regressão.

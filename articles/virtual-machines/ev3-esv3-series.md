@@ -2,19 +2,19 @@
 title: Série Ev3 e série Esv3 - Máquinas Virtuais Azure
 description: Especificações para os VMs da série Ev3 e Esv3.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 41b3997a9271a113a8d89f47d3a79d93bc13f92c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: aad4610a44c59ed95cf1ad9777329097886c5bed
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493751"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164377"
 ---
-# <a name="ev3-and-esv3-series"></a>Série Ev3 e Esv3
+# <a name="ev3-and-esv3-series"></a>Séries Ev3 e Esv3
 
 A série Ev3 e Esv3 apresenta o processador Intel® Xeon® 8171M 2.1 GHz (Skylake) ou o Processador Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) numa configuração hiper-roscada, proporcionando uma proposta de melhor valor para a maioria das cargas de trabalho para fins gerais, e trazendo o Ev3 para a maioria das cargas de trabalho para fins gerais, e trazendo o Ev3 para a maioria das cargas de trabalho para fins gerais, e trazendo o Ev3 em alinhamento com o propósito geral VMs da maioria das outras nuvens.  A memória foi expandida (de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites do disco e da rede foram ajustados numa base de núcleo para alinhar com a mudança para o hiperthreading. O Ev3 é o seguimento dos tamanhos vm de alta memória das famílias D/Dv2.
 
@@ -31,6 +31,10 @@ ACU: 160 - 190
 Armazenamento Premium: Não Suportado
 
 Caching de armazenamento premium: Não suportado
+
+Migração Ao Vivo: Apoiado
+
+Atualizações de preservação da memória: Suportado
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | NICs/Largura de banda da rede máximos |
 |---|---|---|---|---|---|---|
@@ -60,6 +64,10 @@ Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Suportado
 
+Migração Ao Vivo: Apoiado
+
+Atualizações de preservação da memória: Suportado
+
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Entrada de armazenamento em cache e temperatura máxima: IOPS/MBps (tamanho cache em GiB) | Potência de disco max uncached: IOPS/MBps | Largura de banda de rede Max NICs/Esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2s_v3 | 2 | 16 | 32 | 4 | 4000/32 (50) | 3200/48 | 2/1000 |
@@ -87,6 +95,6 @@ Caching de armazenamento premium: Suportado
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.

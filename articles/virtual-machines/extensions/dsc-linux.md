@@ -1,6 +1,6 @@
 ---
-title: Extensão de DSC do Azure para Linux
-description: Instala os pacotes OMI e DSC para permitir que uma VM Linux do Azure seja configurada usando a configuração de estado desejado.
+title: Extensão Azure DSC para Linux
+description: Instala pacotes OMI e DSC para permitir configurar um VM Azure Linux utilizando a Configuração do Estado Desejado.
 services: virtual-machines-linux
 documentationcenter: ''
 author: bobbytreed
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 102433b88ffb140cae46433be1c0edef90857e6d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969942"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921526"
 ---
-# <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft. OSTCExtensions. DSCForLinux)
+# <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
-A DSC (configuração de estado desejado) é uma plataforma de gerenciamento que você pode usar para gerenciar sua infraestrutura de ti e de desenvolvimento com a configuração como código.
+A Configuração do Estado Desejada (DSC) é uma plataforma de gestão que pode utilizar para gerir a sua infraestrutura de TI e desenvolvimento com a configuração como código.
 
 > [!NOTE]
-> A extensão de DSC para Linux e a [extensão de máquina virtual Azure monitor para Linux](/azure/virtual-machines/extensions/oms-linux) atualmente apresentam um conflito e não tem suporte em uma configuração lado a lado. Não use as duas soluções juntas na mesma VM.
+> A extensão DSC para linux e a [extensão da máquina virtual Azure Monitor para linux](/azure/virtual-machines/extensions/oms-linux) apresentam atualmente um conflito e não são suportadas numa configuração lado a lado. Não use as duas soluções juntas no mesmo VM.
 
-A extensão DSCForLinux é publicada e tem suporte da Microsoft. A extensão instala o OMI e o agente DSC em máquinas virtuais do Azure. A extensão de DSC também pode executar as seguintes ações:
+A extensão DSCForLinux é publicada e suportada pela Microsoft. A extensão instala o agente OMI e DSC em máquinas virtuais Azure. A extensão dSC também pode fazer as seguintes ações:
 
 
-- Registre a VM do Linux em uma conta de automação do Azure para efetuar pull das configurações do serviço de automação do Azure (registrar Extensionaction).
-- Envie por push configurações do MOF para a VM do Linux (extensão Pushaction).
-- Aplique a configuração do metamof à VM do Linux para configurar um servidor de pull para efetuar pull da configuração do nó (extensão Pullaction).
-- Instale módulos DSC personalizados para a VM do Linux (instalar Extensionaction).
-- Remova os módulos DSC personalizados da VM do Linux (remover Extensionaction).
+- Registe o VM Linux numa conta Azure Automation para retirar as configurações do serviço De automação Azure (Register ExtensionAction).
+- Empurre as configurações mof para o Linux VM (Push ExtensionAction).
+- Aplique a configuração meta MOF no VM Linux para configurar um servidor de puxar para puxar a configuração do nó (Pull ExtensionAction).
+- Instale módulos DSC personalizados no Linux VM (Instalação ExtensionAction).
+- Remova os módulos DSC personalizados do VM Linux (Remover a Extensão).
 
  
 
@@ -42,49 +42,49 @@ A extensão DSCForLinux é publicada e tem suporte da Microsoft. A extensão ins
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão do Linux do DSC dá suporte a todas as [distribuições do Linux endossadas no Azure](/azure/virtual-machines/linux/endorsed-distros) , exceto:
+A extensão DSC Linux suporta todas as [distribuições Linux endossadas no Azure,](/azure/virtual-machines/linux/endorsed-distros) exceto:
 
 | Distribuição | Versão |
 |---|---|
 | Debian | Todas as versões |
-| Ubuntu| 18, 4 |
+| Ubuntu| 18.04 |
  
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão DSCForLinux requer que a máquina virtual de destino esteja conectada à Internet. Por exemplo, a extensão de registro requer conectividade com o serviço de automação. Para outras ações como pull, pull, install requer conectividade com o armazenamento do Azure e o GitHub. Depende das configurações fornecidas pelo cliente.
+A extensão DSCForLinux requer que a máquina virtual alvo seja ligada à internet. Por exemplo, a extensão Do Registo requer conectividade com o serviço de Automação. Para outras ações como Pull, Pull, Install requer conectividade com o Armazenamento Azure e o GitHub. Depende das definições fornecidas pelo cliente.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
 ### <a name="public-configuration"></a>Configuração pública
 
-Aqui estão todos os parâmetros de configuração pública com suporte:
+Aqui estão todos os parâmetros de configuração pública suportados:
 
-* `FileUri`: (opcional, Cadeia de caracteres) o URI do arquivo MOF, o arquivo meta MOF ou o arquivo zip de recurso personalizado.
-* `ResourceName`: (opcional, Cadeia de caracteres) o nome do módulo de recurso personalizado.
-* `ExtensionAction`: (opcional, Cadeia de caracteres) especifica o que uma extensão faz. Os valores válidos são registrar, enviar por push, efetuar pull, instalar e remover. Se não for especificado, ele será considerado uma ação de envio por Push por padrão.
-* `NodeConfigurationName`: (opcional, Cadeia de caracteres) o nome de uma configuração de nó a ser aplicada.
-* `RefreshFrequencyMins`: (opcional, int) especifica com que frequência (em minutos) o DSC tenta obter a configuração do servidor de pull. 
-       Se a configuração no servidor de pull for diferente da atual no nó de destino, ela será copiada para a loja pendente e aplicada.
-* `ConfigurationMode`: (opcional, Cadeia de caracteres) especifica como a DSC deve aplicar a configuração. Os valores válidos são ApplyOnly, ApplyAndMonitor e ApplyAndAutoCorrect.
-* `ConfigurationModeFrequencyMins`: (opcional, int) especifica com que frequência (em minutos) a DSC garante que a configuração esteja no estado desejado.
+* `FileUri`: (opcional, corda) O uri do ficheiro MOF, ficheiro meta MOF ou ficheiro zip de recurso personalizado.
+* `ResourceName`: (opcional, corda) O nome do módulo de recursos personalizados.
+* `ExtensionAction`: (opcional, corda) Especifica o que uma extensão faz. Os valores válidos são Registar, Empurrar, Puxar, Instalar e Remover. Se não especificado, é considerado uma Ação push por padrão.
+* `NodeConfigurationName`: (opcional, corda) O nome de uma configuração do nó a aplicar.
+* `RefreshFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) que o DSC tenta obter a configuração do servidor de puxar. 
+       Se a configuração no servidor de puxar difere da atual no nó alvo, é copiada para a loja pendente e aplicada.
+* `ConfigurationMode`: (opcional, corda) Especifica como o DSC deve aplicar a configuração. Os valores válidos são ApplyOnly, ApplyAndMonitor e ApplyAndAutoCorrect.
+* `ConfigurationModeFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) dSC garante que a configuração está no estado desejado.
 
 > [!NOTE]
-> Se você usar uma versão anterior à 2,3, o parâmetro mode será o mesmo que Extensionaction. O modo parece ser um termo sobrecarregado. Para evitar confusão, Extensionaction é usado da versão 2,3 em diante. Para compatibilidade com versões anteriores, a extensão dá suporte a Mode e Extensionaction. 
+> Se utilizar uma versão mais cedo do que 2.3, o parâmetro de modo é o mesmo que extensionAction. O modo parece ser um termo sobrecarregado. Para evitar confusões, a ExtensionAction é utilizada a partir da versão 2.3. Para a retrocompatibilidade, a extensão suporta tanto o modo como a ExtensionAction. 
 >
 
 ### <a name="protected-configuration"></a>Configuração protegida
 
-Aqui estão todos os parâmetros de configuração protegidos com suporte:
+Aqui estão todos os parâmetros de configuração protegidos suportados:
 
-* `StorageAccountName`: (opcional, Cadeia de caracteres) o nome da conta de armazenamento que contém o arquivo
-* `StorageAccountKey`: (opcional, Cadeia de caracteres) a chave da conta de armazenamento que contém o arquivo
-* `RegistrationUrl`: (opcional, Cadeia de caracteres) a URL da conta de automação do Azure
-* `RegistrationKey`: (opcional, Cadeia de caracteres) a chave de acesso da conta de automação do Azure
+* `StorageAccountName`: (opcional, cadeia) O nome da conta de armazenamento que contém o ficheiro
+* `StorageAccountKey`: (opcional, cadeia) A chave da conta de armazenamento que contém o ficheiro
+* `RegistrationUrl`: (opcional, cadeia) O URL da conta Azure Automation
+* `RegistrationKey`: (opcional, cadeia) A chave de acesso da conta Azure Automation
 
 
 ## <a name="scenarios"></a>Cenários
 
-### <a name="register-an-azure-automation-account"></a>Registrar uma conta de automação do Azure
+### <a name="register-an-azure-automation-account"></a>Registe uma conta Azure Automation
 protected.json
 ```json
 {
@@ -103,7 +103,7 @@ public.json
 }
 ```
 
-Formato do PowerShell
+Formato PowerShell
 ```powershell
 $privateConfig = '{
   "RegistrationUrl": "<azure-automation-account-url>",
@@ -119,7 +119,7 @@ $publicConfig = '{
 }'
 ```
 
-### <a name="apply-an-mof-configuration-file-in-an-azure-storage-account-to-the-vm"></a>Aplicar um arquivo de configuração MOF (em uma conta de armazenamento do Azure) à VM
+### <a name="apply-an-mof-configuration-file-in-an-azure-storage-account-to-the-vm"></a>Aplicar um ficheiro de configuração MOF (numa conta de armazenamento Azure) ao VM
 
 protected.json
 ```json
@@ -137,7 +137,7 @@ public.json
 }
 ```
 
-Formato do PowerShell
+Formato PowerShell
 ```powershell
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -151,7 +151,7 @@ $publicConfig = '{
 ```
 
 
-### <a name="apply-an-mof-configuration-file-in-public-storage-to-the-vm"></a>Aplicar um arquivo de configuração MOF (no armazenamento público) à VM
+### <a name="apply-an-mof-configuration-file-in-public-storage-to-the-vm"></a>Aplicar um ficheiro de configuração MOF (em armazenamento público) ao VM
 
 public.json
 ```json
@@ -160,14 +160,14 @@ public.json
 }
 ```
 
-Formato do PowerShell
+Formato PowerShell
 ```powershell
 $publicConfig = '{
   "FileUri": "<mof-file-uri>"
 }'
 ```
 
-### <a name="apply-a-meta-mof-configuration-file-in-an-azure-storage-account-to-the-vm"></a>Aplicar um arquivo de configuração meta MOF (em uma conta de armazenamento do Azure) à VM
+### <a name="apply-a-meta-mof-configuration-file-in-an-azure-storage-account-to-the-vm"></a>Aplicar um ficheiro de configuração meta MOF (numa conta de armazenamento Azure) ao VM
 
 protected.json
 ```json
@@ -185,7 +185,7 @@ public.json
 }
 ```
 
-Formato do PowerShell
+Formato PowerShell
 ```powershell
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -198,7 +198,7 @@ $publicConfig = '{
 }'
 ```
 
-### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>Aplicar um arquivo de configuração meta MOF (no armazenamento público) à VM
+### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>Aplicar um ficheiro de configuração meta MOF (em armazenamento público) ao VM
 public.json
 ```json
 {
@@ -206,7 +206,7 @@ public.json
   "ExtensionAction": "Pull"
 }
 ```
-Formato do PowerShell
+Formato PowerShell
 ```powershell
 $publicConfig = '{
   "FileUri": "<meta-mof-file-uri>",
@@ -214,7 +214,7 @@ $publicConfig = '{
 }'
 ```
 
-### <a name="install-a-custom-resource-module-a-zip-file-in-an-azure-storage-account-to-the-vm"></a>Instalar um módulo de recurso personalizado (um arquivo zip em uma conta de armazenamento do Azure) para a VM
+### <a name="install-a-custom-resource-module-a-zip-file-in-an-azure-storage-account-to-the-vm"></a>Instale um módulo de recursos personalizados (um ficheiro zip numa conta de armazenamento Azure) para o VM
 protected.json
 ```json
 {
@@ -230,7 +230,7 @@ public.json
 }
 ```
 
-Formato do PowerShell
+Formato PowerShell
 ```powershell
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -243,7 +243,7 @@ $publicConfig = '{
 }'
 ```
 
-### <a name="install-a-custom-resource-module-a-zip-file-in-public-storage-to-the-vm"></a>Instalar um módulo de recurso personalizado (um arquivo zip no armazenamento público) para a VM
+### <a name="install-a-custom-resource-module-a-zip-file-in-public-storage-to-the-vm"></a>Instale um módulo de recursos personalizados (um ficheiro zip em armazenamento público) para o VM
 public.json
 ```json
 {
@@ -251,7 +251,7 @@ public.json
   "FileUri": "<resource-zip-file-uri>"
 }
 ```
-Formato do PowerShell
+Formato PowerShell
 ```powershell
 $publicConfig = '{
   "ExtensionAction": "Install",
@@ -259,7 +259,7 @@ $publicConfig = '{
 }'
 ```
 
-### <a name="remove-a-custom-resource-module-from-the-vm"></a>Remover um módulo de recurso personalizado da VM
+### <a name="remove-a-custom-resource-module-from-the-vm"></a>Remova um módulo de recursos personalizado sacar do VM
 public.json
 ```json
 {
@@ -267,7 +267,7 @@ public.json
   "ExtensionAction": "Remove"
 }
 ```
-Formato do PowerShell
+Formato PowerShell
 ```powershell
 $publicConfig = '{
   "ResourceName": "<resource-name>",
@@ -277,62 +277,65 @@ $publicConfig = '{
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando você implanta uma ou mais máquinas virtuais que exigem a configuração pós-implantação, como a integração à automação do Azure. 
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando se implanta uma ou mais máquinas virtuais que requerem configuração pós-implantação, como o embarque na Automação Azure. 
 
-O modelo do Resource Manager de exemplo é [201-DSC-Linux-Azure-Storage-on-Ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) e [201-DSC-Linux-Public-Storage-on-Ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
+O modelo de Gestor de Recursos da amostra é [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) e [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
-Para obter mais informações sobre o modelo de Azure Resource Manager, consulte [criando modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+Para obter mais informações sobre o modelo do Gestor de Recursos Azure, consulte [os modelos de Gestor de Recursos Do Azure.](../../azure-resource-manager/templates/template-syntax.md)
 
 
 ## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
-### <a name="use-azure-cliazure-cli"></a>Usar [CLI do Azure] [Azure-CLI]
-Antes de implantar a extensão DSCForLinux, configure seu `public.json` e `protected.json` de acordo com os diferentes cenários na seção 3.
+### <a name="use-azure-cliazure-cli"></a>Utilizar [Azure CLI][azure-cli]
+Antes de implementar a extensão DSCForLinux, configure o seu `public.json` e `protected.json` de acordo com os diferentes cenários da secção 3.
 
-#### <a name="classic"></a>Clássico
-O modo de implantação clássico também é chamado de modo de gerenciamento de serviços do Azure. Você pode alternar para ele executando:
+#### <a name="classic"></a>Clássica
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+O modo de implementação clássico também é chamado de modo de Gestão de Serviços Azure. Pode mudar para ele executando:
 ```
 $ azure config mode asm
 ```
 
-Você pode implantar a extensão DSCForLinux executando:
+Pode implantar a extensão DSCForLinux executando:
 ```
 $ azure vm extension set <vm-name> DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 
-Para saber mais sobre a versão de extensão mais recente disponível, execute:
+Para saber a versão mais recente de extensão disponível, execute:
 ```
 $ azure vm extension list
 ```
 
 #### <a name="resource-manager"></a>Resource Manager
-Você pode alternar para o modo de Azure Resource Manager executando:
+Pode mudar para o modo Gestor de Recursos Azure executando:
 ```
 $ azure config mode arm
 ```
 
-Você pode implantar a extensão DSCForLinux executando:
+Pode implantar a extensão DSCForLinux executando:
 ```
 $ azure vm extension set <resource-group> <vm-name> \
 DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 > [!NOTE]
-> No modo de Azure Resource Manager, `azure vm extension list` não está disponível por enquanto.
+> No modo Azure Resource Manager, `azure vm extension list` não está disponível por enquanto.
 >
 
-### <a name="use-azure-powershellazure-powershell"></a>Usar [Azure PowerShell] [Azure-PowerShell]
+### <a name="use-azure-powershellazure-powershell"></a>Utilizar [Azure PowerShell][casca de potência azul]
 
-#### <a name="classic"></a>Clássico
+#### <a name="classic"></a>Clássica
 
-Você pode entrar em sua conta do Azure no modo de gerenciamento de serviços do Azure executando:
+Pode iniciar sessão na sua conta Azure no modo de Gestão de Serviços Azure, executando:
 
 ```powershell>
 Add-AzureAccount
 ```
 
-E implante a extensão DSCForLinux executando:
+E implementar a extensão DSCForLinux executando:
 
 ```powershell>
 $vmname = '<vm-name>'
@@ -342,7 +345,7 @@ $publisher = 'Microsoft.OSTCExtensions'
 $version = '< version>'
 ```
 
-Altere o conteúdo de $privateConfig e $publicConfig de acordo com diferentes cenários na seção anterior.
+Altere o conteúdo de $privateConfig e $publicConfig de acordo com diferentes cenários na secção anterior.
 ```
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -365,15 +368,15 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 
 #### <a name="resource-manager"></a>Resource Manager
 
-Você pode entrar em sua conta do Azure no modo de Azure Resource Manager executando:
+Pode iniciar sessão na sua conta Azure no modo Azure Resource Manager executando:
 
 ```powershell>
 Login-AzAccount
 ```
 
-Para saber mais sobre como usar Azure PowerShell com Azure Resource Manager, consulte [gerenciar recursos do Azure usando Azure PowerShell](../../azure-resource-manager/management/manage-resources-powershell.md).
+Para saber mais sobre como usar o Azure PowerShell com o Azure Resource Manager, consulte a Manage Azure recursos utilizando o [Azure PowerShell](../../azure-resource-manager/management/manage-resources-powershell.md).
 
-Você pode implantar a extensão DSCForLinux executando:
+Pode implantar a extensão DSCForLinux executando:
 
 ```powershell>
 $rgName = '<resource-group-name>'
@@ -384,7 +387,7 @@ $publisher = 'Microsoft.OSTCExtensions'
 $version = '< version>'
 ```
 
-Altere o conteúdo de $privateConfig e $publicConfig de acordo com diferentes cenários na seção anterior.
+Altere o conteúdo de $privateConfig e $publicConfig de acordo com diferentes cenários na secção anterior.
 ```
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -409,7 +412,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Os dados sobre o estado das implantações de extensão podem ser recuperados do portal do Azure e usando o CLI do Azure. Para ver o estado de implantação das extensões de uma determinada VM, execute o seguinte comando usando o CLI do Azure.
+Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o Azure CLI. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -421,14 +424,14 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Código de erro: 51 representa a distribuição sem suporte ou a ação de extensão sem suporte.
-Em alguns casos, a extensão do DSC do Linux falha ao instalar o OMI quando uma versão mais recente do OMI já existe no computador. [resposta de erro: downgrade de (000003) não permitido]
+Código de erro: 51 representa distribuição não suportada ou ação de extensão não suportada.
+Em alguns casos, a extensão DSC Linux não instala o OMI quando já existe uma versão mais alta do OMI na máquina. [resposta ao erro: (000003)Downgrade não permitido]
 
 
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/community/). Como alternativa, você pode arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione **obter suporte**. Para obter informações sobre como usar o suporte do Azure, leia as [perguntas frequentes sobre suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em algum ponto deste artigo, contacte os especialistas da Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode apresentar um incidente de Suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione Obter **suporte**. Para obter informações sobre a utilização do Suporte Azure, leia as FAQ de suporte do [Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre extensões, consulte [recursos e extensões de máquina virtual para Linux](features-linux.md).
+Para obter mais informações sobre extensões, consulte [extensões e funcionalidades da máquina virtual para Linux](features-linux.md).

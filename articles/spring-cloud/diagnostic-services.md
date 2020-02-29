@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 90ff59bb76bceaacc7b0528ed0461b76832dc7fd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662132"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920047"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registos e métricas com definições de diagnóstico
 
@@ -32,7 +32,7 @@ Escolha a categoria de registo e a categoria métrica que pretende monitorizar.
 
 ## <a name="metrics"></a>Métricas
 
-Para obter uma lista completa de métricas, consulte [métricas](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options) de nuvem de primavera
+Para obter uma lista completa de métricas, consulte as [Métricas](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options)da Nuvem de primavera .
 
 Para começar, permita que um destes serviços receba os dados. Para aprender sobre configurar o Log Analytics, consulte [Iniciar com Log Analytics no Monitor Azure](../azure-monitor/log-query/get-started-portal.md). 
 

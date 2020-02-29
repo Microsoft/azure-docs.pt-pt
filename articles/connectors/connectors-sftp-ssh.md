@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 02/28/2020
 tags: connectors
-ms.openlocfilehash: 3370eea8909f30563babcf2a84f727ba51f67e29
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647649"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161879"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorize, crie e gere os ficheiros SFTP utilizando aplicações lógicas SSH e Azure
 
@@ -31,7 +31,28 @@ Para as diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a secç�
 
 ## <a name="limits"></a>Limites
 
-* Por predefinição, as ações sFTP-SSH podem ler ou escrever ficheiros que sejam *1 GB ou menores,* mas apenas em pedaços de *15 MB* de cada vez. Para lidar com ficheiros superiores a 15 MB, as ações SFTP-SSH suportam a cópia da [mensagem,](../logic-apps/logic-apps-handle-large-messages.md)com exceção da ação Copy File, que pode manusear apenas ficheiros de 15 MB. A ação de conteúdo do **ficheiro Get** utiliza implicitamente a utilização de imagens.
+* As ações SFTP-SSH que suportam [a chunking](../logic-apps/logic-apps-handle-large-messages.md) podem lidar com ficheiros até 1 GB, enquanto as ações SFTP-SSH que não suportam a chunking podem lidar com ficheiros até 50 MB. Embora o tamanho do pedaço padrão seja de 15 MB, este tamanho pode mudar dinamicamente, a partir de 5 MB e aumentando gradualmente para o máximo de 50 MB, com base em fatores como latência da rede, tempo de resposta do servidor, e assim por diante.
+
+  > [!NOTE]
+  > Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
+
+  O tamanho do pedaço está associado a uma ligação, o que significa que você pode usar a mesma conexão para ações que suportam chunking e, em seguida, para ações que não suportam chunking. Neste caso, o tamanho do pedaço para ações que não suportam os pedaços varia entre 5 MB e 50 MB. Esta tabela mostra quais as ações SFTP-SSH que suportam a chunking:
+
+  | Ação | Suporte de chunking |
+  |--------|------------------|
+  | **Arquivo de cópia** | Não |
+  | **Criar ficheiro** | Sim |
+  | **Criar pasta** | Não aplicável |
+  | **Eliminar ficheiro** | Não aplicável |
+  | **Extrair arquivo para pasta** | Não aplicável |
+  | **Obtenha conteúdo de ficheiro** | Sim |
+  | **Obtenha conteúdo de ficheiro usando o caminho** | Sim |
+  | **Obtenha metadados de ficheiros** | Não aplicável |
+  | **Obtenha metadados de ficheiros usando caminho** | Não aplicável |
+  | **Lista rés-da-lista na pasta** | Não aplicável |
+  | **Arquivo de renome** | Não aplicável |
+  | **Atualizar ficheiro** | Não |
+  |||
 
 * Os gatilhos SFTP-SSH não suportam o chunking. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros superiores a 15 MB, siga este padrão em vez disso:
 
@@ -46,10 +67,6 @@ Para as diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a secç�
 Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conector SFTP onde o conector SFTP-SSH tem estas capacidades:
 
 * Utiliza a [biblioteca SSH.NET](https://github.com/sshnet/SSH.NET), que é uma biblioteca secure shell (SSH) de código aberto que suporta .NET.
-
-* Por predefinição, as ações sFTP-SSH podem ler ou escrever ficheiros que sejam *1 GB ou menores,* mas apenas em pedaços de *15 MB* de cada vez.
-
-  Para lidar com ficheiros superiores a 15 MB, as ações SFTP-SSH podem utilizar [o chunking da mensagem](../logic-apps/logic-apps-handle-large-messages.md). No entanto, a ação Copy File suporta apenas 15 ficheiros MB porque essa ação não suporta a reparte da mensagem. Os gatilhos SFTP-SSH não suportam o chunking. Para fazer o upload de ficheiros grandes, precisa de ler e escrever permissões para a pasta raiz no seu servidor SFTP.
 
 * Fornece a ação **criar** pasta, que cria uma pasta no caminho especificado no servidor SFTP.
 

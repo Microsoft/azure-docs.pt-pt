@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/02/2020
 ms.author: juliako
-ms.openlocfilehash: aee4390d9b892eddbd7dc59887f5268e4c35d3f7
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989795"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163595"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
@@ -27,9 +27,14 @@ O diagrama a seguir é uma ilustração e não uma explicação técnica de como
 
 ![Diagrama de fluxo de fluxo de vídeo de serviços de mídia azure](./media/video-indexer-overview/model-chart.png)
 
+
 ## <a name="compliance-privacy-and-security"></a>Conformidade, Privacidade e Segurança
- 
-Como um lembrete importante, você deve cumprir todas as leis aplicáveis na sua utilização do Indexer de Vídeo, e você não pode usar O Indexer de Vídeo ou qualquer outro serviço Azure de uma forma que viole os direitos de outros ou pode ser prejudicial para os outros. Antes de enviar quaisquer vídeos, incluindo quaisquer dados biométricos, para o serviço de Indexer de Vídeo para processamento e armazenamento, deve ter todos os direitos adequados, incluindo todos os consentimentos adequados, do(s) indivíduo(s) no vídeo. Para conhecer a conformidade, privacidade e segurança no Indexer de Vídeo, os [Termos dos Serviços Cognitivos](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)da Microsoft . Para as obrigações de privacidade da Microsoft e o tratamento dos seus dados, por favor, consulte a Declaração de [Privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os Termos dos [Serviços Online](https://www.microsoft.com/licensing/product-licensing/products) ("OST") e a [Adenda](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) de Processamento de Dados ("DPA"). Informações adicionais sobre a privacidade, incluindo sobre a retenção de dados, eliminação/destruição, estão disponíveis no OST e [aqui](faq.md). Ao utilizar o Indexer de Vídeo, concorda em ficar vinculado aos Termos dos Serviços Cognitivos, ao OST, dPA e à Declaração de Privacidade.
+
+Como um lembrete importante, você deve cumprir todas as leis aplicáveis na sua utilização do Indexer de Vídeo, e você não pode usar O Indexer de Vídeo ou qualquer serviço Azure de uma forma que viole os direitos dos outros, ou que pode ser prejudicial para os outros.
+
+Antes de enviar qualquer vídeo/imagem para o Indexer de Vídeo, deve ter todos os direitos adequados para utilizar o vídeo/imagem, incluindo, se for exigido por lei, todos os consentimentos necessários de indivíduos (se houver) no vídeo/imagem, para uso, processamento e armazenamento dos seus dados em Video Indexer e Azure. Algumas jurisdições podem impor requisitos legais especiais para a recolha, processamento e armazenamento on-line de determinadas categorias de dados, tais como dados biométricos. Antes de utilizar o Video Indexer e o Azure para o tratamento e armazenamento de quaisquer dados sujeitos a requisitos legais especiais, deve garantir o cumprimento de quaisquer requisitos legais que possam ser aplicáveis a Si.
+
+Para saber sobre conformidade, privacidade e segurança no Indexer de Vídeo, visite o Microsoft [Trust Center](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx). Para as obrigações de privacidade da Microsoft, práticas de tratamento e retenção de dados, incluindo como eliminar os seus dados, por favor, consulte a Declaração de [Privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os Termos dos [Serviços Online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") e o Tratamento de Dados [Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Ao utilizar o Indexer de Vídeo, concorda em ficar vinculado ao OST, DPA e à Declaração de Privacidade.
 
 ## <a name="what-can-i-do-with-video-indexer"></a>O que posso fazer com o Indexer de Vídeo?
 
@@ -46,7 +51,7 @@ Os insights do Indexer de vídeo podem ser aplicados a muitos cenários, entre e
 
 A lista que se segue mostra as ideias que pode obter dos seus vídeos utilizando modelos de vídeo e áudio do Indexer de Vídeo:
 
-### <a name="video-insights"></a>Informações de vídeo
+### <a name="video-insights"></a>Insights de vídeo
 
 * **Face detection** (Deteção facial): deteta e agrupa os rostos que aparecem no vídeo.
 * **Identificação de celebridades**: O Video Indexer identifica automaticamente mais de 1 milhão de celebridades — como líderes mundiais, atores, atrizes, atletas, investigadores, empresas e líderes tecnológicos em todo o mundo. Os dados sobre estas celebridades também podem ser encontrados em vários sites (IMDB, Wikipédia, e assim por diante).
@@ -60,14 +65,14 @@ A lista que se segue mostra as ideias que pode obter dos seus vídeos utilizando
 * **Black frame detection** (Deteção de fotogramas pretos): identifica os fotogramas pretos apresentados no vídeo.
 * **Keyframe extraction** (Extração de keyframes): deteta keyframes estáveis num vídeo.
 * **Créditos rolantes**: Identifica o início e o fim dos créditos rolantes no final de séries e filmes.
-* **Deteção de caracteres animados** (pré-visualização): Deteção, agrupamento e reconhecimento de personagens em conteúdo animado através da integração com [visão personalizada dos Serviços Cognitivos.](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) Para obter mais informações, consulte a [detecção de caracteres animados](animated-characters-recognition.md).
+* **Deteção de caracteres animados** (pré-visualização): Deteção, agrupamento e reconhecimento de personagens em conteúdo animado através da integração com [visão personalizada dos Serviços Cognitivos.](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) Para mais informações, consulte a [deteção de caracteres animados.](animated-characters-recognition.md)
 * **Deteção do tipo**de tiro editorial: Tiro de marcação com base no seu tipo (como tiro largo, tiro médio, close-up, close-up extremo, dois tiros, várias pessoas, ao ar livre e interior, e assim por diante). Para mais informações, consulte a deteção do [tipo editorial de tiro.](scenes-shots-keyframes.md#editorial-shot-type-detection)
 
 ### <a name="audio-insights"></a>Insights áudio
 
 * **Automatic language detection** (Deteção automática do idioma): identifica automaticamente o idioma falado dominante. Os idiomas com suporte incluem Inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português (Brasil). Se a língua não pode ser identificada com confiança, o Indexer de vídeo assume que a língua falada é inglês. Para mais informações, consulte o modelo de [identificação da língua.](language-identification-model.md)
-* **Identificação e transcrição da fala multi-idioma (pré-visualização):** Identifica automaticamente a língua falada em diferentes segmentos a partir do áudio. Envia cada segmento do ficheiro mediático para ser transcrito e, em seguida, combina a transcrição de volta a uma transcrição unificada. Para obter mais informações, consulte [identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md).
-* **Transcrição áudio**: Converte a fala em texto em 12 idiomas e permite extensões. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, árabe, russo, português (Brasil), hindi e coreano.
+* **Identificação e transcrição da fala multi-idioma (pré-visualização):** Identifica automaticamente a língua falada em diferentes segmentos a partir do áudio. Envia cada segmento do ficheiro mediático para ser transcrito e, em seguida, combina a transcrição de volta a uma transcrição unificada. Para mais informações, consulte [Automaticamente identificar e transcrever conteúdo multilingues.](multi-language-identification-transcription.md)
+* **Transcrição áudio**: Converte a fala em texto em 12 idiomas e permite extensões. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, árabe, russo, português brasileiro, hindi e coreano.
 * **Closed captioning** (Legendas): cria legendas em três formatos: VTT, TTML e SRT.
 * **Processamento de dois canais:** O Auto deteta transcrição separada e funde-se numa única linha temporal.
 * **Redução do ruído**: Limpa gravações áudio de telefonia ou ruidosas (com base em filtros Skype).

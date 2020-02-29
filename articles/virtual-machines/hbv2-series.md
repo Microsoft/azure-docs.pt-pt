@@ -7,18 +7,22 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: amverma
-ms.openlocfilehash: ad5fb1098f88a253252dad43c9da51b5d9f11237
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: eea649610ca53ccbb98b5ca361555280dcd3dafe
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492828"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164802"
 ---
 # <a name="hbv2-series"></a>Série HBv2
 
 Os VMs da série HBv2 são otimizados para aplicações impulsionadas pela largura de banda da memória, tais como dinâmica de fluidos, análise de elementos finitos e simulação do reservatório. Os VMs HBv2 apresentam 120 núcleos de processador AMD EPYC 7742, 4 GB de RAM por núcleo CPU e sem multithreading simultâneo. Cada HBv2 VM fornece até 340 GB/sede de largura de banda de memória, e até 4 teraFLOPS de computação FP64.
 
 Armazenamento Premium: Suportado
+
+Migração Ao Vivo: Não Suportado
+
+Atualizações de preservação da memória: não suportadas
 
 | Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho RDMA (Gb/s) | Suporte do MPI | Armazenamento temporário (GB) | Discos de dados máximos | Max Ethernet NICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -36,6 +40,6 @@ Armazenamento Premium: Suportado
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.

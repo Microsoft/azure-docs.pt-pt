@@ -1,6 +1,6 @@
 ---
-title: Resolver erros ao eliminar contas de armazenamento clássicas do Azure, contentores ou VHDs | Documentos da Microsoft
-description: Como resolver problemas ao eliminar os recursos de armazenamento com VHDs ligadas.
+title: Erros de resolução de problemas ao eliminar contas de armazenamento clássicos do Azure, contentores ou VHDs  Microsoft Docs
+description: Como resolver problemas ao apagar recursos de armazenamento que contenham VHDs anexados.
 services: storage
 author: AngshumanNayakMSFT
 tags: top-support-issue,azure-service-management
@@ -8,120 +8,124 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926231"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915042"
 ---
-# <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Resolver problemas de erros de eliminação de recursos de armazenamento clássicas
-Este artigo fornece orientações de resolução de problemas quando um dos seguintes erros ocorre ao tentar eliminar a conta de armazenamento clássico do Azure, contentor ou VHD; ficheiro de BLOBs de página. 
+# <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Problemas de eliminação de recursos de armazenamento clássicos
+Este artigo fornece orientação de resolução de problemas quando ocorre um dos seguintes erros tentando eliminar a conta de armazenamento clássica do Azure, o recipiente ou o ficheiro blob de página *.vhd. 
 
 
-Este artigo apenas aborda problemas com os recursos de armazenamento clássicas. Se um utilizador eliminar uma máquina virtual clássica no portal do Azure, PowerShell ou CLI, em seguida, os discos não são eliminados automaticamente. O utilizador obtém a opção de eliminar o recurso de "Disco". No caso da opção não estiver selecionada, o recurso de "Disco" irá impedir a eliminação de conta de armazenamento, contentor e o arquivo de blob de página real de *. vhd.
+Este artigo abrange apenas questões com recursos de armazenamento clássicos. Se um utilizador eliminar uma máquina virtual clássica utilizando o portal Azure, PowerShell ou CLI, os Discos não são automaticamente eliminados. O utilizador tem a opção de eliminar o recurso "Disk". Caso a opção não seja selecionada, o recurso "Disk" evitará a eliminação da conta de armazenamento, do contentor e do ficheiro blob da página real de *.vhd.
 
-Podem encontrar mais informações acerca dos discos do Azure [aqui](../../virtual-machines/windows/managed-disks-overview.md). Azure impede a eliminação de um disco que está ligado a uma VM para evitar danos. Ele também impede a eliminação de contentores e contas de armazenamento, que têm um blob de página que está ligado a uma VM. 
+Mais informações sobre discos Azure podem ser encontradas [aqui.](../../virtual-machines/windows/managed-disks-overview.md) Azure impede a eliminação de um disco que está ligado a um VM para prevenir a corrupção. Também impede a eliminação de contentores e contas de armazenamento, que têm uma bolha de página que está anexada a um VM. 
 
-## <a name="what-is-a-disk"></a>O que é um "disco"?
-Um recurso de "Disco" é usado para montar um ficheiro de BLOBs de página *. vhd para uma máquina virtual, como um disco de SO ou disco de dados. Um disco de SO ou o recurso de disco de dados, até eliminadas, irá continuar a manter uma concessão no arquivo *. vhd. Não é possível eliminar qualquer recurso de armazenamento no caminho abaixo na imagem, se um recurso de "Disco" aponta para ela.
+## <a name="what-is-a-disk"></a>O que é um "Disco"?
+Um recurso "Disk" é usado para montar um ficheiro blob de página *.vhd para uma máquina virtual, como um disco de OS ou disco de dados. Um recurso de disco osso ou de disco de dados, até ser eliminado, continuará a realizar um contrato de arrendamento no ficheiro *.vhd. Qualquer recurso de armazenamento no caminho mostrado na imagem abaixo não pode ser eliminado se um recurso "Disk" apontar para ele.
 
-![Abra a captura de ecrã do portal, com o painel de "Property" do disco (clássico)](./media/storage-classic-cannot-delete-storage-account-container-vhd/Disk_Lease_Illustration.jpg) 
+![Screenshot do portal, com o painel de disco (clássico) "Propriedade" aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/Disk_Lease_Illustration.jpg) 
 
 
-## <a name="steps-while-deleting-a-classic-virtual-machine"></a>Passos ao eliminar uma máquina virtual clássica 
-1. Elimine a máquina virtual clássica.
-2. Se a caixa de verificação "Discos" estiver selecionada, o **concessão de disco** (mostrado na imagem acima) associados com o blob de página *. vhd foi interrompida. O ficheiro de VHD de blob de página real continuarão a existir na conta de armazenamento.
-![Abra a captura de ecrã do portal, com o painel de erro "Delete" da máquina virtual (clássico)](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
+## <a name="steps-while-deleting-a-classic-virtual-machine"></a>Passos ao apagar uma máquina virtual clássica 
 
-3. Assim que a concessão de disco (s) for interrompida, os BLOBs de página em si podem ser eliminados. Uma conta de armazenamento ou contentor pode ser eliminado depois de todos os recursos de "Disco" presentes nos mesmos são eliminados.
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
+1. Apague a máquina virtual clássica.
+2. Se a caixa de verificação "Discos" for selecionada, a locação de **disco** (mostrada na imagem acima) associada à página blob *.vhd está quebrada. O ficheiro blob de página real *.vhd ainda existirá na conta de armazenamento.
+![Screenshot do portal, com a máquina virtual (clássica) painel de erro "Delete" aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
+
+3. Uma vez quebrado o ou o ou s do disco, a própria página blob(s) pode ser eliminada. Uma conta de armazenamento ou recipiente pode ser eliminada assim que todos os recursos "Disco" neles presentes forem eliminados.
 
 >[!NOTE] 
->Se o utilizador elimina a VM, mas não o VHD, os custos de armazenamento irão continuar a acumular no ficheiro de VHD de blob de página. Os encargos serão em conformidade com o tipo de conta de armazenamento, verifique os [página de preços](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes. Se o utilizador já não tenciona utilizar o VHD, elimine it /-los para evitar futuras Cobranças. 
+>Se o utilizador eliminar o VM mas não o VHD, os custos de armazenamento continuarão a acumular-se no ficheiro blob *.vhd da página. Os encargos estarão em linha com o tipo de conta de armazenamento, verifique [a página](https://azure.microsoft.com/pricing/details/storage/) de preços para mais detalhes. Se o utilizador já não pretender utilizar os VHD(s), elimine-o/para evitar futuras cargas. 
 
-## <a name="unable-to-delete-storage-account"></a>Não é possível eliminar a conta de armazenamento 
+## <a name="unable-to-delete-storage-account"></a>Incapaz de apagar conta de armazenamento 
 
-Quando o utilizador tentar eliminar uma conta de armazenamento clássico que não é mais necessária, o utilizador poderá ver o seguinte comportamento.
+Quando o utilizador tenta eliminar uma conta de armazenamento clássica que já não seja necessária, o utilizador pode ver o seguinte comportamento.
 
 #### <a name="azure-portal"></a>Portal do Azure 
-Utilizador navega para a conta de armazenamento clássico no [portal do Azure](https://portal.azure.com) e clica **eliminar**, utilizador verá a seguinte mensagem: 
+O utilizador navega para a conta de armazenamento clássica no [portal Azure](https://portal.azure.com) e clica **Eliminar,** o utilizador verá a seguinte mensagem: 
 
-Com disco (s) "anexado" a uma máquina virtual
+Com disco(s) "ligado" a uma máquina virtual
 
-![Abra a captura de ecrã do portal, com o painel de erro "Delete" da máquina virtual (clássico)](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
+![Screenshot do portal, com a máquina virtual (clássica) painel de erro "Delete" aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
 
 
-Com disco (s) "ligados" a uma máquina virtual
+Com disco(s) "desconectado" a uma máquina virtual
 
-![Abra a captura de ecrã do portal, com o painel de erro não "Delete" da máquina virtual (clássico)](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_unattached_portal.jpg)
+![Screenshot do portal, com a máquina virtual (clássica) "Eliminar" painel de não erro aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_unattached_portal.jpg)
 
 
 #### <a name="azure-powershell"></a>Azure PowerShell
-O utilizador tenta eliminar uma conta de armazenamento, que já não está a ser utilizada, utilizando cmdlets do PowerShell clássico. Utilizador verá a seguinte mensagem:
+O utilizador tenta eliminar uma conta de armazenamento, que já não está a ser utilizada, utilizando cmdlets clássicos da PowerShell. O utilizador verá a seguinte mensagem:
 
-> <span style="color:cyan">**Remove-AzureStorageAccount - StorageAccountName myclassicaccount**</span>
+> <span style="color:cyan">**Remover-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
 > 
-> <span style="color:red">Remove-AzureStorageAccount : BadRequest: Myclassicaccount de conta de armazenamento tem algumas imagens ativas e/ou discos, por exemplo  
-> myclassicaccount. Certifique-se de que estas imagens e/ou discos são removidos antes de eliminar esta conta de armazenamento.</span>
+> <span style="color:red">Remove-AzureStorageAccount : BadRequest: A conta de armazenamento myclassicaccount tem algumas imagens ativas e/ou discos, por exemplo.  
+> minha conta clássica. Certifique-se de que estas imagens e/ou discos são removidos antes de eliminar esta conta de armazenamento.</span>
 
-## <a name="unable-to-delete-storage-container"></a>Não é possível eliminar o contentor de armazenamento
+## <a name="unable-to-delete-storage-container"></a>Incapaz de apagar recipiente de armazenamento
 
-Quando o utilizador tentar eliminar um contentor de BLOBs de armazenamento clássico que não é mais necessária, o utilizador poderá ver o seguinte comportamento.
+Quando o utilizador tenta eliminar um recipiente de bolha de armazenamento clássico que já não seja necessário, o utilizador pode ver o seguinte comportamento.
 
 #### <a name="azure-portal"></a>Portal do Azure 
-Portal do Azure não permite ao utilizador eliminar um contentor, se uma concessão de "Disco (s)", existe a apontar para um ficheiro de BLOBs de página *. vhd no contentor. É por design para impedir a eliminação acidental de um ficheiro VHD com a concessão de disco ou discos nos mesmos. 
+O portal Azure não permitiria que o utilizador apagasse um contentor se existisse um contrato de locação "Disk(s)" que apontasse para um ficheiro blob de página *.vhd no recipiente. É por conceção para evitar a supressão acidental de um ficheiro vhd com o Disco(s) arrendamento neles. 
 
-![Abra a captura de ecrã do portal, com o painel de "list" do contentor de armazenamento](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_container_portal.jpg)
+![Screenshot do portal, com o painel de "lista" do recipiente de armazenamento aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_container_portal.jpg)
 
 
 #### <a name="azure-powershell"></a>Azure PowerShell
-Se o utilizador optar por eliminar com o PowerShell, irá resultar no seguinte erro. 
+Se o utilizador optar por eliminar utilizando o PowerShell, resultará no seguinte erro. 
 
-> <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
+> <span style="color:cyan">**Remover-AzureStorageContainer -Context $context -Name vhds**</span>
 > 
-> <span style="color:red">Remove-AzureStorageContainer : O servidor remoto devolveu um erro: (412) existe atualmente uma concessão no contentor e nenhum ID de concessão foi especificado no pedido.... Código de estado HTTP: 412 - mensagem de erro HTTP: Atualmente, existe uma concessão no contentor e nenhum ID de concessão foi especificado no pedido.</span>
+> <span style="color:red">Remove-AzureStorageContainer : O servidor remoto devolveu um erro: (412) Existe atualmente uma locação no contentor e não foi especificado qualquer ID de locação no pedido.. Código de Estado HTTP: 412 - HTTP Error Message: Existe atualmente um contrato de arrendamento no contentor e não foi especificado qualquer ID de locação no pedido.</span>
 
-## <a name="unable-to-delete-a-vhd"></a>Não é possível eliminar um vhd 
+## <a name="unable-to-delete-a-vhd"></a>Incapaz de apagar um vhd 
 
-Depois de eliminar a máquina virtual do Azure, o usuário tentar excluir o arquivo de vhd (blob de página) e receber a mensagem abaixo:
+Depois de eliminar a máquina virtual Azure, o utilizador tenta eliminar o ficheiro VHD (blob de página) e receber a mensagem abaixo:
 
 #### <a name="azure-portal"></a>Portal do Azure 
-No portal, pode haver mais de duas experiências consoante a lista de blobs selecionados para eliminação.
+No portal, pode haver duas experiências dependendo da lista de bolhas selecionadas para eliminação.
 
-1. Se apenas blobs de "Concedido" estiverem selecionados, em seguida, no botão Eliminar não é exibida.
-![Abra a captura de ecrã do portal, com o painel de "list" de Blobs do contentor](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
+1. Se forem selecionadas apenas bolhas "Alugadas", o botão Delete não aparece.
+![Screenshot do portal, com o painel de "lista" de contentores aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
 
 
-2. Se forem selecionada uma mistura de blobs "Concedido" e "Disponível", no botão "Eliminar" aparece. Mas a operação "Delete" irá deixar para trás os blobs de página, que tem uma concessão de disco nos mesmos. 
-![Captura de ecrã do portal, com o painel de contentor. o blob "lista" open](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
-![captura de ecrã do portal, com o blob selecionado "delete" painel aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
+2. Se for selecionada uma mistura de bolhas "Alugadas" e "disponíveis", aparece o botão "Eliminar". Mas a operação "Eliminar" deixará para trás as bolhas de página, que têm um contrato de arrendamento de disco. 
+![Screenshot do portal, com o painel de "lista" de blob do recipiente aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
+![Screenshot do portal, com o painel de blob "apagar" selecionado](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
-Se o utilizador optar por eliminar com o PowerShell, irá resultar no seguinte erro. 
+Se o utilizador optar por eliminar utilizando o PowerShell, resultará no seguinte erro. 
 
 > <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
-> <span style="color:red">Remove-AzureStorageBlob : O servidor remoto devolveu um erro: (412) existe atualmente uma concessão no blob e nenhum ID de concessão foi especificado no pedido.... Código de estado HTTP: 412 - mensagem de erro HTTP: Atualmente, existe uma concessão no blob e nenhum ID de concessão foi especificado no pedido.</span>
+> <span style="color:red">Remove-AzureStorageBlob : O servidor remoto devolveu um erro: (412) Existe atualmente um contrato de arrendamento na bolha e não foi especificado qualquer ID de locação no pedido.. Código de Estado HTTP: 412 - HTTP Error Message: Existe atualmente um contrato de arrendamento sobre a bolha e nenhum ID de locação foi especificado no pedido.</span>
 
 
 ## <a name="resolution-steps"></a>Passos de resolução
 
 ### <a name="to-remove-classic-disks"></a>Para remover discos clássicos
-Siga estes passos no portal do Azure:
+Siga estes passos no portal Azure:
 1.  Navegue para o [portal do Azure](https://portal.azure.com).
-2.  Navegue para o Disks(classic). 
-3.  Clique no separador Discos. ![Abra a captura de ecrã do portal, com o painel de "list" de Blobs do contentor](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+2.  Navegue para os Discos (clássico). 
+3.  Clique no separador Discos. ![Screenshot do portal, com o painel de "lista" de blob do recipiente aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Selecione o disco de dados e, em seguida, clique em Eliminar Disco.
- ![Abra a captura de ecrã do portal, com o painel de "list" de Blobs do contentor](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
+ ![Screenshot do portal, com o painel de "lista" de contentores aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
  
-5.  Repita a operação de eliminação que falhou anteriormente.
-6.  Não é possível eliminar uma conta de armazenamento ou contentor, desde que ele tem um único disco.
+5.  Tente novamente a operação Delete que anteriormente falhou.
+6.  Uma conta de armazenamento ou recipiente não pode ser eliminada desde que tenha um único Disco.
 
-### <a name="to-remove-classic-images"></a>Para remover as imagens clássicas   
-Siga estes passos no portal do Azure:
+### <a name="to-remove-classic-images"></a>Para remover imagens clássicas   
+Siga estes passos no portal Azure:
 1.  Navegue para o [portal do Azure](https://portal.azure.com).
-2.  Navegue para imagens do SO (clássico).
-3.  Elimine a imagem.
-4.  Repita a operação de eliminação que falhou anteriormente.
-5.  Não é possível eliminar uma conta de armazenamento ou contentor, desde que ele tem uma única imagem.
+2.  Navegue para imagens de OS (clássica).
+3.  Apague a imagem.
+4.  Tente novamente a operação Delete que anteriormente falhou.
+5.  Uma conta de armazenamento ou recipiente não pode ser eliminada desde que tenha uma única Imagem.

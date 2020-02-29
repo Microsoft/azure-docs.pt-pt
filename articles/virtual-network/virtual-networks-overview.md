@@ -13,36 +13,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 768d01346b7697953d44742458c7e507ae7c115a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3b908406c8717d2fa8834bc4dff1bcd27ec4761f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894596"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164904"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
-A VNet (rede virtual) do Azure é o bloco de construção fundamental para sua rede privada no Azure. A VNet permite muitos tipos de recursos do Azure, como VMS (máquinas virtuais) do Azure, para se comunicar com segurança entre si, Internet e redes locais. A VNet é semelhante a uma rede tradicional que você operaria em sua própria data center, mas traz benefícios adicionais da infraestrutura do Azure, como escala, disponibilidade e isolamento.
+A Rede Virtual Azure (VNet) é o bloco de construção fundamental da sua rede privada em Azure. A VNet permite que muitos tipos de recursos Azure, como as Máquinas Virtuais Azure (VM), se comuniquem de forma segura entre si, a internet e as redes no local. A VNet é semelhante a uma rede tradicional que operaria no seu próprio centro de dados, mas traz consigo benefícios adicionais da infraestrutura do Azure, como escala, disponibilidade e isolamento.
 
-## <a name="vnet-concepts"></a>Conceitos de VNet
+## <a name="vnet-concepts"></a>Conceitos VNet
 
-- **Espaço de endereço:** Ao criar uma VNet, você deve especificar um espaço de endereço IP privado personalizado usando endereços públicos e privados (RFC 1918). O Azure atribui aos recursos numa rede virtual um endereço IP privado a partir do espaço de endereços que atribuir. Por exemplo, se você implantar uma VM em uma VNet com espaço de endereço, 10.0.0.0/16, a VM será atribuída a um IP privado como 10.0.0.4.
-- **Sub-redes:** As sub-redes permitem segmentar a rede virtual em uma ou mais subredes e alocar uma parte do espaço de endereço da rede virtual para cada sub-rede. Em seguida, você pode implantar recursos do Azure em uma sub-rede específica. Assim como em uma rede tradicional, as sub-redes permitem segmentar seu espaço de endereço de rede virtual em segmentos apropriados para a rede interna da organização. Isso também melhora a eficiência da alocação de endereços. Você pode proteger recursos em sub-redes usando grupos de segurança de rede. Para obter mais informações, consulte [grupos de segurança](security-overview.md).
-- **Regiões**: VNet está no escopo de uma única região/local; no entanto, várias redes virtuais de regiões diferentes podem ser conectadas usando o emparelhamento de rede virtual.
-- **Assinatura:** A VNet está no escopo de uma assinatura. Pode implementar várias redes virtuais dentro de cada [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) do Azure e [região](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) do Azure.
+- **Espaço de endereço:** Ao criar um VNet, deve especificar um espaço de endereçoip personalizado privado utilizando endereços públicos e privados (RFC 1918). O Azure atribui aos recursos numa rede virtual um endereço IP privado a partir do espaço de endereços que atribuir. Por exemplo, se implantar um VM num VNet com espaço de endereço, 10.0.0.0.0/16, o VM será atribuído a um IP privado como 10.0.0.4.
+- **Subredes:** As subredes permitem segmentar a rede virtual numa ou mais subredes e alocar uma parte do espaço de endereço da rede virtual a cada subrede. Em seguida, pode implantar recursos Azure numa subnet específica. Tal como numa rede tradicional, as subredes permitem segmentar o seu espaço de endereço VNet em segmentos adequados para a rede interna da organização. Isto também melhora a eficiência da atribuição de endereços. Pode garantir recursos dentro de subredes utilizando grupos de segurança de rede. Para mais informações, consulte [grupos de segurança.](security-overview.md)
+- **Regiões**: A VNet é traçada para uma única região/local; no entanto, várias redes virtuais de diferentes regiões podem ser conectadas através do Virtual Network Peering.
+- **Subscrição:** A VNet está associada a uma subscrição. Pode implementar várias redes virtuais dentro de cada [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) do Azure e [região](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) do Azure.
 
 ## <a name="best-practices"></a>Melhores práticas
 
-À medida que você cria sua rede no Azure, é importante ter em mente os seguintes princípios de design universal:
+À medida que constrói a sua rede em Azure, é importante ter em conta os seguintes princípios de design universal:
 
-- Garanta espaços de endereço não sobrepostos. Verifique se o espaço de endereço da VNet (bloco CIDR) não se sobrepõe aos outros intervalos de rede da sua organização.
-- Suas sub-redes não devem abranger todo o espaço de endereço da VNet. Planeje com antecedência e reserve algum espaço de endereço para o futuro.
-- É recomendável que você tenha menos VNets grandes do que vários VNets pequenos. Isso impedirá a sobrecarga de gerenciamento.
-- Proteja sua VNet usando NSGs (grupos de segurança de rede).
+- Certifique-se de espaços de endereço sem sobreposição. Certifique-se de que o seu espaço de endereço VNet (bloco CIDR) não se sobrepõe às outras gamas de rede da sua organização.
+- As suas subredes não devem cobrir todo o espaço de endereço do VNet. Planeie com antecedência e reserve algum espaço de endereço para o futuro.
+- Recomenda-se que tenha menos VNets grandes do que vários Pequenos VNets. Isto evitará a gestão.
+- Proteja os seus VNet's atribuindo grupos de segurança de rede (NSGs) às subredes abaixo delas.
 
 ## <a name="communicate-with-the-internet"></a>Comunicar com a Internet
 
-Por padrão, todos os recursos em uma VNet podem comunicar a saída para a Internet. Pode comunicar com um recurso à entrada, ao atribuir-lhe um endereço IP público ou um Balanceador de Carga público. Também pode utilizar o IP público ou o Balanceador de Carga público para gerir as suas ligações de saída.  Para saber mais sobre as ligações de saída no Azure, veja [Ligações de saída](../load-balancer/load-balancer-outbound-connections.md), [Endereços IP públicos](virtual-network-public-ip-address.md) e [Balanceador de Carga](../load-balancer/load-balancer-overview.md).
+Todos os recursos de um VNet podem comunicar de saída para a internet, por padrão. Pode comunicar com um recurso à entrada, ao atribuir-lhe um endereço IP público ou um Balanceador de Carga público. Também pode utilizar o IP público ou o Balanceador de Carga público para gerir as suas ligações de saída.  Para saber mais sobre as ligações de saída no Azure, veja [Ligações de saída](../load-balancer/load-balancer-outbound-connections.md), [Endereços IP públicos](virtual-network-public-ip-address.md) e [Balanceador de Carga](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
 >Ao utilizar apenas um [Balanceador de Carga Standard](../load-balancer/load-balancer-standard-overview.md) interno, a conectividade de saída não está disponível até definir como pretende que as [ligações de saída](../load-balancer/load-balancer-outbound-connections.md) trabalhem com um IP público de nível de instância ou um Balanceador de Carga público.
@@ -53,7 +53,7 @@ Os recursos do Azure comunicam de forma segura entre si, de uma das seguintes fo
 
 - **Através de uma rede virtual**: pode implementar VMs e vários outros tipos de recursos do Azure numa rede virtual, como Ambientes do Serviço de Aplicações do Azure, Serviço de Kubernetes do Azure (AKS) e Conjuntos de Dimensionamento de Máquinas Virtuais do Azure. Para ver uma lista completa dos recursos do Azure que pode implementar numa rede virtual, veja [Integração de serviço da rede virtual](virtual-network-for-azure-services.md).
 - **Através de um ponto final de serviço de rede virtual**: expanda o seu espaço de endereços privados da rede virtual e a identidade da sua rede virtual aos recursos do serviço do Azure, como Contas de Armazenamento do Azure e bases de dados SQL do Azure, através de uma ligação direta. Os pontos finais de serviço permitem-lhe obter os seus recursos críticos de serviço do Azure para apenas uma rede virtual. Para obter mais informações, veja [Descrição geral de pontos finais de serviço de rede virtual](virtual-network-service-endpoints-overview.md).
-- **Por meio do emparelhamento VNet**: você pode conectar redes virtuais entre si, permitindo que os recursos em qualquer rede virtual se comuniquem entre si, usando o emparelhamento de rede virtual. As redes virtuais a que liga podem estar nas mesmas regiões ou em regiões diferentes do Azure. Para obter mais informações, veja [Peering de rede virtual](virtual-network-peering-overview.md).
+- **Através do VNet Peering:** Pode ligar redes virtuais entre si, permitindo que recursos em qualquer rede virtual se comuniquem entre si, utilizando o peering virtual da rede. As redes virtuais a que liga podem estar nas mesmas regiões ou em regiões diferentes do Azure. Para obter mais informações, veja [Peering de rede virtual](virtual-network-peering-overview.md).
 
 ## <a name="communicate-with-on-premises-resources"></a>Comunicar com os recursos no local
 
@@ -67,7 +67,7 @@ Pode ligar os computadores e redes no local a uma rede virtual, com qualquer com
 
 Pode filtrar o tráfego de rede entre as sub-redes com uma ou ambas das seguintes opções:
 
-- **Grupos de segurança:** Grupos de segurança de rede e grupos de segurança de aplicativo podem conter várias regras de segurança de entrada e saída que permitem filtrar o tráfego de e para recursos por endereço IP de origem e de destino, porta e protocolo. Para saber mais, confira [grupos de segurança de rede](security-overview.md#network-security-groups) ou grupos de segurança de [aplicativo](security-overview.md#application-security-groups).
+- **Grupos de segurança:** Grupos de segurança de rede e grupos de segurança de aplicações podem conter múltiplas regras de segurança de entrada e saída que lhe permitem filtrar o tráfego de e para os recursos por endereço IP de origem e destino, porto e protocolo. Para saber mais, consulte [grupos](security-overview.md#network-security-groups) de segurança da Rede ou [grupos de segurança de aplicações](security-overview.md#application-security-groups).
 - **Aplicações virtuais de rede:** uma aplicação virtual de rede é uma VM que executa uma função de rede, como uma firewall, otimização de rede alargada ou outra função de rede. Para ver uma lista das aplicações virtuais de rede disponíveis que pode implementar numa rede virtual, veja [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ## <a name="route-network-traffic"></a>Encaminhe o tráfego de rede
@@ -77,13 +77,13 @@ O Azure encaminha tráfego entre sub-redes, redes virtuais ligadas, redes no loc
 - **Tabelas de rotas:** pode criar tabelas de rotas personalizadas com rotas que controlam para onde o tráfego é encaminhado para cada sub-rede. Obtenha mais informações sobre [tabelas de rotas](virtual-networks-udr-overview.md#user-defined).
 - **Rotas de protocolo BGP (Border Gateway Protocol):** se ligar a rede virtual à sua rede no local através de uma ligação de Gateway de VPN do Azure ou ExpressRoute, pode propagar as rotas de protocolo BGP no local para as suas redes virtuais. Saiba mais sobre como utilizar o protocolo BGP com o [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e o [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
 
-## <a name="azure-vnet-limits"></a>Limites de VNet do Azure
+## <a name="azure-vnet-limits"></a>Limites Azure VNet
 
-Há determinados limites em relação ao número de recursos do Azure que você pode implantar. A maioria dos limites de rede do Azure tem os valores máximos. No entanto, você pode [aumentar determinados limites de rede](../azure-portal/supportability/networking-quota-requests.md) , conforme especificado na [página limites de VNet](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
+Existem certos limites em torno do número de recursos Azure que pode utilizar. A maioria dos limites de rede Azure estão nos valores máximos. No entanto, pode [aumentar determinados limites](../azure-portal/supportability/networking-quota-requests.md) de rede conforme especificado na página de [limites VNet](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
 
 ## <a name="pricing"></a>Preços
 
-Não há nenhum custo para usar a VNet do Azure, ele é gratuito. Os encargos padrão são aplicáveis a recursos, como VMs (máquinas virtuais) e outros produtos. Para saber mais, confira [preços da VNet](https://azure.microsoft.com/pricing/details/virtual-network/) e a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/)do Azure.
+Não há nenhuma taxa para a utilização do Azure VNet, é livre de custos. Os custos padrão são aplicáveis aos recursos, tais como Máquinas Virtuais (VMs) e outros produtos. Para saber mais, consulte [os preços da VNet](https://azure.microsoft.com/pricing/details/virtual-network/) e a [calculadora](https://azure.microsoft.com/pricing/calculator/)de preços Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Importar e publicar a sua primeira API na Gestão de API do Azure | Microsoft Docs
-description: Saiba como importar e publicar a sua primeira API com a Gestão de API.
+title: Importar e publicar a sua primeira API na Azure API Management
+description: Aprenda a importar uma API de especificação OpenAPI para a Gestão da API Azure e teste a sua API no portal Azure.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -11,84 +11,80 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/24/2019
+ms.date: 02/27/2020
 ms.author: apimpm
-ms.openlocfilehash: bae762b4603b2f5f80447a16671fed4e37e62b95
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 886063dcf886d79ac960814f20b3789e8e3b6839
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108532"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163512"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar a sua primeira API 
 
-Este tutorial mostra como importar uma API de back-end de “Especificação de OpenAPI” que reside no https://conferenceapi.azurewebsites.net?format=json. Esta API de back-end é fornecida pela Microsoft e alojada no Azure. 
+Este tutorial mostra como importar uma API de especificação OpenAPI em formato JSON para a Azure API Management. A Microsoft fornece a API de backend e acolhe-a no Azure em [https://conferenceapi.azurewebsites.net?format=json](https://conferenceapi.azurewebsites.net?format=json).
 
-Assim que a API de back-end é importada para a Gestão de API (APIM), a API de APIM torna-se uma fachada para a API de back-end. No momento em que importa a API de back-end, a API de origem e a API de APIM são idênticas. A APIM permite-lhe personalizar a fachada consoante as suas necessidades, sem afetar a API de back-end. Para obter mais informações, veja [Transformar e proteger a sua API](transform-api.md). 
+Uma vez que importa a API de backend para a API Management, a sua API Management API torna-se uma fachada para a API backend. Pode personalizar a fachada às suas necessidades na API Management sem tocar na API de backend. Para obter mais informações, veja [Transformar e proteger a sua API](transform-api.md). 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Importar a sua primeira API
+> * Importar uma API para a Gestão da API
 > * Testar a API no Portal do Azure
-> * Testar a API no portal do Programador
 
-![Nova API](./media/api-management-get-started/created-api.png)
+![Nova API](./media/api-management-import-and-publish/created-api.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
+- Compreender a [terminologia de Gestão da API Azure.](api-management-terminology.md)
+- Criar uma instância de [Gestão API Azure.](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importar e publicar uma API de back-end
+## <a name="create-api"> </a>Importar e publicar uma API de backend
 
-Esta secção mostra como importar e publicar uma API de back-end de especificação de OpenAPI.
+Esta secção mostra como importar e publicar uma API de especificação OpenAPI.
  
-1. Selecione **APIs** em **GESTÃO DE API**.
-2. Selecione **especificação de openapi** na lista e clique em **completo** no pop-up.
+1. Na navegação à esquerda da sua instância de Gestão API, selecione **APIs** da secção **de Gestão aPI.**
+1. Selecione o azulejo **OpenAPI** e, em seguida, selecione **Full** no ecrã pop-up.
+1. No ecrã **de especificações Create from OpenAPI,** utilize os valores da tabela seguinte para criar a sua API.
+   
+   Uma estrela vermelha ao lado de um campo na forma indica que o campo é necessário. Pode definir valores de API durante a criação ou posteriormente indo ao separador **Definições.** 
+   
+   ![Criar uma API](./media/api-management-import-and-publish/create-api.png)
+   
+   |Definição|Valor|Descrição|
+   |-------|-----|-----------|
+   |**Especificação de OpenAPI**|*https:\//conferenceapi.azurewebsites.net?format=json*|O serviço de implementação da API. A API de Gestão reencaminha os pedidos para este endereço.|
+   |**Nome a apresentar**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|O nome apresentado no portal do desenvolvedor.|
+   |**Nome**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|Um nome único para a API.|
+   |**Descrição**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|Uma descrição opcional da API.|
+   |**Esquema do URL**|**HTTPS**|Que protocolos podem ser usados para aceder à API.|
+   |**Sufixo do URL da API**|*conferência*|O sufixo anexado ao URL base para o serviço de Gestão API. A API Management distingue as APIs pelo seu sufixo, pelo que o sufixo deve ser único para cada API para um determinado editor.|
+   |**Produtos**|**Ilimitado**|Associação de uma ou mais APIs. Cada instância de Gestão API vem com dois produtos de amostra: **Starter** e **Unlimited**. Publica uma API associando a API a um produto, **Ilimitado** neste exemplo.<br/>Pode incluir várias APIs num produto e oferecê-las aos desenvolvedores através do portal de desenvolvedores. Para adicionar este API a outro produto, digite ou selecione o nome do produto. Repita este passo para adicionar a API a vários produtos. Também pode adicionar APIs aos produtos posteriormente a partir da página **Definições.**<br/>Para obter acesso à API, os programadores têm de subscrever primeiro um produto. Quando subscrevem, recebem uma chave de subscrição que é boa para qualquer API nesse produto. <br/>Se criou a instância de Gestão API, já é administrador, por isso está subscrito a todos os produtos da região.|
+   |**Etiquetas**| |Etiquetas para organização de APIs para pesquisa, agrupamento ou filtragem.|
+   |**Versão deste API?**|Selecione ou desmarque|Para obter mais informações sobre versão, consulte [Publicar várias versões da sua API](api-management-get-started-publish-versions.md).|
+   
+   > [!NOTE]
+   > Para publicar a API, precisa de associá-la a um produto. Pode fazê-lo a partir da página **Definições.**
+   
+1. Selecione **Criar**.
 
-    ![Criar uma API](./media/api-management-get-started/create-api.png)
+Se tiver problemas em importar uma definição de API, consulte a [lista de questões e restrições conhecidas](api-management-api-import-restrictions.md).
 
-    Você pode definir os valores da API durante a criação ou posteriormente acessando a guia **configurações** . A estrela vermelha ao lado de um campo indica que o campo é obrigatório.
+## <a name="test-the-new-api-in-the-azure-portal"></a>Teste a nova API no portal Azure
 
-    Utilize os valores da tabela abaixo para criar a sua primeira API.
+Pode ligar para operações da API diretamente do portal Azure, que fornece uma forma conveniente de visualizar e testar as operações.
 
-    | Definição                   | Valor                                              | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-    |---------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Especificação de OpenAPI** | https://conferenceapi.azurewebsites.net?format=json | Referencia o serviço que implementa a API. A API de Gestão reencaminha os pedidos para este endereço.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-    | **Nome a apresentar**          | *API da Conferência de Demonstração*                              | Se premir o separador depois de introduzir o URL do serviço, a APIM irá preencher este campo com base no que está no json. <br/>Este nome é apresentado no portal do Programador.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-    | **Nome**                  | *demo-conference-api*                              | Fornece um nome exclusivo para a API. <br/>Se premir o separador depois de introduzir o URL do serviço, a APIM irá preencher este campo com base no que está no json.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-    | **Descrição**           | Forneça uma descrição opcional da API.        | Se premir o separador depois de introduzir o URL do serviço, a APIM irá preencher este campo com base no que está no json.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-    | **Esquema do URL**            | *HTTPS*                                            | Determina que protocolos podem ser utilizados para aceder à API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-    | **Sufixo do URL da API**        | *conference*                                       | O sufixo é anexado ao URL base do serviço Gestão de API. A Gestão de API distingue as APIs pelo respetivo sufixo, pelo que cada API tem de ter o seu sufixo exclusivo para um determinado editor.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-    | **Produtos**              | *Ilimitado*                                        | Os produtos são associações de uma ou mais APIs. Pode incluir várias APIs num Produto e disponibilizá-las para os programadores através do portal do programador. <br/>Publique a API, ao associar a API a um produto (neste exemplo, *Ilimitado*). Para adicionar esta nova API a um produto, escreva o nome do produto (também pode fazê-lo mais tarde a partir da página **Definições**). Este passo pode ser repetido múltiplas vezes para adicionar a API a vários produtos.<br/>Para obter acesso à API, os programadores têm de subscrever primeiro um produto. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. <br/> Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos.<br/> Por predefinição, cada instância da Gestão de API é fornecida com dois produtos de exemplo: **Inicial** e **Ilimitado**. |
-    | **Etiquetas**                  |                                                    | Marcas para organizar APIs. As marcas podem ser usadas para pesquisa, agrupamento ou filtragem.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-    | **Versão desta API?**     |                                                    | Para obter mais informações sobre o controlo de versões, veja [Publicar várias versões da sua API](api-management-get-started-publish-versions.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+1. Na navegação à esquerda da sua instância de Gestão API, selecione **APIs** da secção de Gestão da **API** e, em seguida, selecione **API Conferência de Demonstração**.
+1. Selecione o separador **Teste** e, em seguida, selecione **GetSpeakers**. A página mostra **parâmetros de consulta** e **cabeçalhos,** se houver. A Chave de **Assinatura Ocp-Apim** é preenchida automaticamente para a chave de subscrição associada a esta API.
+1. Selecione **Enviar**.
+   
+   ![Testar o mapa da API](./media/api-management-import-and-publish/01-import-first-api-01.png)
+   
+   O back-end responde com **200 OK** e alguns dados.
 
-    >[!NOTE]
-    > Para publicar a API, precisa de associá-la a um produto. Pode fazê-lo a partir da **Página de definições**.
-
-3. Selecione **Criar**.
-
-> [!TIP]
-> Se estiver a ter problemas na importação da sua própria definição de API, [veja a lista de problemas conhecidos e restrições](api-management-api-import-restrictions.md).
-
-## <a name="test-the-new-api-in-the-azure-portal"></a>Testar a nova API no portal do Azure
-
-![Testar o mapa da API](./media/api-management-get-started/01-import-first-api-01.png)
-
-As operações podem ser chamadas diretamente a partir do Portal do Azure, que fornece um meio cómodo para ver e testar as operações de uma API.
-
-1. Selecione a API que criou no passo anterior (do separador **APIs**).
-2. Prima o separador **Teste**.
-3. Clique em **GetSpeakers**. A página apresenta os campos para os parâmetros de consulta; contudo, neste caso, não temos nenhum, e cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. A chave é preenchida automaticamente.
-4. Prima **Enviar**.
-
-    O back-end responde com **200 OK** e alguns dados.
-
-## <a name="next-steps"> </a>Passos seguintes
+## <a name="next-steps"> </a>Próximos passos
 
 Neste tutorial, ficou a saber como:
 
@@ -96,7 +92,7 @@ Neste tutorial, ficou a saber como:
 > * Importar a sua primeira API
 > * Testar a API no Portal do Azure
 
-Avance para o tutorial seguinte:
+Avançar para o próximo tutorial para aprender a criar e publicar um produto:
 
 > [!div class="nextstepaction"]
 > [Criar e publicar um produto](api-management-howto-add-products.md)

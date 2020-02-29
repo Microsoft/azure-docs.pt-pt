@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 19c136c7f312d800b76aa60f2cab6e8da992591c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615687"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161572"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium de Funções Azure
 
@@ -109,29 +109,30 @@ Abaixo estão as regiões atualmente apoiadas para cada SO.
 |Austrália Central 2| ✔<sup>1</sup> | |
 |Leste da Austrália| ✔ | ✔<sup>1</sup> |
 |Austrália Sudeste | ✔ | ✔<sup>1</sup> |
-|Sul do Brasil| <sup>✔ 2</sup> |  |
+|Sul do Brasil| <sup>✔ 2</sup> | ✔<sup>1</sup> |
 |Canadá Central| ✔ | ✔<sup>1</sup> |
-|E.U.A. Central| ✔ |  |
-|Ásia Leste| ✔ |  |
+|E.U.A. Central| ✔ | ✔<sup>1</sup> |
+|Ásia Leste| ✔ | ✔<sup>1</sup> |
 |E.U.A. Leste | ✔ | ✔<sup>1</sup> |
 |E.U.A. Leste 2| ✔ | ✔<sup>1</sup> |
-|França Central| ✔ |  |
+|França Central| ✔ | ✔<sup>1</sup> |
 |Alemanha West Central| ✔ | |
 |Leste do Japão| ✔ | ✔<sup>1</sup> |
 |Oeste do Japão| ✔ | ✔<sup>1</sup> |
 |Coreia do Sul Central| ✔ | ✔<sup>1</sup> |
-|E.U.A. Centro-Norte| ✔ |  |
+|E.U.A. Centro-Norte| ✔ | ✔<sup>1</sup> |
 |Europa do Norte| ✔ | ✔<sup>1</sup> |
+|Noruega Leste| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |E.U.A. Centro-Sul| ✔ | ✔<sup>1</sup> |
 |Sul da Índia | ✔ | |
 |Ásia Sudeste| ✔ | ✔<sup>1</sup> |
 |Sul do Reino Unido| ✔ | ✔<sup>1</sup> |
-|Oeste do Reino Unido| ✔ |  |
+|Oeste do Reino Unido| ✔ | ✔<sup>1</sup> |
 |Europa Ocidental| ✔ | ✔<sup>1</sup> |
-|Oeste da Índia| ✔ |  |
-|E.U.A. Centro-Oeste| | ✔<sup>1</sup> |
+|Oeste da Índia| ✔ | ✔<sup>1</sup> |
+|E.U.A. Centro-Oeste| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |E.U.A. Oeste| ✔ | ✔<sup>1</sup> |
-|E.U.A.Oeste 2| ✔ |  |
+|E.U.A.Oeste 2| ✔ | ✔<sup>1</sup> |
 
 <sup>1</sup> Escala máxima limitada a 20 instâncias.  
 <sup>2</sup> Escala máxima limitada a 60 casos.

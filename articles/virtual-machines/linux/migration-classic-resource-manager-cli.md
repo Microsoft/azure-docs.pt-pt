@@ -14,14 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 43be6947b464a18cc29edc5a578fd8879b70bacf
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 5fbbaffea6b50e65e7e54992d1801945abb80b33
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153184"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914828"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrar recursos IaaS do clássico para o Gestor de Recursos Azure usando o Azure CLI
+
+> [!IMPORTANT]
+> Hoje, cerca de 90% dos VMs iaas estão usando O Gestor de [Recursos Azure.](https://azure.microsoft.com/features/resource-manager/) A partir de 28 de fevereiro de 2020, os VMs clássicos foram depreciados e serão totalmente aposentados a 1 de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre esta depreciação e [como isso o afeta.](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)
+
 Estes passos mostram-lhe como utilizar comandos de interface de linha de comando Azure (CLI) para migrar a infraestrutura como um serviço (IaaS) recursos do modelo de implantação clássico para o modelo de implantação do Gestor de Recursos Azure. O artigo requer o [clássico CLI azure.](../../cli-install-nodejs.md) Uma vez que o Azure CLI só é aplicável aos recursos do Gestor de Recursos Do Azure, não pode ser utilizado para esta migração.
 
 > [!NOTE]

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2019
-ms.openlocfilehash: 19b0ce154fc19015f7faa17e339c9df259206365
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 874fd0ccdd2fdf0a2e75412ae2da82abb736ff3f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670819"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164581"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Monitor Azure
 O Azure Monitor Logs utiliza o [Azure Data Explorer (ADX)](/azure/data-explorer/) para armazenar dados de registo e executar consultas para analisar esses dados. Cria, gere e mantém os clusters ADX para si e otimiza-os para a sua carga de trabalho de análise de registo. Quando executa uma consulta, está otimizada e encaminhada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Tanto o Azure Monitor Logs como o Azure Data Explorer utilizam muitos mecanismos automáticos de otimização de consultas. Embora as otimizações automáticas ofereçam um impulso significativo, são em alguns casos em que pode melhorar drasticamente o seu desempenho de consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -258,8 +258,13 @@ by Computer
 ) on Computer
 ```
 
+A medição é sempre maior do que o tempo real especificado. Por exemplo, se o filtro na consulta for de 7 dias, o sistema pode digitalizar 7,5 ou 8,1 dias. Isto porque o sistema está dividindo os dados em pedaços em tamanho variável. Para garantir que todos os registos relevantes são digitalizados, verifica toda a partição que pode cobrir várias horas e até mais de um dia.
+
+Existem vários casos em que o sistema não consegue fornecer uma medição precisa do intervalo de tempo. Isto acontece na maioria dos casos em que a consulta é inferior a um dia ou em consultas multi-workspace.
+
+
 > [!IMPORTANT]
-> Este indicador não está disponível para consultas de região transversal.
+> Este indicador apresenta apenas dados tratados no cluster imediato. Em consultas multi-regiões, representaria apenas uma das regiões. Em consulta multi-workspace, pode não incluir todos os espaços de trabalho.
 
 ## <a name="age-of-processed-data"></a>Idade dos dados processados
 O Azure Data Explorer utiliza vários níveis de armazenamento: em memória, discos SSD locais e blobs Azure muito mais lentos. Quanto mais recentes forem os dados, maior é a possibilidade de ser armazenado num nível mais performante com menor latência, reduzindo a duração da consulta e cpu. Além dos dados em si, o sistema também tem uma cache para metadados. Quanto mais velhos forem os dados, menos hipóteses os seus metadados estarão em cache.
@@ -284,7 +289,7 @@ A execução de consultas transversais requer que o sistema se serialize e trans
 Se não houver uma verdadeira razão para digitalizar todas estas regiões, deve ajustar o âmbito de aplicação, de modo a cobrir menos regiões. Se o âmbito dos recursos for minimizado, mas ainda muitas regiões são utilizadas, pode acontecer devido a uma configuração errada. Por exemplo, os registos de auditoria e as configurações de diagnóstico são enviados para diferentes espaços de trabalho em diferentes regiões ou existem múltiplas configurações de diagnóstico. 
 
 > [!IMPORTANT]
-> Este indicador não está disponível para consultas de região transversal.
+> Quando uma consulta é feita em várias regiões, o CPU e as medições de dados não serão precisas e representarão a medição apenas numa das regiões.
 
 ## <a name="number-of-workspaces"></a>Número de espaços de trabalho
 Espaços de trabalho são recipientes lógicos que são usados para segregar e administrar dados de registos. O backend otimiza as colocações no espaço de trabalho em clusters físicos dentro da região selecionada.
@@ -300,7 +305,7 @@ A execução transversal e transversal de consultas requer que o sistema se seri
 > Em alguns cenários multi-workspace, o CPU e as medições de dados não serão precisas e representarão a medição apenas para poucos dos espaços de trabalho.
 
 ## <a name="parallelism"></a>Paralelismo
-O Azure Monitor Logs está a usar grandes aglomerados de Azure Data Explorer para executar consultas, e estes clusters variam em escala. O sistema escala automaticamente os clusters de acordo com a lógica e capacidade de colocação do espaço de trabalho.
+O Azure Monitor Logs está a usar grandes clusters de Azure Data Explorer para executar consultas, e estes clusters variam em escala, potencialmente chegando a dezenas de nós de computação. O sistema escala automaticamente os clusters de acordo com a lógica e capacidade de colocação do espaço de trabalho.
 
 Para executar uma consulta eficientemente, é dividida e distribuída para calcular nós com base nos dados necessários para o seu processamento. Há algumas situações em que o sistema não pode fazê-lo de forma eficiente. Isto pode levar a uma longa duração da consulta. 
 

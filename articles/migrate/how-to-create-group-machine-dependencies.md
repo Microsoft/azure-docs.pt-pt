@@ -3,12 +3,12 @@ title: Cria ção de visualização de dependência em Azure Migrate
 description: Descreve a visualização da dependência em Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 2/24/2020
-ms.openlocfilehash: f5b0682adf345681c03bb6dbf14e9a0d9ba1fd58
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 054e2301160a885909630c2968863e5f9e25af69
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589072"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916290"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar a visualização da dependência
 
@@ -76,7 +76,7 @@ Para instalar o agente numa máquina do Windows:
 5. Clique em **Adicionar** para adicionar um novo espaço de trabalho log Analytics. Colhe no ID do espaço de trabalho e na chave que copiou do portal. Clique em **Seguinte**.
 
 Pode instalar o agente a partir da linha de comando ou utilizar um método automatizado como O Gestor de Configuração ou [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196).
-- [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre a utilização destes métodos para instalar o agente MMA.
+- [Saiba mais](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sobre a utilização destes métodos para instalar o agente MMA.
 - O agente MMA também pode ser instalado com este [script](https://go.microsoft.com/fwlink/?linkid=2104394).
 - [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) sobre os sistemas operativos Windows suportados pelo MMA.
 

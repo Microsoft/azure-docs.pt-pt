@@ -1,5 +1,5 @@
 ---
-title: Um erro interno ocorre quando você faz uma conexão RDP com as máquinas virtuais do Azure | Microsoft Docs
+title: Ocorre um erro interno quando se faz uma ligação RDP às Máquinas Virtuais Azure  Microsoft Docs
 description: Saiba como resolver problemas de erros internos do RDP no Microsoft Azure. | Documentos da Microsoft
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,18 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: be0f61b1458fa8bd63d85669c7956a789892996a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981331"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918262"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ocorreu um erro interno ao tentar ligar a uma VM do Azure através do ambiente de trabalho remoto
 
 Este artigo descreve um erro que podem ocorrer ao tentar ligar a uma máquina virtual (VM) no Microsoft Azure.
-> [!NOTE]
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
+
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -44,19 +43,19 @@ Este problema pode ocorrer pelos seguintes motivos:
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 
-Para resolver este problema, utilize a consola de série ou [Repare a VM offline](#repair-the-vm-offline) ao anexar o disco de SO da VM para uma VM de recuperação.
+Para resolver este problema, utilize a Consola em Série ou [repare o VM offline,](#repair-the-vm-offline) fixando o disco OS do VM a um VM de recuperação.
 
 
 ### <a name="use-serial-control"></a>Utilizar o controlo de série
 
-Ligar à [consola de série e a instância do PowerShell aberta](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Se a consola de série não estiver ativada na sua VM, vá para o [Repare a VM offline](#repair-the-vm-offline) secção.
+Ligue-se à consola em série e abra a [instância PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+). Se a Consola em Série não estiver ativada no seu VM, vá à [reparação da secção de offline VM.](#repair-the-vm-offline)
 
 #### <a name="step-1-check-the-rdp-port"></a>Passo: 1 verificar a porta RDP
 
-1. Numa instância do PowerShell, utilize o [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
+1. Num caso powerShell, utilize o [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) para verificar se a porta 8080 é utilizada por outras aplicações:
 
         Netstat -anob |more
@@ -84,7 +83,7 @@ Ligar à [consola de série e a instância do PowerShell aberta](./serial-consol
 
             Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
 
-    3. [Atualizar o grupo de segurança de rede para a nova porta](../../virtual-network/security-overview.md) na porta RDP portal do Azure.
+    3. [Atualize o grupo de segurança da rede para o novo porto](../../virtual-network/security-overview.md) no portal Azure RDP.
 
 #### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Passo 2: Definir permissões corretas no certificado autoassinado do RDP
 
@@ -104,10 +103,10 @@ Ligar à [consola de série e a instância do PowerShell aberta](./serial-consol
 
 2. Se não é possível renovar o certificado através deste método, tente renovar o certificado autoassinado do RDP remotamente:
 
-    1. A partir de um VM que tenha conetividade com a VM em funcionamento que está com problemas, tipo **mmc** no **executar** caixa para abrir o Console de gerenciamento Microsoft.
-    2. Sobre o **arquivo** menu, selecione **Adicionar/Remover Snap-in**, selecione **certificados**e, em seguida, selecione **adicionar**.
-    3. Selecione **contas de computador**, selecione **noutro computador**e, em seguida, adicione o endereço IP do problema VM.
-    4. Vá para o **Desktop\Certificates remoto** pasta, o certificado com o botão direito e, em seguida e selecione **eliminar**.
+    1. A partir de um VM de trabalho que tem conectividade com o VM que está a ter problemas, digite **mmc** na caixa **Run** para abrir a Consola de Gestão da Microsoft.
+    2. No menu **'Ficheiro',** selecione **Adicionar/Remover snap-in,** selecione **Certificados,** e depois selecione **Adicionar**.
+    3. Selecione **contas de computador,** selecione **Outro Computador**e, em seguida, adicione o endereço IP do problema VM.
+    4. Vá à pasta **Remote Desktop\Certificates,** clique no certificado e, em seguida, selecione **Delete**.
     5. Numa instância do PowerShell a partir da consola de série, reinicie o serviço de configuração do ambiente de trabalho remoto:
 
             Stop-Service -Name "SessionEnv"
@@ -159,15 +158,15 @@ O cliente RDP utiliza o TLS 1.0 como o protocolo predefinido. No entanto, isso p
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do SO a uma VM de recuperação
 
-1. [Anexar o disco do SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
-2. Depois do disco do SO é anexado à VM de recuperação, certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
+1. [Fixe o disco OS a um VM](../windows/troubleshoot-recovery-disks-portal.md)de recuperação .
+2. Depois de o disco OS estar ligado ao VM de recuperação, certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
 3. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
 
 #### <a name="enable-dump-log-and-serial-console"></a>Ativar o registo de informação e a consola de série
 
 Para ativar o registo de despejo e consola de série, execute o seguinte script.
 
-1. Abra uma sessão de linha de comandos elevada (**executar como administrador**).
+1. Abra uma sessão de solicitação de comando elevada **(Executar como administrador).**
 2. Execute o seguintes script:
 
     Nesse script, partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F. Substitua esta letra de unidade com o valor apropriado para a sua VM.
@@ -196,7 +195,7 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
 
 #### <a name="reset-the-permission-for-machinekeys-folder"></a>Repor a permissão para a pasta MachineKeys
 
-1. Abra uma sessão de linha de comandos elevada (**executar como administrador**).
+1. Abra uma sessão de solicitação de comando elevada **(Executar como administrador).**
 2. Execute o seguinte script. Nesse script, partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F. Substitua esta letra de unidade com o valor apropriado para a sua VM.
 
         Md F:\temp
@@ -215,7 +214,7 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
 
 #### <a name="enable-all-supported-tls-versions"></a>Ativar todos com suporte de TLS de versões
 
-1.  Abra uma sessão de linha de comandos elevada (**executar como administrador**) e o execute os seguintes comandos. O seguinte script parte do princípio de que a letra de unidade é atribuída ao disco do SO anexado é F. Substitua esta letra de unidade com o valor apropriado para a sua VM.
+1.  Abra uma sessão de solicitação de comando elevada (**Executar como administrador)** e executar os seguintes comandos. O seguinte script parte do princípio de que a letra de unidade é atribuída ao disco do SO anexado é F. Substitua esta letra de unidade com o valor apropriado para a sua VM.
 2.  Verificação de que o TLS está ativado:
 
         reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -232,7 +231,7 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
 
-3.  Se a chave não existir, ou seu valor é **0**, ative o protocolo, executando os seguintes scripts:
+3.  Se a chave não existir, ou o seu valor for **0,** ative o protocolo executando os seguintes scripts:
 
         REM Enable TLS 1.0, TLS 1.1 and TLS 1.2
 
@@ -263,7 +262,7 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
-5.  [Desanexar o disco do SO e recriar a VM](../windows/troubleshoot-recovery-disks-portal.md)e, em seguida, verifique se o problema está resolvido.
+5.  [Desmontar o disco OS e recriar o VM,](../windows/troubleshoot-recovery-disks-portal.md)e depois verificar se o problema está resolvido.
 
 
 

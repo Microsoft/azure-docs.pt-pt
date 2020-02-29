@@ -9,31 +9,31 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 569eb31c6cbe8b95773d52f6e1325801fbabf86f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 329b930c950ea7c58bdac798fce51af152aa8ff3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773538"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920608"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de ônibus de serviço azure no Monitor Azure
 
 As métricas do Ônibus de serviço dão-lhe o estado dos recursos na sua subscrição Azure. Com um conjunto rico de dados de métricas, você pode avaliar a saúde geral dos seus recursos de Ônibus de serviço, não só ao nível do espaço de nome, mas também ao nível da entidade. Estas estatísticas podem ser importantes porque o ajudam a monitorizar o estado do Ônibus de Serviço. Métricas também podem ajudar a resolver problemas de causa raiz sem a necessidade de contactar o suporte do Azure.
 
-O Azure Monitor fornece interfaces do usuário unificada para monitoramento em vários serviços do Azure. Para obter mais informações, consulte [monitorização no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e o [métricas de obter o Azure Monitor com o .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) exemplo no GitHub.
+O Azure Monitor fornece interfaces do usuário unificada para monitoramento em vários serviços do Azure. Para mais informações, consulte [a monitorização no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e nas [métricas do Monitor Retrieve Azure com](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) a amostra .NET no GitHub.
 
 > [!IMPORTANT]
 > Quando não houve qualquer interação com uma entidade durante 2 horas, as métricas começarão a mostrar "0" como valor até que a entidade já não esteja inativa.
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-O Azure Monitor proporciona várias formas de métricas de acesso. Pode aceder às métricas através do [portal Azure,](https://portal.azure.com)ou utilizar as APIs do Monitor Azure (REST e .NET) e soluções de análise como registos do Monitor Azure e Centros de Eventos. Para obter mais informações, consulte [métricas em Azure monitor](../azure-monitor/platform/data-platform-metrics.md).
+O Azure Monitor proporciona várias formas de métricas de acesso. Pode aceder às métricas através do [portal Azure,](https://portal.azure.com)ou utilizar as APIs do Monitor Azure (REST e .NET) e soluções de análise como registos do Monitor Azure e Centros de Eventos. Para mais informações, consulte [Métricas no Monitor Azure](../azure-monitor/platform/data-platform-metrics.md).
 
 As métricas estão ativadas por predefinição e pode aceder os mais recentes 30 dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este valor está configurado em [configurações](../azure-monitor/platform/diagnostic-settings.md) de diagnóstico no Monitor Azure.
 
 ## <a name="access-metrics-in-the-portal"></a>Métricas de acesso no portal
 
-Pode monitorizar as métricas ao longo do tempo na [portal do Azure](https://portal.azure.com). O exemplo seguinte mostra como ver pedidos com êxito e solicitações de entrada ao nível da conta:
+Pode monitorizar as métricas ao longo do tempo no [portal Azure.](https://portal.azure.com) O exemplo seguinte mostra como ver pedidos com êxito e solicitações de entrada ao nível da conta:
 
 ![][1]
 
@@ -41,7 +41,7 @@ Também pode aceder a métricas diretamente através do espaço de nomes. Para i
 
 ![][2]
 
-Para métricas com suporte a dimensões, você deve filtrar com o valor de dimensão desejado.
+Para métricas que suportem dimensões, deve filtrar com o valor de dimensão desejado.
 
 ## <a name="billing"></a>Faturação
 
@@ -62,11 +62,11 @@ Conta o número de pedidos de operações de gestão e de dados.
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| Solicitações de entrada| O número de pedidos feitos ao serviço de autocarros de serviço durante um período determinado. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Solicitações bem-sucedidas|O número de pedidos bem sucedidos feitos ao serviço de ônibus de serviço durante um período determinado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+| Pedidos de Entrada| O número de pedidos feitos ao serviço de autocarros de serviço durante um período determinado. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Pedidos bem sucedidos|O número de pedidos bem sucedidos feitos ao serviço de ônibus de serviço durante um período determinado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Erros do servidor|O número de pedidos não processados devido a um erro no serviço de ônibus de serviço durante um período determinado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Erros do utilizador (ver a seguinte subsecção)|O número de pedidos não processadas devido a erros de utilizador num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Solicitações limitadas|O número de pedidos que foram acelerados porque o uso foi ultrapassado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Pedidos estrangulados|O número de pedidos que foram acelerados porque o uso foi ultrapassado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ### <a name="user-errors"></a>Erros do utilizador
 
@@ -82,10 +82,17 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 | ------------------- | ----------------- |
 |Mensagens de entrada|O número de eventos ou mensagens enviados para o Service Bus durante um período determinado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Mensagens de saída|O número de eventos ou mensagens recebidas do Service Bus durante um período determinado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-| Mensagens| Contagem de mensagens numa fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média <br/> Dimensão: EntityName |
-| ActiveMessages| Contagem de mensagens ativas numa fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média <br/> Dimensão: EntityName |
-| Mensagens com letras mortas| Conde de mensagens com letras mortas numa fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média <br/>Dimensão: EntityName |
-| Mensagens agendadas| Contagem de mensagens programadas numa fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: média  <br/> Dimensão: EntityName |
+| Mensagens| Contagem de mensagens numa fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
+| ActiveMessages| Contagem de mensagens ativas numa fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
+| Mensagens com letras mortas| Conde de mensagens com letras mortas numa fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média <br/>Dimensão: EntityName |
+| Mensagens programadas| Contagem de mensagens programadas numa fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Média  <br/> Dimensão: EntityName |
+
+> [!NOTE]
+> Os valores para as seguintes métricas são valores ponto-a-tempo. As mensagens que foram consumidas imediatamente após esse ponto-no-tempo podem não se refletir nestas métricas. 
+> - Mensagens
+> - Mensagens ativas 
+> - Mensagens com letras mortas 
+> - Mensagens programadas 
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 
@@ -100,14 +107,14 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Utilização do CPU por espaço de nome|A percentagem de utilização do CPU do espaço de nome.<br/><br/> Unidade: porcentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
-|Utilização do tamanho da memória por espaço de nome|A percentagem de uso da memória do espaço de nome.<br/><br/> Unidade: porcentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
+|Utilização do CPU por espaço de nome|A percentagem de utilização do CPU do espaço de nome.<br/><br/> Unidade: Por cento <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
+|Utilização do tamanho da memória por espaço de nome|A percentagem de uso da memória do espaço de nome.<br/><br/> Unidade: Por cento <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensões de métricas
 
 O Azure Service Bus suporta as seguintes dimensões para métricas no Monitor Azure. Adicionar dimensões para as suas métricas é opcional. Se não adicionar dimensões, as métricas são especificadas no nível do espaço de nomes. 
 
-|Nome da dimensão|Descrição|
+|Nome de dimensão|Descrição|
 | ------------------- | ----------------- |
 |EntityName| O Service Bus suporta entidades de mensagens sob o espaço de nome.|
 

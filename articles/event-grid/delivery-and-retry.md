@@ -1,41 +1,62 @@
 ---
-title: Entrega e repetição da grade de eventos do Azure
-description: Descreve como a grade de eventos do Azure fornece eventos e como ele lida com mensagens não entregues.
+title: Entrega e retentativa da Rede de Eventos Azure
+description: Descreve como a Azure Event Grid fornece eventos e como lida com mensagens não entregues.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 02/27/2020
 ms.author: spelluru
-ms.openlocfilehash: 483b8251bf17eaa5fe7aa7cbd86299575535725d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dda2fd98c4c0d330059156a5ec00baa97ffaf627
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170054"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921067"
 ---
-# <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagem da grade de eventos
+# <a name="event-grid-message-delivery-and-retry"></a>Entrega e retentativa de mensagem da Grelha de Eventos
 
-Este artigo descreve como a grade de eventos do Azure manipula eventos quando a entrega não é confirmada.
+Este artigo descreve como a Azure Event Grid lida com eventos quando a entrega não é reconhecida.
 
-A grade de eventos fornece entrega durável. Ele entrega cada mensagem pelo menos uma vez para cada assinatura. Os eventos são enviados para o ponto de extremidade registrado de cada assinatura imediatamente. Se um ponto de extremidade não reconhecer o recebimento de um evento, a grade de eventos tentará entregar o evento novamente.
+A Rede de Eventos proporciona uma entrega duradoura. Entrega cada mensagem pelo menos uma vez para cada subscrição. Os eventos são enviados para o ponto final registado de cada subscrição imediatamente. Se um ponto final não reconhecer a receção de um evento, a Event Grid retenta a entrega do evento.
 
-## <a name="batched-event-delivery"></a>Entrega de eventos em lote
+## <a name="batched-event-delivery"></a>Entrega de eventos lotados
 
-A grade de eventos usa como padrão o envio de cada evento individualmente aos assinantes. O assinante recebe uma matriz com um único evento. Você pode configurar a grade de eventos para eventos em lote para entrega para melhorar o desempenho de HTTP em cenários de alta taxa de transferência.
+A Grelha de Eventos não se aplica ao envio individual de cada evento aos assinantes. O assinante recebe um matriz com um único evento. Pode configurar eventos da Rede de Eventos para entrega para um melhor desempenho em HTTP em cenários de alta produção.
 
-A entrega em lote tem duas configurações:
+A entrega lotada tem duas definições:
 
-* **Máximo de eventos por lote** é o número máximo de eventos que a grade de eventos fornecerá por lote. Esse número nunca será excedido, mas menos eventos poderão ser entregues se nenhum outro evento estiver disponível no momento da publicação. A grade de eventos não atrasa eventos para criar um lote se menos eventos estiverem disponíveis. Deve estar entre 1 e 5.000.
-* O **tamanho de lote preferencial em quilobytes** é o teto de destino para o tamanho do lote em kilobytes. Semelhante a Max Events, o tamanho do lote pode ser menor se mais eventos não estiverem disponíveis no momento da publicação. É possível que um lote seja maior do que o tamanho de lote preferencial *se* um único evento for maior do que o tamanho preferencial. Por exemplo, se o tamanho preferencial for de 4 KB e um evento de 10 KB for enviado para a grade de eventos, o evento de 10 KB ainda será entregue em seu próprio lote, em vez de ser Descartado.
+* **Eventos max por lote** - O número máximo de eventos Que a Grelha de Eventos irá entregar por lote. Este número nunca será ultrapassado, no entanto, menos eventos poderão ser entregues se não houver outros eventos disponíveis no momento da publicação. A Grelha de Eventos não atrasa os eventos para criar um lote se houver menos eventos disponíveis. Deve ser entre 1 e 5.000.
+* **Tamanho do lote preferido em quilobytes** - Teto-alvo para o tamanho do lote em quilobytes. Semelhante a eventos max, o tamanho do lote pode ser menor se não houver mais eventos disponíveis no momento da publicação. É possível que um lote seja maior do que o tamanho do lote preferido *se* um único evento for maior do que o tamanho preferido. Por exemplo, se o tamanho preferido for de 4 KB e um evento de 10 KB for empurrado para event grid, o evento de 10 KB ainda será entregue no seu próprio lote em vez de ser abandonado.
 
-Entrega em lote em configurada por assinatura por evento por meio do portal, da CLI, do PowerShell ou de SDKs.
+Entrega em lotada configurada numa base de subscrição por evento através do portal, CLI, PowerShell ou SDKs.
 
-![Configurações de entrega em lotes](./media/delivery-and-retry/batch-settings.png)
+### <a name="azure-portal"></a>Portal Azure: 
+![Definições de entrega de lotes](./media/delivery-and-retry/batch-settings.png)
 
-## <a name="retry-schedule-and-duration"></a>Agenda e duração de repetição
+### <a name="azure-cli"></a>CLI do Azure
+Ao criar uma subscrição de evento, utilize os seguintes parâmetros: 
 
-A grade de eventos aguarda 30 segundos por uma resposta depois de entregar uma mensagem. Após 30 segundos, se o ponto de extremidade não tiver respondido, a mensagem será enfileirada para tentar novamente. A grade de eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. A grade de eventos repete a entrega na seguinte agenda com base no melhor esforço:
+- **max-events-per-batch** - Número máximo de eventos num lote. Deve ser um número entre 1 e 5000.
+- **preferencial-lote-tamanho-em-kilobytes** - Tamanho preferido do lote em quilobytes. Deve ser um número entre 1 e 1024.
+
+```azurecli
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+endpoint=https://$sitename.azurewebsites.net/api/updates
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint $endpoint \
+  --max-events-per-batch 1000 \
+  --preferred-batch-size-in-kilobytes 512
+```
+
+Para obter mais informações sobre a utilização do Azure CLI com a Rede de Eventos, consulte os eventos de [armazenamento da Route para o ponto final da web com o Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
+
+## <a name="retry-schedule-and-duration"></a>Horário e duração de retry
+
+A Grelha de Eventos aguarda 30 segundos por uma resposta depois de entregar uma mensagem. Após 30 segundos, se o ponto final não tiver respondido, a mensagem está na fila para ser novamente tentada. Event Grid usa uma política exponencial de retry backoff para entrega de eventos. Event Grid retenta entrega no seguinte horário com o melhor esforço:
 
 - 10 segundos
 - 30 segundos
@@ -44,67 +65,67 @@ A grade de eventos aguarda 30 segundos por uma resposta depois de entregar uma m
 - 10 minutos
 - 30 minutos
 - 1 hora
-- Por hora por até 24 horas
+- Hora por hora até 24 horas
 
-Se o ponto de extremidade responder em 3 minutos, a grade de eventos tentará remover o evento da fila de repetição em uma base de melhor esforço, mas as duplicatas ainda poderão ser recebidas.
+Se o ponto final responder dentro de 3 minutos, a Grelha de Eventos tentará remover o evento da fila de retry com o melhor esforço, mas ainda podem ser recebidos duplicados.
 
-A grade de eventos adiciona uma pequena aleatoriedade a todas as etapas de repetição e pode ignorar oportunamente determinadas tentativas se um ponto de extremidade estiver consistentemente não íntegro, inativo por um longo período ou parecer sobrecarregado.
+A Grelha de Eventos adiciona uma pequena aleatoriedade a todos os passos de retry e pode oportunisticamente saltar certas tentativas se um ponto final for consistentemente insalubre, para baixo por um longo período, ou parece estar sobrecarregado.
 
-Para comportamento determinístico, defina a vida útil do evento e as tentativas de entrega máxima nas [políticas de repetição de assinatura](manage-event-delivery.md).
+Para um comportamento determinístico, detete o tempo do evento para as tentativas de entrega ao vivo e max nas políticas de retry de [subscrição](manage-event-delivery.md).
 
-Por padrão, a grade de eventos expira todos os eventos que não são entregues dentro de 24 horas. Você pode [Personalizar a política de repetição](manage-event-delivery.md) ao criar uma assinatura de evento. Você fornece o número máximo de tentativas de entrega (o padrão é 30) e a vida útil do evento (o padrão é de 1440 minutos).
+Por padrão, a Grelha de Eventos expira todos os eventos que não são entregues dentro de 24 horas. Pode [personalizar a política](manage-event-delivery.md) de retry ao criar uma subscrição de evento. Fornece o número máximo de tentativas de entrega (o padrão é de 30) e o tempo de vida do evento (o padrão é de 1440 minutos).
 
 ## <a name="delayed-delivery"></a>Entrega atrasada
 
-Como um ponto de extremidade apresenta falhas de entrega, a grade de eventos começará a atrasar a entrega e a repetição de eventos para esse ponto de extremidade. Por exemplo, se os 10 primeiros eventos publicados em um ponto de extremidade falharem, a grade de eventos presumirá que o ponto de extremidade está apresentando problemas e atrasará todas as novas tentativas subsequentes *e novos* entregas por algum tempo, em alguns casos, até várias horas.
+Como um ponto final experimenta falhas de entrega, a Rede de Eventos começará a atrasar a entrega e a retry de eventos para esse ponto final. Por exemplo, se os primeiros 10 eventos publicados para um ponto final falharem, o Event Grid assumirá que o ponto final está a passar por problemas e atrasará todas as repetições subsequentes *e novas* entregas durante algum tempo - em alguns casos até várias horas.
 
-A finalidade funcional da entrega atrasada é proteger pontos de extremidade não íntegros, bem como o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegros, a política de repetição da grade de eventos e os recursos de volume podem facilmente sobrecarregar um sistema.
+O objetivo funcional da entrega atrasada é proteger pontos finais pouco saudáveis, bem como o sistema de Rede de Eventos. Sem recuo e atraso na entrega em pontos finais pouco saudáveis, a política de retry e capacidades de volume da Event Grid podem facilmente sobrecarregar um sistema.
 
-## <a name="dead-letter-events"></a>Eventos de mensagens mortas
+## <a name="dead-letter-events"></a>Eventos de cartas mortas
 
-Quando a grade de eventos não consegue entregar um evento, ela pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como mensagens mortas. Por padrão, a grade de eventos não ativa mensagens mortas. Para habilitá-lo, você deve especificar uma conta de armazenamento para manter os eventos não entregues ao criar a assinatura de evento. Você efetua pull de eventos dessa conta de armazenamento para resolver as entregas.
+Quando a Rede de Eventos não pode entregar um evento, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como letra morta. Por defeito, a Grelha de Eventos não liga as letras mortas. Para o permitir, deve especificar uma conta de armazenamento para realizar eventos não entregues ao criar a subscrição do evento. Você retira eventos desta conta de armazenamento para resolver entregas.
 
-A grade de eventos envia um evento para o local da carta de inatividade quando ele tentou todas as suas tentativas de repetição. Se a grade de eventos receber um código de resposta 400 (solicitação inadequada) ou 413 (entidade de solicitação muito grande), ele enviará imediatamente o evento para o ponto de extremidade de mensagens mortas. Esses códigos de resposta indicam que a entrega do evento nunca terá sucesso.
+Event Grid envia um evento para o local da carta morta quando tentou todas as suas tentativas de reprovação. Se a Grelha de Eventos receber um código de resposta 400 (Pedido Mau) ou 413 (Entidade de Pedido Demasiado Grande), envia imediatamente o evento para o ponto final da letra morta. Estes códigos de resposta indicam que a entrega do evento nunca terá sucesso.
 
-Há um atraso de cinco minutos entre a última tentativa de entregar um evento e quando ele é entregue ao local da letra de inatividade. Esse atraso destina-se a reduzir o número de operações de armazenamento de BLOBs. Se o local de mensagens mortas não estiver disponível por quatro horas, o evento será Descartado.
+Há um atraso de cinco minutos entre a última tentativa de entregar um evento e quando é entregue no local da carta morta. Este atraso destina-se a reduzir o número de operações de armazenamento blob. Se o local da carta morta não estiver disponível por quatro horas, o evento será abandonado.
 
-Antes de definir o local de mensagens mortas, você deve ter uma conta de armazenamento com um contêiner. Você fornece o ponto de extremidade para esse contêiner ao criar a assinatura de evento. O ponto de extremidade está no formato de: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Antes de definir a localização da letra morta, deve ter uma conta de armazenamento com um recipiente. Fornece o ponto final para este recipiente ao criar a subscrição do evento. O ponto final está no formato: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Talvez você queira ser notificado quando um evento for enviado para o local da carta de inatividade. Para usar a grade de eventos para responder a eventos não entregues, [crie uma assinatura de evento](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) para o armazenamento de blobs de mensagens mortas. Toda vez que seu armazenamento de blobs de mensagens mortas recebe um evento não entregue, a grade de eventos notifica seu manipulador. O manipulador responde com as ações que você deseja executar para reconciliar eventos não entregues.
+Talvez queira ser notificado quando um evento tiver sido enviado para o local da carta morta. Para utilizar a Grelha de Eventos para responder a eventos não entregues, [crie uma subscrição](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) de evento para o armazenamento de blob de letra morta. Sempre que o seu armazenamento de blob de letra morta recebe um evento não entregue, a Event Grid notifica o seu manipulador. O manipulador responde com ações que deseja tomar para conciliar eventos não entregues.
 
-Para obter um exemplo de como configurar um local de mensagens mortas, consulte [políticas de inatividade e repetição](manage-event-delivery.md).
+Para um exemplo de criação de um local de carta morta, consulte as políticas de [carta morta e de retry.](manage-event-delivery.md)
 
-## <a name="message-delivery-status"></a>Status de entrega de mensagem
+## <a name="message-delivery-status"></a>Estado de entrega de mensagens
 
-A grade de eventos usa códigos de resposta HTTP para confirmar o recebimento de eventos. 
+A Event Grid utiliza códigos de resposta HTTP para reconhecer a receção de eventos. 
 
-### <a name="success-codes"></a>Códigos de êxito
+### <a name="success-codes"></a>Códigos de sucesso
 
-A grade de eventos considera **apenas** os seguintes códigos de resposta http como entregas bem-sucedidas. Todos os outros códigos de status são considerados entregas com falha e serão repetidos ou mortodos conforme apropriado. Após receber um código de status bem-sucedido, a grade de eventos considera a entrega concluída.
+A Event Grid considera **apenas** os seguintes códigos de resposta HTTP como entregas bem sucedidas. Todos os outros códigos de estado são considerados entregas falhadas e serão novamente julgados ou re-inscritos conforme apropriado. Ao receber um código de estado bem sucedido, a Event Grid considera a entrega completa.
 
 - 200 OK
-- 201 criado
-- 202 aceito
-- 203 informações não autoritativas
-- 204 sem conteúdo
+- 201 Criado
+- 202 Aceite
+- 203 Informação Não Autorizada
+- 204 Sem Conteúdo
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Todos os outros códigos que não estão no conjunto acima (200-204) são considerados falhas e serão repetidos. Alguns têm políticas de repetição específicas ligadas a eles descritos abaixo, todos os outros seguem o modelo de retirada exponencial padrão. É importante ter em mente que, devido à natureza altamente paralelizada da arquitetura da grade de eventos, o comportamento de repetição é não determinístico. 
+Todos os outros códigos que não estão no conjunto acima (200-204) são considerados falhas e serão novamente julgados. Alguns têm políticas específicas de retry ligadas a eles delineadas abaixo, todas as outras seguem o modelo de back-off exponencial padrão. É importante ter em mente que, devido à natureza altamente paralelizada da arquitetura de Event Grid, o comportamento de retry é não determinista. 
 
-| Código de estado | Comportamento de repetição |
+| Código de estado | Comportamento de retry |
 | ------------|----------------|
-| 400 solicitação inadequada | Tente novamente após 5 minutos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
-| 401 não autorizado | Tente novamente após 5 minutos ou mais |
-| 403 Proibido | Tente novamente após 5 minutos ou mais |
-| 404 Não Encontrado | Tente novamente após 5 minutos ou mais |
-| 408 Tempo Limite do Pedido | Tentar novamente após 2 minutos ou mais |
-| 413 entidade de solicitação muito grande | Tente novamente após 10 segundos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
-| 503 Serviço Indisponível | Tentar novamente após 30 segundos ou mais |
-| Todos os outros | Tentar novamente após 10 segundos ou mais |
+| 400 Mau Pedido | Retry após 5 minutos ou mais (Deadletter imediatamente se configurar a carta morta) |
+| 401 Não autorizado | Voltar a tentar depois de 5 minutos ou mais |
+| 403 Proibido | Voltar a tentar depois de 5 minutos ou mais |
+| 404 não encontrados | Voltar a tentar depois de 5 minutos ou mais |
+| 408 Tempo Limite do Pedido | Voltar a tentar depois de 2 minutos ou mais |
+| 413 Entidade de Pedido Demasiado Grande | Voltar a tentar após 10 segundos ou mais (Deadletter imediatamente se configurar a carta morta) |
+| 503 Serviço Indisponível | Voltar a tentar após 30 segundos ou mais |
+| Todos os outros | Voltar a tentar após 10 segundos ou mais |
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para exibir o status de entregas de eventos, consulte [monitorar a entrega de mensagens na grade de eventos](monitor-event-delivery.md).
-* Para personalizar as opções de entrega de eventos, consulte [políticas de inatividade e repetição](manage-event-delivery.md).
+* Para ver o estado das entregas de eventos, consulte a entrega da mensagem da Grelha de [Eventos monitor .](monitor-event-delivery.md)
+* Para personalizar as opções de entrega de eventos, consulte [políticas de carta morta e de retry.](manage-event-delivery.md)

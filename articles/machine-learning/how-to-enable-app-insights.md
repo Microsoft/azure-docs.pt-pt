@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 6498717f5d542be228483b9c323dbd8f3ca2ff00
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 621188b3901bdea1a7ae50ac49c0e6f625a3e79a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251928"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915780"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorizar e recolher dados de pontos finais do serviço web ml
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,39 +43,6 @@ Neste artigo, aprende-se a recolher dados e monitorizar modelos implantados em p
 
 Os metadados e a resposta ao serviço - correspondente aos metadados do serviço web e às previsões do modelo - estão registados nos vestígios de Insights de Aplicação Azure sob a mensagem `"model_data_collection"`. Pode consultar diretamente os Insights de Aplicação Azure para aceder a estes dados, ou criar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para uma maior retenção ou processamento posterior. Os dados do modelo podem então ser utilizados no Azure Machine Learning para configurar a rotulagem, a reconversão, a explicabilidade, a análise de dados ou outra utilização. 
 
-## <a name="use-the-azure-portal-to-configure"></a>Utilize o portal Azure para configurar
-
-Pode ativar e desativar os Insights de Aplicação Azure no portal Azure. 
-
-1. No [portal Azure,](https://portal.azure.com)abra o seu espaço de trabalho
-
-1. No separador **Implementações,** selecione o serviço onde pretende ativar o Azure Application Insights
-
-   [![Lista de serviços no separador Deployments](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. **Selecione Editar**
-
-   [botão ![Editar](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. Em **Definições Avançadas,** selecione a caixa de verificação de **diagnósticos Enable AppInsights**
-
-   [![caixa de verificação selecionada para permitir diagnósticos](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. Selecione **Atualizar** na parte inferior do ecrã para aplicar as alterações
-
-### <a name="disable"></a>Desativar
-
-1. No [portal Azure,](https://portal.azure.com)abra o seu espaço de trabalho
-1. Selecione **Implementações,** selecione o serviço e, em seguida, **selecione Editar**
-
-   [![Use o botão de edição](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. Em **Definições Avançadas,** limpe a caixa de verificação de **diagnósticos Enable AppInsights**
-
-   [![caixa de verificação limpa para permitir diagnósticos](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. Selecione **Atualizar** na parte inferior do ecrã para aplicar as alterações
- 
 ## <a name="use-python-sdk-to-configure"></a>Use Python SDK para configurar 
 
 ### <a name="update-a-deployed-service"></a>Atualizar um serviço implementado

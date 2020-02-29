@@ -2,17 +2,17 @@
 title: Série Av2 - Máquinas Virtuais Azure
 description: Especificações para os VMs da série Av2.
 services: virtual-machines
-author: jonbeck7
+author: migerdes
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 1e14c633ed11bb628a68756e72e78073603643a1
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: fe27a1cc78d1f37d535f364c03803a5196090a3a
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493855"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163952"
 ---
 # <a name="av2-series"></a>Série Av2
 
@@ -23,6 +23,10 @@ ACU: 100
 Armazenamento Premium: Não Suportado
 
 Caching de armazenamento premium: Não suportado
+
+Migração Ao Vivo: Apoiado
+
+Atualizações de preservação da memória: Suportado
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Entrada de armazenamento de temperatura máxima: IOPS/Ler MBps/Write MBps | Disquetes/entradas de dados max: IOPS | Largura de banda de rede Max NICs/Esperado (Mbps) |
 |---|---|---|---|---|---|---|
@@ -45,6 +49,6 @@ Caching de armazenamento premium: Não suportado
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.

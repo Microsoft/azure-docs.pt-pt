@@ -6,16 +6,18 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2c16cc965c1e7e98727170fd5896dd081482c692
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 76af5f398edd736874fa79095f2e80c02298eac0
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493504"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164649"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento de fila Azure para funções azure
 
 As Funções Azure podem criar novas mensagens de armazenamento de fila Azure através da criação de uma ligação de saída.
+
+Para obter informações sobre os detalhes da configuração e configuração, consulte a [visão geral](./functions-bindings-storage-queue.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -213,7 +215,7 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 
 # <a name="java"></a>[Java](#tab/java)
 
- O exemplo a seguir mostra uma função Java que cria uma mensagem de fila para quando disparada por uma solicitação HTTP.
+ O exemplo seguinte mostra uma função Java que cria uma mensagem de fila para quando desencadeada por um pedido HTTP.
 
 ```java
 @FunctionName("httpToQueue")
@@ -277,7 +279,7 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A anotação `QueueOutput` permite escrever uma mensagem como saída de uma função. O exemplo a seguir mostra uma função disparada por HTTP que cria uma mensagem de fila.
+A anotação `QueueOutput` permite escrever uma mensagem como saída de uma função. O exemplo seguinte mostra uma função desencadeada pelo HTTP que cria uma mensagem de fila.
 
 ```java
 package com.function;
@@ -300,9 +302,9 @@ public class HttpTriggerQueueOutput {
 
 | Propriedade    | Descrição |
 |-------------|-----------------------------|
-|`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é disparada, o valor desse parâmetro tem o conteúdo da mensagem da fila. |
+|`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é ativada, o valor deste parâmetro tem o conteúdo da mensagem de fila. |
 |`queueName`  | Declara o nome da fila na conta de armazenamento. |
-|`connection` | Aponta para a cadeia de conexão da conta de armazenamento. |
+|`connection` | Aponta para o fio de ligação da conta de armazenamento. |
 
 O parâmetro associado à anotação `QueueOutput` é dactilografado como um\<[T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) exemplo.
 
@@ -362,7 +364,7 @@ O item da fila de saída está disponível através `context.bindings.<NAME>` on
 
 # <a name="python"></a>[python](#tab/python)
 
-Há duas opções para a saída de uma mensagem do hub de eventos de uma função:
+Existem duas opções para distribuir uma mensagem do Event Hub a partir de uma função:
 
 - **Valor de devolução**: Coloque a propriedade `name` em *função.json* para `$return`. Com esta configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
 
@@ -418,7 +420,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 |maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila do veneno.|
 |newBatchThreshold|loteTamanho/2|Sempre que o número de mensagens que estão a ser processadas simultaneamente chega a este número, o tempo de execução recupera outro lote.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar uma função como alterações de dados de armazenamento de fila (Gatilho)](./functions-bindings-storage-queue-trigger.md)
 

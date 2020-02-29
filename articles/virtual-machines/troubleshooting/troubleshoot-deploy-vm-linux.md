@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de implantação de máquina virtual do Linux no Azure | Microsoft Docs
-description: Solucionar problemas de implantação de máquina virtual do Linux no modelo de implantação Azure Resource Manager.
+title: Problemas de resolução de problemas com problemas de máquinavirtual Linux em Azure Microsoft Docs
+description: Problemas implementando problemas de máquinas virtuais Linux no modelo de implementação do Gestor de Recursos Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -14,80 +14,81 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 230319471dbf62bf64ee980d84c360807687ce17
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5a8a58a3935b7cd5efb8565f7e3278ccaae4f4de
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058218"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921441"
 ---
-# <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Solucionar problemas de implantação de máquina virtual do Linux no Azure
+# <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Problemas de resolução de problemas implementam problemas de máquinavirtual linux em Azure
 
-Para solucionar problemas de implantação de máquina virtual (VM) no Azure, examine os [principais problemas](#top-issues) de falhas e resoluções comuns.
+Para resolver problemas de implantação de máquinas virtuais (VM) em Azure, reveja as [principais questões](#top-issues) para falhas e resoluções comuns.
 
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
 
-## <a name="top-issues"></a>Principais problemas
+## <a name="top-issues"></a>Principais questões
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
-## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>O cluster não dá suporte ao tamanho de VM solicitado
-\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
-- Repita a solicitação usando um tamanho de VM menor.
-- Se o tamanho da VM solicitada não puder ser alterado:
-    - Pare todas as VMs no conjunto de disponibilidade. Clique em **grupos de recursos** > seu grupo de recursos > **recursos** > seu conjunto de disponibilidade > **máquinas virtuais** > sua máquina virtual > **parar**.
-    - Depois que todas as VMs forem interrompidas, crie a VM no tamanho desejado.
-    - Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em Iniciar.
+## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>O cluster não pode suportar o tamanho de VM solicitado
+\<propriedades suportamTopicIds="123456789" recursoTags="windows" produtoPesIds="1234, 5678" />
+- Tente novamente o pedido utilizando um tamanho VM menor.
+- Se o tamanho do VM solicitado não puder ser alterado:
+    - Pare todos os VMs no conjunto de disponibilidade. Clique em **Grupos de Recursos** > o seu grupo de recursos > **Recursos** > o seu conjunto de disponibilidade > **Máquinas Virtuais** > a sua máquina virtual > **Stop**.
+    - Depois de todos os VMs pararem, crie o VM no tamanho desejado.
+    - Inicie primeiro o novo VM e, em seguida, selecione cada um dos VMs parados e clique em Iniciar.
 
 
-## <a name="the-cluster-does-not-have-free-resources"></a>O cluster não tem recursos gratuitos
-\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
-- Repita a solicitação mais tarde.
-- Se a nova VM puder fazer parte de um conjunto de disponibilidade diferente
-    - Crie uma VM em um conjunto de disponibilidade diferente (na mesma região).
-    - Adicione a nova VM à mesma rede virtual.
+## <a name="the-cluster-does-not-have-free-resources"></a>O cluster não tem recursos livres
+\<propriedades suportamTopicIds="123456789" recursoTags="windows" produtoPesIds="1234, 5678" />
+- Tente o pedido mais tarde.
+- Se o novo VM pode fazer parte de um conjunto de disponibilidade diferente
+    - Crie um VM num conjunto de disponibilidade diferente (na mesma região).
+    - Adicione o novo VM à mesma rede virtual.
 
-## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>Como fazer ativar meu crédito mensal para o Visual Studio Enterprise (BizSpark)
+## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>Como ativo o meu crédito mensal para o estúdio visual Enterprise (BizSpark)
 
-Para ativar seu crédito mensal, consulte este [artigo](https://azure.microsoft.com/offers/ms-azr-0064p/).
+Para ativar o seu crédito mensal, consulte este [artigo.](https://azure.microsoft.com/offers/ms-azr-0064p/)
 
-## <a name="why-can-i-not-install-the-gpu-driver-for-an-ubuntu-nv-vm"></a>Por que não posso instalar o driver de GPU para uma VM Ubuntu NV?
+## <a name="why-can-i-not-install-the-gpu-driver-for-an-ubuntu-nv-vm"></a>Por que não posso instalar o condutor da GPU para um Ubuntu NV VM?
 
-Atualmente, o suporte a GPU do Linux está disponível somente em VMs do Azure NC que executam o Ubuntu Server 16, 4 LTS. Para obter mais informações, consulte [Configurar drivers de GPU para VMs da série N executando o Linux](../linux/n-series-driver-setup.md).
+Atualmente, o suporte da GPU linux só está disponível em VMs Azure NC executando Ubuntu Server 16.04 LTS. Para mais informações, consulte [A configuração de pilotos gpu para VMs série N executando Linux](../linux/n-series-driver-setup.md).
 
-## <a name="my-drivers-are-missing-for-my-linux-n-series-vm"></a>Meus drivers estão ausentes para minha VM da série N Linux
+## <a name="my-drivers-are-missing-for-my-linux-n-series-vm"></a>Os meus pilotos estão desaparecidos para o meu Linux N-Series VM
 
-Os drivers para VMs baseadas em Linux estão localizados [aqui](../linux/n-series-driver-setup.md). 
+Os condutores de VMs baseados em Linux estão localizados [aqui.](../linux/n-series-driver-setup.md) 
 
-## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Não consigo encontrar uma instância de GPU em minha VM da série N
+## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Não encontro uma instância de GPU dentro do meu VM série N
 
-Para aproveitar os recursos de GPU das VMs da série N do Azure que executam o Windows Server 2016 ou o Windows Server 2012 R2, você deve instalar os drivers gráficos NVIDIA em cada VM após a implantação. As informações de configuração do driver estão disponíveis para [VMs do Windows e máquinas](../windows/n-series-driver-setup.md) virtuais do [Linux](../linux/n-series-driver-setup.md).
+Para tirar partido das capacidades de GPU dos VMs da série N Azure que executam o Windows Server 2016 ou o Windows Server 2012 R2, tem de instalar controladores gráficos NVIDIA em cada VM após a implementação. As informações de configuração do controlador estão disponíveis para [VMs windows](../windows/n-series-driver-setup.md) e [VMs Linux](../linux/n-series-driver-setup.md).
 
-## <a name="is-n-series-vms-available-in-my-region"></a>As VMs da série N estão disponíveis em minha região?
+## <a name="is-n-series-vms-available-in-my-region"></a>Os VMs da Série N estão disponíveis na minha região?
 
-Você pode verificar a disponibilidade da [tabela produtos disponíveis por região](https://azure.microsoft.com/regions/services)e preços [aqui](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
+Pode consultar a disponibilidade dos Produtos disponíveis por mesa da [região](https://azure.microsoft.com/regions/services)e os preços [aqui.](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series)
 
-## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>Não consigo ver a família de tamanhos de VM que desejo ao redimensionar minha VM.
+## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>Não consigo ver a família VM Size que quero ao redimensionar o meu VM.
 
-Quando uma VM está em execução, ela é implantada em um servidor físico. Os servidores físicos nas regiões do Azure são agrupados em clusters de hardware físico comum. O redimensionamento de uma VM que exige que a VM seja movida para diferentes clusters de hardware é diferente dependendo de qual modelo de implantação foi usado para implantar a VM.
+Quando um VM está em execução, é implantado num servidor físico. Os servidores físicos nas regiões de Azure estão agrupados em aglomerados de hardware físico comum. Redimensionar um VM que exige que o VM seja transferido para diferentes clusters de hardware é diferente dependendo do modelo de implementação utilizado para implementar o VM.
 
-- VMs implantadas no modelo de implantação clássico, a implantação do serviço de nuvem deve ser removida e reimplantada para alterar as VMs para um tamanho em outra família de tamanho.
+- VMs implantados no modelo de implementação Clássico, a implementação do serviço em nuvem deve ser removida e reimplantada para mudar os VMs para um tamanho em outra família de tamanho.
 
-- VMs implantadas no modelo de implantação do Gerenciador de recursos, você deve parar todas as VMs no conjunto de disponibilidade antes de alterar o tamanho de qualquer VM no conjunto de disponibilidade.
+- VMs implantados no modelo de implementação do Gestor de Recursos, você deve parar todos os VMs no conjunto de disponibilidade antes de alterar o tamanho de qualquer VM no conjunto de disponibilidade.
 
-## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>Não há suporte para o tamanho da VM listado durante a implantação no conjunto de disponibilidade.
+## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>O tamanho vm listado não é suportado durante a implementação no Conjunto de Disponibilidade.
 
-Escolha um tamanho com suporte no cluster do conjunto de disponibilidade. É recomendável ao criar um conjunto de disponibilidade para escolher o maior tamanho de VM que você considera necessário e ter essa sua primeira implantação para o conjunto de disponibilidade.
+Escolha um tamanho suportado no cluster do conjunto de disponibilidade. Recomenda-se que ao criar um conjunto de disponibilidades escolha o maior tamanho VM que você acha que precisa, e ter que ser a sua primeira implementação para o conjunto de Disponibilidade.
 
-## <a name="what-linux-distributionsversions-are-supported-on-azure"></a>Quais versões/distribuições do Linux têm suporte no Azure?
+## <a name="what-linux-distributionsversions-are-supported-on-azure"></a>Que distribuições/versões linux são suportadas no Azure?
 
-Você pode encontrar a lista no Linux em [distribuições endossadas pelo Azure](../linux/endorsed-distros.md).
+Pode encontrar a lista em Linux em Distribuição apoiada pelo [Azure](../linux/endorsed-distros.md).
 
-## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Posso adicionar uma VM clássica existente a um conjunto de disponibilidade?
+## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Posso adicionar um VM Clássico existente a um conjunto de disponibilidade?
 
-Sim. Você pode adicionar uma VM clássica existente a um conjunto de disponibilidade novo ou existente. Para obter mais informações, consulte [Adicionar uma máquina virtual existente a um conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
+Sim. Pode adicionar um VM clássico existente a um novo conjunto de disponibilidade ou já existente. Para mais informações consulte [Adicionar uma máquina virtual existente a um conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/).
 
-Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+Em alternativa, pode enviar um incidente de suporte do Azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.

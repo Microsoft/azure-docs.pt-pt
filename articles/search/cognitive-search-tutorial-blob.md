@@ -1,23 +1,25 @@
 ---
-title: 'Tutorial: Extrair texto e estrutura de bolhas JSON'
+title: 'Tutorial: REST e IA sobre bolhas Azure'
 titleSuffix: Azure Cognitive Search
-description: Percorra um exemplo de extração de texto e processamento de linguagem natural sobre conteúdos em bolhas JSON usando o Carteiro e as APIs de PESQUISA Cognitiva Azure.
+description: Percorra um exemplo de extração de texto e processamento de linguagem natural sobre conteúdos no armazenamento blob usando o Carteiro e as APIs de PESQUISA Cognitiva Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: 9d18bea70670acba404b2198e6b06ea2e9200c30
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7db2d89c112c5f874460f5e6955cdce90cc2f9ae
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77667028"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163004"
 ---
-# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Tutorial: Extrair texto e estrutura de bolhas JSON em Azure usando APIs REST (Pesquisa Cognitiva Azure)
+# <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use REST e IA para gerar conteúdo pesquisável a partir de blobs Azure
 
-Se tiver texto ou imagens não estruturadas no armazenamento do Azure Blob, um pipeline de enriquecimento de [IA](cognitive-search-concept-intro.md) pode extrair informações e criar novos conteúdos que são úteis para cenários de pesquisa de texto completo ou de mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial foca-se no texto, aplicando a deteção de linguagem linguística e o processamento de linguagem natural para criar novos campos que você pode alavancar em consultas, facetas e filtros.
+Se tiver texto ou imagens não estruturadas no armazenamento do Azure Blob, um pipeline de enriquecimento de [IA](cognitive-search-concept-intro.md) pode extrair informações e criar novos conteúdos que são úteis para cenários de pesquisa de texto completo ou de mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial REST centra-se no texto, aplicando a deteção de linguagem e processamento de linguagem natural para criar novos campos que você pode alavancar em consultas, facetas e filtros.
+
+Neste tutorial, utilize o Carteiro e o [REST](https://docs.microsoft.com/rest/api/searchservice/) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Comece com documentos inteiros (texto não estruturado) tais como PDF, HTML, DOCX e PPTX no armazenamento azure Blob.
@@ -26,9 +28,16 @@ Se tiver texto ou imagens não estruturadas no armazenamento do Azure Blob, um p
 > * Execute o gasoduto para iniciar transformações e análises, e para criar e carregar o índice.
 > * Explore os resultados usando a pesquisa completa de texto e uma sintaxe de consulta rica.
 
-Você precisará de vários serviços para completar este walkthrough, além da [aplicação de desktop Postman](https://www.getpostman.com/) ou outra ferramenta de teste Web para fazer chamadas REST API. 
-
 Se não tiver uma subscrição Azure, abra uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
++ [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
++ [Aplicação de ambiente de trabalho Postman](https://www.getpostman.com/)
++ [Criar](search-create-service-portal.md) ou [encontrar um serviço](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de pesquisa existente 
+
+> [!Note]
+> Pode utilizar o serviço gratuito para este tutorial. Um serviço de pesquisa gratuito limita-o a três índices, três indexadores e três fontes de dados. Este tutorial cria um de cada. Antes de começar, certifique-se de que tem espaço ao seu serviço para aceitar os novos recursos.
 
 ## <a name="download-files"></a>Transferir ficheiros
 
@@ -104,9 +113,9 @@ Tal como acontece com o armazenamento da Azure Blob, tire um momento para recolh
 
 2. Em **Definições** > **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio no caso de precisar de rolar uma. Pode utilizar a chave primária ou secundária nos pedidos de adição, modificação e aparas de objetos.
 
-    Pegue a chave de consulta também. É uma boa prática emitir pedidos de consulta com acesso só para leitura.
+   Pegue a chave de consulta também. É uma boa prática emitir pedidos de consulta com acesso só para leitura.
 
-![Obtenha o nome de serviço e as chaves de administração e consulta](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Obtenha o nome de serviço e as chaves de administração e consulta](media/search-get-started-nodejs/service-name-and-keys.png)
 
 Todos os pedidos requerem uma chave api no cabeçalho de cada pedido enviado ao seu serviço. Uma chave válida estabelece confiança, por pedido, entre o pedido que envia o pedido e o serviço que o trata.
 
@@ -498,8 +507,6 @@ DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-
 ```
 
 O código de estado 204 é devolvido após uma eliminação com êxito.
-
-À medida que o seu código evoluiu, pode querer refinar uma estratégia de reconstrução. Para obter mais informações, veja [Como reconstruir um índice](search-howto-reindex.md).
 
 ## <a name="takeaways"></a>Conclusões
 

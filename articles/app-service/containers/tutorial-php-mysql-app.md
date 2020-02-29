@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 89b8d9fb1d929e0598469ba582049c61216e923a
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: cdac051e8f80186f7089996d931f02453128fdda
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524029"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913086"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Construa uma app PHP e MySQL no Azure App Service em Linux
 
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-* [Instale o Git](https://git-scm.com/)
+* [Instalar o Git](https://git-scm.com/)
 * [Instalar o PHP 5.6.4 ou superior](https://php.net/downloads.php)
 * [Instalar o Composer](https://getcomposer.org/doc/00-intro.md)
 * Ative as extensões do PHP seguintes, de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
@@ -176,7 +176,7 @@ Quando o servidor MySQL tiver sido criado, a CLI do Azure mostra informações s
 }
 ```
 
-### <a name="configure-server-firewall"></a>Configurar a firewall do servidor
+### <a name="configure-server-firewall"></a>Configurar firewall do servidor
 
 Crie uma regra de firewall para o servidor MySQL permitir ligações ao cliente com o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. 
 
@@ -403,15 +403,15 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-> [!NOTE]
-> Poderá reparar que o processo de implementação instala pacotes do [Composer](https://getcomposer.org/) no fim. O Serviço de Aplicações não executa estas automatizações durante a implementação predefinida, pelo que este repositório de exemplo tem três ficheiros adicionais no diretório de raiz para a permitir:
+<!-- > [!NOTE]
+> You may notice that the deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it:
 >
-> - `.deployment` – este ficheiro diz ao Serviço de Aplicações para executar `bash deploy.sh` como o script de implementação personalizado.
-> - `deploy.sh` – o script de implementação personalizado. Se revir o ficheiro, verá que executa `php composer.phar install` a seguir a `npm install`.
-> - `composer.phar` – o gestor de pacotes do Composer.
+> - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
+> - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`.
+> - `composer.phar` - The Composer package manager.
 >
-> Pode utilizar esta abordagem para adicionar qualquer passo à sua implementação baseada no Git no Serviço de Aplicações. Para mais informações, consulte [Run Composer](configure-language-php.md#run-composer).
->
+> You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Run Composer](configure-language-php.md#run-composer). -->
+> 
 
 ### <a name="browse-to-the-azure-app"></a>Navegue na app Azure
 

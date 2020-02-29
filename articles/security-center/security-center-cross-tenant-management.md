@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 482154a37334b056719a18355f87b467d4fe95c7
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604249"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919486"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestão de inquilinos cruzados no Centro de Segurança
 
@@ -50,7 +50,7 @@ Os pontos de vista e as ações são basicamente os mesmos. Eis alguns exemplos:
 - **Recomendações de reparação**: Monitorize e remediar uma [recomendação](security-center-recommendations.md) para muitos recursos de vários inquilinos de uma só vez. Pode então enfrentar imediatamente as vulnerabilidades que apresentam o maior risco em todos os inquilinos.
 - **Gerir Alertas**: Detetar [alertas](security-center-alerts-overview.md) em todos os diferentes inquilinos. Tome medidas sobre recursos que estão fora do cumprimento das medidas de [reparação](security-center-managing-and-responding-alerts.md)atodáveis.
 
-- **Gerir funcionalidades avançadas**de defesa em nuvem e muito mais: Gerir os vários serviços de deteção e proteção de ameaças, tais como [acesso vM just-in-time (JIT)](security-center-just-in-time.md), [Adaptive Network Hardening,](security-center-adaptive-network-hardening.md)controlos de [aplicações adaptativos,](security-center-adaptive-application.md)e muito mais.
+- **Gerir funcionalidades avançadas**de defesa em nuvem e muito mais: Gerir os vários serviços de proteção contra ameaças, tais como [acesso vM just-in-time (JIT)](security-center-just-in-time.md), [Adaptive Network Hardening,](security-center-adaptive-network-hardening.md)controlos de [aplicações adaptativos,](security-center-adaptive-application.md)e muito mais.
  
 ## <a name="next-steps"></a>Passos seguintes
 Este artigo explica como funciona a gestão de inquilinos no Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:

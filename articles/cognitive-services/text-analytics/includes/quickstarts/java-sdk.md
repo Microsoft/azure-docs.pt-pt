@@ -1,20 +1,20 @@
 ---
-title: 'Início rápido: biblioteca de cliente do Análise de Texto V3 para Java | Microsoft Docs'
-description: Introdução à biblioteca de cliente do Análise de Texto V3 para Java.
+title: 'Quickstart: Text Analytics v3 biblioteca de clientes para Java Microsoft Docs'
+description: Começa com a biblioteca de clientes v3 Text Analytics para java.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/11/2020
+ms.date: 02/26/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi
-ms.openlocfilehash: eeaef4a9970609c43c03cd784436796a6f8af174
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 79b4063d6b65d6861dd7864c4225e91f4ea5bc6d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211398"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155476"
 ---
 <a name="HOLTop"></a>
 
@@ -24,13 +24,13 @@ ms.locfileid: "77211398"
 
 * Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) de Desenvolvimento Java (JDK) com versão 8 ou superior
-
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Assim que tiver a sua assinatura Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Criar <span class="docon docon-navigate-external x-hidden-focus"></span> um recurso De Análise de Texto"  target="_blank">criar um recurso De SMAnalytics</a> no portal Azure para obter a sua chave e ponto final. 
+    * Necessitará da chave e do ponto final do recurso que cria para ligar a sua aplicação à API textanalytics. Vais fazer isto mais tarde, no início.
+    * Você pode usar o nível de preços gratuitos para experimentar o serviço, e atualizar mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 
-### <a name="create-a-new-maven-project"></a>Criar um novo projeto Maven
+### <a name="create-a-new-maven-project"></a>Criar um novo projeto do Maven
 
 Adicione a seguinte dependência de análise de texto ao seu projeto. Esta versão da dependência utiliza versão `3.0-preview` da API text analytics. 
 
@@ -54,7 +54,7 @@ import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
 ```
 
-No arquivo Java, adicione uma nova classe e adicione a chave e o ponto de extremidade do recurso do Azure, conforme mostrado abaixo.
+No ficheiro java, adicione uma nova classe e adicione a chave e o ponto final do seu recurso azul, como mostrado abaixo.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
@@ -65,7 +65,7 @@ public class TextAnalyticsSamples {
 }
 ```
 
-Adicione o método Main a seguir à classe. Definirá os métodos aqui chamados mais tarde.
+Adicione o seguinte método principal à classe. Definirá os métodos aqui chamados mais tarde.
 
 ```java
 public static void main(String[] args) {

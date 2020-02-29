@@ -1,6 +1,6 @@
 ---
-title: Guia de início rápido do Windows UWP da plataforma de identidade da Microsoft | Azure
-description: Saiba como um aplicativo Plataforma Universal do Windows (XAML) pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade da plataforma de identidade da Microsoft.
+title: Plataforma de identidade da Microsoft Windows UWP quickstart  Azure
+description: Saiba como uma aplicação Universal Windows Platform (XAML) pode obter um sinal de acesso e chamar um API protegido pelo ponto final da plataforma de identidade da Microsoft.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,18 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 86401e0a827d1941b2d183d8c17371ba915c81ae
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 3700dc8755e91c35be229aaab53d47af58c80e72
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063701"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160926"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
 
-Este guia de início rápido contém um exemplo de código que demonstra como um aplicativo Plataforma Universal do Windows (UWP) pode conectar usuários com contas pessoais ou contas corporativas e de estudante, obter um token de acesso e chamar a API Microsoft Graph.
-
-![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-uwp/uwp-intro.svg)
+Este quickstart contém uma amostra de código que demonstra como uma aplicação universal da Plataforma Windows (UWP) pode inscrever utilizadores com contas pessoais ou contas de trabalho e escola, obter um sinal de acesso e ligar para a Microsoft Graph API. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
@@ -64,43 +62,55 @@ Este guia de início rápido contém um exemplo de código que demonstra como um
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Passo 2: Transfira o seu projeto do Visual Studio
 
- - [Descarregue o projeto Estúdio Visual](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+> [!div renderon="docs"]
+> [Descarregue o projeto Estúdio Visual](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Transferir o seu projeto do Visual Studio
+> [!div class="sxs-lookup" renderon="portal"]
+> Executar o projeto usando o Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Descarregue a amostra de código]()
 
-1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
-1. Abra o projeto no Visual Studio. Você pode ser solicitado a instalar um SDK do UWP. Nesse caso, aceite.
-1. Editar **MainPage.Xaml.cs** e substituir os valores do campo `ClientId`:
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para ser executada
+> Configurámos o seu projeto com valores das propriedades da sua aplicação e está pronto para ser executado. 
 
-    ```csharp
-    private const string ClientId = "Enter_the_Application_Id_here";
-    ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Este arranque rápido apoia Enter_the_Supported_Account_Info_Here.    
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Transferir o seu projeto do Visual Studio
+> 
+> 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
+> 1. Abra o projeto no Visual Studio. Pode ser solicitado a instalar um UWP SDK. Nesse caso, aceite.
+> 1. Editar **MainPage.Xaml.cs** e substituir os valores do campo `ClientId`:
+>
+>    ```csharp
+>    private const string ClientId = "Enter_the_Application_Id_here";
+>    ```
 > Em que:
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 >
 > > [!TIP]
 > > Para encontrar o valor do ID de *aplicação,* vá à secção **de visão geral** no portal
 
-#### <a name="step-4-run-your-application"></a>Etapa 4: executar seu aplicativo
+#### <a name="step-4-run-your-application"></a>Passo 4: Executar a sua aplicação
 
-Se você quiser experimentar o início rápido em seu computador Windows:
+Se quiser experimentar o arranque rápido na sua máquina Windows:
 
-1. Na barra de ferramentas Do Estúdio Visual, escolha a plataforma certa (provavelmente **x64** ou **x86**, não ARM).
-   > Observe que o dispositivo-alvo muda de *Dispositivo* para *Máquina Local*
+1. Na barra de ferramentas Do Estúdio Visual, escolha a plataforma certa (provavelmente **x64** ou **x86**, não ARM). Observará que o dispositivo-alvo muda de *Dispositivo* para *Máquina Local*
 1. Selecione Debug  **Comece sem depuração**
 
 ## <a name="more-information"></a>Mais informações
 
 Esta secção apresenta mais informações sobre o início rápido.
 
+### <a name="how-the-sample-works"></a>Como funciona a amostra
+![Mostra como funciona a aplicação de amostragerada por este quickstart](media/quickstart-v2-uwp/uwp-intro.svg)
+
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL[(Microsoft.Identity.Client)](https://www.nuget.org/packages/Microsoft.Identity.Client)é a biblioteca usada para assinar utilizadores e solicitar fichas de segurança. Os tokens de segurança são usados para acessar uma API protegida pela plataforma de identidade da Microsoft para desenvolvedores. Pode instalar a MSAL ao executar o comando seguinte na *Consola do Gestor de Pacotes* do Visual Studio:
+MSAL[(Microsoft.Identity.Client)](https://www.nuget.org/packages/Microsoft.Identity.Client)é a biblioteca usada para assinar utilizadores e solicitar fichas de segurança. Os tokens de segurança são usados para aceder a uma API protegida pela plataforma Microsoft Identity para desenvolvedores. Pode instalar a MSAL ao executar o comando seguinte na *Consola do Gestor de Pacotes* do Visual Studio:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -114,7 +124,7 @@ Pode adicionar a referência para MSAL, adicionando o código seguinte:
 using Microsoft.Identity.Client;
 ```
 
-Em seguida, MSAL é inicializado usando o seguinte código:
+Em seguida, o MSAL é inicializado utilizando o seguinte código:
 
 ```csharp
 public static IPublicClientApplication PublicClientApp;
@@ -133,11 +143,11 @@ A MSAL tem dois métodos para adquirir fichas numa aplicação da UWP: `AcquireT
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Algumas situações exigem forçar os usuários a interagir com o ponto de extremidade da plataforma Microsoft Identity por meio de uma janela pop-up para validar suas credenciais ou dar consentimento. Alguns exemplos incluem:
+Algumas situações exigem forçar os utilizadores a interagir com o ponto final da plataforma de identidade da Microsoft através de uma janela popup para validar as suas credenciais ou dar consentimento. Alguns exemplos incluem:
 
-- A primeira vez que os usuários entram no aplicativo
+- Os utilizadores pela primeira vez assinam a aplicação
 - Quando os utilizadores possam ter de reintroduzir as respetivas credenciais por a palavra-passe ter expirado
-- Quando seu aplicativo está solicitando acesso a um recurso, o usuário precisa consentir
+- Quando a sua aplicação está a solicitar acesso a um recurso, que o utilizador precisa de consentir
 - Quando é precisa a autenticação de dois fatores
 
 ```csharp
@@ -151,7 +161,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-Utilize o método `AcquireTokenSilent` para obter fichas para aceder a recursos protegidos após o método inicial `AcquireTokenInteractive`. Você não deseja exigir que o usuário valide suas credenciais toda vez que precisar acessar um recurso. Na maior parte do tempo que você deseja que as aquisições e a renovação de tokens sem qualquer interação do usuário
+Utilize o método `AcquireTokenSilent` para obter fichas para aceder a recursos protegidos após o método inicial `AcquireTokenInteractive`. Não pretende exigir que o utilizador valide as suas credenciais sempre que precisa de aceder a um recurso. Na maior parte do tempo pretende aquisições simbólicas e renovação sem qualquer interação do utilizador
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -163,7 +173,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 > |Em que: ||
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser pedidos (como o `{ "user.read" }` para o Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` para as API Web personalizadas) |
-> | `firstAccount` | Especifica a primeira conta de usuário no cache (o MSAL dá suporte a vários usuários em um único aplicativo) |
+> | `firstAccount` | Especifica a primeira conta de utilizador na cache (a MSAL suporta vários utilizadores numa única aplicação) |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
@@ -174,7 +184,7 @@ Experimente o tutorial do ambiente de trabalho do Windows para obter um guia pas
 > [!div class="nextstepaction"]
 > [UWP - Chamar tutorial da Graph API](tutorial-v2-windows-uwp.md)
 
-Ajude-nos a melhorar a plataforma Microsoft Identity. Diga-nos o que você imagina ao concluir uma pesquisa curta de duas perguntas.
+Ajude-nos a melhorar a plataforma de identidade da Microsoft. Diga-nos o que pensa ao concluir um pequeno inquérito de duas perguntas.
 
 > [!div class="nextstepaction"]
 > [Pesquisa da plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

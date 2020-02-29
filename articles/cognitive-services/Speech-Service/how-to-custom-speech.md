@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 4a2887ef8b264628128872730422fd38d6b0ac0f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e30587ed4d09ba792516ebc7b16529a6ee5ac57c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425005"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918959"
 ---
 # <a name="what-is-custom-speech"></a>O que é discurso personalizado?
 
@@ -43,7 +43,7 @@ Este diagrama destaca as peças que compõem o [portal de Discurso Personalizado
 
 ## <a name="set-up-your-azure-account"></a>Configurar a sua conta Azure
 
-É necessária uma subscrição do serviço Speech antes de poder utilizar o [portal De Discurso Personalizado](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Siga estas instruções para criar uma subscrição padrão do serviço de Discurso: [Criar uma subscrição de discurso](get-started.md#try-the-speech-service-using-a-new-azure-account).
+É necessária uma subscrição do serviço Speech antes de poder utilizar o [portal De Discurso Personalizado](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Siga estas instruções para criar uma subscrição padrão do serviço de Discurso: [Criar uma subscrição de discurso](get-started.md#new-resource).
 
 > [!NOTE]
 > Por favor, certifique-se de criar subscrições padrão (S0), as subscrições de teste gratuito (F0) não são suportadas.

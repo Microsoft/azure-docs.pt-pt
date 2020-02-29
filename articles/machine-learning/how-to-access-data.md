@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sihhu
-author: MayMSFT
+ms.author: keli19
+author: likebupt
 ms.reviewer: nibaccam
-ms.date: 01/15/2020
+ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: b31d0237f04ef535fa6528d5b3a04e5ee7256e22
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 1db3679053edbbc2874c456b1c8db4a4f8e0dabd
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623684"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164882"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Dados de acesso nos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -186,6 +186,10 @@ O exemplo que se segue demonstra como é o formulário quando se cria uma loja d
 <a name="get"></a>
 
 ## <a name="get-datastores-from-your-workspace"></a>Obtenha lojas de dados do seu espaço de trabalho
+
+> [!IMPORTANT]
+> O designer de Aprendizagem automática Azure (pré-visualização) criará uma loja de dados chamada **azureml_globaldatasets** automaticamente quando abrir uma amostra na página inicial do designer. Esta loja de dados contém apenas conjuntos de dados de amostras. Por favor, **não** utilize esta loja de dados para qualquer acesso confidencial a dados!
+> ![loja de dados criada automaticamente para conjuntos de dados de amostras de design](media/how-to-access-data/datastore-designer-sample.png)
 
 Para obter uma loja de dados específica registada no espaço de trabalho atual, utilize o [método](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-)`get()`estático na classe `Datastore`:
 

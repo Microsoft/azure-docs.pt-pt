@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
-ms.openlocfilehash: 236f79c9060a0d6fdcb0f558373d02f32eba7abb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2b590e623062d5d5ae39261b3b5fa5a37a39122
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905600"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919225"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades geridas no Azure HDInsight
 
-Uma identidade gerenciada é uma identidade registrada no Azure Active Directory (AD do Azure) cujas credenciais são gerenciadas pelo Azure. Com identidades geridas, não precisa de registar os principais de serviço sintetários em Azure AD, ou manter credenciais como certificados.
+Uma identidade gerida é uma identidade registada no Azure Ative Directory (Azure AD) cujas credenciais são geridas pelo Azure. Com identidades geridas, não precisa de registar os principais de serviço sintetários em Azure AD, ou manter credenciais como certificados.
 
 As identidades geridas são usadas no Azure HDInsight para aceder aos serviços de domínio azure AD ou ficheiros de acesso em Azure Data Lake Storage Gen2, quando necessário.
 
-Existem dois tipos de identidades geridas: atribuídas ao utilizador e atribuídas ao sistema. O Azure HDInsight utiliza identidades geridas atribuídas ao utilizador. Uma identidade gerida atribuída ao utilizador é criada como um recurso Azure autónomo, que pode então atribuir a uma ou mais instâncias de serviço Azure. Em contraste, uma identidade gerida atribuída pelo sistema é criada em Azure AD e, em seguida, ativada diretamente em uma determinada instância de serviço Azure automaticamente. A vida daquela identidade gerida atribuída pelo sistema está então ligada à vida da instância de serviço em que está ativada.
+Existem dois tipos de identidades geridas: atribuídas ao utilizador e atribuídas ao sistema. O Azure HDInsight suporta apenas identidades geridas atribuídas ao utilizador. O HDInsight não suporta identidades geridas atribuídas pelo sistema. Uma identidade gerida atribuída ao utilizador é criada como um recurso Azure autónomo, que pode então atribuir a uma ou mais instâncias de serviço Azure. Em contraste, uma identidade gerida atribuída pelo sistema é criada em Azure AD e, em seguida, ativada diretamente em uma determinada instância de serviço Azure automaticamente. A vida daquela identidade gerida atribuída pelo sistema está então ligada à vida da instância de serviço em que está ativada.
 
 ## <a name="hdinsight-managed-identity-implementation"></a>HDInsight geriu implementação de identidade
 
@@ -32,7 +32,7 @@ No Azure HDInsight, as identidades geridas são aprovisionadas em cada nó do cl
 As identidades geridas podem ser criadas com qualquer um dos seguintes métodos:
 
 * [Portal do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
-* [O Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
+* [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
 * [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
 * [CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
 
@@ -43,7 +43,7 @@ Os passos restantes para configurar a identidade gerida dependem do cenário ond
 As identidades geridas são usadas no Azure HDInsight em vários cenários. Consulte os documentos relacionados para obter instruções detalhadas de configuração e configuração:
 
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity) (Armazenamento do Azure Data Lake Gen2)
-* [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
+* [Pacote de Segurança Empresarial](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kafka Traga a sua própria chave (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
 
 ## <a name="faq"></a>FAQ

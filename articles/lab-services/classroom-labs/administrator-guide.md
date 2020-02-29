@@ -1,6 +1,6 @@
 ---
-title: Guia do Azure Lab Services do administrador | Microsoft Docs
-description: Este guia ajuda os administradores que criam e gerenciam contas de laboratório usando Azure Lab Services.
+title: Serviços Azure Lab - Guia de administradores Microsoft Docs
+description: Este guia ajuda administradores que criam e gerem contas de laboratório usando os Serviços de Laboratório Azure.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,195 +13,235 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 638a90615d248b3c2829770432dd6a08eb4bb2fb
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 318f16df6ac10be5909b255f2f1988be028d0eef
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771739"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162434"
 ---
-# <a name="azure-lab-services---administrator-guide"></a>Guia do Azure Lab Services do administrador
-Os administradores de ti (tecnologia da informação) que gerenciam os recursos de nuvem de uma organização também são responsáveis por configurar a conta de laboratório para sua organização. Os administradores ou educadores criam laboratórios de sala de aula na conta do laboratório. Este artigo fornece uma visão geral de alto nível dos recursos do Azure envolvidos e as diretrizes para criá-los.
+# <a name="azure-lab-services---administrator-guide"></a>Serviços Azure Lab - Guia de administrador
+Os administradores de Tecnologias de Informação (TI) que gerem os recursos em nuvem de uma universidade são normalmente responsáveis pela criação da conta de laboratório para a sua escola. Uma vez criada uma conta de laboratório, administradores ou educadores criam laboratórios de sala de aula que estão contidos na conta do laboratório. Este artigo fornece uma visão geral de alto nível dos recursos azure envolvidos e a orientação para a sua criação.
 
-![Exibição de alto nível dos recursos do Azure em uma conta de laboratório](../media/administrator-guide/high-level-view.png)
+![Visão de alto nível dos recursos do Azure numa conta de laboratório](../media/administrator-guide/high-level-view.png)
 
-- Os laboratórios de sala de aula são hospedados em uma assinatura do Azure de Propriedade do Azure Lab Services
-- As contas de laboratório, a Galeria de imagens compartilhadas e as versões de imagem são hospedadas em sua assinatura
-- Você pode ter a conta de laboratório e a Galeria de imagens de fragmento no mesmo grupo de recursos. Neste diagrama, eles estão em grupos de recursos diferentes. 
+- Os laboratórios de sala de aula estão hospedados dentro de uma subscrição Azure propriedade da Azure Lab Services.
+- Contas de laboratório, galeria de imagens partilhadas e versões de imagem estão alojadas dentro da sua subscrição.
+- Pode ficar com a sua conta de laboratório e a galeria de imagens partilhadas no mesmo grupo de recursos. Neste diagrama, estão em diferentes grupos de recursos. 
 
 ## <a name="subscription"></a>Subscrição
-Sua organização tem uma ou mais assinaturas do Azure. Uma assinatura é usada para gerenciar a cobrança e a segurança de todas as resources\services do Azure que são usadas dentro dela, incluindo contas de laboratório.
+A sua universidade tem uma ou mais subscrições Azure. Uma subscrição é usada para gerir a faturação e segurança de todos os recursos Azure\services que são usados dentro dela, incluindo contas de laboratório.
 
-A relação entre uma conta de laboratório e sua assinatura é importante porque:
+A relação entre uma conta de laboratório e a sua subscrição é importante porque:
 
-- A cobrança é relatada por meio da assinatura que contém a conta do laboratório.
-- Você pode fornecer aos usuários o locatário do Azure Active Directory (AD) associado à assinatura o acesso ao Azure Lab Services. Você pode adicionar o usuário como uma conta de laboratório owner\contributor ou como um criador de laboratório de sala de aula.
+- A faturação é reportada através da assinatura que contém a conta do laboratório.
+- Pode dar aos utilizadores do Azure Ative Directory (AD) da subscrição acesso ao acesso ao Azure Lab Services. Você pode adicionar um utilizador como proprietário de uma conta de laboratório\contributor, criador de laboratório de sala de aula ou proprietário de laboratório de sala de aula.
 
-Os laboratórios de sala de aula e suas VMs (máquinas virtuais) são totalmente gerenciados para você. Para serem específicos, eles são hospedados em uma assinatura dedicada de propriedade de Azure Lab Services.
+Os laboratórios em sala de aula e as suas máquinas virtuais (VMs) são geridos e hospedados para si dentro de uma subscrição propriedade da Azure Lab Services.
 
 ## <a name="resource-group"></a>Grupo de recursos
-Uma assinatura contém um ou mais grupos de recursos. Os grupos de recursos são usados para criar agrupamentos lógicos de recursos do Azure que são usados juntos na mesma solução.  
+Uma subscrição contém um ou mais grupos de recursos. Os grupos de recursos são usados para criar agrupamentos lógicos de recursos Azure que são usados juntos dentro da mesma solução.  
 
-Ao criar uma conta de laboratório, você deve configurar o grupo de recursos que contém a conta do laboratório. 
+Quando criauma conta de laboratório, tem de configurar o grupo de recursos que contém a conta de laboratório. 
 
-Um grupo de recursos também é necessário ao criar uma [Galeria de imagens compartilhada](#shared-image-gallery). Você pode optar por colocar sua conta de laboratório e a Galeria de imagens compartilhadas em dois grupos de recursos separados, o que é típico se você planeja compartilhar a Galeria de imagens em diferentes soluções. Ou, você pode optar por colocá-los no mesmo grupo de recursos.
+Um grupo de recursos também é necessário na criação de uma galeria de [imagens partilhadas.](#shared-image-gallery) Você pode optar por colocar a sua conta de laboratório e galeria de imagens partilhadas em dois grupos de recursos separados, o que é típico se você planeja partilhar a galeria de imagens através de diferentes soluções. Ou pode optar por colocá-los no mesmo grupo de recursos.
 
-Quando você cria uma conta de laboratório e automaticamente cria e anexa uma galeria de imagens compartilhada ao mesmo tempo, a conta de laboratório e a Galeria de imagens compartilhadas são criadas em grupos de recursos separados por padrão. Você verá esse comportamento ao usar as etapas descritas neste tutorial: [Configurar a Galeria de imagens compartilhadas no momento da criação da conta do laboratório](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation). A imagem na parte superior deste artigo também usa essa configuração. 
+Quando cria uma conta de laboratório, pode criar e anexar automaticamente uma galeria de imagens partilhadas ao mesmo tempo.  Esta opção resulta na conta de laboratório e na galeria de imagens partilhadas sendo criada em grupos de recursos separados. Você verá este comportamento ao usar os passos descritos neste tutorial: [Configure galeria de imagens partilhadano momento da criação de conta de laboratório](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation). A imagem no topo deste artigo também usa esta configuração. 
 
-É recomendável investir tempo de investimento antecipadamente para planejar a estrutura de seus grupos de recursos, pois não é possível alterar o grupo de recursos de uma galeria de imagens compartilhada ou de uma conta de laboratório após sua criação. Se você precisar alterar o grupo de recursos para esses recursos, será necessário excluir e recriar sua conta de laboratório e/ou galeria de imagens compartilhadas.
+Recomendamos investir tempo adiantado para planear a estrutura dos seus grupos de recursos, uma vez que *não* é possível alterar o grupo de recursos de uma conta de laboratório ou uma galeria de imagens partilhada uma vez que é criado. Se precisar de alterar o grupo de recursos para estes recursos, terá de apagar e recriar a sua conta de laboratório e a galeria de imagens partilhada.
 
 ## <a name="lab-account"></a>Conta de laboratório
-Uma conta de laboratório serve como um contêiner para um ou mais laboratórios de sala de aula. Ao começar a usar o Azure Lab Services, é comum ter apenas uma única conta de laboratório. À medida que o uso do laboratório for dimensionado, você poderá optar por criar mais contas de laboratório.
+Uma conta de laboratório serve como recipiente para um ou mais laboratórios de sala de aula. Quando começar com os Serviços de Laboratório Azure, é comum ter apenas uma única conta de laboratório. À medida que o seu laboratório escala, poderá mais tarde optar por criar mais contas de laboratório.
 
-A lista a seguir realça os cenários em que mais de uma conta de laboratório pode ser benéfica:
+A lista a seguir destaca cenários em que mais de uma conta de laboratório pode ser benéfica:
 
-- **Gerenciar requisitos de política diferentes em laboratórios de sala de aula** 
+- **Gerir diferentes requisitos de política em laboratórios de sala de aula** 
+    
+    Quando crias uma conta de laboratório, defines políticas que se aplicam a *todos os* laboratórios de sala de aula sob a conta do laboratório, tais como:
+    - A rede virtual Azure com recursos partilhados a que o laboratório de sala de aula pode aceder. Por exemplo, você pode ter um conjunto de laboratórios de sala de aula que precisam de acesso a um conjunto de dados partilhado dentro de uma rede virtual.
+    - A máquina virtual (VM) imagens que os laboratórios de sala de aula podem usar para criar VMs. Por exemplo, você pode ter um conjunto de laboratórios de sala de aula que precisam de acesso ao VM de Ciência de Dados para imagem [de Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) Marketplace. 
+    
+    Se você tem laboratórios de sala de aula que têm requisitos políticos únicos uns dos outros, pode ser benéfico criar contas de laboratório separadas para gerir estes laboratórios de sala de aula separadamente.
 
-    Ao configurar uma conta de laboratório, você define as políticas que se aplicam a todos os laboratórios de sala de aula na conta do laboratório, como:
-    - A rede virtual do Azure com recursos compartilhados que o laboratório da sala de aula pode acessar. Por exemplo, você pode ter um conjunto de laboratórios de sala de aula que precisam de acesso a um conjunto de dados compartilhado em uma rede virtual.
-    - As imagens de VM (máquina virtual) que os laboratórios de sala de aula podem usar para criar VMs. Por exemplo, você pode ter um conjunto de laboratórios de sala de aula que precisam acessar o [VM de ciência de dados para a imagem do Marketplace do Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) .  
-
-    Se você tiver laboratórios de sala de aula com requisitos de política exclusivos uns dos outros, poderá ser benéfico criar contas de laboratório separadas para gerenciar esses laboratórios de sala de aula separadamente.
-- **Restringir o acesso de criadores de laboratório a laboratórios de sala de aula específicos**  
-
-    Quando um usuário é adicionado como um criador de laboratório, ele recebe acesso a todos os laboratórios de sala de aula dentro da conta do laboratório, incluindo os laboratórios criados por outros criadores de laboratório. Para restringir os criadores de laboratório ao gerenciamento de laboratórios específicos, você pode criar contas de laboratório separadas para restringir o escopo de seu acesso. Por exemplo, você pode criar uma conta de laboratório separada para cada departamento dentro de uma universidade. Por exemplo: uma conta de laboratório para o departamento de ciência e outra para o departamento de matemática, e assim por diante.   
 - **Orçamento separado por conta de laboratório**
-
-    Em vez de ter todos os custos de laboratório de sala de aula relatados para uma única conta de laboratório, talvez seja necessário ter um orçamento mais claramente separado. Continuando com o exemplo no marcador acima, você pode criar uma conta de laboratório para cada departamento universitário para separar o orçamento de acordo. Usando o gerenciamento de custos do Azure, você pode exibir o custo de cada conta de laboratório individual.
-- **Isole os laboratórios piloto dos laboratórios ativos**
-
-    Você pode ter casos em que deseja fazer alterações de política de piloto em uma conta de laboratório sem afetar potencialmente os laboratórios ativos. Nesse tipo de cenário, a criação de uma conta de laboratório separada para fins de piloto permite isolar as alterações. 
+  
+    Em vez de reportar todos os custos do laboratório através de uma única conta de laboratório, pode precisar de um orçamento mais claramente separado. Por exemplo, pode criar contas laboratoriais para o departamento de Matemática da sua universidade, departamento de Ciências da Computação, e assim por diante, para separar o orçamento entre departamentos.  Em seguida, pode visualizar o custo de cada conta de laboratório usando a [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+    
+- **Isolar laboratórios piloto de laboratórios de produção ativa**
+  
+    Pode ter casos em que pretende pilotar mudanças de política para uma conta de laboratório sem ter potencial impacto nos laboratórios de produção ativa. Neste tipo de cenário, criar uma conta de laboratório separada para fins de pilotagem permite isolar alterações. 
 
 ## <a name="classroom-lab"></a>Laboratório de sala de aula
-Um laboratório de sala de aula contém uma ou mais VMs (máquinas virtuais) que são atribuídas a um aluno específico. Em geral, você pode esperar:
+Um laboratório de sala de aula contém máquinas virtuais (VMs) que são atribuídas a um único aluno. Em geral, pode esperar:
 
-- Ter um laboratório de sala de aula para cada classe.
-- Crie um novo conjunto de laboratórios de sala de aula a cada semestre (ou para cada período de tempo em que sua classe é oferecida). Normalmente, para classes que têm as mesmas necessidades de imagem, você usaria uma [Galeria de imagens compartilhadas](#shared-image-gallery) para compartilhar imagens entre laboratórios e semestrees.
+- Tenha um laboratório de sala de aula para cada aula.
+- Crie um novo conjunto de laboratórios de sala de aula a cada semestre (ou para cada período de tempo que a sua aula é oferecida). Normalmente para aulas com as mesmas necessidades de imagem, você deve usar uma galeria de [imagens partilhada](#shared-image-gallery) para reutilizar imagens em laboratórios e semestres.
 
-Considere os seguintes pontos ao determinar como estruturar seus laboratórios de sala de aula:
+Considere os seguintes pontos ao determinar como estruturar os seus laboratórios de sala de aula:
 
-- **Todas as VMs em um laboratório de sala de aula são implantadas com a mesma imagem publicada**. Como resultado, se você tiver uma classe que exija que imagens de laboratório diferentes sejam publicadas ao mesmo tempo, os laboratórios de sala de aula separados deverão ser criados para cada um.
-- A **cota de uso é definida no nível de laboratório e se aplica a todos os usuários no laboratório**. Por exemplo, você pode ter um conjunto de educadores que precisam de acesso às VMs de uma classe para se preparar para ensinar, mas os educadores exigem apenas uma cota de 10 horas, enquanto os alunos inscritos na classe exigem uma cota de 40 horas. Para definir cotas diferentes para usuários, você deve criar laboratórios de sala de aula separados. No entanto, é possível adicionar mais horas a um usuário específico depois de definir a cota.
-- **A agenda de inicialização ou desligamento é definida no nível do laboratório e se aplica a todas as VMs no laboratório**. Semelhante ao ponto anterior, se você precisar definir agendamentos diferentes para os usuários, precisará criar laboratórios de sala de aula separados. 
+- **Todos os VMs dentro**de um laboratório de sala de aula são implantados com a mesma imagem que é publicada. 
 
-## <a name="shared-image-gallery"></a>Galeria de imagens compartilhadas
-Uma galeria de imagens compartilhada é anexada a uma conta de laboratório e serve como um repositório central para armazenar imagens. Uma imagem é salva na Galeria quando um professor opta por salvar de uma VM (máquina virtual) de modelo de um laboratório de sala de aula. Cada vez que um professor faz alterações na VM de modelo e salva, novas versões da imagem são salvas mantendo as versões anteriores.
+    Como resultado, se você tem uma classe que requer diferentes imagens de laboratório ser publicada ao mesmo tempo, laboratórios de sala de aula separados devem ser criados para cada um.
+  
+- **A quota de utilização é definida ao nível do laboratório e aplica-se a todos os utilizadores dentro do laboratório**. 
+    
+    Para definir diferentes quotas para os utilizadores, você deve criar laboratórios de sala de aula separados. No entanto, é possível adicionar mais horas a um utilizador específico depois de ter definido a quota.
+  
+- O horário de **arranque ou encerramento é definido ao nível do laboratório e aplica-se a todos os VMs dentro do laboratório**. 
 
-Os instrutores podem publicar uma versão de imagem da Galeria de imagens compartilhadas ao criar um novo laboratório de sala de aula. Embora a Galeria possa armazenar várias versões de uma imagem, educadores só podem selecionar a versão mais recente durante a criação do laboratório.
+    À semelhança do ponto anterior, se precisar de definir horários diferentes para os utilizadores, precisa de criar laboratórios de sala de aula separados. 
 
-A Galeria de imagens compartilhadas é um recurso opcional que talvez não seja necessário imediatamente ao começar com apenas alguns laboratórios de sala de aula. No entanto, usar a Galeria de imagens compartilhadas tem muitos benefícios que são úteis à medida que você dimensiona para ter mais laboratórios de sala de aula:
+## <a name="shared-image-gallery"></a>Galeria de imagens partilhadas
+Uma galeria de imagens partilhada é anexada a uma conta de laboratório e serve como um repositório central para armazenar imagens. Uma imagem é guardada na galeria quando um educador escolhe exportar a partir de uma máquina virtual modelo de laboratório de sala de aula (VM). Cada vez que um educador faz alterações no modelo vM e exporta, novas versões da imagem são guardadas mantendo versões anteriores.
 
-- **Permite salvar e gerenciar versões de uma imagem de VM de modelo**.
+Os instrutores podem publicar uma versão de imagem a partir da galeria de imagens partilhadas quando criam um novo laboratório de sala de aula. Embora a galeria possa armazenar várias versões de uma imagem, os educadores só podem selecionar a versão mais recente durante a criação de laboratório.
 
-    É útil ao criar uma imagem personalizada ou fazer alterações (software, configuração e assim por diante) em uma imagem da galeria do Marketplace público.  Por exemplo, é comum que educadores exijam que software\tooling diferentes sejam instalados. Em vez de exigir que os alunos instalem manualmente esses pré-requisitos por conta própria, diferentes versões da imagem de VM de modelo podem ser salvas em uma galeria de imagens compartilhada. Essas versões de imagem podem ser usadas ao criar novos laboratórios de sala de aula.
-- **Habilita sharing\reuse de imagens de VM de modelo em laboratórios de sala de aula**.
+A galeria de imagens partilhadas é um recurso opcional que você pode não precisar imediatamente quando começar com apenas alguns laboratórios de sala de aula. No entanto, a utilização de uma galeria de imagens partilhadas tem muitos benefícios que são úteis à medida que se escala para ter mais laboratórios de sala de aula:
 
-    Ele impede que você precise configurar uma imagem do zero sempre que criar um novo laboratório de sala de aula. Por exemplo, se várias classes estiverem sendo oferecidas que precisam da mesma imagem, essa imagem só precisará ser criada uma vez e salva na Galeria de imagens compartilhadas para que possa ser compartilhada entre os laboratórios da sala de aula.
-- **Garante a disponibilidade da imagem por meio da replicação**.
+- **Permite-lhe guardar e gerir versões de uma imagem VM modelo**.
 
-    Ao salvar na Galeria de imagens compartilhadas de um laboratório de sala de aula, sua imagem é replicada automaticamente para outras regiões na mesma geografia. Caso haja uma interrupção para uma região, a publicação da VM de modelo em seu laboratório de sala de aula não é afetada com o uso de uma réplica de imagem em outras regiões. Além disso, ele ajuda com o desempenho em cenários de publicação de várias VMs espalhando-se para usar réplicas diferentes.
+    É útil criar uma imagem personalizada ou fazer alterações (software, configuração, e assim por diante) para uma imagem da galeria do Marketplace público.  Por exemplo, é comum que os educadores exijam a instalação de diferentes ferramentas de software. Em vez de exigir que os alunos instalam manualmente estes pré-requisitos por si só, diferentes versões da imagem VM do modelo podem ser exportadas para uma galeria de imagens partilhadas. Estas versões de imagem podem então ser usadas na criação de novos laboratórios de sala de aula.
+- **Permite a partilha\reutilização de imagens VM do modelo em laboratórios de sala de aula**.
 
-Para agrupar logicamente as imagens compartilhadas, você tem algumas opções:
+    Pode guardar e reutilizar uma imagem para não ter de configurar a imagem do zero cada vez que criar um novo laboratório de sala de aula. Por exemplo, se várias classes estão sendo oferecidas que precisam da mesma imagem, esta imagem só precisa ser criada uma vez e exportada para a galeria de imagens partilhadas para que possa ser partilhada em laboratórios de sala de aula.
+- **Garante a disponibilidade de imagem através**da replicação .
 
-- Criar várias galerias de imagens compartilhadas. Cada conta de laboratório só pode se conectar a uma galeria de imagens compartilhadas, portanto, essa opção também exigirá que você crie várias contas de laboratório.
-- Ou, você pode usar uma única Galeria de imagens compartilhadas que é compartilhada por várias contas de laboratório. Nesse caso, cada conta de laboratório pode habilitar apenas as imagens aplicáveis aos laboratórios de sala de aula que ela contém.
+    Quando se guarda para a galeria de imagens partilhada de um laboratório de sala de aula, a sua imagem é automaticamente replicada para [outras regiões dentro da mesma geografia.](https://azure.microsoft.com/global-infrastructure/regions/) No caso de haver uma paragem para uma região, publicar a imagem no seu laboratório de sala de aula não é afetado, uma vez que uma réplica de imagem de outra região pode ser usada.  Publicar VMs de várias réplicas também pode ajudar no desempenho.
+
+Para logicamente agrupar imagens partilhadas, você tem algumas opções:
+
+- Criar várias galerias de imagem partilhadas. Cada conta de laboratório só pode ligar-se a uma galeria de imagens partilhada, pelo que esta opção também exigirá que crie várias contas de laboratório.
+- Ou, pode usar uma única galeria de imagens partilhada que é partilhada por várias contas de laboratório. Neste caso, cada conta de laboratório só pode permitir as imagens aplicáveis aos laboratórios de sala de aula que contém.
 
 ## <a name="naming"></a>Atribuição de nomes
-Ao começar a usar o Azure Lab Services, recomendamos que você estabeleça convenções de nomenclatura para grupos de recursos, contas de laboratório, laboratórios de sala de aula e a Galeria de imagens compartilhadas. Embora as convenções de nomenclatura estabelecidas sejam exclusivas às necessidades da sua organização, a tabela a seguir descreve as diretrizes gerais.
+À medida que começa com os Serviços azure lab, recomendamos que estabeleça convenções de nomeação para grupos de recursos, contas de laboratório, laboratórios de sala de aula e a galeria de imagens partilhadas. Embora as convenções de nomeação que estabelecer sejam únicas às necessidades da sua organização, a tabela que se segue descreve as orientações gerais.
 
 | Tipo de recurso | Função | Padrão sugerido | Exemplos |
 | ------------- | ---- | ----------------- | -------- | 
-| Grupo de recursos | Contém uma ou mais contas de laboratório e uma ou mais galerias de imagens compartilhadas | \<nome curto da organização\>-\<ambiente\>-RG<ul><li>**Nome curto da organização** identifica o nome da organização à qual o grupo de recursos dá suporte</li><li>O **ambiente** identifica o ambiente para o recurso, como teste ou produção</li><li>**RG** significa o tipo de recurso: grupo de recursos.</li></ul> | contosouniversitylabs-RG<br/>contosouniversitylabs-Test-RG<br/>contosouniversitylabs-prod-RG |
-| Conta de laboratório | Contém um ou mais laboratórios | \<nome curto da organização\>-\<ambiente\>-la<ul><li>**Nome curto da organização** identifica o nome da organização à qual o grupo de recursos dá suporte</li><li>O **ambiente** identifica o ambiente para o recurso, como teste ou produção</li><li>**La** significa o tipo de recurso: conta de laboratório.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-Test-la<br/>sciencedeptlabs-prod-la |
-| Laboratório de sala de aula | Contém uma ou mais VMs |\<nome da classe\>-\<período de tempo\>-\<o identificador do professor\><ul><li>**Nome da classe** identifica o nome da classe à qual o laboratório dá suporte.</li><li>**Período de tempo** identifica o período de tempo no qual a classe é oferecida.</li>O **identificador de educação** identifica o educador que possui o laboratório.</li></ul> | CS1234-fall2019-davibarros<br/>CS1234-spring2019-davibarros | 
-| Galeria de imagens compartilhadas | Contém uma ou mais versões de imagem de VM | Galeria de\>de nome curto da organização \< | contosouniversitylabsgallery |
+| Grupo de recursos | Contém uma ou mais contas de laboratório e uma ou mais galerias de imagem partilhadas | \<organização de nome curto\>-\<ambiente\>-rg<ul><li>**Nome curto** da organização identifica o nome da organização que o grupo de recursos apoia</li><li>**Ambiente** identifica o ambiente para o recurso, como o Piloto ou a Produção</li><li>**Rg** significa o tipo de recursos: grupo de recursos.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
+| Conta de laboratório | Contém um ou mais laboratórios | \<organização de nome curto\>-ambiente \<\>-la<ul><li>**Nome curto** da organização identifica o nome da organização que o grupo de recursos apoia</li><li>**Ambiente** identifica o ambiente para o recurso, como o Piloto ou a Produção</li><li>**La** significa o tipo de recurso: conta de laboratório.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
+| Laboratório de sala de aula | Contém um ou mais VMs |\<nome da classe\>-\<prazo\>-\<identificador\><ul><li>**O nome** da classe identifica o nome da classe que o laboratório suporta.</li><li>**O prazo** identifica o prazo em que a classe é oferecida.</li>**O identificador** de educação identifica o educador que é dono do laboratório.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-primavera2019-johndoe | 
+| Galeria de imagens partilhadas | Contém uma ou mais versões de imagem VM | \<galeria de\>de nome curto da organização | Galeria contosouniversitylabs |
 
-Para obter mais informações sobre como nomear outros recursos do Azure, consulte [convenções de nomenclatura para recursos do Azure](/azure/architecture/best-practices/naming-conventions).
+Para obter mais informações sobre a nomeação de outros recursos Do Iae, consulte [as convenções de nomeação para os recursos do Azure.](/azure/architecture/best-practices/naming-conventions)
 
 ## <a name="regions-or-locations"></a>Regiões ou locais
-Ao configurar os recursos do Azure Lab Services, você precisa fornecer uma região, ou local, do data center que hospedará o recurso. Aqui estão mais detalhes sobre como o region\location afeta cada um dos seguintes recursos usados em sua implantação de serviços de laboratório:
+Ao configurar os recursos dos seus Serviços De Laboratório Azure, é-lhe exigido que forneça uma região (ou localização) do centro de dados que acolherá o recurso. Aqui estão mais detalhes sobre como a região impacta cada um dos seguintes recursos usados na implementação do seu laboratório:
 
 - **Grupo de recursos**
 
-    A região especifica a data center em que as informações sobre o grupo de recursos são armazenadas. Os recursos do Azure contidos no grupo de recursos podem estar em regiões diferentes do seu pai.
+    A região especifica o centro de dados onde são armazenadas informações sobre o grupo de recursos. Os recursos azure contidos no grupo de recursos podem estar em diferentes regiões dos seus pais.
 - **Conta de laboratório ou laboratório de sala de aula**
 
-    O local da conta do laboratório indica a região deste recurso. Os laboratórios de sala de aula criados na conta de laboratório podem ser implantados em qualquer região na mesma geografia. A região específica em que as VMs do laboratório são implantadas é selecionada automaticamente com base na capacidade disponível na região naquele momento.  
-    Se um administrador permitir que os criadores de laboratório escolham o local de seu laboratório de sala de aula, os locais disponíveis para seleção serão baseados na capacidade regional disponível ao criar o laboratório.
-
-    O local do laboratório da sala de aula também determina quais tamanhos de computação da VM estão disponíveis para seleção. Determinados tamanhos de computação só estão disponíveis em locais específicos.
-- **Galeria de imagens compartilhadas**
-
-    A região indica a região de origem em que a primeira versão da imagem é armazenada antes de ser replicada automaticamente para as regiões de destino.
+    A localização da conta do laboratório indica a região para este recurso.  
     
-Uma regra geral é definir o region\location de um recurso para um que seja mais próximo de seus usuários. Para os laboratórios de sala de aula, isso significa criar o laboratório de sala de aula mais próximo de seus alunos. Para cursos online em que os alunos estão localizados em todo o mundo, você precisa usar o melhor julgamento para criar um laboratório de sala de aula que esteja localizado centralmente. Ou, dividir uma classe em vários laboratórios de sala de aula com base na região dos seus alunos.
+    Com laboratórios de sala de aula, a Azure Lab Services seleciona automaticamente a região para a sua implantação com base na capacidade disponível.  Especificamente, a Azure Lab Services procura disponibilidade em [regiões que estão dentro da mesma geografia que a conta de laboratório.](https://azure.microsoft.com/global-infrastructure/regions) 
+    
+    Se um administrador permitir que os criadores de laboratório escolham a localização do laboratório de sala de aula, os locais disponíveis para seleção baseiam-se na capacidade regional disponível na criação do laboratório.
 
-## <a name="vm-sizing"></a>Dimensionamento de VM
-Quando os administradores ou os criadores de laboratório criam um laboratório de sala de aula, eles podem escolher entre os seguintes tamanhos de VM com base nas necessidades de sua sala de aula. Lembre-se de que os tamanhos de computação disponíveis dependem da região em que sua conta de laboratório está localizada:
+    A localização do laboratório de sala de aula também determina quais os tamanhos de computação VM disponíveis para seleção. Certos tamanhos de cálculo só estão disponíveis em locais específicos.
+- **Galeria de imagens partilhadas**
+
+    A região indica a região de origem onde a primeira versão de imagem é armazenada antes de ser automaticamente replicada para as regiões-alvo.
+    
+Uma regra geral é definir a região de um recurso para uma que seja mais próxima dos seus utilizadores. Para os laboratórios de sala de aula, significa criar o laboratório de sala de aula mais próximo dos seus alunos. Para cursos online onde os alunos estão localizados em todo o mundo, você precisa usar o seu melhor julgamento para criar um laboratório de sala de aula que esteja localizado centralmente. Ou dividir uma aula em vários laboratórios de sala de aula baseados na região dos seus alunos.
+
+## <a name="vm-sizing"></a>Tamanho VM
+Quando administradores ou criadores de laboratório criam um laboratório de sala de aula, podem escolher entre os seguintes tamanhos de VM com base nas necessidades da sua sala de aula. Lembre-se que os tamanhos da computação disponíveis dependem da região em que a sua conta de laboratório está localizada em:
 
 | Tamanho | Especificações | Uso sugerido |
 | ---- | ----- | ------------- |
-| Pequeno| <ul><li>2 núcleos</li><li>3,5 GB RAM</li></ul> | Esse tamanho é mais adequado para linha de comando, abertura de navegador da Web, servidores Web de tráfego baixo, bancos de dados pequenos a médios. |
-| Médio | <ul><li>4 núcleos</li><li>7 GB RAM</li></ul> | Esse tamanho é mais adequado para bancos de dados relacionais, cache na memória e análise. |
-| Médio (virtualização aninhada) | <ul><li>4 núcleos</li><li>16 GB DE RAM</li></ul> | Esse tamanho é mais adequado para bancos de dados relacionais, cache na memória e análise.  Esse tamanho também dá suporte à virtualização aninhada. |
-| Grande | <ul><li>8 núcleos</li><li>32 GB DE RAM</li></ul> | Esse tamanho é mais adequado para aplicativos que precisam de CPUs mais rápidas, melhor desempenho de disco local, bancos de dados grandes, caches de memória grande.  Esse tamanho também dá suporte à virtualização aninhada. |
-| GPU pequena (visualização) | <ul><li>6 núcleos</li><li>56 GB DE RAM</li> | Esse tamanho é mais adequado para visualização remota, streaming, jogos, codificação usando estruturas como OpenGL e DirectX. |
-| GPU pequena (computação) | <ul><li>6 núcleos</li><li>56 GB DE RAM</li></ul> |Esse tamanho é mais adequado para aplicativos com uso intensivo de computadores, como inteligência artificial e aprendizado profundo. |
-| GPU média (visualização) | <ul><li>12 núcleos</li><li>112 GB DE RAM</li></ul> | Esse tamanho é mais adequado para visualização remota, streaming, jogos, codificação usando estruturas como OpenGL e DirectX. |
+| Pequeno| <ul><li>2 Núcleos</li><li>3.5 GB DE CARNEIRO</li></ul> | Este tamanho é mais adequado para linha de comando, abertura do navegador web, servidores web de tráfego baixo, bases de dados pequenas a médias. |
+| Médio | <ul><li>4 Núcleos</li><li>7 GB DE CARNEIRO</li></ul> | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise. |
+| Médio (virtualização aninhada) | <ul><li>4 Núcleos</li><li>16 GB DE CARNEIRO</li></ul> | Este tamanho é mais adequado para bases de dados relacionais, caches na memória e análise.  Este tamanho também suporta a virtualização aninhada. |
+| Grande | <ul><li>8 Núcleos</li><li>32 GB DE RAM</li></ul> | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápido, melhor desempenho do disco local, grandes bases de dados, grandes caches de memória.  Este tamanho também suporta a virtualização aninhada. |
+| Pequena GPU (Visualização) | <ul><li>6 Núcleos</li><li>56 GB DE CARNEIRO</li> | Este tamanho é mais adequado para visualização remota, streaming, gaming, codificação usando quadros como OpenGL e DirectX. |
+| Pequena GPU (Computação) | <ul><li>6 Núcleos</li><li>56 GB DE CARNEIRO</li></ul> |Este tamanho é mais adequado para aplicações intensivas em computador, como Inteligência Artificial e Deep Learning. |
+| Média GPU (Visualização) | <ul><li>12 Núcleos</li><li>112 GB DE RAM</li></ul> | Este tamanho é mais adequado para visualização remota, streaming, gaming, codificação usando quadros como OpenGL e DirectX. |
 
-## <a name="manage-identity"></a>Gerenciar identidade
-Há dois tipos de funções que um administrador de conta de laboratório pode ter:
+## <a name="manage-identity"></a>Gerir a identidade
+Utilizando o controlo de [acesso baseado no papel do Azure,](https://docs.microsoft.com/azure/role-based-access-control/overview)as seguintes funções podem ser atribuídas para dar acesso a contas de laboratório e laboratórios de sala de aula:
 
-- **Proprietário**
+- **Dono de conta de laboratório**
 
-    Um administrador que é atribuído à função **proprietário** tem acesso total à conta de laboratório, incluindo o direito de conceder a outros usuários acesso à conta de laboratório e Adicionar criadores de laboratório. O administrador que cria a conta de laboratório por padrão é adicionado como o proprietário.
-- **Contribuidor**
+    O administrador que cria a conta de laboratório é automaticamente adicionado ao papel de **Proprietário** da conta de laboratório.  Um administrador que tenha atribuído o papel de **Proprietário** pode:
+     - Mude as definições da conta do laboratório.
+     - Dê a outros administradores acesso à conta de laboratório como proprietários ou contribuintes. 
+     - Dar aos educadores acesso a laboratórios de sala de aula como criadores, proprietários ou colaboradores.
+     - Crie e gerencie todos os laboratórios de sala de aula dentro da conta do laboratório.
 
-    Um administrador que é atribuído à função Colaborador pode alterar as configurações de conta do laboratório, mas eles não podem conceder acesso a outros usuários; Nem, eles podem adicionar criadores de laboratório.
+- **Contribuinte de conta de laboratório**
 
-Quando você anexa uma galeria de imagens compartilhada a uma conta de laboratório, o acesso é fornecido automaticamente para os criadores de administrador e de laboratório para que eles possam exibir e salvar imagens na galeria. 
+    Um administrador que tenha atribuído o papel de **Contribuinte** pode:
+    - Mude as definições da conta do laboratório.
+    - Crie e gerencie todos os laboratórios dentro da conta do laboratório.
+    
+    No entanto, *não podem* dar a outros utilizadores acesso a contas de laboratório ou laboratórios de sala de aula.
+
+- **Criador de laboratório de sala de aula**
+
+    Para criar laboratórios de sala de aula dentro de uma conta de laboratório, um educador deve ser membro do papel de Criador de **Laboratório.**  Quando um educador cria um laboratório de sala de aula, são automaticamente adicionados como donos do laboratório.  Consulte o tutorial sobre como adicionar um utilizador ao papel de Criador de [ **Laboratório** ](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
+
+- **Proprietário de laboratório de sala de aula\contribuinte**
+  
+    Um educador pode ver e alterar as configurações de um laboratório de sala de aula quando são membros do papel de **Proprietário** ou **Colaborador** de um laboratório; devem também ser membros do papel de **Leitor** da conta de laboratório.
+
+    Uma diferença fundamental entre as funções de **Proprietário** e **Colaborador** de um laboratório é que um colaborador *não pode* dar a outros utilizadores acesso para gerir o laboratório - apenas os proprietários podem dar a outros utilizadores acesso para gerir o laboratório.
+    
+    Além disso, um educador *não pode* criar novos laboratórios de sala de aula a menos que também seja membro do papel de Criador de **Laboratório.**
+
+- **Galeria de imagens partilhadas**
+    
+    Quando você anexa uma galeria de imagem partilhada a uma conta de laboratório, os proprietários de contas de laboratório\colaboradores e criadores de laboratório\os colaboradores\os colaboradores são automaticamente dados acesso a visualização e economizam imagens na galeria. 
+
+Aqui ficam algumas dicas para ajudar na atribuição de funções:
+   - Normalmente, apenas os administradores devem ser membros das funções de **Proprietário** ou **Colaborador** de uma conta de laboratório; pode ter mais do que um proprietário\contribuinte.
+
+   - Dar a um educador a capacidade de criar novos laboratórios de sala de aula e gerir os laboratórios que criam; só precisa atribuir acesso ao papel de Criador de **Laboratório.**
+   
+   - Dar a um educador a capacidade de gerir laboratórios específicos em sala de aula, mas *não* a capacidade de criar novos laboratórios; deve atribuir acesso ao papel **proprietário** ou **colaborador** de cada um dos laboratórios de sala de aula que irão gerir.  Por exemplo, talvez queira permitir que um professor e um assistente de ensino sejam co-donos de um laboratório de sala de aula.  Consulte o guia sobre como [adicionar um utilizador como proprietário a um laboratório de sala de aula](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
 
 ## <a name="pricing"></a>Preços
 
 ### <a name="azure-lab-services"></a>Azure Lab Services
-O preço para Azure Lab Services é descrito no seguinte artigo: [preços de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
+Os preços dos Serviços De Laboratório Azure são descritos no seguinte artigo: Preços dos [Serviços De Laboratório Azure.](https://azure.microsoft.com/pricing/details/lab-services/)
 
-Você também precisa considerar o preço da Galeria de imagens compartilhadas se planeja usá-la para armazenar e gerenciar versões de imagem. 
+Também precisa de considerar os preços da galeria de imagens partilhadas se pretende utilizá-lo para armazenar e gerir versões de imagem. 
 
-### <a name="shared-image-gallery"></a>Galeria de imagens compartilhadas
-Criar uma galeria de imagens compartilhada e anexá-la à sua conta de laboratório é gratuita. Os custos não são incorridos até que você salve uma versão de imagem na galeria. Normalmente, o preço para usar uma galeria de imagens compartilhadas é razoavelmente insignificante, mas é importante entender como ele é calculado, pois não está incluído no preço de Azure Lab Services.  
+### <a name="shared-image-gallery"></a>Galeria de imagens partilhadas
+Criar uma galeria de imagens partilhadae anexá-la à sua conta de laboratório é gratuita. Os custos não são incorridos até guardar uma versão de imagem para a galeria. Tipicamente, o preço para usar uma galeria de imagens partilhadas é bastante insignificante, mas é importante entender como é calculado, uma vez que não está incluído nos preços dos Serviços de Laboratório Azure.  
 
 ### <a name="storage-charges"></a>Encargos de armazenamento
-Para armazenar versões de imagem, uma galeria de imagens compartilhadas usa discos gerenciados por HDD padrão. O tamanho do disco gerenciado por HDD que é usado depende do tamanho da versão da imagem que está sendo armazenada. Consulte o artigo a seguir para exibir o preço: [preços do Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+Para armazenar versões de imagem, uma galeria de imagens partilhada utiliza discos geridos por HDD padrão. O tamanho do disco gerido pelo HDD que é usado depende do tamanho da versão de imagem que está a ser armazenada. Consulte o seguinte artigo para ver os preços: Preços dos [discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 
-### <a name="replication-and-network-egress-charges"></a>Encargos de saída de rede e replicação
-Quando você salva uma versão de imagem usando uma VM (máquina virtual) de modelo de laboratório de sala de aula, o Lab Services primeiro a armazena em uma região de origem e, em seguida, replica automaticamente a versão da imagem de origem para uma ou mais regiões de destino. É importante observar que Azure Lab Services replica automaticamente a versão da imagem de origem para todas as regiões de destino na localização geográfica onde o laboratório da sala de aula está localizado. Por exemplo, se o laboratório da sala de aula estiver na localização geográfica dos EUA, uma versão de imagem será replicada para cada uma das oito regiões existentes nos EUA.
+### <a name="replication-and-network-egress-charges"></a>Taxas de replicação e rede de egress
+Quando se guarda uma versão de imagem utilizando uma máquina virtual de modelo de laboratório de sala de aula (VM), a Azure Lab Services armazena-a primeiro numa região de origem e, em seguida, replica automaticamente a versão de imagem de origem para uma ou mais regiões-alvo. É importante notar que o Azure Lab Services replica automaticamente a versão de imagem de origem para todas as [regiões-alvo dentro da geografia](https://azure.microsoft.com/global-infrastructure/regions/) onde o laboratório de sala de aula está localizado. Por exemplo, se o seu laboratório de sala de aula estiver na geografia dos EUA, uma versão de imagem é replicada para cada uma das oito regiões que existem nos EUA.
 
-Um encargo de egresso de rede ocorre quando uma versão de imagem é replicada da região de origem para outras regiões de destino. O valor cobrado é baseado no tamanho da versão da imagem quando os dados da imagem são transferidos inicialmente de saída da região de origem.  Para obter detalhes de preços, consulte o seguinte artigo: [detalhes de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+Uma carga de saída de rede ocorre quando uma versão de imagem é replicada da região de origem para regiões-alvo adicionais. O montante cobrado baseia-se no tamanho da versão de imagem quando os dados da imagem são inicialmente transferidos para fora da região de origem.  Para obter detalhes sobre preços, consulte o seguinte artigo: Detalhes de preços de [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Os clientes de [soluções educacionais](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) podem ser renunciados ao pagamento de encargos de egresso. Fale com seu gerente de conta para saber mais.  Para obter mais informações, consulte **consulte a seção de perguntas frequentes** no documento vinculado, especificamente a pergunta "quais programas de transferência de dados existem para clientes acadêmicos e como posso me qualificar?").
+[Soluções educativas](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) os clientes podem ser dispensados do pagamento de taxas de egress. Fale com o seu gestor de conta para saber mais.  Para mais informações, consulte a secção **de PERGUNTAS FREQUENTEs** no documento vinculado, especificamente a questão "Que programas de transferência de dados existem para clientes académicos e como me qualifico?".
 
 ### <a name="pricing-example"></a>Exemplo de preços
-Para recapitular o preço descrito acima, vejamos um exemplo de como salvar nossa imagem de VM de modelo na Galeria de imagens compartilhadas. Suponha os seguintes cenários:
+Para recapitular os preços acima descritos, vamos olhar para um exemplo de salvar a nossa imagem VM modelo para galeria de imagens partilhada. Assuma os seguintes cenários:
 
-- Você tem uma imagem de VM personalizada.
-- Você está salvando duas versões da imagem.
-- Seu laboratório está nos EUA, que tem um total de oito regiões.
-- Cada versão de imagem tem 32 GB de tamanho; Como resultado, o preço do disco gerenciado por HDD é $1.54 por mês.
+- Tem uma imagem VM personalizada.
+- Estás a guardar duas versões da imagem.
+- O seu laboratório está nos E.U.A., que tem um total de oito regiões.
+- Cada versão de imagem tem 32 GB de tamanho; como resultado, o preço do disco gerido pelo HDD é de $1,54 por mês.
 
 O custo total é estimado como:
 
-Número de imagens × número de versões × número de réplicas × preço de disco gerenciado
+Número de imagens × número de versões × número de réplicas × preço do disco gerido
 
 Neste exemplo, o custo é:
 
-1 imagem personalizada (32 GB) x 2 versões x 8 regiões dos EUA x $1.54 = $24.64 por mês
+1 imagem personalizada (32 GB) x 2 versões x 8 regiões dos EUA x $1,54 = $24,64 por mês
 
 ### <a name="cost-management"></a>Gestão de custos
-É importante que o administrador da conta do laboratório gerencie os custos, excluindo rotineiramente as versões de imagem desnecessárias da galeria. 
+É importante para o administrador de conta de laboratório gerir os custos, apagando rotineiramente versões de imagem desnecessárias da galeria. 
 
-Você não deve excluir a replicação para regiões específicas como uma maneira de reduzir os custos (essa opção existe na Galeria de imagens compartilhadas). As alterações de replicação podem ter efeitos adversos na capacidade do serviço de laboratório do Azure de publicar VMs de imagens salvas em uma galeria de imagens compartilhadas.
+Não deve excluir a replicação a regiões específicas como forma de reduzir os custos (esta opção existe na galeria de imagens partilhadas). As alterações de replicação podem ter efeitos adversos na capacidade do Serviço de Laboratório azure de publicar VMs a partir de imagens guardadas dentro de uma galeria de imagens partilhadas.
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte o tutorial para obter instruções passo a passo para criar uma conta de laboratório e um laboratório: [tutorial: configurar uma conta de laboratório](tutorial-setup-lab-account.md)
+Consulte o tutorial para obter instruções passo a passo para criar uma conta de laboratório e um laboratório: [Tutorial: criar uma conta](tutorial-setup-lab-account.md) de laboratório

@@ -1,5 +1,6 @@
 ---
-title: Começar com políticas personalizadas - Azure Ative Directory B2C
+title: Introdução às políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Saiba como começar com políticas personalizadas no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 02/28/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a0e5846dd541e4997c271aee180b3790efa16e9
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 04978b561e3b0057318d08146f344411dec55ee4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114042"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161674"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Começar com políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -27,11 +28,11 @@ ms.locfileid: "77114042"
 
 - Se ainda não tem um, [crie um inquilino Azure AD B2C](tutorial-create-tenant.md) que esteja ligado à sua subscrição Azure.
 - [Registe a sua candidatura](tutorial-register-applications.md) no inquilino que criou para que possa comunicar com o Azure AD B2C.
-- Complete os passos em [Iniciar sessão e iniciar sessão com uma conta no Facebook](identity-provider-facebook.md) para configurar uma aplicação do Facebook.
+- Complete os passos em [Iniciar sessão e iniciar sessão com uma conta no Facebook](identity-provider-facebook.md) para configurar uma aplicação do Facebook. Embora uma aplicação do Facebook não seja necessária para usar políticas personalizadas, é usada neste walkthrough para demonstrar permitir o login social numa política personalizada.
 
 ## <a name="add-signing-and-encryption-keys"></a>Adicione chaves de assinatura e encriptação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de Diretório + Subscrição** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. Na página geral, no âmbito de **Políticas,** selecione Quadro de **Experiência de Identidade**.
@@ -75,9 +76,9 @@ Você precisa registar estas duas aplicações no seu inquilino Azure AD B2C ape
 
 Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a experiência de registos da **App (Legacy)** ou a nossa nova experiência unificada de registos de **Aplicações (Pré-visualização).** [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications"></a>[Aplicações](#tab/applications/)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No portal Azure, procure e selecione **Azure Ative Directory**.
 1. No menu de visão geral do **Diretório Ativo Azure,** em **'Gerir',** selecione registos de **aplicações (Legacy)** .
 1. Selecione **Novo registo de aplicação**.
@@ -86,7 +87,7 @@ Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a exp
 1. Para **url de início de sessão,** insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, onde `your-tenant-name` é o seu nome de domínio de inquilino Azure AD AD B2C. Todos os URLs devem agora utilizar [b2clogin.com](b2clogin.md).
 1. Selecione **Criar**. Depois de criado, copie o ID da aplicação e guarde-o para usar mais tarde.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
 1. Selecione **registos de aplicativos (Pré-visualização)** e, em seguida, selecione **Nova inscrição**.
 1. Para **Nome,** insira `IdentityExperienceFramework`.
@@ -110,7 +111,7 @@ Em seguida, expor a API adicionando um âmbito:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registe a aplicação ProxyIdentityExperienceFramework
 
-#### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
+#### <a name="applications"></a>[Aplicações](#tab/applications/)
 
 1. Nos **registos de aplicações (Legacy)** , selecione Novo registo de **aplicações.**
 1. Para **Nome,** insira `ProxyIdentityExperienceFramework`.
@@ -122,7 +123,7 @@ Em seguida, expor a API adicionando um âmbito:
 1. Selecione a caixa de verificação ao lado do **Access IdentityExperienceFramework,** clique em **Selecionar**e, em seguida, clique **em Done**.
 1. Selecione **permissões de concessão**e, em seguida, confirme selecionando **Sim**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registos de aplicativos (Pré-visualização)](#tab/app-reg-preview/)
 
 1. Selecione **registos de aplicativos (Pré-visualização)** e, em seguida, selecione **Nova inscrição**.
 1. Para **Nome,** insira `ProxyIdentityExperienceFramework`.
@@ -221,6 +222,8 @@ Ao fazer o upload dos ficheiros, o Azure adiciona o prefixo `B2C_1A_` a cada um.
 1. Faça o insto com a mesma conta para confirmar que tem a configuração correta.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Adicione o Facebook como fornecedor de identidade
+
+Como mencionado nos [pré-requisitos,](#prerequisites)o Facebook *não* é necessário para usar políticas personalizadas, mas é usado aqui para demonstrar como você pode permitir o login social federado em uma política personalizada.
 
 1. No ficheiro `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`,** substitua o valor do `client_id` pelo ID da aplicação do Facebook:
 

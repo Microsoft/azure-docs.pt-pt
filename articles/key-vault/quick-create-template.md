@@ -8,20 +8,20 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/17/2019
+ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: b2561a4e065fc82cc08e8275965ab0b403fc66f0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9c2217fc72f846c5542345621a13fd066a166dd7
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654567"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162864"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Quickstart: Definir e recuperar um segredo do Cofre de Chaves Azure usando o modelo de Gestor de Recursos
 
 [Azure Key Vault](./key-vault-overview.md) é um serviço na nuvem que fornece uma loja segura para segredos, tais como chaves, senhas, certificados e outros segredos. Este quickstart centra-se no processo de implementação de um modelo de Gestor de Recursos para criar um cofre chave e um segredo.
 
-[O modelo do Gestor de Recursos](../azure-resource-manager/templates/overview.md) é um ficheiro JavaScript Object Notation (JSON) que define a infraestrutura e a configuração para o seu projeto. O modelo usa sintaxe declarativa, que permite indicar o que pretende implementar sem ter de escrever a sequência de comandos de programação para criá-la. Se quiser saber mais sobre o desenvolvimento de modelos de Gestor de Recursos, consulte a [documentação do Gestor](/azure/azure-resource-manager/) de Recursos e a referência do [modelo](/azure/templates/microsoft.keyvault/allversions).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

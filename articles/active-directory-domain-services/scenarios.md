@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d0035e7c87806012d13117ae5335b7de5f3c99d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: ac67ef64ca4850c6e805b5314ace856114d889a7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132288"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917235"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casos e cenários comuns para serviços de domínio de diretório ativo Azure
 
-O Azure Ative Directory Domain Services (Azure AD DS) fornece serviços de domínio geridos, tais como a adesão ao domínio, a política de grupo, o protocolo de acesso ao diretório leve (LDAP) e a autenticação Kerberos /NTLM. O Azure AD DS integra-se ao seu locatário existente do Azure AD, o que possibilita que os usuários entrem usando suas credenciais existentes. Você usa estes serviços de domínio sem a necessidade de implementar, gerir e patch controladores de domínio na nuvem, o que fornece um elevador e mudança mais suaves de recursos no local para Azure.
+O Azure Ative Directory Domain Services (Azure AD DS) fornece serviços de domínio geridos, tais como a adesão ao domínio, a política de grupo, o protocolo de acesso ao diretório leve (LDAP) e a autenticação Kerberos /NTLM. O Azure AD DS integra-se com o seu inquilino Azure AD existente, o que permite aos utilizadores assinarem usando as suas credenciais existentes. Você usa estes serviços de domínio sem a necessidade de implementar, gerir e patch controladores de domínio na nuvem, o que fornece um elevador e mudança mais suaves de recursos no local para Azure.
 
 Este artigo descreve alguns cenários de negócio comuns onde o Azure AD DS fornece valor e satisfaz essas necessidades.
 
@@ -97,7 +97,7 @@ As seguintes considerações de implantação aplicam-se a este caso de utiliza�
 
 Pode utilizar o Azure AD DS para fornecer serviços de domínio geridos a servidores de ambiente de trabalho remotos implantados no Azure. Para mais informações sobre este cenário de implementação, consulte como integrar os Serviços de [Domínio Azure AD com a sua implementação RDS][windows-rds].
 
-## <a name="domain-joined-hdinsight-clusters-preview"></a>Clusters HDInsight unidos por domínio (pré-visualização)
+## <a name="domain-joined-hdinsight-clusters"></a>Clusters HDInsight unidos pelo domínio
 
 Pode configurar um cluster Azure HDInsight que se junta a um domínio gerido pelo Azure AD DS com apache Ranger ativado. Você pode criar e aplicar políticas de Colmeia através do Apache Ranger, e permitir que os utilizadores, como cientistas de dados, se conectem à Colmeia usando ferramentas baseadas em ODBC como Excel ou Tableau. Continuamos a trabalhar para adicionar outras cargas de trabalho, como HBase, Spark e Storm ao HDInsight de domínio.
 

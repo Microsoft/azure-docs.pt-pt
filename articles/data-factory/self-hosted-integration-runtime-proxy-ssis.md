@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 02/06/2020
-ms.openlocfilehash: 5f9e15b83c36c6c19fbe93c5f1df365f6f763c81
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/28/2020
+ms.openlocfilehash: 701e279e349bdc3b92d5b5c2dc50e23199f9d766
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187674"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160816"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configure um IR auto-hospedado como procuração para um IR Azure-SSIS na Fábrica de Dados Azure
 
@@ -165,7 +165,7 @@ As segundas tarefas de encenação que executam o seu IR Azure-SSIS não são fa
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- Apenas são suportadas as tarefas de fluxo de dados com conectividade de base de dados aberta (ODBC), OLEDB ou Flat File e o ODBC, OLEDB e Flat File fontes ou destino OLEDB. 
+- Apenas são suportadas as tarefas de fluxo de dados com conectividade de base de dados aberta (ODBC), OLEDB ou Flat File e as fontes ODBC, OLEDB ou Flat File. 
 - Apenas os serviços ligados ao armazenamento Azure Blob que estão configurados com *chave de conta,* *Assinatura de Acesso Partilhado (SAS) URI,* ou autenticação principal de *serviço* são atualmente suportados.
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,68 +1,94 @@
 ---
-title: Configurar aplicativos node. js
-description: Saiba como configurar um contêiner node. js predefinido para seu aplicativo. Este artigo mostra as tarefas de configuração mais comuns.
+title: Configure Aplicativos Node.js
+description: Aprenda a configurar um recipiente node.js pré-construído para a sua aplicação. Este artigo mostra as tarefas de configuração mais comuns.
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 6cf60472307a378d2fd4258a9777152344a11ded
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 45d7d141bc2ab85ab33be455fc3da5570b0e7f51
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670277"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920030"
 ---
-# <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurar um aplicativo node. js do Linux para o serviço Azure App
+# <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configure uma aplicação Linux Node.js para o Serviço de Aplicações Azure
 
-Os aplicativos node. js devem ser implantados com todas as dependências de NPM necessárias. O kudu (mecanismo de implantação do serviço de aplicativo) executa automaticamente `npm install --production` para você quando você implanta um [repositório git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)ou um [pacote zip](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) com processos de compilação ativados. No entanto, se você implantar seus arquivos usando [FTP/S](../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), será necessário carregar os pacotes necessários manualmente.
+As aplicações Node.js devem ser implementadas com todas as dependências npm necessárias. O motor de implantação do Serviço de Aplicações (Kudu) funciona automaticamente `npm install --production` para si quando implementa um [repositório Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), ou um [pacote Zip](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) com processos de construção ligados. No entanto, se implementar os seus ficheiros utilizando [FTP/S,](../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)terá de carregar manualmente as embalagens necessárias.
 
-Este guia fornece os principais conceitos e instruções para desenvolvedores do node. js que usam um contêiner do Linux interno no serviço de aplicativo. Se você nunca usou Azure App serviço, siga o tutorial do [início rápido do node. js](quickstart-nodejs.md) e do [node. js com o MongoDB](tutorial-nodejs-mongodb-app.md) primeiro.
+Este guia fornece conceitos e instruções fundamentais para os desenvolvedores da Node.js que usam um recipiente Linux incorporado no Serviço de Aplicações. Se nunca usou o Azure App Service, siga o [Node.js quickstart](quickstart-nodejs.md) e [node.js com tutorial MongoDB](tutorial-nodejs-mongodb-app.md) primeiro.
 
-## <a name="show-nodejs-version"></a>Mostrar versão do node. js
+## <a name="show-nodejs-version"></a>Ver versão Node.js
 
-Para mostrar a versão atual do node. js, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+Para mostrar a versão atual do Node.js, execute o seguinte comando na [Cloud Shell:](https://shell.azure.com)
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-Para mostrar todas as versões do node. js com suporte, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+Para mostrar todas as versões node.js suportadas, execute o seguinte comando na [Cloud Shell:](https://shell.azure.com)
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep NODE
 ```
 
-## <a name="set-nodejs-version"></a>Definir versão do node. js
+## <a name="set-nodejs-version"></a>Definir versão Node.js
 
-Para definir seu aplicativo para uma [versão do node. js com suporte](#show-nodejs-version), execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+Para definir a sua aplicação para uma [versão Node.js suportada,](#show-nodejs-version)execute o seguinte comando na [Cloud Shell:](https://shell.azure.com)
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|10.14"
 ```
 
-Essa configuração especifica a versão do node. js a ser usada, em tempo de execução e durante a restauração automatizada de pacotes em kudu.
+Esta definição especifica a versão Node.js a utilizar, tanto no tempo de execução como durante a restauração automática do pacote em Kudu.
 
 > [!NOTE]
-> Você deve definir a versão do node. js no `package.json`do seu projeto. O mecanismo de implantação é executado em um contêiner separado que contém todas as versões do node. js com suporte.
+> Deve definir a versão Node.js no `package.json`do seu projeto. O motor de implantação funciona num recipiente separado que contém todas as versões nonóias suportadas.
 
-## <a name="configure-nodejs-server"></a>Configurar o servidor node. js
+## <a name="customize-build-automation"></a>Personalize a automatização de construção
 
-Os contêineres do node. js vêm com o [PM2](https://pm2.keymetrics.io/), um gerente de processo de produção. Você pode configurar seu aplicativo para iniciar com PM2, ou com NPM, ou com um comando personalizado.
+Se implementar a sua aplicação utilizando pacotes Git ou zip com automatização de construção ligada, o Serviço de Aplicações constrói passos de automação através da seguinte sequência:
+
+1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH`.
+1. Executar `npm install` sem bandeiras, que incluam roteiros de `preinstall` e `postinstall` e também instala `devDependencies`.
+1. Faça `npm run build` se um script de construção for especificado no seu *pacote.json*.
+1. Execute `npm run build:azure` se um script build:azure for especificado no seu *pacote.json*.
+1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH`.
+
+> [!NOTE]
+> Como descrito em [docs da NPM,](https://docs.npmjs.com/misc/scripts)scripts nomeados `prebuild` e `postbuild` executadoantes e depois de `build`, respectivamente, se especificado. `preinstall` e `postinstall` correr antes e depois `install`, respectivamente.
+
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis ambientais que são vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-construção, defina `POST_BUILD_COMMAND`.
+
+O exemplo seguinte especifica as duas variáveis a uma série de comandos, separados por vírgulas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Para variáveis ambientais adicionais para personalizar a automatização de construção, consulte a [configuração oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Para obter mais informações sobre como o App Service funciona e constrói aplicações Node.js em Linux, consulte [documentação oryx: Como as aplicações noNode.js são detetadas e construídas](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md).
+
+## <a name="configure-nodejs-server"></a>Configure Servidor Node.js
+
+Os contentores node.js vêm com [PM2](https://pm2.keymetrics.io/), um gestor de processos de produção. Pode configurar a sua aplicação para começar com PM2, ou com NPM, ou com um comando personalizado.
 
 - [Executar comando personalizado](#run-custom-command)
-- [Executar NPM iniciar](#run-npm-start)
-- [Executar com PM2](#run-with-pm2)
+- [Executar início npm](#run-npm-start)
+- [Corra com PM2](#run-with-pm2)
 
 ### <a name="run-custom-command"></a>Executar comando personalizado
 
-O serviço de aplicativo pode iniciar seu aplicativo usando um comando personalizado, como um executável como *Run.sh*. Por exemplo, para executar `npm run start:prod`, execute o seguinte comando na [Cloud Shell](https://shell.azure.com):
+O Serviço de Aplicações pode iniciar a sua aplicação usando um comando personalizado, como um executável como *run.sh*. Por exemplo, para executar `npm run start:prod`, executar o seguinte comando na [Cloud Shell:](https://shell.azure.com)
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
 ```
 
-### <a name="run-npm-start"></a>Executar NPM iniciar
+### <a name="run-npm-start"></a>Executar início npm
 
-Para iniciar seu aplicativo usando `npm start`, apenas verifique se um script de `start` está no arquivo *Package. JSON* . Por exemplo:
+Para iniciar a sua aplicação utilizando `npm start`, certifique-se apenas de que um `start` script está no ficheiro *package.json.* Por exemplo:
 
 ```json
 {
@@ -75,29 +101,29 @@ Para iniciar seu aplicativo usando `npm start`, apenas verifique se um script de
 }
 ```
 
-Para usar um *Package. JSON* personalizado em seu projeto, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+Para utilizar um *pacote personalizado.json* no seu projeto, execute o seguinte comando na [Cloud Shell:](https://shell.azure.com)
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
 ```
 
-### <a name="run-with-pm2"></a>Executar com PM2
+### <a name="run-with-pm2"></a>Corra com PM2
 
-O contêiner inicia automaticamente seu aplicativo com PM2 quando um dos arquivos node. js comuns é encontrado em seu projeto:
+O recipiente inicia automaticamente a sua aplicação com PM2 quando um dos ficheiros node.js comuns é encontrado no seu projeto:
 
 - *bin/www*
-- *Server. js*
-- *App. js*
-- *index. js*
-- *hostingstart. js*
-- Um dos seguintes [arquivos PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *Process. JSON* e *ecossistema. config. js*
+- *servidor.js*
+- *app.js*
+- *index.js*
+- *hostingstart.js*
+- Um dos [seguintes ficheiros PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* e *ecosystem.config.js*
 
-Você também pode configurar um arquivo de inicialização personalizado com as seguintes extensões:
+Também pode configurar um ficheiro de início personalizado com as seguintes extensões:
 
-- Um arquivo *. js*
-- Um [arquivo PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) com a extensão *. JSON*, *. config. js*, *. YAML*ou *. yml*
+- Um ficheiro *.js*
+- Um [ficheiro PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) com a extensão *.json*, *.config.js,* *.yaml,* ou *.yml*
 
-Para adicionar um arquivo de inicialização personalizado, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+Para adicionar um ficheiro de início personalizado, execute o seguinte comando na [Cloud Shell:](https://shell.azure.com)
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
@@ -106,11 +132,11 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 ## <a name="debug-remotely"></a>Depurar remotamente
 
 > [!NOTE]
-> A depuração remota está atualmente em visualização.
+> A depuração remota está atualmente em Pré-visualização.
 
-Você pode depurar seu aplicativo node. js remotamente no [Visual Studio Code](https://code.visualstudio.com/) se configurá-lo para [ser executado com PM2](#run-with-pm2), exceto quando você executá-lo usando um *. config. js, *. yml ou *. YAML*.
+Pode desincomodá-la remotamente no Código do [Estúdio Visual](https://code.visualstudio.com/) se a configurar para funcionar com [PM2](#run-with-pm2), exceto quando a executa utilizando um *.config.js, *.yml, ou *.yaml*.
 
-Na maioria dos casos, nenhuma configuração adicional é necessária para seu aplicativo. Se seu aplicativo for executado com um arquivo *Process. JSON* (padrão ou personalizado), ele deverá ter uma propriedade `script` na raiz JSON. Por exemplo:
+Na maioria dos casos, não é necessária nenhuma configuração extra para a sua aplicação. Se a sua aplicação for executada com um ficheiro *process.json* (padrão ou personalizado), deve ter uma propriedade `script` na raiz jSON. Por exemplo:
 
 ```json
 {
@@ -120,25 +146,25 @@ Na maioria dos casos, nenhuma configuração adicional é necessária para seu a
 }
 ```
 
-Para configurar Visual Studio Code para depuração remota, instale a [extensão do serviço de aplicativo](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Siga as instruções na página extensão e entre no Azure no Visual Studio Code.
+Para configurar o Código do Estúdio Visual para depuração remota, instale a extensão do [Serviço de Aplicações](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Siga as instruções na página de extensão e inscreva-se no Azure no Código do Estúdio Visual.
 
-No Azure Explorer, localize o aplicativo que você deseja depurar, clique nele com o botão direito do mouse e selecione **Iniciar Depuração remota**. Clique em **Sim** para habilitá-lo para seu aplicativo. O serviço de aplicativo inicia um proxy de túnel para você e anexa o depurador. Em seguida, você pode fazer solicitações para o aplicativo e ver o depurador pausando em pontos de interrupção.
+No explorador Azure, encontre a aplicação que pretende depurar, clique à direita e selecione **Start Remote Debugging**. Clique em **Sim** para ativar para a sua aplicação. O Serviço de Aplicações inicia um proxy de túnel para si e anexa o debugger. Em seguida, pode fazer pedidos para a app e ver o desbugger fazer uma pausa nos pontos de rutura.
 
-Depois de concluir a depuração, pare o depurador selecionando **Desconectar**. Quando solicitado, você deve clicar em **Sim** para desabilitar a depuração remota. Para desabilitá-lo mais tarde, clique com o botão direito do mouse no seu aplicativo novamente no Azure Explorer e selecione **Desabilitar depuração remota**.
+Uma vez terminada a depuração, pare o desbugger selecionando **Desligar**. Quando solicitado, deve clicar **em Sim** para desativar a depuração remota. Para desativá-lo mais tarde, clique novamente na sua aplicação no explorador Azure e selecione **Depuração Remota de desativação**.
 
-## <a name="access-environment-variables"></a>Variáveis de ambiente de acesso
+## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
-No serviço de aplicativo, você pode [definir configurações de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fora do seu código do aplicativo. Em seguida, você pode acessá-los usando o padrão node. js padrão. Por exemplo, para acessar uma configuração de aplicativo chamada `NODE_ENV`, use o seguinte código:
+No Serviço de Aplicações, pode [definir as definições](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) de aplicações fora do seu código de aplicações. Depois pode acessá-los usando o padrão node.js padrão. Por exemplo, para aceder a uma definição de aplicação chamada `NODE_ENV`, utilize o seguinte código:
 
 ```javascript
 process.env.NODE_ENV
 ```
 
-## <a name="run-gruntbowergulp"></a>Executar Grunt/Bower/Gulp
+## <a name="run-gruntbowergulp"></a>Run Grunt/Bower/Gulp
 
-Por padrão, o kudu é executado `npm install --production` quando reconhece que um aplicativo node. js é implantado. Se seu aplicativo exigir qualquer uma das ferramentas de automação populares, como Grunt, Bower ou Gulp, você precisará fornecer um [script de implantação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) para executá-lo.
+Por padrão, kudu corre `npm install --production` quando reconhece que uma aplicação Node.js é implementada. Se a sua aplicação necessitar de alguma das ferramentas de automação populares, como grunt, Bower ou Gulp, você precisa fornecer um script de [implementação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) para executá-lo.
 
-Para habilitar seu repositório para executar essas ferramentas, você precisa adicioná-las às dependências em *Package. JSON.* Por exemplo:
+Para permitir que o seu repositório execute estas ferramentas, precisa adicioná-las às dependências do *pacote.json.* Por exemplo:
 
 ```json
 "dependencies": {
@@ -149,16 +175,16 @@ Para habilitar seu repositório para executar essas ferramentas, você precisa a
 }
 ```
 
-Em uma janela de terminal local, altere o diretório para a raiz do repositório e execute os seguintes comandos:
+A partir de uma janela de terminal local, mude o diretório para a sua raiz de repositório e execute os seguintes comandos:
 
 ```bash
 npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-A raiz do repositório agora tem dois arquivos adicionais: *. Deployment* e *Deploy.sh*.
+A sua raiz de repositório tem agora dois ficheiros adicionais: *.deployment* e *deploy.sh*.
 
-Abra *Deploy.sh* e localize a seção `Deployment`, que tem a seguinte aparência:
+Abra *deploy.sh* e encontre a secção `Deployment`, que se parece com isto:
 
 ```bash
 ##################################################################################################################################
@@ -166,17 +192,17 @@ Abra *Deploy.sh* e localize a seção `Deployment`, que tem a seguinte aparênci
 # ----------
 ```
 
-Esta seção termina com a execução de `npm install --production`. Adicione a seção de código de que você precisa para executar a ferramenta necessária *no final* da seção `Deployment`:
+Esta secção termina com `npm install --production`de execução . Adicione a secção de código que precisa para executar a ferramenta necessária *no final* da secção `Deployment`:
 
 - [Bower](#bower)
-- [Gulp](#gulp)
-- [Grunt](#grunt)
+- [Rio Gulp](#gulp)
+- [Grunhido](#grunt)
 
-Veja um [exemplo no exemplo Mean. js](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135), em que o script de implantação também executa um comando de `npm install` personalizado.
+Veja um [exemplo na amostra MEAN.js,](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135)onde o script de implantação também executa um comando personalizado `npm install`.
 
 ### <a name="bower"></a>Bower
 
-Este trecho de código é executado `bower install`.
+Este corte é `bower install`.
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
@@ -187,9 +213,9 @@ if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
 fi
 ```
 
-### <a name="gulp"></a>Gulp
+### <a name="gulp"></a>Rio Gulp
 
-Este trecho de código é executado `gulp imagemin`.
+Este corte é `gulp imagemin`.
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
@@ -202,7 +228,7 @@ fi
 
 ### <a name="grunt"></a>Grunt
 
-Este trecho de código é executado `grunt`.
+Este corte é `grunt`.
 
 ```bash
 if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
@@ -213,11 +239,11 @@ if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
 fi
 ```
 
-## <a name="detect-https-session"></a>Detectar sessão HTTPS
+## <a name="detect-https-session"></a>Detetar sessão HTTPS
 
-No serviço de aplicativo, a [terminação SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos balanceadores de carga de rede, portanto, todas as solicitações HTTPS atingem seu aplicativo como solicitações HTTP não criptografadas. Se a lógica do aplicativo precisar verificar se as solicitações do usuário estão criptografadas ou não, inspecione o cabeçalho `X-Forwarded-Proto`.
+No Serviço de Aplicações, a rescisão do [SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos equilibradores de carga da rede, pelo que todos os pedidos HTTPS chegam à sua aplicação como pedidos HTTP não encriptados. Se a lógica da sua aplicação necessitar de verificar se os pedidos do utilizador estão encriptados ou não, inspecione o cabeçalho `X-Forwarded-Proto`.
 
-Estruturas da Web populares permitem que você acesse as informações de `X-Forwarded-*` em seu padrão de aplicativo padrão. No [Express](https://expressjs.com/), você pode usar [proxies de confiança](https://expressjs.com/guide/behind-proxies.html). Por exemplo:
+Os quadros web populares permitem-lhe aceder à informação `X-Forwarded-*` no padrão padrão de aplicações. No [Express,](https://expressjs.com/)pode usar [proxies de confiança.](https://expressjs.com/guide/behind-proxies.html) Por exemplo:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -231,25 +257,25 @@ if (req.secure) {
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="open-ssh-session-in-browser"></a>Abrir sessão SSH no navegador
+## <a name="open-ssh-session-in-browser"></a>Abra a sessão sSH no navegador
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Quando um aplicativo node. js de trabalho se comporta de forma diferente no serviço de aplicativo ou tem erros, tente o seguinte:
+Quando uma aplicação node.js funcionando se comportar de forma diferente no Serviço de Aplicações ou tiver erros, tente o seguinte:
 
-- [Acessar o fluxo de log](#access-diagnostic-logs).
-- Teste o aplicativo localmente no modo de produção. O serviço de aplicativo executa seus aplicativos node. js no modo de produção, portanto, você precisa certificar-se de que seu projeto funciona como esperado no modo de produção localmente. Por exemplo:
-    - Dependendo do *Package. JSON*, pacotes diferentes podem ser instalados para o modo de produção (`dependencies` versus `devDependencies`).
-    - Determinadas estruturas da Web podem implantar arquivos estáticos de forma diferente no modo de produção.
-    - Determinadas estruturas da Web podem usar scripts de inicialização personalizados ao serem executados no modo de produção.
-- Execute seu aplicativo no serviço de aplicativo no modo de desenvolvimento. Por exemplo, em [Mean. js](https://meanjs.org/), você pode definir seu aplicativo para o modo de desenvolvimento em tempo de execução [definindo a configuração do aplicativo `NODE_ENV`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
+- [Aceda ao fluxo de registos](#access-diagnostic-logs).
+- Teste a aplicação localmente em modo de produção. O Serviço de Aplicações executa as suas aplicações Node.js em modo de produção, pelo que tem de se certificar de que o seu projeto funciona como esperado em modo de produção local. Por exemplo:
+    - Dependendo do seu *pacote.json,* podem ser instalados diferentes pacotes para o modo de produção (`dependencies` vs. `devDependencies`).
+    - Certos quadros web podem implementar ficheiros estáticos de forma diferente no modo de produção.
+    - Certos quadros web podem usar scripts de arranque personalizados quando estão em modo de produção.
+- Execute a sua aplicação no App Service em modo de desenvolvimento. Por exemplo, em [MEAN.js,](https://meanjs.org/)pode configurar a sua aplicação para o modo de desenvolvimento em tempo de [execução, definindo a definição de `NODE_ENV` aplicação](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: aplicativo node. js com o MongoDB](tutorial-nodejs-mongodb-app.md)
+> [Tutorial: App Node.js com MongoDB](tutorial-nodejs-mongodb-app.md)
 
 > [!div class="nextstepaction"]
-> [Perguntas frequentes sobre o serviço de aplicativo Linux](app-service-linux-faq.md)
+> [Serviço de aplicações Linux FAQ](app-service-linux-faq.md)

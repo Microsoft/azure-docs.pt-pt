@@ -12,23 +12,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 14cd43f7bd7965b755eca14e5914c64e2ec8e044
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981299"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918211"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é possível RDP para uma VM porque a VM arranca no modo de segurança
 
 Este artigo mostra como resolver um problema em que não é possível ligar às máquinas de virtuais de Windows do Azure (VMs), porque a VM está configurada para efetuar o arranque no modo seguro.
 
-> [!NOTE]
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
 
 ## <a name="symptoms"></a>Sintomas
 
-Não é possível efetuar uma ligação RDP ou de outras ligações (por exemplo, HTTP) para uma VM no Azure porque a VM está configurada para efetuar o arranque no modo seguro. Quando dá entrada a captura de ecrã do [diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) no portal do Azure, poderá ver que a VM arranca normalmente, mas a interface de rede não está disponível:
+Não é possível efetuar uma ligação RDP ou de outras ligações (por exemplo, HTTP) para uma VM no Azure porque a VM está configurada para efetuar o arranque no modo seguro. Quando verificar a imagem nos [diagnósticos](../troubleshooting/boot-diagnostics.md) boot no portal Azure, poderá ver que as botas VM normalmente, mas a interface de rede não está disponível:
 
 ![Imagem sobre inferce de rede em modo de segurança](./media/troubleshoot-rdp-safe-mode/network-safe-mode.png)
 
@@ -39,21 +37,21 @@ O serviço RDP não está disponível no modo de segurança. Apenas serviços e 
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 
-Para resolver este problema, utilize o controle Serial para configurar a VM para efetuar o arranque no modo normal ou [Repare a VM offline](#repair-the-vm-offline) através de uma VM de recuperação.
+Para resolver este problema, utilize o controlo de série para configurar o VM para iniciar o modo normal ou [reparar o VM offline](#repair-the-vm-offline) utilizando um VM de recuperação.
 
 ### <a name="use-serial-control"></a>Utilizar o controlo de série
 
-1. Ligar à [consola de série e Abrir instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-   ). Se a consola de série não estiver ativada na sua VM, consulte [Repare a VM offline](#repair-the-vm-offline).
+1. Ligue-se à consola em série e abra a [instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+   ). Se a Consola em Série não estiver ativada no seu VM, consulte [a reparação do VM offline](#repair-the-vm-offline).
 2. Verifique os dados de configuração de arranque:
 
         bcdedit /enum
 
-    Se a VM está configurada para inicializar em modo de segurança, verá um sinalizador extra sob os **carregador de inicialização do Windows** secção denominada **inicialização segura**. Se não vir a **inicialização segura** sinalizador, a VM não está no modo de segurança. Este artigo não é aplicável ao seu cenário.
+    Se o VM estiver configurado para iniciar o Modo Seguro, verá uma bandeira extra sob a secção de carregador de **botas do Windows** chamada **safeboot**. Se não vir a bandeira do **safeboot,** o VM não está em modo de segurança. Este artigo não é aplicável ao seu cenário.
 
-    O **inicialização segura** sinalizador foi apresentada com os seguintes valores:
+    A bandeira **safeboot** pode aparecer com os seguintes valores:
    - Mínimo
    - Rede
 
@@ -61,11 +59,11 @@ Para resolver este problema, utilize o controle Serial para configurar a VM para
 
      ![Imagem sobre o sinalizador do modo de segurança](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
-3. Eliminar a **safemoade** sinalizar, para que a VM será arrancada no modo normal:
+3. Elimine a bandeira **de safemoade,** para que o VM arranque em modo normal:
 
         bcdedit /deletevalue {current} safeboot
 
-4. Verifique os dados de configuração de arranque para se certificar de que o **inicialização segura** sinalizador é removido:
+4. Verifique os dados de configuração da bota para se certificar de que a bandeira **do safeboot** é removida:
 
         bcdedit /enum
 
@@ -75,9 +73,9 @@ Para resolver este problema, utilize o controle Serial para configurar a VM para
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do SO a uma VM de recuperação
 
-1. [Anexar o disco do SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Fixe o disco OS a um VM](../windows/troubleshoot-recovery-disks-portal.md)de recuperação .
 2. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
-3. Certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
+3. Certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>Ativar o registo de informação e a consola de série (opcional)
 
@@ -85,7 +83,7 @@ O registo de informação e a consola de série irão ajudar-nos fazer ainda mai
 
 Para ativar o registo de despejo e consola de série, execute o seguinte script.
 
-1. Abra uma sessão de linha de comandos elevada (**executar como administrador**).
+1. Abra uma sessão de solicitação de comando elevada **(Executar como administrador).**
 2. Execute o seguintes script:
 
     Nesse script, partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F. Substitua esta letra de unidade com o valor apropriado para a sua VM.
@@ -112,22 +110,22 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
     reg unload HKLM\BROKENSYSTEM
     ```
 
-#### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Configurar as janelas para inicialização no modo normal
+#### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Configure o Windows para iniciar o modo normal
 
-1. Abra uma sessão de linha de comandos elevada (**executar como administrador**).
-2. Verifique os dados de configuração da inicialização. Nos comandos a seguir, presumimos que a letra da unidade atribuída ao disco do sistema operacional anexado é F. Substitua essa letra da unidade pelo valor apropriado para sua VM.
+1. Abra uma sessão de solicitação de comando elevada **(Executar como administrador).**
+2. Verifique os dados de configuração da bota. Nos seguintes comandos, assumimos que a letra de unidade atribuída ao disco OS anexado é F. Substitua esta carta de unidade com o valor adequado para o seu VM.
 
         bcdedit /store F:\boot\bcd /enum
-    Anote o nome do identificador da partição que tem a pasta **\Windows** . Por padrão, o nome do identificador é "padrão".
+    Tome nota do nome identificador da partição que tem a pasta **\windows.** Por predefinição, o nome identificador é "Padrão".
 
-    Se a VM está configurada para inicializar em modo de segurança, verá um sinalizador extra sob os **carregador de inicialização do Windows** secção denominada **inicialização segura**. Se você não vir o sinalizador de **inicialização segura** , este artigo não se aplicará ao seu cenário.
+    Se o VM estiver configurado para iniciar o Modo Seguro, verá uma bandeira extra sob a secção de carregador de **botas do Windows** chamada **safeboot**. Se não vir a bandeira do **safeboot,** este artigo não se aplica ao seu cenário.
 
-    ![A imagem sobre o identificador de inicialização](./media/troubleshoot-rdp-safe-mode/boot-id.png)
+    ![A imagem sobre o identificador de arranque](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
-3. Remova o sinalizador de **inicialização segura** , portanto, a VM será inicializada no modo normal:
+3. Retire a bandeira **safeboot,** para que o VM entre no modo normal:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Verifique os dados de configuração de arranque para se certificar de que o **inicialização segura** sinalizador é removido:
+4. Verifique os dados de configuração da bota para se certificar de que a bandeira **do safeboot** é removida:
 
         bcdedit /store F:\boot\bcd /enum
-5. [Desanexar o disco do SO e recriar a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema foi resolvido.
+5. [Desmontar o disco OS e recriar o VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se a questão está resolvida.

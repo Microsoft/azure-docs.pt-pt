@@ -8,17 +8,17 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 71c30e0a86f67a2e2826859032144aa491c0cee1
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 5236fd89ed99ca14bb7fc24e40ef79e12e5177d9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597036"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919520"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos através do Agente Delog Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O Agente Log Analytics também copia ficheiros de despejo de crash para o seu espaço de trabalho.
 
-A recolha de dados é necessária para fornecer visibilidade em atualizações em falta, configurações de segurança soconfiguradas mal configuradas, estado de proteção de pontos finais e deteções de saúde e ameaças. 
+A recolha de dados é necessária para fornecer visibilidade em atualizações em falta, configurações de segurança soco configuradas mal configuradas, estado de proteção de pontos finais e proteção contra a saúde e ameaças. 
 
 Este artigo descreve como instalar um Agente de Análise de Registos e definir um espaço de trabalho de Log Analytics para armazenar os dados recolhidos. As duas operações são necessários para ativar a recolha de dados. 
 
@@ -139,7 +139,7 @@ Quando seleciona uma área de trabalho para armazenar seus dados, todas as área
 
 
 ## <a name="data-collection-tier"></a>Camada de recolha de dados
-A seleção de um escalão de recolha de dados no Centro de Segurança do Azure só vai afetar o armazenamento dos eventos de segurança na área de trabalho do Log Analytics. O agente Log Analytics ainda irá recolher e analisar os eventos de segurança necessários para as deteções de ameaças do Azure Security Center, independentemente do nível de eventos de segurança que escolha armazenar no seu espaço de trabalho Log Analytics (se houver). Optar por armazenar os eventos de segurança na sua área de trabalho permitirá a investigação, a pesquisa e a auditoria desses eventos na área de trabalho. 
+A seleção de um escalão de recolha de dados no Centro de Segurança do Azure só vai afetar o armazenamento dos eventos de segurança na área de trabalho do Log Analytics. O agente Log Analytics ainda irá recolher e analisar os eventos de segurança necessários para a proteção contra ameaças do Azure Security Center, independentemente do nível de eventos de segurança que escolha armazenar no seu espaço de trabalho Log Analytics (se houver). Optar por armazenar os eventos de segurança na sua área de trabalho permitirá a investigação, a pesquisa e a auditoria desses eventos na área de trabalho. 
 > [!NOTE]
 > Armazenar dados em análise de registo pode incorrer em encargos adicionais para armazenamento de dados. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 > 

@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 899f453ef67fd094578e946c1cdd9ca4d427bf79
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122451"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919775"
 ---
 # <a name="azure-classic-cli-commands"></a>Comandos CLI clássicos de Azure 
 
-> [!IMPORTANT]
-> Este tópico descreve como instalar a CLI clássica do Azure. A CLI clássica foi preterida e só deve ser utilizada com o modelo de implementação clássica.
-> Para todas as outras implementações, utilize o [Azure CLI](https://docs.microsoft.com/cli/azure/).
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
+
+Este tópico descreve como instalar a CLI clássica do Azure. A CLI clássica foi preterida e só deve ser utilizada com o modelo de implementação clássica. Para todas as outras implementações, utilize o [Azure CLI](https://docs.microsoft.com/cli/azure/).
 
 Este artigo fornece sintaxe e opções para comandos de interface de linha de comando clássicos do Azure (CLI) que você normalmente usaria para criar e gerir recursos Azure. Esta não é uma referência completa, e a sua versão CLI pode apresentar comandos ou parâmetros ligeiramente diferentes. 
 
@@ -1696,7 +1696,7 @@ Opções de parâmetros:
 
     tag show [options] [name]
 
-## <a name="virtual-machines"></a>Máquinas Virtuais
+## <a name="virtual-machines"></a>Virtual Machines
 **Criar um VM**
 
     vm create [options] <resource-group> <name> <location> <os-type>

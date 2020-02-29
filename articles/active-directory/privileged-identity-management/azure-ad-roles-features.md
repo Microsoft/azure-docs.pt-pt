@@ -16,12 +16,12 @@ ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f7bc881cee362103fc611cbf8a094e07ad50699
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: f5d63577cbdbdf18cb17618bdb5c9e3b5de0e44a
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499033"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162271"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Capacidades de gestão para funções da Azure AD na Gestão de Identidade Privilegiada
 
@@ -62,9 +62,9 @@ Temos tentado chegar ao nosso melhor para contactar todos os clientes que estão
 
 ## <a name="powershell-change"></a>Mudança PowerShell
 
-Para os clientes que estão a utilizar o módulo PowerShell de Gestão de Identidade Privilegiada para funções Azure AD, o PowerShell deixará de trabalhar com a atualização. No lugar dos cmdlets anteriores deve utilizar os cmdlets de Gestão de Identidade Privilegiada dentro do módulo PowerShell de pré-visualização Azure AD. Instale o módulo PowerShell Azure AD a partir da [Galeria PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Os cmdlets são construídos em cima da API do gráfico.
+Para os clientes que estão a utilizar o módulo PowerShell de Gestão de Identidade Privilegiada para funções Azure AD, o PowerShell deixará de trabalhar com a atualização. No lugar dos cmdlets anteriores deve utilizar os cmdlets de Gestão de Identidade Privilegiada dentro do módulo PowerShell de pré-visualização Azure AD. Instale o módulo PowerShell Azure AD a partir da [Galeria PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Pode agora [ler a documentação e as amostras para operações pim neste módulo PowerShell](powershell-for-azure-ad-roles.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir uma função personalizada azure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de funções personalizadas da AD Azure](azure-ad-custom-roles-update-remove.md)

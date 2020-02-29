@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 514ead43159b416752f968da3883e644fb0ccc2f
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 7157d9c0b96dbb31a158f599efd5489e8059f6ba
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650900"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163442"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicações lógicas do Azure
 
@@ -156,7 +156,7 @@ Algumas operações de conector fazem chamadas assíncronas ou ouvem pedidos de 
 | Nome | Limite de multi-inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Tamanho da mensagem | 100 MB | 200 MB | Os conectores com a etiqueta ISE utilizam o limite ISE e não os seus limites de conectores não ISE. <p><p>Para contornar este limite, consulte [manuseie mensagens grandes com pedaços](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não suportar a chunking ou mesmo o limite de predefinição. |
-| Tamanho da mensagem com pedaço | 1 GB | 5 GB | Este limite aplica-se a ações que suportam de forma nativa ou permitem a sua configuração de tempo de execução. <p>Para o ambiente de serviço de integração, o motor Logic Apps suporta este limite, mas os conectores têm os seus próprios limites de chunking até ao limite do motor, por exemplo, ver a [referência aAPI do conector Azure Blob.](https://docs.microsoft.com/connectors/azureblob/) Para obter mais informações, consulte [Manuseie mensagens grandes com pedaços](../logic-apps/logic-apps-handle-large-messages.md). |
+| Tamanho da mensagem com pedaço | 1 GB | 5 GB | Este limite aplica-se a ações que suportam de forma nativa ou permitem a sua configuração de tempo de execução. <p><p>Para o ambiente de serviço de integração, o motor Logic Apps suporta este limite, mas os conectores têm os seus próprios limites de chunking até ao limite do motor, por exemplo, ver a [referência aAPI do conector Azure Blob.](https://docs.microsoft.com/connectors/azureblob/) Para obter mais informações sobre chunking, consulte [Manuseie mensagens grandes com chunking](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
 #### <a name="character-limits"></a>Limites de carácter

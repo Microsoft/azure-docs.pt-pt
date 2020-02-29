@@ -2,17 +2,17 @@
 title: DC-series - Máquinas Virtuais Azure
 description: Especificações para os VMs da série DC.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: c4e141b7854925f5d12afce19481a6e9c2f8dd1d
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 41b08a921b4cc71275c216e86e89e49b59fc950a
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599226"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163748"
 ---
 # <a name="preview-dcv2-series"></a>Pré-visualização: DCv2-series
 
@@ -24,6 +24,10 @@ Os casos de utilização por exemplo incluem partilha de dados multipartidários
 Armazenamento Premium: Suportado*
 
 Caching de armazenamento premium: Suportado*
+
+Migração Ao Vivo: Não Suportado
+
+Atualizações de preservação da memória: não suportadas
 
 *Exceto por Standard_DC8_v2
 

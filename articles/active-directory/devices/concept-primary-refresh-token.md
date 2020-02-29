@@ -1,6 +1,6 @@
 ---
-title: Token de atualização principal (PRT) e o Azure AD – o Azure Active Directory
-description: O que é a função do e como gerir o primário atualizar Token (PRT) no Azure Active Directory?
+title: Ficha de atualização primária (PRT) e Azure AD - Diretório Ativo Azure
+description: Qual é o papel e como gerimos o Primário Refresh Token (PRT) no Diretório Ativo Azure?
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,187 +11,188 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e195a93209875b9eabfaa2ad00772281922443c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 7b9240b863eef4d460cd8d3a47304fb96ffb4bc8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476117"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917786"
 ---
-# <a name="what-is-a-primary-refresh-token"></a>O que é um primário atualizar Token?
+# <a name="what-is-a-primary-refresh-token"></a>O que é um Token De Refresco Primário?
 
-Um principal atualizar Token (PRT) é um artefato de chave de autenticação do Azure AD em dispositivos Android, iOS e Windows 10. É um JSON Web Token (JWT) especialmente emitido para o Microsoft primeiro terceiros token mediadores para ativar o início de sessão único (SSO) entre os aplicativos usados nesses dispositivos. Neste artigo, forneceremos detalhes sobre como um PRT está emitido, utilizado e protegido em dispositivos Windows 10.
+Um Token De Atualização Primário (PRT) é um artefacto chave da autenticação Azure AD nos dispositivos Windows 10, iOS e Android. Trata-se de um JSON Web Token (JWT) especialmente emitido para os corretores de fichas da primeira parte da Microsoft para permitir um único sinal (SSO) através das aplicações utilizadas nesses dispositivos. Neste artigo, forneceremos detalhes sobre como um PRT é emitido, usado e protegido em dispositivos Windows 10.
 
-Este artigo pressupõe que já compreende os Estados de dispositivo diferentes disponíveis no Azure AD e como único início de sessão funciona no Windows 10. Para obter mais informações sobre os dispositivos no Azure AD, consulte o artigo [o que é a gestão de dispositivos no Azure Active Directory?](overview.md)
+Este artigo assume que já compreende os diferentes estados do dispositivo disponíveis no Azure AD e como funciona um único sinal no Windows 10. Para obter mais informações sobre dispositivos em Azure AD, consulte o artigo [O que é a gestão de dispositivos no Diretório Ativo azure?](overview.md)
 
-## <a name="key-terminology-and-components"></a>Componentes e terminologia-chave
+## <a name="key-terminology-and-components"></a>Terminologia e componentes chave
 
-Os seguintes componentes do Windows exercem um papel fundamental na pedir e utilização de um PRT:
+Os seguintes componentes do Windows desempenham um papel fundamental na solicitação e utilização de um PRT:
 
-* **Fornecedor de autenticação de cloud** (CloudAP): CloudAP é o fornecedor de autenticação moderna para o Windows iniciar sessão, que verifica os utilizadores que iniciem a um dispositivo Windows 10. CloudAP fornece uma estrutura de plug-in, essa identidade provedores podem se basear para ativar a autenticação do Windows com as credenciais do fornecedor de identidade.
-* **Gestor de conta de Web** (WAM): WAM é o predefinição do Mediador de token em dispositivos Windows 10. WAM fornece também uma estrutura de plug-in, essa identidade provedores podem aumentar e ativar o SSO para seus aplicativos contando com esse provedor de identidade.
-* **Plug-in do Azure AD CloudAP**: Plugin de específica do Azure AD criado no CloudAP framework, que verifica as credenciais de utilizador com o Azure AD durante a sessão do Windows.
-* **Plug-in do Azure AD WAM**: Plugin de específica do Azure AD criado no framework WAM, que permite o SSO para aplicações que dependem do Azure AD para autenticação.
-* **Dsreg**: Um componente específico do Azure AD no Windows 10, que lida com o processo de registo do dispositivo para todos os Estados de dispositivo.
-* **Trusted Platform Module** (TPM): Um TPM é um componente de hardware num dispositivo, que fornece funções de segurança baseada em hardware de segredos do utilizador e dispositivo. Podem encontrar mais detalhes no artigo [Trusted Platform módulo visão geral da tecnologia](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview).
+* **Fornecedor de Autenticação cloud** (CloudAP): O CloudAP é o fornecedor moderno de autenticação para o Windows iniciar sessão, que verifica o registo dos utilizadores num dispositivo Windows 10. A CloudAP fornece uma estrutura plugin que os fornecedores de identidade podem construir para permitir a autenticação no Windows usando as credenciais desse fornecedor de identidade.
+* **Gestor de Conta Web** (WAM): WAM é o corretor de fichas padrão nos dispositivos do Windows 10. A WAM também fornece um quadro plugin que os fornecedores de identidade podem construir e permitir o SSO às suas aplicações confiando nesse fornecedor de identidade.
+* **Plugin Azure AD CloudAP**: Um plugin específico da AD Azure construído sobre a estrutura CloudAP, que verifica as credenciais do utilizador com a AD Azure durante o início do windows.
+* **Plugin Azure AD WAM**: Um plugin específico Azure AD construído sobre a estrutura WAM, que permite ao SSO aplicações que dependem da AD Azure para autenticação.
+* **Dsreg**: Um componente específico da AD Azure no Windows 10, que trata do processo de registo do dispositivo para todos os estados do dispositivo.
+* **Módulo de Plataforma Fidedigna** (TPM): Um TPM é um componente de hardware incorporado num dispositivo, que fornece funções de segurança baseadas em hardware para segredos de utilizador e dispositivo. Mais detalhes podem ser encontrados no artigo Visão geral da tecnologia do [módulo de plataforma fidedigna.](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview)
 
-## <a name="what-does-the-prt-contain"></a>O que o contém PRT?
+## <a name="what-does-the-prt-contain"></a>O que o PrT contém?
 
-Um PRT contém declarações geralmente contidas em qualquer token de atualização do Azure AD. Além disso, existem algumas declarações de específicos de dispositivos incluídas em PRT. Estas são as seguintes:
+Um PRT contém alegações geralmente contidas em qualquer token de atualização da AD Azure. Além disso, existem algumas reclamações específicas do dispositivo incluídas no PrT. São os seguintes:
 
-* **ID de dispositivo**: Um PRT é emitido para um usuário num dispositivo específico. A afirmação de ID de dispositivo `deviceID` determina PRT foi emitido para o utilizador no dispositivo. Esta afirmação mais tarde é emitida para tokens de obteve por meio de PRT. A afirmação de ID de dispositivo é utilizada para determinar a autorização de acesso condicional com base no estado do dispositivo ou conformidade.
-* **Chave de sessão**: A chave de sessão é uma chave simétrica criptografada, gerado pelo serviço de autenticação do Azure AD, emitido como parte de PRT. A chave de sessão funciona como prova de posse quando um PRT é usado para obter os tokens para outras aplicações.
+* **ID do dispositivo**: Um PRT é emitido a um utilizador num dispositivo específico. A alegação de identificação do dispositivo `deviceID` determina o dispositivo em que o PRT foi emitido para o utilizador. Esta alegação é posteriormente emitida a fichas obtidas através da PrT. A alegação de ID do dispositivo é utilizada para determinar a autorização de Acesso Condicional com base no estado do dispositivo ou na conformidade.
+* **Chave da sessão**: A chave da sessão é uma chave simétrica encriptada, gerada pelo serviço de autenticação Azure AD, emitida como parte do PRT. A chave da sessão funciona como prova de posse quando um PRT é usado para obter fichas para outras aplicações.
 
-### <a name="can-i-see-whats-in-a-prt"></a>Posso ver o que está num PRT?
+### <a name="can-i-see-whats-in-a-prt"></a>Posso ver o que há numa prt?
 
-Um PRT é um blob opaco enviado a partir do Azure AD, cujo conteúdo não é conhecido por quaisquer componentes de cliente. Não pode ver o que há dentro de um PRT.
+Um PRT é uma bolha opaca enviada da Azure AD cujo conteúdo não é do conhecimento de quaisquer componentes do cliente. Não se pode ver o que está dentro de um PrT.
 
-## <a name="how-is-a-prt-issued"></a>Como é emitido um PRT?
+## <a name="how-is-a-prt-issued"></a>Como é emitida uma PrT?
 
-Registo de dispositivos é um pré-requisito para a autenticação de dispositivo com base no Azure AD. Um PRT é emitido para os utilizadores apenas em dispositivos registados. Para obter detalhes mais aprofundados sobre o registo de dispositivos, consulte o artigo [Windows Hello para empresas e o registo de dispositivos](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). Durante o registo do dispositivo, o componente de dsreg gera dois conjuntos de pares de chaves criptográficas:
+O registo do dispositivo é um pré-requisito para a autenticação baseada em dispositivos em Azure AD. É emitido um PRT para utilizadores apenas em dispositivos registados. Para mais detalhes sobre o registo do dispositivo, consulte o artigo Windows Hello para registo de [negócios e dispositivos.](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration) Durante o registo do dispositivo, o componente dsreg gera dois conjuntos de pares de chaves criptográficas:
 
 * Chave do dispositivo (dkpub/dkpriv)
 * Chave de transporte (tkpub/tkpriv)
 
-As chaves privadas são vinculadas para TPM o dispositivo, se o dispositivo tiver um TPM válido e a funcionar, enquanto as chaves públicas são enviadas para o Azure AD durante o processo de registo do dispositivo. Estas chaves são utilizadas para validar o estado do dispositivo durante os pedidos PRT.
+As chaves privadas estão ligadas ao TPM do dispositivo se o dispositivo tiver um TPM válido e funcional, enquanto as chaves públicas são enviadas para a AD Azure durante o processo de registo do dispositivo. Estas teclas são utilizadas para validar o estado do dispositivo durante os pedidos de PRT.
 
-PRT é emitido durante a autenticação de utilizador num dispositivo Windows 10 em dois cenários:
+O PRT é emitido durante a autenticação do utilizador num dispositivo Windows 10 em dois cenários:
 
-* **Associados ao Azure AD** ou **Azure AD híbrido associou**: Um PRT é emitido durante o início de sessão do Windows, quando um utilizador inicia sessão com as credenciais da sua organização. Um PRT é emitido com todas as credenciais do Windows 10 suportados, por exemplo, palavra-passe e Windows Hello para empresas. Neste cenário, o plug-in do Azure AD CloudAP é a autoridade de principal para PRT.
-* **O Azure AD registado o dispositivo**: Quando um utilizador adicionar uma conta profissional secundário para o respetivo dispositivo Windows 10, é emitido um PRT. Os usuários podem adicionar uma conta para o Windows 10 de duas formas diferentes-  
-   * A adicionar uma conta através da **utilizar esta conta em qualquer lugar neste dispositivo** pedido depois de iniciar sessão a uma aplicação (por exemplo, Outlook)
-   * Adicionar uma conta a partir **configurações** > **contas** > **acesso profissional ou escolar** > **Connect**
+* **Azure AD juntou-se** ou **Hybrid Azure AD juntou-se**: A PRT é emitida durante o logon do Windows quando um utilizador inicia sessão com as suas credenciais de organização. É emitida uma PRT com todas as credenciais suportadas pelo Windows 10, por exemplo, palavra-passe e Windows Hello for Business. Neste cenário, o plugin Azure AD CloudAP é a principal autoridade para o PRT.
+* **Dispositivo registado em Azure AD**: Um PRT é emitido quando um utilizador adiciona uma conta de trabalho secundária ao seu dispositivo Windows 10. Os utilizadores podem adicionar uma conta ao Windows 10 de duas maneiras diferentes -  
+   * Adicionar uma conta através da **utilização desta conta em todo o lado neste dispositivo** solicita-se depois de iniciar sessão numa app (por exemplo, Outlook)
+   * Adicionar uma conta a partir de **Definições** > **Contas** > Trabalho de **Acesso ou** > **Escola Connect**
 
-Em cenários de dispositivo do Azure AD registado, o plug-in do Azure AD WAM é a autoridade de principal para PRT, uma vez que o início de sessão do Windows não está a acontecer com esta conta do Azure AD.
+Nos cenários do dispositivo registado pela Azure AD, o plugin WAM Azure AD é a principal autoridade para o PRT, uma vez que o logon do Windows não está a acontecer com esta conta Azure AD.
 
 > [!NOTE]
-> fornecedores de identidade de terceiros 3º necessário suportar o protocolo WS-Trust para ativar a emissão de PRT em dispositivos Windows 10. Sem o WS-Trust, PRT não podem ser emitidos para os utilizadores no Azure híbridos associados ao AD ou do Azure AD dispositivos associados
+> Os fornecedores de identidade de terceiros precisam de apoiar o protocolo WS-Trust para permitir a emissão de PRT em dispositivos Windows 10. Sem a WS-Trust, o PRT não pode ser emitido aos utilizadores em Dispositivos AD Hybrid Azure ou Azure AD
 
-## <a name="what-is-the-lifetime-of-a-prt"></a>O que é o tempo de vida de um PRT?
+## <a name="what-is-the-lifetime-of-a-prt"></a>Qual é a vida de um PrT?
 
-Depois de emitido, um PRT é válido durante 14 dias e continuamente for renovada, desde que o utilizador utiliza ativamente o dispositivo.  
+Uma vez emitido, um PRT é válido por 14 dias e é continuamente renovado desde que o utilizador utilize ativamente o dispositivo.  
 
-## <a name="how-is-a-prt-used"></a>Como é utilizado um PRT?
+## <a name="how-is-a-prt-used"></a>Como é usado um PRT?
 
-Um PRT é utilizado por dois componentes-chave no Windows:
+Um PRT é utilizado por dois componentes chave no Windows:
 
-* **Plug-in do Azure AD CloudAP**: Durante o início de sessão do Windows no, o plug-in do Azure AD CloudAP solicita um PRT do Azure AD com as credenciais fornecidas pelo utilizador. Também coloca em cache PRT para ativar o início de sessão em cache quando o utilizador não tem acesso a uma ligação à internet.
-* **Plug-in do Azure AD WAM**: Quando os utilizadores tentarem aceder a aplicações, o plug-in do Azure AD WAM utiliza PRT para ativar o SSO no Windows 10. Plug-in do Azure AD WAM utiliza PRT para solicitar tokens de atualização e de acesso para aplicações que dependem WAM para pedidos de token. Também permite a SSO em browsers injetando PRT em solicitações do navegador. Browser SSO no Windows 10 tem suporte no Microsoft Edge (nativo) e o Chrome (via a extensão de contas do Windows 10 ou o Office Online).
+* **Plugin Azure AD CloudAP**: Durante o início do windows, o plugin Azure AD CloudAP solicita um PRT da Azure AD utilizando as credenciais fornecidas pelo utilizador. Também coloca o PRT para permitir o registo em cache quando o utilizador não tem acesso a uma ligação à Internet.
+* **Plugin WAM Azure AD**: Quando os utilizadores tentam aceder a aplicações, o plugin WAM Azure AD utiliza o PRT para ativar o SSO no Windows 10. O plugin WAM Azure AD utiliza o PRT para solicitar fichas de atualização e acesso para aplicações que dependem da WAM para pedidos simbólicos. Também permite o SSO nos navegadores injetando o PRT em pedidos de navegador. O Navegador SSO no Windows 10 é suportado no Microsoft Edge (de forma nativa) e no Chrome (através das Contas Windows 10 ou da extensão Do Office Online).
 
 ## <a name="how-is-a-prt-renewed"></a>Como é renovado um PRT?
 
 Um PRT é renovado em dois métodos diferentes:
 
-* **O Azure AD CloudAP Plug-in a cada 4 horas**: O plug-in de CloudAP renova PRT cada 4 horas durante a sessão do Windows. Se o utilizador não tem ligação à internet durante esse período, o plug-in do CloudAP renovará PRT depois do dispositivo está ligado à internet.
-* **O Azure AD WAM Plug-in durante os pedidos de token de aplicação**: O plug-in WAM permite SSO em dispositivos Windows 10, permitindo que os pedidos de token silenciosas para aplicações. O plug-in WAM pode renovar PRT durante estes pedidos de token de duas formas diferentes:
-   * Um aplicativo solicita WAM para um token de acesso silenciosamente, mas não existe nenhum token de atualização disponível para essa aplicação. Neste caso, WAM utiliza PRT para pedir um token para a aplicação e recebe de volta um novo PRT na resposta.
-   * Um aplicativo solicita WAM para um token de acesso, mas PRT é inválido ou Azure AD requer autorização adicionais (por exemplo, o Azure multi-factor Authentication). Neste cenário, WAM inicia um logon interativo, exigir que o utilizador autenticar ou forneçam uma verificação adicional e um novo PRT é emitido na autenticação com êxito.
+* **Plugin Azure AD CloudAP a cada 4 horas**: O plugin CloudAP renova o PRT a cada 4 horas durante o início do Windows. Se o utilizador não tiver ligação à Internet durante esse período, o plugin CloudAP renovará o PRT depois de o dispositivo estar ligado à internet.
+* **Plugin WAM Azure AD durante pedidos**de token de aplicação : O plugin WAM permite sSO em dispositivos Windows 10, permitindo pedidos de token silenciosos para aplicações. O plugin WAM pode renovar o PRT durante estes pedidos simbólicos de duas maneiras diferentes:
+   * Uma aplicação solicita à WAM um sinal de acesso silenciosamente, mas não há nenhum token de atualização disponível para essa aplicação. Neste caso, a WAM usa o PRT para solicitar um sinal para a app e recebe de volta um novo PRT na resposta.
+   * Uma aplicação solicita à WAM um sinal de acesso, mas o PRT é inválido ou a AD Azure requer autorização adicional (por exemplo, autenticação de multi-factores Azure). Neste cenário, a WAM inicia um logon interativo que exige que o utilizador reatente ou forneça uma verificação adicional e um novo PRT é emitido sobre autenticação bem sucedida.
 
 ### <a name="key-considerations"></a>Considerações principais
 
-* Um PRT apenas é emitido e renovado durante a autenticação de aplicação nativa. Um PRT não é renovado ou emitida durante uma sessão do browser.
-* No Azure AD associado e híbridos associados ao Azure AD dispositivos, o plug-in de CloudAP é a autoridade primária para um PRT. Se um PRT for renovada durante um pedido de token com base em WAM, PRT é enviado para CloudAP Plug-in do, que verifica a validade da PRT com o Azure AD antes de aceitar ele.
+* Um PRT só é emitido e renovado durante a autenticação de aplicações nativas. Um PRT não é renovado ou emitido durante uma sessão de navegador.
+* Em Azure AD juntou-se e híbrido Azure AD aderiu a dispositivos, o plugin CloudAP é a principal autoridade para um PRT. Se um PRT for renovado durante um pedido de ficha baseado em WAM, o PRT é enviado de volta para o plugin CloudAP, que verifica a validade do PRT com a AD Azure antes de aceitá-lo.
 
-## <a name="how-is-the-prt-protected"></a>Como é que o PRT é protegida?
+## <a name="how-is-the-prt-protected"></a>Como é que o PRT está protegido?
 
-Um PRT está protegido pela ligação-o para o dispositivo, o utilizador tem sessão iniciada no. O Azure AD e Windows 10 ativar a proteção de PRT através dos seguintes métodos:
+Um PRT é protegido ligando-o ao dispositivo no que o utilizador assinou. A Azure AD e o Windows 10 permitem a proteção prt através dos seguintes métodos:
 
-* **Durante o primeiro início de sessão**: Durante o primeiro início de sessão, um PRT emitido por assinatura de pedidos com a chave de dispositivo criptograficamente gerada durante o registo do dispositivo. Num dispositivo com um TPM válido e a funcionar, a chave de dispositivo é protegida mediante o TPM, impedindo que qualquer acesso malicioso. Não é emitido um PRT se não é possível validar a assinatura de chave de dispositivo correspondente.
-* **Durante os pedidos de token e a renovação**: Quando é emitido um PRT, o Azure AD também emite uma chave de sessão encriptada no dispositivo. É encriptada com a chave de transporte público (tkpub) gerados e enviados para o Azure AD como parte do registo do dispositivo. Esta chave de sessão só pode ser desencriptado pela chave privada de transporte (tkpriv) protegida pelo TPM. A chave de sessão é a chave de prova de posse (POP) para todos os pedidos enviados para o Azure AD.  A chave de sessão também está protegida por TPM e nenhum outro componente do sistema operacional pode acessá-lo. Pedidos de token ou pedidos de renovação PRT com segurança são assinados por esta chave de sessão por meio do TPM e por este motivo, não podem ser violados. O Azure AD irá invalidar as solicitações do dispositivo que não estejam assinadas pela chave de sessão correspondente.
+* Durante o **primeiro início de sessão**: Durante o primeiro início de sessão, é emitido um PRT através da assinatura de pedidos utilizando a chave do dispositivo gerada criptograficamente durante o registo do dispositivo. Num dispositivo com um TPM válido e funcional, a chave do dispositivo é fixada pelo TPM impedindo qualquer acesso malicioso. Não é emitida uma PRT se a assinatura da chave do dispositivo correspondente não puder ser validada.
+* **Durante os pedidos simbólicos e renovação**: Quando um PRT é emitido, a Azure AD também emite uma chave de sessão encriptada para o dispositivo. É encriptado com a chave de transportes públicos (tkpub) gerada e enviada para a Azure AD como parte do registo do dispositivo. Esta chave de sessão só pode ser desencriptada pela chave de transporte privado (tkpriv) fixada pelo TPM. A chave da sessão é a chave Prova de Posse (POP) para quaisquer pedidos enviados à Azure AD.  A chave da sessão também está protegida pelo TPM e nenhum outro componente de SO pode acessá-la. Os pedidos de token ou pedidos de renovação de PRT são assinados de forma segura por esta chave de sessão através do TPM e, portanto, não podem ser adulterados. A Azure AD invalidará quaisquer pedidos do dispositivo que não estejam assinados pela chave de sessão correspondente.
 
-Ao proteger estas chaves com o TPM, atores maliciosos não podem roubar as chaves nem reproduzir PRT noutro local como o TPM não está acessível, mesmo que um atacante tenha posse física do dispositivo.  Assim, usar um TPM bastante reforça a segurança do Azure AD associado, Azure AD híbrido, e do Azure AD registado contra roubo de credenciais. Para o desempenho e confiabilidade, o TPM 2.0 é a versão recomendada para todos os cenários de registo de dispositivos do Azure AD no Windows 10.
+Ao assegurar estas chaves com o TPM, os atores maliciosos não podem roubar as chaves nem reproduzir o PRT em outro lugar, uma vez que o TPM é inacessível mesmo que um intruso tenha posse física do dispositivo.  Assim, a utilização de um TPM aumenta consideravelmente a segurança da Azure AD Joined, Hybrid Azure AD juntou-se, e dispositivos registados azure AD contra roubo de credenciais. Para desempenho e fiabilidade, o TPM 2.0 é a versão recomendada para todos os cenários de registo de dispositivos Azure AD no Windows 10.
 
-### <a name="how-are-app-tokens-and-browser-cookies-protected"></a>Como são tokens de aplicação e os cookies do browser protegidos?
+### <a name="how-are-app-tokens-and-browser-cookies-protected"></a>Como estão protegidos os tokens de aplicativos e os cookies de navegador?
 
-**Tokens de aplicação**: Quando um aplicativo solicita token através do WAM, o Azure AD emite um token de atualização e um token de acesso. No entanto, WAM apenas devolve o token de acesso à aplicação e protege o token de atualização em seu cache, criptografando-a com a chave do usuário data protection application programação interface (DPAPI). WAM com segurança utiliza o token de atualização por pedidos de assinatura com a chave de sessão para ainda mais emitir tokens de acesso. A chave DPAPI é protegida por uma chave simétrica do Azure AD com base no próprio Azure AD. Quando o dispositivo tiver de desencriptar o perfil de utilizador com a chave DPAPI, o Azure AD fornece a encriptados pela chave de sessão, o plug-in do CloudAP solicita o TPM para desencriptar a chave de DPAPI. Esta funcionalidade garante a consistência na proteção de tokens de atualização e evita implementar seus próprios mecanismos de proteção de aplicações.  
+**Tokens**de aplicativos : Quando uma aplicação pede ficha através da WAM, a Azure AD emite um token de atualização e um token de acesso. No entanto, a WAM apenas devolve o sinal de acesso à aplicação e protege o token de atualização na sua cache encriptando-o com a chave de programação de aplicação de proteção de dados do utilizador (DPAPI). A WAM usa de forma segura o token de atualização, assinando pedidos com a chave da sessão para emitir mais fichas de acesso. A chave DPAPI é protegida por uma chave simétrica baseada em Azure AD em azure ad em si. Quando o dispositivo precisa de desencriptar o perfil do utilizador com a tecla DPAPI, o Azure AD fornece a tecla DPAPI encriptada pela chave da sessão, que o plugin CloudAP solicita à TPM para desencriptar. Esta funcionalidade garante consistência na fixação de tokens de atualização e evita que as aplicações implementem os seus próprios mecanismos de proteção.  
 
-**Cookies do browser**: No Windows 10, o Azure AD suporta browser SSO no Internet Explorer e o Microsoft Edge nativamente ou no Google Chrome via a extensão de contas do Windows 10. A segurança baseia-se não só para proteger os cookies, mas também os pontos finais para que os cookies são enviados. Cookies do browser estão protegidos da mesma forma um PRT é, utilizando a chave de sessão para iniciar sessão e proteger os cookies.
+**Cookies de navegador**: No Windows 10, o Azure AD suporta o navegador SSO no Internet Explorer e Microsoft Edge de forma nativa ou no Google Chrome através da extensão das contas do Windows 10. A segurança é construída não só para proteger os cookies, mas também para os pontos finais para os quais os cookies são enviados. Os cookies de navegador estão protegidos da mesma forma que um PRT, utilizando a chave da sessão para assinar e proteger os cookies.
 
-Quando um usuário inicia uma interação de navegador, o browser (ou a extensão) invoca um anfitrião de cliente nativo do COM. O anfitrião de cliente nativo garante que a página é a partir de um dos domínios permitidos. O navegador poderia enviar que outros parâmetros para o cliente nativo do anfitrião, incluindo um valor de uso único, no entanto o anfitrião de cliente nativo garante a validação do nome do anfitrião. O anfitrião de cliente nativo solicita um cookie de PRT CloudAP Plug-in do, que cria e assina-o com a chave de sessão protegido por TPM. Como o cookie de PRT está assinado pela chave de sessão, ele não pode ser violado. Este cookie de PRT está incluído no cabeçalho do pedido para o Azure AD para o dispositivo é proveniente de validar. Se utilizar o browser Chrome, o apenas a extensão explicitamente definida no manifesto do anfitrião de cliente nativo pode invocá-lo a impedir extensões arbitrárias de fazer essas solicitações. Assim que o Azure AD valida o cookie PRT, emite um cookie de sessão para o navegador. Este cookie de sessão também contém a mesma chave de sessão emitida com um PRT. Durante os pedidos subsequentes, a chave de sessão é validada com eficiência o cookie de enlace para o dispositivo e impedir repetições de noutro local.
+Quando um utilizador inicia uma interação de navegador, o navegador (ou extensão) invoca um anfitrião de cliente nativo da COM. O anfitrião do cliente nativo garante que a página é de um dos domínios permitidos. O navegador poderia enviar outros parâmetros para o anfitrião do cliente nativo, incluindo um nonce, no entanto o anfitrião do cliente nativo garante a validação do nome de anfitrião. O anfitrião do cliente nativo solicita um cookie PRT do plugin CloudAP, que o cria e assina com a chave de sessão protegida por TPM. Como o cookie PRT é assinado pela chave da sessão, não pode ser adulterado. Este cookie PRT está incluído no cabeçalho de pedido para a Azure AD validar o dispositivo de que é originário. Se utilizar o navegador Chrome, apenas a extensão explicitamente definida no manifesto do anfitrião do cliente nativo pode invocá-lo impedindo que extensões arbitrárias evoquem estes pedidos. Assim que a Azure AD valida o cookie PRT, emite um cookie de sessão para o navegador. Este cookie de sessão também contém a mesma chave de sessão emitida com um PRT. Durante os pedidos subsequentes, a chave da sessão é validada ligando eficazmente o cookie ao dispositivo e impedindo repetições de outros lugares.
 
-## <a name="when-does-a-prt-get-an-mfa-claim"></a>Quando um PRT obter uma afirmação de MFA?
+## <a name="when-does-a-prt-get-an-mfa-claim"></a>Quando é que um PRT recebe uma reclamação de MFA?
 
-Um PRT pode obter uma afirmação de autenticação multifator (MFA) em cenários específicos. Quando um PRT baseado em MFA é utilizado para pedir tokens para aplicativos, a afirmação MFA é transferida para os tokens de aplicação. Esta funcionalidade fornece uma experiência perfeita para os usuários, impedindo a submissão da MFA para qualquer aplicativo que precise dela. Um PRT pode obter uma afirmação de MFA das seguintes formas:
+Um PRT pode obter uma reivindicação de autenticação multi-factor (MFA) em cenários específicos. Quando um PRT baseado em MFA é usado para solicitar fichas para aplicações, a alegação de MFA é transferida para esses tokens de aplicação. Esta funcionalidade proporciona uma experiência perfeita aos utilizadores, evitando o desafio mfa para cada aplicação que a exija. Um PRT pode obter uma reclamação de MFA das seguintes formas:
 
-* **Inicie sessão com o Windows Hello para empresas**: Windows Hello para empresas substitui as palavras-passe e utiliza as chaves criptográficas para fornecer autenticação de dois fatores forte. Windows Hello para empresas é específico para um utilizador num dispositivo, e por si só exige o MFA para aprovisionar. Quando um utilizador inicia sessão com a Windows Hello para empresas, PRT o utilizador obtém uma afirmação de MFA. Este cenário aplica-se também aos utilizadores iniciar sessão com smart cards, se a autenticação de smart card produz uma afirmação de MFA de AD FS.
-   * Como o Windows Hello para empresas é considerado autenticação multifator, a afirmação MFA é atualizada quando PRT em si é atualizada, para que a duração MFA continuamente irá expandir quando os utilizadores iniciam sessão com o WIndows Hello para empresas
-* **MFA durante o início de sessão interativo do WAM no**: Durante um pedido de token através do WAM, se um utilizador é necessário para fazer a MFA a aceder à aplicação, PRT que é renovado durante esta interação é imprinted com uma afirmação de MFA.
-   * Neste caso, a afirmação do MFA não é atualizada continuamente, por isso, a duração MFA baseia-se o tempo de vida definido no diretório.
-* **MFA durante o registo de dispositivo**: Se um administrador tiver configurado as definições de dispositivo no Azure AD [exigir a MFA registar dispositivos](device-management-azure-portal.md#configure-device-settings), o utilizador precisa para fazer a MFA para concluir o registo. Durante este processo, PRT emitida para o utilizador tem a afirmação MFA obtida durante o registo. Esta funcionalidade aplica-se apenas para o utilizador que realizou a operação de associação, não a outros utilizadores que iniciem sessão nesse dispositivo.
-   * Assim como o início de sessão interativo no WAM, a afirmação do MFA não é atualizada continuamente, para que a duração MFA baseia-se o tempo de vida definido no diretório.
+* **Inscreva-se no Windows Hello for Business**: O Windows Hello for Business substitui as palavras-passe e utiliza chaves criptográficas para fornecer uma autenticação forte de dois fatores. O Windows Hello for Business é específico de um utilizador num dispositivo, e por si só requer mFA para fornecer. Quando um utilizador faz login no Windows Hello for Business, o PRT do utilizador recebe uma reclamação de MFA. Este cenário aplica-se também aos utilizadores que iniciam sessão com smartcards se a autenticação do smartcard produzir uma reclamação de MFA da ADFS.
+   * Como o Windows Hello for Business é considerado autenticação de vários fatores, a alegação do MFA é atualizada quando o próprio PRT é atualizado, pelo que a duração do MFA irá continuar a estender-se quando os utilizadores assinarem com a WIndows Hello for Business
+* **MFA durante o signo interativo wAM em**: Durante um pedido simbólico através da WAM, se um utilizador for obrigado a fazer MFA para aceder à app, o PRT que é renovado durante esta interação é impresso com uma reivindicação de MFA.
+   * Neste caso, a alegação do MFA não é atualizada continuamente, pelo que a duração do MFA baseia-se na duração vitalícia definida no diretório.
+   * Quando um PRT e RT existentes anteriores forem utilizados para o acesso a uma aplicação, o PRT e o RT serão considerados como a primeira prova de autenticação. Será necessário um novo AT com uma segunda prova e uma reivindicação impressa de MFA. Isto também emitirá um novo PRT e RT.
+* **MFA durante o registo**do dispositivo : Se um administrador tiver configurado as definições do seu dispositivo em Azure AD para exigir que o [MFA registe dispositivos,](device-management-azure-portal.md#configure-device-settings)o utilizador precisa de fazer MFA para completar o registo. Durante este processo, o PRT que é emitido ao utilizador tem a reclamação de MFA obtida durante o registo. Esta capacidade aplica-se apenas ao utilizador que fez a operação de adesão, e não a outros utilizadores que iniciaram o contrato.
+   * À semelhança do sinal interativo da WAM, a alegação de MFA não é atualizada continuamente, pelo que a duração do MFA baseia-se na duração vitalícia definida no diretório.
 
-Windows 10 mantém uma lista particionada de PRTs para cada credencial. Então, há um PRT para cada um dos Windows Hello para empresas, palavra-passe ou smart card. Essa divisão garante que MFA afirmações estão isoladas com base na credencial utilizada e não misture durante os pedidos de token.
+O Windows 10 mantém uma lista dividida de PrTs para cada credencial. Portanto, há um PRT para cada um dos Windows Hello for Business, password ou smartcard. Esta divisão garante que as alegações de MFA são isoladas com base na credencial utilizada e não misturadas durante pedidos simbólicos.
 
-## <a name="how-is-a-prt-invalidated"></a>Como é invalidado um PRT?
+## <a name="how-is-a-prt-invalidated"></a>Como é que um PRT é invalidado?
 
 Um PRT é invalidado nos seguintes cenários:
 
-* **Utilizador inválido**: Se um utilizador for eliminado ou desativado no Azure AD, o respetivo PRT é invalidado e não pode ser utilizado para obter os tokens para aplicativos. Se um utilizador eliminado ou desativado tiver iniciado sessão num dispositivo antes, o início de sessão em cache seria iniciá-los, até que CloudAP esteja ciente de seu estado inválido. Assim que CloudAP determina que o utilizador é inválido, bloqueia a inícios de sessão subsequentes. Um utilizador inválido é impedido automaticamente de início de sessão para novos dispositivos que não têm as credenciais em cache.
-* **Dispositivo inválido**: Se um dispositivo é eliminado ou desativado no Azure AD, PRT obtido em que o dispositivo é invalidado e não pode ser utilizado para obter os tokens para outras aplicações. Se um utilizador já tiver sessão iniciado dispositivo inválido, eles podem continuar a fazê-lo. No entanto, todos os tokens no dispositivo são também invalidados e o utilizador não tem SSO para todos os recursos de que o dispositivo.
-* **Alteração de palavra-passe**: Depois de um utilizador altera a palavra-passe, PRT obtido com a palavra-passe anterior é invalidada pelo Azure AD. Resultados de alteração de palavra-passe do utilizador a obter um novo PRT. Este invalidação pode ocorrer de duas formas diferentes:
-   * Se o utilizador inicia sessão no Windows com a nova palavra-passe, CloudAP descarta PRT antigo e pede-Azure AD para emitir um novo PRT com a nova palavra-passe. Se o utilizador não tem uma ligação à internet, não é possível validar a nova palavra-passe, o Windows podem exigir que o utilizador introduzir a palavra-passe antiga.
-   * Se um utilizador tiver sessão iniciada com a palavra-passe antiga ou alterado a palavra-passe depois de iniciar sessão no Windows, PRT antiga é utilizada para qualquer pedido de token com base em WAM. Neste cenário, é pedido ao utilizador para autenticar durante o pedido de token WAM e um novo PRT é emitido.
-* **Problemas TPM**: Às vezes, TPM um dispositivo pode falhas no ou falhar, o que leva a inaccessibility de chaves protegidas pelo TPM. Neste caso, o dispositivo é incapaz de obter um PRT ou pedir tokens usando um PRT existente, como ele não é possível provar a posse das chaves criptográficas. Como resultado, qualquer PRT existente é invalidada pelo Azure AD. Quando o Windows 10 Deteta uma falha, ele inicia um fluxo de recuperação para voltar a registar o dispositivo com novas chaves de criptografia. Com a associação de híbrida do Azure Ad, tal como o registo inicial, a recuperação acontece silenciosamente sem intervenção do utilizador. Para dispositivos registados do Azure AD associado ou do Azure AD, a recuperação tem de ser realizadas por um utilizador que tenha privilégios de administrador no dispositivo. Neste cenário, o fluxo de recuperação é iniciado por uma linha de comandos do Windows que orienta o usuário para recuperar com êxito o dispositivo.
+* **Utilizador inválido**: Se um utilizador for eliminado ou desativado em AD Azure, o seu PRT é invalidado e não pode ser utilizado para obter fichas para aplicações. Se um utilizador eliminado ou desativado já tivesse assinado um dispositivo antes, o registo em cache os iniciaria, até que o CloudAP tenha conhecimento do seu estado inválido. Uma vez que o CloudAP determina que o utilizador é inválido, bloqueia logons subsequentes. Um utilizador inválido é automaticamente bloqueado do sessão para novos dispositivos que não têm as suas credenciais em cache.
+* **Dispositivo inválido**: Se um dispositivo for eliminado ou desativado em AD Azure, o PRT obtido nesse dispositivo é invalidado e não pode ser utilizado para obter fichas para outras aplicações. Se um utilizador já estiver inscrito num dispositivo inválido, pode continuar a fazê-lo. Mas todas as fichas do dispositivo são invalidadas e o utilizador não tem SSO a quaisquer recursos desse dispositivo.
+* **Alteração da palavra-passe**: Depois de um utilizador alterar a sua palavra-passe, o PRT obtido com a palavra-passe anterior é invalidado pela AD Azure. A alteração da palavra-passe resulta na obtenção de um novo PRT. Esta invalidação pode acontecer de duas maneiras diferentes:
+   * Se o utilizador fizer o insessão no Windows com a sua nova palavra-passe, o CloudAP descarta o antigo PRT e solicita ao Azure AD que emita um novo PRT com a sua nova senha. Se o utilizador não tiver uma ligação à Internet, a nova palavra-passe não poderá ser validada, o Windows poderá exigir que o utilizador introduza a sua antiga palavra-passe.
+   * Se um utilizador tiver iniciado sessão com a sua antiga palavra-passe ou tiver alterado a sua palavra-passe depois de iniciar sessão no Windows, o antigo PRT é utilizado para quaisquer pedidos de fichas baseados em WAM. Neste cenário, o utilizador é solicitado a reautenticar durante o pedido de token WAM e é emitido um novo PRT.
+* Problemas de TPM : Por **vezes,** o TPM de um dispositivo pode vacilar ou falhar, levando à inacessibilidade das chaves fixadas pelo TPM. Neste caso, o dispositivo é incapaz de obter um PRT ou solicitar fichas usando um PRT existente, uma vez que não pode provar a posse das teclas criptográficas. Como resultado, qualquer PRT existente é invalidado pela Azure AD. Quando o Windows 10 deteta uma falha, inicia um fluxo de recuperação para voltar a registar o dispositivo com novas teclas criptográficas. Com a adesão do Hybrid Azure Ad, tal como o registo inicial, a recuperação acontece silenciosamente sem a entrada do utilizador. Para a Azure AD aderiu ou dispositivos registados em Azure AD, a recuperação tem de ser realizada por um utilizador que tenha privilégios de administrador no dispositivo. Neste cenário, o fluxo de recuperação é iniciado por um pedido do Windows que guia o utilizador a recuperar com sucesso o dispositivo.
 
 ## <a name="detailed-flows"></a>Fluxos detalhados
 
-Os diagramas seguintes mostram os detalhes subjacentes em emitir, renovar e usando um PRT para pedir um token de acesso para uma aplicação. Além disso, essas etapas também descrevem como os mecanismos de segurança mencionadas anteriormente são aplicados durante essas interações.
+Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação e utilização de um PRT para solicitar um sinal de acesso para uma aplicação. Além disso, estes passos também descrevem como os mecanismos de segurança acima referidos são aplicados durante estas interações.
 
-### <a name="prt-issuance-during-first-sign-in"></a>Emissão de PRT durante o primeiro início de sessão
+### <a name="prt-issuance-during-first-sign-in"></a>Emissão de PRT durante o primeiro sinal
 
-![Emissão de PRT durante primeiro início de sessão no flow detalhada](./media/concept-primary-refresh-token/prt-initial-sign-in.png)
+![Emissão de PRT durante o primeiro sinal em fluxo detalhado](./media/concept-primary-refresh-token/prt-initial-sign-in.png)
 
 > [!NOTE]
-> No Azure AD dispositivos associados a um, este exchange acontece de forma síncrona para emitir um PRT antes do utilizador pode iniciar sessão para Windows. Híbrido do Azure AD associado dispositivos, Active Directory no local é a autoridade primária. Então, o utilizador está apenas a aguardar até que eles podem adquirir uma TGT para iniciar sessão, enquanto a emissão de PRT acontece de forma assíncrona. Este cenário não é aplicável a dispositivos do Azure AD registado como o início de sessão não utiliza credenciais do Azure AD.
+> Em Dispositivos aderes a AD Azure, esta troca acontece sincronizadamente para emitir um PRT antes que o utilizador possa iniciar sessão no Windows. Em dispositivos híbridos Azure AD, no local o Ative Directory é a principal autoridade. Assim, o utilizador só está à espera até que possa adquirir um TGT para iniciar sessão, enquanto a emissão de PRT acontece de forma assíncrona. Este cenário não se aplica aos dispositivos registados pela Azure AD, uma vez que o logon não utiliza credenciais Azure AD.
 
 | Passo | Descrição |
 | :---: | --- |
-| A | Utilizador introduz a palavra-passe no início de sessão na interface do Usuário. Num buffer de autenticação, o LogonUI passa as credenciais para a LSA, que passa internamente para CloudAP. CloudAP reencaminha este pedido para o plug-in de CloudAP. |
-| B | Plug-in do CloudAP inicia um pedido de deteção de realm para identificar o fornecedor de identidade do utilizador. Se o inquilino do utilizador tem uma configuração do fornecedor de Federação, o Azure AD devolve troca de metadados do fornecedor de Federação ponto final de ponto final (MEX). Se não estiver, o Azure AD devolve a que o utilizador for gerido, que indica que o utilizador pode autenticar com o Azure AD. |
-| C | Se o utilizador for gerido, CloudAP irá obter o valor de uso único do Azure AD. Se o utilizador está federado, o plug-in do CloudAP solicita um token SAML do fornecedor de federação com as credenciais do utilizador. Assim que for recebida, o SAML token, ele solicita um nonce do Azure AD. |
-| D | Plug-in do CloudAP constrói o pedido de autenticação com as credenciais do utilizador, o valor de uso único e um âmbito de Mediador, assina o pedido com a chave do dispositivo (dkpriv) e envia-os para o Azure AD. Num ambiente federado, o plug-in do CloudAP utiliza o token SAML devolvido pelo fornecedor de Federação em vez do utilizador ' credenciais. |
-| E | O Azure AD valida as credenciais de utilizador, o valor de uso único, e assinatura de dispositivo, verifica que o dispositivo é válido no inquilino e emite PRT encriptado. Juntamente com PRT, o Azure AD também emite uma chave simétrica, chamada a chave de sessão encriptada pelo Azure AD com a chave de transporte (tkpub). Além disso, a chave de sessão também é incorporada nos PRT. Esta chave de sessão funciona como a chave de prova de posse (PoP) para as solicitações subseqüentes com PRT. |
-| F | Plug-in do CloudAP transmite a chave encriptada PRT e de sessão para CloudAP. CloudAP solicitar o TPM para descriptografar a chave de sessão com a chave de transporte (tkpriv) e criptografá-los com a chave do TPM novamente. CloudAP armazena a chave de sessão encriptada em seu cache, juntamente com PRT. |
+| A | O utilizador introduz a sua palavra-passe no sinal em UI. O LogonUI passa as credenciais num tampão auth para lSA, que por sua vez passa internamente para cloudAP. CloudAP reencaminha este pedido para o plugin CloudAP. |
+| B | O plugin CloudAP inicia um pedido de descoberta do reino para identificar o fornecedor de identidade para o utilizador. Se o inquilino do utilizador tiver uma configuração de fornecedor da federação, a Azure AD devolve o ponto final da Bolsa de Metadados (MEX) do fornecedor da federação. Caso contrário, a Azure AD declara que o utilizador é gerido indicando que o utilizador pode autenticar com AD Azure. |
+| C | Se o utilizador for gerido, o CloudAP receberá o nonce da Azure AD. Se o utilizador for federado, o plugin CloudAP solicita um token SAML ao fornecedor da federação com as credenciais do utilizador. Uma vez que recebe, o símbolo SAML, solicita um nonce da Azure AD. |
+| D | O plugin CloudAP constrói o pedido de autenticação com as credenciais do utilizador, nonce, e um âmbito de corretor, assina o pedido com a chave dispositivo (dkpriv) e envia-o para a AD Azure. Num ambiente federado, o plugin CloudAP utiliza o token SAML devolvido pelo provedor da federação em vez das credenciais do utilizador. |
+| E | A Azure AD valida as credenciais de utilizador, a assinatura nonce e do dispositivo, verificando que o dispositivo é válido no inquilino e emite o PRT encriptado. Juntamente com o PRT, a Azure AD também emite uma chave simétrica, chamada chave Session encriptada pela Azure AD utilizando a chave de transporte (tkpub). Além disso, a chave Sessão também está incorporada no PRT. Esta chave da Sessão funciona como a chave prova de posse (PoP) para pedidos subsequentes com o PRT. |
+| F | CloudAP plugin passa a chave PRT e Session encriptada para CloudAP. O CloudAP solicita ao TPM que desencripta a tecla Sessão utilizando a chave de transporte (tkpriv) e a criptografe novamente utilizando a própria chave do TPM. CloudAP armazena a chave sessão encriptada na sua cache juntamente com o PRT. |
 
-### <a name="prt-renewal-in-subsequent-logons"></a>Renovação PRT em inícios de sessão subsequentes
+### <a name="prt-renewal-in-subsequent-logons"></a>Renovação de PRT em logons subsequentes
 
-![Renovação PRT em inícios de sessão subsequentes](./media/concept-primary-refresh-token/prt-renewal-subsequent-logons.png)
-
-| Passo | Descrição |
-| :---: | --- |
-| A | Utilizador introduz a palavra-passe no início de sessão na interface do Usuário. Num buffer de autenticação, o LogonUI passa as credenciais para a LSA, que passa internamente para CloudAP. CloudAP reencaminha este pedido para o plug-in de CloudAP. |
-| B | Se o utilizador tem sessão iniciada anteriormente no utilizador, inicia do Windows em cache inicie sessão e valida as credenciais para iniciar o utilizador a sessão. Cada 4 horas, o plug-in de CloudAP inicia a renovação PRT forma assíncrona. |
-| C | Plug-in do CloudAP inicia um pedido de deteção de realm para identificar o fornecedor de identidade do utilizador. Se o inquilino do utilizador tem uma configuração do fornecedor de Federação, o Azure AD devolve troca de metadados do fornecedor de Federação ponto final de ponto final (MEX). Se não estiver, o Azure AD devolve a que o utilizador for gerido, que indica que o utilizador pode autenticar com o Azure AD. |
-| D | Se o utilizador está federado, o plug-in do CloudAP solicita um token SAML do fornecedor de federação com as credenciais do utilizador. Assim que for recebida, o SAML token, ele solicita um nonce do Azure AD. Se o utilizador for gerido, CloudAP diretamente de obter o valor de uso único do Azure AD. |
-| E | Plug-in do CloudAP constrói o pedido de autenticação com as credenciais do usuário, o valor de uso único e PRT existente, assina o pedido com a chave de sessão e envia-os para o Azure AD. Num ambiente federado, o plug-in do CloudAP utiliza o token SAML devolvido pelo fornecedor de Federação em vez do utilizador ' credenciais. |
-| F | Azure AD valida a assinatura de chave de sessão comparando-o em relação à chave de sessão incorporada no PRT, valida o valor de uso único e verifica se o dispositivo é válido no inquilino e emite um PRT novo. Como visto anteriormente, PRT novamente é acompanhado com a chave de sessão encriptada pela chave de transporte (tkpub). |
-| G | Plug-in do CloudAP transmite a chave encriptada PRT e de sessão para CloudAP. CloudAP solicita o TPM para descriptografar a chave de sessão com a chave de transporte (tkpriv) e criptografá-los com a chave do TPM novamente. CloudAP armazena a chave de sessão encriptada em seu cache, juntamente com PRT. |
-
-### <a name="prt-usage-during-app-token-requests"></a>Utilização PRT durante os pedidos de token de aplicação
-
-![Utilização PRT durante os pedidos de token de aplicação](./media/concept-primary-refresh-token/prt-usage-app-token-requests.png)
+![Renovação de PRT em logons subsequentes](./media/concept-primary-refresh-token/prt-renewal-subsequent-logons.png)
 
 | Passo | Descrição |
 | :---: | --- |
-| A | Um aplicativo (por exemplo, Outlook, etc. do OneNote) inicia um pedido de token para WAM. WAM, por sua vez, solicita o plug-in do Azure AD WAM para responder ao pedido de token. |
-| B | Se um token de atualização para o aplicativo já estiver disponível, o plug-in do Azure AD WAM utiliza-o para solicitar um token de acesso. Para fornecer uma prova de associação de dispositivo, o plug-in do WAM assina o pedido com a chave de sessão. O Azure AD valida a chave de sessão e emite um token de acesso e um novo token de atualização para a aplicação, criptografada pela chave de sessão. Plug-in do WAM pedidos AP de Cloud Plug-in para desencriptar tokens, que, por sua vez, solicita o TPM para descriptografar a utilizar a chave de sessão, resultando em obter os tokens de ambos os plug-in do WAM. Em seguida, o plug-in do WAM fornece apenas o token de acesso ao aplicativo, enquanto encripta novamente o token de atualização com a DPAPI e armazena-os em seu próprio cache  |
-| C |  Se um token de atualização para o aplicativo não estiver disponível, o plug-in do Azure AD WAM utiliza PRT para solicitar um token de acesso. Para fornecer uma prova de posse, o plug-in do WAM assina o pedido que contém PRT com a chave de sessão. O Azure AD valida a assinatura de chave de sessão comparando-o em relação à chave de sessão incorporada no PRT, verifica se o dispositivo é válido e emite um token de acesso e um token de atualização para a aplicação. Além disso, o Azure AD pode emitir um novo PRT (com base no ciclo de atualização), todos eles encriptados pela chave de sessão. |
-| D | Plug-in do WAM pedidos AP de Cloud Plug-in para desencriptar tokens, que, por sua vez, solicita o TPM para descriptografar a utilizar a chave de sessão, resultando em obter os tokens de ambos os plug-in do WAM. Em seguida, o plug-in do WAM fornece apenas o token de acesso ao aplicativo, enquanto encripta novamente o token de atualização com a DPAPI e armazena-os em seu próprio cache. Plug-in do WAM irá utilizar o token de atualização daqui em diante para esta aplicação. Plug-in do WAM também oferece volta PRT novo ao AP de Cloud Plug-in do, que valida PRT com o Azure AD antes de atualizá-la em seu próprio cache. Plug-in de AP de cloud irá utilizar o novo PRT daqui em diante. |
-| E | WAM fornece o token de acesso recentemente emitidas para WAM, que por sua vez, fornece-o novamente para o aplicativo de chamada|
+| A | O utilizador introduz a sua palavra-passe no sinal em UI. O LogonUI passa as credenciais num tampão auth para lSA, que por sua vez passa internamente para cloudAP. CloudAP reencaminha este pedido para o plugin CloudAP. |
+| B | Se o utilizador já tiver iniciado previamente o início do registo no utilizador, o Windows inicia o registo em cache e valida credenciais para iniciar o login do utilizador. A cada 4 horas, o plugin CloudAP inicia a renovação de PRT sincronicamente. |
+| C | O plugin CloudAP inicia um pedido de descoberta do reino para identificar o fornecedor de identidade para o utilizador. Se o inquilino do utilizador tiver uma configuração de fornecedor da federação, a Azure AD devolve o ponto final da Bolsa de Metadados (MEX) do fornecedor da federação. Caso contrário, a Azure AD declara que o utilizador é gerido indicando que o utilizador pode autenticar com AD Azure. |
+| D | Se o utilizador for federado, o plugin CloudAP solicita um token SAML ao fornecedor da federação com as credenciais do utilizador. Uma vez que recebe, o símbolo SAML, solicita um nonce da Azure AD. Se o utilizador for gerido, o CloudAP receberá diretamente o nonce da Azure AD. |
+| E | O plugin CloudAP constrói o pedido de autenticação com as credenciais do utilizador, nonce, e o PRT existente, assina o pedido com a chave Sessão e envia-o para a AD Azure. Num ambiente federado, o plugin CloudAP utiliza o token SAML devolvido pelo provedor da federação em vez das credenciais do utilizador. |
+| F | A Azure AD valida a assinatura da chave sessão comparando-a com a chave sessão incorporada no PRT, valida o nonce e verifica que o dispositivo é válido no inquilino e emite um novo PRT. Como visto anteriormente, o PRT é novamente acompanhado com a chave Sessão encriptada pela chave transporte (tkpub). |
+| G | CloudAP plugin passa a chave PRT e Session encriptada para CloudAP. O CloudAP solicita ao TPM que desencripta a tecla Sessão utilizando a chave de transporte (tkpriv) e a criptografe novamente utilizando a própria chave do TPM. CloudAP armazena a chave sessão encriptada na sua cache juntamente com o PRT. |
 
-### <a name="browser-sso-using-prt"></a>Browser SSO com PRT
+### <a name="prt-usage-during-app-token-requests"></a>Utilização de PRT durante pedidos de token de aplicação
 
-![Browser SSO com PRT](./media/concept-primary-refresh-token/browser-sso-using-prt.png)
+![Utilização de PRT durante pedidos de token de aplicação](./media/concept-primary-refresh-token/prt-usage-app-token-requests.png)
 
 | Passo | Descrição |
 | :---: | --- |
-| A | O utilizador inicia sessão Windows com as respetivas credenciais para obter um PRT. Assim que o usuário abrir o navegador, o navegador (ou de extensão) carrega os URLs do registo. |
-| B | Quando um utilizador abre um URL de início de sessão do Azure AD, o browser ou a extensão valida o URL por aqueles que o obtido do registo. Se coincidirem, o navegador invoca o anfitrião de cliente nativo para obter um token. |
-| C | O anfitrião de cliente nativo valida os URLs que pertencem aos fornecedores de identidade da Microsoft (conta Microsoft ou do Azure AD), extrai um nonce enviado a partir do URL e faz uma chamada para o plug-in de CloudAP para obter um cookie PRT. |
-| D | O plug-in de CloudAP irá criar o cookie PRT, inicie sessão com a chave de sessão ligado a TPM e enviará de volta para o anfitrião de cliente nativo. Como o cookie é assinado pela chave de sessão, ele não pode ser violado. |
-| E | O anfitrião de cliente nativo irá devolver esse cookie PRT para o navegador, que irá incluir como parte do cabeçalho de pedido chamado tokens x-ms-RefreshTokenCredential e a pedido do Azure AD. |
-| F | O Azure AD valida a assinatura de chave de sessão no PRT cookie, valida o valor de uso único, verifica se o dispositivo é válido no inquilino e emite um token de ID para a página da web e um cookie de sessão encriptada para o browser. |
+| A | Uma aplicação (por exemplo, Outlook, OneNote etc.) inicia um pedido simbólico à WAM. A WAM, por sua vez, pede ao plugin WAM Da AD Azure para servir o pedido simbólico. |
+| B | Se já estiver disponível um token Refresh para a aplicação, o plugin WAM Da AD Azure usa-o para solicitar um token de acesso. Para fornecer um comprovativo de encadernação do dispositivo, o plugin WAM assina o pedido com a tecla Sessão. A Azure AD valida a chave Session e emite um token de acesso e um novo token de atualização para a app, encriptado pela chave Session. O plugin WAM solicita que o plugin Cloud AP desencriptar os tokens, que, por sua vez, solicita ao TPM que desencriptasse usando a tecla Session, resultando em plugin WAM recebendo ambos os tokens. Em seguida, o plugin WAM fornece apenas o sinal de acesso à aplicação, enquanto ele reencripta o token de atualização com DPAPI e armazena-o na sua própria cache  |
+| C |  Se não estiver disponível um token Refresh para a aplicação, o plugin WAM Azure AD utiliza o PRT para solicitar um sinal de acesso. Para apresentar provas de posse, o plugin WAM assina o pedido que contém o PRT com a tecla Session. A Azure AD valida a assinatura da chave session comparando-a com a chave Session incorporada no PRT, verifica que o dispositivo é válido e emite um token de acesso e um token de atualização para a aplicação. além disso, a Azure AD pode emitir um novo PRT (baseado no ciclo de atualização), todos encriptados pela chave Sessão. |
+| D | O plugin WAM solicita que o plugin Cloud AP desencriptar os tokens, que, por sua vez, solicita ao TPM que desencriptasse usando a tecla Session, resultando em plugin WAM recebendo ambos os tokens. Em seguida, o plugin WAM fornece apenas o sinal de acesso à aplicação, enquanto ele reencripta o token de atualização com DPAPI e armazena-o na sua própria cache. O plugin WAM utilizará o token de atualização para esta aplicação. O plugin WAM também devolve o novo PLUGR à Cloud AP plugin, que valida o PRT com a AD Azure antes de o atualizar na sua própria cache. Cloud AP plugin usará o novo PRT em frente. |
+| E | WAM fornece o recém-emitido sinal de acesso à WAM, que por sua vez, fornece-o de volta ao pedido de chamada|
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="browser-sso-using-prt"></a>Navegador SSO usando PRT
 
-Para obter mais informações sobre como resolver problemas relacionados com a PRT, consulte o artigo [híbrido de resolução de problemas do Azure Active Directory associou-se os dispositivos Windows 10 e Windows Server 2016](troubleshoot-hybrid-join-windows-current.md).
+![Navegador SSO usando PRT](./media/concept-primary-refresh-token/browser-sso-using-prt.png)
+
+| Passo | Descrição |
+| :---: | --- |
+| A | O utilizador inicia sessão no Windows com as suas credenciais para obter um PRT. Assim que o utilizador abrir o navegador, o navegador (ou extensão) carrega os URLs do registo. |
+| B | Quando um utilizador abre um URL de login Azure AD, o navegador ou extensão valida o URL com os obtidos a partir do registo. Se corresponderem, o navegador invoca o anfitrião do cliente nativo por obter um símbolo. |
+| C | O anfitrião do cliente nativo valida que os URLs pertencem aos fornecedores de identidade da Microsoft (conta Microsoft ou Azure AD), extrai uma nonce enviada do URL e faz uma chamada para o plugin CloudAP para obter um cookie PRT. |
+| D | O plugin CloudAP criará o cookie PRT, iniciará sessão com a chave de sessão tpm-bound e enviá-lo-á de volta para o anfitrião do cliente nativo. Como o cookie é assinado pela chave da sessão, não pode ser adulterado. |
+| E | O anfitrião do cliente nativo devolverá este cookie PRT ao navegador, que irá incluí-lo como parte do cabeçalho de pedido chamado x-ms-RefreshTokenCredential e solicitar fichas da Azure AD. |
+| F | A Azure AD valida a assinatura da chave session no cookie PRT, valida o nonce, verifica que o dispositivo é válido no inquilino, e emite um token de ID para a página web e um cookie de sessão encriptado para o navegador. |
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para obter mais informações sobre problemas relacionados com o PRT, consulte o artigo [Troubleshooting hybrid Azure Ative Directory juntou-se aos dispositivos Windows 10 e Windows Server 2016](troubleshoot-hybrid-join-windows-current.md).

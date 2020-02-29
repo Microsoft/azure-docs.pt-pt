@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 4a5aba6f8a357f33fd921ee12aac7e45f9b581ff
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: e00ec8448739ac30950877a2ae196aa78cde750c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613340"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917344"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Serviços de Domínio AD Azure
 
@@ -143,6 +143,11 @@ São necessárias as seguintes regras do grupo de segurança da rede para que o 
 * Sem acesso a esta porta, o seu domínio gerido pelo Azure AD DS não pode ser atualizado, configurado, apoiado ou monitorizado.
 * Para domínios geridos pela Azure AD DS que utilizam uma rede virtual baseada em Recursos, pode restringir o acesso a esta porta à etiqueta de serviço *AzureActiveDirectoryDomainServices.*
     * Para domínios geridos pelo legado Azure AD DS utilizando uma rede virtual baseada em clássicos, pode restringir o acesso à entrada a esta porta aos seguintes endereços IP de origem: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*, e *104.40.87.209*.
+
+    > [!NOTE]
+    > Em 2017, a Azure AD Domain Services tornou-se disponível para hospedar numa rede azure Resource Manager. Desde então, conseguimos construir um serviço mais seguro utilizando as capacidades modernas do Gestor de Recursos Azure. Uma vez que as implementações do Azure Resource Manager substituem totalmente as implementações clássicas, as implementações clássicas da rede virtual Azure AD DS serão retiradas a 1 de março de 2023.
+    >
+    > Para mais informações, consulte o [aviso oficial de depreciação](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ## <a name="user-defined-routes"></a>Rotas definidas pelo utilizador
 

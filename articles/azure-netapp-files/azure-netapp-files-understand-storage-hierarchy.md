@@ -1,5 +1,5 @@
 ---
-title: O que é a hierarquia de armazenamento de ficheiros do Azure NetApp | Documentos da Microsoft
+title: Qual é a hierarquia de armazenamento dos Ficheiros Azure NetApp  Microsoft Docs
 description: Descreve a hierarquia de armazenamento, incluindo contas, conjuntos de capacidade e volumes do Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/16/2019
+ms.date: 02/27/2020
 ms.author: b-juche
-ms.openlocfilehash: c2984e012ae83a8bc17d72ed4eac0c5c469c2694
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522875"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163969"
 ---
-# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>O que é a hierarquia de armazenamento de ficheiros do Azure NetApp
+# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Qual é a hierarquia de armazenamento dos Ficheiros Azure NetApp
 
 Antes de criar um volume no Azure NetApp Files, tem de comprar e configurar um conjunto para capacidade aprovisionada.  Para configurar um conjunto de capacidade, precisa de ter uma conta NetApp. Compreender a hierarquia de armazenamento ajuda-o a configurar e gerir os recursos do Azure NetApp Files.
+
+> [!IMPORTANT] 
+> Atualmente, o Azure NetApp Files não suporta a migração de recursos entre subscrições.
 
 ## <a name="azure_netapp_files_account"></a>Contas NetApp
 
@@ -35,28 +38,28 @@ Antes de criar um volume no Azure NetApp Files, tem de comprar e configurar um c
 ## <a name="capacity_pools"></a>Conjuntos de capacidade
 
 - Um conjunto de capacidade é medido pela sua capacidade aprovisionada.  
-- A capacidade é aprovisionada pelos SKUs fixos que comprou (por exemplo, uma capacidade de 4 TiB).
+- A capacidade é aprovisionada pelas SKUs fixas que adquiriu (por exemplo, uma capacidade de 4 TiB).
 - Um conjunto de capacidade apenas pode ter um nível de serviço.  
-- Cada conjunto de capacidade pode pertencer a apenas uma conta de NetApp. No entanto, pode ter múltiplos conjuntos de capacidade numa conta do NetApp.  
+- Cada piscina de capacidade pode pertencer a apenas a uma conta NetApp. No entanto, pode ter vários pools de capacidade dentro de uma conta NetApp.  
 - Um conjunto de capacidade não pode ser movido entre contas NetApp.   
   Por exemplo, no [Diagrama conceptual da hierarquia de armazenamento](#conceptual_diagram_of_storage_hierarchy) abaixo, não é possível mover o Conjunto de Capacidade 1 da conta NetApp E.U.A. Leste para a conta NetApp E.U.A. Oeste 2.  
-- Não é possível eliminar um conjunto de capacidade até que todos os volumes dentro do conjunto de capacidade tem sido eliminados.
+- Um conjunto de capacidades não pode ser eliminado até que todos os volumes dentro do conjunto de capacidades tenham sido eliminados.
 
 ## <a name="volumes"></a>Volumes
 
-- Um volume é medido ao consumo de capacidade de lógica e escalonável. 
+- Um volume é medido pelo consumo lógico de capacidade e é escalável. 
 - O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto.
 - Cada volume pertence a apenas um conjunto, mas um conjunto pode conter vários volumes. 
-- Um volume não pode ser movido entre conjuntos de capacidade. <!--Within the same NetApp account, you can move a volume across pools.  -->   
-  Por exemplo, no [diagrama Conceptual da hierarquia de armazenamento de](#conceptual_diagram_of_storage_hierarchy) abaixo, não é possível mover os volumes de capacidade do agrupamento de 1 a 2 de conjunto de capacidade.
-- Não é possível eliminar um volume, até que todos os respetivos instantâneos tem sido eliminados.
+- Um volume não pode ser movido através de piscinas de capacidade. <!--Within the same NetApp account, you can move a volume across pools.  -->   
+  Por exemplo, no [diagrama conceptual da hierarquia de armazenamento](#conceptual_diagram_of_storage_hierarchy) abaixo, não é possível mover os volumes do Pool 1 de Capacidade para o Pool de Capacidade 2.
+- Um volume não pode ser eliminado até que todos os seus instantâneos tenham sido eliminados.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Diagrama conceptual da hierarquia de armazenamento 
 O exemplo seguinte mostra as relações da subscrição do Azure, contas NetApp, conjuntos de capacidade e volumes.   
 
 ![Diagrama conceptual da hierarquia de armazenamento](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
-- [Registre-se para os ficheiros do Azure NetApp](azure-netapp-files-register.md)
+- [Registo de Ficheiros Azure NetApp](azure-netapp-files-register.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 755ea3ea3c246a1fa9fb7d514569c6fcecc0c04c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 398575cc5c3dea96aa644533eb6ce8a262d1981c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598719"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164496"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos para máquinas virtuais Windows em Azure
 
@@ -27,12 +27,12 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 
 | Tipo | Tamanhos | Descrição |
 |------|-------|-------------|
-| [Fins gerais](../sizes-general.md) | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC | Rácio CPU-memória equilibrado. Ideal para testes e desenvolvimento, bases de dados pequenas a médias e servidores web de tráfego baixo a médio. |
+| [Fins gerais](../sizes-general.md) | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2 | Rácio CPU-memória equilibrado. Ideal para testes e desenvolvimento, bases de dados pequenas a médias e servidores web de tráfego baixo a médio. |
 | [Com otimização de computação](../sizes-compute.md) | Fsv2 | Alta relação CPU-memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações. |
 | [Com otimização de memória](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2 | Alta relação memória-CPU. Ótimo para servidores de base de dados relacionais, caches médios a grandes e análise sintetizada. |
 | [Com otimização de armazenamento](../sizes-storage.md)  | Lsv2 | Alta entrada de disco e IO ideal para Big Data, SQL, NoSQL bases de dados, armazenamento de dados e grandes bases de dados transacionais.  |
 | [GPU](../sizes-gpu.md) | NC, Ncv2, Ncv3, ND, NDv2 (Pré-visualização), NV, Nvv3, Nvv4 | Máquinas virtuais especializadas direcionadas para renderização gráfica pesada e edição de vídeo, bem como treino de modelos e inferência (ND) com aprendizagem profunda. Disponível com GPUs individuais ou múltiplos. |
-| [Computação de elevado desempenho](../sizes-hpc.md) | HB, HC, H | As nossas máquinas virtuais CPU mais rápidas e poderosas com interfaces de rede de alta-corrente opcional (RDMA). |
+| [Computação de elevado desempenho](../sizes-hpc.md) | HB, HBv2, HC, H | As nossas máquinas virtuais CPU mais rápidas e poderosas com interfaces de rede de alta-corrente opcional (RDMA). |
 
 - Para obter informações sobre preços dos vários tamanhos, consulte [preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
 - Para ver limites gerais para os VMs Azure, consulte [os limites de subscrição e serviço do Azure, quotas e restrições.](../../azure-subscription-service-limits.md)

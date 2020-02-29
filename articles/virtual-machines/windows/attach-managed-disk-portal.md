@@ -1,5 +1,5 @@
 ---
-title: Anexar um disco de dados gerenciado a uma VM do Windows – Azure
+title: Anexar um disco de dados gerido a um Windows VM - Azure
 description: Como anexar um disco de dados geridos para uma VM do Windows com o portal do Azure.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8b651d6e5ca9262d38f5bfb9e10c404e2614809e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77055673"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919384"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Anexar um disco de dados geridos para uma VM do Windows com o portal do Azure
 
@@ -48,4 +48,4 @@ Este artigo mostra-lhe como anexar um novo disco de dados geridos para uma máqu
 ## <a name="next-steps"></a>Passos seguintes
 
 - Também pode anexar um disco de [dados utilizando powerShell](attach-disk-ps.md).
-- Se a sua aplicação necessitar de utilizar o *D:* dirija para armazenar dados, pode [alterar a letra de unidade do disco temporário windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+- Se a sua aplicação necessitar de utilizar o *D:* dirija para armazenar dados, pode [alterar a letra de unidade do disco temporário windows](change-drive-letter.md).

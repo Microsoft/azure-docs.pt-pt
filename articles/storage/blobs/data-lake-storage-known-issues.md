@@ -1,85 +1,118 @@
 ---
 title: Problemas conhecidos com geração 2 de armazenamento do Azure Data Lake | Documentos da Microsoft
-description: Saiba mais sobre as limitações e problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
+description: Conheça as limitações e as questões conhecidas do Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 951d707c898ad0efa1f21480c12f0c733f5218ee
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 7d637c2fb3f4a4d5f8deac9cd99c0a44af6568e6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834950"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919616"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
-Este artigo lista os recursos e as ferramentas que ainda não têm suporte ou que só têm suporte parcial com contas de armazenamento que têm um namespace hierárquico (Azure Data Lake Storage Gen2).
+Este artigo descreve limitações e questões conhecidas do Azure Data Lake Storage Gen2.
 
-<a id="blob-apis-disabled" />
+## <a name="supported-blob-storage-features"></a>Recursos de armazenamento Blob suportados
 
-## <a name="issues-and-limitations-with-using-blob-apis"></a>Problemas e limitações com o uso de APIs de BLOB
+Um número crescente de funcionalidades de armazenamento blob agora trabalham com contas que têm um espaço de nome hierárquico. Para obter uma lista completa, consulte [as funcionalidades de Armazenamento Blob disponíveis no Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
-APIs de BLOB e APIs de Data Lake Storage Gen2 podem operar nos mesmos dados.
+## <a name="supported-azure-service-integrations"></a>Integrações de serviços Azure suportadas
 
-Esta seção descreve problemas e limitações com o uso de APIs de BLOB e Data Lake Storage Gen2 APIs para operar nos mesmos dados.
+Data Lake Storage gen2 suporta vários serviços Azure que você pode usar para ingerir dados, realizar análises e criar representações visuais. Para obter uma lista de serviços Azure suportados, consulte [os serviços Azure que suportam o Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-* Você não pode usar as APIs de BLOB e as APIs de Data Lake Storage para gravar na mesma instância de um arquivo. Se você gravar em um arquivo usando APIs Data Lake Storage Gen2, os blocos desse arquivo não ficarão visíveis para chamadas para a API de BLOB da [lista de blocos Get](https://docs.microsoft.com/rest/api/storageservices/get-block-list) . Você pode substituir um arquivo usando APIs Data Lake Storage Gen2 ou APIs de BLOB. Isso não afetará as propriedades do arquivo.
+Consulte [os serviços Azure que suportam o Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-* Quando você usa a operação [listar BLOBs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) sem especificar um delimitador, os resultados incluirão diretórios e blobs. Se você optar por usar um delimitador, use apenas uma barra (`/`). Esse é o único delimitador com suporte.
+## <a name="supported-open-source-platforms"></a>Código-fonte aberto plataformas suportadas
 
-* Se você usar a API [excluir blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) para excluir um diretório, esse diretório será excluído somente se estiver vazio. Isso significa que você não pode usar a API de BLOB para excluir diretórios recursivamente.
+Várias plataformas de código-fonte aberto suportam a geração 2 de armazenamento do Data Lake. Para obter uma lista completa, consulte [plataformas Open source que suportam o Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-Essas APIs REST de BLOB não têm suporte:
+Consulte [plataformas Open source que suportam o Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-* [Colocar BLOB (página)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Colocar página](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [Obter intervalos de página](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [Blob de cópia incremental](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [Colocar página da URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Colocar BLOB (acrescentar)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Bloco de acréscimo](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [Anexar bloco da URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+## <a name="blob-storage-apis"></a>APIs de armazenamento de BLOBs
 
-Não há suporte para discos de VM não gerenciados em contas que têm um namespace hierárquico. Se você quiser habilitar um namespace hierárquico em uma conta de armazenamento, coloque os discos de VM não gerenciados em uma conta de armazenamento que não tenha o recurso de namespace hierárquico habilitado.
+As APIs blob e data Lake Storage Gen2 APIs podem operar com os mesmos dados.
+
+Esta secção descreve problemas e limitações com a utilização de APIs blob e Data Lake Storage Gen2 APIs para operar nos mesmos dados.
+
+* Não pode usar apis blob e data lake storage apis para escrever para a mesma instância de um arquivo. Se escrever para um ficheiro usando data Lake Storage Gen2 APIs, então os blocos do ficheiro não serão visíveis para chamadas para a API blob Da [Lista de Bloqueio saem.](https://docs.microsoft.com/rest/api/storageservices/get-block-list) Pode substituir um ficheiro utilizando APIs de Armazenamento de Data Lake Gen2 ou APIs blob. Isto não afeta as propriedades dos ficheiros.
+
+* Quando utilizar a operação [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) sem especificar um delimitador, os resultados incluirão diretórios e blobs. Se optar por utilizar um delimitador, utilize apenas um corte para a frente (`/`). Este é o único delimitador apoiado.
+
+* Se utilizar a API [Delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) para eliminar um diretório, esse diretório só será apagado se estiver vazio. Isto significa que não pode usar a API Blob apagar diretórios de forma recursiva.
+
+Estas APIs de repouso blob não são suportadas:
+
+* [Colocar Blob (Página)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [Página de colocação](https://docs.microsoft.com/rest/api/storageservices/put-page)
+* [Obtenha gamas de páginas](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
+* [Blob cópia incremental](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
+* [Colocar página a partir de URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [Colocar Blob (apêndice)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [Bloco de apêndice](https://docs.microsoft.com/rest/api/storageservices/append-block)
+* [Bloco de apêndice de URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+
+Os discos VM não geridos não são suportados em contas que tenham um espaço de nome hierárquico. Se pretender ativar um espaço de nome hierárquico numa conta de armazenamento, coloque discos VM não geridos numa conta de armazenamento que não tenha a funcionalidade hierárquica de espaço de nome ativada.
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="filesystem-support-in-sdks"></a>Suporte do sistema de arquivos em SDKs
+## <a name="file-system-support-in-sdks"></a>Suporte do sistema de ficheiros em SDKs
 
-- O suporte para [.net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) e [python](data-lake-storage-directory-file-acl-python.md) está em visualização pública. Não há suporte para outros SDKs no momento.
-- As operações obter e definir ACL não são recursivas no momento.
+- [.NET,](data-lake-storage-directory-file-acl-dotnet.md) [Java](data-lake-storage-directory-file-acl-java.md) e [Python,](data-lake-storage-directory-file-acl-python.md)e [JavaScript](data-lake-storage-directory-file-acl-javascript.md) e suporte estão em pré-visualização pública. Outros SDKs não são atualmente suportados.
+- As operações de get e set ACL não são atualmente recursivas.
 
-## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Suporte do sistema de arquivos no PowerShell e CLI do Azure
+## <a name="file-system-support-in-powershell-and-azure-cli"></a>Suporte do sistema de ficheiros no PowerShell e no Azure CLI
 
-- O [PowerShell](data-lake-storage-directory-file-acl-powershell.md) e o suporte do [CLI do Azure](data-lake-storage-directory-file-acl-cli.md) estão em visualização pública.
-- As operações obter e definir ACL não são recursivas no momento.
+- O suporte [powerShell](data-lake-storage-directory-file-acl-powershell.md) e [Azure CLI](data-lake-storage-directory-file-acl-cli.md) estão em pré-visualização pública.
+- As operações de get e set ACL não são atualmente recursivas.
 
-## <a name="support-for-other-blob-storage-features"></a>Suporte para outros recursos de armazenamento de BLOBs
+## <a name="lifecycle-management-policies"></a>Políticas de gestão do ciclo de vida
 
-A tabela a seguir lista todos os outros recursos e ferramentas que ainda não têm suporte ou que só têm suporte parcial com contas de armazenamento que têm um namespace hierárquico (Azure Data Lake Storage Gen2).
+* A eliminação de imagens blob ainda não é suportada.  
 
-| Recurso/ferramenta    | Mais informações    |
-|--------|-----------|
-| **Failover de conta** |Ainda não tem suporte|
-| **AZCopy** | Suporte específico à versão <br><br>Use apenas a versão mais recente do AzCopy ([AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Não há suporte para versões anteriores do AzCopy, como AzCopy v 8.1.|
-| **Políticas de gerenciamento do ciclo de vida do armazenamento de BLOBs** | As políticas de gerenciamento do ciclo de vida têm suporte (versão prévia).  Inscreva-se para visualizar as políticas de gerenciamento do ciclo de vida e arquivar a camada de acesso [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   <br><br>Há suporte para todas as camadas de acesso. A camada de acesso de arquivamento está em visualização no momento. Ainda não há suporte para a exclusão de instantâneos de BLOB.  Atualmente, existem alguns bugs que afetam as políticas de gerenciamento do ciclo de vida e a camada de acesso de arquivamento.  |
-| **Rede de Entrega de Conteúdos do Azure (CDN)** | Ainda não tem suporte|
-| **Azure Search** |Com suporte (visualização)|
-| **Explorador do Armazenamento do Azure** | Suporte específico à versão. <br><br>Use somente versões `1.6.0` ou superior. <br> Atualmente, há um bug de armazenamento que afeta a versão `1.11.0` que pode resultar em erros de autenticação em determinados cenários. Uma correção para o bug de armazenamento está sendo distribuída, mas como uma solução alternativa, recomendamos que você use a versão `1.10.x`, que está disponível como um [Download gratuito](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` não é afetado pelo bug de armazenamento.|
-| **ACLs de contêiner de BLOB** |Ainda não tem suporte|
-| **Blobfuse** |Ainda não tem suporte|
-| **Domínios personalizados** |Ainda não tem suporte|
-| **Gerenciador de Armazenamento no portal do Azure** | Suporte limitado. As ACLs ainda não têm suporte. |
-| **Registo de diagnósticos** |Os logs de diagnóstico têm suporte (versão prévia). <br><br>Gerenciador de Armazenamento do Azure 1,10. x não pode ser usado para exibir os logs de diagnóstico. Para exibir os logs, use AzCopy ou SDKs.
-| **Armazenamento imutável** |Ainda não tem suporte <br><br>O armazenamento imutável oferece a capacidade de armazenar dados em um estado de [worm (gravar uma vez, ler muitos)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
-| **Camadas de nível de objeto** |As camadas frias e de arquivo são suportadas. A camada de arquivo morto está em versão prévia. Todas as outras camadas de acesso ainda não têm suporte. <br><br> Atualmente, existem alguns bugs que afetam a camada de acesso de arquivamento.  Inscreva-se para a visualização da camada de acesso de arquivamento [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
-| **Sites estáticos** |Ainda não tem suporte <br><br>Especificamente, a capacidade de fornecer arquivos para [sites estáticos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
-| **Aplicativos de terceiros** | Suporte limitado <br><br>Aplicativos de terceiros que usam APIs REST para trabalhar continuarão a funcionar se você usá-los com Data Lake Storage Gen2. <br>Aplicativos que chamam APIs de blob provavelmente funcionarão.|
-|**Eliminação de Forma Recuperável** |Ainda não tem suporte|
-| **Recursos de controle de versão** |Ainda não tem suporte <br><br>Isso inclui [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)e outros recursos de controle de versão, como [instantâneos](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob).|
+* Existem atualmente alguns bugs que afetam as políticas de gestão do ciclo de vida e o nível de acesso ao arquivo. 
+
+## <a name="diagnostic-logs"></a>Registos de diagnósticos
+
+O Azure Storage Explorer 1.10.x não pode ser utilizado para visualizar registos de diagnóstico. Para visualizar registos, utilize AzCopy ou SDKs.
+
+## <a name="blobfuse"></a>Blobfuse
+
+Blobfuse não é apoiado.
+
+
+
+<a id="known-issues-tools" />
+
+## <a name="azcopy"></a>AzCopy
+
+Utilize apenas a versão mais recente do AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Versões anteriores da AzCopy, como AzCopy v8.1, não são suportadas.
+
+<a id="storage-explorer" />
+
+## <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
+
+Utilize apenas versões `1.6.0` ou superior. Existe atualmente um bug de armazenamento que afeta a versão `1.11.0` que pode resultar em erros de autenticação em determinados cenários. Está a ser lançada uma correção para o bug de armazenamento, mas como solução alternativa, recomendamos que utilize a versão `1.10.x` que está disponível como [download gratuito.](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes) `1.10.x` não é afetado pelo inseto de armazenamento.
+
+<a id="explorer-in-portal" />
+
+## <a name="storage-explorer-in-the-azure-portal"></a>Explorador de Armazenamento no Portal Azure
+
+Os ACLs ainda não são apoiados.
+
+<a id="third-party-apps" />
+
+## <a name="thirdpartyapplications"></a>Candidaturas de terceiros
+
+As aplicações de terceiros que usam APIs REST para trabalhar continuarão a funcionar se as utilizar com aplicações de Gen2 de Armazenamento de Data Lake que chamam de APIs blob provavelmente funcionarão.
+
+
+
 
 

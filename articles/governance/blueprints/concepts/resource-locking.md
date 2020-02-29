@@ -1,14 +1,14 @@
 ---
 title: Compreender o bloqueio de recursos
 description: Conheça as opções de bloqueio em Plantas Azure para proteger os recursos ao atribuir uma planta.
-ms.date: 04/24/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1491af0ddfb0f6f5fbea322bd00dc9838c155983
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057350"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919877"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreenda o bloqueio de recursos em Plantas Azure
 
@@ -33,6 +33,56 @@ Os recursos criados por artefactos numa atribuição de plantas têm quatro esta
 É tipicamente possível que alguém com um controlo de acesso baseado [em funções](../../../role-based-access-control/overview.md) apropriado (RBAC) na subscrição, como a função 'Proprietário', seja autorizado a alterar ou apagar qualquer recurso. Este acesso não é o caso quando as plantas se aplicam ao bloqueio como parte de uma missão implementada. Se a atribuição foi definida com a opção **Ler Apenas** ou **Não Eliminar,** nem mesmo o proprietário da subscrição pode executar a ação bloqueada no recurso protegido.
 
 Esta medida de segurança protege a consistência do projeto definido e do ambiente que foi concebido para criar a partir de supressão ou alteração acidental ou programática.
+
+### <a name="assign-at-management-group"></a>Atribuição no grupo de gestão
+
+Uma opção adicional para impedir que os proprietários de subscrições removam uma atribuição de plantas é atribuir o projeto a um grupo de gestão. Neste cenário, apenas os **proprietários** do grupo de gestão têm as permissões necessárias para remover a atribuição do projeto.
+
+Para atribuir o projeto a um grupo de gestão em vez de uma subscrição, a chamada rest API muda para se parecer com este:
+
+```http
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
+```
+
+O grupo de gestão definido por `{assignmentMG}` deve estar dentro da hierarquia do grupo de gestão ou ser o mesmo grupo de gestão onde a definição de projeto é guardada.
+
+O corpo de pedido da atribuição da planta é assim:
+
+```json
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "location": "eastus",
+    "properties": {
+        "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+        "blueprintId": "/providers/Microsoft.Management/managementGroups/{blueprintMG}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+        "scope": "/subscriptions/{targetSubscriptionId}",
+        "parameters": {
+            "storageAccountType": {
+                "value": "Standard_LRS"
+            },
+            "costCenter": {
+                "value": "Contoso/Online/Shopping/Production"
+            },
+            "owners": {
+                "value": [
+                    "johnDoe@contoso.com",
+                    "johnsteam@contoso.com"
+                ]
+            }
+        },
+        "resourceGroups": {
+            "storageRG": {
+                "name": "defaultRG",
+                "location": "eastus"
+            }
+        }
+    }
+}
+```
+
+A diferença fundamental neste órgão de pedido e uma a ser atribuída a uma subscrição é a propriedade `properties.scope`. Este imóvel necessário deve ser definido para a subscrição a que a atribuição do projeto se aplica. A subscrição deve ser uma criança direta da hierarquia do grupo de gestão onde a atribuição do projeto está armazenada.
 
 ## <a name="removing-locking-states"></a>Remoção de estados de bloqueio
 
@@ -61,7 +111,7 @@ As propriedades de [atribuição de negar](../../../role-based-access-control/de
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>Excluir um diretor de uma atribuição de negação
 
-Em alguns cenários de conceção ou segurança, pode ser necessário excluir um diretor da atribuição de [negação](../../../role-based-access-control/deny-assignments.md) que a atribuição de plantas cria. Isto é feito em REST API adicionando até cinco **valores** à matriz excluída dos Principais na propriedade **locks** ao criar [a atribuição](/rest/api/blueprints/assignments/createorupdate). Este é um exemplo de um órgão de pedido que inclui **os diretores excluídos:**
+Em alguns cenários de conceção ou segurança, pode ser necessário excluir um diretor da atribuição de [negação](../../../role-based-access-control/deny-assignments.md) que a atribuição de plantas cria. Este passo é feito na API REST adicionando até cinco **valores** à matriz excluída dos Principais na propriedade **locks** ao [criar a atribuição](/rest/api/blueprints/assignments/createorupdate). A seguinte definição de atribuição é um exemplo de um órgão de pedido que inclui **os diretores excluídos:**
 
 ```json
 {

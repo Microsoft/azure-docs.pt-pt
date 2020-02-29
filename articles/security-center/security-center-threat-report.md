@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 10e1081c7a91c65c21ffcb3da66930fb7c6e73bb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f8b4063d87fa9a89dccd42eddea644609bd6ff27
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603443"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921254"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Relatório de Informações Sobre Ameaças do Centro de Segurança do Azure
 Este documento explica como os Relatórios de Informações Sobre Ameaças do Centro de Segurança do Azure podem ajudá-lo a obter mais informações sobre uma ameaça que gerou um alerta de segurança.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>O que é um relatório de informações sobre ameaças?
-A deteção de ameaças do Centro de Segurança funciona através da monitorização de informações de segurança a partir dos seus recursos do Azure, da rede e das soluções de parceiros ligadas. Analisa esta informação, muitas vezes correlacionando informações de várias origens, para identificar ameaças. Para mais informações, consulte [como o Azure Security Center deteta e responde a ameaças](security-center-alerts-overview.md#detect-threats).
+A proteção contra ameaças do Security Center funciona através da monitorização de informações de segurança dos seus recursos Azure, da rede e soluções de parceiros conectados. Analisa esta informação, muitas vezes correlacionando informações de várias origens, para identificar ameaças. Para mais informações, consulte [como o Azure Security Center deteta e responde a ameaças](security-center-alerts-overview.md#detect-threats).
 
 Quando o Centro de Segurança identifica uma ameaça, irá acionar um [alerta de segurança](security-center-managing-and-responding-alerts.md) com informações detalhadas sobre um determinado evento, incluindo sugestões de remediação. Para ajudar as equipas de resposta a incidentes, investigar e remediar ameaças, o Centro de Segurança inclui um relatório de inteligência de ameaças que contém informações sobre a ameaça que foi detetada, incluindo informações como:
 

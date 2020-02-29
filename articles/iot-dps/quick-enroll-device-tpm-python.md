@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 60ce27ddc533b6c4066cea771f7a24570ff3c04c
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: c5fe0a577ead9d8c6408d4268d21465a7b762b6d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604888"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920625"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Quickstart: Inscreva o dispositivo TPM para o Serviço de Provisionamento de Dispositivos IoT Hub utilizando o serviço de provisionamento Python SDK
 
@@ -31,7 +31,7 @@ Neste arranque rápido, cria programáticamente uma inscrição individual para 
 - Chave de endossamento. Utilize os passos em [Create e forneca um dispositivo simulado](quick-create-simulated-device.md) ou utilize a chave de averbamento fornecida com o SDK, descrito abaixo.
 
 > [!IMPORTANT]
-> Este artigo aplica-se apenas ao SDK Desprecated V1 Python. Os clientes de dispositivos e serviços do Serviço de Provisionamento de Dispositivos Iot Hub ainda não estão disponíveis no V2. A equipa está neste momento a trabalhar arduamente para trazer o V2 para a paridade.
+> Este artigo aplica-se apenas ao SDK Desprecated V1 Python. Os clientes de dispositivos e serviços do Serviço de Provisionamento de Dispositivos IoT Hub ainda não estão disponíveis no V2. A equipa está neste momento a trabalhar arduamente para trazer o V2 para a paridade.
 
 <a id="prepareenvironment"></a>
 

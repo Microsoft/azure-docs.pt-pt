@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 5681efc202df511745532e4a314e88b319e9880a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 99f255d9991b51897ee31671835dabb5f3e359fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623411"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916511"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço Azure Cosmos DB
 
@@ -168,6 +168,9 @@ A tabela seguinte enumera os limites específicos do suporte à funcionalidade M
 | --- | --- |
 | Tamanho máximo da memória da consulta MongoDB | 40 MB |
 | Tempo máximo de execução para operações da MongoDB| 30 anos |
+| Tempo limite de ligação inativo para o fecho da ligação lateral do servidor* | 30 minutos |
+
+\* Recomendamos que as aplicações do cliente estabeleçam o tempo limite de ligação inativo nas definições do controlador para 2-3 minutos, porque o [tempo limite padrão para o Azure LoadBalancer é](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout)de 4 minutos .  Este prazo irá garantir que as ligações inativas não sejam fechadas por um equilibrador de carga intermédio entre a máquina cliente e a Azure Cosmos DB.
 
 ## <a name="try-cosmos-db-free-limits"></a>Experimente os limites livres cosmos DB
 

@@ -1,6 +1,6 @@
 ---
-title: A inicialização da VM do Azure está presa em Windows Update | Microsoft Docs
-description: Saiba como solucionar o problema quando uma inicialização de VM do Azure está presa no Windows Update.
+title: Startup Azure VM está presa no Windows Update Microsoft Docs
+description: Saiba como resolver o problema quando uma startup Azure VM está presa na atualização do Windows.
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -12,50 +12,48 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: e8e4bed052ec5b70c441a3ae76f3409c307299e5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981423"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919435"
 ---
-# <a name="azure-vm-startup-is-stuck-at-windows-update"></a>A inicialização da VM do Azure está presa no Windows Update
+# <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Startup Azure VM está presa na atualização do Windows
 
-Este artigo ajuda a resolver o problema quando sua VM (máquina virtual) está presa no estágio de Windows Update durante a inicialização. 
+Este artigo ajuda a resolver o problema quando a sua Máquina Virtual (VM) está presa na fase de Atualização do Windows durante o arranque. 
 
-> [!NOTE] 
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de recursos. Recomendamos que você use esse modelo para novas implantações em vez de usar o modelo de implantação clássico.
 
 ## <a name="symptom"></a>Sintoma
 
- Uma VM do Windows não é iniciada. Ao verificar as capturas de tela na janela de [diagnóstico de inicialização](../troubleshooting/boot-diagnostics.md) , você verá que a inicialização está presa no processo de atualização. Veja a seguir exemplos de mensagens que você pode receber:
+ Um VM windows não começa. Quando verifica as imagens na janela de [diagnóstico](../troubleshooting/boot-diagnostics.md) boot, vê que a startup está presa no processo de atualização. Seguem-se exemplos de mensagens que poderá receber:
 
-- A instalação do Windows # #% não desliga seu PC. Isso levará um tempo que seu computador será reiniciado várias vezes
-- Mantenha seu PC ligado até que isso seja feito. Instalando a atualização n º de #... 
-- Não foi possível concluir as atualizações desfazendo as alterações não desligue o computador
-- Falha ao configurar as atualizações do Windows a reversão das alterações não desliga o computador
-- Erro < código de erro > aplicar as operações de atualização # # # # # de # # # # # (\Regist...)
-- Erro fatal < código de erro > aplicar as operações de atualização # # # # # de # # # # # ($ $...)
+- Instalação do Windows ##% Não desligue o seu PC. Isto levará algum tempo O seu PC irá reiniciar várias vezes
+- Mantenha o seu PC ligado até que isto esteja feito. Atualização de instalação # de #... 
+- Não conseguimos completar as atualizações Desfazer as alterações Não desligue o computador
+- Falha configurar atualizações do Windows Reverter alterações Não desligue o computador
+- Error < error code > aplicação de operações de atualização ##### de ##### (\Regist...)
+- Erro Fatal < error code > aplicação de operações de atualização ##### de ##### ($...)
 
 
 ## <a name="solution"></a>Solução
 
-Dependendo do número de atualizações que estão sendo instaladas ou revertidas, o processo de atualização pode demorar um pouco. Deixe a VM nesse estado por 8 horas. Se a VM ainda estiver nesse estado após esse período, reinicie a VM do portal do Azure e veja se ela pode ser iniciada normalmente. Se essa etapa não funcionar, tente a solução a seguir.
+Dependendo do número de atualizações que estão a ser instaladas ou enroladas, o processo de atualização pode demorar algum tempo. Deixe o VM neste estado por 8 horas. Se o VM ainda estiver neste estado após esse período, reinicie o VM a partir do portal Azure, e veja se pode começar normalmente. Se este passo não funcionar, tente a seguinte solução.
 
-### <a name="remove-the-update-that-causes-the-problem"></a>Remover a atualização que causa o problema
+### <a name="remove-the-update-that-causes-the-problem"></a>Remova a atualização que causa o problema
 
-1. Tire um instantâneo do disco do sistema operacional da VM afetada como um backup. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md). 
-2. [Anexar o disco do SO a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
-3. Depois que o disco do sistema operacional for anexado na VM de recuperação, execute **diskmgmt. msc** para abrir o gerenciamento de disco e verifique se o disco anexado está **online**. Anote a letra da unidade atribuída ao disco do sistema operacional anexado que contém a pasta \Windows. Se o disco estiver criptografado, descriptografe o disco antes de prosseguir com as próximas etapas deste documento.
+1. Tire uma foto do disco operativo do VM afetado como cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md). 
+2. [Fixe o disco OS a um VM](troubleshoot-recovery-disks-portal-windows.md)de recuperação .
+3. Uma vez que o disco OS esteja ligado ao VM de recuperação, corra **diskmgmt.msc** para abrir a Gestão do Disco e certifique-se de que o disco em anexo está **ON .** Tome nota da letra de unidade que é atribuída ao disco OPERATIVO anexado que segura a pasta \windows. Se o disco estiver encriptado, desencriptar o disco antes de prosseguir com os próximos passos deste documento.
 
-4. Abra uma instância de prompt de comando com privilégios elevados (executar como administrador). Execute o seguinte comando para obter a lista dos pacotes de atualização que estão no disco do sistema operacional anexado:
+4. Abra uma instância de solicitação de comando elevada (Executar como administrador). Executar o seguinte comando para obter a lista dos pacotes de atualização que estão no disco OS anexado:
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
-    Por exemplo, se o disco do sistema operacional anexado for a unidade F, execute o seguinte comando:
+    Por exemplo, se o disco OS anexado estiver acionado Por Unidade F, execute o seguinte comando:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-5. Abra o arquivo C:\Temp\ Patch_level. txt e, em seguida, leia-o de baixo para cima. Localize a atualização que está no estado **instalação pendente** ou **desinstalação pendente** .  Veja a seguir um exemplo do status da atualização:
+5. Abra o ficheiro C:\temp\Patch_level.txt, e depois leia-o de baixo para cima. Localize a atualização que está em **instalação pendente** ou **desinstale o** estado pendente.  Segue-se uma amostra do estado da atualização:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
@@ -75,6 +73,6 @@ Dependendo do número de atualizações que estão sendo instaladas ou revertida
     ```
 
     > [!NOTE] 
-    > Dependendo do tamanho do pacote, a ferramenta DISM levará algum tempo para processar a desinstalação. Normalmente, o processo será concluído em 16 minutos.
+    > Dependendo do tamanho da embalagem, a ferramenta DISM levará algum tempo a processar a não instalação. Normalmente, o processo será concluído dentro de 16 minutos.
 
-7. [Desanexar o disco do SO e recriar a VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Em seguida, verifique se o problema foi resolvido.
+7. [Desmontar o disco OS e recriar o VM](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Em seguida, verifique se a questão está resolvida.

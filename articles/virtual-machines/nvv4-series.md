@@ -2,17 +2,17 @@
 title: Série NVv4 - Máquinas Virtuais Azure
 description: Especificações para os VMs da série NVv4.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 2afec4dc89c8d8892356888ec3404d36ba929d23
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: ccafe6f317ff50684922fd4409beb42214c18858
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669646"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161862"
 ---
 # <a name="nvv4-series-preview"></a>Série NVv4 (Pré-visualização)
 
@@ -24,6 +24,10 @@ As máquinas virtuais da série NVv4 são alimentadas por [AMD Radeon Instinct M
 Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Suportado
+
+Migração Ao Vivo: Não Suportado
+
+Atualizações de preservação da memória: não suportadas
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória DE GPU: GiB | Discos de dados máximos | NICs máximos |
 | --- | --- | --- | --- | --- | --- | --- | --- |

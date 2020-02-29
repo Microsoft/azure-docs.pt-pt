@@ -1,32 +1,32 @@
 ---
-title: 'Árvore de decisão aumentada multiclasse: referência de módulo'
+title: 'Árvore de decisão impulsionada multiclasse: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo árvore de decisão aumentada multiclasse no Azure Machine Learning para criar um classificador usando dados rotulados.
+description: Aprenda a utilizar o módulo Multiclass Boosted Decision Tree em Azure Machine Learning para criar um classificador utilizando dados rotulados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0bcca16bd89781428773eda168e6ee3c2f5784ef
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/19/2020
+ms.openlocfilehash: 7d51e3007b7773e28d846f8d30178426f5668cfb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152181"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920064"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Árvore de Decisões Elevada Multiclasse
 
 Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
-Use este módulo para criar um modelo de aprendizado de máquina baseado no algoritmo árvores de decisão aumentada.
+Use este módulo para criar um modelo de aprendizagem automática que se baseie no algoritmo de árvores de decisão impulsionada.
 
-Uma árvore de decisão aumentada é um método de aprendizado Ensemble no qual a segunda árvore corrige os erros da primeira árvore, a terceira árvore corrige os erros da primeira e segunda árvores e assim por diante. As previsões são baseadas na Ensemble de árvores juntas.
+Uma árvore de decisão reforçada é um método de aprendizagem conjunto em que a segunda árvore corrige os erros da primeira árvore, a terceira árvore corrige para os erros da primeira e segunda árvores, e assim por diante. As previsões baseiam-se no conjunto de árvores juntas.
 
 ## <a name="how-to-configure"></a>Como configurar 
 
-Este módulo cria um modelo de classificação não treinado. Como a classificação é um método de aprendizagem supervisionado, você precisa de um conjunto de *dados rotulado* que inclua uma coluna de etiqueta com um valor para todas as linhas.
+Este módulo cria um modelo de classificação destreinado. Como a classificação é um método de aprendizagem supervisionado, você precisa de um conjunto de *dados rotulado* que inclua uma coluna de etiqueta com um valor para todas as linhas.
 
 Pode treinar este tipo de modelo utilizando o [Modelo de Comboio](././train-model.md). 
 
@@ -35,25 +35,26 @@ Pode treinar este tipo de modelo utilizando o [Modelo de Comboio](././train-mode
 1.  Especifique como pretende que o modelo seja treinado definindo a opção **modo de modo Criar.**
 
     + **Parâmetro único**: Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.
-
-
-    *  **O número máximo de folhas por árvore** limita o número máximo de nós terminais (folhas) que podem ser criados em qualquer árvore.
     
-        Ao aumentar esse valor, você pode aumentar o tamanho da árvore e obter uma precisão maior, com o risco de superajuste e tempo de treinamento mais longo.
+    + **Gama de parâmetros**: Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretenda fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar mais, e o [Modelo tune Hyperparâmetros](tune-model-hyperparameters.md) iterates sobre todas as combinações possíveis das definições que forneceu para determinar os hiperparâmetros que produzem os melhores resultados.  
+
+1. **O número máximo de folhas por árvore** limita o número máximo de nós terminais (folhas) que podem ser criados em qualquer árvore.
+    
+        By increasing this value, you potentially increase the size of the tree and achieve higher precision, at the risk of overfitting and longer training time.
   
-    * **O número mínimo de amostras por nó de folha** indica o número de caixas necessárias para criar qualquer nó terminal (folha) numa árvore.  
+1. **O número mínimo de amostras por nó de folha** indica o número de caixas necessárias para criar qualquer nó terminal (folha) numa árvore.  
 
-         Ao aumentar esse valor, você aumenta o limite para a criação de novas regras. Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se você aumentar o valor para 5, os dados de treinamento precisarão conter pelo menos cinco casos que atendam às mesmas condições.
+         By increasing this value, you increase the threshold for creating new rules. For example, with the default value of 1, even a single case can cause a new rule to be created. If you increase the value to 5, the training data would have to contain at least five cases that meet the same conditions.
 
-    * **A taxa de aprendizagem** define o tamanho do passo durante a aprendizagem. Insira um número entre 0 e 1.
+1. **A taxa de aprendizagem** define o tamanho do passo durante a aprendizagem. Insira um número entre 0 e 1.
 
-         A taxa de aprendizagem determina o quão rápido ou lento o aprendiz convergi em uma solução ideal. Se o tamanho do passo for demasiado grande, poderá ultrapassar a solução ideal. Se o tamanho da etapa for muito pequeno, o treinamento levará mais tempo para convergir na melhor solução.
+         The learning rate determines how fast or slow the learner converges on an optimal solution. If the step size is too large, you might overshoot the optimal solution. If the step size is too small, training takes longer to converge on the best solution.
 
-    * **O número de árvores construídas** indica o número total de árvores de decisão a criar no conjunto. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumentará.
+1. **O número de árvores construídas** indica o número total de árvores de decisão a criar no conjunto. Ao criar mais árvores de decisão, pode potencialmente obter uma melhor cobertura, mas o tempo de treino aumentará.
 
-    *  **A semente de número aleatório** define opcionalmente um inteiro não negativo para usar como o valor de sementes aleatórias. A especificação de uma semente garante reprodução entre as execuções que têm os mesmos dados e parâmetros.  
+1. **A semente de número aleatório** define opcionalmente um inteiro não negativo para usar como o valor de sementes aleatórias. Especificar uma semente garante a reprodutibilidade em percursos que tenham os mesmos dados e parâmetros.  
 
-         A semente aleatória é definida por padrão como 42. As execuções sucessivas usando sementes aleatórias diferentes podem ter resultados diferentes.
+         The random seed is set by default to 42. Successive runs using different random seeds can have different results.
 
 > [!Note]
 > Se definir o modo Criar o **modo de formação** para **um parâmetro único,** ligue um conjunto de dados marcado e o módulo [Modelo de Comboio.](./train-model.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77564982"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920591"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
@@ -202,6 +202,9 @@ O AMS oferece dois codificadores a pedido, o **Media Encoder Standard** e o **Me
 ### <a name="analytics-media-processors"></a>Processadores de multimédia de análise
 
 A Análise de Multimédia é um conjunto de componentes de voz e visão que facilitam a derivação de conhecimentos acionáveis por parte das organizações e empresas dos respetivos ficheiros de vídeo. Para obter mais informações, consulte [Descrição Geral da Análise dos Media Services do Azure](media-services-analytics-overview.md).
+
+> [!NOTE]
+> Alguns processadores de meios de comunicação de análise serão retirados. Para as datas de aposentadoria, consulte o tema dos [componentes do legado.](legacy-components.md)
 
 #### <a name="availability"></a>Disponibilidade
 

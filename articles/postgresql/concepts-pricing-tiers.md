@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 9ce88c687df4e329acd2949d0b26033dc10c94ea
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 635a66f0275d4df4f858bff61be80900dc58c6fb
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619478"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164479"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Níveis de preços na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -67,7 +67,7 @@ Pode monitorizar o seu consumo de I/S no portal Azure ou utilizando comandos Azu
 
 ### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
 
-Os servidores com menos de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 512 MB ou 5% do tamanho de armazenamento aprovisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
+Os servidores com armazenamento com menos de 10 GB de armazenamento provisionado são marcados apenas de leitura se o armazenamento gratuito for inferior a 512 MB do tamanho de armazenamento provisionado. Os servidores com armazenamento com menos de 100 GB de armazenamento provisionado são marcados apenas de leitura se o armazenamento gratuito for inferior a 5% do tamanho de armazenamento provisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
 
 Por exemplo, se tiver aprovisionado 110 GB de armazenamento, e a utilização real ultrapassar os 105 GB, o servidor é marcado apenas para leitura. Em alternativa, se tiver aprovisionado 5 GB de armazenamento, o servidor é marcado apenas quando o armazenamento gratuito atinge menos de 512 MB.
 
@@ -79,7 +79,7 @@ Recomendamos que ligue o armazenamento de modo a crescer automaticamente ou que 
 
 ### <a name="storage-auto-grow"></a>Armazenamento de automóveis
 
-O armazenamento de forma automática impede que o servidor fique sem armazenamento e se torne apenas para leitura. Se o armazenamento automático crescer, o armazenamento cresce automaticamente sem afetar a carga de trabalho. Para servidores com armazenamento aprovisionado inferior a 100 GB, o tamanho de armazenamento provisionado é aumentado em 5 GB assim que o armazenamento gratuito é inferior ao maior de 1 GB ou 10% do armazenamento provisionado. Para servidores com mais de 100 GB de armazenamento provisionado, o tamanho do armazenamento provisionado é aumentado em 5% quando o espaço de armazenamento gratuito é inferior a 5% do tamanho de armazenamento provisionado. Aplicam-se os limites máximos de armazenamento acima referidos.
+O armazenamento de forma automática impede que o servidor fique sem armazenamento e se torne apenas para leitura. Se o armazenamento automático crescer, o armazenamento cresce automaticamente sem afetar a carga de trabalho. Para servidores com armazenamento inferior a 100 GB, o tamanho de armazenamento provisionado é aumentado em 5 GB assim que o armazenamento gratuito é inferior ao maior de 1 GB ou 10% do armazenamento provisionado. Para servidores com mais de 100 GB de armazenamento provisionado, o tamanho do armazenamento provisionado é aumentado em 5% quando o espaço de armazenamento livre é inferior ao maior de 10 GB ou 5% do tamanho de armazenamento provisionado. Aplicam-se os limites máximos de armazenamento acima referidos.
 
 Por exemplo, se tiver aprovisionado 1000 GB de armazenamento, e a utilização real ultrapassar os 950 GB, o tamanho do armazenamento do servidor é aumentado para 1050 GB. Em alternativa, se tiver previsto 10 GB de armazenamento, o tamanho do armazenamento aumenta para 15 GB quando menos de 1 GB de armazenamento é gratuito.
 

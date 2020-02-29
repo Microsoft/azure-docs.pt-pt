@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: b1e1402f58b103570d6a98a5f9a01c8168abf749
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604259"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912367"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Compreender as recomendações do centro de segurança Azure
 
@@ -35,7 +35,7 @@ O Azure Security Center fornece as seguintes capacidades para o ajudar a protege
 
     ![separador de recipiente](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Deteção de ameaças de contentores em tempo real**<br> O Security Center fornece deteção de ameaças em tempo real para os seus contentores em máquinas Linux com componente AuditD. Os alertas identificam várias atividades suspeitas do Docker, como a criação de um contentor privilegiado no hospedeiro, uma indicação do servidor Secure Shell (SSH) que corre dentro de um contentor do Docker, ou o uso de mineiros cripto. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
+- **Proteção contra ameaças de contentores em tempo real**<br> O Security Center fornece proteção contra ameaças em tempo real para os seus contentores em máquinas Linux com componente AuditD. Os alertas identificam várias atividades suspeitas do Docker, como a criação de um contentor privilegiado no hospedeiro, uma indicação do servidor Secure Shell (SSH) que corre dentro de um contentor do Docker, ou o uso de mineiros cripto. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
 
     ![separador de recipiente](./media/security-center-container-recommendations/docker-threat-detection.png)
 

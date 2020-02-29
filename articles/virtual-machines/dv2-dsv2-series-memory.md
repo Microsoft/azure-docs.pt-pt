@@ -2,17 +2,17 @@
 title: Memória otimizada Dv2 e DSv2 série VMs - Máquinas Virtuais Azure
 description: Especificações para os VMs da série Dv2 e DSv2.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 1ba13733fdf5cf8aa83cbf71a23d013bf4ae90d4
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 66e415070e60676df5602078aff50c7b68920f1e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493790"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914046"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Memória otimizada série Dv2 e Dsv2
 
@@ -73,6 +73,6 @@ Caching de armazenamento premium: Suportado
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.

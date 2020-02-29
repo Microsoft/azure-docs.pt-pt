@@ -1,6 +1,6 @@
 ---
-title: Autoridade de certificação permitida para habilitar HTTPS personalizado na CDN do Azure
-description: Se você estiver usando seu próprio certificado para habilitar o HTTPS em um domínio personalizado, deverá usar uma autoridade de certificação (CA) permitida para criá-lo.
+title: CA permitido para ativar HTTPS personalizado em Azure CDN
+description: Se estiver a utilizar o seu próprio certificado para ativar https num domínio personalizado, deve utilizar uma autoridade de certificado saneada (CA) para o criar.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5462502514a3e327913122fe99fd699856891216
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7b71611d43bc2d4de4c3e609462906c44fba0443
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083107"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919979"
 ---
-# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Autoridades de certificação permitidas para habilitar HTTPS personalizado na CDN do Azure
+# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Autoridades de certificados autorizadas por permitir HTTPS personalizado no Azure CDN
 
-Para um domínio personalizado da CDN (rede de distribuição de conteúdo) do Azure em um **padrão da CDN do Azure do Microsoft** EndPoint, ao [habilitar o recurso https usando seu próprio certificado](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates), você deve usar uma autoridade de certificação (CA) permitida para criar seu certificado SSL. Caso contrário, se você usar uma autoridade de certificação não permitida ou um certificado autoassinado, sua solicitação será rejeitada.
+Deve cumprir os requisitos específicos do certificado quando [ativa ré](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) https utilizando o seu próprio certificado para um domínio personalizado da Rede de Entrega de Conteúdos Azure (CDN). O **Padrão Azure CDN do** perfil da Microsoft requer um certificado de uma das autoridades de certificados aprovadas (CA) na lista seguinte. Se for utilizado um certificado de uma AC não aprovada ou se for utilizado um certificado auto-assinado, o pedido é rejeitado. **A Norma Azure CDN da Verizon** e **do Azure CDN Premium dos** perfis da Verizon aceitam qualquer certificado válido de qualquer CA válido.
 
 > [!NOTE]
-> A opção de usar seu próprio certificado para habilitar o HTTPS personalizado está disponível somente com o **Azure CDN Standard de perfis da Microsoft** . 
+> A opção de utilizar o seu próprio certificado para ativar a funcionalidade HTTPS de domínio personalizado *não* está disponível para **o Azure CDN Standard a partir de** perfis Da Akamai. 
 >
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]

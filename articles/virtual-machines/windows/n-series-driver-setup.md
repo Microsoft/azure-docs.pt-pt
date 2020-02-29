@@ -1,6 +1,6 @@
 ---
-title: Instalação do driver de GPU da série N do Azure para Windows
-description: Como configurar Drivers NVIDIA GPU para VMs da série N que executam o Windows Server ou o Windows no Azure
+title: Configuração do piloto da GPU da série N Azurpara windows
+description: Como configurar os controladores GPU da NVIDIA para VMs da série N que executam o Windows Server ou o Windows em Azure
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -14,62 +14,62 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f6286f0a9c15b8089ff5ce9d6f3879b40aceaef
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 631266f983886e3ca34d609b425f8a71b808b39f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033153"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919401"
 ---
-# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Windows 
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instale os controladores GPU da NVIDIA em VMs da série N que executam o Windows 
 
-Para aproveitar os recursos de GPU das VMs da série N do Azure que executam o Windows, os drivers NVIDIA GPU devem ser instalados. A [extensão de Driver Nvidia GPU](../extensions/hpccompute-gpu-windows.md) instala drivers NVIDIA CUDA ou Grid apropriados em uma VM da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas como Azure PowerShell ou Azure Resource Manager modelos. Consulte a [documentação de extensão do Driver Nvidia GPU](../extensions/hpccompute-gpu-windows.md) para obter os sistemas operacionais e as etapas de implantação com suporte.
+Para tirar partido das capacidades de GPU dos VMs da série N Azure que executam o Windows, os controladores GPU da NVIDIA devem ser instalados. A Extensão do [Condutor GPU da NVIDIA](../extensions/hpccompute-gpu-windows.md) instala os condutores adequados da NVIDIA CUDA ou grid num VM da série N. Instale ou gerea extensão utilizando o portal Azure ou ferramentas como os modelos Azure PowerShell ou Azure Resource Manager. Consulte a documentação de extensão do [condutor da NVIDIA GPU](../extensions/hpccompute-gpu-windows.md) para sistemas operativos suportados e etapas de implementação.
 
-Se você optar por instalar drivers de GPU manualmente, este artigo fornecerá os sistemas operacionais, drivers e etapas de instalação e verificação com suporte. As informações de configuração manual do driver também estão disponíveis para [VMs do Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se optar por instalar manualmente os controladores GPU, este artigo fornece sistemas operativos, controladores e etapas de instalação e verificação suportados. A informação manual de configuração do controlador também está disponível para [VMs Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Para obter especificações básicas, capacidades de armazenamento e detalhes de disco, consulte [tamanhos de VM Windows GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Para especificações básicas, capacidades de armazenamento e detalhes do disco, consulte os [tamanhos de VM do Windows GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 [!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
-## <a name="driver-installation"></a>Instalação do driver
+## <a name="driver-installation"></a>Instalação do condutor
 
-1. Conecte-se por Área de Trabalho Remota a cada VM da série N.
+1. Ligue-se por Remote Desktop a cada VM da série N.
 
-2. Baixe, extraia e instale o driver com suporte para seu sistema operacional Windows.
+2. Descarregue, extraie e instale o controlador suportado para o seu sistema operativo Windows.
 
-Após a instalação do driver de grade em uma VM, uma reinicialização é necessária. Após a instalação do driver CUDA, uma reinicialização não é necessária.
+Após a instalação do controlador GRID num VM, é necessário reiniciar. Após a instalação do controlador CUDA, não é necessário reiniciar.
 
-## <a name="verify-driver-installation"></a>Verificar a instalação do driver
+## <a name="verify-driver-installation"></a>Verificar a instalação do condutor
 
-Observe que o painel de controle NVIDIA só está acessível com a instalação do driver de grade. Se você tiver instalado drivers CUDA, o painel de controle nvidia não estará visível.
+Por favor, note que o painel de controlo nvidia só está acessível com a instalação do controlador GRID. Se tiver instalado controladores CUDA, o painel de controlo Nvidia não será visível.
 
-Você pode verificar a instalação do driver no Device Manager. O exemplo a seguir mostra a configuração bem-sucedida do cartão Tesla K80 em uma VM NC do Azure.
+Pode verificar a instalação do controlador no Gestor de Dispositivos. O exemplo seguinte mostra uma configuração bem sucedida do cartão Tesla K80 num VM Nc Azure.
 
-![Propriedades do driver GPU](./media/n-series-driver-setup/GPU_driver_properties.png)
+![Propriedades do condutor da GPU](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-Para consultar o estado do dispositivo GPU, execute o utilitário de linha de comando [NVIDIA-SMI](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o driver.
+Para consultar o estado do dispositivo GPU, execute o utilitário de linha de comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o controlador.
 
-1. Abra um prompt de comando e altere para o diretório **C:\Program Files\NVIDIA Corporation\NVSMI**
+1. Abra um pedido de comando e altere para o diretório **C:\Program Files\NVIDIA Corporation\NVSMI.**
 
-2. Execute `nvidia-smi`. Se o driver estiver instalado, você verá uma saída semelhante à seguinte. O **GPU-util** mostra **0%** , a menos que você esteja executando uma carga de trabalho de GPU na VM no momento. A versão do driver e os detalhes da GPU podem ser diferentes dos mostrados.
+2. Execute `nvidia-smi`. Se o controlador estiver instalado, verá uma saída semelhante à seguinte. O **GPU-Util** mostra **0%** a menos que esteja atualmente a executar uma carga de trabalho de GPU no VM. A versão do seu condutor e os detalhes da GPU podem ser diferentes dos mostrados.
 
-![Status do dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)  
+![Estado do dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)  
 
-## <a name="rdma-network-connectivity"></a>Conectividade de rede RDMA
+## <a name="rdma-network-connectivity"></a>Conectividade da rede RDMA
 
-A conectividade de rede RDMA pode ser habilitada em VMs da série N compatíveis com RDMA, como o NC24r implantado no mesmo conjunto de disponibilidade ou em um grupo de posicionamento único em um conjunto de dimensionamento de máquinas virtuais. A extensão HpcVmDrivers deve ser adicionada para instalar drivers de dispositivo de rede do Windows que habilitam a conectividade RDMA. Para adicionar a extensão de VM a uma VM da série N habilitada para RDMA, use [Azure PowerShell](/powershell/azure/overview) cmdlets para Azure Resource Manager.
+A conectividade da rede RDMA pode ser ativada em VMs de série N com capacidade RDMA, tais como NC24r implantados no mesmo conjunto de disponibilidade ou num único grupo de colocação num conjunto de escala de máquina virtual. A extensão HpcVmDrivers deve ser adicionada para instalar controladores de dispositivos de rede Windows que permitam a conectividade RDMA. Para adicionar a extensão VM a um VM de série N ativado por RDMA, utilize cmdlets [Azure PowerShell](/powershell/azure/overview) para O Gestor de Recursos Azure.
 
-Para instalar a extensão mais recente da versão 1,1 do HpcVMDrivers em uma VM compatível com RDMA existente chamada myVM na região oeste dos EUA:
+Para instalar a mais recente extensão da versão 1.1 HpcVMDrivers num VM com capacidade rdma existente chamado myVM na região dos EUA Ocidentais:
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Para obter mais informações, consulte [extensões e recursos de máquina virtual do Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  Para mais informações, consulte [extensões e funcionalidades da máquina Virtual para Windows](extensions-features.md).
 
-A rede RDMA dá suporte ao tráfego de interface de transmissão de mensagens (MPI) para aplicativos executados com [o Microsoft MPI ou o](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) Intel MPI 5. x. 
+A rede RDMA suporta o tráfego de Interface de Passagem de Mensagens (MPI) para aplicações em execução com [MPI microsoft](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) ou Intel MPI 5.x. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Os desenvolvedores que criam aplicativos acelerados por GPU para GPUs NVIDIA Tesla também podem baixar e instalar o [Kit de ferramentas do CUDA](https://developer.nvidia.com/cuda-downloads)mais recente. Para obter mais informações, consulte o [Guia de instalação do CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Os desenvolvedores que construem aplicações gpu-accelerated para as GPUs nVIDIA Tesla também podem descarregar e instalar o mais recente KIT de [Ferramentas CUDA](https://developer.nvidia.com/cuda-downloads). Para mais informações, consulte o Guia de Instalação da [CUDA.](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)
 
 

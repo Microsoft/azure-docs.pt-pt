@@ -2,17 +2,17 @@
 title: Série NDv2 - Máquinas Virtuais Azure
 description: Especificações para os VMs da série NDv2.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 2d38b69e468f766d21a38bda1c2da3daae50d900
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c4f2a8deed256af54ffd4331210fdfc89b0f4e49
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663713"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161946"
 ---
 # <a name="updated-ndv2-series-preview"></a>Série NDv2 atualizada (Pré-visualização)
 
@@ -39,6 +39,10 @@ Criticamente, o NDv2 é construído para cargas de trabalho computacionalmente i
 Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Suportado
+
+Migração Ao Vivo: Não Suportado
+
+Atualizações de preservação da memória: não suportadas
 
 InfiniBand: Suportado
 

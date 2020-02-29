@@ -6,18 +6,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 746e9f08a75ece18199d5a72bb532873be787f50
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 2f7eafc6fc1533bd837fae60dd3b9673f6f97aa8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592277"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913026"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configure a rescisão do SSL com certificados key vault utilizando o Azure PowerShell
 
-[O Azure Key Vault](../key-vault/key-vault-overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados SSL. O Portal de Aplicações Azure suporta a integração com o Key Vault (em pré-visualização pública) para certificados de servidor que estão ligados a ouvintes com visualização DE HTTPS. Este suporte está limitado ao v2 SKU do Application Gateway.
+[O Azure Key Vault](../key-vault/key-vault-overview.md) é uma loja secreta gerida pela plataforma que pode usar para salvaguardar segredos, chaves e certificados SSL. O Portal de Aplicações Azure suporta a integração com o Key Vault para certificados de servidor que estão ligados a ouvintes com SUPORTE HTTPS. Este suporte está limitado ao Gateway de aplicação v2 SKU.
 
 Para mais informações, consulte a [rescisão do SSL com certificados key vault](key-vault-certs.md).
 

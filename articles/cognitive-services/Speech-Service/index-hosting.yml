@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/11/2020
   ms.author: dapine
-  ms.openlocfilehash: 1e8a57f6132af467975714e585f18059cf9b569e
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: ead45759891d4b2a41a380c88cf32f4e504b6e2c
+  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562946"
+  ms.lasthandoff: 02/28/2020
+  ms.locfileid: "77920880"
 landingContent:
 - title: Introdução
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Criar um recurso azure speech
-      url: get-started.md#create-a-speech-resource-in-azure
+      url: get-started.md#new-resource
     - text: Configurar contentores
       url: speech-container-configuration.md
 - title: Referência

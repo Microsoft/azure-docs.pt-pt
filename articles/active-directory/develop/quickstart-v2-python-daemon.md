@@ -1,6 +1,6 @@
 ---
-title: Daemon Python da plataforma de identidade da Microsoft | Azure
-description: Saiba como um processo do Python pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade da plataforma de identidade da Microsoft, usando a própria identidade do aplicativo
+title: Plataforma de identidade da Microsoft Python daemon  Azure
+description: Saiba como um processo Python pode obter um token de acesso e chamar um API protegido pelo ponto final da plataforma de identidade da Microsoft, usando a própria identidade da app
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,25 +11,25 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 4a45f516f751609b413948278e2f2cfca47c9da2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f80f586c783293f87e3b7de469eff07d2e4802d8
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703308"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78160902"
 ---
-# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo de console do Python usando a identidade do aplicativo
+# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Quickstart: Adquira um símbolo e ligue para o Microsoft Graph API a partir de uma aplicação de consola Python usando a identidade da app
 
-Neste guia de início rápido, escreva um aplicativo Python que obtém um token de acesso usando a identidade do aplicativo e, em seguida, chama o Microsoft Graph API para exibir uma [lista de usuários](https://docs.microsoft.com/graph/api/user-list) no diretório. Esse cenário é útil para situações em que um trabalho não assistido e sem periféricos ou um serviço do Windows precisa ser executado com uma identidade de aplicativo, em vez de uma identidade de usuário.
+Neste arranque rápido, escreva uma aplicação Python que obtenha um sinal de acesso usando a identidade da aplicação, e depois ligue para o Microsoft Graph API para apresentar uma [lista de utilizadores](https://docs.microsoft.com/graph/api/user-list) no diretório. Este cenário é útil para situações em que o trabalho sem cabeça, sem supervisão ou um serviço de janelas precisa de ser executado com uma identidade de aplicação, em vez da identidade de um utilizador.
 
 > [!div renderon="docs"]
-> ![mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+> ![Mostra como a aplicação de amostras gerada por este quickstart funciona](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar este exemplo, você precisa de:
+Para executar esta amostra, precisa de:
 
-- [Python 2.7 +](https://www.python.org/downloads/release/python-2713) ou [Python 3 +](https://www.python.org/downloads/release/python-364/)
+- [Python 2.7+](https://www.python.org/downloads/release/python-2713) ou [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
@@ -37,11 +37,11 @@ Para executar este exemplo, você precisa de:
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> Você tem duas opções para iniciar seu aplicativo de início rápido: Express (opção 1 abaixo) e manual (opção 2)
+> Tem duas opções para iniciar a sua aplicação quickstart: Express (Opção 1 abaixo) e Manual (Opção 2)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Vá para o novo painel de [registros de aplicativo de portal do Azure](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs) .
+> 1. Vá ao novo portal Azure - Painel de inscrições de [aplicativos.](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs)
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 >
@@ -53,112 +53,121 @@ Para executar este exemplo, você precisa de:
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. Navegue até a página da plataforma Microsoft Identity para desenvolvedores [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
-> 1. Selecione **novo registro**.
-> 1. Quando a página **registrar um aplicativo** for exibida, insira as informações de registro do aplicativo. 
-> 1. Na seção **nome** , insira um nome de aplicativo significativo que será exibido para os usuários do aplicativo, por exemplo `Daemon-console`, em seguida, selecione **registrar** para criar o aplicativo.
-> 1. Depois de registrado, selecione o menu **certificados & segredos** .
-> 1. Em **segredos do cliente**, selecione **+ novo segredo do cliente**. Dê um nome a ele e selecione **Adicionar**. Copie o segredo em um local seguro. Você precisará dele para usar em seu código.
-> 1. Agora, selecione o menu **permissões de API** , selecione **+ Adicionar um** botão de permissão, selecione **Microsoft Graph**.
-> 1. Selecione **permissões de aplicativo**.
-> 1. Em nó de **usuário** , selecione **User. Read. All**e, em seguida, selecione **adicionar permissões**
+> 1. Navegue na plataforma de identidade da Microsoft para programadores da página de registos de [aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
+> 1. Selecione **Novo registo**.
+> 1. Quando aparecer uma página de **inscrição,** insira as informações de registo da sua candidatura. 
+> 1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `Daemon-console`, em seguida, selecione **Register** para criar a aplicação.
+> 1. Uma vez registado, selecione o menu **Certificados e segredos.**
+> 1. Sob **os segredos do Cliente**, selecione + Novo segredo de **cliente.** Dê-lhe um nome e selecione **Adicionar**. Copie o segredo num local seguro. Vai precisar que seja usado no seu código.
+> 1. Agora, selecione o menu **DePermissões API,** selecione + Adicione um botão **de permissão,** selecione **Microsoft Graph**.
+> 1. Selecione **permissões de pedido**.
+> 1. Sob o nó **do Utilizador,** selecione **User.Read.All**e, em seguida, selecione **Adicionar permissões**
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>Baixe e configure seu aplicativo de início rápido
+> ### <a name="download-and-configure-your-quickstart-app"></a>Descarregue e configure a sua aplicação quickstart
 > 
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
-> Para que o exemplo de código para este guia de início rápido funcione, você precisa criar um segredo do cliente e adicionar a permissão **User. Read. All** do aplicativo do API do Graph.
+> Para a amostra de código para este início rápido funcionar, você precisa criar um segredo de cliente, e adicionar O Utilizador da API **graph.Read.Todas as** permissões de aplicação.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Faça essas alterações para mim]()
+> > [Faça estas mudanças para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-netcore-daemon/green-check.png) A sua aplicação está configurada com estes atributos.
 
-#### <a name="step-2-download-your-python-project"></a>Etapa 2: baixar seu projeto Python
-
-[Baixe o projeto do daemon do Python](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
-
-#### <a name="step-3-configure-your-python-project"></a>Etapa 3: configurar seu projeto Python
-
-1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
-1. Navegue até a subpasta **1-Call-MsGraph-WithSecret "** .
-1. Edite **Parameters. JSON** e substitua os valores dos campos `authority`, `client_id`e `secret` pelo seguinte trecho:
-
-    ```json
-    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
-    "client_id": "Enter_the_Application_Id_Here",
-    "secret": "Enter_the_Client_Secret_Here"
-    ```
-    > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
-    > > [Gerar um novo segredo do cliente]()
-    
-    > [!div class="sxs-lookup" renderon="portal"]
-    > > [!NOTE]
-    > > Este guia de início rápido dá suporte a Enter_the_Supported_Account_Info_Here.
-    
-    > [!div renderon="docs"]
-    >> Onde:
-    >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
-    >> * `Enter_the_Tenant_Id_Here`-Substitua esse valor pela **ID do locatário** ou pelo **nome do locatário** (por exemplo, contoso.Microsoft.com)
-    >> * `Enter_the_Client_Secret_Here`-Substitua esse valor pelo segredo do cliente criado na etapa 1.
-
-    > [!div renderon="docs"]
-    > > [!TIP]
-    > > Para localizar os valores de **ID do aplicativo (cliente)** , **ID do diretório (locatário)** , vá para a página **visão geral** do aplicativo na portal do Azure. Para gerar uma nova chave, acesse **certificados & página segredos** .
-    
-#### <a name="step-4-admin-consent"></a>Etapa 4: consentimento do administrador
-
-Se você tentar executar o aplicativo neste ponto, receberá o erro *HTTP 403-Proibido* : `Insufficient privileges to complete the operation`. Esse erro ocorre porque qualquer *permissão somente de aplicativo* requer o consentimento do administrador: um administrador global do seu diretório deve dar consentimento ao seu aplicativo. Selecione uma das opções abaixo, dependendo da sua função:
-
-##### <a name="global-tenant-administrator"></a>Administrador de locatário global
+#### <a name="step-2-download-your-python-project"></a>Passo 2: Descarregue o seu projeto Python
 
 > [!div renderon="docs"]
-> Se você for um administrador de locatário global, acesse a página **permissões de API** no registro do aplicativo do portal do Azure (versão prévia) e selecione **conceder consentimento de administrador para {nome do locatário}** (em que {nome do locatário} é o nome do seu diretório).
+> [Descarregue o projeto Python daemon](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
+
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Descarregue a amostra de código]()
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Enter_the_Supported_Account_Info_Here
+
+
+> [!div renderon="docs"]
+> #### <a name="step-3-configure-your-python-project"></a>Passo 3: Configure o seu projeto Python
+> 
+> 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
+> 1. Navegue para a subpasta **1-Call-MsGraph-WithSecret".**
+> 1. Editar **parâmetros.json** e substituir os valores dos campos `authority`, `client_id`e `secret` pelo seguinte corte:
+>
+>    ```json
+>    "authority": "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
+>    "client_id": "Enter_the_Application_Id_Here",
+>    "secret": "Enter_the_Client_Secret_Here"
+>    ```
+>    Em que:
+>    - `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
+>    - `Enter_the_Tenant_Id_Here` - substitua este valor pelo nome **id do arrendatário** ou **do inquilino** (por exemplo, contoso.microsoft.com)
+>    - `Enter_the_Client_Secret_Here` - substitua este valor pelo segredo do cliente criado no passo 1.
+>
+> > [!TIP]
+> > Para encontrar os valores de Id de **Aplicação (cliente),** **Id de Diretório (inquilino),** vá à página de **visão geral** da aplicação no portal Azure. Para gerar uma nova chave, vá à página **de Certificados e segredos.**
+    
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-admin-consent"></a>Passo 3: Consentimento do administrador
+
+> [!div renderon="docs"]
+> #### <a name="step-4-admin-consent"></a>Passo 4: Consentimento do administrador
+
+Se tentar executar a aplicação neste momento, receberá *HTTP 403 -* Erro proibido: `Insufficient privileges to complete the operation`. Este erro ocorre porque qualquer *permissão apenas de aplicações* requer consentimento da Admin: um administrador global do seu diretório deve dar consentimento à sua aplicação. Selecione uma das opções abaixo, dependendo do seu papel:
+
+##### <a name="global-tenant-administrator"></a>Administrador global de inquilinos
+
+> [!div renderon="docs"]
+> Se você é um administrador de inquilino global, vá à página **de Permissões API** no Registo de Inscrição de Candidatura do Portal Azure (Pré-visualização) e selecione **Grant admin consent for {Tenant Name}** (Onde {Nome do inquilino} é o nome do seu diretório).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Se você for um administrador global, acesse a página **permissões de API** , selecione **conceder consentimento de administrador para Enter_the_Tenant_Name_Here**
+> Se você é um administrador global, vá à página **de Permissões API** selecione **o consentimento do administrador grant para Enter_the_Tenant_Name_Here**
 > > [!div id="apipermissionspage"]
-> > [Ir para a página permissões de API]()
+> > [Vá à página de Permissões DaPi]()
 
-##### <a name="standard-user"></a>Usuário padrão
+##### <a name="standard-user"></a>Utilizador padrão
 
-Se você for um usuário padrão do seu locatário, precisará pedir a um administrador global para conceder consentimento de administrador para seu aplicativo. Para fazer isso, forneça a seguinte URL ao seu administrador:
+Se é um utilizador padrão do seu inquilino, então precisa pedir a um administrador global que conceda consentimento administrativo para a sua candidatura. Para tal, dê o seguinte URL ao seu administrador:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
 ```
 
 > [!div renderon="docs"]
->> Onde:
->> * `Enter_the_Tenant_Id_Here`-Substitua esse valor pela **ID do locatário** ou pelo **nome do locatário** (por exemplo, contoso.Microsoft.com)
+>> Em que:
+>> * `Enter_the_Tenant_Id_Here` - substitua este valor pelo nome **id do arrendatário** ou **do inquilino** (por exemplo, contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 
-#### <a name="step-5-run-the-application"></a>Etapa 5: executar o aplicativo
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-4-run-the-application"></a>Passo 4: Executar a aplicação
 
-Você precisará instalar as dependências deste exemplo uma vez
+> [!div renderon="docs"]
+> #### <a name="step-5-run-the-application"></a>Passo 5: Executar a aplicação
+
+Você precisará instalar as dependências desta amostra uma vez
 
 ```console
 pip install -r requirements.txt
 ```
 
-Em seguida, execute o aplicativo via prompt de comando ou console:
+Em seguida, executar a aplicação através de pedido de comando ou consola:
 
 ```console
 python confidential_client_secret_sample.py parameters.json
 ```
 
-Você deve ver no console a saída de algum fragmento JSON que representa uma lista de usuários em seu diretório do Azure AD.
+Deve ver na saída da consola algum fragmento de Json que representa uma lista de utilizadores no seu diretório Azure AD.
 
 > [!IMPORTANT]
-> Este aplicativo de início rápido usa um segredo do cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como um texto sem formatação aos arquivos do projeto, por motivos de segurança, é recomendável que você use um certificado em vez de um segredo do cliente antes de considerar o aplicativo como aplicativo de produção. Para obter mais informações sobre como usar um certificado, consulte [estas instruções](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) no mesmo repositório do GitHub para este exemplo, mas na segunda pasta **2-Call-MsGraph-WithCertificate**
+> Esta aplicação quickstart usa um segredo de cliente para se identificar como cliente confidencial. Uma vez que o segredo do cliente é adicionado como um texto simples aos seus ficheiros de projeto, por razões de segurança, recomenda-se que utilize um certificado em vez de um segredo de cliente antes de considerar a aplicação como aplicação de produção. Para obter mais informações sobre como utilizar um certificado, consulte [estas instruções](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) no mesmo repositório GitHub para esta amostra, mas na segunda pasta **2-Call-MsGraph-WithCertificate**
 
 ## <a name="more-information"></a>Mais informações
 
 ### <a name="msal-python"></a>MSAL Python
 
-[MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) é a biblioteca usada para conectar usuários e solicitar tokens usados para acessar uma API protegida pela plataforma de identidade da Microsoft. Conforme descrito, este início rápido solicita tokens usando a identidade própria do aplicativo em vez de permissões delegadas. O fluxo de autenticação usado nesse caso é conhecido como *[fluxo OAuth de credenciais de cliente](v2-oauth2-client-creds-grant-flow.md)* . Para obter mais informações sobre como usar o MSAL Python com aplicativos daemon, consulte [Este artigo](scenario-daemon-overview.md).
+[MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) é a biblioteca usada para assinar utilizadores e solicitar fichas usadas para aceder a uma API protegida pela plataforma de identidade microsoft. Como descrito, este quickstart solicita tokens usando a própria identidade da aplicação em vez de permissões delegadas. O fluxo de autenticação utilizado neste caso é conhecido como fluxo de credenciais de *[cliente.](v2-oauth2-client-creds-grant-flow.md)* Para obter mais informações sobre como usar o MSAL Python com aplicações daemon, consulte [este artigo](scenario-daemon-overview.md).
 
- Você pode instalar o MSAL Python executando o comando Pip a seguir.
+ Pode instalar o MSAL Python executando o seguinte comando do pip.
 
 ```powershell
 pip install msal
@@ -180,17 +189,17 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Onde: ||
+> | Em que: ||
 > |---------|---------|
-> | `config["secret"]` | É o segredo do cliente criado para o aplicativo no portal do Azure. |
+> | `config["secret"]` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config["client_id"]` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
-> | `config["authority"]`    | O ponto final STS para o utilizador autenticar. Geralmente <https://login.microsoftonline.com/{tenant}> para nuvem pública, em que {Tenant} é o nome do seu locatário ou sua ID de locatário.|
+> | `config["authority"]`    | O ponto final STS para o utilizador autenticar. Normalmente <https://login.microsoftonline.com/{tenant}> para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu inquilino ID.|
 
-Para obter mais informações, consulte a [documentação de referência para `ConfidentialClientApplication`](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)
+Para mais informações, por favor leia as [informações sobre](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication) a documentação de referência para `ConfidentialClientApplication`
 
 ### <a name="requesting-tokens"></a>Solicitar tokens
 
-Para solicitar um token usando a identidade do aplicativo, use `AcquireTokenForClient` método:
+Para solicitar um símbolo utilizando a identidade da app, utilize `AcquireTokenForClient` método:
 
 ```Python
 result = None
@@ -201,37 +210,37 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Onde:| |
+> |Em que:| |
 > |---------|---------|
-> | `config["scope"]` | Contém os escopos solicitados. Para clientes confidenciais, isso deve usar o formato semelhante a `{Application ID URI}/.default` para indicar que os escopos que estão sendo solicitados são aqueles definidos estaticamente no conjunto de objetos do aplicativo no portal do Azure (por Microsoft Graph, `{Application ID URI}` aponta para `https://graph.microsoft.com`). Para APIs Web personalizadas, `{Application ID URI}` é definido em **expor uma** seção de API no registro de aplicativo do portal do Azure (versão prévia). |
+> | `config["scope"]` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante ao `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os definidos estáticamente definidos no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, `{Application ID URI}` aponta para `https://graph.microsoft.com`). Para APIs web personalizados, `{Application ID URI}` é definido em Expor uma secção **DeAPi** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 
-Para obter mais informações, consulte a [documentação de referência para `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client)
+Para mais informações, por favor leia as [informações sobre](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client) a documentação de referência para `AcquireTokenForClient`
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os aplicativos daemon, consulte a página de aterrissagem do cenário
+Para saber mais sobre aplicações daemon, consulte a página de aterragem do cenário
 
 > [!div class="nextstepaction"]
-> [Aplicativo daemon que chama APIs da Web](scenario-daemon-overview.md)
+> [Aplicação Daemon que chama APIs web](scenario-daemon-overview.md)
 
-Para o tutorial do aplicativo daemon, consulte:
-
-> [!div class="nextstepaction"]
-> [Tutorial do console Python do daemon](https://github.com/Azure-Samples/ms-identity-python-daemon)
-
-Saiba mais sobre as permissões e o consentimento:
+Para o tutorial de aplicação daemon, consulte:
 
 > [!div class="nextstepaction"]
-> [Permissões e consentimento](v2-permissions-and-consent.md)
+> [Tutorial de consola Daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon)
 
-Para saber mais sobre o fluxo de autenticação para este cenário, consulte o fluxo de credenciais do cliente OAuth 2,0:
-
-> [!div class="nextstepaction"]
-> [Fluxo OAuth de credenciais de cliente](v2-oauth2-client-creds-grant-flow.md)
-
-Ajude-nos a melhorar a plataforma Microsoft Identity. Diga-nos o que você imagina ao concluir uma pesquisa curta de duas perguntas.
+Saiba mais sobre permissões e consentimento:
 
 > [!div class="nextstepaction"]
-> [Pesquisa sobre plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
+> [Permissões e Consentimento](v2-permissions-and-consent.md)
+
+Para saber mais sobre o fluxo de auth para este cenário, consulte o fluxo de credenciais de cliente Oauth 2.0:
+
+> [!div class="nextstepaction"]
+> [Credenciais de cliente Oauth flow](v2-oauth2-client-creds-grant-flow.md)
+
+Ajude-nos a melhorar a plataforma de identidade da Microsoft. Diga-nos o que pensa ao concluir um pequeno inquérito de duas perguntas.
+
+> [!div class="nextstepaction"]
+> [Pesquisa da plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

@@ -1,62 +1,61 @@
 ---
-title: O que é a pilha de tecnologia de Apache Hadoop? -Azure HDInsight
-description: Uma introdução ao HDInsight e os componentes e a pilha de tecnologia Apache Hadoop.
-keywords: hadoop azure, azure hadoop, introdução ao hadoop, intro ao hadoop, pilha de tecnologia do hadoop, intro do hadoop, introdução do hadoop, o que é um cluster do hadoop, o que é o cluster do hadoop, para que é utilizado o hadoop
+title: O que é a pilha de tecnologia Apache Hadoop? - Azure HDInsight
+description: Uma introdução ao HDInsight, e à pilha e componentes da tecnologia Apache Hadoop.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 08/15/2019
-ms.openlocfilehash: 193b8f59a805de4303bfc38d397a821cc068dcc0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
+ms.date: 02/27/2020
+ms.openlocfilehash: e98a11d9aee1c4f76453dc1716f92514b021444f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088189"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917837"
 ---
-# <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>O que é Apache Hadoop no Azure HDInsight?
+# <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>O que é Apache Hadoop em Azure HDInsight?
 
-O [Apache Hadoop](https://hadoop.apache.org/) era a arquitetura de código aberto original para processamento distribuído e análise de conjuntos de macrodados em clusters. O ecossistema do Hadoop inclui software e utilitários relacionados, incluindo Apache Hive, Apache HBase, Spark, Kafka e muitos outros.
+O [Apache Hadoop](https://hadoop.apache.org/) era a arquitetura de código aberto original para processamento distribuído e análise de conjuntos de macrodados em clusters. O ecossistema Hadoop inclui software e utilitários relacionados, incluindo Apache Hive, Apache HBase, Spark, Kafka, entre muitos outros.
 
-O Azure HDInsight é um serviço de análise de código aberto totalmente gerenciado e completo na nuvem para empresas. O tipo de cluster Apache Hadoop no Azure HDInsight permite que você use o HDFS, o gerenciamento de recursos YARN e um modelo de programação MapReduce simples para processar e analisar dados em lotes em paralelo.
+O Azure HDInsight é um serviço de análise de código aberto totalmente gerido, de todo o espectro, na nuvem para as empresas. O tipo de cluster Apache Hadoop em Azure HDInsight permite-lhe utilizar hDFS, gestão de recursos YARN e um modelo de programação simples MapReduce para processar e analisar dados de lote em paralelo.
 
-Para ver os componentes disponíveis da pilha de tecnologia do Hadoop no HDInsight, consulte [componentes e versões disponíveis com o hdinsight](../hdinsight-component-versioning.md). Para ler mais sobre o Hadoop no HDInsight, veja a [página de funcionalidades do Azure para o HDInsight](https://azure.microsoft.com/services/hdinsight/).
+Para ver os componentes disponíveis da pilha de tecnologia Hadoop no HDInsight, consulte [Componentes e versões disponíveis com o HDInsight](../hdinsight-component-versioning.md). Para ler mais sobre o Hadoop no HDInsight, veja a [página de funcionalidades do Azure para o HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
-## <a id="whatis"></a>O que é o MapReduce
+## <a name="what-is-mapreduce"></a>O que é MapReduce
 
-Apache Hadoop MapReduce é uma estrutura de software para escrever trabalhos que processam grandes quantidades de dados. Os dados de entrada são divididos em partes independentes. Cada parte é processada em paralelo entre os nós no cluster. Um trabalho MapReduce consiste em duas funções:
+Apache Hadoop MapReduce é um quadro de software para escrever trabalhos que processam grandes quantidades de dados. Os dados de entrada são divididos em pedaços independentes. Cada pedaço é processado paralelamente através dos nós do seu aglomerado. Um trabalho mapReduce consiste em duas funções:
 
-* **Mapeador**: Consome dados de entrada, analisa-os (geralmente com operações de filtro e classificação) e emite tuplas (pares chave-valor)
+* **Mapper**: Consome dados de entrada, analisa-os (geralmente com operações de filtragem e triagem) e emite tuples (pares de valor-chave)
 
-* **Redutor**: Consome tuplas emitidas pelo mapeador e executa uma operação de resumo que cria um resultado menor e combinado dos dados do mapeador
+* **Redutor**: Consome tuples emitidos pelo Mapper e realiza uma operação sumária que cria um resultado menor e combinado a partir dos dados mapper
 
-Um exemplo de trabalho de MapReduce de contagem de palavras básica é ilustrado no diagrama a seguir:   
+Uma contagem de palavras básica MapReduce exemplo de trabalho é ilustrado no seguinte diagrama:
 
  ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
-A saída desse trabalho é uma contagem de quantas vezes cada palavra ocorreu no texto.
+A saída deste trabalho é uma contagem de quantas vezes cada palavra ocorreu no texto.
 
-* O mapeador leva cada linha do texto de entrada como uma entrada e a divide em palavras. Ele emite um par de chave/valor cada vez que uma palavra ocorre da palavra é seguida por um 1. A saída é classificada antes de enviá-la para redutor.
-* O redutor soma essas contagens individuais para cada palavra e emite um único par de chave/valor que contém a palavra seguida pela soma de suas ocorrências.
+* O mapper toma cada linha do texto de entrada como entrada e quebra-a em palavras. Emite um par chave/valor cada vez que uma palavra ocorre da palavra é seguida por um 1. A saída é ordenada antes de enviá-la para redutor.
+* O redutor soma estes individuais conta para cada palavra e emite um único par chave/valor que contém a palavra seguida pela soma das suas ocorrências.
 
-O MapReduce pode ser implementado em vários idiomas. O Java é a implementação mais comum e é usado para fins de demonstração neste documento.
+MapReduce pode ser implementado em várias línguas. Java é a implementação mais comum, e é usada para fins de demonstração neste documento.
 
-## <a name="development-languages"></a>Linguagens de desenvolvimento
+## <a name="development-languages"></a>Línguas de desenvolvimento
 
-Linguagens ou estruturas baseadas em Java e a Máquina Virtual Java podem ser executadas diretamente como um trabalho MapReduce. O exemplo usado neste documento é um aplicativo MapReduce Java. Linguagens não Java, como C#, Python ou executáveis autônomos, devem usar o **streaming do Hadoop**.
+As línguas ou quadros que são baseados em Java e na Máquina Virtual Java podem ser dirigidos diretamente como um trabalho MapReduce. O exemplo usado neste documento é uma aplicação Java MapReduce. As línguas não java, tais como, C#Python, ou executáveis autónomos, devem utilizar o streaming **Hadoop**.
 
-O streaming do Hadoop se comunica com o mapeador e redutor sobre STDIN e STDOUT. O mapeador e o redutor lêem dados uma linha por vez do STDIN e gravam a saída em STDOUT. Cada linha lida ou emitida pelo mapeador e redutor deve estar no formato de um par chave/valor, delimitado por um caractere de tabulação:
+O streaming de hadoop comunica com o mapper e redutor sobre STDIN e STDOUT. O mapper e o redutor lêm dados de uma linha de cada vez a partir de STDIN, e escrevem a saída para o STDOUT. Cada linha lida ou emitida pelo mapeador e redutor deve estar no formato de um par chave/valor, delimitado por um caracteres de separador:
 
     [key]/t[value]
 
-Para obter mais informações, consulte [Hadoop streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
+Para mais informações, consulte [Hadoop Streaming](https://hadoop.apache.org/docs/current/hadoop-streaming/HadoopStreaming.html).
 
-Para obter exemplos de como usar o streaming do Hadoop com o HDInsight, consulte o seguinte documento:
+Por exemplo, utilizando o streaming Hadoop com o HDInsight, consulte o seguinte documento:
 
-* [Desenvolver C# trabalhos MapReduce](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Desenvolver C# mapReduzir empregos](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Criar Apache Hadoop cluster no HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Criar o cluster Apache Hadoop no HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)

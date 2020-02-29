@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: reference
 author: peterclu
 ms.author: peterlu
-ms.date: 12/17/2019
-ms.openlocfilehash: d3feb62c0c7fa24dd998add08d17ebd1d4e9ee6c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 02/22/2020
+ms.openlocfilehash: ece4b7a85ff5738900b8f999cc2f14ba35ecab0d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162587"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920098"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Referência de algoritmo e módulo para designer de machine learning Azure
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Referência de algoritmo e módulo para designer de machine learning azure (pré-visualização)
 
 Este conteúdo de referência fornece o pano de fundo técnico em cada um dos algoritmos e módulos de aprendizagem automática disponíveis no designer de Machine Learning Azure (pré-visualização).
 
@@ -57,6 +57,7 @@ Para ajuda na escolha de algoritmos, consulte
 | Linguagem R | Escreva código e inseri-o num módulo para integrar R com o seu pipeline. | [Executar script R](execute-r-script.md) |
 | Análise de Texto | Forneça ferramentas computacionais especializadas para trabalhar com texto estruturado e não estruturado. | [Extrair recursos n grama do texto](extract-n-gram-features-from-text.md) <br/> [Hashing de Recurso](feature-hashing.md) <br/> [Texto pré-processo](preprocess-text.md) |
 | Recomendação | Construir modelos de recomendação. | [Avaliar o Recomendador](evaluate-recommender.md) <br/> [Pontuar Recomendador SVD](score-svd-recommender.md) <br/> [Recomendador SVD do comboio](train-SVD-recommender.md) |
+| Deteção de anomalias | Construir modelos de deteção de anomalias. | [Deteção de anomalias baseada em PCA](pca-based-anomaly-detection.md) <br/> [Modelo de deteção de anomalias do comboio](train-anomaly-detection-model.md) |
 
 ## <a name="error-messages"></a>Mensagens de erro
 

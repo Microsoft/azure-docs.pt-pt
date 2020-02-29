@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 8b1fd7b1962a4d46d38287e5faf8f1ba4cbb40bd
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 842fcaf6ea06ed4aaaff04f6bb5d7d38a672573c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423637"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162356"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Endereços IP do Azure Integration Runtime
 
@@ -51,7 +51,7 @@ Permitir o tráfego a partir dos endereços IP listados para o tempo de execuç�
 |                | E.U.A. Leste             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |
 |                | E.U.A. Leste 2            | 20.41.2.0/23,</br>20.41.4.0/26,</br>20.44.17.80/28           |
 |                | LESTE DOS EUA 2 EUAP      | 20.39.8.128/26,</br>20.39.8.96/27,</br>40.75.35.144/28       |
-|                | E.U.A. Centro-Norte    | 40.80.185.0/25,</br>40.80.185.128/26,</br>52.162.111.48/28   |
+|                | E.U.A. Centro-Norte    | 40.80.185.0/24,</br>40.80.186.0/25,</br>52.162.111.48/28      |
 |                | E.U.A. Centro-Sul    | 40.119.9.0/25,</br>40.119.9.128/26,</br>13.73.244.32/28      |
 |                | E.U.A. Centro-Oeste     | 52.150.137.128/25,</br>52.150.136.192/26,</br>13.71.199.0/28 |
 |                | E.U.A. Oeste             | 40.82.250.0/23,</br>40.82.249.64/26,</br>13.86.219.208/28    |

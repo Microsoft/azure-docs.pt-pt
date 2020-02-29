@@ -2,17 +2,17 @@
 title: Série Mv2 - Máquinas Virtuais Azure
 description: Especificações para os VMs da série Mv2.
 services: virtual-machines
-author: jonbeck7
+author: ayshakeen
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 03e8baa5f0286652ee500a06382c0a45e6f0ec52
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 6fb0f93d3ac124b21bbc52ddc57bc720de6406e6
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655672"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163901"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -23,6 +23,10 @@ Funcionalidade da Série MV2 VM Intel® Tecnologia Hiper-Threading
 Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Suportado
+
+Migração Ao Vivo: Não Suportado
+
+Atualizações de preservação da memória: não suportadas
 
 Acelerador de escrita: [Suportado](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 

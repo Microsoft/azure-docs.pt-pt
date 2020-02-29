@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 7d078fb93f933320d13bfeb768b27923748b1262
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 8bd66b602201dbbb47a1fdba879c52a8ac441762
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623941"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921645"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança Azure
 
@@ -113,7 +113,7 @@ O Centro de Segurança fornece proteção contra ameaças a diferentes níveis:
     Para uma visão mais aprofundada da segurança do seu ambiente contentorizado, o agente monitoriza a análise específica do contentor. Irá desencadear alertas para eventos como criação de contentores privilegiados, acesso suspeito a servidores API e servidores Secure Shell (SSH) dentro de um contentor Docker.
 
     >[!IMPORTANT]
-    > Se optar por não instalar os agentes nos seus anfitriões, só receberá um subconjunto dos benefícios e alertas de deteção de ameaças. Ainda receberá alertas relacionados com análise de rede e comunicações com servidores maliciosos.
+    > Se optar por não instalar os agentes nos seus anfitriões, só receberá um subconjunto dos benefícios de proteção contra ameaças e alertas de segurança. Ainda receberá alertas relacionados com análise de rede e comunicações com servidores maliciosos.
 
     Para obter uma lista dos alertas de nível de acolhimento, consulte a [tabela de alertas de Referência](alerts-reference.md#alerts-containerhost).
 
@@ -240,7 +240,7 @@ Para obter uma lista dos alertas do Gestor de Recursos Azure (Pré-visualizaçã
 
 
 >[!NOTE]
-> Várias das análises anteriores são alimentadas pela Microsoft Cloud App Security. Para beneficiar destas análises, tem de ativar uma licença cloud App Security. Se tiver uma licença cloud App Security, estes alertas são ativados por defeito. Para desativá-los:
+> Várias das análises anteriores são alimentadas pela Microsoft Cloud App Security. Para beneficiar destas análises, tem de ativar uma licença cloud App Security. Se tiver uma licença cloud App Security, estes alertas são ativados por defeito. Para desativar os alertas:
 >
 > 1. Na lâmina do Centro de **Segurança,** selecione **a política**de segurança . Para a subscrição que pretende alterar, selecione **definições de Editar**.
 > 2. Selecione **deteção de ameaças**.

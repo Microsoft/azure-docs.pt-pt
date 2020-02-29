@@ -1,29 +1,32 @@
 ---
-title: Enviar eventos de armazenamento de BLOBs para o ponto de extremidade da Web-modelo
-description: Use a grade de eventos do Azure e um modelo de Azure Resource Manager para criar uma conta de armazenamento de BLOBs e assinar seus eventos. Enviar os eventos para um webhook. '
+title: Envie eventos de armazenamento blob para web endpoint - modelo
+description: Utilize a Grelha de Eventos Azure e um modelo de Gestor de Recursos Azure para criar uma conta de armazenamento Blob e subscreva os seus eventos. Envie os eventos para um Webhook.
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 01/15/2020
+ms.date: 02/27/2020
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 73f0e6cf5d7ebb3ae36d4048ce5f36f5c0547286
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: dac8549291adb25fd0c8de9845e681f536dfbbbb
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122867"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163829"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Rotear eventos de armazenamento de BLOBs para o ponto de extremidade da Web usando Azure Resource Manager modelo
-O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, você usa um **modelo de Azure Resource Manager** para criar uma conta de armazenamento de BLOBs, assinar eventos para esse armazenamento de BLOBs e disparar um evento para exibir o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
+# <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Route Blob eventos de armazenamento para ponto final web usando o modelo de Gestor de Recursos Azure
 
-O [modelo do Resource Manager](../azure-resource-manager/templates/overview.md) é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite que você declare o que pretende implantar sem precisar escrever a sequência de comandos de programação para criá-lo. Se você quiser saber mais sobre como desenvolver modelos do Resource Manager, consulte a [documentação do Resource Manager](/azure/azure-resource-manager/).
+O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, você usa um modelo de Gestor de **Recursos Azure** para criar uma conta de armazenamento Blob, subscrever eventos para esse armazenamento blob, e desencadear um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 ### <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
+
 Antes de subscrever aos eventos do armazenamento de Blobs, vamos criar o ponto final para a mensagem de evento. Normalmente, o ponto final executa as ações com base nos dados do evento. Para simplificar este início rápido, vai implementar uma [aplicação Web pré-criada](https://github.com/Azure-Samples/azure-event-grid-viewer) para apresentar as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
 
 1. Selecione **Implementar no Azure** para implementar a solução para a sua subscrição. No portal do Azure, indique os valores para os parâmetros.
@@ -35,29 +38,35 @@ Antes de subscrever aos eventos do armazenamento de Blobs, vamos criar o ponto f
 
    ![Ver novo site](./media/blob-event-quickstart-portal/view-site.png)
 
+## <a name="create-a-storage-account-with-an-event-grid-subscription"></a>Criar uma conta de armazenamento com uma subscrição da Grelha de Eventos
 
-## <a name="create-a-storage-account-with-an-event-grid-subscription"></a>Criar uma conta de armazenamento com uma assinatura da grade de eventos
-O modelo usado neste guia de início rápido é de [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
+### <a name="review-the-template"></a>Reveja o modelo
 
-[!code-json[<Azure Resource Manager template create Blob strage Event Grid subscription>](~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json)]
+O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
 
-Dois recursos do Azure são definidos no modelo:
+[!code-json[<Azure Resource Manager template create Blob storage Event Grid subscription>](~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json)]
 
-* **Microsoft. Storage/storageAccounts**: Crie uma conta de armazenamento do Azure.
-* **"Microsoft. Storage/storageAccounts/Providers/eventSubscriptions**: criar uma assinatura da grade de eventos do Azure para a conta de armazenamento. 
+Dois recursos Azure são definidos no modelo:
 
-1. Selecione o link a seguir para entrar no Azure e abrir um modelo. O modelo cria um cofre de chaves e um segredo.
+* [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): crie uma conta de Armazenamento Azure.
+* [ **"Microsoft.Storage/storageAccounts/providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): crie uma subscrição da Rede de Eventos Azure para a conta de armazenamento.
 
-    [Implementar no Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
-2. Especifique o **ponto de extremidade**: forneça a URL do seu aplicativo Web e adicione `api/updates` à url de Home Page.
-3. Selecione **comprar** para implantar o modelo. 
+### <a name="deploy-the-template"></a>Implementar o modelo
 
-  O portal do Azure é usado aqui para implantar o modelo. Você também pode usar o Azure PowerShell, CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, consulte [implantar modelos](../azure-resource-manager/templates/deploy-powershell.md).
+1. Selecione o seguinte link para iniciar sessão no Azure e abra um modelo. O modelo cria um cofre chave e um segredo.
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json"><img src="./media/blob-event-quickstart-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+
+2. Especifique o **ponto final**: forneça o URL da sua aplicação web e adicione `api/updates` ao URL da página inicial.
+3. **Selecione Comprar** para implementar o modelo.
+
+  O portal Azure é usado aqui para implementar o modelo. Também pode utilizar a API Azure PowerShell, Azure CLI e REST. Para aprender outros métodos de implementação, consulte [os modelos de implantação](../azure-resource-manager/templates/deploy-powershell.md).
 
 > [!NOTE]
-> Você pode encontrar mais exemplos de modelo de grade de eventos do Azure [aqui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
+> Você pode encontrar mais amostras de modelo de grelha de evento sinuosa [aqui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
+
 Verifique a aplicação Web novamente e repare que um evento de validação de subscrição foi enviado para a mesma. Selecione o ícone do olho para expandir os dados do evento. O Event Grid envia o evento de validação para que o ponto final possa verificar que pretende receber dados de eventos. A aplicação Web inclui código para validar a subscrição.
 
 ![Ver evento da subscrição](./media/blob-event-quickstart-portal/view-subscription-event.png)
@@ -66,20 +75,20 @@ Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem p
 
 Aciona um evento para o armazenamento de Blobs ao carregar um ficheiro. O ficheiro não precisa de qualquer conteúdo específico. Os artigos partem do princípio de que tem um ficheiro denominado testfile.txt, mas pode utilizar qualquer ficheiro.
 
-Quando você carrega o arquivo para o armazenamento de BLOBs do Azure, a grade de eventos envia uma mensagem para o ponto de extremidade que você configurou ao assinar. A mensagem está no formato JSON e contém uma matriz com um ou mais eventos. No exemplo a seguir, a mensagem JSON contém uma matriz com um evento. Veja a sua aplicação Web e repare que foi recebido um evento criado por um blob. 
+Ao fazer o upload do ficheiro para o armazenamento do Blob Azure, a Rede de Eventos envia uma mensagem para o ponto final configurado ao subscrever. A mensagem está no formato JSON e contém uma matriz com um ou mais eventos. No exemplo seguinte, a mensagem JSON contém uma matriz com um evento. Veja a sua aplicação Web e repare que foi recebido um evento criado por um blob.
 
 ![Ver resultados](./media/blob-event-quickstart-portal/view-results.png)
 
-
-
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, [exclua o grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
-). 
+
+Quando já não for necessário, [elimine o grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
+).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre modelos de Azure Resource Manager, consulte os seguintes artigos:
 
-- [Documentação do Azure Resource Manager](/azure/azure-resource-manager)
-- [Definir recursos em modelos de Azure Resource Manager](/azure/templates/)
-- [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/)
-- [Modelos de grade de eventos do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
+Para obter mais informações sobre os modelos do Gestor de Recursos Azure, consulte os seguintes artigos:
+
+* [Documentação do Gestor de Recursos Azure](/azure/azure-resource-manager)
+* [Defina recursos nos modelos do Gestor de Recursos Azure](/azure/templates/)
+* [Modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/)
+* [Modelos de grelha de eventos azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

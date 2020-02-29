@@ -1,72 +1,72 @@
 ---
-title: 'Importância do recurso de permuta: referência de módulo'
+title: 'Importância da característica permutação: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo importância do recurso de permuta no Azure Machine Learning para computar as pontuações de importância do recurso de permuta das variáveis de recurso, dado um modelo treinado e um conjunto de dados de teste.
+description: Aprenda a usar o módulo de importância da característica permutação em Azure Machine Learning para calcular a característica de permutação pontuações de variáveis de características, dado um modelo treinado e um conjunto de dados de teste.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 9ef859cce68e13f5207d77d8396bc69ddbbce339
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/24/2020
+ms.openlocfilehash: 8611abd4e504e0378b744b12d0adb5fa22f5476b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314951"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920370"
 ---
 # <a name="permutation-feature-importance"></a>Importância da funcionalidade de permutação
 
-Este artigo descreve como usar o módulo de importância do recurso de permuta no Azure Machine Learning designer, para computar um conjunto de pontuações de importância do recurso para o conjunto de seus conjuntos de resultados. Você usa essas pontuações para ajudá-lo a determinar os melhores recursos a serem usados em um modelo.
+Este artigo descreve como usar o módulo de importância da funcionalidade de permutação no designer de machine learning azure (pré-visualização), para calcular um conjunto de pontuações de importância de funcionalidades para o seu conjunto de dados. Utiliza estas pontuações para o ajudar a determinar as melhores funcionalidades para utilizar num modelo.
 
-Neste módulo, os valores de recurso são aleatoriamente aleatórios, uma coluna de cada vez. O desempenho do modelo é medido antes e depois. Você pode escolher uma das métricas padrão para medir o desempenho.
+Neste módulo, os valores da funcionalidade são baralhados aleatoriamente, uma coluna de cada vez. O desempenho do modelo é medido antes e depois. Pode escolher uma das métricas padrão para medir o desempenho.
 
-As pontuações que o módulo retorna representam a *alteração* no desempenho de um modelo treinado, após a permutação. Normalmente, os recursos importantes são mais sensíveis ao processo de embaralhamento, portanto, eles resultarão em pontuações de importância mais alta. 
+As pontuações que o módulo devolve representam a *mudança* no desempenho de um modelo treinado, após permutação. Características importantes são geralmente mais sensíveis ao processo de baralhar, por isso resultarão em pontuações de maior importância. 
 
-Este artigo fornece uma visão geral do recurso de permuta, sua base teórica e seus aplicativos no aprendizado de máquina: [importância do recurso de permutação](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Este artigo fornece uma visão geral da funcionalidade de permutação, da sua base teórica e das suas aplicações em machine learning: [Permutação Feature Importance](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
 
-## <a name="how-to-use-permutation-feature-importance"></a>Como usar a importância do recurso de permuta
+## <a name="how-to-use-permutation-feature-importance"></a>Como usar a importância da característica permutação
 
-A geração de um conjunto de pontuações de recursos requer que você tenha um modelo já treinado, bem como um conjunto de testes.  
+Gerar um conjunto de pontuações de funcionalidades requer que tenha um modelo já treinado, bem como um conjunto de dados de teste.  
 
-1.  Adicione o módulo importância do recurso de permuta ao seu pipeline. Você pode encontrar esse módulo na categoria **seleção de recursos** . 
+1.  Adicione o módulo de importância da característica permutação ao seu pipeline. Pode encontrar este módulo na categoria **De Seleção** de Recursos. 
 
-2.  Conecte um modelo treinado à entrada à esquerda. O modelo deve ser um modelo de regressão ou um modelo de classificação.  
+2.  Ligue um modelo treinado à entrada esquerda. O modelo deve ser um modelo de regressão ou um modelo de classificação.  
 
-3.  Na entrada à direita, conecte um conjunto de dados. Preferencialmente, escolha uma que seja diferente do conjunto de um que você usou para treinar o modelo. Esse DataSet é usado para pontuação com base no modelo treinado. Ele também é usado para avaliar o modelo após a alteração dos valores de recurso.  
+3.  Na entrada certa, ligue um conjunto de dados. De preferência, escolha um que seja diferente do conjunto de dados que usou para treinar o modelo. Este conjunto de dados é utilizado para pontuar com base no modelo treinado. Também é usado para avaliar o modelo após os valores da funcionalidade terem mudado.  
 
-4.  Para **semente aleatória**, insira um valor a ser usado como semente para randomização. Se você especificar 0 (o padrão), um número será gerado com base no relógio do sistema.
+4.  Para **sementes aleatórias,** introduza um valor a utilizar como semente para aleatoriedade. Se especificar 0 (a predefinição), um número é gerado com base no relógio do sistema.
 
-     Um valor de semente é opcional, mas você deve fornecer um valor se quiser reprodução em execuções do mesmo pipeline.  
+     Um valor de semente é opcional, mas você deve fornecer um valor se você quiser reprodutibilidade em corridas do mesmo pipeline.  
 
-5.  Para **métrica para medir o desempenho**, selecione uma única métrica a ser usada quando você estiver computando a qualidade do modelo após a permuta.  
+5.  Para métrica para medir o **desempenho,** selecione uma única métrica para utilizar quando estiver a calcular a qualidade do modelo após a permutação.  
 
-     O Azure Machine Learning designer dá suporte às seguintes métricas, dependendo se você está avaliando um modelo de classificação ou regressão:  
+     O designer de Machine Learning Azure suporta as seguintes métricas, dependendo se está a avaliar um modelo de classificação ou regressão:  
 
     -   **Classification** (Classificação)
 
-        Precisão, precisão, recall, perda de log média  
+        Precisão, Precisão, Recordação  
 
     -   **Regressão**
 
-        Precisão, cancelamento, erro absoluto médio, erro de raiz quadrada média, erro absoluto relativo, erro de quadrado relativo, coeficiente de determinação  
+        Precisão, Recordação, Erro Absoluto Médio, Erro Quadrado médio da raiz, Erro Absoluto Relativo, Erro Quadrado Relativo, Coeficiente de Determinação  
 
-     Para obter uma descrição mais detalhada dessas métricas de avaliação e como elas são calculadas, consulte [avaliar modelo](evaluate-model.md).  
+     Para uma descrição mais detalhada destas métricas de avaliação e como são calculadas, consulte [Modelo de Avaliação](evaluate-model.md).  
 
 6.  Executar o pipeline.  
 
-7.  O módulo gera uma lista de colunas de recursos e as pontuações associadas a elas. A lista é classificada em ordem decrescente das pontuações.  
+7.  O módulo produz uma lista de colunas de funcionalidades e as pontuações associadas a elas. A lista está classificada na ordem descendente das pontuações.  
 
 
 ##  <a name="technical-notes"></a>Notas técnicas
 
-A importância do recurso de permuta funciona alterando aleatoriamente os valores de cada coluna de recurso, uma coluna de cada vez. Em seguida, ele avalia o modelo. 
+Permutação Característica Importância funciona alterando aleatoriamente os valores de cada coluna de características, uma coluna de cada vez. Em seguida, avalia o modelo. 
 
-As classificações que o módulo fornece são muitas vezes diferentes daquelas que você obtém da [seleção de recursos baseada em filtro](filter-based-feature-selection.md). A seleção de recursos baseada em filtro calcula pontuações *antes* de um modelo ser criado. 
+Os rankings que o módulo fornece são muitas vezes diferentes dos que obtém da Seleção de [Funcionalidades Baseadas](filter-based-feature-selection.md)em Filtros . A seleção de funcionalidades baseada no filtro calcula as pontuações *antes* de um modelo ser criado. 
 
-O motivo da diferença é que a importância do recurso de permuta não mede a associação entre um recurso e um valor de destino. Em vez disso, ele captura quanto influência cada recurso tem em previsões do modelo.
+A razão para a diferença é que a Permutação Característica Importância não mede a associação entre uma característica e um valor-alvo. Em vez disso, captura a influência que cada característica tem nas previsões do modelo.
   
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

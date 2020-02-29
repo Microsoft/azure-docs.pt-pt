@@ -1,6 +1,6 @@
 ---
-title: Indexando arquivos de mídia com o Azure Media Indexer 2 Preview | Microsoft Docs
-description: Azure Media Indexer permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar a visualização do indexador de mídia 2.
+title: Indexação de ficheiros de mídia com Índice de Mídia Azure 2 Pré-visualização / Microsoft Docs
+description: O Azure Media Indexer permite-lhe tornar o conteúdo dos seus ficheiros de mídia pesquisável e gerar uma transcrição de texto completo para legendagem fechada e palavras-chave. Este tópico mostra como usar o Media Indexer 2 Preview.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,47 +14,47 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 9c463095612b1540cc593b17a0e52bfd24db30d2
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c24218dc116803ca0e0a1f166b7b54b24fc4d5ef
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514498"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163799"
 ---
-# <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexando arquivos de mídia com a versão prévia do Azure Media Indexer 2
+# <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexação de ficheiros de mídia com índice de mídia Azure 2 Pré-visualização
 
 > [!NOTE]
-> O processador de mídia [Azure Media indexer 2](media-services-process-content-with-indexer2.md) será desativado. Para as datas de desativação, consulte este tópico de [componentes herdados](legacy-components.md) . Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substituem esse processador de mídia herdado. Para obter mais informações, consulte [migrar do Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md).
+> O processador de mídia **Azure Media Indexer 2** será retirado. Para as datas de aposentadoria, consulte este tema de [componentes legados.](legacy-components.md) [O Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui este processador de mídia legado. Para mais informações, consulte [Migrate from Azure Media Indexer e Azure Media Indexer 2 para Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
-O MP (processador de mídia) da versão **prévia do Azure Media indexer 2** permite que você torne os arquivos de mídia e o conteúdo pesquisáveis, bem como gerar faixas de legendas ocultas. Em comparação com a versão anterior do [Azure Media indexer](media-services-index-content.md), o **Azure Media indexer 2 Preview** executa uma indexação mais rápida e oferece suporte mais amplo a idiomas. Os idiomas com suporte incluem Inglês, espanhol, francês, alemão, italiano, chinês (mandarim, simplificado), Português, árabe, russo e japonês.
+O processador de mídia **de pré-visualização Azure Media Indexer 2** (MP) permite-lhe tornar os ficheiros de mídia e conteúdos pesquisáveis, bem como gerar faixas de legendagem fechadas. Em comparação com a versão anterior do [Azure Media Indexer](media-services-index-content.md) **2 Preview** executa uma indexação mais rápida e oferece um suporte linguístico mais amplo. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, chinês (mandarim, simplificado), português, árabe, russo e japonês.
 
-O pacote de gerenciamento do **Azure Media indexer 2 Preview** está em visualização no momento.
+O Mp de **pré-visualização do Azure Media Indexer 2** está atualmente em Pré-visualização.
 
-Este artigo mostra como criar trabalhos de indexação com a versão **prévia do Azure Media indexer 2**.
+Este artigo mostra como criar empregos indexantes com **o Azure Media Indexer 2 Preview**.
 
 ## <a name="considerations"></a>Considerações
 
-As seguintes considerações são aplicáveis:
+Aplicam-se as seguintes considerações:
  
-* Não há suporte para o indexador 2 no Azure China 21Vianet e no Azure governamental.
-* Ao indexar conteúdo, certifique-se de usar arquivos de mídia com fala muito clara (sem música em segundo plano, ruído, efeitos ou assovio de microfone). Alguns exemplos de conteúdo apropriado são: reuniões, palestras ou apresentações gravadas. O conteúdo a seguir pode não ser adequado para indexação: filmes, programas de TV, qualquer coisa com efeitos de áudio e som mistos, conteúdo mal gravado com ruídos de fundo (assovio).
+* O Indexer 2 não é apoiado no Governo Azure China 21Vianet e Azure.
+* Ao indexar o conteúdo, certifique-se de usar ficheiros de mídia que tenham uma fala muito clara (sem música de fundo, ruído, efeitos ou assobios do microfone). Alguns exemplos de conteúdo apropriado são: reuniões gravadas, palestras ou apresentações. Os seguintes conteúdos podem não ser adequados para indexação: filmes, séries de TV, qualquer coisa com efeitos de áudio e som mistos, conteúdo mal gravado com ruído de fundo (assobios).
  
-## <a name="input-and-output-files"></a>Arquivos de entrada e saída
-### <a name="input-files"></a>Arquivos de entrada
-Arquivos de áudio ou vídeo
+## <a name="input-and-output-files"></a>Ficheiros de entrada e saída
+### <a name="input-files"></a>Ficheiros de entrada
+Ficheiros de áudio ou vídeo
 
-### <a name="output-files"></a>Arquivos de saída
-Um trabalho de indexação pode gerar arquivos de legenda oculta nos seguintes formatos:  
+### <a name="output-files"></a>Ficheiros de saída
+Um trabalho de indexação pode gerar ficheiros de legendas fechados nos seguintes formatos:  
 
 * **TTML**
 * **WebVTT**
 
-Arquivos de legenda oculta (CC) nesses formatos podem ser usados para tornar os arquivos de áudio e vídeo acessíveis a pessoas com deficiência auditiva.
+Os ficheiros de Legenda Fechada (CC) nestes formatos podem ser utilizados para tornar os ficheiros de áudio e vídeo acessíveis a pessoas com deficiência auditiva.
 
-## <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
-Ao criar uma tarefa de indexação com a versão **prévia do Azure Media indexer 2**, você deve especificar uma predefinição de configuração.
+## <a name="task-configuration-preset"></a>Configuração de tarefas (predefinição)
+Ao criar uma tarefa de indexação com o **Indexante Azure Media 2,** deve especificar um predefinição de configuração.
 
-O JSON a seguir define os parâmetros disponíveis.
+Os seguintes conjuntos JSON disponíveis.
 
 ```json
     {
@@ -73,31 +73,31 @@ O JSON a seguir define os parâmetros disponíveis.
 ```
 
 ## <a name="supported-languages"></a>Linguagens suportadas
-A versão prévia do Azure Media Indexer 2 oferece suporte a conversão de fala em texto para os seguintes idiomas (ao especificar o nome do idioma na configuração da tarefa, use o código de 4 caracteres entre colchetes, conforme mostrado abaixo):
+A pré-visualização do Azure Media Indexer 2 suporta o discurso a texto para os seguintes idiomas (ao especificar o nome de idioma na configuração da tarefa, utilize o código de 4 caracteres nos parênteses abaixo indicados):
 
 * Inglês [EnUs]
-* Espanhol [EsEs]
-* Chinês (mandarim, simplificado) [ZhCn]
+* Espanhol [Eses]
+* Chinês (Mandarim, Simplificado) [ZhCn]
 * Francês [FrFr]
-* Alemão [DeDe]
-* Italiano [ItIt]
+* Alemão [Dede]
+* Italiano [Itit]
 * Português [PtBr]
 * Árabe (egípcio) [ArEg]
 * Japonês [JaJp]
 * Russo [RuRu]
-* Inglês britânico [EnGb]
+* Inglês Britânico [EnGb]
 * Espanhol (México) [EsMx] 
 
 ## <a name="supported-file-types"></a>Tipos de ficheiros suportados
 
-Para obter informações sobre os tipos de arquivos com suporte, consulte a seção [codecs/formatos com suporte](media-services-media-encoder-standard-formats.md#input-containerfile-formats) .
+Para obter informações sobre os tipos de ficheiros suportados, consulte a secção de [codecs/formatos suportados.](media-services-media-encoder-standard-formats.md#input-containerfile-formats)
 
-## <a name="net-sample-code"></a>Código de exemplo do .NET
+## <a name="net-sample-code"></a>Código de amostra .NET
 
-O programa a seguir mostra como:
+O seguinte programa mostra como:
 
-1. Crie um ativo e carregue um arquivo de mídia no ativo.
-2. Crie um trabalho com uma tarefa de indexação baseada em um arquivo de configuração que contenha a predefinição JSON a seguir:
+1. Crie um ativo e faça upload de um ficheiro de mídia para o ativo.
+2. Crie um trabalho com uma tarefa de indexação com base num ficheiro de configuração que contenha o seguinte preset json:
 
     ```json
             {
@@ -115,7 +115,7 @@ O programa a seguir mostra como:
             }
     ```
     
-3. Baixe os arquivos de saída. 
+3. Descarregue os ficheiros de saída. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
@@ -297,8 +297,8 @@ namespace IndexContent
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Hiperligações relacionadas
-[Visão geral da análise dos serviços de mídia do Azure](media-services-analytics-overview.md)
+## <a name="related-links"></a>Ligações relacionadas
+[Visão geral da Análise de Serviços de Mídia Azure](media-services-analytics-overview.md)
 
-[Demonstrações de Análise de Mídia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demonstrações azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

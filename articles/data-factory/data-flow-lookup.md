@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/26/2020
-ms.openlocfilehash: aa71f7d2f3b277ca34e1e5fea76ada6adf93e573
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2216e1bf058eef486dbfefba24d52bdc6bdb232f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655073"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164683"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mapeando fluxo de dados Lookup Transformation
 
@@ -45,6 +45,9 @@ A Transformação de Procura é implementada como uma união exterior à esquerd
 * Combine várias linhas: Deixe em branco para devolver o jogo de uma linha única
 * Jogo em: Selecione primeiro, último ou qualquer jogo
 * Condições de classificação: Se selecionar primeiro ou último, a ADF requer que os seus dados sejam encomendados de modo a que haja lógica por trás da primeira e da última
+
+> [!NOTE]
+> Utilize apenas a primeira ou última opção no seu seletor de fila única se precisar de controlar o valor para trazer de volta da sua procura. A utilização de "quaisquer" ou de várias linhas funcionará mais rapidamente.
 
 ### <a name="option-2"></a>Opção 2
 

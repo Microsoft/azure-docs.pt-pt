@@ -3,12 +3,12 @@ title: Visão geral das versões de tempo de funcionamento do Azure Functions
 description: A Azure Functions suporta várias versões do tempo de funcionamento. Aprende as diferenças entre eles e como escolher a que é certa para ti.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 21722d66129224038df20a0a1ef2bff989221224
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539506"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919758"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral das versões de tempo de funcionamento do Azure Functions
 
@@ -58,7 +58,7 @@ Algumas funcionalidades foram removidas, atualizadas ou substituídas após a ve
 
 Na versão 2.x, foram feitas as seguintes alterações:
 
-* As chaves para chamar pontos finais HTTP são sempre armazenadas encriptadas no armazenamento do Azure Blob. Na versão 1.x, as chaves foram armazenadas no armazenamento do Ficheiro Azure. Ao atualizar uma aplicação da versão 1.x para a versão 2.x, os segredos existentes que estão no armazenamento de ficheiros são redefinidos.
+* As chaves para chamar pontos finais HTTP são sempre armazenadas encriptadas no armazenamento do Azure Blob. Na versão 1.x, as chaves foram armazenadas no armazenamento do Ficheiro Azure por padrão. Ao atualizar uma aplicação da versão 1.x para a versão 2.x, os segredos existentes que estão no armazenamento de ficheiros são redefinidos.
 
 * O tempo de execução da versão 2.x não inclui suporte incorporado para fornecedores de webhook. Esta mudança foi feita para melhorar o desempenho. Ainda pode utilizar os gatilhos HTTP como pontos finais para webhooks.
 
@@ -84,7 +84,7 @@ A versão 3.x do Azure Functions é altamente compatível com a versão 2.x.  Mu
 
 Seguem-se as alterações a ter em conta antes de atualizar uma aplicação 2.x para 3.x.
 
-#### <a name="javascript"></a>Javascript
+#### <a name="javascript"></a>JavaScript
 
 * As encadernações de saída atribuídas através de valores `context.done` ou de devolução comportam-se agora da mesma forma que a definição em `context.bindings`.
 

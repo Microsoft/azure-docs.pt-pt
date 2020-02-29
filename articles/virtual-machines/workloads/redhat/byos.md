@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: a53a27a92b393c38d1f49efbd50d91fa1a2e9657
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 712626345e10ab0e4290ac91b0f121ff6960303e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597699"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920574"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images in Azure
 
@@ -41,6 +41,9 @@ As imagens Red Hat Enterprise Linux (RHEL) estão disponíveis no Azure através
 - As imagens não têm direito, por isso deve utilizar o gestor de subscrição para registar e subscrever os VMs para obter atualizações da Red Hat diretamente
 
 - Atualmente, não é possível alternar dinamicamente entre os modelos de faturação BYOS e PAYG para imagens Linux. A recolocação do VM a partir da respetiva imagem é necessária para mudar o modelo de faturação
+
+>[!NOTE]
+> As imagens RHEL BYOS da Geração 2 não estão atualmente disponíveis através da oferta de mercado. Se necessitar de uma imagem Da Gen 2 RHEL BYOS, visite o painel coud Access na Red Hat Subscription Management. Mais detalhes estão disponíveis na documentação do [Chapéu Vermelho.](https://access.redhat.com/articles/4847681)
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Requisitos e condições para aceder às Imagens de Ouro do Chapéu Vermelho
 

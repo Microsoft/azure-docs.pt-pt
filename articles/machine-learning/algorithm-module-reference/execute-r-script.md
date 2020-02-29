@@ -1,7 +1,7 @@
 ---
-title: 'Executar script R: referência de módulo'
+title: 'Execute o script R: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo executar script R no Azure Machine Learning para executar o código R.
+description: Aprenda a utilizar o módulo Execute R Script em Azure Machine Learning para executar o código R.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,29 +9,29 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 4991fe9fb06d0a49da3e0404f0362c85f15571af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d39ac40e8e29c7ff90e2accc3a519449571c1d58
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152300"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917412"
 ---
 # <a name="execute-r-script"></a>Executar Script R
 
 Este artigo descreve como utilizar o módulo **Execute R Script** para executar o código R no seu pipeline de design de machine learning Azure (pré-visualização).
 
-Com o R, você pode executar tarefas que atualmente não são suportadas por módulos existentes, como: 
-- Criar transformações de dados personalizadas
-- Use suas próprias métricas para avaliar previsões
-- Crie modelos usando algoritmos que não são implementados como módulos autônomos no designer
+Com R, pode executar tarefas que não são suportadas atualmente por módulos existentes, tais como: 
+- Criar transformações personalizadas de dados
+- Use as suas próprias métricas para avaliar previsões
+- Construa modelos usando algoritmos que não são implementados como módulos autónomos no designer
 
-## <a name="r-version-support"></a>Suporte à versão do R
+## <a name="r-version-support"></a>Suporte de versão R
 
-O designer de Azure Machine Learning usa a distribuição CRAN (rede de arquivos R abrangente) de R. A versão atualmente usada é CRAN 3.5.1.
+O designer de machine learning azure usa a distribuição CRAN (Comprehensive R Archive Network) de R. A versão atualmente utilizada é CRAN 3.5.1.
 
 ## <a name="supported-r-packages"></a>Pacotes R suportados
 
-O ambiente de R é pré-instalado com mais de 100 pacotes. Para obter uma lista completa, consulte as [embalagens R pré-instaladas](#pre-installed-r-packages).
+O ambiente R é pré-instalado com mais de 100 embalagens. Para obter uma lista completa, consulte as [embalagens R pré-instaladas](#pre-installed-r-packages).
 
 Também pode adicionar o seguinte código a qualquer módulo **execute R Script** e ver as embalagens instaladas.
 
@@ -46,7 +46,7 @@ azureml_main <- function(dataframe1, dataframe2){
 ## <a name="installing-r-packages"></a>Instalar pacotes de R
 Para instalar pacotes R adicionais, utilize o método `install.packages()`. Certifique-se de especificar o repositório CRAN. Os pacotes são instalados para cada módulo **execute R Script,** e não são partilhados em outros módulos **execute R Script.**
 
-Este exemplo mostra como instalar o Zoo:
+Esta amostra mostra como instalar o Zoo:
 ```R
 # R version: 3.5.1
 # The script MUST contain a function named azureml_main
@@ -65,27 +65,27 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
  > [!NOTE]
-  > Verifique se o pacote já existe antes de instalá-lo para evitar a repetição da instalação. Como `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` acima do código da amostra. Repetir a instalação pode causar tempo limite de solicitação de serviço Web.     
+  > Verifique se a embalagem já existe antes de a instalar para evitar a instalação repetida. Como `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` acima do código da amostra. A instalação repetida pode causar tempo de tempo de pedido de serviço web.     
 
-## <a name="how-to-configure-execute-r-script"></a>Como configurar o executar script R
+## <a name="how-to-configure-execute-r-script"></a>Como configurar o Execute R Script
 
 O módulo **Execute R Script** contém um código de amostra que pode utilizar como ponto de partida. Para configurar o módulo **Execute R Script,** forneça um conjunto de inputs e código para executar.
 
 ![Módulo R](media/module/execute-r-script.png)
 
-Os conjuntos de dados armazenados no designer são convertidos automaticamente em um quadro do R data quando carregados com esse módulo.
+Os conjuntos de dados armazenados no designer são automaticamente convertidos para um quadro de dados R quando carregados com este módulo.
 
 1.  Adicione o módulo **Execute R Script** ao seu pipeline.
 
   
 
-1. Conecte as entradas necessárias ao script. As entradas são opcionais e podem incluir dados e código de R adicional.
+1. Ligue as inputs necessárias pelo script. As inputs são opcionais e podem incluir dados e código R adicional.
 
-    * **Dataset1**: Consulte a primeira entrada como `dataframe1`. O conjunto de dados de entrada deve ser formatado como CSV, TSV, ARFF ou você pode conectar um conjunto de dados Azure Machine Learning.
+    * **Dataset1**: Consulte a primeira entrada como `dataframe1`. O conjunto de dados de entrada deve ser formatado como CSV, TSV, ARFF ou pode ligar um conjunto de dados de Aprendizagem automática Azure.
 
-    * **Conjunto de dados2**: Consulte a segunda entrada como `dataframe2`. Esse conjunto de e também deve ser formatado como um arquivo CSV, TSV, ARFF ou como um conjunto de Azure Machine Learning.
+    * **Conjunto de dados2**: Consulte a segunda entrada como `dataframe2`. Este conjunto de dados também deve ser formatado como um ficheiro CSV, TSV, ARFF ou como um conjunto de dados de Aprendizagem automática Azure.
 
-    * **Script Bundle**: A terceira entrada aceita ficheiros ZIP. O arquivo compactado pode conter vários arquivos e vários tipos de arquivo.
+    * **Script Bundle**: A terceira entrada aceita ficheiros ZIP. O ficheiro com fecho pode conter vários ficheiros e vários tipos de ficheiros.
 
 1. Na caixa de texto do **script R,** escreva ou cola script R válido.
 
@@ -116,10 +116,10 @@ azureml_main <- function(dataframe1, dataframe2){
  * A função do ponto de entrada pode conter até dois argumentos de entrada: `Param<dataframe1>` e `Param<dataframe2>`
  
    > [!NOTE]
-    > Os dados transmitidos para o módulo **Execute R Script** são referenciados como `dataframe1` e `dataframe2`, que é diferente do designer de Machine Learning Azure (a referência do designer como `dataset1`, `dataset2`). Verifique se os dados de entrada estão referneced corretamente em seu script.  
+    > Os dados transmitidos para o módulo **Execute R Script** são referenciados como `dataframe1` e `dataframe2`, que é diferente do designer de Machine Learning Azure (a referência do designer como `dataset1`, `dataset2`). Verifique se os dados de entrada estão corretamente referenciados no seu script.  
  
     > [!NOTE]
-    >  O código R existente pode precisar de alterações secundárias para ser executado em um pipeline de designer. Por exemplo, os dados de entrada que você fornecer no formato CSV devem ser explicitamente convertidos em um DataSet antes que você possa usá-lo em seu código. Os tipos de dados e colunas usados na linguagem R também são diferentes de algumas maneiras dos tipos de dados e colunas usados no designer.
+    >  O código R existente pode necessitar de pequenas alterações para ser executado num pipeline de design. Por exemplo, os dados de entrada que fornece no formato CSV devem ser explicitamente convertidos para um conjunto de dados antes de poder utilizá-lo no seu código. Os tipos de dados e colunas utilizados na língua R também diferem de algumas formas dos tipos de dados e colunas utilizados no designer.
 
 1.  **Semente aleatória**: Digite um valor a utilizar dentro do ambiente R como o valor de sementes aleatórias. Este parâmetro equivale a chamar `set.seed(value)` em código R.  
 
@@ -127,18 +127,20 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="results"></a>Resultados
 
-Os módulos **execute R Script** podem devolver várias saídas, mas devem ser fornecidos como quadros de dados R. Os quadros de dados são convertidos automaticamente em conjuntos de dados no designer para compatibilidade com outros módulos.
+Os módulos **execute R Script** podem devolver várias saídas, mas devem ser fornecidos como quadros de dados R. Os quadros de dados são automaticamente convertidos em conjuntos de dados no designer para compatibilidade com outros módulos.
 
-Mensagens e erros padrão do R são retornados para o log do módulo.
+As mensagens padrão e os erros de R são devolvidos ao registo do módulo.
+
+Se precisar de imprimir resultados no script R, pode encontrar os resultados impressos no **separador 70_driver_log** em **saídas+logs** no painel certo do módulo.
 
 ## <a name="sample-scripts"></a>Scripts de exemplo
 
-Há várias maneiras pelas quais você pode estender seu pipeline usando o script R personalizado.  Esta seção fornece código de exemplo para tarefas comuns.
+Existem muitas maneiras de estender o seu pipeline usando script R personalizado.  Esta secção fornece um código de amostra para tarefas comuns.
 
 
-### <a name="add-r-script-as-an-input"></a>Adicionar script R como uma entrada
+### <a name="add-r-script-as-an-input"></a>Adicione o script R como entrada
 
-O módulo **Execute R Script** suporta ficheiros de script R arbitrários como inputs. Para fazer isso, eles devem ser carregados em seu espaço de trabalho como parte do arquivo ZIP.
+O módulo **Execute R Script** suporta ficheiros de script R arbitrários como inputs. Para tal, devem ser enviados para o seu espaço de trabalho como parte do ficheiro ZIP.
 
 1. Para fazer o upload de um ficheiro ZIP contendo código R para o seu espaço de trabalho, clique em **Novo,** clique em **Dataset,** e depois selecione **A partir do ficheiro local** e da opção de ficheiro **Zip.**  
 
@@ -146,13 +148,13 @@ O módulo **Execute R Script** suporta ficheiros de script R arbitrários como i
 
 1.  Ligue o conjunto de dados à porta de entrada script **Bundle.**
 
-1. Todos os arquivos contidos no arquivo ZIP estão disponíveis durante o tempo de execução do pipeline. 
+1. Todos os ficheiros contidos no ficheiro ZIP estão disponíveis durante o tempo de execução do gasoduto. 
 
-    Se o arquivo de pacote de script contiver uma estrutura de diretório, a estrutura será preservada. No entanto, deve alterar o seu código para preparar o diretório **./Script Bundle** para o caminho.
+    Se o ficheiro do script contivesse uma estrutura de diretório, a estrutura é preservada. No entanto, deve alterar o seu código para preparar o diretório **./Script Bundle** para o caminho.
 
 ### <a name="process-data"></a>Processar dados
 
-O exemplo a seguir mostra como dimensionar e normalizar dados de entrada:
+A amostra que se segue mostra como escalar e normalizar os dados de entrada:
 
 ```R
 # R version: 3.5.1
@@ -181,15 +183,15 @@ azureml_main <- function(dataframe1, dataframe2){
 }
  ```
 
-### <a name="read-a-zip-file-as-input"></a>Ler um arquivo ZIP como entrada
+### <a name="read-a-zip-file-as-input"></a>Leia um ficheiro ZIP como entrada
 
 Esta amostra mostra como utilizar um conjunto de dados num ficheiro ZIP como entrada para o módulo **Execute R Script.**
 
-1. Crie o arquivo de dados no formato CSV e nomeie-o como "mydatafile. csv".
-1. Crie um arquivo ZIP e adicione o arquivo CSV ao arquivo morto.
-1. Carregue o arquivo compactado em seu espaço de trabalho Azure Machine Learning. 
+1. Crie o ficheiro de dados em formato CSV e nomeie-o "mydatafile.csv".
+1. Crie um ficheiro ZIP e adicione o ficheiro CSV ao arquivo.
+1. Faça o upload do ficheiro com fecho para o seu espaço de trabalho azure Machine Learning. 
 1. Ligue o conjunto de dados resultante à entrada **scriptBundle** do módulo **Execute R Script.**
-1. Usando o código a seguir para ler os dados CSV do arquivo compactado.
+1. Utilizando o seguinte código para ler os dados do CSV a partir do ficheiro zipped.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -200,9 +202,9 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-### <a name="replicate-rows"></a>Replicar linhas
+### <a name="replicate-rows"></a>Linhas de replicação
 
-Este exemplo mostra como replicar registros positivos em um DataSet para balancear o exemplo:
+Esta amostra mostra como replicar registos positivos num conjunto de dados para equilibrar a amostra:
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -217,7 +219,7 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-### <a name="pass-r-objects-between-execute-r-script-modules"></a>Passar objetos R entre executar módulos de script R
+### <a name="pass-r-objects-between-execute-r-script-modules"></a>Passar objetos R entre módulos de script Execute R
 
 Pode passar objetos R entre as instâncias do módulo **Execute R Script** utilizando o mecanismo de serialização interna. Este exemplo pressupõe que pretende mover o objeto R denominado `A` entre dois módulos **execute R Script.**
 
@@ -250,9 +252,9 @@ Pode passar objetos R entre as instâncias do módulo **Execute R Script** utili
     }
     ```
 
-## <a name="pre-installed-r-packages"></a>Pacotes de R pré-instalados
+## <a name="pre-installed-r-packages"></a>Pacotes R pré-instalados
 
-A lista atual de pacotes de R pré-instalados disponíveis para uso:
+A lista atual de Pacotes R pré-instalados disponível para utilização:
 
 |              |            | 
 |--------------|------------| 
@@ -274,7 +276,7 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | guarda-celcela   | 1.1.0      | 
 | Classe        | 7.3-15     | 
 | cli          | 1.1.0      | 
-| clipe        | 0.6.0      | 
+| clipr        | 0.6.0      | 
 | aglomerado      | 2.0.7-1    | 
 | códigos    | 0.2-16     | 
 | espaço para cores   | 1.4-1      | 
@@ -292,8 +294,8 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | fansi        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
-| estrangeiro      | 0,8-71     | 
-| vinculação           | 1.3.1      | 
+| estrangeiro      | 0.8-71     | 
+| fs           | 1.3.1      | 
 | gdata        | 2.18.0     | 
 | genéricos     | 0.0.2      | 
 | ggplot2      | 3.2.0      | 
@@ -311,13 +313,13 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | hms          | 0.4.2      | 
 | ferramentas html    | 0.3.6      | 
 | httr         | 1.4.0      | 
-| ipred        | 0,9-9      | 
+| ipred        | 0.9-9      | 
 | iteradores    | 1.0.10     | 
 | jsonlite     | 1.6        | 
 | KernSmooth   | 2.23-15    | 
 | malha        | 1.23       | 
 | rotulagem     | 0.3        | 
-| rede      | 0,20-38    | 
+| rede      | 0.20-38    | 
 | lava         | 1.6.5      | 
 | preguiçosa     | 0.2.2      | 
 | lubridade    | 1.7.4      | 
@@ -375,7 +377,7 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | estatísticas4       | 3.5.1      | 
 | stringi      | 1.4.3      | 
 | stringr      | 1.3.1      | 
-| sobrevivência     | 2,44-1.1   | 
+| sobrevivência     | 2.44-1.1   | 
 | sys          | 3,2        | 
 | tcltk        | 3.5.1      | 
 | tíbide       | 2.1.3      | 
@@ -385,7 +387,7 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | timeDate     | 3043.102   | 
 | tinytex      | 0.13       | 
 | ferramentas        | 3.5.1      | 
-| tseries      | 0,10 a 47    | 
+| tseries      | 0.10-47    | 
 | TTR          | 0.23-4     | 
 | utf8         | 1.1.4      | 
 | utilitários        | 3.5.1      | 

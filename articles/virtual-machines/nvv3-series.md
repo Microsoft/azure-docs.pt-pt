@@ -2,17 +2,17 @@
 title: Série NVv3 - Máquinas Virtuais Azure
 description: Especificações para os VMs da série NVv3.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: a353abe8cdedb01138c8b633750b90bd9870e5d2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 42c11ed41ca4d84f1acf137bbb681a2dbe24dfe2
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666884"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161912"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 
@@ -21,6 +21,10 @@ As máquinas virtuais da série NVv3 são alimentadas pela tecnologia [NVIDIA Te
 Cada GPU em instâncias NVv3 vem com uma licença GRID. Esta licença dá-lhe a flexibilidade para usar uma instância de NV como uma estação de trabalho virtual para um único utilizador, ou 25 utilizadores simultâneos podem ligar-se ao VM para um cenário de aplicação virtual.
 
 Caching de armazenamento premium: Suportado
+
+Migração Ao Vivo: Não Suportado
+
+Atualizações de preservação da memória: não suportadas
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória DE GPU: GiB | Discos de dados máximos | Potência de disco max uncached: IOPS/MBps | NICs máximos | Estações de Trabalho Virtuais | Aplicações Virtuais |
 |---|---|---|---|---|---|---|---|---|---|---|

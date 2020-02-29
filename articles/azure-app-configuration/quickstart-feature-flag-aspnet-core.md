@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: 106085c4c528e42d4f559b92585be2f4e0a2f98a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: a4fbba65af5afbd27a3fd2c7d41858e33b4d812c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498670"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163884"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação ASP.NET Core
 
@@ -91,7 +91,7 @@ Adicione a [ferramenta Secret Manager](https://docs.microsoft.com/aspnet/core/se
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
+    dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
 1. Execute o seguinte comando para restaurar as embalagens para o seu projeto:
@@ -339,7 +339,7 @@ Adicione a [ferramenta Secret Manager](https://docs.microsoft.com/aspnet/core/se
     O seu navegador deve apresentar uma página semelhante à imagem abaixo.
     ![app Quickstart lançam](./media/quickstarts/aspnet-core-feature-flag-local-before.png) local
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de configuração de aplicações que criou no arranque rápido.
 
 1. Selecione Gestor de **Funcionalidades**e altere o estado da chave **Beta** para **On**.
 

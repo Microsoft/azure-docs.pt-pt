@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 39e2deead1affd750d9a5e68985b02ebfe8e0efd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603763"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921305"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
 
@@ -126,4 +126,4 @@ A proteção das máquinas virtuais residentes no Azure Stack também é suporta
 - Saiba como o [Centro de Segurança gere e salvaguarda dados.](security-center-data-security.md)
 - Saiba como [planear e compreender as considerações de design para adotar o Azure Security Center.](security-center-planning-and-operations-guide.md)
 - Conheça [as funcionalidades disponíveis para os diferentes ambientes em nuvem.](security-center-services.md)
-- Saiba mais sobre [a deteção de ameaças para VMs e servidores no Azure Security Center](security-center-alerts-iaas.md).
+- Saiba mais sobre [a proteção contra ameaças para máquinas Windows e Linux no Azure Security Center](threat-protection.md#windows-machines).

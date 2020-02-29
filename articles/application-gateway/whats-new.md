@@ -1,44 +1,45 @@
 ---
-title: O que há de novo no gateway de Aplicativo Azure
-description: Saiba o que há de novo no gateway de Aplicativo Azure, como as notas de versão mais recentes, problemas conhecidos, correções de bugs, funcionalidade preterida e alterações futuras.
+title: Novidades no Portal de Aplicações Azure
+description: Saiba quais são as novidades com o Portal de Aplicações Azure, como as mais recentes notas de lançamento, questões conhecidas, correções de bugs, funcionalidade depreciada e próximas alterações.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: b2e7b9f28c84b769fe64be82f91418cc2a7d634f
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 373656c3585d503eccf166ce049b58e784e9131c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044380"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921339"
 ---
-# <a name="whats-new-in-azure-application-gateway"></a>O que há de novo no gateway Aplicativo Azure?
+# <a name="whats-new-in-azure-application-gateway"></a>Quais as novidades no Portal de Aplicação Azure?
 
-Aplicativo Azure gateway é atualizado em uma base contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
+O Portal de Aplicações Azure é atualizado de forma contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
-- As versões mais recentes
+- Versões mais recentes
 - Problemas conhecidos
 - Correções de erros
-- Funcionalidade preterida
+- Funcionalidades preteridas
 
-## <a name="new-features"></a>Novas funcionalidades
+## <a name="new-features"></a>Novos recursos
 
 |Funcionalidade  |Descrição  |Data de adição  |
 |---------|---------|---------|
-|Aprimoramentos de investigação |Com os aprimoramentos de investigação personalizada no SKU do gateway de aplicativo v2, nós simplificamos a [configuração da investigação](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), facilitamos os [testes de integridade de back-end sob demanda](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) e adicionamos [mais informações de diagnóstico](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) para ajudá-lo a solucionar problemas de integridade de edições.  |Outubro de 2019 |
-|Mais métricas |Adicionamos as novas métricas a seguir para ajudá-lo a monitorar seu SKU do Application Gateway v2: [métricas relacionadas à temporização](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), status de resposta de back-end, bytes recebidos, bytes enviados, protocolo TLS do cliente e unidades de computação atuais. Consulte as [métricas com suporte do SKU do gateway de aplicativo v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Agosto de 2019 |
-|Regras personalizadas de WAF |O WAF_v2 do gateway de aplicativo agora dá suporte à criação de regras personalizadas. Consulte [regras personalizadas do gateway de aplicativo](custom-waf-rules-overview.md). |Junho de 2019 |
-|Dimensionamento automático, redundância de zona, suporte a VIP estático GA |Disponibilidade geral para SKU v2 que dá suporte ao dimensionamento automático, redundância de zona, desempenho aprimorado, VIPs estáticos, Key Vault, reescrita de cabeçalho. Consulte [documentação de dimensionamento](application-gateway-autoscaling-zone-redundant.md)automático do gateway de aplicativo. |Abril de 2019 |
-|Integração do Key Vault |O gateway de aplicativo agora dá suporte à integração com o Key Vault (em visualização pública) para certificados de servidor anexados a ouvintes habilitados para HTTPS. Consulte [terminação SSL com certificados de Key Vault](key-vault-certs.md). |Abril de 2019 |
-|CRUD/regravações de cabeçalho     |Agora você pode reescrever cabeçalhos HTTP. Consulte [tutorial: criar um gateway de aplicativo e reescrever cabeçalhos HTTP](tutorial-http-header-rewrite-powershell.md) para obter mais informações.|Dezembro de 2018|
-|Lista de configuração e exclusão do WAF     |Adicionamos mais opções para ajudá-lo a configurar seu WAF e a reduzir os falsos positivos. Consulte [limites de tamanho de solicitação de firewall do aplicativo Web e listas de exclusão](application-gateway-waf-configuration.md) para obter mais informações.|Dezembro de 2018|
-|Dimensionamento automático, redundância de zona, suporte a VIP estático      |Com a SKU v2, há muitas melhorias, como dimensionamento automático, melhor desempenho e muito mais. Consulte [o que é aplicativo Azure gateway?](overview.md) para obter mais informações.|Setembro de 2018|
-|Drenagem de ligação     |O descarregamento de conexão permite que você remova normalmente os membros de seus pools de back-end. Para obter mais informações, consulte [descarga de conexão](overview.md#connection-draining).|Setembro de 2018|
-|Páginas de erros personalizadas     |Com páginas de erro personalizadas, você pode criar uma página de erro dentro do formato do restante dos seus sites. Para habilitar isso, consulte [criar páginas de erro personalizadas do gateway de aplicativo](custom-error.md).|Setembro de 2018|
-|Aprimoramentos de métricas     |Você pode obter uma exibição melhor do estado do seu gateway de aplicativo com métricas aprimoradas. Para habilitar as métricas no seu gateway de aplicativo, consulte [integridade de back-end, logs de diagnóstico e métricas para o gateway de aplicativo](application-gateway-diagnostics.md).|junho de 2018|
+|Alterações de cookies de afinidade |Quando a afinidade baseada em cookies está ativada, o Application Gateway injeta outro cookie idêntico chamado *ApplicationGatewayAffinityCORS* para além do cookie ApplicationGatewayAffinity existente. *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele (*SameSite=None; Seguro*), de modo a que a sessão pegajosa seja mantida mesmo para pedidos de origem cruzada. Consulte [a afinidade baseada em Cookies de Gateway](configuration-overview.md#cookie-based-affinity) de aplicação para obter mais informações. |Fevereiro de 2020 |
+|Melhorias da sonda |Com as melhorias de sonda personalizadas no Application Gateway v2 SKU, simplificamos a configuração da [sonda,](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku)facilitamos [os testes de saúde a pedido](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) e adicionamos mais [informações](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) de diagnóstico para ajudá-lo a resolver problemas de saúde.  |Outubro de 2019 |
+|Mais métricas |Adicionámos as seguintes novas métricas para o ajudar a monitorizar o seu Applicaiton Gateway v2 SKU: [métricas relacionadas com](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics)o tempo, estado de resposta backend, Bytes recebidos, Bytes enviados, protocolo TLS cliente e unidades de computação atual. Consulte [métricas suportadas pelo Gateway V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Agosto de 2019 |
+|Regras personalizadas de WAF |O Gateway de aplicações WAF_v2 agora suporta a criação de regras personalizadas. Consulte [as regras personalizadas do Application Gateway](custom-waf-rules-overview.md). |Junho de 2019 |
+|Autoscalcificação, redundância de zona, suporte VIP estático GA |Disponibilidade geral para v2 SKU que suporta autoescalação, redundância de zona, melhoramento desempenho, VIPs estáticos, Cofre chave, reescrita do cabeçalho. Consulte [a documentação autoscalcificante do Gateway de aplicação.](application-gateway-autoscaling-zone-redundant.md) |Abril de 2019 |
+|Integração do Cofre Chave |O Application Gateway suporta agora a integração com o Key Vault (em pré-visualização pública) para certificados de servidor que estão anexados aos ouvintes ativados por HTTPS. Consulte a [rescisão do SSL com certificados key vault](key-vault-certs.md). |Abril de 2019 |
+|Cabeçalho CRUD/Reescreve     |Agora pode reescrever os cabeçalhos http. Consulte [tutorial: Crie um gateway de aplicação e reescreva os cabeçalhos HTTP](tutorial-http-header-rewrite-powershell.md) para mais informações.|Dezembro de 2018|
+|Lista de configuração e exclusão de WAF     |Adicionámos mais opções para o ajudar a configurar o seu WAF e a reduzir falsos positivos. Consulte os limites de tamanho do pedido de firewall de [aplicação Web e listas de exclusão](application-gateway-waf-configuration.md) para mais informações.|Dezembro de 2018|
+|Autoscalcificação, redundância de zona, suporte VIP estático      |Com o V2 SKU, existem muitas melhorias como autoscaling, melhor desempenho, e muito mais. Veja o que é o Portal de [Aplicação Azure?](overview.md)|Setembro de 2018|
+|Drenagem de ligação     |A drenagem da ligação permite-lhe remover graciosamente os membros das suas piscinas de backend. Para mais informações, consulte a [drenagem da Ligação](overview.md#connection-draining).|Setembro de 2018|
+|Páginas de erro personalizadas     |Com páginas de erro personalizadas, pode criar uma página de erro dentro do formato dos restantes websites. Para o ativar, consulte criar páginas de [erro personalizadas do Gateway](custom-error.md)de aplicação .|Setembro de 2018|
+|Melhorias de Métricas     |Você pode obter uma melhor visão do estado do seu Gateway de Aplicação com métricas melhoradas. Para ativar métricas no gateway da aplicação, consulte [a saúde de back-end, registos de diagnóstico e métricas para Gateway](application-gateway-diagnostics.md)de Aplicação .|junho de 2018|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre Aplicativo Azure gateway, consulte [o que é o gateway de aplicativo Azure?](overview.md)
+Para mais informações sobre o Portal de Aplicação Azure, consulte [o portal de aplicação Azure?](overview.md)

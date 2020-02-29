@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 02/26/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 81d69f2274abf075be2f97b0edc67af2eea62327
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b7c4bac7523cdec36beac64e2cd204588b0935fb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614484"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155408"
 ---
 <a name="HOLTop"></a>
 
@@ -32,8 +32,9 @@ ms.locfileid: "77614484"
 
 * Assinatura Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * O [Estúdio Visual IDE](https://visualstudio.microsoft.com/vs/)
-
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+* Assim que tiver a sua assinatura Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Criar <span class="docon docon-navigate-external x-hidden-focus"></span> um recurso De Análise de Texto"  target="_blank">criar um recurso De SMAnalytics</a> no portal Azure para obter a sua chave e ponto final. 
+    * Necessitará da chave e do ponto final do recurso que cria para ligar a sua aplicação à API textanalytics. Vais fazer isto mais tarde, no início.
+    * Você pode usar o nível de preços gratuitos para experimentar o serviço, e atualizar mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configuração
 
@@ -44,6 +45,20 @@ Utilizando o Visual Studio IDE, crie uma nova aplicação de consola .NET Core. 
 #### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 Instale a biblioteca do cliente clicando corretamente sobre a solução no **Solution Explorer** e selecionando **pacotes Manage NuGet**. No gestor de pacotes que abre selecione **Browse,** verifique **Incluir pré-lançamento**, e procurar por `Azure.AI.TextAnalytics`. Selecione a versão `1.0.0-preview.2`e, em seguida, **instale**. Também pode utilizar a consola de gestor de [pacotes.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
+
+> [!TIP]
+> Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo [no GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs)que contém os exemplos de código neste arranque rápido. 
+
+#### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
+
+Instale a biblioteca do cliente clicando corretamente sobre a solução no **Solution Explorer** e selecionando **pacotes Manage NuGet**. No gestor de pacotes que abre, **selecione Navegar** e procurar `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Clique nele e, em seguida, **instale**. Também pode utilizar a consola de gestor de [pacotes.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
+
+> [!TIP]
+> Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo [no GitHub,](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/samples/TextAnalytics/synchronous/Program.cs)que contém os exemplos de código neste arranque rápido. 
+
+---
+
+#### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 Abra o ficheiro *program.cs* e adicione as seguintes diretivas `using`:
 
@@ -82,8 +97,6 @@ static void Main(string[] args)
 ```
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Instale a biblioteca do cliente clicando corretamente sobre a solução no **Solution Explorer** e selecionando **pacotes Manage NuGet**. No gestor de pacotes que abre, **selecione Navegar** e procurar `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Clique nele e, em seguida, **instale**. Também pode utilizar a consola de gestor de [pacotes.](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)
 
 Abra o ficheiro *program.cs* e adicione as seguintes diretivas `using`:
 

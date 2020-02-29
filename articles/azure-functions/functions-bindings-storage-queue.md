@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 16c325f2d6ea78ba980406f56839dd4d0b64bee1
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482263"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164598"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Gatilho de armazenamento de fila azure e encadernações para a visão geral das funções do Azure
 
@@ -20,7 +20,7 @@ As Funções Azure podem funcionar à medida que novas mensagens de armazenament
 | Ação | Tipo |
 |---------|---------|
 | Executar uma função à medida que os dados de armazenamento da fila mudam | [Acionador](./functions-bindings-storage-queue-trigger.md) |
-| Escreva mensagens de armazenamento de fila |[Encadernação de saída](./functions-bindings-storage-blob-output.md) |
+| Escreva mensagens de armazenamento de fila |[Encadernação de saída](./functions-bindings-storage-queue-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Adicione à sua app Funções
 
@@ -28,7 +28,7 @@ As Funções Azure podem funcionar à medida que novas mensagens de armazenament
 
 Trabalhar com o gatilho e encadernações requer que consulte o pacote apropriado. O pacote NuGet é utilizado para bibliotecas de classe .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicações.
 
-| Linguagem                                        | Adicione por...                                   | Observações 
+| Idioma                                        | Adicione por...                                   | Observações 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalação do [pacote NuGet], versão 3.x | |
 | C#Script, Java, JavaScript, Python, PowerShell | Registando o [pacote de extensão]          | Recomenda-se a [extensão Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) para utilizar com o Código do Estúdio Visual. |
@@ -46,7 +46,7 @@ As funções 1.x apps têm automaticamente uma referência ao pacote [Microsoft.
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar uma função como alterações de dados de armazenamento de fila (Gatilho)](./functions-bindings-storage-queue-trigger.md)
-- [Escreva mensagens de armazenamento de fila (encadernação de saída)](./functions-bindings-storage-blob-output.md)
+- [Escreva mensagens de armazenamento de fila (encadernação de saída)](./functions-bindings-storage-queue-output.md)

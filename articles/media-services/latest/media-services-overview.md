@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 559050d11b6b85a9842c679b94e0e5b2fd5dd0f8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: df1602fe82b4a625dd5f01de2bd7236816fbb0ac
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987718"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164666"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral do Azure Media Services v3
 
@@ -34,13 +34,13 @@ Os Serviços de Media v3 SDKs baseiam-se na [Especificação OpenAPI (Swagger)](
 > Atualmente, não é possível utilizar o portal Azure para gerir os recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, Privacidade e Segurança
+
+Como um lembrete importante, você deve cumprir todas as leis aplicáveis na sua utilização da Azure Media Services, e você não pode usar Serviços de Media ou qualquer serviço Azure de uma forma que viole os direitos dos outros, ou que pode ser prejudicial para os outros.
+
+Antes de enviar qualquer vídeo/imagem para os Media Services, deve ter todos os direitos adequados para utilizar o vídeo/imagem, incluindo, sempre que tal seja exigido por lei, todos os consentimentos necessários de indivíduos (se houver) no vídeo/imagem, para uso, processamento e armazenamento dos seus dados nos Media Services e Azure. Algumas jurisdições podem impor requisitos legais especiais para a recolha, processamento e armazenamento on-line de determinadas categorias de dados, tais como dados biométricos. Antes de utilizar os Serviços de Media e azure para o tratamento e armazenamento de quaisquer dados sujeitos a requisitos legais especiais, deve garantir o cumprimento de quaisquer requisitos legais que possam ser aplicáveis a Si.
+
+Para saber sobre conformidade, privacidade e segurança nos Serviços de Media visite o Microsoft [Trust Center](https://www.microsoft.com/trust-center/?rtc=1). Para as obrigações de privacidade da Microsoft, práticas de tratamento e retenção de dados, incluindo como eliminar os seus dados, por favor, consulte a Declaração de [Privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os Termos dos [Serviços Online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") e o Tratamento de Dados [Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Ao utilizar os Serviços de Comunicação Social, concorda em ficar vinculado pela OST, DPA e pela Declaração de Privacidade.
  
-Como um lembrete importante, você deve cumprir todas as leis aplicáveis, na sua utilização da Azure Media Services, e você não pode usar Azure Media Services ou qualquer outro serviço Azure de uma forma que viole os direitos dos outros ou pode ser prejudicial para os outros. 
-
-Antes de enviar quaisquer vídeos/imagens, incluindo quaisquer dados biométricos, para os Serviços de Media para processamento e armazenamento, deve (1) ter todos os direitos adequados aos vídeos/imagens; e (2) dispor de todos os consentimentos adequados do indivíduo nos vídeos que permitam a utilização e armazenamento dos seus dados biométricos nos Serviços de Comunicação Social. 
-
-Para saber sobre conformidade, privacidade e como a Microsoft protege e protege os seus dados nos Serviços De Mídia Azure, visite o Azure [Trust Center](https://www.microsoft.com/trust-center/?rtc=1). Para as obrigações de privacidade da Microsoft e o tratamento dos seus dados, por favor, consulte a Declaração de [Privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os Termos dos [Serviços Online](https://www.microsoft.com/licensing/product-licensing/products) ("OST") e a [Adenda](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) de Processamento de Dados (DPA"). Informações sobre a retenção e eliminação de dados dos clientes estão disponíveis no DPA. Ao utilizar o Azure Media Services, concorda em ficar vinculado pelo OST, pelo DPA e pela Declaração de Privacidade.
-
 ## <a name="what-can-i-do-with-media-services"></a>O que posso fazer com os Serviços de Multimédia?
 
 A Media Services permite-lhe construir uma variedade de fluxos de trabalho mediáticos na nuvem. Alguns exemplos do que pode fazer com os Serviços de Media incluem:
@@ -66,7 +66,7 @@ Saiba como codificar e embalar conteúdos, transmitir vídeos a pedido, transmit
 
 Comece a desenvolver-se com [os SDKs de clientes V3 da Azure Media Services.](media-services-apis-overview.md#sdks)
 
-### <a name="quickstarts"></a>Guias de Início Rápido  
+### <a name="quickstarts"></a>Inícios rápidos  
 
 Os quickstarts mostram instruções fundamentais do dia 1 para os novos clientes experimentarem rapidamente os Serviços de Media.
 
@@ -84,7 +84,7 @@ Os tutoriais mostram procedimentos baseados em cenários para algumas das princi
 * [Analise o seu vídeo - .NET](analyze-videos-tutorial-with-api.md)
 * [Encriptação dinâmica AES-128 - .NET](protect-with-aes128.md)
 
-### <a name="samples"></a>Exemplos
+### <a name="samples"></a>Amostras
 
 Utilize [este navegador de amostras](https://docs.microsoft.com/samples/browse/?products=azure-media-services) para navegar em amostras de código do Azure Media Services.
 
@@ -99,11 +99,10 @@ Como orientar os guias contêm amostras de código que demonstram como completar
 * [Criptografe dinamicamente com multi-DRM - .NET](protect-with-drm.md) 
 * [Como codificar com uma transformação personalizada - CLI](custom-preset-cli-howto.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, envie comentários, obtenha atualizações
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 
-Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
+Confira o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Serviços de Media.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 [Conheça conceitos fundamentais](concepts-overview.md)
-

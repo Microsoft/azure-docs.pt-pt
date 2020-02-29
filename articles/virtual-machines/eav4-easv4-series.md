@@ -2,19 +2,19 @@
 title: Série Eav4 e série Easv4 - Máquinas Virtuais Azure
 description: Especificações para os VMs da série Eav4 e Easv4.
 services: virtual-machines
-author: jonbeck7
+author: migerdes
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 96cd7b4f4627e7c0335df9c745d8193a3dac7044
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e05a2b97a25ce4cab7d619f4b62d405765cb08db
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493777"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164394"
 ---
-# <a name="eav4-and-easv4-series"></a>Série Eav4 e Easv4
+# <a name="eav4-and-easv4-series"></a>Séries Eav4 e Easv4
 
 As séries Eav4 e Easv4 utilizam o processador EPYC<sup>7452</sup> da AMD numa configuração multi-roscada com cache L3 de até 256MB, aumentando as opções para executar a maioria das cargas de trabalho otimizadas pela memória. As séries Eav4 e Easv4 têm as mesmas configurações de memória e disco que as séries Ev3 & Esv3.
 
@@ -25,6 +25,10 @@ ACU: 230 - 260
 Armazenamento Premium: Não Suportado
 
 Caching de armazenamento premium: Não suportado
+
+Migração Ao Vivo: Apoiado
+
+Atualizações de preservação da memória: Suportado
 
 Os tamanhos da série Eav4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</sup> 7452 que pode alcançar uma frequência máxima aumentada de 3,35GHz e utilizar sSD premium. Os tamanhos da série Eav4 são ideais para aplicações empresariais intensivas de memória. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para utilizar o SSD premium, utilize os tamanhos da série Easv4. Os contadores de preços e faturação para os tamanhos Easv4 são os mesmos que as séries Eav3.
 
@@ -49,6 +53,10 @@ ACU: 230 - 260
 Armazenamento Premium: Suportado
 
 Caching de armazenamento premium: Suportado
+
+Migração Ao Vivo: Apoiado
+
+Atualizações de preservação da memória: Suportado
 
 Os tamanhos da série Easv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</sup> 7452 que pode alcançar uma frequência máxima aumentada de 3,35GHz e utilizar sSD premium. Os tamanhos da série Easv4 são ideais para aplicações empresariais intensivas de memória.
 
@@ -77,6 +85,6 @@ Os tamanhos da série Easv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</s
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como as unidades de [computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho da computação em Azure SKUs.

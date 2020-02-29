@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições políticas são usadas para estabelecer convenções para os recursos azure na sua organização.
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: ade659637f1be6cc58cebae760c5e1b753f3830f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 1100248b43dbdf668dc1164651f3d9f941f3f016
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670785"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920217"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -159,19 +159,19 @@ Esta amostra refere o parâmetro **de localização permitido** que foi demonstr
 
 ### <a name="strongtype"></a>strongType
 
-Dentro da propriedade `metadata`, pode utilizar **o strongType** para fornecer uma lista multi-selecionada de opções dentro do portal Azure. Os valores permitidos para **o strongType** incluem atualmente:
+Dentro da propriedade `metadata`, pode utilizar **o strongType** para fornecer uma lista multi-selecionada de opções dentro do portal Azure. **strongType** pode ser um tipo de _recurso_ suportado ou um valor permitido. Para determinar se um _tipo_ de recurso é válido para **o strongType,** utilize [o Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+
+Alguns tipos de _recursos_ não devolvidos pela **Get-AzResourceProvider** são suportados. Estes são:
+
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
+
+O _tipo não-recurso_ permitido valores para **o strongType** são:
 
 - `location`
 - `resourceTypes`
 - `storageSkus`
 - `vmSKUs`
 - `existingResourceGroups`
-- `omsWorkspace`
-- `Microsoft.EventHub/Namespaces/EventHubs`
-- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
-- `Microsoft.EventHub/Namespaces/AuthorizationRules`
-- `Microsoft.RecoveryServices/vaults`
-- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## <a name="definition-location"></a>Localização da definição
 

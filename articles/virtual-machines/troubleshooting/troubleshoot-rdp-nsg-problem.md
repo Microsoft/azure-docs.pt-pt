@@ -1,6 +1,6 @@
 ---
-title: Não é possível se conectar a VMs do Azure porque a porta RDP não está habilitada em NSG | Microsoft Docs
-description: Saiba como solucionar um problema no qual o RDP falha devido à configuração do NSG no portal do Azure | Microsoft Docs
+title: Não é possível ligar a VMs Azure porque a porta RDP não está ativada no NSG  Microsoft Docs
+description: Saiba como resolver um problema em que o PDR falha devido à configuração do NSG no portal Azure . Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -12,53 +12,50 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: aedb9c8d178cb210efedf8ff4bcbbeca39f89e60
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6c877690cf27edd73f1d828b8a1dda6f4f34e780
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981811"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918177"
 ---
-#  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Não é possível se conectar remotamente a uma VM porque a porta RDP não está habilitada em NSG
+#  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Não é possível ligar remotamente a um VM porque a porta RDP não está ativada no NSG
 
-Este artigo explica como resolver um problema no qual você não pode se conectar a uma VM (máquina virtual) do Windows do Azure porque a porta protocolo RDP (RDP) não está habilitada no grupo de segurança de rede (NSG).
+Este artigo explica como resolver um problema em que não é possível ligar-se a uma máquina virtual Do Windows (VM) porque a porta do Protocolo de Ambiente de Trabalho Remoto (RDP) não está ativada no grupo de segurança da rede (NSG).
 
-
-> [!NOTE] 
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../azure-resource-manager/management/deployment-models.md). Recomendamos que você use o modelo de implantação do Gerenciador de recursos em vez do modelo de implantação clássico para novas implantações. 
 
 ## <a name="symptom"></a>Sintoma
 
-Você não pode fazer uma conexão RDP com uma VM no Azure porque a porta RDP não está aberta no grupo de segurança de rede.
+Não é possível fazer uma ligação RDP a um VM em Azure porque a porta RDP não está aberta no grupo de segurança da rede.
 
 ## <a name="solution"></a>Solução 
 
-Quando você cria uma nova VM, todo o tráfego da Internet é bloqueado por padrão. 
+Quando cria um novo VM, todo o tráfego da Internet é bloqueado por padrão. 
 
-Para habilitar a porta RDP em um NSG, siga estas etapas:
-1. Inicie sessão no [do portal do Azure](https://portal.azure.com).
-2. Em **máquinas virtuais**, selecione a VM que tem o problema. 
-3. Em **configurações**, selecione **rede**. 
-4. Em **regras de porta de entrada**, verifique se a porta para RDP está definida corretamente. Veja a seguir um exemplo da configuração: 
+Para permitir a porta RDP num NSG, siga estes passos:
+1. Inscreva-se [no portal Azure.](https://portal.azure.com)
+2. Em **Máquinas Virtuais,** selecione o VM que tem o problema. 
+3. Em **Definições,** selecione **Networking**. 
+4. Nas **regras da porta de entrada,** verifique se a porta para RDP está corretamente definida. Segue-se um exemplo da configuração: 
 
     **Prioridade**: 300 </br>
     **Nome**: Port_3389 </br>
-    **Porta (destino)** : 3389 </br>
+    **Porto:** 3389 </br>
     **Protocolo**: TCP </br>
-    **Fonte**: qualquer </br>
-    **Destinos**: qualquer </br>
-    **Ação**: permitir </br>
+    **Fonte**: Qualquer </br>
+    **Destinos**: Qualquer </br>
+    **Ação**: Permitir </br>
 
-Se você especificar o endereço IP de origem, essa configuração permitirá o tráfego somente de um endereço IP ou intervalo de endereços IP específico para se conectar à VM. Verifique se o computador que você está usando para iniciar a sessão RDP está dentro do intervalo.
+Se especificar o endereço IP de origem, esta definição permite que o tráfego apenas a partir de um endereço IP específico ou de endereços IP se ligue ao VM. Certifique-se de que o computador que está a utilizar para iniciar a sessão de RDP está dentro do alcance.
 
-Para obter mais informações sobre NSGs, consulte [grupo de segurança de rede](../../virtual-network/security-overview.md).
+Para obter mais informações sobre nsgs, consulte [o grupo de segurança da rede](../../virtual-network/security-overview.md).
 
 > [!NOTE]
-> A porta RDP 3389 é exposta à Internet. Portanto, é recomendável que você use essa porta somente para teste recomendado. Para ambientes de produção, recomendamos que você use uma VPN ou conexão privada.
+> A porta RDP 3389 está exposta à Internet. Por isso, recomendamos que utilize esta porta apenas para ser recomendado para testes. Para ambientes de produção, recomendamos que utilize uma VPN ou uma ligação privada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se a porta RDP já estiver habilitada no NSG, consulte [solucionar problemas de um erro geral de RDP na VM do Azure](./troubleshoot-rdp-general-error.md).
+Se a porta RDP já estiver ativada no NSG, consulte [Troubleshoot um erro geral rdp no Azure VM](./troubleshoot-rdp-general-error.md).
 
 
 

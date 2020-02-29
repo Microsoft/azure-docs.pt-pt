@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 1f609c33ea474508eb107c0df9993c2ba3483660
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 36d6b0cac0321c989fecbc5751d71c744cd83292
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087038"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920948"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treine e implante um modelo do CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,7 +23,7 @@ Neste tutorial, utiliza a extensão de aprendizagem automática para o Azure CLI
 
 Os scripts de treino Python neste tutorial usam [scikit-learn](https://scikit-learn.org/) para treinar um modelo básico. O foco deste tutorial não está nos scripts ou no modelo, mas no processo de utilização do CLI para trabalhar com o Azure Machine Learning.
 
-Saiba como executar as seguintes ações:
+Aprenda a tomar as seguintes ações:
 
 > [!div class="checklist"]
 > * Instale a extensão de aprendizagem automática
@@ -68,7 +68,7 @@ O diretório `examples/cli-train-deploy` do projeto contém os seguintes ficheir
 O repositório contém os seguintes ficheiros, que são utilizados para implementar o modelo treinado como um serviço web:
 
 * `aciDeploymentConfig.yml`: Um ficheiro de __configuração de implementação.__ Este ficheiro define o ambiente de hospedagem necessário para o modelo.
-* `inferenceConfig.yml`: Um ficheiro de configuration__ de inferência. Este ficheiro define o ambiente de software utilizado pelo serviço para marcar dados com o modelo.
+* `inferenceConfig.yml`: Um ficheiro de configuração de __inferência.__ Este ficheiro define o ambiente de software utilizado pelo serviço para marcar dados com o modelo.
 * `score.py`: Um roteiro python que aceita os dados de entrada, marca-os usando o modelo e, em seguida, devolve uma resposta.
 * `scoring-env.yml`: As dependências dos condomínios precisavam de executar o modelo e `score.py` guião.
 * `testdata.json`: Um ficheiro de dados que pode ser utilizado para testar o serviço web implantado.
@@ -375,7 +375,7 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 ```
 
 > [!NOTE]
-> Você pode receber um aviso sobre "falha ao verificar a existência de LocalWebservice". Você pode ignorá-lo com segurança, pois não está implantando um serviço Web local.
+> Pode receber um aviso sobre "Não verificamos a existência do Serviço LocalWebservice". Pode ignorar com segurança isto, uma vez que não está a implementar um serviço web local.
 
 Este comando implementa um novo serviço chamado `myservice`, utilizando a versão 1 do modelo que registou anteriormente.
 
@@ -426,7 +426,7 @@ az ml service run -n myservice -d @testdata.json
 ```
 
 > [!TIP]
-> Se você usar o PowerShell, use o seguinte comando em vez disso:
+> Se utilizar o PowerShell, utilize o seguinte comando:
 >
 > ```powershell
 > az ml service run -n myservice -d `@testdata.json

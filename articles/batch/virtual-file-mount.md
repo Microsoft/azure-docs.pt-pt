@@ -1,6 +1,6 @@
 ---
-title: Montar um sistema de arquivos virtual em um pool – lote do Azure | Microsoft Docs
-description: Saiba como montar um sistema de arquivos virtual em um pool do lote.
+title: Monte um sistema de arquivovirtual numa piscina - Lote Azure [ Lote Azul ] Microsoft Docs
+description: Aprenda a montar um sistema de ficheiros virtual numa piscina de Lote.
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -11,56 +11,56 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: labrenne
-ms.openlocfilehash: a22117505dff35f9b92e3dd3c91dc8540557b218
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: bdf0b3bfc955d8a2e2ce1b363c8699ca719b957c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023043"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919010"
 ---
-# <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montar um sistema de arquivos virtual em um pool do lote
+# <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monte um sistema de ficheiros virtual em uma piscina de lote
 
-O lote do Azure agora dá suporte à montagem de armazenamento em nuvem ou um sistema de arquivos externo em nós de computação do Windows ou Linux em seus pools do lote. Quando um nó de computação ingressa em um pool, o sistema de arquivos virtual é montado e tratado como uma unidade local nesse nó. Você pode montar sistemas de arquivos, como arquivos do Azure, armazenamento de BLOBs do Azure, NFS (sistema de arquivos de rede), incluindo um [cache avere vFXT](../avere-vfxt/avere-vfxt-overview.md)ou CIFS (Common Internet File System).
+O Azure Batch suporta agora a montagem do armazenamento em nuvem ou um sistema de ficheiros externo sintetizador espartilho do Windows ou do Linux nas suas piscinas de Lote. Quando um nó computacional se junta a uma piscina, o sistema de ficheiros virtuais é montado e tratado como uma unidade local nesse nó. Pode montar sistemas de ficheiros como Ficheiros Azure, armazenamento Azure Blob, Sistema de Ficheiros de Rede (NFS), incluindo uma [cache Avere vFXT,](../avere-vfxt/avere-vfxt-overview.md)ou Sistema Comum de Ficheiros de Internet (CIFS).
 
-Neste artigo, você aprenderá a montar um sistema de arquivos virtual em um pool de nós de computação usando a [biblioteca de gerenciamento de lote para .net](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
+Neste artigo, você aprenderá a montar um sistema de ficheiros virtuais em um conjunto de nós de computação usando a Biblioteca de Gestão de [Lotes para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
 
 > [!NOTE]
-> A montagem de um sistema de arquivos virtual tem suporte em pools do lote criados em ou após 2019-08-19. Os pools do lote criados antes de 2019-08-19 não oferecem suporte a esse recurso.
+> A montagem de um sistema de ficheiros virtuais é suportada em piscinas de Lote criadas em ou depois de 2019-08-19. As piscinas de lote criadas antes de 2019-08-19 não suportam esta funcionalidade.
 > 
-> As APIs para montar sistemas de arquivos em um nó de computação fazem parte da biblioteca [.net do lote](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet) .
+> As APIs para a montagem de sistemas de ficheiros num nó de cálculo fazem parte da biblioteca [Batch .NET.](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet)
 
-## <a name="benefits-of-mounting-on-a-pool"></a>Benefícios da montagem em um pool
+## <a name="benefits-of-mounting-on-a-pool"></a>Benefícios de montar em uma piscina
 
-A montagem do sistema de arquivos no pool, em vez de permitir que as tarefas recuperem seus próprios dados de um grande conjunto de dados, torna mais fácil e mais eficiente para as tarefas acessar os dados necessários.
+A montagem do sistema de ficheiros para o pool, em vez de permitir que as tarefas recuperem os seus próprios dados a partir de um grande conjunto de dados, torna mais fácil e eficiente para as tarefas aceder aos dados necessários.
 
-Considere um cenário com várias tarefas que exigem acesso a um conjunto comum de dados, como renderizar um filme. Cada tarefa renderiza um ou mais quadros por vez a partir dos arquivos de cena. Ao montar uma unidade que contém os arquivos de cena, é mais fácil para os nós de computação acessarem dados compartilhados. Além disso, o sistema de arquivos subjacente pode ser escolhido e dimensionado de forma independente com base no desempenho e na escala (taxa de transferência e IOPS) exigidos pelo número de nós de computação que acessam os dados simultaneamente. Por exemplo, um cache na memória distribuído [avere vFXT](../avere-vfxt/avere-vfxt-overview.md) pode ser usado para dar suporte a renderizações de escala de imagem de movimento grande com milhares de nós de renderização simultâneos, acessando dados de origem que residem localmente. Como alternativa, para dados que já residem no armazenamento de BLOBs baseado em nuvem, o [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) pode ser usado para montar esses dados como um sistema de arquivos local. O Blobfuse só está disponível em nós do Linux, no entanto, [os arquivos do Azure](https://azure.microsoft.com/blog/a-new-era-for-azure-files-bigger-faster-better/) fornecem um fluxo de trabalho semelhante e está disponível no Windows e no Linux.
+Considere um cenário com múltiplas tarefas que requerem acesso a um conjunto comum de dados, como renderizar um filme. Cada tarefa torna um ou mais quadros de cada vez a partir dos ficheiros da cena. Ao montar uma unidade que contém os ficheiros da cena, é mais fácil para os nós de computação aceder em dados partilhados. Adicionalmente, o sistema de ficheiros subjacente pode ser escolhido e dimensionado independentemente com base no desempenho e escala (entrada e IOPS) exigidos pelo número de nós computacionais que acedem simultaneamente aos dados. Por exemplo, um [cache Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distribuído na memória pode ser usado para suportar grandes renderizações à escala de imagem de movimento com milhares de nós renderizados simultâneos, acedendo a dados de origem que residem no local. Alternativamente, para dados que já residem no armazenamento blob baseado na nuvem, [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) pode ser usado para montar estes dados como um sistema de ficheiros local. A Blobfuse só está disponível nos nós linux, no entanto, o [Azure Files](https://azure.microsoft.com/blog/a-new-era-for-azure-files-bigger-faster-better/) fornece um fluxo de trabalho semelhante e está disponível tanto no Windows como no Linux.
 
-## <a name="mount-a-virtual-file-system-on-a-pool"></a>Montar um sistema de arquivos virtual em um pool  
+## <a name="mount-a-virtual-file-system-on-a-pool"></a>Monte um sistema de arquivo virtual em uma piscina  
 
-A montagem de um sistema de arquivos virtual em um pool torna o sistema de arquivos disponível para cada nó de computação no pool. O sistema de arquivos é configurado quando um nó de computação ingressa em um pool ou quando o nó é reiniciado ou a imagem é reiniciada.
+A montagem de um sistema de ficheiros virtual numa piscina disponibiliza o sistema de ficheiros a todos os nódosos de computação na piscina. O sistema de ficheiros é configurado quando um nó computacional se junta a uma piscina, ou quando o nó é reiniciado ou reimagem.
 
-Para montar um sistema de arquivos em um pool, crie um objeto `MountConfiguration`. Escolha o objeto que se adapta ao seu sistema de arquivos virtual: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`ou `CifsMountConfiguration`.
+Para montar um sistema de ficheiros numa piscina, crie um objeto `MountConfiguration`. Escolha o objeto que se adapte ao seu sistema de ficheiros virtuais: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`ou `CifsMountConfiguration`.
 
-Todos os objetos de configuração de montagem precisam dos seguintes parâmetros de base. Algumas configurações de montagem têm parâmetros específicos para o sistema de arquivos que estão sendo usados, que são abordados em mais detalhes nos exemplos de código.
+Todos os objetos de configuração do suporte precisam dos seguintes parâmetros de base. Algumas configurações de montagem têm parâmetros específicos para o sistema de ficheiros que estão a ser utilizados, que são discutidos com mais detalhes nos exemplos de código.
 
-- **Nome da conta ou origem**: para montar um compartilhamento de arquivos virtual, você precisa do nome da conta de armazenamento ou de sua origem.
-- **Caminho de montagem relativo ou Fonte**: A localização do sistema de ficheiros montado no nó da computação, em relação ao diretório de `fsmounts` padrão acessível no nó através de `AZ_BATCH_NODE_MOUNTS_DIR`. O local exato varia dependendo do sistema operacional usado no nó. Por exemplo, o local físico em um nó Ubuntu é mapeado para `mnt\batch\tasks\fsmounts`e, em um nó CentOS, ele é mapeado para `mnt\resources\batch\tasks\fsmounts`.
-- Opções **de montagem ou opções de blobfuse**: essas opções descrevem parâmetros específicos para montar um sistema de arquivos.
+- **Nome da conta ou fonte**: Para montar uma parte de ficheiro virtual, precisa do nome da conta de armazenamento ou da sua fonte.
+- **Caminho de montagem relativo ou Fonte**: A localização do sistema de ficheiros montado no nó da computação, em relação ao diretório de `fsmounts` padrão acessível no nó através de `AZ_BATCH_NODE_MOUNTS_DIR`. A localização exata varia consoante o sistema operativo utilizado no nó. Por exemplo, a localização física num nó Ubuntu está mapeada para `mnt\batch\tasks\fsmounts`, e num nó CentOS está mapeada para `mnt\resources\batch\tasks\fsmounts`.
+- **Opções de montagem ou blobfuse**: Estas opções descrevem parâmetros específicos para a montagem de um sistema de ficheiros.
 
-Depois que o objeto `MountConfiguration` for criado, atribua o objeto à propriedade `MountConfigurationList` ao criar o pool. O sistema de arquivos é montado quando um nó ingressa em um pool ou quando o nó é reiniciado ou a imagem é reiniciada.
+Assim que o `MountConfiguration` objeto for criado, atribua o objeto à propriedade `MountConfigurationList` quando criar a piscina. O sistema de ficheiros é montado quando um nó se junta a uma piscina ou quando o nó é reiniciado ou reimagem.
 
-Quando o sistema de ficheiros é montado, é criada uma variável ambiente `AZ_BATCH_NODE_MOUNTS_DIR` que aponta para a localização dos sistemas de ficheiros montados, bem como ficheiros de registo, que são úteis para resolução de problemas e depuração. Os arquivos de log são explicados com mais detalhes na seção [diagnosticar erros de montagem](#diagnose-mount-errors) .  
+Quando o sistema de ficheiros é montado, é criada uma variável ambiente `AZ_BATCH_NODE_MOUNTS_DIR` que aponta para a localização dos sistemas de ficheiros montados, bem como ficheiros de registo, que são úteis para resolução de problemas e depuração. Os ficheiros de registo são explicados mais detalhadamente na secção de erros de [montagem diagnosticar.](#diagnose-mount-errors)  
 
 > [!IMPORTANT]
-> O número máximo de sistemas de arquivos montados em um pool é 10. Consulte [cotas e limites do serviço de lote](batch-quota-limit.md#other-limits) para obter detalhes e outros limites.
+> O número máximo de sistemas de ficheiros montados numa piscina é de 10. Consulte [quotas e limites](batch-quota-limit.md#other-limits) de serviço do Lote para detalhes e outros limites.
 
 ## <a name="examples"></a>Exemplos
 
-Os exemplos de código a seguir demonstram a montagem de uma variedade de compartilhamentos de arquivos em um pool de nós de computação.
+Os seguintes exemplos de código demonstram a montagem de uma variedade de partilhas de ficheiros num conjunto de nódosos computacionais.
 
-### <a name="azure-files-share"></a>Compartilhamento de arquivos do Azure
+### <a name="azure-files-share"></a>Partilha de Ficheiros Azure
 
-O arquivos do Azure é a oferta padrão do sistema de arquivos de nuvem do Azure. Para saber mais sobre como obter qualquer um dos parâmetros no exemplo de código de configuração de montagem, confira [usar um compartilhamento de arquivos do Azure](../storage/files/storage-how-to-use-files-windows.md).
+O Azure Files é a oferta padrão do sistema de ficheiros em nuvem Azure. Para saber mais sobre como obter qualquer um dos parâmetros na amostra do código de configuração do suporte, consulte Use uma partilha de [Ficheiros Azure](../storage/files/storage-how-to-use-files-windows.md).
 
 ```csharp
 new PoolAddParameter
@@ -83,14 +83,11 @@ new PoolAddParameter
 }
 ```
 
-### <a name="azure-blob-file-system"></a>Sistema de arquivos de blob do Azure
+### <a name="azure-blob-file-system"></a>Sistema de ficheiros Azure Blob
 
-Outra opção é usar o armazenamento de BLOBs do Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). A montagem de um sistema de arquivos de blob requer um `AccountKey` ou `SasKey` para sua conta de armazenamento. Para obter informações sobre como obter essas chaves, consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md)ou [usando SAS (assinaturas de acesso compartilhado)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Para obter mais informações sobre como usar blobfuse, consulte as [perguntas frequentes sobre solução de problemas](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)do blobfuse. Para obter acesso padrão ao diretório montado blobfuse, execute a tarefa como **administrador**. O Blobfuse monta o diretório no espaço do usuário e, na criação do pool, é montado como raiz. No Linux, todas as tarefas de **administrador** são raiz. Todas as opções para o módulo fusível são descritas na [página de referência fusível](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Outra opção é utilizar o armazenamento Azure Blob via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). A montagem de um sistema de ficheiros blob requer uma `AccountKey` ou `SasKey` para a sua conta de armazenamento. Para obter estas chaves, consulte Gerir as chaves de acesso à conta de [armazenamento,](../storage/common/storage-account-keys-manage.md)ou utilizar assinaturas de [acesso partilhado (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Para obter mais informações sobre o uso de blobfuse, consulte o blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Para obter acesso padrão ao diretório montado blobfuse, execute a tarefa como **Administrador**. Blobfuse monta o diretório no espaço do utilizador, e na criação da piscina é montado como raiz. Em Linux todas as tarefas **do Administrador** são fundamentais. Todas as opções para o módulo FUSE são descritas na [página de referência FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
-Além do guia de solução de problemas, os problemas do GitHub no repositório blobfuse são uma maneira útil de verificar os problemas e as resoluções atuais do blobfuse. Para obter mais informações, consulte [blobfuse issues](https://github.com/Azure/azure-storage-fuse/issues).
-
-> [!NOTE]
-> Atualmente, o Blobfuse não tem suporte no Debian. Consulte [SKUs com suporte](#supported-skus) para obter mais informações.
+Além do guia de resolução de problemas, as questões do GitHub no repositório blobfuse são uma forma útil de verificar as questões e resoluções atuais da blobfuse. Para mais informações, consulte [os problemas de blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
 
 ```csharp
 new PoolAddParameter
@@ -114,9 +111,9 @@ new PoolAddParameter
 }
 ```
 
-### <a name="network-file-system"></a>Sistema de arquivos de rede
+### <a name="network-file-system"></a>Sistema de Ficheiros de Rede
 
-NFS (Network File Systems) também pode ser montado em nós de pool, permitindo que os sistemas de arquivos tradicionais sejam acessados facilmente por nós do lote do Azure. Isso pode ser um único servidor NFS implantado na nuvem ou um servidor NFS local acessado em uma rede virtual. Como alternativa, aproveite a solução de cache [avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distribuída na memória, que fornece conectividade direta com o armazenamento local, lendo dados sob demanda em seu cache e fornece alto desempenho e escala para nós de computação baseados em nuvem.
+Os Sistemas de Ficheiros de Rede (NFS) também podem ser montados para piscina sinuosos permitindo que os sistemas de ficheiros tradicionais sejam facilmente acedidos por nós do Lote Azure. Este pode ser um único servidor NFS implantado na nuvem, ou um servidor NFS no local acedido sobre uma rede virtual. Alternativamente, aproveite a solução de cache [avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distribuída na memória, que proporciona uma conectividade perfeita ao armazenamento no local, lendo dados a pedido na sua cache, e fornece alto desempenho e escala para nós de computação baseados em nuvem.
 
 ```csharp
 new PoolAddParameter
@@ -137,9 +134,9 @@ new PoolAddParameter
 }
 ```
 
-### <a name="common-internet-file-system"></a>Sistema de arquivos de Internet comum
+### <a name="common-internet-file-system"></a>Sistema comum de ficheiros de Internet
 
-CIFS (Common Internet File System) também pode ser montado em nós de pool, permitindo que os sistemas de arquivos tradicionais sejam acessados facilmente por nós do lote do Azure. O CIFS é um protocolo de compartilhamento de arquivos que fornece um mecanismo de plataforma cruzada e aberta para solicitar serviços e arquivos de servidor de rede. O CIFS é baseado na versão aprimorada do protocolo SMB para Internet e compartilhamento de arquivos de intranet e é usado para montar sistemas de arquivos externos em nós do Windows. Para saber mais sobre o SMB, consulte [servidor de arquivos e SMB](https://docs.microsoft.com/windows-server/storage/file-server/file-server-smb-overview).
+Os sistemas comuns de ficheiros de Internet (CIFS) também podem ser montados para piscinas de nós permitindo que os sistemas de ficheiros tradicionais sejam facilmente acedidos por nós do Lote Azure. O CIFS é um protocolo de partilha de ficheiros que fornece um mecanismo aberto e transversal para solicitar ficheiros e serviços de servidores de rede. O CIFS baseia-se na versão melhorada do protocolo do Bloco de Mensagens de Servidor (SMB) da Microsoft para a partilha de ficheiros de internet e intranet e é utilizado para montar sistemas de ficheiros externos em nós do Windows. Para saber mais sobre sMB, consulte [File Server e SMB](https://docs.microsoft.com/windows-server/storage/file-server/file-server-smb-overview).
 
 ```csharp
 new PoolAddParameter
@@ -164,30 +161,31 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnosticar erros de montagem
 
-Se uma configuração de montagem falhar, o nó de computação no pool falhará e o estado do nó se tornará inutilizável. Para diagnosticar uma falha de configuração de montagem, inspecione a propriedade [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) para obter detalhes sobre o erro.
+Se uma configuração de montagem falhar, o nó de computação na piscina falhará e o estado do nó torna-se inutilizável. Para diagnosticar uma falha de configuração do suporte, inspecione a [propriedade`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) para obter detalhes sobre o erro.
 
-Para obter os arquivos de log para depuração, use [OutputFiles](batch-task-output-files.md) para carregar os arquivos de `*.log`. Os ficheiros `*.log` contêm informações sobre o suporte do sistema de ficheiros no local `AZ_BATCH_NODE_MOUNTS_DIR`. Os arquivos de log de montagem têm o formato: `<type>-<mountDirOrDrive>.log` para cada montagem. Por exemplo, um `cifs` montar em um diretório de montagem chamado `test` terá um arquivo de log de montagem chamado: `cifs-test.log`.
+Para obter os ficheiros de registo para depuração, utilize o [OutputFiles](batch-task-output-files.md) para fazer o upload dos ficheiros `*.log`. Os ficheiros `*.log` contêm informações sobre o suporte do sistema de ficheiros no local `AZ_BATCH_NODE_MOUNTS_DIR`. Os ficheiros de registo de montagem têm o formato: `<type>-<mountDirOrDrive>.log` para cada montagem. Por exemplo, um `cifs` montado num diretório de montagem chamado `test` terá um ficheiro de registo de montagem chamado: `cifs-test.log`.
 
-## <a name="supported-skus"></a>SKUs com suporte
+## <a name="supported-skus"></a>SKUs suportados
 
-| Publicador | Oferta | SKU | Compartilhamento de arquivos do Azure | Blobfuse | Montagem de NFS | Montagem de CIFS |
+| Publicador | Oferta | SKU | Partilha de ficheiros Azure | Blobfuse | Montagem nFS | Montagem CIFS |
 |---|---|---|---|---|---|---|
-| batch | rendering-centos73 | tratamento | :heavy_check_mark: <br>Observação: compatível com CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Canonical | UbuntuServer | 16, 4-LTS, 18, 4-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| credativ | Debian | 8, 9 | :heavy_check_mark: | w.x.y. | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Observação: compatível com o CentOS 7,4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | CentOS-contêiner | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | CentOS-contêiner-RDMA | 7.4 | :heavy_check_mark: <br>Nota: Suporta A_8 ou 9 armazenamento</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| lote | rendering-centos73 | renderização | :heavy_check_mark: <br>Nota: Compatível com CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Canónico | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Nota: Compatível com CentOS 7.4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | centos-contentor | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | centos-contentor-rdma | 7.4 | :heavy_check_mark: <br>Nota: Suporta A_8 ou 9 armazenamento</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS-HPC | 7,4, 7,3, 7,1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle-Linux | 7.6 | w.x.y. | w.x.y. | w.x.y. | w.x.y. |
-| Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | w.x.y. | w.x.y. | w.x.y. |
+| OpenLogic | CentOS-HPC | 7.4, 7.3, 7.1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
+| Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais detalhes sobre como montar um compartilhamento de arquivos do Azure com [Windows](../storage/files/storage-how-to-use-files-windows.md) ou [Linux](../storage/files/storage-how-to-use-files-linux.md).
-- Saiba mais sobre como usar e montar sistemas de arquivos virtuais [blobfuse](https://github.com/Azure/azure-storage-fuse) .
-- Consulte [visão geral do sistema de arquivos de rede](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview) para saber mais sobre NFS e seus aplicativos.
-- Consulte [Microsoft SMB Protocol and CIFS Protocol Overview](https://docs.microsoft.com/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) para saber mais sobre o CIFS.
+- Saiba mais detalhes sobre a montagem de uma partilha de Ficheiros Azure com [windows](../storage/files/storage-how-to-use-files-windows.md) ou [Linux](../storage/files/storage-how-to-use-files-linux.md).
+- Aprenda a utilizar e a montar sistemas de ficheiros virtuais [blobfuse.](https://github.com/Azure/azure-storage-fuse)
+- Consulte a visão geral do Sistema de [Ficheiros](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview) de Rede para saber mais sobre o NFS e as suas aplicações.
+- Consulte o protocolo Microsoft SMB e a visão geral do [protocolo CIFS](https://docs.microsoft.com/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) para saber mais sobre o CIFS.

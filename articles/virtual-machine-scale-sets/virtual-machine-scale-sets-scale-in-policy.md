@@ -1,62 +1,73 @@
 ---
-title: Usar políticas de dimensionamento personalizadas com conjuntos de dimensionamento de máquinas virtuais do Azure
-description: Saiba como usar políticas de expansão personalizadas com conjuntos de dimensionamento de máquinas virtuais do Azure que usam a configuração de dimensionamento automático para gerenciar a contagem de instâncias
-author: avverma
+title: Utilize políticas personalizadas de escala com conjuntos de escala virtual Azure
+description: Saiba como usar políticas personalizadas de escala com conjuntos de escala virtual Azure que usam configuração de escala automática para gerir a contagem de casos
+services: virtual-machine-scale-sets
+author: avirishuv
+manager: vashan
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 02/26/2020
 ms.author: avverma
-ms.openlocfilehash: 8e51ebab36d75d1c9512446ee0370f7359a72551
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: ffcdaf76bdd08ee5505ddbeff6a6698e231b6171
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271772"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919843"
 ---
-# <a name="preview-use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Versão prévia: usar políticas de expansão personalizadas com conjuntos de dimensionamento de máquinas virtuais do Azure
+# <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Utilize políticas personalizadas de escala com conjuntos de escala virtual Azure
 
-Uma implantação de conjunto de dimensionamento de máquinas virtuais pode ser expandida ou dimensionada horizontalmente com base em uma matriz de métricas, incluindo métricas personalizadas e de plataforma definidas pelo usuário. Embora uma expansão crie novas máquinas virtuais com base no modelo do conjunto de dimensionamento, uma redução no afeta a execução de máquinas virtuais que podem ter diferentes configurações e/ou funções à medida que a carga de trabalho do conjunto de dimensionamento evolui. 
+Uma implementação de conjunto de escala de máquina virtual pode ser dimensionada ou dimensionada com base numa série de métricas, incluindo plataformas e métricas personalizadas definidas pelo utilizador. Enquanto um scale-out cria novas máquinas virtuais baseadas no modelo de conjunto de escala, um scale-in afeta máquinas virtuais em funcionamento que podem ter configurações e/ou funções diferentes à medida que a carga de trabalho definida pela escala evolui. 
 
-O recurso de política de escala horizontal fornece aos usuários uma maneira de configurar a ordem na qual as máquinas virtuais são dimensionadas. A visualização apresenta três configurações de escala horizontal: 
+A funcionalidade de política scale-in fornece aos utilizadores uma forma de configurar a ordem em que as máquinas virtuais são dimensionadas, através de três configurações de escala: 
 
 1. Predefinição
-2. NewestVM
-3. OldestVM
+2. Mais recenteVM
+3. Vm mais antigo
 
-***Esse recurso de visualização é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção.***
+### <a name="default-scale-in-policy"></a>Política de escala padrão
 
-### <a name="default-scale-in-policy"></a>Política de redução padrão
+Por predefinição, o conjunto de escala de máquina virtual aplica esta política para determinar em que instâncias serão dimensionadas. Com a política *Predefinido,* os VMs são selecionados para escala na seguinte ordem:
 
-Por padrão, o conjunto de dimensionamento de máquinas virtuais aplica essa política para determinar quais instâncias serão dimensionadas. Com a política *padrão* , as VMs são selecionadas para reduzir horizontalmente na seguinte ordem:
+1. Equilibrar as máquinas virtuais em zonas de disponibilidade (se o conjunto de escala for implantado na configuração zonal)
+2. Equilibrar máquinas virtuais em domínios de falha (melhor esforço)
+3. Eliminar a máquina virtual com a mais alta instância de identificação
 
-1. Balancear máquinas virtuais entre zonas de disponibilidade (se o conjunto de dimensionamento for implantado na configuração zonal)
-2. Balancear máquinas virtuais entre domínios de falha (melhor esforço)
-3. Excluir máquina virtual com a ID de instância mais alta
+Os utilizadores não precisam de especificar uma política de escala se apenas querem que a ordem por defeito seja seguida.
 
-Os usuários não precisam especificar uma política de dimensionamento se quiserem que a ordem padrão seja seguida.
+Note que o equilíbrio entre zonas de disponibilidade ou domínios de avaria não move instâncias através de zonas de disponibilidade ou domínios de falha. O equilíbrio é alcançado através da eliminação de máquinas virtuais a partir das zonas de disponibilidade desequilibradas ou domínios de avaria até que a distribuição de máquinas virtuais se torne equilibrada.
 
-Observe que o balanceamento entre zonas de disponibilidade ou domínios de falha não move instâncias entre zonas de disponibilidade ou domínios de falha. O balanceamento é obtido por meio da exclusão de máquinas virtuais de zonas de disponibilidade desbalanceadas ou de domínios de falha até que a distribuição de máquinas virtuais se torne equilibrada.
+### <a name="newestvm-scale-in-policy"></a>Nova política de escala VM
 
-### <a name="newestvm-scale-in-policy"></a>Política de dimensionamento NewestVM
+Esta política eliminará a mais recente máquina virtual criada no conjunto de escala, depois de equilibrar os VMs em zonas de disponibilidade (para implantações zonais). Ativar esta política requer uma mudança de configuração no modelo de conjunto de escala de máquina virtual.
 
-Essa política excluirá a máquina virtual mais nova criada no conjunto de dimensionamento depois de balancear as VMs entre as zonas de disponibilidade (para implantações zonais). A habilitação desta política requer uma alteração de configuração no modelo do conjunto de dimensionamento de máquinas virtuais.
+### <a name="oldestvm-scale-in-policy"></a>Política de escala vm mais antiga
 
-### <a name="oldestvm-scale-in-policy"></a>Política de dimensionamento OldestVM
+Esta política eliminará a máquina virtual criada mais antiga no conjunto de escala, depois de equilibrar Os VMs em zonas de disponibilidade (para implantações zonais). Ativar esta política requer uma mudança de configuração no modelo de conjunto de escala de máquina virtual.
 
-Essa política excluirá a máquina virtual mais antiga criada no conjunto de dimensionamento depois de balancear as VMs entre as zonas de disponibilidade (para implantações zonais). A habilitação desta política requer uma alteração de configuração no modelo do conjunto de dimensionamento de máquinas virtuais.
+## <a name="enabling-scale-in-policy"></a>Permitir a política de escala
 
-## <a name="enabling-scale-in-policy"></a>Habilitando a política de dimensionamento
+Uma política de escala é definida no modelo de conjunto de escala de máquina virtual. Tal como referido nas secções acima referidas, é necessária uma definição de política de escala na utilização das políticas "NewestVM" e "Mais antigaVM". O conjunto de escala de máquina virtual utilizará automaticamente a política de escala 'Padrão' se não existir uma definição de política de escala no modelo de conjunto de escala. 
 
-Uma política de dimensionamento é definida no modelo do conjunto de dimensionamento de máquinas virtuais. Conforme observado nas seções acima, uma definição de política de escala horizontal é necessária ao usar as políticas ' NewestVM ' e ' OldestVM '. O conjunto de dimensionamento de máquinas virtuais usará automaticamente a política de dimensionamento ' default ' se não houver nenhuma definição de política de escala horizontal encontrada no modelo do conjunto de dimensionamento. 
+Uma política de escala pode ser definida no modelo de conjunto de escala de máquina virtual das seguintes formas:
 
-Uma política de redução na escala pode ser definida no modelo do conjunto de dimensionamento de máquinas virtuais das seguintes maneiras:
+### <a name="azure-portal"></a>Portal do Azure
+ 
+Os passos seguintes definem a política de escala na criação de um novo conjunto de escala. 
+ 
+1. Vá a conjuntos de **escala de máquinas virtuais.**
+1. Selecione **+ Adicione** para criar um novo conjunto de escala.
+1. Vá ao separador **De Escalonamento.** 
+1. Localize a secção **política scale-in.**
+1. Selecione uma política de escala a partir da queda.
+1. Quando terminar de criar o novo conjunto de escala, selecione **Review + crie** o botão.
 
 ### <a name="using-api"></a>Utilizar a API
 
-Execute um PUT no conjunto de dimensionamento de máquinas virtuais usando a API 2019-03-01:
+Execute um PUT na balança de máquinas virtuais utilizando a API 2019-03-01:
 
 ```
 PUT
@@ -71,10 +82,37 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
     }    
 } 
 ```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Crie um grupo de recursos e, em seguida, crie um novo conjunto de escala com a política de escala definida como *VM mais antigo*.
+
+```azurepowershell-interactive
+New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "<VMSS location>" `
+  -VMScaleSetName "myScaleSet" `
+  -ScaleInPolicy “OldestVM”
+```
+
+### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+
+O exemplo seguinte adiciona uma política de escala, ao mesmo tempo que cria um novo conjunto de escala. Primeiro crie um grupo de recursos, em seguida, crie um novo conjunto de escala com a política de escala como *O VM mais antigo*. 
+
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
+az vmss create \
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --image UbuntuLTS \
+  --admin-username <azureuser> \
+  --generate-ssh-keys \
+  --scale-in-policy OldestVM
+```
 
 ### <a name="using-template"></a>Usando o modelo
 
-Em seu modelo, em "Propriedades", adicione o seguinte:
+No seu modelo, em "propriedades", adicione o seguinte:
 
 ```json
 "scaleInPolicy": {  
@@ -82,21 +120,30 @@ Em seu modelo, em "Propriedades", adicione o seguinte:
 }
 ```
 
-Os blocos acima especificam que o conjunto de dimensionamento de máquinas virtuais excluirá a VM mais antiga em um conjunto de dimensionamento com balanceamento de zona, quando uma redução no é disparada (por meio de dimensionamento automático ou exclusão manual).
+Os blocos acima especificam que o conjunto de escala de máquina virtual eliminará o VM mais antigo num conjunto de escala equilibrada em zona, quando é acionado um scale-in (através da escala automática ou da eliminação manual).
 
-Quando um conjunto de dimensionamento de máquinas virtuais não tiver balanceamento de zona, o conjunto de dimensionamento excluirá primeiro as VMs em todas as zonas desbalanceadas. Dentro das zonas desbalanceadas, o conjunto de dimensionamento usará a política de dimensionamento especificada acima para determinar qual VM será dimensionada. Nesse caso, em uma zona desbalanceada, o conjunto de dimensionamento selecionará a VM mais antiga nessa zona a ser excluída.
+Quando um conjunto de escala de máquina virtual não é equilibrado em zona, o conjunto de escala eliminará primeiro os VMs através da ou zona desequilibrada. Dentro das zonas desequilibradas, o conjunto de escala utilizará a política de escala especificada acima para determinar em que VM escalar. Neste caso, dentro de uma zona desequilibrada, o conjunto de escala selecionará o VM mais antigo dessa zona a eliminar.
 
-Para o conjunto de dimensionamento de máquinas virtuais não zonais, a política seleciona a VM mais antiga no conjunto de dimensionamento para exclusão.
+Para o conjunto de máquinas virtuais não zonais, a política seleciona o VM mais antigo em toda a escala definida para a eliminação.
 
-O mesmo processo se aplica ao usar ' NewestVM ' na política de dimensionamento acima.
+O mesmo processo aplica-se quando se utiliza o "NewestVM" na política de escala acima referida.
 
-## <a name="modifying-scale-in-policies"></a>Modificando políticas de dimensionamento
+## <a name="modifying-scale-in-policies"></a>Modificação de políticas de escala
 
-A modificação da política de redução horizontal segue o mesmo processo que aplicar a política de redução horizontal. Por exemplo, se, no exemplo acima, você quiser alterar a política de ' OldestVM ' para ' NewestVM ', poderá fazer isso por meio de:
+A modificação da política de escala segue o mesmo processo que a aplicação da política de escala. Por exemplo, se, no exemplo acima referido, quiser mudar a política de 'Mais AntigaVM' para 'NewestVM', pode fazê-lo através de:
+
+### <a name="azure-portal"></a>Portal do Azure
+
+Pode modificar a política de escala de uma escala existente definida através do portal Azure. 
+ 
+1. Num conjunto de escala de máquina virtual existente, **selecione Escalar** a partir do menu à esquerda.
+1. Selecione o separador **Política Scale-In.**
+1. Selecione uma política de escala a partir da queda.
+1. Quando terminar, selecione **Guardar**. 
 
 ### <a name="using-api"></a>Utilizar a API
 
-Execute um PUT no conjunto de dimensionamento de máquinas virtuais usando a API 2019-03-01:
+Execute um PUT na balança de máquinas virtuais utilizando a API 2019-03-01:
 
 ```
 PUT
@@ -111,10 +158,31 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
     }    
 }
 ```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Atualizar a política de escala de um conjunto de escala existente:
+
+```azurepowershell-interactive
+Update-AzVmss `
+ -ResourceGroupName "myResourceGroup" `
+ -VMScaleSetName "myScaleSet" `
+ -ScaleInPolicy “OldestVM”
+```
+
+### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+
+Segue-se um exemplo para a atualização da política de escala de um conjunto de escala existente: 
+
+```azurecli-interactive
+az vmss update \  
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --scale-in-policy OldestVM
+```
 
 ### <a name="using-template"></a>Usando o modelo
 
-Em seu modelo, em "Propriedades", modifique o modelo como abaixo e reimplante: 
+No seu modelo, em "propriedades", modifique o modelo como abaixo e recoloque: 
 
 ```json
 "scaleInPolicy": {  
@@ -122,57 +190,57 @@ Em seu modelo, em "Propriedades", modifique o modelo como abaixo e reimplante:
 } 
 ```
 
-O mesmo processo será aplicado se você decidir alterar ' NewestVM ' para ' default ' ou ' OldestVM '
+O mesmo processo será aplicável se decidir mudar 'NewestVM' para 'Default' ou 'Mais AntigoVM'
 
-## <a name="instance-protection-and-scale-in-policy"></a>Proteção de instância e política de expansão
+## <a name="instance-protection-and-scale-in-policy"></a>Proteção de exemplos e política de escala
 
-Os conjuntos de dimensionamento de máquinas virtuais fornecem dois tipos de [proteção de instância](./virtual-machine-scale-sets-instance-protection.md#types-of-instance-protection):
+Os conjuntos de escala de máquinas virtuais fornecem dois tipos de proteção por [exemplo:](./virtual-machine-scale-sets-instance-protection.md#types-of-instance-protection)
 
-1. Proteger do Scale-in
-2. Proteger de ações de conjunto de dimensionamento
+1. Proteger contra a escala
+2. Proteger contra ações de conjunto de escala
 
-Uma máquina virtual protegida não é excluída por meio de uma ação de redução, independentemente da política de redução na aplicação. Por exemplo, se VM_0 (VM mais antiga no conjunto de dimensionamento) for protegida de scale-in e o conjunto de dimensionamento tiver a política de dimensionamento ' OldestVM ' habilitada, VM_0 não será considerada para ser dimensionada no mesmo, mesmo que seja a VM mais antiga no conjunto de dimensionamento. 
+Uma máquina virtual protegida não é eliminada através de uma ação de escala, independentemente da política de escala aplicada. Por exemplo, se VM_0 (VM mais antigo no conjunto de escala) estiver protegido da escala dentro, e o conjunto de escala tiver uma política de escala "VM mais antiga" ativada, VM_0 não serão considerados para serem dimensionados, mesmo que seja o VM mais antigo no conjunto de escala. 
 
-Uma máquina virtual protegida pode ser excluída manualmente pelo usuário a qualquer momento, independentemente da política de expansão habilitada no conjunto de dimensionamento. 
+Uma máquina virtual protegida pode ser eliminada manualmente pelo utilizador a qualquer momento, independentemente da política de escala ativada no conjunto de escala. 
 
-## <a name="usage-examples"></a>Exemplos de uso 
+## <a name="usage-examples"></a>Exemplos de utilização 
 
-Os exemplos a seguir demonstram como um conjunto de dimensionamento de máquinas virtuais selecionará as VMs a serem excluídas quando um evento de redução na escala for disparado. As máquinas virtuais com as IDs de instância mais alta são consideradas as VMs mais novas no conjunto de dimensionamento e as VMs com as menores IDs de instância são consideradas as VMs mais antigas no conjunto de dimensionamento. 
+Os exemplos abaixo demonstram como um conjunto de escala de máquina virtual irá selecionar VMs para serem eliminados quando um evento de escala é desencadeado. As máquinas virtuais com as iDs de maior instância são assumidas como os mais recentes VMs no conjunto de escala e os VMs com as iDs de menor instância são assumidos como os VMs mais antigos no conjunto de escala. 
 
-### <a name="oldestvm-scale-in-policy"></a>Política de dimensionamento OldestVM
+### <a name="oldestvm-scale-in-policy"></a>Política de escala vm mais antiga
 
-| Evento                 | IDs de instância em na zona 1  | IDs de instância em zona 1  | IDs de instância em na zona 3  | Seleção de escala                                                                                                               |
+| Evento                 | IDs de instância na Zona1  | IDs de instância na Zona2  | IDs de instância na Zona 3  | Seleção scale-in                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Inicial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Reduzir horizontalmente              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Escolha entre Zona 1 e 2, mesmo que Zona 3 tenha a VM mais antiga. Exclua VM2 de Zona 2 como é a VM mais antiga nessa zona.   |
-| Reduzir horizontalmente              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Escolha Zona 1 embora Zona 3 tenha a VM mais antiga. Exclua VM3 de Zona 1 como é a VM mais antiga nessa zona.                  |
-| Reduzir horizontalmente              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | As zonas são balanceadas. Exclua VM1 em Zona 3 como é a VM mais antiga no conjunto de dimensionamento.                                               |
-| Reduzir horizontalmente              | ***4***, 5, 10         | 6, 9, 11               | 7, 8                   | Escolha entre Zona 1 e Zona 2. Exclua VM4 em Zona 1 como é a VM mais antiga entre as duas zonas.                              |
-| Reduzir horizontalmente              | 5, 10                  | ***6***, 9, 11         | 7, 8                   | Escolha Zona 2 embora Zona 1 tenha a VM mais antiga. Exclua VM6 em Zona 1 como é a VM mais antiga nessa zona.                    |
-| Reduzir horizontalmente              | ***5***, 10            | 9, 11                  | 7, 8                   | As zonas são balanceadas. Exclua VM5 em Zona 1 como é a VM mais antiga no conjunto de dimensionamento.                                                |
+| Escala              | 3, 4, 5, 10            | ***2,*** 6, 9, 11      | 1, 7, 8                | Escolha entre a Zona 1 e 2, embora a Zona 3 tenha o VM mais antigo. Elimine o VM2 da Zona 2, uma vez que é o VM mais antigo daquela zona.   |
+| Escala              | ***3,*** 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Escolha a Zona 1, embora a Zona 3 tenha o VM mais antigo. Elimine o VM3 da Zona 1, uma vez que é o VM mais antigo daquela zona.                  |
+| Escala              | 4, 5, 10               | 6, 9, 11               | ***1,*** 7, 8          | As zonas estão equilibradas. Elimine o VM1 na Zona 3, uma vez que é o VM mais antigo do conjunto de escala.                                               |
+| Escala              | ***4,*** 5, 10         | 6, 9, 11               | 7, 8                   | Escolha entre a Zona 1 e a Zona 2. Elimine o VM4 na Zona 1, uma vez que é o VM mais antigo em todas as duas Zonas.                              |
+| Escala              | 5, 10                  | ***6,*** 9, 11         | 7, 8                   | Escolha a Zona 2, embora a Zona 1 tenha o VM mais antigo. Elimine o VM6 na Zona 1, uma vez que é o VM mais antigo daquela zona.                    |
+| Escala              | ***5,*** 10            | 9, 11                  | 7, 8                   | As zonas estão equilibradas. Elimine o VM5 na Zona 1, uma vez que é o VM mais antigo do conjunto de escala.                                                |
 
-Para conjuntos de dimensionamento de máquinas virtuais não zonais, a política seleciona a VM mais antiga no conjunto de dimensionamento para exclusão. Qualquer VM "protegida" será ignorada para exclusão.
+Para conjuntos de escala de máquinas virtuais não zonais, a política seleciona o VM mais antigo em toda a escala definida para a eliminação. Qualquer VM "protegido" será ignorado para eliminação.
 
-### <a name="newestvm-scale-in-policy"></a>Política de dimensionamento NewestVM
+### <a name="newestvm-scale-in-policy"></a>Nova política de escala VM
 
-| Evento                 | IDs de instância em na zona 1  | IDs de instância em zona 1  | IDs de instância em na zona 3  | Seleção de escala                                                                                                               |
+| Evento                 | IDs de instância na Zona1  | IDs de instância na Zona2  | IDs de instância na Zona 3  | Seleção scale-in                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Inicial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Reduzir horizontalmente              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Escolha entre Zona 1 e 2. Exclua VM11 de Zona 2 como é a VM mais recente entre as duas zonas.                                |
-| Reduzir horizontalmente              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Escolha Zona 1, pois ela tem mais VMs do que as outras duas zonas. Exclua VM10 de Zona 1 como é a VM mais recente nessa zona.          |
-| Reduzir horizontalmente              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | As zonas são balanceadas. Exclua VM9 em Zona 2, pois é a VM mais recente no conjunto de dimensionamento.                                                |
-| Reduzir horizontalmente              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Escolha entre Zona 1 e Zona 3. Exclua VM8 em Zona 3, pois é a VM mais recente nessa zona.                                      |
-| Reduzir horizontalmente              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Escolha Zona 1 embora Zona 3 tenha a VM mais recente. Exclua VM5 em Zona 1, pois é a VM mais recente nessa zona.                    |
-| Reduzir horizontalmente              | 3, 4                   | 2, 6                   | 1, ***7***             | As zonas são balanceadas. Exclua VM7 em Zona 3, pois é a VM mais recente no conjunto de dimensionamento.                                                |
+| Escala              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Escolha entre a Zona 1 e 2. Elimine o VM11 da Zona 2, uma vez que é o vM mais recente nas duas zonas.                                |
+| Escala              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Escolha a Zona 1 porque tem mais VMs do que as outras duas zonas. Elimine o VM10 da Zona 1, uma vez que é o vM mais recente dessa Zona.          |
+| Escala              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | As zonas estão equilibradas. Elimine o VM9 na Zona 2, uma vez que é o vM mais recente no conjunto de escala.                                                |
+| Escala              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Escolha entre a Zona 1 e a Zona 3. Elimine o VM8 na Zona 3, uma vez que é o vM mais recente dessa Zona.                                      |
+| Escala              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Escolha a Zona 1, embora a Zona 3 tenha o vM mais recente. Elimine o VM5 na Zona 1, uma vez que é o vM mais recente dessa Zona.                    |
+| Escala              | 3, 4                   | 2, 6                   | 1, ***7***             | As zonas estão equilibradas. Elimine o VM7 na Zona 3, uma vez que é o vM mais recente no conjunto de escala.                                                |
 
-Para conjuntos de dimensionamento de máquinas virtuais não zonais, a política seleciona a VM mais nova no conjunto de dimensionamento para exclusão. Qualquer VM "protegida" será ignorada para exclusão. 
+Para conjuntos de escala de máquinas virtuais não zonais, a política seleciona o vM mais recente em toda a escala definida para a eliminação. Qualquer VM "protegido" será ignorado para eliminação. 
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-1. Falha ao habilitar scaleInPolicy se você receber um erro ' BadRequest ' com uma mensagem de erro informando "não foi possível encontrar o membro ' scaleInPolicy ' no objeto do tipo ' Properties '" e, em seguida, verifique a versão da API usada para o conjunto de dimensionamento de máquinas virtuais. A versão de API 2019-03-01 ou superior é necessária para esta visualização.
+1. Falha na escalaInPolicy Se tiver um erro 'BadRequest' com uma mensagem de erro indicando "Não consegui encontrar o membro 'scalePolicy' no objeto de 'propriedades' do tipo", verifique a versão API utilizada para o conjunto de escala de máquina virtual. A versão API 2019-03-01 ou superior é necessária para esta funcionalidade.
 
-2. Seleção errada de VMs para Scale-in consulte os exemplos acima. Se o conjunto de dimensionamento de máquinas virtuais for uma implantação zonal, a política de dimensionamento será aplicada primeiro às zonas desbalanceadas e, em seguida, ao conjunto de dimensionamento após a zona equilibrada. Se a ordem de expansão não for consistente com os exemplos acima, gere uma consulta com a equipe do conjunto de dimensionamento de máquinas virtuais para solução de problemas.
+2. Seleção errada de VMs para escala-in Consulte os exemplos acima referidos. Se o seu conjunto de escala de máquina virtual for uma implantação zonal, a política de escala é aplicada primeiro às Zonas desequilibradas e, em seguida, através da escala definida uma vez que é zona equilibrada. Se a ordem de escala não for consistente com os exemplos acima, levante uma consulta com a equipa de conjunto de máquinas virtuais para resolução de problemas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [implantar seu aplicativo](virtual-machine-scale-sets-deploy-app.md) em conjuntos de dimensionamento de máquinas virtuais.
+Aprenda a implementar a [sua aplicação](virtual-machine-scale-sets-deploy-app.md) em conjuntos de escala de máquinas virtuais.

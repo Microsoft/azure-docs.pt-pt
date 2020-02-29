@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5ec83857ebabc92bf86f9f84a43746a0e561218a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: be7d798d96e61d1d753e130c5e4ad6a479f391fc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647587"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912245"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registe uma aplicação SAML no Azure AD B2C
 
@@ -142,11 +142,11 @@ Pode alterar o valor dos metadados `IssuerUri`. Este é o emitente URI que é de
       </CryptographicKeys>
       <InputClaims/>
       <OutputClaims/>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml"/>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-sp"/>
     </TechnicalProfile>
 
     <!-- Session management technical profile for SAML based tokens -->
-    <TechnicalProfile Id="SM-Saml">
+    <TechnicalProfile Id="SM-Saml-sp">
       <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
     </TechnicalProfile>

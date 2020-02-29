@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 02/26/2020
 ms.author: radeltch
-ms.openlocfilehash: e48cb1baa515e6a1549bf913a3c3e4cf50e1fff6
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: ff78d44813001e9efdf6d7679616c397c31a1f5b
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525486"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164768"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP guia multi-SID
 
@@ -433,14 +433,14 @@ Esta documentação pressupõe que:
     
      sudo crm configure primitive rsc_sap_NW2_ASCS10 SAPInstance \
       operations \$id=rsc_sap_NW2_ASCS10-operations \
-      op monitor interval=11 timeout=60 on_fail=restart \
+      op monitor interval=11 timeout=60 on-fail=restart \
       params InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
       AUTOMATIC_RECOVER=false \
       meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
     
      sudo crm configure primitive rsc_sap_NW2_ERS12 SAPInstance \
       operations \$id=rsc_sap_NW2_ERS12-operations \
-      op monitor interval=11 timeout=60 on_fail=restart \
+      op monitor interval=11 timeout=60 on-fail=restart \
       params InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true \
       meta priority=1000
     
@@ -453,14 +453,14 @@ Esta documentação pressupõe que:
    
      sudo crm configure primitive rsc_sap_NW3_ASCS20 SAPInstance \
       operations \$id=rsc_sap_NW3_ASCS20-operations \
-      op monitor interval=11 timeout=60 on_fail=restart \
+      op monitor interval=11 timeout=60 on-fail=restart \
       params InstanceName=NW3_ASCS10_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
       AUTOMATIC_RECOVER=false \
       meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
     
      sudo crm configure primitive rsc_sap_NW3_ERS22 SAPInstance \
       operations \$id=rsc_sap_NW3_ERS22-operations \
-      op monitor interval=11 timeout=60 on_fail=restart \
+      op monitor interval=11 timeout=60 on-fail=restart \
       params InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW3_ERS22_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true \
       meta priority=1000
     
@@ -481,14 +481,14 @@ Esta documentação pressupõe que:
     
      sudo crm configure primitive rsc_sap_NW2_ASCS10 SAPInstance \
       operations \$id=rsc_sap_NW2_ASCS10-operations \
-      op monitor interval=11 timeout=60 on_fail=restart \
+      op monitor interval=11 timeout=60 on-fail=restart \
       params InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
       AUTOMATIC_RECOVER=false \
       meta resource-stickiness=5000 
     
      sudo crm configure primitive rsc_sap_NW2_ERS12 SAPInstance \
       operations \$id=rsc_sap_NW2_ERS12-operations \
-      op monitor interval=11 timeout=60 on_fail=restart \
+      op monitor interval=11 timeout=60 on-fail=restart \
       params InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true 
     
      sudo crm configure modgroup g-NW2_ASCS add rsc_sap_NW2_ASCS10
@@ -499,14 +499,14 @@ Esta documentação pressupõe que:
    
      sudo crm configure primitive rsc_sap_NW3_ASCS20 SAPInstance \
       operations \$id=rsc_sap_NW3_ASCS20-operations \
-      op monitor interval=11 timeout=60 on_fail=restart \
+      op monitor interval=11 timeout=60 on-fail=restart \
       params InstanceName=NW3_ASCS10_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
       AUTOMATIC_RECOVER=false \
       meta resource-stickiness=5000
     
      sudo crm configure primitive rsc_sap_NW3_ERS22 SAPInstance \
       operations \$id=rsc_sap_NW3_ERS22-operations \
-      op monitor interval=11 timeout=60 on_fail=restart \
+      op monitor interval=11 timeout=60 on-fail=restart \
       params InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW3_ERS22_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true
     
      sudo crm configure modgroup g-NW3_ASCS add rsc_sap_NW3_ASCS20

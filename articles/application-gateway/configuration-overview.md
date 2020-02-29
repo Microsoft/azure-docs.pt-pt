@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: bb6ad1f131d1299ce1e076fee70e6640e3bdf20a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485085"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913264"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de aplicação
 
@@ -121,7 +121,7 @@ Escolha o endereço IP frontal que pretende associar a este ouvinte. O ouvinte o
 
 Escolha a porta frontal. Selecione uma porta existente ou crie uma nova. Escolha qualquer valor da [gama permitida de portas](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Você pode usar não só portas bem conhecidas, como 80 e 443, mas qualquer porta personalizada permitida que seja adequada. Um porto pode ser usado para ouvintes virados para o público ou para os ouvintes virados para o privado.
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protocolo
 
 Escolha HTTP ou HTTPS:
 
@@ -256,26 +256,26 @@ O Portal de Aplicações Azure utiliza cookies geridos por gateway para manter a
 
 Esta funcionalidade é útil quando pretende manter uma sessão de utilizador no mesmo servidor e quando o estado da sessão é guardado localmente no servidor para uma sessão de utilizador. Se a aplicação não conseguir lidar com a afinidade baseada em cookies, não pode utilizar esta funcionalidade. Para usá-lo, certifique-se de que os clientes suportam cookies.
 
-A partir de 17 de fevereiro de **2020,** a atualização [Do Crómio](https://www.chromium.org/Home) [v80](https://chromiumdash.appspot.com/schedule) traz um mandato em que os cookies HTTP sem atributo sem sameSite devem ser tratados como SameSite=Lax. No caso de pedidos cors (Cross-Origin Resource Sharing), se o cookie tiver de ser enviado num contexto de terceiros, tem de utilizar "SameSite=None; Atributos seguros e deve ser enviado apenas por HTTPS. Caso contrário, num cenário apenas HTTP, o navegador não enviará os cookies no contexto de terceiros. O objetivo desta atualização do Chrome é aumentar a segurança e evitar ataques de falsificação de pedido de cross-site (CSRF). 
+A [atualização v80](https://chromiumdash.appspot.com/schedule) do [navegador Chromium](https://www.chromium.org/Home) trouxe um mandato em que os cookies HTTP sem atributo [sameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) têm de ser tratados como SameSite=Lax. No caso dos pedidos cors (Cross-Origin Resource Sharing), se o cookie tiver de ser enviado num contexto de terceiros, tem de utilizar o *SameSite=None; Atributos seguros* e deve ser enviado apenas em HTTPS. Caso contrário, num cenário apenas HTTP, o navegador não envia os cookies no contexto de terceiros. O objetivo desta atualização do Chrome é aumentar a segurança e evitar ataques de falsificação de pedido de cross-site (CSRF). 
 
-Para suportar esta alteração, o Application Gateway (todos os tipos de SKU) vai injetar outro cookie idêntico chamado **ApplicationGatewayAffinityCORS,** além do cookie **ApplicationGatewayAffinity** existente, que é similar, mas este cookie terá agora mais dois atributos **"SameSite=None; "Seguro"** adicionado a ele para que a sessão pegajosa possa ser mantida mesmo para pedidos de origem cruzada.
+Para suportar esta alteração, a partir de 17 de fevereiro de 2020, o Application Gateway (todos os tipos SKU) injetará outro cookie chamado *ApplicationGatewayAffinityCORS,* além do cookie *ApplicationGatewayAffinity* existente. O cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados ao mesmo ( *"SameSite=None; Seguro"* ) para que a sessão pegajosa seja mantida mesmo para pedidos de origem cruzada.
 
-Por favor, note que o nome padrão do cookie de afinidade é **ApplicationGatewayAffinity** e isso pode ser alterado pelos utilizadores. No caso de utilizar um nome personalizado de cookie de afinidade, um cookie adicional será adicionado com CORS como sufixo, por exemplo, **CustomCookieNameCORS**.
+Note que o nome padrão do cookie de afinidade é *ApplicationGatewayAffinity* e pode alterá-lo. No caso de utilizar um nome personalizado de cookie de afinidade, um cookie adicional é adicionado com CORS como sufixo. Por exemplo, *CustomCookieNameCORS*.
 
 > [!NOTE]
-> É obrigatório que, se o atributo **SameSite=None** estiver definido, o cookie também deve conter a bandeira **Secure** e deve ser enviado em **HTTPS**. Portanto, se a afinidade da sessão for necessária sobre o CORS, você deve migrar a sua carga de trabalho para HTTPS. Consulte a serrote SSL e a documentação SSL de ponta a ponta para o Gateway de Aplicação aqui – [Visão geral](ssl-overview.md), Como configurar a [descarga sSL](create-ssl-portal.md), [Como configurar o SSL](end-to-end-ssl-portal.md)de ponta a ponta .
+> Se o atributo *SameSite=None* estiver definido, é obrigatório que o cookie também contenha a bandeira *Secure,* e deve ser enviado em HTTPS.  Se for necessária afinidade da sessão em relação ao CORS, tem de migrar a sua carga de trabalho para HTTPS. Consulte a serrote SSL e a documentação SSL de ponta a ponta para o Gateway de Aplicação aqui – [Visão geral](ssl-overview.md), Como configurar a [descarga sSL](create-ssl-portal.md), [Como configurar o SSL](end-to-end-ssl-portal.md)de ponta a ponta .
 
 ### <a name="connection-draining"></a>Drenagem de ligação
 
 A drenagem de ligações ajuda-o a remover graciosamente os membros da piscina de back-end durante as atualizações de serviço planeadas. Você pode aplicar este cenário a todos os membros de uma piscina back-end durante a criação de regras. Garante que todos os casos de desregistro de um pool de back-end continuam a manter as ligações existentes e a servir pedidos em curso para um tempo de tempo configurável e não recebem quaisquer novos pedidos ou ligações. A única exceção a esta questão são os pedidos de desregisto de casos devido à afinidade da sessão gerida por gateways e continuará a ser encaminhado para os casos de desregistando. A drenagem da ligação aplica-se a instâncias traseiras que são explicitamente removidas da piscina traseira.
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protocolo
 
 O Gateway de aplicações suporta http e HTTPS para encaminhamento de pedidos para os servidores de back-end. Se escolher HTTP, o tráfego para os servidores de back-end não está encriptado. Se a comunicação não encriptada não for aceitável, escolha HTTPS.
 
 Esta definição combinada com HTTPS no ouvinte suporta [o SSL de ponta a ponta](ssl-overview.md). Isto permite-lhe transmitir de forma segura dados sensíveis encriptados para a parte de trás. Cada servidor de back-end no pool de back-end que tenha SSL de ponta a ponta deve ser configurado com um certificado para permitir uma comunicação segura.
 
-### <a name="port"></a>Port
+### <a name="port"></a>Porta
 
 Esta definição especifica a porta onde os servidores de back-end ouvem o tráfego a partir do gateway da aplicação. Pode configurar portas que variam entre 1 e 65535.
 
@@ -351,7 +351,7 @@ Um gateway de aplicação monitoriza a saúde de todos os recursos na sua parte 
 > [!NOTE]
 > Depois de criar uma sonda de saúde personalizada, precisa associá-la a uma definição HTTP de back-end. Uma sonda personalizada não monitorizará a saúde da piscina traseira a menos que a definição correspondente de HTTP esteja explicitamente associada a um ouvinte usando uma regra.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe sobre componentes do Application Gateway, pode:
 

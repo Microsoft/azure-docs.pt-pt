@@ -1,5 +1,5 @@
 ---
-title: 'Floresta de decisão multiclasse: referência de módulo'
+title: 'Floresta de decisão multiclasse: Referência do módulo'
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar o módulo Multiclass Decision Forest em Azure Machine Learning para criar um modelo de aprendizagem automática baseado no algoritmo *da floresta de decisão.*
 services: machine-learning
@@ -8,46 +8,46 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 47cea412489693cedb05bd8a94a914b1757b8058
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: b1f7aaeaf5d1537e0e5a427ad994f7e31e43fee3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152164"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921373"
 ---
-# <a name="multiclass-decision-forest-module"></a>Módulo de floresta de decisão multiclasse
+# <a name="multiclass-decision-forest-module"></a>Módulo De Floresta de Decisão Multiclasse
 
 Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
-Utilize este módulo para criar um modelo de aprendizagem automática baseado no algoritmo da *floresta de decisão.* Uma floresta de decisão é um modelo Ensemble que cria rapidamente uma série de árvores de decisão e, ao mesmo tempo, aprende com dados marcados.
+Utilize este módulo para criar um modelo de aprendizagem automática baseado no algoritmo da *floresta de decisão.* Uma floresta de decisão é um modelo conjunto que rapidamente constrói uma série de árvores de decisão, enquanto aprende com dados marcados.
 
-## <a name="more-about-decision-forests"></a>Mais sobre as florestas de decisão
+## <a name="more-about-decision-forests"></a>Mais sobre florestas de decisão
 
-O algoritmo de floresta de decisão é um método de aprendizado Ensemble para classificação. O algoritmo funciona construindo múltiplas árvores de decisão e *votando* na classe de saída mais popular. A votação é uma forma de agregação, na qual cada árvore em uma floresta de decisão de classificação gera um histograma de frequência não normalizado de rótulos. O processo de agregação soma esses histogramas e normaliza o resultado para obter as "probabilidades" para cada rótulo. As árvores que têm alta confiança de previsão têm um peso maior na decisão final do Ensemble.
+O algoritmo de decisão forest é um método de aprendizagem conjunto para classificação. O algoritmo funciona construindo múltiplas árvores de decisão e *votando* na classe de saída mais popular. Votar é uma forma de agregação, na qual cada árvore numa decisão de classificação produz um histograma de frequência não normalizado de rótulos. O processo de agregação resume estes histogramas e normaliza o resultado para obter as "probabilidades" para cada rótulo. As árvores que têm alta confiança de previsão têm um maior peso na decisão final do conjunto.
 
-As árvores de decisão em geral são modelos não paramétricos, o que significa que dão suporte a dados com distribuições variadas. Em cada árvore, uma sequência de testes simples é executada para cada classe, aumentando os níveis de uma estrutura de árvore até que um nó folha (decisão) seja atingido.
+As árvores de decisão em geral são modelos não paramétricos, o que significa que suportam dados com distribuições variadas. Em cada árvore, uma sequência de testes simples é executada para cada classe, aumentando os níveis de uma estrutura de árvore até que um nó de folha (decisão) seja alcançado.
 
 As árvores de decisão têm muitas vantagens:
 
-+ Eles podem representar limites de decisão não lineares.
-+ Eles são eficientes na computação e no uso de memória durante o treinamento e a previsão.
-+ Eles executam seleção e classificação de recursos integrados.
-+ Eles são resilientes na presença de recursos ruidosas.
++ Podem representar limites de decisão não lineares.
++ São eficientes na computação e utilização da memória durante o treino e a previsão.
++ Realizam seleção e classificação integradas de recursos.
++ São resistentes na presença de características ruidosas.
 
-O classificador de floresta de decisão em Azure Machine Learning consiste em um Ensemble de árvores de decisão. Em geral, os modelos de Ensemble fornecem melhor cobertura e precisão do que árvores de decisão única. Para mais informações, consulte [A Decisão árvores.](https://go.microsoft.com/fwlink/?LinkId=403677)
+A decisão da escola florestal em Azure Machine Learning consiste num conjunto de árvores de decisão. Geralmente, os modelos conjuntos proporcionam uma melhor cobertura e precisão do que as árvores de decisão únicas. Para mais informações, consulte [A Decisão árvores.](https://go.microsoft.com/fwlink/?LinkId=403677)
 
-## <a name="how-to-configure-multiclass-decision-forest"></a>Como configurar a floresta de decisão multiclasse
+## <a name="how-to-configure-multiclass-decision-forest"></a>Como configurar a Floresta de Decisão Multiclasse
 
 1. Adicione o módulo **Multiclass Decision Forest** ao seu pipeline no designer. Pode encontrar este módulo em **Machine Learning,** **Modelo inicializar**e **Classificação.**
 
 2. Clique duas vezes no módulo para abrir o painel **Properties.**
 
-3. Para o **método de rerecolha,** escolha o método utilizado para criar as árvores individuais.  Você pode escolher entre bagging ou replicação.
+3. Para o **método de rerecolha,** escolha o método utilizado para criar as árvores individuais.  Pode escolher entre ensacar ou replicar.
 
-    + **Bagging**: Bagging também é chamado de *agregação de botas.* Nesse método, cada árvore é expandida em um novo exemplo, criada pela amostragem aleatória do conjunto de datas original com substituição, até que você tenha um conjunto de um DataSet com o tamanho original. As saídas dos modelos são combinadas através do *voto*, que é uma forma de agregação. Para obter mais informações, consulte a entrada da Wikipédia para agregação de bootstrap.
+    + **Bagging**: Bagging também é chamado de *agregação de botas.* Neste método, cada árvore é cultivada numa nova amostra, criada através da amostragem aleatória do conjunto de dados original com substituição até ter um conjunto de dados do tamanho do original. As saídas dos modelos são combinadas através do *voto*, que é uma forma de agregação. Para mais informações, consulte a entrada da Wikipedia para a gregação de Bootstrap.
 
-    + **Replicação**: Na replicação, cada árvore é treinada exatamente com os mesmos dados de entrada. A determinação de qual predicado de divisão é usado para cada nó de árvore permanece aleatório, criando árvores diversas.
+    + **Replicação**: Na replicação, cada árvore é treinada exatamente com os mesmos dados de entrada. A determinação de que o predicado dividido é usado para cada nó de árvore permanece aleatória, criando árvores diversas.
 
    
 
@@ -55,22 +55,23 @@ O classificador de floresta de decisão em Azure Machine Learning consiste em um
 
     + **Parâmetro único**: Selecione esta opção se souber como pretende configurar o modelo e forneça um conjunto de valores como argumentos.
 
+    + **Gama de parâmetros**: Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretenda fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar mais, e o [Modelo tune Hyperparâmetros](tune-model-hyperparameters.md) iterates sobre todas as combinações possíveis das definições que forneceu para determinar os hiperparâmetros que produzem os melhores resultados.   
 
-5. **Número de árvores de decisão**: Digite o número máximo de árvores de decisão que podem ser criadas no conjunto. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento pode aumentar.
+5. **Número de árvores de decisão**: Digite o número máximo de árvores de decisão que podem ser criadas no conjunto. Ao criar mais árvores de decisão, pode potencialmente obter uma melhor cobertura, mas o tempo de treino pode aumentar.
 
-    Esse valor também controla o número de árvores exibidas nos resultados, ao visualizar o modelo treinado. Para ver ou imprimir uma única árvore, você pode definir o valor como 1; no entanto, isso significa que apenas uma árvore pode ser produzida (a árvore com o conjunto inicial de parâmetros) e nenhuma iteração adicional é executada.
+    Este valor também controla o número de árvores exibidas nos resultados, ao visualizar o modelo treinado. Para ver ou imprimir uma única árvore, pode definir o valor para 1; no entanto, isto significa que apenas uma árvore pode ser produzida (a árvore com o conjunto inicial de parâmetros), e não são realizadas mais iterações.
 
-6. **Profundidade máxima das árvores de decisão**: Digite um número para limitar a profundidade máxima de qualquer árvore de decisão. Aumentar a profundidade da árvore pode aumentar a precisão, com o risco de algum superajuste e um tempo de treinamento maior.
+6. **Profundidade máxima das árvores de decisão**: Digite um número para limitar a profundidade máxima de qualquer árvore de decisão. Aumentar a profundidade da árvore pode aumentar a precisão, com o risco de alguma sobremontagem e aumento do tempo de treino.
 
 7. **Número de divisões aleatórias por nó**: Digite o número de divisões a utilizar ao construir cada nó da árvore. Uma *divisão* significa que as características em cada nível da árvore (nó) são divididas aleatoriamente.
 
-8. **Número mínimo de amostras por nó de folha**: Indicar o número mínimo de casos necessários para criar qualquer nó terminal (folha) numa árvore. Ao aumentar esse valor, você aumenta o limite para a criação de novas regras.
+8. **Número mínimo de amostras por nó de folha**: Indicar o número mínimo de casos necessários para criar qualquer nó terminal (folha) numa árvore. Ao aumentar este valor, aumenta-se o limiar para a criação de novas regras.
 
-    Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se você aumentar o valor para 5, os dados de treinamento precisarão conter pelo menos cinco casos que atendam às mesmas condições.
+    Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se aumentar o valor para 5, os dados de formação teriam de conter pelo menos cinco casos que satisfaçam as mesmas condições.
 
 
 
-10. Conecte um DataSet rotulado e um dos módulos de treinamento:
+10. Ligue um conjunto de dados rotulado e um dos módulos de treino:
 
     + Se definir o modo Criar modo **de treinador** para um parâmetro **único,** utilize o módulo Modelo de [Comboio.](./train-model.md)
 

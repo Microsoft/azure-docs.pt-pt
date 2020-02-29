@@ -12,35 +12,33 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 7756d4c808e104b0de14e1cea4af5e843cff755c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 92ad33fbc759605ae901c3bcf09283c8e0b1c4b5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981771"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918194"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Não é possível o ambiente de trabalho remoto para máquinas de virtuais do Azure por causa de IP estático
 
 Este artigo descreve um problema em que não é possível o ambiente de trabalho remoto para máquinas de virtuais de Windows do Azure (VMs) depois de um IP estático está configurado na VM.
 
-> [!NOTE]
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
 
 ## <a name="symptoms"></a>Sintomas
 
 Quando efetuar uma ligação RDP a uma VM no Azure, recebe a seguinte mensagem de erro:
 
-**Ambiente de trabalho remoto não é possível ligar ao computador remoto para um dos seguintes motivos:**
+**O Ambiente de Trabalho Remoto não pode ligar-se ao computador remoto por uma destas razões:**
 
-1. **Acesso remoto para o servidor não está ativado**
+1. **O acesso remoto ao servidor não está ativado**
 
-2. **O computador remoto está desativado**
+2. **O computador remoto está desligado.**
 
 3. **O computador remoto não está disponível na rede**
 
-**Certificar-se de que o computador remoto está ativado e ligado à rede e que o acesso remoto está ativado.**
+**Certifique-se de que o computador remoto está ligado e ligado à rede e que o acesso remoto está ativado.**
 
-Quando dá entrada a captura de ecrã do [diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) no portal do Azure, verá a VM arranca normalmente e aguarda que as credenciais no ecrã de início de sessão.
+Quando verifica a imagem nos diagnósticos da [Bota](../troubleshooting/boot-diagnostics.md) no portal Azure, vê normalmente as botas VM e aguarda-se por credenciais no ecrã de login.
 
 ## <a name="cause"></a>Causa
 
@@ -48,14 +46,14 @@ A VM tem um endereço IP estático, que é definido na interface de rede no Wind
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 
-Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [interface de rede de reposição](reset-network-interface.md) para a VM.
+Para resolver este problema, utilize o controlo de série para ativar o DHCP ou [redefinir](reset-network-interface.md) a interface de rede para o VM.
 
 ### <a name="use-serial-control"></a>Utilizar o controlo de série
 
-1. Ligar à [consola de série e Abrir instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Se a consola de série não estiver ativada na sua VM, consulte [interface de rede de reposição](reset-network-interface.md).
+1. Ligue-se à consola em série e abra a [instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+). Se a Consola série não estiver ativada no seu VM, consulte a [interface de rede Reset](reset-network-interface.md).
 2. Verifique se o DHCP está desabilitado na interface de rede:
 
         netsh interface ip show config
@@ -73,4 +71,4 @@ Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [in
 
     Não tem de reiniciar a VM neste momento. A VM será novamente acessível.
 
-Depois disso, se quiser configurar o IP estático para a VM, veja [configurar endereços IP estáticos para uma VM](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).
+Depois disso, se pretender configurar o IP estático para o VM, consulte os [endereços IP estáticos configurados para um VM](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).

@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para backup azure usando Log Analytics e Livros de Trabalho Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582709"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161206"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -47,6 +47,9 @@ Na secção de monitorização do cofre dos Serviços de Recuperação, selecion
 
 O Azure Backup também fornece uma Política Azure incorporada, que automatiza a configuração de configurações de diagnóstico para todos os cofres num dado âmbito. Consulte o seguinte artigo para aprender a usar esta política: [Configure Configurações](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) de Diagnóstico de Cofre em escala
 
+> [!NOTE]
+> Uma vez configurado os diagnósticos, pode demorar até 24 horas para que o impulso inicial de dados seja concluído. Uma vez que os dados começam a fluir para o Espaço de Trabalho de LA, você pode não ser capaz de ver os dados nos relatórios imediatamente, uma vez que os dados para o dia parcial atual não são mostrados nos relatórios (mais detalhes [aqui).](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) Assim, recomenda-se começar a visualizar os relatórios 2 dias após configurar os seus cofres para enviar dados para o Log Analytics.
+
 3. **Ver relatórios no portal Azure:**
 
 Depois de configurar os seus cofres para enviar dados para LA, veja os seus relatórios de backup navegando para a lâmina de qualquer cofre e clicando no item do menu **Backup Reports.** 
@@ -56,7 +59,8 @@ Depois de configurar os seus cofres para enviar dados para LA, veja os seus rela
 Clicar neste link abre o Livro de Relatórios de Cópia de Segurança.
 
 > [!NOTE]
-> Atualmente, a carga inicial do relatório pode demorar até 1 minuto.
+> * Atualmente, a carga inicial do relatório pode demorar até 1 minuto.
+> * O cofre dos Serviços de Recuperação é apenas um ponto de entrada para os Relatórios de Backup. Assim que o Livro de Trabalho de Relatórios de Backup se abrir a partir da lâmina de um cofre, poderá ver os dados agregados em todos os seus cofres (selecionando o conjunto apropriado de espaços de trabalho de LA).
 
 Abaixo está uma descrição dos vários separadores que o relatório contém:
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: df6f8ce22e8215a0727db7f69e0f6e5c3f5fc9e0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840269"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917395"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configure as credenciais de senha do proprietário de recursos fluem no Azure Ative Directory B2C usando uma política personalizada
 
@@ -24,17 +24,7 @@ ms.locfileid: "76840269"
 
 No Azure Ative Directory B2C (Azure AD B2C), o fluxo de credenciais de senha do proprietário de recursos (ROPC) é um fluxo de autenticação padrão OAuth. Neste fluxo, uma aplicação, também conhecida como parte de fideiro, troca credenciais válidas para fichas. As credenciais incluem uma identificação do utilizador e uma senha. Os símbolos devolvidos são um símbolo de identificação, ficha de acesso e um token refrescante.
 
-As seguintes opções são suportadas no fluxo ROPC:
-
-- **Cliente Nativo** - A interação do utilizador durante a autenticação ocorre quando o código é executado num dispositivo do lado do utilizador.
-- **Fluxo** público de clientes - Apenas as credenciais de utilizador recolhidas por uma aplicação são enviadas na chamada DaPI. As credenciais do pedido não são enviadas.
-- **Adicione novas reclamações** - O conteúdo do token ID pode ser alterado para adicionar novas reclamações.
-
-Os seguintes fluxos não são suportados:
-
-- **Servidor-a-servidor** - O sistema de proteção de identidade precisa de um endereço IP fiável recolhido do chamador (o cliente nativo) como parte da interação. Numa chamada API do lado do servidor, apenas é utilizado o endereço IP do servidor. Se muitas inscrições falharem, o sistema de proteção de identidade pode olhar para um endereço IP repetido como um intruso.
-- **Aplicação** de página única - Uma aplicação frontal que está escrita principalmente no JavaScript. Muitas vezes, a aplicação é escrita usando uma estrutura como AngularJS, Ember.js ou Durandal.
-- **Fluxo de cliente confidencial** - O ID do cliente da aplicação é validado, mas o segredo da aplicação não é.
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -258,7 +248,7 @@ Use a sua aplicação de desenvolvimento aPi favorita para gerar uma chamada API
 
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-- Substitua `your-tenant-name` com o nome do seu inquilino do Azure AD B2C.
+- Substitua `your-tenant-name` pelo nome do seu inquilino Azure AD B2C.
 - Substitua `B2C_1A_ROPC_Auth` com o nome completo da sua política de credenciais de senha do proprietário de recursos.
 
 | Chave | Valor |
@@ -303,7 +293,7 @@ Construa uma chamada postacomo a mostrada aqui. Utilize as informações no quad
 
 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-- Substitua `your-tenant-name` com o nome do seu inquilino do Azure AD B2C.
+- Substitua `your-tenant-name` pelo nome do seu inquilino Azure AD B2C.
 - Substitua `B2C_1A_ROPC_Auth` com o nome completo da sua política de credenciais de senha do proprietário de recursos.
 
 | Chave | Valor |

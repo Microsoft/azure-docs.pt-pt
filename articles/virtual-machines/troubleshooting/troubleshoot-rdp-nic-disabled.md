@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 3849106fbc488f456a4d267d0ccef76647c1939f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981318"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918245"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível do ambiente de trabalho remoto a uma VM porque a interface de rede está desativada
 
 Este artigo explica como resolver um problema em que não pode fazer uma ligação de ambiente de trabalho remoto para máquinas de virtuais de Windows do Azure (VMs) se a interface de rede está desativada.
 
-> [!NOTE]
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -32,14 +30,14 @@ Não pode fazer uma ligação RDP ou qualquer outro tipo de ligação para quais
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para mais informações, consulte [snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 
-Para ativar a interface para a VM, utilize o controlo Serial ou [interface de rede de reposição](#reset-network-interface) para a VM.
+Para ativar a interface do VM, utilize o controlo de série ou [repor](#reset-network-interface) a interface de rede para o VM.
 
 ### <a name="use-serial-control"></a>Utilizar o controlo de série
 
-1. Ligar à [consola de série e Abrir instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Se a consola de série não estiver ativada na sua VM, consulte [interface de rede de reposição](#reset-network-interface).
+1. Ligue-se à consola em série e abra a [instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+). Se a Consola série não estiver ativada no seu VM, consulte [a interface de rede de reset](#reset-network-interface).
 2. Verificar o estado da interface de rede:
 
         netsh interface show interface
@@ -64,4 +62,4 @@ Para ativar a interface para a VM, utilize o controlo Serial ou [interface de re
 
 ## <a name="reset-network-interface"></a>Repor a interface de rede
 
-Para repor a interface de rede, altere o endereço IP para outro endereço IP que está disponível na sub-rede. Para tal, utilize o portal do Azure ou do Azure PowerShell. Para obter mais informações, consulte [interface de rede de reposição](reset-network-interface.md).
+Para repor a interface de rede, altere o endereço IP para outro endereço IP que está disponível na sub-rede. Para tal, utilize o portal do Azure ou do Azure PowerShell. Para mais informações, consulte [redefinir a interface da rede](reset-network-interface.md).

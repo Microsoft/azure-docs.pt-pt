@@ -3,12 +3,12 @@ title: Questões comuns - descoberta, avaliação e análise de dependência em 
 description: Obtenha respostas a perguntas comuns sobre descoberta, avaliação e análise de dependência em Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 179be4f5b39806c717e94789c9fe52842d2a07d8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6db521791e5ebb846585d4e0e823ba20d178d54a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589237"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918551"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Questões comuns sobre descoberta, avaliação e análise de dependência
 
@@ -100,7 +100,7 @@ Não, a visualização da dependência não pode ser exportada. No entanto, o Az
 
 ## <a name="can-i-automate--mmadependency-agent-installation"></a>Posso automatizar a instalação do agente MMA/Dependency?
 
-Utilize este [script para instalar o agente Dependency](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Siga estas [instruções para instalar o MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) utilizando a linha de comando ou automação. Para MMA, use [este script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+Utilize este [script para instalar o agente Dependency](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Siga estas [instruções para instalar o MMA](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) utilizando a linha de comando ou automação. Para MMA, use [este script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 
 Além de scripts, também pode utilizar ferramentas de implementação como o Microsoft Endpoint Configuration Manager e [a Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) para implementar os agentes.
 

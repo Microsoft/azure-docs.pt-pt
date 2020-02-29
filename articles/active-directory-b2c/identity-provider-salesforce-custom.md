@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a745f83dcceef25634032cbe6fdb971f4f533ce
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0b03846a274abee5def57008fe3db4130b4350d0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847423"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916307"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com um fornecedor SAML Salesforce utilizando políticas personalizadas no Diretório Ativo Azure B2C
 
@@ -88,11 +88,11 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 Você precisa armazenar o certificado que criou no seu inquilino Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
-3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+2. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro de **subscrição Do Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
+3. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
 4. Na página 'Visão Geral', selecione Quadro de **Experiência de Identidade**.
-5. Selecione **chaves de política** e, em seguida, selecione **Adicionar**.
+5. Selecione **Teclas de política** e, em seguida, selecione **Adicionar**.
 6. Para **opções,** escolha `Upload`.
 7. Introduza um **Nome** para a política. Por exemplo, SAMLSigningCert. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 8. Navegue e selecione o certificado B2CSigningCert.pfx que criou.
@@ -103,11 +103,11 @@ Você precisa armazenar o certificado que criou no seu inquilino Azure AD B2C.
 
 Se pretender que os utilizadores assinem através de uma conta Salesforce, tem de definir a conta como um fornecedor de sinistros com o qual o Azure AD B2C pode comunicar através de um ponto final. O ponto final fornece um conjunto de reclamações que são utilizadas pelo Azure AD B2C para verificar se um utilizador específico se autenticou.
 
-Pode definir uma conta Salesforce como fornecedor de sinistros adicionando-a ao elemento **Reclamadores** no ficheiro de extensão da sua apólice.
+Pode definir uma conta Salesforce como fornecedor de sinistros adicionando-a ao elemento **Reclamadores** no ficheiro de extensão da sua apólice. Para mais informações, consulte [definir um perfil técnico SAML](saml-technical-profile.md).
 
 1. Abra as *Extensões TrustFramework.xml*.
-2. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.
-3. Adicione um novo Fornecedor de **Reclamações** da seguinte forma:
+1. Encontre o elemento **ClaimsProviders.** Se não existir, adicione-o sob o elemento raiz.
+1. Adicione um novo Fornecedor de **Reclamações** da seguinte forma:
 
     ```XML
     <ClaimsProvider>
@@ -142,14 +142,32 @@ Pode definir uma conta Salesforce como fornecedor de sinistros adicionando-a ao 
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
           </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-idp"/>
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-4. Atualize o valor da **PartnerEntity** com o URL de metadados Salesforce que copiou anteriormente.
-5. Atualize o valor de ambas as instâncias do **StorageReferenceId** para o nome da chave do seu certificado de assinatura. Por exemplo, B2C_1A_SAMLSigningCert.
+1. Atualize o valor da **PartnerEntity** com o URL de metadados Salesforce que copiou anteriormente.
+1. Atualize o valor de ambas as instâncias do **StorageReferenceId** para o nome da chave do seu certificado de assinatura. Por exemplo, B2C_1A_SAMLSigningCert.
+1. Localize a secção `<ClaimsProviders>` e adicione o seguinte corte XML. Se a sua política já contiver o perfil técnico `SM-Saml-idp`, salte para o próximo passo. Para mais informações, consulte [a gestão da sessão de inscrição única](custom-policy-reference-sso.md).
+
+    ```XML
+    <ClaimsProvider>
+      <DisplayName>Session Management</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SM-Saml-idp">
+          <DisplayName>Session Management Provider</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="IncludeSessionIndex">false</Item>
+            <Item Key="RegisterServiceProviders">false</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+1. Guarde o ficheiro.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Faça upload do ficheiro de extensão para verificação
 

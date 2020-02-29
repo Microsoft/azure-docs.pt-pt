@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: a2adf59a542f695b7845e1a871c0b297b0790fec
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 045f3ccdc8dc09bf657ab39ce15a0d0524c73fcb
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672162"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162967"
 ---
 # <a name="azure-functions-http-trigger"></a>Gatilho DE funções azure HTTP
 
@@ -749,7 +749,7 @@ O utilizador autenticado está disponível através de [cabeçalhos HTTP](../app
 
 ## <a name="authorization-keys"></a>Chaves de autorização
 
-As funções permitem-lhe utilizar chaves para dificultar o acesso aos pontos finais da função HTTP durante o desenvolvimento.  Um gatilho HTTP padrão pode exigir que tal chave API esteja presente no pedido. 
+As funções permitem-lhe utilizar chaves para dificultar o acesso aos pontos finais da função HTTP durante o desenvolvimento.  A menos que o nível de autorização HTTP numa função ativada em HTTP esteja definido para `anonymous`, os pedidos devem incluir uma chave API no pedido. 
 
 > [!IMPORTANT]
 > Embora as teclas possam ajudar a obfusizar os seus pontos finais HTTP durante o desenvolvimento, não se destinam a assegurar um gatilho HTTP na produção. Para saber mais, consulte [Secure um ponto final HTTP na produção.](#secure-an-http-endpoint-in-production)
@@ -757,14 +757,19 @@ As funções permitem-lhe utilizar chaves para dificultar o acesso aos pontos fi
 > [!NOTE]
 > Nas Funções 1.x, os fornecedores de webhook podem utilizar chaves para autorizar pedidos de várias maneiras, dependendo do que o fornecedor suporta. Isto está coberto por [Webhooks e chaves](#webhooks-and-keys). O tempo de funcionamento das Funções na versão 2.x e superior não inclui suporte incorporado para fornecedores de webhook.
 
-Existem dois tipos de chaves:
+#### <a name="authorization-scopes-function-level"></a>Âmbitos de autorização (nível de função)
 
-* **Teclas do hospedeiro**: Estas teclas são partilhadas por todas as funções dentro da aplicação de função. Quando utilizados como uma chave API, estes permitem o acesso a qualquer função dentro da aplicação de função.
-* **Teclas de função**: Estas teclas aplicam-se apenas às funções específicas sob as quais são definidas. Quando utilizados como chave API, estas apenas permitem o acesso a essa função.
+Existem dois âmbitos de autorização para teclas de nível de função:
+
+* **Função**: Estas teclas aplicam-se apenas às funções específicas em que são definidas. Quando utilizados como chave API, estas apenas permitem o acesso a essa função.
+
+* **Anfitrião**: As teclas com um âmbito de anfitrião podem ser utilizadas para aceder a todas as funções dentro da aplicação de função. Quando utilizados como uma chave API, estes permitem o acesso a qualquer função dentro da aplicação de função. 
 
 Cada chave é nomeada para referência, e há uma chave padrão (chamada "padrão") na função e nível de anfitrião. As teclas de função têm precedência sobre as teclas do hospedeiro. Quando duas teclas são definidas com o mesmo nome, a chave de função é sempre utilizada.
 
-Cada aplicação de função também tem uma **chave master**especial. Esta chave é uma chave de acolhimento chamada `_master`, que proporciona acesso administrativo às APIs em tempo de execução. Esta chave não pode ser revogada. Quando definir um nível de autorização de `admin`, os pedidos devem utilizar a chave principal; qualquer outro resultado chave na falha de autorização.
+#### <a name="master-key-admin-level"></a>Chave-mesonás (nível de administração) 
+
+Cada aplicação de função também tem uma chave de hospedagem de nível de administração chamada `_master`. Além de proporcionar acesso ao nível do anfitrião a todas as funções da aplicação, a chave principal também fornece acesso administrativo às APIs de repouso de tempo de execução. Esta chave não pode ser revogada. Quando definir um nível de autorização de `admin`, os pedidos devem utilizar a chave principal; qualquer outro resultado chave na falha de autorização.
 
 > [!CAUTION]  
 > Devido às permissões elevadas na sua app de funções concedidas pela chave principal, não deve partilhar esta chave com terceiros ou distribuí-la em aplicações de clientes nativos. Tenha cuidado ao escolher o nível de autorização de administração.

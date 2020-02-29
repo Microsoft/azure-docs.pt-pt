@@ -1,17 +1,17 @@
 ---
 title: Mapeando a transformação do fluxo de dados
-description: Fluxo de dados de mapeamento de fábrica de dados azure plana transformação
+description: Fluxo de dados de mapeamento de fábrica de dados azure
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 435d2469be8eb572caa02e381d84ae4e9ac32f4b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 415a093fd8a8fbe27e1d240b061548e18f2ca6b6
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77674847"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164734"
 ---
 # <a name="azure-data-factory-flatten-transformation"></a>Transformação de flatten da fábrica de dados azure
 
@@ -29,7 +29,7 @@ Primeiro, escolha a coluna de matriz que deseja desenrolar e girar.
 
 ## <a name="unroll-root"></a>Raiz de desenrolar
 
-Por padrão, a ADF irá aplainar a estrutura na matriz de desenrolar que escolheu acima. Ou pode escolher uma parte diferente da hierarquia para desenrolar.
+Por padrão, a ADF irá aplainar a estrutura na matriz de desenrolar que escolheu acima. Ou pode escolher uma parte diferente da hierarquia para desenrolar. "Unroll root" é uma definição opcional.
 
 ## <a name="input-columns"></a>Colunas de entrada
 

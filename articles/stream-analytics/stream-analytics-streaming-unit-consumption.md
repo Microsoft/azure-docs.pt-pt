@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: dd7579c97e2166e2822ee5674bbcd5a8ad64d2c7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/27/2020
+ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201497"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921152"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Transmissão em Fluxo
 
@@ -32,7 +32,7 @@ A métrica de utilização da SU %, que varia entre 0% e 100%, descreve o consum
     ![Configuração de trabalho do portal Azure Stream Analytics][img.stream.analytics.preview.portal.settings.scale]
     
 4. Use o slider para definir as SUs para o trabalho. Note que está limitado a definições específicas de SU. 
-5. Pode alterar o número de SUs atribuídas ao seu trabalho mesmo quando está em funcionamento. Isto não é possível se o seu trabalho utilizar uma [saída não dividida](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) ou tiver uma consulta em [várias etapas com diferentes valores de PARTIÇÃO Por](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). O seu trabalho também deve ter pelo menos 6 SUs para alterar este cenário quando o trabalho está em execução. Talvez te tenhas restringido a escolher entre um conjunto de valores da SU quando o trabalho está a decorrer. 
+5. Pode alterar o número de SUs atribuídas ao seu trabalho mesmo quando está em funcionamento. Isto não é possível se o seu trabalho utilizar uma [saída não dividida](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) ou tiver uma consulta em [várias etapas com diferentes valores de PARTIÇÃO Por](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Talvez te tenhas restringido a escolher entre um conjunto de valores da SU quando o trabalho está a decorrer. 
 
 ## <a name="monitor-job-performance"></a>Monitorizar o desempenho do trabalho
 Utilizando o portal Azure, pode rastrear a entrada de um trabalho:

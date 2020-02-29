@@ -1,79 +1,76 @@
 ---
-title: 'Treinar Recomendador SVD: referência de módulo'
+title: 'Recomendador SVD do comboio: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo treinar Recomendador SVD em Azure Machine Learning para treinar um recomendador Bayesiana usando o algoritmo SVD.
+description: Aprenda a utilizar o módulo recomendador Train SVD em Azure Machine Learning para treinar um recomendador bayesiano utilizando o algoritmo SVD.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 075216cf7d67aa4d5a04f34a7ae3444a078b4c62
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/22/2020
+ms.openlocfilehash: 1778ba543e070bbffbbc8579b280373d834492fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313914"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920807"
 ---
 # <a name="train-svd-recommender"></a>Preparar Recomendador SVD
 
-Este artigo descreve como usar o módulo treinar Recomendador SVD no designer de Azure Machine Learning. Use este módulo para treinar um modelo de recomendação com base no algoritmo de decomposição de valor único (SVD).  
+Este artigo descreve como utilizar o módulo recomendador Train SVD no designer de Machine Learning Azure (pré-visualização). Utilize este módulo para formar um modelo de recomendação baseado no algoritmo de decomposição de valor único (SVD).  
 
-O módulo treinar Recomendador SVD lê um conjunto de uma série de processamentos de usuário-item-classificação. Ele retorna um recomendador SVD treinado. Em seguida, você pode usar o modelo treinado para prever classificações ou gerar recomendações usando o módulo de [recomendação SVD de Pontuação](score-svd-recommender.md) .  
+O módulo recomendador Do comboio SVD lê um conjunto de dados de triplos de classificação de itens de utilizador. Devolve um recomendador SVD treinado. Em seguida, pode utilizar o modelo treinado para prever classificações ou gerar recomendações, utilizando o módulo [recomendador Score SVD.](score-svd-recommender.md)  
 
 
   
-## <a name="more-about-recommendation-models-and-the-svd-recommender"></a>Mais sobre modelos de recomendação e o recomendador SVD  
+## <a name="more-about-recommendation-models-and-the-svd-recommender"></a>Mais sobre modelos de recomendação e recomendação SVD  
 
-O objetivo principal de um sistema de recomendação é recomendar um ou mais *itens* aos *usuários* do sistema. Exemplos de um item podem ser um filme, restaurante, livro ou música. Um usuário pode ser uma pessoa, um grupo de pessoas ou outra entidade com preferências de item.  
+O principal objetivo de um sistema de recomendação é recomendar um ou mais *itens* aos *utilizadores* do sistema. Exemplos de um item podem ser um filme, restaurante, livro ou música. Um utilizador pode ser uma pessoa, um grupo de pessoas ou outra entidade com preferências de item.  
 
-Há duas abordagens principais para sistemas de recomendação: 
+Existem duas abordagens principais para sistemas de recomendação: 
 
-+ Uma abordagem **baseada em conteúdo** usa recursos para usuários e itens. Os usuários podem ser descritos por propriedades como idade e sexo. Os itens podem ser descritos por propriedades como autor e fabricante. Você pode encontrar exemplos típicos de sistemas de recomendação baseados em conteúdo em sites de relacionamento social. 
-+ A **filtragem colaborativa** usa apenas identificadores dos usuários e os itens. Ele obtém informações implícitas sobre essas entidades de uma matriz (esparsa) de classificações dadas pelos usuários para os itens. Podemos aprender sobre um usuário a partir dos itens que eles classificaram e de outros usuários que classificaram os mesmos itens.  
++ Uma abordagem **baseada em conteúdo** faz uso de funcionalidades tanto para utilizadores como para itens. Os utilizadores podem ser descritos por propriedades como a idade e o género. Os itens podem ser descritos por propriedades como autor e fabricante. Pode encontrar exemplos típicos de sistemas de recomendação baseados em conteúdo em sites de matchmaking sociais. 
++ **A filtragem colaborativa** utiliza apenas identificadores dos utilizadores e dos itens. Obtém informações implícitas sobre estas entidades a partir de uma matriz (escassa) de classificações dadas pelos utilizadores aos itens. Podemos aprender sobre um utilizador a partir dos itens que avaliaram e de outros utilizadores que avaliaram os mesmos itens.  
 
-O recomendador SVD usa identificadores dos usuários e os itens e uma matriz de classificações dadas pelos usuários para os itens. É um *recomendador colaborativo*. 
+O recomendador SVD utiliza identificadores dos utilizadores e dos itens, e uma matriz de classificações dadas pelos utilizadores aos itens. É um *recomendador colaborativo.* 
 
-Para obter mais informações sobre o recomendador SVD, consulte o documento de pesquisa relevante: [técnicas de fatoração de matriz para sistemas de recomendação](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
+Para obter mais informações sobre o recomendador SVD, consulte o documento de investigação relevante: [Técnicas de factorização matriz para sistemas de recomendação](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
 
 
-## <a name="how-to-configure-train-svd-recommender"></a>Como configurar o Recomendador SVD de treinamento  
+## <a name="how-to-configure-train-svd-recommender"></a>Como configurar o recomendador SVD do comboio  
 
 ### <a name="prepare-data"></a>Preparar dados
 
-Antes de usar o módulo, os dados de entrada devem estar no formato esperado pelo modelo de recomendação. Um conjunto de dados de treinamento de percurso de classificação de usuário-item é necessário.
+Antes de utilizar o módulo, os seus dados de entrada devem estar no formato que o modelo de recomendação espera. É necessário um conjunto de dados de formação de triplos de classificação de utilizador.
 
-+ A primeira coluna contém identificadores de usuário.
-+ A segunda coluna contém identificadores de item.
-+ A terceira coluna contém a classificação para o par usuário-item. Os valores de classificação devem ser do tipo numérico.  
++ A primeira coluna contém identificadores de utilizador.
++ A segunda coluna contém identificadores de objetos.
++ A terceira coluna contém a classificação para o par de artigos de utilizador. Os valores de classificação devem ser do tipo numérico.  
 
-O conjunto de **valores de classificações de restaurantes** no designer de Azure Machine Learning (selecione conjuntos de itens **salvos** e, em seguida, **amostras**) demonstra o formato esperado:
+O conjunto de dados **de Classificações** de Filmes em Azure Machine Learning designer (selecione **Datasets** e, em seguida, **Amostras)** demonstra o formato esperado:
 
-|userID|posicionaid|classificação|
-|------------|-------------|------------|
-|U1077|135085|2|
-|U1077|135038|2|
+![Classificações de filmes](media/module/movie-ratings-dataset.png)
 
-Neste exemplo, você pode ver que um único usuário classificou dois restaurantes separados. 
+A partir desta amostra, pode ver que um único utilizador classificou vários filmes. 
 
-### <a name="train-the-model"></a>Formar o modelo
+### <a name="train-the-model"></a>Dar formação sobre o modelo
 
-1.  Adicione o módulo treinar Recomendador SVD ao seu pipeline no designer e conecte-o aos dados de treinamento.  
+1.  Adicione o módulo recomendador De Comboio SVD ao seu pipeline no designer e conecte-o aos dados de treino.  
    
-2.  Para **número de fatores**, especifique o número de fatores a serem usados com o recomendador.  
+2.  Para **o número de fatores,** especifique o número de fatores a utilizar com o recomendador.  
     
-    Cada fator mede o quanto o usuário está relacionado ao item. O número de fatores também é a dimensionalidade do espaço de fator Lated. Com o aumento do número de usuários e itens, é melhor definir um número maior de fatores. Mas se o número for muito grande, o desempenho poderá cair.
+    Cada fator mede o quanto o utilizador está relacionado com o item. O número de fatores é também a dimensionalidade do espaço do fator latente. Com o número de utilizadores e itens a aumentar, é melhor definir um maior número de fatores. Mas se o número for muito grande, o desempenho pode cair.
     
-3.  O **número de iterações do algoritmo de recomendação** indica quantas vezes o algoritmo deve processar os dados de entrada. Quanto mais alto for esse número, mais precisas serão as previsões. No entanto, um número mais alto significa treinamento mais lento. O valor predefinido é 30.
+3.  **O número de iterações de algoritmos de recomendação** indica quantas vezes o algoritmo deve processar os dados de entrada. Quanto maior for este número, mais precisas são as previsões. No entanto, um número mais elevado significa treino mais lento. O valor padrão é 30.
 
-4.  Para **taxa de aprendizagem**, insira um número entre 0,0 e 2,0 que define o tamanho da etapa para aprendizado.
+4.  Para **a taxa de aprendizagem**, insira um número entre 0,0 e 2.0 que define o tamanho do passo para a aprendizagem.
 
-    A taxa de aprendizagem determina o tamanho da etapa em cada iteração. Se o tamanho da etapa for muito grande, você poderá exceder a solução ideal. Se o tamanho da etapa for muito pequeno, o treinamento levará mais tempo para encontrar a melhor solução. 
+    A taxa de aprendizagem determina o tamanho do passo em cada iteração. Se o tamanho do passo for demasiado grande, poderá ultrapassar a solução ideal. Se o tamanho do passo for muito pequeno, o treino demora mais tempo a encontrar a melhor solução. 
   
 5.  Executar o pipeline.  
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

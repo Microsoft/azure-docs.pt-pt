@@ -10,12 +10,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 2a7cab3422a0d44e45e622e2d556b5fec4ff659c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2521adfda731c06c879f5cfeb6283567228bf664
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669476"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919367"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Quickstart: Crie uma app Java Spring com configuração de aplicações azure
 
@@ -65,7 +65,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
         <version>1.1.2</version>
     </dependency>
     ```
@@ -75,7 +75,7 @@ Use o [Initializr de primavera](https://start.spring.io/) para criar um novo pro
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
         <version>1.2.2</version>
     </dependency>
     ```
