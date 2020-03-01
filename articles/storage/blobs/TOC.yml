@@ -284,7 +284,7 @@
                     - name: PowerShell
                       href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: CLI do Azure
-                      href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                      href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Gerir direitos de acesso com RBAC
                   items:
                     - name: Portal

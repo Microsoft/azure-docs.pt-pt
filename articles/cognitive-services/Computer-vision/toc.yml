@@ -5,6 +5,8 @@
   items:
     - name: O que é a Imagem Digitalizada?
       href: Home.md
+    - name: Novidades
+      href: whats-new.md
 - name: Guias de Início Rápido
   items:
     - name: Utilizar o SDK de cliente

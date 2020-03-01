@@ -6,17 +6,17 @@ metadata:
   description: O Reconhecedor de Formato do Azure é um serviço cognitivo que utiliza a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. A aprendizagem não supervisionada permite ao modelo compreender o esquema e os dados de campo sem etiquetagem de dados manual ou codificação intensiva. Também é possível efetuar uma aprendizagem não supervisionada com dados etiquetados manualmente. Os modelos preparados com dados etiquetados conseguem ter um desempenho melhor e trabalhar com documentos mais complicados.
   services: cognitive-services
   ms.service: cognitive-services
-  ms.subservice: form-recognizer
+  ms.subservice: forms-recognizer
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 1fe0aee8967a0072a7ae01abc5791e7a3fd0834d
-  ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+  ms.openlocfilehash: de869fd9beb66a4122c1204648d17cff480e4b7f
+  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/13/2020
-  ms.locfileid: "75921493"
+  ms.lasthandoff: 03/01/2020
+  ms.locfileid: "78206491"
 landingContent:
 - title: Sobre o Reconhecedor de Formato
   linkLists:
