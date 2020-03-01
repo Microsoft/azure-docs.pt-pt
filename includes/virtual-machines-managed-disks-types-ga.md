@@ -5,71 +5,71 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 02/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a355307eef9f5ce1f833cfd7924f5efa234a0cd7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e145cf481dd165144b188e6205e4b78cc61359fd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523568"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202549"
 ---
-## <a name="premium-ssd"></a>SSD Premium
+## <a name="premium-ssd"></a>Premium SSD
 
-O SSDs Premium do Azure fornece suporte de disco de alto desempenho e baixa latência para VMs (máquinas virtuais) com cargas de trabalho com uso intensivo de e/s (entrada/saída). Para aproveitar a velocidade e o desempenho dos discos de armazenamento Premium, você pode migrar os discos de VM existentes para o SSDs Premium. O SSDs Premium é adequado para aplicativos de produção de missão crítica. O SSDs Premium só pode ser usado com a série de VMs que são compatíveis com o armazenamento Premium.
+Os SSDs premium Azure fornecem suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) com cargas de trabalho intensivas de entrada/saída (IO). Para aproveitar a velocidade e desempenho dos discos de armazenamento premium, pode migrar os discos VM existentes para SSDs Premium. Os SSDs Premium são adequados para aplicações de produção críticas de missão. Os SSDs Premium só podem ser utilizados com séries VM compatíveis com armazenamento premium.
 
-Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Windows, incluindo quais tamanhos são compatíveis com o armazenamento Premium, consulte [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md). Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Linux, incluindo quais tamanhos são compatíveis com o armazenamento Premium, consulte [tamanhos de VM do Linux](../articles/virtual-machines/linux/sizes.md).
+Para saber mais sobre tipos e tamanhos vm individuais em Azure para Windows, incluindo quais os tamanhos compatíveis com armazenamento premium, consulte os [tamanhos do Windows VM](../articles/virtual-machines/windows/sizes.md). Para saber mais sobre tipos e tamanhos vm individuais em Azure para Linux, incluindo quais tamanhos são compatíveis com armazenamento premium, consulte [tamanhos De VM Linux](../articles/virtual-machines/linux/sizes.md). A partir de qualquer um desses artigos, você precisa verificar cada artigo de tamanho VM individual para determinar se é compatível com armazenamento premium.
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-Ao provisionar um disco de armazenamento Premium, ao contrário do armazenamento Standard, você garante a capacidade, o IOPS e a taxa de transferência desse disco. Por exemplo, se você criar um disco P50, o Azure provisionará a capacidade de armazenamento de 4.095 GB, 7.500 IOPS e taxa de transferência de 250 MB/s para esse disco. Seu aplicativo pode usar toda ou parte da capacidade e do desempenho. SSD Premium discos são projetados para fornecer latências de milissegundos de um dígito baixo e IOPS de destino e taxa de transferência descritas na tabela anterior 99,9% do tempo.
+Ao fornecer um disco de armazenamento premium, ao contrário do armazenamento padrão, é-lhe garantida a capacidade, iopS e a entrada desse disco. Por exemplo, se criar um disco P50, o Azure disponibiliza capacidade de armazenamento de 4.095-GB, 7.500 IOPS e 250-MB/s para esse disco. A sua aplicação pode utilizar a toda ou parte da capacidade e desempenho. Os discos SSD Premium são projetados para fornecer baixas latenciências de milissegundos de um dígito e iOPS alvo e entrada descrita na tabela anterior 99,9% das vezes.
 
-## <a name="bursting-preview"></a>Intermitência (visualização)
+## <a name="bursting-preview"></a>Rebentamento (pré-visualização)
 
-SSD Premium tamanhos menores que p30 agora oferecem intermitência de disco (versão prévia) e podem aumentar seu IOPS por disco até 3.500 e sua largura de banda de até 170 Mbps. A intermitência é automatizada e opera com base em um sistema de crédito. Os créditos são acumulados automaticamente em um Bucket de intermitência quando o tráfego de disco está abaixo do destino de desempenho provisionado e os créditos são consumidos automaticamente quando o tráfego ultrapassa o destino, até o limite de intermitência máximo. O limite máximo de intermitência define o teto de IOPS de disco & largura de banda, mesmo se você tiver créditos de intermitência a serem consumidos. A intermitência de disco fornece melhor tolerância a alterações imprevisíveis de padrões de e/s. Você pode aproveitá-lo melhor para inicialização de disco do so e aplicativos com tráfego com picos.    
+Os tamanhos Premium SSD inferiores ao P30 oferecem agora rutura de disco (pré-visualização) e podem rebentar o seu IOPS por disco até 3.500 e a sua largura de banda até 170 Mbps. A explosão é automatizada e funciona com base num sistema de crédito. Os créditos são automaticamente acumulados num balde de rutura quando o tráfego do disco está abaixo do objetivo de desempenho previsto e os créditos são automaticamente consumidos quando o tráfego explode para além do alvo, até ao limite máximo de disparo. O limite máximo de rutura define o teto do disco IOPS e largura de banda mesmo que tenha créditos de rutura para consumir. A rutura do disco proporciona uma melhor tolerância em mudanças imprevisíveis dos padrões io. Você pode melhor alavancar para o bota de disco OS e aplicações com tráfego espetado.    
 
-O suporte a intermitência de discos será habilitado em novas implantações de tamanhos de disco aplicáveis nas [regiões de visualização](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting#regional-availability) por padrão, sem a necessidade de ação do usuário. Para discos existentes dos tamanhos aplicáveis, você pode habilitar a intermitência com uma das duas opções: desanexar e anexar novamente o disco ou parar e reiniciar a VM conectada. Todos os tamanhos de disco aplicáveis de intermitência começarão com um Bucket de crédito de intermitência completa quando o disco for anexado a uma máquina virtual que dá suporte a uma duração máxima no limite de pico de intermitência de 30 minutos. Para saber mais sobre como a intermitência funciona nos discos do Azure, confira [SSD Premium intermitênciaing](../articles/virtual-machines/linux/disk-bursting.md). 
+O suporte de rutura dos discos será ativado em novas implementações de tamanhos de disco aplicáveis nas regiões de [pré-visualização](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting#regional-availability) por padrão, sem necessidade de ação do utilizador. Para os discos existentes dos tamanhos aplicáveis, pode ativar a explosão com uma das duas opções: desmontar e voltar a ligar o disco ou parar e reiniciar o VM anexo. Todos os tamanhos de disco aplicáveis começarão com um balde de crédito completo quando o disco estiver ligado a uma Máquina Virtual que suporta uma duração máxima no limite máximo de explosão de 30 minutos. Para saber mais sobre como funcionam os Discos Azure, veja [o SSD Premium a rebentar.](../articles/virtual-machines/linux/disk-bursting.md) 
 
 ### <a name="transactions"></a>Transações
 
-Para o SSDs Premium, cada operação de e/s menor ou igual a 256 KiB de taxa de transferência é considerada uma única operação de e/s. Operações de e/s maiores que 256 KiB de taxa de transferência são consideradas várias e/SS de tamanho de 256 KiB.
+Para SSDs premium, cada operação de I/S inferior ou igual a 256 KiB de entrada é considerada uma única operação de I/S. As operações de I/O superiores a 256 KiB de entrada são consideradas múltiplas I/Os de tamanho 256 KiB.
 
-## <a name="standard-ssd"></a>SSD Standard
+## <a name="standard-ssd"></a>SSD padrão
 
-O SSDs do Azure Standard é uma opção de armazenamento econômica, otimizada para cargas de trabalho que precisam de desempenho consistente em níveis de IOPS menores. A SSD Standard oferece uma boa experiência de nível de entrada para aqueles que desejam migrar para a nuvem, especialmente se você tiver problemas com a variação de cargas de trabalho em execução em suas soluções de HDD no local. Em comparação com HDDs padrão, o SSDs padrão oferece melhor disponibilidade, consistência, confiabilidade e latência. O SSDs padrão é adequado para servidores Web, servidores de aplicativos de IOPS baixa, aplicativos empresariais levemente usados e cargas de trabalho de desenvolvimento/teste. Como HDDs padrão, o SSDs padrão está disponível em todas as VMs do Azure.
+Os SSDs padrão Azure são uma opção de armazenamento rentável otimizada para cargas de trabalho que precisam de um desempenho consistente em níveis de IOPS mais baixos. O Standard SSD oferece uma boa experiência de nível de entrada para quem deseja mover-se para a nuvem, especialmente se tiver problemas com a variação de cargas de trabalho em funcionamento nas suas soluções HDD nas instalações. Em comparação com os HDDs padrão, os SSDs padrão proporcionam uma melhor disponibilidade, consistência, fiabilidade e latência. Os SSDs standard são adequados para servidores Web, servidores de aplicações IOPS baixos, aplicações empresariais levemente utilizadas e cargas de trabalho Dev/Test. Tal como os HDDs padrão, os SSDs padrão estão disponíveis em todos os VMs Azure.
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-O SSDs padrão é projetado para fornecer latências de milissegundos de dígito único e a IOPS e a taxa de transferência até os limites descritos na tabela anterior 99% do tempo. O IOPS e a taxa de transferência reais podem variar às vezes, dependendo dos padrões de tráfego. O SSDs padrão fornecerá um desempenho mais consistente do que os discos de HDD com menor latência.
+Os SSDs standard são projetados para fornecer latenciências de milissegundode de um dígito e o IOPS e a sua entrada até aos limites descritos na tabela anterior 99% do tempo. Os IOPS reais e a produção podem variar, por vezes, dependendo dos padrões de tráfego. Os SSDs padrão fornecerão um desempenho mais consistente do que os discos HDD com a latência mais baixa.
 
 ### <a name="transactions"></a>Transações
 
-Para SSDs padrão, cada operação de e/s menor ou igual a 256 KiB de taxa de transferência é considerada uma única operação de e/s. Operações de e/s maiores que 256 KiB de taxa de transferência são consideradas várias e/SS de tamanho de 256 KiB. Essas transações têm um impacto de cobrança.
+Para os SSDs padrão, cada operação de I/S inferior ou igual a 256 KiB de entrada é considerada uma única operação de I/S. As operações de I/O superiores a 256 KiB de entrada são consideradas múltiplas I/Os de tamanho 256 KiB. Estas transações têm um impacto na faturação.
 
-## <a name="standard-hdd"></a>HDD Standard
+## <a name="standard-hdd"></a>HDD padrão
 
-HDDs do Azure Standard fornecem suporte de disco confiável e de baixo custo para VMs que executam cargas de trabalho que não fazem distinção de latência. Com o armazenamento Standard, os dados são armazenados em HDDs (unidades de disco rígido). A latência, o IOPS e a taxa de transferência de discos de HDD Standard podem variar mais amplamente em comparação com discos baseados em SSD. HDD Standard discos são projetados para fornecer latências de gravação em 10 ms e latências de leitura em 20 ms para a maioria das operações de e/s, no entanto, o desempenho real pode variar dependendo do padrão de tamanho de e/s Ao trabalhar com VMs, você pode usar discos HDD padrão para cenários de desenvolvimento/teste e cargas de trabalho menos críticas. Os HDDs padrão estão disponíveis em todas as regiões do Azure e podem ser usados com todas as VMs do Azure.
+Os HDDs padrão Azure oferecem suporte fiável e de baixo custo para os VMs que executam cargas de trabalho insensíveis à latência. Com armazenamento padrão, os dados são armazenados em discos rígidos (HDDs). A latência, o IOPS e a entrada de discos HDD standard podem variar mais em comparação com os discos baseados em SSD. Os Discos HDD standard são projetados para entregar latenciências escritas abaixo de 10 ms e ler latenciências abaixo de 20ms para a maioria das operações io, no entanto o desempenho real pode variar dependendo do tamanho da IO e do padrão de carga de trabalho. Ao trabalhar com VMs, pode utilizar discos HDD padrão para cenários de dev/teste e cargas de trabalho menos críticas. HDDs standard estão disponíveis em todas as regiões do Azure e podem ser usados com todos os VMs Azure.
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
 ### <a name="transactions"></a>Transações
 
-Para HDDs padrão, cada operação de e/s é considerada como uma única transação, independentemente do tamanho de e/s. Essas transações têm um impacto de cobrança.
+Para os HDDs Standard, cada operação IO é considerada como uma única transação, independentemente do tamanho de I/O. Estas transações têm um impacto na faturação.
 
 ## <a name="billing"></a>Faturação
 
-Ao usar o Managed disks, as seguintes considerações de cobrança se aplicam:
+Ao utilizar discos geridos, aplicam-se as seguintes considerações de faturação:
 
 - Tipo de disco
-- Tamanho do disco gerenciado
+- tamanho do disco gerido
 - Instantâneos
 - Transferências de dados de saída
 - Número de transações
 
-**Tamanho do disco gerenciado**: os discos gerenciados são cobrados no tamanho provisionado. O Azure mapeia o tamanho provisionado (arredondado) para o tamanho de disco mais próximo oferecido. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte as tabelas anteriores. Cada disco é mapeado para uma oferta de tamanho de disco provisionado com suporte e é cobrado de acordo. Por exemplo, se você provisionou um SSD Standard GiB de 200, ele é mapeado para a oferta de tamanho de disco de E15 (256 GiB). A cobrança por qualquer disco provisionado é rateada por hora usando o preço mensal da oferta de armazenamento Premium. Por exemplo, se você provisionou um disco E10 e o excluiu após 20 horas, você será cobrado pela oferta de E10 rateada para 20 horas. Isso é independente da quantidade de dados reais gravados no disco.
+**Tamanho do disco gerido**: os discos geridos são faturados no tamanho provisionado. O Azure mapeia o tamanho provisionado (arredondado) para o tamanho do disco oferecido mais próximo. Para obter detalhes sobre os tamanhos do disco oferecidos, consulte as tabelas anteriores. Cada disco mapeia uma oferta de tamanho de disco suportado e é faturado em conformidade. Por exemplo, se forprovisionado um SSD Standard 200 GiB, ele mapeia a oferta de tamanho do disco de E15 (256 GiB). A faturação de qualquer disco provisionado é avaliada de hora em hora utilizando o preço mensal da oferta de Armazenamento Premium. Por exemplo, se forres um disco E10 e o apagares após 20 horas, és cobrado para a oferta E10, com prorated a 20 horas. Isto é independentemente da quantidade de dados reais escritos no disco.
 
-**Instantâneos**: os instantâneos são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, o instantâneo será cobrado somente pelo tamanho dos dados usados de 10 GiB.
+**Snapshots**: As imagens são faturadas com base no tamanho utilizado. Por exemplo, se criar uma imagem instantânea de um disco gerido com capacidade de 64 GiB e tamanho real de dados utilizados de 10 GiB, o instantâneo é faturado apenas para o tamanho de dados utilizado saturado de 10 GiB.
