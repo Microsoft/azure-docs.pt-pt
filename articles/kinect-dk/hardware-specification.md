@@ -14,12 +14,12 @@ ms.custom:
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: dbe4cac64e324c1188ec5a01b4da3935a5d5b479
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: e0d42a3ce1dd9deb5e73500371c367134ca852e1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371288"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619969"
 ---
 # <a name="azure-kinect-dk-hardware-specifications"></a>Especificações de hardware do Azure Kinect DK
 
@@ -71,7 +71,7 @@ O Azure Kinect DK integra uma câmara de profundidade de 1 Megapixel Time-of-Fli
 | WFOV unbinned   | 1024 x 1024  | 120° x 120° | 0, 5, 15           | 0,25 - 2,21 m      | 20,3 ms        |
 | IV Passivo      | 1024 x 1024  | N/D       | 0, 5, 15, 30       | N/D              | 1,6 ms         |
 
-\*15% a 95% de refletividade a 850nm, 2,2 μW/cm<sup>2</sup>/nm, desvio padrão de erro aleatório. ≤ 17 mm, erro sistemático típico < 11 mm + 0,1% de distância sem interferência de propagação por vários caminhos. Profundidade fornecida para além do intervalo indicado dependendo da refletividade do objeto.
+\*15% a 95% de refletividade a 850nm, 2,2 μW/cm<sup>2</sup>/nm, desvio padrão de erro aleatório. ≤ 17 mm, erro sistemático típico < 11 mm + 0,1% de distância sem interferência de propagação por vários caminhos. Poderá ser fornecida profundidade fora do intervalo de funcionamento indicado acima. Depende da refletividade dos objetos.
 
 ## <a name="color-camera-supported-operating-modes"></a>Modos de funcionamento suportados pela câmara de cor
 

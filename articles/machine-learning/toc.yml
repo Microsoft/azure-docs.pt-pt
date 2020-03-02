@@ -77,6 +77,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
     - name: Exemplos de MLOps ponto a ponto
       href: 'https://github.com/microsoft/MLOps'
+    - name: Conjuntos de dados de exemplo do estruturador
+      href: designer-sample-datasets.md
 - name: Conceitos
   items:
     - name: Área de trabalho

@@ -48,6 +48,8 @@
               href: entitlement-management-external-users.md
             - name: Ver relatórios e registos
               href: entitlement-management-reports.md
+            - name: Arquivar registos e relatórios
+              href: entitlement-management-logs-and-reporting.md
             - name: Resolução de problemas
               href: entitlement-management-troubleshoot.md
         - name: Proprietários de catálogo

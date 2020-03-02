@@ -1,6 +1,6 @@
 ---
-title: Compreender como um desconto de reserva é aplicado ao Armazenamento de Discos do Azure
-description: Saiba como o desconto de discos reservados do Azure é aplicado aos discos geridos SSD premium.
+title: Compreender como um desconto de reserva é aplicado ao armazenamento de discos do Azure
+description: Saiba como o desconto de discos reservados do Azure é aplicado aos seus discos geridos SSD premium do Azure.
 author: roygara
 ms.service: cost-management-billing
 ms.devlang: na
@@ -9,46 +9,46 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2020
 ms.author: rogarana
-ms.openlocfilehash: 7f23aaebc20b562768fb04ae988e4aff1b62fb21
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 18fdda3e28761fcf912b716f51b5e270a9b224d0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902139"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586653"
 ---
-# <a name="understand-how-your-reservation-discount-is-applied-to-azure-disk-storage"></a>Compreender como o desconto de reserva é aplicado ao Armazenamento de Discos do Azure
+# <a name="understand-how-your-reservation-discount-is-applied-to-azure-disk-storage"></a>Compreender como o desconto de reserva é aplicado ao armazenamento de discos do Azure
 
-Depois de comprar a capacidade reservada de discos do Azure, o desconto de reserva é automaticamente aplicado aos recursos dos discos que correspondam aos termos da reserva. O desconto de reserva aplica-se apenas à capacidade do disco. Os instantâneos de discos são cobrados com as tarifas pay as you go.
+Depois de comprar a capacidade reservada de discos do Azure, é aplicado automaticamente um desconto de reserva aos recursos dos discos que correspondam aos termos da reserva. O desconto de reserva aplica-se apenas aos SKUs de discos. Os instantâneos dos discos são cobrados às taxas pay as you go.
 
-Para obter mais informações acerca da reserva de Discos do Azure, veja [Reduzir custos com a Reserva de Discos do Azure](../../virtual-machines/linux/disks-reserved-capacity.md).
-Para obter mais informações acerca dos preços de reserva de Discos do Azure, veja os [Preços dos Discos do Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
+Para obter mais informações sobre a reserva de discos do Azure, veja [Reduzir custos com a reserva de discos do Azure](../../virtual-machines/linux/disks-reserved-capacity.md). Para obter mais informações sobre os preços de reserva de Discos do Azure, veja [Preços do Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="how-the-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
 
-O desconto de reserva de discos do Azure é um desconto “use-it-or-lose-it” (utilizar ou perder) e aplica-se aos recursos de discos geridos por hora. Caso não tenha quaisquer recursos de discos geridos que cumpram os termos da reserva para uma determinada hora, perderá uma quantidade de reserva para essa hora. Não é possível continuar com horas reservadas não utilizadas.
+O desconto de reserva de discos do Azure é um desconto “use-it-or-lose-it” ("utilizar ou perder"). É aplicado aos recursos de discos geridos de hora em hora. Numa determinada hora, se não tiver recursos de disco gerido que cumpram os termos da reserva, perde uma quantidade de reserva para essa hora. As horas não utilizadas não transitam.
 
-Quando elimina um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não for encontrado nenhum recurso correspondente no âmbito especificado, as horas reservadas serão perdidas.
+Quando elimina um recurso, o desconto de reserva aplica-se automaticamente a outro recurso correspondente no âmbito especificado. Se não for encontrado nenhum recurso correspondente, as horas reservadas perdem-se.
 
 ## <a name="discount-examples"></a>Exemplos de desconto
 
-Os seguintes exemplos mostram como o desconto de reserva de discos do Azure se aplica em função das implementações:
+Os seguintes exemplos mostram como o desconto de reserva de discos do Azure se aplica em função da sua implementação.
 
-Vamos supor que comprou 100 discos P30 (~1 TiB por disco) de capacidade reservada na região EUA Oeste 2 para o prazo de 1 ano. Vamos assumir que o custo desta reserva de amostra é de 140 100 $. Pode optar por pagar o montante total adiantado ou pagar prestações mensais fixas de 11 675 $ por mês durante os próximos 12 meses.
-Para estes exemplos, vamos assumir que se inscreveu num plano de pagamentos de reserva mensal. Os cenários seguintes descrevem o que acontece caso subaproveite a capacidade reservada, caso a utilize em excesso ou caso a coloque em escalões.
+Imagine que compra e reserva cem discos P30 na região E.U.A. Oeste 2 para um termo de um ano. Cada disco tem aproximadamente 1 TiB de armazenamento. Vamos presumir que o custo deste exemplo de reserva é 140,100 €. Pode optar por pagar o montante total à cabeça ou pagar prestações mensais fixas de 11 675 € durante os próximos 12 meses.
+
+Os cenários seguintes descrevem o que acontece caso subaproveite a capacidade reservada, caso a utilize em excesso ou caso a coloque em escalões. Nestes exemplos, vamos partir do princípio de que se inscreveu num plano de pagamentos de reserva mensal.
 
 ### <a name="underusing-your-capacity"></a>Subaproveitamento da capacidade
 
-Vamos supor que, numa determinada hora dentro do período de reserva, implementou apenas 99 SSD premium P30 da sua reserva de 100 discos P30. O 1 P30 restante não é aplicado a essa hora e não é transferido.
+Imagine que implementa apenas 99 dos cem discos P30 de unidade de estado sólido premium do Azure reservados durante uma hora dentro do período da reserva. O disco P30 que sobra não é aplicado no decorrer dessa hora. Também não transita.
 
 ### <a name="overusing-your-capacity"></a>Utilização em excesso da capacidade
 
-Vamos supor que, numa determinada hora dentro do período de reserva, utilizou 101 discos premium P30. O desconto de reserva é aplicado a 100 discos P30 e o 1 P30 restante é cobrado de acordo com as tarifas pay as you go para aquela hora. Durante a próxima hora, se a utilização diminuir para 100 discos P30, toda a utilização será abrangida pela reserva.
+Suponhamos que imagina 101 discos P30 SSD premium durante uma hora do período de reserva. O desconto de reserva aplica-se apenas a cem desses discos. O disco P30 restante é cobrado às taxas pay as you go nessa hora. Durante a próxima hora, se a utilização diminuir para cem discos P30, toda a utilização é abrangida pela reserva.
 
 ### <a name="tiering-your-capacity"></a>Colocar a capacidade em escalões
 
-Vamos supor que, numa determinada hora dentro do período da reserva, pretende utilizar um total de 200 SSDs premium P30. Durante os primeiros 30 minutos, utiliza apenas 100. Durante este período, a utilização está totalmente coberta, uma vez que fez uma reserva de 100 discos P30. Se, em seguida, descontinuar a utilização dos primeiros 100 (para que utilize zero) e, depois, começar a utilizar os outros 100 ao longo dos 30 minutos restantes, essa utilização também é coberta pela reserva.
+Vamos supor que, numa determinada hora dentro do período da reserva, pretende utilizar um total de 200 SSDs P30 premium. Suponha também que utiliza apenas cem discos durante os primeiros 30 minutos. Durante esse período, a utilização está totalmente coberta, uma vez que fez uma reserva de cem discos P30. Se, em seguida, descontinuar a utilização dos primeiros 100 (para que utilize zero) e, depois, começar a utilizar os outros 100 ao longo dos 30 minutos restantes, essa utilização também é coberta pela reserva.
 
-![Representação de exemplos de subaproveitamento, utilização em excesso e colação em escalões da capacidade](media/understand-disk-reservations/reserved-disks-example-scenarios.png)
+![Exemplo de subaproveitamento, utilização em excesso e colação em escalões da capacidade](media/understand-disk-reservations/reserved-disks-example-scenarios.png)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 

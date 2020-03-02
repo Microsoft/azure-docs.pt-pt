@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.author: banders
-ms.openlocfilehash: 2689bdeb003cec0050141374165142a62f9ea337
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 77d663fa01e24acf63acd68d0b8d7cf4cc741055
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200406"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587095"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Comprar reservas com pagamentos mensais
 
@@ -48,7 +48,7 @@ Para ver o plano de pagamentos após a compra, selecione a reserva, clique em **
 
 Pode ver os pagamentos que foram efetuados através de APIs, dados de utilização e análise de custos. Para as reservas pagas mensalmente, o valor de frequência é apresentado como **periódico** nos dados de utilização e na API de Custos de Reservas. Para as reservas pagas antecipadamente, o valor é apresentado como **único**.
 
-Análise de custos que mostra as compras mensais na vista predefinida. Aplique o filtro **compra** em **Tipo de custo** e **periódico** em **Frequência** para ver todas as compras. Para ver apenas as reservas, aplique um filtro para **Reserva**.
+Análise de custos que mostra as compras mensais na vista predefinida. Para ver todas as compras, aplique o filtro **compra** em **Tipo de custo** e **recorrente** em **Frequência**. Para ver apenas as reservas, aplique um filtro para **Reserva**.
 
 ![Exemplo que mostra os custos da compra de reservas na análise de custos](./media/monthly-payments-reservations/cost-analysis.png)
 
@@ -62,7 +62,7 @@ Tal como outras reservas, pode pedir o reembolso ou trocar reservas compradas co
 
 Ao trocar uma reserva paga mensalmente, o custo de duração total da nova compra deve ser superior ao dos pagamentos restantes que são cancelados para a reserva devolvida. Não existem quaisquer outros limites ou taxas para trocas. Pode trocar uma reserva paga antecipadamente para comprar uma nova reserva que é faturada mensalmente. No entanto, o valor de duração da nova reserva deve ser superior ao valor proporcional da reserva a ser devolvida.
 
-Caso cancele uma reserva paga mensalmente, a Microsoft poderá aplicar uma taxa de cancelamento aos futuros pagamentos consolidados que são cancelados. Os restantes pagamentos consolidados acumulam-se até o limite de reembolso de 50 000 USD.
+Caso cancele uma reserva paga mensalmente, a Microsoft poderá aplicar uma taxa de cancelamento de 12% aos futuros pagamentos vinculados que sejam cancelados. No entanto, a Microsoft não está a cobrar esta penalização de momento. Os pagamentos vinculados cancelados são acumulados para o limite de reembolso de 50 000 $. Se for cobrada uma penalização de cancelamento, o limite de reembolso não é afetado.
 
 Para obter mais informações sobre trocas e reembolsos, veja [Trocas e reembolsos personalizados das Reservas do Azure](exchange-and-refund-azure-reservations.md).
 

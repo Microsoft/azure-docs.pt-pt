@@ -7,12 +7,12 @@ ms.author: banders
 ms.date: 02/13/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: 4e4b039b6ad6fad8a414fc9703309fa76853ef09
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 761f4345c591864b8158d7216d737ac287692252
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199675"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651394"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro às contas do Azure
 
@@ -29,6 +29,8 @@ Antes de ligar o ID de parceiro, o cliente deve fornecer acesso aos recursos do 
 - **Conta de diretório**: o cliente pode criar uma conta de utilizador para si no seu próprio diretório e atribuir qualquer função RBAC.
 
 - **Principal de serviço**: o cliente pode adicionar uma aplicação ou script da sua organização ao diretório e atribuir qualquer função RBAC. A identidade da aplicação ou do script é conhecida como um principal de serviço.
+
+- **Azure Lighthouse**: O seu cliente pode delegar uma subscrição (ou um grupo de recursos) para que os seus utilizadores possam trabalhar na mesma a partir do seu inquilino. Para obter mais informações, veja [Gestão de recursos delegados do Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
 
 ## <a name="link-to-a-partner-id"></a>Ligar a um ID de parceiro
 
@@ -154,3 +156,7 @@ Não consegue ver o cliente nos relatórios pelos seguintes motivos
 **O ID de parceiro da ligação funciona com o Azure Stack?**
 
 Sim, pode ligar o ID de parceiro com o Azure Stack.
+
+**Como posso associar o meu ID de parceiro se a minha empresa utilizar o [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) para aceder aos recursos do cliente?**
+
+Se integrar clientes na gestão de recursos delegados do Azure mediante a [publicação de uma oferta de serviços geridos no Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), o seu ID do MPN é adicionado automaticamente. Se [integrar clientes através da implementação de modelos do Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), terá de associar o ID do Microsoft Partner Network (MPN) a, pelo menos, uma conta de utilizador que tenha acesso a cada subscrição integrada. Tenha em conta que terá de fazer a associação no inquilino do seu fornecedor de serviço. Por motivos de simplicidade, recomendamos criar uma conta de principal de serviço no inquilino associado ao ID do MPN e conceder acesso de Leitor à mesma para cada cliente que integrar.

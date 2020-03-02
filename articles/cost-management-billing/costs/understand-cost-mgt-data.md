@@ -4,17 +4,17 @@ description: Este artigo ajuda-o a compreender melhor os dados que estão inclu�
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 39f2aab72491ffdf2b583879181a247d3653647f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199896"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560614"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -135,9 +135,9 @@ Eis algumas sugestões para trabalhar com etiquetas:
 - Utilize a API de Etiquetas em conjunto com Query ou UsageDetails para obter todos os custos com base nas etiquetas atuais.
 
 
-**Avaliação gratuita para atualização de Pay As You Go**
+## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Atualização de avaliação gratuita para pay as you go
 
-Os clientes com uma oferta de Avaliação Gratuita (044P) a converter para a oferta de Pay As You Go (003P) podem ver a utilização deles durante o período de Avaliação Gratuita. Contudo, perdem a visibilidade da utilização da Avaliação Gratuita após a conversão. Depois da conversão, apenas a utilização e os custos Pay As You Go são mostrados no Cost Management.
+Para obter mais informações sobre a disponibilidade dos serviços de avaliação gratuita depois de atualizar da Avaliação Gratuita para os preços pay as you go, veja as [FAQ da conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/).
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Agendamento de atualização de dados de utilização classificada
 
@@ -157,6 +157,17 @@ Subscrições Pay As You Go – se o mês de faturação terminar em 15 de maio,
 ### <a name="rerated-data"></a>Dados reclassificados
 
 Quer utilize as [APIs do Cost Management](../index.yml), o Power BI ou o portal do Azure para obter dados, conte com a reclassificação dos custos do período de faturação atual e, consequentemente, com a consequente alteração, até que a faturação seja fechada.
+
+## <a name="cost-rounding"></a>Arredondamento dos custos
+
+Os custos apresentados no Cost Management são arredondados. Os custos devolvidos pela API Query não são arredondados. Por exemplo:
+
+- Análise de custos no portal do Azure - os custos são arredondados de acordo com as regras de arredondamento normais, ou seja, os valores iguais ou superiores a 0,5 são arredondados para cima, caso contrário, são arredondados para baixo. O arredondamento só é aplicado quando são apresentados valores. O arredondamento não se verifica durante o processamento de dados e a agregação. Por exemplo, a análise de custos agrega os custos da seguinte forma:
+  - Custo 1: 0,004 €
+  - Custo 2: 0,004 €
+  - Custo agregado produzido: 0,004 + 0,004 = 0,008. O custo apresentado é 0,01 €.
+- API Query - os custos são mostrados com oito casas decimais e não são arredondados.
+
 
 ## <a name="usage-data-update-frequency-varies"></a>A frequência de atualização dos dados de utiliza é variável
 

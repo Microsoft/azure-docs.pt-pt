@@ -8,12 +8,12 @@ metadata:
   ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 1228c9f645ddb100e74c95cd13eef4ee4d70f248
-  ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+  ms.openlocfilehash: 9a37c850426cab0d940ab546084c1c64811ccb64
+  ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/20/2020
-  ms.locfileid: "77484830"
+  ms.lasthandoff: 02/28/2020
+  ms.locfileid: "78164564"
 landingContent:
 - title: Acerca do Azure Database Migration Service
   linkLists:
@@ -103,6 +103,8 @@ landingContent:
       url: known-issues-azure-postgresql-online.md
     - text: Problemas conhecidos - Migração online para a BD do Azure para MySQL
       url: known-issues-azure-mysql-online.md
+    - text: Problemas conhecidos - Migração do MongoDB para o Azure Cosmos DB
+      url: known-issues-mongo-cosmos-db.md
   - linkListType: video
     links:
     - text: Migrar o PostgreSQL para a BD do Azure para PostgreSQL - Servidor único

@@ -181,6 +181,8 @@
           href: display-feature-information-android.md
         - name: Adicionar uma camada de mosaico
           href: how-to-add-tile-layer-android-map.md
+        - name: Mostrar dados de tráfego
+          href: how-to-show-traffic-android.md
     - name: Fornecer comentários sobre dados
       href: how-to-use-feedback-tool.md
 - name: Referência

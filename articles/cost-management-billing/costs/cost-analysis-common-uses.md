@@ -4,16 +4,16 @@ description: Este artigo explica como pode obter resultados para tarefas comuns 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 2102e3af26c8f5c4ed85543bc19360a923d070f3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1d9a498185e76f9771ec98656b1cad914b0f3214
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199981"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562586"
 ---
 # <a name="common-cost-analysis-uses"></a>Utilizações comuns da análise de custos
 
@@ -83,6 +83,9 @@ O ficheiro de relatório dos detalhes de utilização, no formato CSV, proporcio
 ## <a name="view-monthly-ea-cost-breakdown"></a>Ver a discriminação mensal dos custos do EA
 
 A inscrição EA acumula os custos de toda a organização. Compreender a forma como os custos são acumulados e faturados ao longo do tempo ajudará a abordar os intervenientes corretos para garantir que os custos são geridos de forma responsável.
+
+Só são mostrados os custos da inscrição ativa. Se tiver transferido uma inscrição (inativa) para uma nova (ativa), os custos da inscrição anterior não são apresentados no Cost Management.
+
 
 1. No portal do Azure, aceda a **Cost Management + Faturação** > **Descrição geral**.
 1. Clique em **Discriminação** para o mês atual e veja a discriminação da sua alocação monetária.  

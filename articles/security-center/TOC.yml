@@ -6,8 +6,16 @@
       href: security-center-intro.md
     - name: Plataformas suportadas
       href: security-center-os-coverage.md
-    - name: Funcionalidades suportadas
-      href: security-center-services.md
+    - name: Funcionalidades do Centro de Segurança
+      items:
+        - name: Cobertura de funcionalidades para VMs
+          href: security-center-services.md
+        - name: Cobertura de funcionalidades para recursos do Azure PaaS
+          href: features-paas.md
+    - name: Recomendações de segurança
+      href: recommendations-reference.md
+    - name: Alertas de segurança e a cadeia de eliminação de intenção
+      href: alerts-reference.md
 - name: Guias de Início Rápido
   expanded: true
   items:

@@ -1,6 +1,7 @@
 - name: Documentação do Reconhecedor de Formato
   href: index.yml
 - name: Descrição geral
+  expanded: true
   items:
     - name: O que é o Reconhecedor de Formato?
       href: overview.md
@@ -45,6 +46,8 @@
   items:
     - name: Criar um conjunto de dados de preparação
       href: build-training-data-set.md
+    - name: Implementar a ferramenta de etiquetagem de exemplo
+      href: deploy-label-tool.md
     - name: Utilizar contentores
       items:
         - name: Instalar e executar contentores

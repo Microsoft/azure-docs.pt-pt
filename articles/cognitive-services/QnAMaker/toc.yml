@@ -11,53 +11,17 @@
     - name: Com o portal Criador de FAQ
       items:
         - name: 1. Criar uma base de dados de conhecimento
-          href: quickstarts/create-publish-knowledge-base.md
+          href: Quickstarts/create-publish-knowledge-base.md
         - name: 2. Adicionar perguntas com metadados
-          href: quickstarts/add-question-metadata-portal.md
+          href: Quickstarts/add-question-metadata-portal.md
         - name: 3. Obter respostas com o Postman ou cURL
           href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - name: Testar com o ficheiro batch
       href: Quickstarts/batch-testing.md
-    - name: Utilizar APIs REST
-      items:
-        - name: Criar uma nova base de dados de conhecimento
-          items:
-            - name: 'C#'
-              href: Quickstarts/create-new-kb-csharp.md
-            - name: Ir
-              href: Quickstarts/create-new-kb-go.md
-            - name: Java
-              href: Quickstarts/create-new-kb-java.md
-            - name: Node.js
-              href: Quickstarts/publish-kb-nodejs.md
-            - name: Python
-              href: Quickstarts/create-new-kb-python.md
-        - name: Publicar uma base de dados de conhecimento
-          items:
-            - name: 'C#'
-              href: Quickstarts/publish-kb-csharp.md
-            - name: Ir
-              href: Quickstarts/publish-kb-go.md
-            - name: Java
-              href: Quickstarts/publish-kb-java.md
-            - name: Node.js
-              href: 'Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base'
-            - name: Python
-              href: Quickstarts/publish-kb-python.md
-        - name: Obter resposta
-          items:
-            - name: 'C#'
-              href: Quickstarts/get-answer-from-knowledge-base-csharp.md
-            - name: Ir
-              href: Quickstarts/get-answer-from-knowledge-base-go.md
-            - name: Java
-              href: Quickstarts/get-answer-from-knowledge-base-java.md
-            - name: Node.js
-              href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
-            - name: Python
-              href: Quickstarts/get-answer-from-knowledge-base-python.md
+    - name: Utilizar REST
+      href: Quickstarts/quickstart-rest-curl.md
     - name: Utilizar o SDK
-      href: ./Quickstarts/quickstart-sdk.md
+      href: Quickstarts/quickstart-sdk.md
 - name: Tutoriais
   items:
     - name: Criar e responder a partir da BDC

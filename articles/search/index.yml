@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 02/25/2020
-  ms.openlocfilehash: b1df45b155e9c9d1bd4433d7ddc765c126686a07
-  ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+  ms.openlocfilehash: fbfa0b08fbe8230253c9b1d8fca835538f2884ca
+  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/26/2020
-  ms.locfileid: "77614959"
+  ms.lasthandoff: 03/01/2020
+  ms.locfileid: "78205964"
 landingContent:
 - title: Acerca da Pesquisa Cognitiva
   linkLists:
@@ -56,7 +56,7 @@ landingContent:
       url: search-get-started-portal.md
     - text: Criar uma aplicação
       url: search-create-app-portal.md
-    - text: Ingerir e extrair texto não processado e imagens
+    - text: Extrair texto de imagens e ficheiros de aplicações
       url: cognitive-search-quickstart-blob.md
 - title: Indexar quaisquer dados
   linkLists:

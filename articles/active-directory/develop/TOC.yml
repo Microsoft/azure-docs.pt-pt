@@ -29,9 +29,9 @@
           href: quickstart-v2-javascript.md
     - name: Web Apps
       items:
-        - name: ASP .NET
+        - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: ASP .NET Core
+        - name: Núcleo de ASP.NET
           href: quickstart-v2-aspnet-core-webapp.md
         - name: NodeJS
           href: quickstart-v2-nodejs-webapp.md
@@ -42,9 +42,9 @@
           href: quickstart-v2-python-webapp.md
     - name: APIs da Web
       items:
-        - name: ASP .NET
+        - name: ASP.NET
           href: quickstart-v2-dotnet-native-aspnet.md
-        - name: ASP .NET Core
+        - name: Núcleo de ASP.NET
           href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
     - name: Aplicações móveis e de ambiente de trabalho
       items:
@@ -70,7 +70,7 @@
           href: tutorial-v2-javascript-spa.md
     - name: Web Apps
       items:
-        - name: ASP .NET
+        - name: ASP.NET
           href: tutorial-v2-asp-webapp.md
     - name: Aplicações móveis e de ambiente de trabalho
       items:
@@ -242,13 +242,15 @@
           href: brokered-auth.md
         - name: Migração
           items:
+            - name: Descrição geral
+              href: msal-migration.md
             - name: Migrar para MSAL.NET
               href: msal-net-migration.md
             - name: Migrar para MSAL.js
               href: msal-compare-msal-js-and-adal-js.md
             - name: Migrar para MSAL.Android
               href: migrate-android-adal-msal.md
-            - name: Migrar para MSAL.iOS/MacOS
+            - name: Migrar para MSAL.iOS/macOS
               href: migrate-objc-adal-msal.md
             - name: Migrar para MSAL Python
               href: migrate-python-adal-msal.md

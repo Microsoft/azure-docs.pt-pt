@@ -103,7 +103,7 @@
   items:
     - name: Planear e configurar
       items:
-        - name: Redes virtuais
+        - name: Planear redes virtuais
           href: virtual-network-vnet-plan-design-arm.md
         - name: Resolução de nomes para VMs e serviços cloud
           href: virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -209,41 +209,64 @@
               href: virtual-network-public-ip-address.md
             - name: Gerir prefixo de IP público
               href: manage-public-ip-address-prefix.md
-            - name: Adicionar ou remover endereços IP das NICs
+            - name: Adicionar ou remover endereço IP dos NICs
               href: virtual-network-network-interface-addresses.md
     - name: Segurança
       items:
-        - name: Gerir proteção contra DDoS
-          href: manage-ddos-protection.md
-        - name: Gerir grupos de segurança de rede
-          href: manage-network-security-group.md
-        - name: Parceiros de integração do DDoS Protection Standard
-          href: ddos-protection-partner-onboarding.md
-        - name: Filtrar o tráfego de rede com grupos de segurança de rede
+        - name: Restringir o acesso com grupos de segurança de rede
           items:
+            - name: Portal do Azure
+              href: tutorial-restrict-network-access-to-resources.md
+            - name: Azure PowerShell
+              href: tutorial-restrict-network-access-to-resources-powershell.md
+            - name: CLI do Azure
+              href: tutorial-restrict-network-access-to-resources-cli.md
+            - name: Gerir grupos de segurança de rede
+              href: manage-network-security-group.md
+        - name: Filtre o tráfego de rede
+          items:
+            - name: Portal do Azure
+              href: tutorial-filter-network-traffic.md
             - name: Azure PowerShell
               href: tutorial-filter-network-traffic-powershell.md
             - name: CLI do Azure
               href: tutorial-filter-network-traffic-cli.md
-        - name: Tráfego de rota utilizando NVA
+        - name: Isolamento da rede
           items:
+            - name: Utilizar pontos finais privados
+              items:
+                - name: Portal do Azure
+                  href: ../private-link/create-private-endpoint-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+                - name: Azure PowerShell
+                  href: ../private-link/create-private-endpoint-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+                - name: CLI do Azure
+                  href: ../private-link/create-private-endpoint-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+            - name: Utilizar pontos finais de serviço
+              items:
+                - name: Portal do Azure
+                  href: tutorial-restrict-network-access-to-resources.md
+                - name: Azure PowerShell
+                  href: tutorial-restrict-network-access-to-resources-powershell.md
+                - name: CLI do Azure
+                  href: tutorial-restrict-network-access-to-resources-cli.md
+            - name: Criar políticas de ponto final
+              href: virtual-network-service-endpoint-policies-portal.md
+        - name: Encaminhe o tráfego de rede
+          items:
+            - name: Portal do Azure
+              href: tutorial-create-route-table-portal.md
             - name: Azure PowerShell
               href: tutorial-create-route-table-powershell.md
             - name: CLI do Azure
               href: tutorial-create-route-table-cli.md
             - name: Ansible
               href: /azure/ansible/ansible-create-configure-route-table
-              maintainContext: true
-        - name: Gerir tabelas de rotas
-          href: manage-route-table.md
-        - name: Utilizar pontos finais de serviço
-          items:
-            - name: Azure PowerShell
-              href: tutorial-restrict-network-access-to-resources-powershell.md
-            - name: CLI do Azure
-              href: tutorial-restrict-network-access-to-resources-cli.md
-        - name: Criar políticas de ponto final de serviço - Portal
-          href: virtual-network-service-endpoint-policies-portal.md
+            - name: Gerir tabelas de rotas
+              href: manage-route-table.md
+        - name: Gerir proteção contra DDoS
+          href: manage-ddos-protection.md
+        - name: Parceiros de integração do DDoS Protection Standard
+          href: ddos-protection-partner-onboarding.md
         - name: Cenários de segurança
           items:
             - name: Proteger redes com aplicações virtuais
@@ -272,6 +295,12 @@
               href: virtual-networks-static-private-ip-arm-ps.md
             - name: CLI do Azure
               href: virtual-networks-static-private-ip-arm-cli.md
+        - name: Criar VM - IP privado estático (clássico)
+          items:
+            - name: Portal do Azure
+              href: virtual-networks-static-private-ip-classic-pportal.md
+            - name: Azure PowerShell
+              href: virtual-networks-static-private-ip-classic-ps.md
         - name: Criar VM - vários IP
           items:
             - name: Portal do Azure

@@ -7,15 +7,17 @@ ms.service: cost-management-billing
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: a5a158ce67d2d0c7dd947f7b35a96d12429c8ec9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 9f9552c134fa7653e4100cae3c731e4c670d44e3
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200681"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560546"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral das APIs de Relatórios para clientes Enterprise
 As APIs de Relatórios permitem que os clientes Enterprise do Azure extraiam programaticamente dados de consumo e de faturação para as ferramentas de análise de dados preferidas. Os clientes Enterprise assinaram um [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para fazer alocações monetárias negociadas e aceder a preços personalizados para os recursos do Azure.
+
+Todos os parâmetros de data e hora necessários para as APIs têm de ser representados como valores combinados de Hora Universal Coordenada (UTC). Os valores que as APIs devolvem são apresentados no formato UTC.
 
 ## <a name="enabling-data-access-to-the-api"></a>Permitir que a API aceda aos dados
 * **Gerar ou obter a chave de API** – inicie sessão no Enterprise Portal e navegue para Relatórios > Transferir Utilização > Chave de Acesso da API para gerar ou obter a chave de API.
