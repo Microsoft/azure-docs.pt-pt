@@ -619,6 +619,7 @@
                   href: cassandra-spark-table-copy-ops.md
             - name: Gerir com modelos do Resource Manager
               href: manage-cassandra-with-resource-manager.md
+              displayName: ARM
             - name: Gerir com o PowerShell
               href: powershell-samples-cassandra.md
             - name: Gerir com a CLI do Azure
@@ -706,6 +707,7 @@
               displayName: custom commands
             - name: Gerir com modelos do Resource Manager
               href: manage-mongodb-with-resource-manager.md
+              displayName: ARM
             - name: Gerir com o PowerShell
               href: powershell-samples-mongodb.md
             - name: Gerir com a CLI do Azure
@@ -767,6 +769,7 @@
               href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
             - name: Gerir com modelos do Resource Manager
               href: manage-gremlin-with-resource-manager.md
+              displayName: ARM
             - name: Gerir com o PowerShell
               href: powershell-samples-gremlin.md
             - name: Gerir com a CLI do Azure
@@ -823,6 +826,7 @@
               href: table-storage-design-guide.md
             - name: Gerir com modelos do Resource Manager
               href: manage-table-with-resource-manager.md
+              displayName: ARM
             - name: Gerir com o PowerShell
               href: powershell-samples-table.md
             - name: Gerir com a CLI do Azure
@@ -859,6 +863,7 @@
           href: manage-with-cli.md
         - name: Utilizar modelos do Azure Resource Manager
           href: manage-sql-with-resource-manager.md
+          displayName: ARM
     - name: Distribuição global
       items:
         - name: Configurar multimestre
@@ -1110,6 +1115,7 @@
       href: /rest/api/cosmos-db-resource-provider/
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.documentdb/allversions
+      displayName: ARM
     - name: Notas de versão do emulador
       href: local-emulator-release-notes.md
 - name: Recursos

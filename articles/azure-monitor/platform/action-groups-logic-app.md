@@ -2,23 +2,23 @@
 title: Como desencadear ações complexas com alertas do Monitor Azure
 description: Aprenda a criar uma ação lógica de aplicações para processar alertas do Monitor Azure.
 author: dkamstra
-services: azure-monitor
+ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: adc53ad1c75b3251c5672d9078062631b107cc87
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669136"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206241"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como desencadear ações complexas com alertas do Monitor Azure
 
 Este artigo mostra-lhe como configurar e desencadear uma aplicação lógica para criar uma conversa em Microsoft Teams quando um alerta dispara.
 
 ## <a name="overview"></a>Descrição geral
+
 Quando um alerta de Monitor Azure dispara, chama um grupo de [ação](../../azure-monitor/platform/action-groups.md). Os grupos de ação permitem-lhe desencadear uma ou mais ações para notificar os outros sobre um alerta e também remedia-lo.
 
 O processo geral é:
@@ -68,10 +68,10 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
                 "activityLog": {
                     "authorization": {
                     "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/�"
+                    "scope": "/subscriptions/…"
                     },
                     "channels": "Operation",
-                    "claims": "�",
+                    "claims": "…",
                     "caller": "logicappdemo@contoso.com",
                     "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
                     "description": "",
@@ -81,12 +81,12 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
                     "level": "Informational",
                     "operationName": "microsoft.insights/activityLogAlerts/write",
                     "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/�",
+                    "resourceId": "/subscriptions/…",
                     "resourceGroupName": "LOGICAPP-DEMO",
                     "resourceProviderName": "microsoft.insights",
                     "status": "Succeeded",
                     "subStatus": "",
-                    "subscriptionId": "�",
+                    "subscriptionId": "…",
                     "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
                     "resourceType": "microsoft.insights/activityLogAlerts"
                 }
@@ -104,7 +104,7 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
 
     ![Adicione uma ação](media/action-groups-logic-app/add-action.png "Adicionar uma ação")
 
-11. Procure e selecione o conector Microsoft Teams. Escolha a ação de mensagens Post da **Microsoft Teams Post.**
+11. Procure e selecione o conector Microsoft Teams. Escolha as **Equipas microsoft - post message** action.
 
     ![Ações das Equipas microsoft](media/action-groups-logic-app/microsoft-teams-actions.png "Ações das Equipas microsoft")
 
@@ -128,7 +128,7 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
 
 14. No topo do **Logic Apps Designer**, selecione **Save** para salvar a sua aplicação lógica.
 
-15. Abra o seu grupo de ação existente e adicione uma ação para referenciar a aplicação lógica. Se não tiver um grupo de ação existente, consulte Criar e gerir grupos de [ação no portal Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) para criar um. Não se esqueça de guardar as suas mudanças.
+15. Abra o seu grupo de ação existente e adicione uma ação para referenciar a aplicação lógica. Se não tiver um grupo de ação existente, consulte [Create e gereos grupos](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) de ação no portal Azure para criar um. Não se esqueça de guardar as suas mudanças.
 
     ![Atualizar o grupo de ação](media/action-groups-logic-app/update-action-group.png "Atualizar o grupo de ação")
 
@@ -150,7 +150,7 @@ As entradas de Saúde do Serviço Azure fazem parte do registo de atividade. O p
                 "activityLog": {
                     "channels": "Admin",
                     "correlationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
-                    "description": "�",
+                    "description": "…",
                     "eventSource": "ServiceHealth",
                     "eventTimestamp": "2018-04-03T22:44:43.7467716+00:00",
                     "eventDataId": "9ce152f5-d435-ee31-2dce-104228486a6d",
@@ -158,23 +158,23 @@ As entradas de Saúde do Serviço Azure fazem parte do registo de atividade. O p
                     "operationName": "Microsoft.ServiceHealth/incident/action",
                     "operationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
                     "properties": {
-                        "title": "�",
-                        "service": "�",
+                        "title": "...",
+                        "service": "...",
                         "region": "Global",
-                        "communication": "�",
+                        "communication": "...",
                         "incidentType": "Incident",
-                        "trackingId": "�",
+                        "trackingId": "...",
                         "impactStartTime": "2018-03-22T21:40:00.0000000Z",
                         "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
                         "impactedServices": "[{"ImpactedRegions"}]",
-                        "defaultLanguageTitle": "�",
-                        "defaultLanguageContent": "�",
+                        "defaultLanguageTitle": "...",
+                        "defaultLanguageContent": "...",
                         "stage": "Active",
                         "communicationId": "11000001466525",
                         "version": "0.1.1"
                     },
                     "status": "Active",
-                    "subscriptionId": "�",
+                    "subscriptionId": "...",
                     "submissionTimestamp": "2018-04-03T22:44:50.8013523+00:00"
                 }
             },
@@ -237,7 +237,7 @@ O processo de criação de um alerta métrico é semelhante à criação de um a
         "status": "Activated",
         "context": {
         "timestamp": "2018-04-09T19:00:07.7461615Z",
-        "id": "�",
+        "id": "...",
         "name": "TEST-VM CPU Utilization",
         "description": "",
         "conditionType": "SingleResourceMultipleMetricCriteria",
@@ -259,12 +259,12 @@ O processo de criação de um alerta métrico é semelhante à criação de um a
             }
             ]
         },
-        "subscriptionId": "�",
+        "subscriptionId": "...",
         "resourceGroupName": "TEST",
         "resourceName": "test-vm",
         "resourceType": "Microsoft.Compute/virtualMachines",
-        "resourceId": "�",
-        "portalLink": "�"
+        "resourceId": "...",
+        "portalLink": "..."
         },
         "properties": {}
     }
@@ -284,7 +284,7 @@ O processo de criação de um alerta métrico é semelhante à criação de um a
 
       !["Alerta métrico situação real pós ação"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Alerta métrico verdadeira condição pós ação")
 
-  1. Na condição **Falsa,** defina uma ação do Microsoft Teams para comunicar que o alerta métrico não corresponde às expectativas da aplicação lógica. Inclua a carga útil da JSON. Note como referenciar o conteúdo dinâmico `triggerBody` na expressão `json()`.
+  1. Na condição **falsa,** defina uma ação do Microsoft Teams para comunicar que o alerta métrico não corresponde às expectativas da aplicação lógica. Inclua a carga útil da JSON. Note como referenciar o conteúdo dinâmico `triggerBody` na expressão `json()`.
 
       !["Alerta métrico de falsas condições pós ação"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Alerta métrico de falsacondição pós ação")
 
