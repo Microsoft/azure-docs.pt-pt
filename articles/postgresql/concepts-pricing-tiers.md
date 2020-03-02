@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 635a66f0275d4df4f858bff61be80900dc58c6fb
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 2e5b01a271eb290229904fc98d1268760e01620d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164479"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208887"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Níveis de preços na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -67,7 +67,7 @@ Pode monitorizar o seu consumo de I/S no portal Azure ou utilizando comandos Azu
 
 ### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
 
-Os servidores com armazenamento com menos de 10 GB de armazenamento provisionado são marcados apenas de leitura se o armazenamento gratuito for inferior a 512 MB do tamanho de armazenamento provisionado. Os servidores com armazenamento com menos de 100 GB de armazenamento provisionado são marcados apenas de leitura se o armazenamento gratuito for inferior a 5% do tamanho de armazenamento provisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
+Os servidores com armazenamento amenos de 100 GB são marcados apenas para leitura se o armazenamento gratuito for inferior a 512MB ou 5% do tamanho de armazenamento provisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
 
 Por exemplo, se tiver aprovisionado 110 GB de armazenamento, e a utilização real ultrapassar os 105 GB, o servidor é marcado apenas para leitura. Em alternativa, se tiver aprovisionado 5 GB de armazenamento, o servidor é marcado apenas quando o armazenamento gratuito atinge menos de 512 MB.
 

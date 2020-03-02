@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 03/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11e4768c5cf6df784c8f32aff2f884adfa6b68ab
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: a2fda5d1bdd00a601df363bd930e5f2f6d610c7f
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78204859"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208717"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Construir um ponto final SCIM e configurar o fornecimento de utilizadores com o Azure Ative Directory (Azure AD)
 
@@ -229,7 +229,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 
 #### <a name="create-user"></a>Criar utilizador
 
-###### <a name="request"></a>Pedir
+###### <a name="request"></a>Pedido
 
 *POST /Utilizadores*
 ```json
@@ -317,7 +317,7 @@ Esta secção fornece os pedidos de SCIM emitidos pelo cliente Azure AD SCIM e r
 }
 ```
 
-###### <a name="request"></a>Pedir
+###### <a name="request"></a>Pedido
 *GET /Utilizadores/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Resposta (Utilizador não encontrado. Note que o detalhe não é necessário, apenas estado.)
@@ -755,72 +755,7 @@ TLS 1.2 Cifra Suites barra mínima:
 Agora que desviaste o teu esquema e compreendeste a implementação do Azure AD SCIM, podes começar a desenvolver o teu ponto final do SCIM. Em vez de começar do zero e construir a implementação completamente por conta própria, pode contar com uma série de bibliotecas SCIM de código aberto publicadas pela commuinty SCIM.  
 O código de [referência](https://aka.ms/SCIMReferenceCode) de código de referência .NET Core de código de referência publicado pela equipa de provisionamento da AD Azure é um desses recursos que podem iniciar o seu desenvolvimento. Assim que construíres o teu ponto final do SCIM, vais querer testá-lo. Pode utilizar a recolha de [testes carteiros](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) fornecidos como parte do código de referência ou executar através dos pedidos/respostas da amostra [fornecidos acima .](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations)  
 
-Eis como funciona:
-
-1. A Azure AD fornece uma biblioteca de infraestrutura de idiomas comum (CLI) chamada Microsoft.SystemForCrossDomainIdentityManagement, incluída com as amostras de código descritos abaixo. Os integradores e desenvolvedores do sistema podem usar esta biblioteca para criar e implantar um ponto final de serviço web baseado no SCIM que pode ligar a AD Azure à loja de identidade de qualquer aplicação.
-2. Mapeamentos são implementados no serviço web para mapear o esquema de usuário padronizado para o esquema de utilizador e o protocolo necessário para a aplicação. 
-3. O URL de ponto final está registado no Azure AD como parte de uma aplicação personalizada na Galeria de aplicações.
-4. Utilizadores e grupos são atribuídos a esta aplicação no Azure AD. Após a atribuição, são colocados numa fila para serem sincronizados com a aplicação alvo. O processo de sincronização lidar com a fila é executado em 40 minutos.
-
-### <a name="code-samples"></a>Exemplos de código
-
-Para facilitar este processo, são fornecidas amostras de [código,](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) que criam um ponto final do serviço web do Serviço SCIM e demonstram o fornecimento automático. A amostra é de um fornecedor que mantém um ficheiro com linhas de valores separados de vírem que representam utilizadores e grupos.
-
-**Pré-requisitos**
-
-* Visual Studio 2013 ou posterior
-* [Azure SDK for .NET](https://azure.microsoft.com/downloads/) (Azure SDK para .NET)
-* Windows máquina que suporta a estrutura do ASP.NET 4.5 para ser utilizado como o ponto de extremidade SCIM. Esta máquina deve estar acessível a partir da nuvem.
-* [Uma subscrição Azure com uma versão experimental ou licenciada do Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
-
-### <a name="getting-started"></a>Introdução
-
-É a forma mais fácil de implementar um ponto de extremidade SCIM que pode aceitar pedidos de aprovisionamento do Azure AD criar e implementar o exemplo de código que produz os utilizadores aprovisionados para um ficheiro de valores separados por vírgulas (CSV).
-
-#### <a name="to-create-a-sample-scim-endpoint"></a>Para criar um ponto final de amostra SCIM
-
-1. Faça o download do pacote de amostras de código [em https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
-1. Deszipe o pacote e coloque-o no seu computador Windows num local, como C:\AzureAD-BYOA-Provisioning-Samples\.
-1. Nesta pasta, inicie o projeto de FileProvisioning\Host\FileProvisioningService.csproj no Visual Studio.
-1. Selecione **ferramentas** > **NuGet Package Manager** > Consola de Gestor de **Pacotes,** e execute os seguintes comandos para o projeto FileProvisioningService para resolver as referências de solução:
-
-   ```powershell
-    Update-Package -Reinstall
-   ```
-
-1. Crie o projeto de FileProvisioningService.
-1. Lance a aplicação Command Prompt no Windows (como Administrador) e utilize o comando **cd** para alterar o diretório para a sua pasta **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug.**
-1. Executar o seguinte comando, substituindo `<ip-address>` pelo endereço IP ou nome de domínio da máquina Windows:
-
-   ```
-    FileSvc.exe http://<ip-address>:9000 TargetFile.csv
-   ```
-
-1. No Windows, em **definições do Windows** > Definições de **Rede e Internet,** selecione o **Firewall do Windows** > **Definições Avançadas**, e crie uma **Regra de Entrada** que permita o acesso à porta 9000.
-1. Se a máquina Windows estiver por detrás de um router, o router precisa de ser configurado para executar a Tradução de Acesso à Rede entre a sua porta 9000 que está exposta à internet e a porta 9000 na máquina Windows. Esta configuração é necessária para que o Azure AD aceda a este ponto final na nuvem.
-
-#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Para registar a amostra do ponto final do SCIM em Azure AD
-
-1. Inscreva-se no [portal de Diretório Ativo Azure.](https://aad.portal.azure.com) 
-1. Selecione **aplicações Enterprise** a partir do painel esquerdo. É apresentada uma lista de todas as aplicações configuradas, incluindo aplicações que foram adicionadas a partir da galeria.
-1. Selecione **+ Nova aplicação** > **Aplicação Não-galeria** ** > .**
-1. Introduza um nome para a sua aplicação e selecione **Adicionar** para criar um objeto de aplicação. O objeto de aplicativo criado destina-se para representar a aplicação de destino que seria o aprovisionamento e implementação de início de sessão único para e não apenas o ponto final SCIM.
-1. No ecrã de gestão de aplicações, selecione **Provisioning** no painel esquerdo.
-1. No menu modo de **provisionamento,** **selecione Automático**.    
-1. No campo URL do **Arrendatário,** introduza o URL do ponto final do SCIM da aplicação. Exemplo: https://api.contoso.com/scim/
-
-1. Se o ponto final do SCIM necessitar de um símbolo do portador da OAuth de um emitente que não seja o Azure AD, então copie o símbolo necessário do portador oAuth no campo **opcional secret Token.** Se este campo ficar em branco, a Azure AD inclui um token oauth bearer emitido a partir de Azure AD a cada pedido. As aplicações que utilizam o Azure AD como fornecedor de identidade podem validar este token emitido pelo Azure AD.
-1. Selecione **Ligação** de Teste para que o Diretório Ativo Azure tente ligar-se ao ponto final do SCIM. Se a tentativa falhar, a informação de erro é apresentada.  
-
-    > [!NOTE]
-    > **Teste De Ligação** consulta o ponto final do SCIM para um utilizador que não existe, utilizando um GUID aleatório como a propriedade correspondente selecionada na configuração da AD Azure. A resposta correta esperada é HTTP 200 OK com uma mensagem sCIM ListResponse vazia
-1. Se as tentativas de ligação à aplicação forem bem sucedidas, então selecione **Save** para salvar as credenciais de administração.
-1. Na secção **Mapeamentos,** existem dois conjuntos selecionáveis de mapeamentos de atributos: um para objetos de utilizador e outro para objetos de grupo. Selecione cada um para rever os atributos que são sincronizados a partir do Azure Active Directory para a sua aplicação. Os atributos selecionados como propriedades **Correspondentes** são usados para combinar os utilizadores e grupos na sua aplicação para operações de atualização. Selecione **Guardar** para cometer quaisquer alterações.
-1. Em **Definições,** o campo **Scope** define quais os utilizadores e ou grupos sincronizados. Selecione **"Sync apenas utilizadores e grupos atribuídos** (recomendado) apenas para sincronizar utilizadores e grupos atribuídos no separador **Utilizadores e grupos.**
-1. Uma vez concluída a sua configuração, detete o Estado de **Provisionamento** para **On**.
-1. Selecione **Guardar** para iniciar o serviço de provisionamento Azure AD.
-1. Se sincronizar apenas os utilizadores e grupos atribuídos (recomendado), certifique-se de selecionar o separador **Utilizadores e grupos** e atribuir os utilizadores ou grupos que pretende sincronizar. Uma vez iniciado o ciclo inicial, pode selecionar **registos de Auditoria** no painel esquerdo para monitorizar o progresso, o que mostra todas as ações realizadas pelo serviço de provisionamento na sua app. Para obter mais informações sobre como ler os registos de provisionamento da AD Azure, consulte [relatórios sobre o fornecimento automático](check-status-user-account-provisioning.md)de conta de utilizador .
-A verificar o exemplo a etapa final é abrir o ficheiro de TargetFile.csv na pasta \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug no seu computador Windows. Assim que o processo de aprovisionamento é executado, este ficheiro mostra os detalhes de todos os atribuído e aprovisionamento de utilizadores e grupos.
+Nota: O código de referência destina-se a ajudá-lo a começar a construir o seu ponto final SCIM e é fornecido "AS IS". As contribuições da comunidade são bem-vindas para ajudar a construir e manter o código. 
 
 ## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>Passo 4: Integre o seu ponto final do SCIM com o cliente Azure AD SCIM
 

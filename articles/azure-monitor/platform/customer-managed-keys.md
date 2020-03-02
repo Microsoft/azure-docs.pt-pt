@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: 6a999df6daf2fde5133143fe9b22a65d628ecfb2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b3e110766b2e131330f3108b7938e9e5e01e48a4
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663952"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208564"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuração da chave gerida pelo cliente do Azure Monitor 
 
@@ -184,7 +184,7 @@ Authorization: Bearer <token>
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principal-Id"
+    "principalId": "principal-id"
     },
   "properties": {
     "provisioningState": "Succeeded",
@@ -198,10 +198,10 @@ Authorization: Bearer <token>
   }
 ```
 
-"principalide" é um GUID gerado pelo serviço de identidade gerido para o recurso *Cluster.*
+"principal-id" é um GUID gerado pelo serviço de identidade gerido para o recurso *Cluster.*
 
 > [!IMPORTANT]
-> Copie e mantenha o valor "cluster-id", uma vez que vai precisar dele nos próximos passos.
+> Copie e guarde o valor "principal-id", uma vez que vai precisar dele nos próximos passos.
 
 
 ### <a name="grant-key-vault-permissions"></a>conceder permissões chave vault
@@ -213,7 +213,7 @@ Atualize o seu Cofre chave com uma nova política de acesso que conceda permiss�
 Abra o seu Cofre chave no portal Azure e clique em "Políticas de Acesso" e depois "+ Adicionar Política de Acesso" para criar uma nova política com estas definições:
 
 - Permissões-chave: selecione permissões 'Get', 'Wrap Key' e 'Desembrulhar chave'.
-- Selecione principal: introduza o valor de id de cluster que devolveu na resposta no passo anterior.
+- Selecione principal: introduza o valor principal-id que devolveu na resposta no passo anterior.
 
 ![conceder permissões chave vault](media/customer-managed-keys/grant-key-vault-permissions.png)
 
@@ -528,10 +528,10 @@ A identidade é atribuída ao recurso *cluster* no momento da criação.
   "location": "region-name"
 }
 ```
-"principalide" é um GUID que foi gerado pelo serviço de identidade gerido.
+"princípio-id" é um GUID que foi gerado pelo serviço de identidade gerido.
 
 > [!IMPORTANT]
-> Copie e mantenha o valor "cluster-id", uma vez que vai precisar dele nos próximos passos.
+> Copie e guarde o valor de "princípio-id", uma vez que vai precisar dele nos próximos passos.
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associar um componente a um recurso *cluster* usando [componentes - Criar ou atualizar](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 

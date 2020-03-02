@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 57ad9992bec3f070366134d8dfbcdafa8f2e16d4
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1858b221418e6cc59c6441e0653299710b5c7e72
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209856"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208649"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Começando com Azure Maps Android SDK
 
@@ -127,7 +127,9 @@ O próximo passo na construção da sua aplicação é instalar o Azure Maps And
     ```java
     package com.example.myapplication;
 
-    import android.support.v7.app.AppCompatActivity;
+    //For older versions use: import android.support.v7.app.AppCompatActivity;
+    import androidx.appcompat.app.AppCompatActivity;
+
     import android.os.Bundle;
     import com.microsoft.azure.maps.mapcontrol.AzureMaps;
     import com.microsoft.azure.maps.mapcontrol.MapControl;

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 39e2deead1affd750d9a5e68985b02ebfe8e0efd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e13149ba802f0f8b9a565e0aabd86ae05167f18b
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921305"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208826"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
 
@@ -35,7 +35,6 @@ Para um ambiente Azure ativado numa subscrição do Azure, o Azure Security Cent
 
 > [!NOTE]
 > Para receber o conjunto completo de funcionalidades de segurança, deve ter o [Agente De Analítico](../azure-monitor/platform/agents-overview.md#log-analytics-agent)de Log, que é utilizado pelo Azure Security Center, instalado e [devidamente configurado para enviar dados para](security-center-enable-data-collection.md#manual-agent)o Azure Security Center .
-
 
 As seguintes secções listam os sistemas operativos do servidor suportados nos quais o Agente de Análise de [Registo,](../azure-monitor/platform/agents-overview.md#log-analytics-agent)que é utilizado pelo Azure Security Center, pode funcionar.
 
@@ -85,38 +84,6 @@ As máquinas virtuais também são criadas numa subscrição de clientes como pa
 ### Serviços cloud<a name="cloud-services"></a>
 
 As máquinas virtuais que funcionam num serviço de nuvem também são suportadas. Apenas os serviços na nuvem web e funções de trabalhador que funcionam em slots de produção são monitorizados. Para saber mais sobre os serviços na nuvem, consulte a [visão geral dos Serviços Azure Cloud.](../cloud-services/cloud-services-choose-me.md)
-
-## Serviços PaaS<a name="paas-services"></a>
-
-Os seguintes recursos Azure PaaS são apoiados pelo Azure Security Center:
-
-* SQL
-* Postgresql
-* MySQL
-* CosmosDB
-* Conta de armazenamento
-* Serviço de aplicações
-* Função
-* Serviço de Nuvem
-* VNet
-* Subrede
-* NIC
-* NSG
-* Conta do Batch
-* Conta de tecido de serviço
-* Conta de automatização
-* Load balancer
-* Pesquisa
-* Espaço de nomes do Service Bus
-* Stream Analytics
-* Espaço de nomes do hub de eventos
-* Aplicativos lógicos
-* Redis
-* Data Lake Analytics
-* Data Lake Store
-* Key Vault
-
-Para saber mais sobre as funcionalidades suportadas para a lista acima dos recursos paaS, consulte [as funcionalidades suportadas pelos serviços paaS.](security-center-services.md#paas-services)
 
 A proteção das máquinas virtuais residentes no Azure Stack também é suportada. Para obter mais informações sobre a integração do Security Center com o Azure Stack, consulte as [suas máquinas virtuais Azure Stack para o Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
