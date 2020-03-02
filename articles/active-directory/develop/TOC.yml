@@ -405,6 +405,8 @@
           href: v2-admin-consent.md
         - name: Experiências de consentimento da aplicação
           href: application-consent-experience.md
+    - name: Acesso condicional
+      href: v2-conditional-access-dev-guide.md
     - name: Clouds Nacionais
       items:
         - name: Descrição geral
