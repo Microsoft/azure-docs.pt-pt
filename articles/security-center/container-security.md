@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: cd9907d041562d23bc487de319a17d36b68db6f3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 45ce8a808efc5b882c90f99875fdde661e292774
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916122"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205981"
 ---
 # <a name="container-security-in-security-center"></a>Segurança de contentores no Centro de Segurança
 
@@ -33,7 +33,7 @@ Este artigo descreve como o Security Center o ajuda a melhorar, monitorizar e ma
 
 Para obter instruções sobre como utilizar estas funcionalidades, consulte [monitorizar a segurança dos seus recipientes](monitor-container-security.md).
 
-## <a name="vulnerability-management---scanning-container-images-preview"></a>Gestão de vulnerabilidades - digitalização de imagens de contentores (Pré-visualização)
+## <a name="vulnerability-management---scanning-container-images"></a>Gestão de vulnerabilidades - digitalização de imagens de contentores
 Para monitorizar o registo de contentores Azure baseado no ARM, certifique-se de que está no nível padrão do Security Center (ver [preços).](/azure/security-center/security-center-pricing) Em seguida, ative o pacote opcional de registos de contentores. Quando uma nova imagem é empurrada, o Security Center digitaliza a imagem usando um scanner do fornecedor de vulnerabilidadelíder da indústria, qualys.
 
 Quando os problemas forem encontrados – por Qualys ou Security Center – será notificado no painel do Centro de Segurança. Para cada vulnerabilidade, o Security Center fornece recomendações atol, juntamente com uma classificação de gravidade, e orientação para como remediar a questão. Para obter detalhes sobre as recomendações do Centro de Segurança para os contentores, consulte a [lista de recomendações de referência.](recommendations-reference.md#recs-containers)

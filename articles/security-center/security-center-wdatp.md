@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: e735495038f0e5c28af31aa79a45c71225502b3c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918160"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206270"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection com Azure Security Center
 
@@ -109,7 +109,7 @@ Para gerar um alerta benigno de teste ATP do Microsoft Defender:
 
 3. Se o comando for bem sucedido, verá um novo alerta no painel do Azure Security Center e no portal ATP do Microsoft Defender. Este alerta pode levar alguns minutos para aparecer.
 
-4. Para rever o alerta no Centro de Segurança, vá a **Alertas** de Segurança > **Linha de Comando De Shell Suspeita**.
+4. Para rever o alerta no Centro de Segurança, vá a **alertas** de Segurança > **Linha de Comando PowerShell Suspeita**.
 
 5. A partir da janela de investigação, selecione o link para ir ao portal ATP microsoft Defender.
 

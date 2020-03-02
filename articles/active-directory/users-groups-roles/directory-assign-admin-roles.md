@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b813c1caa02ce3ffd3ab0579849dff47252e7d63
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d024382f816e98fb5cb83331dd417f0c41362bc4
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559169"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207052"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de funções de administrador no Diretório Ativo do Azure
 
@@ -29,7 +29,7 @@ Utilizando o Azure Ative Directory (Azure AD), pode designar administradores lim
 
 Os utilizadores que são atribuídos ao papel de administrador global podem ler e modificar todas as configurações administrativas da sua organização Azure AD. Por predefinição, a pessoa que se inscreve para uma subscrição do Azure é atribuída ao papel de administrador global para a organização Azure AD. Apenas administradores globais e administradores de papel privilegiado podem delegar funções de administrador. Para reduzir o risco para o seu negócio, recomendamos que atribua este papel ao menor número possível de pessoas na sua organização.
 
-Como uma boa prática, recomendamos que atribua este papel a menos de 5 pessoas na sua organização. Se tem mais de cinco utilizadores atribuídos ao papel de Administrador Global na sua organização, aqui estão algumas formas de reduzir o seu uso.
+Como uma boa prática, recomendamos que atribua este papel a menos de cinco pessoas na sua organização. Se tem mais de cinco administradores atribuídos ao papel de Administrador Global na sua organização, aqui estão algumas formas de reduzir o seu uso.
 
 ### <a name="find-the-role-you-need"></a>Encontre o papel que precisa
 
@@ -238,7 +238,7 @@ Os utilizadores desta função podem ler configurações e informações adminis
 >- [Portal Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - O leitor global não consegue ler o modo de provisionamento de uma aplicação empresarial.
 >- [Centro de administração M365](https://admin.microsoft.com/Adminportal/Home#/homepage) - O leitor global não consegue ler pedidos de bloqueio de clientes. Não encontrará o separador de pedidos de **bloqueio do Cliente** sob **suporte** no painel esquerdo do Centro de Administração M365.
 >- [Centro de Segurança M365](https://security.microsoft.com/homepage) - O leitor global não consegue ler etiquetas de sensibilidade e retenção. Não encontrará **etiquetas**de sensibilidade, etiquetas de **retenção**e separadores de análise de **etiquetas** no painel esquerdo do centro de segurança M365.
->- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - O leitor global não consegue ler registos de auditoria do SCC ou fazer pesquisa de conteúdo.
+>- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - O leitor global não consegue ler registos de auditoria do SCC, fazer pesquisa de conteúdo ou ver Secure Score.
 >- [Teams admin center](https://admin.teams.microsoft.com) - Global reader can can read **Teams lifecycle**, **Analytics & reports**, IP phone device **management** and **App catalog**.
 >- [A Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) não apoia o papel de leitor global.
 >- [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) - O leitor global é suportado apenas [para reporte central,](https://docs.microsoft.com/azure/information-protection/reports-aip) e quando a sua organização Azure AD não está na [plataforma de rotulagem unificada](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
@@ -1012,7 +1012,7 @@ Configure os fornecedores de identidade para utilização na federação direta.
 | microsoft.aad.b2c/identityProviders/allTasks | Leia e configure fornecedores de identidade no Diretório Ativo Azure B2C. |
 
 ### <a name="global-reader-permissions"></a>Permissões do Leitor Global
-Pode ler tudo o que um Administrador Global pode, mas não editar nada. 
+Pode ler tudo o que um Administrador Global pode, mas não editar nada.
 
 > [!NOTE]
 > Este papel tem permissões adicionais fora do Azure Ative Directory. Para mais informações, consulte a [descrição](#global-reader) do papel acima.
@@ -1701,7 +1701,7 @@ Administrador de Política B2C IEF | Administrador de Política B2C IEF | 3edaf6
 Administrador de faturação | Administrador de faturação | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Administrador de aplicação em nuvem | Administrador de aplicação em nuvem | 158c047a-c907-4556-b7ef-446551a6b5f7
 Administrador de dispositivos de nuvem | Administrador de dispositivos de nuvem | 7698a772-787b-4ac8-901f-60d6b08affd2
-Company Administrator | Administrador global | 62e90394-69f5-4237-9190-012177145e10
+Administrador de Empresa | Administrador global | 62e90394-69f5-4237-9190-012177145e10
 Administrador de Conformidade | Administrador de conformidade | 17315797-102d-40b4-93e0-432062caca18
 Administrador de Dados de Conformidade | Administrador de dados de conformidade | e6d1a23a-da11-4be4-9570-befc86d067a7
 Administrador de Acesso Condicional | Administrador de Acesso Condicional | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9

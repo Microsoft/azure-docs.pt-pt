@@ -1,6 +1,6 @@
 ---
-title: Configurar agendamento de aplicação de patch de so para clusters do Azure HDInsight
-description: Saiba como configurar o agendamento de aplicação de patch de so para clusters HDInsight baseados em Linux.
+title: Configure o calendário de patching do OS para clusters Azure HDInsight
+description: Saiba como configurar o calendário de correção de OS para clusters HDInsight baseados em Linux.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,66 +8,66 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 102ae56bb9dce2898c14bdc710420759a527a9e9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f8e694f658d6e9de04c92001214ecd5c32ff7753
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514702"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206865"
 ---
-# <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurar o agendamento de aplicação de patch do so para clusters HDInsight baseados em Linux
+# <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configure o calendário de correção de OS para clusters HDInsight baseados em Linux
 
 > [!IMPORTANT]
-> As imagens do Ubuntu são disponibilizadas para a nova criação de cluster do Azure HDInsight dentro de três meses após a publicação. A partir de janeiro de 2019, os clusters em execução não são automaticamente corrigidos. Os clientes devem usar ações de script ou outros mecanismos para aplicar patch em um cluster em execução. Os clusters recém-criados sempre terão as atualizações mais recentes disponíveis, incluindo os patches de segurança mais recentes.
+> As imagens Ubuntu ficam disponíveis para a criação de novos clusters Azure HDInsight no prazo de três meses após a publicação. A partir de janeiro de 2019, os clusters de corrida não são auto-remendados. Os clientes devem usar ações de script ou outros mecanismos para remendar um cluster de execução. Os clusters recém-criados terão sempre as mais recentes atualizações disponíveis, incluindo as mais recentes correções de segurança.
 
-O HDInsight fornece suporte para que você execute tarefas comuns em seu cluster, como instalação de patches do sistema operacional, atualizações de segurança e nós de reinicialização. Essas tarefas são realizadas usando os dois scripts a seguir que podem ser executados como [ações de script](hdinsight-hadoop-customize-cluster-linux.md)e configurados com parâmetros:
+O HDInsight fornece suporte para que execute tarefas comuns no seu cluster, tais como instalar patches de OS, atualizações de segurança e reinicialização de nós. Estas tarefas são realizadas usando os seguintes dois scripts que podem ser executados como ações de [script](hdinsight-hadoop-customize-cluster-linux.md), e configurados com parâmetros:
 
-- `schedule-reboots.sh`-faça uma reinicialização imediata ou agende uma reinicialização nos nós do cluster.
-- `install-updates-schedule-reboots.sh`-instalar todas as atualizações, apenas as atualizações de kernel + segurança ou apenas as atualizações de kernel.
+- `schedule-reboots.sh` - Faça um reinício imediato ou agende um reinício dos nós do cluster.
+- `install-updates-schedule-reboots.sh` - Instale todas as atualizações, apenas atualizações de kernel + segurança, ou apenas atualizações de kernel.
 
 > [!NOTE]  
-> As ações de script não aplicarão atualizações automaticamente para todos os ciclos de atualização futuros. Execute os scripts sempre que novas atualizações devem ser aplicadas para instalar as atualizações e reinicie a VM.
+> As ações do Script não aplicarão automaticamente atualizações para todos os ciclos de atualização futuros. Executar os scripts sempre que novas atualizações devem ser aplicadas para instalar as atualizações e, em seguida, reiniciar o VM.
 
 ## <a name="preparation"></a>Preparação
 
-Patch em um ambiente de não produção representativo antes da implantação na produção. Desenvolva um plano para testar adequadamente seu sistema antes de sua aplicação de patch real.
+Patch em um ambiente representativo de não produção antes de ser implantado para a produção. Desenvolva um plano para testar adequadamente o seu sistema antes da sua correção real.
 
-De tempos em tempos, de uma sessão SSH com o cluster, você pode receber uma mensagem informando que uma atualização está disponível. A mensagem pode ser semelhante a:
+De tempos a tempos, a partir de uma sessão de SSH com o seu cluster, poderá receber uma mensagem de que está disponível uma atualização. A mensagem pode parecer algo como:
 
 ```
 New release '18.04.3 LTS' available.
 Run 'do-release-upgrade' to upgrade it
 ```
 
-A aplicação de patch é opcional e a seu critério.
+Remendar é opcional e a seu critério.
 
-## <a name="restart-nodes"></a>Reinicializar nós
+## <a name="restart-nodes"></a>Reinicie os nódosos
   
-A agenda de script [– reinicializa](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh), define o tipo de reinicialização que será executada nos computadores no cluster. Ao enviar a ação de script, defina-a para aplicar em todos os três tipos de nó: nó de cabeçalho, nó de trabalho e Zookeeper. Se o script não for aplicado a um tipo de nó, as VMs desse tipo de nó não serão atualizadas ou reiniciadas.
+O [script schedule-reboots,](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh)define o tipo de reboot que será realizado nas máquinas do cluster. Ao submeter a ação do guião, deite-o para aplicar nos três tipos de nó: nó de cabeça, nó de trabalhador e zookeeper. Se o script não for aplicado a um nó, os VMs para esse tipo de nó não serão atualizados ou reiniciados.
 
 O `schedule-reboots script` aceita um parâmetro numérico:
 
 | Parâmetro | Valores aceites | Definição |
 | --- | --- | --- |
-| Tipo de reinicialização a ser executada | 1 ou 2 | Um valor de 1 Habilita A reinicialização da agenda (agendada em 12-24 horas). Um valor de 2 habilita A reinicialização imediata (em 5 minutos). Se nenhum parâmetro for fornecido, o padrão será 1. |  
+| Tipo de reinício a executar | 1 ou 2 | Um valor de 1 permite o reinício do horário (programado em 12-24 horas). Um valor de 2 permite o reinício imediato (em 5 minutos). Se não for dado nenhum parâmetro, o padrão é 1. |  
 
-## <a name="install-updates-and-restart-nodes"></a>Instalar atualizações e reiniciar nós
+## <a name="install-updates-and-restart-nodes"></a>Instale atualizações e reinicie os nódosos
 
-O script [install-updates-Schedule-reboots.sh](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh) fornece opções para instalar diferentes tipos de atualizações e reiniciar a VM.
+O script [install-updates-schedule-reboots.sh](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh) fornece opções para instalar diferentes tipos de atualizações e reiniciar o VM.
 
-O script de `install-updates-schedule-reboots` aceita dois parâmetros numéricos, conforme descrito na tabela a seguir:
+O guião `install-updates-schedule-reboots` aceita dois parâmetros numéricos, conforme descrito na tabela seguinte:
 
 | Parâmetro | Valores aceites | Definição |
 | --- | --- | --- |
-| Tipo de atualizações a serem instaladas | 0, 1 ou 2 | O valor 0 instala apenas as atualizações do kernel. Um valor de 1 instala todas as atualizações e 2 instala apenas as atualizações de kernel + segurança. Se nenhum parâmetro for fornecido, o padrão será 0. |
-| Tipo de reinicialização a ser executada | 0, 1 ou 2 | Um valor de 0 desabilita A reinicialização. Um valor de 1 Habilita A reinicialização da agenda e 2 habilita a reinicialização imediata. Se nenhum parâmetro for fornecido, o padrão será 0. O usuário deve alterar o parâmetro de entrada 1 para o parâmetro de entrada 2. |
+| Tipo de atualizações para instalar | 0, 1 ou 2 | Um valor de 0 instala apenas atualizações de kernel. Um valor de 1 instala todas as atualizações e 2 instala apenas atualizações kernel + segurança. Se não for fornecido nenhum parâmetro, o padrão é de 0. |
+| Tipo de reinício a executar | 0, 1 ou 2 | Um valor de 0 desativa reinicia. Um valor de 1 permite o reinício do horário e 2 permite o reinício imediato. Se não for fornecido nenhum parâmetro, o padrão é de 0. O utilizador deve alterar o parâmetro de entrada 1 para o parâmetro de entrada 2. |
 
 > [!NOTE]
-> Você deve marcar um script como persistente depois de aplicá-lo a um cluster existente. Caso contrário, todos os novos nós criados por meio de operações de dimensionamento usarão o agendamento de aplicação de patch padrão. Se você aplicar o script como parte do processo de criação do cluster, ele será persistido automaticamente.
+> Deve marcar um guião como persistido depois de o aplicar a um aglomerado existente. Caso contrário, quaisquer novos nós criados através de operações de escala utilizarão o calendário de correção predefinido. Se aplicar o script como parte do processo de criação do cluster, persiste automaticamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter etapas específicas sobre como usar as ações de script, consulte as seções a seguir em [Personalizar clusters HDInsight baseados em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md):
+Para passos específicos sobre a utilização de ações de script, consulte as seguintes secções em [clusters HDInsight baseados em Linux, utilizando a ação](hdinsight-hadoop-customize-cluster-linux.md)do script:
 
-- [Usar uma ação de script durante a criação do cluster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-- [Aplicar uma ação de script a um cluster em execução](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+- [Use uma ação de script durante a criação de cluster](hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation)
+- [Aplicar uma ação de script a um cluster de execução](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster)

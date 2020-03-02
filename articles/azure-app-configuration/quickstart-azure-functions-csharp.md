@@ -1,60 +1,57 @@
 ---
-title: Início rápido para configuração de Azure App com Azure Functions | Microsoft Docs
-description: Um guia de início rápido para usar Azure App configuração com Azure Functions.
+title: Quickstart para configuração de aplicações Azure com funções Azure  Microsoft Docs
+description: Um arranque rápido para usar a configuração da aplicação Azure com funções Azure.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 268e6c5a999244eb643990143d1102d129b7af68
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 71a330523f1d3393a365fec29fb66f5c9773b6cc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310061"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207069"
 ---
-# <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Início rápido: criar um aplicativo Azure Functions com a configuração Azure App
+# <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação de funções Azure com configuração de aplicações azure
 
-Neste guia de início rápido, você incorpora o serviço de configuração Azure App em um aplicativo Azure Functions para centralizar o armazenamento e o gerenciamento de todas as suas configurações de aplicativo separadas do seu código.
+Neste arranque rápido, incorpora o serviço de Configuração de Aplicações Azure numa aplicação De Funções Azure para centralizar o armazenamento e gestão de todas as definições da sua aplicação separadas do seu código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de **desenvolvimento do Azure** .
-- [Ferramentas de Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version)
+- Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- [Estúdio Visual 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de **desenvolvimento azure.**
+- [Ferramentas de funções azure](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
-## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
+## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicações
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Configuration Explorer** >  **+ criar** para adicionar os seguintes pares de chave-valor:
+6. Selecione O Explorador de **Configuração** >  **+ Criar** para adicionar os seguintes pares de valor-chave:
 
     | Chave | Valor |
     |---|---|
-    | TestApp: configurações: mensagem | Dados da configuração Azure App |
+    | TestApp:Definições:Mensagem | Dados da Configuração de Aplicações Azure |
 
-    Deixe **rótulo** e **tipo de conteúdo** vazio por enquanto.
+    Deixe o **rótulo** e o **tipo de conteúdo** vazios por enquanto.
 
-## <a name="create-a-functions-app"></a>Criar um aplicativo de funções
+## <a name="create-a-functions-app"></a>Criar uma aplicação Funções
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
+## <a name="connect-to-an-app-configuration-store"></a>Ligar a uma loja de configuração de aplicações
 
-1. Clique com o botão direito do mouse em seu projeto e selecione **gerenciar pacotes NuGet**. Na guia **procurar** , pesquise e adicione os seguintes pacotes NuGet ao seu projeto. Se você não conseguir encontrá-los, marque a caixa de seleção **incluir pré-lançamento** .
+1. Clique no seu projeto e selecione **Gerir pacotes NuGet**. No separador **Browse,** procure e adicione o pacote NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` ao seu projeto. Se não conseguir encontrá-la, selecione a caixa de verificação **de pré-lançamento Incluir.**
 
-    ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 3.0.0-preview-010550001-251 or later
-    ```
-
-2. Abra *function1.cs*e adicione os namespaces da configuração do .NET Core e o provedor de configuração de configuração do aplicativo.
+2. Abra *Function1.cs*e adicione os espaços de nome da configuração .NET Core e do fornecedor de configuração de configuração de aplicações.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
-3. Adicione uma propriedade `static` chamada `Configuration` para criar uma instância singleton do `IConfiguration`. Em seguida, adicione um Construtor `static` para se conectar à configuração do aplicativo chamando `AddAzureAppConfiguration()`. Isso carregará a configuração uma vez na inicialização do aplicativo. A mesma instância de configuração será usada para todas as chamadas de funções posteriormente.
+
+3. Adicione uma propriedade `static` chamada `Configuration` para criar uma instância singleton de `IConfiguration`. Em seguida, adicione um `static` construtor para ligar à Configuração da Aplicação, chamando `AddAzureAppConfiguration()`. Isto carregará a configuração uma vez no arranque da aplicação. A mesma configuração será usada para todas as chamadas funções posteriormente.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -66,7 +63,8 @@ Neste guia de início rápido, você incorpora o serviço de configuração Azur
         Configuration = builder.Build();
     }
     ```
-4. Atualize o método `Run` para ler valores da configuração.
+
+4. Atualize o método `Run` para ler valores a partir da configuração.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -76,7 +74,7 @@ Neste guia de início rápido, você incorpora o serviço de configuração Azur
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];
-            
+
         return message != null
             ? (ActionResult)new OkObjectResult(message)
             : new BadRequestObjectResult($"Please create a key-value with the key '{keyName}' in App Configuration.");
@@ -85,29 +83,33 @@ Neste guia de início rápido, você incorpora o serviço de configuração Azur
 
 ## <a name="test-the-function-locally"></a>Testar localmente a função
 
-1. Defina uma variável de ambiente chamada **ConnectionString**e defina-a como a chave de acesso para seu repositório de configuração de aplicativo. Se você usar o prompt de comando do Windows, execute o seguinte comando e reinicie o prompt de comando para permitir que a alteração entre em vigor:
+1. Detete uma variável ambiental chamada **ConnectionString**e detetete-a na chave de acesso à sua loja de configuração de aplicações. Se utilizar o pedido de comando do Windows, execute o seguinte comando e reinicie a solicitação de comando para permitir que a alteração faça efeito:
 
     ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
-    Se você usar o Windows PowerShell, execute o seguinte comando:
+
+    Se utilizar o Windows PowerShell, execute o seguinte comando:
 
     ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
-    Se você usar o macOS ou Linux, execute o seguinte comando:
 
+    Se utilizar macOS ou Linux, execute o seguinte comando:
+
+    ```bash
         export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
-2. Pressione F5 para testar sua função. Se solicitado, aceite a solicitação do Visual Studio para baixar e instalar as ferramentas de **Azure Functions Core (CLI)** . Talvez você também precise habilitar uma exceção de firewall para que as ferramentas possam lidar com solicitações HTTP.
+2. Pressione F5 para testar a sua função. Se solicitado, aceite o pedido do Estúdio Visual para descarregar e instalar **ferramentas Do Núcleo de Funções Azure (CLI).** Também pode ser necessário permitir uma exceção à firewall para que as ferramentas possam lidar com pedidos HTTP.
 
 3. Copie o URL da sua função na saída do tempo de execução das funções do Azure.
 
-    ![Depuração de função de início rápido no VS](./media/quickstarts/function-visual-studio-debugging.png)
+    ![Depuração da função Quickstart em VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. Cole o URL do pedido HTTP na barra de endereço do browser. A imagem a seguir mostra a resposta no navegador para a solicitação GET local retornada pela função.
+4. Cole o URL do pedido HTTP na barra de endereço do browser. A imagem que se segue mostra a resposta no navegador ao pedido de GET local devolvido pela função.
 
-    ![Local de inicialização da função de início rápido](./media/quickstarts/dotnet-core-function-launch-local.png)
+    ![Quickstart Function lançar local](./media/quickstarts/dotnet-core-function-launch-local.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -115,7 +117,7 @@ Neste guia de início rápido, você incorpora o serviço de configuração Azur
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo Azure Functions por meio do [provedor de configuração de aplicativo](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber como configurar seu aplicativo Azure Functions para atualizar dinamicamente as definições de configuração, prossiga para o próximo tutorial.
+Neste arranque rápido, criou uma nova loja de configuração de aplicações e utilizou-a com uma aplicação De Funções Azure através do fornecedor de Configuração de [Aplicações.](https://go.microsoft.com/fwlink/?linkid=2074664) Para aprender a configurar a sua aplicação Funções Azure para atualizar dinamicamente as configurações de configuração, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Habilitar configuração dinâmica](./enable-dynamic-configuration-azure-functions-csharp.md)
+> [Ativar a configuração dinâmica](./enable-dynamic-configuration-azure-functions-csharp.md)

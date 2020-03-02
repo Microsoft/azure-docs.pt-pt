@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 02/28/2020
 ms.author: b-juche
-ms.openlocfilehash: b198d34b79ae27477259d567aa2167cb0298260e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 81711394b56287e67c51882744a5032555a186f0
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485476"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206304"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas de solução com o Azure NetApp Files
 Este artigo fornece referências às melhores práticas que podem ajudá-lo a entender as arquiteturas de solução para usar ficheiros Azure NetApp.  
@@ -40,6 +40,7 @@ Este artigo fornece referências às melhores práticas que podem ajudá-lo a en
 * [Configurações de armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 * [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
 * [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
+* [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux para aplicações SAP guia multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 * [Alta disponibilidade para SAP NetWeaver em VMs Azure no Windows com Ficheiros Azure NetApp (SMB) para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
 * [Escala sap HANA com nó de standby em VMs Azure com Ficheiros Azure NetApp no Servidor Empresarial SUSE Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
 * [SAP HANA scale-out com nó de standby em VMs Azure com Ficheiros Azure NetApp no RedHat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)

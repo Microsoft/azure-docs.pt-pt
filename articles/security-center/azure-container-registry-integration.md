@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 7601a5f8abefd88de0f9a3682341c5366eec3fb0
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 069ce6ca1e76a9bd954031708702c973387abbaa
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431066"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205998"
 ---
-# <a name="azure-container-registry-integration-with-security-center-preview"></a>Integração do Registo de Contentores Azure com Centro de Segurança (Pré-visualização)
+# <a name="azure-container-registry-integration-with-security-center"></a>Integração do Registo de Contentores Azure com o Centro de Segurança
 
 O Registo de Contentores Azure (ACR) é um serviço de registo privado e gerido do Docker que armazena e gere as suas imagens de contentores para implantações azure num registo central. Baseia-se no registo 2.0 do Docker.
 

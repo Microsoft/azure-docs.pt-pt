@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
-ms.openlocfilehash: c2b590e623062d5d5ae39261b3b5fa5a37a39122
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: daae9c16797ad9c1b85635f5aec7d0cf884e003f
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919225"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206015"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades geridas no Azure HDInsight
 
@@ -44,11 +44,11 @@ As identidades geridas são usadas no Azure HDInsight em vários cenários. Cons
 
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity) (Armazenamento do Azure Data Lake Gen2)
 * [Pacote de Segurança Empresarial](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
-* [Kafka Traga a sua própria chave (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
+* [Encriptação de disco de chave gerida pelo cliente](disk-encryption.md)
 
 ## <a name="faq"></a>FAQ
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>O que acontece se eu apagar a identidade gerida após a criação do cluster?
-O seu aglomerado terá problemas quando a identidade gerida for necessária. Não existe atualmente forma de atualizar ou alterar a idenidade de gestão após a criação do cluster. Por conseguinte, a nossa recomendação é que a identidade gerida não seja eliminada durante o período de execução do cluster. Em alternativa, pode recriar o cluster e atribuir uma nova identidade gerida.
+O seu aglomerado terá problemas quando a identidade gerida for necessária. Não existe atualmente forma de atualizar ou alterar a gestão da identidade após a criação do cluster. Por conseguinte, a nossa recomendação é que a identidade gerida não seja eliminada durante o período de execução do cluster. Em alternativa, pode recriar o cluster e atribuir uma nova identidade gerida.
 
 ## <a name="next-steps"></a>Passos seguintes
 

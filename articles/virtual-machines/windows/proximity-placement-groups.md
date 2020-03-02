@@ -8,19 +8,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
-ms.openlocfilehash: c1c144ac9db040bfac45ecc7838401ae09c9e2c4
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 7d529335d18f9016ea7a02ac9b03461e3784b08e
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137994"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204451"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Implementar VMs para grupos de colocação de proximidade usando powerShell
 
 
 Para obter VMs o mais próximo possível, alcançando a menor latência possível, você deve implantá-los dentro de um grupo de [colocação de proximidade](co-location.md#proximity-placement-groups).
 
-Um grupo de posicionamento de proximidade é um agrupamento lógico usado para garantir que os recursos de computação do Azure estejam fisicamente localizados próximos um do outro. Os grupos de posicionamento de proximidade são úteis para cargas de trabalho em que a baixa latência é um requisito.
+Um grupo de colocação de proximidade é um agrupamento lógico usado para garantir que os recursos da computação Azure estão fisicamente localizados perto uns dos outros. Os grupos de colocação de proximidade são úteis para cargas de trabalho onde a baixa latência é um requisito.
 
 
 ## <a name="create-a-proximity-placement-group"></a>Criar um grupo de colocação em proximidade
@@ -38,7 +38,7 @@ $ppg = New-AzProximityPlacementGroup `
    -ProximityPlacementGroupType Standard
 ```
 
-## <a name="list-proximity-placement-groups"></a>Listar grupos de posicionamento de proximidade
+## <a name="list-proximity-placement-groups"></a>Lista de grupos de colocação de proximidade
 
 Pode listar todos os grupos de colocação de proximidade utilizando o cmdlet [Get-AzProximityPlacementGroup.](/powershell/module/az.compute/get-azproximityplacementgroup)
 
@@ -78,7 +78,7 @@ $ppg = Get-AzProximityPlacementGroup -ResourceGroupName myPPGResourceGroup -Name
 $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Stop-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
 Update-AzVM -VM $vm -ResourceGroupName $vm.ResourceGroupName -ProximityPlacementGroupId $ppg.Id
-Restart-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
+Start-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
 ```
 
 ### <a name="move-an-existing-vm-out-of-a-proximity-placement-group"></a>Mova um VM existente para fora de um grupo de colocação de proximidade
@@ -91,7 +91,7 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Stop-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
 $vm.ProximityPlacementGroupId = ""
 Update-AzVM -VM $vm -ResourceGroupName $vm.ResourceGroupName 
-Restart-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
+Start-AzVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName
 ```
 
 
@@ -158,7 +158,7 @@ $ppg = Get-AzProximityPlacementGroup -ResourceGroupName myPPG -Name myPPG
 $vmss = Get-AzVmss -ResourceGroupName myVMSSResourceGroup -VMScaleSetName myScaleSet
 Stop-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
 Update-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName -ProximityPlacementGroupId $ppg.Id
-Restart-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
+Start-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
 ```
 
 ### <a name="move-an-existing-scale-set-out-of-a-proximity-placement-group"></a>Mover uma escala existente definida para fora de um grupo de colocação de proximidade
@@ -168,7 +168,7 @@ $vmss = Get-AzVmss -ResourceGroupName myVMSSResourceGroup -VMScaleSetName myScal
 Stop-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
 $vmss.ProximityPlacementGroup = ""
 Update-AzVmss -VirtualMachineScaleSet $vmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName  
-Restart-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
+Start-AzVmss -VMScaleSetName $vmss.Name -ResourceGroupName $vmss.ResourceGroupName
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

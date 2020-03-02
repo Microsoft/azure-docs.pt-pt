@@ -9,16 +9,16 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
-ms.openlocfilehash: d022b1124146a1e506401e6cee257805e3a38fd3
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: b83effa95b17d712d4019f8ab5bf13c4f02a7d2b
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526556"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206525"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>Questões conhecidas e resolução de problemas na Máquina Virtual de Ciência de Dados Azure
 
-Este artigo ajuda-o a encontrar e corrigir erros ou falhas encontrados ao utilizar a Máquina Virtual de Ciência de Dados Azure.
+Este artigo ajuda-o a encontrar e corrigir erros ou falhas que poderá encontrar ao utilizar a Máquina Virtual de Ciência de Dados Azure.
 
 ## <a name="python-package-installation-issues"></a>Problemas de instalação de pacotes Python
 
@@ -26,17 +26,22 @@ Este artigo ajuda-o a encontrar e corrigir erros ou falhas encontrados ao utiliz
 
 Utilize `sudo pip install` em vez de `pip install` ao instalar pacotes.
 
-## <a name="disk-encryption-issues"></a>Problemas de encriptação do disco
+## <a name="disk-encryption-issues"></a>Problemas de encriptação de discos
 
 ### <a name="disk-encryption-fails-on-the-ubuntu-dsvm"></a>Encriptação de disco falha no Ubuntu DSVM
 
-A encriptação do disco azure (ADE) não é suportada atualmente no Ubuntu DSVM. Como uma suposição, considere configurar [a encriptação do Armazenamento Azure com chaves geridas pelo cliente](../../storage/common/storage-encryption-keys-portal.md).
+A Encriptação do Disco Azure (ADE) não é atualmente suportada no Ubuntu DSVM. Como uma suposição, considere configurar a [encriptação do lado do servidor dos discos geridos pelo Azure](../../virtual-machines/windows/disk-encryption.md).
 
 ## <a name="tool-appears-disabled"></a>A ferramenta parece desativada
 
 ### <a name="hyper-v-does-not-work-on-the-windows-dsvm"></a>Hyper-V não funciona no Windows DSVM
 
-Este comportamento é esperado, quanto ao desempenho do arranque, desativamos alguns serviços. Para reativar, abra a barra de pesquisa no seu Windows DSVM, digite "Services", em seguida, coloque todos os serviços Hyper-V em "Manual" e coloque "Hyper-V Virtual Machine Management" para "Automatic".
+Que o Hyper-V inicialmente não funcione no Windows é um comportamento esperado. Para o desempenho do arranque, desativamos alguns serviços. Para ativar o Hyper-V:
+
+1. Abra a barra de pesquisa no seu Windows DSVM
+1. Digite em "Serviços",
+1. Desajuste todos os serviços Hyper-V para "Manual"
+1. Definir "Hiper-V Gestão virtual de máquinas" para "Automático"
 
 O seu ecrã final deve ser assim:
 

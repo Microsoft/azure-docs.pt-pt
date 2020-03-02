@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486265"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204519"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala em Funções Duráveis (Funções Azure)
 
@@ -220,7 +220,7 @@ Os efeitos específicos de sessões prolongadas sobre as funções de orquestrad
 
 ### <a name="orchestrator-function-replay"></a>Repetição da função do orquestrador
 
-Como mencionado anteriormente, as funções de orquestrador são reproduzidas usando o conteúdo da tabela **História.** Por predefinição, o código de função do orquestrador é repetido sempre que um lote de mensagens é desnorteado de uma fila de controlo. Quando as sessões prolongadas são ativadas, as instâncias de função orquestradora são mantidas na memória por mais tempo e novas mensagens podem ser processadas sem uma repetição completa do histórico.
+Como mencionado anteriormente, as funções de orquestrador são reproduzidas usando o conteúdo da tabela **História.** Por predefinição, o código de função do orquestrador é repetido sempre que um lote de mensagens é desnorteado de uma fila de controlo. Mesmo que esteja a utilizar o padrão de saída de ventilador estivador e aguardando que todas as tarefas sejam concluídas (por exemplo, utilizando `Task.WhenAll` em .NET ou `context.df.Task.all` no JavaScript), haverá repetições que ocorrem à medida que lotes de respostas de tarefas são processados ao longo do tempo. Quando as sessões prolongadas são ativadas, as instâncias de função orquestradora são mantidas na memória por mais tempo e novas mensagens podem ser processadas sem uma repetição completa do histórico.
 
 A melhoria do desempenho das sessões prolongadas é observada com maior frequência nas seguintes situações:
 
@@ -266,7 +266,7 @@ A tabela que se segue mostra os números *máximos* de entrada esperados para os
 
 Se não estiver a ver os números de entrada que espera e o seu CPU e o uso da memória parecersaudável, verifique se a causa está relacionada com [a saúde da sua conta de armazenamento](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance). A extensão das Funções Duráveis pode colocar carga significativa numa conta de Armazenamento Azure e cargas suficientemente elevadas podem resultar em estrangulamento da conta de armazenamento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça a recuperação de desastres e a geodistribuição](durable-functions-disaster-recovery-geo-distribution.md)

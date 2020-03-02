@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a727cd57e470f248321011d505f8037808f64298
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 90669ebde9537fdf597fccd621caa54deaed68a6
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656879"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206457"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 
@@ -152,7 +152,7 @@ Aqui estão as definições definidas no Modelo de Definições Unificadas do Gr
 |  <ul><li>EnableGroupCreation<li>Tipo: Boolean<li>Padrão: Verdadeiro |A bandeira indicando se a criação do grupo Office 365 é permitida no diretório por utilizadores não administradores. Esta definição não requer uma licença Azure Ative Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Tipo: Cadeia<li>Padrão: "" |GUID do grupo de segurança para o qual os membros são autorizados a criar grupos office 365 mesmo quando enableGroupCreation == falso. |
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: Cadeia<li>Padrão: "" |Um link para as Diretrizes de Utilização do Grupo. |
-|  <ul><li>ClassificaçõesDescrições<li>Tipo: Cadeia<li>Padrão: "" | Uma lista de descrições de classificação delimitada. O valor das Descrições de Classificações só é válido neste formato:<br>$setting["Descrições de classificações"] ="Classificação:Descrição,Classificação:Descrição".<br>onde a classificação corresponde às cordas da Lista de Classificações.<br>Esta definição não se aplica quando enableMIPLabels == Verdadeiro.|
+|  <ul><li>ClassificaçõesDescrições<li>Tipo: Cadeia<li>Padrão: "" | Uma lista de descrições de classificação delimitada. O valor das Descrições de Classificações só é válido neste formato:<br>$setting["Descrições de classificações"] ="Classificação:Descrição,Classificação:Descrição".<br>onde a classificação corresponde a uma entrada na Lista de Classificações.<br>Esta definição não se aplica quando enableMIPLabels == Verdadeiro.|
 |  <ul><li>Classificação por incumprimento<li>Tipo: Cadeia<li>Padrão: "" | A classificação que deve ser usada como classificação padrão para um grupo se nenhuma foi especificada.<br>Esta definição não se aplica quando enableMIPLabels == Verdadeiro.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: Cadeia<li>Padrão: "" | Cadeia de um comprimento máximo de 64 caracteres que define a convenção de nomeação configurada para grupos do Office 365. Para mais informações, consulte Impor uma política de [nomeação para os grupos do Office 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Tipo: Cadeia<li>Padrão: "" | Série de frases separadas pela vírposta que os utilizadores não serão autorizados a usar em nomes de grupo ou pseudónimos. Para mais informações, consulte Impor uma política de [nomeação para os grupos do Office 365](groups-naming-policy.md). |
@@ -161,7 +161,7 @@ Aqui estão as definições definidas no Modelo de Definições Unificadas do Gr
 |  <ul><li>AllowGuestsToAccessGroups<li>Tipo: Boolean<li>Padrão: Verdadeiro | Boolean indicando se um utilizador convidado pode ou não ter acesso ao conteúdo dos grupos do Office 365.  Esta definição não requer uma licença Azure Ative Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: Cadeia<li>Padrão: "" | A url de um link para as diretrizes de utilização do hóspede. |
 |  <ul><li>AllowToAddGuests<li>Tipo: Boolean<li>Padrão: Verdadeiro | Um boolean o que indica se é ou não permitido adicionar convidados a este diretório. <br>Esta definição pode ser ultrapassada e tornar-se apenas de leitura se a *EnableMIPLabels* for definida para *True* e uma política de hóspedes estiver associada ao rótulo de sensibilidade atribuído ao grupo. |
-|  <ul><li>Lista de Classificações<li>Tipo: Cadeia<li>Padrão: "" |Uma lista de valores de classificação válidos que podem ser aplicadas aos Grupos 365 do Office. <br>Esta definição não se aplica quando enableMIPLabels == Verdadeiro.|
+|  <ul><li>Lista de Classificações<li>Tipo: Cadeia<li>Padrão: "" | Uma lista de valores de classificação válidos que podem ser aplicadas aos Grupos 365 do Office. <br>Esta definição não se aplica quando enableMIPLabels == Verdadeiro.|
 |  <ul><li>Rótulos EnableMIP<li>Tipo: Boolean<li>Padrão: "Falso" |A bandeira indicando se as etiquetas de sensibilidade publicadas no Microsoft 365 Compliance Center podem ser aplicadas aos Grupos do Office 365. Para mais informações, consulte etiquetas de sensibilidade para o [Office 365 grupos](groups-assign-sensitivity-labels.md). |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Exemplo: Configure a política de hóspedes para grupos ao nível do diretório

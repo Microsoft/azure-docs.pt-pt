@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485357"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205832"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulário com etiquetas utilizando a ferramenta de rotulagem da amostra
 
@@ -35,12 +35,19 @@ Para completar este arranque rápido, deve ter:
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem da amostra
 
 Vais usar o motor Docker para executar a ferramenta de rotulagem de amostras. Siga estes passos para montar o recipiente Docker. Para um primer sobre o Docker e o básico do contentor, consulte a visão geral do [Docker.](https://docs.docker.com/engine/docker-overview/)
-1. Primeiro, instale o Docker num computador de acolhimento. O computador anfitrião pode ser o seu computador local[(Windows,](https://docs.docker.com/docker-for-windows/) [macOS](https://docs.docker.com/docker-for-mac/)ou [Linux).](https://docs.docker.com/install/) Ou, você pode usar um serviço de hospedagem Docker em Azure, como o [Serviço Azure Kubernetes,](https://docs.microsoft.com/azure/aks/index) [Instâncias de Contentores Azure,](https://docs.microsoft.com/azure/container-instances/index)ou um cluster Kubernetes [implantado para uma Stack Azure.](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910) O computador anfitrião deve satisfazer os seguintes requisitos de hardware:
+1. Primeiro, instale o Docker num computador de acolhimento. Este guia irá mostrar-lhe como usar o computador local como hospedeiro. Se quiser utilizar um serviço de hospedagem DoEs tacada em Azure, consulte a [ferramenta de rotulagem](../deploy-label-tool.md) de amostra como orientar. 
+
+   O computador anfitrião deve satisfazer os seguintes requisitos de hardware:
 
     | Contentor | Mínimo | Recomendado|
     |:--|:--|:--|
     |Ferramenta de rotulagem de amostras|2 núcleo, 4-GB de memória|4 núcleos, 8-GB de memória|
-    
+
+   Instale o Docker na sua máquina seguindo as instruções adequadas para o seu sistema operativo: 
+   * [Windows](https://docs.docker.com/docker-for-windows/)
+   * [macOS](https://docs.docker.com/docker-for-mac/)
+   * [Linux.](https://docs.docker.com/install/)
+
 1. Obtenha o recipiente de ferramentas de rotulagem da amostra com o comando `docker pull`.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
@@ -116,17 +123,23 @@ Clique **em Executar OCR em todos os ficheiros** do painel esquerdo para obter a
 
 ### <a name="apply-labels-to-text"></a>Aplicar etiquetas ao texto
 
-Em seguida, irá criar rótulos e aplicá-los aos elementos de texto que pretende que o modelo reconheça.
+Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que pretende que o modelo reconheça.
 
-1. Em primeiro lugar, use o painel de editor de etiquetas para criar as etiquetas (etiquetas) que gostaria de identificar.
+1. Primeiro, use o painel de editor de etiquetas para criar as etiquetas que gostaria de identificar.
+  1. Clique **+** para criar uma nova etiqueta.
+  1. Insira o nome da etiqueta.
+  1. Pressione Entrar para guardar a etiqueta.
 1. No editor principal, clique e arraste para selecionar uma ou várias palavras dos elementos de texto destacados.
+1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas de número são atribuídas como chaves de acesso para as primeiras 10 etiquetas. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel do editor de etiquetas.
+    > [!Tip]
+    > Tenha em mente as seguintes dicas quando estiver a rotular os formulários.
+    > * Só é possível aplicar uma etiqueta a cada elemento de texto selecionado.
+    > * Cada etiqueta só pode ser aplicada uma vez por página. Se um valor aparecer várias vezes na mesma forma, crie etiquetas diferentes para cada instância. Por exemplo: "fatura nº 1", "fatura# 2" e assim por diante.
+    > * As etiquetas não podem estender-se por páginas.
+    > * Valores de etiqueta à medida que aparecem no formulário; não tente dividir um valor em duas partes com duas etiquetas diferentes. Por exemplo, um campo de endereços deve ser rotulado com uma única etiqueta, mesmo que se estem por várias linhas.
+    > * Não inclua chaves nos seus campos marcados&mdash;apenas os valores.
+    > * Os dados da tabela devem ser detetados automaticamente e estarão disponíveis no ficheiro JSON de saída final. No entanto, se o modelo não detetar todos os dados da sua tabela, também pode marcar manualmente estes campos. Marque cada célula na mesa com um rótulo diferente. Se os seus formulários tiverem tabelas com um número variado de linhas, certifique-se de que marca pelo menos um formulário com a maior tabela possível.
 
-    > [!NOTE]
-    > Não é possível selecionar texto que se estende por várias páginas.
-1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. Só é possível aplicar uma etiqueta a cada elemento de texto selecionado e cada etiqueta só pode ser aplicada uma vez por página.
-
-    > [!TIP]
-    > As teclas de número são atribuídas como chaves de acesso para as primeiras dez etiquetas. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel do editor de etiquetas.
 
 Siga os passos acima para rotular cinco dos seus formulários e, em seguida, passe para o passo seguinte.
 
@@ -174,7 +187,7 @@ Quando pretende retomar o seu projeto, primeiro é necessário criar uma ligaç�
 ### <a name="resume-a-project"></a>Retomar um projeto
 Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento blob e selecione o ficheiro *.vott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o símbolo de segurança.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a utilizar a ferramenta de rotulagem da amostra 'Reconhecimento de Formulários' para treinar um modelo com dados rotulados manualmente. Se quiser integrar a ferramenta de rotulagem na sua própria aplicação, utilize as APIs REST que lidam com a formação de dados etiquetada.
 

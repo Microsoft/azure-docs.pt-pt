@@ -3,12 +3,12 @@ title: Matriz de suporte do Azure Backup
 description: Fornece um resumo das definições de suporte e limitações para o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: dd4ec646c786ee686567aa137845e583a4cf47e3
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505862"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206661"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para Backup Azure
 
@@ -35,7 +35,7 @@ A tabela seguinte descreve as características dos cofres dos Serviços de Recup
 **Fontes de dados no armazenamento de cofres** | Máximo de 54.400 GB. Não há limite para cópias de segurança do Azure VM.
 **Backups para o cofre** | **VMs azure:** Uma vez por dia.<br/><br/>**Máquinas protegidas por DPM/MABS:** Duas vezes por dia.<br/><br/> **As máquinas ativadas diretamente utilizando o agente MARS:** Três vezes por dia.
 **Backups entre cofres** | O reforço está dentro de uma região.<br/><br/> Precisa de um cofre em todas as regiões de Azure que contenha VMs que queira apoiar. Não se pode recuar para uma região diferente.
-**Mover cofres** | Pode [mover cofres](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) através de subscrições ou entre grupos de recursos na mesma subscrição. No entanto, a movimentação de cofres em todas as regiões não é apoiada.
+**Mover cofres** | Pode [mover cofres](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) através de subscrições ou entre grupos de recursos na mesma subscrição. No entanto, a movimentação de cofres em todas as regiões não é apoiada.
 **Mover dados entre cofres** | Mover dados de apoio entre cofres não é suportado.
 **Modificar o tipo de armazenamento do cofre** | Pode modificar o tipo de replicação de armazenamento (armazenamento geo-redundante ou armazenamento localmente redundante) para um cofre antes de armazenar backups. Depois de as cópias de segurança começarem no cofre, o tipo de replicação não pode ser modificado.
 
@@ -149,16 +149,16 @@ O backup suporta a compressão do tráfego de reserva, tal como resumido na tabe
 
 O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a disponibilidade de dados e a capacidade de resiliência, dando aos clientes o controlo total para restaurar os dados numa região secundária. Para configurar esta funcionalidade, visite [o artigo set Cross Region Restore. .](backup-create-rs-vault.md#set-cross-region-restore). Esta funcionalidade é suportada para os seguintes tipos de gestão:
 
-| Tipo de Gestão de Backup | Suportadas                                                    | Regiões Apoiadas |
+| Tipo de Gestão de Backup | Suportado                                                    | Regiões Apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Sim. Pré-visualização limitada pública Suportada para VMs e VMs encriptados com discos inferiores a 4 TB | EUA Centro-Oeste   |
-| Mars Agent/Nas instalações | Não                                                           | N/A               |
-| SQL /SAP HANA          | Não                                                           | N/A               |
-| AFS                    | Não                                                           | N/A               |
+| VM do Azure               | Sim. Pré-visualização limitada pública Suportada para VMs e VMs encriptados com discos inferiores a 4 TB | E.U.A. Centro-Oeste   |
+| Mars Agent/Nas instalações | Não                                                           | N/D               |
+| SQL /SAP HANA          | Não                                                           | N/D               |
+| AFS                    | Não                                                           | N/D               |
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Reveja a matriz](backup-support-matrix-iaas.md) de suporte para backup Azure VM.
 

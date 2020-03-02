@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/24/2020
-ms.openlocfilehash: 286b16d850b1c1c26069c50cd4045bf7f3dd3c14
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 9e220c7a7813f89eacab5137362e39153d2b334a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623509"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207188"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Criar o cluster Apache Kafka no Azure HDInsight usando o portal Azure
 
@@ -78,7 +78,7 @@ Para criar um cluster Apache Kafka no HDInsight, utilize os seguintes passos:
 
     Selecione o separador **De Segurança + networking.**
 
-1. Neste início rápido, mantenha as predefinições de segurança. Para saber mais sobre o pacote de Segurança Enterprise, visite [Configurar um cluster do HDInsight com Pacote de Segurança Enterprise com o Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para saber como utilizar a sua própria chave para Encriptação de Discos do Apache Kafka, visite [Traga a sua própria chave para o Apache Kafka no Azure HDInsight](apache-kafka-byok.md)
+1. Neste início rápido, mantenha as predefinições de segurança. Para saber mais sobre o pacote de Segurança Enterprise, visite [Configurar um cluster do HDInsight com Pacote de Segurança Enterprise com o Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para aprender a usar a sua própria chave para encriptação de disco Apache Kafka, visite [encriptação de disco de chave gerida pelo Cliente](../disk-encryption.md)
 
    Se quiser ligar o seu cluster a uma rede virtual, selecione uma rede virtual na lista pendente **Rede Virtual**.
 

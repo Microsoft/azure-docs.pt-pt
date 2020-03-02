@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: 785f68b98d819a58ce43837dc3c9b5a855beeb0a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b0fe0cf0d477d1360d3789f74f30565e15cfd42e
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672519"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206929"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Quickstart: Criar, descarregar e listar bolhas com o Azure CLI
 
@@ -28,7 +28,7 @@ A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="use-the-azure-cli-locally"></a>Use o Azure CLI localmente
+## <a name="install-the-azure-cli-locally"></a>Instale o Azure CLI localmente
 
 Se optar por instalar e utilizar o Azure CLI localmente, este quickstart requer que esteja a executar a versão Azure CLI 2.0.46 ou posterior. Execute `az --version` para determinar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -38,11 +38,13 @@ Se estiver a executar o Azure CLI localmente, tem de fazer login e autenticar. E
 az login
 ```
 
+Para mais informações sobre a autenticação' com o Azure CLI, consulte [O Signin em com o Azure CLI](/cli/azure/authenticate-azure-cli).
+
 ## <a name="authorize-access-to-blob-storage"></a>Autorizar o acesso ao armazenamento blob
 
 Pode autorizar o acesso ao armazenamento Blob a partir do Azure CLI, quer com credenciais De AD Azure, quer utilizando a chave de acesso à conta de armazenamento. Recomenda-se a utilização de credenciais AD Azure. Este artigo mostra como autorizar operações de armazenamento blob usando a AD Azure.
 
-Os comandos Azure CLI para operações de dados contra o armazenamento Blob suportam o parâmetro `--auth-mode`, o que lhe permite especificar como autorizar uma determinada operação. Defina o parâmetro `--auth-mode` para `login` autorizar com credenciais Azure AD. Para mais informações, consulte [comandos Run Azure CLI com credenciais Azure AD para aceder a dados de blob ou fila](../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Os comandos Azure CLI para operações de dados contra o armazenamento Blob suportam o parâmetro `--auth-mode`, o que lhe permite especificar como autorizar uma determinada operação. Defina o parâmetro `--auth-mode` para `login` autorizar com credenciais Azure AD. Para mais informações, consulte [Autorizar o acesso a dados blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Apenas as operações de dados de armazenamento blob suportam o parâmetro `--auth-mode`. As operações de gestão, tais como a criação de um grupo de recursos ou uma conta de armazenamento, utilizam automaticamente credenciais de AD Azure para autorização.
 

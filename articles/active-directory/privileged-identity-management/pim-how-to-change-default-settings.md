@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77132ae9a10eda7170ac56f2b7c65a3ebcde8d6d
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498986"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205029"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configure definições de funções de AD Azure na Gestão de Identidade Privilegiada
 
@@ -107,7 +107,7 @@ Pode exigir que os utilizadores introduzam uma justificação de negócio quando
 
 ## <a name="require-approval-to-activate"></a>Exigir aprovação para ativar
 
-Se quiser obter aprovação para ativar um papel, siga estes passos.
+Se a definição de vários aprovadores, a aprovação termina assim que um deles aprovar ou negar. Não é possível que seja aprovada por pelo menos dois utilizadores. Para exigir aprovação para ativar uma função, siga estes passos.
 
 1. Verifique a **aprovação do Requerio para ativar a** caixa de verificação.
 
@@ -210,7 +210,7 @@ Se quiser delegar a aprovação necessária para ativar uma função, siga estes
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
 - [Configure alertas de segurança para funções da AD Azure na Gestão de Identidade Privilegiada](pim-how-to-configure-security-alerts.md)

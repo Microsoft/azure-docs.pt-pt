@@ -7,12 +7,12 @@ author: lisaguthrie
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 66bf27c1b1e8349c1a0e822c457412fdfca58e82
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 957fef32702f35b4b509d829eba6a41914c4fc53
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619453"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205862"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrar com identidades geridas azure
 
@@ -143,10 +143,16 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
                     .ConfigureAppConfiguration((hostingContext, config) =>
                     {
                         var settings = config.Build();
-                        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                        
-                        config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
+                        var credentials = new ManagedIdentityCredential();
+
+                        config.AddAzureAppConfiguration(options =>
+                        {
+                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                                    .ConfigureKeyVault(kv =>
+                                    {
+                                        kv.SetCredential(credentials);
+                                    });
+                        });
                     })
                     .UseStartup<Startup>();
     ```
@@ -158,12 +164,18 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
             Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
             webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                        
-                        config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
+                    {
+                        var settings = config.Build();
+                        var credentials = new ManagedIdentityCredential();
+
+                        config.AddAzureAppConfiguration(options =>
+                        {
+                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                                    .ConfigureKeyVault(kv =>
+                                    {
+                                        kv.SetCredential(credentials);
+                                    });
+                        });
                     })
                     .UseStartup<Startup>());
     ```

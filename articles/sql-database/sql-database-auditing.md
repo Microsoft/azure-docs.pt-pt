@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 70f37c70f685ee139db4b417c1c498f9eefb8205
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 27d65c7e6bbc0af20d01d91f1472433f3e7142a9
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184762"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206611"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Começar com a auditoria da base de dados SQL
 
@@ -116,22 +116,15 @@ Para configurar os registos de auditoria de escrita para um espaço de trabalho 
 
 ### <a id="audit-event-hub-destination">Auditoria ao destino Event Hub</a>
 
-<<<<<<< HEAD <<<<<<<<<< HEAD=========
->>>>>>> a8190987e07da4c5ced6de5f58d394ace4ca31d
 > [!IMPORTANT]
 > Não é possível permitir a auditoria a um pool SQL pausado. Para o ativar, desfaça a piscina SQL.
 
 > [!WARNING]
-> Permitir a auditoria num servidor que tenha um pool SQL nele **resultará no reinício do pool SQL e novamente interrompido,** o que pode incorrer em taxas de faturação.
-<<<<<<<< HEAD ========= Para configurar registos de auditoria de escrita para um hub de eventos, selecione **Event Hub (Preview)** e abra detalhes do **Event Hub.** Selecione o centro de eventos onde os registos serão escritos e, em seguida, clique EM **OK**. Certifique-se de que o centro de eventos está na mesma região que a sua base de dados e servidor.
+> Permitir a auditoria num servidor que tenha um pool SQL nele **resulta no reinício do pool SQL e novamente interrompido,** o que pode incorrer em taxas de faturação.
 
-   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
->>>>>>> <a name="bf6444e83361ab743aca04ae233c420e51ea1e03"></a>bf6444e8361ab743aca04ae23c420e51ea1ea1e03
-=======
 Para configurar registos de auditoria de escrita para um centro de eventos, selecione **Event Hub (Pré-visualização)** e abra detalhes do **Event Hub**. Selecione o centro de eventos onde os registos serão escritos e, em seguida, clique EM **OK**. Certifique-se de que o centro de eventos está na mesma região que a sua base de dados e servidor.
 
    ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
->>>>>>> a8190987e07da4c5ced6de5f58d394ace4ca31d
 
 ## <a id="subheading-3"></a>Analisar registos e relatórios de auditoria
 
