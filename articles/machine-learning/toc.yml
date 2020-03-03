@@ -362,18 +362,21 @@
         - name: Pipelines do Azure para CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: 'Estruturador: Preparar novamente com pipelines publicados'
+        - name: Reeducação do estruturador com pipelines publicados
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
+        - name: Predições em lote de estruturador
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
+        - name: Código Python executado pelo estruturador
+          displayName: 'feature extraction, feature engineering'
+          href: how-to-designer-python.md
         - name: Utilizar passo de execução paralela
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
         - name: Depurar e resolver problemas de execução paralela
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-        - name: Predições em lote de estruturador
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
     - name: Gerir quotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md
