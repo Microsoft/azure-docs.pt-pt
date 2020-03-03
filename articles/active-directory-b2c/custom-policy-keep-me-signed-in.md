@@ -2,20 +2,20 @@
 title: Mantenha-me assinado no Diretório Ativo Azure B2C
 description: Saiba como configurar Keep Me Signed In (KMSI) no Diretório Ativo Azure B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84ba68c97f69872e39121915a6edf23aa029fa75
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
-ms.translationtype: HT
+ms.openlocfilehash: 9a27487fa69888b02883c3d9a2151887f41afc45
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161691"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189383"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Enable Keep me signed in (KMSI) in Azure Ative Directory B2C
 
@@ -32,7 +32,7 @@ Os utilizadores não devem ativar esta opção em computadores públicos.
 - Um inquilino Azure AD B2C que está configurado para permitir o início de sessão de conta local. A KMSI não é apoiada para contas de fornecedores de identidade externa.
 - Complete os passos em [Get started com políticas personalizadas.](custom-policy-get-started.md)
 
-## <a name="configure-the-page-identifier"></a>Configurar o identificador de página 
+## <a name="configure-the-page-identifier"></a>Configurar o identificador de página
 
 Para ativar o KMSI, delineie a definição de conteúdo `DataUri` elemento ao [identificador](contentdefinitions.md#datauri) de página `unifiedssp` e na [versão](page-layout.md) *página 1.1.0* ou superior.
 
@@ -51,7 +51,7 @@ Para ativar o KMSI, delineie a definição de conteúdo `DataUri` elemento ao [i
       </ContentDefinitions>
     </BuildingBlocks>
     ```
-    
+
 1. Salve o arquivo de extensões.
 
 
@@ -73,13 +73,13 @@ Atualize o ficheiro da parte de fiação (RP) que inicia a viagem de utilizador 
     ```
 
     - **SessionExpiryType** - Indica como a sessão é prolongada pelo tempo especificado em `SessionExpiryInSeconds` e `KeepAliveInDays`. O valor `Rolling` (predefinido) indica que a sessão é prolongada sempre que o utilizador executa a autenticação. O valor `Absolute` indica que o utilizador é obrigado a reautenticar após o período de tempo especificado.
- 
+
     - **SessionExpiryInSeconds** - A vida útil dos cookies de sessão quando *me mantiver inscrito* não está ativada, ou se um utilizador não selecionar *manter-me inscrito em*. A sessão expira após a aprovação de `SessionExpiryInSeconds`, ou o navegador está fechado.
- 
+
     - **KeepAliveInDays** - A vida útil dos cookies de sessão quando *me mantiver inscrito* está ativada e os selecionados do utilizador *mantêm-me inscrito em*.  O valor da `KeepAliveInDays` tem precedência sobre o valor `SessionExpiryInSeconds`, e dita o tempo de validade da sessão. Se um utilizador fechar o navegador e o reabrir mais tarde, ainda pode iniciar sessão silenciosamente desde que esteja dentro do período de tempo KeepAliveInDays.
-    
+
     Para mais informações, consulte os comportamentos da [viagem do utilizador.](relyingparty.md#userjourneybehaviors)
- 
+
 Recomendamos que detetete o valor do SessionExpiryInSeconds como um curto período (1200 segundos), enquanto o valor do KeepAliveInDays pode ser definido para um período relativamente longo (30 dias), como mostra o seguinte exemplo:
 
 ```XML
