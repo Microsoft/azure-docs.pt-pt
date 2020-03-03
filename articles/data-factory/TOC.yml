@@ -625,7 +625,7 @@
           href: solution-template-migration-s3-azure.md
         - name: Mover ficheiros
           href: solution-template-move-files.md
-        - name: Transformar dados com o Databricks
+        - name: Transformação com o Azure Databricks
           href: solution-template-databricks-notebook.md
     - name: Guias de resolução de problemas
       items:
