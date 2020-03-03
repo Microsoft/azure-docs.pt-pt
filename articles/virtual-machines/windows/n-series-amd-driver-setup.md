@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: fdc6834f3fb5ee97f27a6397645b965863e90a6b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6dc8c54b9d138ab62e086cca59cd5b4801fa6130
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190544"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228335"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instale controladores GPU AMD em VMs da série N executando Windows
 
@@ -31,13 +31,18 @@ Para especificações básicas, capacidades de armazenamento e detalhes do disco
 
 | SO | Controlador |
 | -------- |------------- |
-| Windows 10 EVD - Construção 1903 <br/><br/>Windows 10 - Construção 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [19.Q4.1](https://download.microsoft.com/download/7/e/5/7e558ac0-3fff-413d-af62-800285a2fc53/Radeon-Pro-Software-for-Enterprise-19.Q4.1-Technical-Preview.exe) (.exe) |
+| Windows 10 EVD - Construção 1903 <br/><br/>Windows 10 - Construção 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (.exe) |
+
 
 ## <a name="driver-installation"></a>Instalação do condutor
 
 1. Ligue-se por Remote Desktop a cada VM da série NVv4.
 
-1. Faça o download e extrate os ficheiros de configuração do condutor. Navegue para a pasta e execute 'setup.exe' para instalar o controlador suportado para o seu sistema operativo Windows.
+2. Se é um cliente de pré-visualização NVv4, por favor pare o VM e espere que este se mude para o estado Stop(Deallocated).
+
+3. Por favor, inicie o VM e, em seguida, desinstale o controlador de pré-visualização executando "amdcleanuputility-x64.exe" localizado na pasta "...\AMDCleanUninstallUtility". O caminho exato variará em função dos ficheiros de instalação do condutor anteriores.  
+
+4. Faça o download e instale o mais recente controlador.
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação do condutor
 

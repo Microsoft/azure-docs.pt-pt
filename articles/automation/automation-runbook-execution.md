@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4070b004ee791a433b5aeb9e3e0cdd9662fb0429
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6a51e57bd2411c19dfd5e7740f9e918d0bd09e27
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191151"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226469"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de livro de corridas na Automação Azure
 
@@ -152,11 +152,11 @@ Start-AzAutomationRunbook `
 
 Esta secção descreve algumas formas de lidar com exceções ou problemas intermitentes nos seus livros de execução.
 
-#### <a name="erroractionpreference"></a>$ErrorActionPreference
+#### <a name="erroractionpreference"></a>ErrorActionPreference
 
-A variável [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como a PowerShell reage a um erro não terminando. Os erros de terminação terminam sempre e não são afetados por *$ErrorActionPreference*.
+A variável [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como o PowerShell responde a um erro não terminando. Os erros de terminação terminam sempre e não são afetados por *ErrorActionPreference*.
 
-Quando o livro de execução utiliza *$ErrorActionPreference*, um erro normalmente não terminante, como **o PathNotFound** do cmdlet **Get-ChildItem,** impede que o livro de execução esteja concluído. O exemplo que se segue mostra a utilização de *$ErrorActionPreference*. O comando final **de Write-Output** nunca executa, à medida que o guião para.
+Quando o livro de execução utiliza *errorActionPreference*, um erro normalmente não terminante, como **o PathNotFound** do **cmdlet Get-ChildItem,** impede que o livro de execução esteja concluído. O exemplo que se segue mostra a utilização de *ErrorActionPreference*. O comando final **de Write-Output** nunca executa, à medida que o guião para.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'

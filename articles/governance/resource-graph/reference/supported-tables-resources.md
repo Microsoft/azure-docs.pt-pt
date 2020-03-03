@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Gestor de Recursos Suportados
 description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e change History.
-ms.date: 02/25/2020
+ms.date: 03/02/2020
 ms.topic: reference
-ms.openlocfilehash: dc08c4a33ec9e0c20b865ffa4d7c6ff9d5248e90
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 3d6ba89cbf5c35c2a06a214029971341c4184b41
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602569"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227334"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos azure e referência do tipo de recurso
 
@@ -210,6 +210,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.insights/metricalerts
 - microsoft.insights/notificationgroups
 - microsoft.insights/notificationrules
+- microsoft.insights/privatelinkscopes
 - microsoft.insights/schedulequeryrules
 - microsoft.insights/webtests
 - microsoft.insights/livros

@@ -17,19 +17,19 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bfe668dc2eb4e0e00de34231f4c232f5240a82d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 650e5fb5d0b2c5522a70944991e9e49037c3b4fa
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700758"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226947"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicação para plataforma de identidade Microsoft
 
 A plataforma de identidade da Microsoft (v2.0) suporta a autenticação para uma variedade de arquiteturas de aplicações modernas, todas baseadas em protocolos padrão da indústria [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md). Este artigo descreve os tipos de aplicações que pode construir utilizando a plataforma de identidade da Microsoft, independentemente do seu idioma ou plataforma preferido. A informação foi concebida para o ajudar a compreender cenários de alto nível antes de [começar a trabalhar com o código](v2-overview.md#getting-started).
 
 > [!NOTE]
-> O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e funcionalidades do Azure Ative Directory (Azure AD). Para determinar se você deve usar o ponto de extremidade da plataforma de identidade da Microsoft, leia sobre as [limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
+> O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e funcionalidades do Azure Ative Directory (Azure AD). Para determinar se deve utilizar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações](active-directory-v2-limitations.md)da plataforma de identidade da Microsoft .
 
 ## <a name="the-basics"></a>Noções básicas
 
@@ -58,7 +58,7 @@ Neste fluxo, a aplicação recebe tokens diretamente da plataforma de identidade
 
 Para ver este cenário em ação, experimente uma das amostras de código de aplicação de uma página única na plataforma de identidade da [Microsoft a começar a](v2-overview.md#getting-started) secção.
 
-## <a name="web-apps"></a>Aplicações Web
+## <a name="web-apps"></a>Web Apps
 
 Para aplicações web (.NET, PHP, Java, Ruby, Python, Node) a que o utilizador acede através de um browser, pode utilizar o [OpenID Connect](active-directory-v2-protocols.md) para iniciar sessão do utilizador. No OpenID Connect, a aplicação web recebe um token ID. Um token de identificação é um símbolo de segurança que verifica a identidade do utilizador e fornece informações sobre o utilizador sob a forma de reclamações:
 
@@ -99,7 +99,7 @@ Accept: application/json
 ...
 ```
 
-A Web API utiliza o sinal de acesso para verificar a identidade do chamador da API e para extrair informações sobre o chamador de reclamações codificadas no token de acesso. Mais detalhes sobre diferentes tipos de fichas utilizadas no ponto final da plataforma de identidade da Microsoft estão disponíveis na referência de [acesso e](access-tokens.md) [referência id_token](id-tokens.md)
+A Web API utiliza o sinal de acesso para verificar a identidade do chamador da API e para extrair informações sobre o chamador de reclamações codificadas no token de acesso. Mais detalhes sobre diferentes tipos de fichas utilizadas no ponto final da plataforma de identidade da Microsoft estão disponíveis na referência de [acesso e](access-tokens.md) [referência id_token.](id-tokens.md)
 
 Uma API Web pode dar aos utilizadores o poder de optar ou optar por funcionalidades ou dados específicos expondo permissões, também conhecidas como [âmbitos.](v2-permissions-and-consent.md) Para que uma aplicação de chamada adquira permissão a um âmbito, o utilizador deve consentir com o âmbito durante um fluxo. O ponto final da plataforma de identidade da Microsoft pede permissão ao utilizador e, em seguida, regista permissões em todas as fichas de acesso que a Web API recebe. A Web API valida as fichas de acesso que recebe em cada chamada e realiza verificações de autorização.
 

@@ -2,19 +2,17 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implementar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 0419f3daca6845c6809c9f66e870fdf884a7193f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/02/2020
+ms.openlocfilehash: 3b2eeaf2c63a50cda1a32fee94c1e5b99822075d
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117049"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228109"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos ao nível do grupo de gestão
 
 Normalmente, você implementa recursos Azure para um grupo de recursos na sua subscrição Azure. No entanto, também pode criar recursos a nível de grupo de gestão. Utiliza-se implementações de nível de grupo de gestão para tomar medidas que façam sentido a esse nível, tais como a atribuição de controlo de [acesso baseado em papéis](../../role-based-access-control/overview.md) ou a aplicação de [políticas.](../../governance/policy/overview.md)
-
-Atualmente, para implementar modelos ao nível do grupo de gestão, você deve usar a API REST.
 
 ## <a name="supported-resources"></a>Recursos suportados
 
@@ -45,7 +43,16 @@ https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeployment
 
 ## <a name="deployment-commands"></a>Comandos de implantação
 
-O comando para implementações de grupos de gestão é diferente do comando para implantações de grupos de recursos.
+Os comandos para destacamentos de grupos de gestão são diferentes dos comandos para implantações de grupos de recursos.
+
+Para a Azure PowerShell, utilize a [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment). 
+
+```azurepowershell-interactive
+New-AzManagementGroupDeployment `
+  -ManagementGroupId "myMG" `
+  -Location "West US" `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+```
 
 Para a API REST, utilize [implementações - Crie no âmbito do grupo](/rest/api/resources/deployments/createorupdateatmanagementgroupscope)de gestão .
 
@@ -150,7 +157,7 @@ O exemplo que se segue atribui uma definição de política existente ao grupo d
 
 ## <a name="template-sample"></a>Amostra de modelo
 
-* Criar um grupo de recursos, uma política e uma atribuição de políticas.  Veja [aqui.](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json)
+* Criar um grupo de [recursos, uma política e uma atribuição de políticas.](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json)
 
 ## <a name="next-steps"></a>Passos seguintes
 

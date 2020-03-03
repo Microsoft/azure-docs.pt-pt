@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/05/2020
-ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 03/01/2020
+ms.openlocfilehash: fddffee001266b96bc341738293bbdb42115a978
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162417"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228190"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Utilize data lake storage Gen1 com clusters Azure HDInsight
 
@@ -31,7 +31,7 @@ Neste artigo, você aprende como Data Lake Storage Gen1 funciona com clusters HD
 
 ## <a name="availability-for-hdinsight-clusters"></a>Disponibilidade para clusters HDInsight
 
-Apache Hadoop suporta uma noção do sistema de ficheiros padrão. O sistema de ficheiros predefinido implica um esquema e uma autoridade predefinidos. Também pode ser utilizado para resolver caminhos relativos. Durante o processo de criação de cluster HDInsight, pode especificar um recipiente blob no Armazenamento Azure como sistema de ficheiros padrão, ou com versões HDInsight 3.5 e versões mais recentes, pode selecionar o Armazenamento Azure ou o Azure Data Lake Storage Gen1 como o sistema de ficheiros predefinido com um poucas exceções.
+Apache Hadoop suporta uma noção do sistema de ficheiros padrão. O sistema de ficheiros predefinido implica um esquema e uma autoridade predefinidos. Também pode ser utilizado para resolver caminhos relativos. Durante o processo de criação de cluster HDInsight, pode especificar um recipiente blob no Armazenamento Azure como sistema de ficheiros padrão, ou com versões HDInsight 3.5 e versões mais recentes, pode selecionar o Armazenamento Azure ou o Azure Data Lake Storage Gen1 como o sistema de ficheiros predefinido com um poucas exceções. Note que o cluster e a conta de armazenamento devem ser alojados na mesma região.
 
 Os clusters HDInsight podem usar data Lake Storage Gen1 de duas maneiras:
 

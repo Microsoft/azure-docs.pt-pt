@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 7f5f75385374b6949ee3ef5e5ef298b8d54cc36e
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 2af887f529d57052d8b729fa1a613e8eeb9003ea
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163255"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228285"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -86,7 +86,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **MicrosoftContainerRegistry** | Registo de contentores para imagens de contentores da Microsoft. <br/><br/>*Nota:* Por favor, também a lista branca após o IP (esta dependência será removida em breve): 204.79.197.219. | Saída | Sim | Sim |
 | **ServiceBus** | Tráfego de ônibus de serviço Azure que utiliza o nível de serviço Premium. | Saída | Sim | Sim |
 | **ServiceFabric** | Tecido de serviço Azure.<br/><br/>*Nota:* Esta etiqueta representa o ponto final do serviço Service Fabric para o plano de controlo por região. Isto permite que os clientes realizem operações de gestão para os seus clusters de Tecido de Serviço a partir do seu VNET (ponto final, por exemplo. https:// westus.servicefabric.azure.com) | Ambos | Não | Não |
-| **Sql** | Base de Dados Azure SQL, Base de Dados Azure para MySQL, Base de Dados Azure para PostgreSQL e Armazém de Dados Azure SQL.<br/><br/>*Nota:* Esta etiqueta representa o serviço, mas não instâncias específicas do serviço. Por exemplo, representa o serviço da Base de Dados SQL do Azure, mas não uma base de dados ou um servidor SQL. | Saída | Sim | Sim |
+| **Sql** | Base de Dados Azure SQL, Base de Dados Azure para MySQL, Base de Dados Azure para PostgreSQL e Armazém de Dados Azure SQL.<br/><br/>*Nota:* Esta etiqueta representa o serviço, mas não instâncias específicas do serviço. Por exemplo, representa o serviço da Base de Dados SQL do Azure, mas não uma base de dados ou um servidor SQL. Esta etiqueta não se aplica à instância gerida pela SQL. | Saída | Sim | Sim |
 | **SqlManagement** | Tráfego de gestão para implementações dedicadas à SQL. | Ambos | Não | Sim |
 | **Armazenamento** | Armazém Azure. <br/><br/>*Nota:* Esta etiqueta representa o serviço, mas não instâncias específicas do serviço. Por exemplo, representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. | Saída | Sim | Sim |
 | **Rede Virtual** | O espaço de endereço seletiva da rede virtual (todas as gamas de endereços IP definidas para a rede virtual), todos os espaços de endereços ligados no local, redes [virtuais,](virtual-network-peering-overview.md) redes virtuais ligadas a um portal de [rede virtual,](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)o [endereço IP virtual do anfitrião,](security-overview.md#azure-platform-considerations)e prefixos de endereço utilizados nas rotas definidas pelo [utilizador.](virtual-networks-udr-overview.md) Esta etiqueta também pode conter rotas predefinidas. | Ambos | Não | Não |

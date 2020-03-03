@@ -1,6 +1,6 @@
 ---
-title: Entrada sem senha com o Microsoft Authenticator app-Azure Active Directory
-description: Habilitar a entrada sem senha no Azure AD usando o aplicativo Microsoft Authenticator (versão prévia)
+title: Sem palavras-passe com a aplicação Microsoft Authenticator - Diretório Ativo Azure
+description: Ativar o acesso sem palavras-passe ao Azure AD utilizando a aplicação Microsoft Authenticator (pré-visualização)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,96 +11,100 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a7bf9690b4f50c771afc4745bbc2e5377adbba
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 736a543a6f28697dd4f1ddf85317e97a87b86e78
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848481"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227061"
 ---
-# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator (versão prévia)
+# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Ativar o acesso sem palavras-passe com a aplicação Microsoft Authenticator (pré-visualização)
 
-O aplicativo Microsoft Authenticator pode ser usado para entrar em qualquer conta do Azure AD sem usar uma senha. Semelhante à tecnologia do [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification), o Microsoft Authenticator usa a autenticação baseada em chave para habilitar uma credencial de usuário vinculada a um dispositivo e usa uma biométrica ou um PIN. Esse método de autenticação pode ser usado em qualquer plataforma de dispositivo, incluindo dispositivos móveis e com qualquer aplicativo ou site que se integre com as bibliotecas de autenticação da Microsoft. 
+A aplicação Microsoft Authenticator pode ser usada para iniciar sessão em qualquer conta DaD Azure sem utilizar uma palavra-passe. À semelhança da tecnologia do [Windows Hello for Business,](/windows/security/identity-protection/hello-for-business/hello-identity-verification)o Microsoft Authenticator utiliza a autenticação baseada em chaves para permitir uma credencial do utilizador que está ligada a um dispositivo e utiliza um biométrico ou PIN. Este método de autenticação pode ser utilizado em qualquer plataforma de dispositivos, incluindo móvel, e com qualquer aplicação ou website que se integre com bibliotecas de autenticação da Microsoft. 
 
-![Exemplo de uma entrada de navegador solicitando que o usuário aprove a entrada](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
+![Exemplo de um sessão de navegador pedindo ao utilizador para aprovar o sessão](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Em vez de ver um prompt para uma senha depois de inserir um nome de usuário, uma pessoa que tenha habilitado a entrada por telefone do aplicativo Microsoft Authenticator verá uma mensagem informando que eles tocam em um número em seu aplicativo. No aplicativo, o usuário deve corresponder ao número, escolher aprovar e, em seguida, fornecer seu PIN ou biométrica, a autenticação será concluída.
+Em vez de ver um pedido de senha depois de introduzir um nome de utilizador, uma pessoa que tenha ativado o registo telefónico a partir da aplicação Microsoft Authenticator verá uma mensagem a dizer-lhes para tocarem num número na sua aplicação. Na aplicação, o utilizador deve corresponder ao número, escolher Aprovar, em seguida, fornecer o seu PIN ou biométrico, então a autenticação estará completa.
 
 > [!NOTE]
-> Esse recurso esteve no aplicativo Microsoft Authenticator desde março de 2017, portanto, há a possibilidade de que, quando a política estiver habilitada para um diretório, os usuários possam encontrar esse fluxo imediatamente e ver uma mensagem de erro se eles não tiverem sido habilitados pela política. Lembre-se e prepare seus usuários para essa alteração.
+> Esta capacidade está na aplicação Microsoft Authenticator desde março de 2017, pelo que existe a possibilidade de, quando a política estiver ativada para um diretório, os utilizadores encontrarem este fluxo imediatamente, e verem uma mensagem de erro se não tiverem sido ativadas pela política. Esteja atento e prepare os seus utilizadores para esta alteração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Autenticação multifator do Azure, com notificações por push permitidas como um método de verificação 
-- Versão mais recente do Microsoft Authenticator instalada em dispositivos que executam o iOS 8,0 ou superior, ou Android 6,0 ou superior.
+- Autenticação Azure Multi-Factor, com notificações push permitidas como um método de verificação 
+- Versão mais recente do Microsoft Authenticator instalado em dispositivos com iOS 8.0 ou maior, ou Android 6.0 ou maior.
 
 > [!NOTE]
-> Se você habilitou a visualização de entrada sem senha do aplicativo Microsoft Authenticator anterior usando o PowerShell do Azure AD, ela foi habilitada para todo o diretório. Se você habilitar o uso desse novo método, a política do PowerShell será substituída. É recomendável habilitar para todos os usuários em seu locatário por meio dos novos métodos de autenticação; caso contrário, os usuários que não estiverem na nova política não poderão mais fazer logon em passwordlessly. 
+> Se ativou a pré-visualização sem palavras-passe da aplicação Microsoft Authenticator utilizando o Azure AD PowerShell, foi ativado para todo o seu diretório. Se permitir utilizar este novo método, irá substituir a política PowerShell. Recomendamos que permita a todos os utilizadores do seu inquilino através dos novos Métodos de Autenticação, caso contrário os utilizadores que não estejam na nova política deixarão de poder fazer login sem palavras-de-semana. 
 
-## <a name="enable-passwordless-authentication-methods"></a>Habilitar métodos de autenticação com senha
+## <a name="enable-passwordless-authentication-methods"></a>Ativar métodos de autenticação sem palavras-passe
 
-### <a name="enable-the-combined-registration-experience"></a>Habilitar a experiência de registro combinado
+### <a name="enable-the-combined-registration-experience"></a>Ativar a experiência de registo combinado
 
-Os recursos de registro para métodos de autenticação com senha contam com a visualização de registro combinada. Siga as etapas no artigo [habilitar o registro de informações de segurança combinadas (versão prévia)](howto-registration-mfa-sspr-combined.md)para habilitar a visualização de registro combinado.
+As funcionalidades de registo dos métodos de autenticação sem palavras-passe baseiam-se na pré-visualização combinada do registo. Siga os passos do artigo Enable registo combinado de informações de [segurança (pré-visualização)](howto-registration-mfa-sspr-combined.md), para permitir a pré-visualização do registo combinado.
 
-### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilitar métodos de autenticação de entrada por telefone sem senha
+### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Ativar métodos de autenticação de acesso telefónico sem palavras-passe
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Procure e selecione *Azure Active Directory*. Selecionar métodos de **autenticação** de > de **segurança** > **política de método de autenticação (versão prévia)**
-1. Em **entrada no telefone sem senha**, escolha as seguintes opções
-   1. **Habilitar** -Sim ou não
-   1. **Destino** -todos os usuários ou Selecionar usuários
-1. **Salvar** para definir a nova política
+1. Procure e selecione *Azure Ative Directory*. Selecione **métodos** de **autenticação > de segurança** > política do método de **autenticação (Pré-visualização)**
+1. Em **'Sessão de acesso ao telefone Passwordless',** escolha as seguintes opções
+   1. **Habilitar** - Sim ou Não
+   1. **Alvo** - Todos os utilizadores ou utilizadores Selecionados
+1. **Poupe** para definir a nova política
 
-## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Registro de usuário e gerenciamento do aplicativo Microsoft Authenticator
+## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Registo e gestão de utilizadores da aplicação Microsoft Authenticator
 
-1. Navegue até [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
-1. Entrar se ainda não estiver
-1. Adicione um aplicativo autenticador clicando em **Adicionar método**, escolhendo **aplicativo autenticador**e clicando em **Adicionar**
-1. Siga as instruções para instalar e configurar o aplicativo Microsoft Authenticator em seu dispositivo
-1. Clique em **concluído** para concluir o fluxo de instalação do aplicativo MFA do autenticador. 
-1. Em **Microsoft Authenticator**, escolha **Habilitar entrada pelo telefone** no menu suspenso conta
-1. Siga as instruções no aplicativo para concluir o registro de entrada por telefone sem senha. 
+1. Navegue para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
+1. Inscreva-se se ainda não
+1. Adicione uma aplicação autenticadorclicando o **método Adicionar,** escolhendo a **aplicação Authenticator,** e clicando em **Adicionar**
+1. Siga as instruções para instalar e configurar a aplicação Autenticadora Microsoft no seu dispositivo
+1. Clique em **Feito** para completar o fluxo de configuração da aplicação Authenticator MFA. 
+1. No **Microsoft Authenticator,** escolha ativar o **registo do telefone** no menu de entrega da conta
+1. Siga as instruções na aplicação para terminar a inscrição para o acesso ao telefone sem palavras-passe. 
 
-As organizações podem apontar seus usuários para o artigo [entrar com seu telefone, não sua senha](../user-help/microsoft-authenticator-app-phone-signin-faq.md) para obter mais assistência na configuração do Microsoft Authenticator aplicativo e habilitar a entrada pelo telefone.
+As organizações podem apontar os seus utilizadores para o artigo [Iniciar sessão com o seu telemóvel, e não a sua palavra-passe](../user-help/microsoft-authenticator-app-phone-signin-faq.md) para mais assistência na aplicação Microsoft Authenticator e ativar o registo do telefone.
 
-## <a name="sign-in-with-passwordless-credential"></a>Entrar com credencial sem senha
+## <a name="sign-in-with-passwordless-credential"></a>Inscreva-se com credenciais sem palavras-passe
 
-Para a visualização pública, não é possível impor os usuários para criar ou usar essa nova credencial. Um usuário só encontrará a entrada sem senha quando um administrador tiver habilitado seu locatário **e** o usuário tiver atualizado seu aplicativo Microsoft Authenticator para habilitar a entrada pelo telefone.
+Para pré-visualização pública, não há forma de impor aos utilizadores a criação ou utilização desta nova credencial. Um utilizador só encontrará um registo sem palavras-passe uma vez que um administrador tenha ativado o seu inquilino **e** o utilizador atualizou a sua aplicação Microsoft Authenticator para ativar o registo do telefone.
 
-Depois de digitar seu nome de usuário na Web e selecionar **Avançar**, os usuários receberão um número e receberão uma solicitação em seu aplicativo Microsoft Authenticator para selecionar o número apropriado para autenticar em vez de usar sua senha. 
+Depois de digitar o seu nome de utilizador na web e selecionar **Seguinte,** os utilizadores são apresentados com um número e são solicitados na sua aplicação Microsoft Authenticator para selecionar o número apropriado para autenticar em vez de usar a sua palavra-passe. 
 
-![Exemplo de uma entrada no navegador usando o aplicativo Microsoft Authenticator](./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png)
+![Exemplo de um sessão de navegador usando a aplicação Microsoft Authenticator](./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png)
 
 ## <a name="known-issues"></a>Problemas Conhecidos
 
-### <a name="user-is-not-enabled-by-policy-but-still-has-passwordless-phone-sign-in-method-in-microsoft-authenticator"></a>O usuário não está habilitado pela política, mas ainda tem um método de entrada de telefone sem senha no Microsoft Authenticator
+### <a name="user-is-not-enabled-by-policy-but-still-has-passwordless-phone-sign-in-method-in-microsoft-authenticator"></a>O utilizador não está ativado pela política, mas ainda tem um método de acesso ao telefone sem palavras-passe no Microsoft Authenticator
 
-É possível que um usuário em algum momento tenha criado uma credencial de entrada no telefone sem senha em seu aplicativo Microsoft Authenticator atual ou em um dispositivo anterior. Depois que um administrador habilita a política de método de autenticação para entrada por telefone sem senha, qualquer usuário com uma credencial registrada começará a experimentar o novo prompt de entrada, independentemente de ter sido habilitado para usar a política ou não. Se o usuário não tiver permissão para usar a credencial pela política, ele receberá um erro após a conclusão do fluxo de autenticação. 
+É possível que um utilizador tenha criado, a dada altura, uma credencial de entrada de telefone sem palavras-passe na sua aplicação atual do Microsoft Authenticator ou num dispositivo anterior. Uma vez que um administrador permita a política do método de autenticação para o registo telefónico sem palavras, qualquer utilizador com uma credencial registada, começará a experimentar a nova solicitação de entrada, independentemente de terem sido ou não habilitadas a utilizar a apólice. Se o utilizador não tiver sido autorizado a utilizar a credencial por política, verá um erro após completar o fluxo de autenticação. 
 
-O administrador pode optar por permitir que o usuário use a entrada por telefone sem senha ou o usuário deve remover o método. Se o usuário não tiver mais o dispositivo registrado, ele poderá ir para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) e removê-lo. Se eles ainda estiverem usando o autenticador para MFA, eles poderão escolher **desabilitar a entrada pelo telefone** no Microsoft Authenticator.  
+O administrador pode optar por ativar o utilizador a utilizar um sinal de acesso ao telefone sem palavras-passe, ou o utilizador deve remover o método. Se o utilizador deixar de ter o dispositivo registado, pode ir ao [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) e removê-lo. Se ainda estiverem a utilizar o Autenticador para MFA, podem escolher **desativar** o registo do telefone dentro do Autenticador Microsoft.  
 
-### <a name="ad-fs-integration"></a>Integração do AD FS
+### <a name="ad-fs-integration"></a>Integração AD FS
 
-Quando um usuário habilitou a credencial Microsoft Authenticator com senha, a autenticação para esse usuário sempre usará como padrão enviar uma notificação para aprovação. Essa lógica impede que os usuários em um locatário híbrido sejam direcionados ao ADFS para verificação de entrada sem que o usuário execute uma etapa adicional para clicar em "usar sua senha". Esse processo também ignorará quaisquer políticas de acesso condicional local e fluxos de autenticação de passagem. 
+Quando um utilizador tiver ativado a credencial sem palavras-passe do Microsoft Autenticador, a autenticação para esse utilizador irá sempre descontar no envio de uma notificação para aprovação. Esta lógica impede que os utilizadores de um inquilino híbrido sejam direcionados para a ADFS para verificação de sessão sem que o utilizador tenha dado um passo adicional para clicar em "Use a sua palavra-passe em vez disso". Este processo também irá contornar quaisquer políticas de Acesso Condicional no local e fluxos de autenticação pass-through. 
 
-Se um usuário tiver uma verificação de entrada de telefone sem senha não respondida pendente e tentar entrar novamente, o usuário poderá ser levado ao ADFS para inserir uma senha.  
+Se um utilizador tiver uma verificação de acesso de telefone sem palavras-passe sem resposta pendente e tentar iniciar sessão novamente, o utilizador poderá ser levado à ADFS para introduzir uma palavra-passe.  
 
-### <a name="azure-mfa-server"></a>Servidor do Azure MFA
+### <a name="azure-mfa-server"></a>Servidor Azure MFA
 
-Os usuários finais que estão habilitados para MFA por meio do servidor Azure MFA local de uma organização ainda podem criar e usar uma única credencial de entrada de telefone sem senha. Se o usuário tentar atualizar várias instalações (5 +) do Microsoft Authenticator com a credencial, essa alteração poderá resultar em um erro.  
+Os utilizadores finais que estão habilitados para o MFA através do servidor Azure MFA de uma organização ainda podem criar e usar um único sinal de telefone sem palavras-passe na credencial. Se o utilizador tentar atualizar várias instalações (5+) do Autenticador Microsoft com a credencial, esta alteração pode resultar num erro.  
 
 ### <a name="device-registration"></a>Registo de dispositivo
 
-Um dos pré-requisitos para criar essa nova credencial forte é que o dispositivo, em que o aplicativo Microsoft Authenticator está instalado, também deve ser registrado no locatário do Azure AD para um usuário individual. Devido às restrições de registro do dispositivo atual, um dispositivo só pode ser registrado em um único locatário. Esse limite significa que apenas uma conta corporativa ou de estudante no aplicativo Microsoft Authenticator pode ser habilitada para entrada pelo telefone.
+Um dos pré-requisitos para criar esta nova credencial forte, é que o dispositivo, onde a aplicação Microsoft Authenticator está instalada, também deve ser registado dentro do inquilino da AD Azure a um utilizador individual. Devido às restrições de registo do dispositivo, um dispositivo só pode ser registado num único inquilino. Este limite significa que apenas uma conta de trabalho ou escola na aplicação Microsoft Authenticator pode ser ativada para o início de sessão telefónica.
+
+### <a name="intune-mobile-application-management"></a>Gestão de aplicações móveis insinadas 
+
+Os utilizadores finais que estejam sujeitos a uma política que exija a gestão de aplicações móveis (MAM) não podem registar a credencial sem palavras-passe na aplicação Microsoft Authenticator. 
 
 > [!NOTE]
-> O registro do dispositivo não é o mesmo que o gerenciamento de dispositivos ou "MDM". Ele só associa uma ID de dispositivo e uma ID de usuário ao diretório do Azure AD.  
+> O registo do dispositivo não é o mesmo que a gestão do dispositivo ou "MDM". Apenas associa um ID do dispositivo e um ID do utilizador juntos no diretório Azure AD.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[O que não tem senha?](concept-authentication-passwordless.md)
+[O que é sem palavra-passe?](concept-authentication-passwordless.md)
 
-[Saiba mais sobre o registro de dispositivo](../devices/overview.md#getting-devices-in-azure-ad)
+[Conheça o registo do dispositivo](../devices/overview.md#getting-devices-in-azure-ad)
 
-[Saiba mais sobre a autenticação multifator do Azure](../authentication/howto-mfa-getstarted.md)
+[Conheça a autenticação de multi-factores azure](../authentication/howto-mfa-getstarted.md)

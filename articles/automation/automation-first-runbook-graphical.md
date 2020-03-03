@@ -6,14 +6,14 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: b6b043f878ee93bc9713673fe66359e013b1dba6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 351ed146511409fb4c6cc49705c7051b89ea0212
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191219"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226483"
 ---
-# <a name="my-first-graphical-runbook"></a>O meu primeiro runbook gráfico
+# <a name="my-first-graphical-runbook"></a>O meu primeiro livro gráfico
 
 > [!div class="op_single_selector"]
 > * [Gráficos](automation-first-runbook-graphical.md)

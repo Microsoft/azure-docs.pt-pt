@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31ced19e164d50030386064a81edf3322b12855d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c67fff32770446cac3adef8af50c9e5733077bc7
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191134"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226285"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Running runbooks em um trabalhador de runbook híbrido
 
@@ -166,7 +166,7 @@ Para terminar de preparar a Conta Run As:
 
 1. Guarde o livro de execução **Export-RunAsCertificateToHybridWorker** para o seu computador com uma extensão **.ps1.**
 2. Importe-o para a sua conta de Automação.
-3. Editar o livro de execução, alterando o valor da variável *$Password* para a sua própria senha. 
+3. Editar o livro de execução, alterando o valor da variável *Password* a sua própria palavra-passe. 
 4. Publique o livro de corridas.
 5. Executar o livro de corridas, visando o grupo Hybrid Runbook Worker que executa e autentica os livros de execução usando a conta Run As. 
 6. Examine o fluxo de trabalho para ver se relata a tentativa de importar o certificado para a loja de máquinas local, e segue com várias linhas. Este comportamento depende de quantas contas de Automação define na sua subscrição e do grau de sucesso da autenticação.

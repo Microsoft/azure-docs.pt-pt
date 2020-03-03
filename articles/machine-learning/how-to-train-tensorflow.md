@@ -1,5 +1,5 @@
 ---
-title: Treine uma rede neural com o TensorFlow
+title: Treine e implemente um modelo TensorFlow
 titleSuffix: Azure Machine Learning
 description: Aprenda a executar scripts de treino TensorFlow em escala utilizando o Azure Machine Learning.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1c3e1948d53a168ce9a3e99cd932fa04e2fafc4
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 2bbd81f3858aa78b9e0e2d610c0fdb0a67816c8e
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114379"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228303"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Construa um modelo de aprendizagem profunda TensorFlow em escala com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -305,13 +305,13 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-## <a name="deployment"></a>Implementação
+## <a name="deploy-a-tensorflow-model"></a>Implementar um modelo TensorFlow
 
 O modelo que acabou de registar pode ser implementado da mesma forma que qualquer outro modelo registado no Azure Machine Learning, independentemente do estimador utilizado para treinar. O modo de implementação contém uma secção sobre modelos de registo, mas pode saltar diretamente para [criar um alvo de computação](how-to-deploy-and-where.md#choose-a-compute-target) para implementação, uma vez que já tem um modelo registado.
 
-### <a name="preview-no-code-model-deployment"></a>(Pré-visualização) Implementação do modelo sem código
+## <a name="preview-no-code-model-deployment"></a>(Pré-visualização) Implementação do modelo sem código
 
-Em vez da rota de implantação tradicional, também pode utilizar a funcionalidade de implementação sem código (pré-visualização)para o Tensorflow. Ao registar o seu modelo como mostrado acima com os parâmetros `model_framework`, `model_framework_version`e `resource_configuration`, pode simplesmente utilizar a função `deploy()` estática para implementar o seu modelo.
+Em vez da rota de implantação tradicional, também pode utilizar a função de implementação sem código (pré-visualização) para o Tensorflow. Ao registar o seu modelo como mostrado acima com os parâmetros `model_framework`, `model_framework_version`e `resource_configuration`, pode simplesmente utilizar a função `deploy()` estática para implementar o seu modelo.
 
 ```python
 service = Model.deploy(ws, "tensorflow-web-service", [model])

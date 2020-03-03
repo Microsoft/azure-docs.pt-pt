@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f4af9b14b1d751c855a04f0683bc0f9d4115e7b5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d73a1a3ce23817d9d6f742a4a8c730afb58ee0c8
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183177"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226999"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,7 +64,7 @@ O elemento **OrchestrationStep** contém os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | `Order` | Sim | A ordem dos passos da orquestração. |
-| `Type` | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** - Indica que o passo da orquestração apresenta vários fornecedores de sinistros ao utilizador para selecionar um.</li><li>**CombinedSignInAndSignUp** - Indica que o passo da orquestração apresenta uma página combinada de inscrição de prestador social e de inscrição de conta local.</li><li>**ClaimsExchange** - Indica que o passo da orquestra troca reclamações com um prestador de sinistros.</li><li>**SendClaims** - Indica que o passo da orquestração envia as reivindicações para a parte que depende com um token emitido por um emitente de reclamações.</li></ul> |
+| `Type` | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** - Indica que o passo da orquestração apresenta vários fornecedores de sinistros ao utilizador para selecionar um.</li><li>**CombinedSignInAndSignUp** - Indica que o passo da orquestração apresenta uma página combinada de inscrição de prestador social e de inscrição de conta local.</li><li>**ClaimsExchange** - Indica que o passo da orquestra troca reclamações com um prestador de sinistros.</li><li>**GetClaims** - Indica que o passo da orquestração lê as alegações de entrada.</li><li>**SendClaims** - Indica que o passo da orquestração envia as reivindicações para a parte que depende com um token emitido por um emitente de reclamações.</li></ul> |
 | ContentDefinitionReferenceId | Não | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico autoafirmado. Mas, há alguns casos em que o Azure AD B2C precisa de mostrar algo sem perfil técnico. Existem dois exemplos - se o tipo de passo de orquestração é um dos seguintes: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`, o Azure AD B2C precisa de mostrar a seleção do fornecedor de identidade sem ter um perfil técnico. |
 | CpimIssuerTechnicalProfileReferenceId | Não | O tipo de passo de orquestração é `SendClaims`. Este imóvel define o identificador de perfil técnico do prestador de sinistros que emite o símbolo para a parte que depende.  Se ausente, não é criado nenhum símbolo do partido. |
 

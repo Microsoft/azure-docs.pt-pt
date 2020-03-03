@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: a7f30a5a70f71ff958d9b222d2a9e21d03d85e06
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: fb4a55b9757748581e26f3d6594f9be2139658cb
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670768"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228256"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução à exploração de fluxos de exploração de grupos de segurança da rede
 
@@ -88,7 +88,7 @@ O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existe
 
 Ativar o **registo de fluxo nsg em todos os NSGs ligados a um recurso**: O registo de fluxo saqueem em Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra nsg. Nos cenários em que são utilizados vários NSGs, recomendamos que o registo de fluxo sNG esteja ativado em todos os NSGs aplicados a subnet ou interface de rede de um recurso para garantir que todo o tráfego é registado. Para mais informações, consulte [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) em Grupos de Segurança da Rede.
 
-**Custos de exploração de**fluxo : A exploração de fluxo sonífica saneada é faturada no volume de registos produzidos. Um elevado volume de tráfego pode resultar num grande volume de registo de fluxo e nos custos associados. Os preços do registo nsg Flow não incluem os custos subjacentes ao armazenamento. A utilização da funcionalidade de política de retenção com o NSG Flow Logging pode resultar num elevado volume de operações de armazenamento e nos custos associados. Se não necessitar da funcionalidade de política de retenção, recomendamos que detetete este valor para 0. Para mais informações, consulte os preços do Observador da [Rede](https://azure.microsoft.com/pricing/details/network-watcher/) e os preços de [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes.
+**Custos de exploração de**fluxo : A exploração de fluxo sonífica saneada é faturada no volume de registos produzidos. Um elevado volume de tráfego pode resultar num grande volume de registo de fluxo e nos custos associados. Os preços do registo nsg Flow não incluem os custos subjacentes ao armazenamento. Utilizar a funcionalidade de política de retenção com o NSG Flow Logging significa incorrer em custos de armazenamento separados por longos períodos de tempo. Se não necessitar da funcionalidade de política de retenção, recomendamos que detetete este valor para 0. Para mais informações, consulte os preços do Observador da [Rede](https://azure.microsoft.com/pricing/details/network-watcher/) e os preços de [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes.
 
 **Fluxos de entrada registados desde os Ip sem IPs públicos**: VMs que não possuam um endereço IP público atribuído através de um endereço IP público associado ao NIC como um IP público de nível de exemplo, ou que fazem parte de um pool de back-end de um equilibrista de carga básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e têm um endereço IP atribuído pela Azure para facilitar a conectividade de saída. Como resultado, pode ver entradas de registo de fluxo para fluxos de endereços IP da Internet, se o fluxo estiver destinado a uma porta na gama de portas atribuídas para SNAT. Embora o Azure não permita estes fluxos para o VM, a tentativa é registada e aparece no registo de fluxo NSG do Network Watcher por design. Recomendamos que o tráfego indesejado de entrada na Internet seja explicitamente bloqueado com o NSG.
 

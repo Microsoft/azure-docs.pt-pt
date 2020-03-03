@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/02/2020
 ms.author: victorh
-ms.openlocfilehash: 4792c0bce7d9119f5198490d62f49f000e1567d3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: dc5a05c672df1b4f9db764b58db93279c4be7570
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621952"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227439"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -177,3 +177,25 @@ Leva de cinco a sete minutos para o Azure Firewall escalar. Suporte de contato p
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Firewall Azure permite o acesso ao Diretório Ativo por defeito?
 
 Não. O Azure Firewall bloqueia o acesso ao Diretório Ativo por defeito. Para permitir o acesso, configure a etiqueta de serviço AzureActiveDirectory. Para mais informações, consulte as etiquetas de [serviço Azure Firewall](service-tags.md).
+
+## <a name="can-i-exclude-a-fqdn-or-an-ip-address-from-azure-firewall-threat-intelligence-based-filtering"></a>Posso excluir um FQDN ou um endereço IP da filtragem baseada em Inteligência de Ameaça de Firewall do Azure?
+
+Sim, pode usar o Azure PowerShell para fazer isto:
+
+```azurepowershell
+# Add a Threat Intelligence Whitelist to an Existing Azure Firewall
+
+## Create the Whitelist with both FQDN and IPAddresses
+
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
+   -FQDN @(“fqdn1”, “fqdn2”, …) -IpAddress @(“ip1”, “ip2”, …)
+
+## Or Update FQDNs and IpAddresses separately
+
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist.FQDNs = @(“fqdn1”, “fqdn2”, …)
+$fw.ThreatIntelWhitelist.IpAddress = @(“ip1”, “ip2”, …)
+
+Set-AzFirewall -AzureFirewall $fw
+```

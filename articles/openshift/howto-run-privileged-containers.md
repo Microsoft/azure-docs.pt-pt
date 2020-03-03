@@ -7,14 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, chapéu vermelho
-ms.openlocfilehash: 4241296a991283f14fbb294fdc059ecde58d6d75
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 5d28a19126c9b7ae4ef7afe2a6b69bd4a13e0c83
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069665"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228240"
 ---
-# <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contentores privilegiados em um aglomerado OpenShift de chapéu vermelho azure
+# <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contentores privilegiados num cluster do Azure Red Hat OpenShift
 
 Não se pode executar recipientes privilegiados arbitrários em aglomerados Azure Red Hat OpenShift.
 Duas soluções de monitorização de segurança e conformidade são autorizadas a funcionar em clusters ARO.
@@ -121,12 +121,17 @@ Detete os seguintes campos ao utilizar os executores:
 
 As instruções de base que vamos modificar podem ser encontradas na documentação de implantação da [Nuvem prisma.](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
-Comece por criar um novo projeto OpenShift
+Comece por instalar a ferramenta `twistcli` conforme descrito nas secções "Instalar prisma cloud" e "Descarregue o software Prisma Cloud".
+
+Criar um novo projeto OpenShift
 ```
 oc new-project twistlock
 ```
 
-Pode seguir a documentação até à secção "Instalar consolas", utilizar o registo de contentores Prisma Cloud em vez de criar um interno.
+Saltar a secção opcional "Empurre as imagens da Nuvem Prisma para um registo privado". Não vai funcionar no Azure Red Hat Openshift. Em vez disso, utilize o registo online.
+
+Pode seguir a documentação oficial aplicando as correções descritas abaixo.
+Comece com a secção "Instalar consola".
 
 ### <a name="install-console"></a>Instalar consola
 

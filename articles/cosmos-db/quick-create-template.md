@@ -6,19 +6,19 @@ ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
-ms.date: 01/21/2020
-ms.openlocfilehash: 1203e1ebe42d95ec57a3ea884591ba262dc95c1a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 02/27/2020
+ms.openlocfilehash: 708fc030d953dd1f32986c600305e513a156b12f
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587911"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227428"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Quickstart: Crie um Azure Cosmos DB e um recipiente utilizando o modelo de Gestor de Recursos Azure
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode utilizar o Azure Cosmos DB para criar e consultar rapidamente bases de dados chave/valor, bases de dados de documentos e bases de dados de gráficos. Este quickstart centra-se no processo de implementação de um modelo de Gestor de Recursos para criar uma base de dados Azure Cosmos e um recipiente dentro dessa base de dados. Mais tarde, pode armazenar dados neste recipiente.
 
-[O modelo do Gestor de Recursos](../azure-resource-manager/templates/overview.md) é um ficheiro JavaScript Object Notation (JSON) que define a infraestrutura e a configuração para o seu projeto. O modelo usa sintaxe declarativa, que permite indicar o que pretende implementar sem ter de escrever a sequência de comandos de programação para criá-la. Se quiser saber mais sobre o desenvolvimento de modelos de Gestor de Recursos, consulte a [documentação do Gestor](/azure/azure-resource-manager/) de Recursos e a referência do [modelo](/azure/templates/microsoft.DocumentDB/allversions).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -26,11 +26,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Uma subscrição Azure ou conta experimental gratuita do Azure Cosmos DB
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
+- [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-an-azure-cosmos-account-database-container"></a>Criar uma conta Azure Cosmos, base de dados, contentor
+
+### <a name="review-the-template"></a>Reveja o modelo
 
 O modelo utilizado neste quickstart é de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/).
 
@@ -46,6 +48,8 @@ Três recursos Azure são definidos no modelo:
 
 Mais amostras de modelo séc. [](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb)
 
+### <a name="deploy-the-template"></a>Implementar o modelo
+
 1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria uma conta Azure Cosmos, uma base de dados e um recipiente.
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
@@ -59,13 +63,13 @@ Mais amostras de modelo séc. [](https://azure.microsoft.com/resources/templates
     * **Subscrição**: selecione uma subscrição do Azure.
     * **Grupo de recursos**: selecione **Criar novo,** introduza um nome único para o grupo de recursos e, em seguida, clique **OK**.
     * **Localização**: selecione uma localização.  Por exemplo, **Centro dos EUA.**
-    * **Nome da conta**: insira um nome para a conta Azure Cosmos. Deve ser globalmente único. 
-    * **Localização**: insira um local onde pretende criar a sua conta Azure Cosmos. A conta Azure Cosmos pode estar no mesmo local que o grupo de recursos. 
+    * **Nome da conta**: insira um nome para a conta Azure Cosmos. Deve ser globalmente único.
+    * **Localização**: insira um local onde pretende criar a sua conta Azure Cosmos. A conta Azure Cosmos pode estar no mesmo local que o grupo de recursos.
     * **Região Primária**: A principal região de réplica para a conta Azure Cosmos.
     * **Região secundária**: A região de réplica secundária para a conta Azure Cosmos.
     * **Nome da base**de dados : O nome da base de dados Azure Cosmos.
     * **Nome**do contentor : O nome do recipiente Azure Cosmos.
-    * **Entrada**: A entrada para o recipiente, o valor mínimo de entrada é de 400 RU/s. 
+    * **Entrada**: A entrada para o recipiente, o valor mínimo de entrada é de 400 RU/s.
     * **Aceito os termos e condições acima apresentados**: selecione.
 
 3. Selecione **Comprar**. Depois de a conta Azure Cosmos ter sido implementada com sucesso, recebe uma notificação:
@@ -92,7 +96,7 @@ az cosmosdb show -g $resourcegroupName -n $cosmosAccountName
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Cosmos account exists"
-(Get-AzResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ResourceGroupName $resourceGroupName).Name 
+(Get-AzResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ResourceGroupName $resourceGroupName).Name
  Write-Host "Press [ENTER] to continue..."
 ```
 

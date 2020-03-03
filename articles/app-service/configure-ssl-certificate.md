@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 310bf168b701ba6c37f71bc968da8e9114458e6f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425312"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226330"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicione um certificado SSL no Serviço de Aplicações Azure
 
@@ -349,7 +349,7 @@ O ficheiro *appservicecertificate.pfx* descarregado é um ficheiro PKCS12 cru qu
 
 ### <a name="delete-certificate"></a>Excluir certificado 
 
-A eliminação de um certificado de Serviço de Aplicações é definitiva e irreversível. Qualquer encadernação no Serviço de Aplicações com este certificado torna-se inválida. Para evitar a supressão acidental, o Azure coloca um cadeado no certificado. Para eliminar um certificado de Serviço de Aplicações, tem primeiro de remover o bloqueio de eliminação do certificado.
+A eliminação de um certificado de Serviço de Aplicações é definitiva e irreversível. A eliminação de um recurso do Certificado de Serviço de Aplicações resulta na revogação do certificado. Qualquer encadernação no Serviço de Aplicações com este certificado torna-se inválida. Para evitar a supressão acidental, o Azure coloca um cadeado no certificado. Para eliminar um certificado de Serviço de Aplicações, tem primeiro de remover o bloqueio de eliminação do certificado.
 
 Selecione o certificado na página de Certificados de Serviço de [Aplicações](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e, em seguida, selecione **Locks** na navegação à esquerda.
 

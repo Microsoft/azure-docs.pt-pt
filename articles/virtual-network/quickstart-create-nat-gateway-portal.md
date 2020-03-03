@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 429c221609005136663d5e64a1b8650027cba411
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 231c5f1bc6fd76f4f9e89d2d53639e9abe6cde0e
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588744"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228333"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Quickstart: Criar um portal NAT utilizando o portal Azure
 
@@ -32,27 +32,24 @@ Este quickstart mostra-lhe como utilizar o serviço AZURE Virtual Network NAT. V
 
 Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
-Antes de implementar um VM e poder usar o seu portal NAT, precisamos de criar o grupo de recursos e a rede virtual.  
+Antes de implementar um VM e poder usar o seu portal NAT, precisamos de criar o grupo de recursos e a rede virtual.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **rede Virtual,** ou procurar rede **Virtual** na pesquisa do Marketplace.
+Nesta secção terá de substituir os seguintes parâmetros nos passos com as informações abaixo:
 
-2. Na **Create rede virtual,** introduza ou selecione esta informação:
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<nome de grupo de recursos>**  | myResourceGroupNAT |
+| **\<nome de rede virtual>** | myVNet          |
+| **\<nome da região>**          | E.U.A. Leste 2      |
+| **\<IPv4 endereço space>**   | 192.168.0.0\16          |
+| **\<sub-nome>**          | mySubnet        |
+| **\<sub-endereço-gama>** | 192.168.0.0\24          |
 
-    | Definição | Valor |
-    | ------- | ----- |
-    | Nome | Introduza **myVNet**. |
-    | Espaço de endereços | **Insira 192.168.0.0/16**. |
-    | Subscrição | Selecione a sua subscrição.|
-    | Grupo de recursos | Selecione criar novos - **myResourceGroupNAT**. |
-    | Localização | Selecione **E.U.A. Leste 2**.|
-    | Subnet - Nome | Insira **a minha Subnet**. |
-    | Sub-rede - Intervalo de endereços | **Insira 192.168.0.0/24**. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-3. Deixe o resto dos predefinições e selecione **Criar**.
-
-### <a name="create-a-vm-to-use-the-nat-gateway"></a>Crie um VM para usar o gateway NAT
+## <a name="create-a-vm-to-use-the-nat-gateway"></a>Crie um VM para usar o gateway NAT
 
 Vamos agora criar um VM para usar o serviço NAT. Este VM tem um IP público para usar como um IP público de nível de instância para permitir o acesso ao VM. O serviço NAT está consciente e substituirá o destino de Internet padrão na sua subnet. O endereço IP público da VM não será usado para ligações de saída.
 

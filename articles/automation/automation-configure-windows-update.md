@@ -1,26 +1,33 @@
 ---
-title: Definir configurações de Windows Update para trabalhar com o Azure Gerenciamento de Atualizações
-description: Este artigo descreve as configurações de Windows Update que você configura para trabalhar com o Gerenciamento de Atualizações do Azure.
+title: Configure as definições de atualização do Windows para funcionar com a Gestão de Atualizações do Azure
+description: Este artigo descreve as definições de Atualização do Windows que configura para trabalhar com a Azure Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 10/02/2019
+ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: f6377012a2afd0fb36486edf0af0ac3591b5d1f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366860"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226277"
 ---
-# <a name="configure-windows-update-settings-for-update-management"></a>Definir configurações de Windows Update para Gerenciamento de Atualizações
+# <a name="configure-windows-update-settings-for-update-management"></a>Configure as definições de atualização do Windows para gestão de atualizações
 
-O Azure Gerenciamento de Atualizações conta com Windows Update para baixar e instalar atualizações do Windows. Como resultado, Gerenciamento de Atualizações respeita muitas das configurações usadas pelo Windows Update. Se você usar configurações para habilitar atualizações não Windows, Gerenciamento de Atualizações também gerenciará essas atualizações. Se você quiser habilitar o download de atualizações antes que ocorra uma implantação de atualização, a implantação da atualização poderá ser mais rápida, mais eficiente e menos provável de exceder a janela de manutenção.
+A Azure Update Management conta com o [cliente do Windows Update](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) para descarregar e instalar atualizações do Windows. Existem definições específicas que são utilizadas pelo cliente da Atualização do Windows ao ligar-se aos Serviços de Atualização do Servidor do Windows (WSUS) ou ao Windows Update. Muitas destas configurações podem ser geridas com:
+
+- Editor de Política do Grupo Local
+- Política de Grupo
+- PowerShell
+- Edição direta do Registo
+
+A Atualização Management respeita muitas das definições especificadas para controlar o cliente da Atualização do Windows. Se utilizar as definições para ativar atualizações não Windows, a Atualização também irá gerir essas atualizações. Se pretender permitir o download de atualizações antes de ocorrer uma implementação de atualização, a implementação da atualização pode ser mais rápida, eficiente e menos provável de exceder a janela de manutenção.
 
 ## <a name="pre-download-updates"></a>Atualizações de pré-download
 
-Para configurar o download automático de atualizações no Política de Grupo, defina a [configuração definir atualizações automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) como **3**. Essa configuração permite downloads das atualizações necessárias em segundo plano, mas não as instala. Dessa forma, Gerenciamento de Atualizações permanece no controle de agendas, mas as atualizações podem ser baixadas fora da janela de manutenção Gerenciamento de Atualizações. Esse comportamento impede erros de "janela de manutenção excedido" no Gerenciamento de Atualizações.
+Para configurar o descarregamento automático das atualizações, mas não as instale automaticamente, pode utilizar a Política do Grupo para definir a definição de [Atualizações Automáticas configurar](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) para **3**. Esta definição permite downloads das atualizações necessárias em segundo plano e notifica-o que as atualizações estão prontas a instalar. Desta forma, a Atualização de Gestão mantém-se no controlo dos horários, mas as atualizações podem ser descarregadas fora da janela de manutenção da Atualização. Este comportamento impede que a **janela de manutenção exceda** os erros na Gestão de Atualização.
 
-Você também pode ativar essa configuração executando o seguinte comando do PowerShell em um sistema que você deseja configurar para o download automático de atualizações:
+Pode ativar esta definição utilizando o PowerShell, executando o seguinte comando:
 
 ```powershell
 $WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
@@ -28,22 +35,15 @@ $WUSettings.NotificationLevel = 3
 $WUSettings.Save()
 ```
 
-## <a name="disable-automatic-installation"></a>Desabilitar instalação automática
+## <a name="configure-reboot-settings"></a>Configurar as definições de reiniciar
 
-Por padrão, em VMs (máquinas virtuais) do Azure, a instalação automática de atualizações está habilitada. Isso pode fazer com que as atualizações sejam instaladas antes de você agendá-las para instalação pelo Gerenciamento de Atualizações. Você pode desabilitar esse comportamento definindo a chave do registro `NoAutoUpdate` como `1`. O trecho do PowerShell a seguir mostra como fazer isso:
+As teclas de registo listadas na Configuração de [Atualizações Automáticas, editando as](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) teclas de registo e [registo utilizadas para gerir](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) o reinício podem fazer com que as suas máquinas **reiniciem,** mesmo que especifique never reboot nas definições de Implementação de **Atualização.** Configure estas chaves de registo para melhor se adequar ao seu ambiente.
 
-```powershell
-$AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
-Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
-```
+## <a name="enable-updates-for-other-microsoft-products"></a>Ativar atualizações para outros produtos da Microsoft
 
-## <a name="configure-reboot-settings"></a>Definir configurações de reinicialização
+Por defeito, o cliente do Windows Update está configurado para fornecer atualizações apenas para windows. Se ativar as **atualizações Give me para outros produtos** da Microsoft quando atualizo a definição do Windows, também recebe atualizações para outros produtos, incluindo patches de segurança para o Microsoft SQL Server e outros softwares da Microsoft. Esta opção pode ser configurada se tiver descarregado e copiado os mais recentes [ficheiros de modelo administrativo](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) disponíveis para o Windows 2016 e superiores.
 
-As chaves do registro listadas na [configuração de atualizações automáticas editando o registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) e [as chaves do registro usadas para gerenciar a reinicialização](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) podem fazer com que os computadores sejam reinicializados, mesmo se você especificar **nunca reinicializar** nas configurações de **implantação de atualização** . Você deve configurar essas chaves do registro para se adequar melhor ao seu ambiente.
-
-## <a name="enable-updates-for-other-microsoft-products"></a>Habilitar atualizações para outros produtos da Microsoft
-
-Por predefinição, o Windows Update fornece atualizações apenas para o Windows. Se você habilitar a configuração **fornecer atualizações para outros produtos da Microsoft ao atualizar o Windows** , também receberá atualizações para outros produtos, incluindo patches de segurança para Microsoft SQL Server e outros softwares da Microsoft. Esta opção não pode ser configurada por Política de Grupo. Execute o seguinte comando do PowerShell nos sistemas nos quais você deseja habilitar outras atualizações da Microsoft. Gerenciamento de Atualizações será compatível com essa configuração.
+Se estiver a executar o Windows Server 2012 R2, esta definição não pode ser configurada pela Política de Grupo. Execute o seguinte comando PowerShell nessas máquinas. A Atualização de Gestão está em conformidade com esta definição.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -52,14 +52,16 @@ $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
 
-## <a name="wsus-configuration-settings"></a>Definições de configuração do WSUS
+## <a name="wsus-configuration-settings"></a>Definições de configuração wSUS
 
-Gerenciamento de Atualizações está em conformidade com as configurações do Windows Server Update Services (WSUS). As configurações do WSUS que você pode configurar para trabalhar com Gerenciamento de Atualizações estão listadas abaixo.
+A Atualização Management suporta as definições do WSUS. As definições wSUS que pode configurar para trabalhar com a Atualização estão listadas abaixo.
 
-### <a name="intranet-microsoft-update-service-location"></a>Local do serviço de atualização da intranet da Microsoft
+### <a name="intranet-microsoft-update-service-location"></a>Localização do serviço de atualização intranet Microsoft
 
-Você pode especificar as fontes para verificação e download de atualizações em [especificar local do serviço de Microsoft Update de intranet](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location).
+Pode especificar fontes para digitalizar e descarregar atualizações em especificação da localização do [serviço De microsoft update intranet](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). Por defeito, o cliente do Windows Update está configurado para descarregar atualizações a partir do Windows Update. Quando especifica um servidor WSUS como fonte para as suas máquinas, se as atualizações não forem aprovadas no WSUS, a atualização falha. 
+
+Para restringir as máquinas a penas a esse serviço de atualização interna, configure [Não se conectem a quaisquer localizações](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations)da Internet do Windows Update . 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de definir as configurações de Windows Update, você pode agendar uma implantação de atualização seguindo as instruções em [gerenciar atualizações e patches para suas VMs do Azure](automation-tutorial-update-management.md).
+Depois de configurar as definições do Windows Update, pode agendar uma implementação de atualização seguindo as instruções em ['Gerir actualizações' e patches para os seus VMs Azure](automation-tutorial-update-management.md).

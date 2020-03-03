@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 00e8cdbbd765d6baf83f64848030d08d6e712ca1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 600ca893e6d6b81fe24626a99cc1f6de80efb3e8
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661350"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228144"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -214,10 +214,12 @@ Para exemplos runnáveis, consulte [Amostras JavaScript SDK](https://github.com/
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>Upgrade a partir da versão antiga de Insights de Aplicação
 
 Alterações de rutura na versão SDK V2:
-- Para permitir melhores assinaturas de API, algumas das chamadas da API, como trackPageView, trackException foram atualizadas. Não é suportado o funcionamento em versões IE8 ou inferiores do navegador.
-- O envelope de telemetria tem o nome de campo e as alterações de estrutura devido a atualizações de esquemas de dados.
-- Mudou `context.operation` para `context.telemetryTrace`. Alguns campos também foram alterados (`operation.id` --> `telemetryTrace.traceID`)
-  - Se quiser atualizar manualmente o ID atual (por exemplo, em aplicações SPA) isto pode ser feito com `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
+- Para permitir melhores assinaturas de API, algumas das chamadas DaPI, como trackPageView e trackException, foram atualizadas. A execução no Internet Explorer 8 e versões anteriores do navegador não são suportadas.
+- O envelope de telemetria tem nome de campo e alterações de estrutura devido a atualizações de esquemade dados.
+- Mudou `context.operation` para `context.telemetryTrace`. Alguns campos também foram alterados ( `telemetryTrace.traceID``operation.id` --> ).
+  - Para refrescar manualmente o ID atual da página (por exemplo, em aplicações SPA), use `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()`.
+    > [!NOTE]
+    > Para manter o rastreio único, onde usou previamente `Util.newId()`, use agora `Util.generateW3CId()`. Ambos acabam por ser a identidade da operação.
 
 Se estiver a utilizar os insights de aplicação atuais PRODUCTION SDK (1.0.20) e quiser ver se o novo SDK funciona em tempo de funcionamento, atualize o URL dependendo do cenário atual de carregamento de SDK.
 

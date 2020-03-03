@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 700847c041a5b9111414d6b43ff734d83b1ca49f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e0abae8ada603e4e6b98ab0dfe9d794186e00000
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913468"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226781"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -166,6 +166,9 @@ Os tamanhos das séries A8-A11 e H também são conhecidos como *instâncias de 
 | Standard_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
 
 <sup>1</sup> Para aplicações de MPI, a rede de backend dedicada RDMA é ativada pela rede FDR InfiniBand, que proporciona uma latência ultra-baixa e uma largura de banda elevada.  
+
+> [!NOTE]
+> Os A8 – A11 VMs estão previstos para a reforma em 3/2021. Para mais informações, consulte o [Guia de Migração do HPC.](https://azure.microsoft.com/resources/hpc-migration-guide/)
 
 <br>
 

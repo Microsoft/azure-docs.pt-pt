@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: a5b0eb0c8bd56a28889945480e95b6413dc9b4dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b900a95df00ccdd0ad9b5bee3887364195c7d1c2
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660024"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226732"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamanhos vM de computação de alto desempenho
 
@@ -46,6 +46,10 @@ As máquinas virtuais da série Azure H (VMs) são projetadas para oferecer dese
   
 - **Rede virtual** – Uma [rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/) Azure não é necessária para utilizar as instâncias intensivas em computação. No entanto, para muitas implementações, você precisa de pelo menos uma rede virtual Azure baseada em nuvem, ou uma ligação site-to-site se você precisar de aceder aos recursos no local. Quando necessário, crie uma nova rede virtual para implementar as ocorrências. A adição de VMs intensivos de computação a uma rede virtual num grupo de afinidade não é suportada.
 - **Redimensionamento** – Devido ao hardware especializado, só é possível redimensionar instâncias intensivas em computação dentro da mesma família de tamanhos (série H ou série A intensiva de cálculo). Por exemplo, só é possível redimensionar um VM da série H de um tamanho da série H para outro. Além disso, a redimensionamento de um tamanho não-intensivo para um tamanho intensivo de computação não é suportada.  
+
+> [!NOTE]
+> Os A8 – A11 VMs estão previstos para a reforma em 3/2021. Para mais informações, consulte o [Guia de Migração do HPC.](https://azure.microsoft.com/resources/hpc-migration-guide/)
+
 ## <a name="rdma-capable-instances"></a>Instâncias com capacidade de RDMA
 
 Um subconjunto das instâncias intensivas em computação (A8, A9, H16r, H16mr, HB e HC) possui uma interface de rede para acesso remoto à memória direta (RDMA). Os tamanhos selecionados da série N designados com 'r' tais como as configurações NC24rs (NC24rs_v2 e NC24rs_v3) também são capazes de RDMA. Esta interface é além da interface de rede padrão Azure disponível para outros tamanhos VM.
@@ -78,7 +82,7 @@ Em determinadas implementações de instâncias A8 e A9, a extensão HpcVmDriver
   } 
   ```
 
-  O comando seguinte instala a mais recente extensão do InfiniBandDriverWindows em todos os VMs capazes de RDMA num conjunto de escala VM existente chamado *myVMSS* implantado no grupo de recursos chamado *myResourceGroup*:
+  O comando seguinte instala a mais recente extensão do InfiniBandDriverWindows em todos os VMs capazes de RDMA num conjunto de escala virtual existente chamado *myVMSS* implantado no grupo de recursos chamado *myResourceGroup*:
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
@@ -99,7 +103,7 @@ O Azure oferece várias opções para criar clusters de VMs Windows HPC que pode
 
 - **Conjuntos** de escala de máquina virtual - Num conjunto de escala de máquina virtual, certifique-se de que limita a implementação a um único grupo de colocação. Por exemplo, num modelo de Gestor de Recursos, defino a propriedade `singlePlacementGroup` para `true`. 
 
-- **MPI entre máquinas virtuais** - Se for necessária uma comunicação MPI se necessário entre máquinas virtuais (VMs), certifique-se de que os VMs estão no mesmo conjunto de disponibilidade ou na mesma escala da máquina virtual.
+- **MPI entre máquinas virtuais** - Se for necessária uma comunicação MPI entre máquinas virtuais (VMs), certifique-se de que os VMs estão no mesmo conjunto de disponibilidade ou na mesma escala da máquina virtual.
 
 - **Azure CycleCloud** - Crie um cluster HPC no [Azure CycleCloud](/azure/cyclecloud/) para executar trabalhos de MPI em nós windows.
 

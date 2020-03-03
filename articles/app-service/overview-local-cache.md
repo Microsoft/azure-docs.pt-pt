@@ -1,64 +1,64 @@
 ---
 title: Cache local
-description: Saiba como o cache local funciona no serviço Azure App e como habilitar, redimensionar e consultar o status do cache local do seu aplicativo.
+description: Saiba como funciona o cache local no Azure App Service e como ativar, redimensionar e consultar o estado da cache local da sua aplicação.
 tags: optional
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 87c95d8bbf199f232eca5475f4d8f0c64427a198
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 1945730acaddb0c1c7ee1b28eeb926635efad643
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680890"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227886"
 ---
-# <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do serviço de Azure App
+# <a name="azure-app-service-local-cache-overview"></a>Visão geral do Cache Local do Serviço de Aplicações Azure
 
 > [!NOTE]
-> O cache local não tem suporte em aplicativos de funções ou aplicativos de serviço de aplicativo em contêiner, como no [serviço de aplicativo no Linux](containers/app-service-linux-intro.md).
+> A cache local não é suportada em aplicações de função ou aplicações de Serviço de Aplicações [contentorizadas,](app-service-web-get-started-windows-container.md) como em Recipientes Windows ou no [Serviço de Aplicações no Linux](containers/app-service-linux-intro.md).
 
 
-Azure App conteúdo do serviço é armazenado no armazenamento do Azure e é exibido de maneira durável como um compartilhamento de conteúdo. Esse design destina-se a trabalhar com uma variedade de aplicativos e tem os seguintes atributos:  
+O conteúdo do Serviço de Aplicações Azure é armazenado no Armazenamento Azure e é surgido de forma duradoura como partilha de conteúdo. Este design destina-se a trabalhar com uma variedade de apps e tem os seguintes atributos:  
 
-* O conteúdo é compartilhado entre várias instâncias de VM (máquina virtual) do aplicativo.
-* O conteúdo é durável e pode ser modificado pela execução de aplicativos.
-* Arquivos de log e arquivos de dados de diagnóstico estão disponíveis na mesma pasta de conteúdo compartilhado.
-* A publicação de novo conteúdo atualiza diretamente a pasta de conteúdo. Você pode exibir imediatamente o mesmo conteúdo por meio do site do SCM e do aplicativo em execução (normalmente, algumas tecnologias, como ASP.NET, iniciam uma reinicialização do aplicativo em algumas alterações de arquivo para obter o conteúdo mais recente).
+* O conteúdo é partilhado em várias instâncias de máquina virtual (VM) da aplicação.
+* O conteúdo é durável e pode ser modificado através da execução de apps.
+* Os ficheiros de registo e os ficheiros de dados de diagnóstico estão disponíveis na mesma pasta de conteúdo partilhado.
+* A publicação de novos conteúdos atualiza diretamente a pasta de conteúdos. Pode visualizar imediatamente o mesmo conteúdo através do website SCM e da aplicação de execução (normalmente algumas tecnologias como ASP.NET iniciar um reinício de aplicação em algumas alterações de ficheiros para obter os conteúdos mais recentes).
 
-Embora muitos aplicativos usem um ou todos esses recursos, alguns aplicativos precisam apenas de um armazenamento de conteúdo somente leitura de alto desempenho, que podem ser executados com alta disponibilidade. Esses aplicativos podem se beneficiar de uma instância de VM de um cache local específico.
+Apesar de muitas aplicações utilizarem uma ou todas estas funcionalidades, algumas aplicações apenas precisam de uma loja de conteúdos de alto desempenho, apenas de leitura, da qual podem funcionar com elevada disponibilidade. Estas aplicações podem beneficiar de uma instância VM de uma cache local específica.
 
-O recurso de cache local do serviço de Azure App fornece uma exibição de função Web do seu conteúdo. Esse conteúdo é um cache de gravação e descarte do seu conteúdo de armazenamento criado de forma assíncrona no local. Quando o cache estiver pronto, o site será alternado para execução no conteúdo armazenado em cache. Os aplicativos executados no cache local têm os seguintes benefícios:
+A funcionalidade Cache Local do Serviço de Aplicações Azure proporciona uma visão de papel web dos seus conteúdos. Este conteúdo é uma cache de escrita mas descartar o seu conteúdo de armazenamento que é criado assincronicamente no local. Quando a cache estiver pronta, o site é trocado para ser executado contra o conteúdo em cache. As aplicações que funcionam em Cache Local têm os seguintes benefícios:
 
-* Elas estão imunes a latências que ocorrem quando acessam conteúdo no armazenamento do Azure.
-* Eles estão imunes a atualizações planejadas ou tempos de inatividade não planejados e quaisquer outras interrupções com o armazenamento do Azure que ocorrem em servidores que atendem ao compartilhamento de conteúdo.
-* Eles têm menos reinicializações de aplicativo devido a alterações de compartilhamento de armazenamento.
+* São imunes às tardios que ocorrem quando acedem ao conteúdo no Armazenamento Azure.
+* São imunes às atualizações planeadas ou aos tempos de paragem não planeados e a quaisquer outras perturbações com o Armazenamento Azure que ocorram em servidores que servem a partilha de conteúdos.
+* Têm menos reinícios de aplicações devido a alterações nas ações de armazenamento.
 
-## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Como o cache local altera o comportamento do serviço de aplicativo
-* _D:\home_ aponta para o cache local, que é criado na instância de VM quando o aplicativo é iniciado. _D:\Local_ continua a apontar para o armazenamento temporário específico da VM.
-* O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do repositório de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_, respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 300 MB por padrão, mas você pode aumentá-lo para até 2 GB. Se os arquivos copiados excederem o tamanho do cache local, o serviço de aplicativo ignorará silenciosamente o cache local e lerá do compartilhamento de arquivos remoto.
-* O cache local é de leitura/gravação. No entanto, qualquer modificação é descartada quando o aplicativo move máquinas virtuais ou é reiniciado. Não use o cache local para aplicativos que armazenam dados de missão crítica no repositório de conteúdo.
-* _D:\home\LogFiles_ e _D:\home\Data_ contêm arquivos de log e dados de aplicativo. As duas subpastas são armazenadas localmente na instância de VM e são copiadas para o repositório de conteúdo compartilhado periodicamente. Os aplicativos podem persistir arquivos de log e dados gravando-os nessas pastas. No entanto, a cópia para o repositório de conteúdo compartilhado é o melhor esforço, portanto, é possível que os arquivos de log e os dados sejam perdidos devido a uma falha repentina de uma instância de VM.
-* O [streaming de log](troubleshoot-diagnostic-logs.md#stream-logs) é afetado pela cópia de melhor esforço. Você pode observar um atraso de um minuto nos logs transmitidos.
-* No repositório de conteúdo compartilhado, há uma alteração na estrutura de pastas dos arquivos de _log_ e das pastas de _dados_ para aplicativos que usam o cache local. Agora há subpastas que seguem o padrão de nomenclatura de "identificador exclusivo" + carimbo de data/hora. Cada uma das subpastas corresponde a uma instância de VM em que o aplicativo está em execução ou foi executado.
-* Outras pastas no _D:\home_ permanecem no cache local e não são copiadas para o repositório de conteúdo compartilhado.
-* A implantação de aplicativo por meio de qualquer método com suporte publica diretamente no repositório de conteúdo compartilhado durável. Para atualizar as pastas _D:\home\site_ e _D:\home\siteextensions_ no cache local, o aplicativo precisa ser reiniciado. Para tornar o ciclo de vida contínuo, consulte as informações mais adiante neste artigo.
-* A exibição de conteúdo padrão do site do SCM continua a ser a do repositório de conteúdo compartilhado.
+## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Como a cache local muda o comportamento do Serviço de Aplicações
+* _D:\home_ aponta para a cache local, que é criada na instância VM quando a aplicação começa. _D:\local_ continua a apontar para o armazenamento temporário em VM-specific.
+* A cache local contém uma cópia única das pastas _/site_ _e/extensões_ do site da loja de conteúdos partilhados, em _D:\home\site_ e _extensões de site D:\home\,_ respectivamente. Os ficheiros são copiados para a cache local quando a aplicação começa. O tamanho das duas pastas para cada aplicação está limitado a 300 MB por padrão, mas pode aumentá-lo até 2 GB. Se os ficheiros copiados excederem o tamanho da cache local, o Serviço de Aplicações ignora silenciosamente a cache local e lê-se a partir da partilha remota de ficheiros.
+* A cache local é leitura-escrita. No entanto, qualquer modificação é descartada quando a aplicação move máquinas virtuais ou é reiniciada. Não utilize o cache local para apps que armazenem dados críticos de missão na loja de conteúdos.
+* _D:\home\LogFiles_ e _D:\home\Dados_ contêm ficheiros de registo e dados de aplicações. As duas subpastas são armazenadas localmente na instância VM, e são copiadas periodicamente para a loja de conteúdos partilhados. As aplicações podem persistir ficheiros de registo e dados escrevendo-os para estas pastas. No entanto, a cópia para a loja de conteúdos partilhados é o melhor esforço, pelo que é possível que os ficheiros de registo e os dados sejam perdidos devido a uma queda repentina de uma instância VM.
+* [O streaming de registo](troubleshoot-diagnostic-logs.md#stream-logs) supor-se na cópia do melhor esforço. Pode observar até um minuto de atraso nos registos transmitidos.
+* Na loja de conteúdos partilhados, existe uma alteração na estrutura da pasta das pastas _LogFiles_ e _Data_ para aplicações que utilizam o cache local. Existem agora subpastas nelas que seguem o padrão de nomeação de "identificador único" + carimbo de tempo. Cada uma das subpastas corresponde a um caso VM em que a aplicação está em execução ou está a funcionar.
+* Outras pastas em _D:\home_ permanecem na cache local e não são copiadas para a loja de conteúdos partilhados.
+* A implementação da aplicação através de qualquer método suportado publica diretamente na loja de conteúdos partilhados duráveis. Para refrescar as pastas _d:\home\site_ e _d:\home\siteextensions_ na cache local, a aplicação precisa de ser reiniciada. Para tornar o ciclo de vida perfeito, consulte a informação mais tarde neste artigo.
+* A visão predefinida do conteúdo do site SCM continua a ser a da loja de conteúdos partilhados.
 
-## <a name="enable-local-cache-in-app-service"></a>Habilitar o cache local no serviço de aplicativo
-Você configura o cache local usando uma combinação de configurações de aplicativo reservadas. Você pode definir essas configurações de aplicativo usando os seguintes métodos:
+## <a name="enable-local-cache-in-app-service"></a>Ativar cache local no serviço de aplicações
+Configura o Cache Local utilizando uma combinação de definições de aplicações reservadas. Pode configurar estas definições de aplicações utilizando os seguintes métodos:
 
 * [Portal do Azure](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
-### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurar o cache local usando o portal do Azure
+### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configure cache local utilizando o portal Azure
 <a name="Configure-Local-Cache-Portal"></a>
 
-Você habilita o cache local por aplicativo Web usando esta configuração de aplicativo: `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
+Você ativa o Cache Local numa base por web-app usando esta definição de aplicação: `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
-![Portal do Azure configurações do aplicativo: cache local](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
+![Definições de aplicativos do portal Azure: Cache Local](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
 
-### <a name="configure-local-cache-by-using-azure-resource-manager"></a>Configurar o cache local usando Azure Resource Manager
+### <a name="configure-local-cache-by-using-azure-resource-manager"></a>Configure a cache local utilizando o Gestor de Recursos Azure
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```json
@@ -82,34 +82,34 @@ Você habilita o cache local por aplicativo Web usando esta configuração de ap
 ...
 ```
 
-## <a name="change-the-size-setting-in-local-cache"></a>Alterar a configuração de tamanho no cache local
-Por padrão, o tamanho do cache local é **300 MB**. Isso inclui as pastas/site e/siteextensions que são copiadas do armazenamento de conteúdo, bem como quaisquer logs e pastas de dados criados localmente. Para aumentar esse limite, use a configuração de aplicativo `WEBSITE_LOCAL_CACHE_SIZEINMB`. Você pode aumentar o tamanho de até **2 GB** (2000 MB) por aplicativo.
+## <a name="change-the-size-setting-in-local-cache"></a>Alterar a definição de tamanho em Cache Local
+Por padrão, o tamanho da cache local é **de 300 MB**. Isto inclui as pastas /site e/siteextensions que são copiadas da loja de conteúdos, bem como quaisquer registos e pastas de dados criadas localmente. Para aumentar este limite, utilize a definição da aplicação `WEBSITE_LOCAL_CACHE_SIZEINMB`. Pode aumentar o tamanho até **2 GB** (2000 MB) por app.
 
-## <a name="best-practices-for-using-app-service-local-cache"></a>Práticas recomendadas para usar o cache local do serviço de aplicativo
-Recomendamos que você use o cache local em conjunto com o recurso de [ambientes de preparo](../app-service/deploy-staging-slots.md) .
+## <a name="best-practices-for-using-app-service-local-cache"></a>Boas práticas para usar o Cache Local do Serviço de Aplicações
+Recomendamos que utilize cache local em conjunto com a funcionalidade [Ambientes de Encenação.](../app-service/deploy-staging-slots.md)
 
-* Adicione a configuração do aplicativo *adesivo* `WEBSITE_LOCAL_CACHE_OPTION` com o valor `Always` ao seu slot de **produção** . Se você estiver usando `WEBSITE_LOCAL_CACHE_SIZEINMB`, adicione-o também como uma configuração adesiva ao seu slot de produção.
-* Crie um slot de **preparo** e publique em seu slot de preparo. Normalmente, você não define o slot de preparo para usar o cache local para habilitar um ciclo de vida de desenvolvimento/implantação-teste contínuo para preparo se você obtiver os benefícios do cache local para o slot de produção.
-* Teste seu site em relação ao slot de preparo.  
-* Quando estiver pronto, emita uma [operação de permuta](../app-service/deploy-staging-slots.md#Swap) entre os slots de preparo e de produção.  
-* As configurações adesivas incluem nome e adesivo em um slot. Assim, quando o slot de preparo é alternado para produção, ele herda as configurações do aplicativo de cache local. O slot de produção trocado recentemente será executado no cache local após alguns minutos e será ativado como parte do slot aquecimento após a troca. Assim, quando a permuta do slot for concluída, o slot de produção será executado no cache local.
+* Adicione a definição de aplicações *pegajosas* `WEBSITE_LOCAL_CACHE_OPTION` com o valor `Always` à sua ranhura de **Produção.** Se estiver a utilizar `WEBSITE_LOCAL_CACHE_SIZEINMB`, adicione-o também como uma definição pegajosa à sua ranhura de Produção.
+* Crie uma ranhura **de Encenação** e publique na sua slot de encenação. Normalmente, não se define a ranhura de preparação para utilizar a Cache Local para permitir um ciclo de vida de teste de implementação de sem emenda para a realização se obtém os benefícios da Cache Local para a ranhura de produção.
+* Teste o seu site contra a sua ranhura de encenação.  
+* Quando estiver pronto, emita uma operação de [troca](../app-service/deploy-staging-slots.md#Swap) entre as suas ranhuras de Preparação e Produção.  
+* As configurações pegajosas incluem nome e pegajosa para uma ranhura. Assim, quando a ranhura de Encenação é trocada em Produção, herda as definições da aplicação Cache Local. A ranhura de produção recém-trocada irá contra a cache local após alguns minutos e será aquecida como parte do aquecimento da ranhura após a troca. Assim, quando a troca de slot estiver completa, a sua ranhura de produção está a correr contra a cache local.
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
-### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Como saber se o cache local se aplica ao meu aplicativo?
-Se seu aplicativo precisar de um repositório de conteúdo confiável e de alto desempenho, o não usará o repositório de conteúdo para gravar dados críticos em tempo de execução e tiver menos de 2 GB de tamanho total, a resposta será "Sim"! Para obter o tamanho total de suas pastas/site e/siteextensions, você pode usar a extensão de site "uso de disco de aplicativos Web do Azure".
+### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Como posso saber se o Cache Local se aplica à minha aplicação?
+Se a sua aplicação necessitar de uma loja de conteúdos de alto desempenho e fiável, não utiliza a loja de conteúdos para escrever dados críticos no prazo de execução, e tem menos de 2 GB em tamanho total, então a resposta é "sim"! Para obter o tamanho total das suas pastas/site e /extensões/site, pode utilizar a extensão do site "Utilização do Disco de Web Apps Azure".
 
-### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>Como saber se meu site mudou para usar o cache local?
-Se você estiver usando o recurso de cache local com ambientes de preparo, a operação de permuta não será concluída até que o cache local seja quente. Para verificar se o site está em execução no cache local, você pode verificar a variável de ambiente do processo de trabalho `WEBSITE_LOCALCACHE_READY`. Use as instruções na página [variável de ambiente do processo de trabalho](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) para acessar a variável de ambiente do processo de trabalho em várias instâncias.  
+### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>Como posso saber se o meu site mudou para usar o Cache Local?
+Se estiver a utilizar a função Cache Local com Ambientes de Preparação, a operação de troca não termina até que a Cache Local esteja aquecida. Para verificar se o seu site está a correr contra a Cache Local, pode verificar a variável ambiente do processo do trabalhador `WEBSITE_LOCALCACHE_READY`. Utilize as instruções na página [variável](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) ambiente do processo do trabalhador para aceder à variável ambiente do processo do trabalhador em várias instâncias.  
 
-### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Acabei de publicar novas alterações, mas meu aplicativo parece não tê-las. Porquê?
-Se seu aplicativo usar o cache local, você precisará reiniciar o site para obter as alterações mais recentes. Não deseja publicar alterações em um site de produção? Consulte as opções de slot na seção de práticas recomendadas anteriores.
+### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Acabei de publicar novas mudanças, mas a minha aplicação não parece tê-las. Porquê?
+Se a sua aplicação utilizar cache local, então precisa reiniciar o seu site para obter as mais recentes alterações. Não quer publicar alterações num site de produção? Consulte as opções de slot na secção de boas práticas anteriores.
 
-### <a name="where-are-my-logs"></a>Onde estão meus logs?
-Com o cache local, os logs e as pastas de dados têm uma aparência um pouco diferente. No entanto, a estrutura de suas subpastas permanece a mesma, exceto que as subpastas são aninhado sob uma subpasta com o formato "Unique VM Identifier" + carimbo de data/hora.
+### <a name="where-are-my-logs"></a>Onde estão os meus registos?
+Com a Cache Local, os seus registos e pastas de dados parecem um pouco diferentes. No entanto, a estrutura das suas subpastas permanece a mesma, exceto que as subpastas estão aninhadas sob uma subpasta com o formato "identificador VM único" + carimbo de tempo.
 
-### <a name="i-have-local-cache-enabled-but-my--app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>Tenho o cache local habilitado, mas meu aplicativo ainda é reiniciado. Porquê? Pensei que o cache local ajudou com reinicializações de aplicativos frequentes.
-O cache local ajuda a impedir a reinicialização do aplicativo relacionado ao armazenamento. No entanto, seu aplicativo ainda pode passar por reinicializações durante as atualizações de infraestrutura planejadas da VM. O aplicativo geral reinicia que você enfrenta com o cache local habilitado deve ser menor.
+### <a name="i-have-local-cache-enabled-but-my--app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>Tenho cache local ativado, mas a minha aplicação ainda é reiniciada. A que se deve isso? Pensei que o Cache Local ajudasse com o reinício frequente das aplicações.
+A Cache local ajuda a evitar o reinício da aplicação relacionada com o armazenamento. No entanto, a sua aplicação ainda poderá ser reiniciada durante as atualizações planeadas da infraestrutura do VM. A aplicação geral reinicia que experimenta com a Cache Local ativada deve ser menor.
 
-### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>O cache local exclui qualquer diretório de ser copiado para a unidade local mais rápida?
-Como parte da etapa que copia o conteúdo de armazenamento, qualquer pasta denominada repositório é excluída. Isso ajuda com cenários em que o conteúdo do site pode conter um repositório de controle do código-fonte que pode não ser necessário na operação diária do aplicativo. 
+### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>A Cache Local exclui que os diretórios sejam copiados para a unidade local mais rápida?
+Como parte do passo que copia o conteúdo de armazenamento, qualquer pasta que seja chamada repositório é excluída. Isto ajuda com cenários em que o conteúdo do seu site pode conter um repositório de controlo de fonte que pode não ser necessário no funcionamento diário da app. 

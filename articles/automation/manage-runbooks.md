@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4531e5d483508ca99722182f97c6a7aa0e0b68f3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: ec53c4b2f80fb095f58bee9c15ac5daafb8d59ef
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191117"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226251"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de corridas na Automação Azure
 
@@ -92,7 +92,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Testar um runbook
 
-Quando testa um livro de execução, a [versão Draft](#publish-a-runbook) é executada e quaisquer ações que executa são concluídas. Não é criado histórico de trabalho, mas os fluxos [de saída](automation-runbook-output-and-messages.md#output-stream) e aviso [e erro](automation-runbook-output-and-messages.md#message-streams) são apresentados no painel de saída do Teste. As mensagens para o [fluxo Verbose](automation-runbook-output-and-messages.md#message-streams) só são apresentadas no painel de saída se a [variável $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) estiver definida para **continuar**.
+Quando testa um livro de execução, a [versão Draft](#publish-a-runbook) é executada e quaisquer ações que executa são concluídas. Não é criado histórico de trabalho, mas os fluxos [de saída](automation-runbook-output-and-messages.md#output-stream) e aviso [e erro](automation-runbook-output-and-messages.md#message-streams) são apresentados no painel de saída do Teste. As mensagens para o [fluxo Verbose](automation-runbook-output-and-messages.md#message-streams) só são apresentadas no painel de saída se a variável VerbosePreference](automação-runbook-output-and-messages.md#preference-variables) estiver definida para **Continuar**.
 
 Mesmo que o projeto de versão esteja a ser executado, o livro de execução ainda executa normalmente e executa quaisquer ações contra recursos no ambiente. Por esta razão, só deve testar livros de execução sobre recursos não produtivos.
 

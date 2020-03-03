@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: dapine
-ms.openlocfilehash: c4a27db8bec6dbbd2f1b2be8acfdd034d45d37d5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 499770b664757ec0f3a0bd3b26e0de36007741b6
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561925"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228074"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese da fala (SSML)
 
@@ -347,6 +347,103 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
     </voice>
 </speak>
 ```
+
+## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Use léxico personalizado para melhorar a pronúncia
+
+Por vezes, o TTS não consegue pronunciar com precisão uma palavra, por exemplo, uma empresa ou nome estrangeiro. Os desenvolvedores podem definir a leitura destas entidades no SSML usando `phoneme` e etiqueta `sub`, ou definir a leitura de várias entidades, referindo-se a um ficheiro léxico personalizado usando `lexicon` etiqueta.
+
+**Sintaxe**
+
+```XML
+<lexicon uri="string"/>
+```
+
+**Atributos**
+
+| Atributo | Descrição | Obrigatório / opcional |
+|-----------|-------------|---------------------|
+| `uri` | O endereço do documento PLS externo. | Necessário. |
+
+**Utilização**
+
+Passo 1: Definir léxico personalizado 
+
+Pode definir a leitura de entidades através de uma lista de itens de léxico personalizados, armazenados como um ficheiro .xml ou .pls.
+
+**Exemplo**
+
+```xml
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias>By the way</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme> 
+    <phoneme> bɛˈniːnji</phoneme>
+  </lexeme>
+</lexicon>
+```
+
+Cada elemento `lexeme` é um item de léxico. `grapheme` contém texto que descreve a ortografia de `lexeme`. O formulário de leitura pode ser fornecido de acordo com `alias`. A corda telefónica pode ser fornecida em `phoneme` elemento.
+
+O elemento `lexicon` contém pelo menos um elemento `lexeme`. Cada elemento `lexeme` contém pelo menos um elemento `grapheme` e um ou mais elementos `grapheme`, `alais`e `phoneme`. O elemento `grapheme` contém texto que descreve a <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">ortografia. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a> Os elementos `alias` são usados para indicar a pronúncia de um acrónimo ou termo abreviado. O elemento `phoneme` fornece texto descrevendo como o `lexeme` é pronunciado.
+
+Para obter mais informações sobre o ficheiro lexicon personalizado, consulte a [Versão 1.0 da Pronunciação Lexicon (PLS)](https://www.w3.org/TR/pronunciation-lexicon/) no site da W3C.
+
+Passo 2: Faça upload do ficheiro lexicon personalizado criado no passo 1 online, pode armazená-lo em qualquer lugar, e sugerimos que o guarde no Microsoft Azure, por exemplo, [armazenamento de Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Passo 3: Consulte o ficheiro lexicon personalizado no SSML
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
+          xmlns:mstts="http://www.w3.org/2001/mstts" 
+          xml:lang="en-US">
+<lexicon uri="http://www.example.com/customlexicon.xml"/>
+BTW, we will be there probably 8:00 tomorrow morning.
+Could you help leave a message to Robert Benigni for me?
+</speak>
+```
+"BTW" será lido como "A propósito". "Benigni" será lido com ipa "binânji".  
+
+**Limitação**
+- Tamanho do ficheiro: o limite máximo do tamanho do ficheiro léxico personalizado é de 100KB, se para além deste tamanho, o pedido de síntese falhará.
+- Atualização da cache lexicon: o léxico personalizado será colocado com URI como chave no Serviço TTS quando for carregado pela primeira vez. O léxico com o mesmo URI não será recarregado dentro de 15 minutos, por isso a mudança de léxico personalizado precisa de esperar no máximo 15 minutos para fazer efeito.
+
+**Conjunto de telefone SAPI**
+
+Na amostra acima, estamos a usar o conjunto telefónico da International Phonetic Association (IPA). Sugerimos que os desenvolvedores utilizem o IPA, porque o IPA é o padrão internacional. 
+
+Tendo em conta que o IPA não é fácil de lembrar, a Microsoft define o conjunto de telefoneS SAPI para sete idiomas (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`e `zh-TW`). Para obter mais informações sobre o alfabeto, consulte a Referência do [Alfabeto Fonético](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx).
+
+Pode utilizar o conjunto de telefoneS SAPI com léxicos personalizados, conforme demonstrado abaixo. Desloque o valor do alfabeto com **sapi**.
+
+```xml
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="sapi" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias> By the way </alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme>
+    <phoneme> b eh 1 - n iy - n y iy </phoneme>
+  </lexeme>
+</lexicon>
+```
+
+Para obter mais informações sobre o alfabeto SAPI detalhado, consulte a Referência do [Alfabeto SAPI](sapi-phoneset-usage.md).
 
 ## <a name="adjust-prosody"></a>Ajuste a prótese
 

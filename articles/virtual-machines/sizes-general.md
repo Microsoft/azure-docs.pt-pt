@@ -14,18 +14,21 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: d8a13d9013b2ad526c8e332cf3ea74e04f253d98
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4b36f456f70eb79cff1f615c7c136b8fe4b1b3d4
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597716"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226703"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos de máquina virtual de propósito geral
 
 Os tamanhos vm de propósito geral fornecem uma relação CPU-memória equilibrada. Ideal para testes e desenvolvimento, bases de dados pequenas a médias e servidores web de tráfego baixo a médio. Este artigo fornece informações sobre as ofertas para a computação geral.
 
 - Os VMs [da série Av2](av2-series.md) podem ser implantados numa variedade de tipos de hardware e processadores. Os VMs da série A têm configurações de desempenho de CPU e memória mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. O tamanho é limitado com base no hardware de forma a proporcionar um desempenho de processador consistente para a instância em execução, independentemente do hardware no qual está implementado. Para determinar o hardware físico no qual este tamanho está implementado, consulte o hardware virtual a partir da Máquina Virtual. Os casos de utilização por exemplo incluem servidores de desenvolvimento e teste, servidores web de tráfego baixo, bases de dados pequenas a médias, provas de conceitos e repositórios de código.
+
+  > [!NOTE]
+  > Os A8 – A11 VMs estão previstos para a reforma em 3/2021. Para mais informações, consulte o [Guia de Migração do HPC.](https://azure.microsoft.com/resources/hpc-migration-guide/)
 
 - [Série B rebenta](sizes-b-series-burstable.md) Os VMs são ideais para cargas de trabalho que não necessitam de todo o desempenho do CPU continuamente, como servidores web, pequenas bases de dados e ambientes de desenvolvimento e teste. Estas cargas de trabalho normalmente têm requisitos de desempenho insuportáveis. A Série B oferece a estes clientes a capacidade de adquirir um tamanho VM com um desempenho de base consciente do preço que permite que a instância VM aumente os créditos quando o VM está a utilizar menos do que o seu desempenho base. Quando o VM tiver crédito acumulado, o VM pode rebentar acima da linha de base do VM utilizando até 100% do CPU quando a sua aplicação requer o desempenho mais elevado do CPU.
 

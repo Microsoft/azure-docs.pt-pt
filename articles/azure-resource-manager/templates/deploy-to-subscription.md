@@ -2,13 +2,13 @@
 title: Implementar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Mostra também como utilizar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 50db0b4d46ff4e367411829aa75fa017a168372f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 03/02/2020
+ms.openlocfilehash: 2e747b7faa6e9766a577b472cc3e283d6223109e
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207660"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228119"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos e recursos de recursos ao nível da subscrição
 
@@ -20,6 +20,7 @@ Para implementar modelos ao nível da subscrição, utilize o Azure CLI, PowerSh
 
 Pode implementar os seguintes tipos de recursos ao nível da subscrição:
 
+* [orçamentos](/azure/templates/microsoft.consumption/budgets)
 * [implementações](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [políticasAtribuis](/azure/templates/microsoft.authorization/policyassignments)
@@ -60,10 +61,10 @@ az deployment create \
 ```
 
 
-Para o comando de implementação PowerShell, utilize [new-AzDeployment](/powershell/module/az.resources/new-azdeployment). O exemplo seguinte implementa um modelo para criar um grupo de recursos:
+Para o comando de implementação PowerShell, utilize [new-AzDeployment](/powershell/module/az.resources/new-azdeployment) ou **New-AzSubscriptionDeployment**. O exemplo seguinte implementa um modelo para criar um grupo de recursos:
 
 ```azurepowershell-interactive
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name demoDeployment `
   -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
@@ -300,7 +301,7 @@ $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName 
 $locations = @("westus", "westus2")
 $policyParams =@{listOfAllowedLocations = @{ value = $locations}}
 
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name policyassign `
   -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
@@ -366,7 +367,7 @@ az deployment create \
 Para implementar este modelo com o PowerShell, utilize:
 
 ```azurepowershell
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
@@ -374,8 +375,8 @@ New-AzDeployment `
 
 ## <a name="template-samples"></a>Exemplos de modelo
 
-* Crie um grupo de recursos, bloqueie-o e dê-lhe permissões. Veja [aqui.](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)
-* Criar um grupo de recursos, uma política e uma atribuição de políticas.  Veja [aqui.](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json)
+* [Crie um grupo de recursos, bloqueie-o e dê-lhe permissões.](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)
+* Criar um grupo de [recursos, uma política e uma atribuição de políticas.](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json)
 
 ## <a name="next-steps"></a>Passos seguintes
 
