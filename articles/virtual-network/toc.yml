@@ -249,8 +249,14 @@
                   href: tutorial-restrict-network-access-to-resources-powershell.md
                 - name: CLI do Azure
                   href: tutorial-restrict-network-access-to-resources-cli.md
-            - name: Criar políticas de ponto final
-              href: virtual-network-service-endpoint-policies-portal.md
+            - name: Utilizar políticas de ponto final de serviço
+              items:
+                - name: Portal do Azure
+                  href: virtual-network-service-endpoint-policies-portal.md
+                - name: Azure PowerShell
+                  href: virtual-network-service-endpoint-policies-powershell.md
+                - name: CLI do Azure
+                  href: virtual-network-service-endpoint-policies-cli.md
         - name: Encaminhe o tráfego de rede
           items:
             - name: Portal do Azure

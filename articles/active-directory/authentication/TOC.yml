@@ -13,6 +13,8 @@
       href: tutorial-enable-azure-mfa.md
     - name: Ativar a repetição de escrita de palavras-passe no local
       href: tutorial-enable-sspr-writeback.md
+    - name: Configurar listas de palavras-passe banidas personalizadas
+      href: tutorial-configure-custom-password-protection.md
     - name: Integrar o Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Conceitos
@@ -108,8 +110,6 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Proteção de palavras-passe do Azure AD
       items:
-        - name: Configurar a lista de palavras-passe banidas
-          href: howto-password-ban-bad-configure.md
         - name: Integração no local
           items:
             - name: Implementar proteção de palavras-passe do Azure AD
