@@ -1,94 +1,92 @@
 ---
-title: Gerenciar contêineres personalizados do Linux com a CLI
-description: Saiba como gerenciar contêineres personalizados do Linux no serviço Azure App na linha de comando. Automatize o provisionamento ou a manutenção de aplicativos.
-keywords: serviço de aplicativo do Azure, aplicativo Web, CLI, Linux, OSS
-author: ahmedelnably
+title: Gerir recipientes linux personalizados com CLI
+description: Saiba como gerir os recipientes linux personalizados no Serviço de Aplicações Azure a partir da linha de comando. Acasale o fornecimento ou manutenção de aplicativos de automatização.
+keywords: serviço de aplicativos azure, web app, cli, linux, oss
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 773c8036a345383162013f9f7103164b0f382f12
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 5ca5322467402af710df68c82d747f8f8d65e142
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689067"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255929"
 ---
-# <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerenciar Aplicativo Web para Contêineres usando CLI do Azure
+# <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerir a Web App para contentores utilizando o Azure CLI
 
-Usando os comandos neste artigo, você pode criar e gerenciar um Aplicativo Web para Contêineres usando o CLI do Azure.
-Você pode começar a usar a nova versão da CLI de duas maneiras:
+Utilizando os comandos deste artigo é possível criar e gerir uma Aplicação Web para contentores utilizando o Azure CLI.
+Pode começar a utilizar a nova versão do CLI de duas formas:
 
-* [Instalação do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
-* Usando [Azure cloud Shell (visualização)](../../cloud-shell/overview.md)
+* [Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) na sua máquina.
+* Utilização da [casca de nuvem azure (pré-visualização)](../../cloud-shell/overview.md)
 
-## <a name="create-a-linux-app-service-plan"></a>Criar um plano do serviço de aplicativo do Linux
+## <a name="create-a-linux-app-service-plan"></a>Crie um Plano de Serviço de Aplicativos Linux
 
-Para criar um plano do serviço de aplicativo do Linux, você pode usar o seguinte comando:
+Para criar um Plano de Serviço de Aplicações Linux, pode utilizar o seguinte comando:
 
 ```azurecli-interactive
 az appservice plan create -n appname -g rgname --is-linux -l "South Central US" --sku S1 --number-of-workers 1
 ```
 
-## <a name="create-a-custom-docker-container-web-app"></a>Criar um aplicativo Web de contêiner do Docker personalizado
+## <a name="create-a-custom-docker-container-web-app"></a>Criar uma aplicação web de contentores Docker personalizada
 
-Para criar um aplicativo Web e configurá-lo para executar um contêiner do Docker personalizado, você pode usar o seguinte comando:
+Para criar uma aplicação web e configurá-la para executar um recipiente Docker personalizado, pode utilizar o seguinte comando:
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -i elnably/dockerimagetest
 ```
 
-## <a name="activate-the-docker-container-logging"></a>Ativar o registro em log do contêiner do Docker
+## <a name="activate-the-docker-container-logging"></a>Ativar a exploração de contentores Docker
 
-Para ativar o registro em log do contêiner do Docker, você pode usar o seguinte comando:
+Para ativar o registo do contentor Docker, pode utilizar o seguinte comando:
 
 ```azurecli-interactive
 az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
 
-## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>Alterar o contêiner do Docker personalizado para um aplicativo de Aplicativo Web para Contêineres existente
+## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>Altere o recipiente personalizado do Docker para uma aplicação web existente para contentores
 
-Para alterar um aplicativo criado anteriormente, da imagem do Docker atual para uma nova imagem, você pode usar o seguinte comando:
+Para alterar uma aplicação previamente criada, desde a imagem atual do Docker até uma nova imagem, pode utilizar o seguinte comando:
 
 ```azurecli-interactive
 az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
 ```
 
-## <a name="using-docker-images-from-a-private-registry"></a>Usando imagens do Docker de um registro privado
+## <a name="using-docker-images-from-a-private-registry"></a>Usando imagens do Docker de um registo privado
 
-Você pode configurar seu aplicativo para usar imagens de um registro privado. Você precisa fornecer a URL para o registro, o nome de usuário e a senha. Isso pode ser feito usando o seguinte comando:
+Pode configurar a sua aplicação para utilizar imagens de um registo privado. Tem de fornecer o url para o seu registo, nome de utilizador e senha. Isto pode ser conseguido utilizando o seguinte comando:
 
 ```azurecli-interactive
 az webapp config container set -n sname1 -g rgname -c <container name> -r <server url> -u <username> -p <password>
 ```
 
-## <a name="enable-continuous-deployments-for-custom-docker-images"></a>Habilitar implantações contínuas para imagens personalizadas do Docker
+## <a name="enable-continuous-deployments-for-custom-docker-images"></a>Ativar implementações contínuas para imagens personalizadas do Docker
 
-Com o comando a seguir, você pode habilitar a funcionalidade do CD e obter a URL do webhook. Essa URL pode ser usada para configurar DockerHub ou repositórios de registro de contêiner do Azure.
+Com o seguinte comando pode ativar a funcionalidade de CD e obter o url webhook. Este url pode ser usado para configurar o DockerHub ou o Registo de Contentores Azure repos.
 
 ```azurecli-interactive
 az webapp deployment container config -n sname -g rgname -e true
 ```
 
-## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Criar um aplicativo Aplicativo Web para Contêineres usando uma das estruturas de tempo de execução internas
+## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Crie uma Aplicação Web para contentores utilizando uma das nossas estruturas de tempo de execução incorporadas
 
-Para criar um aplicativo Aplicativo Web para Contêineres do PHP 5,6 que, você pode usar o comando a seguir.
+Para criar uma Aplicação Web PHP 5.6 para contentores que, pode utilizar o seguinte comando.
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -r "php|5.6"
 ```
 
-## <a name="change-framework-version-for-an-existing-web-app-for-containers-app"></a>Alterar a versão da estrutura para um aplicativo de Aplicativo Web para Contêineres existente
+## <a name="change-framework-version-for-an-existing-web-app-for-containers-app"></a>Alterar versão-quadro para uma aplicação web existente para contentores
 
-Para alterar um aplicativo criado anteriormente, da versão atual do Framework para o Node. js 6,11, você pode usar o seguinte comando:
+Para alterar uma aplicação previamente criada, desde a versão-quadro atual para o Nó.js 6.11, pode utilizar o seguinte comando:
 
 ```azurecli-interactive
 az webapp config set -n sname -g rgname --linux-fx-version "node|6.11"
 ```
 
-## <a name="set-up-git-deployments-for-your-web-app"></a>Configurar implantações do git para seu aplicativo Web
+## <a name="set-up-git-deployments-for-your-web-app"></a>Configurar as implementações da Git para a sua Web App
 
-Para configurar implantações do git para seu aplicativo, você pode usar o seguinte comando:
+Para configurar as implementações git para a sua aplicação, pode utilizar o seguinte comando:
 
 ```azurecli-interactive
 az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> --branch <branch>
@@ -96,8 +94,8 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [O que é o serviço Azure App no Linux?](app-service-linux-intro.md)
+* [O que é o Serviço de Aplicações Azure no Linux?](app-service-linux-intro.md)
 * [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [Azure Cloud Shell (versão prévia)](../../cloud-shell/overview.md)
+* [Concha de nuvem azure (pré-visualização)](../../cloud-shell/overview.md)
 * [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Implantação contínua com Aplicativo Web para Contêineres](app-service-linux-ci-cd.md)
+* [Implantação contínua com aplicação web para contentores](app-service-linux-ci-cd.md)

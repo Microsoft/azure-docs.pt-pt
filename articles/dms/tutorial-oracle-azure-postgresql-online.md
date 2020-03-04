@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: migrar o Oracle online para o banco de dados do Azure para PostgreSQL'
+title: 'Tutorial: Migrar o Oracle on-line para a Base de Dados Azure para PostgreSQL'
 titleSuffix: Azure Database Migration Service
-description: Aprenda a executar uma migração online do Oracle local ou em máquinas virtuais para o banco de dados do Azure para PostgreSQL usando o serviço de migração de banco de dados do Azure.
+description: Aprenda a realizar uma migração on-line da Oracle no local ou em máquinas virtuais para a Base de Dados Azure para PostgreSQL utilizando o Serviço de Migração de Bases de Dados Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,103 +12,103 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 14db95adccf5118321bc763cbe599e19febc7eac
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759914"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255569"
 ---
-# <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: migrar o Oracle para o banco de dados do Azure para PostgreSQL online usando DMS (versão prévia)
+# <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: Migrar o Oráculo para a Base de Dados Azure para PostgreSQL online usando DMS (Pré-visualização)
 
-Você pode usar o serviço de migração de banco de dados do Azure para migrar os bancos de dados do Oracle hospedados localmente ou em máquinas virtuais para o [Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com tempo de inatividade mínimo. Em outras palavras, você pode concluir a migração com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você migra o banco de dados de exemplo de **RH** de uma instância de máquina virtual ou local do Oracle 11g para o banco de dados do Azure para PostgreSQL usando a atividade de migração online no serviço de migração de banco de dados do Azure.
+Pode utilizar o Serviço de Migração de Bases de Dados Azure para migrar as bases de dados das bases de dados da Oracle alojadas no local ou em máquinas virtuais para a Base de [Dados Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com o mínimo de tempo de inatividade. Por outras palavras, pode completar a migração com o mínimo de tempo de paragem para a aplicação. Neste tutorial, migra a base de dados de amostras de **RH** de uma instância de máquina virtual ou no local do Oracle 11g para a Base de Dados Azure para PostgreSQL utilizando a atividade de migração on-line no Serviço de Migração de Bases de Dados Azure.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
-> * Avalie o esforço de migração usando a ferramenta ora2pg.
-> * Migre o esquema de exemplo usando a ferramenta ora2pg.
+> * Avalie o esforço de migração utilizando a ferramenta ora2pg.
+> * Migrar o esquema da amostra utilizando a ferramenta ora2pg.
 > * Crie uma instância do Serviço de Migração de Bases de Dados Azure.
-> * Crie um projeto de migração usando o serviço de migração de banco de dados do Azure.
+> * Crie um projeto de migração utilizando o Serviço de Migração de Bases de Dados Azure.
 > * Executar a migração.
 > * Monitorizar a migração.
 
 > [!NOTE]
-> Usar o serviço de migração de banco de dados do Azure para executar uma migração online requer a criação de uma instância com base no tipo de preço premium.
+> A utilização do Serviço de Migração de Bases de Dados Azure para realizar uma migração online requer a criação de uma instância baseada no nível de preços Premium.
 
 > [!IMPORTANT]
-> Para uma experiência de migração ideal, a Microsoft recomenda a criação de uma instância do serviço de migração de banco de dados do Azure na mesma região do Azure que o banco de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
+> Para uma experiência de migração ideal, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Bases de Dados Azure na mesma região do Azure que a base de dados alvo. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-Este artigo descreve como executar uma migração online do Oracle para o banco de dados do Azure para PostgreSQL.
+Este artigo descreve como realizar uma migração on-line de Oracle para Azure Database para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de:
 
-* Baixe e instale o [Oracle 11g versão 2 (Standard Edition, Standard Edition One ou Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html).
-* Baixe o exemplo de banco de dados de **RH** [aqui](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002).
+* Descarregue e instale [o Oracle 11g Release 2 (Standard Edition, Standard Edition One ou Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html).
+* Descarregue a base de dados de **RH** da amostra [daqui.](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002)
 * Descarregue e [instale ora2pg no Windows ou linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf).
 * [Criar uma instância na Base de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
-* Conecte-se à instância do e crie um banco de dados usando a instrução neste [documento](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
-* Crie um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma rede virtual, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+* Ligue-se à instância e crie uma base de dados utilizando as instruções neste [documento](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
+* Crie uma Rede Virtual Microsoft Azure para o Serviço de Migração de Bases de Dados Azure utilizando o modelo de implementação do Gestor de Recursos Azure, que fornece conectividade site-a-site aos seus servidores de origem no local, utilizando [expressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre a criação de uma rede virtual, consulte a [Documentação](https://docs.microsoft.com/azure/virtual-network/)da Rede Virtual , e especialmente os artigos quickstart com detalhes passo a passo.
 
   > [!NOTE]
-  > Durante a configuração de rede virtual, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
+  > Durante a configuração da rede virtual, se utilizar o ExpressRoute com o peering da rede para a Microsoft, adicione os [seguintes pontos finais](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à subnet na qual o serviço será aprovisionado:
   >
-  > * Ponto de extremidade do banco de dados de destino (por exemplo, ponto de extremidade SQL, ponto de extremidade Cosmos DB e assim por diante)
-  > * Ponto de extremidade de armazenamento
-  > * Ponto de extremidade do barramento de serviço
+  > * Ponto final da base de dados alvo (por exemplo, ponto final SQL, ponto final cosmos DB, e assim por diante)
+  > * Ponto final de armazenamento
+  > * Ponto final do ônibus de serviço
   >
-  > Essa configuração é necessária porque o serviço de migração de banco de dados do Azure não tem conectividade com a Internet.
+  > Esta configuração é necessária porque o Serviço de Migração de Bases de Dados Azure carece de conectividade na Internet.
 
-* Verifique se suas regras de NSG (grupo de segurança de rede) de rede virtual não bloqueiam as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Certifique-se de que as regras do Grupo de Segurança da Rede Virtual (NSG) não bloqueiam as seguintes portas de comunicação de entrada para o Serviço de Migração de Bases de Dados Azure: 443, 53, 9354, 445, 12000. Para mais detalhes sobre a filtragem de tráfego da rede virtual NSG, consulte o artigo Filtrar o tráfego da [rede com grupos](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)de segurança da rede .
 * Configurar a sua [Firewall do Windows para acesso ao motor de bases de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Abra o Firewall do Windows para permitir que o serviço de migração de banco de dados do Azure acesse o servidor Oracle de origem, que por padrão é a porta TCP 1521.
-* Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o serviço de migração de banco de dados do Azure acesse os bancos de dados de origem para migração.
-* Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível de servidor para o banco de dados do Azure para PostgreSQL a fim de permitir o acesso ao serviço de migração de banco de dados do Azure aos dados de destino Forneça o intervalo de sub-rede da rede virtual usada para o serviço de migração de banco de dados do Azure.
-* Habilite o acesso aos bancos de dados Oracle de origem.
+* Abra a sua firewall windows para permitir que o Serviço de Migração da Base de Dados Azure aceda ao servidor Oracle de origem, que por padrão é a porta TCP 1521.
+* Ao utilizar um aparelho de firewall em frente à sua base de dados de origem, poderá ter de adicionar regras de firewall para permitir que o Serviço de Migração de Bases de Dados Azure aceda à base de dados de origem para migração.
+* Crie uma [regra](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de firewall ao nível do servidor para a Base de Dados Azure para postgreSQL para permitir o acesso do Serviço de Migração de Bases de Dados Azure às bases de dados-alvo. Forneça a gama de subredes da rede virtual utilizada para o Serviço de Migração de Bases de Dados Azure.
+* Ative o acesso às bases de dados da Oráculo de origem.
 
   > [!NOTE]
-  > A função DBA é necessária para que um usuário se conecte à origem do Oracle.
+  > A função DBA é necessária para que um utilizador se conectem à fonte oráculo.
 
-  * Os logs de refazer de arquivamento são necessários para a sincronização incremental no serviço de migração de banco de dados do Azure para capturar a alteração Siga estas etapas para configurar a origem do Oracle:
-    * Entre usando o privilégio SYSDBA executando o seguinte comando:
+  * O Archive Redo Logs é necessário para uma sincronização incremental no Serviço de Migração de Bases de Dados Azure para capturar a alteração de dados. Siga estes passos para configurar a fonte oráculo:
+    * Inscreva-se utilizando o privilégio SYSDBA executando o seguinte comando:
 
       ```
       sqlplus (user)/(password) as sysdba
       ```
 
-    * Desligue a instância do banco de dados executando o comando a seguir.
+    * Desligue a instância da base de dados executando o seguinte comando.
 
       ```
       SHUTDOWN IMMEDIATE;
       ```
 
-      Aguarde o `'ORACLE instance shut down'`de confirmação.
+      Aguarde a confirmação `'ORACLE instance shut down'`.
 
-    * Inicie a nova instância e monte (mas não abra) o banco de dados para habilitar ou desabilitar o arquivamento Bu executando o seguinte comando:
+    * Inicie a nova instância e monte (mas não abra) a base de dados para ativar ou desativar o bu de arquivamento com o seguinte comando:
 
       ```
       STARTUP MOUNT;
       ```
 
-      O banco de dados deve ser montado; Aguarde a confirmação ' instância Oracle iniciada '.
+      A base de dados deve ser montada; esperar pela confirmação 'Oracle instância começou'.
 
-    * Altere o modo de arquivamento do banco de dados executando o seguinte comando:
+    * Altere o modo de arquivamento da base de dados executando o seguinte comando:
 
       ```
       ALTER DATABASE ARCHIVELOG;
       ```
 
-    * Abra o banco de dados para operações normais executando o seguinte comando:
+    * Abra a base de dados para operações normais executando o seguinte comando:
 
       ```
       ALTER DATABASE OPEN;
       ```
 
-      Talvez seja necessário reiniciar para que o arquivo ARC apareça.
+      Pode ter de reiniciar para que o ficheiro ARC apareça.
 
     * Para verificar, execute o seguinte comando:
 
@@ -116,39 +116,39 @@ Para concluir este tutorial, precisa de:
       SELECT log_mode FROM v$database;
       ```
 
-      Você deve receber uma resposta `'ARCHIVELOG'`. Se a resposta for `'NOARCHIVELOG'`, o requisito não será atendido.
+      Deve receber uma resposta `'ARCHIVELOG'`. Se a resposta for `'NOARCHIVELOG'`, então o requisito não é cumprido.
 
-  * Habilite o registro em log suplementar para replicação usando uma das opções a seguir.
+  * Ativar o registo suplementar para a replicação utilizando uma das seguintes opções.
 
     * **Opção 1**.
-      Altere o log suplementar de nível de banco de dados para abranger todas as tabelas com CP e índice exclusivo. A consulta de detecção retornará `'IMPLICIT'`.
+      Altere o nível de registo suplementar do nível da base de dados para cobrir todas as tabelas com PK e índice único. A consulta de deteção devolverá `'IMPLICIT'`.
 
       ```
       ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY, UNIQUE) COLUMNS;
       ```
 
-      Altere o log suplementar do nível de tabela. Executar somente para tabelas que têm manipulação de dados e que não têm índices PKs ou exclusivos.
+      Altere o nível de registo suplementar do nível da tabela. Correr apenas para tabelas que tenham manipulação de dados e não tenham PKs ou índices únicos.
 
       ```
       ALTER TABLE [TABLENAME] ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
       ```
 
     * **Opção 2**.
-      Altere o log suplementar de nível de banco de dados para abranger todas as tabelas e a consulta de detecção retorna `'YES'`.
+      Altere o nível de registo suplementar do nível da base de dados para cobrir todas as tabelas e a consulta de deteção retorna `'YES'`.
 
       ```
       ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
       ```
 
-      Altere o log suplementar do nível de tabela. Siga a lógica abaixo para executar apenas uma instrução para cada tabela.
+      Altere o nível de registo suplementar do nível da tabela. Siga a lógica abaixo para executar apenas uma declaração para cada mesa.
 
-      Se a tabela tiver uma chave primária:
+      Se a mesa tiver uma chave primária:
 
       ```
       ALTER TABLE xxx ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
       ```
 
-      Se a tabela tiver um índice exclusivo:
+      Se a tabela tiver um índice único:
 
       ```
       ALTER TABLE xxx ADD SUPPLEMENTAL LOG GROUP (first unique index columns) ALWAYS;
@@ -166,21 +166,21 @@ Para concluir este tutorial, precisa de:
       SELECT supplemental_log_data_min FROM v$database;
       ```
 
-    Você deve receber uma resposta `'YES'`.
+    Deve receber uma resposta `'YES'`.
 
-## <a name="assess-the-effort-for-an-oracle-to-azure-database-for-postgresql-migration"></a>Avaliar o esforço de uma migração do Oracle para o banco de dados do Azure para PostgreSQL
+## <a name="assess-the-effort-for-an-oracle-to-azure-database-for-postgresql-migration"></a>Avaliar o esforço de uma Base de Dados Oráculo para Azure para migração postgresQL
 
-É recomendável usar ora2pg para avaliar o esforço necessário para migrar do Oracle para o banco de dados do Azure para PostgreSQL. Utilize a diretiva `ora2pg -t SHOW_REPORT` para criar um relatório que enumera todos os objetos oráculo, o custo estimado de migração (em dias de desenvolvimento) e certos objetos de base de dados que possam necessitar de uma atenção especial como parte da conversão.
+Recomendamos a utilização do ora2pg para avaliar o esforço necessário para migrar da Oracle para a Base de Dados Azure para postgreSQL. Utilize a diretiva `ora2pg -t SHOW_REPORT` para criar um relatório que enumera todos os objetos oráculo, o custo estimado de migração (em dias de desenvolvimento) e certos objetos de base de dados que possam necessitar de uma atenção especial como parte da conversão.
 
-A maioria dos clientes gastará uma quantidade considerável de tempo revisando o relatório de avaliação e considerando o esforço de conversão automática e manual.
+A maioria dos clientes passará um tempo considerável a rever o relatório de avaliação e a considerar o esforço de conversão automática e manual.
 
-Para configurar e executar o ora2pg para criar um relatório de avaliação, consulte a seção **pré-migração: avaliação** do [banco de dados Oracle para o Azure para PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf). Um exemplo de relatório de avaliação ora2pg está disponível para referência [aqui](https://ora2pg.darold.net/report.html).
+Para configurar e executar o ora2pg para criar um relatório de avaliação, consulte a secção **de pré-migração: Secção** de avaliação do [Oráculo para a Base de Dados Azure para livro de receitas postgresQL](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf). Um relatório de avaliação ora2pg da amostra está disponível para referência [aqui](https://ora2pg.darold.net/report.html).
 
-## <a name="export-the-oracle-schema"></a>Exportar o esquema Oracle
+## <a name="export-the-oracle-schema"></a>Exportar o esquema oráculo
 
-Recomendamos que você use ora2pg para converter o esquema Oracle e outros objetos Oracle (tipos, procedimentos, funções, etc.) em um esquema compatível com o banco de dados do Azure para PostgreSQL. o ora2pg inclui muitas diretivas para ajudá-lo a definir previamente determinados tipos de dados. Por exemplo, pode utilizar a diretiva `DATA_TYPE` para substituir todos os NÚMERO (*,0) por mais grandes do que numeric(38).
+Recomendamos que utilize o ora2pg para converter o esquema Oracle e outros objetos Oracle (tipos, procedimentos, funções, etc.) para um esquema compatível com a Base de Dados Azure para PostgreSQL. o ora2pg inclui muitas diretivas para ajudá-lo a pré-definir certos tipos de dados. Por exemplo, pode utilizar a diretiva `DATA_TYPE` para substituir todos os NÚMERO (*,0) por mais grandes do que numeric(38).
 
-Você pode executar o ora2pg para exportar cada um dos objetos de banco de dados em arquivos. Sql. Em seguida, você pode examinar os arquivos. SQL antes de importá-los para o banco de dados do Azure para PostgreSQL usando psql ou pode executar o. Script SQL em PgAdmin.
+Pode executar o ora2pg para exportar cada um dos objetos da base de dados em ficheiros .sql. Em seguida, pode rever os ficheiros .sql antes de os importar para a Base de Dados Azure para postgreSQL utilizando o psql ou pode executar o . Script SQL em PgAdmin.
 
 ```
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
@@ -192,64 +192,64 @@ Por exemplo:
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
 ```
 
-Para configurar e executar o ora2pg para conversão de esquema, consulte a seção **migração: esquema e dados** do [manual Oracle to Azure database for PostgreSQL](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf).
+Para configurar e executar ora2pg para conversão de esquemas, consulte a **Migração: Schema e** secção de dados do Oracle para azure Database para Livro de [Receitas PostgreSQL](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf).
 
-## <a name="set-up-the-schema-in-azure-database-for-postgresql"></a>Configurar o esquema no banco de dados do Azure para PostgreSQL
+## <a name="set-up-the-schema-in-azure-database-for-postgresql"></a>Configurar o esquema na Base de Dados Azure para PostgreSQL
 
-Você pode optar por converter esquemas de tabela do Oracle, procedimentos armazenados, pacotes e outros objetos de banco de dados para torná-los postgres compatíveis usando ora2pg antes de iniciar um pipeline de migração no serviço de migração de banco de dados do Azure. Consulte os links abaixo para saber como trabalhar com o ora2pg:
+Pode optar por converter esquemas de mesa Oracle, procedimentos armazenados, pacotes e outros objetos de base de dados para torná-los Postgres compatíveis usando ora2pg antes de iniciar um pipeline de migração no Serviço de Migração de Bases de Dados Azure. Consulte os links abaixo para saber como trabalhar com o ora2pg:
 
-* [Instalar o ora2pg no Windows](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)
-* [Manual de migração do Oracle para o Azure PostgreSQL](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)
+* [Instale ora2pg no Windows](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)
+* [Livro de receitas de migração Da Oracle para Azure PostgreSQL](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)
 
-O serviço de migração de banco de dados do Azure também pode criar o esquema de tabela PostgreSQL. O serviço acessa o esquema de tabela na fonte Oracle conectada e cria um esquema de tabela compatível no banco de dados do Azure para PostgreSQL. Certifique-se de validar e verificar o formato de esquema no banco de dados do Azure para PostgreSQL depois que o serviço de migração de banco de dados do Azure terminar de criar o esquema e mover os dados.
+O Serviço de Migração de Bases de Dados Azure também pode criar o esquema de mesa PostgreSQL. O serviço acede ao esquema de mesa na fonte oráculo conectada e cria um esquema de mesa compatível na Base de Dados Azure para PostgreSQL. Certifique-se de validar e verificar o formato de esquema na Base de Dados Azure para PostgreSQL após o Serviço de Migração da Base de Dados Azure terminar de criar o esquema e mover os dados.
 
 > [!IMPORTANT]
-> O serviço de migração de banco de dados do Azure cria apenas o esquema de tabela; outros objetos de banco de dados, como procedimentos armazenados, pacotes, índices, etc., não são criados.
+> O Serviço de Migração da Base de Dados Azure só cria o esquema de mesa; não são criados outros objetos de base de dados, tais como procedimentos armazenados, pacotes, índices, etc.
 
-Além disso, não deixe de descartar a chave estrangeira no banco de dados de destino para que a carga completa seja executada. Consulte a seção **migrar o esquema de exemplo** do artigo [aqui](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) para obter um script que você pode usar para descartar a chave estrangeira. Use o serviço de migração de banco de dados do Azure para executar a carga e a sincronização completas.
+Certifique-se também de que deixa cair a chave estrangeira na base de dados do alvo para que a carga completa seja executada. Consulte a secção de **esquemas** de amostra da amostra do artigo [aqui](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) para obter um script que pode usar para deixar cair a chave estrangeira. Utilize o Serviço de Migração de Bases de Dados Azure para funcionar para a carga completa e sincronização.
 
-### <a name="when-the-postgresql-table-schema-already-exists"></a>Quando o esquema de tabela PostgreSQL já existe
+### <a name="when-the-postgresql-table-schema-already-exists"></a>Quando o esquema da mesa PostgreSQL já existe
 
-Se você criar um esquema PostgreSQL usando ferramentas como ora2pg antes de iniciar a movimentação de dados com o serviço de migração de banco de dado do Azure, mapeie as tabelas de origem para as tabelas de destino no serviço de migração de banco de dados do Azure.
+Se criar um esquema PostgreSQL utilizando ferramentas como o ora2pg antes de iniciar o movimento de dados com o Serviço de Migração de Bases de Dados Azure, mapeie as tabelas de origem para as tabelas-alvo no Serviço de Migração da Base de Dados Azure.
 
-1. Ao criar um novo projeto de migração Oracle para banco de dados do Azure para PostgreSQL, você será solicitado a selecionar o banco de dados de destino e o esquema de destino na etapa selecionar esquemas. Preencha o banco de dados de destino e o esquema de destino.
+1. Quando cria um novo Oracle para a Base de Dados Azure para o projeto de migração PostgreSQL, é-lhe solicitado que selecione a base de dados de destino e o esquema de alvo em select schemas step. Preencha a base de dados do alvo e o esquema de destino.
 
    ![Mostrar subscrições no portal](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
 
-2. A tela de **configurações de migração** apresenta uma lista de tabelas na origem do Oracle. O serviço de migração de banco de dados do Azure tenta corresponder tabelas nas tabelas de origem e de destino com base no nome da tabela. Se houver várias tabelas de destino correspondentes com maiúsculas e minúsculas diferentes, você poderá selecionar a tabela de destino para a qual mapear.
+2. O ecrã de definições de **migração** apresenta uma lista de tabelas na fonte do Oráculo. O Serviço de Migração da Base de Dados Azure tenta combinar tabelas na fonte e nas tabelas-alvo com base no nome da mesa. Se existirem várias tabelas-alvo correspondentes com invólucros diferentes, pode selecionar a tabela de destino para o mapa.
 
     ![Mostrar subscrições no portal](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> Se você precisar mapear nomes de tabela de origem para tabelas com nomes diferentes, [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) de email e poderemos fornecer um script para automatizar o processo.
+> Se precisar de mapear nomes de tabelas de origem para tabelas com nomes diferentes, [envie um](mailto:dmsfeedbac@microsoft.com) e-maildmsfeedback@microsoft.come podemos fornecer um script para automatizar o processo.
 
-### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>Quando o esquema de tabela PostgreSQL não existe
+### <a name="when-the-postgresql-table-schema-doesnt-exist"></a>Quando o esquema da mesa PostgreSQL não existe
 
-Se o banco de dados PostgreSQL de destino não contiver nenhuma informação de esquema de tabela, o serviço de migração de banco de dados do Azure converte o esquema de origem e o recria no banco de dados de destino. Lembre-se de que o serviço de migração de banco de dados do Azure cria apenas o esquema de tabela, não outros objetos de banco de dados, como procedimentos armazenados, pacotes e índices.
-Para que o serviço de migração de banco de dados do Azure crie o esquema para você, verifique se o ambiente de destino inclui um esquema sem tabelas existentes. Se o serviço de migração de banco de dados do Azure descobrir qualquer tabela, o serviço pressupõe que o esquema foi criado por uma ferramenta externa, como ora2pg.
+Se a base de dados PostgreSQL não contiver qualquer informação de esquema de mesa, o Serviço de Migração da Base de Dados Azure converte o esquema de origem e recria-o na base de dados do alvo. Lembre-se, o Azure Database Migration Service cria apenas o esquema de mesa, não outros objetos de base de dados, tais como procedimentos armazenados, pacotes e índices.
+Para que o Serviço de Migração de Bases de Dados Azure crie o esquema para si, certifique-se de que o seu ambiente alvo inclui um esquema sem tabelas existentes. Se o Serviço de Migração da Base de Dados Azure descobrir qualquer tabela, o serviço assume que o esquema foi criado por uma ferramenta externa como o ora2pg.
 
 > [!IMPORTANT]
-> O serviço de migração de banco de dados do Azure requer que todas as tabelas sejam criadas da mesma maneira, usando o serviço de migração de banco de dados do Azure ou uma ferramenta como ora2pg, mas não ambos.
+> O Serviço de Migração da Base de Dados Azure exige que todas as tabelas sejam criadas da mesma forma, utilizando o Serviço de Migração de Bases de Dados Azure ou uma ferramenta como o ora2pg, mas não ambas.
 
 Para começar:
 
-1. Crie um esquema no banco de dados de destino com base nos requisitos do aplicativo. Por padrão, o esquema de tabela do PostgreSQL e os nomes de colunas ficam menos em maiúsculas. As colunas e o esquema de tabela do Oracle, por outro lado, são, por padrão, em maiúsculas.
-2. Na etapa selecionar esquemas, especifique o banco de dados de destino e o esquema de destino.
-3. Com base no esquema que você cria no banco de dados do Azure para PostgreSQL, o serviço de migração de banco de dados do Azure usa as seguintes regras de transformação:
+1. Crie um esquema na base de dados do alvo com base nos requisitos da sua aplicação. Por predefinição, o esquema da tabela PostgreSQL e os nomes das colunas são minúsculos. O esquema e as colunas da mesa oracle, por outro lado, são por defeito em todos os casos maiúsculos.
+2. Em selecionar esquemia, especifique a base de dados do alvo e o esquema de destino.
+3. Com base no esquema que cria na Base de Dados Azure para PostgreSQL, o Serviço de Migração da Base de Dados Azure utiliza as seguintes regras de transformação:
 
-    Se o nome do esquema na origem do Oracle e corresponder ao que está no banco de dados do Azure para PostgreSQL, o serviço de migração de banco de dados do Azure *criará o esquema de tabela usando o mesmo caso do destino*.
+    Se o nome do esquema na fonte do Oráculo e corresponder ao da Base de Dados Azure para postgreSQL, então o Serviço de Migração da Base de Dados Azure *cria o esquema de mesa utilizando o mesmo caso que no alvo*.
 
     Por exemplo:
 
-    | Esquema Oracle de origem | Banco de dados PostgreSQL de destino. esquema | DMS criou esquema. tabela. coluna |
+    | Esquema de Oráculo fonte | Target PostgreSQL Database.Schema | DMS criou schema.table.column |
     | ------------- | ------------- | ------------- |
-    | RH | targetHR. público | public.countries.country_id |
-    | RH | targetHR.trgthr | trgthr.countries.country_id |
-    | RH | targetHR.TARGETHR | "TARGETHR". PAÍSES". COUNTRY_ID" |
-    | RH | targetHR.HR | "HR". PAÍSES". COUNTRY_ID" |
-    | RH | targetHR.Hr | \* Não é possível mapear casos mistos |
+    | HR | targetHR.public | public.countries.country_id |
+    | HR | targetHR.trgthr | trgthr.countries.country_id |
+    | HR | targetHR.TARGETHR | "TARGETHR". PAÍSES". COUNTRY_ID" |
+    | HR | targetHR.HR | "HR". PAÍSES". COUNTRY_ID" |
+    | HR | targetHR.Hr | *Incapaz de mapear casos mistos |
 
-    \* Para criar um esquema de caso misto e nomes de tabela no PostgreSQL de destino, entre em contato com [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). Podemos fornecer um script para configurar o esquema de tabela de casos misto no banco de dados PostgreSQL de destino.
+    *Para criar esquemas mistos e nomes de mesa no target PostgreSQL, contacte [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). Podemos fornecer um script para configurar esquemas de mesa mistos na base de dados postgresQL alvo.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 
@@ -279,9 +279,9 @@ Para começar:
 
 4. Selecione uma rede virtual existente ou crie uma nova.
 
-    A rede virtual fornece o serviço de migração de banco de dados do Azure com acesso ao Oracle de origem e à instância de destino do banco de dados do Azure para PostgreSQL.
+    A rede virtual fornece ao Azure Database Migration Service acesso à fonte Oracle e à base de dados azure-alvo para a instância PostgreSQL.
 
-    Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
+    Para obter mais informações sobre como criar uma rede virtual no portal Azure, consulte o artigo [Criar uma rede virtual utilizando o portal Azure.](https://aka.ms/DMSVnet)
 
 5. Selecione um escalão de preço.
 
@@ -304,42 +304,42 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
     ![Localizar a instância do Azure Database Migration Service](media/tutorial-oracle-azure-postgresql-online/dms-instance-search.png)
 
 3. Selecione + **Novo Projeto de Migração**.
-4. Na tela **novo projeto de migração** , especifique um nome para o projeto, na caixa de texto **tipo de servidor de origem** , selecione **Oracle**, na caixa de texto tipo de **servidor de destino** , selecione **banco de dados do Azure para PostgreSQL**.
-5. Na seção **escolher tipo de atividade** , selecione **migração de dados online**.
+4. No novo ecrã do **projeto de migração,** especifique um nome para o projeto, na caixa de texto **do tipo servidor Fonte,** selecione **Oracle**, na caixa de texto do tipo **servidor Target,** selecione Base de **Dados Azure para PostgreSQL**.
+5. Na secção **Escolha tipo de atividade,** selecione **migração de dados online**.
 
    ![Criar Projeto do Azure Database Migration Service](media/tutorial-oracle-azure-postgresql-online/dms-create-project5.png)
 
    > [!NOTE]
-   > Como alternativa, você pode escolher **criar projeto somente** para criar o projeto de migração agora e executar a migração mais tarde.
+   > Alternadamente, pode escolher o **projeto Criar apenas** para criar o projeto de migração agora e executar a migração mais tarde.
 
-6. Selecione **salvar**, observe os requisitos para usar com êxito o serviço de migração de banco de dados do Azure para executar uma migração online e, em seguida, selecione **criar e executar atividade**.
+6. Selecione **Guardar,** note os requisitos para utilizar com sucesso o Serviço de Migração de Bases de Dados Azure para realizar uma migração online e, em seguida, selecione **Criar e executar atividade**.
 
 ## <a name="specify-source-details"></a>Especificar os detalhes da origem
 
-* Na tela **adicionar detalhes de origem** , especifique os detalhes de conexão para a instância Oracle de origem.
+* No ecrã **Adicionar Detalhes de Origem,** especifique os detalhes de ligação para a instância de origem Oracle.
 
   ![Ecrã Adicionar Detalhes da Origem](media/tutorial-oracle-azure-postgresql-online/dms-add-source-details.png)
 
-## <a name="upload-oracle-oci-driver"></a>Carregar o Driver Oracle OCI
+## <a name="upload-oracle-oci-driver"></a>Carregar o controlador OCI da Oracle
 
-1. Selecione **salvar**e, em seguida, na tela **Instalar driver de OCI** , entre na sua conta Oracle e baixe o driver **instantclient-basiclite-Windows. x64-12.2.0.1.0. zip** (37.128.586 byte (s)) ( [soma de verificação](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)SHA1:865082268) daqui.
-2. Baixe o driver em uma pasta compartilhada.
+1. Selecione **Guardar**, e depois no ecrã de **controlador OCI instalar,** inste na sua conta Oracle e baixe o **cliente instantâneo do condutor-basiclite-windows.x64-12.2.0.0.zip** (37.128.586 Byte(s)) (SHA1 Checksum: 865082268) a partir [daqui](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
+2. Descarregue o condutor para uma pasta partilhada.
 
-   Verifique se a pasta é compartilhada com o nome de usuário que você especificou com o acesso de somente leitura mínimo. O serviço de migração de banco de dados do Azure acessa e lê do compartilhamento para carregar o driver de OCI no Azure, representando o nome de usuário que você especificar.
+   Certifique-se de que a pasta é partilhada com o nome de utilizador que especificou com o mínimo de acesso de leitura. O Azure Database Migration Service acede e lê a partir da parte para enviar o controlador OCI para o Azure, personificando o nome de utilizador que especifica.
 
-   O nome de usuário que você especificar deve ser uma conta do Windows.
+   O nome de utilizador que especifica deve ser uma conta de utilizador do Windows.
 
-   ![Instalação do driver de OCI](media/tutorial-oracle-azure-postgresql-online/dms-oci-driver-install.png)
+   ![Instalação do controlador OCI](media/tutorial-oracle-azure-postgresql-online/dms-oci-driver-install.png)
 
 ## <a name="specify-target-details"></a>Especificar os detalhes do destino
 
-1. Selecione **salvar**e, em seguida, na tela **detalhes de destino** , especifique os detalhes de conexão para o servidor de banco de dados do Azure para PostgreSQL de destino, que é a instância pré-configurada do banco de dados do Azure para PostgreSQL no qual o esquema de **RH** foi implantado.
+1. Selecione **Guardar**, e depois no ecrã de dados do **Target,** especificar os detalhes de ligação para o target Azure Database para o servidor PostgreSQL, que é a instância pré-disponibilizada de Base de Dados Azure para PostgreSQL a que o esquema **hr** foi implementado.
 
     ![Ecrã Detalhes do destino](media/tutorial-oracle-azure-postgresql-online/dms-add-target-details1.png)
 
 2. Selecione **Guardar** e, no ecrã **Mapear para bases de dados de destino**, mapeie as bases de dados de origem e destino para migração.
 
-    Se o banco de dados de destino contém o mesmo nome do banco de dados de origem, o serviço de migração de banco de dados do Azure seleciona o banco de dados de destino por padrão
+    Se a base de dados-alvo contiver o mesmo nome de base de dados que a base de dados de origem, o Serviço de Migração da Base de Dados Azure seleciona a base de dados de destino por padrão.
 
     ![Mapear para as bases de dados de destino](media/tutorial-oracle-azure-postgresql-online/dms-map-target-details.png)
 
@@ -357,9 +357,9 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 1. No ecrã de atividade da migração, selecione **Atualizar** para atualizar a vista até que o **Estado** da migração apareça como **Em execução**.
 
-     ![Status da atividade-em execução](media/tutorial-oracle-azure-postgresql-online/dms-activity-running.png)
+     ![Estado de Atividade - execução](media/tutorial-oracle-azure-postgresql-online/dms-activity-running.png)
 
-2. Em **nome do banco**de dados, selecione um banco de dado específico para obter o status de migração para operações de sincronização de dados **incrementais** e **carregamento completo** .
+2. Em **nome da base de dados,** selecione uma base de dados específica para chegar ao estado de migração para **operações completas** de carga de dados e **sincronização de dados incrementais.**
 
     O Carregamento de dados completo irá mostrar o estado de migração de carregamento inicial, enquanto a Sincronização de dados incremental irá mostrar o estado de captura de dados alterados (CDC).
 
@@ -378,13 +378,13 @@ Depois de concluída a Carga completa inicial, as bases de dados são marcadas c
    ![Iniciar transferência](media/tutorial-oracle-azure-postgresql-online/dms-start-cutover.png)
 
 3. Selecione **Confirmar** e, em seguida, selecione **Aplicar**.
-4. Quando o status de migração do banco de dados mostrar **concluído**, conecte seus aplicativos à nova instância de destino do banco de dados do Azure para PostgreSQL.
+4. Quando o estado de migração da base de dados mostrar **concluído,** ligue as suas aplicações à nova base de dados-alvo Azure para a instância PostgreSQL.
 
  > [!NOTE]
- > Como o PostgreSQL, por padrão, tem Schema. Table. Column em letras minúsculas, você pode reverter de maiúsculas para minúsculas usando o script na seção **Configurar o esquema no banco de dados do Azure para PostgreSQL** anteriormente neste artigo.
+ > Uma vez que postgreSQL por padrão tem schema.table.column em maiúsculas minúsculas, pode reverter da caixa superior para a minúscula, utilizando o script na Configuração do esquema na base de dados Azure para a secção **PostgreSQL** no início deste artigo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre problemas conhecidos e limitações ao realizar migrações online para a Base de Dados do Azure para PostgreSQL, veja o artigo [Problemas conhecidos e soluções alternativas das migrações online da Base de Dados do Azure para PostgreSQL](known-issues-azure-postgresql-online.md).
-* Para obter informações sobre o serviço de migração de banco de dados do Azure, consulte o artigo [o que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
-* Para obter informações sobre o banco de dados do Azure para PostgreSQL, consulte o artigo [o que é o banco de dados do Azure para PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).
+* Para obter informações sobre o Serviço de Migração da Base de Dados Azure, consulte o artigo O que é o Serviço de Migração da Base de [Dados Azure?](https://docs.microsoft.com/azure/dms/dms-overview)
+* Para obter informações sobre a Base de Dados Azure para PostgreSQL, consulte o artigo O que é a Base de [Dados Azure para PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview)

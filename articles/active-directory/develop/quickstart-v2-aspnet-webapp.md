@@ -1,6 +1,6 @@
 ---
-title: Adicionar entrada da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET | Azure
-description: Saiba como implementar a entrada da Microsoft em um aplicativo Web ASP.NET usando o OpenID Connect.
+title: Adicione o insessão da plataforma de identidade da Microsoft a uma aplicação web ASP.NET Azure
+description: Saiba como implementar o acesso da Microsoft a uma aplicação web ASP.NET utilizando o OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,19 +12,15 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 503cfb1e299c4e96e4e87107ce25af273848ca8f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: eae26df61af203f9c3d09606ef96b5506f2e8701
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160632"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249127"
 ---
-# <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Início rápido: adicionar a entrada da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET
-
-Neste guia de início rápido, você habilitará um aplicativo Web ASP.NET a entrar em contas pessoais (hotmail.com, outlook.com, outros) e contas corporativas e de estudante de qualquer instância do Azure Active Directory (Azure AD).
-
-![Mostra como funciona a aplicação de amostragerada por este quickstart](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
-
+# <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET
+Neste arranque rápido, você usa uma amostra de código para aprender como uma ASP.NET aplicação web para assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD).  (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
 > Tem duas opções para iniciar a aplicação de início rápido:
@@ -64,26 +60,33 @@ Neste guia de início rápido, você habilitará um aplicativo Web ASP.NET a ent
 
 #### <a name="step-2-download-your-project"></a>Passo 2: Transferir o projeto
 
-[Descarregue a solução Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+> [!div renderon="docs"]
+> [Descarregue a solução Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Transferir o seu projeto do Visual Studio
+> [!div renderon="portal"]
+> Executar o projeto usando o Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Descarregue a amostra de código]()
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para ser executada
+> Configurámos o seu projeto com valores das propriedades da sua aplicação. 
+
+> [!div renderon="docs"]
+> #### <a name="step-3-run-your-visual-studio-project"></a>Passo 3: Executar o seu projeto Estúdio Visual
 
 1. Extraia o ficheiro zip para uma pasta local próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Abra a solução no Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. Dependendo da versão do Visual Studio, poderá ter de clicar no projeto `AppModelv2-WebApp-OpenIDConnect-DotNet` e **restaurar os pacotes NuGet**
 1. Abra a Consola gestora de pacotes (Ver -> Outros Windows &> Package Manager Console) e executar `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
-1. Edite **Web.config** e substitua os parâmetros `ClientId` e `Tenant` por:
-
-    ```xml
-    <add key="ClientId" value="Enter_the_Application_Id_here" />
-    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
-    ```
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
-> > Este arranque rápido apoia Enter_the_Supported_Account_Info_Here. 
 
 > [!div renderon="docs"]
-> Em que:
+> 5. Edite **Web.config** e substitua os parâmetros `ClientId` e `Tenant` por:
+>    ```xml
+>    <add key="ClientId" value="Enter_the_Application_Id_here" />
+>    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
+>    ```
+>    Em que:
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
 >   - Se a sua candidatura apoiar **apenas a minha organização,** substitua este valor pelo nome **id do arrendatário** ou **pelo nome do inquilino** (por exemplo, contoso.onmicrosoft.com)
@@ -94,9 +97,16 @@ Neste guia de início rápido, você habilitará um aplicativo Web ASP.NET a ent
 > > - Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)* , e os *Tipos de conta suportados*, vá para a página **Descrição geral**
 > > - Certifique-se de que o valor para `redirectUri` na **Web.config** corresponde ao **Redirect URI** definido para o Registo de Aplicações em AD Azure (se não, navegue para o menu de **Autenticação** para o Registo de Aplicações e atualize o **REDIRECT URI** para combinar)
 
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Enter_the_Supported_Account_Info_Here
+
 ## <a name="more-information"></a>Mais informações
 
-Esta secção fornece uma descrição geral do código necessário para o início de sessão dos utilizadores. Essa visão geral pode ser útil para entender como o código funciona, os argumentos principais e também se você deseja adicionar a entrada a um aplicativo ASP.NET existente.
+Esta secção fornece uma descrição geral do código necessário para o início de sessão dos utilizadores. Esta visão geral pode ser útil para entender como o código funciona, os principais argumentos, e também se você quiser adicionar sessão a uma aplicação ASP.NET existente.
+
+### <a name="how-the-sample-works"></a>Como funciona a amostra
+![Mostra como funciona a aplicação de amostragerada por este quickstart](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 ### <a name="owin-middleware-nuget-packages"></a>Pacotes NuGet de middleware OWIN
 
@@ -151,7 +161,7 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | O ID de Aplicação da aplicação registada no portal do Azure |
 > | `Authority`    | O ponto final STS para o utilizador autenticar. Normalmente <https://login.microsoftonline.com/{tenant}/v2.0> para a cloud pública, em que {tenant} é o nome do seu inquilino, o Id do seu inquilino, ou *common* para uma referência ao ponto final comum (utilizado para aplicações multi-inquilino) |
-> | `RedirectUri`  | URL em que os usuários são enviados após a autenticação no ponto de extremidade da plataforma de identidade da Microsoft |
+> | `RedirectUri`  | URL onde os utilizadores são enviados após autenticação contra o ponto final da plataforma de identidade da Microsoft |
 > | `PostLogoutRedirectUri`     | URL para onde os utilizadores são enviados depois de terminarem sessão |
 > | `Scope`     | A lista dos âmbitos que estão a ser solicitados, separados por espaços |
 > | `ResponseType`     | Pedido de que a resposta da autenticação contenha um token de ID |
@@ -160,8 +170,8 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Definir `ValidateIssuer = false` é uma simplificação para este arranque rápido. Em aplicativos reais, você precisa validar o emissor.
-> Consulte os exemplos para entender como fazer isso.
+> Definir `ValidateIssuer = false` é uma simplificação para este arranque rápido. Em aplicações reais é necessário validar o emitente.
+> Veja as amostras para entender como fazê-lo.
 
 ### <a name="initiate-an-authentication-challenge"></a>Iniciar um desafio de autenticação
 

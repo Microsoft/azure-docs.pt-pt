@@ -1,25 +1,25 @@
 ---
-title: 'Início rápido: criar um aplicativo de vários contêineres'
-description: Introdução aos aplicativos de vários contêineres no serviço de Azure App implantando seu primeiro aplicativo de vários contêineres.
-keywords: serviço de aplicativo do Azure, aplicativo Web, Linux, Docker, compor, multirecipiente, vários contêineres, aplicativo Web para contêineres, vários contêineres, contêiner, WordPress, BD do Azure para MySQL, banco de dados de produção com contêineres
+title: 'Quickstart: Criar uma aplicação multi-contentor'
+description: Inicie-se com aplicações multi-contentores no Azure App Service, implementando a sua primeira aplicação multi-contentores.
+keywords: serviço de aplicações azure, web app, linux, docker, compor, multicontentor, multi-contentor, web app para contentores, vários contentores, recipiente, wordpress, azure db para mysql, base de dados de produção com contentores
 author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 4a0207299b480136e8054fbe3d4579dd98f45267
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 19544d9ea9a86b6c0ad98debc7361f4579cbc998
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430539"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247025"
 ---
-# <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Criar um aplicativo de vários contêineres (versão prévia) usando uma configuração de Docker Compose
+# <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Criar uma aplicação multi-contentor (pré-visualização) utilizando uma configuração Docker Compose
 
 > [!NOTE]
-> Vários contêineres estão em visualização.
+> O multi-contentor está em pré-visualização.
 
-A [Aplicação Web para Contentores](app-service-linux-intro.md) proporciona uma forma flexível de utilizar imagens do Docker. Este guia de início rápido mostra como implantar um aplicativo de vários contêineres (versão prévia) para Aplicativo Web para Contêineres no [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) usando uma configuração de Docker Compose.
+A [Aplicação Web para Contentores](app-service-linux-intro.md) proporciona uma forma flexível de utilizar imagens do Docker. Este quickstart mostra como implementar uma aplicação multi-contentor (pré-visualização) para web app para contentores na [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) usando uma configuração Docker Compose.
 
 Este início rápido deverá ser concluído no Cloud Shell, mas também poderá executar estes comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli) (2.0.32 ou posterior). 
 
@@ -51,7 +51,7 @@ git clone https://github.com/Azure-Samples/multicontainerwordpress
 cd multicontainerwordpress
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
@@ -97,9 +97,9 @@ Quando o plano do Serviço de Aplicações tiver sido criado, a CLI do Azure mos
 
 ## <a name="create-a-docker-compose-app"></a>Criar uma aplicação Docker Compose
 
-No seu terminal do Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir _\<app_name >_ por um nome de aplicativo exclusivo (os caracteres válidos são `a-z`, `0-9`e `-`).
+No seu terminal do Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicação único (personagens válidos são `a-z`, `0-9`e `-`).
 
-```bash
+```azurecli
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 
@@ -133,10 +133,10 @@ Navegue para a aplicação implementada em (`http://<app_name>.azurewebsites.net
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: aplicativo WordPress com vários contêineres](tutorial-multi-container-app.md)
+> [Tutorial: Aplicação WordPress multi-contentor](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
-> [Configurar um contêiner personalizado](configure-custom-container.md)
+> [Configure um recipiente personalizado](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 44c942e43cd4be1d04f56e828e3e17c58713a706
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559849"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246191"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e ingresso na Pré-visualização de Insights da Série De Tempo azure
 
@@ -159,10 +159,10 @@ Consulte os seguintes recursos para saber mais sobre otimizar a entrada e as div
 
 Ao criar um ambiente SKU *pay-as-you-go* (PAYG) da Time Series Insights, cria dois recursos Azure:
 
-* Um ambiente de pré-visualização da Série De Tempo Azure Insights que pode ser configurado para armazenamento quente.
+* Um ambiente de pré-visualização da Série De Tempo Azure Insights que pode ser configurado para armazenamento de dados quentes.
 * Uma conta V1 de uso geral de armazenamento azure para armazenamento de dados frios.
 
-Os dados na sua loja quente só estão disponíveis através da [Time Series Query](./time-series-insights-update-tsq.md) e do explorador de [pré-visualização](./time-series-insights-update-explorer.md)da Série De Tempo Azure Insights . 
+Os dados na sua loja quente só estão disponíveis através da [Time Series Query](./time-series-insights-update-tsq.md) e do explorador de [pré-visualização](./time-series-insights-update-explorer.md)da Série De Tempo Azure Insights . A sua loja quente conterá dados recentes dentro do período de [retenção](./time-series-insights-update-plan.md#the-preview-environment) selecionado ao criar o ambiente Time Series Insights.
 
 Time Series Insights Preview guarda os seus dados da loja fria para o armazenamento De Blob Azure no formato de [ficheiro Parquet](#parquet-file-format-and-folder-structure). Time Series Insights Preview gere estes dados da loja de frio exclusivamente, mas está disponível para que você leia diretamente como ficheiros Parquet padrão.
 
@@ -186,12 +186,7 @@ Para obter uma descrição completa do armazenamento de Blob Azure, leia a intro
 
 Quando cria um ambiente payG de pré-visualização da Série De Tempo Azure, é criada uma conta V1 de uso geral de armazenamento azure como a sua loja de frio de longo prazo.  
 
-A Pré-visualização da Série De Tempo Azure insights publica até duas cópias de cada evento na sua conta de Armazenamento Azure. A cópia inicial tem eventos ordenados pelo tempo de ingestão. Essa ordem de eventos é **sempre preservada para** que outros serviços possam aceder aos seus eventos sem questões de sequenciação. 
-
-> [!NOTE]
-> Também pode utilizar spark, Hadoop e outras ferramentas familiares para processar os ficheiros Parquet crus. 
-
-A Pré-visualização da Time Series Insights também reparte os ficheiros Parquet para otimizar a consulta time series Insights. Esta cópia reparticionada dos dados também é guardada. 
+A Pré-visualização da Série de Tempo Azure retém até duas cópias de cada evento na sua conta de Armazenamento Azure. Uma cópia armazena eventos encomendados pelo tempo de ingestão, permitindo sempre o acesso a eventos numa sequência ordenada pelo tempo. Com o tempo, a Time Series Insights Preview também cria uma cópia reparticionada dos dados para otimizar para a consulta performante time series Insights. 
 
 Durante a Pré-visualização pública, os dados são armazenados indefinidamente na sua conta de Armazenamento Azure.
 
@@ -199,15 +194,11 @@ Durante a Pré-visualização pública, os dados são armazenados indefinidament
 
 Para garantir a consulta de desempenho e disponibilidade de dados, não edite ou elimine quaisquer blobs que a Time Series Insights Preview cria.
 
-#### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Aceder e exportar dados a partir da Pré-visualização de Insights da Série Tempo
+#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Aceder a Time Series Insights Preview dados da loja de frio 
 
-É melhor ter acesso a dados visualizados no explorador de pré-visualização da Série Time Insights para utilizar em conjunto com outros serviços. Por exemplo, pode utilizar os seus dados para construir um relatório no Power BI ou para treinar um modelo de aprendizagem automática utilizando o Azure Machine Learning Studio. Ou, pode usar os seus dados para transformar, visualizar e modelar nos seus Cadernos Jupyter.
+Além de aceder aos seus dados do explorador de [pré-visualização](./time-series-insights-update-explorer.md) da Time Series Insights e da Consulta da Série de [Tempo,](./time-series-insights-update-tsq.md)também poderá querer aceder aos seus dados diretamente a partir dos ficheiros Parquet armazenados na loja de frio. Por exemplo, pode ler, transformar e limpar dados num caderno jupyter, depois usá-lo para treinar o seu modelo de Aprendizagem automática Azure no mesmo fluxo de trabalho spark.
 
-Pode aceder aos seus dados de três formas gerais:
-
-* Do explorador de pré-visualização da Série Time Insights. Pode exportar dados como ficheiro CSV do explorador. Para mais informações, leia o explorador de [pré-visualização](./time-series-insights-update-explorer.md)da Time Series Insights .
-* A partir da Time Series Insights Preview API usando Get Events Query. Para saber mais sobre esta API, leia A Pergunta da [Série Tempo.](./time-series-insights-update-tsq.md)
-* Diretamente de uma conta azure armazenamento. Precisa de ler o acesso a qualquer conta que esteja a usar para aceder aos dados de pré-visualização da Série De Tempo. Para mais informações, leia Gerir o acesso aos recursos da sua conta de [armazenamento.](../storage/blobs/storage-manage-access-to-resources.md)
+Para aceder aos dados diretamente da sua conta de Armazenamento Azure, precisa de ler o acesso à conta utilizada para armazenar os dados de Pré-visualização da Série Time Insights. Pode então ler dados selecionados com base no tempo de criação do ficheiro Parquet localizado na pasta `PT=Time` descrita abaixo na secção de formato de [ficheiroParquet.](#parquet-file-format-and-folder-structure)  Para obter mais informações sobre o acesso à sua conta de armazenamento, consulte [Gerir o acesso aos recursos da sua conta de armazenamento.](../storage/blobs/storage-manage-access-to-resources.md)
 
 #### <a name="data-deletion"></a>Eliminação de dados
 
@@ -215,21 +206,21 @@ Não elimine os ficheiros de pré-visualização da Série De Tempo Insights. Ge
 
 ### <a name="parquet-file-format-and-folder-structure"></a>Formato de ficheiro parquet e estrutura de pastas
 
-O Parquet é um formato de ficheiro colunaar de código aberto que foi concebido para um armazenamento e desempenho eficientes. Time Series Insights Preview utiliza parquet por estas razões. Ele partilha dados por ID da Série Time para o desempenho da consulta em escala.  
+O Parquet é um formato de ficheiro colunar de código aberto concebido para um armazenamento e desempenho eficientes. Time Series Insights Preview utiliza o Parquet para ativar o desempenho da consulta baseada em ID da Série Time em escala.  
 
 Para mais informações sobre o tipo de ficheiro Parquet, leia a documentação do [Parquet.](https://parquet.apache.org/documentation/latest/)
 
 Time Series Insights Preview armazena cópias dos seus dados da seguinte forma:
 
-* A primeira cópia inicial é dividida pelo tempo de ingestão e armazena os dados aproximadamente por ordem de chegada. Os dados residem na pasta `PT=Time`:
+* A primeira cópia inicial é dividida pelo tempo de ingestão e armazena os dados aproximadamente por ordem de chegada. Estes dados residem na pasta `PT=Time`:
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* A segunda cópia, reparticionada é dividida por um agrupamento de IDs da Série do Tempo e reside na pasta `PT=TsId`:
+* A segunda cópia, reparticionada é agrupada por IDs da Série Do Tempo e reside na pasta `PT=TsId`:
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-Em ambos os casos, os valores de tempo correspondem ao tempo de criação de bolhas. Os dados da pasta `PT=Time` são preservados. Os dados da pasta `PT=TsId` serão otimizados para consulta ao longo do tempo e não permanecerão estáticos.
+Em ambos os casos, a propriedade temporal do ficheiro Parquet corresponde ao tempo de criação de bolhas. Os dados da pasta `PT=Time` são preservados sem alterações uma vez que esteja escrito no ficheiro. Os dados da pasta `PT=TsId` serão otimizados para consulta ao longo do tempo e não estão estáticos.
 
 > [!NOTE]
 > * `<YYYY>` mapas para uma representação de quatro dígitos.
@@ -239,10 +230,10 @@ Em ambos os casos, os valores de tempo correspondem ao tempo de criação de bol
 Os eventos de pré-visualização da Série Time Insights são mapeados para conteúdos de ficheiros Parquet da seguinte forma:
 
 * Cada evento mapeia para uma única fila.
-* Cada linha inclui a coluna de **carimbo** sinuoso com um carimbo de tempo de evento. A propriedade do carimbo do tempo nunca é nula. Não se incorre no **tempo em que** o tempo não é especificado na fonte do evento. A hora está sempre na UTC.
-* Cada linha inclui a(s) coluna s id da Série de Tempo, tal como definida quando o ambiente Time Series Insights é criado. O nome da propriedade inclui o sufixo `_string`.
+* Cada linha inclui a coluna de **carimbo** sinuoso com um carimbo de tempo de evento. A propriedade do carimbo do tempo nunca é nula. Não se incorre no **evento, o tempo que** apropriedade do carimbo de tempo não é especificado na fonte do evento. O carimbo de tempo armazenado está sempre na UTC.
+* Todas as linhas incluem a(s) coluna(s) da Série de Tempo (TSID), tal como definida quando o ambiente Time Series Insights é criado. O nome da propriedade TSID inclui o sufixo `_string`.
 * Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam com `_string` (corda), `_bool` (Boolean), `_datetime` (data), ou `_double` (duplo), dependendo do tipo de propriedade.
-* Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1**. À medida que esta funcionalidade evolui, o nome pode ser incrementado.
+* Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1** e armazenada na pasta base com o mesmo nome. À medida que esta funcionalidade evolui, este esquema de mapeamento pode mudar e o nome de referência incrementado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Monitorar a conectividade do dispositivo usando o Gerenciador de IoT Central do Azure
-description: Monitore mensagens do dispositivo e observe as alterações do dispositivo com a CLI do IoT Central Explorer.
+title: Monitorize a conectividade do dispositivo utilizando o Explorador Central Azure IoT
+description: Monitorize as mensagens do dispositivo e observe as alterações gémeas do dispositivo através do IoT Central Explorer CLI.
 author: viv-liu
 ms.author: viviali
 ms.date: 12/18/2019
@@ -8,67 +8,70 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 3f18537b4b038844c9aa824593e354c23c792370
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6af6f01449f2f43e6799ef6d7821b9d71b24e603
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026786"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252335"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorizar a conectividade do dispositivo com a CLI do Azure
 
-*Este tópico se aplica a construtores e administradores.*
+*Este tópico aplica-se a construtores e administradores.*
 
-Use a extensão CLI do Azure IoT para ver as mensagens que seus dispositivos estão enviando para IoT Central e observar alterações no dispositivo. Você pode usar essa ferramenta para depurar e observar a conectividade do dispositivo e diagnosticar problemas de mensagens do dispositivo que não estão atingindo a nuvem ou os dispositivos que não estão respondendo a alterações de conexão.
+Utilize a extensão Azure CLI IoT para ver mensagens que os seus dispositivos estão a enviar para a IoT Central e observar alterações no dispositivo twin. Pode utilizar esta ferramenta para depurar e observar a conectividade do dispositivo e diagnosticar problemas de mensagens de dispositivos que não chegam à nuvem ou dispositivos que não respondem a alterações duplas.
 
-[Visite a referência de extensões de CLI do Azure para obter mais detalhes](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
+[Visite a referência de extensões azure CLI para mais detalhes](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ CLI do Azure instalado e é a versão 2.0.7 ou superior. Verifique a versão do CLI do Azure executando `az --version`. Saiba como instalar e atualizar a partir do [CLI do Azure docs](https://docs.microsoft.com/cli/azure/install-azure-cli)
-+ Uma conta corporativa ou de estudante no Azure, adicionada como um usuário em um aplicativo IoT Central.
++ Azure CLI instalado e é versão 2.0.7 ou superior. Verifique a versão do seu Azure CLI executando `az --version`. Saiba como instalar e atualizar a partir dos [docs do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
++ Uma conta de trabalho ou escola em Azure, adicionada como utilizadora numa aplicação IoT Central.
 
-## <a name="install-the-iot-central-extension"></a>Instalar a extensão de IoT Central
+## <a name="install-the-iot-central-extension"></a>Instale a extensão IoT Central
 
-Execute o seguinte comando na linha de comando para instalar:
+Executar o seguinte comando a partir da sua linha de comando para instalar:
 
 ```cmd/sh
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-Verifique a versão da extensão executando 
+Verifique a versão da extensão executando:
+
 ```cmd/sh
 az --version
 ```
-Você deve ver a extensão Azure-CLI-IOT-ext é 0.8.1 ou superior. Se não estiver, execute
+
+Deve ver que a extensão azure-iot é de 0,8.1 ou superior. Se não for, corra:
+
 ```cmd/sh
-az extension update --name azure-cli-iot-ext
+az extension update --name azure-iot
 ```
 
 ## <a name="using-the-extension"></a>Usando a extensão
 
-As seções a seguir descrevem comandos e opções comuns que você pode usar ao executar o `az iot central`. Para exibir o conjunto completo de comandos e opções, passe `--help` para `az iot central` ou qualquer um de seus subcomandos.
+As seguintes secções descrevem comandos e opções comuns que pode utilizar quando executa `az iot central`. Para ver todo o conjunto de comandos e opções, passe `--help` para `az iot central` ou qualquer um dos seus subcomandos.
 
-### <a name="login"></a>Início de Sessão
+### <a name="login"></a>Iniciar sessão
 
-Comece entrando no CLI do Azure. 
+Comece por assinar no Azure CLI. 
 
 ```cmd/sh
 az login
 ```
 
-### <a name="get-the-application-id-of-your-iot-central-app"></a>Obter a ID do aplicativo IoT Central aplicativo
-Em **Administração/configurações do aplicativo**, copie a **ID do aplicativo**. Você o usará em etapas posteriores.
+### <a name="get-the-application-id-of-your-iot-central-app"></a>Obtenha o ID de aplicação da sua aplicação IoT Central
+Nas Definições de **Administração/Aplicação,** copie o ID da **aplicação**. Usará isto em etapas posteriores.
 
-### <a name="monitor-messages"></a>Monitorar mensagens
-Monitore as mensagens que estão sendo enviadas para seu aplicativo IoT Central de seus dispositivos. Isso incluirá todos os cabeçalhos e anotações.
+### <a name="monitor-messages"></a>Monitorizar mensagens
+Monitorize as mensagens que estão a ser enviadas para a sua aplicação IoT Central a partir dos seus dispositivos. Isto incluirá todos os cabeçalhos e anotações.
 
 ```cmd/sh
 az iot central app monitor-events --app-id <app-id> --properties all
 ```
 
-### <a name="view-device-properties"></a>Exibir Propriedades do dispositivo
-Exibir as propriedades do dispositivo atual de leitura e leitura/gravação para um determinado dispositivo.
+### <a name="view-device-properties"></a>Ver propriedades do dispositivo
+Veja as propriedades atuais do dispositivo de leitura e leitura/escrita para um determinado dispositivo.
 
 ```cmd/sh
 az iot central device-twin show --app-id <app-id> --device-id <device-id>
@@ -76,4 +79,4 @@ az iot central device-twin show --app-id <app-id> --device-id <device-id>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu a usar o IoT Central Explorer, a próxima etapa sugerida é explorar o [Gerenciamento de dispositivos IOT central](howto-manage-devices.md).
+Agora que aprendeu a usar o IoT Central Explorer, o próximo passo sugerido é explorar os dispositivos de [gestão IoT Central](howto-manage-devices.md).

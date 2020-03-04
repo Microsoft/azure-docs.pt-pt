@@ -4,16 +4,16 @@ description: Neste arranque rápido, aprenda a realizar várias tarefas ansívei
 keywords: ansible, azure, devops, bash, cloudshell, manual de procedimentos, bash
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: 0eb89bcacae1629bdb1f6dcda8f9a25efdb6eedf
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 2a938179cf2e07a61749042db32ef9e1c9d843ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193655"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247883"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Quickstart: Executar playbooks ansible via Bash in Azure Cloud Shell
 
-A Azure Cloud Shell é uma concha interativa e acessível ao navegador para gerir os recursos do Azure. Cloud Shell fornece que você possa usar uma linha de comando Bash ou Powershell. Neste artigo, você usa Bash dentro de Azure Cloud Shell para executar um livro de ansible.
+A Azure Cloud Shell é uma concha interativa e acessível ao navegador para gerir os recursos do Azure. A Cloud Shell fornece-lhe que utilize uma linha de comando Bash ou PowerShell. Neste artigo, você usa Bash dentro de Azure Cloud Shell para executar um livro de ansible.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ az account list
 
 Utilizando o seu ID de subscrição Azure, detete a `AZURE_SUBSCRIPTION_ID` da seguinte forma:
 
-```azurecli-interactive
+```console
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 

@@ -1,114 +1,114 @@
 ---
-title: Solucionar problemas de replicação de VM do Azure no Azure Site Recovery
-description: Solucionar erros ao replicar máquinas virtuais do Azure para recuperação de desastre.
+title: Resolução de problemas da réplica do Azure VM na recuperação do site do Azure
+description: Erros de resolução de problemas ao replicar máquinas virtuais Azure para recuperação de desastres.
 author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: rochakm
-ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 32d826f3c27cea3d0993c47e8562360315b7bd2e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902561"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256053"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar erros de replicação de VM do Azure para o Azure
+# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Erro de replicação de VM Azure-to-Azure
 
-Este artigo descreve como solucionar erros comuns no Azure Site Recovery durante a replicação e a recuperação de VMs (máquinas virtuais) do Azure de uma região para outra. Para obter mais informações sobre configurações suportadas, consulte a [matriz de suporte para replicar VMs do Azure](site-recovery-support-matrix-azure-to-azure.md).
+Este artigo descreve como resolver erros comuns na Recuperação do Site Azure durante a replicação e recuperação de máquinas virtuais Azure (VMs) de uma região para outra. Para obter mais informações sobre configurações suportadas, consulte a matriz de [suporte para replicar VMs Azure](site-recovery-support-matrix-azure-to-azure.md).
 
-## <a name="azure-resource-quota-issues-error-code-150097"></a>Problemas de cota de recursos do Azure (código de erro 150097)
+## <a name="azure-resource-quota-issues-error-code-150097"></a>Problemas de quotas de recursos Azure (código de erro 150097)
 
-Verifique se sua assinatura está habilitada para criar VMs do Azure na região de destino que você planeja usar como sua região de recuperação de desastre. Verifique também se sua assinatura tem cota suficiente para criar VMs dos tamanhos necessários. Por padrão, Site Recovery escolhe um tamanho de VM de destino que seja igual ao tamanho da VM de origem. Se o tamanho correspondente não estiver disponível, Site Recovery escolherá automaticamente o tamanho mais próximo disponível.
+Certifique-se de que a sua subscrição está ativada para criar VMs Azure na região alvo que pretende utilizar como a sua região de recuperação de desastres. Certifique-se também de que a sua subscrição tem quota suficiente para criar VMs dos tamanhos necessários. Por padrão, a Recuperação do Site escolhe um tamanho VM alvo que é o mesmo que o tamanho VM de origem. Se o tamanho correspondente não estiver disponível, a Recuperação do Site escolhe automaticamente o tamanho mais próximo disponível.
 
-Se não houver um tamanho que dê suporte à configuração da VM de origem, a seguinte mensagem será exibida:
+Se não houver tamanho que suporte a configuração VM de origem, aparece a seguinte mensagem:
 
-> "Não foi possível habilitar a replicação para a máquina virtual *VmName*".
+> "A replicação não podia ser ativada para a máquina virtual *VmName."*
 
 ### <a name="possible-causes"></a>Possíveis causas
 
-- Sua ID de assinatura não está habilitada para criar VMs no local da região de destino.
-- Sua ID de assinatura não está habilitada ou não tem cota suficiente para criar tamanhos de VM específicos no local da região de destino.
-- Nenhum tamanho de VM de destino adequado é encontrado para corresponder à contagem de NIC (placa de interface de rede) da VM de origem (2), para a ID da assinatura no local da região de destino.
+- O seu ID de subscrição não está habilitado a criar quaisquer VMs na localização da região alvo.
+- O seu ID de subscrição não está ativado, ou não tem quota suficiente, para criar tamanhos de VM específicos na localização da região alvo.
+- Não é encontrado tamanho de VM de destino adequado que corresponda à contagem de interface de rede (NIC) da fonte VM (2), para o ID de subscrição na localização da região alvo.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
-Contate o [suporte de cobrança do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para habilitar sua assinatura para criar VMs dos tamanhos necessários no local de destino. Em seguida, repita a operação com falha.
+Contacte o [suporte de faturação do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para permitir que a sua subscrição crie VMs dos tamanhos necessários no local-alvo. Então, tente novamente a operação falhada.
 
-Se o local de destino tiver uma restrição de capacidade, desabilite a replicação para ela. Em seguida, habilite a replicação para um local diferente em que sua assinatura tem uma cota suficiente para criar VMs dos tamanhos necessários.
+Se a localização do alvo tiver uma restrição de capacidade, desative a replicação. Em seguida, ative a replicação para um local diferente onde a sua subscrição tenha quota suficiente para criar VMs dos tamanhos necessários.
 
-## <a name="trusted-root-certificates-error-code-151066"></a>Certificados raiz confiáveis (código de erro 151066)
+## <a name="trusted-root-certificates-error-code-151066"></a>Certificados de raiz fidedignos (código de erro 151066)
 
-Se nem todos os certificados raiz confiáveis mais recentes estiverem presentes na VM, o trabalho de Site Recovery "Habilitar replicação" poderá falhar. A autenticação e a autorização de chamadas de serviço Site Recovery da VM falham sem esses certificados. 
+Se não estiverem presentes todos os certificados de raiz fidedignos mais recentes no VM, o seu trabalho de recuperação do site "Enable replication" pode falhar. Autenticação e autorização de chamadas de serviço de Recuperação do Local do VM falham sem estes certificados. 
 
-Se o trabalho de "Habilitar replicação" falhar, a seguinte mensagem será exibida:
+Se o trabalho de replicação "Ativar" falhar, aparece a seguinte mensagem:
 
-> "Falha na configuração de Site Recovery."
+> "A configuração de recuperação do site falhou."
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
-Os certificados raiz confiáveis necessários para autorização e autenticação não estão presentes na máquina virtual.
+Os certificados de raiz fidedignos necessários para autorização e autenticação não estão presentes na máquina virtual.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
 #### <a name="windows"></a>Windows
 
-Para uma VM que executa o sistema operacional Windows, instale as atualizações mais recentes do Windows na VM para que todos os certificados raiz confiáveis estejam presentes no computador. Siga o processo típico do gerenciamento de atualizações do Windows Update ou do gerenciamento de certificados em sua organização para obter os certificados raiz mais recentes e a lista de certificados revogados atualizada nas VMs.
+Para um VM que executa o sistema operativo Windows, instale as mais recentes atualizações do Windows no VM de modo a que todos os certificados de raiz fidedignos estejam presentes na máquina. Siga o típico processo de gestão de atualizações do Windows ou de gestão de certificados na sua organização para obter os mais recentes certificados de raiz e a lista atualizada de revogação de certificados nos VMs.
 
 Se fizer parte de um ambiente desligado, siga o processo de atualização padrão do Windows na sua organização para obter os certificados. Se os certificados necessários não estão presentes na VM, as chamadas para o serviço de recuperação de Site falharem por motivos de segurança.
 
 Para verificar se o problema está resolvido, vá para login.microsoftonline.com partir de um browser na VM.
 
-Para obter mais informações, consulte [Configurar raízes confiáveis e certificados não permitidos](https://technet.microsoft.com/library/dn265983.aspx).
+Para mais informações, consulte [As raízes fidedignas da Configure e os certificados proibidos](https://technet.microsoft.com/library/dn265983.aspx).
 
 #### <a name="linux"></a>Linux
 
-Siga as orientações fornecidas pelo distribuidor da sua versão do sistema operacional Linux para obter os certificados raiz confiáveis mais recentes e a lista de certificados revogados mais recente na VM.
+Siga as orientações fornecidas pelo distribuidor da sua versão do sistema operativo Linux para obter os mais recentes certificados de raiz fidedignos e a mais recente lista de revogação de certificados no VM.
 
-Como o SUSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de certificados, siga estas etapas:
+Uma vez que o SUSE Linux utiliza ligações simbólicas (ou *simlinks)* para manter uma lista de certificados, siga estes passos:
 
 1. Inicie sessão como um utilizador de raiz.
 
-1. Execute este comando para alterar o diretório:
+1. Executar este comando para alterar o diretório:
 
-    **n º de CD/etc/SSL/Certs**
+    **# cd /etc/ssl/certs**
 
-1. Verifique se o certificado de AC raiz da Symantec está presente:
+1. Verifique se o certificado ca raiz symantec está presente:
 
-    **# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem**
 
-1. Se o certificado de autoridade de certificação raiz da Symantec não for encontrado, execute o comando a seguir para baixar o arquivo. Verifique se há erros e siga as ações recomendadas para falhas de rede.
+1. Se o certificado CA raiz Symantec não for encontrado, execute o seguinte comando para descarregar o ficheiro. Verifique se há erros e siga as ações recomendadas para falhas de rede.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://docs.broadcom.com/docs-and-downloads/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem**
 
-1. Verifique se o certificado de autoridade de certificação raiz do Baltimore está presente:
+1. Verifique se o certificado de AC raiz de Baltimore está presente:
 
-    **# ls Baltimore_CyberTrust_Root. pem**
+    **# ls Baltimore_CyberTrust_Root.pem**
 
-1. Se o certificado de autoridade de certificação raiz do Baltimore não for encontrado, execute este comando para baixar o certificado:
+1. Se o certificado de CA raiz de Baltimore não for encontrado, faça este comando para descarregar o certificado:
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem**
 
 1. Verifique se o certificado de DigiCert_Global_Root_CA está presente:
 
-    **# ls DigiCert_Global_Root_CA. pem**
+    **# ls DigiCert_Global_Root_CA.pem**
 
-1. Se o DigiCert_Global_Root_CA não for encontrado, execute os seguintes comandos para baixar o certificado:
+1. Se o DigiCert_Global_Root_CA não for encontrado, execute os seguintes comandos para descarregar o certificado:
 
     **# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt**
 
-    **# OpenSSL X509-in DigiCertGlobalRootCA. CRT-informar a der-out PEM-out DigiCert_Global_Root_CA. pem**
+    **# openssl x509 -in DigiCertGlobalRootCA.crt -inform der-outform pem -out DigiCert_Global_Root_CA.pem**
 
-1. Execute o script de rehash para atualizar os hashes de entidade do certificado para os certificados recentemente baixados:
+1. Executar o script de rehash para atualizar o tema do certificado hashes para os certificados recém-descarregados:
 
-    **n º de c_rehash**
+    **C_rehash**
 
-1. Execute estes comandos para verificar se os hashes da entidade como symlinks foram criados para os certificados:
+1. Executar estes comandos para verificar se o sujeito hashes como symlinks foram criados para os certificados:
 
-    - Command:
+    - Comando:
 
-        **# ls-l | grep Baltimore**
+        **# ls -l [ ] grep Baltimore**
 
     - Saída:
 
@@ -116,9 +116,9 @@ Como o SUSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
         `-rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem`
 
-    - Command:
+    - Comando:
 
-        **# ls-l | VeriSign_Class_3_Public_Primary_Certification_Authority_G5 grep**
+        **# ls -l [ ] grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5**
 
     - Saída:
 
@@ -126,9 +126,9 @@ Como o SUSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
         `lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem`
 
-    - Command:
+    - Comando:
 
-        **# ls-l | DigiCert_Global_Root grep**
+        **# ls -l [ ] grep DigiCert_Global_Root**
 
     - Saída:
 
@@ -136,23 +136,23 @@ Como o SUSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
         `-rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem`
 
-1. Crie uma cópia do arquivo VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem com o nome de arquivo b204d74a. 0:
+1. Crie uma cópia do ficheiro VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem com o nome de ficheiro b204d74a.0:
 
-    **# CP VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem b204d74a. 0**
+    **# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0**
 
-1. Crie uma cópia do arquivo Baltimore_CyberTrust_Root. pem com o nome de arquivo 653b494a. 0:
+1. Crie uma cópia do ficheiro Baltimore_CyberTrust_Root.pem com o nome de ficheiro 653b494a.0:
 
-    **# CP Baltimore_CyberTrust_Root. pem 653b494a. 0**
+    **# cp Baltimore_CyberTrust_Root.pem 653b494a.0**
 
-1. Crie uma cópia do arquivo DigiCert_Global_Root_CA. pem com o nome de arquivo 3513523f. 0:
+1. Crie uma cópia do ficheiro DigiCert_Global_Root_CA.pem com o nome de ficheiro 3513523f.0:
 
-    **# CP DigiCert_Global_Root_CA. pem 3513523f. 0**
+    **# cp DigiCert_Global_Root_CA.pem 3513523f.0**
 
-1. Verifique se os arquivos estão presentes:
+1. Verifique se os ficheiros estão presentes:
 
-    - Command:
+    - Comando:
 
-        **# ls-l 653b494a. 0 b204d74a. 0 3513523f. 0**
+        **# ls -l 653b494a.0 b204d74a.0 3513523f.0**
 
     - Saída
 
@@ -164,97 +164,97 @@ Como o SUSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividade de saída para intervalos de IP ou URLs do Site Recovery (código de erro 151037 ou 151072)
 
-Para que a replicação de Site Recovery funcione, a conectividade de saída é necessária da VM para URLs ou intervalos de IP específicos. Se a VM estiver protegido por uma firewall ou utiliza regras de grupo (NSG) de segurança de rede para controlar a conectividade de saída, poderá deparar-se com um desses problemas.
+Para que a replicação da recuperação do site funcione, a conectividade de saída é necessária desde o VM até aos urls específicos ou intervalos IP. Se a VM estiver protegido por uma firewall ou utiliza regras de grupo (NSG) de segurança de rede para controlar a conectividade de saída, poderá deparar-se com um desses problemas.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: falha ao registrar a máquina virtual do Azure com Site Recovery (código de erro 151195)
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Edição 1: Não registou a máquina virtual Azure com a Recuperação do Site (código de erro 151195)
 
-#### <a name="possible-cause"></a>Causa possível 
+#### <a name="possible-cause"></a>Possível causa 
 
-A conexão com Site Recovery pontos de extremidade não pode ser estabelecida devido a uma falha de resolução de DNS.
+A ligação aos pontos finais de recuperação do site não pode ser estabelecida devido a uma falha na resolução do DNS.
 
-Esse problema ocorre com mais frequência durante a nova proteção, quando você tiver feito o failover da máquina virtual, mas o servidor DNS não estiver acessível da região de recuperação de desastres (DR).
+Este problema ocorre com mais frequência durante a reproteção, quando falhou sobre a máquina virtual, mas o servidor DNS não é acessível a partir da região de recuperação de desastres (DR).
 
 #### <a name="fix-the-problem"></a>Corrigir o problema
 
-Se você estiver usando um DNS personalizado, verifique se o servidor DNS está acessível na região de recuperação de desastre. Para descobrir se você tem um DNS personalizado, na VM, vá para rede de *recuperação de desastres* > **servidores DNS**.
+Se estiver a utilizar um DNS personalizado, certifique-se de que o servidor DNS está acessível a partir da região de recuperação de desastres. Para saber se tem um DNS personalizado, no VM, vá para a rede de *recuperação* de desastres > **servidores DNS**.
 
 ![Lista de servidores DNS personalizados](./media/azure-to-azure-troubleshoot-errors/custom_dns.PNG)
 
-Tente aceder ao servidor DNS a partir da máquina virtual. Se o servidor não estiver acessível, torne-o acessível fazendo o failover do servidor DNS ou criando a linha de site entre a rede de DR e o DNS.
+Tente aceder ao servidor DNS a partir da máquina virtual. Se o servidor não estiver acessível, torná-lo acessível, quer falhando no servidor DNS, quer criando a linha de site entre a rede DR e o DNS.
 
-### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Problema 2: falha na configuração do Site Recovery (código de erro 151196)
+### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Edição 2: Configuração de recuperação do site falhou (código de erro 151196)
 
-#### <a name="possible-cause"></a>Causa possível
+#### <a name="possible-cause"></a>Possível causa
 
-Não é possível estabelecer a conexão com os pontos de extremidade IP4 de autenticação e identidade do Office 365.
+A ligação aos pontos finais de autenticação e identidade do Office 365 não pode ser estabelecida.
 
 #### <a name="fix-the-problem"></a>Corrigir o problema
 
-Site Recovery requer acesso aos intervalos de IP do Office 365 para autenticação.
-Se você estiver usando regras de NSG do Azure ou proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de permitir a comunicação com intervalos de IP do Office 365. Crie uma regra NSG com base em uma [marca de serviço do Azure Active Directory (Azure AD)](../virtual-network/security-overview.md#service-tags), permitindo o acesso a todos os endereços IP correspondentes ao Azure AD. Se novos endereços forem adicionados ao Azure AD no futuro, você deverá criar novas regras do NSG.
+A Recuperação do Site requer acesso às gamas IP do Office 365 para autenticação.
+Se estiver a utilizar regras do Azure NSG ou proxy de firewall para controlar a conectividade da rede de saída no VM, certifique-se de que permite a comunicação às gamas IP do Office 365. Crie uma regra NSG baseada numa etiqueta de [serviço Azure Ative Directory (Azure AD),](../virtual-network/security-overview.md#service-tags)permitindo o acesso a todos os endereços IP correspondentes ao Azure AD. Se no futuro forem adicionados novos endereços à Azure AD, terá de criar novas regras de NSG.
 
 > [!NOTE]
-> Se as VMs estiverem atrás de um balanceador de carga interno *padrão* , o balanceador de carga por padrão não terá acesso aos intervalos de IP do Office 365 (ou seja, login.microsoftonline.com). Altere o tipo de balanceador de carga interno para *básico* ou crie acesso de saída, conforme descrito no artigo [configurar regras de saída e balanceamento de carga](https://aka.ms/lboutboundrulescli).
+> Se os VMs estiverem por detrás de um equilibrista de carga interno *Standard,* o equilibrador de carga por defeito não tem acesso às gamas IP do Office 365 (isto é, login.microsoftonline.com). Ou altere o tipo de equilíbrio interno para *Basic* ou crie acesso de saída, conforme descrito no artigo [Configurar regras](https://aka.ms/lboutboundrulescli)de equilíbrio de carga e saída .
 
-### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Problema 3: falha na configuração do Site Recovery (código de erro 151197)
+### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Edição 3: Configuração de recuperação do site falhou (código de erro 151197)
 
-#### <a name="possible-cause"></a>Causa possível
+#### <a name="possible-cause"></a>Possível causa
 
-A conexão não pode ser estabelecida com Site Recovery pontos de extremidade de serviço.
-
-#### <a name="fix-the-problem"></a>Corrigir o problema
-
-Site Recovery requer acesso a [intervalos de IP site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges), dependendo da região. Verifique se os intervalos de IP necessários estão acessíveis da máquina virtual.
-
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Problema 4: a replicação do Azure para o Azure falhou quando o tráfego de rede passa por um servidor proxy local (código de erro 151072)
-
-#### <a name="possible-cause"></a>Causa possível
-
-As configurações de proxy personalizadas são inválidas e o agente do serviço de mobilidade Site Recovery não detectou automaticamente as configurações de proxy do Internet Explorer.
+A ligação não pode ser estabelecida para os pontos finais do serviço de recuperação do site.
 
 #### <a name="fix-the-problem"></a>Corrigir o problema
 
-O agente do serviço de mobilidade detecta as configurações de proxy do Internet Explorer no Windows e do/etc/environment no Linux.
+A Recuperação do Site requer acesso às [gamas IP](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)de Recuperação do Site, dependendo da região. Certifique-se de que as gamas IP necessárias são acessíveis a partir da máquina virtual.
 
-Se preferir definir o proxy somente para o serviço de mobilidade, você poderá fornecer os detalhes do proxy no arquivo ProxyInfo. conf nestes locais:
+### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Edição 4: A replicação Azure-to-Azure falhou quando o tráfego da rede passa por um servidor de procuração no local (código de erro 151072)
 
-- **Linux**:/usr/local/InMage/config/
-- **Windows**: C:\ProgramData\Microsoft Azure site Recovery\Config
+#### <a name="possible-cause"></a>Possível causa
 
-No ProxyInfo. conf, forneça as configurações de proxy no seguinte formato de arquivo de inicialização:
+As definições de procuração personalizadas são inválidas e o agente do Serviço de Mobilidade de Recuperação do Site não detetou automaticamente as definições de procuração do Internet Explorer.
 
-> [*proxy*]
+#### <a name="fix-the-problem"></a>Corrigir o problema
 
-> Endereço = *http://1.2.3.4*
+O agente do Serviço de Mobilidade deteta as definições de procuração do Internet Explorer no Windows e de /etc/ambiente no Linux.
 
-> Porta =*567*
+Se preferir definir o proxy apenas para o Serviço de Mobilidade, pode fornecer os detalhes proxy no ficheiro ProxyInfo.conf nestes locais:
+
+- **Linux**: /usr/local/InMage/config/
+- **Windows**: C:\ProgramData\Microsoft Azure Site Recovery\Config
+
+Em ProxyInfo.conf, forneça as definições de procuração no seguinte formato de ficheiro de inicialização:
+
+> *[procuração]*
+
+> Endereço= *http://1.2.3.4*
+
+> Porto=*567*
 
 
 > [!NOTE]
-> O agente do serviço de mobilidade Site Recovery dá suporte apenas a *proxies não autenticados*.
+> O agente do Serviço de Mobilidade de Recuperação do Site suporta apenas *proxies não autenticados.*
 
 ### <a name="more-information"></a>Mais informações
 
-Para especificar as [URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as orientações em [sobre a rede na replicação do Azure para o Azure](site-recovery-azure-to-azure-networking-guidance.md).
+Para especificar [urls necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou [intervalos IP necessários,](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)siga as orientações em [sobre a replicação em rede em Azure para Azure](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Não foi encontrado na máquina (código de erro 150039) de disco
 
-Um disco novo anexado à VM tem de ser inicializado. Se o disco não for encontrado, a seguinte mensagem será exibida:
+Um disco novo anexado à VM tem de ser inicializado. Se o disco não for encontrado, aparece a seguinte mensagem:
 
-> "O disco de dados do Azure *diskname* *DiskURI* com o número de unidade lógica *LUNValue* *LUN* não foi mapeado para um disco correspondente que está sendo relatado de dentro da VM que tem o mesmo valor de LUN.
+> "O disco de dados Azure *DiskName* *DiskURI* com o número de unidade lógica *LUN* *LUNValue* não foi mapeado para um disco correspondente a ser reportado dentro do VM que tem o mesmo valor LUN.
 
 ### <a name="possible-causes"></a>Possíveis causas
 
-- Um novo disco de dados foi anexado à VM, mas não foi inicializado.
-- O disco de dados dentro da VM não está relatando corretamente o valor de LUN (número de unidade lógica) no qual o disco foi anexado à VM.
+- Um novo disco de dados foi ligado ao VM, mas não foi inicializado.
+- O disco de dados no interior do VM não está a reportar corretamente o valor do número de unidade lógica (LUN) no qual o disco foi ligado ao VM.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
-Verifique se os discos de dados foram inicializados e repita a operação.
+Certifique-se de que os discos de dados são inicializados e, em seguida, tente novamente a operação.
 
-- **Windows**: [anexe e inicialize um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- **Janelas**: [Fixe e inicialize um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
 
-- **Linux**: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+- **Linux**: [Inicialize um novo disco](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)de dados em Linux .
 
 Se o problema persistir, contacte o suporte.
 
@@ -262,211 +262,211 @@ Se o problema persistir, contacte o suporte.
 
 ### <a name="possible-causes"></a>Possíveis causas
 
-- Um ou mais discos foram adicionados recentemente à máquina virtual após a proteção.
+- Um ou mais discos foram recentemente adicionados à máquina virtual após proteção.
 - Um ou mais discos foram inicializados após a proteção da máquina virtual.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
-Para tornar o status de replicação da VM íntegro novamente, você pode optar por proteger os discos ou ignorar o aviso.
+Para tornar o estado de replicação do VM saudável novamente, pode optar por proteger os discos ou descartar o aviso.
 
 #### <a name="to-protect-the-disks"></a>Para proteger os discos
 
-1. Vá para **itens replicados** > *nome* > **da VM discos**.
-1. Selecione o disco desprotegido e, em seguida, selecione **habilitar replicação**:
+1. Vá a **itens replicados** > *nome VM* > **Discos**.
+1. Selecione o disco desprotegido e, em seguida, **selecione a replicação ativar:**
 
-    ![Habilitar a replicação em discos de VM](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+    ![Ativar a replicação em discos VM](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 
-#### <a name="to-dismiss-the-warning"></a>Para ignorar o aviso
+#### <a name="to-dismiss-the-warning"></a>Para descartar o aviso
 
-1. Vá para **itens replicados** > *nome da VM*.
-1. Selecione o aviso na seção **visão geral** e, em seguida, selecione **OK**.
+1. Vá a **itens replicados** > *nome VM*.
+1. Selecione o aviso na secção **'Visão Geral'** e, em seguida, selecione **OK**.
 
-    ![Ignorar aviso de novo disco](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
+    ![Descartar o aviso de novo disco](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 
-## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information-error-code-150225"></a>Remover a máquina virtual do cofre concluída com informações (código de erro 150225)
+## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information-error-code-150225"></a>Retire a máquina virtual do cofre completado com informações (código de erro 150225)
 
-Quando ele protege a máquina virtual, Site Recovery cria alguns links na máquina virtual de origem. Quando você remove a proteção ou desabilita a replicação, Site Recovery remove esses links como parte do trabalho de limpeza. Se a máquina virtual tiver um bloqueio de recurso, o trabalho de limpeza será concluído com as informações. As informações indicam que a máquina virtual foi removida do cofre dos serviços de recuperação, mas que alguns dos links obsoletos não puderam ser limpos no computador de origem.
+Quando protege a máquina virtual, a Recuperação do Local cria alguns links na máquina virtual de origem. Quando remove a proteção ou desativa a replicação, a Recuperação do Local remove estes links como parte do trabalho de limpeza. Se a máquina virtual tiver um bloqueio de recursos, o trabalho de limpeza fica concluído com a informação. A informação diz que a máquina virtual foi removida do cofre dos Serviços de Recuperação, mas que algumas das ligações velhas não puderam ser limpas na máquina de origem.
 
-Você pode ignorar esse aviso se você nunca pretender proteger essa máquina virtual novamente. Mas se você precisar proteger essa máquina virtual posteriormente, siga as etapas em "corrigir o problema" para limpar os links.
+Pode ignorar este aviso se nunca mais pretender proteger esta máquina virtual. Mas se tiver de proteger esta máquina virtual mais tarde, siga os passos em "Corrigir o problema" para limpar os links.
 
 > [!WARNING]
-> Se você não fizer a limpeza:
+> Se não fizer a limpeza:
 >
-> - Quando você habilita a replicação por meio do cofre dos serviços de recuperação, a máquina virtual não será listada.
-> - Se você tentar proteger a VM usando **as configurações** de > de **máquina virtual** > **recuperação de desastre**, a operação falhará com a mensagem "a replicação não pode ser habilitada devido aos links de recursos obsoletos existentes na VM".
+> - Quando ativar a replicação através do cofre dos Serviços de Recuperação, a máquina virtual não será listada.
+> - Se tentar proteger o VM utilizando a **máquina virtual** > **Definições** > **Recuperação**de Desastres, a operação falhará com a mensagem "A replicação não pode ser ativada devido às ligações de recursos existentes no VM."
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
 > [!NOTE]
-> Site Recovery não exclui a máquina virtual de origem nem a afeta de forma alguma enquanto você executa essas etapas.
+> A Recuperação do Site não elimina a máquina virtual de origem nem a afeta de forma alguma enquanto executa estes passos.
 
-1. Remova o bloqueio do grupo de recursos VM ou VM. Por exemplo, na imagem a seguir, o bloqueio de recurso na VM denominada "MoveDemo" deve ser excluído:
+1. Retire o bloqueio do grupo de recursos VM ou VM. Por exemplo, na seguinte imagem, o bloqueio de recursos no VM denominado "MoveDemo" deve ser eliminado:
 
-    ![Remover bloqueio da VM](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+    ![Remover o bloqueio da VM](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
 
-1. Baixe o script para [remover uma configuração de site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Execute o script, que é chamado de Cleanup-stale-asr-config-Azure-VM. ps1. Forneça a ID da assinatura, o grupo de recursos da VM e o nome da VM como parâmetros.
-1. Se você for solicitado a fornecer as credenciais do Azure, forneça-as. Em seguida, verifique se o script é executado sem falhas.
+1. Descarregue o script para [remover uma configuração de recuperação de site stale](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+1. Execute o script, que é chamado Cleanup-stale-asr-config-Azure-VM.ps1. Forneça o ID de subscrição, o VM Resource Group e o nome VM como parâmetros.
+1. Se lhe pedirem credenciais Azure, forneça-as. Em seguida, verifique se o script funciona sem falhas.
 
-## <a name="replication-cant-be-enabled-because-of-stale-resource-links-on-the-vm-error-code-150226"></a>A replicação não pode ser habilitada devido a links de recursos obsoletos na VM (código de erro 150226)
+## <a name="replication-cant-be-enabled-because-of-stale-resource-links-on-the-vm-error-code-150226"></a>A replicação não pode ser ativada devido a ligações de recursos estonadas no VM (código de erro 150226)
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
-A máquina virtual tem uma configuração obsoleta da proteção de Site Recovery anterior.
+A máquina virtual tem uma configuração estagnada da proteção anterior de recuperação do site.
 
-Uma configuração obsoleta pode ocorrer em uma VM do Azure se você habilitou a replicação para a VM do Azure usando Site Recovery e, em seguida:
+Uma configuração estagnada pode ocorrer num VM Azure se tiver ativado a replicação para o Azure VM utilizando a Recuperação do Local e, em seguida:
 
-- Você desabilitou a replicação, mas a VM de origem tinha um bloqueio de recurso.
-- Você excluiu o cofre Site Recovery sem desabilitar explicitamente a replicação na VM.
-- Você excluiu o grupo de recursos que contém o cofre de Site Recovery sem desabilitar explicitamente a replicação na VM.
-
-### <a name="fix-the-problem"></a>Corrigir o problema
-
-> [!NOTE]
-> Site Recovery não exclui a máquina virtual de origem nem a afeta de forma alguma enquanto você executa essas etapas.
-
-1. Remova o bloqueio do grupo de recursos VM ou VM. Por exemplo, na imagem a seguir, o bloqueio de recurso na VM denominada "MoveDemo" deve ser excluído:
-
-    ![Remover bloqueio da VM](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
-
-1. Baixe o script para [remover uma configuração de site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Execute o script, que é chamado de Cleanup-stale-asr-config-Azure-VM. ps1. Forneça a ID da assinatura, o grupo de recursos da VM e o nome da VM como parâmetros.
-1. Se você for solicitado a fornecer as credenciais do Azure, forneça-as. Em seguida, verifique se o script é executado sem falhas.
-
-## <a name="unable-to-see-the-azure-vm-or-resource-group-for-the-selection-in-the-enable-replication-job"></a>Não é possível ver a VM ou o grupo de recursos do Azure para a seleção no trabalho "Habilitar replicação"
-
-### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>Causa 1: o grupo de recursos e a máquina virtual de origem estão em locais diferentes
-
-Atualmente, Site Recovery requer que o grupo de recursos da região de origem e as máquinas virtuais estejam no mesmo local. Se não forem, você não poderá encontrar a máquina virtual ou o grupo de recursos ao tentar aplicar a proteção.
-
-Como alternativa, você pode habilitar a replicação da VM em vez do cofre dos serviços de recuperação. Vá para **origem VM** > **Propriedades** > **recuperação de desastre** e habilite a replicação.
-
-### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>Causa 2: o grupo de recursos não faz parte da assinatura selecionada
-
-Talvez você não consiga localizar o grupo de recursos no momento da proteção se o grupo de recursos não fizer parte da assinatura selecionada. Verifique se o grupo de recursos pertence à assinatura que você está usando.
-
-### <a name="cause-3-stale-configuration"></a>Causa 3: configuração obsoleta
-
-Talvez você não veja a VM que deseja habilitar para a replicação se uma configuração de Site Recovery obsoleta tiver sido deixada na VM do Azure. Essa condição pode ocorrer se você habilitou a replicação para a VM do Azure usando Site Recovery e, em seguida:
-
-- Você excluiu o cofre Site Recovery sem desabilitar explicitamente a replicação na VM.
-- Você excluiu o grupo de recursos que contém o cofre de Site Recovery sem desabilitar explicitamente a replicação na VM.
-- Você desabilitou a replicação, mas a VM de origem tinha um bloqueio de recurso.
+- Desativou a replicação, mas a fonte vm tinha um bloqueio de recursos.
+- Apagou o cofre de recuperação do site sem desativar explicitamente a replicação no VM.
+- Eliminou o grupo de recursos que continha o cofre de recuperação do local sem desativar explicitamente a replicação no VM.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
 > [!NOTE]
-> Certifique-se de atualizar o módulo "AzureRM. resources" antes de usar o script mencionado nesta seção.  Site Recovery não exclui a máquina virtual de origem nem a afeta de forma alguma enquanto você executa essas etapas.
+> A Recuperação do Site não elimina a máquina virtual de origem nem a afeta de forma alguma enquanto executa estes passos.
 
-1. Remova o bloqueio, se houver, do grupo de recursos VM ou VM. Por exemplo, na imagem a seguir, o bloqueio de recurso na VM denominada "MoveDemo" deve ser excluído:
+1. Retire o bloqueio do grupo de recursos VM ou VM. Por exemplo, na seguinte imagem, o bloqueio de recursos no VM denominado "MoveDemo" deve ser eliminado:
 
-    ![Remover bloqueio da VM](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+    ![Remover o bloqueio da VM](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
 
-1. Baixe o script para [remover uma configuração de site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Execute o script, que é chamado de Cleanup-stale-asr-config-Azure-VM. ps1. Forneça a ID da assinatura, o grupo de recursos da VM e o nome da VM como parâmetros.
-1. Se você for solicitado a fornecer as credenciais do Azure, forneça-as. Em seguida, verifique se o script é executado sem falhas.
+1. Descarregue o script para [remover uma configuração de recuperação de site stale](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+1. Execute o script, que é chamado Cleanup-stale-asr-config-Azure-VM.ps1. Forneça o ID de subscrição, o VM Resource Group e o nome VM como parâmetros.
+1. Se lhe pedirem credenciais Azure, forneça-as. Em seguida, verifique se o script funciona sem falhas.
 
-## <a name="unable-to-select-a-virtual-machine-for-protection"></a>Não é possível selecionar uma máquina virtual para proteção
+## <a name="unable-to-see-the-azure-vm-or-resource-group-for-the-selection-in-the-enable-replication-job"></a>Incapaz de ver o VM Azure ou o grupo de recursos para a seleção no trabalho de replicação "Enable replication"
 
-### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>Causa 1: a máquina virtual tem uma extensão instalada em um estado de falha ou sem resposta
+### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>Causa 1: O grupo de recursos e a máquina virtual de origem estão em diferentes locais
 
-Vá para **máquinas virtuais** > **configurações** > **extensões** e verifique se há extensões em estado de falha. Desinstale qualquer extensão com falha e tente proteger a máquina virtual novamente.
+Atualmente, a Recuperação do Local exige que o grupo de recursos da região de origem e as máquinas virtuais estejam no mesmo local. Se não forem, não conseguirá encontrar a máquina virtual ou o grupo de recursos quando tentar aplicar proteção.
 
-### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>Causa 2: o estado de provisionamento da VM não é válido
+Como suposição, pode permitir a replicação do VM em vez do cofre dos Serviços de Recuperação. Vá ao **Source VM** > **Properties** > Recuperação de **Desastres** e ative a replicação.
 
-Consulte as etapas de solução de problemas no [estado de provisionamento da VM não é válido](#the-vms-provisioning-state-is-not-valid-error-code-150019), mais adiante neste artigo.
+### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>Causa 2: O grupo de recursos não faz parte da subscrição selecionada
+
+Pode não ser capaz de encontrar o grupo de recursos no momento da proteção se o grupo de recursos não fizer parte da subscrição selecionada. Certifique-se de que o grupo de recursos pertence à subscrição que está a usar.
+
+### <a name="cause-3-stale-configuration"></a>Causa 3: Configuração do velho
+
+Pode não ver o VM que pretende ativar para a replicação se tiver sido deixada uma configuração de recuperação de sítio sosseada no VM Azure. Esta condição pode ocorrer se tiver ativado a replicação para o VM Azure utilizando a Recuperação do Local e, em seguida:
+
+- Apagou o cofre de recuperação do site sem desativar explicitamente a replicação no VM.
+- Eliminou o grupo de recursos que continha o cofre de recuperação do local sem desativar explicitamente a replicação no VM.
+- Desativou a replicação, mas a fonte vm tinha um bloqueio de recursos.
+
+### <a name="fix-the-problem"></a>Corrigir o problema
+
+> [!NOTE]
+> Certifique-se de atualizar o módulo "AzureRM.Resources" antes de utilizar o script mencionado nesta secção.  A Recuperação do Site não elimina a máquina virtual de origem nem a afeta de forma alguma enquanto executa estes passos.
+
+1. Retire a fechadura, se houver, do grupo de recursos VM ou VM. Por exemplo, na seguinte imagem, o bloqueio de recursos no VM denominado "MoveDemo" deve ser eliminado:
+
+    ![Remover o bloqueio da VM](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+
+1. Descarregue o script para [remover uma configuração de recuperação de site stale](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+1. Execute o script, que é chamado Cleanup-stale-asr-config-Azure-VM.ps1. Forneça o ID de subscrição, o VM Resource Group e o nome VM como parâmetros.
+1. Se lhe pedirem credenciais Azure, forneça-as. Em seguida, verifique se o script funciona sem falhas.
+
+## <a name="unable-to-select-a-virtual-machine-for-protection"></a>Incapaz de selecionar uma máquina virtual para proteção
+
+### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>Causa 1: A máquina virtual tem uma extensão instalada num estado falhado ou sem resposta
+
+Vá às **máquinas virtuais** > **Definições** > **Extensões** e verifique se há extensões num estado falhado. Desinstale qualquer extensão falhada e tente novamente proteger a máquina virtual.
+
+### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>Causa 2: O estado de provisionamento da VM não é válido
+
+Veja-se que os passos de resolução de problemas no [estado de provisionamento da VM não são válidos](#the-vms-provisioning-state-is-not-valid-error-code-150019), mais tarde neste artigo.
 
 ## <a name="the-vms-provisioning-state-is-not-valid-error-code-150019"></a>O estado de provisionamento da VM não é válido (código de erro 150019)
 
-Para habilitar a replicação na VM, seu estado de provisionamento deve ser **bem-sucedido**. Siga estas etapas para verificar o estado de provisionamento:
+Para permitir a replicação no VM, o seu estado de provisionamento deve ser **bem sucedido**. Siga estas medidas para verificar o estado de provisionamento:
 
-1. Na portal do Azure, selecione o **Gerenciador de recursos** em **todos os serviços**.
-1. Expanda a **subscrições** lista e selecione a sua subscrição.
-1. Expanda a **ResourceGroups** lista e selecione o grupo de recursos da VM.
-1. Expanda a lista de **recursos** e selecione sua VM.
-1. Verifique o campo **provisioningState** na exibição de instância no lado direito.
+1. No portal Azure, selecione o Explorador de **Recursos** de **Todos os Serviços.**
+1. Expanda a lista de **Subscrições** e selecione a sua subscrição.
+1. Expandir a lista **de Grupos** de Recursos e selecionar o grupo de recursos do VM.
+1. Expanda a lista **de Recursos** e selecione o seu VM.
+1. Verifique o campo **de provisionamento do Estado** em vista por exemplo do lado direito.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
-- Se **provisioningState** é **falha**, contacte o suporte com detalhes para resolver problemas.
-- Se o **provisioningState** estiver sendo **atualizado**, outra extensão poderá estar sendo implantada. Verifique se há alguma operação em andamento na VM, aguarde até que elas sejam concluídas e tente novamente a Site Recovery trabalho "Habilitar replicação" com falha.
+- Se **o fornecimento do Estado** estiver **falhado,** contacte o suporte com detalhes para resolver problemas.
+- Se **o fornecimento do Estado** estiver a **atualizar,** poderá ser implementada outra extensão. Verifique se existem operações em curso no VM, espere que terminem e, em seguida, volte a tentar o trabalho falhado de recuperação do site "Enable replication".
 
-## <a name="unable-to-select-target-vm-network-selection-tab-is-unavailable"></a>Não é possível selecionar a VM de destino (a guia Seleção de rede não está disponível)
+## <a name="unable-to-select-target-vm-network-selection-tab-is-unavailable"></a>Incapaz de selecionar o Target VM (o separador de seleção de rede não está disponível)
 
-### <a name="cause-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Causa 1: sua VM está conectada a uma rede que já está mapeada para uma rede de destino
+### <a name="cause-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Causa 1: O seu VM está ligado a uma rede que já está mapeada para uma rede de alvos
 
-Se a VM de origem fizer parte de uma rede virtual e outra VM da mesma rede virtual já estiver mapeada com uma rede no grupo de recursos de destino, a caixa de listagem suspensa seleção de rede estará indisponível (aparece esmaecida) por padrão.
+Se o VM de origem fizer parte de uma rede virtual, e outro VM da mesma rede virtual já estiver mapeado com uma rede no grupo de recursos-alvo, a caixa de lista de seleção de rede não está disponível (aparece reduzida) por padrão.
 
-![Lista de seleção de rede não disponível](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
+![Lista de seleção de rede indisponível](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Causa 2: você protegeu anteriormente a VM usando Site Recovery e, em seguida, desabilitou a replicação
+### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Causa 2: Protegeu previamente o VM utilizando a Recuperação do Site e, em seguida, desativou a replicação
 
-Desabilitar a replicação de uma VM não exclui o mapeamento de rede. O mapeamento deve ser excluído do cofre dos serviços de recuperação onde a VM foi protegida. Vá para *cofre dos serviços de recuperação* > **site Recovery** > **mapeamento de rede**de infraestrutura.
+A replicação incapacitante de um VM não elimina o mapeamento da rede. O mapeamento deve ser apagado do cofre dos Serviços de Recuperação onde o VM estava protegido. Vá ao *cofre dos Serviços* de Recuperação > Infraestrutura de **Recuperação** do Local > **Mapeamento de Rede**.
 
-![Excluir mapeamento de rede](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+![Eliminar o mapeamento da rede](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
 
-A rede de destino que foi configurada durante a configuração de recuperação de desastre pode ser alterada após a configuração inicial, depois que a VM for protegida:
+A rede-alvo que foi configurada durante a configuração de recuperação de desastres pode ser alterada após a configuração inicial, após a proteção do VM:
 
-![Modificar mapeamento de rede](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+![Modificar o mapeamento da rede](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
 
-Observe que a alteração do mapeamento de rede afeta todas as VMs protegidas que usam o mesmo mapeamento de rede.
+Note que a alteração do mapeamento da rede afeta todos os VMs protegidos que utilizam esse mesmo mapeamento de rede.
 
-## <a name="com-or-volume-shadow-copy-service-error-error-code-151025"></a>Erro de serviço de cópias de sombra de volume ou COM+ (código de erro 151025)
+## <a name="com-or-volume-shadow-copy-service-error-error-code-151025"></a>Erro de serviço COM+ ou Volume Shadow Copy (código de erro 151025)
 
-Quando esse erro ocorre, a seguinte mensagem é exibida:
+Quando este erro ocorre, aparece a seguinte mensagem:
 
-> "Falha ao instalar a extensão de Site Recovery"
+> "Extensão de recuperação do local não foi instalada"
 
 ### <a name="possible-causes"></a>Possíveis causas
 
-- O serviço de aplicativo do sistema COM+ está desabilitado.
-- O serviço de cópias de sombra de volume está desabilitado.
+- O serviço de aplicação do sistema COM+ está desativado.
+- O serviço Volume Shadow Copy está desativado.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
-Defina o aplicativo do sistema COM+ e os serviços de cópia de sombra de volume como modo de inicialização automático ou manual.
+Detete os serviços de Aplicação do Sistema COM+ e volume shadow copy para o modo de arranque automático ou manual.
 
-1. Abra o console de serviços no Windows.
-1. Verifique se o aplicativo do sistema COM+ e os serviços de cópia de sombra de volume não estão definidos como **desabilitados** como seu **tipo de inicialização**.
+1. Abra a consola Services no Windows.
+1. Certifique-se de que os serviços de aplicação do sistema COM+ e de cópia de volume shadow copy não estão definidos para **desativados** como o seu Tipo de **Arranque**.
 
-    ![Verificar o tipo de inicialização de aplicativo do sistema COM+ e serviços de cópias de sombra de volume](./media/azure-to-azure-troubleshoot-errors/com-error.png)
+    ![Consulte o tipo de arranque de sistema com+ e serviços de cópia de sombra de volume](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
-## <a name="unsupported-managed-disk-size-error-code-150172"></a>Tamanho de disco gerenciado sem suporte (código de erro 150172)
+## <a name="unsupported-managed-disk-size-error-code-150172"></a>Tamanho do disco gerido não suportado (código de erro 150172)
 
-Quando esse erro ocorre, a seguinte mensagem é exibida:
+Quando este erro ocorre, aparece a seguinte mensagem:
 
-> "Não foi possível habilitar a proteção para a máquina virtual, pois ela tem *diskname* com tamanho de *discosize*) *, que é inferior ao tamanho mínimo com suporte de 1024 MB."
+> "A proteção não podia ser ativada para a máquina virtual, uma vez que tem *o DiskName* com tamanho *DiskSize*)* que é inferior ao tamanho mínimo suportado 1024 MB."
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
-O disco é menor do que o tamanho com suporte de 1024 MB.
-
-### <a name="fix-the-problem"></a>Corrigir o problema
-
-Verifique se o tamanho do disco está dentro do intervalo de tamanho com suporte e repita a operação.
-
-## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>A proteção não foi habilitada porque a configuração de GRUB inclui o nome do dispositivo em vez do UUID (código de erro 151126)
-
-### <a name="possible-cause"></a>Causa possível
-
-Os arquivos de configuração GRUB do Linux (/boot/grub/menu.lst ",/boot/grub/grub.cfg,/boot/Grub2/grub.cfg ou/etc/default/grub) podem especificar os nomes de dispositivo reais em vez de valores UUID para os parâmetros *root* e *resume* . Site Recovery requer UUIDs porque os nomes de dispositivo podem ser alterados. Após a reinicialização, uma VM pode não vir com o mesmo nome no failover, resultando em problemas.
-
-Os exemplos a seguir são linhas de arquivos GRUB em que os nomes de dispositivo (mostrados em negrito) aparecem em vez dos UUIDs necessários:
-
-- /Boot/Grub2/grub.cfg de arquivo
-
-  > linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts
-
-- Arquivo:/boot/grub/menu.lst
-
-  > kernel/boot/vmlinuz-3.0.101-63-Default **raiz =/dev/sda2** **currículo =/dev/sda1** Splash = silencioso crashkernel = 256M-: 128M showopts VGA = 0x314
-
+O disco é menor do que o tamanho suportado de 1024 MB.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
-Substitua cada nome de dispositivo pelo UUID correspondente:
+Certifique-se de que o tamanho do disco está dentro do intervalo de tamanho suportado e, em seguida, tente novamente a operação.
 
-1. Localize o UUID do dispositivo executando o comando **blkid** ***nome do dispositivo***. Por exemplo:
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>A proteção não foi ativada porque a configuração GRUB inclui o nome do dispositivo em vez do UUID (código de erro 151126)
+
+### <a name="possible-cause"></a>Possível causa
+
+Os ficheiros de configuração Linux GRUB (/boot/grub/menu.lst", /boot/grub/grub.cfg, /boot/grub2/grub.cfg, ou /etc/default/grub) podem especificar os nomes reais do dispositivo em vez dos valores uUID para a *raiz* e *retomar* os parâmetros. A Recuperação do Site requer UUIDs porque os nomes do dispositivo podem mudar. Após o reinício, um VM pode não ter o mesmo nome na failover, resultando em problemas.
+
+Os seguintes exemplos são linhas de ficheiros GRUB onde os nomes do dispositivo (mostrados em negrito) aparecem em vez dos UUIDs necessários:
+
+- Arquivo /boot/grub2/grub.cfg
+
+  > linux /boot/vmlinuz-3.12.49-11-predefinição **raiz=/dev/sda2** ${extra_cmdline} **currículo=/dev/sda1** splash=showopts silenciosos silenciosos
+
+- Arquivo: /boot/grub/menu.lst
+
+  > Kernel /boot/vmlinuz-3.0.101-63-predefinição **raiz=/dev/sda2** **currículo=/dev/sda1** splash=crashkernel silencioso=256M-:128M showopts vga=0x314
+
+
+### <a name="fix-the-problem"></a>Corrigir o problema
+
+Substitua cada nome do dispositivo pelo UUID correspondente:
+
+1. Encontre o UUID do dispositivo executando o nome do ***dispositivo*** **de blkid** de comando . Por exemplo:
 
     ```
     blkid /dev/sda1
@@ -475,54 +475,54 @@ Substitua cada nome de dispositivo pelo UUID correspondente:
     /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Substitua o nome do dispositivo pelo UUID, no UUID de **formatos raiz = uuid**=*UUID* e **resume =** UUID *de=.* Por exemplo, após a substituição, a linha de/boot/grub/menu.lst (discutida anteriormente) ficaria assim:
+1. Substitua o nome do dispositivo pelo seu UUID, nos formatos **root=UUID**=*UUID* e **currículo=UUID**=*UUID*. Por exemplo, após a substituição, a linha de /boot/grub/menu.lst (discutido anteriormente) seria assim:
 
-    > kernel/boot/vmlinuz-3.0.101-63-Default **raiz = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** Splash = Silent crashkernel = 256M-: 128M showopts VGA = 0x314
+    > Kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **currículo=UUID=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314
 
-1. Tente novamente a proteção.
+1. Tente a proteção.
 
-## <a name="enable-protection-failed-because-the-device-mentioned-in-the-grub-configuration-doesnt-exist-error-code-151124"></a>Falha ao habilitar a proteção porque o dispositivo mencionado na configuração do GRUB não existe (código de erro 151124)
+## <a name="enable-protection-failed-because-the-device-mentioned-in-the-grub-configuration-doesnt-exist-error-code-151124"></a>A proteção ativa falhou porque o dispositivo mencionado na configuração GRUB não existe (código de erro 151124)
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
-Os arquivos de configuração do GRUB (/boot/grub/menu.lst,/boot/grub/grub.cfg,/boot/Grub2/grub.cfg ou/etc/default/grub) podem conter os parâmetros *Rd.LVM.lv* ou *rd_LVM_LV*. Esses parâmetros identificam os dispositivos LVM (Gerenciador de volumes lógicos) que serão descobertos no momento da inicialização. Se esses dispositivos LVM não existirem, o próprio sistema protegido não será inicializado e ficará preso no processo de inicialização. O mesmo problema também será visto com a VM de failover. Aqui estão alguns exemplos:
+Os ficheiros de configuração GRUB (/boot/grub/menu.lst, /boot/grub/grub.cfg, /boot/grub2/grub.cfg, ou /etc/predefinido/grub) podem conter os parâmetros *rd.lvm.lv* ou *rd_LVM_LV*. Estes parâmetros identificam os dispositivos Lógicos de Gestor de Volume (LVM) que devem ser descobertos no momento do arranque. Se estes dispositivos LVM não existirem, o próprio sistema protegido não arranca e ficará preso no processo de arranque. O mesmo problema também será visto com o VM falhado. Aqui estão poucos exemplos:
 
-- Arquivo:/boot/Grub2/grub.cfg em RHEL7:
+- Arquivo: /boot/grub2/grub2/grub.cfg no RHEL7:
 
-    > linux16/vmlinuz-3.10.0-957.EL7. x86_64 raiz =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128M\@64M **Rd. LVM. lv = rootvg/raiz Rd. LVM. lv = rootvg/swap** rhgb Quiet LANG = en_US. UTF-8
+    > linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US. UTF-8
 
-- Arquivo:/etc/default/grub em RHEL7:
+- Arquivo: /etc/predefinido/grub no RHEL7:
 
-    > GRUB_CMDLINE_LINUX = "crashkernel = auto **Rd. LVM. lv = rootvg/raiz Rd. LVM. lv = rootvg/swap** rhgb Quiet"
+    > GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"
 
-- Arquivo:/boot/grub/menu.lst em RHEL6:
+- Arquivo: /boot/grub/menu.lst no RHEL6:
 
-    > /vmlinuz-2.6.32-754.el6. de kernel x86_64 ro raiz = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto **rd_LVM_LV = rootvg/lv_root** keyboardvalue = PC keyTable = US **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb Quiet
+    > Kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US. UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto **rd_LVM_LV=rootvg/lv_root** KEYBOARDTYPE=pc KEYTABLE=nós **rd_LVM_LV=rootvg/lv_swap** rd_NO_DM rhgb quiet
 
-Em cada exemplo, a parte em negrito mostra que o GRUB precisa detectar dois dispositivos LVM com os nomes "root" e "swap" do grupo de volumes "rootvg".
+Em cada exemplo, a porção em negrito mostra que o GRUB tem de detetar dois dispositivos LVM com os nomes "raiz" e "swap" do grupo de volume "rootvg".
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
-Se o dispositivo LVM não existir, crie-o ou remova os parâmetros correspondentes dos arquivos de configuração do GRUB. Em seguida, tente novamente habilitar a proteção.
+Se o dispositivo LVM não existir, crie-o ou remova os parâmetros correspondentes dos ficheiros de configuração GRUB. Em seguida, tente novamente para permitir a proteção.
 
-## <a name="a-site-recovery-mobility-service-update-finished-with-warnings-error-code-151083"></a>Uma atualização do serviço de mobilidade Site Recovery concluída com avisos (código de erro 151083)
+## <a name="a-site-recovery-mobility-service-update-finished-with-warnings-error-code-151083"></a>Uma atualização do Serviço de Mobilidade de Recuperação do Site terminou com avisos (código de erro 151083)
 
-O serviço de mobilidade Site Recovery tem muitos componentes, um dos quais é chamado de driver de filtro. O driver de filtro é carregado na memória do sistema somente durante a reinicialização do sistema. Sempre que uma atualização do serviço de mobilidade inclui alterações de driver de filtro, o computador é atualizado, mas você ainda vê um aviso de que algumas correções exigem uma reinicialização. O aviso é exibido porque as correções do driver de filtro só podem entrar em vigor quando o novo driver de filtro é carregado, o que ocorre apenas durante uma reinicialização.
+O Serviço de Mobilidade de Recuperação do Site tem muitos componentes, um dos quais é chamado de condutor de filtros. O controlador de filtro é carregado na memória do sistema apenas durante o reinício do sistema. Sempre que uma atualização do Serviço de Mobilidade inclui alterações no controlador de filtros, a máquina é atualizada, mas ainda assim vê um aviso de que algumas correções requerem um reinício. O aviso aparece porque as correções do controlador de filtro só podem produzir efeito quando o novo condutor do filtro é carregado, o que só acontece durante o reinício.
 
 > [!NOTE]
-> Isso é apenas um aviso. A replicação existente continua funcionando mesmo após a nova atualização do agente. Você pode optar por reiniciar sempre que desejar os benefícios do novo driver de filtro, mas o driver de filtro antigo continuará funcionando se você não reiniciar.
+> Isto é só um aviso. A replicação existente continua a funcionar mesmo após a atualização do novo agente. Pode optar por reiniciar sempre que quiser os benefícios do novo condutor do filtro, mas o antigo condutor do filtro continua a trabalhar se não reiniciar.
 >
-> Além do driver de filtro, os benefícios de quaisquer outros aprimoramentos e correções na atualização do serviço de mobilidade entram em vigor sem a necessidade de uma reinicialização.  
+> Para além do condutor do filtro, os benefícios de quaisquer outras melhorias e correções na atualização do Serviço de Mobilidade fazem efeito sem exigir um reinício.  
 
-## <a name="protection-couldnt-be-enabled-because-the-replica-managed-disk-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>Não foi possível habilitar a proteção porque o disco gerenciado de réplica já existe, sem as marcas esperadas, no grupo de recursos de destino (código de erro 150161)
+## <a name="protection-couldnt-be-enabled-because-the-replica-managed-disk-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>A proteção não podia ser ativada porque a réplica do disco gerido já existe, sem etiquetas esperadas, no grupo de recursos-alvo (código de erro 150161)
 
-### <a name="possible-cause"></a>Causa possível
+### <a name="possible-cause"></a>Possível causa
 
-Esse problema pode ocorrer se a máquina virtual já tiver sido protegida anteriormente e quando a replicação tiver sido desabilitada, o disco de réplica não foi limpo.
+Este problema pode ocorrer se a máquina virtual foi previamente protegida, e quando a replicação foi desativada, o disco de réplica não foi limpo.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 
-Exclua o disco de réplica identificado na mensagem de erro e repita o trabalho de proteção com falha.
+Elimine o disco de réplica identificado na mensagem de erro e tente novamente o trabalho de proteção falhado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

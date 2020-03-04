@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c4a0e64e1f08bb3e80eaf67937da10906bfce0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591613"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255008"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie a sua direção ativa híbrida Azure aderir à implementação
 
@@ -79,6 +79,8 @@ Como primeiro passo de planeamento, deve rever o seu ambiente e determinar se pr
 - A adesão a Hybrid Azure AD não é suportada para o Windows Server que executa a função de Controlador de Domínio (DC).
 
 - A adesão a Hybrid Azure AD não é suportada em dispositivos de nível inferior do Windows quando utilizar roaming credencial ou roaming de perfil de utilizador ou perfil obrigatório.
+
+- O Server Core OS não suporta qualquer tipo de registo do dispositivo.
 
 ### <a name="os-imaging-considerations"></a>Considerações de imagem do OS
 - Se estiver a contar com a Ferramenta de Preparação do Sistema (Sysprep) e se estiver a utilizar uma imagem **pré-Windows 10 1809** para instalação, certifique-se de que a imagem não é de um dispositivo que já está registado com a AD Azure como AD Hybrid Azure.

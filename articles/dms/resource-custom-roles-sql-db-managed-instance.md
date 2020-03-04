@@ -1,10 +1,10 @@
 ---
-title: 'Funções personalizadas: SQL Server online para migrações de instância gerenciada do SQL'
+title: 'Funções personalizadas: Servidor SQL online para sql gerido migrações de instâncias'
 titleSuffix: Azure Database Migration Service
-description: Aprenda a usar as funções personalizadas para SQL Server para migrações online de instância gerenciada do banco de dados SQL do Azure.
+description: Aprenda a usar as funções personalizadas para O Servidor SQL para a Base de Dados Azure SQL gerida por migrações online.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,27 +12,27 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 85c70968eb0f8a5752bbfa338918a8bba2fe7794
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e9a1024ca3ab68841474ab051c029042df4915b5
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437699"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254949"
 ---
-# <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Funções personalizadas para SQL Server para migrações online de instância gerenciada do banco de dados SQL
+# <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Funções personalizadas para SQL Server para SQL Database gerida sondar migrações on-line
 
-O serviço de migração de banco de dados do Azure usa uma ID de aplicativo para interagir com os serviços do Azure. A ID do aplicativo requer a função de colaborador no nível da assinatura (que muitos departamentos de segurança corporativa não permitirão) ou a criação de funções personalizadas que concedem as permissões específicas que o serviço de migrações de banco de dados do Azure exige. Como há um limite de 2.000 funções personalizadas no Azure Active Directory, talvez você queira combinar todas as permissões necessárias especificamente pela ID do aplicativo em uma ou duas funções personalizadas e, em seguida, conceder à ID do aplicativo a função personalizada em objetos ou grupos de recursos específicos (vs. nas sub-rotinas nível de criptografia). Se o número de funções personalizadas não for uma preocupação, você poderá dividir as funções personalizadas por tipo de recurso, para criar três funções personalizadas no total, conforme descrito abaixo.
+O Serviço de Migração de Bases de Dados Azure utiliza um ID APP para interagir com os Serviços Azure. O ID app requer o papel de Contribuinte a nível de Subscrição (que muitos departamentos de segurança corporativa não permitem) ou criação de funções personalizadas que concedem as permissões específicas que o Serviço de Migrações de Base de Dados Azure necessita. Uma vez que existe um limite de 2.000 funções personalizadas no Diretório Ativo azure, pode querer combinar todas as permissões exigidas especificamente pelo ID da APP em uma ou duas funções personalizadas, e, em seguida, conceder ao APP ID o papel personalizado em objetos ou grupos de recursos específicos (vs. nos subs nível de cripção). Se o número de papéis personalizados não for uma preocupação, pode dividir as funções personalizadas por tipo de recurso, para criar três funções personalizadas no total, como descrito abaixo.
 
-A seção AssignableScopes da cadeia de caracteres JSON de definição de função permite que você controle onde as permissões aparecem na interface do usuário de **atribuição de função** no Portal. Você provavelmente desejará definir a função no grupo de recursos ou até mesmo no nível de recurso para evitar a confusão da interface do usuário com funções extras. Observe que isso não executa a atribuição de função real.
+A secção De Scopes Atribuidores da linha json definição de função permite controlar onde as permissões aparecem no UI de Atribuição de **Funções adicionais** no portal. É provável que queira definir o papel no grupo de recursos ou mesmo ao nível de recursos para evitar a confusão da UI com papéis extra. Note que isto não desempenha a tarefa real.
 
 ## <a name="minimum-number-of-roles"></a>Número mínimo de funções
 
-No momento, é recomendável criar no mínimo duas funções personalizadas para a ID do aplicativo, uma no nível de recurso e outra no nível de assinatura.
+Recomendamos atualmente a criação de um mínimo de duas funções personalizadas para o ID app, uma ao nível de recursos e outra ao nível da subscrição.
 
 > [!NOTE]
-> O último requisito de função personalizada pode eventualmente ser removido, pois o novo código de instância gerenciada do banco de dados SQL é implantado no Azure.
+> O último requisito de função personalizado pode eventualmente ser removido, uma vez que o novo código de instância gerido pela Base de Dados SQL é implantado no Azure.
 
-**Função personalizada para a ID do aplicativo**. Essa função é necessária para a migração do serviço de migração de banco de dados do Azure no nível de *recurso* ou *grupo de recursos* (para obter mais informações sobre a ID do aplicativo, consulte o artigo [usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
+**Papel personalizado para o ID APP**. Esta função é necessária para a migração do Serviço de Migração de Bases de Dados Azure ao nível dos *recursos* ou *grupos* de recursos (para mais informações sobre o ID app, consulte o artigo [Utilize o portal para criar uma aplicação e diretor](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)de serviço seletiva azure que possa aceder a recursos).
 
 ```json
 {
@@ -63,7 +63,7 @@ No momento, é recomendável criar no mínimo duas funções personalizadas para
 }
 ```
 
-**Função personalizada para a ID do aplicativo-assinatura**. Essa função é necessária para a migração do serviço de migração de banco de dados do Azure no nível da *assinatura* .
+**Papel personalizado para o ID APP - subscrição**. Esta função é necessária para a migração do Serviço de Migração de Bases de Dados Azure a nível de *subscrição.*
 
 ```json
 {
@@ -81,20 +81,20 @@ No momento, é recomendável criar no mínimo duas funções personalizadas para
 }
 ```
 
-O JSON acima deve ser armazenado em três arquivos de texto e você pode usar os cmdlets AzureRM, AZ PowerShell ou CLI do Azure para criar as funções usando **New-AzureRmRoleDefinition (AzureRM)** ou **New-AzRoleDefinition (AZ)** .
+O json acima deve ser armazenado em três ficheiros de texto, e pode utilizar os cmdlets AzureRM, AZ PowerShell ou Azure CLI para criar as funções utilizando a **New-AzureRmRoleDefinition (AzureRM)** ou **a New-AzRoleDefinition (AZ)** .
 
-Para obter mais informações, consulte o artigo [funções personalizadas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Para mais informações, consulte o artigo [Papéis personalizados para recursos Azure.](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-Depois de criar essas funções personalizadas, você deve adicionar atribuições de função aos usuários e às IDs do aplicativo aos recursos ou grupos de recursos apropriados:
+Depois de criar estas funções personalizadas, deve adicionar atribuições de funções aos utilizadores e ID app aos recursos ou grupos de recursos apropriados:
 
-* A função "DMS função-ID do aplicativo" deve ser concedida à ID do aplicativo que será usada para as migrações e também na conta de armazenamento, instância do serviço de migração de banco de dados do Azure e níveis de recurso de instância gerenciada do banco de dados SQL.
-* A função "função DMS-ID do aplicativo-sub" deve ser concedida à ID do aplicativo no nível da assinatura (a concessão do recurso ou do grupo de recursos falhará). Esse requisito é temporário até que uma atualização de código seja implantada.
+* A função "DMS Role - App ID" deve ser concedida ao ID app que será utilizado para as migrações, bem como na Conta de Armazenamento, na instância do Serviço de Migração da Base de Dados Azure e na Base de Dados SQL gerido sem níveis de recursos de instância.
+* A função "DMS Role - App ID - Sub" deve ser concedida ao ID da APP ao nível da subscrição (a concessão ao grupo de recursos ou recursos falhará). Este requisito é temporário até que seja implementada uma atualização de código.
 
-## <a name="expanded-number-of-roles"></a>Número expandido de funções
+## <a name="expanded-number-of-roles"></a>Número alargado de funções
 
-Se o número de funções personalizadas na sua Azure Active Directory não for uma preocupação, recomendamos que você crie um total de três funções. Você ainda precisará da função "DMS de ID do aplicativo – sub", mas a função "DMS da função de diretório" acima é dividida por tipo de recurso em duas funções diferentes.
+Se o número de funções personalizadas no seu Diretório Ativo Azure não for uma preocupação, recomendamos que crie um total de três funções. Você ainda vai precisar da função "DMS Role - App ID – Sub", mas a função "DMS Role - App ID" acima é dividida por tipo de recurso em duas funções diferentes.
 
-**Função personalizada para a ID do aplicativo para instância gerenciada do banco de dados SQL**
+**Função personalizada para o ID app para a instância gerida pela Base de Dados SQL**
 
 ```json
 {
@@ -117,7 +117,7 @@ Se o número de funções personalizadas na sua Azure Active Directory não for 
 }
 ```
 
-**Função personalizada para a ID do aplicativo para armazenamento**
+**Papel personalizado para o ID app para armazenamento**
 
 ```json
 {
@@ -140,14 +140,14 @@ Se o número de funções personalizadas na sua Azure Active Directory não for 
 
 ## <a name="role-assignment"></a>Atribuição de função
 
-Para atribuir uma função à ID de usuários/aplicativos, abra o portal do Azure, execute as seguintes etapas:
+Para atribuir uma função aos utilizadores/APP ID, abra o portal Azure, execute os seguintes passos:
 
-1. Navegue até o grupo de recursos ou recurso (exceto para a função que precisa ser concedida na assinatura), acesse **controle de acesso**e role para localizar as funções personalizadas que você acabou de criar.
+1. Navegue para o grupo de recursos ou recursos (exceto a função que precisa de ser concedida na subscrição), vá ao **Access Control**, e depois percorra para encontrar as funções personalizadas que acabou de criar.
 
-2. Selecione a função apropriada, selecione a ID do aplicativo e salve as alterações.
+2. Selecione a função adequada, selecione o ID da APP e, em seguida, guarde as alterações.
 
-  Suas IDs de aplicativo agora aparecem listadas na guia **atribuições de função** .
+  O seu ID(s) app aparece agora listado no **separador de atribuições de funções.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Examine as diretrizes de migração para seu cenário no [Guia de migração de banco de dados](https://datamigration.microsoft.com/)da Microsoft.
+* Reveja a orientação de migração para o seu cenário no Guia de [Migração](https://datamigration.microsoft.com/)da Base de Dados da Microsoft .

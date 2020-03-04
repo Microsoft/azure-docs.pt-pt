@@ -1,17 +1,17 @@
 ---
-title: Tutorial – implantar aplicativo de contêiner na instância de contêiner
-description: Tutorial de instâncias de contêiner do Azure, parte 3 de 3-implantar aplicativo de contêiner em instâncias de contêiner do Azure
+title: Tutorial - Implementar app de contentores para instância de contentores
+description: Instâncias de contentores azure parte 3 de 3 - Implemente aplicação de contentores para instâncias de contentores azure
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d3cbf16feea299e320cf7e24092d00e93cb7cf5b
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 757b41bd69d69deb901e3b5b9a633dce3b9e133a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533355"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249963"
 ---
-# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: implantar um aplicativo de contêiner em instâncias de contêiner do Azure
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementar uma aplicação de contentores para instâncias de contentores azure
 
 Este é o último tutorial de uma série de três partes. Nas duas primeiras partes da série, [foi criada uma imagem de contentor](container-instances-tutorial-prepare-app.md) e [enviada para o Azure Container Registry](container-instances-tutorial-prepare-acr.md). Este artigo termina a série ao implementar o contentor no Azure Container Instances.
 
@@ -32,11 +32,11 @@ Nesta secção, vai utilizar a CLI do Azure para implementar a imagem criada no 
 
 ### <a name="get-registry-credentials"></a>Obter as credenciais do registo
 
-Quando você implanta uma imagem hospedada em um registro de contêiner do Azure privado como aquele criado no [segundo tutorial](container-instances-tutorial-prepare-acr.md), você deve fornecer credenciais para acessar o registro. 
+Quando você implanta uma imagem que está hospedada num registo privado de contentores Azure como a criada no [segundo tutorial,](container-instances-tutorial-prepare-acr.md)você deve fornecer credenciais para aceder ao registo. 
 
-Uma prática recomendada para muitos cenários é criar e configurar uma entidade de serviço Azure Active Directory com permissões de *pull* para o registro. Confira [autenticar com o registro de contêiner do Azure de instâncias de contêiner do Azure](../container-registry/container-registry-auth-aci.md) para scripts de exemplo para criar uma entidade de serviço com as permissões necessárias. Anote a ID da *entidade de serviço* e a *senha da entidade de serviço*. Você usa essas credenciais para acessar o registro ao implantar o contêiner.
+A melhor prática para muitos cenários é criar e configurar um diretor de serviço de Diretório Ativo Azure com permissões de *puxar* para o seu registo. Consulte [o Authenticate com o Registo de Contentores Azure a partir de Instâncias de Contentores Azure](../container-registry/container-registry-auth-aci.md) para obter scripts de amostra para criar um diretor de serviço com as permissões necessárias. Tome nota do *ID principal* do serviço e da senha principal do *serviço*. Usa estas credenciais para aceder ao registo quando implanta o contentor.
 
-Você também precisa do nome completo do servidor de logon do registro de contêiner (substitua `<acrName>` pelo nome do registro):
+Também precisa do nome completo do servidor de login do registo de contentores (substitua `<acrName>` com o nome do seu registo):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
@@ -44,7 +44,7 @@ az acr show --name <acrName> --query loginServer
 
 ### <a name="deploy-container"></a>Implementar o contentor
 
-Agora, use o comando [AZ container Create][az-container-create] para implantar o contêiner. Substitua `<acrLoginServer>` pelo valor obtido do comando anterior. Substitua `<service-principal-ID>` e `<service-principal-password>` com a ID da entidade de serviço e a senha que você criou para acessar o registro. Substitua `<aciDnsLabel>` por um nome DNS desejado.
+Agora, use o [recipiente az criar][az-container-create] comando para implantar o recipiente. Substitua `<acrLoginServer>` pelo valor obtido do comando anterior. Substitua `<service-principal-ID>` e `<service-principal-password>` com o ID principal do serviço e senha que criou para aceder ao registo. Substitua `<aciDnsLabel>` por um nome DNS desejado.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
@@ -54,25 +54,24 @@ Dentro de alguns segundos, deverá receber uma resposta inicial do Azure. O valo
 
 ### <a name="verify-deployment-progress"></a>Verificar o progresso da implementação
 
-Para exibir o estado da implantação, use [AZ container show][az-container-show]:
+Para ver o estado da implantação, utilize um [contentor az mostrar:][az-container-show]
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Repita o comando [AZ container show][az-container-show] até que o estado mude de *pendente* para *em execução*, o que deve levar menos de um minuto. Quando o contentor estiver *Em execução*, avance para o passo seguinte.
+Repita o comando do [contentor az][az-container-show] até que o estado mude de *Pendente* para *Execução*, que deve demorar menos de um minuto. Quando o contentor estiver *Em execução*, avance para o passo seguinte.
 
 ## <a name="view-the-application-and-container-logs"></a>Ver os registos de aplicações e do contentor
 
-Depois que a implantação for realizada com sucesso, exiba o FQDN (nome de domínio totalmente qualificado) do contêiner com o comando [AZ container show][az-container-show] :
+Uma vez que a implementação seja bem sucedida, exiba o nome de domínio totalmente qualificado do recipiente (FQDN) com o comando de demonstração de [contentores az:][az-container-show]
 
-```bash
+```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
 Por exemplo:
-```console
-$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+```output
 "aci-demo.eastus.azurecontainer.io"
 ```
 
@@ -88,8 +87,7 @@ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 
 Exemplo de saída:
 
-```bash
-$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
+```output
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
@@ -97,7 +95,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não precisar mais de nenhum dos recursos criados nesta série de tutoriais, poderá executar o comando [AZ Group Delete][az-group-delete] para remover o grupo de recursos e todos os recursos que ele contém. Este comando elimina o registo de contentor criado, bem como o contentor em execução, e todos os recursos relacionados.
+Se já não precisar de nenhum dos recursos que criou nesta série tutorial, pode executar o comando de eliminação do [grupo AZ][az-group-delete] para remover o grupo de recursos e todos os recursos que contém. Este comando elimina o registo de contentor criado, bem como o contentor em execução, e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

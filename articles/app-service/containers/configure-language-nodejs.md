@@ -4,12 +4,12 @@ description: Aprenda a configurar um recipiente node.js pré-construído para a 
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 45d7d141bc2ab85ab33be455fc3da5570b0e7f51
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: fdc5129fc395f99cb4c244414ea952b2776dc4dc
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920030"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255861"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configure uma aplicação Linux Node.js para o Serviço de Aplicações Azure
 
@@ -271,6 +271,8 @@ Quando uma aplicação node.js funcionando se comportar de forma diferente no Se
     - Certos quadros web podem implementar ficheiros estáticos de forma diferente no modo de produção.
     - Certos quadros web podem usar scripts de arranque personalizados quando estão em modo de produção.
 - Execute a sua aplicação no App Service em modo de desenvolvimento. Por exemplo, em [MEAN.js,](https://meanjs.org/)pode configurar a sua aplicação para o modo de desenvolvimento em tempo de [execução, definindo a definição de `NODE_ENV` aplicação](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

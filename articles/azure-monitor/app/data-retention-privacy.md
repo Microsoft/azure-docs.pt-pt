@@ -3,12 +3,12 @@ title: Retenção e armazenamento de dados em Insights de Aplicação Azure  Mic
 description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
 ms.date: 09/29/2019
-ms.openlocfilehash: 0b266eb0674f6de7dfb20311bba95bc7f4697f61
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669663"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254881"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados em Insights de Aplicação
 
@@ -170,6 +170,12 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 Por padrão, `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` é utilizado para dados persistentes. As permissões para aceder a esta pasta estão restritas ao utilizador e administradores atuais. (Ver [implementação](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) aqui.)
 
 O prefixo da pasta `appInsights-node` pode ser ultrapassado alterando o valor de tempo de execução da variável estática `Sender.TEMPDIR_PREFIX` encontrada em [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+
+### <a name="javascript-browser"></a>JavaScript (navegador)
+
+[HTML5 Armazenamento](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) de sessão é usado para persistir dados. São utilizados dois tampão separados: `AI_buffer` e `AI_sent_buffer`. A telemetria que é lotada e à espera de ser enviada é armazenada em `AI_buffer`. A telemetria que acabou de ser enviada é colocada em `AI_sent_buffer` até que o servidor de ingestão responda que foi recebida com sucesso. Quando a telemetria é recebida com sucesso, é removida de todos os amortecedores. Em falhas transitórias (por exemplo, um utilizador perde conectividade de rede), a telemetria permanece em `AI_buffer` até que seja recebida com sucesso ou o servidor de ingestão responda que a telemetria é inválida (má schema ou demasiado velha, por exemplo).
+
+Os amortecedores de telemetria podem ser desativados colocando [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) para `false`. Quando o armazenamento da sessão é desligado, uma matriz local é usada como armazenamento persistente. Uma vez que o JavaScript SDK funciona num dispositivo cliente, o utilizador tem acesso a este local de armazenamento através das ferramentas de desenvolvimento do seu navegador.
 
 ### <a name="opencensus-python"></a>OpenCensus Python
 

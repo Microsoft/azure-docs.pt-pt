@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 80f8d66795971c6a5c84be7088387e63d7acd7a7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185545"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248692"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configure domínios personalizados com procuração de aplicação ad azure
 
@@ -130,9 +130,9 @@ Não há restrições nos métodos de assinatura de certificado. Criptografia da
 
 Pode utilizar certificados wildcard desde que o wildcard corresponda ao URL externo. Deve utilizar certificados wildcard para [aplicações wildcard](application-proxy-wildcard.md). Se pretender utilizar o certificado para aceder também a subdomínios, deve adicionar os wildcards de subdomínio como nomes alternativos sujeitos no mesmo certificado. Por exemplo, um certificado para *\*.adventure-works.com* não funcionará para *\*.apps.adventure-works.com* a menos que adicione *\*.apps.adventure-works.com* como um nome alternativo sujeito. 
 
-Pode utilizar certificados emitidos pela sua própria infraestrutura de chaves públicas (PKI) se a cadeia de certificados estiver instalada nos seus dispositivos clientes. Intune pode implementar estes certificados para dispositivos geridos. Para dispositivos não geridos, tem de instalar manualmente estes certificados.
+Pode utilizar certificados emitidos pela sua própria infraestrutura de chaves públicas (PKI) se a cadeia de certificados estiver instalada nos seus dispositivos clientes. Intune pode implementar estes certificados para dispositivos geridos. Para dispositivos não geridos, tem de instalar manualmente estes certificados. 
 
-Não é boa ideia usar uma raiz privada. A AC de raiz privada também teria de ser empurrada para as máquinas de clientes, o que introduz muitos desafios. 
+Não recomendamos a utilização de um CA de raiz privada, uma vez que a CA de raiz privada também teria de ser empurrada para as máquinas de clientes, o que pode introduzir muitos desafios.
 
 ### <a name="certificate-management"></a>Gestão de certificados
 

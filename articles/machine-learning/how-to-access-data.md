@@ -11,12 +11,12 @@ author: likebupt
 ms.reviewer: nibaccam
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1db3679053edbbc2874c456b1c8db4a4f8e0dabd
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 5527d58f140074279d6b9feac13803f29eb0bda5
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164882"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255779"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Dados de acesso nos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Precisa de:
 
 - Uma área de trabalho do Azure Machine Learning.
   
-  Ou cria um espaço de [trabalho azure machine learning](how-to-manage-workspace.md) ou usa um existente através do Python SDK:
+  Ou cria um espaço de [trabalho azure machine learning](how-to-manage-workspace.md) ou usa um existente através do Python SDK. Importe a classe `Workspace` e `Datastore` e carregue as suas informações de subscrição a partir do ficheiro `config.json` utilizando a função `from_config()`. Isto procura o ficheiro JSON no diretório atual por padrão, mas também pode especificar um parâmetro de percurso para apontar para o ficheiro usando `from_config(path="your/file/path")`.
 
    ```Python
    import azureml.core

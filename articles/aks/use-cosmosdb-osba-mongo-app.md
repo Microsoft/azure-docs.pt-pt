@@ -1,52 +1,52 @@
 ---
-title: Integrar o aplicativo MongoDB existente com Azure Cosmos DB API para MongoDB e Open Service Broker para Azure (OSBA)
-description: Neste artigo, você aprenderá a integrar um aplicativo Java e MongoDB existente com a API Azure Cosmos DB para MongoDB usando o Open Service Broker for Azure (OSBA).
+title: Integrar a aplicação mongoDB existente com a Azure Cosmos DB API para MongoDB e Open Service Broker para o Azure (OSBA)
+description: Neste artigo, aprende-se a integrar uma aplicação java e MongoDB existente com o Azure Cosmos DB API para o MongoDB utilizando o Open Service Broker para o Azure (OSBA).
 author: zr-msft
 ms.service: azure-dev-spaces
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
-keywords: Cosmos DB, abrir Service Broker, abrir Service Broker para o Azure
-ms.openlocfilehash: 3d0ab0b27d77e45d779227d30c5a8e4f824ba62a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+keywords: Cosmos DB, Corretor de Serviços Abertos, Corretor de Serviços Abertos para o Azure
+ms.openlocfilehash: ddaa3b9aa198bc142e1bcbcab6b7b1e028eff2aa
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277693"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247926"
 ---
-# <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integrar o aplicativo MongoDB existente com Azure Cosmos DB API para MongoDB e Open Service Broker para Azure (OSBA)
+# <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integrar a aplicação mongoDB existente com a Azure Cosmos DB API para MongoDB e Open Service Broker para o Azure (OSBA)
 
-O Azure Cosmos DB é um serviço de base de dados com múltiplos modelos distribuído globalmente. Ele também fornece a compatibilidade de protocolo de conexão com várias APIs NoSQL, incluindo o MongoDB. A API Cosmos DB para MongoDB permite que você use Cosmos DB com seu aplicativo MongoDB existente sem precisar alterar os drivers de banco de dados ou a implementação do aplicativo. Você também pode provisionar um serviço de Cosmos DB usando o Open Service Broker para Azure.
+Azure Cosmos DB é um serviço de base de dados com múltiplos modelos distribuído globalmente. Também proporciona compatibilidade de protocolo de arame com várias APIs NoSQL, incluindo para MongoDB. O Cosmos DB API para MongoDB permite-lhe utilizar o Cosmos DB com a sua aplicação MongoDB existente sem ter de alterar os controladores de base de dados ou implementação da sua aplicação. Também pode fornecer um serviço Cosmos DB utilizando o Open Service Broker para o Azure.
 
-Neste artigo, você pega um aplicativo Java existente que usa um banco de dados MongoDB e o atualiza para usar um banco de dados Cosmos DB usando o Open Service Broker para Azure.
+Neste artigo, você pega numa aplicação java existente que usa uma base de dados MongoDB e aatual-a para usar uma base de dados Cosmos DB usando open service broker para Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de continuar, você deve:
+Antes de poder prosseguir, deve:
     
-* Ter um [cluster do serviço kubernetes do Azure](kubernetes-walkthrough.md) criado.
-* Ter [o Service Broker aberto para o Azure instalado e configurado em seu cluster AKs](integrate-azure.md). 
-* Tenha a [CLI do catálogo de serviços](https://svc-cat.io/docs/install/) instalada e configurada para executar `svcat` comandos.
-* Ter um banco de dados [MongoDB](https://www.mongodb.com/) existente. Por exemplo, você poderia ter o MongoDB em execução em seu [computador de desenvolvimento](https://docs.mongodb.com/manual/administration/install-community/) ou em uma [VM do Azure](../virtual-machines/linux/install-mongodb.md).
-* Ter uma maneira de se conectar e consultar o banco de dados MongoDB, como o [shell Mongo](https://docs.mongodb.com/manual/mongo/).
+* Criar um [cluster de serviço Azure Kubernetes.](kubernetes-walkthrough.md)
+* Tenha [o Open Service Broker para o Azure instalado e configurado no seu cluster AKS](integrate-azure.md). 
+* Tenha o [Catálogo de ServiçoS CLI](https://svc-cat.io/docs/install/) instalado e configurado para executar `svcat` comandos.
+* Tenha uma base de dados [mongoDB](https://www.mongodb.com/) existente. Por exemplo, pode ter o MongoDB a funcionar na sua máquina de [desenvolvimento](https://docs.mongodb.com/manual/administration/install-community/) ou num [VM Azure.](../virtual-machines/linux/install-mongodb.md)
+* Tenha uma maneira de ligar e consultar a base de dados mongoDB, como a concha de [mongo](https://docs.mongodb.com/manual/mongo/).
 
 ## <a name="get-application-code"></a>Obter o código da aplicação
     
-Neste artigo, você usa o [aplicativo de exemplo de música Spring da Cloud Foundry](https://github.com/cloudfoundry-samples/spring-music) para demonstrar um aplicativo que usa um banco de dados MongoDB.
+Neste artigo, você usa a aplicação de amostra de [música de primavera da Cloud Foundry](https://github.com/cloudfoundry-samples/spring-music) para demonstrar uma aplicação que usa uma base de dados MongoDB.
     
-Clone o aplicativo do GitHub e navegue até seu diretório:
+Clone a aplicação do GitHub e navegue para o seu diretório:
     
 ```cmd
 git clone https://github.com/cloudfoundry-samples/spring-music
 cd spring-music
 ```
 
-## <a name="prepare-the-application-to-use-your-mongodb-database"></a>Preparar o aplicativo para usar seu banco de dados MongoDB
+## <a name="prepare-the-application-to-use-your-mongodb-database"></a>Prepare a aplicação para utilizar a sua base de dados MongoDB
 
-O aplicativo de exemplo Spring Music fornece muitas opções para fontes de fonte. Neste artigo, você o configura para usar um banco de dados MongoDB existente. 
+A aplicação da amostra de música de primavera fornece muitas opções para datasources. Neste artigo, configurá-lo para usar uma base de dados mongoDB existente. 
 
-Adicione o YAML a seguir ao final de *src/main/resources/Application. yml*. Essa adição cria um perfil chamado *MongoDB* e configura um URI e um nome de banco de dados. Substitua o URI pelas informações de conexão em seu banco de dados MongoDB existente. Adicionar o URI, que contém um nome de usuário e senha, diretamente a esse arquivo é **apenas para uso de desenvolvimento** e **nunca deve ser adicionado ao controle de versão**.
+Adicione o YAML seguindo o fim do *sRC/main/resources/application.yml*. Esta adição cria um perfil chamado *mongodb* e configura um nome URI e base de dados. Substitua o URI pela informação de ligação à base de dados mongoDB existente. A adição do URI, que contém um nome de utilizador e uma palavra-passe, diretamente a este ficheiro é **apenas** para uso de desenvolvimento e **nunca deve ser adicionado ao controlo da versão**.
 
 ```yaml
 ---
@@ -60,9 +60,9 @@ spring:
 
 
 
-Quando você inicia seu aplicativo e o informa para usar o perfil do *MongoDB* , ele se conecta ao seu banco de dados MongoDB e o usa para armazenar os dados do aplicativo.
+Quando inicia a sua aplicação e lhe diz para usar o perfil *mongodb,* liga-se à sua base de dados MongoDB e utiliza-a para armazenar os dados da aplicação.
 
-Para compilar seu aplicativo:
+Para construir a sua aplicação:
 
 ```cmd
 ./gradlew clean assemble
@@ -73,19 +73,19 @@ BUILD SUCCESSFUL in 10s
 4 actionable tasks: 4 executed
 ```
 
-Inicie seu aplicativo e solicite que ele use o perfil do *MongoDB* :
+Inicie a sua aplicação e diga-lhe para usar o perfil *mongodb:*
 
 ```cmd
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-Navegue até `http://localhost:8080` em seu navegador.
+Navegue para `http://localhost:8080` no seu navegador.
 
 ![Aplicativo Spring Music com dados padrão](media/music-app.png)
 
-Observe que o aplicativo foi preenchido com alguns [dados padrão](https://github.com/cloudfoundry-samples/spring-music/blob/master/src/main/resources/albums.json). Interaja com ele excluindo alguns álbuns existentes e criando alguns novos.
+Note que a aplicação foi povoada com alguns [dados predefinidos](https://github.com/cloudfoundry-samples/spring-music/blob/master/src/main/resources/albums.json). Interaja com ele apagando alguns álbuns existentes e criando alguns novos.
 
-Você pode verificar se seu aplicativo está usando seu banco de dados MongoDB conectando-se a ele e consultando o banco de dados *musicdb* :
+Pode verificar se a sua aplicação está a utilizar a sua base de dados MongoDB, conectando-se à sua base de dados e consultando a base de dados *de musicdb:*
 
 ```cmd
 mongo serverAddress:port/musicdb -u user -p password
@@ -98,12 +98,12 @@ db.album.find()
 ...
 ```
 
-O exemplo anterior usa o [shell Mongo](https://docs.mongodb.com/manual/mongo/) para se conectar ao banco de dados MongoDB e consultá-lo. Você também pode verificar se suas alterações são persistidas interrompendo seu aplicativo, reiniciando-o e navegando de volta para ele no navegador. Observe que as alterações feitas ainda estão lá.
+O exemplo anterior utiliza a [concha de mongo](https://docs.mongodb.com/manual/mongo/) para ligar à base de dados mongoDB e questioná-la. Também pode verificar se as suas alterações são persistidas, interrompendo a sua aplicação, reiniciando-a e navegando de volta para a sua no seu navegador. Reparem que as alterações que fizeram ainda estão lá.
 
 
-## <a name="create-a-cosmos-db-database"></a>Criar uma base de dados do Cosmos DB
+## <a name="create-a-cosmos-db-database"></a>Criar uma base de dados Cosmos DB
 
-Para criar um banco de dados Cosmos DB no Azure usando o Open Service Broker, use o comando `svcat provision`:
+Para criar uma base de dados Cosmos DB em Azure utilizando o Open Service Broker, utilize o comando `svcat provision`:
 
 ```cmd
 svcat provision musicdb --class azure-cosmosdb-mongo-account --plan account  --params-json '{
@@ -115,9 +115,9 @@ svcat provision musicdb --class azure-cosmosdb-mongo-account --plan account  --p
 }'
 ```
 
-O comando anterior provisiona um banco de dados Cosmos DB no Azure no grupo de recursos *MyResource* Group na região *eastus* . Mais informações sobre o *resourcegroup*, o *local*e outros parâmetros JSON específicos do Azure estão disponíveis na documentação de [referência do módulo Cosmos DB](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/cosmosdb.md#provision-3).
+O comando anterior prevê uma base de dados Cosmos DB em Azure no grupo de recursos *MyResourceGroup* na região *oriental.* Mais informações sobre *recursosGroup*, *localização,* e outros parâmetros JSON específicos do Azure estão disponíveis na documentação de referência do [módulo Cosmos DB.](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/cosmosdb.md#provision-3)
 
-Para verificar se o banco de dados concluiu o provisionamento, use o comando `svcat get instance`:
+Para verificar se a sua base de dados completou o fornecimento, utilize o comando `svcat get instance`:
 
 ```cmd
 $ svcat get instance musicdb
@@ -127,9 +127,9 @@ $ svcat get instance musicdb
   musicdb   default     azure-cosmosdb-mongo-account   account   Ready
 ```
 
-Seu banco de dados está pronto para ver *pronto* em *status*.
+A sua base de dados está pronta quando se ver *Ready* under *STATUS*.
 
-Depois que o banco de dados tiver concluído o provisionamento, você precisará associar seus metadados a um [segredo kubernetes](https://kubernetes.io/docs/concepts/configuration/secret/). Outros aplicativos podem então acessar esses dados depois de serem associados a um segredo. Para associar os metadados do banco de dados a um segredo, use o comando `svcat bind`:
+Uma vez concluída a sua base de dados, é necessário ligar os seus metadados a um [segredo kubernetes](https://kubernetes.io/docs/concepts/configuration/secret/). Outras aplicações podem então aceder a esses dados depois de terem sido ligados a um segredo. Para ligar os metadados da sua base de dados a um segredo, utilize o comando `svcat bind`:
 
 ```cmd
 $ svcat bind musicdb
@@ -145,9 +145,9 @@ Parameters:
 ```
 
 
-## <a name="use-the-cosmos-db-database-with-your-application"></a>Usar o banco de dados Cosmos DB com seu aplicativo
+## <a name="use-the-cosmos-db-database-with-your-application"></a>Utilize a base de dados Cosmos DB com a sua aplicação
 
-Para usar o banco de dados Cosmos DB com seu aplicativo, você precisa saber o URI para se conectar a ele. Para obter essas informações, use o comando `kubectl get secret`:
+Para utilizar a base de dados Cosmos DB com a sua aplicação, precisa de saber o URI para se ligar a ela. Para obter esta informação, use o comando `kubectl get secret`:
 
 ```cmd
 $ kubectl get secret musicdb -o=jsonpath='{.data.uri}' | base64 --decode
@@ -155,9 +155,9 @@ $ kubectl get secret musicdb -o=jsonpath='{.data.uri}' | base64 --decode
 mongodb://12345678-90ab-cdef-1234-567890abcdef:aaaabbbbccccddddeeeeffffgggghhhhiiiijjjjkkkkllllmmmmnnnnooooppppqqqqrrrrssssttttuuuuvvvv@098765432-aaaa-bbbb-cccc-1234567890ab.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
 ```
 
-O comando anterior Obtém o segredo *musicdb* e exibe apenas o URI. Os segredos são armazenados no formato base64, de modo que o comando anterior também o decodifica.
+O comando anterior obtém o segredo *do musicdb* e exibe apenas o URI. Os segredos são armazenados no formato base64, pelo que o comando anterior também o descodifica.
 
-Usando o URI do banco de dados Cosmos DB, atualize *src/main/resources/Application. yml* para usá-lo:
+Utilizando o URI da base de dados Cosmos DB, atualize *o sRC/principal/recursos/aplicação.yml* para usá-lo:
 
 ```yaml
 ...
@@ -170,9 +170,9 @@ spring:
       database: musicdb
 ```
 
-A atualização do URI, que contém um nome de usuário e uma senha, diretamente para esse arquivo é **apenas para uso de desenvolvimento** e **nunca deve ser adicionada ao controle de versão**.
+A atualização do URI, que contém um nome de utilizador e uma palavra-passe, diretamente para este ficheiro é **apenas** para uso de desenvolvimento e **nunca deve ser adicionada ao controlo da versão**.
 
-Recompile e inicie seu aplicativo para começar a usar o banco de dados Cosmos DB:
+Reconstruir e iniciar a sua aplicação para começar a usar a base de dados Cosmos DB:
 
 ```cmd
 ./gradlew clean assemble
@@ -180,33 +180,33 @@ Recompile e inicie seu aplicativo para começar a usar o banco de dados Cosmos D
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-Observe que seu aplicativo ainda usa o perfil do *MongoDB* e um URI que começa com *MongoDB://* para se conectar ao banco de dados de Cosmos DB. A [API Azure Cosmos DB para MongoDB](../cosmos-db/mongodb-introduction.md) fornece essa compatibilidade. Ele permite que seu aplicativo continue a operar como se ele estiver usando um banco de dados MongoDB, mas está realmente usando Cosmos DB.
+Note que a sua aplicação ainda utiliza o perfil *mongodb* e um URI que começa com *mongodb://* para ligar à base de dados Cosmos DB. O [Azure Cosmos DB API para mongoDB](../cosmos-db/mongodb-introduction.md) proporciona esta compatibilidade. Permite que a sua aplicação continue a funcionar como se estivesse a usar uma base de dados MongoDB, mas na verdade está a usar cosmos DB.
 
-Navegue até `http://localhost:8080` em seu navegador. Observe que os dados padrão foram restaurados. Interaja com ele excluindo alguns álbuns existentes e criando alguns novos. Você pode verificar se suas alterações são persistidas interrompendo seu aplicativo, reiniciando-o e navegando de volta para ele no navegador. Observe que as alterações feitas ainda estão lá. As alterações são persistidas na Cosmos DB que você criou usando o Open Service Broker para o Azure.
+Navegue para `http://localhost:8080` no seu navegador. Note que os dados predefinidos foram restaurados. Interaja com ele apagando alguns álbuns existentes e criando alguns novos. Pode verificar se as suas alterações são persistidas, interrompendo a sua aplicação, reiniciando-a e navegando de volta para a sua no seu navegador. Reparem que as alterações que fizeram ainda estão lá. As mudanças persistem no Cosmos DB que criou usando o Open Service Broker para o Azure.
 
 
-## <a name="run-your-application-on-your-aks-cluster"></a>Executar seu aplicativo no cluster AKS
+## <a name="run-your-application-on-your-aks-cluster"></a>Execute a sua aplicação no seu cluster AKS
 
-Você pode usar [Azure dev Spaces](../dev-spaces/azure-dev-spaces.md) para implantar o aplicativo no cluster AKs. Azure Dev Spaces ajuda a gerar artefatos, como gráficos Dockerfiles e Helm, e implantar e executar um aplicativo no AKS.
+Pode utilizar o [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) para implementar a aplicação no seu cluster AKS. A Azure Dev Spaces ajuda-o a gerar artefactos, como dockerfiles e gráficos Helm, e implementa e executa uma aplicação no AKS.
 
-Para habilitar Azure Dev Spaces em seu cluster AKS:
+Para permitir a Azure Dev Spaces no seu cluster AKS:
 
-```cmd
+```azurecli
 az aks enable-addons --addons http_application_routing -g MyResourceGroup -n MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 ```
 
-Use as ferramentas de Azure Dev Spaces para preparar seu aplicativo para ser executado no AKS:
+Utilize a ferramenta Azure Dev Spaces para preparar a sua aplicação para funcionar em AKS:
 
 ```cmd
 azds prep --public
 ```
 
-Esse comando gera vários artefatos, incluindo *gráficos/* pasta, que é o gráfico do Helm, na raiz do projeto. Este comando não pode gerar um *Dockerfile* para este projeto específico, portanto, você precisa criá-lo.
+Este comando gera vários artefactos, incluindo um *gráfico/pasta,* que é o seu gráfico Helm, na raiz do projeto. Este comando não pode gerar um *Dockerfile* para este projeto específico, por isso tens de o criar.
 
-Crie um arquivo na raiz do seu projeto chamado *Dockerfile* com este conteúdo:
+Crie um ficheiro na raiz do seu projeto chamado *Dockerfile* com este conteúdo:
 
-```Dockerfile
+```dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app
@@ -214,7 +214,7 @@ COPY build/libs/spring-music-1.0.jar .
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=mongodb","-jar","/app/spring-music-1.0.jar"]
 ```
 
-Além disso, você precisa atualizar a propriedade *configurações. desenvolver. Build* em *azds. YAML* para *false*:
+Além disso, você precisa atualizar as *configurações.develop.build.property* in *azds.yaml* to *false:*
 ```yaml
 ...
 configurations:
@@ -223,7 +223,7 @@ configurations:
       useGitIgnore: false
 ```
 
-Você também precisa atualizar o atributo *containerPort* para *8080* em *Charts/Spring-Music/templates/Deployment. YAML*:
+Também precisa de atualizar o atributo do *contentorPorta* a *8080* em *gráficos/música/modelos/deployment.yaml:*
 
 ```yaml
 ...
@@ -242,7 +242,7 @@ spec:
               protocol: TCP
 ```
 
-Para implantar seu aplicativo no AKS:
+Para implementar a sua aplicação no AKS:
 
 ```cmd
 $ azds up
@@ -265,15 +265,15 @@ press Ctrl+C to detach
 ...
 ```
 
-Navegue até a URL exibida nos logs. No exemplo anterior, você usaria *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* . 
+Navegue para o URL apresentado nos registos. No exemplo anterior, utilizaria *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* . 
 
-Verifique se você vê o aplicativo junto com suas alterações.
+Verifique se vê a aplicação juntamente com as suas alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este artigo descreveu como atualizar um aplicativo existente usando o MongoDB para usar Cosmos DB API para MongoDB. Este artigo também abordou como provisionar um serviço de Cosmos DB usando Service Broker abertas para o Azure e implantando esse aplicativo no AKS com Azure Dev Spaces.
+Este artigo descreveu como atualizar uma aplicação existente desde a utilização do MongoDB até à utilização da Cosmos DB API para o MongoDB. Este artigo também abordou como fornecer um serviço Cosmos DB usando Open Service Broker para Azure e implementando essa aplicação para AKS com a Azure Dev Spaces.
 
-Para obter mais informações sobre Cosmos DB, abra Service Broker para o Azure e Azure Dev Spaces, consulte:
+Para mais informações sobre cosmos DB, Open Service Broker para Azure, e Azure Dev Spaces, consulte:
 * [BD do Cosmos](https://docs.microsoft.com/azure/cosmos-db/)
-* [Abrir Service Broker para o Azure](https://osba.sh)
-* [Desenvolver com espaços de desenvolvimento](../dev-spaces/azure-dev-spaces.md)
+* [Corretor de Serviço aberto para Azure](https://osba.sh)
+* [Desenvolver com Espaços Dev](../dev-spaces/azure-dev-spaces.md)

@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c8449ef27ca73cd6e0c2908ce4cbebea2c513dbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: db09a31154b680097b6b46e8f9e2cce2ad09d108
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450098"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255028"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -82,7 +82,7 @@ Windows 10 de 64 bits | Enterprise, Pro, Home | Os computadores devem estar a 
 Windows 8.1 de 64 bits | Enterprise, Pro | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 8 de 64 bits | Enterprise, Pro | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 7 de 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
-Server | |
+Servidor | |
 Windows Server 2019 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com os service packs/atualizações mais recentes.
@@ -123,7 +123,7 @@ BMR/Estado do sistema |Cada cópia individual da BMR ou estado do sistema do com
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Existe algum limite à quantidade de dados para os quais são criadas cópias de segurança com um cofre dos Serviços de Recuperação?
 
-Não existe nenhum limite à quantidade de dados para os quais pode criar cópias de segurança com um cofre dos Serviços de Recuperação.
+Não há limite para a quantidade total de dados que pode fazer o back-up usando um cofre dos Serviços de Recuperação. As fontes de dados individuais (com além dos VMs Azure), podem ter um máximo de 54.400 GB de tamanho. Para obter mais informações sobre limites, consulte a secção de limites do [cofre na matriz de suporte](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que é que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é mais pequeno do que os dados selecionados para cópia de segurança?
 

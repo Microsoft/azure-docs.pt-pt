@@ -1,15 +1,15 @@
 ---
-title: Implantar no serviço kubernetes do Azure usando o Jenkins e o padrão de implantação azul/verde
+title: Desloque-se para o Serviço Azure Kubernetes usando Jenkins e o padrão de implantação azul/verde
 description: Saiba como implementar no Azure Kubernetes Service (AKS) com o Jenkins e o padrão de implementação azul/verde
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, implementação azul verde, entrega contínua, cd
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: ae9c496cd820bf1263cac50fb676990ed65ed0ba
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158551"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251479"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implementar no Azure Kubernetes Service (AKS) com o Jenkins e o padrão de implementação azul/verde
 
@@ -84,19 +84,19 @@ Para criar um cluster do Kubernetes gerido com a [CLI 2.0 do Azure](https://docs
 
 1. Inicie sessão na sua conta do Azure. Depois de introduzir o seguinte comando, receberá instruções que explicam como concluir o início de sessão. 
     
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. Quando executa o comando `az login` no passo anterior, é apresentada uma lista com todas as suas subscrições do Azure (juntamente com os respetivos IDs). Neste passo, vai definir a subscrição do Azure predefinida. Substitua o marcador de posição &lt;your-subscription-id> pelo ID da subscrição pretendida. 
 
-    ```bash
+    ```azurecli
     az account set -s <your-subscription-id>
     ```
 
 1. Crie um grupo de recursos. Substitua o marcador de posição &lt;your-resource-group-name> pelo nome do seu grupo de recursos novo e substitua o marcador de posição &lt;your-location> pela localização. O comando `az account list-locations` mostra todas as localizações do Azure. Durante a pré-visualização do AKS, nem todas as regiões estão disponíveis. Se introduzir uma região que não for válida nesta altura, a mensagem de erro mostra todas as localizações disponíveis.
 
-    ```bash
+    ```azurecli
     az group create -n <your-resource-group-name> -l <your-location>
     ```
 
@@ -129,7 +129,7 @@ Pode configurar uma implementação azul/verde no AKS manualmente ou utilizar um
 #### <a name="set-up-a-kubernetes-cluster-manually"></a>Configurar um cluster do Kubernetes manualmente 
 1. Transfira a configuração do Kubernetes para a sua pasta de perfil.
 
-    ```bash
+    ```azurecli
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
@@ -157,13 +157,13 @@ Pode configurar uma implementação azul/verde no AKS manualmente ou utilizar um
     
     Atualize o nome DNS para o endereço IP correspondente com o comando abaixo:
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name aks-todoapp --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
     ```
 
     Repita a chamada para `todoapp-test-blue` e `todoapp-test-green`:
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name todoapp-blue --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
 
     az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
@@ -175,13 +175,13 @@ Pode configurar uma implementação azul/verde no AKS manualmente ou utilizar um
 
 1. Execute o comando `az acr create` para criar uma instância do Container Registry. Na próxima secção, pode utilizar `login server` como o URL de registo do Docker.
 
-    ```bash
+    ```azurecli
     az acr create -n <your-registry-name> -g <your-resource-group-name>
     ```
 
 1. Execute o comando `az acr credential` para mostrar as suas credenciais do Container Registry. Tome nota do nome de utilizador e da palavra-passe do registo do Docker, uma vez que vai precisar dessas informações na próxima secção.
 
-    ```bash
+    ```azurecli
     az acr credential show -n <your-registry-name>
     ```
 
@@ -214,7 +214,7 @@ Nesta secção, vai aprender a preparar o servidor Jenkins para executar uma com
     1. Selecione **Manage Jenkins > Manage Plugins > Available** (Gerir o Jenkins > Gerir plug-ins > Disponíveis).
     1. Procure e instale o plug-in do Azure Container Service.
 
-1. Adicione credenciais para gerir recursos no Azure. Se você ainda não tiver o plug-in, instale o plug-in de **credenciais do Azure** .
+1. Adicione credenciais para gerir recursos no Azure. Se ainda não tiver o plug-in, instale o **plug-in Da Credencial Azure.**
 
 1. Adicione a credencial do Principal de Serviço do Azure como o tipo **Microsoft Azure Service Principal** (Principal de Serviço do Microsoft Azure).
 
@@ -276,7 +276,7 @@ Para saber mais sobre a implementação sem tempo de inatividade, veja este [mod
 
 Quando já não precisar dos recursos que crio neste tutorial, pode eliminá-los.
 
-```bash
+```azurecli
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 

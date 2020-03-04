@@ -3,14 +3,14 @@ title: Erros não disponíveis sKU
 description: Descreve como resolver problemas o Erro Não Disponível do SKU ao implementar recursos com o Gestor de Recursos Azure.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
-ms.openlocfilehash: be341a5ed5321fe71b0e3b34ba5f6cc823958c8b
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 5d055540b4c0d8f2900d2ede6735662801be5974
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462297"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250650"
 ---
-# <a name="resolve-errors-for-sku-not-available"></a>Resolver erros para SKU não disponíveis
+# <a name="resolve-errors-for-sku-not-available"></a>Resolver erros de SKUs não disponíveis
 
 Este artigo descreve como resolver o erro **SkuNotDisponível.** Se não conseguir encontrar um SKU adequado nessa região/zona ou numa região/zona alternativa que satisfaça as suas necessidades de negócio, envie um [pedido de SKU](https://aka.ms/skurestriction) ao Suporte Azure.
 
@@ -70,7 +70,7 @@ az vm list-skus --location southcentralus --size Standard_F --output table
 
 O comando devolve resultados como:
 
-```azurecli
+```output
 ResourceType     Locations       Name              Zones    Capabilities    Restrictions
 ---------------  --------------  ----------------  -------  --------------  --------------
 virtualMachines  southcentralus  Standard_F1                ...             None

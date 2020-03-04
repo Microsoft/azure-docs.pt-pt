@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bcb1b02b8a2605a42acbe7f33973bef315ca6f54
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 50c209483a12adc3545b63fb66685e386d9ad10a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468920"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252143"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Desdobre para as instâncias de contentores azure do registo de contentores de Azure
 
@@ -114,8 +114,7 @@ az container create \
 
 O valor `--dns-name-label` deve ser único dentro do Azure, pelo que o comando anterior anexa um número aleatório à etiqueta de nome DNS do contentor. O resultado do comando apresenta o nome de domínio completamente qualificado (FQDN) do contentor, por exemplo:
 
-```console
-$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_LOGIN_SERVER/aci-helloworld:v1 --registry-login-server $ACR_LOGIN_SERVER --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
+```output
 "aci-demo-25007.eastus.azurecontainer.io"
 ```
 
@@ -161,7 +160,7 @@ Se mantiver imagens de contentores num registo de contentores Azure, pode facilm
 
     ![Vista de detalhes para o grupo de contentores De casos de contentores Azure][aci-detailsview]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a autenticação do Registo de Contentores Azure, consulte [Authenticate com um registo de contentores Azure](../container-registry/container-registry-authentication.md).
 

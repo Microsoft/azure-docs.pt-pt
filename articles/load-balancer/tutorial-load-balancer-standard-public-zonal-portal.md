@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Load Balancer VMs em uma zona – portal do Azure'
+title: 'Tutorial: Carregador de Balanceadores VMs dentro de um portal de zona--Azure'
 titleSuffix: Azure Load Balancer
 description: Este tutorial demonstra como criar um Balanceador de Carga Standard com front-end zonal para fazer o balanceamento de carga das VMs dentro de uma zona de disponibilidade através do portal do Azure
 services: load-balancer
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 07d4b206c5651bb708ed8b56437a8769dff46557
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225173"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251897"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga dentro de uma zona de disponibilidade com o Balanceador de Carga Standard através do portal do Azure
 
@@ -48,33 +48,39 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 O Balanceador de Carga Standard só suporta endereços IP públicos padrão. Quando cria um novo IP público durante a criação do balanceador de carga, o mesmo é configurado, de forma automática, como uma versão de SKU Standard. Também tem redundância de zona automaticamente.
 
 1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Balanceador de Carga**.
-2. Na guia **noções básicas** da página **criar balanceador de carga** , insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **revisar + criar**:
+2. No separador **Basics** da página **'Criar balanceor de carga',** introduzir ou selecionar as seguintes informações, aceitar as predefinições para as restantes definições e, em seguida, selecionar **Rever + criar**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
-    | Grupo de recursos         | Selecione **criar novo** e digite *MyResourceGroupZLB* na caixa de texto.|
+    | Grupo de recursos         | Selecione **Criar novo** e digitar *MyResourceGroupZLB* na caixa de texto.|
     | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
-    | Tipo          | Selecione **público**.                                        |
-    | SKU           | Selecione **padrão**.                          |
+    | Tipo          | Selecione **Public**.                                        |
+    | SKU           | Selecione **Standard**.                          |
     | Endereço IP público | Selecione **Criar novo**. |
-    | Nome do endereço IP público              | Digite *myPublicIP* na caixa de texto.   |
+    | Nome do endereço IP público              | Digite *o meu PublicIP* na caixa de texto.   |
     |Zona de disponibilidade| Selecione **1**.    |
-3. Na guia **revisar + criar** , clique em **criar**.   
+3. No **'Rever + criar** separador', clique em **Criar**.   
 
-   ## <a name="create-backend-servers"></a>Criar servidores de back-end
+## <a name="create-backend-servers"></a>Criar servidores de back-end
 
 Nesta secção, vai criar uma rede virtual. Também vai criar duas máquinas virtuais na mesma zona (nomeadamente, na zona 1) da região para adicionar ao conjunto de back-ends do seu balanceador de carga. Em seguida, vai instalar o IIS nas máquinas virtuais para ajudar a testar o balanceador de carga com redundância entre zonas. Se uma VM falhar, a sonda de estado de funcionamento da VM na mesma zona falha. O tráfego continua a ser servido pelas outras VMs na mesma zona.
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Rede virtual**.  Introduza estes valores para a rede virtual:
-    - **myVNet**, no nome da rede virtual.
-    - **myResourceGroupZLB**, no nome do grupo de recursos existente.
-    - **myBackendSubnet**, no nome da sub-rede.
-2. Selecione **Criar** para criar a rede virtual.
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
-    ![Criar uma rede virtual](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
+Nesta secção terá de substituir os seguintes parâmetros nos passos com as informações abaixo:
+
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<nome de grupo de recursos>**  | myResourceGroupZLB (Selecione grupo de recursos existentes) |
+| **\<nome de rede virtual>** | myVNet          |
+| **\<nome da região>**          | Europa Ocidental      |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<sub-nome>**          | myBackendSubnet        |
+| **\<sub-endereço-gama>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
@@ -191,7 +197,7 @@ Utilize uma sonda de estado de funcionamento para que o balanceador de carga pos
 
    ![Adicionar uma sonda de estado de funcionamento](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
-### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
+### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
 
 As regras de balanceador de carga definem a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie a regra de balanceador de carga **myLoadBalancerRuleWeb**, para escutar na porta 80 no front-end **FrontendLoadBalancer**. A regra envia o tráfego de rede com balanceamento de carga para o conjunto de endereços de back-end **myBackEndPool**, também através da porta 80. 
 

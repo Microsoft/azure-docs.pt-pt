@@ -1,24 +1,24 @@
 ---
-title: Atualizar o tempo de execução de Service Fabric no Azure
+title: Atualize o tempo de execução do Tecido de Serviço em Azure
 description: Neste tutorial, vai aprender a utilizar o PowerShell para atualizar o runtime de um cluster do Service Fabric alojado no Azure.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 280e25834d015d89ab7cbba2a2b2b0f36dcf19fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2fb08d7aba3e35fb6147b75bbcee35b46873b5f6
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457844"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252740"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Atualizar o runtime de um cluster do Service Fabric no Azure
 
-Este tutorial é a parte quatro de uma série e mostra como atualizar o tempo de execução de Service Fabric em um cluster de Service Fabric do Azure. Esta parte do tutorial é escrita para clusters Service Fabric em execução no Azure e não se aplica a clusters Service Fabric autônomos.
+Este tutorial é parte quatro de uma série, e mostra-lhe como atualizar o tempo de funcionação do Tecido de Serviço num cluster Azure Service Fabric. Esta peça tutorial é escrita para clusters de tecido de serviço em funcionamento em Azure e não se aplica a clusters de Tecido de Serviço autónomos.
 
 > [!WARNING]
 > Esta parte do tutorial requer o PowerShell. As ferramentas de CLI do Azure ainda não suportam a atualização do runtime do cluster. Em alternativa, um cluster pode ser atualizado no portal. Para obter mais informações, veja [Atualizar um cluster do Azure Service Fabric](service-fabric-cluster-upgrade.md).
 
-Se o cluster já estiver executando o tempo de execução de Service Fabric mais recente, você não precisará executar esta etapa. No entanto, este artigo pode ser utilizado para instalar qualquer runtime suportado num cluster do Azure Service Fabric.
+Se o seu cluster já estiver a executar o mais recente tempo de funcionamento do Tecido de Serviço, não precisa de fazer este passo. No entanto, este artigo pode ser utilizado para instalar qualquer runtime suportado num cluster do Azure Service Fabric.
 
 Neste tutorial, ficará a saber como:
 
@@ -28,8 +28,8 @@ Neste tutorial, ficará a saber como:
 
 Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
-> * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure usando um modelo
-> * [Monitorar um cluster](service-fabric-tutorial-monitor-cluster.md)
+> * Criar um [cluster windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro em Azure usando um modelo
+> * [Monitorize um cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Reduzir ou aumentar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
 > * Atualizar o runtime de um cluster
 > * [Eliminar um cluster](service-fabric-tutorial-delete-cluster.md)
@@ -42,9 +42,9 @@ Nesta série de tutoriais, ficará a saber como:
 Antes de começar este tutorial:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [CLI do Azure](/cli/azure/install-azure-cli).
-* Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure
-* Configure um ambiente de desenvolvimento do Windows. Instale o [Visual Studio 2019](https://www.visualstudio.com) e o desenvolvimento **do Azure**, **ASP.net e desenvolvimento**para a Web e cargas de trabalho de **desenvolvimento de plataforma cruzada do .NET Core** .  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
+* Instale [o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [o Azure CLI](/cli/azure/install-azure-cli).
+* Criar um [cluster windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro em Azure
+* Criar um ambiente de desenvolvimento windows. Instale o [Visual Studio 2019](https://www.visualstudio.com) e o **desenvolvimento do Azure,** **ASP.NET e desenvolvimento web,** e **.NET Core,** trabalhos de desenvolvimento de plataformas cruzadas.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -58,14 +58,14 @@ Set-AzContext -SubscriptionId <guid>
 
 ## <a name="get-the-runtime-version"></a>Obter a versão de runtime
 
-Depois de se conectar ao Azure, selecione a assinatura que contém o Cluster Service Fabric, você pode obter a versão de tempo de execução do cluster.
+Depois de ter ligado ao Azure, selecionou a subscrição que contém o cluster Service Fabric, pode obter a versão de tempo de execução do cluster.
 
 ```powershell
 Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Ou, basta obter uma lista de todos os clusters em sua assinatura com o seguinte exemplo:
+Ou, basta obter uma lista de todos os clusters na sua subscrição com o seguinte exemplo:
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
@@ -108,7 +108,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
                              -StoreLocation CurrentUser -StoreName My
 ```
 
-```azurecli
+```console
 sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
@@ -150,7 +150,7 @@ MaxPercentUpgradeDomainDeltaUnhealthyNodes : 0
 ApplicationHealthPolicyMap                 : {}
 ```
 
-```azurecli
+```console
 sfctl cluster upgrade-status
 
 {

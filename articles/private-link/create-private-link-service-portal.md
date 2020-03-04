@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: e316da12345c0bf1ea3682dadb1a7a65f250747b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191092"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252555"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Quickstart: Criar um serviço de Link Privado utilizando o portal Azure
 
@@ -29,21 +29,22 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Primeiro, criar uma rede virtual. Em seguida, crie um equilibrador de carga interno para utilizar com o serviço Private Link.
 
-### <a name="create-the-virtual-network"></a>Criar a rede virtual
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
 Nesta secção, vai criar uma rede virtual. Também cria a subnet para acolher o equilibrador de carga que acede ao seu serviço Private Link.
 
-1. No lado superior esquerdo do portal, selecione **Criar um recurso** > rede de **rede** > **rede virtual.**
+Nesta secção terá de substituir os seguintes parâmetros nos passos com as informações abaixo:
 
-1. No painel de **rede virtual Criar,** insira ou selecione estes valores:
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<nome de grupo de recursos>**  | myResourceGroupLB |
+| **\<nome de rede virtual>** | myVNet          |
+| **\<nome da região>**          | E.U.A. Leste 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<sub-nome>**          | myBackendSubnet        |
+| **\<sub-endereço-gama>** | 10.3.0.0\24          |
 
-   - **Nome**: Insira **myVNet**.
-   - **ResourceGroup**: **Selecione Criar novo,** introduza **o meu ResourceGroupLB,** e selecione **OK**.
-   - **Subnet** > **Nome**: Introduza **myBackendSubnet**.
-
-1. Selecione **Criar**.
-
-   ![Criar uma rede virtual](../load-balancer/media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-a-standard-load-balancer"></a>Criar um balanceador de carga standard
 

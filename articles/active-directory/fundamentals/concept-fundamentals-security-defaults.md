@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73de446513915bbc5cba9d8b9cf23d08d18cc362
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585990"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248851"
 ---
 # <a name="what-are-security-defaults"></a>O que são incumprimentos de segurança?
 
@@ -69,7 +69,7 @@ Um método comum para melhorar a proteção de todos os utilizadores é exigir u
 
 Para dar aos seus utilizadores um acesso fácil às suas aplicações na nuvem, o Azure AD suporta uma variedade de protocolos de autenticação, incluindo a autenticação do legado. *A autenticação do legado* é um termo que se refere a um pedido de autenticação feito por:
 
-- Clientes mais velhos do Office que não usam autenticação moderna (por exemplo, um cliente do Office 2010).
+- Clientes que não usam autenticação moderna (por exemplo, um cliente do Office 2010).
 - Qualquer cliente que utilize protocolos de correio mais antigos, como iMAP, SMTP ou POP3.
 
 Hoje, a maioria das tentativas comprometedoras de inscrição provém da autenticação do legado. A autenticação do legado não suporta a autenticação multi-factor. Mesmo que tenha uma política de autenticação multi-factor ativada no seu diretório, um intruso pode autenticar usando um protocolo mais antigo e contornar a autenticação multi-factor. 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 03/03/2020
 ms.author: erhopf
-ms.openlocfilehash: 26fe995f45a97a5863bfc20fd1564df89124ed88
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 873898ce321100edbaa800d2436d0413c06ce175
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168322"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255675"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -54,6 +54,7 @@ Esses parâmetros podem ser incluídos na cadeia de consulta da solicitação RE
 | `language` | Identifica o idioma falado que está a ser reconhecido. Ver [línguas apoiadas.](language-support.md#speech-to-text) | Necessário |
 | `format` | Especifica o formato de resultado. Os valores aceites são `simple` e `detailed`. Os resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset`e `Duration`. Respostas detalhadas incluem vários resultados com valores de confiança e quatro diferentes representações. A definição predefinida é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com linguagem inapropriada nos resultados de reconhecimento. Os valores aceites são `masked`, que substitui a profanação por asteriscos, `removed`, que remove toda a profanação do resultado, ou `raw`, que inclui a profanação no resultado. A definição predefinida é `masked`. | Opcional |
+| `cid` | Ao utilizar o [portal Custom Speech](how-to-custom-speech.md) para criar modelos personalizados, pode utilizar modelos personalizados através do id **endpoint** encontrado na página **de Implementação.** Utilize o **ID endpoint** como argumento para o parâmetro de corda de consulta `cid`. | Opcional |
 
 ## <a name="request-headers"></a>Cabeçalhos do pedido
 
@@ -72,10 +73,10 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de voz e
 
 O áudio é enviado no corpo do pedido de `POST` HTTP. Tem de ser um dos formatos nesta tabela:
 
-| Formato | Codec | Velocidade de transmissão | Taxa de exemplo |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bit | 16 kHz, mono |
-| OGG | OPUS | 16-bit | 16 kHz, mono |
+| Formato | Codec | Velocidade de transmissão | Taxa de exemplo  |
+|--------|-------|---------|--------------|
+| WAV    | PCM   | 16-bit  | 16 kHz, mono |
+| OGG    | OPUS  | 16-bit  | 16 kHz, mono |
 
 >[!NOTE]
 >Os formatos acima são suportados através da REST API e WebSocket no serviço De Fala. O [SDK de Speech](speech-sdk.md) suporta atualmente o formato WAV com codec PCM, bem como outros [formatos](how-to-use-codec-compressed-audio-input-streams.md).
@@ -100,50 +101,43 @@ O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
 
 | Código de estado de HTTP | Descrição | Razão possível |
 |------------------|-------------|-----------------|
-| 100 | Continuar | O pedido inicial foi aceite. Continue com a enviar o resto dos dados. (Utilizado com a transferência em partes). |
-| 200 | OK | O pedido foi concluída com êxito; o corpo da resposta é um objeto JSON. |
-| 400 | Pedido incorreto | Código linguístico não fornecido, nem uma linguagem suportada, ficheiro áudio inválido, etc. |
-| 401 | Não autorizado | Chave de subscrição ou autorização token é inválido na região especificada ou ponto final inválido. |
-| 403 | Proibido | Chave de subscrição ou autorização em falta token. |
+| `100` | Continuar | O pedido inicial foi aceite. Continue com a enviar o resto dos dados. (Utilizado com transferência em pedaços) |
+| `200` | OK | O pedido foi concluída com êxito; o corpo da resposta é um objeto JSON. |
+| `400` | Pedido incorreto | Código linguístico não fornecido, nem uma linguagem suportada, ficheiro áudio inválido, etc. |
+| `401` | Não autorizado | Chave de subscrição ou autorização token é inválido na região especificada ou ponto final inválido. |
+| `403` | Proibido | Chave de subscrição ou autorização em falta token. |
 
 ## <a name="chunked-transfer"></a>Transferência em partes
 
 A transferência em pedaços (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência do reconhecimento. Permite que o serviço de Fala comece a processar o ficheiro áudio enquanto é transmitido. A API REST não fornece resultados parciais ou provisórias.
 
-Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro segmento deve conter cabeçalho do arquivo de áudio. `request` é um objeto HTTPWebRequest ligado ao ponto final apropriado do REST. `audioFile` é o caminho para um ficheiro áudio no disco.
+Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro segmento deve conter cabeçalho do arquivo de áudio. `request` é um objeto `HttpWebRequest` ligado ao ponto final apropriado do REST. `audioFile` é o caminho para um ficheiro áudio no disco.
 
 ```csharp
+var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+request.SendChunked = true;
+request.Accept = @"application/json;text/xml";
+request.Method = "POST";
+request.ProtocolVersion = HttpVersion.Version11;
+request.Host = host;
+request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
+request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_SUBSCRIPTION_KEY";
+request.AllowWriteStreamBuffering = false;
 
-    HttpWebRequest request = null;
-    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
-    request.SendChunked = true;
-    request.Accept = @"application/json;text/xml";
-    request.Method = "POST";
-    request.ProtocolVersion = HttpVersion.Version11;
-    request.Host = host;
-    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
-    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
-    request.AllowWriteStreamBuffering = false;
-
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
+    // Open a request stream and write 1024 byte chunks in the stream one at a time.
     byte[] buffer = null;
     int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
+    using (var requestStream = request.GetRequestStream())
     {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
+        // Read 1024 raw bytes from the input audio file.
         buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
         while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
         {
             requestStream.Write(buffer, 0, bytesRead);
         }
 
-        // Flush
         requestStream.Flush();
     }
 }

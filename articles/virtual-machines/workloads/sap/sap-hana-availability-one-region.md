@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a5e4f9853a68b7b4d8b97cc76032cfa88708c097
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842687"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255466"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidade do SAP HANA dentro de uma região de Azure
 Este artigo descreve vários cenários de disponibilidade dentro de uma região de Azure. Azure tem muitas regiões, espalhadas por todo o mundo. Para a lista das regiões de Azure, consulte [as regiões de Azure.](https://azure.microsoft.com/regions/) Para a implementação de SAP HANA em VMs dentro de uma região do Azure, a Microsoft oferece a implementação de um único VM com uma instância HANA. Para uma maior disponibilidade, pode implementar dois VMs com duas instâncias HANA dentro de um conjunto de [disponibilidade Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) que utiliza a replicação do sistema HANA para disponibilidade. 
@@ -108,7 +108,7 @@ Neste cenário, os dados que são replicados para a instância HANA no segundo V
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>Replicação do sistema SAP HANA com falha automática
 
-Na configuração padrão e mais comum de disponibilidade dentro de uma região de Azure, dois VMs Azure que executam SLES Linux têm um cluster de failover definido. O cluster SLES Linux baseia-se na estrutura [do Pacemaker,](http://www.linux-ha.org/wiki/Pacemaker) em conjunto com um dispositivo [STONITH.](http://www.linux-ha.org/wiki/STONITH) 
+Na configuração padrão e mais comum de disponibilidade dentro de uma região de Azure, dois VMs Azure que executam SLES Linux têm um cluster de failover definido. O cluster SLES Linux baseia-se na estrutura [do Pacemaker,](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) em conjunto com um dispositivo [STONITH.](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) 
 
 Do ponto de vista do SAP HANA, o modo de replicação que é usado é sincronizado e uma falha automática é configurada. Na segunda VM, o caso SAP HANA atua como um nó de espera quente. O nó de espera recebe um fluxo sincronizado de registos de mudança saindo da instância principal sAP HANA. Como as transações são cometidas pelo pedido no nó primário hana, o nó principal HANA aguarda para confirmar o compromisso com o pedido até que o nó secundário SAP HANA confirme que recebeu o registo de compromisso. O SAP HANA oferece dois modos de replicação sincronizados. Para mais detalhes e para uma descrição das diferenças entre estes dois modos de replicação sincronizados, consulte os modos de replicação do artigo SAP para a replicação do [sistema SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 
@@ -127,5 +127,5 @@ Para obter orientações passo a passo sobre a configuração destas configuraç
 
 Para mais informações sobre a disponibilidade do SAP HANA em todas as regiões de Azure, consulte:
 
-- [Disponibilidade de SAP HANA nas regiões do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
+- [Disponibilidade do SAP HANA nas regiões de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
 

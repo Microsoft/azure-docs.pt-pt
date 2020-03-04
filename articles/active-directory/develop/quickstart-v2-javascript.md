@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.openlocfilehash: 9fc77b876474c89014998ce789f91f098fb3735c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 9077d5c471911c9967c327c457d683b06856b920
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161054"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249055"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um sinal de acesso num JavaScript SPA
 
@@ -26,8 +26,9 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Node.js](https://nodejs.org/en/download/).
+* [Node.js](https://nodejs.org/en/download/)
 * [Código de Estúdio Visual](https://code.visualstudio.com/download) (para editar ficheiros de projeto)
+
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registe-se e descarregue a sua aplicação quickstart
@@ -71,38 +72,39 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 
 #### <a name="step-2-download-the-project"></a>Passo 2: Transferir o projeto
 
-Selecione a opção adequada ao seu ambiente de desenvolvimento:
+> [!div renderon="docs"]
+> Para executar o projeto com um servidor web utilizando o Node.js, [descarregue os ficheiros do projeto principal](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
-* Para executar o projeto com um servidor web utilizando o Node.js, [descarregue os ficheiros do projeto principal](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip). Para abrir os ficheiros, utilize um editor como visual [studio code](https://code.visualstudio.com/).
+> [!div renderon="portal"]
+> Executar o projeto com um servidor web usando Node.js
 
-#### <a name="step-3-configure-your-javascript-app"></a>Passo 3: Configure a sua aplicação JavaScript
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Descarregue a amostra de código]()
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-javascript-app"></a>Passo 3: Configure a sua aplicação JavaScript
+>
 > Na pasta *JavaScriptSPA,* edite *authConfig.js*e detetete os valores `clientID` e `authority` em `msalConfig`.
+> ```javascript
+>
+>  // Config object to be passed to Msal on creation
+>  const msalConfig = {
+>    auth: {
+>      clientId: "Enter_the_Application_Id_Here",
+>      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+>      redirectUri: "Enter_the_Redirect_Uri_Here",
+>    },
+>    cache: {
+>      cacheLocation: "sessionStorage", // This configures where your cache will be stored
+>      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+>      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
+>    }
+>  };  
+> ```
 
-> [!div class="sxs-lookup" renderon="portal"]
-> Na pasta *JavaScriptSPA,* edite *authConfig.js*e substitua `msalConfig` pelo seguinte código:
-
-```javascript
-
-  // Config object to be passed to Msal on creation
-  const msalConfig = {
-    auth: {
-      clientId: "Enter_the_Application_Id_Here",
-      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
-      redirectUri: "Enter_the_Redirect_Uri_Here",
-    },
-    cache: {
-      cacheLocation: "sessionStorage", // This configures where your cache will be stored
-      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
-      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
-    }
-  };  
-
-```
 > [!div renderon="portal"]
 > > [!NOTE]
-> > Este arranque rápido apoia Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
 >
@@ -117,19 +119,22 @@ Selecione a opção adequada ao seu ambiente de desenvolvimento:
 > > [!TIP]
 > > Para encontrar os valores do **ID da Aplicação (cliente)** , o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 >
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Passo 3: A sua aplicação está configurada e pronta para ser executada
+> Configurámos o seu projeto com valores das propriedades da sua aplicação. 
 
-#### <a name="step-4-run-the-project"></a>Passo 4: Executar o projeto
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-project"></a>Passo 4: Executar o projeto
 
-Se estiver a usar [o Nó.js:](https://nodejs.org/en/download/)
+Executar o projeto com um servidor web utilizando [o Node.js:](https://nodejs.org/en/download/)
 
 1. Para iniciar o servidor, execute o seguinte comando a partir do diretório do projeto:
-
-   ```batch
-   npm install
-   npm start
-   ```
-
+    ```batch
+    npm install
+    npm start
+    ```
 1. Abra um navegador web e vá para `http://localhost:3000/`.
+
 1. Selecione **Iniciar** sessão para iniciar o início do início do início e, em seguida, ligue para a Microsoft Graph API.
 
 Depois de o navegador carregar a aplicação, selecione 'Iniciar sessão' de **'Sign In'.** A primeira vez que faz o insessão, é-lhe pedido que forneça o seu consentimento para permitir que a aplicação aceda ao seu perfil e o inscreva. Depois de assinado com sucesso, as informações do seu perfil de utilizador devem ser exibidas na página.

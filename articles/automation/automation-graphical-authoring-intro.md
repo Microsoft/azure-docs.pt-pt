@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7a0d94522e478a69f70167183e4c0d60d0d85060
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 15f63544a98c6d7bb7171081d9c3e084890e15ec
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226545"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256001"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Autoria gráfica em Automação Azure
 
@@ -21,11 +21,11 @@ A autoria gráfica permite-lhe criar livros de execução para a Automação Azu
 
 ## <a name="graphical-runbooks"></a>Livros gráficos
 
-Todos os livros de execução da Azure Automation são fluxos de trabalho do Windows PowerShell. Os livros gráficos e os livros de workflow graphical PowerShell geram código PowerShell que os trabalhadores da Automação executam, mas que não pode ver ou modificar. Pode converter um livro de execução gráfico para um livro de execução de fluxo de fluxo de fluxo de powershell gráfico e vice-versa. No entanto, não é possível converter estes livros de execução num livro textual. Além disso, o editor gráfico da Automação não pode importar um livro textual.
+Todos os livros de execução da Azure Automation são fluxos de trabalho do Windows PowerShell. Os livros gráficos e os livros de execução gráficopower Workflow geram código PowerShell que os trabalhadores da Automação executam, mas que não pode ver ou modificar. Pode converter um livro de execução gráfico para um livro de execução gráfico powerShell Workflow e vice-versa. No entanto, não é possível converter estes livros de execução num livro textual. Além disso, o editor gráfico da Automação não pode importar um livro textual.
 
 ## <a name="overview-of-graphical-editor"></a>Visão geral do editor gráfico
 
-Pode abrir o editor gráfico no portal Azure criando ou editando um livro gráfico.
+Pode abrir o editor gráfico no portal Azure criando ou editando um livro de execução gráfico.
 
 ![Espaço de trabalho gráfico](media/automation-graphical-authoring-intro/runbook-graphical-editor.png)
 
@@ -42,7 +42,7 @@ O controlo da Biblioteca permite-lhe selecionar [atividades](#activities) para a
 | Section | Descrição |
 |:--- |:--- |
 | Cmdlets |Todos os cmdlets que podem ser usados no seu livro de execução. Os cmdlets são organizados por módulo. Todos os módulos instalados na sua conta Automation estão disponíveis. |
-| Runbooks |Os livros na sua conta de Automação. Pode adicionar estes livros de execução à tela para serem usados como livros infantis. Apenas são mostrados livros do mesmo tipo de núcleo que o livro de execução que está a ser editado. Para os livros gráficos, apenas são mostrados livros de execução baseados na PowerShell. Para os livros de execução de fluxo de trabalho de PowerShell Graphical, apenas são apresentados livros de execução baseados em PowerShell Workflow. |
+| Runbooks |Os livros na sua conta de Automação. Pode adicionar estes livros de execução à tela para serem usados como livros infantis. Apenas são mostrados livros do mesmo tipo de núcleo que o livro de execução que está a ser editado. Para livros gráficos, apenas são mostrados livros de execução baseados na PowerShell. Para os livros de execução de fluxo de trabalho de PowerShell, apenas são apresentados livros de execução baseados em PowerShell Workflow. |
 | Elementos |Os ativos de [automação](/previous-versions/azure/dn939988(v=azure.100)) na sua conta Automation que pode utilizar no seu livro de execução. Adicionar um ativo a um livro de execução adiciona uma atividade de fluxo de trabalho que obtém o ativo selecionado. No caso de ativos variáveis, pode selecionar se deve adicionar uma atividade para obter a variável ou definir a variável. |
 | Controlo do livro de corridas |Controle as atividades que podem ser usadas no seu atual livro de execução. Uma atividade de Junção requer várias inputs e espera até que todos tenham terminado antes de continuar o fluxo de trabalho. Uma atividade de Código executa uma ou mais linhas de PowerShell ou PowerShell Workflow code, dependendo do tipo de livro gráfico. Pode utilizar esta atividade para código personalizado ou para funcionalidades difíceis de alcançar com outras atividades. |
 
@@ -52,7 +52,7 @@ O controlo de configuração permite-lhe fornecer detalhes para um objeto que é
 
 ### <a name="test-control"></a>Controlo de ensaios
 
-O controlo de Teste não é apresentado quando o editor gráfico é iniciado pela primeira vez. Abre-se quando testa interativamente um livro gráfico.
+O controlo de Teste não é apresentado quando o editor gráfico é iniciado pela primeira vez. Abre-se quando se testa interativamente um livro de execução gráfico.
 
 ## <a name="activities"></a>Atividades
 
@@ -241,15 +241,15 @@ $ActivityOutput['Activity Label'].PropertyName
 
 ### <a name="checkpoints"></a>Pontos de verificação
 
-Pode definir [pontos](automation-powershell-workflow.md#checkpoints) de verificação num livro de execução de fluxo de fluxo de fluxo de powershell gráfico, selecionando o livro de **execução do Checkpoint** em qualquer atividade. Isto faz com que um posto de controlo seja definido após o funcionar da atividade.
+Pode definir [pontos](automation-powershell-workflow.md#checkpoints) de verificação num livro de execução de fluxo de trabalho de PowerShell gráfico, selecionando o livro de **execução do Checkpoint** em qualquer atividade. Isto faz com que um posto de controlo seja definido após o funcionar da atividade.
 
 ![Check Point](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
-Os postos de controlo estão apenas ativados em livros de fluxo de trabalho de PowerShell gráficos, e não estão disponíveis em livros gráficos. Se o livro de execução utilizar cmdlets Azure, deve seguir qualquer atividade checkpointada com uma atividade **Connect-AzAccount.** A operação de ligação é utilizada no caso de o livro de execução ser suspenso e deve reiniciar a partir deste posto de controlo num trabalhador diferente.
+Os postos de controlo só estão ativados em livros de execução gráficos powerShell Workflow, e não estão disponíveis em livros gráficos. Se o livro de execução utilizar cmdlets Azure, deve seguir qualquer atividade checkpointada com uma atividade **Connect-AzAccount.** A operação de ligação é utilizada no caso de o livro de execução ser suspenso e deve reiniciar a partir deste posto de controlo num trabalhador diferente.
 
 ## <a name="runbook-input-and-output"></a>Entrada e saída do livro de execução
 
-### <um nome-"runbook-input"></a>entrada runbook
+### Entrada do livro de execução<a name="runbook-input"></a>
 
 Um livro de execução requer a entrada de um utilizador que inicia o livro através do portal Azure ou de outro livro de execução, se o atual for utilizado em criança. Por exemplo, para um livro de execução que cria uma máquina virtual, o utilizador pode precisar de fornecer informações como o nome da máquina virtual e outras propriedades cada vez que o livro de execução começa.
 
@@ -399,7 +399,7 @@ Para os campos de parâmetros, **APPLICATIONID,** **CERTIFICATETHUMBPRINT,** e *
 
 Alguns subscritores criam uma conta De automação utilizando uma conta de utilizador da [Azure AD](automation-create-aduser-account.md) para gerir a implantação clássica do Azure ou para os recursos do Gestor de Recursos Azure. Para manter a compatibilidade retrógrada para estes assinantes, o mecanismo de autenticação a utilizar no seu livro de execução é o cmdlet **Add-AzureAccount** com um [ativo credencial](automation-credentials.md). O ativo representa um utilizador do Ative Directy com acesso à conta Azure.
 
-Pode ativar esta funcionalidade para o seu livro de execução gráfico adicionando um ativo credencial à tela, seguido de uma atividade **Add-AzureAccount** que utiliza o ativo credencial para a sua entrada. Veja o seguinte exemplo.
+Pode ativar esta funcionalidade para o seu rumbook gráfico adicionando um ativo credencial à tela, seguido de uma atividade **Add-AzureAccount** que utiliza o ativo credencial para a sua entrada. Veja o seguinte exemplo.
 
 ![Atividades de autenticação](media/automation-graphical-authoring-intro/authentication-activities.png)
 
@@ -407,17 +407,17 @@ O livro de execução deve autenticar no seu início e após cada ponto de verif
 
 ![produção de atividade](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 
-## <a name="exporting-and-importing-a-graphical-runbook"></a>Exportação e importação de um livro gráfico
+## <a name="exporting-and-importing-a-graphical-runbook"></a>Exportação e importação de um livro de execução gráfico
 
-Só é possível exportar a versão publicada de um livro de execução gráfico. Se o livro de execução ainda não tiver sido publicado, o botão **Export** está desativado. Quando clica no botão **Export,** o livro de execução descarrega para o seu computador local. O nome do ficheiro corresponde ao nome do livro de execução com uma extensão **.graphrunbook.**
+Só pode exportar a versão publicada de um livro de execução gráfico. Se o livro de execução ainda não tiver sido publicado, o botão **Export** está desativado. Quando clica no botão **Export,** o livro de execução descarrega para o seu computador local. O nome do ficheiro corresponde ao nome do livro de execução com uma extensão **.graphrunbook.**
 
-Pode importar um ficheiro de fluxo de fluxo de fluxo de fluxo de fluxo de fluxo de powershell gráfico ou gráfico selecionando a opção **Import** ao adicionar um livro de execução. Quando selecionar o ficheiro para importar, pode manter o mesmo nome ou fornecer um novo. O campo **'Tipo de Livro de Execução'** apresenta o tipo de livro de execução depois de avaliar o ficheiro selecionado. Se tentar selecionar um tipo diferente que não esteja correto, o editor gráfico apresenta uma mensagem notando que existem potenciais conflitos e que pode haver erros de sintaxe durante a conversão.
+Pode importar um ficheiro de fluxo de fluxo de fluxo de fluxo de fluxo de powershell gráfico ou gráfico selecionando a opção **Import** ao adicionar um livro de execução. Quando selecionar o ficheiro para importar, pode manter o mesmo nome ou fornecer um novo. O campo **'Tipo de Livro de Execução'** apresenta o tipo de livro de execução depois de avaliar o ficheiro selecionado. Se tentar selecionar um tipo diferente que não esteja correto, o editor gráfico apresenta uma mensagem notando que existem potenciais conflitos e que pode haver erros de sintaxe durante a conversão.
 
 ![Livro de importação](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
-## <a name="testing-a-graphical-runbook"></a>Testar um livro gráfico
+## <a name="testing-a-graphical-runbook"></a>Testar um livro de execução gráfico
 
-Cada livro gráfico em Azure Automation tem uma versão Draft e uma versão Publicada. Só pode executar a versão Publicada, enquanto só pode editar a versão Draft. A versão publicada não é afetada por quaisquer alterações feitas à versão de rascunho. Quando a versão Do Projeto estiver pronta a ser utilizada, publica-a, que substitui a versão atual publicada com a versão Draft.
+Cada livro gráfico da Azure Automation tem uma versão Draft e uma versão Publicada. Só pode executar a versão Publicada, enquanto só pode editar a versão Draft. A versão publicada não é afetada por quaisquer alterações feitas à versão de rascunho. Quando a versão Do Projeto estiver pronta a ser utilizada, publica-a, que substitui a versão atual publicada com a versão Draft.
 
 Pode testar a versão Draft de um livro de execução no portal Azure, deixando a versão Publicada inalterada. Em alternativa, pode testar um novo livro de executões antes de ser publicado para que possa verificar se o livro funciona corretamente antes de qualquer substituição da versão. O teste de um livro executa a versão Draft e garante que quaisquer ações que executa estejam concluídas. Não é criado histórico de trabalho, mas o painel de saída de teste mostra a saída.
 
@@ -438,6 +438,6 @@ Tem a opção de reverter para a versão publicada de um livro de execução. Es
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para começar a utilizar runbooks do Fluxo de Trabalho do PowerShell, veja [O meu primeiro runbook do Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md).
-* Para começar com livros gráficos, consulte [o meu primeiro livro gráfico.](automation-first-runbook-graphical.md)
+* Para começar com livros gráficos, veja [o meu primeiro livro de corridas gráficos.](automation-first-runbook-graphical.md)
 * Para saber mais sobre os tipos de livro de corridas e as suas vantagens e limitações, consulte os tipos de livro de [execução da Automação Azure](automation-runbook-types.md).
 * Para entender como autenticar usando a automatização Executar Como conta, consulte [Configure Azure Run As Account](automation-sec-configure-azure-runas-account.md).

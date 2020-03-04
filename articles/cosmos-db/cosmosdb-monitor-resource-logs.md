@@ -1,73 +1,73 @@
 ---
-title: Monitorar dados de Azure Cosmos DB usando as configurações de diagnóstico do Azure
-description: Saiba como usar as configurações de diagnóstico do Azure para monitorar o desempenho e a disponibilidade dos dados armazenados no Azure Cosmos DB
+title: Monitor Ize os dados do Azure Cosmos DB utilizando as definições de Diagnóstico Azure
+description: Saiba como utilizar as definições de Diagnóstico Azure para monitorizar o desempenho e disponibilidade de dados armazenados no Azure Cosmos DB
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: sngun
-ms.openlocfilehash: 670797eb833b0a145a18e20c6bba711ca11609bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 184fc65dae57292243be9abdca71a129512b3d0b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483287"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252059"
 ---
-# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorar dados de Azure Cosmos DB usando as configurações de diagnóstico no Azure
+# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitor De dados do Azure Cosmos DB utilizando definições de diagnóstico no Azure
 
-As configurações de diagnóstico no Azure são usadas para coletar logs de recursos. Os logs de recursos do Azure são emitidos por um recurso e fornecem dados avançados e frequentes sobre a operação desse recurso. Esses logs são capturados por solicitação e também são chamados de "logs do plano de dados". Alguns exemplos das operações do plano de dados incluem excluir, inserir e readFeed. O conteúdo estes registos varia consoante o tipo de recurso.
+As definições de diagnóstico em Azure são utilizadas para recolher registos de recursos. Os registos de recursos Azure são emitidos por um recurso e fornecem dados ricos e frequentes sobre o funcionamento desse recurso. Estes registos são capturados por pedido e também são referidos como "registos de planos de dados". Alguns exemplos das operações do avião de dados incluem apagar, inserir e lerFeed. O conteúdo estes registos varia consoante o tipo de recurso.
 
-As métricas de plataforma e os logs de atividade são coletados automaticamente, enquanto você deve criar uma configuração de diagnóstico para coletar logs de recursos ou encaminhá-los fora do Azure Monitor. Você pode ativar a configuração de diagnóstico para contas do Azure Cosmos usando as seguintes etapas:
+As métricas da plataforma e os registos de Atividade são recolhidos automaticamente, ao passo que é necessário criar uma definição de diagnóstico para recolher registos de recursos ou encaminhar para fora do Monitor Azure. Pode ligar a definição de diagnóstico para as contas do Azure Cosmos utilizando os seguintes passos:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. Navegue até sua conta do Azure Cosmos. Abra o painel **configurações de diagnóstico** e selecione a opção **Adicionar configuração de diagnóstico** .
+1. Navegue para a sua conta Azure Cosmos. Abra o painel de **definições de diagnóstico** e, em seguida, selecione Adicionar a opção de **definição de diagnóstico.**
 
-1. No painel **configurações de diagnóstico** , preencha o formulário com os seguintes detalhes: 
+1. No painel de **definições de diagnóstico,** encha o formulário com os seguintes detalhes: 
 
-    * **Nome**: introduza um nome para os registos criar.
+    * **Nome**: Introduza um nome para os registos a criar.
 
-    * Você pode armazenar os logs para **arquivar em uma conta de armazenamento**, **transmitir para um hub de eventos** ou **Enviar para log Analytics**
+    * Pode armazenar os registos para Arquivar numa conta de **armazenamento,** **transmitir para um centro de eventos** ou enviar para Log **Analytics**
 
-1. Ao criar uma configuração de diagnóstico, você especifica qual categoria de logs coletar. As categorias de logs com suporte pelo Azure Cosmos DB estão listadas abaixo, juntamente com o log de exemplo coletado por eles:
+1. Quando cria uma definição de diagnóstico, especifica qual a categoria de registos a recolher. As categorias de registos suportados pela Azure Cosmos DB estão listadas abaixo juntamente com o registo de amostras recolhido por eles:
 
- * **DataPlaneRequests**: Selecione esta opção para registrar solicitações de back-end para todas as APIs, que incluem as contas SQL, Graph, MongoDB, Cassandra e API de Tabela no Azure Cosmos DB. As propriedades de chave a serem observadas são: `Requestcharge`, `statusCode`, `clientIPaddress`e `partitionID`.
+ * **DataPlaneRequests**: Selecione esta opção para registar pedidos de back-end para todas as APIs, que incluem Contas SQL, Graph, MongoDB, Cassandra e Table API em contas Azure Cosmos DB. As principais propriedades a notar são: `Requestcharge`, `statusCode`, `clientIPaddress`e `partitionID`.
 
     ```
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests**: Selecione esta opção para registrar solicitações iniciadas pelo usuário do front-end para atender a solicitações para a API do Azure Cosmos DB para MongoDB, esse tipo de log não está disponível para outras contas de API. As solicitações do MongoDB serão exibidas em MongoRequests, bem como DataPlaneRequests. As propriedades de chave a serem observadas são: `Requestcharge`, `opCode`.
+* **MongoRequests**: Selecione esta opção para registar pedidos iniciados pelo utilizador a partir da parte frontal para servir pedidos à API da Azure Cosmos DB para MongoDB, este tipo de registo não está disponível para outras contas API. Os pedidos da MongoDB serão apresentados em MongoRequests, bem como dataPlaneRequests. As principais propriedades a notar são: `Requestcharge`, `opCode`.
 
     ```
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
-* **QueryRuntimeStatistics**: Selecione esta opção para registrar o texto da consulta que foi executado. Esse tipo de log está disponível somente para contas da API do SQL.
+* **ConsultasEstatísticas :** Selecione esta opção para registar o texto de consulta que foi executado. Este tipo de registo está disponível apenas para contas SQL API.
 
     ```
     { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
     ```
 
-* **PartitionKeyStatistics**: Selecione esta opção para registrar as estatísticas das chaves de partição. Atualmente, isso é representado com o tamanho do armazenamento (KB) das chaves de partição. Consulte a seção [Solucionando problemas usando consultas de diagnóstico do Azure](#diagnostic-queries) deste artigo. Por exemplo, consultas que usam "PartitionKeyStatistics". O log é emitido em relação às três primeiras chaves de partição que ocupam a maior parte do armazenamento de dados. Esse log contém dados como a ID da assinatura, o nome da região, o nome do banco de dado, o nome da coleção, a chave de partição e o tamanho do armazenamento em KB.
+* **PartitionKeyStatistics**: Selecione esta opção para registar as estatísticas das teclas de partição. Isto está atualmente representado com o tamanho de armazenamento (KB) das teclas de partição. Consulte os problemas de resolução de problemas utilizando a secção de consultas de [Diagnóstico Azure](#diagnostic-queries) deste artigo. Por exemplo, consultas que utilizam "PartitionKeyStatistics". O registo é emitido contra as três primeiras teclas de partição que ocupam a maioria do armazenamento de dados. Este registo contém dados como ID de subscrição, nome da região, nome da base de dados, nome de recolha, chave de partição e tamanho de armazenamento em KB.
 
     ```
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 
-* **PartitionKeyRUConsumption**: esse log relata o consumo de ru/s agregado por segundo de chaves de partição. Atualmente, Azure Cosmos DB relata chaves de partição somente para contas de API do SQL e para operações de ponto de leitura/gravação e procedimento armazenado. Não há suporte para outros tipos de operação e APIs. Para outras APIs, a coluna de chave de partição na tabela de log de diagnóstico estará vazia. Esse log contém dados como a ID da assinatura, o nome da região, o nome do banco, o nome da coleção, a chave de partição, o tipo de operação e o encargo da solicitação. Consulte a seção [Solucionando problemas usando consultas de diagnóstico do Azure](#diagnostic-queries) deste artigo. Por exemplo, consultas que usam "PartitionKeyRUConsumption". 
+* **PartilhakeyRUConsumo**: Este registo reporta o consumo agregado por segundo de CHAVES de partição. Atualmente, a Azure Cosmos DB reporta chaves de partição apenas para contas SQL API e para operações de leitura/escrita e procedimentos armazenados. não são suportados outros APIs e tipos de operação. Para outras APIs, a coluna da chave da partição na tabela de registos de diagnóstico estará vazia. Este registo contém dados como ID de subscrição, nome da região, nome da base de dados, nome de recolha, chave de partição, tipo de operação e cobrança de pedidos. Consulte os problemas de resolução de problemas utilizando a secção de consultas de [Diagnóstico Azure](#diagnostic-queries) deste artigo. Por exemplo, consultas que utilizam "PartitionKeyRUConsumption". 
 
-* **ControlPlaneRequests**: esse log contém detalhes sobre as operações do plano de controle, como criar uma conta, adicionar ou remover uma região, atualizar as configurações de replicação da conta, etc. Esse tipo de log está disponível para todos os tipos de API que incluem SQL (Core), MongoDB, Gremlin, Cassandra, API de Tabela.
+* **ControlPlaneRequests**: Este registo contém detalhes sobre operações de planode controlo como criar uma conta, adicionar ou remover uma região, atualizar as definições de replicação de conta, etc. Este tipo de log está disponível para todos os tipos de API que incluem SQL (Core), MongoDB, Gremlin, Cassandra, Table API.
 
-* **Solicitações**: Selecione esta opção para coletar dados de métrica de Azure Cosmos DB para os destinos na configuração de diagnóstico. Esses são os mesmos dados coletados automaticamente nas métricas do Azure. Coletar dados de métrica com logs de recursos para analisar os dois tipos de dados juntos e enviar dados de métricas fora do Azure Monitor.
+* **Pedidos**: Selecione esta opção para recolher dados métricos do Azure Cosmos DB para os destinos na definição de diagnóstico. Estes são os mesmos dados recolhidos automaticamente nas Métricas Azure. Coletar dados de métrica com logs de recursos para analisar os dois tipos de dados juntos e enviar dados de métricas fora do Azure Monitor.
 
-Para obter informações detalhadas sobre como criar uma configuração de diagnóstico usando o portal do Azure, a CLI ou o PowerShell, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no artigo do Azure](../azure-monitor/platform/diagnostic-settings.md) .
+Para obter informações detalhadas sobre como criar uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell, consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma no artigo do Azure.](../azure-monitor/platform/diagnostic-settings.md)
 
 
-## <a id="diagnostic-queries"></a>Solucionar problemas com consultas de diagnóstico
+## <a id="diagnostic-queries"></a>Problemas de resolução de problemas com consultas de diagnóstico
 
-1. Como obter os encargos de solicitação para consultas caras?
+1. Como obter os encargos de pedido para consultas caras?
 
    ```Kusto
    AzureDiagnostics
@@ -82,7 +82,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | limit 100
    ```
 
-1. Como descobrir quais operações estão assumindo a maior parte de RU/s?
+1. Como descobrir que operações estão a tomar a maior parte dos RU/s?
 
     ```Kusto
    AzureDiagnostics
@@ -90,7 +90,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | where TimeGenerated >= ago(2h) 
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
-1. Como obter a distribuição para operações diferentes?
+1. Como obter a distribuição para diferentes operações?
 
    ```Kusto
    AzureDiagnostics
@@ -99,7 +99,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
    ```
 
-1. Qual é a taxa de transferência máxima que uma partição fornece?
+1. Qual é a máxima entrada que uma partição consumiu?
 
    ```Kusto
    AzureDiagnostics
@@ -108,7 +108,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | summarize max(requestCharge_s) by bin(TimeGenerated, 1h), partitionId_g
    ```
 
-1. Como obter as informações sobre o consumo de RU/s de chaves de partição por segundo?
+1. Como obter a informação sobre as teclas de partição RU/s consumo por segundo?
 
    ```Kusto
    AzureDiagnostics 
@@ -117,7 +117,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | order by TimeGenerated asc 
    ```
 
-1. Como obter a cobrança de solicitação para uma chave de partição específica
+1. Como obter a taxa de pedido para uma chave de partição específica
 
    ```Kusto
    AzureDiagnostics 
@@ -125,7 +125,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | where parse_json(partitionKey_s)[0] == "2" 
    ```
 
-1. Como obter as principais chaves de partição com a maioria das RU/s consumidas em um período específico? 
+1. Como obter as chaves de partição superior com a maioria dos RU/s consumidos num período específico? 
 
    ```Kusto
    AzureDiagnostics 
@@ -135,7 +135,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | order by total desc
     ```
 
-1. Como obter os logs para as chaves de partição cujo tamanho de armazenamento é maior que 8 GB?
+1. Como obter os registos das teclas de partição cujo tamanho de armazenamento é superior a 8 GB?
 
    ```Kusto
    AzureDiagnostics
@@ -143,7 +143,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. Como obter estatísticas de chave de partição para avaliar a distorção entre as três principais partições para a conta do banco de dados?
+1. Como obter divisória Estatísticas chave para avaliar skew em todas as três divisórias para conta de base de dados?
 
     ```Kusto
     AzureDiagnostics 
@@ -153,5 +153,5 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Azure Monitor para Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json)
-* [Monitorar e depurar com métricas no Azure Cosmos DB](use-metrics.md)
+* [Monitor Azure para Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json)
+* [Monitor e depuração com métricas em Azure Cosmos DB](use-metrics.md)

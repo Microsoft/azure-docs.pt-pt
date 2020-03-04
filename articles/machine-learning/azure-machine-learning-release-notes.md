@@ -10,18 +10,56 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 6f244fc057638bc94a94c150d9333435c0197a74
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462178"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249734"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento de Azure Machine Learning
 
 Neste artigo, conheça os lançamentos de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite o [**principal SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) da Azure Machine Learning para a página de referência python.
 
 Consulte [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs conhecidos e salões.
+
+## <a name="2020-03-02"></a>2020-03-02
+
+### <a name="azure-machine-learning-sdk-for-python-v112rc0"></a>Azure Machine Learning SDK para Python v1.1.2rc0
+
++ **Correções e melhorias de bugs**
+  + **azureml-automl-core**
+    + Ativada a inferência do modo Lote (tomando várias linhas uma vez) para modelos ONNX automl
+    + Melhorou a deteção da frequência nos conjuntos de dados, sem dados ou contendo pontos de dados irregulares
+    + Acrescentou a capacidade de remover pontos de dados que não cumprem a frequrência dominante.
+  + **azureml-automl-runtime**
+    + Fixou o problema com o erro lançado se o grão que não estava presente no conjunto de treino aparecer no conjunto de ensaios
+    + Removeu o requisito y_query durante a pontuação no serviço de previsão
+  + **azureml-contrib-mir**
+    + Adiciona funcionalidade na classe MirWebservice para recuperar o Access Token
+  + **núcleo azureml**
+    + Os Webservices azureml implantados passarão a desemposição para `INFO` exploração madeireira. Isto pode ser controlado definindo a variável ambiente `AZUREML_LOG_LEVEL` no serviço implantado.
+    + Corrija a emissão no `Dataset.get_all` para devolver todos os conjuntos de dados registados no espaço de trabalho.
+    + Melhorar a mensagem de erro quando o tipo inválido é passado para `path` argumento da criação de dataset APIs.
+    + Python sdk usa serviço de descoberta para usar o ponto final 'api' em vez de 'pipelines'.
+    + Troque para as novas rotas em todas as chamadas SDK
+    + Altera o encaminhamento de chamadas para o ModelManagementService para uma nova estrutura unificada
+      + Disponibilizou publicamente o método de atualização do espaço de trabalho.
+      + Adicionado image_build_compute parâmetro no método de atualização do espaço de trabalho para permitir ao utilizador atualizar a computação para construção de imagem
+    +  Acrescentou mensagens de depreciação ao antigo fluxo de trabalho de perfis. CCP de perfis fixos e limites de memória
+  + **azureml-interpretar**
+    + atualizar azureml-interpretpara interpretar-comunidade 0.6.*
+  + **azureml-mlflow**
+    + Adicione suporte para nuvens soberanas para azureml.mlflow
+  + **azureml-pipeline-steps**
+    + Mudou a `AutoMLStep` para o `azureml-pipeline-steps package`. Deprecei o `AutoMLStep` dentro `azureml-train-automl-runtime`.
+  + **azureml-train-automl-cliente**
+    + Corrigiu um problema em que determinados pacotes podem ser instalados em versões incorretas em execuções remotas.
+  + **azureml-train-automl-runtime**
+    + Corrigiu o problema com a deteção de frequências nos ensaios remotos
+    + Mudou a `AutoMLStep` para o `azureml-pipeline-steps package`. Deprecei o `AutoMLStep` dentro `azureml-train-automl-runtime`.
+  + **azureml-train-core**
+    + Mudou a `AutoMLStep` para o `azureml-pipeline-steps package`. Deprecei o `AutoMLStep` dentro `azureml-train-automl-runtime`.
 
 ## <a name="2020-02-18"></a>2020-02-18
 
@@ -87,39 +125,39 @@ Consulte [a lista de questões conhecidas](resource-known-issues.md) para conhec
   
 ## <a name="2020-01-21"></a>2020-01-21
 
-### <a name="azure-machine-learning-sdk-for-python-v1085"></a>Azure Machine Learning SDK para Python v 1.0.85
+### <a name="azure-machine-learning-sdk-for-python-v1085"></a>Azure Machine Learning SDK para Python v1.0.85
 
 + **Novas funcionalidades**
   + **núcleo azureml**
-    + Obtenha o uso principal atual e a limitação de cota para recursos de AmlCompute em um determinado espaço de trabalho e assinatura
+    + Obtenha o uso atual do núcleo e limitação de quota para os recursos amlCompute em um determinado espaço de trabalho e subscrição
   
   + **azureml-contrib-pipeline-steps**
-    + Habilitar o usuário a passar o conjunto de resultados de tabela como resultado intermediário da etapa anterior para parallelrunstep
+    + Ativar o utilizador a passar o conjunto de dados tabular como resultado intermédio de passo anterior para paralelarunino
 
 + **Correções e melhorias de bugs**
   + **azureml-automl-runtime**
     + Retirou a exigência da coluna y_query no pedido ao serviço de previsão implantado. 
     + O 'y_query' foi removido da secção de pedidos de serviço de portátil Orange Juice do Dominick.
-    + Correção do bug que impede a previsão nos modelos implantados, operando em conjuntos de dados com colunas de data e hora.
-    + O coeficiente de correlação de Matthews foi adicionado como uma métrica de classificação, para classificação binária e multiclasse.
+    + Fixou o bug impedindo a previsão dos modelos implantados, operando em conjuntos de dados com colunas de data.
+    + Adicionou matthews Correlation Coeficiente como uma métrica de classificação, para classificação binária e multiclasse.
   + **azureml-contrib-interpret**
-    + Os explicadores de texto removidos do azureml-contrib-interprete como explicações de texto foram movidos para o repositório de texto de interpretação que será liberado em breve.
+    + Os explicadores de texto removidos da interpretação do azureml-contrib como explicação de texto foram movidos para o repo de texto interpretativo que será lançado em breve.
   + **núcleo azureml**
-    + Conjunto de conjuntos: os usos do conjunto de arquivos não dependem mais do numpy e do pandas para serem instalados no Python env.
+    + Conjunto de dados: as utilizações para conjunto de dados de ficheiros já não dependem de um entorpecimento e pandas a instalar no env python.
     + Mudou o LocalWebservice.wait_for_deployment() para verificar o estado do contentor local Docker antes de tentar pingar o seu ponto final de saúde, reduzindo consideravelmente o tempo que leva para reportar uma implementação falhada.
-    + Correção da inicialização de uma propriedade interna usada em LocalWebservice. reload () quando o objeto de serviço é criado a partir de uma implantação existente usando o Construtor LocalWebservice ().
-    + Mensagem de erro editada para fins de esclarecimento.
+    + Fixou a inicialização de uma propriedade interna utilizada em LocalWebservice.reload() quando o objeto de serviço é criado a partir de uma implementação existente utilizando o construtor LocalWebservice()
+    + Mensagem de erro editada para esclarecimento.
     + Adicioneum novo método chamado get_access_token() ao AksWebservice que devolverá o objeto AksServiceAccessToken, que contém token de acesso, atualização após carimbo de tempo, expiração no tempo e tipo de token. 
     + Método de get_token() existente no AksWebservice, à medida que o novo método devolve toda a informação que este método devolve.
-    + Saída modificada do comando AZ ml Service Get-Access-token. Token renomeado para accessToken e refreshBy para refreshAfter. Propriedades expiryOn e TokenType adicionadas.
+    + Saída modificada do comando de acesso ao acesso ao serviço az ml. Renomeado token para accessToken e refreshBy para refreshAfter. Propriedades de expiração adicionadasOn e tokenType.
     + get_ative_runs fixa
   + **modelo azureml-explicação**
-    + atualizado o shap para 0.33.0 e interprete-Community para 0,4. *
+    + atualizado shap para 0.33.0 e interpretar-comunidade para 0.4.*
   + **azureml-interpretar**
-    + atualizado o shap para 0.33.0 e interprete-Community para 0,4. *
+    + atualizado shap para 0.33.0 e interpretar-comunidade para 0.4.*
   + **azureml-train-automl-runtime**
-    + O coeficiente de correlação de Matthews foi adicionado como uma métrica de classificação, para classificação binária e multiclasse.
-    + Substituir o sinalizador de pré-processamento do código e substituído por personalização-personalização está ativado por padrão
+    + Adicionou matthews Correlation Coeficiente como uma métrica de classificação, para classificação binária e multiclasse.
+    + Depreite a bandeira pré-processa da código e substituída por caracterização -featurization está ligado por padrão
 
 ## <a name="2020-01-06"></a>2020-01-06
 
@@ -926,7 +964,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
   + **modelo azureml-contrib-explicar**
     + Argumento de transformações fixas para explicador de LIMA para a importância da característica bruta no pacote de modelo azureml-contrib-explicação
     + Segmentações adicionadas a explicações de imagem em explicador de imagem para o pacote azureml-contrib-explica-modelo
-    + Adicione suporte escasso para LimeExplainer
+    + adicionar suporte escasso para LimeExplainer
     + acrescentou `batch_size` para imitar explicador quando `include_local=False`, para transmitir explicações globais em lotes para melhorar o tempo de execução do DecisionTreeExplainableModel
   + **engenharia de recurso azureml-contrib**
     + Correção para chamar set_featurizer_timeseries_params(): alteração do tipo de valor ditado e verificação nula - Adicione o caderno para `timeseries` featurizer

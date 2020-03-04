@@ -1,24 +1,24 @@
 ---
-title: Erros de cota
-description: Descreve como resolver erros de cota de recursos ao implantar recursos com Azure Resource Manager.
+title: Erros de quota
+description: Descreve como resolver erros de quota de recursos ao implementar recursos com o Gestor de Recursos Azure.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: d36f7d12f432839760b68c85e1c5761e0caf8d85
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 9b5cce3258a29b6ac6a3db50f880e3242c4d5e8c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659360"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250145"
 ---
-# <a name="resolve-errors-for-resource-quotas"></a>Resolver erros de cotas de recursos
+# <a name="resolve-errors-for-resource-quotas"></a>Resolver erros para quotas de recursos
 
-Este artigo descreve os erros de cota que você pode encontrar ao implantar recursos.
+Este artigo descreve erros de quota que pode encontrar ao implementar recursos.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>Sintoma
 
-Se você implantar um modelo que cria recursos que excedem suas cotas do Azure, obterá um erro de implantação semelhante a:
+Se implementar um modelo que cria recursos que excedam as suas quotas Azure, obtém-se um erro de implantação que parece:
 
 ```
 Code=OperationNotAllowed
@@ -26,7 +26,7 @@ Message=Operation results in exceeding quota limits of Core.
 Maximum allowed: 4, Current in use: 4, Additional requested: 2.
 ```
 
-Ou você pode ver:
+Ou, pode ver:
 
 ```
 Code=ResourceQuotaExceeded
@@ -38,13 +38,13 @@ please delete some resources of this type before creating a new one.
 ## <a name="cause"></a>Causa
 
 As quotas são aplicadas por grupo de recursos, subscrições, contas e outros âmbitos. Por exemplo, a subscrição pode ser configurada para limitar o número de núcleos de uma região. Se tentar implementar uma máquina virtual com mais núcleos do que o montante permitido, receberá um erro a indicar que a quota foi excedida.
-Para obter informações completas sobre cota, consulte [assinatura e limites de serviço, cotas e restrições do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+Para obter informações completas sobre quotas, consulte [os limites de subscrição e serviço do Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para CLI do Azure, use o comando `az vm list-usage` para localizar cotas de máquina virtual.
+Para o Azure CLI, utilize o comando `az vm list-usage` para encontrar quotas de máquinas virtuais.
 
 ```azurecli
 az vm list-usage --location "South Central US"
@@ -52,7 +52,7 @@ az vm list-usage --location "South Central US"
 
 Que retorna:
 
-```azurecli
+```output
 [
   {
     "currentValue": 0,
@@ -68,7 +68,7 @@ Que retorna:
 
 ### <a name="powershell"></a>PowerShell
 
-Para o PowerShell, use o comando **Get-AzVMUsage** para localizar cotas de máquina virtual.
+Para a PowerShell, utilize o comando **Get-AzVMUsage** para encontrar quotas de máquinas virtuais.
 
 ```powershell
 Get-AzVMUsage -Location "South Central US"
@@ -86,10 +86,10 @@ Virtual Machines                             0 10000 Count
 
 ## <a name="solution"></a>Solução
 
-Para solicitar um aumento de cota, vá para o portal e emita um problema de suporte. No problema de suporte, solicite um aumento na sua cota para a região na qual você deseja implantar.
+Para solicitar um aumento de quota, vá ao portal e apresente uma questão de suporte. Na questão do apoio, solicite um aumento da sua quota para a região em que pretende implantar.
 
 > [!NOTE]
-> Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para toda a assinatura. Se você precisar implantar 30 núcleos no oeste dos EUA, precisará solicitar 30 núcleos do Resource Manager no oeste dos EUA. Se você precisar implantar 30 núcleos em qualquer uma das regiões às quais tem acesso, solicite 30 núcleos do Resource Manager em todas as regiões.
+> Lembre-se que, para os grupos de recursos, a quota é para cada região, não para toda a subscrição. Se precisa de implantar 30 núcleos no Oeste dos EUA, tem de pedir 30 núcleos de Gestão de Recursos no Oeste dos EUA. Se precisa de implantar 30 núcleos em qualquer uma das regiões a que tem acesso, deve pedir 30 núcleos de Gestor de Recursos em todas as regiões.
 >
 >
 
@@ -101,14 +101,14 @@ Para solicitar um aumento de cota, vá para o portal e emita um problema de supo
 
    ![Selecionar subscrição](./media/error-resource-quota/select-subscription.png)
 
-3. Selecionar **uso + cotas**
+3. **Selecione Utilização + quotas**
 
-   ![Selecionar uso e cotas](./media/error-resource-quota/select-usage-quotas.png)
+   ![Selecione utilização e quotas](./media/error-resource-quota/select-usage-quotas.png)
 
-4. No canto superior direito, selecione **solicitar aumento**.
+4. No canto superior direito, selecione **Pedido aumentar**.
 
-   ![Aumento da solicitação](./media/error-resource-quota/request-increase.png)
+   ![Aumento de pedidos](./media/error-resource-quota/request-increase.png)
 
 5. Preencha os formulários para o tipo de quota que precisa de aumentar.
 
-   ![Preencher formulário](./media/error-resource-quota/forms.png)
+   ![Preencha o formulário](./media/error-resource-quota/forms.png)

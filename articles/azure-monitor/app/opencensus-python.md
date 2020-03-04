@@ -6,12 +6,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7d27256f64e09a4d4ba3dbf1544eaec4715f6d88
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a2b66cdc7a0704cd3560c0776a0ca5302dc689d2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669918"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250761"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar o Monitor Azure para a sua aplicação Python (pré-visualização)
 
@@ -132,11 +132,20 @@ Aqui estão os exportadores que o OpenCensus fornece mapeados para os tipos de t
         main()
     ```
 
-4. Agora, quando executas o guião python, ainda deves ser solicitado a introduzir valores, mas apenas o valor está a ser impresso na concha. O `SpanData` criado será enviado para o Monitor Azure. Pode encontrar os dados de extensão emitidos em `dependencies`.
+4. Agora, quando executas o guião python, ainda deves ser solicitado a introduzir valores, mas apenas o valor está a ser impresso na concha. O `SpanData` criado será enviado para o Monitor Azure. Pode encontrar os dados de extensão emitidos em `dependencies`. Para mais detalhes sobre os pedidos de saída, consulte [as dependências](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency)do OpenCensus Python .
+Para mais detalhes sobre os pedidos de entrada, consulte [os pedidos](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request)do OpenCensus Python.
 
-5. Para obter informações sobre amostragem no OpenCensus, dê uma olhada [na amostragem no OpenCensus](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
+#### <a name="sampling"></a>Amostragem
 
-6. Para obter detalhes sobre a correlação de telemetria nos dados dos seus vestígios, dê uma olhada na correlação de [telemetria](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)OpenCensus .
+Para obter informações sobre amostragem no OpenCensus, dê uma olhada [na amostragem no OpenCensus](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
+
+#### <a name="trace-correlation"></a>Correlação de vestígios
+
+Para obter detalhes sobre a correlação de telemetria nos dados dos seus vestígios, dê uma olhada na correlação de [telemetria](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)OpenCensus Python .
+
+#### <a name="modify-telemetry"></a>Modificar a telemetria
+
+Para obter mais detalhes sobre como modificar a telemetria rastreada antes de ser enviada para o Monitor Azure, consulte processadores de [telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)OpenCensus Python .
 
 ### <a name="metrics"></a>Métricas
 
@@ -240,6 +249,32 @@ Aqui estão os exportadores que o OpenCensus fornece mapeados para os tipos de t
     ```
 
 4. O exportador enviará dados métricos para o Monitor Azure num intervalo fixo. O padrão é a cada 15 segundos. Estamos a seguir uma única métrica, por isso estes dados métricos, com qualquer valor e carimbo de tempo que contenha, serão enviados a cada intervalo. Pode encontrar os dados em `customMetrics`.
+
+#### <a name="standard-metrics"></a>Métricas padrão
+
+Por padrão, o exportador de métricas enviará um conjunto de métricas padrão para o Monitor Azure. Pode desativar isto colocando a bandeira `enable_standard_metrics` para `False` no construtor do exportador de métricas.
+
+    ```python
+    ...
+    exporter = metrics_exporter.new_metrics_exporter(
+      enable_standard_metrics=False,
+      connection_string='InstrumentationKey=<your-instrumentation-key-here>')
+    ...
+    ```
+Abaixo está uma lista de métricas padrão que são atualmente enviadas:
+
+- Memória Disponível (bytes)
+- Tempo do processador CPU (percentagem)
+- Taxa de Pedido de Entrada (por segundo)
+- Tempo médio de execução do pedido de entrada (milissegundos)
+- Taxa de Pedido de Saída (por segundo)
+- Utilização do Processo CPU (percentagem)
+- Processo Private Bytes (bytes)
+
+Deve ser capaz de ver estas métricas em `performanceCounters`. A taxa de pedido de entrada seria inferior a `customMetrics`.
+#### <a name="modify-telemetry"></a>Modificar a telemetria
+
+Para obter mais detalhes sobre como modificar a telemetria rastreada antes de ser enviada para o Monitor Azure, consulte processadores de [telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)OpenCensus Python .
 
 ### <a name="logs"></a>Registos
 
@@ -360,8 +395,17 @@ Aqui estão os exportadores que o OpenCensus fornece mapeados para os tipos de t
     except Exception:
     logger.exception('Captured an exception.', extra=properties)
     ```
+#### <a name="sampling"></a>Amostragem
 
-7. Para mais detalhes sobre como enriquecer os seus registos com dados de contexto de rastreio, consulte a integração de [logs](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation)OpenCensus Python .
+Para obter informações sobre amostragem no OpenCensus, dê uma olhada [na amostragem no OpenCensus](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
+
+#### <a name="log-correlation"></a>Correlação de registo
+
+Para mais detalhes sobre como enriquecer os seus registos com dados de contexto de rastreio, consulte a integração de [logs](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation)OpenCensus Python .
+
+#### <a name="modify-telemetry"></a>Modificar a telemetria
+
+Para obter mais detalhes sobre como modificar a telemetria rastreada antes de ser enviada para o Monitor Azure, consulte processadores de [telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)OpenCensus Python .
 
 ## <a name="view-your-data-with-queries"></a>Veja os seus dados com consultas
 

@@ -1,6 +1,6 @@
 ---
-title: Usar a extensão do Azure IoT para CLI do Azure para interagir com dispositivos de visualização de IoT Plug and Play | Microsoft Docs
-description: Instale a extensão do Azure IoT para CLI do Azure e use-a para interagir com os dispositivos IoT Plug and Play conectados ao meu Hub IoT.
+title: Utilize a extensão Azure IoT para o Azure CLI interagir com dispositivos de pré-visualização IoT Plug e Play Preview [ IoT Plug e Play Preview] Microsoft Docs
+description: Instale a extensão Azure IoT para o Azure CLI e utilize-a para interagir com os dispositivos IoT Plug and Play ligados ao meu hub IoT.
 author: ChrisGMsft
 ms.author: chrisgre
 ms.date: 12/26/2019
@@ -8,81 +8,81 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: f4e255309d32026b7f2bb4de67fce7ec37c753f6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8dead08017f15a7429655b4bf17b6e8c8e481114
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529580"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251018"
 ---
-# <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instalar e usar a extensão do Azure IoT para o CLI do Azure
+# <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instale e utilize a extensão Azure IoT para o Azure CLI
 
-[O CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de software livre para gerenciar recursos do Azure, como o Hub IOT. O CLI do Azure está disponível no Windows, Linux e MacOS. O CLI do Azure também é pré-instalado no [Azure cloud Shell](https://shell.azure.com). O CLI do Azure permite que você gerencie recursos do Hub IoT do Azure, instâncias do serviço de provisionamento de dispositivos e hubs vinculados sem instalar nenhuma extensão.
+[O Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de código aberto para gerir recursos Azure, como o IoT Hub. O Azure CLI está disponível no Windows, Linux e MacOS. O Azure CLI também está pré-instalado na [Casca de Nuvem Azure.](https://shell.azure.com) O Azure CLI permite-lhe gerir os recursos do Azure IoT Hub, instâncias do Serviço de Provisionamento de Dispositivos e centros ligados sem instalar quaisquer extensões.
 
-A extensão do Azure IoT para o CLI do Azure é uma ferramenta de linha de comando para interagir com e testar dispositivos de visualização de IoT Plug and Play. Você pode usar a extensão para:
+A extensão Azure IoT para o Azure CLI é uma ferramenta de linha de comando para interagir com dispositivos ioT Plug e Play Preview. Pode utilizar a extensão para:
 
-- Conecte-se a um dispositivo.
-- Exiba a telemetria que o dispositivo envia.
-- Trabalhar com as propriedades do dispositivo.
-- Chame os comandos do dispositivo.
+- Ligue-se a um dispositivo.
+- Veja a telemetria que o dispositivo envia.
+- Trabalhe com propriedades do dispositivo.
+- Ligue para os comandos do dispositivo.
 
 Este artigo mostra-lhe como:
 
-- Instale e configure a extensão do Azure IoT para o CLI do Azure.
-- Use a extensão para interagir com e testar seus dispositivos.
-- Use a extensão para gerenciar interfaces no repositório de modelos.
+- Instale e configure a extensão Azure IoT para o Azure CLI.
+- Utilize a extensão para interagir e testar os seus dispositivos.
+- Utilize a extensão para gerir as interfaces no repositório do modelo.
 
-## <a name="install-azure-iot-extension-for-the-azure-cli"></a>Instalar a extensão do Azure IoT para o CLI do Azure
+## <a name="install-azure-iot-extension-for-the-azure-cli"></a>Instale extensão Azure IoT para o Azure CLI
 
-### <a name="step-1---install-the-azure-cli"></a>Etapa 1-instalar o CLI do Azure
+### <a name="step-1---install-the-azure-cli"></a>Passo 1 - Instale o Azure CLI
 
-Siga as [instruções de instalação](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para configurar o CLI do Azure em seu ambiente. Para usar todos os comandos abaixo, sua versão de CLI do Azure deve ser a versão 2.0.73 ou superior. Utilize `az -–version` para validar.
+Siga as [instruções de instalação](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para configurar o Azure CLI no seu ambiente. Para utilizar todos os comandos abaixo, a sua versão Azure CLI deve ser a versão 2.0.73 ou superior. Utilize `az -–version` para validar.
 
-### <a name="step-2---install-iot-extension"></a>Etapa 2 – instalar a extensão de IoT
+### <a name="step-2---install-iot-extension"></a>Passo 2 - Instalação de extensão IoT
 
-[O ficheiro Leia-me da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension) descreve várias formas de instalar a extensão. A forma mais simples consiste em executar `az extension add --name azure-cli-iot-ext`. Após a instalação, pode utilizar `az extension list` para validar as extensões atualmente instaladas ou `az extension show --name azure-cli-iot-ext` para ver detalhes sobre a extensão de IoT. Para remover a extensão, pode utilizar `az extension remove --name azure-cli-iot-ext`.
+[O ficheiro Leia-me da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension) descreve várias formas de instalar a extensão. A forma mais simples consiste em executar `az extension add --name azure-iot`. Após a instalação, pode utilizar `az extension list` para validar as extensões atualmente instaladas ou `az extension show --name azure-iot` para ver detalhes sobre a extensão de IoT. Para remover a extensão, pode utilizar `az extension remove --name azure-iot`.
 
-## <a name="use-azure-iot-extension-for-the-azure-cli"></a>Usar a extensão do Azure IoT para o CLI do Azure
+## <a name="use-azure-iot-extension-for-the-azure-cli"></a>Utilize extensão Azure IoT para o Azure CLI
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Para entrar em sua assinatura do Azure, execute o seguinte comando:
+Para iniciar sessão na sua subscrição Azure, execute o seguinte comando:
 
 ```cmd/sh
 az login
 ```
 
 > [!NOTE]
-> Se você estiver usando o Azure cloud Shell, você estará automaticamente conectado e não precisará executar o comando anterior.
+> Se estiver a usar a casca de nuvem Azure, está automaticamente inscrito e não precisa de executar o comando anterior.
 
-Para usar a extensão de IoT do Azure para o CLI do Azure, você precisa de:
+Para utilizar a extensão Azure IoT para o Azure CLI, precisa de:
 
-- Um hub IoT do Azure. Há várias maneiras de adicionar um hub IoT à sua assinatura do Azure, como [criar um hub IOT usando o CLI do Azure](../iot-hub/iot-hub-create-using-cli.md). Você precisa da cadeia de conexão do Hub IoT para executar os comandos de extensão do Azure IoT. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Um centro Azure IoT. Existem muitas formas de adicionar um hub IoT à sua subscrição Azure, como [criar um hub IoT usando o Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Precisa da cadeia de ligação do centro IoT para executar os comandos de extensão Azure IoT. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
     > [!NOTE]
-    > Durante a visualização pública, os recursos de Plug and Play de IoT só estão disponíveis em hubs IoT criados nas regiões **EUA Central**, **Europa setentrional**e **leste do Japão** .
+    > Durante a pré-visualização pública, as funcionalidades IoT Plug and Play só estão disponíveis nos centros IoT criados nas regiões **Centro dos EUA**, Norte da **Europa**e **Japão.**
 
-- Um dispositivo registrado em seu hub IoT. Você pode usar o comando CLI do Azure a seguir para registrar um dispositivo, não se esqueça de substituir os espaços reservados `{YourIoTHubName}` e `{YourDeviceID}` pelos seus valores:
+- Um dispositivo registado no seu centro de IoT. Pode utilizar o seguinte comando Azure CLI para registar um dispositivo, certifique-se de substituir os `{YourIoTHubName}` e `{YourDeviceID}` espaços reservados com os seus valores:
 
     ```cmd/sh
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
     ```
 
-- Alguns comandos precisam da cadeia de conexão para um repositório de modelos da empresa. Um repositório de modelos para sua empresa é criado quando você se integra [ao portal do Azure Certified para IOT](howto-onboard-portal.md)pela primeira vez. Um terceiro pode compartilhar sua cadeia de conexão de repositório de modelos com você para fornecer acesso às interfaces e aos modelos.
+- Alguns comandos precisam da corda de ligação para um repositório modelo da empresa. Um repositório modelo para a sua empresa é criado quando você primeiro [a bordo do Portal Azure Certified para IoT](howto-onboard-portal.md). Um terceiro pode partilhar consigo a sua cadeia de conexão repositória modelo para lhe dar acesso às suas interfaces e modelos.
 
-### <a name="interact-with-a-device"></a>Interagir com um dispositivo
+### <a name="interact-with-a-device"></a>Interaja com um dispositivo
 
-Você pode usar a extensão para exibir e interagir com dispositivos IoT Plug and Play que estão conectados a um hub IoT. A extensão funciona com o FileUp digital que representa o dispositivo de Plug and Play de IoT.
+Pode utilizar a extensão para visualizar e interagir com dispositivos IoT Plug e Play que estão ligados a um hub IoT. A extensão funciona com o gémeo digital que representa o dispositivo IoT Plug and Play.
 
 #### <a name="list-devices-and-interfaces"></a>Listar dispositivos e interfaces
 
-Listar todos os dispositivos em um hub IoT:
+Listar todos os dispositivos num Hub IoT:
 
 ```cmd/sh
 az iot hub device-identity list --hub-name {YourIoTHubName}
 ```
 
-Listar todas as interfaces registradas por um dispositivo de Plug and Play IoT:
+Enumerar todas as interfaces registadas por um dispositivo IoT Plug and Play:
 
 ```cmd/sh
 az iot dt list-interfaces --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -90,19 +90,19 @@ az iot dt list-interfaces --hub-name {YourIoTHubName} --device-id {YourDeviceID}
 
 #### <a name="properties"></a>Propriedades
 
-Listar todas as propriedades e valores de propriedade para uma interface em um dispositivo:
+Enumerar todas as propriedades e valores de propriedade para uma interface num dispositivo:
 
 ```cmd/sh
 az iot dt list-properties --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login "{YourCompanyModelRepoConnectionString}"
 ```
 
-Defina o valor de uma propriedade de leitura/gravação:
+Definir o valor de um imóvel de leitura:
 
 ```cmd/sh
 az iot dt update-property --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface-payload {JSONPayload or FilePath}
 ```
 
-Um arquivo de conteúdo de exemplo para definir a propriedade **Name** na interface do **sensor** de um dispositivo para **contoso** é semelhante ao seguinte:
+Um ficheiro de carga útil exemplo para definir a propriedade do **nome** na interface do **sensor** de um dispositivo para **Contoso** parece o seguinte:
 
 ```json
 {
@@ -120,13 +120,13 @@ Um arquivo de conteúdo de exemplo para definir a propriedade **Name** na interf
 
 #### <a name="commands"></a>Comandos
 
-Listar todos os comandos para uma interface em um dispositivo:
+Enumerar todos os comandos para uma interface num dispositivo:
 
 ```cmd/sh
 az iot dt list-commands --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
 ```
 
-Sem o parâmetro `--repo-login`, esse comando usa o repositório de modelo público.
+Sem o parâmetro `--repo-login`, este comando utiliza o repositório de modelo público.
 
 Invocar um comando:
 
@@ -134,100 +134,100 @@ Invocar um comando:
 az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --cn {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
-#### <a name="digital-twin-events"></a>Eventos de entrelaçamento digital
+#### <a name="digital-twin-events"></a>Eventos gémeos digitais
 
-Monitore todos os eventos de Plug and Play de informações digitais de IoT de um dispositivo e interface específicos indo para o grupo de consumidores do hub de eventos **$Default** :
+Monitorize todos os eventos ioT Plug e Play digital twin de um dispositivo específico e interface que vai para o grupo de consumidores do centro de eventos **$Default:**
 
 ```cmd/sh
 az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID}
 ```
 
-Monitorar todos os eventos de Plug and Play de informações digitais de IoT de um dispositivo específico e uma interface que vai passar por um grupo de consumidores específico:
+Monitorize todos os eventos de gémeos digitais IoT Plug e Play a partir de um dispositivo específico e interface que vai para um grupo de consumidores específico:
 
 ```cmd/sh
 az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --consumer-group {YourConsumerGroup}
 ```
 
-### <a name="manage-interfaces-in-a-model-repository"></a>Gerenciar interfaces em um repositório de modelos
+### <a name="manage-interfaces-in-a-model-repository"></a>Gerir interfaces num repositório modelo
 
-Os comandos a seguir usam o repositório de modelo de Plug and Play de IoT público. Para usar um repositório de modelo da empresa, adicione o argumento `--login` com a cadeia de conexão do repositório de modelos.
+Os seguintes comandos utilizam o repositório do modelo IoT Plug e Play. Para utilizar um repositório modelo da empresa, adicione o argumento `--login` com a sua cadeia de ligação repositório modelo.
 
-Listar interfaces no repositório de modelo de Plug and Play de IoT público:
+Lista interfaces no repositório do modelo IoT Plug e Play:
 
 ```cmd/sh
 az iot pnp interface list
 ```
 
-Mostrar uma interface no repositório de modelo de Plug and Play de IoT público:
+Mostre uma interface no repositório do modelo IoT Plug e Play:
 
 ```cmd/sh
 az iot pnp interface show --interface {YourInterfaceId}
 ```
 
-Crie uma interface no repositório de modelo da empresa IoT Plug and Play:
+Crie uma interface no seu repositório de modelos ioT Plug e Play:
 
 ```cmd/sh
 az iot pnp interface create --definition {JSONPayload or FilePath} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Você não pode criar uma interface diretamente no repositório de modelo público.
+Não se pode criar diretamente uma interface no repositório de modelos públicos.
 
-Atualize uma interface no repositório de modelo da empresa IoT Plug and Play:
+Atualize uma interface no seu repositório de modelos ioT Plug e Play:
 
 ```cmd/sh
 az iot pnp interface update --definition {JSONPayload or FilePath} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Você não pode atualizar diretamente uma interface no repositório de modelo público.
+Não é possível atualizar diretamente uma interface no repositório de modelos públicos.
 
-Publique uma interface do repositório de modelo da empresa Plug and Play IoT no repositório de modelo público. Esta operação torna a interface imutável:
+Publique uma interface do seu repositório de modelos IoT Plug e Play para o repositório de modelos públicos. Esta operação torna a interface imutável:
 
 ```cmd/sh
 az iot pnp interface publish --interface {YourInterfaceID} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Somente os parceiros da Microsoft podem publicar interfaces no repositório de modelo público.
+Apenas os parceiros da Microsoft podem publicar interfaces para o repositório de modelos públicos.
 
-### <a name="manage-device-capability-models-in-a-model-repository"></a>Gerenciar modelos de capacidade de dispositivo em um repositório de modelos
+### <a name="manage-device-capability-models-in-a-model-repository"></a>Gerir modelos de capacidade do dispositivo num repositório de modelos
 
-Os comandos a seguir usam o repositório de modelo de Plug and Play de IoT público. Para usar um repositório de modelo da empresa, adicione o argumento `--login` com a cadeia de conexão do repositório de modelos.
+Os seguintes comandos utilizam o repositório do modelo IoT Plug e Play. Para utilizar um repositório modelo da empresa, adicione o argumento `--login` com a sua cadeia de ligação repositório modelo.
 
-Listar modelos de capacidade de dispositivo no repositório de modelo público do Plug and Play IoT:
+Liste os modelos de capacidade do dispositivo no repositório de modelos públicos IoT Plug e Play:
 
 ```cmd/sh
 az iot pnp capability-model list
 ```
 
-Mostrar um modelo de capacidade de dispositivo no repositório de modelo público do Plug and Play IoT:
+Mostre um modelo de capacidade de dispositivo no repositório de modelos públicos IoT Plug e Play:
 
 ```cmd/sh
 az iot pnp capability-model show --model {YourModelID}
 ```
 
-Criar um modelo de capacidade de dispositivo em um repositório de modelo da empresa IoT Plug and Play:
+Crie um modelo de capacidade de dispositivo num repositório de modelos ioT Plug e Play:
 
 ```cmd/sh
 az iot pnp capability-model create --definition {JSONPayload or FilePath} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Você não pode criar um modelo diretamente no repositório de modelo público.
+Não se pode criar diretamente um modelo no repositório de modelos públicos.
 
-Atualize um modelo de capacidade de dispositivo no repositório de modelo da empresa IoT Plug and Play:
+Atualize um modelo de capacidade do dispositivo no repositório do modelo ioT Plug and Play:
 
 ```cmd/sh
 az iot pnp capability-model update --definition {JSONPayload or FilePath} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Você não pode atualizar um modelo diretamente no repositório de modelo público.
+Não é possível atualizar diretamente um modelo no repositório de modelos públicos.
 
-Publique um modelo de capacidade de dispositivo do repositório de modelo da empresa IoT Plug and Play para o repositório de modelo público. Esta operação torna o modelo imutável:
+Publique um modelo de capacidade de dispositivo do seu repositório de modelos IoT Plug e Play para o repositório de modelos públicos. Esta operação torna o modelo imutável:
 
 ```cmd/sh
 az iot pnp capability-model publish --model {YourModelID} --login {YourCompanyModelRepoConnectionString}
 ```
 
-Somente os parceiros da Microsoft podem publicar modelos no repositório de modelos públicos.
+Apenas os parceiros da Microsoft podem publicar modelos no repositório de modelos públicos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo de instruções, você aprendeu como instalar e usar a extensão do Azure IoT para o CLI do Azure interagir com seus dispositivos Plug and Play. Uma próxima etapa sugerida é aprender a [gerenciar modelos](./howto-manage-models.md).
+Neste artigo de como fazer, aprendeu a instalar e utilizar a extensão Azure IoT para o Azure CLI interagir com os seus dispositivos Plug and Play. Um próximo passo sugerido é aprender a [gerir modelos.](./howto-manage-models.md)

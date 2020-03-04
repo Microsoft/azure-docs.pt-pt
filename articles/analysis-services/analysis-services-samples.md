@@ -1,47 +1,50 @@
 ---
-title: Exemplos de código, projeto e banco de dados de Azure Analysis Services | Microsoft Docs
-description: Este artigo descreve os recursos para aprender sobre códigos, projetos e amostras de banco de dados para Azure Analysis Services.
+title: Amostras de código, projeto e dados de dados de Serviços de Análise Azure Microsoft Docs
+description: Este artigo descreve recursos para aprender sobre amostras de código, projeto e base de dados para serviços de análise azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 743061c1e32d9ca86e90733dbfd66575d2085dbc
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b5b95349b8a84cc8294dbcf9ab80eff8c7b86b9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572311"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247845"
 ---
-# <a name="azure-analysis-services-samples"></a>Exemplos de Azure Analysis Services
+# <a name="azure-analysis-services-samples"></a>Amostras de Serviços de Análise Azure
 
-Use os seguintes recursos de exemplo para ajudá-lo a aprender e testar Analysis Services para seu ambiente.
+Utilize os seguintes recursos da amostra para ajudá-lo a aprender e testar serviços de análise para o seu ambiente.
 
 ## <a name="code-samples"></a>Exemplos de código
 
-O repositório [Analysis Services](https://github.com/Microsoft/Analysis-Services) no GitHub inclui exemplos de código-fonte aberto e projetos da Comunidade. 
+O repositório [de Serviços](https://github.com/Microsoft/Analysis-Services) de Análise no GitHub inclui amostras de código de código aberto e projetos comunitários. 
 
-## <a name="tabular-model-project-and-database-samples"></a>Exemplos de projeto e banco de dados de modelo de tabela
+## <a name="tabular-model-project-and-database-samples"></a>Projeto de modelo tabular e amostras de base de dados
 
-A [Adventure Works para Analysis Services](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) no GitHub é o projeto de modelo de tabela de exemplo mais comumente usado. Você pode baixar um projeto do VS ou um exemplo de banco de dados de modelo de tabela concluído.
+[Adventure Works for Analysis Services](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) on GitHub é o projeto de modelo tabular de amostras mais utilizado. Pode descarregar um projeto VS ou uma base de dados de modelo tabular de amostras completa.
 
+## <a name="sample-database-on-azure"></a>Base de dados de amostras em Azure
 
-## <a name="sample-databases-on-github"></a>Bancos de dados de exemplo no GitHub
+A Azure Synapse Analytics (SQL Data Warehouse) fornece uma base de dados adventureWorksDW que pode ser incluída num recurso provisionado. Para saber mais, consulte [Quickstart: Crie e consulte uma piscina Azure Synapse Analytics SQL](/azure/sql-data-warehouse/create-data-warehouse-portal).
 
-Esses bancos de dados de exemplo no GitHub podem ser usados para criar e testar seus próprios modelos. 
+## <a name="sample-databases-on-github"></a>Bases de dados de amostras no GitHub
 
-[Bancos de dados de exemplo da Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
+Estas bases de dados de amostras no GitHub podem ser usadas para criar e testar os seus próprios modelos. 
 
-[Bancos de dados de exemplo de importadores mundiais](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
+[Bases de dados de amostras da Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
 
-## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Modelo de exemplo de vendas pela Internet da Adventure Works no portal do Azure
+[Bases de dados de amostras de importadores do mundo vasto](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 
-Se você tiver um servidor de Analysis Services no portal do Azure, poderá criar um modelo de exemplo de forma rápida e fácil. Na página Visão geral do servidor no portal do Azure, clique em **novo modelo**e, em **escolher uma fonte de dados**, selecione **dados de exemplo**.
+## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Modelo de amostra de vendas de Internet adventure works no portal Azure
+
+Se tiver um servidor de Serviços de Análise no portal Azure, pode criar de forma rápida e fácil um modelo de amostra. Na página de visão geral do seu servidor no portal Azure, clique em **Novo modelo**, e depois em Escolha uma fonte de **dados,** selecione **dados da amostra**.
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Tutorial do adventure works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
-[Gateway de dados local do Azure](analysis-services-gateway.md)  
+[Aventura Works tutorial](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Gateway de dados azure on-instalações](analysis-services-gateway.md)  

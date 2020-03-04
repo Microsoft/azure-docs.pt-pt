@@ -3,12 +3,12 @@ title: Funções Duráveis publicação na Grelha de Eventos Azure (pré-visuali
 description: Saiba como configurar a publicação automática da Rede de Eventos Azure para Funções Duráveis.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5ee60dadc90af5a9b941ba890bddb9b96de3f35d
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 52ffcd4eb81936ffcfa61580288c60bd59ffb744
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562174"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249767"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Funções Duráveis publicação na Grelha de Eventos Azure (pré-visualização)
 
@@ -36,7 +36,7 @@ Crie um tópico de Grelha de Eventos para o envio de eventos a partir de Funçõ
 
 Crie um grupo de recursos com o comando `az group create`. Atualmente, a Azure Event Grid não apoia todas as regiões. Para obter informações sobre quais as regiões apoiadas, consulte a visão geral da Grelha de [Eventos Azure.](../../event-grid/overview.md)
 
-```bash
+```azurecli
 az group create --name eventResourceGroup --location westus2
 ```
 
@@ -44,7 +44,7 @@ az group create --name eventResourceGroup --location westus2
 
 Um tópico da Grelha de Eventos fornece um ponto final definido pelo utilizador para o que publica o seu evento. Substitua `<topic_name>` por um nome exclusivo para o seu tópico. O nome tópico deve ser único porque se torna uma entrada DNS.
 
-```bash
+```azurecli
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
 ```
 
@@ -52,13 +52,13 @@ az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
 
 Pegue o ponto final do tópico. Substitua `<topic_name>` pelo nome que escolheu.
 
-```bash
+```azurecli
 az eventgrid topic show --name <topic_name> -g eventResourceGroup --query "endpoint" --output tsv
 ```
 
 Pegue a chave do tópico. Substitua `<topic_name>` pelo nome que escolheu.
 
-```bash
+```azurecli
 az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "key1" --output tsv
 ```
 

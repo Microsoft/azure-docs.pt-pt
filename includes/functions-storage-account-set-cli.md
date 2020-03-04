@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: 07780c94960c581ce69e4fdd45b346c75ab8b098
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4ace70abe0112e0fe27d177c02bcb697746c92cc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329571"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262100"
 ---
-### <a name="set-the-storage-account-connection"></a>Definir a conexão da conta de armazenamento
+### <a name="set-the-storage-account-connection"></a>Definir a ligação da conta de armazenamento
 
-Abra o arquivo local. Settings. JSON e copie o valor de `AzureWebJobsStorage`, que é a cadeia de conexão da conta de armazenamento. Defina a variável de ambiente `AZURE_STORAGE_CONNECTION_STRING` para a cadeia de conexão usando este comando bash:
+Abra o ficheiro local.settings.json e copie o valor de `AzureWebJobsStorage`, que é o fio de ligação da conta de armazenamento. Detete a variável ambiente `AZURE_STORAGE_CONNECTION_STRING` na cadeia de ligação utilizando este comando Bash:
 
-```azurecli-interactive
+```bash
 AZURE_STORAGE_CONNECTION_STRING="<STORAGE_CONNECTION_STRING>"
 ```
 
-Ao definir a cadeia de conexão na variável de ambiente `AZURE_STORAGE_CONNECTION_STRING`, você pode acessar sua conta de armazenamento sem precisar fornecer autenticação a cada vez.
+Quando definir a cadeia de ligação na variável ambiente `AZURE_STORAGE_CONNECTION_STRING`, pode aceder à sua conta de Armazenamento sem ter de fornecer a autenticação de cada vez.

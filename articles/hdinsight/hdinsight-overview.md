@@ -1,5 +1,5 @@
 ---
-title: O que são a pilha de tecnologia Apache Hadoop e Apache Spark? - Azure HDInsight
+title: O que é Azure HDInsight
 description: Uma introdução ao HDInsight, e à pilha e componentes da tecnologia Apache Hadoop e Apache Spark, incluindo Kafka, Hive, Storm e HBase para análise de big data.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
-ms.openlocfilehash: 3e8feb05b0b9b0e1051d3822b9af0b92eeee28f2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 31e8506067133304144614ff58974ee21e9680be
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199925"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251922"
 ---
 # <a name="what-is-azure-hdinsight"></a>O que é o Azure HDInsight?
 

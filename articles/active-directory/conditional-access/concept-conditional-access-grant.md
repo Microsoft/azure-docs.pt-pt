@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3df906936cc4e47ee1f43adb0fcbaa0e8c04b0f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 10d3f18fb11dc54f560d867e2b5ff87251e2c836
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656318"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249110"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Subvenção
 
@@ -67,35 +67,7 @@ As organizações podem optar por utilizar a identidade do dispositivo como part
 
 As organizações podem exigir que uma tentativa de acesso às aplicações de nuvem selecionadas seja feita a partir de uma aplicação de cliente aprovada. Estas aplicações de clientes aprovadas suportam políticas de proteção de [aplicações Intune](/intune/app-protection-policy) independentes de qualquer solução de gestão de dispositivos móveis (MDM).
 
-Esta definição aplica-se às seguintes aplicações de clientes:
-
-- Proteção de Informação do Microsoft Azure
-- Reservas da Microsoft
-- Microsoft Cortana
-- Microsoft Dynamics 365
-- Microsoft Edge
-- Microsoft Excel
-- Microsoft Flow
-- Navegador Gerido Intune microsoft
-- Faturação da Microsoft
-- Microsoft Kaizala
-- Microsoft Launcher
-- Microsoft OneDrive
-- Microsoft OneNote
-- Microsoft Outlook
-- Microsoft Planner
-- Microsoft PowerApps
-- Microsoft Power BI
-- Microsoft PowerPoint
-- Microsoft SharePoint
-- Microsoft Skype para negócios
-- Microsoft StaffHub
-- Microsoft Stream
-- Microsoft Teams
-- Microsoft To-Do
-- Microsoft Visio
-- Microsoft Word
-- Microsoft Yammer
+As aplicações suportadas podem ser encontradas no artigo, [aplicações protegidas microsoft Intune](/intune/apps/apps-supported-intune-apps).
 
 **Observações**
 
@@ -108,12 +80,7 @@ Esta definição aplica-se às seguintes aplicações de clientes:
 
 Na sua política de Acesso Condicional, pode exigir que esteja presente uma política de proteção de [aplicações Intune](/intune/app-protection-policy) na aplicação do cliente antes de o acesso estar disponível para as aplicações na nuvem selecionadas. 
 
-Esta definição aplica-se às seguintes aplicações de clientes:
-
-- Microsoft Cortana
-- Microsoft OneDrive
-- Microsoft Outlook
-- Microsoft Planner
+As aplicações suportadas podem ser encontradas no artigo, [aplicações protegidas microsoft Intune](/intune/apps/apps-supported-intune-apps).
 
 **Observações**
 

@@ -1,6 +1,6 @@
 ---
-title: Planejar uma implantação de Proxy de Aplicativo do Azure Active Directory
-description: Um guia de ponta a ponta para planejar a implantação do proxy de aplicativo em sua organização
+title: Planeie uma implementação de proxy de aplicação de diretório ativo Azure
+description: Um guia de ponta a ponta para planear a implementação de procuração de aplicação dentro da sua organização
 services: active-directory
 documentationcenter: azure
 author: barbaraselden
@@ -15,304 +15,304 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b3278615b90fe2ef539456c3f00eb877918aa9c2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033635"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248365"
 ---
-# <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planejar uma implantação de Proxy de Aplicativo do AD do Azure
+# <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planeie uma implementação de proxy de aplicação ad azure
 
-O proxy de aplicativo Azure Active Directory (AD do Azure) é uma solução de acesso remoto segura e econômica para aplicativos locais. Ele fornece um caminho de transição imediato para as organizações de "nuvem First" para gerenciar o acesso a aplicativos locais herdados que ainda não são capazes de usar protocolos modernos. Para obter informações introdutórias adicionais, consulte [o que é o proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
+O Azure Ative Directory (Azure AD) Application Proxy é uma solução de acesso remoto segura e rentável para aplicações no local. Fornece um caminho de transição imediata para as organizações "Cloud First" gerir o acesso a aplicações antigas no local que ainda não são capazes de usar protocolos modernos. Para obter informações introdutórias adicionais, consulte [o que é procuração](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy)de aplicação .
 
-O proxy de aplicativo é recomendado para conceder aos usuários remotos acesso a recursos internos. O proxy de aplicativo substitui a necessidade de uma VPN ou proxy reverso para esses casos de uso de acesso remoto. Ele não se destina a usuários que estão na rede corporativa. Esses usuários que usam o proxy de aplicativo para acesso à intranet podem apresentar problemas de desempenho indesejáveis.
+Aplicação Proxy é recomendado para dar aos utilizadores remotos acesso a recursos internos. Aplicação Proxy substitui a necessidade de uma VPN ou procuração inversa para estes casos de utilização remota. Não se destina a utilizadores que se encontram na rede corporativa. Estes utilizadores que utilizam o Application Proxy para acesso intranet podem ter problemas de desempenho indesejáveis.
 
-Este artigo inclui os recursos necessários para planejar, operar e gerenciar Proxy de Aplicativo do AD do Azure. 
+Este artigo inclui os recursos necessários para planear, operar e gerir a Procuração de Aplicação AD Azure. 
 
 ## <a name="plan-your-implementation"></a>Planeie a sua implementação
 
-A seção a seguir fornece uma visão geral dos principais elementos de planejamento que irão configurar para uma experiência de implantação eficiente. 
+A secção seguinte fornece uma visão ampla dos elementos-chave de planeamento que o configurarão para uma experiência de implementação eficiente. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa atender aos seguintes pré-requisitos antes de iniciar a implementação. Você pode ver mais informações sobre como configurar seu ambiente, incluindo esses pré-requisitos, neste [tutorial](application-proxy-add-on-premises-application.md).
+Tem de cumprir os seguintes pré-requisitos antes de iniciar a sua implementação. Pode ver mais informações sobre a configuração do seu ambiente, incluindo estes pré-requisitos, neste [tutorial.](application-proxy-add-on-premises-application.md)
 
-* **Conectores**: Os conectores são agentes leves que você pode implantar em:
-   * Hardware físico local
-   * Uma VM hospedada em qualquer solução de hipervisor
-   * Uma VM hospedada no Azure para habilitar a conexão de saída com o serviço de proxy de aplicativo.
+* **Conectores**: Os conectores são agentes leves que pode implantar:
+   * Hardware físico no local
+   * Um VM hospedado dentro de qualquer solução hipervisor
+   * Um VM hospedado em Azure para permitir a ligação de saída ao serviço Proxy de Aplicação.
 
-* Consulte [entender aplicativo Azure ad conectores de proxy](application-proxy-connectors.md) para obter uma visão geral mais detalhada.
+* Consulte [os Conectores proxy da App AD Do Incompor](application-proxy-connectors.md) em Obter uma visão geral mais detalhada.
 
-     * Os computadores do conector devem [ser habilitados para o TLS 1,2](application-proxy-add-on-premises-application.md) antes da instalação dos conectores.
+     * As máquinas de conectores devem [ser ativadas para TLS 1.2](application-proxy-add-on-premises-application.md) antes de instalar os conectores.
 
-     * Se possível, implante os conectores na [mesma rede](application-proxy-network-topology.md) e segmento que os servidores de aplicativos Web de back-end. É melhor implantar conectores depois de concluir uma descoberta de aplicativos.
-     * Recomendamos que cada grupo de conectores tenha pelo menos dois conectores para fornecer alta disponibilidade e escala. Ter três conectores é ideal caso você precise atender a um computador em qualquer ponto. Examine a [tabela de capacidade do conector](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) para ajudar a decidir em que tipo de computador instalar conectores. Quanto maior a máquina, mais buffer e desempenho do conector serão.
+     * Se possível, implemente conectores na [mesma rede](application-proxy-network-topology.md) e segmento que os servidores de aplicações web back-end. É melhor implantar conectores depois de concluir uma descoberta de aplicações.
+     * Recomendamos que cada grupo de conectores tenha pelo menos dois conectores para fornecer alta disponibilidade e escala. Ter três conectores é ideal para o caso de precisar de servir uma máquina em qualquer ponto. Reveja a tabela de capacidade do [conector](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) para ajudar a decidir em que tipo de máquina instalar conectores. Quanto maior for a máquina, mais tampão e executante será o conector.
 
-* **Configurações de acesso à rede**: Os conectores do Azure Proxy de Aplicativo do AD [se conectam ao Azure via HTTPS (porta tcp 443) e http (porta tcp 80)](application-proxy-add-on-premises-application.md). 
+* **Definições de acesso**à rede : Os conectores de procuração de aplicação Azure AD [ligam-se ao Azure via HTTPS (Porta TCP 443) e HTTP (Porta TCP 80)](application-proxy-add-on-premises-application.md). 
 
-   * O tráfego do protocolo TLS de terminação não tem suporte e impedirá que os conectores estabeleçam um canal seguro com seus respectivos pontos de extremidade de proxy Azure App.
+   * O tráfego de conector TLS não é suportado e impedirá que os conectores estabeleçam um canal seguro com os respetivos pontos finais do Proxy da Aplicação Azure.
 
-   * Evite todas as formas de inspeção embutida em comunicações TLS de saída entre conectores e o Azure. A inspeção interna entre um conector e aplicativos de back-end é possível, mas pode degradar a experiência do usuário e, como tal, não é recomendada.
+   * Evite todas as formas de inspeção em linha nas comunicações TLS de saída entre conectores e Azure. A inspeção interna entre um conector e aplicações de backend é possível, mas pode degradar a experiência do utilizador, e como tal, não é recomendado.
 
-   * O balanceamento de carga dos conectores em si também não tem suporte, ou até mesmo necessário.
+   * O equilíbrio de carga dos conectores também não é suportado, nem mesmo necessário.
 
-### <a name="important-considerations-before-configuring-azure-ad-application-proxy"></a>Considerações importantes antes de configurar o Azure Proxy de Aplicativo do AD
+### <a name="important-considerations-before-configuring-azure-ad-application-proxy"></a>Considerações importantes antes de configurar procuração de aplicação ad-ad azure
 
-Os requisitos principais a seguir devem ser atendidos para configurar e implementar Proxy de Aplicativo do AD do Azure.
+Os seguintes requisitos fundamentais devem ser cumpridos para configurar e implementar o Proxy de Aplicação AD Azure.
 
-*  **Integração do Azure**: Antes de implantar o proxy de aplicativo, as identidades de usuário devem ser sincronizadas de um diretório local ou criadas diretamente em seus locatários do Azure AD. Sincronização de Identidades permite que o Azure AD autentique previamente os usuários antes de conceder a eles acesso aos aplicativos publicados do proxy de aplicativo e ter as informações necessárias do identificador de usuário para executar o logon único (SSO).
+*  **Onboarding Azure**: Antes de implementar o proxy da aplicação, as identidades dos utilizadores devem ser sincronizadas a partir de um diretório no local ou criadas diretamente dentro dos seus inquilinos da AD Azure. A sincronização de identidade permite que a AD Azure autentique previamente os utilizadores antes de lhes conceder acesso às aplicações publicadas pela App Proxy e ter as informações necessárias para o identificador de utilizador para realizar um único registo (SSO).
 
-* **Requisitos de acesso condicional**: Não recomendamos o uso do proxy de aplicativo para acesso à intranet porque isso adiciona latência que afetará os usuários. É recomendável usar o proxy de aplicativo com políticas de acesso condicional e pré-autenticação para acesso remoto da Internet.  Uma abordagem para fornecer acesso condicional para uso na intranet é modernizar os aplicativos para que eles possam se autenticar diretamente com o AAD. Consulte [recursos para migrar aplicativos para o AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) para obter mais informações. 
+* **Requisitos de Acesso Condicional**: Não recomendamos a utilização de Procuração de Aplicação para acesso intranet porque isso adiciona latência que terá impacto nos utilizadores. Recomendamos a utilização de Proxy de Aplicação com pré-autenticação e políticas de acesso condicional para acesso remoto a partir da internet.  Uma abordagem para proporcionar acesso condicional para uso intranet é modernizar aplicações para que possam autenticar diretamente com AAD. Consulte os [Recursos para aplicações migratórias para a AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) para obter mais informações. 
 
-* **Limites de serviço**: Para se proteger contra o superconsumo de recursos por locatários individuais, há limites de limitação definidos por aplicativo e locatário. Para ver esses limites, consulte [restrições e limites de serviço do Azure ad](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Esses limites de limitação se baseiam em um parâmetro de comparação muito acima do volume de uso típico e fornece um amplo buffer para a maioria das implantações.
+* **Limites de serviço**: Para proteger contra o consumo excessivo de recursos por parte de inquilinos individuais, existem limites de estrangulamento definidos por aplicação e inquilino. Para ver estes limites consulte [os limites e restrições de serviço da Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Estes limites de estrangulamento baseiam-se numa referência muito acima do volume de utilização típico e fornecem um amplo tampão para a maioria das implementações.
 
-* **Certificado público**: Se você estiver usando nomes de domínio personalizados, deverá adquirir um certificado público emitido por uma autoridade de certificação confiável que não seja da Microsoft. Dependendo dos requisitos organizacionais, obter um certificado pode levar algum tempo e é recomendável iniciar o processo o mais cedo possível. O proxy de Aplicativo Azure dá suporte a certificados padrão, [curingas](application-proxy-wildcard.md)ou baseados em San.
+* **Certificado público**: Se estiver a usar nomes de domínio personalizados, deve adquirir um certificado SSL. Dependendo dos seus requisitos organizacionais, obter um certificado pode demorar algum tempo e recomendamos iniciar o processo o mais cedo possível. A Procuração de Aplicações Azure suporta certificados padrão, [wildcard](application-proxy-wildcard.md)ou san. Para mais detalhes consulte [Configure domínios personalizados com procuração de aplicação ad azure](application-proxy-configure-custom-domain.md).
 
-* **Requisitos de domínio**: O logon único para seus aplicativos publicados usando a delegação restrita de Kerberos (KCD) requer que o servidor que executa o conector e o servidor que executa o aplicativo estejam ingressados no domínio e façam parte do mesmo domínio ou domínios confiantes.
-Para obter informações detalhadas sobre o tópico, consulte [KCD para logon único](application-proxy-configure-single-sign-on-with-kcd.md) com o proxy de aplicativo. O serviço do conector é executado no contexto do sistema local e não deve ser configurado para usar uma identidade personalizada.
+* **Requisitos de domínio**: Um único sinal nas suas aplicações publicadas utilizando a Delegação Limitada kerberos (KCD) requer que o servidor que executa o Connector e o servidor que executa a aplicação sejam integrados no domínio e parte do mesmo domínio ou domínios de confiança.
+Para obter informações detalhadas sobre o tema, consulte [a KCD para um único registo](application-proxy-configure-single-sign-on-with-kcd.md) com o Application Proxy. O serviço de conector funciona no contexto do sistema local e não deve ser configurado para utilizar uma identidade personalizada.
 
-* **Registros DNS para URLs**
+* **Registos dNS para URLs**
 
-   * Antes de usar domínios personalizados no proxy de aplicativo, você deve criar um registro CNAME no DNS público, permitindo que os clientes resolvam a URL externa definida personalizada para o endereço de proxy de aplicativo predefinido. A falha ao criar um registro CNAME para um aplicativo que usa um domínio personalizado impedirá que os usuários remotos se conectem ao aplicativo. As etapas necessárias para adicionar registros CNAME podem variar do provedor DNS para o provedor e, portanto, saiba como [gerenciar registros DNS e conjuntos de registros usando o portal do Azure](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-portal).
+   * Antes de utilizar domínios personalizados no Proxy de Aplicação, deve criar um registo CNAME em DNS público, permitindo que os clientes resolvam o URL externo definido personalizado para o endereço proxy de aplicação pré-definido. Se não criar um registo CNAME para uma aplicação que utilize um domínio personalizado impedirá os utilizadores remotos de se ligarem à aplicação. As etapas necessárias para adicionar registos CNAME podem variar de fornecedor dNS para fornecedor, por isso, aprenda a [gerir os registos dNS e os conjuntos de registos utilizando o portal Azure](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-portal).
 
-   * Da mesma forma, os hosts do conector devem ser capazes de resolver a URL interna dos aplicativos que estão sendo publicados.
+   * Da mesma forma, os anfitriões do conector devem ser capazes de resolver o URL interno das aplicações que estão a ser publicadas.
 
 * **Direitos e funções administrativas**
 
-   * A **instalação do conector** requer direitos de administrador local no Windows Server em que ele está sendo instalado. Ele também requer um mínimo de uma função de *administrador de aplicativos* para autenticar e registrar a instância do conector em seu locatário do Azure AD. 
+   * **A instalação do conector** requer direitos de administração locais para o servidor Windows em que está a ser instalado. Também requer um mínimo de uma função de Administrador de *Aplicação* para autenticar e registar a instância do conector ao seu inquilino Azure AD. 
 
-   * A **publicação e a administração de aplicativos** exigem a função de administrador de *aplicativos* . Os administradores de aplicativos podem gerenciar todos os aplicativos no diretório, incluindo registros, configurações de SSO, atribuições de usuário e grupo e licenciamento, configurações de proxy de aplicativo e consentimento. Ele não concede a capacidade de gerenciar o acesso condicional. A função de *administrador de aplicativos de nuvem* tem todas as capacidades do administrador do aplicativo, exceto pelo fato de que ele não permite o gerenciamento de configurações de proxy de aplicativo.
+   * **A publicação e a administração** de candidaturas requerem o papel de Administrador de *Aplicação.* Os Administradores de Aplicações podem gerir todas as aplicações no diretório, incluindo registos, definições sso, atribuições de utilizador e grupo e licenciamento, definições de Procuração de Aplicações e consentimento. Não concede a capacidade de gerir o Acesso Condicional. A função de Administrador de *Aplicação cloud* tem todas as capacidades do Administrador de Aplicação, exceto que não permite a gestão das definições de Proxy de Aplicação.
 
-* **Licenciamento**: O proxy de aplicativo está disponível por meio de uma assinatura Azure AD Premium. Consulte a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) para obter uma lista completa de opções e recursos de licenciamento.  
+* **Licenciamento**: Application Proxy está disponível através de uma subscrição Azure AD Premium. Consulte a página de [Preços do Diretório Ativo Azure](https://azure.microsoft.com/pricing/details/active-directory/) para obter uma lista completa de opções e funcionalidades de licenciamento.  
 
-### <a name="application-discovery"></a>Descoberta de aplicativos
+### <a name="application-discovery"></a>Descoberta de Aplicações
 
-Compile um inventário de todos os aplicativos no escopo que estão sendo publicados por meio do proxy de aplicativo coletando as seguintes informações:
+Compile um inventário de todas as aplicações no âmbito que estão a ser publicadas via Procuração de Aplicação, recolhendo as seguintes informações:
 
-| Tipo de informação| Informações a serem coletadas |
+| Tipo de informação| Informações para recolher |
 |---|---|
-| Tipo de Serviço| Por exemplo: SharePoint, SAP, CRM, aplicativo Web personalizado, API |
-| Plataforma de aplicativos | Por exemplo: IIS do Windows, Apache no Linux, Tomcat, NGINX |
-| Associação de domínio| FQDN (nome de domínio totalmente qualificado) do servidor Web |
-| Local do aplicativo | Onde o servidor Web ou o farm está localizado em sua infraestrutura |
-| Acesso interno | A URL exata usada ao acessar o aplicativo internamente. <br> Se for um farm, que tipo de balanceamento de carga está em uso? <br> Se o aplicativo desenha conteúdo de fontes diferentes de si mesmo.<br> Determine se o aplicativo opera sobre WebSockets. |
-| Acesso externo | A solução de fornecedor que o aplicativo já está exposto para o externamente. <br> A URL que você deseja usar para acesso externo. Se o SharePoint, verifique se os mapeamentos de acesso alternativo estão configurados de acordo com [este guia](https://docs.microsoft.com/SharePoint/administration/configure-alternate-access-mappings). Caso contrário, será necessário definir URLs externas. |
-| Certificado público | Se estiver usando um domínio personalizado, adquira um certificado com um nome de entidade correspondente. se um certificado existir, anote o número de série e o local de onde ele pode ser obtido. |
-| Tipo de autenticação| O tipo de autenticação compatível com o suporte do aplicativo, como básica, autenticação de integração do Windows, baseada em formulários, cabeçalho e declarações. <br>Se o aplicativo estiver configurado para ser executado em uma conta de domínio específica, observe o FQDN (nome de domínio totalmente qualificado) da conta de serviço.<br> Se baseado em SAML, o identificador e URLs de resposta. <br> Se baseado em cabeçalho, a solução de fornecedor e o requisito específico para tratamento do tipo de autenticação. |
-| Nome do grupo de conectores | O nome lógico do grupo de conectores que será designado para fornecer o canal e o SSO para este aplicativo de back-end. |
-| Acesso de usuários/grupos | Os usuários ou grupos de usuários aos quais será concedido acesso externo ao aplicativo. |
-| Requisitos adicionais | Observe quaisquer requisitos adicionais de acesso remoto ou de segurança que devem ser fatorados na publicação do aplicativo. |
+| Tipo de Serviço| Por exemplo: SharePoint, SAP, CRM, Aplicação Web Personalizada, API |
+| Plataforma de aplicação | Por exemplo: Windows IIS, Apache em Linux, Tomcat, NGINX |
+| Adesão ao domínio| Nome de domínio totalmente qualificado do servidor web (FQDN) |
+| Localização da candidatura | Onde o servidor web ou quinta está localizado na sua infraestrutura |
+| Acesso interno | O URL exato utilizado no acesso interno à aplicação. <br> Se uma fazenda, que tipo de equilíbrio de carga está em uso? <br> Se a aplicação extrai conteúdo de outras fontes que não a si mesma.<br> Determine se a aplicação funciona através de WebSockets. |
+| Acesso externo | A solução do fornecedor a que a aplicação já está exposta externamente. <br> O URL que pretende utilizar para acesso externo. Se o SharePoint, certifique-se de que os Mapeamentos de Acesso Alternativos estão configurados por [esta orientação](https://docs.microsoft.com/SharePoint/administration/configure-alternate-access-mappings). Caso contrário, terá de definir URLs externos. |
+| Certificado público | Se utilizar um domínio personalizado, obtenha um certificado com um nome de assunto correspondente. se existir um certificado, note-se o número de série e a localização a partir do local onde pode ser obtido. |
+| Tipo de autenticação| O tipo de autenticação suportado pelo suporte à aplicação, como A autenticação básica, de integração do Windows, baseada em formulários, baseado em cabeçalhos e reclamações. <br>Se a aplicação estiver configurada para ser executada sob uma conta de domínio específica, note o Nome de Domínio Totalmente Qualificado (FQDN) da conta de serviço.<br> Se for baseado em SAML, o identificador e os URLs de resposta. <br> Se for baseada em cabeçalho, a solução do fornecedor e o requisito específico para manusear o tipo de autenticação. |
+| Nome do grupo do conector | O nome lógico para o grupo de conectores que será designado para fornecer a conduta e SSO a esta aplicação de backend. |
+| Acesso a Utilizadores/Grupos | Os utilizadores ou grupos de utilizadores que terão acesso externo à aplicação. |
+| Requisitos adicionais | Note quaisquer requisitos adicionais de acesso remoto ou de segurança que devem ser considerados para a publicação da aplicação. |
 
-Você pode baixar esta [planilha de inventário de aplicativos](https://aka.ms/appdiscovery) para inventariar seus aplicativos.
+Pode descarregar esta folha de cálculo de inventário de [aplicações](https://aka.ms/appdiscovery) para inventariar as suas apps.
 
 ### <a name="define-organizational-requirements"></a>Definir requisitos organizacionais
 
-Veja a seguir as áreas para as quais você deve definir os requisitos de negócios de sua organização. Cada área contém exemplos de requisitos
+As seguintes são áreas para as quais deve definir os requisitos de negócio da sua organização. Cada área contém exemplos de requisitos
 
  **Acesso**
 
-* Usuários remotos com dispositivos ingressados no domínio ou no Azure AD podem acessar aplicativos publicados com segurança com o SSO (logon único) contínuo.
+* Utilizadores remotos com domínio aderido ou Dispositivos AD Azure unidos podem aceder às aplicações publicadas de forma segura com um único sinal individual sem emenda (SSO).
 
-* Os usuários remotos com dispositivos pessoais aprovados podem acessar com segurança os aplicativos publicados, desde que eles estejam registrados no MFA e tenham registrado o aplicativo Microsoft Authenticator em seu celular como um método de autenticação.
+* Os utilizadores remotos com dispositivos pessoais aprovados podem aceder de forma segura às aplicações publicadas desde que estejam inscritos no MFA e tenham registado a aplicação Microsoft Authenticator no seu telemóvel como um método de autenticação.
 
-**Controles** 
+**Governação** 
 
-* Os administradores podem definir e monitorar o ciclo de vida de atribuições de usuário em aplicativos publicados por meio do proxy de aplicativo.
+* Os administradores podem definir e monitorizar o ciclo de vida das atribuições dos utilizadores às aplicações publicadas através do Application Proxy.
 
 **Segurança**
 
-* Somente os usuários atribuídos a aplicativos por meio da Associação de grupo ou individualmente podem acessar esses aplicativos.
+* Apenas os utilizadores atribuídos a aplicações através de membros do grupo ou individualmente podem aceder a essas aplicações.
 
 **Performance** (Desempenho)
 
-* Não há degradação do desempenho do aplicativo em comparação ao acesso ao aplicativo da rede interna.
+* Não existe degradação do desempenho da aplicação em comparação com o acesso à aplicação da rede interna.
 
-**Experiência do usuário**
+**Experiência do Utilizador**
 
-* Os usuários estão cientes de como acessar seus aplicativos usando URLs familiares da empresa em qualquer plataforma de dispositivo.
+* Os utilizadores estão cientes de como aceder às suas aplicações utilizando URLs familiares da empresa em qualquer plataforma de dispositivos.
 
 **Auditoria**
-* Os administradores podem auditar a atividade de acesso do usuário.
+* Os administradores podem auditar a atividade de acesso ao utilizador.
 
 
-### <a name="best-practices-for-a-pilot"></a>Práticas recomendadas para um piloto
+### <a name="best-practices-for-a-pilot"></a>Boas práticas para um piloto
 
-Determine a quantidade de tempo e esforço necessários para encerrar completamente um único aplicativo para acesso remoto com SSO (logon único). Faça isso executando um piloto que considere sua descoberta inicial, publicação e teste geral. O uso de um aplicativo Web baseado no IIS simples já pré-configurado para a autenticação integrada do Windows (IWA) ajudaria a estabelecer uma linha de base, pois essa configuração requer um esforço mínimo para o acesso remoto e o SSO do piloto bem-sucedido.
+Determine o tempo e o esforço necessários para encomendar plenamente um único pedido de acesso remoto com um único letão (SSO). Faça-o executando um piloto que considere a sua descoberta inicial, publicação e testes gerais. A utilização de uma aplicação web baseada no IIS que já está pré-configurada para autenticação integrada do Windows (IWA) ajudaria a estabelecer uma linha de base, uma vez que esta configuração requer um esforço mínimo para pilotar com sucesso o acesso remoto e o SSO.
 
-Os elementos de design a seguir devem aumentar o sucesso da implementação do piloto diretamente em um locatário de produção.  
+Os seguintes elementos de design devem aumentar o sucesso da sua implementação piloto diretamente num inquilino de produção.  
 
-**Gerenciamento de conector**:  
+**Gestão do conector:**  
 
-* Os conectores desempenham um papel fundamental no fornecimento do canal local para seus aplicativos. O uso do grupo de conectores **padrão** é adequado para o teste piloto inicial de aplicativos publicados antes de testá-los em produção. Os aplicativos testados com êxito podem ser movidos para grupos de conectores de produção.
+* Os conectores desempenham um papel fundamental no fornecimento das condutas no local às suas aplicações. A utilização do grupo de conector **Predefinido** é adequada para os testes piloto iniciais das aplicações publicadas antes de as encomendar à produção. As aplicações testadas com sucesso podem então ser transferidas para grupos de conector de produção.
 
-**Gerenciamento de aplicativos**:
+**Gestão de aplicações:**
 
-* É mais provável que sua força de obra se lembre de que uma URL externa é familiar e relevante. Evite publicar seu aplicativo usando nossos sufixos msappproxy.net ou onmicrosoft.com predefinidos. Em vez disso, forneça um conhecido domínio verificado de nível superior, prefixado com um nome de host lógico, como *intranet. < customers_domain >. com*.
+* A sua força de trabalho é mais provável que se lembre que um URL externo é familiar e relevante. Evite publicar a sua aplicação utilizando os nossos sufixos pré-definidos msappproxy.net ou onmicrosoft.com. Em vez disso, forneça um domínio verificado de alto nível familiar, pré-fixado com um nome de anfitrião lógico como *intranet.<customers_domain>.com*.
 
-* Restrinja a visibilidade do ícone do aplicativo piloto a um grupo piloto ocultando seu ícone de inicialização formulário o portal do Azure myapps. Quando estiver pronto para produção, você pode fazer o escopo do aplicativo para seu respectivo público-alvo, seja no mesmo locatário de pré-produção ou publicando também o aplicativo em seu locatário de produção.
+* Restringir a visibilidade do ícone da aplicação piloto a um grupo piloto, escondendo o seu ícone de lançamento do portal Azure MyApps. Quando estiver pronto para produção, pode analisar a app para o seu respetivo público-alvo, seja no mesmo inquilino pré-produção, quer publicando também a aplicação no seu inquilino de produção.
 
-**Configurações de logon único**: Algumas configurações de SSO têm dependências específicas que podem levar tempo para configurar, portanto, evite atrasos de controle de alterações, garantindo que as dependências sejam resolvidas antecipadamente. Isso inclui os hosts do conector de ingresso no domínio para executar o SSO usando a KCD (delegação restrita de Kerberos) e cuidar de outras atividades demoradas. Por exemplo, configurar uma instância de acesso de PING, se precisar de SSO baseado em cabeçalho.
+**Definições únicas de inscrição**: Algumas definições de SSO têm dependências específicas que podem levar tempo a configurar, por isso evite os atrasos de controlo de mudança, garantindo que as dependências são abordadas com antecedência. Isto inclui anfitriões de conector de ligação de domínio para executar SSO usando a Delegação Limitada Kerberos (KCD) e cuidar de outras atividades que demoram tempo. Por exemplo, configurar uma instância de acesso PING, se precisar de SSO baseado em cabeçalho.
 
-**SSL entre o host do conector e o aplicativo de destino**: A segurança é fundamental, portanto, o TLS entre o host do conector e os aplicativos de destino sempre deve ser usado. Particularmente, se o aplicativo Web estiver configurado para a autenticação baseada em formulários (FBA), como as credenciais do usuário serão efetivamente transmitidas em texto não criptografado.
+**SSL Entre o anfitrião do conector e a aplicação do alvo**: A segurança é primordial, pelo que o TLS entre o anfitrião do conector e as aplicações-alvo deve ser sempre utilizado. Especialmente se a aplicação web estiver configurada para autenticação baseada em formulários (FBA), uma vez que as credenciais do utilizador são então transmitidas eficazmente em texto claro.
 
-**Implemente incrementalmente e teste cada etapa**. Realize testes funcionais básicos depois de publicar um aplicativo para garantir que todos os requisitos de usuário e de negócios sejam atendidos seguindo as instruções abaixo:
+**Implementar incrementalmente e testar cada passo**. Realizar testes funcionais básicos após a publicação de uma aplicação para garantir que todos os requisitos do utilizador e da empresa são cumpridos seguindo as instruções abaixo:
 
-1. Teste e valide o acesso geral ao aplicativo Web com pré-autenticação desabilitada.
-2. Se houver êxito, habilite a pré-autenticação e atribua usuários e grupos. Teste e valide o acesso.
-3. Em seguida, adicione o método SSO para seu aplicativo e teste novamente para validar o acesso.
-4. Aplique as políticas de acesso condicional e MFA, conforme necessário. Teste e valide o acesso.
+1. Teste e valide o acesso geral à aplicação web com pré-autenticação desativada.
+2. Se for bem sucedido, ative a pré-autenticação e atribua utilizadores e grupos. Teste e valide o acesso.
+3. Em seguida, adicione o método SSO para a sua aplicação e teste novamente para validar o acesso.
+4. Aplicar as políticas de Acesso Condicional e MFA conforme necessário. Teste e valide o acesso.
 
-**Ferramentas de solução de problemas**: Ao solucionar problemas, sempre comece Validando o acesso ao aplicativo publicado do navegador no host do conector e confirme se o aplicativo funciona conforme o esperado. Quanto mais simples a sua configuração, mais fácil de determinar a causa raiz, considere a possibilidade de tentar reproduzir problemas com uma configuração mínima, como usar apenas um único conector e nenhum SSO. Em alguns casos, as ferramentas de depuração da Web, como o Fiddler da Telerik, podem provar indispensável para solucionar problemas de acesso ou de conteúdo em aplicativos acessados por meio de um proxy. O Fiddler também pode atuar como um proxy para ajudar a rastrear e depurar o tráfego de plataformas móveis, como iOS e Android, e praticamente qualquer coisa que possa ser configurada para rotear por meio de um proxy. Consulte o [Guia de solução de problemas](application-proxy-troubleshoot.md) para obter mais informações.
+**Ferramentas de resolução de problemas**: Quando resolver problemas, comece sempre por validar o acesso à aplicação publicada a partir do navegador no anfitrião do conector, e confirme que a aplicação funciona como esperado. Quanto mais simples for a sua configuração, mais fácil determinar a causa raiz, por isso considere tentar reproduzir problemas com uma configuração mínima, como usar apenas um único conector e sem SSO. Em alguns casos, ferramentas de depuração web como o Violinista de Telerik podem revelar-se indispensáveis para resolver problemas de acesso ou problemas de conteúdo em aplicações acedidas através de um proxy. O Fiddler também pode atuar como um proxy para ajudar a rastrear e depurar o tráfego para plataformas móveis como iOS e Android, e praticamente tudo o que pode ser configurado para a rota através de um proxy. Consulte o guia de resolução de [problemas](application-proxy-troubleshoot.md) para mais informações.
 
-## <a name="implement-your-solution"></a>Implementar sua solução
+## <a name="implement-your-solution"></a>Implementar a sua solução
 
-### <a name="deploy-application-proxy"></a>Implantar o proxy de aplicativo
+### <a name="deploy-application-proxy"></a>Implementar procuração de aplicações
 
-As etapas para implantar o proxy de aplicativo são abordadas neste [tutorial para adicionar um aplicativo local para acesso remoto](application-proxy-add-on-premises-application.md). Se a instalação não for bem-sucedida, selecione **solucionar problemas de proxy de aplicativo** no portal ou use o guia de solução de problemas [para instalar o conector do agente de proxy de aplicativo](application-proxy-connector-installation-problem.md).
+As medidas para implementar o seu Proxy de Aplicação estão cobertas neste [tutorial para adicionar uma aplicação no local para acesso remoto](application-proxy-add-on-premises-application.md). Se a instalação não for bem sucedida, selecione **Troubleshoot Application Proxy** no portal ou utilize o guia de resolução de [problemas para problemas com a instalação do Conector de Agente proxy](application-proxy-connector-installation-problem.md)da aplicação .
 
-### <a name="publish-applications-via-application-proxy"></a>Publicar aplicativos por meio do proxy de aplicativo
+### <a name="publish-applications-via-application-proxy"></a>Publicar aplicações via Procuração de Aplicações
 
-A publicação de aplicativos pressupõe que você tenha atendido todos os pré-requisitos e que você tenha vários conectores mostrados como registrados e ativos na página proxy de aplicativo.
+As aplicações de publicação assumem que preencheu todos os pré-requisitos e que tem vários conectores que mostram como registados e ativos na página Proxy de Aplicação.
 
-Você também pode publicar aplicativos usando o [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview).
+Também pode publicar aplicações utilizando o [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview).
 
-Abaixo estão algumas práticas recomendadas a serem seguidas ao publicar um aplicativo:
+Abaixo estão algumas boas práticas a seguir ao publicar uma aplicação:
 
-* **Usar grupos de conectores**: Atribua um grupo de conectores designado para publicar cada aplicativo respectivo. Recomendamos que cada grupo de conectores tenha pelo menos dois conectores para fornecer alta disponibilidade e escala. Ter três conectores é ideal caso você precise atender a um computador em qualquer ponto. Além disso, consulte [publicar aplicativos em redes e locais separados usando grupos de conectores](application-proxy-connector-groups.md) para ver como você também pode usar grupos de conectores para segmentar seus conectores por rede ou local.
+* **Utilizar Grupos de Conector**: Atribuir um grupo de conector que tenha sido designado para publicação de cada aplicação respetiva. Recomendamos que cada grupo de conectores tenha pelo menos dois conectores para fornecer alta disponibilidade e escala. Ter três conectores é ideal para o caso de precisar de servir uma máquina em qualquer ponto. Além disso, consulte a Publicação de [aplicações em redes e locais separados utilizando grupos de conectores](application-proxy-connector-groups.md) para ver como também pode utilizar grupos de conectores para segmentar os seus conectores por rede ou localização.
 
-* **Definir tempo limite do aplicativo de back-end**: Essa configuração é útil em cenários em que o aplicativo pode exigir mais de 75 segundos para processar uma transação do cliente. Por exemplo, quando um cliente envia uma consulta a um aplicativo Web que atua como um front-end para um banco de dados. O front-end envia essa consulta para seu servidor de banco de dados back-end e aguarda uma resposta, mas quando recebe uma resposta, o lado do cliente da conversa atinge o tempo limite. Definir o tempo limite como longo fornece de 180 segundos para que as transações mais longas sejam concluídas.
+* Definir tempo limite de **aplicação de backend**: Esta definição é útil em cenários em que a aplicação pode exigir mais de 75 segundos para processar uma transação de cliente. Por exemplo, quando um cliente envia uma consulta a uma aplicação web que funciona como uma frente para uma base de dados. A parte frontal envia esta consulta para o seu servidor de base de dados back-end e aguarda uma resposta, mas quando recebe uma resposta, o lado cliente da conversa tem tempo. A definição do prazo para Long fornece 180 segundos para que as transações mais longas se completem.
 
-* **Usar tipos de cookie apropriados**
+* **Utilizar tipos de cookies apropriados**
 
-   * **Cookie somente http**: Fornece segurança adicional ao fazer com que o proxy de aplicativo inclua o sinalizador HTTPOnly nos cabeçalhos de resposta HTTP Set-cookie. Essa configuração ajuda a reduzir as explorações, como XSS (script entre sites). Deixe isso definido como não para clientes/agentes de usuário que exigem acesso ao cookie de sessão. Por exemplo, o cliente RDP/MTSC conectando-se a um gateway Área de Trabalho Remota publicado por meio do proxy de aplicativo.
+   * **Cookie http-only**: Fornece segurança adicional, tendo o Proxy de aplicação incluir a bandeira HTTPOnly em cabeçalhos de resposta HTTP de set-cookie. Esta definição ajuda a mitigar explorações como scripts cross-site (XSS). Deixe este conjunto para Não para clientes/agentes de utilizador que necessitem de acesso ao cookie de sessão. Por exemplo, o cliente RDP/MTSC que se conecta a um Gateway de Ambiente de Trabalho Remoto publicado via App Proxy.
 
-   * **Cookie seguro**: Quando um cookie é definido com o atributo Secure, o agente do usuário (aplicativo do lado do cliente) incluirá apenas o cookie em solicitações HTTP se a solicitação for transmitida por um canal protegido por TLS. Isso ajuda a reduzir o risco de um cookie ser comprometido em canais de texto não criptografado, portanto, deve ser habilitado.
+   * **Cookie seguro**: Quando um cookie é definido com o atributo Seguro, o agente de utilizador (aplicação do lado do cliente) só incluirá o cookie em pedidos HTTP se o pedido for transmitido através de um canal seguro TLS. Isto ajuda a mitigar o risco de um cookie ser comprometido através de canais de texto claros, por isso deve ser ativado.
 
-   * **Cookie persistente**: Permite que o cookie de sessão do proxy de aplicativo persista entre os fechamentos do navegador até que ele expire ou seja excluído. Usado para cenários em que um aplicativo avançado, como o Office, acessa um documento em um aplicativo Web publicado, sem que o usuário seja solicitado a fornecer autenticação novamente. No entanto, habilite com cuidado, pois os cookies persistentes podem deixar um serviço em risco de acesso não autorizado, se não forem usados em conjunto com outros controles de compensação. Essa configuração só deve ser usada para aplicativos mais antigos que não podem compartilhar cookies entre processos. É melhor atualizar seu aplicativo para lidar com cookies de compartilhamento entre processos em vez de usar essa configuração.
+   * **Cookie persistente**: Permite que o cookie de sessão proxy de aplicação persista entre os encerramentos do navegador, permanecendo válido até que expire ou seja eliminado. Usado para cenários em que uma aplicação rica como o office acede a um documento dentro de uma aplicação web publicada, sem que o utilizador seja resolicitado para autenticação. No entanto, ative com cautela, uma vez que os cookies persistentes podem, em última análise, deixar um serviço em risco de acesso não autorizado, se não for utilizado em conjunto com outros controlos compensatórios. Esta definição só deve ser utilizada para aplicações mais antigas que não possam partilhar cookies entre processos. É melhor atualizar a sua aplicação para lidar com a partilha de cookies entre processos em vez de usar esta definição.
 
-* **Traduza URLs em cabeçalhos**: Habilite isso para cenários em que o DNS interno não pode ser configurado para corresponder ao namespace público da organização (a. k. um DNS dividido). A menos que seu aplicativo exija o cabeçalho de host original na solicitação do cliente, deixe esse valor definido como Sim. A alternativa é fazer com que o conector use o FQDN na URL interna para o roteamento do tráfego real e o FQDN na URL externa, como o cabeçalho do host. Na maioria dos casos, essa alternativa deve permitir que o aplicativo funcione normalmente, quando acessado remotamente, mas seus usuários perdem os benefícios de ter uma correspondência dentro & URL externa.
+* **Traduza URLs em Cabeçalhos**: Permite-o para cenários em que o DNS interno não pode ser configurado para corresponder ao espaço de nomepúblico da organização (também conhecido como DNS split). A menos que o seu pedido exija o cabeçalho original do anfitrião no pedido do cliente, deixe este valor definido para Sim. A alternativa é que o conector utilize o FQDN no URL interno para o encaminhamento do tráfego real, e o FQDN no URL externo, como cabeçalho do anfitrião. Na maioria dos casos, esta alternativa deve permitir que a aplicação funcione normalmente, quando acedida remotamente, mas os seus utilizadores perdem os benefícios de ter um URL correspondente dentro e externo.
 
-* **Traduza URLs no corpo do aplicativo**: Ative a tradução de link do corpo do aplicativo para um aplicativo quando desejar que os links desse aplicativo sejam convertidos em respostas de volta para o cliente. Se habilitada, essa função fornece uma tentativa de melhor esforço na tradução de todos os links internos que o proxy de aplicativo encontra nas respostas HTML e CSS sendo retornadas aos clientes. É útil ao publicar aplicativos que contenham links absolutos ou curtos de NetBIOS embutidos no conteúdo, ou aplicativos com conteúdo que se vincula a outros aplicativos locais.
+* **Tradução de URLs no Corpo**de Aplicação : Ligue a tradução de link do Corpo de Aplicação para uma aplicação quando quiser que os links dessa aplicação sejam traduzidos em respostas ao cliente. Se ativada, esta função proporciona uma melhor tentativa de esforço para traduzir todas as ligações internas que a App Proxy encontra nas respostas HTML e CSS sendo devolvidas aos clientes. É útil publicar aplicações que contenham links de nome absoluto ou netBIOS de código duro no conteúdo, ou aplicações com conteúdo que se ligue a outras aplicações no local.
 
-Para cenários em que um aplicativo publicado é vinculado a outros aplicativos publicados, habilite a tradução de link para cada aplicativo para que você tenha controle sobre a experiência do usuário no nível por aplicativo.
+Para cenários em que uma aplicação publicada se liga a outras aplicações publicadas, ative a tradução de links para cada aplicação para que tenha controlo sobre a experiência do utilizador a nível por app.
 
-Por exemplo, suponha que você tenha três aplicativos publicados por meio do proxy de aplicativo que todos se vinculam entre si: Benefícios, despesas e viagens, além de um quarto aplicativo, comentários, que não é publicado por meio do proxy de aplicativo.
+Por exemplo, suponha que tem três aplicações publicadas através do Application Proxy que todas se ligam entre si: Benefícios, Despesas e Viagens, além de uma quarta aplicação, Feedback, que não é publicada através do Application Proxy.
 
 ![Imagem 1](media/App-proxy-deployment-plan/link-translation.png)
 
-Quando você habilita a conversão de link para o aplicativo benefícios, os links para despesas e viagens são redirecionados para as URLs externas para esses aplicativos, para que os usuários que acessam os aplicativos de fora da rede corporativa possam acessá-los. Os links de despesas e viagens de volta para os benefícios não funcionam porque a conversão de links não foi habilitada para esses dois aplicativos. O link para comentários não é redirecionado porque não há nenhuma URL externa, de modo que os usuários que usam o aplicativo de benefícios não conseguirão acessar o aplicativo de comentários de fora da rede corporativa. Consulte informações detalhadas sobre [conversão de link e outras opções de redirecionamento](application-proxy-configure-hard-coded-link-translation.md).
+Quando permite a tradução de links para a aplicação Benefits, as ligações para Despesas e Viagens são redirecionadas para os URLs externos para essas aplicações, para que os utilizadores que acedam às aplicações de fora da rede corporativa possam aceder às mesmas. As ligações das Despesas e viagens de volta aos Benefícios não funcionam porque a tradução de links não foi ativada para essas duas aplicações. O link para feedback não é redirecionado porque não há URL externo, pelo que os utilizadores que usam a aplicação Benefits não poderão aceder à aplicação de feedback de fora da rede corporativa. Consulte informações detalhadas sobre a tradução de [ligações e outras opções de redirecionamento.](application-proxy-configure-hard-coded-link-translation.md)
 
-### <a name="access-your-application"></a>Acessar seu aplicativo
+### <a name="access-your-application"></a>Aceda à sua aplicação
 
-Existem várias opções para gerenciar o acesso aos recursos publicados do proxy de aplicativo, portanto, escolha o mais apropriado para o cenário e as necessidades de escalabilidade em questão. As abordagens comuns incluem: usando grupos locais que estão sendo sincronizados por meio de Azure AD Connect, criando grupos dinâmicos no Azure AD com base em atributos de usuário, usando grupos de autoatendimento que são gerenciados por um proprietário de recurso ou uma combinação de todos eles. Consulte os recursos vinculados para obter os benefícios de cada um.
+Existem várias opções para gerir o acesso aos recursos publicados pela App Proxy, por isso escolha as mais adequadas para o seu cenário e necessidades de escalabilidade. As abordagens comuns incluem: usar grupos no local que estão a ser sincronizados através do Azure AD Connect, criando Grupos Dinâmicos em AD Azure com base em atributos de utilizador, utilizando grupos de self-service que são geridos por um proprietário de recursos, ou uma combinação de todos estes. Consulte os recursos ligados para os benefícios de cada um.
 
-A maneira mais simples de atribuir acesso de usuários a um aplicativo é entrar nas opções de **usuários e grupos** no painel esquerdo do seu aplicativo publicado e atribuir diretamente grupos ou indivíduos.
+A forma mais direta de atribuir aos utilizadores o acesso a uma aplicação é indo para as opções de **Utilizadores e Grupos** a partir do painel esquerdo da sua aplicação publicada e atribuindo diretamente grupos ou indivíduos.
 
-![Figura 24](media/App-proxy-deployment-plan/add-user.png)
+![Imagem 24](media/App-proxy-deployment-plan/add-user.png)
 
-Você também pode permitir que os usuários acessem por autoatendimento em seu aplicativo atribuindo um grupo que atualmente não é membro e configurando as opções de autoatendimento.
+Também pode permitir que os utilizadores possam aceder ao autosserviço à sua aplicação, atribuindo um grupo que não são atualmente membros e configurando as opções de self-service.
 
 ![Imagem 25](media/App-proxy-deployment-plan/allow-access.png)
 
-Se habilitada, os usuários poderão fazer logon no portal do myapps e solicitar o acesso e ser aprovados automaticamente e adicionados ao grupo de autoatendimento já permitido ou precisar de aprovação de um Aprovador designado.
+Se ativado, os utilizadores poderão então entrar no portal MyApps e solicitar o acesso, e ser ão automaticamente aprovados e adicionados ao grupo de self-service já permitido, ou precisarão da aprovação de um aprovador designado.
 
-Os usuários convidados também podem ser [convidados a acessar aplicativos internos publicados por meio do proxy de aplicativo por meio do Azure ad B2B](https://docs.microsoft.com/azure/active-directory/b2b/add-users-information-worker).
+Os utilizadores convidados também podem ser [convidados a aceder a aplicações internas publicadas via Application Proxy através do Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/add-users-information-worker).
 
-Para aplicativos locais que normalmente são acessíveis anonimamente, não exigindo nenhuma autenticação, você pode preferir desabilitar a opção localizada nas **Propriedades**do aplicativo.
+Para aplicações no local que normalmente são acessíveis anonimamente, não requerendo autenticação, pode preferir desativar a opção localizada nas **Propriedades**da aplicação .
 
 ![Imagem 26](media/App-proxy-deployment-plan/assignment-required.png)
 
 
-Deixar essa opção definida como não permite que os usuários acessem o aplicativo local por meio do proxy de Aplicativo Azure AD sem permissões, portanto, use com cuidado.
+Deixar esta opção definida para Não permite que os utilizadores acedam à aplicação no local através do Azure AD App Proxy sem permissões, por isso, use com cuidado.
 
-Depois que seu aplicativo for publicado, ele deverá ser acessível digitando sua URL externa em um navegador ou por seu ícone [https://myapps.microsoft.com](https://myapps.microsoft.com/)em.
+Uma vez publicada a sua aplicação, deve ser acessível digitando o seu URL externo num browser ou pelo seu ícone em [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
-### <a name="enable-pre-authentication"></a>Habilitar pré-autenticação
+### <a name="enable-pre-authentication"></a>Ativar a pré-autenticação
 
-Verifique se seu aplicativo está acessível por meio do proxy de aplicativo acessando-o por meio da URL externa. 
+Verifique se a sua aplicação está acessível através do Proxy de Aplicação, acedendo-a através do URL externo. 
 
-1. Navegue para **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações** e escolha a aplicação que pretende gerir.
+1. Navegue para **as aplicações** de > Enterprise de **Diretório Ativo Azur** da Azure > **Todas as aplicações** e escolha a app que pretende gerir.
 
-2. Selecione **Proxy de aplicações**.
+2. Selecione **Procuração de Aplicação**.
 
-3. No campo **pré-autenticação** , use a lista suspensa para selecionar **Azure Active Directory**e selecione **salvar**.
+3. No campo **de Pré-Autenticação,** utilize a lista de dropdown para selecionar **o Diretório Ativo Azure**, e selecione **Save**.
 
-Com a pré-autenticação habilitada, o Azure AD desafiará os usuários primeiro para autenticação e, se o logon único estiver configurado, o aplicativo de back-end também verificará o usuário antes que o acesso ao aplicativo seja concedido. Alterar o modo de pré-autenticação de passagem para o Azure AD também configura a URL externa com HTTPS, portanto, qualquer aplicativo inicialmente configurado para HTTP agora será protegido com HTTPS.
+Com a pré-autenticação ativada, o Azure AD irá desafiar os utilizadores primeiro para a autenticação e se o único sinal de entrada estiver configurado, a aplicação back-end também verificará o utilizador antes de ser concedido o acesso à aplicação. A alteração do modo de pré-autenticação de Passthrough para Azure AD também configura o URL externo com HTTPS, pelo que qualquer aplicação inicialmente configurada para HTTP será agora protegida com HTTPS.
 
-### <a name="enable-single-sign-on"></a>Habilitar logon único
+### <a name="enable-single-sign-on"></a>Ativar um único sign-on
 
-O SSO fornece a melhor experiência de usuário possível e a segurança, pois os usuários só precisam entrar uma vez ao acessar o Azure AD. Depois que um usuário é autenticado previamente, o SSO é executado pelo conector de proxy de aplicativo que se autentica no aplicativo local, em nome do usuário. O aplicativo de back-end processa o logon como se ele fosse o próprio usuário. 
+O SSO fornece a melhor experiência e segurança possível do utilizador, uma vez que os utilizadores só precisam de iniciar sessão uma vez ao aceder ao Azure AD. Uma vez pré-autenticado um utilizador, o SSO é realizado pelo conector Proxy de aplicação autenticando-se na aplicação no local, em nome do utilizador. A aplicação backend processa o login como se fosse o próprio utilizador. 
 
-Escolher a opção de **passagem** permite que os usuários acessem o aplicativo publicado sem precisar se autenticar no Azure AD.
+A escolha da opção **Passthrough** permite que os utilizadores acedam à aplicação publicada sem nunca terem de autenticar a Azure AD.
 
-A execução de SSO só será possível se o Azure AD puder identificar o usuário solicitando acesso a um recurso, de modo que seu aplicativo deve ser configurado para autenticar previamente os usuários com o Azure AD no acesso para que o SSO funcione, caso contrário, as opções de SSO serão desabilitadas.
+A realização do SSO só é possível se o Azure AD conseguir identificar o utilizador que solicita o acesso a um recurso, pelo que a sua aplicação deve ser configurada para pré-autenticar utilizadores com AD Azure no acesso ao SSO para funcionar, caso contrário as opções SSO serão desativadas.
 
-Leia [logon único para aplicativos no Azure ad](what-is-single-sign-on.md) para ajudá-lo a escolher o método de SSO mais apropriado ao configurar seus aplicativos.
+Leia o único sessão de [inscrição em aplicações em AD Azure](what-is-single-sign-on.md) para ajudá-lo a escolher o método SSO mais adequado ao configurar as suas aplicações.
 
-###  <a name="working-with-other-types-of-applications"></a>Trabalhando com outros tipos de aplicativos
+###  <a name="working-with-other-types-of-applications"></a>Trabalhar com outros tipos de aplicações
 
-O Azure Proxy de Aplicativo do AD também pode dar suporte a aplicativos que foram desenvolvidos para usar a biblioteca de autenticação do AD do Azure ([Adal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)) ou a[MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)(biblioteca de autenticação da Microsoft). Ele dá suporte a aplicativos cliente nativos consumindo tokens emitidos pelo Azure AD recebidos nas informações de cabeçalho da solicitação do cliente para executar a pré-autenticação em nome dos usuários.
+O Procurador de Aplicação Azure AD também pode suportar aplicações que foram desenvolvidas para usar a nossa Biblioteca de Autenticação AD Azure[(ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)ou a Microsoft Authentication Library[(MSAL).](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/) Suporta aplicações de clientes nativos consumindo a AD Azure emitida sintetizadoras recebidas na informação do cliente para realizar a pré-autenticação em nome dos utilizadores.
 
-Leia [Publicando aplicativos cliente móveis e nativos](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) e [aplicativos baseados em declarações](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) para saber mais sobre as configurações disponíveis do proxy de aplicativo.
+Leia a publicação de aplicações de [clientes nativos e móveis](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) e [aplicações baseadas em reivindicações](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) para conhecer as configurações disponíveis do Proxy de Aplicação.
 
-### <a name="use-conditional-access-to-strengthen-security"></a>Usar o acesso condicional para reforçar a segurança
+### <a name="use-conditional-access-to-strengthen-security"></a>Utilizar acesso condicional para reforçar a segurança
 
-A segurança do aplicativo requer um conjunto avançado de recursos de segurança que podem proteger e responder a ameaças complexas locais e na nuvem. Os invasores geralmente têm acesso à rede corporativa por meio de credenciais de usuário fracas, padrão ou roubadas.  A segurança orientada por identidade da Microsoft reduz o uso de credenciais roubadas Gerenciando e protegendo as identidades privilegiadas e não privilegiadas.
+A segurança da aplicação requer um conjunto avançado de capacidades de segurança que possam proteger e responder a ameaças complexas no local e na nuvem. Os atacantes obtêm, na maioria das vezes, acesso à rede corporativa através de credenciais de utilizador fracas, por defeito ou roubadas.  A segurança baseada na identidade da Microsoft reduz o uso de credenciais roubadas, gerindo e protegendo identidades privilegiadas e não privilegiadas.
 
-Os seguintes recursos podem ser usados para dar suporte ao Azure Proxy de Aplicativo do AD:
+As seguintes capacidades podem ser utilizadas para suportar o Proxy de Aplicação AD Azure:
 
-* Acesso condicional com base no usuário e no local: Mantenha os dados confidenciais protegidos limitando o acesso do usuário com base na localização geográfica ou em um endereço IP com [políticas de acesso condicional com base no local](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+* Acesso condicional baseado no utilizador e na localização: Mantenha os dados sensíveis protegidos limitando o acesso do utilizador com base na geolocalização ou num endereço IP com [políticas de acesso condicional baseadas na localização.](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)
 
-* Acesso condicional com base no dispositivo: Garanta que somente dispositivos registrados, aprovados e em conformidade possam acessar dados corporativos com [acesso condicional baseado em dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
+* Acesso Condicional baseado no dispositivo: Certifique-se de que apenas dispositivos matriculados, aprovados e conformes podem aceder a dados corporativos com [acesso condicional baseado no dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
 
-* Acesso condicional baseado em aplicativo: O trabalho não precisa parar quando um usuário não está na rede corporativa. [Proteja o acesso à nuvem corporativa e aos aplicativos locais](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) e mantenha o controle com acesso condicional.
+* Acesso Condicional baseado em aplicações: O trabalho não tem de parar quando um utilizador não está na rede corporativa. [Acesso seguro a aplicações corporativas de nuvem e no local](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) e manter o controlo com acesso condicional.
 
-* Acesso condicional com base em risco: Proteja seus dados contra hackers mal-intencionados com uma [política de acesso condicional baseada em risco](https://www.microsoft.com/cloud-platform/conditional-access) que pode ser aplicada a todos os aplicativos e todos os usuários, seja localmente ou na nuvem.
+* Acesso Condicional baseado em risco: Proteja os seus dados de hackers maliciosos com uma [política de acesso condicional baseada no risco](https://www.microsoft.com/cloud-platform/conditional-access) que pode ser aplicada a todas as aplicações e a todos os utilizadores, seja no local ou na nuvem.
 
-* Painel de acesso do AD do Azure: Com o serviço de proxy de aplicativo implantado, e os aplicativos publicados com segurança, oferecem aos usuários um hub simples para descobrir e acessar todos os seus aplicativos. Aumente a produtividade com recursos de autoatendimento, como a capacidade de solicitar acesso a novos aplicativos e grupos ou gerenciar o acesso a esses recursos em nome de outros, por meio do [painel de acesso](https://aka.ms/AccessPanelDPDownload).
+* Painel de Acesso Azure AD: Com o seu serviço proxy de aplicação implementado, e aplicações publicadas de forma segura, ofereça aos seus utilizadores um simples hub para descobrir e aceder a todas as suas aplicações. Aumentar a produtividade com capacidades de self-service, como a capacidade de solicitar acesso a novas apps e grupos ou gerir o acesso a esses recursos em nome de outros, através do Painel de [Acesso.](https://aka.ms/AccessPanelDPDownload)
 
-## <a name="manage-your-implementation"></a>Gerenciar sua implementação
+## <a name="manage-your-implementation"></a>Gerir a sua implementação
 
 ### <a name="required-roles"></a>Funções necessárias
 
-A Microsoft defende o princípio de conceder o privilégio mínimo possível para executar as tarefas necessárias com o Azure AD. [Examine as diferentes funções do Azure que estão disponíveis](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) e escolha a correta para atender às necessidades de cada pessoa. Algumas funções podem precisar ser aplicadas temporariamente e removidas após a conclusão da implantação.
+A Microsoft defende o princípio de conceder o menor privilégio possível para executar as tarefas necessárias com a AD Azure. [Reveja as diferentes funções azure que estão disponíveis](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) e escolha a certa para responder às necessidades de cada persona. Algumas funções podem ter de ser aplicadas temporariamente e removidas após a conclusão da implantação.
 
-| Função corporativa| Tarefas de negócios| Funções do Azure AD |
+| Papel de negócio| Tarefas empresariais| Funções do Azure AD |
 |---|---|---|
-| Administrador de assistência técnica | Normalmente limitado à qualificação de problemas relatados pelo usuário final e à execução de tarefas limitadas, como alteração de senhas de usuários, invalidação de tokens de atualização e integridade do serviço de monitoramento. | Administrador de Suporte Técnico |
-| Administrador de identidade| Leia relatórios de entrada e logs de auditoria do Azure AD para depurar problemas relacionados ao proxy de aplicativo.| Leitor de segurança |
-| Proprietário do aplicativo| Crie e gerencie todos os aspectos de aplicativos empresariais, registros de aplicativos e configurações de proxy de aplicativo.| Administrador do aplicativo |
-| Administrador de infraestrutura | Proprietário da substituição do certificado | Administrador do aplicativo |
+| Administração de secretária de ajuda | Normalmente limitado a problemas reportados pelo utilizador final e executando tarefas limitadas, tais como alterar as palavras-passe dos utilizadores, invalidar fichas de atualização e monitorizar a saúde do serviço. | Administrador de Helpdesk |
+| Administrador de identidade| Leia o sinal de anúncio do Azure em relatórios e registos de auditoria para depurar questões relacionadas com a App Proxy.| Leitor de segurança |
+| Proprietário de candidatura| Criar e gerir todos os aspetos das aplicações empresariais, registos de aplicações e configurações de procuração de aplicações.| Administrador de aplicação |
+| Administração de infraestruturas | Proprietário de capotamento de certificado | Administrador de aplicação |
 
-Minimizar o número de pessoas que têm acesso a informações ou recursos seguros ajudará a reduzir a chance de um ator mal-intencionado obter acesso não autorizado ou um usuário autorizado que afete inadvertidamente um recurso confidencial. 
+Minimizar o número de pessoas que têm acesso a informações ou recursos seguros ajudará a reduzir a possibilidade de um ator malicioso obter acesso não autorizado, ou um utilizador autorizado inadvertidamente com impacto num recurso sensível. 
  
-No entanto, os usuários ainda precisam executar operações privilegiadas diárias, impondo as políticas de [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) just-in-time (JIT) para fornecer acesso privilegiado sob demanda aos recursos do Azure e o Azure AD é nossa abordagem recomendada para gerenciar com eficiência o acesso administrativo e a auditoria.
+No entanto, os utilizadores ainda precisam de realizar operações privilegiadas do dia-a-dia, pelo que impor políticas de [gestão](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) de identidade privilegiada baseadas em tempo justo (JIT) para fornecer acesso privilegiado a pedido aos recursos Azure e AD Azure é a nossa abordagem recomendada para gerir eficazmente o acesso administrativo e a auditoria.
 
-### <a name="reporting-and-monitoring"></a>Relatórios e monitoramento
+### <a name="reporting-and-monitoring"></a>Relatórios e monitorização
 
-O Azure AD fornece informações adicionais sobre o uso de aplicativos e a integridade operacional de sua organização por meio de [relatórios e logs de auditoria](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). O proxy de aplicativo também torna muito fácil monitorar conectores do portal do Azure AD e dos logs de eventos do Windows.
+A Azure AD fornece informações adicionais sobre o uso de aplicações da sua organização e saúde operacional através de [registos e relatórios](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)de auditoria. Aplicação Proxy também facilita a monitorização de conectores do portal Azure AD e registos de eventos do Windows.
 
 #### <a name="application-audit-logs"></a>Registos de auditoria de aplicação
 
-Esses logs fornecem informações detalhadas sobre logons para aplicativos configurados com o proxy de aplicativo e o dispositivo e o usuário que acessa o aplicativo. [Os logs de auditoria](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) estão localizados no portal do Azure e na [API de auditoria](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) para exportação. Além disso, os [relatórios de uso e informações](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) também estão disponíveis para seu aplicativo.
+Estes registos fornecem informações detalhadas sobre logins a aplicações configuradas com proxy de aplicação e o dispositivo e o utilizador que acede à aplicação. [Os registos](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) de auditoria estão localizados no portal Azure e na [Auditoria API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) para exportação. Além disso, os relatórios de [utilização e insights](../reports-monitoring/concept-usage-insights-report.md?context=azure/active-directory/manage-apps/context/manage-apps-context) também estão disponíveis para a sua aplicação.
 
-#### <a name="application-proxy-connector-monitoring"></a>Monitoramento do conector de proxy de aplicativo
+#### <a name="application-proxy-connector-monitoring"></a>Monitorização do Conector proxy da aplicação
 
-Os conectores e o serviço de cuidam de todas as tarefas de elevada disponibilidade. Você pode monitorar o status dos conectores na página proxy de aplicativo no portal do Azure AD. Para obter mais informações sobre conectores manutenção, consulte [entender os conectores de proxy de aplicativo do AD do Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
+Os conectores e o serviço de cuidam de todas as tarefas de elevada disponibilidade. Pode monitorizar o estado dos seus conectores a partir da página Proxy de Aplicação no Portal AD Azure. Para obter mais informações sobre a manutenção do conector, consulte [Conectores proxy de aplicação ad azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
 
-![Exemplo: Conectores de Proxy de Aplicativo do AD do Azure](./media/application-proxy-connectors/app-proxy-connectors.png)
+![Exemplo: Conectores de proxy de aplicação da AD Azure](./media/application-proxy-connectors/app-proxy-connectors.png)
 
-#### <a name="windows-event-logs-and-performance-counters"></a>Logs de eventos do Windows e contadores de desempenho
+#### <a name="windows-event-logs-and-performance-counters"></a>Registos de eventos do Windows e contadores de desempenho
 
-Os conectores têm logs de administração e de sessão. Os registos de administrador incluem eventos principais e os erros. Os registos de sessão incluem todas as transações e os respetivos detalhes de processamento. Os logs e os contadores estão localizados nos logs de eventos do Windows para obter mais informações, consulte [entender os conectores de proxy de aplicativo do AD do Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Siga este [tutorial para configurar fontes de dados de log de eventos no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
+Os conectores têm registos de administração e sessão. Os registos de administrador incluem eventos principais e os erros. Os registos de sessão incluem todas as transações e os respetivos detalhes de processamento. Os registos e balcões estão localizados nos Registos de Eventos do Windows para obter mais informações ver [Understand Azure Application Proxy Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Siga este tutorial para configurar fontes de dados de registo de [eventos no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
-### <a name="troubleshooting-guide-and-steps"></a>Guia de solução de problemas e etapas
+### <a name="troubleshooting-guide-and-steps"></a>Guia e passos de resolução de problemas
 
-Saiba mais sobre problemas comuns e como resolvê-los com nosso guia para [solucionar problemas](application-proxy-troubleshoot.md) de mensagens de erro. 
+Saiba mais sobre questões comuns e como resolvê-las com o nosso guia para [resolução](application-proxy-troubleshoot.md) de mensagens de erro. 
 
-Os artigos a seguir abordam cenários comuns que também podem ser usados para criar guias de solução de problemas para sua organização de suporte. 
+Os seguintes artigos abrangem cenários comuns que também podem ser usados para criar guias de resolução de problemas para a sua organização de apoio. 
 
 * [Problema ao apresentar a página da aplicação](application-proxy-page-appearance-broken-problem.md)
 * [O carregamento da aplicação é demasiado demorado](application-proxy-page-load-speed-problem.md)
@@ -324,6 +324,6 @@ Os artigos a seguir abordam cenários comuns que também podem ser usados para c
 * [Problema ao criar uma aplicação no portal de administração](application-proxy-config-problem.md)
 * [Configurar Delegação Restrita de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Configurar com o PingAccess](application-proxy-back-end-ping-access-how-to.md)
-* [Não é possível acessar este erro de aplicativo corporativo](application-proxy-sign-in-bad-gateway-timeout-error.md)
+* [Não é possível aceder a este erro de aplicação corporativa](application-proxy-sign-in-bad-gateway-timeout-error.md)
 * [Problema ao instalar o Conector do Agente do Proxy de Aplicações](application-proxy-connector-installation-problem.md)
-* [Problema de entrada](application-sign-in-problem-on-premises-application-proxy.md)
+* [Problema de inscrição](application-sign-in-problem-on-premises-application-proxy.md)

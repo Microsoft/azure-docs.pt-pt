@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158915"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252653"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Utilização de pontos finais privados para armazenamento azure (pré-visualização)
 
@@ -136,4 +136,4 @@ Esta restrição é o resultado das alterações do DNS feitas quando a conta A2
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regras do Grupo de Segurança da Rede para subredes com pontos finais privados
 
-Atualmente, não é possível configurar as regras do [Network Security Group](../../virtual-network/security-overview.md) (NSG) para subredes com pontos finais privados. Uma suposição limitada para esta questão é implementar as suas regras de acesso a pontos finais privados nas subredes de origem, embora esta abordagem possa exigir uma gestão superior.
+Atualmente, não é possível configurar as regras do [Network Security Group](../../virtual-network/security-overview.md) (NSG) e as rotas definidas pelo utilizador para pontos finais privados. As regras de NSG aplicadas à subnet a loja do ponto final privado são aplicadas ao ponto final privado. Uma suposição limitada para esta questão é implementar as suas regras de acesso a pontos finais privados nas subredes de origem, embora esta abordagem possa exigir uma gestão superior.

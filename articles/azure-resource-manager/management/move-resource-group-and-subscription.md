@@ -1,41 +1,41 @@
 ---
-title: Mover recursos para uma nova assinatura ou grupo de recursos
+title: Mover recursos para um novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.openlocfilehash: c91081ee25a3b98fa25b8b9b9047da186b22181b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/02/2020
+ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891361"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250175"
 ---
-# <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou assinatura
+# <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
-Este artigo mostra como mover os recursos do Azure para outra assinatura do Azure ou outro grupo de recursos na mesma assinatura. Para mover recursos, pode utilizar o portal do Azure, o Azure PowerShell, a CLI do Azure ou a API REST.
+Este artigo mostra-lhe como mover os recursos do Azure para outra subscrição do Azure ou outro grupo de recursos sob a mesma subscrição. Para mover recursos, pode utilizar o portal do Azure, o Azure PowerShell, a CLI do Azure ou a API REST.
 
-O grupo de origem e o grupo de destino são bloqueados durante a operação de movimentação. Escrever e eliminar operações os grupos de recursos não é permitido enquanto a migração for concluída. Esse bloqueio significa que você não pode adicionar, atualizar ou excluir recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se mover um servidor de SQL e a respetiva base de dados para um novo grupo de recursos, uma aplicação que utiliza a base de dados experiências sem períodos de indisponibilidade. Pode ainda ler e escrever na base de dados. O bloqueio pode durar por um máximo de quatro horas, mas a maioria das mudanças é concluída em muito menos tempo.
+Tanto o grupo de origem como o grupo alvo estão bloqueados durante a operação de movimento. Escrever e eliminar operações os grupos de recursos não é permitido enquanto a migração for concluída. Este bloqueio significa que não pode adicionar, atualizar ou eliminar recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se mover um servidor de SQL e a respetiva base de dados para um novo grupo de recursos, uma aplicação que utiliza a base de dados experiências sem períodos de indisponibilidade. Pode ainda ler e escrever na base de dados. O cadeado pode durar um máximo de quatro horas, mas a maioria dos movimentos completam-se em muito menos tempo.
 
 Mover um recurso apenas o move para um grupo de recursos ou uma subscrição novos. Não altera a localização do recurso.
 
 ## <a name="checklist-before-moving-resources"></a>Lista de verificação antes de mover recursos
 
-Há algumas etapas importantes a serem adotadas antes de mover um recurso. Ao confirmar estas condições, pode evitar erros.
+Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao confirmar estas condições, pode evitar erros.
 
-1. Os recursos que você deseja mover devem oferecer suporte à operação de movimentação. Para obter uma lista dos recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](move-support-resources.md).
+1. Os recursos que quer mover devem apoiar a operação de movimento. Para obter uma lista dos recursos de apoio, consulte o apoio da [operação Move para recursos](move-support-resources.md).
 
-1. Alguns serviços têm limitações ou requisitos específicos ao mover recursos. Se você estiver movendo qualquer um dos serviços a seguir, verifique essas diretrizes antes de mover.
+1. Alguns serviços têm limitações ou requisitos específicos ao mover recursos. Se estiver a mover algum dos seguintes serviços, verifique essa orientação antes de se deslocar.
 
-   * [Diretrizes de movimentação de serviços de aplicativos](./move-limitations/app-service-move-limitations.md)
-   * [Diretrizes de movimentação de Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
-   * [Diretrizes de movimentação do modelo de implantação clássica](./move-limitations/classic-model-move-limitations.md) -computação clássica, armazenamento clássico, redes virtuais clássicas e serviços de nuvem
-   * [Diretrizes de movimentação de rede](./move-limitations/networking-move-limitations.md)
-   * [Diretrizes de movimentação dos serviços de recuperação](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-   * [Diretrizes de movimentação de máquinas virtuais](./move-limitations/virtual-machines-move-limitations.md)
+   * [Os Serviços de Aplicações movem orientação](./move-limitations/app-service-move-limitations.md)
+   * [Serviços Azure DevOps movem orientação](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+   * [Modelo clássico de implementação move orientação](./move-limitations/classic-model-move-limitations.md) - Classic Compute, Classic Storage, Classic Virtual Networks e Cloud Services
+   * [Orientação de movimento em rede](./move-limitations/networking-move-limitations.md)
+   * [Serviços de Recuperação movem orientação](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+   * [Máquinas Virtuais movem orientação](./move-limitations/virtual-machines-move-limitations.md)
 
-1. As assinaturas de origem e de destino devem estar ativas. Se você tiver problemas para habilitar uma conta que foi desabilitada, [crie uma solicitação de suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selecione **gestão de subscrições** para o tipo de problema.
+1. As assinaturas de origem e destino devem estar ativas. Se tiver dificuldade em permitir uma conta que tenha sido desativada, [crie um pedido](../../azure-portal/supportability/how-to-create-azure-support-request.md)de apoio Azure . Selecione **Gestão de Assinatura** para o tipo de problema.
 
-1. As subscrições de origem e de destino tem de existir no mesmo [inquilino do Azure Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md). Para verificar-se de que ambas as subscrições têm o mesmo ID de inquilino, utilize o Azure PowerShell ou a CLI do Azure.
+1. As assinaturas de origem e destino devem existir dentro do mesmo [inquilino azure Ative Directory.](../../active-directory/develop/quickstart-create-new-tenant.md) Para verificar-se de que ambas as subscrições têm o mesmo ID de inquilino, utilize o Azure PowerShell ou a CLI do Azure.
 
    Para o Azure PowerShell, utilize:
 
@@ -56,7 +56,7 @@ Há algumas etapas importantes a serem adotadas antes de mover um recurso. Ao co
    * [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md)
    * [Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. A subscrição de destino tem de estar registada no fornecedor de recursos do recurso a ser movido. Se não, receberá um erro a indicar que o **subscrição não está registada para um tipo de recurso**. Você pode ver esse erro ao mover um recurso para uma nova assinatura, mas essa assinatura nunca foi usada com esse tipo de recurso.
+1. A subscrição de destino tem de estar registada no fornecedor de recursos do recurso a ser movido. Caso contrário, recebe um erro indicando que a **subscrição não está registada para um tipo**de recurso . Pode ver este erro ao mover um recurso para uma nova subscrição, mas essa subscrição nunca foi utilizada com esse tipo de recursos.
 
    Para o PowerShell, utilize os seguintes comandos para obter o estado do registo:
 
@@ -86,37 +86,37 @@ Há algumas etapas importantes a serem adotadas antes de mover um recurso. Ao co
 
 1. A conta de mover os recursos tem de ter, pelo menos, as seguintes permissões:
 
-   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** no grupo de recursos de origem.
-   * **Microsoft.Resources/subscriptions/resourceGroups/write** no grupo de recursos de destino.
+   * **Microsoft.Recursos/subscrições/recursosGroups/moveResources/action** on the source resource group.
+   * **Microsoft.Recursos/subscrições/recursosGroups/write** no grupo de recursos de destino.
 
-1. Antes de mover os recursos, verifique as quotas de subscrição para a subscrição que estiver a mover os recursos para. Se mover os recursos significa que a subscrição irá exceder os limites, terá de rever se podem pedir um aumento na quota. Para obter uma lista de limites e como pedir um aumento, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+1. Antes de mover os recursos, verifique as quotas de subscrição para a subscrição que estiver a mover os recursos para. Se mover os recursos significa que a subscrição irá exceder os limites, terá de rever se podem pedir um aumento na quota. Para uma lista de limites e como solicitar um aumento, consulte [os limites de subscrição e serviço do Azure, quotas e constrangimentos.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
-1. **Para uma movimentação entre assinaturas, o recurso e seus recursos dependentes devem estar localizados no mesmo grupo de recursos e devem ser movidos juntos.** Por exemplo, uma VM com discos gerenciados exigiria que a VM e os discos gerenciados fossem movidos juntos, juntamente com outros recursos dependentes.
+1. **Para uma mudança através das assinaturas, o recurso e os seus recursos dependentes devem estar localizados no mesmo grupo de recursos e devem ser movidos em conjunto.** Por exemplo, um VM com discos geridos exigiria que o VM e os discos geridos fossem movidos em conjunto, juntamente com outros recursos dependentes.
 
-   Se você estiver movendo um recurso para uma nova assinatura, verifique se o recurso tem quaisquer recursos dependentes e se eles estão localizados no mesmo grupo de recursos. Se os recursos não estiverem no mesmo grupo de recursos, verifique se os recursos podem ser consolidados no mesmo grupo de recursos. Nesse caso, coloque todos esses recursos no mesmo grupo de recursos usando uma operação de movimentação entre grupos de recursos.
+   Se está a mover um recurso para uma nova subscrição, verifique se o recurso tem algum recurso dependente e se estão localizados no mesmo grupo de recursos. Se os recursos não estiverem no mesmo grupo de recursos, verifique se os recursos podem ser consolidados no mesmo grupo de recursos. Em caso afirmativo, traga todos estes recursos para o mesmo grupo de recursos, utilizando uma operação de movimento através de grupos de recursos.
 
-   Para obter mais informações, consulte [cenário para mover entre assinaturas](#scenario-for-move-across-subscriptions).
+   Para mais informações, consulte Cenário para se deslocar através de [subscrições](#scenario-for-move-across-subscriptions).
 
-## <a name="scenario-for-move-across-subscriptions"></a>Cenário para mover entre assinaturas
+## <a name="scenario-for-move-across-subscriptions"></a>Cenário para mover-se através de subscrições
 
-Mover recursos de uma assinatura para outra é um processo de três etapas:
+Mover recursos de uma subscrição para outra é um processo em três etapas:
 
-![cenário de movimentação entre assinaturas](./media/move-resource-group-and-subscription/cross-subscription-move-scenario.png)
+![cenário de movimento de subscrição cruzada](./media/move-resource-group-and-subscription/cross-subscription-move-scenario.png)
 
 Para fins de ilustração, temos apenas um recurso dependente.
 
-* Etapa 1: se os recursos dependentes forem distribuídos em grupos de recursos diferentes, primeiro mova-os para um grupo de recursos.
-* Etapa 2: Mova o recurso e os recursos dependentes da assinatura de origem para a assinatura de destino.
-* Etapa 3: opcionalmente, redistribua os recursos dependentes para grupos de recursos diferentes na assinatura de destino. 
+* Passo 1: Se os recursos dependentes forem distribuídos por diferentes grupos de recursos, primeiro movê-los para um grupo de recursos.
+* Passo 2: Mover o recurso e os recursos dependentes da subscrição de origem para a subscrição-alvo.
+* Passo 3: Opcionalmente, redistribua os recursos dependentes para diferentes grupos de recursos dentro da subscrição-alvo. 
 
 ## <a name="validate-move"></a>Validar a movimentação
 
-O [validar a operação de movimentação](/rest/api/resources/resources/validatemoveresources) permite testar o seu cenário de movimentação sem, na verdade, mover os recursos. Use esta operação para verificar se a movimentação será realizada com sucesso. A validação é chamada automaticamente quando você envia uma solicitação de movimentação. Use essa operação somente quando precisar predeterminar os resultados. Para executar esta operação, precisa de:
+A [operação de movimento validado](/rest/api/resources/resources/validatemoveresources) permite testar o seu cenário de movimento sem realmente mover os recursos. Utilize esta operação para verificar se o movimento terá sucesso. A validação é automaticamente chamada quando envia um pedido de mudança. Utilize esta operação apenas quando necessitar de determinar os resultados. Para executar esta operação, precisa de:
 
 * nome do grupo de recursos de origem
 * ID de recurso do grupo de recursos de destino
 * ID de recurso de cada recurso para mover
-* o [token de acesso](/rest/api/azure/#acquire-an-access-token) para a sua conta
+* o [sinal de acesso](/rest/api/azure/#acquire-an-access-token) para a sua conta
 
 Envie o pedido seguinte:
 
@@ -147,7 +147,7 @@ retry-after: 15
 ...
 ```
 
-O código de 202 estado indica foi aceite o pedido de validação, mas ele ainda não ainda por determinar se a operação de movimentação terá êxito. O `location` valor contém um URL que utilizar para verificar o estado da operação de longa execução.  
+O código de 202 estado indica foi aceite o pedido de validação, mas ele ainda não ainda por determinar se a operação de movimentação terá êxito. O valor `location` contém um URL que utiliza para verificar o estado da operação de longa duração.  
 
 Para verificar o estado, envie o pedido seguinte:
 
@@ -156,7 +156,7 @@ GET <location-url>
 Authorization: Bearer <access-token>
 ```
 
-Enquanto a operação ainda está em execução, continua a receber o código de 202 estado. Aguardar o número de segundos, indicados a `retry-after` valor antes de tentar novamente. Se a operação de movimentação for validado com êxito, receberá o código de 204 estado. Se a validação de movimentação falhar, recebe uma mensagem de erro, tal como:
+Enquanto a operação ainda está em execução, continua a receber o código de 202 estado. Aguarde o número de segundos indicado si no valor `retry-after` antes de tentar novamente. Se a operação de movimentação for validado com êxito, receberá o código de 204 estado. Se a validação de movimentação falhar, recebe uma mensagem de erro, tal como:
 
 ```json
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
@@ -164,17 +164,17 @@ Enquanto a operação ainda está em execução, continua a receber o código de
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
-Para mover recursos, selecione o grupo de recursos com esses recursos e, em seguida, selecione o botão **mover** .
+Para movimentar recursos, selecione o grupo de recursos com esses recursos e, em seguida, selecione o botão **Mover.**
 
 ![mover recursos](./media/move-resource-group-and-subscription/select-move.png)
 
 Selecione se estiver a mover os recursos para um novo grupo de recursos ou uma nova subscrição.
 
-Selecione os recursos necessários para mover e o grupo de recursos de destino. Confirmar que tem de atualizar os scripts para estes recursos e selecione **OK**. Se o ícone de edição de subscrição que selecionou no passo anterior, também tem de selecionar a subscrição de destino.
+Selecione os recursos necessários para mover e o grupo de recursos de destino. Reconheça que precisa atualizar scripts para estes recursos e selecione **OK**. Se o ícone de edição de subscrição que selecionou no passo anterior, também tem de selecionar a subscrição de destino.
 
 ![Selecionar destino](./media/move-resource-group-and-subscription/select-destination.png)
 
-Na **notificações**, verá que a operação de movimentação está em execução.
+Em **Notificações,** vê que a operação de movimento está a decorrer.
 
 ![Mostrar o estado de movimentação](./media/move-resource-group-and-subscription/show-status.png)
 
@@ -182,11 +182,11 @@ Quando tiver concluído, foi notificado do resultado.
 
 ![Mostrar o resultado de movimentação](./media/move-resource-group-and-subscription/show-result.png)
 
-Se você receber um erro, consulte [solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura](troubleshoot-move.md).
+Se tiver um erro, consulte a [Troubleshoot movendo os recursos do Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
-Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando [move-AzResource](/powershell/module/az.resources/move-azresource) . O exemplo a seguir mostra como mover vários recursos para um novo grupo de recursos.
+Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize o comando [Move-AzResource.](/powershell/module/az.resources/move-azresource) O exemplo que se segue mostra como transferir vários recursos para um novo grupo de recursos.
 
 ```azurepowershell-interactive
 $webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
@@ -194,13 +194,13 @@ $plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
-Para mover para uma nova subscrição, incluem um valor para o `DestinationSubscriptionId` parâmetro.
+Para passar para uma nova subscrição, inclua um valor para o parâmetro `DestinationSubscriptionId`.
 
-Se você receber um erro, consulte [solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura](troubleshoot-move.md).
+Se tiver um erro, consulte a [Troubleshoot movendo os recursos do Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
-Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize o [movimentação do recurso de az](/cli/azure/resource?view=azure-cli-latest#az-resource-move) comando. Forneça os IDs dos recursos para mover dos recursos. O exemplo a seguir mostra como mover vários recursos para um novo grupo de recursos. Na `--ids` parâmetro, fornecer uma lista separada por espaço do recurso IDs para mover.
+Para mover os recursos existentes para outro grupo de recursos ou subscrição, use o comando de movimento de [recursos az.](/cli/azure/resource?view=azure-cli-latest#az-resource-move) Forneça os IDs dos recursos para mover dos recursos. O exemplo que se segue mostra como transferir vários recursos para um novo grupo de recursos. No parâmetro `--ids`, forneça uma lista separada do espaço dos IDs de recursos para se mover.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -208,13 +208,13 @@ plan=$(az resource show -g OldRG -n ExamplePlan --resource-type "Microsoft.Web/s
 az resource move --destination-group newgroup --ids $webapp $plan
 ```
 
-Para mover para uma nova subscrição, forneça o `--destination-subscription-id` parâmetro.
+Para passar para uma nova subscrição, forneça o parâmetro `--destination-subscription-id`.
 
-Se você receber um erro, consulte [solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura](troubleshoot-move.md).
+Se tiver um erro, consulte a [Troubleshoot movendo os recursos do Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
-## <a name="use-rest-api"></a>Utilizar API REST
+## <a name="use-rest-api"></a>Utilizar a API REST
 
-Para mover os recursos existentes para outro grupo de recursos ou assinatura, use a operação [mover recursos](/rest/api/resources/Resources/MoveResources) .
+Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize a operação [de recursos Move.](/rest/api/resources/Resources/MoveResources)
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
@@ -229,53 +229,53 @@ No corpo do pedido, especifique o grupo de recursos de destino e os recursos par
 }
 ```
 
-Se você receber um erro, consulte [solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura](troubleshoot-move.md).
+Se tiver um erro, consulte a [Troubleshoot movendo os recursos do Azure para um novo grupo de recursos ou subscrição](troubleshoot-move.md).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**Pergunta: minha operação de movimentação de recursos, que geralmente leva alguns minutos, está em execução por quase uma hora. Há algo errado?**
+**Pergunta: A minha operação de movimento de recursos, que normalmente demora alguns minutos, está a funcionar há quase uma hora. Passa-se alguma coisa?**
 
-Mover um recurso é uma operação complexa que tem diferentes fases. Ele pode envolver mais do que apenas o provedor de recursos do recurso que você está tentando mover. Devido às dependências entre os provedores de recursos, Azure Resource Manager permite que a operação seja concluída por 4 horas. Esse período de tempo dá aos provedores de recursos uma chance de se recuperar de problemas transitórios. Se sua solicitação de movimentação estiver dentro do período de 4 horas, a operação continuará tentando ser concluída e ainda poderá ser bem sucedido. Os grupos de recursos de origem e de destino são bloqueados durante esse tempo para evitar problemas de consistência.
+Mover um recurso é uma operação complexa que tem diferentes fases. Pode envolver mais do que apenas o fornecedor de recursos do recurso que está a tentar mover. Devido às dependências entre fornecedores de recursos, o Gestor de Recursos azure permite que a operação seja concluída. Este período de tempo dá aos fornecedores de recursos a oportunidade de se recuperarem de questões transitórias. Se o seu pedido de mudança for dentro do período de 4 horas, a operação continua a tentar concluir e pode ainda ter sucesso. Os grupos de recursos de origem e destino estão bloqueados durante este tempo para evitar problemas de consistência.
 
-**Pergunta: por que meu grupo de recursos está bloqueado por 4 horas durante a movimentação de recursos?**
+**Pergunta: Porque é que o meu grupo de recursos está bloqueado durante 4 horas durante o movimento de recursos?**
 
-A janela de 4 horas é o tempo máximo permitido para movimentação de recursos. Para evitar modificações nos recursos que estão sendo movidos, os grupos de recursos de origem e de destino são bloqueados durante a movimentação do recurso.
+A janela de 4 horas é o tempo máximo permitido para a movimentação de recursos. Para evitar modificações nos recursos que são movidos, tanto os grupos de recursos de origem como os grupos de recursos de destino estão bloqueados durante a duração do movimento de recursos.
 
-Há duas fases em uma solicitação de movimentação. Na primeira fase, o recurso é movido. Na segunda fase, as notificações são enviadas para outros provedores de recursos que dependem do recurso que está sendo movido. Um grupo de recursos pode ser bloqueado para toda a janela de 4 horas quando um provedor de recursos falha em qualquer fase. Durante o tempo permitido, o Gerenciador de recursos repete a etapa com falha.
+Há duas fases num pedido de mudança. Na primeira fase, o recurso é movido. Na segunda fase, as notificações são enviadas a outros fornecedores de recursos que dependem da deslocação do recurso. Um grupo de recursos pode ser bloqueado durante toda a janela de 4 horas quando um fornecedor de recursos falha em qualquer fase. Durante o tempo permitido, o Gestor de Recursos retenta o passo falhado.
 
-Se um recurso não puder ser movido dentro da janela de 4 horas, o Resource Manager desbloqueará os dois grupos de recursos. Os recursos que foram movidos com êxito estão no grupo de recursos de destino. Os recursos que não foram movidos são deixados no grupo de recursos de origem.
+Se um recurso não puder ser movido dentro da janela de 4 horas, o Gestor de Recursos desbloqueia ambos os grupos de recursos. Os recursos que foram movidos com sucesso estão no grupo de recursos de destino. Os recursos que não conseguiram mover-se são deixados ao grupo de recursos de origem.
 
-**Pergunta: quais são as implicações dos grupos de recursos de origem e de destino bloqueados durante a movimentação de recursos?**
+**Pergunta: Quais são as implicações dos grupos de recursos de origem e de destino que estão bloqueados durante o movimento de recursos?**
 
-O bloqueio impede que você exclua um dos grupos de recursos, criando um novo recurso em qualquer grupo de recursos ou excluindo qualquer um dos recursos envolvidos na movimentação.
+O bloqueio impede-o de eliminar qualquer grupo de recursos, criando um novo recurso em qualquer grupo de recursos, ou eliminando qualquer um dos recursos envolvidos na mudança.
 
-A imagem a seguir mostra uma mensagem de erro do portal do Azure quando um usuário tenta excluir um grupo de recursos que faz parte de uma movimentação em andamento.
+A imagem que se segue mostra uma mensagem de erro do portal Azure quando um utilizador tenta apagar um grupo de recursos que faz parte de um movimento em curso.
 
-![Mover mensagem de erro ao tentar excluir](./media/move-resource-group-and-subscription/move-error-delete.png)
+![Mover a mensagem de erro tentando apagar](./media/move-resource-group-and-subscription/move-error-delete.png)
 
-**Pergunta: o que significa o código de erro "MissingMoveDependentResources"?**
+**Pergunta: O que significa o código de erro "MissingMoveDependentResources"?**
 
-Ao mover um recurso, seus recursos dependentes devem existir no grupo de recursos de destino ou na assinatura ou ser incluídos na solicitação de movimentação. Você Obtém o código de erro MissingMoveDependentResources quando um recurso dependente não atende a esse requisito. A mensagem de erro tem detalhes sobre o recurso dependente que precisa ser incluído na solicitação de movimentação.
+Ao mover um recurso, os seus recursos dependentes devem existir no grupo de recursos de destino ou subscrição, ou ser incluídos no pedido de mudança. Obtém o código de erro MissingMoveDependentResources quando um recurso dependente não cumpre este requisito. A mensagem de erro tem detalhes sobre o recurso dependente que precisa de ser incluído no pedido de mudança.
 
-Por exemplo, mover uma máquina virtual pode exigir a movimentação de sete tipos de recursos com três provedores de recursos diferentes. Esses tipos e provedores de recursos são:
+Por exemplo, mover uma máquina virtual pode exigir a deslocação de sete tipos de recursos com três fornecedores de recursos diferentes. Os fornecedores e tipos de recursos são:
 
 * Microsoft.Compute
-   * virtualMachines
+   * máquinas virtuais
    * discos
 * Microsoft.Network
   * networkInterfaces
   * publicIPAddresses
   * networkSecurityGroups
-  * virtualNetworks
+  * redes virtuais
 * Microsoft.Storage
   * storageAccounts
 
-Outro exemplo comum envolve a movimentação de uma rede virtual. Talvez seja necessário mover vários outros recursos associados a essa rede virtual. A solicitação de movimentação pode exigir a movimentação de endereços IP públicos, tabelas de rotas, gateways de rede virtual, grupos de segurança de rede e outros.
+Outro exemplo comum passa pela mudança de uma rede virtual. Pode ter de movimentar vários outros recursos associados a essa rede virtual. O pedido de mudança poderia exigir a deslocação de endereços IP públicos, tabelas de rotas, gateways de rede virtuais, grupos de segurança de rede, entre outros.
 
-**Pergunta: por que não posso mover alguns recursos no Azure?**
+**Pergunta: Por que não posso mover alguns recursos em Azure?**
 
-No momento, nem todos os recursos no Azure dão suporte à movimentação. Para obter uma lista de recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](move-support-resources.md).
+Atualmente, nem todos os recursos em movimento de apoio azure. Para obter uma lista de recursos que apoiem a mudança, consulte o apoio da [operação Move para recursos.](move-support-resources.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma lista dos recursos que dão suporte à movimentação, consulte [mover suporte de operação para recursos](move-support-resources.md).
+Para obter uma lista dos recursos de apoio, consulte o apoio da [operação Move para recursos](move-support-resources.md).

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8acdaabc9f12f7e1bf85cfd8c727369462fe47e4
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227407"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244983"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Quickstart: Criar uma zona DNS privada Azure utilizando o portal Azure
 
@@ -64,10 +64,10 @@ Nesta secção terá de substituir os seguintes parâmetros nos passos com as in
 
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
-| **\<nome de grupo de recursos>**  | MyAzureResourceGroup |
+| **\<nome de grupo de recursos>**  | MyAzureResourceGroup (Selecione grupo de recursos existentes) |
 | **\<nome de rede virtual>** | MyAzureVNet          |
 | **\<nome da região>**          | E.U.A. Centro-Oeste      |
-| **\<IPv4 endereço space>**   | 10.2.0.0\16          |
+| **\<IPv4-address-space>**   | 10.2.0.0\16          |
 | **\<sub-nome>**          | MyAzureSubnet        |
 | **\<sub-endereço-gama>** | 10.2.0.0\24          |
 

@@ -4,14 +4,14 @@ description: Saiba como permitir a autenticação baseada na identidade sobre sM
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/23/2020
+ms.date: 03/03/2020
 ms.author: rogarana
-ms.openlocfilehash: 419f0506751ddc328539eafa52507b0dd0739c79
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 223906343c2391d03d8526026d3daad3174791ed
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921560"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256063"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Ativar a autenticação de Diretório Ativo sobre SMB para ações de ficheiros Azure
 
@@ -62,13 +62,13 @@ Antes de ativar a autenticação de AD para as ações de ficheiros Azure, certi
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação ad (pré-visualização) dos Ficheiros Azure está disponível na maioria das [regiões públicas,](https://azure.microsoft.com/global-infrastructure/regions/) com exceção de:
+A autenticação ad (pré-visualização) do Azure Files está disponível na maioria das [regiões públicas.](https://azure.microsoft.com/global-infrastructure/regions/)
 
+A autenticação ad files Azure não está disponível em:
 - E.U.A. Oeste
 - E.U.A.Oeste 2
 - E.U.A. Leste
 - E.U.A. Leste 2
-- E.U.A. Centro-Sul
 - Europa Ocidental
 - Europa do Norte
 

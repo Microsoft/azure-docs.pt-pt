@@ -3,12 +3,12 @@ title: Tutorial - Criar um controlador de ingresso de gateway de aplicação no 
 description: Tutorial ilustrando como criar um Cluster Kubernetes com serviço Azure Kubernetes com Application Gateway como controlador de ingresso
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: b16b0a40d14ecde87b2637976299d05d37d706f3
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 14b8f6ba74a06c126da239671cbb2053df19af7d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472269"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251766"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: Criar um controlador de ingresso de gateway de aplicação no Serviço Azure Kubernetes
 
@@ -29,7 +29,7 @@ Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 - **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Configurar o Terraform**: Siga as instruções no artigo [Terraform e configuração do acesso ao Azure](terraform-install-configure.md)
+- **Configurar o Terraform**: siga as instruções no artigo [Terraform and configure access to Azure](terraform-install-configure.md) (Terraform e configuração do acesso ao Azure)
 
 - Grupo de **recursos Azure**: Se não tiver um grupo de recursos Azure para usar para a demonstração, [crie um grupo](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups)de recursos Azure . Tome nota do nome e localização do grupo de recursos, uma vez que estes valores são utilizados na demonstração.
 
@@ -611,7 +611,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
 1. No portal Azure, selecione **Grupos de Recursos** no menu esquerdo para ver os recursos criados para o seu novo cluster Kubernetes no grupo de recursos selecionados.
 
-    ![Comando do Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
+    ![Comandos do Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
 
 ## <a name="recover-from-a-cloud-shell-timeout"></a>Recuperar de um tempo limite do Cloud Shell
 
@@ -765,7 +765,7 @@ Quando já não for necessário, apague os recursos criados neste artigo.
 
 Substitua o espaço reservado pelo valor adequado. Todos os recursos dentro do grupo de recursos especificado serão eliminados.
 
-```bash
+```azurecli
 az group delete -n <resource-group>
 ```
 

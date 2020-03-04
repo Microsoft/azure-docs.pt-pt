@@ -3,12 +3,12 @@ title: Back up Máquinas virtuais Hyper-V com MABS
 description: Este artigo contém os procedimentos para o backup e recuperação de máquinas virtuais utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: e23a3a5ad57e07f95958d8a21e091d663a5c1185
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 00d1dd04522c51e4d68450a7b8f25d7159d63724
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586517"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255054"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Backup máquinas virtuais Hyper-V com servidor de backup Azure
 
@@ -171,7 +171,7 @@ Depois de completar os passos nas secções anteriores, e o trabalho do MABS Sum
 
 1. Abra o Estúdio de Gestão de Servidores SQL e ligue-se à instância que acolhe a base de dados MABS.
 
-2. Executar a seguinte consulta: `select * from tbl_SCH_ScheduleDefinition where JobDefinitionID='9B30D213-B836-4B9E-97C2-DB03C3EB39D7'`. Esta consulta devolve o **ScheduleID**. Note este ID como irá usá-lo no próximo passo.
+2. Executar a seguinte consulta: `SELECT SCH.ScheduleId FROM tbl_JM_JobDefinition JD JOIN tbl_SCH_ScheduleDefinition SCH ON JD.JobDefinitionId = SCH.JobDefinitionId WHERE JD.Type = '282faac6-e3cb-4015-8c6d-4276fcca11d4' AND JD.IsDeleted = 0 AND SCH.IsDeleted = 0`. Esta consulta devolve o **ScheduleID**. Note este ID como irá usá-lo no próximo passo.
 
 3. No Estúdio de Gestão de Servidores SQL, expanda o **Agente de Servidores SQL**e, em seguida, expanda **jobs**. Clique no **ScheduleID** que observou e selecione **Iniciar a trabalhar no Passo**.
 

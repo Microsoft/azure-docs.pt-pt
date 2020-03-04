@@ -1,5 +1,5 @@
 ---
-title: Redirecionamento de HTTP para HTTPS usando a CLI
+title: HTTP para HTTPS redirecionamento usando CLI
 titleSuffix: Azure Application Gateway
 description: Saiba como criar um gateway de aplicação e adicionar um certificado para terminação SSL com a CLI do Azure.
 services: application-gateway
@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: ff615507723b949105fc2b604d6bff869bdb33dc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 41b2fb754f1d6ead3a7475ca146ab99758aa8134
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108766"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246862"
 ---
-# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o CLI do Azure
+# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um portal de aplicação com http para https redirection usando o Azure CLI
 
-Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md) com um certificado para terminação SSL. Uma regra de roteamento é utilizada para redirecionar o tráfego HTTP para a porta HTTPS no seu gateway de aplicação. Neste exemplo, também de criar uma [conjunto de dimensionamento de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para o conjunto de back-end do gateway de aplicação que contém duas instâncias de máquina virtual.
+Pode utilizar o Azure CLI para criar um gateway de [aplicação](overview.md) com um certificado para a rescisão de SSL. Uma regra de roteamento é utilizada para redirecionar o tráfego HTTP para a porta HTTPS no seu gateway de aplicação. Neste exemplo, também cria um conjunto de escala de [máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para o conjunto de backend do gateway de aplicação que contém duas instâncias de máquina virtual.
 
 Neste artigo, vai aprender a:
 
@@ -38,13 +38,13 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 Para utilização em produção, deve importar um certificado válido assinado por um fornecedor fidedigno. Neste tutorial, vai criar um certificado autoassinado e um ficheiro pfx com o comando openssl.
 
-```azurecli-interactive
+```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
 Introduza valores que façam sentido para o seu certificado. Pode aceitar os valores predefinidos.
 
-```azurecli-interactive
+```console
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 
@@ -84,7 +84,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, sku e definições de HTTP. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. 
 
 O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. Neste exemplo, vai associar o certificado que criou e a respetiva palavra-passe quando criar o gateway de aplicação. 
 
@@ -117,9 +117,9 @@ az network application-gateway create \
 
 ## <a name="add-a-listener-and-redirection-rule"></a>Adicionar uma regra de serviço de escuta e o redirecionamento
 
-### <a name="add-the-http-port"></a>Adicionar a porta HTTP
+### <a name="add-the-http-port"></a>Adicione a porta HTTP
 
-Você pode usar [AZ Network Application-Gateway front-Port Create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) para adicionar a porta http ao gateway de aplicativo.
+Pode utilizar a criação da porta frontal de porta frontal de [gateway de aplicação az](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) para adicionar a porta HTTP ao gateway de aplicação.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -129,9 +129,9 @@ az network application-gateway frontend-port create \
   --name httpPort
 ```
 
-### <a name="add-the-http-listener"></a>Adicionar o ouvinte HTTP
+### <a name="add-the-http-listener"></a>Adicione o ouvinte HTTP
 
-Você pode usar [AZ Network Application-Gateway http-Listener Create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) para adicionar o ouvinte chamado *MyListener* ao gateway de aplicativo.
+Pode utilizar o [gateway de aplicação da rede Az para](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) adicionar o ouvinte chamado *myListener* ao gateway da aplicação.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -142,9 +142,9 @@ az network application-gateway http-listener create \
   --gateway-name myAppGateway
 ```
 
-### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
+### <a name="add-the-redirection-configuration"></a>Adicione a configuração de reorientação
 
-Adicione a configuração de redirecionamento de HTTP para HTTPS ao gateway de aplicativo usando [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Adicione a configuração de redirecionamento HTTP ao gateway de aplicação utilizando a criação de [redirecione de gateway de aplicação de rede Az](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -157,9 +157,9 @@ az network application-gateway redirect-config create \
   --include-query-string true
 ```
 
-### <a name="add-the-routing-rule"></a>Adicionar a regra de roteamento
+### <a name="add-the-routing-rule"></a>Adicione a regra de encaminhamento
 
-Adicione a regra de roteamento denominada *rule2* com a configuração de redirecionamento para o gateway de aplicativo usando [AZ Network Application-Gateway regra Create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+Adicione a regra de encaminhamento denominada *regra 2* com a configuração de redirecionamento ao gateway da aplicação utilizando a regra de [aplicação de aplicação de rede az criar](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -173,7 +173,7 @@ az network application-gateway rule create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria um conjunto de dimensionamento de máquinas virtuais chamado *myvmss* que fornece servidores para o pool de back-end no gateway de aplicativo. As máquinas virtuais no conjunto de dimensionamento são associadas a *myBackendSubnet* e *appGatewayBackendPool*. Para criar o conjunto de dimensionamento, pode utilizar [az vmss create](/cli/azure/vmss#az-vmss-create).
+Neste exemplo, cria-se um conjunto de escala de máquina virtual chamado *myvmss* que fornece servidores para o backend pool no gateway da aplicação. As máquinas virtuais no conjunto de dimensionamento são associadas a *myBackendSubnet* e *appGatewayBackendPool*. Para criar o conjunto de dimensionamento, pode utilizar [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
@@ -208,7 +208,7 @@ az vmss extension set \
 
 Para obter o endereço IP público do gateway de aplicação, pode utilizar [az network public-ip show](/cli/azure/network/public-ip). Copie o endereço IP público e cole-o na barra de endereço do browser.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \

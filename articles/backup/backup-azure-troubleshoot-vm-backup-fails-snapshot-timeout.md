@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 1ed0ce94074e3d0ed03c0a0dc4c276d71da7059b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: beb20518d1350335ceed285f4d5cd9da135132e5
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921016"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255738"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup de Troubleshoot Azure: Problemas com o agente ou extensão
 
@@ -43,9 +43,7 @@ Depois de registar e agendar um VM para o serviço de backup Azure, o Backup ini
 
 **Causa 3: [O estado do instantâneo não pode ser recuperado, ou uma foto não pode ser tirada](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
-**Causa 4: [A extensão de reserva não atualiza ou carrega](#the-backup-extension-fails-to-update-or-load)**
-
-**Causa 5: [As opções de configuração vM-Agent não estão definidas (para VMs Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+**Causa 4: [As opções de configuração vM-Agent não estão definidas (para VMs Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed - O VM está em estado de provisionamento falhado
 
@@ -86,10 +84,9 @@ Para que uma operação de reserva tenha sucesso em VMs encriptados, deve ter pe
 **Código de erro**: ExtensionSnapshotFailedNoNetwork<br>
 **Error message**: A operação instantânea falhou devido a nenhuma conectividade de rede na máquina virtual<br>
 
-Depois de registar e agendar um VM para o serviço de backup Azure, o Backup inicia o trabalho comunicando com a extensão de backup VM para tirar uma foto pontual. Qualquer uma das seguintes condições pode impedir que o instantâneo seja acionado. Se o instantâneo não for acionado, pode ocorrer uma falha de reserva. Complete os seguintes passos de resolução de problemas na ordem listada e, em seguida, tente novamente a sua operação:
+Depois de registar e agendar um VM para o serviço de backup Azure, o Backup inicia o trabalho comunicando com a extensão de backup VM para tirar uma foto pontual. Qualquer uma das seguintes condições pode impedir que o instantâneo seja acionado. Se o instantâneo não for acionado, pode ocorrer uma falha de reserva. Complete o seguinte passo de resolução de problemas e, em seguida, tente novamente a sua operação:
 
-**Causa 1: [O estado do instantâneo não pode ser recuperado, ou uma foto não pode ser tirada](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 2: [A extensão de reserva não atualiza ou carrega](#the-backup-extension-fails-to-update-or-load)**  
+**[O estado instantâneo não pode ser recuperado, ou uma foto não pode ser tirada](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 
 ## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - Operação de extensão VMSnapshot falhou
 
@@ -98,9 +95,8 @@ Depois de registar e agendar um VM para o serviço de backup Azure, o Backup ini
 
 Depois de registar e agendar um VM para o serviço de backup Azure, o Backup inicia o trabalho comunicando com a extensão de backup VM para tirar uma foto pontual. Qualquer uma das seguintes condições pode impedir que o instantâneo seja acionado. Se o instantâneo não for acionado, pode ocorrer uma falha de reserva. Complete os seguintes passos de resolução de problemas na ordem listada e, em seguida, tente novamente a sua operação:  
 **Causa 1: [O estado do instantâneo não pode ser recuperado, ou uma foto não pode ser tirada](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 2: [A extensão de reserva não atualiza ou carrega](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 3: [O agente está instalado no VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 4: [O agente instalado no VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Causa 2: [O agente está instalado no VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 3: [O agente instalado no VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - Falha de backup, com um erro interno
 
@@ -111,8 +107,7 @@ Depois de registar e agendar um VM para o serviço de backup Azure, o Backup ini
 **Causa 1: [O agente instalado no VM, mas não responde (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Causa 2: [O agente instalado no VM está desatualizado (para VMs Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Causa 3: [O estado do instantâneo não pode ser recuperado, ou uma foto não pode ser tirada](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 4: [A extensão de reserva não atualiza ou carrega](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 5: O serviço de backup não tem permissão para apagar os antigos pontos de restauro por causa de um bloqueio de grupo de recursos** <br>
+**Causa 4: O serviço de [backup não tem permissão para apagar os antigos pontos de restauro por causa de um bloqueio de grupo de recursos](#remove_lock_from_the_recovery_point_resource_group)**<br>
 
 ## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsuportaedDiskSize - O tamanho ou s do disco configurado não é suportado atualmente por Backup Azure
 
@@ -212,26 +207,6 @@ As seguintes condições podem fazer com que a tarefa instantânea falhe:
 | --- | --- |
 | O estado vM é reportado incorretamente porque o VM está desligado no Protocolo de Ambiente de Trabalho Remoto (RDP). | Se desligar o VM em RDP, verifique o portal para determinar se o estado vm está correto. Se não estiver correto, desligue o VM no portal utilizando a opção **Desativação** no painel vM. |
 | O VM não consegue obter o hospedeiro ou endereço de tecido da DHCP. | O DHCP deve ser ativado dentro do hóspede para que o backup IaaS VM funcione. Se o VM não conseguir obter o endereço de anfitrião ou tecido da resposta DHCP 245, não pode descarregar ou executar quaisquer extensões. Se necessitar de um IP privado estático, deve configurá-lo através do **portal Azure** ou **PowerShell** e certificar-se de que a opção DHCP dentro do VM está ativada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre a criação de um endereço IP estático com a PowerShell.
-
-### <a name="the-backup-extension-fails-to-update-or-load"></a>A extensão de cópia de segurança não atualiza ou carrega
-
-Se as extensões não puderem carregar, a cópia de segurança falha porque não se pode tirar uma fotografia.
-
-#### <a name="solution"></a>Solução
-
-Desinstale a extensão para forçar a extensão VMSnapshot a recarregar. A próxima tentativa de cópia de segurança recarrega a extensão.
-
-Para desinstalar a extensão:
-
-1. No [portal Azure,](https://portal.azure.com/)vá ao VM que está a sofrer uma falha de backup.
-2. Selecione **Definições**.
-3. Selecione **Extensions** (Extensões).
-4. **Selecione extensão instantânea**.
-5. Selecione **Desinstalar**.
-
-Para o Linux VM, se a extensão VMSnapshot não aparecer no portal Azure, [atualize o Agente Azure Linux](../virtual-machines/linux/update-agent.md)e, em seguida, execute a cópia de segurança.
-
-A conclusão destes passos faz com que a extensão seja reinstalada durante a próxima cópia de segurança.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Retire o bloqueio do grupo de recursos do ponto de recuperação
 

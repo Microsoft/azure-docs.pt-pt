@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/20/2020
-ms.openlocfilehash: 7157d9c0b96dbb31a158f599efd5489e8059f6ba
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 02/28/2020
+ms.openlocfilehash: 4912b07c60ecc8a2db65d3b8ffb339cf83909396
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163442"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250852"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para aplicações lógicas do Azure
 
@@ -195,7 +195,7 @@ Aqui estão os limites para conectores personalizados que você pode criar a par
 | Nome | Limite |
 |------|-------|
 | Identidades geridas por app lógica | Quer a identidade atribuída ao sistema quer 1 identidade atribuída ao utilizador |
-| Número de aplicações lógicas que têm uma identidade gerida numa subscrição azure por região | 100 |
+| Número de aplicações lógicas que têm uma identidade gerida numa subscrição azure por região | 250 |
 |||
 
 <a name="integration-account-limits"></a>

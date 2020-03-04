@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3173fe010106963b9079bf151c92957735253e84
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ddf011724f72a8a5eaf4e6398c28b28fffa5bfac
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898766"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247010"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte sSH para serviço de aplicações Azure em Linux
 
@@ -23,7 +23,7 @@ ms.locfileid: "76898766"
 
 Também pode ligar-se ao recipiente diretamente da sua máquina de desenvolvimento local utilizando SSH e SFTP.
 
-## <a name="open-ssh-session-in-browser"></a>Abrir sessão SSH no navegador
+## <a name="open-ssh-session-in-browser"></a>Abra a sessão sSH no navegador
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-no-h.md)]
 
@@ -52,7 +52,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 A saída de comando dá-lhe a informação necessária para abrir uma sessão de SSH.
 
-```
+```output
 Port 21382 is open
 SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
@@ -60,20 +60,20 @@ Start your favorite client and connect to port 21382
 
 Abra uma sessão de SSH com o seu recipiente com o cliente à sua escolha, utilizando o porto local. O exemplo seguinte utiliza o comando [ssh](https://ss64.com/bash/ssh.html) predefinido:
 
-```azurecli-interactive
+```bash
 ssh root@127.0.0.1 -p <port>
 ```
 
 Quando for solicitado, escreva `yes` para continuar a ligar. Em seguida, é-lhe solicitada a senha. Use `Docker!`, que foi mostrado anteriormente.
 
-```
+```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
 Uma vez autenticado, deve ver o ecrã de boas-vindas da sessão.
 
-```
+```output
   _____
   /  _  \ __________ _________   ____
  /  /_\  \___   /  |  \_  __ \_/ __ \
@@ -89,7 +89,7 @@ Está agora ligado ao seu conector.
 
 Tente mover o comando [superior.](https://ss64.com/bash/top.html) Deverá poder ver o processo da sua aplicação na lista de processos. Na saída de exemplo abaixo, é a que tem `PID 263`.
 
-```
+```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
 CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
 Load average: 0.07 0.04 0.08 4/765 45738

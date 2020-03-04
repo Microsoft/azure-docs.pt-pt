@@ -4,25 +4,19 @@ description: Aprenda a migrar um aparelho virtual da série StorSimple 1200 para
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/14/2020
+ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 815fda861748f1011eab22ef75fa7e933ca64c55
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 184101db34edbf5391b37c43770e8393316fe2fc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209483"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252665"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migração para O Sincronizado de Ficheiros Azure
 
-A série StorSimple 1200 é um aparelho virtual que é executado num centro de dados no local.
-Com o anunciado fim de vida útil da linha de produtos StorSimple em 31 de dezembro de 2022, o serviço na nuvem a que este aparelho virtual está ligado deixará de funcionar.
-
-É imperativo migrar de qualquer dispositivo StorSimple com tempo suficiente de sobra.
-O Azure File Sync é a tecnologia sucessora natural, com mais funcionalidades e mais flexibilidade do que as ofertas da StorSimple.
-
-Este artigo fornece os conhecimentos de fundo necessários e etapas de migração para uma migração bem sucedida para O Ficheiro Sincronizado Azure.
+A série StorSimple 1200 é um aparelho virtual que é executado num centro de dados no local. É possível migrar os dados deste aparelho para um ambiente De sincronização de ficheiros Azure. Este artigo fornece os conhecimentos de fundo necessários e etapas de migração para uma migração bem sucedida para O Ficheiro Sincronizado Azure.
 
 ## <a name="azure-file-sync"></a>Azure File Sync
 
@@ -183,7 +177,7 @@ Pode tentar executar algumas destas cópias em paralelo. Recomendamos o processa
 
 A política de espaço livre de volume de volume de nível de nuvem atua a um nível de volume com pontos finais de servidor potencialmente múltiplos sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num mesmo ponto final do servidor, o sync continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre no disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que o seu objetivo seja apenas ter o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos.
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 O problema mais provável é que o comando RoboCopy falha com *"Volume cheio"* no lado do Servidor do Windows. Se for esse o caso, então a sua velocidade de descarregamento é provavelmente melhor do que a sua velocidade de carregamento. O tiering em nuvem atua uma vez por hora para evacuar o conteúdo do disco local do Windows Server, que tem sincronizado.
 

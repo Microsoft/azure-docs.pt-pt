@@ -9,12 +9,12 @@ manager: ''
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: c5418f8c5e759ad0e5c388e0925fa724fe148797
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 672b663a9cab72d465ea00e0a5ade364eadbf64e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368525"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251534"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerida com o Diretório Ativo Azure para aceder aos Recursos hubs do Evento
 O Azure Event Hubs apoia a autenticação azure Ative Directory (Azure AD) com [identidades geridas para os recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md) Identidades geridas para recursos Azure podem autorizar o acesso aos recursos do Event Hubs utilizando credenciais de AD Azure de aplicações em execução em Máquinas Virtuais Azure (VMs), aplicações de função, conjuntos de escala de máquina virtual e outros serviços. Ao utilizar identidades geridas para recursos Azure juntamente com a autenticação da AD Azure, pode evitar armazenar credenciais com as suas aplicações que funcionam na nuvem.
@@ -79,10 +79,13 @@ Uma vez atribuído o papel, a aplicação web terá acesso aos recursos do Event
 4. Atribuir esta identidade ao papel de Proprietário de Dados do **Event Hubs** ao nível do espaço de nome ou ao nível do hub do evento. 
 5. Executar a aplicação web, introduzir o nome do espaço de nome e o nome do centro de eventos, uma mensagem, e selecionar **Enviar**. Para receber o evento, selecione **Receber**. 
 
-#### <a name="azuremessagingeventhubs-latesttablatest"></a>[Azure.Messaging.EventHubs (mais recente)](#tab/latest)
+#### <a name="azuremessagingeventhubs-latest"></a>[Azure.Messaging.EventHubs (mais recente)](#tab/latest)
 Agora pode lançar a sua aplicação web e apontar o seu navegador para a página de aspx da amostra. Pode encontrar a aplicação web da amostra que envia e recebe dados dos recursos do Event Hubs no [repo GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
 
-Instale o mais recente pacote a partir de [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/), e comece a enviar eventos para Event **HubProducerClient** e receber eventos usando **EventHubConsumerClient**.  
+Instale o mais recente pacote a partir de [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/), e comece a enviar eventos para Event **HubProducerClient** e receber eventos usando **EventHubConsumerClient**. 
+
+> [!NOTE]
+> Para uma amostra de Java que usa uma identidade gerida para publicar eventos num centro de eventos, consulte publicar eventos com amostra de [identidade Azure no GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs).
 
 ```csharp
 protected async void btnSend_Click(object sender, EventArgs e)
@@ -127,7 +130,7 @@ protected async void btnReceive_Click(object sender, EventArgs e)
 }
 ```
 
-#### <a name="microsoftazureeventhubs-legacytabold"></a>[Microsoft.Azure.EventHubs (legado)](#tab/old)
+#### <a name="microsoftazureeventhubs-legacy"></a>[Microsoft.Azure.EventHubs (legado)](#tab/old)
 Agora pode lançar a sua aplicação web e apontar o seu navegador para a página de aspx da amostra. Pode encontrar a aplicação web da amostra que envia e recebe dados dos recursos do Event Hubs no [repo GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp).
 
 Instale o mais recente pacote a partir do [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)e comece a enviar e receber dados dos hubs do Evento utilizando o EventHubClient, como mostra o seguinte código: 
@@ -141,11 +144,12 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 Pode utilizar aplicações Apache Kafka para enviar mensagens e receber mensagens de Azure Event Hubs utilizando a identidade gerida OAuth. Consulte a seguinte amostra no GitHub: [Event Hubs para Kafka - envie e receba mensagens usando a identidade gerida OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
 
 ## <a name="samples"></a>Amostras
+- **Amostras de Azure.Messaging.EventHubs**
+    - [.NET](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+    - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Microsoft.Azure.EventHubs amostras](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
     Estas amostras utilizam a antiga biblioteca **Microsoft.Azure.EventHubs,** mas pode facilmente atualizá-la para utilizar a mais recente biblioteca **Azure.Messaging.EventHubs.** Para mover a amostra da utilização da antiga biblioteca para uma nova, consulte o [Guia para migrar de Microsoft.Azure.EventHubs para Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
-- [Amostras de Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
-
     Esta amostra foi atualizada para utilizar a mais recente biblioteca **Azure.Messaging.EventHubs.**
 - [Hubs de eventos para Kafka - envie e receba mensagens usando identidade gerida OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 236d5a28b167e16c9614119a59fd8a99e012e9dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e28a5dce4dda677ef4e5eb0ed08c42ec1f03c308
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656556"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251442"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Ativar o Monitor Azure para VMs (pré-visualização) utilizando modelos De PowerShell ou Gestor de Recursos Azure
 
@@ -99,7 +99,7 @@ Para utilizar o Azure CLI, é necessário instalar e utilizar o CLI localmente. 
 
         A mudança de configuração pode demorar alguns minutos a terminar. Quando está terminado, uma mensagem mostra que é semelhante ao seguinte e inclui o resultado:
 
-        ```powershell
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -113,7 +113,7 @@ Para utilizar o Azure CLI, é necessário instalar e utilizar o CLI localmente. 
 
         A mudança de configuração pode demorar alguns minutos a terminar. Quando está terminado, é apresentada uma mensagem semelhante à seguinte e inclui o resultado:
 
-        ```azurecli
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 ```
 A mudança de configuração pode demorar alguns minutos a terminar. Quando está terminado, uma mensagem mostra que é semelhante ao seguinte e inclui o resultado:
 
-```powershell
+```output
 provisioningState       : Succeeded
 ```
 
@@ -170,7 +170,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 A saída assemelha-se ao seguinte:
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 

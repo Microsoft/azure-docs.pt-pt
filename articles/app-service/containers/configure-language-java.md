@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b9db20da58f50c91da88c2f9f890623b741f10a
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 455ebcb28ea6cc8b43431f96a4bc3929a759c2d0
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443878"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255900"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configure um aplicativo Linux Java para o Azure App Service
 
@@ -630,7 +630,7 @@ O Serviço de Aplicações para Linux suporta dois prazos de execução para hos
 
 ### <a name="jdk-versions-and-maintenance"></a>Versões jdk e manutenção
 
-As construções da Blue Zulu Enterprise da OpenJDK são uma distribuição sem custos, multiplataforma, pronta para a produção do OpenJDK para Azure e Azure Stack apoiado pela Microsoft e pela Azul Systems. Contêm todos os componentes para a construção e execução de aplicações Java SE. Pode instalar o JDK a partir da [instalação Java JDK](https://aka.ms/azure-jdks).
+As construções da Blue Zulu Enterprise da OpenJDK são uma distribuição sem custos, multiplataforma, pronta para a produção do OpenJDK para Azure e Azure Stack apoiado pela Microsoft e pela Azul Systems. Contêm todos os componentes para compilar e executar aplicações Java SE. Pode instalar o JDK a partir da [instalação Java JDK](https://aka.ms/azure-jdks).
 
 Os JDKs suportados são automaticamente corrigidos trimestralmente em janeiro, abril, julho e outubro de cada ano.
 
@@ -641,6 +641,8 @@ Patches e correções para grandes vulnerabilidades de segurança serão lançad
 ### <a name="deprecation-and-retirement"></a>Depreciação e reforma
 
 Se um tempo de execução apoiado em Java for retirado, os desenvolvedores da Azure que utilizem o tempo de execução afetado receberão um aviso de depreciação pelo menos seis meses antes do tempo de execução ser retirado.
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

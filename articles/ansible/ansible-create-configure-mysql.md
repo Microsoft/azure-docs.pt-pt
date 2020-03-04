@@ -4,12 +4,12 @@ description: Saiba como utilizar o Ansible para criar e configurar um servidor d
 keywords: ansible, azure, devops, bash, manual de procedimentos, mysql, base de dados
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: f068b3022c94466a20b524240dc293392b1f42ff
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 9cd574417733518b993bb242c2c168aba338e34a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603119"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247874"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Tutorial: Configure bases de dados em Base de Dados Azure para MySQL usando Ansible
 
@@ -24,7 +24,7 @@ ms.locfileid: "77603119"
 > * Criar um servidor MySql
 > * Criar uma base de dados MySql
 > * Configure uma regra de firewall para que uma aplicação externa possa ligar-se ao seu servidor
-> * Ligue-se ao seu servidor MySql a partir da concha da nuvem Azure
+> * Ligue-se ao seu servidor MySql a partir da Casca de Nuvem Azure
 > * Consulta dos seus servidores MySQL disponíveis
 > * Listar todas as bases de dados nos seus servidores conectados
 
@@ -155,11 +155,15 @@ ansible-playbook mysql_firewall.yml
 
 ## <a name="connect-to-the-server"></a>Ligar ao servidor
 
-Nesta secção, utiliza a casca de nuvem Azure para se ligar ao servidor que criou anteriormente.
+Nesta secção, utiliza a Cloud Shell Azure para se ligar ao servidor que criou anteriormente.
 
-1. Selecione o botão **Tente no** seguinte código:
+1. Abra shell.azure.com selecionando abaixo.
 
-    ```azurecli-interactive
+   [![Lançamento emcamado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+
+1. Introduza o seguinte código:
+
+    ```sql
     mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     ```
 
@@ -171,7 +175,7 @@ Nesta secção, utiliza a casca de nuvem Azure para se ligar ao servidor que cri
     
     Se tudo correr bem, vê-se uma saída semelhante aos seguintes resultados:
     
-    ```
+    ```output
     demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.

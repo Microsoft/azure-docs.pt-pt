@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
-ms.openlocfilehash: d28db9907094a651835078f4459a985b9d15e589
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77657389"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250681"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Explore o Monitor Azure para O Azure Cosmos DB (pré-visualização)
 
@@ -33,34 +33,6 @@ Esta funcionalidade não requer que ative ou configure nada, estas métricas Azu
 
 >[!NOTE]
 >Não existe qualquer custo para aceder a esta funcionalidade e só será cobrado para as funcionalidades essenciais do Monitor Azure que configura ou ativa, conforme descrito na página de detalhes de preços do [Monitor Azure.](https://azure.microsoft.com/pricing/details/monitor/)
-
-## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Ver métricas de nível de operação para Azure Cosmos DB
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-
-1. Selecione **Monitor** a partir da barra de navegação à esquerda e selecione **Métricas**.
-
-   ![Painel de métricas no Monitor Azure](./media/cosmosdb-insights-overview/monitor-metrics-blade.png)
-
-1. A partir do painel **métrica >** **Selecione um recurso** > escolha a **subscrição**necessária, e **o grupo de recursos**. Para o **tipo de Recurso**, selecione contas **Azure Cosmos DB,** escolha uma das suas contas Azure Cosmos existentes e selecione **Apply**.
-
-   ![Escolha uma conta Cosmos DB para ver métricas](./media/cosmosdb-insights-overview/select-cosmosdb-account.png)
-
-1. Em seguida, pode selecionar uma métrica da lista de métricas disponíveis. Pode selecionar métricas específicas para solicitar unidades, armazenamento, latência, disponibilidade, Cassandra, entre outros. Para conhecer em detalhe todas as métricas disponíveis nesta lista, consulte as [Métricas por artigo](../../cosmos-db/monitor-cosmos-db-reference.md) de categoria. Neste exemplo, vamos selecionar **as unidades de Pedido** e **avg** como o valor de agregação.
-
-   Além destes detalhes, também pode selecionar a gama de **tempo** e a **granularidade** do tempo das métricas. No máximo, pode ver métricas nos últimos 30 dias.  Depois de aplicar o filtro, é apresentado um gráfico com base no filtro. Pode ver o número médio de unidades de pedido consumidas por minuto durante o período selecionado.  
-
-   ![Escolha uma métrica do portal Azure](./media/cosmosdb-insights-overview/metric-types.png)
-
-### <a name="add-filters-to-metrics"></a>Adicione filtros às métricas
-
-Também pode filtrar métricas e o gráfico apresentado por um **nome**de recolha específico, Nome de **base de dados,** **OperaçãoTipo,** **Região**e **StatusCode**. Para filtrar as métricas, selecione **Adicionar filtro** e escolha a propriedade necessária, como **o OperationType** e selecione um valor como **O Query**. Em seguida, o gráfico exibe as unidades de pedido consumidas para a operação de consulta durante o período selecionado. As operações executadas através do procedimento Armazenado não estão registadas, pelo que não estão disponíveis na métrica OperationType.
-
-![Adicione um filtro para selecionar a granularidade métrica](./media/cosmosdb-insights-overview/add-metrics-filter.png)
-
-Pode agrupar métricas utilizando a opção **de divisão Apply.** Por exemplo, pode agrupar as unidades de pedido por tipo de operação e visualizar o gráfico para todas as operações de uma só vez, como mostra a seguinte imagem:
-
-![Adicionar aplicar filtro de divisão](./media/cosmosdb-insights-overview/apply-metrics-splitting.png)
 
 ## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Ver métricas de utilização e desempenho para Azure Cosmos DB
 

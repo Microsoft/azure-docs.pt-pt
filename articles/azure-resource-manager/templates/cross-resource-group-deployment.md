@@ -1,29 +1,29 @@
 ---
-title: Grupo de recursos implantar recursos & de assinatura cruzada
-description: Mostra como direcionar mais de uma assinatura do Azure e um grupo de recursos durante a implantação.
+title: Implementar recursos cruzam subscrição e grupo de recursos
+description: Mostra como direcionar mais de um grupo de subscrição e recursos Azure durante a implantação.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 8f5fbd51456003059f6a32fc32b32194a936434a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 47573fedd7915d95d6ed98e3fd0aaf840331552b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154215"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250609"
 ---
-# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implantar recursos do Azure em mais de uma assinatura ou grupo de recursos
+# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Dispor recursos do Azure para mais de um grupo de subscrição ou recursos
 
-Normalmente, você implanta todos os recursos em seu modelo em um único [grupo de recursos](../management/overview.md). No entanto, há cenários em que você deseja implantar um conjunto de recursos juntos, mas colocá-los em diferentes grupos de recursos ou assinaturas. Por exemplo, talvez você queira implantar a máquina virtual de backup para Azure Site Recovery em um grupo de recursos e um local separados. O Gerenciador de recursos permite que você use modelos aninhados para obter mais de uma assinatura e um grupo de recursos.
+Normalmente, você implementa todos os recursos do seu modelo para um único [grupo de recursos.](../management/overview.md) No entanto, existem cenários em que pretende utilizar um conjunto de recursos, mas colocá-los em diferentes grupos de recursos ou subscrições. Por exemplo, pode querer implementar a máquina virtual de backup para a Recuperação do Site Azure para um grupo e localização de recursos separados. O Gestor de Recursos permite-lhe utilizar modelos aninhados para direcionar mais do que um grupo de subscrição e recursos.
 
 > [!NOTE]
-> Você pode implantar em apenas cinco grupos de recursos em uma única implantação. Normalmente, essa limitação significa que você pode implantar em um grupo de recursos especificado para o modelo pai e até quatro grupos de recursos em implantações aninhadas ou vinculadas. No entanto, se o modelo pai contiver apenas modelos aninhados ou vinculados e não implantar nenhum recurso, você poderá incluir até cinco grupos de recursos em implantações aninhadas ou vinculadas.
+> Pode implantar apenas cinco grupos de recursos numa única implantação. Normalmente, esta limitação significa que pode implantar-se num grupo de recursos especificado para o modelo de progenitor, e até quatro grupos de recursos em implementações aninhadas ou ligadas. No entanto, se o seu modelo de progenitor contiver apenas modelos aninhados ou ligados e não implementar quaisquer recursos, então pode incluir até cinco grupos de recursos em implementações aninhadas ou ligadas.
 
-## <a name="specify-subscription-and-resource-group"></a>Especificar assinatura e grupo de recursos
+## <a name="specify-subscription-and-resource-group"></a>Especificar grupo de subscrição e recursos
 
-Para direcionar um grupo de recursos ou uma assinatura diferente, use um [modelo aninhado ou vinculado](linked-templates.md). O tipo de recurso `Microsoft.Resources/deployments` fornece parâmetros para `subscriptionId` e `resourceGroup`, que permitem especificar a assinatura e o grupo de recursos para a implantação aninhada. Se você não especificar a ID da assinatura ou o grupo de recursos, a assinatura e o grupo de recursos do modelo pai serão usados. Todos os grupos de recursos devem existir antes da execução da implantação.
+Para direcionar um grupo de recursos ou subscrição diferente, utilize um [modelo aninhado ou ligado](linked-templates.md). O tipo de recursos `Microsoft.Resources/deployments` fornece parâmetros para `subscriptionId` e `resourceGroup`, que lhe permitem especificar o grupo de subscrição e recursos para a implantação aninhada. Se não especificar o ID de subscrição ou o grupo de recursos, o grupo de subscrição e recursos do modelo de progenitor é utilizado. Todos os grupos de recursos devem existir antes de executar a implantação.
 
-A conta usada para implantar o modelo deve ter permissões para implantar a ID de assinatura especificada. Se a assinatura especificada existir em um locatário Azure Active Directory diferente, você deverá [Adicionar usuários convidados de outro diretório](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+A conta que utiliza para implementar o modelo deve ter permissões para implantar no ID de subscrição especificado. Se a subscrição especificada existir num inquilino do Diretório Ativo Azure diferente, deve [adicionar utilizadores convidados de outro diretório](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
-Para especificar um grupo de recursos e uma assinatura diferentes, use:
+Para especificar um grupo de recursos diferente e subscrição, utilize:
 
 ```json
 "resources": [
@@ -38,9 +38,9 @@ Para especificar um grupo de recursos e uma assinatura diferentes, use:
 ]
 ```
 
-Se os grupos de recursos estiverem na mesma assinatura, você poderá remover o valor **SubscriptionId** .
+Se os seus grupos de recursos estiverem na mesma subscrição, pode remover o valor **de subscriçãoId.**
 
-O exemplo a seguir implanta duas contas de armazenamento. A primeira conta de armazenamento é implantada no grupo de recursos especificado durante a implantação. A segunda conta de armazenamento é implantada no grupo de recursos especificado nos parâmetros `secondResourceGroup` e `secondSubscriptionID`:
+O exemplo seguinte implementa duas contas de armazenamento. A primeira conta de armazenamento é implantada para o grupo de recursos especificado durante a implantação. A segunda conta de armazenamento é implantada para o grupo de recursos especificado nos parâmetros `secondResourceGroup` e `secondSubscriptionID`:
 
 ```json
 {
@@ -115,13 +115,13 @@ O exemplo a seguir implanta duas contas de armazenamento. A primeira conta de ar
 }
 ```
 
-Se você definir `resourceGroup` como o nome de um grupo de recursos que não existe, a implantação falhará.
+Se definir `resourceGroup` o nome de um grupo de recursos que não existe, a implementação falha.
 
-Para testar o modelo anterior e ver os resultados, use o PowerShell ou CLI do Azure.
+Para testar o modelo anterior e ver os resultados, utilize powerShell ou Azure CLI.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para implantar duas contas de armazenamento em dois grupos de recursos na **mesma assinatura**, use:
+Para implementar duas contas de armazenamento para dois grupos de recursos na **mesma subscrição,** use:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -138,7 +138,7 @@ New-AzResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-Para implantar duas contas de armazenamento em **duas assinaturas**, use:
+Para implementar duas contas de armazenamento em **duas subscrições,** use:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -162,9 +162,9 @@ New-AzResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para implantar duas contas de armazenamento em dois grupos de recursos na **mesma assinatura**, use:
+Para implementar duas contas de armazenamento para dois grupos de recursos na **mesma subscrição,** use:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -179,7 +179,7 @@ az group deployment create \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-Para implantar duas contas de armazenamento em **duas assinaturas**, use:
+Para implementar duas contas de armazenamento em **duas subscrições,** use:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -205,21 +205,21 @@ az group deployment create \
 
 ## <a name="use-functions"></a>Utilizar funções
 
-As funções [resourcegroup ()](template-functions-resource.md#resourcegroup) e [Subscription ()](template-functions-resource.md#subscription) são resolvidas de forma diferente com base em como você especifica o modelo. Quando você vincula a um modelo externo, as funções sempre são resolvidas para o escopo desse modelo. Quando você Aninha um modelo dentro de um modelo pai, use a propriedade `expressionEvaluationOptions` para especificar se as funções são resolvidas para o grupo de recursos e a assinatura para o modelo pai ou o modelo aninhado. Defina a propriedade como `inner` para resolver o escopo do modelo aninhado. Defina a propriedade como `outer` para resolver o escopo do modelo pai.
+As funções do Grupo de [Recursos()](template-functions-resource.md#resourcegroup) e [da subscrição](template-functions-resource.md#subscription) resolvem de forma diferente com base na forma como especifica o modelo. Quando se liga a um modelo externo, as funções resolvem-se sempre ao âmbito desse modelo. Quando nidificar um modelo dentro de um modelo de progenitor, use a propriedade `expressionEvaluationOptions` para especificar se as funções resolvem o grupo de recursos e a subscrição para o modelo dos pais ou o modelo aninhado. Desloque a propriedade a `inner` para resolver o âmbito para o modelo aninhado. Desloque a propriedade para `outer` para resolver o âmbito do modelo de progenitor.
 
-A tabela a seguir mostra se as funções são resolvidas para o grupo de recursos pai ou inserido e a assinatura.
+O quadro seguinte mostra se as funções resolvem para o grupo de recursos e subscrição incorporados.
 
 | Tipo de modelo | Âmbito | Resolução |
 | ------------- | ----- | ---------- |
-| construção        | externo (padrão) | Grupo de recursos pai |
-| construção        | Inner | Sub-grupo de recursos |
-| vinculado        | N/A   | Sub-grupo de recursos |
+| aninhada        | exterior (padrão) | Grupo de recursos-mãe |
+| aninhada        | interior | Grupo de subrecursos |
+| ligado        | N/D   | Grupo de subrecursos |
 
-O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) a seguir mostra:
+O [seguinte modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) de exemplo mostra:
 
-* modelo aninhado com escopo padrão (externo)
-* modelo aninhado com escopo interno
-* modelo vinculado
+* modelo aninhado com âmbito padrão (exterior)
+* modelo aninhado com âmbito interior
+* modelo ligado
 
 ```json
 {
@@ -315,9 +315,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 }
 ```
 
-Para testar o modelo anterior e ver os resultados, use o PowerShell ou CLI do Azure.
+Para testar o modelo anterior e ver os resultados, utilize powerShell ou Azure CLI.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name parentGroup -Location southcentralus
@@ -340,7 +340,7 @@ A saída do exemplo anterior é:
  linkedRG         String                     Linked resource group is linkedgroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
@@ -355,7 +355,7 @@ az group deployment create \
 
 A saída do exemplo anterior é:
 
-```azurecli
+```output
 "outputs": {
   "defaultScopeRG": {
     "type": "String",
@@ -380,6 +380,6 @@ A saída do exemplo anterior é:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
-* Para obter dicas sobre como resolver erros comuns de implantação, consulte [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
-* Para obter informações sobre como implantar um modelo que requer um token SAS, consulte [implantar o modelo privado com o token SAS](secure-template-with-sas-token.md).
+* Para entender como definir parâmetros no seu modelo, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor](template-syntax.md)de Recursos Azure .
+* Para obter dicas sobre a resolução de erros comuns de implementação, consulte erros comuns de [implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
+* Para obter informações sobre a implementação de um modelo que requer uma ficha SAS, consulte [Implementar modelo privado com token SAS](secure-template-with-sas-token.md).

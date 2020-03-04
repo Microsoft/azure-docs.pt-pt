@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 39af5e97348a6c997ef140e0abffeb42d4d941b8
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: cb99861a53c6802598cf925121f1821f74e7d76f
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206746"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255477"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construa um oleoduto azure machine learning para pontuação de lotes
 
@@ -351,7 +351,7 @@ import pandas as pd
 
 batch_run = next(pipeline_run.get_children())
 batch_output = batch_run.get_output_data("scores")
-batch_output.download(local_path="inception_result")
+batch_output.download(local_path="inception_results")
 
 for root, dirs, files in os.walk("inception_results"):
     for file in files:

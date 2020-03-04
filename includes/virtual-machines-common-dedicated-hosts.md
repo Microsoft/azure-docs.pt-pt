@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 870d6f8441bf395ba0c02dccf8f3d1c6434410c6
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78208195"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246222"
 ---
 ## <a name="limitations"></a>Limitações
 
@@ -99,7 +99,7 @@ O licenciamento, armazenamento e utilização da rede de software são faturados
 
 Para mais informações, consulte [o preço do Anfitrião Dedicado Azure.](https://aka.ms/ADHPricing)
 
-Você também pode economizar em custos com um [Caso Reservado de Anfitriões Dedicados Azure] (.. /artigos/máquinas virtuais/prepay-dedicado-dedicado-anfitriões-instâncias reservadas.md).
+Você também pode economizar em custos com uma [instância reservada de anfitriões dedicados Azure.](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
  
 ## <a name="vm-families-and-hardware-generations"></a>Famílias VM e gerações de hardware
 

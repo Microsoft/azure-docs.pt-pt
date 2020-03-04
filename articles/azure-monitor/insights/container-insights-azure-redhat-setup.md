@@ -3,12 +3,12 @@ title: Configure Azure Red Hat OpenShift clusters com Monitor Azure para content
 description: Este artigo descreve como configurar a monitorização de um cluster Kubernetes com o Azure Monitor hospedado no Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 215835c04a1877ccdb6454c4c3902332b9dc1ab2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c2fd3568be2c51296bb1377e91031ebfb7ca6ee3
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190081"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250701"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift clusters com Monitor Azure para recipientes
 
@@ -113,7 +113,7 @@ O espaço de trabalho Log Analytics tem de ser criado antes de ativar a monitori
 
     A saída assemelha-se ao seguinte:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
@@ -123,7 +123,7 @@ Execute os seguintes passos para permitir a monitorização de um cluster OpenSh
 
 ### <a name="from-the-azure-portal"></a>No portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No menu do portal Azure ou na página Inicial, **selecione Azure Monitor**. Na secção **Insights,** selecione **Recipientes**.
 
@@ -197,7 +197,7 @@ O espaço de trabalho Log Analytics tem de ser criado antes de ativar a monitori
 
     A saída assemelha-se ao seguinte:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 

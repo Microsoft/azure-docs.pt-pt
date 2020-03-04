@@ -1,27 +1,27 @@
 ---
-title: Montar o volume secreto no grupo de contêineres
-description: Saiba como montar um volume secreto para armazenar informações confidenciais para acesso por suas instâncias de contêiner
+title: Monte volume secreto para grupo de contentores
+description: Saiba como montar um volume secreto para armazenar informações confidenciais para acesso pelos seus casos de contentores
 ms.topic: article
 ms.date: 07/19/2018
-ms.openlocfilehash: 7f212a5090923a7d7bf00fc8ac78299f2edcc9c1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 913e3d147519bc73c3c57b8da383f9d373f3666d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533180"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249939"
 ---
-# <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montar um volume secreto em instâncias de contêiner do Azure
+# <a name="mount-a-secret-volume-in-azure-container-instances"></a>Monte um volume secreto em instâncias de contentores azure
 
-Use um volume *secreto* para fornecer informações confidenciais aos contêineres em um grupo de contêineres. O volume *secreto* armazena seus segredos em arquivos dentro do volume, acessíveis pelos contêineres no grupo de contêineres. Ao armazenar segredos em um volume *secreto* , você pode evitar a adição de dados confidenciais, como chaves SSH ou credenciais de banco para o código do aplicativo.
+Utilize um volume *secreto* para fornecer informações sensíveis aos contentores num grupo de contentores. O volume *secreto* armazena os seus segredos em ficheiros dentro do volume, acessíveis pelos contentores do grupo de contentores. Ao armazenar segredos num volume *secreto,* pode evitar adicionar dados sensíveis, como chaves SSH ou credenciais de base de dados ao seu código de aplicação.
 
-Todos os volumes *secretos* são apoiados pelo [tmpfs][tmpfs], um sistema de arquivos com suporte de RAM; seu conteúdo nunca é gravado no armazenamento não volátil.
+Todos os volumes *secretos* são apoiados por [tmpfs][tmpfs], um sistema de ficheiros apoiado por RAM; os seus conteúdos nunca são escritos para armazenamento não volátil.
 
 > [!NOTE]
-> Os volumes *secretos* estão atualmente restritos a contêineres do Linux. Saiba como passar variáveis de ambiente seguras para contêineres do Windows e do Linux em [definir variáveis de ambiente](container-instances-environment-variables.md). Enquanto estamos trabalhando para trazer todos os recursos para contêineres do Windows, você pode encontrar as diferenças da plataforma atual na [visão geral](container-instances-overview.md#linux-and-windows-containers).
+> Os volumes *secretos* estão atualmente restritos aos contentores Linux. Aprenda a passar variáveis ambientais seguras para os recipientes Windows e Linux em [variáveis ambiente definidos](container-instances-environment-variables.md). Enquanto estamos a trabalhar para trazer todas as funcionalidades para os recipientes windows, pode encontrar as diferenças de plataforma atuais na [visão geral](container-instances-overview.md#linux-and-windows-containers).
 
-## <a name="mount-secret-volume---azure-cli"></a>Montar volume secreto-CLI do Azure
+## <a name="mount-secret-volume---azure-cli"></a>Monte volume secreto - Azure CLI
 
-Para implantar um contêiner com um ou mais segredos usando o CLI do Azure, inclua os parâmetros `--secrets` e `--secrets-mount-path` no comando [AZ container Create][az-container-create] . Este exemplo monta um volume *secreto* que consiste em dois segredos, "mysecret1" e "mysecret2", em `/mnt/secrets`:
+Para implantar um recipiente com um ou mais segredos utilizando o CLI Azure, inclua os parâmetros `--secrets` e `--secrets-mount-path` no [recipiente az criar][az-container-create] comando. Este exemplo monta um volume *secreto* composto por dois segredos, "mysecret1" e "mysecret2", em `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
@@ -32,10 +32,13 @@ az container create \
     --secrets-mount-path /mnt/secrets
 ```
 
-A saída do seguinte [AZ container exec][az-container-exec] mostra a abertura de um shell no contêiner em execução, listando os arquivos dentro do volume secreto e exibindo seu conteúdo:
+A saída [de exec do contentor az][az-container-exec] az mostra a abertura de uma concha no recipiente de funcionamento, listando os ficheiros dentro do volume secreto e, em seguida, exibindo o seu conteúdo:
 
-```console
-$ az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
+```azurecli
+az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
+```
+
+```output
 /usr/src/app # ls -1 /mnt/secrets
 mysecret1
 mysecret2
@@ -47,13 +50,13 @@ My second secret BAR
 Bye.
 ```
 
-## <a name="mount-secret-volume---yaml"></a>Montar volume secreto-YAML
+## <a name="mount-secret-volume---yaml"></a>Monte volume secreto - YAML
 
-Você também pode implantar grupos de contêineres com o CLI do Azure e um [modelo YAML](container-instances-multi-container-yaml.md). A implantação do modelo YAML é o método preferencial ao implantar grupos de contêineres que consistem em vários contêineres.
+Também pode implantar grupos de contentores com o Azure CLI e um [modelo YAML](container-instances-multi-container-yaml.md). A implantação por modelo YAML é o método preferido para a implantação de grupos de contentores compostos por vários contentores.
 
-Quando você implanta com um modelo YAML, os valores secretos devem ser **codificados em base64** no modelo. No entanto, os valores secretos aparecem em texto não criptografado dentro dos arquivos no contêiner.
+Quando se implanta com um modelo YAML, os valores secretos devem estar **codificados** no modelo. No entanto, os valores secretos aparecem em texto simples dentro dos ficheiros do recipiente.
 
-O modelo YAML a seguir define um grupo de contêineres com um contêiner que monta um volume *secreto* em `/mnt/secrets`. O volume secreto tem dois segredos, "mysecret1" e "mysecret2".
+O seguinte modelo YAML define um grupo de contentores com um recipiente que monta um volume *secreto* em `/mnt/secrets`. O volume secreto tem dois segredos, "mysecret1" e "mysecret2".
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -84,27 +87,27 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Para implantar com o modelo YAML, salve o YAML anterior em um arquivo chamado `deploy-aci.yaml`e execute o comando [AZ container Create][az-container-create] com o parâmetro `--file`:
+Para implantar com o modelo YAML, guarde o YAML anterior para um ficheiro chamado `deploy-aci.yaml`, em seguida, execute o [recipiente az criar][az-container-create] comando com o parâmetro `--file`:
 
 ```azurecli-interactive
 # Deploy with YAML template
 az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
 
-## <a name="mount-secret-volume---resource-manager"></a>Montar volume secreto-Gerenciador de recursos
+## <a name="mount-secret-volume---resource-manager"></a>Monte volume secreto - Gestor de Recursos
 
-Além da implantação da CLI e do YAML, você pode implantar um grupo de contêineres usando um modelo do Azure [Resource Manager](/azure/templates/microsoft.containerinstance/containergroups).
+Além da implantação cli e YAML, pode implantar um grupo de contentores utilizando um modelo de Gestor de [Recursos](/azure/templates/microsoft.containerinstance/containergroups)Azure .
 
-Primeiro, preencha a matriz de `volumes` na seção `properties` do grupo de contêineres do modelo. Quando você implanta com um modelo do Resource Manager, os valores secretos devem ser **codificados em base64** no modelo. No entanto, os valores secretos aparecem em texto não criptografado dentro dos arquivos no contêiner.
+Primeiro, povoe a matriz de `volumes` no grupo de contentores `properties` secção do modelo. Quando se implanta com um modelo de Gestor de Recursos, os valores secretos devem ser codificados pelo **Base64** no modelo. No entanto, os valores secretos aparecem em texto simples dentro dos ficheiros do recipiente.
 
-Em seguida, para cada contêiner no grupo de contêineres no qual você deseja montar o volume *secreto* , preencha a matriz de `volumeMounts` na seção `properties` da definição do contêiner.
+Em seguida, para cada recipiente do grupo de contentores em que você gostaria de montar o volume *secreto,* povoar a `volumeMounts` matriz na secção `properties` da definição do recipiente.
 
-O modelo do Resource Manager a seguir define um grupo de contêineres com um contêiner que monta um volume *secreto* em `/mnt/secrets`. O volume secreto tem dois segredos, "mysecret1" e "mysecret2".
+O seguinte modelo de Gestor de Recursos define um grupo de contentores com um recipiente que monta um volume *secreto* em `/mnt/secrets`. O volume secreto tem dois segredos, "mysecret1" e "mysecret2".
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Para implantar com o modelo do Resource Manager, salve o JSON anterior em um arquivo chamado `deploy-aci.json`e execute o comando [AZ Group Deployment Create][az-group-deployment-create] com o parâmetro `--template-file`:
+Para implantar com o modelo de Gestor de Recursos, guarde o JSON anterior para um ficheiro chamado `deploy-aci.json`, em seguida, execute a implementação do [grupo Az criar][az-group-deployment-create] comando com o parâmetro `--template-file`:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template
@@ -115,15 +118,15 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 ### <a name="volumes"></a>Volumes
 
-Saiba como montar outros tipos de volume em instâncias de contêiner do Azure:
+Saiba montar outros tipos de volume em instâncias de contentores azure:
 
 * [Montar uma partilha de ficheiros do Azure no Azure Container Instances](container-instances-volume-azure-files.md)
-* [Montar um volume emptyDir em instâncias de contêiner do Azure](container-instances-volume-emptydir.md)
-* [Montar um volume gitRepo em instâncias de contêiner do Azure](container-instances-volume-gitrepo.md)
+* [Monte um volume dir vazio em instâncias de contentores azure](container-instances-volume-emptydir.md)
+* [Monte um volume gitRepo em instâncias de contentores azure](container-instances-volume-gitrepo.md)
 
-### <a name="secure-environment-variables"></a>Variáveis de ambiente seguras
+### <a name="secure-environment-variables"></a>Variáveis ambientais seguras
 
-Outro método para fornecer informações confidenciais aos contêineres (incluindo contêineres do Windows) é por meio do uso de [variáveis de ambiente seguras](container-instances-environment-variables.md#secure-values).
+Outro método para fornecer informações sensíveis aos contentores (incluindo recipientes Windows) é através da utilização de [variáveis ambientais seguras](container-instances-environment-variables.md#secure-values).
 
 <!-- LINKS - External -->
 [tmpfs]: https://wikipedia.org/wiki/Tmpfs

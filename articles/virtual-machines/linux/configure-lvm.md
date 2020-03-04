@@ -1,9 +1,9 @@
 ---
-title: Configurar o LVM em uma máquina virtual que executa o Linux
-description: Saiba como configurar o LVM no Linux no Azure.
+title: Configure LVM em uma máquina virtual executando Linux
+description: Saiba como configurar lvm em Linux em Azure.
 services: virtual-machines-linux
 documentationcenter: na
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: 4fdb3af0433cc32aa7cdbee3c8ca9bdb85031135
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 2c245d56b0fa0a09da04b83db11391a9291d3856
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045336"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251737"
 ---
-# <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configurar o LVM em uma VM do Linux no Azure
-Este documento explicará como configurar o LVM (Gerenciador de volumes lógicos) em sua máquina virtual do Azure. O LVM pode ser usado no disco do sistema operacional ou nos discos de dados em VMs do Azure, no entanto, por padrão, a maioria das imagens de nuvem não terá o LVM configurado no disco do sistema operacional. As etapas a seguir se concentrarão na configuração do LVM para seus discos de dados.
+# <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configure LVM em um Linux VM em Azure
+Este documento irá discutir como configurar o Gestor de Volume Lógico (LVM) na sua máquina virtual Azure. O LVM pode ser utilizado no disco OS ou nos discos de dados em VMs Azure, no entanto, por padrão, a maioria das imagens em nuvem não terá LVM configurado no disco OS. Os passos abaixo concentrar-se-ão na configuração do LVM para os seus discos de dados.
 
-## <a name="linear-vs-striped-logical-volumes"></a>Volumes lógicos lineares versus distribuídos
-O LVM pode ser usado para combinar vários discos físicos em um único volume de armazenamento. Por padrão, o LVM normalmente criará volumes lógicos lineares, o que significa que o armazenamento físico é concatenado. Nesse caso, as operações de leitura/gravação normalmente serão enviadas para um único disco. Por outro lado, também podemos criar volumes lógicos distribuídos em que leituras e gravações são distribuídas para vários discos contidos no grupo de volumes (semelhante a RAID0). Por motivos de desempenho, é provável que você queira distribuir seus volumes lógicos para que as leituras e gravações utilizem todos os discos de dados anexados.
+## <a name="linear-vs-striped-logical-volumes"></a>Linear vs. volumes lógicos listrados
+O LVM pode ser usado para combinar uma série de discos físicos num único volume de armazenamento. Por padrão, o LVM irá geralmente criar volumes lógicos lineares, o que significa que o armazenamento físico é concatenado em conjunto. Neste caso, as operações de leitura/escrita serão normalmente enviadas apenas para um único disco. Em contraste, também podemos criar volumes lógicos listrados onde as leituras e os escritos são distribuídos por vários discos contidos no grupo de volume (semelhante ao RAID0). Por razões de desempenho, é provável que queira riscar os seus volumes lógicos para que as leituras e os escritos utilizem todos os seus discos de dados anexados.
 
-Este documento descreverá como combinar vários discos de dados em um único grupo de volumes e, em seguida, criar um volume lógico distribuído. As etapas a seguir são generalizadas para trabalhar com a maioria das distribuições. Na maioria dos casos, os utilitários e fluxos de trabalho para gerenciar o LVM no Azure não são fundamentalmente diferentes dos outros ambientes. Como de costume, consulte também o fornecedor do Linux para obter a documentação e as práticas recomendadas para usar o LVM com sua distribuição específica.
+Este documento descreverá como combinar vários discos de dados num único grupo de volume e, em seguida, criar um volume lógico listrado. Os passos abaixo são generalizados para trabalhar com a maioria das distribuições. Na maioria dos casos, os serviços públicos e os fluxos de trabalho para a gestão da LVM em Azure não são fundamentalmente diferentes dos outros ambientes. Como de costume, consulte também o seu fornecedor Linux para obter documentação e boas práticas para utilizar o LVM com a sua distribuição específica.
 
-## <a name="attaching-data-disks"></a>Anexando discos de dados
-Normalmente, você desejará começar com dois ou mais discos de dados vazios ao usar o LVM. Com base nas suas necessidades de e/s, você pode optar por anexar discos que são armazenados em nosso armazenamento Standard, com até 500 IO/PS por disco ou nosso armazenamento Premium com até 5000 IO/PS por disco. Este artigo não entrará em detalhes sobre como provisionar e anexar discos de dados a uma máquina virtual do Linux. Consulte o artigo Microsoft Azure [anexar um disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual Linux no Azure.
+## <a name="attaching-data-disks"></a>Anexação de discos de dados
+Normalmente, um deles vai querer começar com dois ou mais discos de dados vazios quando se utiliza LVM. Com base nas suas necessidades de IO, pode optar por anexar discos que são armazenados no nosso Armazenamento Standard, com até 500 IO/ps por disco ou o nosso armazenamento Premium com até 5000 IO/ps por disco. Este artigo não entrará em detalhes sobre como fornecer e anexar discos de dados a uma máquina virtual Linux. Consulte o artigo do Microsoft Azure [para obter](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual Linux no Azure.
 
 ## <a name="install-the-lvm-utilities"></a>Instalar os utilitários LVM
 * **Ubuntu**
@@ -41,13 +41,13 @@ Normalmente, você desejará começar com dois ou mais discos de dados vazios ao
     sudo apt-get install lvm2
     ```
 
-* **RHEL, CentOS & Oracle Linux**
+* **RHEL, CentOS e Oracle Linux**
 
     ```bash   
     sudo yum install lvm2
     ```
 
-* **SLES 12 e openSUSE**
+* **SLES 12 e abre SUSE**
 
     ```bash   
     sudo zypper install lvm2
@@ -59,14 +59,14 @@ Normalmente, você desejará começar com dois ou mais discos de dados vazios ao
     sudo zypper install lvm2
     ```
 
-    No SLES11, você também deve editar `/etc/sysconfig/lvm` e definir `LVM_ACTIVATED_ON_DISCOVERED` como "habilitar":
+    No SLES11, deve também editar `/etc/sysconfig/lvm` e definir `LVM_ACTIVATED_ON_DISCOVERED` para "ativar":
 
     ```sh   
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
 ## <a name="configure-lvm"></a>Configurar LVM
-Neste guia, vamos supor que você tenha anexado três discos de dados, aos quais vamos nos referir como `/dev/sdc`, `/dev/sdd` e `/dev/sde`. Esses caminhos podem não corresponder aos nomes de caminho de disco em sua VM. Você pode executar '`sudo fdisk -l`' ou um comando semelhante para listar os discos disponíveis.
+Neste guia assumimos que anexou três discos de dados, a que nos referiremos como `/dev/sdc`, `/dev/sdd` e `/dev/sde`. Estes caminhos podem não coincidir com os nomes do caminho do disco no seu VM. Pode executar '`sudo fdisk -l`' ou comando semelhante para listar os seus discos disponíveis.
 
 1. Preparar os volumes físicos:
 
@@ -77,14 +77,14 @@ Neste guia, vamos supor que você tenha anexado três discos de dados, aos quais
     Physical volume "/dev/sde" successfully created
     ```
 
-2. Crie um grupo de volumes. Neste exemplo, estamos chamando o grupo de volumes `data-vg01`:
+2. Criar um grupo de volume. Neste exemplo, chamamos o grupo de volume `data-vg01`:
 
     ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
     Volume group "data-vg01" successfully created
     ```
 
-3. Crie os volumes lógicos. O comando a seguir criará um único volume lógico chamado `data-lv01` para abranger todo o grupo de volumes, mas observe que também é possível criar vários volumes lógicos no grupo de volumes.
+3. Criar os volumes lógicos. O comando abaixo criaremos um único volume lógico chamado `data-lv01` abranger todo o grupo de volume, mas note que também é viável criar múltiplos volumes lógicos no grupo de volume.
 
     ```bash   
     sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
@@ -98,19 +98,19 @@ Neste guia, vamos supor que você tenha anexado três discos de dados, aos quais
     ```
    
    > [!NOTE]
-   > Com SLES11, use `-t ext3` em vez de ext4. O SLES11 só dá suporte ao acesso somente leitura a sistemas de ext4.
+   > Com o SLES11 use `-t ext3` em vez de ext4. O SLES11 apenas suporta o acesso apenas a sistemas de ficheiros ext4.
 
-## <a name="add-the-new-file-system-to-etcfstab"></a>Adicionar o novo sistema de arquivos a/etc/fstab
+## <a name="add-the-new-file-system-to-etcfstab"></a>Adicione o novo sistema de ficheiros a /etc/fstab
 > [!IMPORTANT]
-> A edição imprópria do ficheiro `/etc/fstab` poderá resultar num sistema não inicializável. Se não tiver a certeza, consulte a documentação de distribuição para obter mais informações sobre como editar corretamente este ficheiro. Também é recomendável que um backup do arquivo de `/etc/fstab` seja criado antes da edição.
+> A edição indevida do ficheiro `/etc/fstab` pode resultar num sistema inabitável. Se não tiver a certeza, consulte a documentação da distribuição para obter informações sobre como editar corretamente este ficheiro. Recomenda-se também que seja criada uma cópia de segurança do ficheiro `/etc/fstab` antes da edição.
 
-1. Crie o ponto de montagem desejado para o novo sistema de arquivos, por exemplo:
+1. Crie o ponto de montagem desejado para o seu novo sistema de ficheiros, por exemplo:
 
     ```bash  
     sudo mkdir /data
     ```
 
-2. Localizar o caminho do volume lógico
+2. Localizar o caminho lógico do volume
 
     ```bash    
     lvdisplay
@@ -119,22 +119,22 @@ Neste guia, vamos supor que você tenha anexado três discos de dados, aos quais
     ....
     ```
 
-3. Abra `/etc/fstab` em um editor de texto e adicione uma entrada para o novo sistema de arquivos, por exemplo:
+3. Abra `/etc/fstab` num editor de texto e adicione uma entrada para o novo sistema de ficheiros, por exemplo:
 
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
-    Em seguida, salve e feche `/etc/fstab`.
+    Então, salve e feche `/etc/fstab`.
 
-4. Teste se a entrada de `/etc/fstab` está correta:
+4. Teste se a entrada `/etc/fstab` está correta:
 
     ```bash    
     sudo mount -a
     ```
 
-    Se esse comando resultar em uma mensagem de erro, verifique a sintaxe no arquivo `/etc/fstab`.
+    Se este comando resultar numa mensagem de erro, verifique a sintaxe no ficheiro `/etc/fstab`.
    
-    Em seguida, execute o comando `mount` para garantir que o sistema de arquivos esteja montado:
+    Em seguida, executar o comando `mount` para garantir que o sistema de ficheiros está montado:
 
     ```bash    
     mount
@@ -142,9 +142,9 @@ Neste guia, vamos supor que você tenha anexado três discos de dados, aos quais
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. Adicional Parâmetros de inicialização FailSafe no `/etc/fstab`
+5. (Opcional) Parâmetros de arranque de segurança em `/etc/fstab`
    
-    Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao arquivo `/etc/fstab`. Esses parâmetros permitem falhas durante a montagem de um sistema de arquivos específico e permitem que o sistema Linux continue a inicialização mesmo que não seja possível montar corretamente o sistema de arquivos RAID. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
+    Muitas distribuições incluem os parâmetros de montagem `nobootwait` ou `nofail` que podem ser adicionados ao ficheiro `/etc/fstab`. Estes parâmetros permitem falhas na montagem de um determinado sistema de ficheiros e permitem que o sistema Linux continue a arrancar mesmo que não seja capaz de montar corretamente o sistema de ficheiros RAID. Consulte a documentação da sua distribuição para obter mais informações sobre estes parâmetros.
    
     Exemplo (Ubuntu):
 
@@ -152,18 +152,18 @@ Neste guia, vamos supor que você tenha anexado três discos de dados, aos quais
     /dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
     ```
 
-## <a name="trimunmap-support"></a>Suporte para APARAr/cancelar mapeamento
-Alguns kernels do Linux dão suporte a operações de corte/desmapeamento para descartar blocos não utilizados no disco. Essas operações são úteis principalmente no armazenamento Standard para informar ao Azure que as páginas excluídas não são mais válidas e podem ser descartadas. A descartação de páginas pode economizar custos se você criar arquivos grandes e, em seguida, excluí-los.
+## <a name="trimunmap-support"></a>Suporte TRIM/UNMAP
+Alguns núcleos linux suportam operações TRIM/UNMAP para descartar blocos não utilizados no disco. Estas operações são principalmente úteis no armazenamento padrão para informar o Azure de que as páginas apagadas já não são válidas e podem ser descartadas. As páginas de devoluções podem economizar custos se criar ficheiros grandes e depois eliminá-las.
 
-Há duas maneiras de habilitar o suporte a corte em sua VM Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
+Existem duas formas de permitir o suporte trim no seu VM Linux. Como de costume, consulte a sua distribuição para obter a abordagem recomendada:
 
-- Use a opção de montagem `discard` em `/etc/fstab`, por exemplo:
+- Utilize a opção `discard` montagem em `/etc/fstab`, por exemplo:
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
-- Em alguns casos, a opção `discard` pode ter implicações de desempenho. Como alternativa, você pode executar o comando `fstrim` manualmente na linha de comando ou adicioná-lo ao crontab para ser executado regularmente:
+- Em alguns casos, a opção `discard` pode ter implicações no desempenho. Em alternativa, pode executar o comando `fstrim` manualmente a partir da linha de comando, ou adicioná-lo ao seu crontab para executar regularmente:
 
     **Ubuntu**
 
@@ -172,7 +172,7 @@ Há duas maneiras de habilitar o suporte a corte em sua VM Linux. Como de costum
     # sudo fstrim /datadrive
     ```
 
-    **RHEL, CentOS & Oracle Linux**
+    **RHEL, CentOS e Oracle Linux**
 
     ```bash 
     # sudo yum install util-linux

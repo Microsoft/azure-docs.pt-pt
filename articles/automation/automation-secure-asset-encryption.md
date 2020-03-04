@@ -1,6 +1,6 @@
 ---
-title: Criptografia de ativos seguros na automação
-description: A automação do Azure protege ativos seguros usando vários níveis de criptografia. Por padrão, a criptografia é feita usando chaves gerenciadas pela Microsoft. Os clientes podem configurar suas contas de automação para usar chaves gerenciadas pelo cliente para criptografia. Este artigo descreve os detalhes dos dois modos de criptografia e como você pode alternar entre os dois.
+title: Encriptação de ativos seguros na automação
+description: A automação azure protege os ativos seguros usando vários níveis de encriptação. Por padrão, a encriptação é feita utilizando chaves geridas pela Microsoft. Os clientes podem configurar as suas contas de automação para usar chaves geridas pelo cliente para encriptação. Este artigo descreve os detalhes de ambos os modos de encriptação e como pode alternar entre os dois.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,63 +9,65 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: e645be5ddd51a4fe7e7610e7f639407d5638f746
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 3c21e2fcdde9bffac91af56d49dfa0bf336e8c0c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920918"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246240"
 ---
-# <a name="secure-assets-in-azure-automation"></a>Proteger ativos na automação do Azure
+# <a name="secure-assets-in-azure-automation"></a>Ativos seguros na Automação Azure
 
-Os ativos seguros na automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são protegidos na automação do Azure usando vários níveis de criptografia. Com base na chave de nível superior usada para a criptografia, há dois modelos de criptografia:
--   Usando chaves gerenciadas pela Microsoft
--   Usando chaves gerenciadas pelo cliente
+Os ativos seguros na Automatização Azure incluem credenciais, certificados, ligações e variáveis encriptadas. Estes ativos estão protegidos na Automatização Azure utilizando vários níveis de encriptação. Com base na chave de nível superior utilizada para a encriptação, existem dois modelos para encriptação:
+-   Utilização de chaves geridas pela Microsoft
+-   Utilização de chaves geridas pelo cliente
 
-## <a name="microsoft-managed-keys"></a>Chaves gerenciadas pela Microsoft
+## <a name="microsoft-managed-keys"></a>Chaves geridas pela Microsoft
 
-Por padrão, sua conta de automação do Azure usa chaves gerenciadas pela Microsoft.
+Por predefinição, a sua conta Azure Automation utiliza chaves geridas pela Microsoft.
 
-Cada ativo seguro é criptografado e armazenado na automação do Azure usando uma chave exclusiva (chave de criptografia de dados) que é gerada para cada conta de automação. Essas chaves são criptografadas e armazenadas na automação do Azure usando ainda outra chave exclusiva gerada para cada conta chamada de AEK (chave de criptografia de conta). Essas chaves de criptografia de conta são criptografadas e armazenadas na automação do Azure usando chaves gerenciadas pela Microsoft. 
+Cada ativo seguro é encriptado e armazenado na Automatização Azure utilizando uma chave única (chave de encriptação de dados) que é gerada para cada conta de automação. Estas chaves são encriptadas e armazenadas na Automatização Azure utilizando mais uma chave única que é gerada para cada conta chamada Chave de Encriptação de Conta (AEK). Estas chaves de encriptação de conta encriptadas e armazenadas no Azure Automation utilizando chaves geridas pela Microsoft. 
 
-## <a name="customer-managed-keys-with-key-vault-preview"></a>Chaves gerenciadas pelo cliente com Key Vault (versão prévia)
+## <a name="customer-managed-keys-with-key-vault-preview"></a>Chaves geridas pelo cliente com cofre de chave (pré-visualização)
 
-Você pode gerenciar a criptografia de ativos seguros na automação do Azure no nível de uma conta de automação com suas próprias chaves. Quando você especifica uma chave gerenciada pelo cliente no nível da conta de automação, essa chave é usada para proteger e controlar o acesso à chave de criptografia da conta para a conta de automação, que, por sua vez, é usada para criptografar e descriptografar todos os ativos seguros. Chaves gerenciadas pelo cliente oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus ativos seguros. 
+Pode gerir a encriptação de ativos seguros para a sua conta Automation com as suas próprias chaves. Quando especifica uma chave gerida pelo cliente ao nível da conta Automation, essa chave é usada para proteger e controlar o acesso à chave de encriptação da conta para a conta Automation. Isto, por sua vez, é usado para encriptar e desencriptar todos os ativos seguros. As chaves geridas pelo cliente oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus ativos seguros.
 
-Você deve usar Azure Key Vault para armazenar chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves.  Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../key-vault/key-vault-overview.md)
+Utilize o Cofre de Chaves Azure para armazenar chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves.  Para mais informações sobre o Cofre de Chaves Azure, veja [o que é o Cofre chave Azure?](../key-vault/key-vault-overview.md)
 
-## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Habilitar chaves gerenciadas pelo cliente para uma conta de automação
+## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Ativar chaves geridas pelo cliente para uma conta De automação
 
-Quando você habilita a criptografia com chaves gerenciadas pelo cliente para uma conta de automação, a automação do Azure encapsula a chave de criptografia da conta com a chave gerenciada pelo cliente no cofre de chaves associado. A habilitação de chaves gerenciadas pelo cliente não afeta o desempenho e a conta é criptografada com a nova chave imediatamente, sem nenhum atraso de tempo.
+Ao ativar a encriptação com chaves geridas pelo cliente para uma conta Automation, a Azure Automation envolve a chave de encriptação da conta com a chave gerida pelo cliente no cofre de chaves associado. Ativar as chaves geridas pelo cliente não afeta o desempenho, e a conta é encriptada com a nova chave imediatamente, sem qualquer atraso.
 
-Uma nova conta de automação é sempre criptografada usando chaves gerenciadas pela Microsoft. Não é possível habilitar chaves gerenciadas pelo cliente no momento em que a conta é criada. As chaves gerenciadas pelo cliente são armazenadas em Azure Key Vault, e o cofre de chaves deve ser provisionado com políticas de acesso que concedem permissões de chave para a identidade gerenciada associada à conta de automação. A identidade gerenciada está disponível somente depois que a conta de armazenamento é criada.
+Uma nova conta Automation é sempre encriptada utilizando chaves geridas pela Microsoft. Não é possível ativar as chaves geridas pelo cliente no momento em que a conta é criada. As chaves geridas pelo cliente são armazenadas no Cofre chave Azure, e o cofre chave deve ser aprovisionado com políticas de acesso que concedem permissões-chave à identidade gerida que está associada à conta Automation. A identidade gerida só está disponível após a criação da conta de armazenamento.
 
-Quando você modifica a chave que está sendo usada para a criptografia de ativo seguro da automação do Azure habilitando ou desabilitando chaves gerenciadas pelo cliente, atualizando a versão da chave ou especificando uma chave diferente, a criptografia da chave de criptografia da conta é alterada, mas os ativos seguros na sua conta de automação do Azure, não é necessário criptografar novamente.
+Quando modifica a chave que está a ser utilizada para encriptação de ativos seguros Azure Automation, permitindo ou desativando chaves geridas pelo cliente, atualizando a versão chave ou especificando uma chave diferente, a encriptação da chave de encriptação da conta muda, mas os ativos seguros em a sua conta Azure Automation não precisa de ser reencriptada.
 
-As três seções a seguir descrevem a mecânica de habilitação de chaves gerenciadas pelo cliente para uma conta de automação. 
+As três secções seguintes descrevem a mecânica de ativar as chaves geridas pelo cliente para uma conta De automação. 
 
 > [!NOTE] 
-> Para habilitar as chaves gerenciadas pelo cliente, no momento, você precisará fazer chamadas à API REST da automação do Azure usando a versão de API 2020-01-13-Preview
+> Para ativar as chaves geridas pelo cliente, é necessário fazer chamadas aPi do Azure Automation REST utilizando a versão API 2020-01-13-preview
 
-### <a name="pre-requisites-for-using-customer-managed-keys-in-azure-automation"></a>Pré-requisitos para usar chaves gerenciadas pelo cliente na automação do Azure
+### <a name="pre-requisites-for-using-customer-managed-keys-in-azure-automation"></a>Pré-requisitos para a utilização de chaves geridas pelo Cliente na Automação Azure
 
-Antes de habilitar chaves gerenciadas pelo cliente para uma conta de automação, você deve garantir que os pré-requisitos a seguir sejam atendidos
+Antes de ativar as chaves geridas pelo cliente para uma conta De automatização, deve assegurar-se de que os seguintes pré-requisitos são cumpridos:
 
- - A chave gerenciada pelo cliente é armazenada em um Azure Key Vault. 
- - Você deve habilitar a **exclusão reversível** e **não limpar** as propriedades no cofre de chaves. Esses recursos são necessários para permitir a recuperação de chaves em caso de exclusão acidental.
- - Somente as chaves RSA têm suporte com a criptografia de automação do Azure. Para obter mais informações sobre chaves, consulte [sobre Azure Key Vault chaves, segredos e certificados](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
-- A conta de automação e o cofre de chaves podem estar em assinaturas diferentes, mas precisam estar no mesmo locatário de Azure Active Directory.
+ - A chave de mão-de-cliente está guardada num Cofre de Chaves Azure. 
+ - Ative tanto o **Soft Delete** como **não expurgar** as propriedades no cofre da chave. Estas características são necessárias para permitir a recuperação das teclas em caso de supressão acidental.
+ - Apenas as chaves RSA são suportadas com encriptação Azure Automation. Para mais informações sobre chaves, consulte [sobre chaves, segredos e certificados do Cofre chave Azure.](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
+- A conta Automation e o cofre chave podem estar em diferentes subscrições, mas precisam de estar no mesmo inquilino do Azure Ative Directory.
 
 ### <a name="assign-an-identity-to-the-automation-account"></a>Atribuir uma identidade à conta de automação
 
-Para usar chaves gerenciadas pelo cliente com uma conta de automação, sua conta de automação precisa se autenticar no keyvault que armazena chaves gerenciadas pelo cliente. A automação do Azure usa identidades gerenciadas atribuídas pelo sistema para autenticar a conta com Key Vault. Para obter mais informações sobre identidades gerenciadas, consulte [o que são identidades gerenciadas para recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para utilizar chaves geridas pelo cliente com uma conta Automation, a sua conta Automation precisa de autenticar contra o cofre de chaves que armazena chaves geridas pelo cliente. A Azure Automation utiliza o sistema de identidades geridas atribuídas para autenticar a conta com o Cofre chave Azure. Para obter mais informações sobre identidades geridas, veja [o que é gerida identidades para os recursos Do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-Configurar uma identidade gerenciada atribuída pelo sistema à conta de automação usando a seguinte chamada à API REST
+Configure um sistema de identidade gerida atribuída à conta de automação utilizando a seguinte chamada REST API:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
-Corpo do pedido
+
+Corpo do pedido:
+
 ```json
 { 
  "identity": 
@@ -73,9 +75,9 @@ Corpo do pedido
   "type": "SystemAssigned" 
   } 
 }
-```    
+```
 
-A identidade atribuída pelo sistema para a conta de automação é retornada na resposta
+O sistema atribuído identidade para a conta Automation é devolvido numa resposta semelhante à seguinte:
 
 ```json
 {
@@ -91,16 +93,17 @@ A identidade atribuída pelo sistema para a conta de automação é retornada na
 }
 ```
 
-### <a name="configure-the-key-vault-access-policy"></a>Configurar a política de acesso de Key Vault
+### <a name="configure-the-key-vault-access-policy"></a>Configure a política de acesso ao cofre chave
 
-Depois que uma identidade gerenciada é atribuída à conta de automação, você configura o acesso ao Key Vault armazenar chaves gerenciadas pelo cliente. A automação do Azure requer **Get**, **Recover**, **wrapKey**, **UnwrapKey** nas chaves gerenciadas pelo cliente.
+Uma vez que uma identidade gerida é atribuída à conta Automation, configura o acesso ao cofre chave armazenando chaves geridas pelo cliente. A Azure Automation requer **obter,** **recuperar,** **embrulharKey**, **UnwrapKey** nas chaves geridas pelo cliente.
 
-Essa política de acesso pode ser definida usando a seguinte chamada à API REST.
+Tal política de acesso pode ser definida utilizando a seguinte chamada REST API:
 
 ```http
 PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/accessPolicies/add?api-version=2018-02-14
 ```
-Corpo do pedido
+
+Corpo do pedido:
 
 ```json
 {
@@ -125,17 +128,18 @@ Corpo do pedido
 }
 ```
 
-> [!NOTE] 
-> Os campos **tenantid** e **ObjectID** devem ser fornecidos com valores de **Identity. tenantid** e **Identity. PrincipalId** , respectivamente, da resposta da identidade gerenciada para a conta de automação.
+> [!NOTE]
+> Os campos **tenantId** e **objectId** devem ser dotados de valores de **identidade.tenantId** e **identity.mainId,** respectivamente, a partir da resposta da identidade gerida para a conta Deautomação.
 
-### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>Alterar a configuração da conta de automação para usar a chave gerenciada pelo cliente
+### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>Alterar a configuração da conta Automation para utilizar a chave gerida pelo cliente
 
-Por fim, você pode alternar sua conta de automação de chaves gerenciadas por Microsft para chaves gerenciadas pelo cliente, usando a seguinte chamada à API REST.
+Por fim, pode trocar a sua conta de Automação de chaves geridas pela Microsft para chaves geridas pelo cliente, utilizando a seguinte chamada REST API:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
-Corpo do pedido
+
+Corpo do pedido:
 
 ```json
  {
@@ -151,6 +155,7 @@ Corpo do pedido
     }
   }
 ```
+
 Resposta de amostra
 
 ```json
@@ -173,21 +178,24 @@ Resposta de amostra
 }
 ```
 
-## <a name="manage-customer-managed-keys-lifecycle"></a>Gerenciar ciclo de vida de chaves gerenciadas pelo cliente
+## <a name="manage-customer-managed-keys-lifecycle"></a>Gerir o ciclo de vida das chaves geridas pelo cliente
 
-### <a name="rotate-customer-managed-keys"></a>Girar chaves gerenciadas pelo cliente
+### <a name="rotate-customer-managed-keys"></a>Rode as chaves geridas pelo cliente
 
-Você pode girar uma chave gerenciada pelo cliente em Azure Key Vault de acordo com suas políticas de conformidade. Quando a chave é girada, você deve atualizar a conta de automação para usar o novo URI de chave. 
+Pode rodar uma chave gerida pelo cliente no Cofre de Chaves Azure de acordo com as suas políticas de conformidade. Quando a tecla estiver rodada, tem de atualizar a conta Automation para utilizar a nova tecla URI.
 
-A rotação da chave não aciona a nova criptografia de ativos seguros na conta de automação. Não há nenhuma ação adicional necessária do usuário.
+A rotação da tecla não desencadeia a reencriptação de ativos seguros na conta Automation. Não são necessárias mais medidas.
 
-### <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso a chaves gerenciadas pelo cliente
+### <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso às chaves geridas pelo cliente
 
-Para revogar o acesso às chaves gerenciadas pelo cliente, use o PowerShell ou CLI do Azure. Para obter mais informações, consulte [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) ou [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso efetivamente bloqueia o acesso a todos os ativos seguros na conta de automação, pois a chave de criptografia é inacessível pela automação do Azure.
+Para revogar o acesso às chaves geridas pelo cliente, utilize a PowerShell ou o Azure CLI. Para mais informações, consulte [o Cofre de Chaves Azure PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) ou o Cofre de Chaves [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso bloqueia efetivamente o acesso a todos os ativos seguros na conta Automation, uma vez que a chave de encriptação é inacessível pela Azure Automation.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o Azure Key Vault?](../key-vault/key-vault-overview.md) 
+- [O que é o Cofre chave Azure?](../key-vault/key-vault-overview.md)
+
 - [Recursos de certificados na Automatização do Azure](shared-resources/certificates.md)
+
 - [Recursos de credenciais na Automatização do Azure](shared-resources/credentials.md)
+
 - [Recursos de variáveis na Automatização do Azure](shared-resources/variables.md)

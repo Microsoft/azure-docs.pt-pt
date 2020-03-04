@@ -1,39 +1,39 @@
 ---
-title: Usar condição em modelos
+title: Use condição em modelos
 description: Saiba como implementar recursos do Azure com base em condições. Mostra como implantar um novo recurso ou usar um recurso existente.
 author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 895d82eb79e4674ca95b9052d2384a257b296bf5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 189d54454a1259d08400e3762b3fbf1c633474bd
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980666"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250055"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Condição de utilização nos modelos do Azure Resource Manager
 
 Saiba como implementar recursos do Azure com base em condições.
 
-No tutorial [Definir a ordem de implementação de recursos](./template-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar sempre uma nova conta de armazenamento, permite que as pessoas optem entre criar uma nova conta de armazenamento e utilizar uma conta de armazenamento existente. Para alcançar este objetivo, tem de definir um parâmetro adicional. Se o valor do parâmetro for "new" (nova), é criada uma nova conta de armazenamento. Caso contrário, uma conta de armazenamento existente com o nome fornecido será usada.
+No tutorial [Definir a ordem de implementação de recursos](./template-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar sempre uma nova conta de armazenamento, permite que as pessoas optem entre criar uma nova conta de armazenamento e utilizar uma conta de armazenamento existente. Para alcançar este objetivo, tem de definir um parâmetro adicional. Se o valor do parâmetro for "new" (nova), é criada uma nova conta de armazenamento. Caso contrário, é utilizada uma conta de armazenamento existente com o nome fornecido.
 
-![Diagrama de condição de uso de modelo do Resource Manager](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
+![Diagrama de condição de utilização do gestor de recursos](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Abrir um modelo de Início rápido
+> * Abrir um modelo de Início Rápido
 > * Modificar o modelo
 > * Implementar o modelo
 > * Limpar recursos
 
-Este tutorial aborda apenas um cenário básico do uso de condições. Para obter mais informações, veja:
+Este tutorial abrange apenas um cenário básico de utilização de condições. Para obter mais informações, consulte:
 
-* [Estrutura do arquivo de modelo: condição](conditional-resource-deployment.md).
-* [Implantar condicionalmente um recurso em um modelo de Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
-* [Função de modelo: If](./template-functions-logical.md#if).
-* [Funções de comparação para modelos de Azure Resource Manager](./template-functions-comparison.md)
+* [Estrutura de ficheiro de modelo: Condição](conditional-resource-deployment.md).
+* [Implante condicionalmente um recurso num modelo](/azure/architecture/building-blocks/extending-templates/conditional-deploy)de Gestor de Recursos Azure .
+* [Função do modelo: Se](./template-functions-logical.md#if).
+* [Funções de comparação para modelos de Gestor de Recursos Azure](./template-functions-comparison.md)
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -41,10 +41,10 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* Visual Studio Code com a extensão de ferramentas do Resource Manager. Consulte [usar Visual Studio Code para criar modelos de Azure Resource Manager](use-vs-code-to-create-template.md).
+* Código de estúdio visual com extensão de ferramentas de gestor de recursos. Consulte [o Código do Estúdio Visual para criar modelos](use-vs-code-to-create-template.md)de Gestor de Recursos Azure .
 * Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Eis um exemplo para gerar uma palavra-passe:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 
@@ -78,15 +78,15 @@ Os Modelos de Início Rápido do Azure são um repositório de modelos do Resour
 Introduza duas alterações ao modelo existente:
 
 * Adicionar um parâmetro do nome da conta de armazenamento. Os utilizadores podem especificar um novo nome da conta de armazenamento ou um nome da conta de armazenamento existente.
-* Adicionar um novo parâmetro denominado **newOrExisting**. A implantação usa esse parâmetro para determinar se deve criar uma nova conta de armazenamento ou usar uma conta de armazenamento existente.
+* Adicionar um novo parâmetro denominado **newOrExisting**. A implementação utiliza este parâmetro para determinar se cria uma nova conta de armazenamento ou se utiliza uma conta de armazenamento existente.
 
 Este é o procedimento para fazer as alterações:
 
 1. Abra **azuredeploy. JSON** no Visual Studio Code.
-2. Substitua as três **variáveis (' storageAccountName ')** por **parâmetros (' storageAccountName ')** em todo o modelo.
+2. Substitua as três **variáveis ('storageAccountName')** por **parâmetros ('storageAccountName')** em todo o modelo.
 3. Remova a definição de variável seguinte:
 
-    ![Diagrama de condição de uso de modelo do Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Diagrama de condição de utilização do gestor de recursos](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 4. Adicione os dois parâmetros seguintes ao modelo:
 
@@ -118,7 +118,7 @@ Este é o procedimento para fazer as alterações:
     A definição de conta de armazenamento atualizada assemelha-se a:
 
     ![Condição de utilização do Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Atualize a propriedade **storageUri** da definição de recurso de máquina virtual com o seguinte valor:
+6. Atualize a propriedade **storageUri** da definição de recurso virtual da máquina com o seguinte valor:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -130,7 +130,7 @@ Este é o procedimento para fazer as alterações:
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Siga as instruções em [implantar o modelo](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir o Cloud Shell e carregar o modelo revisado e, em seguida, execute o seguinte script do PowerShell para implantar o modelo.
+Siga as instruções em [Desdobrar o modelo](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir a casca cloud e carregar o modelo revisto e, em seguida, executar o seguinte script PowerShell para implementar o modelo.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -155,11 +155,11 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > A implementação falhar se **newOrExisting** for **New** (Novo), mas a conta de armazenamento com o nome de conta de armazenamento especificado já existe.
 
-Tente fazer outra implantação com **newOrExisting** definido como "existente" e especifique uma conta de armazenamento existente. Para criar uma conta do armazenamento antecipadamente, consulte [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
+Tente fazer outra implementação com o novo conjunto **OrExisting** para "existente" e especificar uma conta de armazenamento existente. Para criar uma conta do armazenamento antecipadamente, consulte [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Para excluir o grupo de recursos, selecione **Experimente-** o para abrir o Cloud Shell. Para colar o script do PowerShell, clique com o botão direito do mouse no painel Shell e selecione **colar**.
+Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Para eliminar o grupo de recursos, selecione **Experimente-o** para abrir a casca cloud. Para colar o script PowerShell, clique na vidraça da direita e, em seguida, **selecione Pasta**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"

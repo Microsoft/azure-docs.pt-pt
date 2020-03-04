@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eab8298362bfb3ad790d13fcbf47e0fe624ed3fd
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 2477d91ac885d4ef39df7b9246f7272d66c3f7ee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470195"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251868"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um Balancer de carga para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -110,21 +110,20 @@ Pode utilizar uma regra de Balanceador de Carga para definir a forma como o trá
 
 Nesta secção, cria-se uma rede virtual, cria três máquinas virtuais para a piscina de backend do Balancer de Carga e, em seguida, instala o IIS nas máquinas virtuais para ajudar a testar o Balancer de Carga.
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > rede de **rede** > **rede virtual**.
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
-1. Na **Create rede virtual,** introduza ou selecione esta informação:
+Nesta secção terá de substituir os seguintes parâmetros nos passos com as informações abaixo:
 
-    | Definição | Valor |
-    | ------- | ----- |
-    | Nome | Introduza *myVNet*. |
-    | Espaço de endereços | Insira *10.1.0.0/16*. |
-    | Subscrição | Selecione a sua subscrição.|
-    | Grupo de recursos | Selecione o recurso existente - *myResourceGroupSLB*. |
-    | Localização | Selecione **Europa Ocidental**.|
-    | Subnet - Nome | Introduza *myBackendSubnet*. |
-    | Sub-rede - Intervalo de endereços | Insira *10.1.0.0/24*. |
-1. Deixe o resto dos predefinições e selecione **Criar**.
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<nome de grupo de recursos>**  | myResourceGroupSLB |
+| **\<nome de rede virtual>** | myVNet          |
+| **\<nome da região>**          | Europa Ocidental      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<sub-nome>**          | myBackendSubnet        |
+| **\<sub-endereço-gama>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 As SKUs públicas ip e load Balancer SKUs devem corresponder. Para o Standard Load Balancer, utilize VMs com endereços IP standard na piscina de backend. Nesta secção, você vai criar três VMs (*myVM1,* *myVM2* e *myVM3*) com um endereço IP público Standard em três zonas diferentes *(Zona 1,* *Zona 2,* e *Zona 3*) que são posteriormente adicionados à piscina de backend do Balancer load que foi criado anteriormente. Se selecionar Basic, utilize VMs com endereços IP básicos.

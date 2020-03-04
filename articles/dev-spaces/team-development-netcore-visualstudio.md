@@ -1,5 +1,5 @@
 ---
-title: Desenvolvimento de equipe usando o .NET Core e o Visual Studio
+title: Desenvolvimento de equipa usando .NET Core e Visual Studio
 services: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
@@ -7,34 +7,34 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: 12/09/2018
 ms.topic: tutorial
-description: Este tutorial mostra como usar Azure Dev Spaces e o Visual Studio para fazer o desenvolvimento em equipe em um aplicativo .NET Core no serviço kubernetes do Azure
+description: Este tutorial mostra-lhe como usar o Azure Dev Spaces e o Visual Studio para fazer o desenvolvimento da equipa numa aplicação .NET Core no Serviço Azure Kubernetes
 keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: f88a0b146a53a5b14ab17ae0d959e9b8a5567302
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b4520ce35807fb022fa39ae9b00347a27e192380
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438184"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245056"
 ---
-# <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Desenvolvimento de equipe usando o .NET Core e o Visual Studio com Azure Dev Spaces
+# <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Desenvolvimento de equipa utilizando .NET Core e Visual Studio com Espaços Azure Dev
 
-Neste tutorial, você aprenderá como uma equipe de desenvolvedores pode colaborar simultaneamente no mesmo cluster kubernetes usando espaços de desenvolvimento.
+Neste tutorial, você vai aprender como uma equipe de desenvolvedores pode simultaneamente colaborar no mesmo cluster Kubernetes usando Dev Spaces.
 
 ## <a name="learn-about-team-development"></a>Saiba mais sobre desenvolvimento em equipa
 
 Até aqui, executou o código da aplicação como se fosse o único programador a trabalhar na aplicação. Nesta secção, irá aprender até que ponto o Azure Dev Spaces simplifica o desenvolvimento em equipa ao:
-* Permita que uma equipe de desenvolvedores trabalhe no mesmo ambiente, trabalhando em um espaço de desenvolvimento compartilhado ou em espaços de desenvolvimento distintos, conforme necessário.
+* Permitir que uma equipa de desenvolvedores trabalhe no mesmo ambiente, trabalhando num espaço de v partilhado ou em espaços de v distintos, conforme necessário.
 * Suportar que cada programador faça iterações no respetivo código de forma isolada e sem receio de danificar o código de terceiros.
 * Testar o código ponto a ponto, antes de proceder à consolidação do código, sem ter de criar cenários fictícios ou simular dependências.
 
 ### <a name="challenges-with-developing-microservices"></a>Desafios relativamente ao desenvolvimento de microsserviços
-O aplicativo de exemplo não é complexo no momento. Todavia, num cenário de desenvolvimento real, os desafios começam a surgir à medida que são adicionados mais serviços e a equipa de desenvolvimento começa a aumentar.
+A sua aplicação de amostra não é complexa no momento. Todavia, num cenário de desenvolvimento real, os desafios começam a surgir à medida que são adicionados mais serviços e a equipa de desenvolvimento começa a aumentar.
 
-* Seu computador de desenvolvimento pode não ter recursos suficientes para executar todos os serviços necessários ao mesmo tempo.
-* Alguns serviços podem precisar ser acessíveis publicamente. Por exemplo, um serviço pode precisar ter um ponto de extremidade que responda a um webhook.
-* Se você quiser executar um subconjunto de serviços, precisará saber a hierarquia de dependência total entre todos os seus serviços. A determinação dessa hierarquia pode ser difícil, especialmente à medida que o número de serviços aumenta.
-* Alguns programadores recorrem à simulação ou criação de cenários fictícios de muitas das suas dependências de serviço. Essa abordagem pode ajudar, mas o gerenciamento dessas simulações pode afetar o custo de desenvolvimento em breve. Além disso, essa abordagem leva a um ambiente de desenvolvimento que parece diferente da produção, o que pode levar a bugs sutis ocorrendo.
-* Depois disso, é difícil fazer qualquer tipo de teste de integração. Realisticamente, o teste de integração só pode ocorrer após uma consolidação, o que significa que irá ver os problemas numa fase posterior no ciclo de desenvolvimento.
+* A sua máquina de desenvolvimento pode não ter recursos suficientes para executar todos os serviços que precisa ao mesmo tempo.
+* Alguns serviços podem ter de ser acessíveis publicamente. Por exemplo, um serviço pode precisar de ter um ponto final que responda a um webhook.
+* Se quiser executar um subconjunto de serviços, tem de conhecer toda a hierarquia de dependência entre todos os seus serviços. Determinar esta hierarquia pode ser difícil, especialmente à medida que o seu número de serviços aumenta.
+* Alguns programadores recorrem à simulação ou criação de cenários fictícios de muitas das suas dependências de serviço. Esta abordagem pode ajudar, mas gerir essas simulações pode em breve ter impacto nos custos de desenvolvimento. Além disso, esta abordagem leva ao seu ambiente de desenvolvimento diferente da produção, o que pode levar a bugs subtis que ocorrem.
+* Daí resulta que fazer qualquer tipo de teste de integração torna-se difícil. Realisticamente, o teste de integração só pode ocorrer após uma consolidação, o que significa que irá ver os problemas numa fase posterior no ciclo de desenvolvimento.
 
     ![](media/common/microservices-challenges.png)
 
@@ -44,55 +44,55 @@ O Azure Dev Spaces permite-lhe configurar um espaço de desenvolvimento *partilh
 ### <a name="work-in-your-own-space"></a>Trabalhar no seu próprio espaço
 À medida que desenvolve o código para o seu serviço e até estar preparado para o implementar, é frequente o código não estar em bom estado. A formulação, os testes e as experiências com soluções ao nível do código são um processo iterativo contínuo. O Azure Dev Spaces fornece o conceito de **espaço**, onde pode trabalhar de forma isolada e sem receio de prejudicar os membros da sua equipa.
 
-## <a name="use-dev-spaces-for-team-development"></a>Usar espaços de desenvolvimento para desenvolvimento em equipe
-Vamos demonstrar essas ideias com um exemplo concreto usando nosso aplicativo de exemplo -> *mywebapi* de nosso *front-end* . Vamos imaginar um cenário em que um desenvolvedor, Scott, precisa fazer uma alteração no serviço *mywebapi* e *apenas* esse serviço. O *WebFrontEnd* não precisará ser alterado como parte da atualização de Scott.
+## <a name="use-dev-spaces-for-team-development"></a>Use Espaços Dev para desenvolvimento de equipas
+Vamos demonstrar estas ideias com um exemplo concreto usando o nosso *webfrontend* -> aplicação de amostra *mywebapi.* Vamos imaginar um cenário em que um desenvolvedor, Scott, precisa de fazer uma mudança para o serviço *mywebapi,* e *só* para esse serviço. O *webfrontend* não vai precisar de mudar como parte da atualização do Scott.
 
-_Sem_ usar espaços de desenvolvimento, Scott teria algumas maneiras de desenvolver e testar sua atualização, nenhuma das quais é ideal:
-* Executar todos os componentes localmente, o que exige uma máquina de desenvolvimento mais potente com o Docker instalado e potencialmente MiniKube.
-* Execute todos os componentes em um namespace isolado no cluster kubernetes. Como o *WebFrontEnd* não está mudando, usar um namespace isolado é um desperdício de recursos de cluster.
-* SOMENTE execute *mywebapi*e faça as chamadas de REST manuais para teste. Esse tipo de teste não testa o fluxo completo de ponta a ponta.
-* Adicione código centrado no desenvolvimento ao *WebFrontEnd* que permite ao desenvolvedor enviar solicitações para uma instância diferente do *mywebapi*. Adicionar esse código complica o serviço de *WebFrontEnd* .
+_Sem_ usar dev Spaces, Scott teria algumas maneiras de desenvolver e testar a sua atualização, nenhuma das quais é ideal:
+* Executar os componentes ALL localmente, que requer uma máquina de desenvolvimento mais potente com Docker instalado, e potencialmente MiniKube.
+* Executar todos os componentes num espaço de nome isolado no cluster Kubernetes. Como *o webfrontend* não está a mudar, usar um espaço de nome isolado é um desperdício de recursos de cluster.
+* Só execute *mywebapi*e faça chamadas manuais de REST para testar. Este tipo de testes não testa o fluxo total de ponta a ponta.
+* Adicione código focado no desenvolvimento ao *webfrontend* que permite ao desenvolvedor enviar pedidos para uma instância diferente de *mywebapi*. Adicionar este código complica o serviço *webfrontend.*
 
-### <a name="set-up-your-baseline"></a>Configurar sua linha de base
-Primeiro, precisaremos implantar uma linha de base de nossos serviços. Essa implantação representará a "última boa conhecida" para que você possa comparar facilmente o comportamento do seu código local versus a versão com check-in. Em seguida, criaremos um espaço filho com base nessa linha de base para que possamos testar nossas alterações em *mywebapi* no contexto do aplicativo maior.
+### <a name="set-up-your-baseline"></a>Configurar a sua linha de base
+Primeiro, precisamos de implantar uma linha de base dos nossos serviços. Esta implementação representará o "último bem conhecido" para que possa facilmente comparar o comportamento do seu código local vs. a versão check-in. Criaremos então um espaço para crianças com base nesta linha de base para que possamos testar as nossas alterações ao *mywebapi* no contexto da aplicação maior.
 
-1. Clonar o [aplicativo de exemplo de espaços de desenvolvimento](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
-1. Confira o *azds_updates*de Branch remoto: `git checkout -b azds_updates origin/azds_updates`
+1. Clone a [aplicação da amostra de Espaços Dev:](https://github.com/Azure/dev-spaces)`git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. Confira o ramo remoto *azds_updates:* `git checkout -b azds_updates origin/azds_updates`
 1. Feche as sessões de depuração/F5 de ambos os serviços, mas mantenha os projetos abertos nas respetivas janelas do Visual Studio.
-1. Alterne para a janela do Visual Studio com o projeto _mywebapi_ .
+1. Mude para a janela do Estúdio Visual com o projeto _mywebapi._
 1. Clique com o botão direito do rato no projeto em **Solution Explorer** (Explorador de Soluções) e selecione **Properties** (Propriedades).
 1. Selecione o separador **Debug** (Depurar) à esquerda para mostrar as definições do Azure Dev Spaces.
-1. Selecione **alterar** para criar o espaço que será usado quando você F5 ou CTRL + F5 o serviço.
-1. Na lista suspensa espaço, selecione **\<criar novo espaço...\>** .
-1. Verifique se o espaço pai está definido como **\<nenhum\>** e digite **desenvolvimento**de nome de espaço. Clique em OK.
-1. Pressione CTRL + F5 para executar _mywebapi_ sem o depurador anexado.
-1. Alterne para a janela do Visual Studio com o projeto de _WebFrontEnd_ e pressione CTRL + F5 para executá-lo também.
+1. Selecione **Alterar** para criar o espaço que será utilizado quando f5 ou CTRL+F5 o serviço.
+1. No dropdown space, selecione **\<Create New Space...\>** .
+1. Certifique-se de que o espaço dos pais está definido para **\<nenhum\>,** e introduza o nome de espaço **dev**. Clique em OK.
+1. Pressione Ctrl+F5 para executar _mywebapi_ sem o descato ligado.
+1. Mude para a janela do Estúdio Visual com o projeto _webfrontend_ e prima Ctrl+F5 para executá-lo também.
 
 > [!Note]
 > Por vezes, é necessário atualizar o browser depois de a página Web ser apresentada inicialmente após ter premido Ctrl+F5.
 
 > [!TIP]
-> As etapas acima configuram manualmente uma linha de base, mas recomendamos que as equipes usem o CI/CD para manter a linha de base atualizada com o código confirmado.
+> Os passos acima configuram manualmente uma linha de base, mas recomendamos que as equipas utilizem CI/CD para manter automaticamente a sua linha de base atualizada com o código comprometido.
 >
-> Confira nosso [guia para configurar o CI/CD com o Azure DevOps](how-to/setup-cicd.md) para criar um fluxo de trabalho semelhante ao diagrama a seguir.
+> Consulte o nosso guia para a configuração de [CI/CD com Azure DevOps](how-to/setup-cicd.md) para criar um fluxo de trabalho semelhante ao diagrama seguinte.
 >
 > ![Diagrama de CI/CD de exemplo](media/common/ci-cd-complex.png)
 
-Qualquer pessoa que abrir a URL pública e navegar até o aplicativo Web invocará o caminho de código que você escreveu, que é executado por meio dos dois serviços usando o espaço de _desenvolvimento_ padrão. Agora suponha que você deseja continuar desenvolvendo o *mywebapi* – como é possível fazer isso e não interromper outros desenvolvedores que estão usando o espaço de desenvolvimento? Para tal, terá de configurar o seu próprio espaço.
+Qualquer pessoa que abra o URL público e navegue para a aplicação web invocará o caminho de código que escreveu que percorre ambos os serviços usando o espaço _de v_ padrão. Agora suponha que quer continuar a desenvolver *mywebapi* - como pode fazer isso e não interromper outros desenvolvedores que estão usando o espaço de v? Para tal, terá de configurar o seu próprio espaço.
 
 ### <a name="create-a-new-dev-space"></a>Criar um novo espaço de programador
-A partir do Visual Studio, pode criar espaços adicionais que serão utilizados quando prime F5 ou Ctrl+F5 no seu serviço. Pode dar o nome que quiser a um espaço e pode ser flexível quanto ao seu significado (por exemplo, _sprint4_ ou _demo_).
+A partir do Visual Studio, pode criar espaços adicionais que serão utilizados quando prime F5 ou Ctrl+F5 no seu serviço. Pode dar o nome que quiser a um espaço e pode ser flexível quanto ao seu significado (por exemplo, _sprint4_ ou _demonstração)._
 
 Faça o seguinte para criar um novo espaço:
-1. Alterne para a janela do Visual Studio com o projeto *mywebapi* .
+1. Mude para a janela do Estúdio Visual com o projeto *mywebapi.*
 2. Clique com o botão direito do rato no projeto em **Solution Explorer** (Explorador de Soluções) e selecione **Properties** (Propriedades).
 3. Selecione o separador **Debug** (Depurar) à esquerda para mostrar as definições do Azure Dev Spaces.
 4. Aqui, pode alterar ou criar o cluster e/ou o espaço que será utilizado quando premir F5 ou Ctrl+F5. *Certifique-se de que o Azure Dev Space que criou anteriormente está selecionado*.
-5. Na lista suspensa espaço, selecione **\<criar novo espaço...\>** .
+5. No dropdown space, selecione **\<Create New Space...\>** .
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. Na caixa de diálogo **adicionar espaço** , defina o espaço pai como **dev**e insira um nome para o novo espaço. Pode utilizar um nome próprio (por exemplo, "scott") para o novo espaço para que os seus colegas o possam identificar como o espaço em que está a trabalhar. Clique em **OK**.
+6. No diálogo **Add Space,** desloque o espaço dos pais para **dev,** e introduza um nome para o seu novo espaço. Pode utilizar um nome próprio (por exemplo, "scott") para o novo espaço para que os seus colegas o possam identificar como o espaço em que está a trabalhar. Clique em **OK**.
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 
@@ -102,7 +102,7 @@ Faça o seguinte para criar um novo espaço:
 
 ### <a name="update-code-for-mywebapi"></a>Atualizar o código de *mywebapi*
 
-1. No projeto *mywebapi* , faça uma alteração de código no método `string Get(int id)` no arquivo `Controllers/ValuesController.cs` da seguinte maneira:
+1. No projeto *mywebapi* faça uma alteração de código para o método `string Get(int id)` em `Controllers/ValuesController.cs` de ficheiros da seguinte forma:
  
     ```csharp
     [HttpGet("{id}")]
@@ -113,20 +113,20 @@ Faça o seguinte para criar um novo espaço:
     ```
 
 2. Defina um ponto de interrupção neste bloco de código atualizado (pode já ter um definido anteriormente).
-3. Pressione F5 para iniciar o serviço _mywebapi_ , que iniciará o serviço no cluster usando o espaço selecionado. Nesse caso, o espaço selecionado é _Scott_.
+3. Acerte f5 para iniciar o serviço _mywebapi,_ que iniciará o serviço no seu cluster utilizando o espaço selecionado. O espaço selecionado neste caso é _scott_.
 
-Segue-se um diagrama que o ajudará a compreender como funcionam os diferentes espaços. O caminho roxo mostra uma solicitação por meio do espaço de _desenvolvimento_ , que é o caminho padrão usado se nenhum espaço for anexado à URL. O caminho rosa mostra uma solicitação por meio do espaço de _desenvolvimento/Scott_ .
+Segue-se um diagrama que o ajudará a compreender como funcionam os diferentes espaços. O caminho roxo mostra um pedido através do espaço _de v,_ que é o caminho padrão usado se nenhum espaço for preparado para o URL. O caminho cor-de-rosa mostra um pedido através do espaço _dev/scott._
 
 ![](media/common/Space-Routing.png)
 
 Esta capacidade incorporada do Azure Dev Spaces permite-lhe testar o código ponto a ponto num ambiente partilhado sem que cada programador tenha de recriar a pilha completa de serviços no respetivo espaço. Este tipo de encaminhamento requer que os cabeçalhos de propagação sejam reencaminhados no código da aplicação, conforme ilustrado no passo anterior deste guia.
 
-### <a name="test-code-running-in-the-_devscott_-space"></a>Código de teste em execução no espaço de _desenvolvimento/Scott_
-Para testar sua nova versão do *mywebapi* em conjunto com o *WebFrontEnd*, abra o navegador para a URL do ponto de acesso público para o *WebFrontEnd* (por exemplo, http://dev.webfrontend.123456abcdef.eus.azds.io) e vá para a página sobre. Deverá ver a mensagem original "Hello from webfrontend and Hello from mywebapi" (Olá de webfrontend e Olá de mywebapi).
+### <a name="test-code-running-in-the-_devscott_-space"></a>Código de teste em execução no espaço _dev/scott_
+Para testar a sua nova versão do *mywebapi* em conjunto com o *webfrontend,* abra o seu navegador para o URL do ponto de acesso público para *webfrontend* (por exemplo, http://dev.webfrontend.123456abcdef.eus.azds.io) e vá para a página About. Deverá ver a mensagem original "Hello from webfrontend and Hello from mywebapi" (Olá de webfrontend e Olá de mywebapi).
 
-Em seguida, adicione o elemento "scott.s." parte da URL para que ela leia algo como http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e atualize o navegador. O ponto de interrupção que você definiu em seu projeto *mywebapi* deve ser atingido. Clique em F5 para continuar. No browser, deverá ver a nova mensagem "Hello from webfrontend and mywebapi now says something new." (Olá de webfrontend e mywebapi agora indica algo de novo). Isso ocorre porque o caminho para o código atualizado no *mywebapi* está em execução no espaço de _desenvolvimento/Scott_ .
+Em seguida, adicione o elemento "scott.s." parte para o URL para que leia algo como http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e atualizar o navegador. O ponto de rutura que definiu no seu projeto *mywebapi* deve ser atingido. Clique em F5 para continuar. No browser, deverá ver a nova mensagem "Hello from webfrontend and mywebapi now says something new." (Olá de webfrontend e mywebapi agora indica algo de novo). Isto porque o caminho para o seu código atualizado em *mywebapi* está a correr no espaço _de v/scott._
 
-Quando você tiver um espaço de _desenvolvimento_ que sempre contém as alterações mais recentes e supondo que seu aplicativo foi projetado para tirar proveito do roteamento baseado em espaço do DevSpace, conforme descrito nesta seção do tutorial, espero que seja fácil ver como os espaços de desenvolvimento podem auxiliar muito no teste de novos recursos no contexto do aplicativo maior. Em vez de precisar implantar _todos os_ serviços em seu espaço privado, você pode criar um espaço privado que deriva de um _dev_e apenas "para cima" os serviços nos quais você está trabalhando. A infraestrutura de roteamento de espaços de desenvolvimento manipulará o restante utilizando o máximo de serviços de seu espaço privado que pode ser encontrado, ao mesmo tempo que retorna à versão mais recente em execução no espaço de _desenvolvimento_ . E, melhor ainda, _vários_ desenvolvedores podem desenvolver ativamente diferentes serviços ao mesmo tempo em seu próprio espaço, sem interromper uns aos outros.
+Uma vez que você tem um espaço _de v_ que sempre contém as suas últimas alterações, e assumindo que a sua aplicação foi projetada para tirar partido do encaminhamento espacial da DevSpace como descrito nesta secção tutorial, espero que seja fácil ver como a Dev Spaces pode ajudar muito no teste de novas funcionalidades no contexto da aplicação maior. Em vez de ter de implantar _todos os_ serviços para o seu espaço privado, pode criar um espaço privado que deriva do _dev_, e apenas "subir" os serviços em que está realmente a trabalhar. A infraestrutura de encaminhamento de Dev Spaces irá lidar com o resto utilizando o maior número de serviços fora do seu espaço privado, enquanto não volta à versão mais recente que corre no espaço _de v._ E melhor ainda, _vários_ desenvolvedores podem desenvolver ativamente diferentes serviços ao mesmo tempo no seu próprio espaço sem perturbar uns aos outros.
 
 ### <a name="well-done"></a>Já está!
 Concluiu o guia de introdução! Aprendeu a:
@@ -136,7 +136,7 @@ Concluiu o guia de introdução! Aprendeu a:
 > * Desenvolver iterativamente código em contentores.
 > * Desenvolver de modo independente dois serviços separados e utilizar a deteção do serviço DNS de Kubernetes para fazer uma chamada para outro serviço.
 > * Desenvolver e testar de forma produtiva o seu código num ambiente de equipa.
-> * Estabeleça uma linha de base de funcionalidade usando espaços de desenvolvimento para testar facilmente as alterações isoladas no contexto de um aplicativo de microatendimento maior
+> * Estabelecer uma linha de base de funcionalidade utilizando espaços Dev para testar facilmente alterações isoladas no contexto de uma aplicação de microserviço maior
 
 Agora que explorou os Espaços de Programação do Azure, [partilhe o seu espaço de programação com um membro da equipa](how-to/share-dev-spaces.md) e ajude-o a ver como é fácil colaborar em conjunto.
 
@@ -146,6 +146,9 @@ Para eliminar completamente uma instância dos Espaços de Programador do Azure 
 O exemplo a seguir lista os controladores dos Espaços de Programador do Azure na sua subscrição ativa e, em seguida, elimina o controlador do mesmo que está associado ao cluster do AKS "myaks" do AKS no grupo de recursos "myaks-rg".
 
 ```cmd
-    azds controller list
-    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+azds controller list
+```
+
+```azurecli
+az aks remove-dev-spaces --name myaks --resource-group myaks-rg
 ```

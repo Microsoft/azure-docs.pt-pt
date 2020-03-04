@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: balancear a carga do tráfego de Internet para VMs-portal do Azure'
+title: 'Tutorial: Carregar o tráfego de internet para VMs - Portal Azure'
 titleSuffix: Azure Load Balancer
 description: Este tutorial mostra como criar e gerir um Balanceador de Carga Standard com o portal do Azure.
 services: load-balancer
@@ -15,24 +15,24 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4d4703ccb4ee96eb69a780f91eae1eb6da9e1578
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5b39186a39fbd2398fb4045ba62797e321fc3284
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225186"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249853"
 ---
-# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: balancear a carga do tráfego de Internet para VMs usando o portal do Azure
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Carregar o tráfego de internet para VMs usando o portal Azure
 
-O balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, você aprende sobre os diferentes componentes do Standard Load Balancer do Azure que distribuem o tráfego de Internet para as VMs e fornecem alta disponibilidade. Saiba como:
+O balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, você aprende sobre os diferentes componentes do Balancer de Carga Padrão Azure que distribuem o tráfego de internet para VMs e fornecem alta disponibilidade. Saiba como:
 
 
 > [!div class="checklist"]
-> * Criar um Azure Load Balancer
-> * Criar Load Balancer recursos
+> * Criar um Balancer de Carga Azure
+> * Criar recursos de Balancer de Carga
 > * Criar máquinas virtuais e instalar o servidor IIS
-> * Exibir Load Balancer em ação
-> * Adicionar e remover VMs de um Load Balancer
+> * Ver Balancer de carga em ação
+> * Adicione e remova VMs de um Balancer de carga
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -42,135 +42,133 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-standard-load-balancer"></a>Criar um Balanceador de Carga Standard
 
-Nesta seção, você cria um Standard Load Balancer que ajuda a balancear a carga de máquinas virtuais. O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Quando cria um Balanceador de Carga Standard, também tem de criar um novo endereço IP Público Standard que seja configurado como o front-end (denominado *LoadBalancerFrontend* por predefinição) para o mesmo. 
+Nesta secção, cria-se um Balancer de Carga Padrão que ajuda a carregar máquinas virtuais de equilíbrio. O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Quando cria um Balanceador de Carga Standard, também tem de criar um endereço IP Público Standard novo que seja configurado como o front-end (denominado *LoadBalancerFrontend* por predefinição) para o mesmo. 
 
 1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Balanceador de Carga**.
-2. Na guia **noções básicas** da página **criar balanceador de carga** , insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **revisar + criar**:
+2. No separador **Basics** da página **'Criar balanceor de carga',** introduzir ou selecionar as seguintes informações, aceitar as predefinições para as restantes definições e, em seguida, selecionar **Rever + criar**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
-    | Grupo de recursos         | Selecione **criar novo** e digite *myResourceGroupSLB* na caixa de texto.|
+    | Grupo de recursos         | Selecione **Criar novo** e digitar *o myResourceGroupSLB* na caixa de texto.|
     | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
-    | Tipo          | Selecione **público**.                                        |
-    | SKU           | Selecione **padrão**.                          |
+    | Tipo          | Selecione **Public**.                                        |
+    | SKU           | Selecione **Standard**.                          |
     | Endereço IP público | Selecione **Criar novo**. |
-    | Nome do endereço IP público              | Digite *myPublicIP* na caixa de texto.   |
-    |Zona de disponibilidade| Selecione a **zona com redundância**.    |
+    | Nome do endereço IP público              | Digite *o meu PublicIP* na caixa de texto.   |
+    |Zona de disponibilidade| Selecione **Zona redundante**.    |
 
-3. Na guia **revisar + criar** , clique em **criar**.
+3. No **'Rever + criar** separador', clique em **Criar**.
 
    ![Criar um Balanceador de Carga Standard](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
 
-## <a name="create-load-balancer-resources"></a>Criar Load Balancer recursos
+## <a name="create-load-balancer-resources"></a>Criar recursos de Balancer de Carga
 
-Nesta seção, você define Load Balancer configurações para um pool de endereços de back-end, uma investigação de integridade e especifica uma regra de balanceador.
+Nesta secção, configura as definições do Balancer de Carga para um conjunto de endereços de backend, uma sonda de saúde e especifica uma regra de equilíbrio.
 
 ### <a name="create-a-backend-address-pool"></a>Criar um conjunto de endereços de back-end
 
-Para distribuir o tráfego para as VMs, um pool de endereços de back-end contém os endereços IP das NICs (virtual) conectados à Load Balancer. Crie o pool de endereços de back-end *myBackendPool* para incluir máquinas virtuais para tráfego de Internet de balanceamento de carga.
+Para distribuir o tráfego para os VMs, um conjunto de endereços de backend contém os endereços IP do virtual (NICs) ligados ao Balanceor de Carga. Crie o conjunto de endereços backend *myBackendPool* para incluir máquinas virtuais para equilibrar o tráfego de internet de equilíbrio de carga.
 
-1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e clique em **myLoadBalancer** na lista de recursos.
+1. Selecione **todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, clique em **myLoadBalancer** na lista de recursos.
 2. Em **Definições**, clique em **Conjuntos de back-end** e, em seguida, clique em **Adicionar**.
-3. Na página **Adicionar um pool de back-end** , em nome, digite *myBackendPool*, como o nome do pool de back-end e, em seguida, selecione **Adicionar**.
+3. Na página adicionar uma página **de piscina de backend,** para nome, digite *myBackendPool,* como o nome para a sua piscina de backend, e, em seguida, selecione **Adicionar**.
 
 ### <a name="create-a-health-probe"></a>Criar uma sonda de estado de funcionamento
 
-Para permitir que o Load Balancer monitore o status do seu aplicativo, use uma investigação de integridade. A investigação de integridade adiciona ou remove dinamicamente as VMs da rotação de Load Balancer com base em sua resposta às verificações de integridade. Crie uma sonda de estado de funcionamento, *myHealthProbe*, para monitorizar o estado de funcionamento das VMs.
+Para permitir que o Balancer de carga monitorize o estado da sua aplicação, utilize uma sonda de saúde. A sonda de saúde adiciona ou remove dinamicamente os VMs da rotação do Balancer de Carga com base na sua resposta aos controlos de saúde. Crie uma sonda de estado de funcionamento, *myHealthProbe*, para monitorizar o estado de funcionamento das VMs.
 
-1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e clique em **myLoadBalancer** na lista de recursos.
+1. Selecione **todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, clique em **myLoadBalancer** na lista de recursos.
 2. Em **Definições**, clique em **Sondas de estado de funcionamento** e, em seguida, clique em **Adicionar**.
 3. Utilize estes valores para criar a sonda de estado de funcionamento:
      
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Insira *myHealthProbe*. |
-    | Protocolo | Selecione **http**. |
+    | Nome | Introduza *o myHealthProbe*. |
+    | Protocolo | Selecione **HTTP**. |
     | Porta | Insira *80*.|
-    | Intervalo | Digite *15* para o número de **intervalo** em segundos entre as tentativas de investigação. |
-    | Limite não íntegro | Selecione *2* para número de **limites não íntegros** ou falhas de investigação consecutivas que devem ocorrer antes que uma VM seja considerada não íntegra.|
+    | Intervalo | Introduza *15* para o número de **intervalos** em segundos entre as tentativas de sonda. |
+    | Limiar insalubre | Selecione *2* para o número de falhas de **limiar não saudáveis** ou de sonda consecutivas que devem ocorrer antes de um VM ser considerado insalubre.|
     
 4. Selecione **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Crie uma regra de Balanceador de Carga
 
-Pode utilizar uma regra de Balanceador de Carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de Load Balancer *myLoadBalancerRuleWeb* para ouvir a porta 80 no front-end *FrontendLoadBalancer* e enviar o tráfego de rede com balanceamento de carga para o pool de endereços de back-end *myBackEndPool* também usando a porta 80.
+Pode utilizar uma regra de Balanceador de Carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de Balancer de Carga *myLoadBalancerRuleWeb* para ouvir a porta 80 no *FrontendLoadBalancer* e enviar tráfego de rede equilibrado para o conjunto de endereços backend *myBackEndPool* também usando a porta 80.
 
-1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e clique em **myLoadBalancer** na lista de recursos.
+1. Selecione **todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, clique em **myLoadBalancer** na lista de recursos.
 2. Em **Definições**, clique em **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar**.
-3. Use estes valores para configurar a regra de balanceamento de carga:
+3. Utilize estes valores para configurar a regra de equilíbrio de carga:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Insira *myHTTPRule*. |
+    | Nome | Introduza *o meuHTTPRule*. |
     | Protocolo | Selecione **TCP**. |
     | Porta | Insira *80*.|
-    | Porta de back-end | Insira *80*. |
-    | Pool de back-end | Selecione *myBackendPool*.|
+    | Porto backend | Insira *80*. |
+    | Piscina de backend | Selecione *myBackendPool*.|
     | Sonda de estado de funcionamento | Selecione *myHealthProbe*. |
     
 4. Deixe o resto das predefinições e selecione **OK**.
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
-Nesta seção, você criará uma rede virtual, criará três máquinas virtuais para o pool de back-end do Load Balancer e, em seguida, instalará o IIS nas máquinas virtuais para ajudar a testar o Load Balancer.
+Nesta secção, cria-se uma rede virtual, cria três máquinas virtuais para a piscina de backend do Balancer de Carga e, em seguida, instala o IIS nas máquinas virtuais para ajudar a testar o Balancer de Carga.
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** > **rede** > **rede virtual**.
-2. Em **criar rede virtual**, insira ou selecione estas informações:
+Nesta secção terá de substituir os seguintes parâmetros nos passos com as informações abaixo:
 
-    | Definição | Valor |
-    | ------- | ----- |
-    | Nome | Introduza *myVNet*. |
-    | Espaço de endereços | Insira *10.1.0.0/16*. |
-    | Subscrição | Selecione a sua subscrição.|
-    | Grupo de recursos | Selecione o recurso existente- *myResourceGroupSLB*. |
-    | Localização | Selecione **Europa Ocidental**.|
-    | Nome da sub-rede | Introduza *myBackendSubnet*. |
-    | Sub-rede - Intervalo de endereços | Insira *10.1.0.0/24*. |
-    
-3. Deixe o restante dos padrões e selecione **criar**.
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<nome de grupo de recursos>**  | myResourceGroupSLB (Selecione grupo de recursos existentes) |
+| **\<nome de rede virtual>** | myVNet          |
+| **\<nome da região>**          | Europa Ocidental      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<sub-nome>**          | mySubnet        |
+| **\<sub-endereço-gama>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Standard Load Balancer só dá suporte a VMs com endereços IP padrão no pool de back-end. Nesta seção, você criará três VMs (*myVM1*, *myVM2*e *MYVM3*) com um endereço IP público padrão em três zonas diferentes (*zona 1*, *zona 2*e *zona 3*) que são adicionadas ao pool de back-end do Standard Load Balancer que foi criado anteriormente.
+O Standard Load Balancer apenas suporta VMs com endereços IP standard na piscina de backend. Nesta secção, você vai criar três VMs (*myVM1,* *myVM2*, e *myVM3*) com um endereço IP público standard em três zonas diferentes *(Zona 1,* *Zona 2,* e *Zona 3*) que são adicionados ao pool de backend do Standard Load Balancer que foi criado anteriormente.
 
-1. No lado superior esquerdo do portal, selecione **criar um recurso** > **computação** > **Windows Server 2016 datacenter**. 
+1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **Compute** > **Windows Server 2016 Datacenter**. 
    
-1. Em **criar uma máquina virtual**, digite ou selecione os seguintes valores na guia **noções básicas** :
-   - Grupo de **recursos**de > de **assinatura** : selecione **myResourceGroupSLB**.
-   - **Detalhes da instância** > **nome da máquina virtual**: digite *myVM1*.
-   - **Detalhes da instância** > **região** > selecione **Europa Ocidental**.
-   - **Detalhes da instância** > **opções de disponibilidade** > selecionar **zonas de disponibilidade**. 
-   - **Detalhes da instância** > **zona de disponibilidade** > selecione **1**.
+1. Em **Criar uma máquina virtual,** digite ou selecione os seguintes valores no separador **Basics:**
+   - **Grupo de** **recursos** > de assinatura : Selecione **myResourceGroupSLB**.
+   - **Detalhes > ** **nome virtual**da máquina : Digite *myVM1*.
+   - **Detalhes de exemplo** > **Região** > selecione **Europa Ocidental**.
+   - **Detalhes da > ** **Opções de Disponibilidade** > Selecione zonas de **disponibilidade**. 
+   - **Detalhes da > ** **zona de disponibilidade** > Selecione **1**.
   
-1. Selecione a guia **rede** ou selecione **Avançar: discos**e **Avançar: rede**. 
+1. Selecione o separador **de rede** ou selecione **Seguinte: Discos,** em seguida **Seguinte: Networking**. 
    
    - Certifique-se de que estão selecionadas as seguintes:
        - **Rede virtual**: **myVnet**
-       - **Sub-rede**: **myBackendSubnet**
-       - **> IP público** selecione **criar novo**e, na janela **criar endereço IP público** , para **SKU**, selecione **Standard**e para zona de **disponibilidade**, selecione **com redundância de zona**
+       - **Subnet**: **myBackendSubnet**
+       - Ip &gt **público;** selecione **Criar uma nova**janela de **endereços IP públicos,** para **SKU,** selecione **Standard**, e para zona **de disponibilidade,** selecione **Zone-redundante**
       
-   - Para criar um novo NSG (grupo de segurança de rede), um tipo de firewall, em **grupo de segurança de rede**, selecione **avançado**. 
-       1. No campo **Configurar grupo de segurança de rede** , selecione **criar novo**. 
-       1. Digite *myNetworkSecurityGroup*e selecione **OK**.
+   - Para criar um novo grupo de segurança de rede (NSG), um tipo de firewall, no **Network Security Group,** selecione **Advanced**. 
+       1. No campo do grupo de segurança de **rede Configure,** selecione **Criar nova**. 
+       1. Digite *myNetworkSecurityGroup*, e selecione **OK**.
 
-   - Para tornar a VM uma parte do pool de back-end Load Balancer, conclua as seguintes etapas:
-        - No **balanceamento de carga**, para **posicionar esta máquina virtual atrás de uma solução de balanceamento de carga existente?** , selecione **Sim**.
-        - Em **configurações de balanceamento**de carga, para **Opções de balanceamento de carga**, selecione **Azure Load Balancer**.
-        - Para **selecionar um balanceador de carga**, *myLoadBalancer*. 
-1. Selecione a guia **Gerenciamento** ou selecione **próximo** **Gerenciamento**de > . Em **monitoramento**, defina **diagnóstico de inicialização** como **desativado**. 
+   - Para fazer do VM uma parte da piscina de backend do Balancer de Carga, complete os seguintes passos:
+        - Em **Balanceamento de Carga**, para colocar esta máquina **virtual atrás de uma solução de equilíbrio**de carga existente?
+        - Nas **definições de equilíbrio de carga**, para opções de equilíbrio de **carga,** selecione o equilíbrio de **carga Azure**.
+        - Para **selecionar um equilíbrior**de carga, *myLoadBalancer*. 
+1. Selecione o separador **Gestão** ou selecione **Next** > **Management**. Sob **monitorização,** descoloque os **diagnósticos da bota** para **desligar**. 
 1. Selecione **Rever + criar**.   
-1. Examine as configurações e, em seguida, selecione **criar**.
-1. Siga as etapas para criar duas VMs adicionais- *myVM2* e *myVM3*, com um endereço IP público de SKU padrão na **zona de disponibilidade** **2** e **3** , respectivamente, e todas as outras configurações, como *myVM1*.  
+1. Reveja as definições e, em seguida, selecione **Criar**.
+1. Siga os passos para criar dois VMs adicionais - *myVM2* e *myVM3*, com um endereço IP público Padrão SKU na zona de **disponibilidade** **2** e **3,** respectivamente, e todas as outras configurações as mesmas que *myVM1*.  
 
 ### <a name="create-network-security-group-rule"></a>Criar regra de grupo de segurança de rede
 
-Nesta seção, você cria uma regra de grupo de segurança de rede para permitir conexões de entrada usando HTTP.
+Nesta secção, cria uma regra do grupo de segurança da rede para permitir ligações de entrada utilizando http.
 
-1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e, na lista recursos, clique em **myNetworkSecurityGroup** que está localizado no grupo de recursos **myResourceGroupSLB** .
+1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e depois a partir da lista de recursos clique no **myNetworkSecurityGroup** que está localizado no grupo de recursos **myResourceGroupSLB.**
 2. Em **Definições**, clique em **Regras de segurança de entrada** e, em seguida, clique em**Adicionar**.
 3. Introduza estes valores para a regra de segurança de entrada com o nome *myHTTPRule* para permitir ligações HTTP de entrada através da porta 80:
     - *Service Tag* - na **Origem**.
@@ -185,7 +183,7 @@ Nesta seção, você cria uma regra de grupo de segurança de rede para permitir
 
 ### <a name="install-iis-on-vms"></a>Instalar o IIS nas VMs
 
-1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e, na lista recursos, clique em **myVM1** que está localizado no grupo de recursos *myResourceGroupSLB* .
+1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos,** e depois a partir da lista de recursos clique no **myVM1** que está localizado no grupo de recursos *myResourceGroupSLB.*
 2. Na página **Descrição geral**, clique em **Ligar** para estabelecer o RDP para a VM.
 3. Na janela de pop-up **Ligar à máquina virtual**, selecione **Transferir Ficheiro RDP** e, em seguida, abra o ficheiro RDP transferido.
 4. Na janela **Ligação de Ambiente de Trabalho Remoto**, clique em **Ligar**.
@@ -207,45 +205,45 @@ Nesta seção, você cria uma regra de grupo de segurança de rede para permitir
 6. Fechar a sessão RDP com *myVM1*.
 7. Repita os passos 1 a 6 para instalar o IIS e o ficheiro iisstart.htm atualizado em *myVM2* e *myVM3*.
 
-## <a name="test-the-load-balancer"></a>Testar o Load Balancer
-1. Localize o endereço IP público do Balanceador de Carga no ecrã **Descrição geral**. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e clique em **myPublicIP**.
+## <a name="test-the-load-balancer"></a>Testar o Balanceador de Carga
+1. Localize o endereço IP público do Balanceador de Carga no ecrã **Descrição geral**. Selecione **todos os serviços** no menu à esquerda, selecione **Todos os recursos,** e, em seguida, clique no **myPublicIP**.
 
 2. Copie o endereço IP público e cole-o na barra de endereço do browser. A página predefinida do servidor Web do IIS é apresentada no browser.
 
       ![Servidor Web do IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Para ver a Load Balancer distribuir o tráfego entre as três VMs que executam seu aplicativo, você pode forçar a atualização do navegador da Web.
+Para ver o Balancer de carga distribuir tráfego pelos três VMs que executam a sua aplicação, pode atualizar o seu navegador web à força.
 
 ## <a name="remove-or-add-vms-from-the-backend-pool"></a>Remover ou adicionar VMs do conjunto de back-end
-Pode ter de realizar a manutenção nas VMs que estão a executar a aplicação, como instalar atualizações do SO. Para lidar com maior volume de tráfego para a aplicação, pode ter de adicionar mais VMs. Esta seção mostra como remover ou adicionar uma VM (*myVM1*) da Load Balancer.
+Pode ter de realizar a manutenção nas VMs que estão a executar a aplicação, como instalar atualizações do SO. Para lidar com maior volume de tráfego para a aplicação, pode ter de adicionar mais VMs. Esta secção mostra-lhe como remover ou adicionar um VM *(myVM1*) do Balancer de Carga.
 
-### <a name="remove-vm-from-a-backend-pool"></a>Remover VM de um pool de back-end
-Para remover o *myVM1* do pool de back-end, conclua as seguintes etapas:
+### <a name="remove-vm-from-a-backend-pool"></a>Remova vM de uma piscina de backend
+Para remover *o myVM1* da piscina de backend, complete os seguintes passos:
 
-1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e clique em **myLoadBalancer** na lista de recursos.
+1. Selecione **todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, clique em **myLoadBalancer** na lista de recursos.
 2. Em **Definições**, clique em **Conjuntos de back-end** e, em seguida, na lista de conjuntos de back-end, clique em **myBackendPool**.
-3. Na página **myBackendPool** , para remover *VM1* , selecione o ícone Excluir no final da linha que exibe *myVM1*e, em seguida, clique em **salvar**.
+3. Na página **myBackendPool,** para remover o *VM1,* selecione o ícone de exclusão no final da linha que apresenta *o myVM1*, e, em seguida, clique em **Guardar**.
 
-Como *myVM1* já não está no conjunto de endereços de back-end, pode realizar quaisquer tarefas de manutenção na *myVM1*, como a instalação de atualizações de software. Na ausência de *VM1*, a carga agora é balanceada entre *myVM2* e *myVM3*. 
+Como *myVM1* já não está no conjunto de endereços de back-end, pode realizar quaisquer tarefas de manutenção na *myVM1*, como a instalação de atualizações de software. Na ausência de *VM1,* a carga é agora equilibrada em todo o *myVM2* e *myVM3*. 
 
-### <a name="add-vm-to-a-backend-pool"></a>Adicionar VM a um pool de back-end
-Para adicionar o *myVM1* de volta ao pool de back-end, conclua as seguintes etapas:
+### <a name="add-vm-to-a-backend-pool"></a>Adicione VM a uma piscina de backend
+Para adicionar *o myVM1* de volta à piscina de backend, complete os seguintes passos:
 
-1. Selecione **todos os serviços** no menu à esquerda, selecione **todos os recursos**e, em seguida, selecione **myVM1** na lista de recursos.
-2. Na página **VM1** , em **configurações**, selecione **rede**.
-3. Na página **rede** , selecione a guia **balanceamento de carga** e, em seguida, selecione **Adicionar balanceamento de carga**.
-4. Na página **Adicionar balanceamento de carga** , faça o seguinte:
-   1. Para **Opções de balanceamento de carga**, selecione **Azure Load Balancer**.
-   2. Para **selecionar um balanceador de carga**, selecione *myLoadBalancer*.
-   3. Para **selecionar um pool de back-end**, selecione *myBackendPool*. 
+1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**e, em seguida, selecione **myVM1** da lista de recursos.
+2. Na página **VM1,** em **Definições,** selecione **Networking**.
+3. Na página **de Networking,** selecione o separador de **equilíbrio de carga** e, em seguida, selecione Adicionar equilíbrio de **carga**.
+4. Na página de equilíbrio de **carga Adicionar,** faça o seguinte:
+   1. Para **opções de equilíbrio**de carga, selecione o equilíbrio de carga **Azure**.
+   2. Para **selecionar um equilíbrio de carga,** selecione *myLoadBalancer*.
+   3. Para **selecionar uma piscina de backend,** selecione *myBackendPool*. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando eles não forem mais necessários, exclua o grupo de recursos, Load Balancer e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos *myResouceGroupSLB* que contém o Load Balancer e, em seguida, selecione **excluir**.
+Quando já não forem necessários, elimine o grupo de recursos, o Balancer de Carga e todos os recursos conexos. Para tal, selecione o grupo de recursos *myResouceGroupSLB* que contém o Balancer de Carga e, em seguida, selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você criou um Standard Load Balancer, as VMs anexadas a ele, configurou a regra de tráfego Load Balancer, a investigação de integridade e testou a Load Balancer. Além disso, removeu uma VM do conjunto com balanceamento de carga e adicionou a VM de novo ao conjunto de endereços de back-end. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
+Neste tutorial, criou um Balancer de Carga Padrão, anexou-lhe VMs, configurou a regra de tráfego do Balancer de Carga, sonda de saúde e, em seguida, testou o Balancer de Carga. Além disso, removeu uma VM do conjunto com balanceamento de carga e adicionou a VM de novo ao conjunto de endereços de back-end. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
 
 > [!div class="nextstepaction"]
 > [Tutoriais do Balanceador de Carga do Azure](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

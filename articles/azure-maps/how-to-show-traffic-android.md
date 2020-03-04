@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 73f490ec069ff44929ca70f4ecf2ab3aca52934d
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 37de55d671bb19cfcd9fd494c2e76f658fc7db21
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209353"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249501"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostre dados de tráfego no mapa usando Azure Maps Android SDK
 
-Dados de fluxo e dados de incidentes são os dois tipos de dados de tráfego que podem ser exibidos no mapa. Este guia mostra-lhe como exibir ambos os dados de tráfego. Os dados relativos aos incidentes consistem em dados de pontos e de linha para coisas como construções, encerramentos de estradas e acidentes. Os dados de fluxo mostram métricas sobre o fluxo de tráfego na estrada.
+Dados de fluxo e dados de incidentes são os dois tipos de dados de tráfego que podem ser exibidos no mapa. Este guia mostra-lhe como exibir ambos os tipos de dados de tráfego. Os dados relativos aos incidentes consistem em dados de pontos e de linha para coisas como construções, encerramentos de estradas e acidentes. Os dados de fluxo mostram métricas sobre o fluxo de tráfego na estrada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder mostrar o tráfego no mapa, precisa de instalar o [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e carregar um mapa.
+Antes de poder mostrar o tráfego no mapa, tem de [fazer uma Conta Azure](quick-demo-map-app.md#create-an-account-with-azure-maps)e obter uma chave de [subscrição](quick-demo-map-app.md#get-the-primary-key-for-your-account). Depois, é necessário instalar o [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e carregar um mapa.
 
 ## <a name="incidents-traffic-data"></a>Incidentes dados de tráfego 
 
@@ -38,7 +38,7 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     mapControl.getMapAsync(map - > {
         map.setTraffic(incidents(true));
-}
+    }
 }
 ```
 
@@ -63,8 +63,9 @@ Utilize o seguinte código para definir os dados de fluxo de tráfego. Semelhant
 ```java
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    mapControl.getMapAsync(map -> 
+    mapControl.getMapAsync(map -> {
         map.setTraffic(flow(TrafficFlow.RELATIVE)));
+    }
 }
 ```
 

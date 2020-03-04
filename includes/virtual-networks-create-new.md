@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
-ms.openlocfilehash: 43ede7f3340f190f9eb37ca90fb74f2215db9062
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 81db46b52c9b4fe800f2fbfeadad966995d66e12
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227384"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244987"
 ---
 ## <a name="create-the-virtual-network"></a>Criar a rede virtual
 
@@ -27,7 +27,7 @@ Nesta secção, criará uma rede virtual e uma sub-rede.
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscrição     | Selecione a sua subscrição Azure                                  |
-    | Grupo de Recursos   | Selecione **Criar novos**, introduza **\<nome de grupo de recursos>** em seguida, selecione OK. |
+    | Grupo de Recursos   | Selecione **Criar novos**, insira **\<nome de grupo de recursos>** em seguida, selecione OK, ou selecione um\<nome de grupo de **recursos existente>** com base em parâmetros. |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Introduza **\<nome de rede virtual>**                                    |
     | Região           | Selecione **\<nome da região>** |
@@ -38,7 +38,7 @@ Nesta secção, criará uma rede virtual e uma sub-rede.
 
     | Definição            | Valor                      |
     |--------------------|----------------------------|
-    | Espaço de endereçoI4 | Insira\<espaço de **endereçoIPv4>** |
+    | Espaço de endereçoI4 | **Insira\<IPv4-address-space>** |
 
 5. Sob **o nome Subnet,** selecione a **palavra predefinido**.
 

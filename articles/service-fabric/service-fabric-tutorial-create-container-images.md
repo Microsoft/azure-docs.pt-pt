@@ -1,21 +1,21 @@
 ---
-title: Criar imagens de contêiner em Service Fabric no Azure
+title: Criar imagens de contentores no Tecido de Serviço em Azure
 description: Neste tutorial, saiba como criar imagens de contentor para uma aplicação do Service Fabric com vários contentores.
 author: suhuruli
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fa7f7a57e16b6ba70535d3f07ebd69abf0784171
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465431"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252793"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contentor num cluster do Service Fabric do Linux
 
-Este tutorial faz parte de uma série de tutoriais que demonstra como utilizar contentores num cluster do Service Fabric do Linux. Neste tutorial, uma aplicação de contentores múltiplos é preparada para utilização com o Service Fabric. Em tutoriais posteriores, estas imagens serão utilizadas como parte de uma aplicação do Service Fabric. Neste tutorial, ficará a saber como:
+Este tutorial faz parte de uma série de tutoriais que demonstra como utilizar contentores num cluster do Linux Service Fabric. Neste tutorial, uma aplicação de contentores múltiplos é preparada para utilização com o Service Fabric. Em tutoriais posteriores, estas imagens serão utilizadas como parte de uma aplicação do Service Fabric. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Clonar a origem de aplicação a partir do GitHub
@@ -78,15 +78,15 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Implementar o Azure Container Registry
 
-Primeiro, execute o comando **AZ login** para entrar em sua conta do Azure.
+Primeiro, execute o comando de **login az** para iniciar sessão na sua conta Azure.
 
-```bash
+```azurecli
 az login
 ```
 
 Em seguida, utilize o comando **az account** para mudar a sua subscrição de forma a criar o registo de contentor do Azure. Tem de introduzir o ID de subscrição da sua subscrição do Azure no lugar de <subscription_id>.
 
-```bash
+```azurecli
 az account set --subscription <subscription_id>
 ```
 
@@ -94,23 +94,23 @@ Ao implementar um Azure Container Registry, tem de começar por obter um grupo d
 
 Crie um grupo de recursos com o comando **az group create**. Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *westus*.
 
-```bash
+```azurecli
 az group create --name <myResourceGroup> --location westus
 ```
 
 Crie um registo de contentor do Azure com o comando **az acr create**. Substitua \<acrName> pelo nome do registo de contentor que pretende criar na sua subscrição. O nome tem de ser alfanumérico e único.
 
-```bash
+```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
 Em todo o resto deste tutorial, utilizamos "acrName" como um marcador de posição para o nome do registo de contentor que escolheu. Anote este valor.
 
-## <a name="sign-in-to-your-container-registry"></a>Entre no registro de contêiner
+## <a name="sign-in-to-your-container-registry"></a>Inscreva-se no seu registo de contentores
 
-Entre em sua instância do ACR antes de enviar imagens por push para ela. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
+Inscreva-se na sua instância ACR antes de empurrar as imagens para ele. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -136,13 +136,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 Para obter o nome loginServer, execute o seguinte comando:
 
-```bash
+```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
 Isto dá origem a uma tabela com os seguintes resultados. Este resultado será utilizado para identificar a sua imagem **azure-vote-front** antes de enviá-la para o registo de contentor no próximo passo.
 
-```bash
+```output
 Result
 ------------------
 <acrName>.azurecr.io
@@ -158,7 +158,7 @@ Depois de marcada, execute "docker images" para verificar a operação.
 
 Saída:
 
-```bash
+```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
 <acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
@@ -182,13 +182,13 @@ Os comandos de envio do docker demoram alguns minutos a concluir.
 
 Para devolver uma lista de imagens que foram enviadas para o seu registo de contentor do Azure, utilize o comando [az acr repository list](/cli/azure/acr/repository). Atualize o comando com o nome de instância do ACR.
 
-```bash
+```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
 Saída:
 
-```bash
+```output
 Result
 ----------------
 azure-vote-front
@@ -198,7 +198,7 @@ Ao concluir o tutorial, a imagem de contentor foi armazenada numa instância pri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, um aplicativo foi extraído do GitHub e as imagens de contêiner foram criadas e enviadas por push para um registro. Foram efetuados os seguintes passos:
+Neste tutorial, uma aplicação foi retirada do GitHub e as imagens de contentores foram criadas e empurradas para um registo. Foram efetuados os seguintes passos:
 
 > [!div class="checklist"]
 > * Clonar a origem de aplicação a partir do GitHub

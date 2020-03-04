@@ -1,28 +1,28 @@
 ---
-title: Tutorial – tarefa de ACR de várias etapas
-description: Neste tutorial, você aprenderá a configurar uma tarefa de registro de contêiner do Azure para disparar automaticamente um fluxo de trabalho de várias etapas para compilar, executar e enviar por push imagens de contêiner na nuvem quando você confirmar o código-fonte em um repositório git.
+title: Tutorial - Tarefa ACR em várias etapas
+description: Neste tutorial, aprende-se a configurar uma Tarefa de Registo de Contentores Azure para acionar automaticamente um fluxo de trabalho em várias etapas para construir, executar e empurrar imagens de contentores na nuvem quando compromete o código fonte a um repositório Git.
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f5342e51af870b1e5f8651ea2d28894233ed8e62
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7d84770f1b945ff47cb4e9118d9c342e67118722
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456069"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249911"
 ---
-# <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: executar um fluxo de trabalho de contêiner de várias etapas na nuvem quando você confirmar o código-fonte
+# <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Faça um fluxo de trabalho de contentores em várias etapas na nuvem quando cometer código fonte
 
-Além de uma [tarefa rápida](container-registry-tutorial-quick-task.md), as tarefas ACR dão suporte a fluxos de trabalho de várias etapas com base em vários contêineres que podem disparar automaticamente quando você confirma o código-fonte para um repositório git. 
+Além de uma [tarefa rápida,](container-registry-tutorial-quick-task.md)a ACR Tasks suporta fluxos de trabalho multi-etapas e multi-contentores que podem disparar automaticamente quando compromete o código fonte a um repositório Git. 
 
-Neste tutorial, você aprenderá a usar arquivos de exemplo YAML para definir tarefas de várias etapas que criam, executam e enviam por push uma ou mais imagens de contêiner para um registro quando você confirma o código-fonte. Para criar uma tarefa que só automatiza uma única compilação de imagem na confirmação de código, consulte [tutorial: automatizar compilações de imagem de contêiner na nuvem quando você confirma o código-fonte](container-registry-tutorial-build-task.md). Para obter uma visão geral das tarefas de ACR, consulte [automatizar o sistema operacional e a aplicação de patch de estrutura com tarefas ACR](container-registry-tasks-overview.md),
+Neste tutorial, aprende-se a usar ficheiros YAML exemplos para definir tarefas em várias etapas que constroem, executam e empurram uma ou mais imagens de contentores para um registo quando se compromete código fonte. Para criar uma tarefa que apenas automatiza uma única imagem baseada no compromisso de código, consulte [Tutorial: Automatizar imagem de contentor constrói-se na nuvem quando comete código fonte](container-registry-tutorial-build-task.md). Para uma visão geral das tarefas ACR, consulte [o Automate OS e a correção de quadros com tarefas ACR,](container-registry-tasks-overview.md)
 
 Neste tutorial:
 
 > [!div class="checklist"]
-> * Definir uma tarefa de várias etapas usando um arquivo YAML
+> * Defina uma tarefa em várias etapas utilizando um ficheiro YAML
 > * Criar uma tarefa
-> * Opcionalmente, adicione credenciais à tarefa para habilitar o acesso a outro registro
+> * Adicione opcionalmente credenciais à tarefa para permitir o acesso a outro registo
 > * Testar a tarefa
 > * Ver estado da tarefa
 > * Acionar a tarefa com uma consolidação do código
@@ -31,17 +31,17 @@ Este tutorial parte do princípio de que já concluiu os passos no [tutorial ant
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você quiser usar o CLI do Azure localmente, deverá ter CLI do Azure versão **2.0.62** ou posterior instalada e conectada com [AZ login][az-login]. Executar `az --version` para localizar a versão. Se você precisar instalar ou atualizar a CLI, consulte [instalar CLI do Azure][azure-cli].
+Se quiser utilizar o Azure CLI localmente, tem de ter a versão Azure CLI **2.0.62** ou posteriormente instalada e sessão com [login az][az-login]. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar o CLI, consulte [Instalar o Azure CLI][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-## <a name="create-a-multi-step-task"></a>Criar uma tarefa de várias etapas
+## <a name="create-a-multi-step-task"></a>Criar uma tarefa em várias etapas
 
-Agora que você concluiu as etapas necessárias para habilitar as tarefas ACR para ler o status de confirmação e criar WebHooks em um repositório, crie uma tarefa de várias etapas que dispara a criação, execução e envio por push de uma imagem de contêiner.
+Agora que completou os passos necessários para permitir que as Tarefas ACR leiam o estado do compromisso e criem webhooks num repositório, criem uma tarefa em várias etapas que desencadeie a construção, a execução e o impulso de uma imagem de contentor.
 
-### <a name="yaml-file"></a>Ficheiro Yaml
+### <a name="yaml-file"></a>Ficheiro YAML
 
-Você define as etapas para uma tarefa de várias etapas em um [arquivo YAML](container-registry-tasks-reference-yaml.md). O primeiro exemplo de tarefa de várias etapas para este tutorial é definido no arquivo `taskmulti.yaml`, que está na raiz do repositório GitHub clonado:
+Define os passos para uma tarefa em várias etapas num [ficheiro YAML](container-registry-tasks-reference-yaml.md). O primeiro exemplo de tarefa em várias etapas para este tutorial é definido no ficheiro `taskmulti.yaml`, que está na raiz do repo GitHub que clonou:
 
 ```yml
 version: v1.0.0
@@ -59,23 +59,25 @@ steps:
   - {{.Run.Registry}}/hello-world:{{.Run.ID}}
 ```
 
-Essa tarefa de várias etapas faz o seguinte:
+Esta tarefa em várias etapas faz o seguinte:
 
-1. Executa uma etapa `build` para criar uma imagem do Dockerfile no diretório de trabalho. A imagem tem como destino o `Run.Registry`, o registro em que a tarefa é executada e é marcada com uma ID de execução de tarefas exclusivas do ACR. 
-1. Executa uma etapa `cmd` para executar a imagem em um contêiner temporário. Este exemplo inicia um contêiner de execução longa em segundo plano e retorna a ID do contêiner e, em seguida, para o contêiner. Em um cenário do mundo real, você pode incluir etapas para testar o contêiner em execução para garantir que ele seja executado corretamente.
-1. Em uma etapa `push`, envia a imagem que foi criada para o registro de execução.
+1. Corre um `build` passo para construir uma imagem do Dockerfile no diretório de trabalho. A imagem visa o `Run.Registry`, o registo onde a tarefa é executada, e é marcado com um ID único de Execução de Tarefas ACR. 
+1. Corre um passo `cmd` para executar a imagem num recipiente temporário. Este exemplo inicia um recipiente de longa duração em segundo plano e devolve o ID do recipiente e, em seguida, para o recipiente. Num cenário real, pode incluir passos para testar o recipiente de corrida para garantir que funciona corretamente.
+1. Num `push` passo, empurra a imagem que foi construída para o registo de execução.
 
-### <a name="task-command"></a>Comando de tarefa
+### <a name="task-command"></a>Comando de tarefas
 
-Em primeiro lugar, preencha estas variáveis de ambiente da shell com os valores adequados para o seu ambiente. Este passo não é estritamente necessário, mas facilita um pouco a execução dos comandos da CLI do Azure com várias linhas neste tutorial. Se você não preencher essas variáveis de ambiente, será necessário substituir manualmente cada valor sempre que ele aparecer nos comandos de exemplo.
+Em primeiro lugar, preencha estas variáveis de ambiente da shell com os valores adequados para o seu ambiente. Este passo não é estritamente necessário, mas facilita um pouco a execução dos comandos da CLI do Azure com várias linhas neste tutorial. Se não povoar estas variáveis ambientais, deve substituir manualmente cada valor onde quer que apareça nos comandos de exemplo.
 
-```azurecli-interactive
+[![Lançamento emcamado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Agora, crie a tarefa executando o seguinte comando [AZ ACR Task Create][az-acr-task-create] :
+Agora, crie a tarefa executando a seguinte [tarefa az acr criar][az-acr-task-create] comando:
 
 ```azurecli-interactive
 az acr task create \
@@ -86,9 +88,9 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-Essa tarefa especifica que qualquer código de tempo seja confirmado no Branch *mestre* no repositório especificado por `--context`, as tarefas de ACR executarão a tarefa de várias etapas do código nessa ramificação. O arquivo YAML especificado por `--file` da raiz do repositório define as etapas. 
+Esta tarefa especifica que qualquer código de tempo é comprometido com o ramo *principal* no repositório especificado por `--context`, as Tarefas ACR executarão a tarefa em várias etapas a partir do código nesse ramo. O ficheiro YAML especificado por `--file` da raiz do repositório define os passos. 
 
-A saída de um comando de [criação de tarefa AZ ACR][az-acr-task-create] com êxito é semelhante ao seguinte:
+A saída de uma [tarefa az acr][az-acr-task-create] bem sucedida é semelhante ao seguinte:
 
 ```console
 {
@@ -145,15 +147,15 @@ A saída de um comando de [criação de tarefa AZ ACR][az-acr-task-create] com �
 }
 ```
 
-## <a name="test-the-multi-step-workflow"></a>Testar o fluxo de trabalho de várias etapas
+## <a name="test-the-multi-step-workflow"></a>Testar o fluxo de trabalho em várias etapas
 
-Para testar a tarefa de várias etapas, dispare-a manualmente executando o comando [AZ ACR Task execute][az-acr-task-run] :
+Para testar a tarefa em várias etapas, desencadeie-a manualmente executando o comando de execução de [tarefas az acr:][az-acr-task-run]
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name example1
 ```
 
-Por predefinição, o comando `az acr task run` transmite a saída de registo para a consola quando executar o comando. A saída mostra o andamento da execução de cada uma das etapas da tarefa. A saída abaixo é condensada para mostrar as etapas principais.
+Por predefinição, o comando `az acr task run` transmite a saída de registo para a consola quando executar o comando. A saída mostra o progresso de executar cada uma das etapas de tarefa. A saída abaixo é condensada para mostrar passos-chave.
 
 ```console
 Queued a run with ID: cf19
@@ -215,15 +217,15 @@ Run ID: cf19 was successful after 18s
 
 Agora que testou a tarefa através de uma execução manual, acione-a automaticamente com uma alteração do código de origem.
 
-Primeiro, verifique se você está no diretório que contém o clone local do [repositório][sample-repo]:
+Primeiro, certifique-se de que está no diretório contendo o seu clone local do [repositório:][sample-repo]
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
 Em seguida, execute os comandos seguintes para criar, consolidar e emitir um novo ficheiro para a bifurcação do repositório no GitHub:
 
-```azurecli-interactive
+```console
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
@@ -238,7 +240,7 @@ Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
 
-Depois de enviar por push uma confirmação para o repositório, o webhook criado por tarefas ACR é acionado e inicia a tarefa no registro de contêiner do Azure. Apresente os registos da compilação atualmente em execução para verificar e monitorizar o progresso da mesma:
+Depois de ter pressionado um compromisso com o seu repositório, o webhook criado pela ACR Tasks dispara e inicia a tarefa no Registo de Contentores Azure. Apresente os registos da compilação atualmente em execução para verificar e monitorizar o progresso da mesma:
 
 ```azurecli-interactive
 az acr task logs --registry $ACR_NAME
@@ -258,7 +260,7 @@ Run ID: cf1d was successful after 37s
 
 ## <a name="list-builds"></a>Listar as compilações
 
-Para ver uma lista de tarefas executadas que as tarefas ACR foram concluídas para o registro, execute o comando [AZ ACR Task List-executes][az-acr-task-list-runs] :
+Para ver uma lista da tarefa executada que as Tarefas ACR completaram para o seu registo, executar o comando de [execução da lista de tarefas az acr:][az-acr-task-list-runs]
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table
@@ -278,17 +280,17 @@ cf1a      example1   linux       Succeeded  Commit     2019-05-03T03:09:32Z  00:
 cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:00:21
 ```
 
-## <a name="create-a-multi-registry-multi-step-task"></a>Criar uma tarefa de várias etapas de vários registros
+## <a name="create-a-multi-registry-multi-step-task"></a>Criar uma tarefa multi-registrada em várias etapas
 
-Por padrão, as tarefas ACR têm permissões para enviar por Push ou efetuar pull de imagens do registro em que a tarefa é executada. Talvez você queira executar uma tarefa de várias etapas que tenha como alvo um ou mais registros, além do registro de execução. Por exemplo, talvez seja necessário criar imagens em um registro e armazenar imagens com diferentes marcas em um segundo registro que é acessado por um sistema de produção. Este exemplo mostra como criar uma tarefa desse tipo e fornecer credenciais para outro registro.
+A ACR Tasks, por padrão, tem permissões para empurrar ou retirar imagens do registo onde a tarefa é executado. É melhor executar uma tarefa em várias etapas que visa um ou mais registos para além do registo de execução. Por exemplo, você pode precisar de construir imagens em um registo, e armazenar imagens com diferentes tags em um segundo registro que é acedido por um sistema de produção. Este exemplo mostra-lhe como criar tal tarefa e fornecer credenciais para outro registo.
 
-Se você ainda não tiver um segundo registro, crie um para este exemplo. Se precisar de um registo, veja o [tutorial anterior](container-registry-tutorial-quick-task.md) ou [Início Rápido: Criar um registo de contentor com a CLI do Azure](container-registry-get-started-azure-cli.md).
+Se ainda não tem um segundo registo, crie um para este exemplo. Se precisar de um registo, veja o [tutorial anterior](container-registry-tutorial-quick-task.md) ou [Início Rápido: Criar um registo de contentor com a CLI do Azure](container-registry-get-started-azure-cli.md).
 
-Para criar a tarefa, você precisa do nome do servidor de logon do registro, que está no formato *mycontainerregistrydate.azurecr.Io* (todas as letras minúsculas). Neste exemplo, você usa o segundo registro para armazenar imagens marcadas por data de compilação.
+Para criar a tarefa, precisa do nome do servidor de login de registo, que é do formulário *mycontainerregistrydate.azurecr.io* (todas as minúsculas). Neste exemplo, utiliza-se o segundo registo para armazenar imagens marcadas por data de construção.
 
-### <a name="yaml-file"></a>Ficheiro Yaml
+### <a name="yaml-file"></a>Ficheiro YAML
 
-O segundo exemplo de tarefa de várias etapas para este tutorial é definido no arquivo `taskmulti-multiregistry.yaml`, que está na raiz do repositório GitHub clonado:
+A segunda tarefa em várias etapas para este tutorial é definida no ficheiro `taskmulti-multiregistry.yaml`, que está na raiz do repo GitHub que clonou:
 
 ```yml
 version: v1.0.0
@@ -308,17 +310,17 @@ steps:
   - {{.Values.regDate}}/hello-world:{{.Run.Date}}
 ```
 
-Essa tarefa de várias etapas faz o seguinte:
+Esta tarefa em várias etapas faz o seguinte:
 
-1. Executa duas `build` etapas para criar imagens do Dockerfile no diretório de trabalho:
-    * O primeiro se destina ao `Run.Registry`, o registro em que a tarefa é executada e é marcado com a ID de execução de tarefas do ACR. 
-    * O segundo tem como alvo o registro identificado pelo valor de `regDate`, que você define ao criar a tarefa (ou fornecer por meio de um arquivo de `values.yaml` externo passado para `az acr task create`). Esta imagem é marcada com a data de execução.
-1. Executa uma etapa `cmd` para executar um dos contêineres compilados. Este exemplo inicia um contêiner de execução longa em segundo plano e retorna a ID do contêiner e, em seguida, para o contêiner. Em um cenário do mundo real, você pode testar um contêiner em execução para garantir que ele seja executado corretamente.
-1. Em uma etapa `push`, envia as imagens que foram criadas, a primeira para o registro de execução, a segunda para o registro identificado por `regDate`.
+1. Executa dois `build` passos para construir imagens do Dockerfile no diretório de trabalho:
+    * O primeiro visa o `Run.Registry`, o registo onde a tarefa é executada, e é marcado com o ID executa as Tarefas ACR. 
+    * O segundo visa o registo identificado pelo valor da `regDate`, que define quando cria a tarefa (ou fornece através de um ficheiro externo `values.yaml` passado para `az acr task create`). Esta imagem está marcada com a data de execução.
+1. Corre um passo `cmd` para executar um dos contentores construídos. Este exemplo inicia um recipiente de longa duração em segundo plano e devolve o ID do recipiente e, em seguida, para o recipiente. Num cenário real, poderá testar um recipiente de corrida para garantir que funciona corretamente.
+1. Num `push` passo, empurra as imagens que foram construídas, a primeira para o registo de execução, a segunda para o registo identificado por `regDate`.
 
-### <a name="task-command"></a>Comando de tarefa
+### <a name="task-command"></a>Comando de tarefas
 
-Usando as variáveis de ambiente do Shell definidas anteriormente, crie a tarefa executando o comando [AZ ACR Task Create][az-acr-task-create] a seguir. Substitua o nome do registro por *mycontainerregistrydate*.
+Utilizando as variáveis ambientais da concha definidas anteriormente, crie a tarefa executando a seguinte [tarefa az acr criar][az-acr-task-create] comando. Substitua o nome do seu registo por data de *registo de mycontainers*.
 
 ```azurecli-interactive
 az acr task create \
@@ -332,11 +334,11 @@ az acr task create \
 
 ### <a name="add-task-credential"></a>Adicionar credencial de tarefa
 
-Para enviar imagens por push para o registro identificado pelo valor de `regDate`, use o comando [AZ ACR Task Credential Add][az-acr-task-credential-add] para adicionar credenciais de logon para esse registro à tarefa.
+Para empurrar as imagens para o registo identificado pelo valor de `regDate`, utilize o comando de adição de tarefas [az acr][az-acr-task-credential-add] para adicionar credenciais de login para esse registo à tarefa.
 
-Para este exemplo, recomendamos que você crie uma [entidade de serviço](container-registry-auth-service-principal.md) com acesso ao registro no escopo da função *AcrPush* . Para criar a entidade de serviço, consulte este [CLI do Azure script](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
+Para este exemplo, recomendamos que crie um diretor de [serviço](container-registry-auth-service-principal.md) com acesso ao registo com o papel *AcrPush.* Para criar o diretor de serviço, consulte este [script Azure CLI](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
-Passe a ID do aplicativo da entidade de serviço e a senha no seguinte comando `az acr task credential add`:
+Passe o ID de aplicação principal do serviço e a palavra-passe no seguinte comando `az acr task credential add`:
 
 ```azurecli-interactive
 az acr task credential add --name example2 \
@@ -346,17 +348,17 @@ az acr task credential add --name example2 \
     --password <service-principal-password>
 ```
 
-A CLI retorna o nome do servidor de logon do registro que você adicionou.
+O CLI devolve o nome do servidor de login de registo que adicionou.
 
-### <a name="test-the-multi-step-workflow"></a>Testar o fluxo de trabalho de várias etapas
+### <a name="test-the-multi-step-workflow"></a>Testar o fluxo de trabalho em várias etapas
 
-Como no exemplo anterior, para testar a tarefa de várias etapas, acione-a manualmente executando o comando [AZ ACR Task execute][az-acr-task-run] . Para disparar a tarefa com uma confirmação para o repositório git, consulte a seção [disparar uma compilação com uma confirmação](#trigger-a-build-with-a-commit).
+Tal como no exemplo anterior, para testar a tarefa em várias etapas, desencadeie-a manualmente executando o comando de execução de [tarefas az acr.][az-acr-task-run] Para desencadear a tarefa com um compromisso com o repositório Git, consulte a secção [Desencadear uma construção com um compromisso](#trigger-a-build-with-a-commit).
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name example2
 ```
 
-Por predefinição, o comando `az acr task run` transmite a saída de registo para a consola quando executar o comando. Como antes, a saída mostra o andamento da execução de cada uma das etapas da tarefa. A saída é condensada para mostrar as etapas principais.
+Por predefinição, o comando `az acr task run` transmite a saída de registo para a consola quando executar o comando. Como antes, a saída mostra o progresso de executar cada uma das etapas de tarefa. A saída é condensada para mostrar passos-chave.
 
 Saída:
 
@@ -454,9 +456,9 @@ The push refers to repository [mycontainerregistrydate.azurecr.io/hello-world]
 Run ID: cf1g was successful after 46s
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a criar tarefas de várias etapas com base em vários contêineres que são disparadas automaticamente quando você confirma o código-fonte para um repositório git. Para obter recursos avançados de tarefas de várias etapas, incluindo a execução de etapas paralelas e dependentes, consulte a [referência de YAML de tarefas do ACR](container-registry-tasks-reference-yaml.md). Avance para o tutorial seguinte para saber como criar tarefas que acionam compilações quando a imagem de base de uma imagem do contentor é atualizada.
+Neste tutorial, aprendeu a criar tarefas multi-etapas baseadas em vários contentores que disparam automaticamente quando compromete o código fonte a um repositório Git. Para características avançadas de tarefas em várias etapas, incluindo execução paralela e dependente de etapas, consulte a [referência YAML das Tarefas ACR.](container-registry-tasks-reference-yaml.md) Avance para o tutorial seguinte para saber como criar tarefas que acionam compilações quando a imagem de base de uma imagem do contentor é atualizada.
 
 > [!div class="nextstepaction"]
 > [Automatizar compilações ao atualizar a imagem de base](container-registry-tutorial-base-image-update.md)

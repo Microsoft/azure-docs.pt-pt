@@ -1,10 +1,10 @@
 ---
 title: Estado do cenário da migração de base de dados
 titleSuffix: Azure Database Migration Service
-description: Saiba mais sobre o status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure.
+description: Conheça o estado dos cenários de migração suportados pelo Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,76 +12,76 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: 03fb6a1aff62df878417da55a7da7b42186b3462
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9652b78674d6a6b905eb049564d1b17cdc7c17b7
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437682"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254918"
 ---
-# <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure
+# <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado dos cenários de migração apoiados pelo Serviço de Migração da Base de Dados Azure
 
-O serviço de migração de banco de dados do Azure foi projetado para dar suporte a diferentes cenários de migração (pares de origem/destino) para migrações offline (de uma vez) e online (sincronização contínua). A cobertura do cenário fornecida pelo serviço de migração de banco de dados do Azure está sendo estendida ao longo do tempo. Novos cenários estão sendo adicionados regularmente. Este artigo identifica os cenários de migração com suporte no momento pelo serviço de migração de banco de dados do Azure e o status (visualização privada, visualização pública ou disponibilidade geral) para cada cenário.
+O Azure Database Migration Service foi concebido para apoiar diferentes cenários de migração (par de fonte/alvo) tanto para migrações offline (uma vez) como online (sincronização contínua). A cobertura de cenário fornecida pelo Azure Database Migration Service está a ser alargada ao longo do tempo. Novos cenários são adicionados regularmente. Este artigo identifica cenários de migração atualmente suportados pelo Azure Database Migration Service e o estado (pré-visualização privada, pré-visualização pública ou disponibilidade geral) para cada cenário.
 
 ## <a name="offline-versus-online-migrations"></a>Offline versus migrações online
 
-Com o serviço de migração de banco de dados do Azure, você pode fazer uma migração online ou offline. Com as migrações *offline* , o tempo de inatividade do aplicativo começa ao mesmo tempo em que a migração é iniciada. Para limitar o tempo de inatividade ao horário necessário para passar para o novo ambiente quando a migração for concluída, use uma migração *online* . É recomendável testar uma migração offline para determinar se o tempo de inatividade é aceitável; caso contrário, faça uma migração online.
+Com o Serviço de Migração de Bases de Dados Azure, pode fazer uma migração offline ou online. Com as migrações *offline,* o tempo de inatividade da aplicação começa ao mesmo tempo que a migração começa. Para limitar o tempo de inatividade ao tempo necessário para reduzir para o novo ambiente quando a migração terminar, utilize uma migração *online.* É recomendado testar uma migração offline para determinar se o tempo de inatividade é aceitável; se não, faça uma migração online.
 
-## <a name="migration-scenario-status"></a>Status do cenário de migração
+## <a name="migration-scenario-status"></a>Estado do cenário de migração
 
-O status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure varia com o tempo. Em geral, os cenários são lançados pela primeira vez em versão **prévia privada**. A participação em visualização privada exige que os clientes enviem uma indicação por meio do [site de visualização do DMS](https://aka.ms/dms-preview). Após a visualização privada, o status do cenário muda para **Visualização pública**. Os usuários do serviço de migração de banco de dados do Azure podem experimentar cenários de migração na visualização pública diretamente da interface do usuário. Nenhuma inscrição é necessária.  No entanto, os cenários de migração na visualização pública podem não estar disponíveis em todas as regiões e podem sofrer alterações adicionais antes da versão final. Após a visualização pública, o status do cenário muda para a **disponibilidade geral**. GA (disponibilidade geral) é o status da versão final e a funcionalidade está completa e acessível a todos os usuários.
+O estado dos cenários de migração suportados pelo Serviço de Migração da Base de Dados Azure varia com o tempo. Geralmente, os cenários são lançados pela primeira vez em **pré-visualização privada.** Participar na pré-visualização privada requer que os clientes apresentem uma nomeação através do [site de pré-visualização dMS](https://aka.ms/dms-preview). Após a pré-visualização privada, o estado do cenário muda para **pré-visualização pública**. Os utilizadores do Serviço de Migração de Bases de Dados Azure podem experimentar cenários de migração em visualização pública diretamente a partir da interface do utilizador. Não é necessária inscrição.  No entanto, os cenários de migração em visualização pública podem não estar disponíveis em todas as regiões e podem sofrer alterações adicionais antes do lançamento final. Após a pré-visualização do público, o estado do cenário muda para **geralmente disponibilidade**. A disponibilidade geral (GA) é o estado de lançamento final, e a funcionalidade é completa e acessível a todos os utilizadores.
 
-## <a name="migration-scenario-support"></a>Suporte ao cenário de migração
+## <a name="migration-scenario-support"></a>Apoio ao cenário de migração
 
-As tabelas a seguir mostram quais cenários de migração têm suporte ao usar o serviço de migração de banco de dados do Azure.
+As tabelas que se seguem mostram quais os cenários de migração que são suportados na utilização do Serviço de Migração de Bases de Dados Azure.
 
 > [!NOTE]
-> Se um cenário listado como com suporte abaixo não aparecer na interface do usuário, entre em contato com o alias [pedir migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com) para obter informações adicionais.
+> Se um cenário listado como suportado abaixo não aparecer dentro da interface do utilizador, contacte o pseudónimo [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com) para obter informações adicionais.
 
 > [!IMPORTANT]
-> Para exibir todos os cenários com suporte no momento pelo serviço de migração de banco de dados do Azure em versão prévia privada, consulte o [site de visualização do DMS](https://aka.ms/dms-preview).
+> Para ver todos os cenários atualmente suportados pelo Serviço de Migração de Bases de Dados Azure em Pré-visualização Privada, consulte o [site de pré-visualização do DMS](https://aka.ms/dms-preview).
 
-### <a name="offline-one-time-migration-support"></a>Suporte à migração offline (de uso único)
+### <a name="offline-one-time-migration-support"></a>Apoio à migração offline (uma vez)
 
-A tabela a seguir mostra o suporte ao serviço de migração de banco de dados do Azure para migrações offline.
+A tabela que se segue mostra o apoio do Serviço de Migração de Bases de Dados Azure para migrações offline.
 
-| Visar  | Origem | Suporte | Estado |
+| Destino  | Origem | Suporte | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Banco de BD SQL do Azure** | SQL Server | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+| **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |  |
-| **Banco de BD SQL do Azure MI** | SQL Server | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+| **Azure SQL DB MI** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |   |
-| **VM do SQL do Azure** | SQL Server | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+| **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle |   |   |
-| **BD do Cosmos para o Azure** | MongoDB | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
-| **BD do Azure para MySQL** | MySQL |   |   |
+| **Azure Cosmos DB** | MongoDB | ✔ | GA |
+| **Azure DB para MySQL** | MySQL |   |   |
 |   | RDS MySQL |   |   |
-| **BD do Azure para PostgreSQL** | PostgreSQL |  |
+| **Azure DB para PostgreSQL** | PostgreSQL |  |
 |  | RDS PostgreSQL |   |   |
 
-### <a name="online-continuous-sync-migration-support"></a>Suporte à migração online (sincronização contínua)
+### <a name="online-continuous-sync-migration-support"></a>Suporte à migração online (sincronizado contínuo)
 
-A tabela a seguir mostra o suporte ao serviço de migração de banco de dados do Azure para migrações online.
+A tabela que se segue mostra o apoio do Serviço de Migração de Bases de Dados Azure para migrações online.
 
-| Visar  | Origem | Suporte | Estado |
+| Destino  | Origem | Suporte | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Banco de BD SQL do Azure** | SQL Server | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
-|   | RDS SQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+| **Azure SQL DB** | SQL Server | ✔ | GA |
+|   | RDS SQL | ✔ | GA |
 |   | Oracle |  |  |
-| **Banco de BD SQL do Azure MI** | SQL Server | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
-|   | RDS SQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
-|   | Oracle | ✔ | Visualização privada |
-| **VM do SQL do Azure** | SQL Server |   |   |
+| **Azure SQL DB MI** | SQL Server | ✔ | GA |
+|   | RDS SQL | ✔ | GA |
+|   | Oracle | ✔ | Pré-visualização privada |
+| **Azure SQL VM** | SQL Server |   |   |
 |   | Oracle  |  |  |
-| **BD do Cosmos para o Azure** | MongoDB | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
-| **BD do Azure para MySQL** | MySQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
-|   | RDS MySQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
-| **BD do Azure para PostgreSQL** | PostgreSQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
-|   | RDS PostgreSQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+| **Azure Cosmos DB** | MongoDB | ✔ | GA |
+| **Azure DB para MySQL** | MySQL | ✔ | GA |
+|   | RDS MySQL | ✔ | GA |
+| **Azure DB para PostgreSQL** | PostgreSQL | ✔ | GA |
+|   | RDS PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | Pré-visualização pública |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma visão geral do serviço de migração de banco de dados do Azure e da disponibilidade regional, consulte o artigo o [que é o serviço de migração de banco de dados](dms-overview.md)
+Para uma visão geral do Serviço de Migração da Base de Dados Azure e disponibilidade regional, consulte o artigo O que é o Serviço de Migração de Bases de [Dados Azure.](dms-overview.md)

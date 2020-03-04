@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: dapine
-ms.openlocfilehash: 499770b664757ec0f3a0bd3b26e0de36007741b6
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: b39b8712f3e8b869d7dbe496dd30f0599aa4150d
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228074"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254794"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese da fala (SSML)
 
@@ -195,6 +195,7 @@ Por padrão, o serviço de texto-a-fala sintetiza o texto usando um estilo de fa
 
 Atualmente, os ajustes de estilo de fala são suportados para estas vozes neurais:
 * `en-US-JessaNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 
 As alterações são aplicadas ao nível da frase, e o estilo varia de acordo com a voz. Se um estilo não for suportado, o serviço devolverá o discurso no estilo de fala neutro padrão.
@@ -220,6 +221,7 @@ Utilize esta tabela para determinar quais os estilos de fala suportados para cad
 | | `type="chat"` | Fale em tom casual e descontraído |
 | | `type="newscast"` | Expressa um tom formal, semelhante às emissões noticiosas |
 | | `type="customerservice"` | Fale de forma amigável e paciente como atendimento ao cliente |
+| `pt-BR-FranciscaNeural` | `type="cheerful"` | Expressa uma emoção positiva e feliz |
 | `zh-CN-XiaoxiaoNeural` | `type="newscast"` | Expressa um tom formal, semelhante às emissões noticiosas |
 | | `type="sentiment"` | Transmite uma mensagem comovente ou uma história |
 

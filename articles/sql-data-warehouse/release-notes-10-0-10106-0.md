@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 80382359bb1125b7e2eba3eed86409494c1e0726
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4811f24fb942689bddcc9d9d1bcb8c33d147c1af
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196200"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256007"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas de lançamento da Azure Synapse Analytics
 
@@ -162,7 +162,7 @@ Utilize a versão identificada para confirmar qual a versão aplicada à sua pis
 
 ## <a name="more-information"></a>Mais informações
 - [Blog - Azure Synapse Analytics](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [Blogues da Equipa Customer Advisory](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+- [Blogues da Equipa Customer Advisory](https://docs.microsoft.com/archive/blogs/sqlcat/)
 - [Histórias de sucesso de clientes](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Fórum do Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 82866d452289a29dcdcacc12db8048acb7a351ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589373"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250868"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Gestão de modelos, implantação e monitorização com Aprendizagem automática Azure
 
@@ -71,6 +71,11 @@ Os modelos registados são identificados por nome e versão. Sempre que registar
 Não é possível eliminar um modelo registado que esteja a ser utilizado numa implementação ativa.
 Para mais informações, consulte a secção do modelo de registo dos [modelos Deploy](how-to-deploy-and-where.md#registermodel).
 
+### <a name="profile-models"></a>Modelos de perfil
+
+O Azure Machine Learning pode ajudá-lo a compreender os requisitos de CPU e memória do serviço que será criado quando implementar o seu modelo. O perfil testa o serviço que executa o seu modelo e devolve informações como o uso do CPU, o uso da memória e a latência de resposta. Também fornece uma CPU e uma recomendação de memória com base no uso do recurso.
+Para mais informações, consulte a secção de perfis dos [modelos Deploy](how-to-deploy-and-where.md#profilemodel).
+
 ### <a name="package-and-debug-models"></a>Modelos de pacote e depuração
 
 Antes de implantar um modelo em produção, é embalado numa imagem do Docker. Na maioria dos casos, a criação de imagem ocorre automaticamente em segundo plano durante a implantação. Pode especificar manualmente a imagem.
@@ -78,10 +83,6 @@ Antes de implantar um modelo em produção, é embalado numa imagem do Docker. N
 Se tiver problemas com a implementação, pode implantar-se no seu ambiente de desenvolvimento local para resolução de problemas e depuração.
 
 Para mais informações, consulte [os modelos de implementação](how-to-deploy-and-where.md#registermodel) e implementações de [resolução de problemas.](how-to-troubleshoot-deployment.md)
-
-### <a name="validate-and-profile-models"></a>Modelos de validação e perfil
-
-O Azure Machine Learning pode utilizar perfis para determinar as definições ideais de CPU e memória para utilizar ao implementar o seu modelo. A validação do modelo acontece como parte deste processo, utilizando dados que fornece para o processo de perfis.
 
 ### <a name="convert-and-optimize-models"></a>Converter e otimizar modelos
 

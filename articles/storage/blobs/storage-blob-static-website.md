@@ -1,6 +1,6 @@
 ---
-title: Hospedagem de site estática no armazenamento do Azure
-description: Hospedagem de sites estáticos do armazenamento do Azure, fornecendo uma solução econômica e escalonável para hospedar aplicativos Web modernos.
+title: Site estático hospedado em Armazenamento Azure
+description: Hospedagem de websites estáticos do Azure Storage, fornecendo uma solução rentável e escalável para hospedar aplicações web modernas.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -8,35 +8,35 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e9e2fe92939088420f973c5ca112b5f59d07f212
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906587"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252690"
 ---
-# <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estática no armazenamento do Azure
+# <a name="static-website-hosting-in-azure-storage"></a>Site estático hospedado em Armazenamento Azure
 
-Você pode fornecer conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento chamado *$Web*. Hospedar seu conteúdo no armazenamento do Azure permite que você use arquiteturas sem servidor que incluem [Azure Functions](/azure/azure-functions/functions-overview) e outros serviços de PaaS (plataforma como serviço).
+Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente a partir de um recipiente de armazenamento chamado *$web*. Hospedar o seu conteúdo no Armazenamento Azure permite-lhe utilizar arquiteturas sem servidores que incluem [funções Azure](/azure/azure-functions/functions-overview) e outras plataformas como serviços de serviço (PaaS).
 
 > [!NOTE]
-> Se o seu site depende do código do servidor, use [Azure app serviço](/azure/app-service/overview) em vez disso.
+> Se o seu site depender do código do lado do servidor, utilize o Serviço de [Aplicações Azure.](/azure/app-service/overview)
 
-## <a name="setting-up-a-static-website"></a>Configurando um site estático
+## <a name="setting-up-a-static-website"></a>Criação de um site estático
 
-A hospedagem de site estática é um recurso que você precisa habilitar na conta de armazenamento.
+O alojamento em sites estáticos é uma funcionalidade que você tem que ativar na conta de armazenamento.
 
-Para habilitar a hospedagem de site estático, selecione o nome do arquivo padrão e, opcionalmente, forneça um caminho para uma página personalizada do 404. Se um contêiner de armazenamento de BLOBs chamado **$Web** ainda não existir na conta, um será criado para você. Adicione os arquivos do seu site a esse contêiner.
+Para ativar o alojamento estático do site, selecione o nome do seu ficheiro predefinido e, em seguida, opcionalmente, forneça um caminho para uma página personalizada de 404. Se um recipiente de armazenamento de blob chamado **$web** não existe já na conta, um é criado para si. Adicione os ficheiros do seu site a este recipiente.
 
-Para obter orientações passo a passo, consulte [hospedar um site estático no armazenamento do Azure](storage-blob-static-website-how-to.md).
+Para obter orientação passo a passo, consulte [Host um site estático no Armazenamento Azure.](storage-blob-static-website-how-to.md)
 
-![Métrica de métricas de sites estáticos do armazenamento do Azure](./media/storage-blob-static-website/storage-blob-static-website-blob-container.png)
+![Métrica de sites estáticos de armazenamento azure](./media/storage-blob-static-website/storage-blob-static-website-blob-container.png)
 
-Os arquivos no contêiner **$Web** diferenciam maiúsculas de minúsculas, são atendidos por meio de solicitações de acesso anônimo e estão disponíveis somente por meio de operações de leitura.
+Os ficheiros no contentor **$web** são sensíveis a casos, servidos através de pedidos de acesso anónimos e só estão disponíveis através de operações de leitura.
 
-## <a name="uploading-content"></a>Carregando conteúdo
+## <a name="uploading-content"></a>Carregar conteúdo
 
-Você pode usar qualquer uma dessas ferramentas para carregar conteúdo no contêiner de **$Web** :
+Pode utilizar qualquer uma destas ferramentas para fazer o upload de conteúdo para **o** $web recipiente:
 
 > [!div class="checklist"]
 > * [CLI do Azure](storage-blob-static-website-how-to.md#cli)
@@ -44,46 +44,46 @@ Você pode usar qualquer uma dessas ferramentas para carregar conteúdo no cont�
 > * [AZCopy](../common/storage-use-azcopy-v10.md)
 > * [Explorador do Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 > * [Oleodutos Azure](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Extensão de Visual Studio Code](/azure/javascript/tutorial-vscode-static-website-node-01)
+> * [Extensão do Código do Estúdio Visual](/azure/javascript/tutorial-vscode-static-website-node-01)
 
-## <a name="viewing-content"></a>Exibindo conteúdo
+## <a name="viewing-content"></a>Visualização de conteúdos
 
-Os usuários podem exibir o conteúdo do site de um navegador usando a URL pública do site. Você pode encontrar a URL usando o portal do Azure, o CLI do Azure ou o PowerShell. Use esta tabela como um guia.
+Os utilizadores podem ver o conteúdo do site a partir de um browser utilizando o URL público do website. Pode encontrar o URL utilizando o portal Azure, Azure CLI ou PowerShell. Use esta mesa como guia.
 
-|Ferramenta| Orientações |
+|Ferramenta| Orientação |
 |----|----|
-|**Portal do Azure** | [Localize a URL do site usando o portal do Azure](storage-blob-static-website-how-to.md#portal-find-url) |
-|**CLI do Azure** | [Localize a URL do site usando o CLI do Azure](storage-blob-static-website-how-to.md#cli-find-url) |
-|**Módulo Azure PowerShell** | [Localizar a URL do site usando o PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
+|**Portal do Azure** | [Encontre o URL do site utilizando o portal Azure](storage-blob-static-website-how-to.md#portal-find-url) |
+|**CLI do Azure** | [Encontre o URL do site utilizando o Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
+|**Módulo Azure PowerShell** | [Encontre o URL do site usando powerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-A URL do seu site contém um código regional. Por exemplo, a URL `https://contosoblobaccount.z22.web.core.windows.net/` contém `z22`de código regional.
+O URL do seu site contém um código regional. Por exemplo, o `https://contosoblobaccount.z22.web.core.windows.net/` URL contém código regional `z22`.
 
-Embora esse código deva permanecer na URL, ele é apenas para uso interno, e você não precisará usar esse código de nenhuma outra maneira.
+Embora esse código tenha de permanecer no URL, é apenas para uso interno, e não terá de usar esse código de outra forma.
 
-O documento de índice especificado quando você habilita a hospedagem de site estático é exibido quando os usuários abrem o site e não especificam um arquivo específico (por exemplo: `https://contosoblobaccount.z22.web.core.windows.net`).  
+O documento de índice que especifica quando ativa o alojamento estático do website, aparece quando os utilizadores abrem o site e não especificam um ficheiro específico (por exemplo: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
-Se o servidor retornar um erro 404 e você não tiver especificado um documento de erro ao habilitar o site, uma página 404 padrão será retornada ao usuário.
+Se o servidor devolver um erro de 404 e não tiver especificado um documento de erro quando ativou o website, então uma página padrão 404 é devolvida ao utilizador.
 
 > [!NOTE]
-> Não há suporte para [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) com site estático.
+> [O CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) não é suportado com um website estático.
 
-## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impacto da configuração do nível de acesso público do contêiner da Web
+## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impacto da definição do nível de acesso público do contentor web
 
-Você pode modificar o nível de acesso público do contêiner de **$Web** , mas isso não tem impacto sobre o ponto de extremidade de site estático primário porque esses arquivos são servidos por meio de solicitações de acesso anônimo. Isso significa acesso público (somente leitura) a todos os arquivos.
+Pode modificar o nível de acesso público **do** $web contentor, mas isso não tem impacto no ponto final do site estático primário porque estes ficheiros são servidos através de pedidos de acesso anónimos. Isto significa acesso público (apenas para leitura) a todos os ficheiros.
 
-A captura de tela a seguir mostra a configuração de nível de acesso público no portal do Azure:
+A imagem que se segue mostra a definição do nível de acesso público no portal Azure:
 
-![Captura de tela mostrando como definir o nível de acesso público no portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Screenshot mostrando como definir o nível de acesso do público no portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
-Embora o ponto de extremidade de site estático primário não seja afetado, uma alteração no nível de acesso público afeta o ponto de extremidade do serviço blob primário.
+Embora o ponto final do site estático primário não seja afetado, uma alteração ao nível de acesso público afeta o ponto final do serviço de blob primário.
 
-Por exemplo, se você alterar o nível de acesso público do contêiner de **$Web** de **privado (sem acesso anônimo)** para **BLOB (acesso de leitura anônimo somente para BLOBs)** , o nível de acesso público ao ponto de extremidade de site estático primário `https://contosoblobaccount.z22.web.core.windows.net/index.html` não será alterado.
+Por exemplo, se alterar o nível de acesso público do contentor **$web** do **Private (sem acesso anónimo)** ao **Blob (acesso de leitura anónima apenas para blobs)** então o nível de acesso público ao ponto final do site estático primário `https://contosoblobaccount.z22.web.core.windows.net/index.html` não muda.
 
-No entanto, o acesso público ao ponto de extremidade do serviço blob primário `https://contosoblobaccount.blob.core.windows.net/$web/index.html` muda de particular para público. Agora, os usuários podem abrir esse arquivo usando qualquer um desses dois pontos de extremidade.
+No entanto, o acesso público ao ponto final do serviço de blob primário `https://contosoblobaccount.blob.core.windows.net/$web/index.html` muda de privado para público. Agora os utilizadores podem abrir esse ficheiro utilizando qualquer um destes dois pontos finais.
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapear um domínio personalizado para um URL do site estático
 
-Você pode tornar seu site estático disponível por meio de um domínio personalizado. 
+Pode disponibilizar o seu website estático através de um domínio personalizado. 
 
 É mais fácil permitir o acesso http para o seu domínio personalizado, porque o Azure Storage apoia-o de forma nativa. Para ativar https, terá de utilizar o Azure CDN porque o Armazenamento Azure ainda não suporta de forma nativa HTTPS com domínios personalizados. ver Mapear um domínio personalizado para um ponto final de [armazenamento De Blob Azure](storage-custom-domain-name.md) para orientação passo a passo.
 
@@ -92,21 +92,27 @@ Se a conta de armazenamento estiver configurada para [exigir transferência segu
 > [!TIP]
 > Considere hospedar o seu domínio no Azure. Para mais informações, consulte [Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
+## <a name="adding-http-headers"></a>Adicionar cabeçalhos HTTP
+
+Não há como configurar os cabeçalhos como parte da funcionalidade do site estático. No entanto, pode utilizar o Azure CDN para adicionar cabeçalhos e anexar (ou substituir) valores de cabeçalho. Consulte a referência do [motor standard regras para o Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+
+Se quiser usar cabeçalhos para controlar o cache, consulte o comportamento de cache do [Control Azure CDN com regras](https://docs.microsoft.com/azure/cdn/cdn-caching-rules)de cache .
+
 ## <a name="pricing"></a>Preços
 
-Você pode habilitar a hospedagem de sites estáticos gratuitamente. Você é cobrado apenas pelo armazenamento de BLOBs que seu site utiliza e pelos custos de operações. Para obter mais detalhes sobre os preços do armazenamento de BLOBs do Azure, confira a [página de preços do armazenamento de BLOBs do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Pode ativar o site estático hospedando gratuitamente. Você é cobrado apenas para o armazenamento blob que o seu site usa e custos de operações. Para mais detalhes sobre os preços do Armazenamento De Blob Azure, consulte a página de preços de [armazenamento de Blob Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="metrics"></a>Métricas
 
-Você pode habilitar métricas em páginas de site estáticos. Depois de habilitar as métricas, as estatísticas de tráfego nos arquivos no contêiner de **$Web** são relatadas no painel de métricas.
+Pode ativar métricas em páginas de site estática. Uma vez ativado as métricas, as estatísticas de tráfego de ficheiros no contentor **$web** são reportadas no painel de métricas.
 
-Para habilitar as métricas em suas páginas de site estáticos, consulte [habilitar métricas em páginas de site estático](storage-blob-static-website-how-to.md#metrics).
+Para permitir métricas nas páginas do seu site estático, consulte [métricas de ativação nas páginas do site estático](storage-blob-static-website-how-to.md#metrics).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Hospedar um site estático no armazenamento do Azure](storage-blob-static-website-how-to.md)
+* [Hospedar um site estático no Armazenamento Azure](storage-blob-static-website-how-to.md)
 * [Mapear um domínio personalizado para um ponto final de armazenamento de Blob Azure](storage-custom-domain-name.md)
 * [Funções do Azure](/azure/azure-functions/functions-overview)
-* [Serviço de Aplicações do Azure](/azure/app-service/overview)
-* [Crie seu primeiro aplicativo Web sem servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: hospedar seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)
+* [App Service do Azure](/azure/app-service/overview)
+* [Construa a sua primeira aplicação web sem servidores](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
+* [Tutorial: Acolhe o teu domínio em DNS Azure](../../dns/dns-delegate-domain-azure-dns.md)

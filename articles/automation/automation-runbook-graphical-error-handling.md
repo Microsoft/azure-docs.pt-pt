@@ -5,22 +5,22 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 153df77c030180402b1e30bc456d681c232c390b
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 4f975af233973ce5fac75ca46e334af5d91e8edc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226520"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246282"
 ---
-# <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Manipulação de erros em livros gráficos de automação Azure
+# <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Erro ao Processar em Runbooks Gráficos da Automatização do Azure
 
-Um princípio chave de design a considerar para o seu livro de execução gráfica azure Automation é a identificação de questões que o livro de execução pode experimentar durante a execução. Estes problemas poderão incluir o êxito, estados de erro esperados e condições de erro inesperadas.
+Um princípio chave de design a considerar para o seu livro gráfico Azure Automation é a identificação de questões que o livro de execução pode experimentar durante a execução. Estes problemas poderão incluir o êxito, estados de erro esperados e condições de erro inesperadas.
 
 Muitas vezes, se houver um erro não terminante que ocorra com uma atividade de livro de execução, o Windows PowerShell lida com a atividade processando qualquer atividade que se siga, independentemente do erro. É provável que o erro crie uma exceção. No entanto, a atividade seguinte continua a poder ser executada.
 
-O seu livro de execução gráfico deve incluir código de manuseamento de erros para lidar com problemas de execução. Para validar a saída de uma atividade ou lidar com um erro, pode utilizar uma atividade de código PowerShell, definir lógica condicional na ligação de saída da atividade ou aplicar outro método.
+O seu livro de execução gráfico deve incluir código de manipulação de erros para lidar com problemas de execução. Para validar a saída de uma atividade ou lidar com um erro, pode utilizar uma atividade de código PowerShell, definir lógica condicional na ligação de saída da atividade ou aplicar outro método.
 
-Os livros de execução gráfico sografia Azure Automation foram melhorados com a capacidade de incluir o manuseamento de erros. Agora, pode converter exceções em erros de não terminação e criar ligações de erros entre atividades. O processo melhorado permite que o seu livro de execução apanhe erros e gere condições realizadas ou inesperadas. 
+Os livros gráficos Azure Automation foram melhorados com a capacidade de incluir o manuseamento de erros. Agora, pode converter exceções em erros de não terminação e criar ligações de erros entre atividades. O processo melhorado permite que o seu livro de execução apanhe erros e gere condições realizadas ou inesperadas. 
 
 >[!NOTE]
 >Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](automation-update-azure-modules.md).
@@ -66,6 +66,6 @@ As ligações de erro fluem destas atividades para uma única atividade de códi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre links e tipos de links em livros gráficos, consulte [a autoria gráfica em Automação Azure](automation-graphical-authoring-intro.md#links-and-workflow).
+* Para saber mais sobre ligações e tipos de ligações em runbooks gráficos, veja [Criação de runbooks gráficos na Automatização do Azure](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Para saber mais sobre a execução do livro de corridas, monitorização de trabalhos de livro de corridas e outros detalhes técnicos, consulte a execução do Livro de [Corridas na Automação Azure.](automation-runbook-execution.md)

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 1d627329a6d5f4c283a4480c1b0b1077a8e856cf
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 5e2fc8fb06248e2cdad9067c56647da6d9626b50
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649947"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255758"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua utilizando O Azure DevOps
 
@@ -46,7 +46,7 @@ steps:
     arguments: '--configuration Release --output publish_output'
     projects: '*.csproj'
     publishWebProjects: false
-    modifyOutputPath: true
+    modifyOutputPath: false
     zipAfterPublish: false
 - task: ArchiveFiles@2
   displayName: "Archive files"

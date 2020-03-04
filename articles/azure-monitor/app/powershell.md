@@ -3,12 +3,12 @@ title: Automatizar insights de aplicação Azure com powerShell / Microsoft Docs
 description: Automatizar a criação e gestão de recursos, alertas e testes de disponibilidade no PowerShell utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 06fedb3d345cfe6790f7a19b88fbfdb36470638f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9494b659b5b4357f3190c45d8cc72c4e130f0ecc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669816"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250772"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerir os recursos da Application Insights usando o PowerShell
 
@@ -128,7 +128,7 @@ Crie um novo ficheiro .json - vamos chamá-lo de `template1.json` neste exemplo.
             },
             "dailyQuotaResetTime": {
                 "type": "int",
-                "defaultValue": 24,
+                "defaultValue": 0,
                 "metadata": {
                     "description": "Enter daily quota reset hour in UTC (0 to 23). Values outside the range will get a random reset hour."
                 }
@@ -320,16 +320,30 @@ Para obter as propriedades da tampa diária, utilize o [cmdlet Set-AzApplication
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-Para definir as propriedades da tampa diária, use o mesmo cmdlet. Por exemplo, para definir a tampa para 300 GB/dia, 
+Para definir as propriedades da tampa diária, use o mesmo cmdlet. Por exemplo, para definir a tampa para 300 GB/dia,
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
 ```
 
+Também pode usar o [ARMClient](https://github.com/projectkudu/ARMClient) para obter e definir parâmetros diários da tampa.  Para obter os valores atuais, use:
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+## <a name="set-the-daily-cap-reset-time"></a>Definir o tempo de reset da tampa diária
+
+Para definir o tempo de reset da tampa diária, pode utilizar o [ARMClient](https://github.com/projectkudu/ARMClient). Aqui está um exemplo usando `ARMClient`, para definir o tempo de reset para uma nova hora (neste exemplo 12:00 UTC):
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
+```
+
 <a id="price"></a>
 ## <a name="set-the-pricing-plan"></a>Definir o plano de preços 
 
-Para obter o plano de preços atual, utilize o [cmdlet Set-AzApplicationInsightsPricingPlan:](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) 
+Para obter o plano de preços atual, utilize o [cmdlet Set-AzApplicationInsightsPricingPlan:](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan)
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -350,19 +364,36 @@ Também pode definir o plano de preços de um recurso existente para insights de
                -appName myApp
 ```
 
+O `priceCode` é definido como:
+
 |preçoCódigo|plano|
 |---|---|
 |1|Por GB (anteriormente nomeado o plano básico)|
 |2|Per Nó (anteriormente nomear o plano Enterprise)|
 
+Finalmente, pode usar o [ARMClient](https://github.com/projectkudu/ARMClient) para obter e definir planos de preços e parâmetros diários da tampa.  Para obter os valores atuais, use:
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+E pode definir todos estes parâmetros usando:
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+"{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'Cap':200,'ResetTime':12,'StopSendNotificationWhenHitCap':true,'WarningThreshold':90,'StopSendNotificationWhenHitThreshold':true}}"
+```
+
+Isto definirá o limite diário para 200 GB/dia, configurará o tempo de reset diário da tampa para 12:00 UTC, enviará e-mails quando a tampa é atingida e o nível de aviso é atingido, e definiro limiar de aviso para 90% da tampa.  
+
 ## <a name="add-a-metric-alert"></a>Adicione um alerta métrico
 
-Para automatizar a criação de alertas métricos consulte o modelo de modelo de [alertas métricos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
+Para automatizar a criação de alertas métricos, consulte o modelo de [alertas métricos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## <a name="add-an-availability-test"></a>Adicione um teste de disponibilidade
 
-Para automatizar os testes de disponibilidade consulte o modelo de modelo de [alertas métricos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
+Para automatizar os testes de disponibilidade, consulte o modelo de modelo de [alertas métricos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="add-more-resources"></a>Adicionar mais recursos
 

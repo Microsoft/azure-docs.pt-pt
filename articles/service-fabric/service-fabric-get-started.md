@@ -1,16 +1,16 @@
 ---
-title: Configurar um ambiente de desenvolvimento do Windows
+title: Criar um ambiente de desenvolvimento do Windows
 description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir esta configuração, estará pronto para criar aplicações no Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 03/02/2020
 ms.custom: sfrev
-ms.openlocfilehash: 6768f45e61880370295ce7725e553828e66f3d39
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f08c6b0675475b4e15ce6db3a9dbe0e2863b9ddb
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062120"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252774"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
 
@@ -42,14 +42,14 @@ As seguintes versões do sistema operativo são suportadas para desenvolvimento:
 
 ## <a name="install-the-sdk-and-tools"></a>Instalar o SDK e as ferramentas
 
-Web Platform Installer (WebPI) é a maneira recomendada para instalar o SDK e as ferramentas. Se você receber erros de tempo de execução usando o WebPI, também poderá encontrar links diretos para os instaladores nas notas de versão de uma versão específica do Service Fabric. As notas de lançamento podem ser encontradas nos vários anúncios de lançamento no blog da [equipa de Service Fabric.](https://blogs.msdn.microsoft.com/azureservicefabric/)
+O Instalador de Plataformas Web (WebPI) é a forma recomendada de instalar o SDK e as ferramentas. Se receber erros de tempo de execução utilizando o WebPI, também pode encontrar links diretos para os instaladores nas notas de lançamento para uma versão específica do Service Fabric. As notas de lançamento podem ser encontradas nos vários anúncios de lançamento no blog da [equipa de Service Fabric.](https://blogs.msdn.microsoft.com/azureservicefabric/)
 
 > [!NOTE]
-> Não há suporte para atualizações de cluster de desenvolvimento Service Fabric locais.
+> Não são suportadas atualizações de clusterde desenvolvimento de tecidos de serviço local.
 
-### <a name="to-use-visual-studio-2017-or-2019"></a>Para usar o Visual Studio 2017 ou 2019
+### <a name="to-use-visual-studio-2017-or-2019"></a>Para utilizar o Visual Studio 2017 ou 2019
 
-Os Ferramentas do Service Fabric fazem parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2017 e 2019. Ative esta carga de trabalho como parte da instalação do Visual Studio.
+As Ferramentas de Tecido de Serviço fazem parte da carga de trabalho do Azure Development no Visual Studio 2017 e 2019. Ative esta carga de trabalho como parte da instalação do Visual Studio.
 Para além disso, deve instalar o runtime e o Microsoft Azure Service Fabric SDK, utilizando o Instalador de Plataforma Web.
 
 * [Instale o SDK do Microsoft Azure Service Fabric][core-sdk]
@@ -68,13 +68,13 @@ Se apenas precisa do SDK, pode instalar este pacote:
 
 As versões atuais são:
 
-* SDK de tecido de serviço e ferramentas 4.0.466
-* Tempo de execução do tecido de serviço 7.0.466
+* SDK de tecido de serviço e ferramentas 4.0.470
+* Tempo de execução do tecido de serviço 7.0.470
 
 Para obter uma lista de versões suportadas, consulte [versões Service Fabric](service-fabric-versions.md)
 
 > [!NOTE]
-> Não há suporte para clusters de computador único (OneBox) para atualizações de cluster ou aplicativo; Exclua o cluster OneBox e recrie-o se você precisar executar uma atualização de cluster ou tiver problemas para executar uma atualização de aplicativo. 
+> Os clusters de máquinas individuais (OneBox) não são suportados para atualizações de Aplicação ou Cluster; eliminar o cluster OneBox e recriá-lo se precisar de realizar uma atualização do Cluster, ou tiver quaisquer problemas em realizar uma atualização da Aplicação. 
 
 ## <a name="enable-powershell-script-execution"></a>Ativar a execução do script do PowerShell
 
@@ -84,9 +84,9 @@ O Service Fabric utiliza scripts do Windows PowerShell para criar um cluster de 
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-## <a name="install-docker-optional"></a>Instalar o Docker (opcional)
+## <a name="install-docker-optional"></a>Instalar Docker (opcional)
 
-[Service Fabric é um orquestrador](service-fabric-containers-overview.md) de contentores para a implantação de microserviços através de um conjunto de máquinas. Para executar aplicativos de contêiner do Windows em seu cluster de desenvolvimento local, você deve primeiro instalar o Docker for Windows. Obtenha [Docker CE para Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique com o botão direito do rato no ícone de tabuleiro e selecione **Mudar para os contentores do Windows**. Este passo é necessário para executar imagens do Docker baseadas no Windows.
+[Service Fabric é um orquestrador](service-fabric-containers-overview.md) de contentores para a implantação de microserviços através de um conjunto de máquinas. Para executar aplicações de contentores Windows no seu cluster de desenvolvimento local, tem primeiro de instalar o Docker para windows. Obtenha [Docker CE para Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique com o botão direito do rato no ícone de tabuleiro e selecione **Mudar para os contentores do Windows**. Este passo é necessário para executar imagens do Docker baseadas no Windows.
 
 ## <a name="next-steps"></a>Passos seguintes
 

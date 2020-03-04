@@ -1,17 +1,17 @@
 ---
-title: Empacotar e implantar contêineres
+title: Embalar e implantar contentores
 description: Neste tutorial, saiba como gerar uma definição de aplicação do Azure Service Fabric com o Yeoman e como compactar a aplicação.
 author: suhuruli
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614031"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252754"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Compactar e implementar contentores como uma aplicação do Service Fabric com o Yeoman
 
@@ -112,9 +112,9 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 Para que o Service Fabric extraia as imagens de contentores do Azure Container Registry, temos de indicar as credenciais em **ApplicationManifest.xml**.
 
-Entre em sua instância do ACR. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
+Inscreva-se na sua instância ACR. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -122,7 +122,7 @@ O comando devolve a mensagem **Início de sessão com êxito** após a conclusã
 
 Em seguida, execute o comando seguinte para obter a palavra-passe do seu registo de contentor. O Service Fabric utiliza esta palavra-passe para se autenticar no ACR e extrair as imagens de contentores.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
@@ -199,7 +199,7 @@ Para que o Service Fabric atribua este nome DNS ao serviço de back-end, o nome 
 
 O serviço de front-end lê uma variável de ambiente para saber o nome DNS da instância do Redis. Esta variável de ambiente já está definida no Dockerfile que foi utilizado para gerar a imagem do Docker e não é necessário realizar qualquer ação aqui.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 
@@ -217,7 +217,7 @@ Nesta fase do tutorial, o modelo de uma aplicação Service Package está dispon
 
 ## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
 
-Para implementar a aplicação no Azure, precisa de um cluster do Service Fabric para executar a aplicação. Os comandos a seguir criam um cluster de cinco nós no Azure.  Os comandos também criam um certificado autoassinado, adiciona-o a um cofre de chaves e baixa o certificado localmente como um arquivo PEM. O novo certificado é usado para proteger o cluster quando ele é implantado e é usado para autenticar clientes.
+Para implementar a aplicação no Azure, precisa de um cluster do Service Fabric para executar a aplicação. Os seguintes comandos criam um aglomerado de cinco nós em Azure.  Os comandos também criam um certificado auto-assinado, adiciona-o a um cofre chave, e descarrega o certificado localmente como um ficheiro PEM. O novo certificado é utilizado para proteger o cluster quando se implanta e é utilizado para autenticar clientes.
 
 ```azurecli
 #!/bin/bash
@@ -251,16 +251,16 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 ```
 
 > [!Note]
-> O serviço de front-end da Web está configurado para escutar tráfego de entrada na porta 80. Por padrão, a porta 80 está aberta nas VMs do cluster e no Azure Load Balancer.
+> O serviço de front-end da Web está configurado para escutar tráfego de entrada na porta 80. Por predefinição, a porta 80 está aberta nos seus VMs de cluster e no equilíbrio de carga Azure.
 >
 
-Para obter mais informações sobre como criar seu próprio cluster, consulte [criar um Service Fabric cluster no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Para obter mais informações sobre a criação do seu próprio cluster, consulte [Create a Service Fabric cluster no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Criar e implementar a aplicação no cluster
 
 Pode implementar a aplicação no cluster do Azure com a CLI do Service Fabric. Se a CLI do Service Fabric não estiver instalada no seu computador, siga [estas](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) instruções para instalá-la.
 
-Ligue ao cluster do Service Fabric no Azure. Substitua o ponto final do exemplo pelo seu próprio. O ponto final tem de ser um URL completo semelhante ao seguinte.  O arquivo PEM é o certificado autoassinado que foi criado anteriormente.
+Ligue ao cluster do Service Fabric no Azure. Substitua o ponto final do exemplo pelo seu próprio. O ponto final tem de ser um URL completo semelhante ao seguinte.  O ficheiro PEM é o certificado auto-assinado que foi previamente criado.
 
 ```bash
 sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
@@ -272,11 +272,11 @@ Utilize o script de instalação disponibilizado no diretório **TestContainer**
 ./install.sh
 ```
 
-Abra um navegador e navegue até Service Fabric Explorer em http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda o nó Aplicações e repare que há uma entrada para o tipo de aplicação e outra para a instância.
+Abra um navegador e navegue para service Fabric Explorer em http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda o nó Aplicações e repare que há uma entrada para o tipo de aplicação e outra para a instância.
 
 ![Service Fabric Explorer][sfx]
 
-Para se conectar ao aplicativo em execução, abra um navegador da Web e vá para a URL do cluster-por exemplo, http:\//containertestcluster.eastus.cloudapp.azure.com:80. Deverá ver a aplicação Voting na IU da Web.
+Para se ligar à aplicação de execução, abra um navegador web e vá ao url do cluster - por exemplo, http:\//containertestcluster.eastus.cloudapp.azure.com:80. Deverá ver a aplicação Voting na IU da Web.
 
 ![votingapp][votingapp]
 

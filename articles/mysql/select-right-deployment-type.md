@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 8cff61d547e75b186869b3ab4d57c5eb12e6e2f5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 50bcd42189b1bcc945d726277975892f07f1baa1
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935466"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255541"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção certa do MySQL Server em Azure
 
@@ -33,11 +33,11 @@ As principais diferenças entre estas opções constam da seguinte tabela:
 
 |            | Base de Dados do Azure para MySQL | MySQL em VMs Azure    |
 |:-------------------|:-----------------------------|:--------------------|
-| Contrato de nível de serviço (SLA)                | Oferece SLA de 99,99% de disponibilidade| Até 99,95% de disponibilidade com duas ou mais instâncias no mesmo conjunto de disponibilidade.<br/><br/>99,9% de disponibilidade com uma única instância VM utilizando armazenamento premium.<br/><br/>99,99% usando Zonas de Disponibilidade com múltiplas instâncias em vários conjuntos de disponibilidade.<br/><br/>Consulte as [Máquinas Virtuais SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
+| Acordo de nível de serviço (SLA)                | Oferece SLA de 99,99% de disponibilidade| Até 99,95% de disponibilidade com duas ou mais instâncias no mesmo conjunto de disponibilidade.<br/><br/>99,9% de disponibilidade com uma única instância VM utilizando armazenamento premium.<br/><br/>99,99% usando Zonas de Disponibilidade com múltiplas instâncias em vários conjuntos de disponibilidade.<br/><br/>Consulte as [Máquinas Virtuais SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Patching do sistema operativo        | Automático  | Gerido por clientes |
 | Patching MySQL     | Automático  | Gerido por clientes |
 | Elevada disponibilidade | O modelo de alta disponibilidade (HA) baseia-se em mecanismos de falha incorporados para quando ocorre uma interrupção do nível do nó. Nestes casos, o serviço cria automaticamente uma nova instância e anexa o armazenamento a este caso. | Cliente arquiteto, implementar, testar e manter alta disponibilidade. As capacidades podem incluir agrupamento, replicação, etc.|
-| Redundância de zona | Atualmente não suportado | Os VMs azure podem ser configurados para funcionar em diferentes zonas de disponibilidade. Para uma solução no local, os clientes devem criar, gerir e manter o seu próprio centro de dados secundário.|
+| Redundância da zona | Atualmente não suportado | Os VMs azure podem ser configurados para funcionar em diferentes zonas de disponibilidade. Para uma solução no local, os clientes devem criar, gerir e manter o seu próprio centro de dados secundário.|
 | Cenários híbridos | Com a [Replicação data-in,](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)pode sincronizar dados de um servidor MySQL externo para a Base de Dados Azure para o serviço MySQL. O servidor externo pode estar no local, em máquinas virtuais, ou num serviço de base de dados hospedado por outros fornecedores de nuvem.<br/><br/> Com a funcionalidade de [réplica de leitura,](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) pode replicar dados de uma Base de Dados Azure para o servidor principal mySQL até cinco servidores de réplica sem leitura. As réplicas estão dentro da mesma região de Azure ou em todas as regiões. As réplicas apenas de leitura são atualizadas assincronicamente utilizando a tecnologia de replicação do binlog.| Gerido por clientes
 | Backup e restauro | Cria automaticamente [cópias](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) de segurança do servidor e armazena-as em armazenamento configurado pelo utilizador que é localmente redundante ou geo-redundante. O serviço requer cópias de segurança completas, diferenciais e de registo de transações | Gerido por clientes |
 | Operações de base de dados de monitorização | Oferece aos clientes a capacidade de [estabelecer alertas](https://docs.microsoft.com/azure/mysql/concepts-monitoring) sobre a operação da base de dados e agir ao atingir limiares. | Gerido por clientes |
@@ -80,9 +80,9 @@ A seguinte lista descreve considerações administrativas para cada opção:
 
 * Com base de dados Azure para MySQL, pode continuar a administrar a sua base de dados. Mas já não precisas de gerir o motor de base de dados, o sistema operativo ou o hardware. Exemplos de itens que pode continuar a administrar incluem:
 
-  - Bases de dados
+  - Bases de Dados
   - Iniciar sessão
-  - Otimização de índices
+  - Afinação de índices
   - Afinação de consultas
   - Auditoria
   - Segurança
@@ -102,4 +102,4 @@ A seguinte lista descreve considerações administrativas para cada opção:
 ## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a [Base de Dados Azure para obter preços MySQL](https://azure.microsoft.com/pricing/details/MySQL/).
-* Comece por [criar o seu primeiro servidor](https://review.docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).
+* Comece por [criar o seu primeiro servidor](https://docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).

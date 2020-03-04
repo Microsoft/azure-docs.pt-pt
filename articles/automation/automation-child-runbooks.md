@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34446f98bc593c8b78cfb4a9ceae2c5e6dc6aef3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5527b96ddf6ccebb60ca8130e48f6aae87a3f715
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191168"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246540"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Livros infantis em Automação Azure
 
@@ -33,15 +33,15 @@ Os parâmetros de um livro infantil chamado inline podem ser de qualquer tipo de
 
 Que tipos de livros de execução podem chamar uns aos outros?
 
-* Um livro de [execução powerShell](automation-runbook-types.md#powershell-runbooks) e um [livro gráfico](automation-runbook-types.md#graphical-runbooks) podem chamar-se um ao outro inline, uma vez que ambos são baseados em PowerShell.
-* Um livro de execução de fluxo [de trabalho powerShell](automation-runbook-types.md#powershell-workflow-runbooks) e um livro de fluxo de fluxo de fluxo de powershell gráfico podem chamar uns aos outros em linha, uma vez que ambos são baseados em PowerShell Workflow.
+* Um livro de [execução powerShell](automation-runbook-types.md#powershell-runbooks) e um [livro gráfico](automation-runbook-types.md#graphical-runbooks) podem chamar-se um ao outro em linha, uma vez que ambos são baseados em PowerShell.
+* Um livro de execução do [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) e um livro de execução gráfico powerShell Workflow podem chamar-se um ao outro em linha, uma vez que ambos são baseados em PowerShell Workflow.
 * Os tipos PowerShell e os tipos powerShell Workflow não podem ligar uns aos outros em linha, e devem usar **start-AzAutomationRunbook**.
 
 Quando é que a ordem de publicação importa?
 
-A ordem de publicação de livros de execução só importa para powerShell Workflow e livros de fluxo de trabalho de PowerShell gráfico.
+A ordem de publicação de livros de execução só importa para powerShell Workflow e livros gráficos powerShell Workflow.
 
-Quando o seu livro de recortes chama um livro de corridas para crianças Graphical ou PowerShell Workflow utilizando a execução inline, ele usa o nome do livro de execução. O nome deve começar por **.\\** especificar que o script está localizado no diretório local.
+Quando o seu livro de recortes chama um livro de corridas para crianças gráfica ou PowerShell Workflow utilizando a execução inline, ele usa o nome do livro de execução. O nome deve começar por **.\\** especificar que o script está localizado no diretório local.
 
 ### <a name="example"></a>Exemplo
 

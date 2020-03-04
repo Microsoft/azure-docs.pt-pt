@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/28/2020
 ms.author: alzam
-ms.openlocfilehash: 4b9678f72dd69db24b105d4b1d708928e29a09ba
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: fc48b0ae9cf4162b4b9abba14c6e909ca091fd23
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134506"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251606"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configure um cliente VPN para ligações de protocolo P2S OpenVPN: Autenticação Azure AD
 
@@ -168,9 +168,26 @@ Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<dnssufixs
 </azvpnprofile>
 ```
 
+### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Como adiciono servidores DNS personalizados ao cliente VPN?
+
+Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnsservers>
+        <dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+    </dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Como adiciono rotas personalizadas ao cliente VPN?
 
-Pode modificar o ficheiro XML de perfil descarregado e adicionar a **rota\<>\<incluiroutes>\<destination>\<mask> \</route>\</incluiroutes>\</destination>\</mask>** tags
+Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<incluiroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags
 
 ```
 <azvpnprofile>
@@ -181,6 +198,24 @@ Pode modificar o ficheiro XML de perfil descarregado e adicionar a **rota\<>\<in
             <destination>x.x.x.x</destination><mask>24</mask>
         </route>
     </includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Como bloquear (excluo) rotas do cliente VPN?
+
+Pode modificar o ficheiro XML de perfil descarregado e adicionar o **\<excluirotas>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <excluderoutes>
+        <route>
+            <destination>x.x.x.x</destination><mask>24</mask>
+        </route>
+    </excluderoutes>
     
 </clientconfig>
 </azvpnprofile>

@@ -1,9 +1,9 @@
 ---
-title: Visão geral do agente de máquina virtual do Azure
-description: Visão geral do agente de máquina virtual do Azure
+title: Visão geral do agente de máquinas virtuais Azure
+description: Visão geral do agente de máquinas virtuais Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 24369ed547b811b212518193a2ae2f76ed197754
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 3d9c178201ab0c22ed4eab9cf65f7d48e59e1359
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264632"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246129"
 ---
-# <a name="azure-virtual-machine-agent-overview"></a>Visão geral do agente de máquina virtual do Azure
-O Microsoft Azure agente de máquina virtual (agente de VM) é um processo leve e seguro que gerencia a interação de VM (máquina virtual) com o controlador de malha do Azure. O agente de VM tem uma função primária na habilitação e execução de extensões de máquina virtual do Azure. As extensões de VM habilitam a configuração pós-implantação da VM, como instalar e configurar o software. As extensões de VM também habilitam recursos de recuperação, como redefinir a senha administrativa de uma VM. Sem o agente de VM do Azure, as extensões de VM não podem ser executadas.
+# <a name="azure-virtual-machine-agent-overview"></a>Visão geral do Agente De MáquinaS Virtuais Azure
+O Microsoft Azure Virtual Machine Agent (VM Agent) é um processo seguro e leve que gere a interação da máquina virtual (VM) com o Controlador de Tecido Sino. O Agente VM tem um papel primordial na ativação e execução de extensões de máquinas virtuais Azure. As extensões VM permitem a configuração pós-implantação de VM, tais como a instalação e configuração do software. As extensões VM também permitem funcionalidades de recuperação, tais como a reposição da palavra-passe administrativa de um VM. Sem o Agente Azure VM, as extensões VM não podem ser executadas.
 
-Este artigo detalha a instalação e a detecção do agente de máquina virtual do Azure.
+Este artigo detalha a instalação e deteção do Agente Máquina Virtual Azure.
 
-## <a name="install-the-vm-agent"></a>Instalar o agente de VM
+## <a name="install-the-vm-agent"></a>Instalar o Agente VM
 
-### <a name="azure-marketplace-image"></a>Imagem do Azure Marketplace
+### <a name="azure-marketplace-image"></a>Imagem azure marketplace
 
-O agente de VM do Azure é instalado por padrão em qualquer VM do Windows implantada de uma imagem do Azure Marketplace. Quando você implanta uma imagem do Azure Marketplace do portal, do PowerShell, da interface de linha de comando ou de um modelo de Azure Resource Manager, o agente de VM do Azure também é instalado.
+O Agente Azure VM é instalado por padrão em qualquer VM do Windows implantado a partir de uma imagem do Azure Marketplace. Quando implementa uma imagem do Azure Marketplace a partir do portal, PowerShell, Interface de Linha de Comando ou um modelo de Gestor de Recursos Azure, o Agente Azure VM também está instalado.
 
-O pacote do agente convidado do Windows é dividido em duas partes:
+O Pacote de Agente Convidado do Windows é dividido em duas partes:
 
-- Agente de provisionamento (PA)
-- Agente convidado do Windows (ASAA)
+- Agente de Provisionamento (PA)
+- Agente convidado do Windows (WinGA)
 
-Para inicializar uma VM, você deve ter o PA instalado na VM, no entanto, a ASAA não precisa ser instalada. Em tempo de implantação da VM, você pode optar por não instalar o wingman. O exemplo a seguir mostra como selecionar a opção *provisionVmAgent* com um modelo de Azure Resource Manager:
+Para iniciar um VM tem de ter o PA instalado no VM, no entanto o WinGA não precisa de ser instalado. No tempo de implementação da VM, pode selecionar não instalar o WinGA. O exemplo seguinte mostra como selecionar a opção *provisionVmAgent* com um modelo de Gestor de Recursos Azure:
 
 ```json
 "resources": [{
@@ -56,13 +56,13 @@ Para inicializar uma VM, você deve ter o PA instalado na VM, no entanto, a ASAA
 }
 ```
 
-Se você não tiver os agentes instalados, não poderá usar alguns serviços do Azure, como o backup do Azure ou a segurança do Azure. Esses serviços exigem a instalação de uma extensão. Se você tiver implantado uma VM sem a asa, poderá instalar a versão mais recente do agente mais tarde.
+Se não tiver os Agentes instalados, não poderá utilizar alguns serviços Azure, como o Azure Backup ou o Azure Security. Estes serviços requerem uma extensão para ser instalado. Se implementou um VM sem o WinGA, pode instalar a versão mais recente do agente mais tarde.
 
 ### <a name="manual-installation"></a>Instalação manual
-O agente de VM do Windows pode ser instalado manualmente com um pacote do Windows Installer. A instalação manual pode ser necessária quando você cria uma imagem de VM personalizada que é implantada no Azure. Para instalar manualmente o agente de VM do Windows, [Baixe o instalador do agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789). O agente de VM tem suporte no Windows Server 2008 R2 e posterior.
+O agente VM do Windows pode ser instalado manualmente com um pacote de instalação Windows. A instalação manual pode ser necessária quando criar uma imagem VM personalizada que seja implantada no Azure. Para instalar manualmente o Agente VM do Windows, [descarregue o instalador do Agente VM](https://go.microsoft.com/fwlink/?LinkID=394789). O Agente VM é suportado no Windows Server 2008 R2 e posteriormente.
 
 > [!NOTE]
-> É importante atualizar a opção AllowExtensionOperations depois de instalar manualmente o VMAgent em uma VM que foi implantada a partir da imagem sem o ProvisionVMAgent Enable.
+> É importante atualizar a opção AllowExtensionOperations após a instalação manual do VMAgent num VM que foi implantado a partir da imagem sem ativar o ProvisionVMAgent.
 
 ```powershell
 $vm.OSProfile.AllowExtensionOperations = $true
@@ -70,21 +70,21 @@ $vm | Update-AzVM
 ```
 
 ### <a name="prerequisites"></a>Pré-requisitos
-- O agente de VM do Windows precisa de pelo menos o Windows Server 2008 R2 (64 bits) para ser executado com o .NET Framework 4,0. Consulte [suporte mínimo de versão para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- O Agente VM do Windows necessita de pelo menos o Windows Server 2008 R2 (64 bits) para funcionar, com a .Net Framework 4.0. Ver [suporte de versão mínima para agentes de máquinas virtuais em Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
-- Verifique se sua VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, consulte [o que é o endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+- Certifique-se de que o seu VM tem acesso ao endereço IP 168.63.129.16. Para mais informações consulte [O endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
 
-## <a name="detect-the-vm-agent"></a>Detectar o agente de VM
+## <a name="detect-the-vm-agent"></a>Detetar o Agente VM
 
 ### <a name="powershell"></a>PowerShell
 
-O módulo Azure Resource Manager PowerShell pode ser usado para recuperar informações sobre VMs do Azure. Para ver informações sobre uma VM, como o estado de provisionamento para o agente de VM do Azure, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm):
+O módulo PowerShell do Gestor de Recursos Azure pode ser usado para recuperar informações sobre VMs Azure. Para ver informações sobre um VM, como o estado de provisionamento do Agente Azure VM, utilize [o Get-AzVM:](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)
 
 ```powershell
 Get-AzVM
 ```
 
-A saída de exemplo condensada a seguir mostra a propriedade *ProvisionVMAgent* aninhada dentro de *OSProfile*. Essa propriedade pode ser usada para determinar se o agente de VM foi implantado na VM:
+A saída de exemplo condensado seguinte mostra a propriedade *ProvisionVMAgent* aninhada dentro *do OSProfile*. Esta propriedade pode ser usada para determinar se o agente VM foi implantado para o VM:
 
 ```powershell
 OSProfile                  :
@@ -95,7 +95,7 @@ OSProfile                  :
     EnableAutomaticUpdates : True
 ```
 
-O script a seguir pode ser usado para retornar uma lista concisa de nomes de VM e o estado do agente de VM:
+O seguinte script pode ser usado para devolver uma lista concisa de nomes VM e o estado do Agente VM:
 
 ```powershell
 $vms = Get-AzVM
@@ -106,16 +106,16 @@ foreach ($vm in $vms) {
 }
 ```
 
-### <a name="manual-detection"></a>Detecção manual
+### <a name="manual-detection"></a>Deteção Manual
 
-Quando conectado a uma VM do Windows, o Gerenciador de tarefas pode ser usado para examinar os processos em execução. Para verificar o agente de VM do Azure, abra o Gerenciador de tarefas, clique na guia *detalhes* e procure um nome de processo **WindowsAzureGuestAgent. exe**. A presença desse processo indica que o agente de VM está instalado.
+Quando inicia sessão num VM do Windows, o Task Manager pode ser utilizado para examinar os processos de execução. Para verificar se o Agente Azure VM, abra o Task Manager, clique no separador *Detalhes* e procure um nome de processo **WindowsAzureGuestAgent.exe**. A presença deste processo indica que o agente VM está instalado.
 
 
-## <a name="upgrade-the-vm-agent"></a>Atualizar o agente de VM
-O agente de VM do Azure para Windows é atualizado automaticamente. À medida que novas VMs são implantadas no Azure, elas recebem o agente de VM mais recente no tempo de provisionamento da VM. As imagens de VM personalizadas devem ser atualizadas manualmente para incluir o novo agente de VM no momento da criação da imagem.
+## <a name="upgrade-the-vm-agent"></a>Atualizar o Agente VM
+O Agente Azure VM para Windows é automaticamente atualizado. À medida que os novos VMs são implantados para o Azure, recebem o mais recente agente VM no tempo de provisionamento vm. As imagens VM personalizadas devem ser atualizadas manualmente para incluir o novo agente VM no momento da criação de imagem.
 
-## <a name="windows-guest-agent-automatic-logs-collection"></a>Coleção de logs automáticos do agente convidado do Windows
-O agente convidado do Windows tem um recurso para coletar automaticamente alguns logs. Esse recurso é Controller pelo processo CollectGuestLogs. exe. Ele existe para os serviços de nuvem PaaS e para máquinas virtuais IaaS e seu objetivo é & rapidamente coletar automaticamente alguns logs de diagnóstico de uma VM, para que eles possam ser usados para análise offline. Os logs coletados são logs de eventos, logs do sistema operacional, logs do Azure e algumas chaves do registro. Ele produz um arquivo ZIP que é transferido para o host da VM. Esse arquivo ZIP pode então ser examinado por equipes de engenharia e profissionais de suporte para investigar problemas na solicitação do cliente que possui a VM.
+## <a name="windows-guest-agent-automatic-logs-collection"></a>Coleção de registos automáticos do agente convidado do Windows
+O Windows Guest Agent tem uma funcionalidade para recolher automaticamente alguns registos. Esta funcionalidade é controladora pelo processo CollectGuestLogs.exe. Existe tanto para os Serviços paas cloud como para as Máquinas Virtuais IaaS e o seu objetivo é recolher rapidamente e automaticamente alguns registos de diagnóstico de um VM - para que possam ser usados para análise offline. Os registos recolhidos são Registos de Eventos, Registos DE OS, Registos Azure e algumas chaves de registo. Produz um ficheiro ZIP que é transferido para o Hospedeiro da VM. Este ficheiro ZIP pode então ser analisado por Equipas de Engenharia e profissionais de Suporte para investigar questões a pedido do cliente que detém o VM.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre extensões de VM, consulte [visão geral de extensões e recursos de máquinas virtuais do Azure](overview.md).
+Para obter mais informações sobre extensões VM, consulte [extensões de máquinas virtuais Azure e funcionalidades de visão geral](overview.md).
