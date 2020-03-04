@@ -425,10 +425,10 @@
             - name: Descrição geral
               href: functions-bindings-signalr-service.md
               displayName: SignalR Service
-            - name: Descrição geral
+            - name: Input
               href: functions-bindings-signalr-service-input.md
               displayName: SignalR Service
-            - name: Descrição geral
+            - name: Saída
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: Table Storage

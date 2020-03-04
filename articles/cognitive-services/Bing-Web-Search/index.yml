@@ -14,12 +14,12 @@ metadata:
   author: aahill
   ms.author: aahi
   ms.date: 11/06/2019
-  ms.openlocfilehash: cdea2cf08824a2e715dc36b4cbe2dbe3ab712e3b
-  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+  ms.openlocfilehash: 5a200591b80c48cf23e6481da715a59c1a448dce
+  ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/28/2020
-  ms.locfileid: "77919588"
+  ms.lasthandoff: 03/03/2020
+  ms.locfileid: "78250597"
 highlightedContent:
   items:
   - title: Comparar as APIs de Pesquisa do Bing
@@ -65,13 +65,13 @@ conceptualContent:
       url: ../bing-custom-search/quick-start.md
     - text: Utilizar C#
       itemType: quickstart
-      url: ../bing-custom-search/sdk-csharp-quick-start.md
+      url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
     - text: Utilizar Java
       itemType: quickstart
-      url: ../bing-custom-search/sdk-java-quickstart.md
+      url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-java
     - text: Utilizar Python
       itemType: quickstart
-      url: ../bing-custom-search/sdk-python-quickstart.md
+      url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-python
     - text: Criar uma aplicação Web de página única
       itemType: tutorial
       url: ../bing-custom-search/tutorials/custom-search-web-page.md
