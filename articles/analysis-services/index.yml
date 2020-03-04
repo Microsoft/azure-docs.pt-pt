@@ -11,12 +11,12 @@ metadata:
   ms.author: owend
   manager: mtillman
   ms.date: 10/30/2019
-  ms.openlocfilehash: db43da63ab9382d71c812c97dcef6048b89a9626
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 8c0d92cc7f50ec72b33d86335291580a477db056
+  ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73572195"
+  ms.lasthandoff: 03/04/2020
+  ms.locfileid: "78273659"
 landingContent:
 - title: Sobre o Azure Analysis Services
   linkLists:
@@ -63,4 +63,4 @@ landingContent:
     - text: API REST
       url: /rest/api/analysisservices/
     - text: Linguagem de Script de Modelo em Tabela (TMSL)
-      url: /bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
+      url: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference

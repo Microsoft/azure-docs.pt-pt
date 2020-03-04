@@ -4,7 +4,7 @@
   items:
     - name: O que é o Catálogo de Dados?
       href: overview.md
-- name: Início Rápido
+- name: Guias de Início Rápido
   items:
     - name: Criar um Catálogo de Dados do Azure
       href: data-catalog-get-started.md

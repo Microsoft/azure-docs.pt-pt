@@ -136,7 +136,7 @@
           href: provision-throughput-autopilot.md
         - name: FAQ acerca do Autopilot
           href: autopilot-faq.md
-    - name: Referência de consulta SQL
+    - name: Consulta SQL
       items:
         - name: Introdução
           displayName: 'sql query, query basics'
@@ -437,6 +437,9 @@
             - name: Indexar dados geoespaciais
               displayName: 'geospatial, spatial, index'
               href: sql-query-geospatial-index.md
+        - name: DateTime
+          displayName: 'datetime, date, time'
+          href: working-with-dates.md
         - name: Consulta parametrizada
           displayName: 'parameterized query, parameterized, parameter, parameters'
           href: sql-query-parameterized-queries.md
@@ -464,10 +467,6 @@
             - name: Políticas de indexação
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: Tipos de dados
-          items:
-            - name: DateTime
-              href: working-with-dates.md
         - name: Time to live
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md

@@ -4,7 +4,8 @@
   items:
     - name: O que é o Azure Front Door Service?
       href: front-door-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
+  expanded: true
   items:
     - name: Criar uma Porta de Entrada
       href: quickstart-create-front-door.md

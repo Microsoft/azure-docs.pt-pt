@@ -10,12 +10,12 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.date: 02/24/2020
-  ms.openlocfilehash: 1bfd088fec830c34407f7905977feabbd320069d
-  ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+  ms.openlocfilehash: c852d1ffbc1ef3853d5d409d7f0818cb7943cdc3
+  ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/27/2020
-  ms.locfileid: "77655927"
+  ms.lasthandoff: 03/04/2020
+  ms.locfileid: "78269031"
 landingContent:
 - title: Acerca do Jenkins no Azure
   linkLists:
@@ -36,7 +36,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Criar um servidor Jenkins
-      url: install-jenkins-solution-template.md
+      url: install-solution-template-quickstart.md
   - linkListType: download
     links:
     - text: Tarefas e scripts de exemplo

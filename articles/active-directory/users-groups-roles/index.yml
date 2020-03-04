@@ -12,12 +12,12 @@ metadata:
   ms.date: 11/08/2019
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: 2e7a21395059a73047678aa02ff8119511597b74
-  ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+  ms.openlocfilehash: 242bbfa3143827162b087e231d99b6de451d4908
+  ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/13/2019
-  ms.locfileid: "74026413"
+  ms.lasthandoff: 03/04/2020
+  ms.locfileid: "78272994"
 landingContent:
 - title: Sobre utilizadores, grupos, funções e licenças
   linkLists:
@@ -38,7 +38,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Adicionar um utilizador
-      url: https://review.docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+      url: https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - text: Definir política de expiração para grupos
       url: groups-quickstart-expiration.md
     - text: Atribuir licenças a utilizadores
