@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f3e1581e2e96c0915fa92a51f60311f90eb79ee5
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: e42be651de6fc70f5fe075a1bc1bee8010b886d7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78160849"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274340"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Quickstart: Adquira um símbolo e ligue para a Microsoft Graph API usando a identidade da app de consola
 
@@ -78,7 +78,7 @@ Este arranque rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downl
 > [!div class="sxs-lookup" renderon="portal"]
 > Executar o projeto usando o Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Descarregue a amostra de código]()
+> [Descarregue a amostra de código](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]

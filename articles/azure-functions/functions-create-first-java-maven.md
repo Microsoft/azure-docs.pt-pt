@@ -1,20 +1,22 @@
 ---
-title: Use Java e Maven para publicar uma função no Azure
-description: Crie e publique uma função desencadeada pelo HTTP para Azure com Java e Maven.
-author: rloutlaw
+title: Use Java e Maven/Gradle para publicar uma função no Azure
+description: Crie e publique uma função desencadeada pelo HTTP para Azure com Java e Maven ou Gradle.
+author: KarlErickson
+ms.author: karler
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 262afc2aa51aea260d5bd810b12e09de60b0c371
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+zone_pivot_groups: java-build-tools-set
+ms.openlocfilehash: dbdcf2552b453fa72bfec616a02bd45afc45fb0f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249585"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272737"
 ---
-# <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Quickstart: Use Java e Maven para criar e publicar uma função no Azure
+# <a name="quickstart-use-java-and-mavengradle-to-create-and-publish-a-function-to-azure"></a>Quickstart: Use Java e Maven/Gradle para criar e publicar uma função no Azure
 
-Este artigo mostra-lhe como construir e publicar uma função Java para funções Azure com a ferramenta de linha de comando Maven. Quando terminar, o seu código de função funciona em Azure num plano de [hospedagem sem servidores](functions-scale.md#consumption-plan) e é desencadeado por um pedido http.
+Este artigo mostra-lhe como construir e publicar uma função Java para funções Azure com a ferramenta de linha de comando Maven/Gradle. Quando terminar, o seu código de função funciona em Azure num plano de [hospedagem sem servidores](functions-scale.md#consumption-plan) e é desencadeado por um pedido http.
 
 <!--
 > [!NOTE] 
@@ -26,9 +28,15 @@ Este artigo mostra-lhe como construir e publicar uma função Java para funçõe
 Para desenvolver funções com o Java, tem de ter o seguinte instalado:
 
 - [Java Development Kit](https://aka.ms/azure-jdks), versão 8
-- [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
 - [CLI do Azure]
 - [Funções Azure Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou superior
+::: zone pivot="java-build-tools-maven" 
+- [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+- [Gradle](https://gradle.org/), versão 4.10 e acima
+::: zone-end 
 
 Também precisa de uma subscrição azure ativa. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,34 +44,20 @@ Também precisa de uma subscrição azure ativa. [!INCLUDE [quickstarts-free-tri
 > [!IMPORTANT]
 > A variável de ambiente do JAVA_HOME tem de ser definida para a localização de instalação do JDK para concluir este guia de introdução.
 
-## <a name="generate-a-new-functions-project"></a>Gerar um novo projeto das Funções
+## <a name="prepare-a-functions-project"></a>Preparar um projeto funções
 
+::: zone pivot="java-build-tools-maven" 
 Numa pasta vazia, execute o seguinte comando para gerar o projeto das Funções a partir de um [arquétipo do Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-### <a name="linuxmacos"></a>Linux/macOS
-
 ```bash
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype 
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
 > [!NOTE]
+> Se estiver a utilizar o Powershell, lembre-se de adicionar "" em torno dos parâmetros.
+
+> [!NOTE]
 > Se está a ter problemas com o comando, veja qual é a versão `maven-archetype-plugin` usada. Como está a executar o comando num diretório vazio sem `.pom` ficheiro, pode estar a tentar utilizar um plugin da versão mais antiga de `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` se atualizou o seu Maven a partir de uma versão mais antiga. Em caso afirmativo, tente apagar o diretório `maven-archetype-plugin` e reexecutar o comando.
-
-### <a name="windows"></a>Windows
-
-```powershell
-mvn archetype:generate `
-    "-DarchetypeGroupId=com.microsoft.azure" `
-    "-DarchetypeArtifactId=azure-functions-archetype"
-```
-
-```cmd
-mvn archetype:generate ^
-    "-DarchetypeGroupId=com.microsoft.azure" ^
-    "-DarchetypeArtifactId=azure-functions-archetype"
-```
 
 Maven pede-lhe valores necessários para terminar gerando o projeto na implantação. Forneça os seguintes valores quando solicitado:
 
@@ -79,7 +73,35 @@ Maven pede-lhe valores necessários para terminar gerando o projeto na implanta�
 
 Digite `Y` ou prima Introduza para confirmar.
 
-A Maven cria os ficheiros do projeto numa nova pasta com um nome de _artefactoId_, que neste exemplo é `fabrikam-functions`. 
+A Maven cria os ficheiros do projeto numa nova pasta com um nome de _artefactoId_, que neste exemplo é `fabrikam-functions`. Executar o seguinte comando para alterar o diretório para a pasta do projeto criada.
+```bash
+cd fabrikam-function
+```
+
+::: zone-end 
+::: zone pivot="java-build-tools-gradle"
+Utilize o seguinte comando para clonar o projeto da amostra:
+
+```bash
+git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
+cd azure-functions-samples-java/
+```
+
+Abra `build.gradle` e mude a `appName` na secção seguinte para um nome único para evitar conflitos de nomes de domínio ao ser implantado para Azure. 
+
+```gradle
+azurefunctions {
+    resourceGroup = 'java-functions-group'
+    appName = 'azure-functions-sample-demo'
+    pricingTier = 'Consumption'
+    region = 'westus'
+    runtime {
+      os = 'windows'
+    }
+    localDebug = "transport=dt_socket,server=y,suspend=n,address=5005"
+}
+```
+::: zone-end
 
 Abra o novo ficheiro Function.java a partir do caminho *src/main/java* num editor de texto e reveja o código gerado. Este código é uma função desencadeada em [HTTP](functions-bindings-http-webhook.md) que ecoa o corpo do pedido. 
 
@@ -88,15 +110,23 @@ Abra o novo ficheiro Function.java a partir do caminho *src/main/java* num edito
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
-Executar o seguinte comando, que muda o diretório para a pasta do projeto recém-criada, em seguida, constrói e executa o projeto de função:
+Executar o seguinte comando para construir e executar o projeto de função:
 
-```console
-cd fabrikam-function
+::: zone pivot="java-build-tools-maven" 
+```bash
 mvn clean package 
 mvn azure-functions:run
 ```
+::: zone-end 
 
-Você vê saída como o seguinte das Ferramentas Core funções azure quando executa o projeto localmente:
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle jar --info
+gradle azureFunctionsRun
+```
+::: zone-end 
+
+Você verá a saída como o seguinte das Ferramentas Core funções azure quando executar o projeto localmente:
 
 ```output
 ...
@@ -112,7 +142,7 @@ Http Functions:
 
 Desencadear a função a partir da linha de comando utilizando cURL numa nova janela de terminais:
 
-```CMD
+```bash
 curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```
 
@@ -135,13 +165,22 @@ az login
 > [!TIP]
 > Se a sua conta conseguir aceder a várias subscrições, utilize o [conjunto de conta Az](/cli/azure/account#az-account-set) para definir a subscrição predefinida para esta sessão. 
 
-Utilize o seguinte comando Maven para implementar o seu projeto numa nova aplicação de funções. 
+Utilize o seguinte comando para implementar o seu projeto numa nova aplicação de funções. 
 
-```console
+
+::: zone pivot="java-build-tools-maven" 
+```bash
 mvn azure-functions:deploy
 ```
+::: zone-end 
 
-Este `azure-functions:deploy` alvo Maven cria os seguintes recursos em Azure:
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle azureFunctionsDeploy
+```
+::: zone-end
+
+Isto criará os seguintes recursos em Azure:
 
 + Grupo de recursos. Nomeado com o _recursoGroup_ que forneceu.
 + Conta de armazenamento. Exigido por Funções. O nome é gerado aleatoriamente com base nos requisitos de nome da conta de armazenamento.

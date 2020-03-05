@@ -1,14 +1,17 @@
 ---
 title: Ligue a sua função Java ao Armazenamento Azure
 description: Aprenda a ligar uma função Java acionada pelo HTTP ao Armazenamento Azure utilizando uma ligação de saída de armazenamento de fila.
+author: KarlErickson
+ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: 72e3aad15ea8ef922d89a67891e223b65473b909
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+zone_pivot_groups: java-build-tools-set
+ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198552"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272795"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Ligue a sua função Java ao Armazenamento Azure
 
@@ -112,10 +115,19 @@ Está pronto para experimentar a nova ligação de saída local.
 
 Como antes, utilize o seguinte comando para construir o projeto e iniciar o funcionamento das Funções localmente:
 
+::: zone pivot="java-build-tools-maven"  
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle jar --info
+gradle azureFunctionsRun
+```
+::: zone-end
 
 > [!NOTE]  
 > Uma vez que permitiu pacotes de extensão no host.json, a extensão de [encadernação de Armazenamento](functions-bindings-storage-blob.md#add-to-your-functions-app) foi descarregada e instalada para si durante o arranque, juntamente com as outras extensões de ligação da Microsoft.
@@ -138,9 +150,17 @@ Em seguida, usa o Azure CLI para ver a nova fila e verificar se foi adicionada u
 
 Para atualizar a sua aplicação publicada, volte a executar o seguinte comando:  
 
-```azurecli
+::: zone pivot="java-build-tools-maven"  
+```bash
 mvn azure-functions:deploy
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle azureFunctionsDeploy
+```
+::: zone-end
 
 Mais uma vez, pode utilizar cURL para testar a função implantada. Como antes, passe o valor `AzureFunctions` no corpo do pedido post para o URL, como neste exemplo:
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 1e80fa23519104c3c62f6a0bf5d65cbbe0848ae2
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: f3621feb688b3b257cd4f685a9be306d75700f4a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443827"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273618"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -40,15 +40,15 @@ O gateway da aplicação suporta a rescisão sSL/TLS no gateway, após o qual o 
 
 ## <a name="autoscaling"></a>Dimensionamento automático
 
-Implementações de Gateway de aplicação ou WAF sob Standard_v2 ou WAF_v2 suporte SKU autoscalcificação e podem escalar para cima ou para baixo com base na alteração dos padrões de carga de tráfego. O dimensionamento automático também elimina o requisito de escolher um tamanho de implementação ou uma contagem de instâncias ou durante o aprovisionamento. Para obter mais informações sobre as funcionalidades Standard_v2 e WAF_v2 do Gateway de Aplicação, consulte [Autoscaling v2 SKU](application-gateway-autoscaling-zone-redundant.md).
+O Gateway de aplicação Standard_v2 suporta a autoescalação e pode escalar para cima ou para baixo com base na alteração dos padrões de carga de tráfego. O dimensionamento automático também elimina o requisito de escolher um tamanho de implementação ou uma contagem de instâncias ou durante o aprovisionamento. Para obter mais informações sobre as funcionalidades Standard_v2 De gateway de aplicação, consulte [Autoscaling v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="zone-redundancy"></a>Redundância da zona
 
-Um Gateway de aplicação ou implementações WAF sob Standard_v2 ou WAF_v2 SKU pode abranger várias Zonas de Disponibilidade, oferecendo uma melhor resiliência de falhas e removendo a necessidade de fornecer gateways de aplicação separados em cada zona.
+Um Gateway de aplicação Standard_v2 pode abranger várias Zonas de Disponibilidade, oferecendo uma melhor resiliência de falhas e removendo a necessidade de fornecer gateways de aplicação separados em cada zona.
 
 ## <a name="static-vip"></a>VIP estático
 
-A porta de entrada de aplicação VIP na Standard_v2 ou WAF_v2 SKU suporta exclusivamente o tipo VIP estático. Isto garante que o VIP associado ao gateway de aplicação não muda mesmo ao longo da vida do Gateway de Aplicação.
+O portal de aplicação Standard_v2 SKU suporta exclusivamente o tipo VIP estático. Isto garante que o VIP associado ao gateway de aplicação não muda mesmo ao longo da vida do Gateway de Aplicação.
 
 ## <a name="web-application-firewall"></a>Firewall de aplicação Web
 
@@ -75,7 +75,7 @@ Para mais informações, consulte [o encaminhamento baseado em URL com o Applica
 
 ## <a name="multiple-site-hosting"></a>Alojamento de vários sites
 
-O alojamento de vários sites permite-lhe configurar mais do que um site na mesma instância do gateway de aplicação. Esta funcionalidade permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 web sites a um Gateway de Aplicação, ou 40 para WAF (para um desempenho ótimo). Cada site pode ser direcionado para o seu próprio agrupamento. Por exemplo, o gateway de aplicação pode servir o tráfego para `contoso.com` e `fabrikam.com` a partir de dois agrupamentos de servidores denominados ContosoServerPool e FabrikamServerPool.
+O alojamento de vários sites permite-lhe configurar mais do que um site na mesma instância do gateway de aplicação. Esta funcionalidade permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 web sites a um Gateway de Aplicação (para um desempenho ótimo). Cada site pode ser direcionado para o seu próprio agrupamento. Por exemplo, o gateway de aplicação pode servir o tráfego para `contoso.com` e `fabrikam.com` a partir de dois agrupamentos de servidores denominados ContosoServerPool e FabrikamServerPool.
 
 Os pedidos de `http://contoso.com` são encaminhados para ContosoServerPool e os pedidos de `http://fabrikam.com` são encaminhados para FabrikamServerPool.
 
@@ -135,9 +135,9 @@ Para mais informações, consulte [os cabeçalhos http.](rewrite-http-headers.md
 
 ## <a name="sizing"></a>Dimensionamento
 
-O Gateway de aplicação Standard_v2 e WAF_v2 SKU podem ser configurados para implementações de tamanho fixo ou autoscalcificação. Estas SKUs não oferecem tamanhos diferentes de instâncias. Para obter mais informações sobre desempenho e preços v2, consulte [Autoscaling v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
+O Gateway de aplicação Standard_v2 pode ser configurado para implementações de tamanho fixo ou autodimensionado. Este SKU não oferece tamanhos diferentes de instâncias. Para obter mais informações sobre desempenho e preços v2, consulte [Autoscaling v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing).
 
-O Aplicativo Gateway Standard e WAF SKU é atualmente oferecido em três tamanhos: **Pequeno,** **Médio**e **Grande**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
+A Norma Gateway aplicação é oferecida em três tamanhos: **Pequeno,** **Médio**e **Grande.** Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
 
 Para obter uma lista completa dos limites do gateway de aplicação, veja [limites do serviço Gateway de Aplicação](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 

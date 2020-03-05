@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Início rápido-cluster kubernetes do Azure para Linux
+title: (DEPRECIADO) Quickstart - Cluster Azure Kubernetes para Linux
 description: Aprenda rapidamente a criar um cluster do Kubernetes para contentores do Linux no Azure Container Service com a CLI do Azure.
 author: iainfoulds
 ms.service: container-service
@@ -7,27 +7,27 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 5c182d6119f59daaf21e4b4e1304363eeb0c11e5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: cfd0f8a9a3180b14b4da9dc61e252054fe06628c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273507"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274179"
 ---
-# <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>PRETERIDO Implantar o cluster kubernetes para contêineres do Linux
+# <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(DEPRECIADO) Implementar o cluster Kubernetes para contentores Linux
 
 > [!TIP]
-> Para obter a versão atualizada deste guia de início rápido que usa o serviço kubernetes do Azure, consulte [início rápido: implantar um cluster do AKS (serviço kubernetes do Azure)](../../aks/kubernetes-walkthrough.md).
+> Para a versão atualizada este quickstart que utiliza o Serviço Azure Kubernetes, consulte [Quickstart: Implemente um cluster azure Kubernetes Service (AKS).](../../aks/kubernetes-walkthrough.md)
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Neste guia rápido, é implementado um cluster do Kubernetes com a CLI do Azure. Depois, é implementada e executada no cluster uma aplicação de vários contentores que consiste num front-end da Web e numa instância de Redis. Depois de concluída, a aplicação está acessível através da Internet. 
+Neste arranque rápido, um cluster Kubernetes é implantado usando o Azure CLI. Depois, é implementada e executada no cluster uma aplicação de vários contentores que consiste num front-end da Web e numa instância de Redis. Depois de concluída, a aplicação está acessível através da Internet. 
 
 A aplicação de exemplo utilizada neste documento está escrita em Python. Os conceitos e os passos detalhados aqui podem ser utilizados para implementar qualquer imagem de contentor num cluster de Kubernetes. O código, o Dockerfile e os ficheiros de manifesto do Kubernetes pré-criados relacionados com este projeto estão disponíveis no [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-Este início rápido pressupõe um conhecimento básico dos conceitos do Kubernetes. Para obter informações detalhadas sobre o Kubernetes, veja a [documentação do Kubernetes]( https://kubernetes.io/docs/home/).
+Este guia de introdução pressupõe um conhecimento básico dos conceitos do Kubernetes. Para obter informações detalhadas sobre o Kubernetes, veja a [documentação do Kubernetes]( https://kubernetes.io/docs/home/).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -35,13 +35,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *westeurope*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
@@ -64,7 +64,7 @@ Saída:
 
 Crie um cluster do Kubernetes no Azure Container Service com o comando [az acs create](/cli/azure/acs#az-acs-create). O exemplo seguinte cria um cluster com o nome *myK8sCluster* com um nó principal do Linux e três nós de agente do Linux.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
 
@@ -76,23 +76,23 @@ Ao fim de vários minutos, o comando é concluído e devolve informações sobre
 
 Para gerir um cluster de Kubernetes, utilize [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comandos do Kubernetes. 
 
-Se estiver a utilizar o Azure CloudShell, kubectl já está instalado. Se pretender instalá-lo localmente, pode utilizar o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
+Se estiver a utilizar o Azure Cloud Shell, o kubectl já está instalado. Se pretender instalá-lo localmente, pode utilizar o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 
 Para configurar kubectl para se ligar ao seu cluster do Kubernetes, execute o comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes). Este passo transfere credenciais e configura a CLI do Kubernetes para as utilizar.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
 Para verificar a ligação ao cluster, utilize o comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) para devolver uma lista de nós do cluster.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 Saída:
 
-```bash
+```output
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-14ad53a1-0    Ready                      10m       v1.6.6
 k8s-agent-14ad53a1-1    Ready                      10m       v1.6.6
@@ -169,13 +169,13 @@ spec:
 
 Utilize o comando [kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) para executar a aplicação.
 
-```azurecli-interactive
+```console
 kubectl create -f azure-vote.yml
 ```
 
 Saída:
 
-```bash
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -188,13 +188,13 @@ service "azure-vote-front" created
 
 Para monitorizar o progresso, utilize o comando [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) com o argumento `--watch`.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 Inicialmente, o **EXTERNAL-IP** do serviço *azure-vote-front* aparece como *pendente*. Quando o endereço EXTERNAL-IP mudar de *pendente* para *Endereço IP*, utilize `CTRL-C` para parar o processo de observação do kubectl. 
   
-```bash
+```output
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
@@ -206,13 +206,13 @@ Agora, pode navegar para o endereço IP externo para ver a aplicação Azure Vot
 ## <a name="delete-cluster"></a>Eliminar o cluster
 Quando o cluster já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 ## <a name="get-the-code"></a>Obter o código
 
-Neste início rápido, foram utilizadas imagens de contentores pré-criadas para criar uma implementação de Kubernetes. O código da aplicação relacionado, o Dockerfile, e o ficheiro de manifesto do Kubernetes, estão disponíveis no GitHub.
+Neste guia de introdução, foram utilizadas imagens de contentores pré-criadas para criar uma implementação de Kubernetes. O código da aplicação relacionado, o Dockerfile, e o ficheiro de manifesto do Kubernetes, estão disponíveis no GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 

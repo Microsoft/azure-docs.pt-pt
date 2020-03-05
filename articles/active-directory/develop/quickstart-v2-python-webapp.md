@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 5a2d6bfe2c58d382aea14b6ca8d4151acb9adfbf
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 34f0fb57b4432a8153f2cbaa8cb60edbb9a6f494
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78160871"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271088"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Quickstart: Adicione o sessão com a Microsoft a uma aplicação web Python
 
@@ -97,7 +97,7 @@ Para executar esta amostra, você precisará:
 > [!div class="sxs-lookup" renderon="portal"]
 > Descarregue o projeto e extraio o ficheiro zip para uma pasta local mais próxima da pasta raiz - por exemplo, **C:\Azure-Samples**
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Descarregue a amostra de código]()
+> [Descarregue a amostra de código](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-application"></a>Passo 3: Configurar a Aplicação

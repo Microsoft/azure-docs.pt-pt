@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a61bc852d3042d0bd8828bf89dce6ab6b760d092
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77459689"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272960"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -34,7 +34,7 @@ O Azure Analysis Services integra-se em muitos serviços do Azure, o que lhe per
 
 ## <a name="the-right-tier-when-you-need-it"></a>O escalão certo quando precisa
 
-O Azure Analysis Services está disponível nos escalões **Programador**, **Básico** e **Standard**. Dentro de cada camada, os custos do plano variam de acordo com a capacidade de processamento, QPUs (unidades de processamento de consulta) e o tamanho da memória. Quando criar um servidor, selecione um plano de dentro de uma camada. Pode mudar para níveis superiores ou inferiores no mesmo escalão ou atualizar para um escalão superior, mas não pode passar de um escalão superior para um mais baixo.
+O Azure Analysis Services está disponível nos escalões **Programador**, **Básico** e **Standard**. Dentro de cada nível, os custos do plano variam de acordo com o poder de processamento, as Unidades de Processamento de Consultas (QPUs) e o tamanho da memória. Quando criar um servidor, selecione um plano de dentro de uma camada. Pode mudar para níveis superiores ou inferiores no mesmo escalão ou atualizar para um escalão superior, mas não pode passar de um escalão superior para um mais baixo.
 
 ### <a name="developer-tier"></a>Escalão de programador
 
@@ -214,7 +214,7 @@ As tarefas de gestão de recursos do servidor, como criar recursos de servidores
 
 ### <a name="object-model-and-scripting"></a>Scripting e modelos de objetos
 
-Os modelos em tabela proporcionam desenvolvimento rápido e são altamente personalizáveis. Estes modelos incluem o [Modelo de Objeto em Tabela](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) para descrever os objetos de modelos. O TOM é exposto em JSON, através da [linguagem TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ,e da linguagem de definição de dados AMO, através do espaço de nomes [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular). 
+Os modelos em tabela proporcionam desenvolvimento rápido e são altamente personalizáveis. Estes modelos incluem o [Modelo de Objeto em Tabela](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) para descrever os objetos de modelos. O TOM é exposto em JSON, através da [linguagem TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) ,e da linguagem de definição de dados AMO, através do espaço de nomes [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular). 
 
 ## <a name="supports-the-latest-client-tools"></a>Suporta as ferramentas de cliente mais recentes
 

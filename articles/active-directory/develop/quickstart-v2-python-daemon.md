@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
-ms.openlocfilehash: f80f586c783293f87e3b7de469eff07d2e4802d8
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: c0967c411aa10d046caee13441b046bf0f462442
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78160902"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274331"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Quickstart: Adquira um símbolo e ligue para o Microsoft Graph API a partir de uma aplicação de consola Python usando a identidade da app
 
@@ -80,7 +80,7 @@ Para executar esta amostra, precisa de:
 > [Descarregue o projeto Python daemon](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
 
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Descarregue a amostra de código]()
+> [Descarregue a amostra de código](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
