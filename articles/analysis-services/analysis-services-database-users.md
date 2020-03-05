@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901487"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273707"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
 
@@ -25,7 +25,7 @@ As permissões de funções incluem:
 *  **Processo** - Os utilizadores podem ligar e executar operações de processo na base de dados e analisar dados de base de dados de modelos.
 *  **Ler** - Os utilizadores podem usar uma aplicação do cliente para conectar e analisar dados de base de dados de modelos.
 
-Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou grupos a essas funções utilizando o Role Manager em Visual Studio com projetos de Serviços de Análise. Quando implantado num servidor, utiliza o Estúdio de Gestão de Servidores SQL (SSMS), serviços de [análise PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou Linguagem de [Scripts de Modelo Tabular](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para adicionar ou remover funções e membros do utilizador.
+Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou grupos a essas funções utilizando o Role Manager em Visual Studio com projetos de Serviços de Análise. Quando implantado num servidor, utiliza o Estúdio de Gestão de Servidores SQL (SSMS), serviços de [análise PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou Linguagem de [Scripts de Modelo Tabular](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para adicionar ou remover funções e membros do utilizador.
 
 **Os grupos** de segurança devem ser [ativados por correio](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a `MailEnabled` imóvel definida para `True`. Ao especificar um grupo por endereço de e-mail, utilize `obj:groupid@tenantid`.
 
@@ -44,10 +44,10 @@ Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou
   
     |Permissão|Descrição|  
     |----------------|-----------------|  
-    |**Nenhum**|Os membros não podem ler ou modificar o esquema do modelo e não podem consultar os dados.|  
+    |**Nenhuma.**|Os membros não podem ler ou modificar o esquema do modelo e não podem consultar os dados.|  
     |**Leitura**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
     |**Ler e Processar**|Os membros podem consultar dados (com base em filtros ao nível da linha) e executar o Processo e o Processo Todas as operações, mas não podem modificar o esquema do modelo.|  
-    |**Process**|Os membros podem executar processando e processar todas as operações. Não é possível ler ou modificar o esquema do modelo e não pode consultar dados.|  
+    |**Processo**|Os membros podem executar processando e processar todas as operações. Não é possível ler ou modificar o esquema do modelo e não pode consultar dados.|  
     |**Administrador**|Os membros podem modificar o esquema do modelo e consultar todos os dados.|   
   
 5.  Se o papel que está a criar tiver permissão de Leitura ou Leitura e Processo, pode adicionar filtros de linha utilizando uma fórmula DAX. Clique no separador **Filtros de Linha,** depois selecione uma tabela, clique no campo **de filtro DAX** e, em seguida, digite uma fórmula DAX.
@@ -85,7 +85,7 @@ Para adicionar funções e utilizadores a uma base de dados de modelos implement
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Para adicionar funções e utilizadores utilizando um script TMSL
 
-Pode executar um script TMSL na janela XMLA no SSMS ou utilizando o PowerShell. Utilize o comando [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) e o objeto [Funções.](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl)
+Pode executar um script TMSL na janela XMLA no SSMS ou utilizando o PowerShell. Utilize o comando [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) e o objeto [Funções.](https://docs.microsoft.com/analysis-services/tmsl/roles-object-tmsl)
 
 **Script TMSL da amostra**
 
@@ -123,9 +123,9 @@ O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/an
   
 |Cmdlet|Descrição|
 |------------|-----------------| 
-|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicione um membro a uma função de base de dados.| 
-|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remova um membro de uma função de base de dados.|   
-|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Execute um script TMSL.|
+|[Membro adum](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicione um membro a uma função de base de dados.| 
+|[Remover-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remova um membro de uma função de base de dados.|   
+|[Invocar-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Execute um script TMSL.|
 
 ## <a name="row-filters"></a>Filtros de linha  
 
@@ -137,7 +137,7 @@ Os filtros de linha só podem ser definidos para funções com permissões de Le
   
 Os filtros de remo aplicam-se às linhas especificadas e às linhas relacionadas. Quando uma mesa tem múltiplas relações, os filtros aplicam segurança para a relação que está ativa. Os filtros de linha são interseccionados com outros filetes de linha definidos para tabelas relacionadas, por exemplo:  
   
-|Tabelas|Expressão DAX|  
+|Tabela|Expressão DAX|  
 |-----------|--------------------|  
 |Região|=Região[País]="EUA"|  
 |Categoria de Produtos|=Categoria de Produto[Nome]="Bicicletas"|  
@@ -151,5 +151,5 @@ Os filtros de remo aplicam-se às linhas especificadas e às linhas relacionadas
 
   [Gerir os administradores do servidor](analysis-services-server-admins.md)   
   [Gerir serviços de análise azure com powerShell](analysis-services-powershell.md)  
-  [Referência tabular modelo scripting (TMSL)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
+  [Referência tabular modelo scripting (TMSL)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)
 

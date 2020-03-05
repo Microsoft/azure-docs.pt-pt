@@ -11,12 +11,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 02/27/2020
 ms.author: aahi
-ms.openlocfilehash: 97f4b9659e893acc07e370cd50aedb96b8ada59c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 91beae69489c8ac7741b173b25fdbc87c861a9e8
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252906"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270951"
 ---
 # <a name="quickstart-use-the-bing-custom-search-client-library"></a>Quickstart: Use a biblioteca de clientes bing custom search
 
@@ -26,14 +26,14 @@ ms.locfileid: "78252906"
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python quickstart](../includes/quickstarts/custom-search-client-library-python.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-java"
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/custom-search-client-library-java.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/custom-search-client-library-python.md)]
 
 ::: zone-end

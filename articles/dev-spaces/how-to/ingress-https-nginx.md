@@ -5,12 +5,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Saiba como configurar o Azure Dev Spaces para utilizar um controlador de ingresso NGINX personalizado e configurar HTTPS utilizando esse controlador de ingresso
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: 9c3598ea39dd7b48c622126a9adbaa75d4c9d934
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 2debe6daf409200059f28aef52202223193e8f0c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622426"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270053"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Utilize um controlador de ingresso NGINX personalizado e configure HTTPS
 
@@ -23,7 +23,7 @@ Este artigo mostra-lhe como configurar o Azure Dev Spaces para utilizar um contr
 * [Cluster azure Kubernetes Service (AKS) com espaços Azure Dev ativados][qs-cli].
 * [kubectl][kubectl] instalado.
 * [Leme 3 instalado.][helm-installed]
-* [Um domínio personalizado][custom-domain] com uma [Zona DNS][dns-zone] no mesmo grupo de recursos que o seu cluster AKS.
+* [Um domínio personalizado][custom-domain] com uma [Zona DNS.][dns-zone]  Este artigo assume que o domínio personalizado e a Zona DNS estão no mesmo grupo de recursos que o seu cluster AKS, mas é possível usar um domínio personalizado e zona DNS em um grupo de recursos diferente.
 
 ## <a name="configure-a-custom-nginx-ingress-controller"></a>Configure um controlador de ingresso NNGX personalizado
 

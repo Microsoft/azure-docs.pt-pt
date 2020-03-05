@@ -1,65 +1,66 @@
 ---
-title: Versão Microsoft Threat Modeling Tool 1/29/2019 – Azure
-description: Documentando as notas de versão da ferramenta de modelagem de ameaças
+title: Microsoft Threat Modeling Tool lança 1/29/2019
+titleSuffix: Azure
+description: Documentando as notas de lançamento para a ferramenta de modelação de ameaças
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/25/2019
-ms.openlocfilehash: cec5abe358189184648c5a40a809b570f243fbf4
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 7d0be8d7243331264c10a407e3d78370ea798928
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75548794"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269780"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Versão de atualização da Threat Modeling Tool 7.1.60126.1 - 29/01/2019
 
-A versão 7.1.60126.1 do Microsoft Threat Modeling Tool foi lançada em janeiro de 29 2019 e contém as seguintes alterações:
+A versão 7.1.60126.1 da Microsoft Threat Modeling Tool foi lançada a 29 de janeiro de 2019 e contém as seguintes alterações:
 
-- A versão mínima necessária do .NET foi aumentada para o [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
-- A versão mínima necessária do Windows foi aumentada para a [atualização de aniversário do Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) devido à dependência do .net.
-- Um recurso de alternância de validação de modelo foi adicionado ao menu de opções da ferramenta.
-- Vários links nas propriedades de ameaça foram atualizados.
-- Alterações de UX secundárias na tela inicial da ferramenta.
-- O Threat Modeling Tool agora herda as configurações de TLS do sistema operacional do host e tem suporte em ambientes que exigem o TLS 1,2 ou superior.
+- A versão mínima exigida de .NET foi aumentada para [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
+- A versão mínima exigida do Windows foi aumentada para a Atualização de [Aniversário do Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) devido à dependência .NET.
+- Foi adicionada uma função de alternância de validação de modelos ao menu Opções da ferramenta.
+- Várias ligações nas Propriedades ameaçadoras foram atualizadas.
+- Pequenas alterações ux no ecrã principal da ferramenta.
+- A Ferramenta de Modelação de Ameaças herda agora as definições tLS do sistema operativo hospedeiro e é suportada em ambientes que requerem TLS 1.2 ou superior.
 
-## <a name="feature-changes"></a>Alterações de recurso
+## <a name="feature-changes"></a>Alterações de funcionalidades
 
-### <a name="model-validation-option"></a>Opção de validação de modelo
+### <a name="model-validation-option"></a>Opção de validação de modelos
 
-Com base nos comentários do cliente, uma opção foi adicionada à ferramenta para habilitar ou desabilitar a validação do modelo. Anteriormente, se o modelo usava um único fluxo de dados unidirecional entre dois objetos, você pode ter recebido uma mensagem de erro no quadro mensagens informando: ObjectName requer pelo menos um ' any '. Desabilitar a validação do modelo impedirá que esses avisos sejam mostrados na exibição.
+Com base no feedback do cliente, foi adicionada uma opção à ferramenta para ativar ou desativar a validação do modelo. Anteriormente, se o seu modelo usasse um único fluxo de dados unidirecional entre dois objetos, pode ter recebido uma mensagem de erro no quadro de Mensagens afirmando: O Nome dos Objetos requer pelo menos um 'Qualquer'. A validação do modelo incapacitante impedirá que estes avisos apareçam na vista.
 
-A opção para ativar e desativar a validação do modelo pode ser encontrada no menu > opções configurações de > de arquivo. O valor padrão dessa configuração é desabilitado.
+A opção de alternar a validação do modelo dentro e fora pode ser encontrada no menu File&>Settings->Options. O valor predefinido para esta definição é desativado.
 
-![Opção de validação de modelo](./media/threat-modeling-tool-releases-71601261/tmt_model_validation_option.png)
+![Opção de Validação de Modelos](./media/threat-modeling-tool-releases-71601261/tmt_model_validation_option.png)
 
 ## <a name="system-requirements"></a>Requisitos de sistema
 
 - Sistemas Operativos Suportados
-  - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior
-- Versão do .NET necessária
+  - [Microsoft Windows 10 Atualização](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) de Aniversário ou mais tarde
+- versão .NET necessária
   - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
 - Requisitos Adicionais
-  - Uma conexão com a Internet é necessária para receber atualizações para a ferramenta, bem como modelos.
+  - É necessária uma ligação à Internet para receber atualizações da ferramenta, bem como modelos.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="unsupported-systems"></a>Sistemas sem suporte
+### <a name="unsupported-systems"></a>Sistemas não suportados
 
 #### <a name="issue"></a>Problema
 
-Os usuários de sistemas Windows 10 que não puderem instalar o .NET 4.7.1 ou posterior, como o Windows 10 Enterprise LTSB (versão 1507), não poderão abrir a ferramenta após a atualização. Essas versões mais antigas do Windows não têm mais suporte para as plataformas do Threat Modeling Tool e não devem instalar a atualização mais recente.
+Os utilizadores de sistemas Windows 10 que não consigam instalar .NET 4.7.1 ou posteriormente, como o Windows 10 Enterprise LTSB (versão 1507), não poderão abrir a ferramenta após a atualização. Estas versões mais antigas do Windows já não são plataformas suportadas para a Ferramenta de Modelação de Ameaças, e não devem instalar a mais recente atualização.
 
 #### <a name="workaround"></a>Solução
 
-Os usuários do Windows 10 Enterprise LTSB (versão 1507) que instalaram a atualização mais recente podem reverter para a versão anterior do Threat Modeling Tool por meio da caixa de diálogo desinstalar em aplicativos & recursos.
+Os utilizadores do Windows 10 Enterprise LTSB (versão 1507) que instalaram a mais recente atualização podem reverter para a versão anterior da Ferramenta de Modelação de Ameaças através do diálogo desinstalado em Apps & Features.
 
-## <a name="documentation-and-feedback"></a>Documentação e comentários
+## <a name="documentation-and-feedback"></a>Documentação e feedback
 
-- A documentação do Threat Modeling Tool está localizada em [docs.Microsoft.com](threat-modeling-tool.md)e inclui informações [sobre como usar a ferramenta](threat-modeling-tool-getting-started.md).
+- A documentação para a Ferramenta de Modelação de Ameaças está localizada na [docs.microsoft.com,](threat-modeling-tool.md)e inclui informações [sobre a utilização da ferramenta.](threat-modeling-tool-getting-started.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Baixe a versão mais recente do [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).
+Descarregue a versão mais recente da Ferramenta de [Modelação de Ameaças da Microsoft](https://aka.ms/threatmodelingtool).

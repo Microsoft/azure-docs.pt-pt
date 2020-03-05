@@ -1,6 +1,6 @@
 ---
-title: Tutorial`:` usar uma identidade gerenciada para acessar o armazenamento do Azure-Linux-Azure AD
-description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema de uma VM do Linux, para aceder ao Armazenamento do Azure.
+title: Tutorial`:` Utilize uma identidade gerida para aceder ao Armazenamento Azure através da chave de acesso - Linux - Azure AD
+description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema numa VM do Linux, para aceder ao Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 03/04/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35c31fbf8c7c1aa37134a1808cd3f54a559833c1
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183423"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273827"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure
 
@@ -66,7 +66,7 @@ Neste passo, pode conceder à identidade gerida atribuída pelo sistema da VM ac
 
 1. Navegue de volta para a sua conta de armazenamento recentemente criada.
 2. Clique na ligação **Controlo de acesso (IAM)** no painel esquerdo.  
-3. Clique em **+ Adicionar atribuição de função** na parte superior da página para adicionar uma nova atribuição de função para sua VM
+3. Clique + Adicione a atribuição de **funções** em cima da página para adicionar uma nova atribuição de funções para o seu VM
 4. Defina a **Função** como “Função do Serviço de Operador de Chave da Conta de Armazenamento”, no lado direito da página. 
 5. Na lista pendente seguinte, defina **Atribuir acesso a** ao recurso "Máquina Virtual".  
 6. Em seguida, certifique-se de que a subscrição adequada está listada na lista pendente **Subscrição** e, em seguida, defina **Grupo de Recursos** como "Todos os grupos de recursos".  

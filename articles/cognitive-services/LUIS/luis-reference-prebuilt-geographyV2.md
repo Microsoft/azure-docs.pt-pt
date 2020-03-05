@@ -1,47 +1,47 @@
 ---
-title: Região predefinida da geography v2 – LUIS
+title: Entidade pré-construída de Geografia V2 - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade geographyV2 predefinidas em Reconhecimento vocal (LUIS).
+description: Este artigo contém geographyV2 informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 7a269f93820a6029370490448f02038f5aa3eb3e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b2b2b0781abce59628660b669f43110bf91b15e6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464900"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273497"
 ---
-# <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida GeographyV2 para um aplicativo LUIS
-A entidade geographyV2 predefinida detecta locais. Como essa entidade já está treinada, você não precisa adicionar o exemplo declarações que contém GeographyV2 às tentativas do aplicativo. A entidade GeographyV2 tem suporte na [cultura](luis-reference-prebuilt-entities.md)em inglês.
+# <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída geografiaV2 para uma app LUIS
+A entidade de geographyV2 pré-criados Deteta locais. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém GeographyV2 para os objetivos do aplicativo. A entidade GeographyV2 é apoiada na [cultura](luis-reference-prebuilt-entities.md)inglesa.
 
 ## <a name="subtypes"></a>Subtipos
-As localizações geográficas têm subtipos:
+As localizações geográficas tem subtipos:
 
 |Subtipo|Objetivo|
 |--|--|
 |`poi`|ponto de interesse|
 |`city`|nome da cidade|
-|`countryRegion`|nome do país ou da região|
+|`countryRegion`|nome do país ou região|
 |`continent`|nome do continente|
 |`state`|nome do Estado ou província|
 
 
-## <a name="resolution-for-geographyv2-entity"></a>Resolução para a entidade GeographyV2
+## <a name="resolution-for-geographyv2-entity"></a>Resolução de entidades de GeographyV2
 
-Os seguintes objetos de entidade são retornados para a consulta:
+Os seguintes objetos de entidade são devolvidos para consulta:
 
 `Carol is visiting the sphinx in gizah egypt in africa before heading to texas.`
 
-#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 
 ```json
 "entities": {
@@ -70,11 +70,11 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 }
 ```
 
-No JSON anterior, `poi` é uma abreviação de **ponto de interesse**.
+Na JSON anterior, `poi` é uma abreviatura de **Point of Interest.**
 
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+O seguinte JSON está com o parâmetro `verbose` definido para `true`:
 
 ```json
 "entities": {
@@ -161,9 +161,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo a seguir mostra a resolução da entidade **Builtin. geographyV2** .
+O exemplo seguinte mostra a resolução da entidade **builtin.geographyV2.**
 
 ```json
 "entities": [
@@ -205,10 +205,10 @@ O exemplo a seguir mostra a resolução da entidade **Builtin. geographyV2** .
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre o [email](luis-reference-prebuilt-email.md), [número](luis-reference-prebuilt-number.md)e entidades [ordinais](luis-reference-prebuilt-ordinal.md) . 
+Conheça o [e-mail](luis-reference-prebuilt-email.md), [número,](luis-reference-prebuilt-number.md)e entidades [ordinárias.](luis-reference-prebuilt-ordinal.md)

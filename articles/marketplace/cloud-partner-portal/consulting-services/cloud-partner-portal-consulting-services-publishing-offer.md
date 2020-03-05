@@ -1,50 +1,52 @@
 ---
-title: Oferta de serviço de consultoria do Azure e Dynamics 365 | Azure Marketplace
-description: Guia para definir e publicar uma oferta de serviço de consultoria do Azure ou Dynamics 365 no Portal do Cloud Partner.
+title: Oferta de serviço de consultoria Azure e Dynamics 365 Mercado Azure
+description: Guia para definir e publicar uma oferta de serviço de consultoria Azure ou Dynamics 365 no Portal do Parceiro cloud.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: 506b34281ba8ab5b669c87b4699fb8b138c8734a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/27/2020
+ms.author: evansma
+ms.openlocfilehash: d744c0bdcae177ca5cee5617622f04da7312e15f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819193"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268304"
 ---
-# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Oferta do serviço de consultoria do Azure e Dynamics 365
+# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Oferta de serviço de consultoria Azure e Dynamics 365
 
-Este artigo explica como publicar uma oferta de serviço de consultoria no Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> ou <a href="https://appsource.microsoft.com">AppSource</a>. As soluções baseadas no Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power bi</a>e <a href="https://powerapps.microsoft.com">PowerApps</a> podem ser listadas em AppSource. Outras ofertas com base em outros <a href="https://azure.microsoft.com/services">Serviços do Microsoft Azure</a> podem ser listadas no Azure Marketplace.
+Este artigo explica como publicar uma oferta de serviço de consultoria para o Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> ou <a href="https://appsource.microsoft.com">AppSource</a>. Soluções baseadas no Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>e Power <a href="https://powerapps.microsoft.com">Apps</a> podem ser listadas no AppSource. Outras <a href="https://azure.microsoft.com/services">ofertas baseadas</a> em outros serviços do Microsoft Azure podem ser listadas no Mercado Azure.
 
-## <a name="publishing-benefits"></a>Benefícios da publicação
+## <a name="publishing-benefits"></a>Benefícios de publicação
 
-A publicação em um dos Microsoft Marketplaces tem os seguintes benefícios:
+A publicação em qualquer um dos mercados da Microsoft tem os seguintes benefícios:
 
-- Promova sua empresa aproveitando a marca da Microsoft.
-- Pode alcançar mais de 100 milhões usuários do Office 365 e do Dynamics 365 no AppSource e alcançar mais de 200.000 organizações por meio do Azure Marketplace.
-- Obtenha leads de alta qualidade desses Marketplaces.
-- Obtenha seus serviços promovidos pelas equipes de campo e televendas da Microsoft.
+- Promova a sua empresa alavancando a marca Microsoft.
+- Potencialmente, atinge mais de 100 milhões de utilizadores do Office 365 e da Dynamics 365 no AppSource, e atinge mais de 200.000 organizações através do Azure Marketplace.
+- Obtenha pistas de alta qualidade destes mercados.
+- Promotem os vossos serviços pelas equipas de campo e televendas da Microsoft.
 
 ## <a name="publish-a-consulting-service-offer"></a>Publicar uma oferta de serviço de consultoria
 
-Esta seção descreve os elementos de publicação de uma oferta de serviço de consultoria. A publicação é dividida nas seguintes partes principais:
+Esta secção descreve os elementos da publicação de uma oferta de serviço de consultoria. A publicação é dividida nas seguintes partes principais:
 
-- Os [pré-requisitos do serviço de consultoria](./cpp-consulting-service-prerequisites.md) lista os requisitos para publicar uma oferta de serviço de consultoria para:
+- [Os pré-requisitos](./cpp-consulting-service-prerequisites.md) do serviço de consultoria listam os requisitos para publicar uma oferta de serviço de consultoria para:
  
     - Microsoft Azure
-    - Dynamics 365 for Customer Engagement 
-    - Dynamics 365 para operações de & de finanças 
-    - Dynamics 365 Business central 
+    - Participação do Cliente da Dinâmica 365 
+    - Dinâmica 365 Finanças e Operações 
+    - Dynamics 365 for Customer Insights
+    - Dinâmica 365 Business Central 
     - Power BI 
-    - PowerApps
-- [Criar uma nova oferta](./cpp-consulting-service-create-offer.md) lista as etapas necessárias para criar uma entrada de oferta de serviço de consultoria usando o portal do Cloud Partner:
-    - [Defina as configurações da oferta](./cpp-consulting-service-define-offer-settings.md).
-    - [Insira os detalhes da vitrine e se deseja publicar no Azure Marketplace ou no AppSource.](./cpp-consulting-service-storefront-details.md)
-- [Publicar sua oferta](./cpp-consulting-service-publish-offer.md) explica como enviar a oferta para publicação.
+    - Power Apps
+    - Power Automate
+- [Criar uma nova oferta](./cpp-consulting-service-create-offer.md) lista os passos necessários para criar uma oferta de serviço de consultoria utilizando o Portal do Parceiro cloud:
+    - [Defina as definições de oferta](./cpp-consulting-service-define-offer-settings.md).
+    - [Introduza detalhes da montra e publique no Azure Marketplace ou no AppSource.](./cpp-consulting-service-storefront-details.md)
+- [Publicar a sua oferta](./cpp-consulting-service-publish-offer.md) explica como submeter a oferta para publicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Antes de executar estas etapas para publicar sua oferta de serviço de consultoria, você deve atender aos [pré-requisitos](./cpp-consulting-service-prerequisites.md) para publicar uma oferta de serviço de consultoria.
+Antes de tomar estas medidas para publicar a sua oferta de serviço de consultoria, deve cumprir [os pré-requisitos](./cpp-consulting-service-prerequisites.md) para a publicação de uma oferta de serviço de consultoria.

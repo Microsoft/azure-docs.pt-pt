@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 02/24/2020
-ms.openlocfilehash: f27042679280581dc3a03113d75c5fb787bbf711
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c221ab793fb71169b62d81341d93fb95a018cc91
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616009"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273939"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transaccionalmente consistente de uma base de dados Azure SQL
 
@@ -146,7 +146,7 @@ Pode utilizar os passos na [base de dados Copy a SQL para uma](#copy-a-sql-datab
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Acompanhar o progresso da operação de cópia
 
-Monitorize o processo de cópia consultando as bases de [dados sys.,](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database.md)e [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database.md) vistas. Enquanto a cópia estiver em andamento, a coluna **state_desc** da visão de bases de dados sys.para a nova base de dados está definida para **COPYING**.
+Monitorize o processo de cópia consultando as bases de [dados sys.,](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) vistas. Enquanto a cópia estiver em andamento, a coluna **state_desc** da visão de bases de dados sys.para a nova base de dados está definida para **COPYING**.
 
 * Se a cópia falhar, **a** state_desc coluna das bases de dados sys.base de dados para a nova base de dados está definida como **SUSPEITA**. Execute a declaração DROP na nova base de dados e tente novamente mais tarde.
 * Se a cópia for bem sucedida, **a** state_desc coluna da visão sys.bases de dados para a nova base de dados está definida para **ONLINE**. A cópia está completa e a nova base de dados é uma base de dados regular que pode ser alterada independentemente da base de dados de origem.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 06ca2327b2859ffb0f5b314d7b92082d5a83dc48
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 1601ab6d81b888fd2247e95f22c58e1fc91df698
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594282"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273726"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instalar e utilizar cônsul no Serviço Azure Kubernetes (AKS)
 
@@ -51,7 +51,7 @@ Começaremos por descarregar a versão `v0.10.0` da tabela do Cônsul Helm. Esta
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [MacOS - download](includes/servicemesh/consul/download-bash.md)]
+[!INCLUDE [macOS - download](includes/servicemesh/consul/download-bash.md)]
 
 ::: zone-end
 
@@ -109,7 +109,7 @@ kubectl get pod --namespace consul --output wide
 
 A saída de exemplo seguinte mostra os serviços e cápsulas (programados nos nós linux) que devem estar agora a funcionar:
 
-```console
+```output
 NAME                                 TYPE           CLUSTER-IP    EXTERNAL-IP             PORT(S)                                                                   AGE     SELECTOR
 consul                               ExternalName   <none>        consul.service.consul   <none>                                                                    38s     <none>
 consul-consul-connect-injector-svc   ClusterIP      10.0.98.102   <none>                  443/TCP                                                                   3m26s   app=consul,component=connect-injector,release=consul
@@ -134,7 +134,7 @@ Todas as cápsulas devem mostrar um estado de `Running`. Se as suas cápsulas n�
 
 O Cônsul UI foi instalado na nossa configuração acima e fornece configuração baseada em UI para cônsul. A UI para Cônsul não é exposta publicamente através de um endereço ip externo. Para aceder à interface de utilizador do Cônsul, utilize o comando [porta-frente kubectl.][kubectl-port-forward] Este comando cria uma ligação segura entre a sua máquina cliente e a cápsula relevante no seu cluster AKS.
 
-```azurecli
+```console
 kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 ```
 
@@ -151,7 +151,7 @@ Agora pode abrir um navegador e apontá-lo para `http://localhost:8080/ui` para 
 
 Para remover o Cônsul do seu cluster AKS, utilize os seguintes comandos. Os comandos `helm delete` removerão o gráfico de `consul`, e o comando `kubectl delete namespace` removerá o espaço de nome `consul`.
 
-```azurecli
+```console
 helm delete --purge consul
 kubectl delete namespace consul
 ```

@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Tutorial do serviço de contêiner do Azure – implantar cluster
+title: (DEPRECIADO) Tutorial do Serviço de Contentores Azure - Cluster de Implantação
 description: Tutorial do Azure Container Service – Implementar Cluster
 author: iainfoulds
 ms.service: container-service
@@ -7,21 +7,21 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5cb21bff2834751843061910184499f37bde834e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: b8821f3bb3d48786697cbc4137baf530856774fd
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275443"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274014"
 ---
-# <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>PRETERIDO Implantar um cluster kubernetes no serviço de contêiner do Azure
+# <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(DEPRECIADO) Implementar um cluster Kubernetes no Serviço de Contentores Azure
 
 > [!TIP]
-> Para obter a versão atualizada deste tutorial que usa o serviço kubernetes do Azure, consulte [tutorial: implantar um cluster do AKS (serviço kubernetes do Azure)](../../aks/tutorial-kubernetes-deploy-cluster.md).
+> Para a versão atualizada este tutorial que utiliza o Serviço Azure Kubernetes, consulte [Tutorial: Implemente um cluster azure Kubernetes Service (AKS).](../../aks/tutorial-kubernetes-deploy-cluster.md)
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-O Kubernetes fornece uma plataforma distribuída para aplicações em contentores. Com o Azure Container Service, o aprovisionamento de um cluster Kubernetes pronto para produção é simples e rápido. Neste tutorial, parte 3 de 7, é implementado num cluster de Kubernetes do Azure Container Service. Os passos concluídos incluem:
+O Kubernetes dispõe de uma plataforma distribuída para aplicações em contentores. Com o Azure Container Service, o aprovisionamento de um cluster Kubernetes pronto para produção é simples e rápido. Neste tutorial, parte 3 de 7, é implementado num cluster de Kubernetes do Azure Container Service. Os passos concluídos incluem:
 
 > [!div class="checklist"]
 > * Implementar um cluster do Kubernetes ACS
@@ -40,7 +40,7 @@ Crie um cluster do Kubernetes no Azure Container Service com o comando [az acs c
 
 O exemplo seguinte cria um cluster com o nome `myK8sCluster` num Grupo de Recursos chamado `myResourceGroup`. Este Grupo de Recursos foi criado no [tutorial anterior](./container-service-tutorial-kubernetes-prepare-acr.md).
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
@@ -52,11 +52,11 @@ Ao fim de vários minutos, a implementação é concluída e devolve informaçõ
 
 Para ligar ao cluster de Kubernetes a partir do computador cliente, utilize [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comandos do Kubernetes. 
 
-Se estiver a utilizar o Azure CloudShell, kubectl já está instalado. Se pretender instalá-lo localmente, utilize o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
+Se estiver a utilizar o Azure Cloud Shell, o kubectl já está instalado. Se pretender instalá-lo localmente, utilize o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 
 Se executar no Linux ou no macOS, poderá ter de executar com sudo. No Windows, certifique-se de que a shell foi executada como administrador.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs kubernetes install-cli 
 ```
 
@@ -66,19 +66,19 @@ No Windows, a instalação predefinida é *c:\program files (x86)\kubectl.exe*. 
 
 Para configurar kubectl para se ligar ao seu cluster do Kubernetes, execute o comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes).
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
 ```
 
 Para verificar a ligação ao cluster, execute o comando [kubectl get nodes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 Saída:
 
-```bash
+```output
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-98dc3136-0    Ready                      5m        v1.6.2
 k8s-agent-98dc3136-1    Ready                      5m        v1.6.2

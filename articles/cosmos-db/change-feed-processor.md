@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f8ae85ffc16bd953f04f1c3d7790231939c1f2cf
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588912"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273312"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Alterar processador de feed em Azure Cosmos DB 
 
@@ -41,13 +41,14 @@ Para entender ainda como estes quatro elementos do processador de feed de mudan�
 
 O ponto de entrada é sempre o recipiente monitorizado, de um `Container` instância a que chama `GetChangeFeedProcessorBuilder`:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="DefineProcessor":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
 Onde o primeiro parâmetro é um nome distinto que descreve o objetivo deste processador e o segundo nome é a implementação do delegado que irá lidar com as alterações. 
 
 Um exemplo de um delegado seria:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="Delegate":::
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
 Por fim, define um nome para esta instância de processador com `WithInstanceName` e que é o recipiente para manter o estado de arrendamento com `WithLeaseContainer`.
 

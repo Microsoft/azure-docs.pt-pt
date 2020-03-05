@@ -1,114 +1,114 @@
 ---
-title: Limites-LUIS
+title: Limites - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém os limites conhecidos de Reconhecimento vocal de serviços cognitivas do Azure (LUIS). LUIS tem várias áreas de limite. O limite de modelo controla as intenções, as entidades e os recursos no LUIS. Limites de cota com base no tipo de chave. Combinação de teclado controla o site LUIS.
+description: Este artigo contém os limites de conhecidos do Azure Cognitive Services compreensão de idiomas (LUIS). LUIS tem várias áreas de limites. Limite de modelo controla intenções, entidades e recursos do LUIS. Limites de quota com base no tipo de chave. Combinação de teclado controla o Web site do LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 0654916b344cf47cf9942b883d62d392c0552979
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818940"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273506"
 ---
-# <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para o modelo e as chaves do LUIS
-LUIS tem várias áreas de limite. O primeiro é o [limite do modelo](#model-boundaries), que controla as intenções, as entidades e os recursos no Luis. A segunda área é [os limites de cota](#key-limits) com base no tipo de chave. Uma terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site Luis. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do Luis e as APIs de [ponto de extremidade](luis-glossary.md#endpoint) do Luis. 
+# <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para o seu modelo LUIS e chaves
+LUIS tem várias áreas de limites. O primeiro é o limite do [modelo,](#model-boundaries)que controla as intenções, entidades e características no LUIS. A segunda área é [os limites](#key-limits) de quota com base no tipo-chave. Uma terceira área de limites é a [combinação](#keyboard-controls) de teclado para controlar o site da LUIS. Uma quarta área é a [região mundial mapeando](luis-reference-regions.md) entre o site de autor luis e as APIs [endpoint](luis-glossary.md#endpoint) LUIS.
 
 
-## <a name="model-boundaries"></a>Limites de modelo
+## <a name="model-boundaries"></a>Limites do modelo
 
-Se o seu aplicativo exceder os limites e limites do modelo LUIS, considere o uso de um aplicativo de [expedição Luis](luis-concept-enterprise.md#dispatch-tool-and-model) ou o uso de um [contêiner Luis](luis-container-howto.md). 
+Se a sua aplicação exceder os limites e limites do modelo LUIS, considere utilizar uma aplicação de [despacho LUIS](luis-concept-enterprise.md#dispatch-tool-and-model) ou utilizar um [recipiente LUIS](luis-container-howto.md).
 
 |Área|Limite|
 |--|:--|
-| [Nome da aplicação ][luis-get-started-create-app] | \* Máximo de caracteres padrão |
-| Aplicações| 500 aplicativos por recurso de criação do Azure |
-| [Teste em lote][batch-testing]| 10 conjuntos de valores, 1000 declarações por conjunto de|
-| Lista explícita | 50 por aplicativo|
+| [Nome da aplicação ][luis-get-started-create-app] | \* Máximo de carateres de predefinido |
+| Aplicações| 500 candidaturas por recurso de autoria azure |
+| [Ensaio de lote][batch-testing]| conjuntos de dados de 10, expressões de 1000 por conjunto de dados|
+| Lista explícita | 50 por aplicação|
 | Entidades externas | sem limites |
-| [Tentativas][intents]|500 por aplicativo: 499 tentativas personalizadas e a intenção _nenhuma_ necessária.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem fontes de expedição 500 correspondentes.|
-| [Listar entidades](./luis-concept-entity-types.md) | Pai: 50, filho: 20.000 itens. Nome canônico é * caractere padrão máx. Os valores de sinônimo não têm restrição de comprimento. |
-| [Entidades e funções aprendidas por computador](./luis-concept-entity-types.md):<br> Spot<br>único<br>função de entidade|Um limite de entidades pai 100 ou de 330 entidades, o que limitará o usuário primeiro. Uma função conta como uma entidade para a finalidade desse limite. Um exemplo é uma composição com uma entidade simples, que tem duas funções: 1 composição + 1 simples + 2 funções = 4 das entidades 330.<br>Os subcomponentes podem ser aninhados em até 5 níveis.|
-|Modelo como um recurso| Número máximo de modelos que podem ser usados como um descritor (recurso) para um modelo específico para ter 10 modelos. O número máximo de listas de frases usadas como um descritor (recurso) para um modelo específico ter 10 listas de frases.|
-| [Visualização-entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~ 1K por solicitação de ponto de extremidade de previsão de consulta|
-| [Padrões](luis-concept-patterns.md)|500 padrões por aplicativo.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 padrão. qualquer entidade por padrão<br>Máximo de 2 textos opcionais aninhados em padrão|
-| [Padrão. any](./luis-concept-entity-types.md)|100 por aplicativo, 3 padrões. qualquer entidade por padrão |
-| [Lista de frases][phrase-list]|500 listas de frases. A expressão de frase não intercambiável tem no máximo 5.000 frases. A expressão intercambiável tem no máximo 50.000 frases. Número máximo de frases totais por aplicativo de 500.000 frases.|
-| [Entidades predefinidas](./luis-prebuilt-entities.md) | Sem limite|
-| [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>máximo de 500 caracteres. Por padrão de entidade de expressão regular|
-| [Funções](luis-concept-roles.md)|300 funções por aplicativo. 10 funções por entidade|
-| [Expressão][utterances] | 500 caracteres|
-| [Declarações][utterances] | 15.000 por aplicativo – não há limite para o número de declarações por tentativa|
-| [Versões](luis-concept-version.md)| 100 versões por aplicativo |
-| [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restritos a alfanuméricos e pontos (.) |
+| [Intenções][intents]|500 por aplicação: 499 intenções personalizadas, e a intenção de _nenhuma_ intencional.<br>A aplicação [baseada em despachos](https://aka.ms/dispatch-tool) tem 500 fontes de expedição correspondentes.|
+| [Lista de entidades](./luis-concept-entity-types.md) | Principal: Step-by 50, subordinado: 20 000 itens. É o nome canônico * predefinido máx. de caráter. Valores de sinónimos não ter nenhuma restrição de comprimento. |
+| [Entidades aprendidas por máquinas + funções:](./luis-concept-entity-types.md)<br> composto,<br>simples,<br>papel da entidade|Um limite de 100 entidades-mãe ou 330 entidades, o que limita o utilizador primeiro. Um papel conta como entidade para o propósito desta fronteira. Um exemplo é um compósito com uma entidade simples, que tem 2 funções é: 1 composto + 1 simples + 2 funções = 4 das 330 entidades.<br>Os subcomponentes podem ser aninhados até 5 níveis.|
+|Modelo como recurso| Número máximo de modelos que podem ser usados como descritor (recurso) para um modelo específico para ser 10 modelos. O número máximo de listas de frases utilizadas como descritor (recurso) para um modelo específico ser de 10 listas de frases.|
+| [Pré-visualização - Entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~1k por pedido de ponto final de previsão de consulta|
+| [Padrões](luis-concept-patterns.md)|500 padrões por aplicação.<br>Comprimento máximo do padrão é de 400 caracteres.<br>3 Pattern.any entidades, por padrão<br>Máximo de 2 textos de opcionais aninhados no padrão|
+| [Padrão.qualquer](./luis-concept-entity-types.md)|100 por aplicação, 3 pattern.any entidades, por padrão |
+| [Lista de frases][phrase-list]|500 listas de frases. A fraselista não permutável tem um máximo de 5.000 frases. A Lista de Frases Intercambiáveis tem um máximo de 50.000 frases. Número máximo de frases totais por aplicação de 500.000 frases.|
+| [Entidades pré-construídas](./luis-prebuilt-entities.md) | sem limite|
+| [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>máximo de 500 carateres. Por padrão de entidade de expressão regular|
+| [Funções](luis-concept-roles.md)|300 funções por aplicação. 10 funções por entidade|
+| [Proclamação][utterances] | 500 carateres|
+| [Expressões][utterances] | 15.000 por aplicação - não há limite para o número de expressões por intenção|
+| [Versões](luis-concept-version.md)| 100 versões por aplicação |
+| [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restringidas de alfanuméricos e período (.) |
 
-\* O caractere padrão máximo é de 1 a 50 caracteres. 
+\* Máximo de carateres de predefinido é 50 carateres.
 
 <a name="intent-and-entity-naming"></a>
 
-## <a name="name-uniqueness"></a>Exclusividade do nome
+## <a name="name-uniqueness"></a>Nome singularidade
 
-Use as regras de exclusividade de nomenclatura a seguir.
+Use as seguintes regras de singularidade de nomeação.
 
-O seguinte deve ser exclusivo em um aplicativo LUIS:
+O seguinte deve ser único dentro de uma aplicação LUIS:
 
 * Nome da versão
-* tentativa
+* intenção
 * entidade
-* funções
+* roles
 
-O seguinte deve ser exclusivo dentro do escopo aplicado:
+O seguinte deve ser único dentro do âmbito aplicado:
 
-* lista de frases 
+* lista de frases
 
-## <a name="object-naming"></a>Nomenclatura de objeto
+## <a name="object-naming"></a>Nomeação de objeto
 
-Não use os seguintes caracteres nos nomes a seguir.
+Não utilize os seguintes caracteres nos seguintes nomes.
 
 |Object|Excluir caracteres|
 |--|--|
-|Nomes de intenção, entidade e função|`:`<br>`$` <br> `&`|
+|Nomes de intenção, entidade e papéis|`:`<br>`$` <br> `&`|
 |Nome da versão|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
-## <a name="key-usage"></a>Uso da chave
+## <a name="key-usage"></a>Utilização de chaves
 
-O entendimento da linguagem tem chaves separadas, um tipo para a criação e um tipo para consultar o ponto de extremidade de previsão. Para saber mais sobre as diferenças entre os tipos de chave, veja [criação e consulta de chaves de ponto de extremidade de previsão em Luis](luis-concept-keys.md).
+Language Understand tem teclas separadas, um tipo para autoria, e um tipo para consulta do ponto final da previsão. Para saber mais sobre as diferenças entre os tipos-chave, consulte [as chaves finais de autor e](luis-concept-keys.md)previsão de consulta em LUIS .
 
 <a name="key-limits"></a>
 
-## <a name="resource-key-limits"></a>Limites de chave de recurso
+## <a name="resource-key-limits"></a>Limites de chave de recursos
 
-As chaves de recurso têm limites diferentes para criação e ponto de extremidade. A chave do ponto de extremidade de consulta de previsão LUIS só é válida para consultas de ponto de extremidade. 
+As teclas de recursos têm limites diferentes para a autoria e o ponto final. A chave final da consulta de previsão LUIS só é válida para consultas de ponto final.
 
-* 500 aplicativos por recurso de criação do Azure 
+* 500 candidaturas por recurso de autoria azure
 
 |Chave|Criação|Ponto Final|Objetivo|
 |--|--|--|--|
-|Inicial|1 milhão/mês, 5/segundo|1 mil/mês, 5/segundo|Criando seu aplicativo LUIS|
-|F0-camada gratuita |1 milhão/mês, 5/segundo|10 mil/mês, 5/segundo|Consultando seu ponto de extremidade LUIS|
-|S0 – camada básica|-|50/segundo|Consultando seu ponto de extremidade LUIS|
-|S0 – camada padrão|-|50/segundo|Consultando seu ponto de extremidade LUIS|
-|[Integração da análise de sentimentos](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|Adicionar informações de sentimentos, incluindo extração de dados de frase-chave, é fornecido sem a necessidade de outro recurso do Azure. |
-|[Integração de fala](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1000 solicitações de ponto de extremidade por custo unitário|Converter expressão falado em expressão de texto e retornar resultados de LUIS|
+|Inicial|1 milhão/mês, 5/segundo|1 mil/mês, 5/segundo|Criação da sua aplicação LUIS|
+|F0 - Nível livre |1 milhão/mês, 5/segundo|10 mil/mês, 5/segundo|Consultar o ponto de final do LUIS|
+|S0 - Nível básico|-|50/segundo|Consultar o ponto de final do LUIS|
+|S0 - Nível standard|-|50/segundo|Consultar o ponto de final do LUIS|
+|[Integração de análise de sentimento](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|A adição de informações de sentimento, incluindo a extração de dados de frase-chave, é fornecida sem precisar de outro recurso Azure. |
+|[Integração da fala](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1 mil pedidos de ponto final por custo unitário|Converter a expressão falada em expressão de texto e devolvem os resultados de LUIS|
 
 [Saiba mais sobre preços.][pricing]
 
 ## <a name="keyboard-controls"></a>Controles de teclado
 
-|Entrada de teclado | Descrição | 
+|Entrada de teclado | Descrição |
 |--|--|
-|Controle + E|alterna entre tokens e entidades na lista de declarações|
+|Controle + E|Alterna entre tokens e de entidades na lista de expressões|
 
-## <a name="website-sign-in-time-period"></a>Período de tempo de entrada do site
+## <a name="website-sign-in-time-period"></a>Período de hora de inscrição no site
 
-Seu acesso de entrada é por **60 minutos**. Após esse período de tempo, você receberá esse erro. Você precisa entrar novamente.
+O seu acesso ao registo é de **60 minutos.** Após este período de tempo, irá obter este erro. Precisa voltar a assinar.
 
 [luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
 [batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test#batch-testing

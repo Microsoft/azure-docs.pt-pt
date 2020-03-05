@@ -1,35 +1,35 @@
 ---
-title: Entidade predefinida do ordinal v2-LUIS
+title: Entidade pré-construída Ordinal V2 - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade predefinidas do ordinal V2 em Reconhecimento vocal (LUIS).
+description: Este artigo contém informações da entidade ordinal V2 pré-construída sinal em Compreensão da Língua (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 02bc6657126cb1cf241c2ca4668e62bd49608d4b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5e852313db75e598da647ea0f985e2ee18af16de
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491261"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270488"
 ---
-# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida do ordinal v2 para um aplicativo LUIS
-O número do ordinal v2 expande o [ordinal](luis-reference-prebuilt-ordinal.md) para fornecer referências relativas, como `next`, `last`e `previous`. Eles não são extraídos usando a entidade predefinida ordinal.
+# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída Ordinal V2 para uma app LUIS
+O número Ordinal V2 expande [o Ordinal](luis-reference-prebuilt-ordinal.md) para fornecer referências relativas como `next`, `last`e `previous`. Estes não são extraídos utilizando a entidade ordinal pré-construída.
 
-## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Resolução para a entidade do ordinal v2 predefinida
+## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Resolução para entidade ordinal V2 pré-construída
 
-Os seguintes objetos de entidade são retornados para a consulta:
+Os seguintes objetos de entidade são devolvidos para consulta:
 
 `what is the second to last choice in the list`
 
-#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 
 ```json
 "entities": {
@@ -42,9 +42,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
 }
 ```
 
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+O seguinte JSON está com o parâmetro `verbose` definido para `true`:
 
 ```json
 "entities": {
@@ -71,9 +71,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo a seguir mostra a resolução da entidade **Builtin. ordinalV2** .
+O exemplo seguinte mostra a resolução da entidade **builtin.ordinalV2.**
 
 ```json
 "entities": [
@@ -89,10 +89,10 @@ O exemplo a seguir mostra a resolução da entidade **Builtin. ordinalV2** .
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre a [porcentagem](luis-reference-prebuilt-percentage.md), o [número de telefone](luis-reference-prebuilt-phonenumber.md)e as entidades de [temperatura](luis-reference-prebuilt-temperature.md) . 
+Conheça a [percentagem,](luis-reference-prebuilt-percentage.md) [número de telefone](luis-reference-prebuilt-phonenumber.md)e entidades de [temperatura.](luis-reference-prebuilt-temperature.md)

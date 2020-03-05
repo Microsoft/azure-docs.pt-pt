@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7d6b4f8a7965a7cbcab2616650b40ed93087072b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: 1ace4ce5b9b0fd59a69e908c1f31d1ad4853889b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589977"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271860"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança azure para HDInsight
 
@@ -65,7 +65,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteger aplicações web críticas
 
-**Orientação**: Não disponível; o benchmark destina-se ao Azure Apps Service ou aos recursos de computação que hospedam aplicações web.
+**Orientação**: Não aplicável; o benchmark destina-se ao Azure Apps Service ou aos recursos de computação que hospedam aplicações web.
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -125,7 +125,7 @@ Endereços IP de gestão HDInsight: https://docs.microsoft.com/azure/hdinsight/h
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: Gerir o tráfego para aplicações web
 
-**Orientação**: Não disponível; o benchmark destina-se ao Azure Apps Service ou aos recursos de computação que hospedam aplicações web.
+**Orientação**: Não aplicável; o benchmark destina-se ao Azure Apps Service ou aos recursos de computação que hospedam aplicações web.
 
 **Monitorização**do Azure Security Center : Não aplicável
 
@@ -331,7 +331,7 @@ Como alertar sobre os dados de registo de análise de registo:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade**: Cliente
 
@@ -491,7 +491,7 @@ Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade**: Cliente
 
@@ -713,7 +713,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
-**Responsabilidade**: Cliente
+**Responsabilidade**: Partilhado
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Encriptar informações sensíveis em repouso
 
@@ -779,7 +779,7 @@ Opcionalmente, se tiver uma subscrição rápida 7, Qualys ou qualquer outra sub
 
 Como instalar o agente Rapid7 manualmente:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/azure-security-center
 
 
 Como instalar o Agente Qualys manualmente:
@@ -926,11 +926,12 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição.  Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
+Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
 Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Como criar consultas com o Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -972,7 +973,9 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
+
 Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Como negar um tipo específico de recurso com a Política Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
@@ -993,9 +996,7 @@ Como negar um tipo específico de recurso com a Política Azure: https://docs.mi
 **Orientação**: Utilize o Acesso Condicional azure para limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure configurando o "Block access" para a app "Microsoft Azure Management".
 
 
-Como configurar o Acesso Condicional ao acesso ao portal Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Como configurar o Acesso Condicional ao acesso ao Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -1003,7 +1004,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitar a capacidade dos utilizadores de executar scripts dentro dos recursos computacionais
 
-**Orientação**: Não disponível; Isto não é aplicável ao Azure HDInsight, uma vez que os utilizadores (não administradores) do cluster não precisam de ter acesso aos nós individuais para executar postos de trabalho. O administrador do cluster tem acesso de raiz a todos os nós do cluster.
+**Orientação**: Não aplicável; Isto não é aplicável ao Azure HDInsight, uma vez que os utilizadores (não administradores) do cluster não precisam de ter acesso aos nós individuais para executar postos de trabalho. O administrador do cluster tem acesso de raiz a todos os nós do cluster.
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -1011,7 +1012,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Segregar fisicamente ou logicamente aplicações de alto risco
 
-**Orientação**: Não disponível; o benchmark destina-se ao Azure Apps Service ou aos recursos de computação que hospedam aplicações web.
+**Orientação**: Não aplicável; o benchmark destina-se ao Azure Apps Service ou aos recursos de computação que hospedam aplicações web.
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -1095,7 +1096,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Armazenar de forma segura imagens do sistema operativo personalizado
 
-**Orientação**: Não disponível; imagens personalizadas não aplicáveis ao Azure HDInsight.
+**Orientação**: Não aplicável; imagens personalizadas não aplicáveis ao Azure HDInsight.
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -1343,7 +1344,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Orientação**: O Centro de Segurança atribui uma severidade aos alertas, para o ajudar a priorizar a ordem em que atende a cada alerta, para que, quando um recurso estiver comprometido, possa chegar ao mesmo imediatamente. A gravidade baseia-se na confiança do Centro de Segurança na descoberta ou na analítica usada para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade**: Cliente
 
@@ -1421,3 +1422,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Microsoft 
 
 **Responsabilidade**: Partilhado
 
+## <a name="next-steps"></a>Passos seguintes
+
+- Ver o [Benchmark de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Saiba mais sobre [as linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

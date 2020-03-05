@@ -1,38 +1,38 @@
 ---
-title: Entidade predefinida ordinal-LUIS
+title: Entidade Ordinal Pré-construída - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade predefinidas ordinais em Reconhecimento vocal (LUIS).
+description: Este artigo contém informações de entidade pré-criados ordinal na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: b2a2d9e78a0b152da14bb737079cf0dfdef0dc05
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bb3bb27db48255f534e873ed4e93ac62f07016af
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491244"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273452"
 ---
-# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida ordinal para um aplicativo LUIS
-O número ordinal é uma representação numérica de um objeto dentro de um conjunto: `first`, `second``third`. Como essa entidade já está treinada, você não precisa adicionar o exemplo declarações que contém o ordinal às tentativas do aplicativo. Há suporte para a entidade ordinal em [muitas culturas](luis-reference-prebuilt-entities.md). 
+# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Entidade ordinal pré-construída para uma app LUIS
+O número ordinal é uma representação numérica de um objeto dentro de um conjunto: `first`, `second`, `third`. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém ordinal para os objetivos do aplicativo. A entidade ordinal é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
 
 ## <a name="types-of-ordinal"></a>Tipos de ordinal
-O ordinal é gerenciado do repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45)
+Ordinal é gerido a partir do repositório GitHub [de texto reconheço](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45)
 
-## <a name="resolution-for-prebuilt-ordinal-entity"></a>Resolução para entidade ordinal predefinida
+## <a name="resolution-for-prebuilt-ordinal-entity"></a>Resolução de entidade ordinal pré-criados
 
-Os seguintes objetos de entidade são retornados para a consulta:
+Os seguintes objetos de entidade são devolvidos para consulta:
 
 `Order the second option`
 
-#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 
 ```json
 "entities": {
@@ -41,8 +41,8 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
+O seguinte JSON está com o parâmetro `verbose` definido para `true`:
 
 ```json
 "entities": {
@@ -67,9 +67,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 }
 ```
 
-#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo a seguir mostra a resolução da entidade **Builtin. Ordinal** .
+O exemplo seguinte mostra a resolução da entidade **incorporada.ordinal.**
 
 ```json
 "entities": [
@@ -84,10 +84,10 @@ O exemplo a seguir mostra a resolução da entidade **Builtin. Ordinal** .
   }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre as entidades [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [número de telefone](luis-reference-prebuilt-phonenumber.md)e [temperatura](luis-reference-prebuilt-temperature.md) . 
+Conheça as entidades [OrdinalV2,](luis-reference-prebuilt-ordinal-v2.md)número de [telefone](luis-reference-prebuilt-phonenumber.md)e [temperatura.](luis-reference-prebuilt-temperature.md)

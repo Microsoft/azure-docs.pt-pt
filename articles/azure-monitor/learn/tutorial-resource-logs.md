@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 9f88a69e8d24cfa8654ac2bea3344c9adf81c16a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670411"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269199"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Recolher e analisar registos de recursos de um recurso Azure
 
@@ -46,7 +46,7 @@ Um espaço de trabalho de Log Analytics no Azure Monitor recolhe e indexa dados 
    - **Subscrição**: Selecione a subscrição para armazenar o espaço de trabalho. Esta não é necessária a mesma subscrição que o recurso que está a ser monitorizado.
    - **Grupo de Recursos**: Selecione um grupo de recursos existente ou clique **em Criar novo** para criar um novo. Este não precisa de ser o mesmo grupo de recursos que o recurso que está a ser monitorizado.
    - **Localização**: Selecione uma região Azure ou crie uma nova. Este não precisa de ser o mesmo local que o recurso que está a ser monitorizado.
-   - **Nível de preços**: Selecione *Free* que irá reter 7 dias de dados. Pode alterar este nível de preços mais tarde. Clique no link de **preços log Analytics** para saber mais sobre diferentes níveis de preços.
+   - **Nível**de preços: Selecione *Pay-as-you-go* como o nível de preços. Pode alterar este nível de preços mais tarde. Clique no link de **preços log Analytics** para saber mais sobre diferentes níveis de preços.
 
     ![Nova área de trabalho](media/tutorial-resource-logs/new-workspace.png)
 

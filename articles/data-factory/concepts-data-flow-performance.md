@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 02/24/2020
-ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: cca22c499efde74bb1469222d2f8a6e576452aa2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587588"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273222"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de dados de mapeamento de fluxos de dados e afinação
 
@@ -59,6 +59,9 @@ Por predefinição, ligar o depurado utilizará o tempo de funcionação padrão
 
 ![Parte fonte](media/data-flow/sourcepart3.png "Parte fonte")
 
+> [!NOTE]
+> Um bom guia para ajudá-lo a escolher o número de divisórias para a sua fonte baseia-se no número de núcleos que definiu para o seu Tempo de Integração Azure e multiplique esse número por cinco. Assim, por exemplo, se estiver a transformar uma série de ficheiros nas suas pastas ADLS e utilizar um Azure IR de 32 núcleos, o número de divisórias que você teria como alvo é de 32 x 5 = 160 divisórias.
+
 ### <a name="source-batch-size-input-and-isolation-level"></a>Tamanho do lote de origem, entrada e nível de isolamento
 
 No âmbito **das Opções de Origem** na transformação da fonte, as seguintes definições podem afetar o desempenho:
@@ -100,7 +103,7 @@ Para evitar inserções de fila a linha no seu DW, verifique **a preparação do
 
 Em cada transformação, pode definir o esquema de partição que deseja que a fábrica de dados utilize no separador Otimize. É uma boa prática testar pias baseadas em ficheiros mantendo as divisórias e otimizações padrão.
 
-* Para ficheiros mais pequenos, pode descobrir que selecionar *a Partição Única* pode, por vezes, funcionar melhor e mais rapidamente do que pedir à Spark para dividir os seus pequenos ficheiros.
+* Para ficheiros mais pequenos, pode descobrir que escolher menos divisórias pode, por vezes, funcionar melhor e mais rápido do que pedir à Spark para dividir os seus pequenos ficheiros.
 * Se não tiver informações suficientes sobre os seus dados de origem, escolha a partilha *round robin* e detetetete o número de divisórias.
 * Se os seus dados têm colunas que podem ser boas teclas de hash, escolha *a divisão hash*.
 

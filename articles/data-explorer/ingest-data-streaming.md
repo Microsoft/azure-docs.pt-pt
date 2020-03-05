@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: b99827ff9fd01c7179a25fafd05bfc8e4ef8ae63
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 279130fa310b107bd1a016c717c48af3d905251b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921101"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270148"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestão de streaming (Pré-visualização)
 
@@ -37,7 +37,7 @@ Utilize a ingestão clássica (a granel) em vez de transmitir ingestão quando a
  
     ![ingestão de streaming em](media/ingest-data-streaming/streaming-ingestion-on.png)
  
-1. Na [Web UI,](https://dataexplorer.azure.com/)defina a política de [ingestão](/azure/kusto/concepts/streamingingestionpolicy) de streaming na tabela ou na ou na base de dados que receberão dados de streaming. 
+1. Na [Web UI,](https://dataexplorer.azure.com/)defina a política de [ingestão](/azure/kusto/management/streamingingestionpolicy) de streaming na tabela ou na ou na base de dados que receberão dados de streaming. 
 
     > [!NOTE]
     > * Se a política for definida ao nível da base de dados, todas as tabelas da base de dados estão habilitadas para o streaming de ingestão.
@@ -63,7 +63,7 @@ Existem dois tipos de ingestão de streaming suportados:
 > [!WARNING]
 > A ingestão de streaming incapacitante pode demorar algumas horas.
 
-1. Deixe cair a política de [ingestão](/azure/kusto/concepts/streamingingestionpolicy) de streaming de todas as tabelas e bases de dados relevantes. A remoção da política de ingestão de streaming desencadeia o movimento de dados de ingestão do armazenamento inicial para o armazenamento permanente na loja de colunas (extensões ou fragmentos). O movimento de dados pode durar entre alguns segundos a algumas horas, dependendo da quantidade de dados no armazenamento inicial e de como o CPU e a memória são utilizados pelo cluster.
+1. Deixe cair a política de [ingestão](/azure/kusto/management/streamingingestionpolicy) de streaming de todas as tabelas e bases de dados relevantes. A remoção da política de ingestão de streaming desencadeia o movimento de dados de ingestão do armazenamento inicial para o armazenamento permanente na loja de colunas (extensões ou fragmentos). O movimento de dados pode durar entre alguns segundos a algumas horas, dependendo da quantidade de dados no armazenamento inicial e de como o CPU e a memória são utilizados pelo cluster.
 1. No portal Azure, vá ao seu cluster Azure Data Explorer. Em **Configurações,** selecione **Configurações**. 
 1. No painel de **configurações,** selecione **Off** para desativar a **ingestão**de streaming .
 1. Selecione **Guardar**.

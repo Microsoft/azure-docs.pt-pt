@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: df1e363f31aa8c88be54454c9dc060f4ed6b7ca1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 1317ea6526a28c5d71dce1a3c25b2fd05f5e446b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588897"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271295"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Quickstart: Criar um portal NAT usando o Azure CLI
 
@@ -61,7 +61,7 @@ Para aceder à Internet pública, precisa de um ou mais endereços IP públicos 
 
 ### <a name="create-a-public-ip-prefix"></a>Criar um prefixo IP público
 
-Pode utilizar um ou mais recursos públicos de endereçoip, prefixos IP públicos ou ambos com gateway NAT. Vamos adicionar um recurso público de prefixo IP a este cenário para demonstrar.   Utilize a criação de [prefixo público-ip](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) da rede Az para criar um recurso público de prefixo IP denominado **myPublicIPprefix** no **myResourceGroupNAT**.
+Pode utilizar um ou mais recursos públicos de endereçoip, prefixos IP públicos ou ambos com gateway NAT. Vamos adicionar um recurso público de prefixo IP a este cenário para demonstrar.   Utilize a criação de [prefixo público-ip](https://docs.microsoft.com/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) da rede Az para criar um recurso público de prefixo IP denominado **myPublicIPprefix** no **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip prefix create \

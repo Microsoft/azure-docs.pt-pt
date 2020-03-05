@@ -1,35 +1,35 @@
 ---
-title: Referência de email de entidades predefinidas do LUIS
+title: Referência de email de entidades pré-construídas LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade de email predefinidas no Reconhecimento vocal (LUIS).
+description: Este artigo contém e-mail informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 6f262752a50b58eae8ffbea81b8e7fc4d8c65b98
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f7aa2a341a82d30f7022af49e626a3cd358854b7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464977"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273471"
 ---
-# <a name="email-prebuilt-entity-for-a-luis-app"></a>Entidade de email predefinida para um aplicativo LUIS
-A extração de email inclui o endereço de email inteiro de um expressão. Como essa entidade já está treinada, você não precisa adicionar o exemplo declarações que contém o email às tentativas do aplicativo. A entidade de email tem suporte somente na cultura `en-us`. 
+# <a name="email-prebuilt-entity-for-a-luis-app"></a>E-mail entidade pré-construída para uma app LUIS
+Extração de e-mail inclui o endereço de e-mail completo de uma expressão. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém o e-mail para os objetivos do aplicativo. A entidade de e-mail é suportada apenas na cultura `en-us`.
 
-## <a name="resolution-for-prebuilt-email"></a>Resolução para email predefinido
+## <a name="resolution-for-prebuilt-email"></a>Resolução de correio eletrónico pré-criados
 
-Os seguintes objetos de entidade são retornados para a consulta:
+Os seguintes objetos de entidade são devolvidos para consulta:
 
 `please send the information to patti@contoso.com`
 
-#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 
 ```json
 "entities": {
@@ -38,9 +38,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+O seguinte JSON está com o parâmetro `verbose` definido para `true`:
 
 ```json
 "entities": {
@@ -64,9 +64,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo a seguir mostra a resolução da entidade **Builtin. email** .
+O exemplo seguinte mostra a resolução da entidade **builtin.email.**
 
 ```json
 "entities": [
@@ -81,10 +81,10 @@ O exemplo a seguir mostra a resolução da entidade **Builtin. email** .
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre o [número](luis-reference-prebuilt-number.md), o [ordinal](luis-reference-prebuilt-ordinal.md)e a [porcentagem](luis-reference-prebuilt-percentage.md). 
+Conheça o [número](luis-reference-prebuilt-number.md), [ordinal](luis-reference-prebuilt-ordinal.md)e [percentagem](luis-reference-prebuilt-percentage.md).

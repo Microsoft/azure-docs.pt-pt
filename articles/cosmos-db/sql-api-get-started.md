@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: ba8b097dc852ba97d4223ba09f78d1f2cdb568e0
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 2681b2199f321f695bc621ed5580319a5e907b34
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587452"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274016"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: Construa uma app de consola .NET para gerir dados na conta API Da Azure Cosmos DB SQL
 
@@ -146,7 +146,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tem uma conta que deseja utiliz
 
 1. Adicione o seguinte código para executar a tarefa **assíncrona GetStartedDemoAsync** a partir do seu método **Principal.** O método **Principal** captura as exceções e escreve-as na consola.
 
-    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="Main":::
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
 
 1. Selecione F5 para executar a sua aplicação.
 
@@ -160,7 +160,7 @@ As bases de dados são os contentores lógicos dos itens particionados em conten
 
 1. Copie e cole o método `CreateDatabaseAsync` abaixo do método `GetStartedDemoAsync`.
 
-    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="CreateDatabaseAsync":::
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateDatabaseAsync&highlight=7)]
 
     `CreateDatabaseAsync` cria uma nova base de dados com id `FamilyDatabase` se ainda não existir, que tem o ID especificado a partir do campo `databaseId`.
 
@@ -281,7 +281,7 @@ Um recipiente pode ser criado utilizando o método [**CreateContainerIfNotExists
 
 1. Copie e cole o método `CreateContainerAsync` abaixo do método `CreateDatabaseAsync`. `CreateContainerAsync` cria um novo recipiente com o ID `FamilyContainer` se já não existir, utilizando o ID especificado a partir do campo `containerId` dividido por `LastName` propriedade.
 
-    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="CreateContainerAsync&highlight":::
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateContainerAsync&highlight=9)]
 
 1. Copie e cole o código abaixo onde instantaneamente o CosmosClient para chamar o método **CreateContainer** que acabou de adicionar.
 
@@ -313,12 +313,12 @@ Primeiro, vamos criar uma classe `Family` que represente objetos armazenados den
 
 1. Copiar e colar a `Family`, `Parent`, `Child`, `Pet`e `Address` aula em `Family.cs`.
 
-    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs":::
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
 
 
 1. De volta *ao Program.cs,* adicione o método `AddItemsToContainerAsync` após o seu método `CreateContainerAsync`.
 
-    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="AddItemsToContainerAsync":::
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
 
 
     O código verifica para ter certeza de que um item com a mesma identificação já não existe. Vamos inserir dois itens, um para a *Família Andersen* e a *Família Wakefield.*
@@ -348,7 +348,7 @@ A Azure Cosmos DB suporta ricas consultas contra documentos JSON armazenados em 
 
 1. Copie e cole o método `QueryItemsAsync` após o seu método `AddItemsToContainerAsync`.
 
-    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="QueryItemsAsync":::
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=QueryItemsAsync&highlight=10-11,17-18)]
 
 1. Adicione uma chamada para ``QueryItemsAsync`` no método ``GetStartedDemoAsync``.
 
@@ -376,7 +376,7 @@ Vamos atualizar um artigo em Azure Cosmos DB. Vamos mudar a propriedade `IsRegis
 
 1. Copie e cole o método `ReplaceFamilyItemAsync` após o seu método `QueryItemsAsync`.
 
-    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="ReplaceFamilyItemAsync":::
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=ReplaceFamilyItemAsync&highlight=15)]
 
 1. Adicione uma chamada para `ReplaceFamilyItemAsync` no método `GetStartedDemoAsync`.
 
@@ -405,7 +405,7 @@ Vamos apagar um artigo em Azure Cosmos DB.
 
 1. Copie e cole o método `DeleteFamilyItemAsync` após o seu método `ReplaceFamilyItemAsync`.
 
-    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="DeleteFamilyItemAsync":::
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=DeleteFamilyItemAsync&highlight=10)]
 
 1. Adicione uma chamada para `DeleteFamilyItemAsync` no método `GetStartedDemoAsync`.
 
@@ -435,11 +435,11 @@ Agora vamos apagar a nossa base de dados. A eliminação da base de dados criada
 
 1. Copie e cole o método `DeleteDatabaseAndCleanupAsync` após o seu método `DeleteFamilyItemAsync`.
 
-    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="DeleteDatabaseAndCleanupAsync":::
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=DeleteDatabaseAndCleanupAsync)]
 
 1. Adicione uma chamada para ``DeleteDatabaseAndCleanupAsync`` no método ``GetStartedDemoAsync``.
 
-    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="GetStartedDemoAsync":::
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=GetStartedDemoAsync&highlight=14)]
 
 1. Selecione F5 para executar a sua aplicação.
 

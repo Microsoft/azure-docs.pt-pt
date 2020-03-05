@@ -5,12 +5,12 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 29b0719670529a486222ef5fad21dd803ea6f195
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
-ms.translationtype: MT
+ms.openlocfilehash: c7c9e66e302c2c4181e6249555a7eaaafcc0a960
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190811"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272702"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um recipiente personalizado
 
@@ -333,7 +333,7 @@ Uma aplicação de função no Azure gere a execução das suas funções no seu
     az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-    O parâmetro de nome de *imagem de contentor de implantação* especifica a imagem a utilizar para a aplicação de função. Pode utilizar o comando do recipiente de visualização de [config az functionapp](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) para visualizar informações sobre a imagem utilizada para a implantação. YOu também pode usar o comando de conjunto de conjunto de [recipientes de config az functionapp](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) para implantar a partir de uma imagem diferente.
+    O parâmetro de nome de *imagem de contentor de implantação* especifica a imagem a utilizar para a aplicação de função. Pode utilizar o comando do recipiente de visualização de [config az functionapp](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) para visualizar informações sobre a imagem utilizada para a implantação. Também pode utilizar o comando de conjunto de conjunto de recipientes de [config az functionapp](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) para desdobrar a partir de uma imagem diferente.
 
 1. Recupere a cadeia de ligação para a conta de armazenamento que criou utilizando o comando de cadeia de conexão de conta [de armazenamento az,](/cli/azure/storage/account) atribuindo-o a uma variável de concha `storageConnectionString`:
 

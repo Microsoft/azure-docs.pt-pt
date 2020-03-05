@@ -3,12 +3,12 @@ title: Modelos de ligação para implementação
 description: Descreve como utilizar modelos ligados num modelo Azure Resource Manager para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especifique um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: c6a5dced0f8607e760422bebd114a08ca0a238e3
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e26b795a645ab9128dd738ba6a54b66ac0b7da2a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207609"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272583"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -162,7 +162,7 @@ O valor da variável muda com base no âmbito. A tabela que se segue mostra os r
 
 | Âmbito | Saída |
 | ----- | ------ |
-| Inner | do modelo aninhado |
+| interior | do modelo aninhado |
 | exterior (ou padrão) | do modelo dos pais |
 
 O exemplo seguinte implementa um servidor SQL e recupera um segredo de cofre chave para usar para a palavra-passe. O âmbito está definido para `inner` porque cria dinamicamente o ID do cofre chave e passa-o como parâmetro para o modelo aninhado.
@@ -707,7 +707,7 @@ O exemplo seguinte mostra como passar um token SAS quando ligar a um modelo:
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "string" }
+  "containerSasToken": { "type": "securestring" }
   },
   "resources": [
   {

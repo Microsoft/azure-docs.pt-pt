@@ -2,18 +2,19 @@
 title: Serviços de Consultoria Azure Marketplace e AppSource
 description: Este artigo descreve os critérios de elegibilidade e os requisitos de publicação de novas ofertas de serviços de consultoria no Mercado Azure.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: pabutler
-ms.openlocfilehash: cd90ae2b751a97c18dc8b6be4b8eb565a17df7a2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
-ms.translationtype: MT
+ms.date: 02/27/2020
+ms.author: evansma
+ms.openlocfilehash: 50e5be309d56f58a79fa19b5270a0b6d2fd3db92
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191135"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268236"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de Consultoria para O Mercado Azure e AppSource
 Os Serviços de Consultoria no Azure Marketplace e no AppSource fornecem aos parceiros da Microsoft o objetivo de conectar os clientes com serviços de apoio e alargar o seu uso de Objetivos De Negócios e Azure. 
@@ -33,7 +34,7 @@ As lojas de marketplace estão alinhadas com o público e os produtos cloud da M
 |Na experiência do produto      |Portal de Gestão do Azure|Dinâmica 365, Office 365, Office Client Apps| 
 |Outros      |Publicação no local Via Azure Stack, Serviços de Consultoria para o Azure, Serviços Geridos para o Azure|Serviços de Consultoria para Dinâmica e Power BI|
 
-As ofertas de Serviços de Consultoria baseadas no Microsoft Dynamics 365 e no Power BI são elegíveis para serem listadas no Microsoft AppSource. Para mais informações, consulte as diretrizes de listagem de serviços de [consultoria Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+As ofertas de Serviços de Consultoria baseadas no Microsoft Dynamics 365, Power Apps e Power BI são elegíveis para serem listadas no Microsoft AppSource. Para mais informações, consulte as diretrizes de listagem de serviços de [consultoria Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
 As ofertas de Serviços de Consultoria e Serviços Geridos que se baseiam no Microsoft Azure são elegíveis para serem listadas no Azure Marketplace. Para mais informações, consulte artigos sobre a publicação de um serviço de [consultoria Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) e publique uma oferta de [serviços geridos ao Azure Marketplace.](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)
 
@@ -61,24 +62,30 @@ Os parceiros são obrigados a ter uma **competência de prata ou ouro** na área
 
 |Produto Primário |Requisito de elegibilidade |
 |---------|---------|
-| Dynamics 365 for Customer Engagement    |   Competência de Gestão de Relacionamento com Clientes silver ou Gold [Cloud.](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency)    | 
-|Dinâmica 365 para Finanças e Operações, edição da Enterprise  |  Competência de Planeamento de [Recursos](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) empresariais prateados ou dourados, e uma receita mínima de $25K em Operações de Nuvem nos 12 meses.       |
-|Dinâmica 365 para Finanças e Operações, Edição de Negócios  |  Servir como Fornecedor de [Serviços em Nuvem (CSP)](https://partner.microsoft.com/cloud-solution-provider) ou [Parceiro Digital de Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) para pelo menos um cliente      |
-|Power BI, Power BI Custom Visuals | Cumprir os critérios do [Parceiro de Solução.](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf)|
-|PowerApps | Tenha uma solução de [Partner Showcase](https://appsource.microsoft.com/partners) publicada
+| Dinâmica 365 Vendas <br> Dinâmica 365 Marketing <br> Serviço ao Cliente Da Dinâmica 365 <br> Serviço de Campo 365 <br> Dinâmica 365 Recursos Humanos |   Deve ser certificado gold ou silver na [cloud business applications competência](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção de envolvimento com o cliente.    | 
+| Dinâmica 365 Finanças <br> Dinâmica 365 Gestão da Cadeia de Abastecimento <br> Dinâmica 365 Comércio <br> Dinâmica 365 Recursos Humanos <br> Dinâmica 365 Project Service Automation |  Deve ser certificado gold ou silver em [Cloud Business Applications competência](https://partner.microsoft.com/membership/cloud-business-applications-competency) para a opção Operações Unificadas.       |
+| Dynamics 365 for Customer Insights | Deve ter pelo menos 1 implementação bem sucedida na produção da [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) com pelo menos 5 medidas e 5 segmentos. |
+| Dinâmica 365 Business Central | Deve ser certificado gold ou silver em competência de Planeamento de [Recursos Empresariais](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e deve ser o fornecedor de soluções em nuvem para pelo menos 3 clientes Business Central. <br> <br> OU <br> <br> Deve ter publicado uma [aplicação Business Central no AppSource](https://appsource.microsoft.com/) |
+| Power BI | Deve estar listado na montra do [parceiro Power BI.](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=)|
+|Power Apps | Deve ser elegível para Benefícios Avançados no Programa de [Parceria PowerApps](https://aka.ms/PowerAppsPartner). |
+
+Recursos adicionais e apoio:
+
+1. [Mesa de habilitação da Nuvem microsoft](https://aka.ms/CEDnominate) <br> O Formulário de Nomeação de Parceiros de Experiência Guiada para a Nuvem é para ajudar a fornecer um Especialista em Programas cloud para articular benefícios de MPN, e servir como guia para a realização de competências.  
+2. Como ser listado na exposição power bi? <br> Comece por submeter um pedido para ser listado, ver [tornar-se um parceiro](https://powerbi.microsoft.com/become-a-partner/).
 
 <b>Para mais informações, consulte [as competências através da Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).</b>
- 
 
-**Os parceiros do SI podem apresentar ofertas de serviços de consultoria para os seguintes 18 países/regiões**
+**Os parceiros do SI podem apresentar ofertas de serviços de consultoria para os seguintes 21 países/regiões**
 
-|Países/regiões elegíveis |   |   |   |
+|   |   |   |   |
 |---------|----------|----------|----------|
-|Austrália |França  |     México          |Espanha       |
-|Bélgica   |Alemanha |     Países Baixos     |Suécia       |
-|Canadá    |Índia   |     Nova Zelândia     |Reino Unido  |
-|Dinamarca   |Itália   |     Noruega          |Estados Unidos |
-|Finlândia   |Japão   |     Polónia          
+| Austrália | Bélgica | Canadá | Dinamarca |
+| Finlândia  | França | Alemanha  | Índia   |
+| Itália    | Japão  |  México  |  Países Baixos  |
+|  Nova Zelândia  |  Noruega  |  Polónia  | África do Sul |
+|  Espanha  | Suécia  | Suíça  |  Estados Unidos  |
+| Reino Unido  |
 
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Como se registar para serviços de consultoria no Azure Marketplace e AppSource

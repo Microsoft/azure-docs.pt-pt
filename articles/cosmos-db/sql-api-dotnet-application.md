@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: sngun
-ms.openlocfilehash: 5403725a57c68a45621d6cc509c57d864b2e0633
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 1f2051addfa1266b754d230c3804834c63f89002
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164921"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274080"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver uma aplicação web ASP.NET Core MVC com o Azure Cosmos DB utilizando o .NET SDK
 
@@ -197,7 +197,7 @@ Primeiro, vamos adicionar uma classe que contém a lógica de ligar e usar o Azu
 
 1. Dentro do mesmo ficheiro, adicione o seguinte método **InitializeCosmosClientInstanceAsync,** que lê a configuração e inicializa o cliente.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
+   [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
 
 1. Defina a configuração no ficheiro *appsettings.json* do projeto, conforme mostrado no seguinte corte:
 

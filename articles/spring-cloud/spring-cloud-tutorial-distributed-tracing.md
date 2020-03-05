@@ -1,45 +1,45 @@
 ---
-title: Tutorial – usar o rastreamento distribuído com o Azure Spring Cloud
-description: Este tutorial mostra como usar o rastreamento distribuído da Spring Cloud por meio do Aplicativo Azure insights
+title: Tutorial - Use rastreio distribuído com nuvem de mola azure
+description: Este tutorial mostra como usar o Rastreio Distribuído da Nuvem de primavera através de Insights de Aplicação Azure
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: brendm
-ms.openlocfilehash: e4d3a7fbdb938071b754a16179bcd021985383cc
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 0815aa084462d1b829d64cd7c5d6fa7cebf534fc
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277494"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273199"
 ---
-# <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Usar o rastreamento distribuído com o Azure Spring Cloud
+# <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Use rastreio distribuído com nuvem de primavera azure
 
-Com as ferramentas de rastreamento distribuído no Azure Spring Cloud, você pode facilmente depurar e monitorar problemas complexos. O Azure Spring Cloud integra o [Azure Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com o [Application insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)do Azure. Essa integração fornece uma poderosa funcionalidade de rastreamento distribuído do portal do Azure.
+Com as ferramentas de rastreio distribuídas na Nuvem de primavera Azure, pode facilmente depurar e monitorizar problemas complexos. Azure Spring Cloud integra [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com insights de [aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)de Azure. Esta integração proporciona uma poderosa capacidade de rastreio distribuída do portal Azure.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Habilite o rastreamento distribuído no portal do Azure.
-> * Adicione o Azure Spring Cloud Sleuth ao seu aplicativo.
-> * Exiba mapas de dependências para seus aplicativos de microatendimento.
-> * Pesquisar dados de rastreamento com filtros diferentes.
+> * Ativar rastreio distribuído no portal Azure.
+> * Adicione a Spring Cloud Sleuth à sua aplicação.
+> * Veja mapas de dependência para as suas aplicações de microserviço.
+> * Procure dados de rastreio com filtros diferentes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisa de um serviço de nuvem do Azure Spring que já esteja provisionado e em execução. Conclua o guia de [início rápido sobre como implantar um aplicativo por meio do CLI do Azure](spring-cloud-quickstart-launch-app-cli.md) para provisionar e executar um serviço de nuvem do Azure Spring.
+Para completar este tutorial, precisa de um serviço Azure Spring Cloud que já está aprovisionado e em funcionamento. Complete o [quickstart na implementação de uma aplicação através do Azure CLI](spring-cloud-quickstart-launch-app-cli.md) para fornecer e executar um serviço Azure Spring Cloud.
     
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-1. Adicione a seguinte linha ao arquivo Application. Properties:
+1. Adicione a seguinte linha ao ficheiro application.properties:
 
    ```xml
    spring.zipkin.sender.type = web
    ```
 
-   Após essa alteração, o remetente Zipkin pode enviar para a Web.
+   Após esta mudança, o remetente Zipkin pode enviar para a web.
 
-1. Ignore esta etapa se você seguiu o nosso [guia para preparar um aplicativo do Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md). Caso contrário, vá para o ambiente de desenvolvimento local e edite seu arquivo pom. xml para incluir a seguinte dependência do Azure Spring Cloud Sleuth:
+1. Ignore este passo se seguiu o nosso [guia para preparar uma aplicação Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md). Caso contrário, vá ao seu ambiente de desenvolvimento local e edite o seu ficheiro pom.xml para incluir a seguinte dependência da Spring Cloud Sleuth:
 
     ```xml
     <dependencyManagement>
@@ -61,48 +61,48 @@ Para concluir este tutorial, você precisa de um serviço de nuvem do Azure Spri
     </dependencies>
     ```
 
-1. Crie e implante novamente para o serviço de nuvem Spring do Azure para refletir essas alterações.
+1. Construa e implante novamente para o seu serviço Azure Spring Cloud para refletir estas alterações.
 
-## <a name="modify-the-sample-rate"></a>Modificar a taxa de amostra
+## <a name="modify-the-sample-rate"></a>Modificar a taxa de amostragem
 
-Você pode alterar a taxa na qual a telemetria é coletada modificando a taxa de amostra. Por exemplo, se você quiser fazer amostragem da metade com frequência, abra o arquivo Application. Properties e altere a seguinte linha:
+Pode alterar a taxa a que a sua telemetria é recolhida modificando a taxa de amostra. Por exemplo, se quiser provar metade da frequência, abra o ficheiro aplicação.properties e altere a seguinte linha:
 
 ```xml
 spring.sleuth.sampler.probability=0.5
 ```
 
-Se você já tiver criado e implantado um aplicativo, poderá modificar a taxa de amostra. Faça isso adicionando a linha anterior como uma variável de ambiente no CLI do Azure ou no portal do Azure.
+Se já construiu e implementou uma aplicação, pode modificar a taxa de amostra. Faça-o adicionando a linha anterior como uma variável ambiental no Azure CLI ou no portal Azure.
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 
-1. Acesse sua página de serviço de nuvem do Azure Spring no portal do Azure.
-1. Na página **monitoramento** , selecione **rastreamento distribuído**.
-1. Selecione **Editar configuração** para editar ou adicionar uma nova configuração.
-1. Crie uma nova consulta Application Insights ou selecione uma existente.
-1. Escolha qual categoria de log você deseja monitorar e especifique o tempo de retenção em dias.
-1. Selecione **aplicar** para aplicar o novo rastreamento.
+1. Vá à sua página de serviço Azure Spring Cloud no portal Azure.
+1. Na página **de Monitorização,** selecione **Rastreio Distribuído**.
+1. Selecione **a definição editar** ou adicionar uma nova definição.
+1. Crie uma nova consulta de Insights de Aplicação ou selecione uma existente.
+1. Escolha qual a categoria de registo que pretende monitorizar e especifique o tempo de retenção em dias.
+1. Selecione **Aplicar** para aplicar o novo rastreio.
 
-## <a name="view-the-application-map"></a>Exibir o mapa do aplicativo
+## <a name="view-the-application-map"></a>Ver o mapa de aplicações
 
-Retorne à página de **rastreamento distribuído** e selecione **exibir mapa do aplicativo**. Examine a representação visual do seu aplicativo e as configurações de monitoramento. Para saber como usar o mapa do aplicativo, consulte [mapa do aplicativo: triagem de aplicativos distribuídos](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
+Volte à página **de Rastreio Distribuído** e selecione ver mapa de **aplicações**. Reveja a representação visual da sua aplicação e das definições de monitorização. Para aprender a utilizar o mapa de aplicações, consulte o Mapa de [Aplicações: Aplicações distribuídas](https://docs.microsoft.com/azure/azure-monitor/app/app-map)pela Triagem .
 
-## <a name="use-search"></a>Usar pesquisa
+## <a name="use-search"></a>Utilizar pesquisa
 
-Use a função de pesquisa para consultar outros itens de telemetria específicos. Na página **rastreamento distribuído** , selecione **Pesquisar**. Para obter mais informações sobre como usar a função de pesquisa, consulte [usando a pesquisa no Application insights](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
+Utilize a função de pesquisa para consultar outros itens específicos de telemetria. Na página **De rastreio distribuído,** selecione **Search**. Para mais informações sobre como utilizar a função de pesquisa, consulte [A Utilização de Pesquisa em Insights](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search)de Aplicação .
 
-## <a name="use-application-insights"></a>Usar Application Insights
+## <a name="use-application-insights"></a>Utilizar insights de aplicação
 
-Application Insights fornece recursos de monitoramento além do mapa do aplicativo e da função de pesquisa. Pesquise o nome do seu aplicativo no portal do Azure e, em seguida, abra uma página de Application Insights para localizar informações de monitoramento. Para obter mais diretrizes sobre como usar essas ferramentas, confira [Azure monitor consultas de log](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+O Application Insights fornece capacidades de monitorização para além do mapa de aplicações e função de pesquisa. Procure no portal Azure o nome da sua aplicação e, em seguida, abra uma página de Informações de Aplicação para encontrar informações de monitorização. Para obter mais orientações sobre como utilizar estas ferramentas, consulte as consultas de registo do [Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
 
-## <a name="disable-application-insights"></a>Desabilitar Application Insights
+## <a name="disable-application-insights"></a>Desativar insights de aplicação
 
-1. Acesse sua página de serviço de nuvem do Azure Spring no portal do Azure.
-1. Em **monitoramento**, selecione **rastreamento distribuído**.
-1. Selecione **desabilitar** para desabilitar o Application insights.
+1. Vá à sua página de serviço Azure Spring Cloud no portal Azure.
+1. Na **monitorização,** selecione **Rastreio Distribuído**.
+1. Selecione **Desativar** para desativar insights de aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu a habilitar e a entender o rastreamento distribuído no Azure Spring Cloud. Para saber como associar seu aplicativo a um Azure Cosmos DB banco de dados, vá para o próximo tutorial.
+Neste tutorial, aprendeu a permitir e compreender o rastreio distribuído na Nuvem de primavera de Azure. Para aprender a ligar a sua aplicação a uma base de dados Azure Cosmos DB, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Saiba como associar a um banco de dados Azure Cosmos DB](spring-cloud-tutorial-bind-cosmos.md)
+> [Saiba como se ligar a uma base de dados Azure Cosmos DB](spring-cloud-tutorial-bind-cosmos.md)

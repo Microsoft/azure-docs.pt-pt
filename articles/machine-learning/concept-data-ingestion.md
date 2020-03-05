@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 3370fc72b45720e2aae5731623843a1bc498911c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
-ms.translationtype: MT
+ms.openlocfilehash: 35c133a4d9d95dc6e942d5b8c3e8d21debb9493b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652077"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268551"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Ingestão de dados em Aprendizagem automática azure
 
@@ -55,7 +55,7 @@ Estes passos e o diagrama seguinte ilustram o fluxo de trabalho de ingestão de 
 
 ## <a name="use-the-python-sdk"></a>Use o Python SDK 
 
-Com o [Python SDK,](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py)pode incorporar tarefas de ingestão de dados num passo de [pipeline Azure Machine Learning.](how-to-create-your-first-pipeline.md)
+Com o [Python SDK,](https://docs.microsoft.com/python/api/overview/azure/ml)pode incorporar tarefas de ingestão de dados num passo de [pipeline Azure Machine Learning.](how-to-create-your-first-pipeline.md)
 
 A tabela que se segue resume os prós e os contra para a utilização do SDK e um passo de gasodutos ML para tarefas de ingestão de dados.
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e0a2c9f4dd229353ef3d4dc06f7bb965d15814d9
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 50787a5bbfdc9baddfa4307247e8b505be6e3003
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255559"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273247"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para a Base de Dados do Azure para MySQL online com o DMS
 
@@ -224,6 +224,8 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
     Se a base de dados-alvo contiver o mesmo nome de base de dados que a base de dados de origem, o Serviço de Migração da Base de Dados Azure seleciona a base de dados de destino por padrão.
 
     ![Mapear para as bases de dados de destino](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
+   > [!NOTE] 
+   > Embora possa selecionar várias bases de dados neste passo, cada instância do Serviço de Migração de Bases de Dados Azure suporta até quatro bases de dados para migração simultânea. Além disso, há um limite de dois casos do Serviço de Migração de Bases de Dados Azure por região numa subscrição. Por exemplo, se tiver 40 bases de dados para migrar, só pode migrar oito delas simultaneamente, e apenas se tiver criado dois casos de Serviço de Migração de Bases de Dados Azure.
 
 3. Selecione **Guardar**, no ecrã **Resumo da migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração e, em seguida, reveja o resumo para garantir que os detalhes de origem e de destino correspondem aos que foram anteriormente especificados.
 

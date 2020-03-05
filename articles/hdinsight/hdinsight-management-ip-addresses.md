@@ -1,36 +1,36 @@
 ---
-title: Endereços IP de gerenciamento do Azure HDInsight
-description: Saiba quais endereços IP você deve permitir o tráfego de entrada, para configurar corretamente os grupos de segurança de rede e as rotas definidas pelo usuário para a rede virtual com o Azure HDInsight.
-author: hol82
-ms.author: hol
-ms.reviewer: hrasheed
+title: Endereços IP de gestão Azure HDInsight
+description: Saiba quais os endereços IP a partir de onde deve permitir o tráfego de entrada, de forma a configurar adequadamente os grupos de segurança da rede e as rotas definidas pelo utilizador para a rede virtual com o Azure HDInsight.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: 982e80f4c47a6f59b65edb06461a9d592248cc61
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.custom: hdinsightactive
+ms.date: 03/03/2020
+ms.openlocfilehash: 5e8f39b58f258742108fe323d9395efd87bc288f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76929892"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271825"
 ---
-# <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
+# <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gestão HDInsight
 
 > [!Important]
-> Na maioria dos casos, pode agora utilizar a funcionalidade de etiqueta de [serviço](hdinsight-service-tags.md) para grupos de segurança de rede, em vez de adicionar manualmente endereços IP. Novas regiões serão adicionadas somente para marcas de serviço e os endereços IP estáticos eventualmente serão preteridos.
+> Na maioria dos casos, pode agora utilizar a funcionalidade de etiqueta de [serviço](hdinsight-service-tags.md) para grupos de segurança de rede, em vez de adicionar manualmente endereços IP. Novas regiões só serão adicionadas para etiquetas de serviço e os endereços IP estáticos acabarão por ser depreciados.
 
-Se você usar NSGs (grupos de segurança de rede) ou UDRs (rotas definidas pelo usuário) para controlar o tráfego de entrada para o cluster HDInsight, deverá garantir que o cluster possa se comunicar com os serviços críticos de integridade e gerenciamento do Azure.  Alguns dos endereços IP para esses serviços são específicos da região e alguns deles se aplicam a todas as regiões do Azure. Poderá também ter de permitir o tráfego do serviço DNS do Azure se não utilizar um DNS personalizado.
+Se utilizar grupos de segurança de rede (NSGs) ou rotas definidas pelo utilizador (UDRs) para controlar o tráfego de entrada no seu cluster HDInsight, deve certificar-se de que o seu cluster pode comunicar com serviços críticos de saúde e gestão azure.  Alguns dos endereços IP destes serviços são específicos da região, e alguns deles aplicam-se a todas as regiões do Azure. Poderá também ter de permitir o tráfego do serviço DNS do Azure se não utilizar um DNS personalizado.
 
-As seções a seguir discutem os endereços IP específicos que devem ser permitidos.
+As seguintes secções discutem os endereços IP específicos que devem ser permitidos.
 
-## <a name="azure-dns-service"></a>Serviço DNS do Azure
+## <a name="azure-dns-service"></a>Serviço Azure DNS
 
-Se você estiver usando o serviço DNS fornecido pelo Azure, permita o acesso de __168.63.129.16__ na porta 53. Para obter mais informações, consulte o documento [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . Se você estiver usando o DNS personalizado, ignore esta etapa.
+Se estiver a utilizar o serviço DNS fornecido pelo Azure, deixe acesso a partir de __168.63.129.16__ na porta 53. Para mais informações, consulte a resolução de [nomes para VMs e documento de exemplos](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) de papel. Se estiver a usar DNS personalizados, ignore este passo.
 
-## <a name="health-and-management-services-all-regions"></a>Serviços de integridade e gerenciamento: todas as regiões
+## <a name="health-and-management-services-all-regions"></a>Serviços de saúde e gestão: Todas as regiões
 
-Permitir o tráfego dos seguintes endereços IP para serviços de integridade e gerenciamento do Azure HDInsight que se aplicam a todas as regiões do Azure:
+Permitir o tráfego a partir dos seguintes endereços IP para os serviços de saúde e gestão Azure HDInsight, que se aplicam a todas as regiões do Azure:
 
 | Endereço IP de origem | Destino  | Direção |
 | ---- | ----- | ----- |
@@ -39,14 +39,14 @@ Permitir o tráfego dos seguintes endereços IP para serviços de integridade e 
 | 168.61.48.131 | \*:443 | Entrada |
 | 138.91.141.162 | \*:443 | Entrada |
 
-## <a name="health-and-management-services-specific-regions"></a>Serviços de integridade e gerenciamento: regiões específicas
+## <a name="health-and-management-services-specific-regions"></a>Serviços de saúde e gestão: Regiões específicas
 
-Permita o tráfego dos endereços IP listados para os serviços de integridade e gerenciamento do Azure HDInsight na região específica do Azure onde os recursos estão localizados:
+Permitir o tráfego a partir dos endereços IP listados para os serviços de saúde e gestão Azure HDInsight na região específica de Azure onde os seus recursos estão localizados:
 
 > [!IMPORTANT]  
-> Se a região do Azure que você está usando não estiver listada, use o recurso de [marca de serviço](hdinsight-service-tags.md) para grupos de segurança de rede.
+> Se a região azure que está a utilizar não estiver listada, utilize a função de etiqueta de [serviço](hdinsight-service-tags.md) para grupos de segurança de rede.
 
-| País | Região | Endereços IP de origem permitidos | Destino permitido | Direção |
+| País | Região | Endereços IP de origem permitida | Destino Permitido | Direção |
 | ---- | ---- | ---- | ---- | ----- |
 | Ásia | Ásia Leste | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
 | &nbsp; | Ásia Sudeste | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
@@ -55,14 +55,14 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
 | Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |
 | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |
-| China | Norte da China | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Entrada |
-| &nbsp; | Leste da China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Entrada |
-| &nbsp; | Norte da China 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Entrada |
-| &nbsp; | Leste da China 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | Entrada |
+| China | China Norte | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Entrada |
+| &nbsp; | China Leste | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Entrada |
+| &nbsp; | China Norte 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Entrada |
+| &nbsp; | China Leste 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | Entrada |
 | Europa | Europa do Norte | 52.164.210.96</br>13.74.153.132 | \*:443 | Entrada |
 | &nbsp; | Europa Ocidental| 52.166.243.90</br>52.174.36.244 | \*:443 | Entrada |
 | França | França Central| 20.188.39.64</br>40.89.157.135 | \*:443 | Entrada |
-| Alemanha | Nordeste da Alemanha | 51.4.146.68</br>51.4.146.80 | \*:443 | Entrada |
+| Alemanha | Alemanha Central | 51.4.146.68</br>51.4.146.80 | \*:443 | Entrada |
 | &nbsp; | Nordeste da Alemanha | 51.5.150.132</br>51.5.144.101 | \*:443 | Entrada |
 | Índia | Índia Central | 52.172.153.209</br>52.172.152.49 | \*:443 | Entrada |
 | &nbsp; | Sul da Índia | 104.211.223.67<br/>104.211.216.210 | \*:443 | Entrada |
@@ -77,15 +77,16 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | &nbsp; | E.U.A. Centro-Norte | 157.56.8.38</br>157.55.213.99 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Centro-Oeste | 52.161.23.15</br>52.161.10.167 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Oeste | 13.64.254.98</br>23.101.196.19 | \*:443 | Entrada |
-| &nbsp; | E.U.A. Oeste 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Entrada |
-| &nbsp; | Norte dos E.A.U. | 65.52.252.96</br>65.52.252.97 | \*:443 | Entrada |
+| &nbsp; | E.U.A.Oeste 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Entrada |
+| &nbsp; | Emirados Unidos norte | 65.52.252.96</br>65.52.252.97 | \*:443 | Entrada |
 
-Para obter informações sobre os endereços IP a serem usados para o Azure governamental, consulte o documento [Azure governamental Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) .
+Para obter informações sobre os endereços IP a utilizar para o Governo Azure, consulte o documento [Azure Government Intelligence + Analytics.](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics)
 
-Para obter mais informações, consulte a seção [controlando o tráfego de rede](hdinsight-plan-virtual-network-deployment.md#networktraffic) .
+Para mais informações, consulte a secção de tráfego da [rede Controle.](hdinsight-plan-virtual-network-deployment.md#networktraffic)
 
-Se você estiver usando UDRs (rotas definidas pelo usuário), deverá especificar uma rota e permitir o tráfego de saída da VNET para os IPs acima com o próximo salto definido como "Internet".
+Se estiver a utilizar rotas definidas pelo utilizador (UDRs), deve especificar uma rota e permitir o tráfego de saída da rede virtual para os IPs acima com o próximo salto definido para "Internet".
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md)
+* [Criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md)
+* [Etiquetas de serviço do grupo de segurança de rede (NSG) para Azure HDInsight](hdinsight-service-tags.md)

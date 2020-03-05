@@ -1,5 +1,5 @@
 ---
-title: Entidades predefinidas do DatetimeV2 – LUIS
+title: DataTimeV2 Entidades pré-construídas - LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo tem datetimeV2 informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
@@ -8,30 +8,30 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/07/2020
 ms.author: diberry
-ms.openlocfilehash: 8c29ebd675bb6af66203c13824dacbe9ea2421a2
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 30132983f37323e798efd330f5cc8f15c0a9d2b6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732800"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270741"
 ---
-# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida DatetimeV2 para um aplicativo LUIS
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída DatetimeV2 para uma app LUIS
 
-O **datetimeV2** entidade pré-criados extrai valores de data e hora. Resolva estes valores num formato padronizado para programas de cliente consumir. Quando uma expressão tem uma data ou hora que não esteja concluída, o LUIS inclui _passado e valores futuras_ na resposta do ponto final. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém datetimeV2 para os objetivos do aplicativo.
+A entidade pré-construída **dataV2** extrai valores de data e hora. Resolva estes valores num formato padronizado para programas de cliente consumir. Quando uma expressão tem uma data ou hora que não esteja completa, a LUIS inclui _valores passados e futuros_ na resposta final. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém datetimeV2 para os objetivos do aplicativo.
 
 ## <a name="types-of-datetimev2"></a>Tipos de datetimeV2
-DatetimeV2 é gerenciado no repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) .
+DatetimeV2 é gerido a partir do repositório GitHub [de texto reconheço.](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml)
 
 ## <a name="example-json"></a>JSON de exemplo
 
-O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
+A seguinte expressão e a sua resposta parcial da JSON são mostradas abaixo.
 
 `8am on may 2nd 2019`
 
-#### <a name="v3-responsetab1-1"></a>[Resposta v3](#tab/1-1)
+#### <a name="v3-response"></a>[Resposta V3](#tab/1-1)
 
 ```json
 "entities": {
@@ -53,7 +53,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v3-verbose-responsetab1-2"></a>[V3, resposta detalhada](#tab/1-2)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/1-2)
 
 ```json
 
@@ -91,7 +91,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v2-responsetab1-3"></a>[Resposta v2](#tab/1-3)
+#### <a name="v2-response"></a>[Resposta V2](#tab/1-3)
 
 ```json
 "entities": [
@@ -115,18 +115,18 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 
 |Nome da propriedade |Tipo de propriedade e descrição|
 |---|---|
-|Entidade|**cadeia de caracteres** -textos extraídos de expressão com o tipo de data, hora, intervalo de datas ou intervalo de tempo.|
-|tipo|**cadeia de caracteres** - um do [subtipos dos datetimeV2](#subtypes-of-datetimev2)
-|startIndex|**Int** -o índice na expressão em que começa a entidade.|
-|endIndex|**Int** -o índice na expressão em que termina a entidade.|
-|resolução|Tem um `values` matriz que tenha um, dois ou quatro [valores da resolução](#values-of-resolution).|
-|end|O valor final de uma hora ou intervalo de datas, o mesmo formato que `value`. Utilizado apenas se `type` é `daterange`, `timerange`, ou `datetimerange`|
+|Entidade|**cadeia** - Texto extraído da expressão com tipo de data, hora, intervalo de data ou intervalo de tempo.|
+|tipo|**cadeia** - Um dos [subtipos de datatimeV2](#subtypes-of-datetimev2)
+|startIndex|**int** - O índice na expressão em que a entidade começa.|
+|endIndex|**int** - O índice na expressão em que a entidade termina.|
+|resolução|Tem um conjunto de `values` que tem um, dois ou quatro [valores de resolução.](#values-of-resolution)|
+|end|O valor final de uma hora, ou intervalo de data, no mesmo formato que `value`. Só utilizados se `type` for `daterange`, `timerange`ou `datetimerange`|
 
 * * *
 
 ## <a name="subtypes-of-datetimev2"></a>Subtipos dos datetimeV2
 
-O **datetimeV2** pré-criados de entidade tem os seguintes subtipos e são fornecidos exemplos de cada tabela que se segue:
+A entidade pré-construída **datetimeV2** tem os seguintes subtipos, e exemplos de cada um são fornecidos na tabela que se segue:
 * `date`
 * `time`
 * `daterange`
@@ -136,25 +136,25 @@ O **datetimeV2** pré-criados de entidade tem os seguintes subtipos e são forne
 
 ## <a name="values-of-resolution"></a>Valores da resolução
 * A matriz tem um elemento se a data ou hora em que a expressão é totalmente especificado e inequívoca.
-* A matriz tem dois elementos, se o valor de datetimeV2 é ambíguo. Ambiguidade inclui a falta de um ano específico, hora ou intervalo de tempo. Ver [datas ambíguas](#ambiguous-dates) para obter exemplos. Quando o tempo é ambíguo para horas ou PM, ambos os valores estão incluídos.
+* A matriz tem dois elementos, se o valor de datetimeV2 é ambíguo. Ambiguidade inclui a falta de um ano específico, hora ou intervalo de tempo. Consulte [datas ambíguas,](#ambiguous-dates) por exemplo. Quando o tempo é ambíguo para horas ou PM, ambos os valores estão incluídos.
 * A matriz tem quatro elementos, se a expressão tiver dois elementos com a ambiguidade. Esta ambiguidade inclui elementos com:
   * Uma data ou um intervalo de datas é ambíguo como ano
   * Um tempo ou intervalo de tempo é ambíguo quanto às horas ou tarde Por exemplo, 3:00, 3 de Abril.
 
-Cada elemento do `values` matriz pode ter os seguintes campos:
+Cada elemento da matriz `values` pode ter os seguintes campos:
 
 |Nome da propriedade|Descrição de propriedade|
 |--|--|
-|Timex|hora, data ou intervalo de datas expressado no formato TIMEX que se segue a [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e os atributos de TIMEX3 usando a linguagem de TimeML de anotação. Esta anotação está descrita com o [diretrizes TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|resto|termo usado para descrever como usar o valor, como `before`, `after`.|
+|Timex|intervalo de tempo, data ou data expresso no formato TIMEX que segue a [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e os atributos TIMEX3 para anotação utilizando a linguagem TimeML. Esta anotação é descrita nas [diretrizes TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
+|mod|termo usado para descrever como usar o valor como `before`, `after`.|
 |tipo|O subtipo, que pode ser um dos seguintes itens: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
-|valor|**Opcional.** Um objeto DateTime no formato AAAA-MM-DD (Date), HH: mm: SS (time) aaaa-MM-DD HH: mm: SS (DateTime). Se `type` é `duration`, o valor é o número de segundos (duração) <br/> Utilizado apenas se `type` é `datetime` ou `date`, `time`, ou "duração.|
+|valor|**Opcional.** Um objeto de data no Formato yyyy-MM-dd (data), HH:mm:ss (hora) yyyy-MM-dd HH:mm:ss (data). Se `type` for `duration`, o valor é o número de segundos (duração) <br/> Só utilizados se `type` for `datetime` ou `date`, `time`ou "duração"|
 
 ## <a name="valid-date-values"></a>Valores de data válido
 
-O **datetimeV2** suporta datas entre os seguintes intervalos:
+A **datav2** suporta as datas entre as seguintes gamas:
 
-| Mín. | Máx |
+| Mín. | Máx. |
 |----------|-------------|
 | 1º de Janeiro de 1900   | 31 de Dezembro de 2099 |
 
@@ -162,7 +162,7 @@ O **datetimeV2** suporta datas entre os seguintes intervalos:
 
 Se a data pode ser no passado ou futuras, LUIS fornece os dois valores. Um exemplo é uma expressão que inclui o mês e data sem o ano.
 
-Por exemplo, considerando o seguinte expressão:
+Por exemplo, dada a seguinte expressão:
 
 `May 2nd`
 
@@ -170,16 +170,16 @@ Por exemplo, considerando o seguinte expressão:
 * Quando a data de hoje é de 1 de Maio de 2017, o LUIS fornece "2016-05-02" e "2017-05-02" como valores.
 
 O exemplo seguinte mostra a resolução da entidade "2nd de Maio". Esta resolução parte do princípio de que a data de hoje é uma data entre 2 de Maio de 2017 e 1 de Maio de 2018.
-Campos com `X` no `timex` campo são partes da data que não estão especificados explicitamente na expressão.
+Campos com `X` no campo `timex` são partes da data que não estão explicitamente especificadas na expressão.
 
-## <a name="date-resolution-example"></a>Exemplo de resolução de data
+## <a name="date-resolution-example"></a>Exemplo de resolução de datas
 
 
-O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
+A seguinte expressão e a sua resposta parcial da JSON são mostradas abaixo.
 
 `May 2nd`
 
-#### <a name="v3-responsetab2-1"></a>[Resposta v3](#tab/2-1)
+#### <a name="v3-response"></a>[Resposta V3](#tab/2-1)
 
 ```json
 "entities": {
@@ -204,7 +204,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v3-verbose-responsetab2-2"></a>[V3, resposta detalhada](#tab/2-2)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/2-2)
 
 ```json
 "entities": {
@@ -244,7 +244,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v2-responsetab2-3"></a>[Resposta v2](#tab/2-3)
+#### <a name="v2-response"></a>[Resposta V2](#tab/2-3)
 
 ```json
   "entities": [
@@ -274,13 +274,13 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 
 ## <a name="date-range-resolution-examples-for-numeric-date"></a>Exemplos de resolução de intervalo de datas para numéricas de data
 
-O `datetimeV2` entidade extrai os intervalos de data e hora. O `start` e `end` fields, especifique o início e no fim do intervalo. Para o `May 2nd to May 5th`expressão, LUIS fornece valores **DateRange** para o ano atual e o próximo ano. Na `timex` campo, o `XXXX` valores indicam a ambiguidade do ano. `P3D` indica o período de tempo é longo de três dias.
+A entidade `datetimeV2` extrai intervalos de data e hora. Os campos `start` e `end` especificam o início e o fim do alcance. Para a expressão `May 2nd to May 5th`, a LUIS disponibiliza valores de **datação** tanto para o ano corrente como para o próximo. No campo `timex`, os valores `XXXX` indicam a ambiguidade do ano. `P3D` indica que o período de tempo é de três dias.
 
-O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
+A seguinte expressão e a sua resposta parcial da JSON são mostradas abaixo.
 
 `May 2nd to May 5th`
 
-#### <a name="v3-responsetab3-1"></a>[Resposta v3](#tab/3-1)
+#### <a name="v3-response"></a>[Resposta V3](#tab/3-1)
 
 ```json
 
@@ -309,7 +309,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 ```
 
 
-#### <a name="v3-verbose-responsetab3-2"></a>[V3, resposta detalhada](#tab/3-2)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/3-2)
 
 ```json
 
@@ -352,7 +352,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v2-responsetab3-3"></a>[Resposta v2](#tab/3-3)
+#### <a name="v2-response"></a>[Resposta V2](#tab/3-3)
 
 ```json
 "entities": [
@@ -378,13 +378,13 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 
 ## <a name="date-range-resolution-examples-for-day-of-week"></a>Exemplos de resolução de intervalo de datas para o dia da semana
 
-O exemplo a seguir mostra como o LUIS usa **datetimeV2** para resolver o expressão `Tuesday to Thursday`. Neste exemplo, a data atual for 19 de Junho. LUIS inclui **daterange** valores para os dois intervalos de datas que são precedidas e siga a data atual.
+O exemplo que se segue mostra como o LUIS utiliza **o datetimeV2** para resolver a expressão `Tuesday to Thursday`. Neste exemplo, a data atual for 19 de Junho. O LUIS inclui valores de **datação** para ambas as datas que precedem e seguem a data atual.
 
-O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
+A seguinte expressão e a sua resposta parcial da JSON são mostradas abaixo.
 
 `Tuesday to Thursday`
 
-#### <a name="v3-responsetab4-1"></a>[Resposta v3](#tab/4-1)
+#### <a name="v3-response"></a>[Resposta V3](#tab/4-1)
 
 ```json
 "entities": {
@@ -411,7 +411,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v3-verbose-responsetab4-2"></a>[V3, resposta detalhada](#tab/4-2)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/4-2)
 
 ```json
 "entities": {
@@ -453,7 +453,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 }
 ```
 
-#### <a name="v2-responsetab4-3"></a>[Resposta v2](#tab/4-3)
+#### <a name="v2-response"></a>[Resposta V2](#tab/4-3)
 
 ```json
   "entities": [
@@ -482,19 +482,19 @@ A matriz de valores tem dois elementos de tempo se o tempo ou intervalo de tempo
 
 ## <a name="time-range-resolution-example"></a>Exemplo de resolução de intervalo de tempo
 
-A resposta JSON DatetimeV2 foi alterada na API v3. O exemplo seguinte mostra como utiliza o LUIS **datetimeV2** para resolver a expressão que tem um intervalo de tempo.
+A resposta DatetimeV2 JSON alterou-se no API V3. O exemplo que se segue mostra como o LUIS usa o **datetimeV2** para resolver a expressão que tem um intervalo de tempo.
 
-Alterações da API v2:
-* `datetimeV2.timex.type` propriedade não é mais retornada porque é retornada no nível de pai, `datetimev2.type`.
+Alterações da API V2:
+* `datetimeV2.timex.type` propriedade já não é devolvida porque é devolvida ao nível dos pais, `datetimev2.type`.
 * A propriedade `datetimeV2.value` foi renomeada para `datetimeV2.timex`.
 
-O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
+A seguinte expressão e a sua resposta parcial da JSON são mostradas abaixo.
 
 `from 6pm to 7pm`
 
-#### <a name="v3-responsetab5-1"></a>[Resposta v3](#tab/5-1)
+#### <a name="v3-response"></a>[Resposta V3](#tab/5-1)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 
 ```JSON
 
@@ -517,9 +517,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetab5-2"></a>[V3, resposta detalhada](#tab/5-2)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/5-2)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+O seguinte JSON está com o parâmetro `verbose` definido para `true`:
 
 ```json
 
@@ -557,7 +557,7 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetab5-3"></a>[Resposta v2](#tab/5-3)
+#### <a name="v2-response"></a>[Resposta V2](#tab/5-3)
 
 ```json
   "entities": [
@@ -584,11 +584,11 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
 
 ## <a name="time-resolution-example"></a>Exemplo de resolução de tempo
 
-O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
+A seguinte expressão e a sua resposta parcial da JSON são mostradas abaixo.
 
 `8am`
 
-#### <a name="v3-responsetab6-1"></a>[Resposta v3](#tab/6-1)
+#### <a name="v3-response"></a>[Resposta V3](#tab/6-1)
 
 ```json
 "entities": {
@@ -609,7 +609,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
     ]
 }
 ```
-#### <a name="v3-verbose-responsetab6-2"></a>[V3, resposta detalhada](#tab/6-2)
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/6-2)
 
 ```json
 "entities": {
@@ -645,7 +645,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
     }
 }
 ```
-#### <a name="v2-responsetab6-3"></a>[Resposta v2](#tab/6-3)
+#### <a name="v2-response"></a>[Resposta V2](#tab/6-3)
 
 ```json
 "entities": [
@@ -671,18 +671,18 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 
 ## <a name="deprecated-prebuilt-datetime"></a>Datetime pré-criados preterido
 
-O `datetime` criados previamente entidade é preterida e substituída por **datetimeV2**.
+A entidade `datetime` pré-construída é depreciada e substituída por **datav2**.
 
-Para substituir `datetime` com `datetimeV2` na sua aplicação LUIS, conclua os seguintes passos:
+Para substituir `datetime` por `datetimeV2` na sua aplicação LUIS, complete os seguintes passos:
 
-1. Abra o **entidades** painel da interface da web do LUIS.
-2. Eliminar a **datetime** entidade pré-criados.
-3. Clique em **adicionar entidade pré-criados**
-4. Selecione **datetimeV2** e clique em **guardar**.
+1. Abra o painel **de Entidades** da interface web do LUIS.
+2. Elimine a entidade pré-construída de **data.**
+3. Clique em **Adicionar entidade pré-construída**
+4. Selecione **datatimeV2** e clique em **Guardar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre o [dimensão](luis-reference-prebuilt-dimension.md), [e-mail](luis-reference-prebuilt-email.md) entidades, e [número](luis-reference-prebuilt-number.md).
+Conheça a [dimensão,](luis-reference-prebuilt-dimension.md)as entidades de [e-mail](luis-reference-prebuilt-email.md) e [o número.](luis-reference-prebuilt-number.md)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: 0080b64e16b979b32aa5a91f9ee497e5f9ec47fb
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c81d4db5798c15327e06471f1cb0da4841bd61b2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485374"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268515"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depuração e problemas de aprendizagem automática
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -88,7 +88,7 @@ A tabela que se segue contém problemas comuns durante o desenvolvimento do gaso
 
 A tabela abaixo fornece informações para diferentes opções de depuração para oleodutos. Não é uma lista exaustiva, pois existem outras opções além das de Azure Machine Learning, Python e OpenCensus mostradas aqui.
 
-| Biblioteca                    | Tipo   | Exemplo                                                          | Destination                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
+| Biblioteca                    | Tipo   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SDK de aprendizagem automática azure | Métrica | `run.log(name, val)`                                             | Portal de Aprendizagem automática Azure UI             | [Como rastrear experiências](how-to-track-experiments.md#available-metrics-to-track)<br>[classe azureml.core.Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
 | Impressão/exploração de python    | Registar    | `print(val)`<br>`logging.info(message)`                          | Registos de motorista, Azure Machine Learning Designer | [Como rastrear experiências](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Exploração madeireira python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
@@ -283,7 +283,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>Configure o gasoduto ML
 
-Para fornecer os pacotes Python necessários para iniciar o PTVSD e obter o contexto de execução, criar um [ambiente]() e definir `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Altere a versão SDK para corresponder à que está a usar. O seguinte código de corte demonstra como criar um ambiente:
+Para fornecer os pacotes Python necessários para iniciar o PTVSD e obter o contexto de execução, criar um ambiente e definir `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Altere a versão SDK para corresponder à que está a usar. O seguinte código de corte demonstra como criar um ambiente:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.
@@ -387,7 +387,7 @@ Poupe o valor `ip_address`. É usado na secção seguinte.
     > [!NOTE]
     > Se o registo apresentar uma entrada indicando `Debugger attached = False`, então o tempo de paragem expirou e o script continuou sem o desordeiro. Submeta novamente o gasoduto e ligue o descato após a mensagem `Timeout for debug connection` e antes que o prazo expire.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a referência SDK para obter ajuda com o pacote de núcleo de [gasodutos em azureml](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o pacote de [passos em gasodutos em azul.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
 

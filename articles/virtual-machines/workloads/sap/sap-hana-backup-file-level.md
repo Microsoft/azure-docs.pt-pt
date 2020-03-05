@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/05/2018
-ms.author: hermannd
-ms.openlocfilehash: 9696ca8f2063f7e294628505eeebde363f3521ae
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.date: 03/01/2020
+ms.author: juergent
+ms.openlocfilehash: 93b67936166eb73db5e9a15db42c2c6135794108
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255338"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271387"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup SAP HANA Azure no nível de ficheiro
 

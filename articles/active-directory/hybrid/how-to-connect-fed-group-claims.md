@@ -1,6 +1,6 @@
 ---
-title: Configurar declarações de grupo para aplicativos com Azure Active Directory | Microsoft Docs
-description: Informações sobre como configurar declarações de grupo para uso com o Azure AD.
+title: Configure reivindicações do grupo para candidaturas com Diretório Ativo Azure  Microsoft Docs
+description: Informações sobre como configurar pedidos de grupo para uso com AD Azure.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
@@ -12,120 +12,140 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 3cb53656adb1dbeb5e5597d02edfe5be4dbec6a8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
-ms.translationtype: MT
+ms.openlocfilehash: 3b45bcff300cc3e749d387ea83df2f96e51d3c66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170481"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274264"
 ---
-# <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar declarações de grupo para aplicativos com Azure Active Directory (visualização pública)
+# <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configure reivindicações de grupo para candidaturas com Diretório Ativo Azure (Pré-visualização Pública)
 
-Azure Active Directory pode fornecer informações de associação de grupo de usuários em tokens para uso em aplicativos.  Há suporte para dois padrões principais:
+O Azure Ative Directory pode fornecer informações de membros do grupo de utilizadores em tokens para utilização dentro das aplicações.  São suportados dois padrões principais:
 
-- Grupos identificados por seu atributo de OID (identificador de objeto Azure Active Directory) (disponível para o público)
-- Grupos identificados por atributos sAMAccountName ou GroupId para grupos e usuários sincronizados com Active Directory (AD) (visualização pública)
+- Grupos identificados pelo seu identificador de objetos de diretório Ativo Azure (OID) (Geralmente Disponível)
+- Grupos identificados por atributos sAMAccountName ou GroupSID para grupos e utilizadores sincronizados de Diretório Ativo (AD)
 
 > [!IMPORTANT]
-> Há várias advertências a serem observadas para essa funcionalidade de visualização:
+> Existem várias ressalvas a notar para esta funcionalidade de pré-visualização:
 >
->- O suporte para o uso de atributos sAMAccountName e SID (identificador de segurança) sincronizados do local foi projetado para habilitar a movimentação de aplicativos existentes do AD FS e de outros provedores de identidade. Os grupos gerenciados no Azure AD não contêm os atributos necessários para emitir essas declarações.
->- Em organizações maiores, o número de grupos de que um usuário é membro pode exceder o limite que Azure Active Directory será adicionado a um token. 150 grupos para um token SAML e 200 para um JWT. Isso pode levar a resultados imprevisíveis. Se esse for um problema potencial, recomendamos testar e, se necessário, aguardando até adicionarmos aprimoramentos para permitir que você restrinja as declarações aos grupos relevantes para o aplicativo.  
->- Para o novo desenvolvimento de aplicativos, ou em casos em que o aplicativo pode ser configurado para ele e onde o suporte a grupos aninhados não é necessário, é recomendável que a autorização no aplicativo seja baseada em funções de aplicativo em vez de grupos.  Isso limita a quantidade de informações que precisam entrar no token, é mais seguro e separa a atribuição de usuário da configuração do aplicativo.
+>- O suporte à utilização de atributos sAMAccountName e identificador de segurança (SID) sincronizados a partir de instalações foi concebido para permitir a deslocação de aplicações existentes a partir de AD FS e outros fornecedores de identidade. Os grupos geridos em Azure AD não contêm os atributos necessários para emitir estas alegações.
+>- Em organizações maiores o número de grupos de que um utilizador é membro pode exceder o limite que o Azure Ative Directory irá adicionar a um símbolo. 150 grupos para um símbolo SAML, e 200 para um JWT. Isto pode levar a resultados imprevisíveis. Se os seus utilizadores tiverem um grande número de membros do grupo, recomendamos a utilização da opção de restringir os grupos emitidos em reclamações aos grupos relevantes para a aplicação.  
+>- Para o desenvolvimento de novas aplicações, ou nos casos em que a aplicação possa ser configurada para a sua configuração, e quando não for necessário o suporte do grupo aninhado, recomendamos que a autorização na aplicação seja baseada em funções de aplicação e não em grupos.  Isto limita a quantidade de informação que precisa de entrar no símbolo, é mais segura e separa a atribuição do utilizador da configuração da aplicação.
 
-## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>Declarações de grupo para aplicativos migrando do AD FS e de outros provedores de identidade
+## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>Pedidos de grupo para pedidos migradores de AD FS e outros fornecedores de identidade
 
-Muitos aplicativos configurados para autenticar com AD FS dependem de informações de associação de grupo na forma de atributos de grupo do Windows AD.   Esses atributos são o sAMAccountName do grupo, que pode ser qualificado por nome de domínio ou o identificador de segurança do grupo do Windows (GroupId).  Quando o aplicativo é federado com AD FS, AD FS usa a função TokenGroups para recuperar as associações de grupo para o usuário.
+Muitas aplicações configuradas para autenticar com AD FS dependem de informações de membros do grupo sob a forma de atributos do grupo AD windows.   Estes atributos são o grupo sAMAccountName, que pode ser qualificado nome de domínio, ou o Identificador de Segurança do Grupo Windows (GroupSID).  Quando a aplicação é federada com AD FS, a AD FS utiliza a função TokenGroups para recuperar os membros do grupo para o utilizador.
 
-Para corresponder ao token que um aplicativo receberia de AD FS, as declarações de grupo e função podem ser emitidas contendo o sAMAccountName qualificado pelo domínio em vez da objectID de Azure Active Directory do grupo.
+Uma aplicação que foi transferida da AD FS precisa de reclamações no mesmo formato. As alegações de grupo e de funções podem ser emitidas do Azure Ative Directory contendo o domínio qualificado sAMAccountName ou o GroupSID sincronizado do Ative Directory em vez do objectid do Diretório Ativo Azure do grupo.
 
-Os formatos com suporte para declarações de grupo são:
+Os formatos suportados para reivindicações de grupo são:
 
-- **ObjectID do grupo de Azure Active Directory** (Disponível para todos os grupos)
-- **sAMAccountName** (Disponível para grupos sincronizados do Active Directory)
-- **NetbiosDomain\sAMAccountName** (Disponível para grupos sincronizados do Active Directory)
-- **DNSDomainName\sAMAccountName** (Disponível para grupos sincronizados do Active Directory)
-- **Identificador de segurança do grupo local** (Disponível para grupos sincronizados do Active Directory)
+- Grupo de **Diretório Ativo Azure ObjectId** (Disponível para todos os grupos)
+- **sAMAccountName** (Disponível para grupos sincronizados a partir de Diretório Ativo)
+- **NetbiosDomain\sAMAccountName** (Disponível para grupos sincronizados a partir de Diretório Ativo)
+- **DNSDomainName\sAMAccountName** (Disponível para grupos sincronizados a partir de Diretório Ativo)
+- **No Identificador** de Segurança do Grupo De Instalações (Disponível para grupos sincronizados de Diretório Ativo)
 
 > [!NOTE]
-> os atributos sAMAccountName e SID do grupo local só estão disponíveis em objetos de grupo sincronizados a partir de Active Directory.   Eles não estão disponíveis em grupos criados no Azure Active Directory ou no office365.   Os aplicativos configurados no Azure Active Directory para serem sincronizados com atributos de grupo locais os obtêm somente para grupos sincronizados.
+> Os atributos sid do SAMAccountName e on No Local group sid só estão disponíveis em objetos do Grupo sincronizados a partir do Diretório Ativo.   Não estão disponíveis em grupos criados no Azure Ative Directory ou office365.   As aplicações configuradas no Diretório Ativo Azure para obter atributos de grupo sincronizados no local recebem-nas apenas para grupos sincronizados.
 
-## <a name="options-for-applications-to-consume-group-information"></a>Opções para que os aplicativos consumam informações de grupo
+## <a name="options-for-applications-to-consume-group-information"></a>Opções para aplicações para consumir informação de grupo
 
-Uma maneira de os aplicativos obterem informações de grupo é chamar o ponto de extremidade de grupos de gráficos para recuperar a associação de grupo para o usuário autenticado. Essa chamada garante que todos os grupos dos quais um usuário é membro estejam disponíveis mesmo quando há um grande número de grupos envolvidos e o aplicativo precisa enumerar todos os grupos dos quais o usuário é membro.  A enumeração de grupo, em seguida, é independente das limitações de tamanho do token.
+As aplicações podem chamar o ponto final dos grupos MS Graph para obter informações de grupo para o utilizador autenticado. Esta chamada garante que todos os grupos de que um utilizador é membro estão disponíveis mesmo quando há um grande número de grupos envolvidos.  A enumeração do grupo é então independente das limitações do tamanho do token.
 
-No entanto, se um aplicativo existente já espera consumir informações de grupo por meio de declarações no token que recebe, Azure Active Directory pode ser configurado com várias opções de declarações diferentes para atender às necessidades do aplicativo.  Considere as seguintes opções:
+No entanto, se uma aplicação existente espera consumir informações de grupo através de sinistros, o Azure Ative Directory pode ser configurado com vários formatos de sinistros diferentes.  considere as seguintes opções:
 
-- Ao usar a associação de grupo para fins de autorização no aplicativo, é preferível usar o ObjectID do grupo, que é imutável e exclusivo em Azure Active Directory e está disponível para todos os grupos.
-- Se estiver usando o sAMAccountName do grupo local para autorização, use nomes qualificados do domínio;  Há menos chances de situações decorrentes dos nomes conflitantes. o sAMAccountName por si só pode ser exclusivo dentro de um domínio Active Directory, mas se mais de um domínio Active Directory for sincronizado com um locatário Azure Active Directory, haverá a possibilidade de que mais de um grupo tenha o mesmo nome.
-- Considere o uso de [funções de aplicativo](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para fornecer uma camada de indireção entre a associação de grupo e o aplicativo.   Em seguida, o aplicativo faz decisões de autorização interna com base em no token.
-- Se o aplicativo estiver configurado para obter atributos de grupo que são sincronizados de Active Directory e um grupo não contiver esses atributos, ele não será incluído nas declarações.
-- As declarações de grupo em tokens incluem grupos aninhados.   Se um usuário for membro de GroupB e GroupB for um membro de GroupA, as declarações de grupo para o usuário conterão GroupA e GroupB. Para organizações com uso intensivo de grupos aninhados e usuários com um grande número de associações de grupo, o número de grupos listados no token pode aumentar o tamanho do token.   Azure Active Directory limita o número de grupos que emitirá em um token para 150 para asserções SAML e 200 para JWT para evitar que tokens fiquem muito grandes.  Se um usuário for membro de um número maior de grupos do que o limite, os grupos serão emitidos junto com um link para o ponto de extremidade do grafo para obter informações sobre o grupo.
+- Ao utilizar a adesão ao grupo para efeitos de autorização de pedido, é preferível utilizar o Group ObjectID. O Group ObjectID é imutável e único no Diretório Ativo Azure e está disponível para todos os grupos.
+- Se utilizar o grupo no local sAMAccountName para autorização, utilize nomes qualificados de domínio;  há menos hipóteses de os nomes entrarem em confronto. O sAMAccountName pode ser único dentro de um domínio de Diretório Ativo, mas se mais de um domínio de Diretório Ativo for sincronizado com um inquilino do Diretório Ativo Azure, existe a possibilidade de mais de um grupo ter o mesmo nome.
+- Considere utilizar funções de [aplicação](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para fornecer uma camada de inorientação entre a adesão ao grupo e a aplicação.   O pedido toma então decisões de autorização interna com base em amêijoas de funções no símbolo.
+- Se a aplicação estiver configurada para obter atributos de grupo sincronizados do Ative Directory e um Grupo não contiver esses atributos, não será incluído nas reclamações.
+- As alegações do grupo em fichas incluem grupos aninhados, exceto quando utilizam a opção de restringir as reivindicações do grupo aos grupos afetados ao pedido.  Se um utilizador for membro do GrupoB e o GroupB for membro do GroupA, então as alegações do grupo para o utilizador conterão tanto o GrupoA como o GroupB. Quando os utilizadores de uma organização têm um grande número de membros do grupo, o número de grupos listados no token pode aumentar o tamanho do símbolo.  O Azure Ative Directory limita o número de grupos que emitirá num token a 150 para afirmações da SAML e 200 para a JWT.  Se um utilizador for membro de um maior número de grupos, os grupos são omitidos e uma ligação ao ponto final do Gráfico para obter informações de grupo é incluída.
 
-> Pré-requisitos para usar atributos de grupo sincronizados do Active Directory:   Os grupos devem ser sincronizados Active Directory usando Azure AD Connect.
+## <a name="prerequisites-for-using-group-attributes-synchronized-from-active-directory"></a>Pré-requisitos para a utilização de atributos do Grupo sincronizados a partir do Diretório Ativo
 
-Há duas etapas para configurar Azure Active Directory para emitir nomes de grupo para grupos de Active Directory.
+As reclamações de membros do grupo podem ser emitidas em fichas para qualquer grupo se utilizar o formato ObjectId. Para utilizar as reivindicações de grupo em outros formatos que não o grupo ObjectId, os grupos devem ser sincronizados a partir do Ative Directory utilizando o Azure AD Connect.
 
-1. **Sincronizar nomes de grupo de Active Directory** Antes que Azure Active Directory possa emitir os nomes de grupo ou o SID do grupo local em declarações de grupo ou função, os atributos necessários precisam ser sincronizados do Active Directory.  Você deve estar executando Azure AD Connect versão 1.2.70 ou posterior.   Antes da versão 1.2.70 Azure AD Connect sincronizará os objetos de grupo de Active Directory, mas não incluirá os atributos de nome de grupo necessários por padrão.  Você deve atualizar para a versão atual.
+Existem dois passos para configurar o Diretório Ativo do Azure para emitir nomes de grupo para Grupos De Diretório Ativo.
 
-2. **Configurar o registro do aplicativo no Azure Active Directory para incluir declarações de grupo em tokens** As declarações de grupo podem ser configuradas na seção aplicativos empresariais do portal para uma galeria ou aplicativo de SSO do SAML não Galeria, ou usando o manifesto do aplicativo na seção registros do aplicativo.  Para configurar as declarações de grupo no manifesto do aplicativo, consulte "Configurando o Azure Active Directory registro de aplicativo para atributos de grupo" abaixo.
+1. **Sincronizar nomes de grupo sincronia do Ative Directory** Antes que o Azure Ative Directory possa emitir os nomes do grupo ou nas instalações do grupo SID em reivindicações de grupo ou de funções, os atributos necessários precisam de ser sincronizados a partir do Ative Directory.  Deve estar a executar a versão 1.2.70 do Azure AD Connect ou mais tarde.   As versões anteriores do Azure AD Connect do que 1.2.70 sincronizarão os objetos do grupo a partir do Ative Directory, mas não incluirão os atributos de nome de grupo necessários.  Atualize para a versão atual.
 
-## <a name="configure-group-claims-for-saml-applications-using-sso-configuration"></a>Configurar declarações de grupo para aplicativos SAML usando a configuração de SSO
+2. **Configure o registo de candidatura no Diretório Ativo azure para incluir reclamações de grupo em fichas** As reivindicações do grupo podem ser configuradas na secção aplicações empresariais do portal, ou utilizando o Manifesto de Aplicação na secção registos de aplicações.  Para configurar as reclamações do grupo no manifesto de aplicação, consulte "Configurar o Registo de Aplicação de Diretório Ativo Azure para atributos de grupo" abaixo.
 
-Para configurar declarações de grupo para um aplicativo SAML de galeria ou não Galeria, abra aplicativos empresariais, clique no aplicativo na lista e selecione configuração de logon único.
+## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Adicione alegações de grupo para aplicações SAML utilizando a configuração SSO
 
-Selecione o ícone de edição ao lado de "grupos retornados no token"
+Para configurar as Reclamações de Grupo para uma aplicação SAML de galeria ou não-galeria, abra **as Aplicações Empresariais,** clique na aplicação na lista, selecione **a configuração Single Sign On**, e, em seguida, selecione **Atributos e Reclamações**do Utilizador .
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+Clique em **Adicionar uma reivindicação de grupo**  
 
-Use os botões de opção para selecionar quais grupos devem ser incluídos no token
+![reivindica uI](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+Utilize os botões de rádio para selecionar quais os grupos que devem ser incluídos no símbolo
+
+![reivindica uI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Seleção | Descrição |
 |----------|-------------|
-| **Todos os grupos** | Emite grupos de segurança e listas de distribuição.   Ele também faz com que as funções de diretório que o usuário está atribuído sejam emitidas em uma declaração de ' wids ' e qualquer função de aplicativo à qual o usuário seja emitido na declaração de funções. |
-| **Grupos de segurança** | Emite grupos de segurança dos quais o usuário é membro na declaração de grupos |
-| **Listas de distribuição** | Emite listas de distribuição para as quais o usuário é membro |
-| **Funções de diretório** | Se as funções de diretório atribuídas ao usuário forem emitidas como uma declaração ' wids ' (a declaração de grupos não será emitida) |
+| **Todos os grupos** | Emite grupos de segurança e listas de distribuição e funções.  |
+| **Grupos de segurança** | Emite grupos de segurança que o utilizador é membro dos grupos alegam |
+| **Papéis de diretório** | Se o utilizador for atribuído funções de diretório, são emitidas como uma alegação de 'wids' (os grupos alegam que não serão emitidos) |
+| **Grupos atribuídos ao pedido** | Emite apenas os grupos que são explicitamente atribuídos à aplicação e o utilizador é membro da |
 
-Por exemplo, para emitir todos os grupos de segurança dos quais o usuário é membro, selecione grupos de segurança
+Por exemplo, para emitir todos os Grupos de Segurança o utilizador é membro de, selecione Grupos de Segurança
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![reivindica uI](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
-Para emitir grupos usando Active Directory atributos sincronizados de Active Directory em vez de objectIDs do Azure AD, selecione o formato necessário na lista suspensa.  Isso substitui a ID de objeto nas declarações por valores de cadeia de caracteres que contêm nomes de grupo.   Somente os grupos sincronizados do Active Directory serão incluídos nas declarações.
+Para emitir grupos utilizando atributos Ative Directory sincronizados a partir de Ative Directory em vez de objetos De AD Azure selecionam o formato necessário a partir da queda. Apenas grupos sincronizados do Ative Directory serão incluídos nas reclamações.
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+![reivindica uI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+
+Para emitir apenas grupos atribuídos ao pedido, selecione **Grupos Atribuídos ao pedido**
+
+![reivindica uI](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+
+Os grupos atribuídos ao pedido serão incluídos no símbolo.  Outros grupos de que o utilizador é membro será omitido.  Com esta opção, os grupos aninhados não estão incluídos e o utilizador deve ser um membro direto do grupo atribuído à aplicação.
+
+Para alterar os grupos atribuídos à aplicação, selecione a aplicação a partir da lista de **Aplicações empresariais** e, em seguida, clique em **Utilizadores e Grupos** a partir do menu de navegação à esquerda da aplicação.
+
+Consulte o documento [Métodos para atribuir utilizadores e grupos a uma aplicação](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups) para obter detalhes sobre a gestão da atribuição de grupos às aplicações.
 
 ### <a name="advanced-options"></a>Opções avançadas
 
-A maneira como as declarações de grupo são emitidas pode ser modificada pelas configurações em opções avançadas
+A forma como as reivindicações do grupo são emitidas pode ser modificada pelas definições em opções Avançadas
 
-Personalize o nome da declaração de Grupo:  Se selecionado, um tipo de declaração diferente pode ser especificado para declarações de grupo.   Insira o tipo de declaração no campo nome e o namespace opcional para a declaração no campo namespace.
+Personalize o nome da reivindicação do grupo: Se selecionado, um tipo de reclamação diferente pode ser especificado para reclamações de grupo.   Introduza o tipo de reclamação no campo Nome e o espaço de nome opcional para a reclamação no campo namespace.
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![reivindica uI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
-Alguns aplicativos exigem que as informações de associação de grupo apareçam na declaração ' role '. Opcionalmente, você pode emitir os grupos do usuário como funções, marcando a caixa ' emitir grupos de declarações de função '.
+Algumas aplicações exigem que as informações sobre a adesão ao grupo apareçam na alegação de "papel". Pode emitir opcionalmente os grupos do utilizador como funções, verificando a caixa "Emit groups a role claims".
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![reivindica uI](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
-> Se a opção para emitir dados de grupo como funções for usada, somente os grupos aparecerão na declaração de função.  Qualquer função de aplicativo à qual o usuário está atribuído não aparecerá na declaração de função.
+> Se for utilizada a opção de emitir dados de grupo como funções, apenas os grupos aparecerão na alegação de funções.  Quaisquer funções de aplicação atribuídas pelo utilizador não constam da alegação de funções.
 
-## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Configurar o registro de aplicativo do Azure AD para atributos de grupo
+### <a name="edit-the-group-claims-configuration"></a>Editar a configuração de reivindicações do grupo
 
-As declarações de grupo também podem ser configuradas na seção [declarações opcionais](../../active-directory/develop/active-directory-optional-claims.md) do [manifesto do aplicativo](../../active-directory/develop/reference-app-manifest.md).
+Uma vez adicionada a configuração de reivindicação de grupo à configuração de Atributos e Reclamações do Utilizador, a opção de adicionar uma reclamação de grupo será acinzentada.  Para alterar a configuração da reclamação do grupo clique na reclamação do grupo na lista de **reclamações adicionais.**
 
-1. No portal-> Azure Active Directory-> registros do aplicativo-> selecione o manifesto do aplicativo >
+![reivindica uI](media/how-to-connect-fed-group-claims/group-claims-ui-7.png)
 
-2. Habilitar declarações de associação de grupo alterando o groupMembershipClaim
+## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Configure o Registo de Aplicação AD Azure para atributos de grupo
 
-   Os valores válidos são:
+As reivindicações do grupo também podem ser configuradas na secção [de Reclamações Opcionais](../../active-directory/develop/active-directory-optional-claims.md) do Manifesto de [Aplicação](../../active-directory/develop/reference-app-manifest.md).
 
-   - Os
-   - SecurityGroup
-   - DistributionList
-   - DirectoryRole
+1. No portal ->Azure Ative Diretório -> Inscrições de Aplicação->Select Application->Manifest
+
+2. Ativar reclamações de membros do grupo alterando o grupoMembershipClaim
+
+Os valores válidos são:
+
+| Seleção | Descrição |
+|----------|-------------|
+| **"Todos"** | Emite grupos de segurança, listas de distribuição e funções |
+| **"Grupo de Segurança"** | Emite grupos de segurança que o utilizador é membro dos grupos alegam |
+| **"Roledeta de Diretório** | Se o utilizador for atribuído funções de diretório, são emitidas como uma alegação de 'wids' (os grupos alegam que não serão emitidos) |
+| **"ApplicationGroup** | Emite apenas os grupos que são explicitamente atribuídos à aplicação e o utilizador é membro da |
 
    Por exemplo:
 
@@ -133,20 +153,20 @@ As declarações de grupo também podem ser configuradas na seção [declaraçõ
    "groupMembershipClaims": "SecurityGroup"
    ```
 
-   Por padrão, ObjectIDs de grupo serão emitidas no valor de declaração de grupo.  Para modificar o valor da declaração para conter os atributos do grupo local ou para alterar o tipo de declaração para função, use a configuração OptionalClaims da seguinte maneira:
+   Por padrão, os Objetos de Grupo serão emitidos no valor de reclamação do grupo.  Para modificar o valor de reclamação para conter nos atributos do grupo de instalações, ou para alterar o tipo de reclamação para a função, utilize a configuração OptionalClaims da seguinte forma:
 
-3. Definir declarações opcionais de configuração de nome de grupo.
+3. Definir as alegações opcionais de configuração do nome do grupo.
 
-   Se você quiser que os grupos no token contenham os atributos do grupo do AD local na seção declarações opcionais, especifique a qual tipo de token a declaração opcional deve ser aplicada, o nome da declaração opcional solicitada e todas as propriedades adicionais desejadas.  Vários tipos de token podem ser listados:
+   Se pretender que os grupos do token contenham os atributos do grupo AD no local, especifique a que tipo simbólico deve ser aplicado na secção de reclamações opcionais.  Vários tipos de fichas podem ser listados:
 
-   - Token para o token de ID de OIDC
-   - accessToken para o token de acesso do OAuth/OIDC
-   - Saml2Token para tokens SAML.
+   - idToken para o token id OIDC
+   - acessoToken para o token de acesso OAuth/OIDC
+   - Saml2Token para fichas SAML.
 
    > [!NOTE]
-   > O tipo Saml2Token aplica-se aos tokens de formato SAML 1.1 e SAML 2.0
+   > O tipo Saml2Token aplica-se tanto às fichas do formato SAML1.1 como ao formato SAML2.0
 
-   Para cada tipo de token relevante, modifique a declaração de grupos para usar a seção OptionalClaims no manifesto. O esquema OptionalClaims é o seguinte:
+   Para cada tipo simbólico relevante, modifique os grupos alegando utilizar a secção OptionalClaims no manifesto. O esquema OptionalClaims é o seguinte:
 
    ```json
    {
@@ -157,23 +177,23 @@ As declarações de grupo também podem ser configuradas na seção [declaraçõ
    }
    ```
 
-   | Esquema de declarações opcional | Value |
+   | Reclamações Opcionais Schema | Valor |
    |----------|-------------|
-   | **name:** | Deve ser "grupos" |
-   | **original** | Não usado. Omitir ou especificar nulo |
-   | **essential:** | Não usado. Omitir ou especificar false |
-   | **additionalProperties:** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | **nome:** | Devem ser "grupos" |
+   | **fonte:** | Não utilizado. Omite ou especifique nulo |
+   | **essencial:** | Não utilizado. Omite ou especifique falso |
+   | **propriedades adicionais:** | Lista de propriedades adicionais.  Opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
-   Em AdditionalProperties, apenas um de "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" são necessários.  Se mais de um estiver presente, o primeiro será usado e todos os outros serão ignorados.
+   Adicionalmente são necessários apenas um dos "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name".  Se mais do que um estiver presente, o primeiro é usado e qualquer outro ignorado.
 
-   Alguns aplicativos exigem informações de grupo sobre o usuário na declaração de função.  Para alterar o tipo de declaração para de uma declaração de grupo para uma declaração de função, adicione "emit_as_roles" a propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
+   Algumas aplicações requerem informações de grupo sobre o utilizador na reivindicação de funções.  Para alterar o tipo de reclamação para de um grupo reivindicar para uma reivindicação de papel, adicione "emit_as_roles" a propriedades adicionais.  Os valores do grupo serão emitidos na reivindicação do papel.
 
    > [!NOTE]
-   > Se "emit_as_roles" for usado, qualquer função de aplicativo configurada que o usuário está atribuído não aparecerá na declaração de função
+   > Se "emit_as_roles" for utilizada, quaisquer Funções de Aplicação configuradas por o utilizador ser atribuído não aparecerão na alegação de funções
 
 ### <a name="examples"></a>Exemplos
 
-Emitir grupos como nomes de grupo nos tokens de acesso OAuth no formato dnsDomainName\SAMAccountName
+Emitem grupos como nomes de grupo em tokens de acesso OAuth no formato dnsDomainName\SAMAccountName
 
 ```json
 "optionalClaims": {
@@ -184,7 +204,7 @@ Emitir grupos como nomes de grupo nos tokens de acesso OAuth no formato dnsDomai
 }
  ```
 
-Para emitir nomes de grupo a serem retornados no formato netbiosDomain\samAccountName como a declaração de funções nos tokens de ID SAML e OIDC:
+Para emitir nomes de grupo a devolver no formato netbiosDomain\samAccountName como as funções reivindicam em Tokens de ID SAML e OIDC:
 
 ```json
 "optionalClaims": {
@@ -202,4 +222,6 @@ Para emitir nomes de grupo a serem retornados no formato netbiosDomain\samAccoun
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[O que é a identidade híbrida?](whatis-hybrid-identity.md)
+[Métodos para atribuir utilizadores e grupos a uma aplicação](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups)
+
+[Configurar alegações de funções](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

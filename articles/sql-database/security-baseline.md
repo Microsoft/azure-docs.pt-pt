@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e1323467db875968f45557c6a7c0afdfee5e4221
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: dd9b82cbb2984386059988496c550123a8e67a3f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589938"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273080"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Linha de base de segurança azure para base de dados Azure SQL
 
@@ -122,12 +122,9 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Implantar sistemas de deteção/prevenção de intrusões baseados em rede (IDS/IPS)
 
-**Orientação**: Habilitação de Proteção avançada de ameaças (ATP) para base de dados Azure SQL.  Os utilizadores recebem um alerta sobre atividades suspeitas de bases de dados, potenciais vulnerabilidades e ataques de injeção SQL, bem como padrões anómalos de acesso à base de dados e consultas. A Advanced Threat Protection também integra alertas com o Centro de Segurança Azure.
+**Orientação**: Ativar a Proteção Avançada de Ameaças (ATP) para a Base de Dados Azure SQL.  Os utilizadores recebem um alerta sobre atividades suspeitas de bases de dados, potenciais vulnerabilidades e ataques de injeção SQL, bem como padrões anómalos de acesso à base de dados e consultas. A Advanced Threat Protection também integra alertas com o Centro de Segurança Azure.
 
-
-Compreender e utilizar proteção avançada de ameaças para base de dados Azure SQL:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+Compreender e utilizar proteção avançada de ameaças para base de dados Azure SQL: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
 **Monitorização do Centro de Segurança Azure:** Sim
 
@@ -164,11 +161,14 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Manter configurações de segurança padrão para dispositivos de rede
 
-**Orientação**: Defina e implemente configurações de segurança de rede para as instâncias do servidor da Base de Dados Azure SQL com a Política Azure. Pode utilizar o espaço de nome "Microsoft.Sql" para definir definições de políticas personalizadas ou utilizar qualquer uma das definições de política incorporadas concebidas para a proteção da rede de servidores de dados Azure SQL. Um exemplo de uma política de segurança de rede incorporada aplicável para o servidor de base de dados Azure SQL seria: "O Servidor SQL deve utilizar um ponto final de serviço de rede virtual"
+**Orientação**: Defina e implemente configurações de segurança de rede para as instâncias do servidor da Base de Dados Azure SQL com a Política Azure. Pode utilizar o espaço de nome "Microsoft.Sql" para definir definições de políticas personalizadas ou utilizar qualquer uma das definições de política incorporadas concebidas para a proteção da rede de servidores de dados Azure SQL. Um exemplo de uma política de segurança de rede incorporada aplicável para o servidor de base de dados Azure SQL seria: "O SQL Server deve utilizar um ponto final de serviço de rede virtual".
+ 
 
 Utilize as plantas Azure para simplificar as implantações azure em larga escala através da embalagem de artefactos ambientais chave, tais como modelos de Gestão de Recursos Azure, controlo de acesso baseado em funções (RBAC) e políticas, numa única definição de blueprint. Aplique facilmente o projeto a novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
 
+
 Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Como criar um Projeto Azure: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -457,13 +457,27 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Orientação**: Utilize relatórios de segurança do Diretório Ativo Azure para a geração de registos e alertas quando ocorrer atividade suspeita ou insegura no ambiente.
 
+
+
 Utilize proteção avançada de ameaças para a Base de Dados Azure SQL para detetar atividades anómalas que indiquem tentativas incomuns e potencialmente nocivas de acesso ou exploração de bases de dados.
 
-Como identificar utilizadores de Anúncios Azure sinalizados para atividades de risco: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Do Azure: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Rever Proteção Avançada de Ameaças e alertas potenciais: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
+Como identificar utilizadores de Anúncios Azure sinalizados para atividades de risco:
+
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+
+
+
+Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Do Azure:
+
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
+
+
+Reveja a Proteção Avançada de Ameaças e potenciais alertas:
+
+https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
 
 
 **Monitorização do Centro de Segurança Azure:** Sim
@@ -473,6 +487,7 @@ Rever Proteção Avançada de Ameaças e alertas potenciais: https://docs.micros
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Gerir os recursos do Azure a partir de locais aprovados
 
 **Orientação**: Utilizar locais de acesso condicional nomeados para permitir o acesso do Portal e da Gestão de Recursos Azure a partir de apenas agrupamentos lógicos específicos de gamas de endereços IP ou países/regiões.
+
 
 Como configurar localizações nomeadas em Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
@@ -714,7 +729,7 @@ Como criar alertas para eventos de Registo de Atividade seleções do Azure:
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade**: Cliente
 
@@ -774,7 +789,7 @@ Como exportar um relatório de avaliação de vulnerabilidade no Centro de Segur
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização**do Azure Security Center : Não aplicável
 
 **Responsabilidade**: Cliente
 
@@ -796,11 +811,15 @@ Compreender o Centro de Segurança Azure Secure Score: https://docs.microsoft.co
 
 **Orientação**: Utilize o Gráfico de Recursos Azure para consultar e descobrir todos os recursos (incluindo as instâncias do Servidor Azure SQL) dentro da sua subscrição(s).  Certifique-se de que tem permissões adequadas (ler) no seu inquilino e que é capaz de enumerar todas as subscrições do Azure, bem como recursos dentro das suas subscrições.
 
+
 Embora os recursos clássicos do Azure possam ser descobertos através do Resource Graph, é altamente recomendado criar e utilizar recursos do Gestor de Recursos Azure para avançar.
+
 
 Como criar consultas com o Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
+
 Como visualizar as suas Assinaturas Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
 
 Compreender Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -812,7 +831,11 @@ Compreender Azure RBAC: https://docs.microsoft.com/azure/role-based-access-contr
 
 **Orientação**: Aplique etiquetas nos recursos do Azure, dando metadados para logicamente organizá-los numa taxonomia.
 
-Como criar e utilizar Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
+
+Como criar e utilizar Tags:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -822,11 +845,23 @@ Como criar e utilizar Tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 **Orientação**: Utilize a marcação, os grupos de gestão e as assinaturas separadas, se for caso disso, para organizar e rastrear os ativos. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição atempadamente.
 
-Como criar subscrições adicionais do Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Como criar Grupos de Gestão: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Como criar e utilizar Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Como criar subscrições adicionais do Azure:
+
+https://docs.microsoft.com/azure/billing/billing-create-subscription
+
+
+
+Como criar Grupos de Gestão:
+
+https://docs.microsoft.com/azure/governance/management-groups/create
+
+
+
+Como criar e utilizar Tags:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -894,6 +929,7 @@ Como configurar e gerir a Política Azure: https://docs.microsoft.com/azure/gove
 
 Como negar um tipo específico de recurso com a Política Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
+
 **Monitorização**do Azure Security Center : Não aplicável
 
 **Responsabilidade**: Cliente
@@ -911,9 +947,7 @@ Como negar um tipo específico de recurso com a Política Azure: https://docs.mi
 **Orientação**: Utilize o Acesso Condicional azure para limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure configurando o "Block access" para a app "Microsoft Azure Management".
 
 
-Como configurar o Acesso Condicional ao acesso ao portal Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Como configurar o Acesso Condicional ao acesso ao Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitorização**do Azure Security Center : Atualmente não disponível
 
@@ -1152,7 +1186,7 @@ Compreenda backups e continuidade de negócios com o Servidor Azure SQL:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
-**Monitorização**do Azure Security Center : Não aplicável
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade**: Partilhado
 
@@ -1204,7 +1238,7 @@ Como permitir a eliminação suave no Cofre chave:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Monitorização**do Azure Security Center : Atualmente não disponível
+**Monitorização do Centro de Segurança Azure:** Sim
 
 **Responsabilidade**: Cliente
 
@@ -1292,7 +1326,7 @@ Como configurar a Automatização do Fluxo de Trabalho e aplicações lógicas:
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Monitorização do Centro de Segurança Azure:** Sim
+**Monitorização**do Azure Security Center : Atualmente não disponível
 
 **Responsabilidade**: Cliente
 
@@ -1314,3 +1348,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Microsoft 
 
 **Responsabilidade**: Partilhado
 
+## <a name="next-steps"></a>Passos seguintes
+
+- Ver o [Benchmark de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Saiba mais sobre [as linhas de base de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

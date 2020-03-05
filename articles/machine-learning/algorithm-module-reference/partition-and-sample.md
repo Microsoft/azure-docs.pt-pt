@@ -1,7 +1,7 @@
 ---
-title: 'Partição e exemplo: referência de módulo'
+title: 'Partição e Amostra: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo partição e exemplo no Azure Machine Learning para executar a amostragem em um conjunto de informações ou para criar partições a partir de seu conjunto de informações.
+description: Aprenda a utilizar o módulo de partição e amostra em Azure Machine Learning para efetuar amostragem num conjunto de dados ou para criar divisórias a partir do seu conjunto de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,49 +9,49 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 772c16dc292d8bce4b927c9c2ce3ff6ee0ed399d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 827c76610162d74c5283177fef4989204321f44b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152130"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268711"
 ---
-# <a name="partition-and-sample-module"></a>Módulo de partição e exemplo
+# <a name="partition-and-sample-module"></a>Módulo de partição e amostra
 
 Este artigo descreve um módulo em Azure Machine Learning designer (pré-visualização).
 
-Use este módulo para executar a amostragem em um conjunto de um ou para criar partições do conjunto de seus.
+Utilize este módulo para efetuar amostragem num conjunto de dados ou para criar divisórias a partir do seu conjunto de dados.
 
-A amostragem é uma ferramenta importante no aprendizado de máquina, pois permite reduzir o tamanho de um conjunto de informações mantendo a mesma proporção de valores. Este módulo dá suporte a várias tarefas relacionadas que são importantes no aprendizado de máquina: 
+A amostragem é uma ferramenta importante no machine learning porque permite reduzir o tamanho de um conjunto de dados mantendo a mesma relação de valores. Este módulo suporta várias tarefas relacionadas que são importantes na aprendizagem automática: 
 
-- Dividir seus dados em várias subseções do mesmo tamanho. 
+- Dividir os seus dados em várias subsecções do mesmo tamanho. 
 
-    Você pode usar as partições para validação cruzada ou para atribuir casos a grupos aleatórios.
+    Pode utilizar as divisórias para validação cruzada ou para atribuir casos a grupos aleatórios.
 
-- Separar dados em grupos e, em seguida, trabalhar com dados de um grupo específico. 
+- Separar os dados em grupos e, em seguida, trabalhar com dados de um grupo específico. 
 
-    Depois de atribuir aleatoriamente casos a grupos diferentes, talvez seja necessário modificar os recursos associados a apenas um grupo.
+    Depois de atribuir casos aleatoriamente a diferentes grupos, poderá ser necessário modificar as funcionalidades que estão associadas aapenas a um grupo.
 
-- Exemplos. 
+- A provar. 
 
-    Você pode extrair uma porcentagem dos dados, aplicar a amostragem aleatória ou escolher uma coluna a ser usada para balancear o conjunto e executar a amostragem de sobreratificação em seus valores.
+    Pode extrair uma percentagem dos dados, aplicar amostras aleatórias ou escolher uma coluna para equilibrar o conjunto de dados e efetuar uma amostragem estratificada dos seus valores.
 
-- Criando um conjunto de um DataSet menor para teste. 
+- Criar um conjunto de dados menor para testes. 
 
-    Se tiver muitos dados, poderá querer utilizar apenas as primeiras linhas *n* durante a configuração do pipeline e, em seguida, mudar para utilizar o conjunto de dados completo quando construir o seu modelo. Você também pode usar a amostragem para criar um conjunto de um DataSet menor para uso no desenvolvimento.
+    Se tiver muitos dados, poderá querer utilizar apenas as primeiras linhas *n* durante a configuração do pipeline e, em seguida, mudar para utilizar o conjunto de dados completo quando construir o seu modelo. Também pode utilizar amostras para criar um conjunto de dados menor para utilização no desenvolvimento.
 
-## <a name="configure-partition-and-sample"></a>Configurar partição e exemplo
+## <a name="configure-partition-and-sample"></a>Configurar a partição e a amostra
 
-Esse módulo dá suporte a vários métodos para dividir seus dados em partições ou para amostragem. Escolha o método primeiro e, em seguida, defina as opções adicionais exigidas pelo método.
+Este módulo suporta múltiplos métodos para dividir os seus dados em divisórias ou para amostragem. Escolha primeiro o método e, em seguida, detete as opções adicionais exigidas pelo método.
 
 - Head
 - Amostragem
 - Atribuir a dobras
-- Selecionar dobra
+- Escolha dobrar
 
-### <a name="get-top-n-rows-from-a-dataset"></a>Obter as N primeiras linhas de um conjunto de registros
+### <a name="get-top-n-rows-from-a-dataset"></a>Obtenha linhas TOP N a partir de um conjunto de dados
 
-Utilize este modo para obter apenas as primeiras linhas *n.* Essa opção será útil se você quiser testar um pipeline em um pequeno número de linhas e não precisar que os dados sejam balanceados ou amostrados de qualquer forma.
+Utilize este modo para obter apenas as primeiras linhas *n.* Esta opção é útil se quiser testar um pipeline em um pequeno número de linhas, e não precisa que os dados sejam equilibrados ou amostrados de forma alguma.
 
 1. Adicione o módulo **de partilha e amostra** ao seu pipeline na interface e ligue o conjunto de dados.  
 
@@ -59,48 +59,48 @@ Utilize este modo para obter apenas as primeiras linhas *n.* Essa opção será 
 
 3. **Número de linhas para selecionar:** Digite o número de linhas para devolver.
 
-    O número de linhas especificado deve ser um inteiro não negativo. Se o número de linhas selecionadas for maior do que o número de linhas no conjunto de registros, o conjunto de um inteiro será retornado.
+    O número de linhas que especifica deve ser um inteiro não negativo. Se o número de linhas selecionadas for maior do que o número de linhas no conjunto de dados, todo o conjunto de dados é devolvido.
 
 4. Executar o pipeline.
 
-O módulo gera um único conjunto de registros contendo apenas o número especificado de linhas. As linhas são sempre lidas na parte superior do conjunto de registros.
+O módulo produz um único conjunto de dados contendo apenas o número especificado de linhas. As linhas são sempre lidas a partir do topo do conjunto de dados.
 
 ### <a name="create-a-sample-of-data"></a>Criar uma amostra de dados
 
-Essa opção dá suporte à amostragem aleatória simples ou à amostragem aleatória de sobreratificação. Isso será útil se você quiser criar um conjunto de um DataSet de exemplo menor para teste.
+Esta opção suporta uma simples amostragem aleatória ou uma amostragem aleatória estratificada. Isto é útil se quiser criar um conjunto de dados de amostra seletiva mais pequeno para testes.
 
 1. Adicione o módulo **de partilha e amostra** ao seu pipeline e ligue o conjunto de dados.
 
 2. **Modo de partilha ou amostra:** Desloque isto para **A Amostragem**.
 
-3. **Taxa de amostragem**: Digite um valor entre 0 e 1. Esse valor especifica a porcentagem de linhas do conjunto de registros de origem que devem ser incluídas no conjunto de resultados de saída.
+3. **Taxa de amostragem**: Digite um valor entre 0 e 1. este valor especifica a percentagem de linhas do conjunto de dados de origem que deve ser incluído no conjunto de dados de saída.
 
     Por exemplo, se quiser apenas metade do conjunto de dados original, escreva `0.5` indique que a taxa de amostragem deve ser de 50%.
 
-    As linhas do conjunto de dados de entrada são embaralhadas e colocadas seletivamente no conjunto de dados de saída, de acordo com a razão especificada.
+    As linhas do conjunto de dados de entrada são baralhadas e colocadas seletivamente no conjunto de dados de saída, de acordo com o rácio especificado.
 
 4. **Sementes aleatórias para amostragem**: Opcionalmente, digite uma nota para usar como um valor de semente.
 
-    Essa opção será importante se você quiser que as linhas sejam divididas da mesma maneira toda vez. O valor padrão é 0, o que significa que uma semente inicial é gerada com base no relógio do sistema. Isso pode levar a resultados ligeiramente diferentes cada vez que você executar o pipeline.
+    Esta opção é importante se quiser que as linhas sejam sempre divididas da mesma forma. O valor padrão é 0, o que significa que uma semente inicial é gerada com base no relógio do sistema. Isto pode levar a resultados ligeiramente diferentes cada vez que executa o gasoduto.
 
 5. **Divisão estratificada para amostragem**: Selecione esta opção se for importante que as linhas do conjunto de dados sejam divididas uniformemente por alguma coluna chave antes de provar.
 
-    Para a **coluna de teclas estratificação para amostragem,** selecione uma única coluna de *estratos* para utilizar ao dividir o conjunto de dados. As linhas no conjunto de registros são então divididas da seguinte maneira:
+    Para a **coluna de teclas estratificação para amostragem,** selecione uma única coluna de *estratos* para utilizar ao dividir o conjunto de dados. As linhas do conjunto de dados são então divididas da seguinte forma:
 
-    1. Todas as linhas de entrada são agrupadas (desratificadas) pelos valores na coluna Strata especificada.
+    1. Todas as linhas de entrada são agrupadas (estratificadas) pelos valores na coluna de estratos especificada.
 
-    2. As linhas são embaralhadas dentro de cada grupo.
+    2. As filas são baralhadas dentro de cada grupo.
 
-    3. Cada grupo é adicionado seletivamente ao conjunto de resultados de saída para atender à razão especificada.
+    3. Cada grupo é adicionado seletivamente ao conjunto de dados de saída para satisfazer o rácio especificado.
 
 
 6. Executar o pipeline.
 
-    Com essa opção, o módulo gera um único conjunto de dados que contém uma amostragem representativa dos dados. A parte restante, não amostrada do conjunto de resultados não é a saída. 
+    Com esta opção, o módulo produz um único conjunto de dados que contém uma amostra representativa dos dados. A parte restante e não amostrada do conjunto de dados não é de saída. 
 
-## <a name="split-data-into-partitions"></a>Dividir dados em partições
+## <a name="split-data-into-partitions"></a>Divida dados em divisórias
 
-Use esta opção quando você quiser dividir o conjunto de dados em subconjuntos deles. Essa opção também é útil quando você deseja criar um número personalizado de dobras para validação cruzada ou para dividir linhas em vários grupos.
+Utilize esta opção quando pretender dividir o conjunto de dados em subconjuntos dos dados. Esta opção também é útil quando você quer criar um número personalizado de dobras para validação cruzada, ou dividir linhas em vários grupos.
 
 1. Adicione o módulo **de partilha e amostra** ao seu pipeline e ligue o conjunto de dados.
 
@@ -108,13 +108,13 @@ Use esta opção quando você quiser dividir o conjunto de dados em subconjuntos
 
 3. **Utilize a substituição na divisória**: Selecione esta opção se pretender que a linha amostrada seja reposta na piscina de linhas para potencial reutilização. Como resultado, a mesma linha pode ser atribuída a várias dobras.
 
-    Se você não usar a substituição (a opção padrão), a linha de amostra não será colocada de volta no pool de linhas para reutilização potencial. Como resultado, cada linha pode ser atribuída a apenas uma dobra.
+    Se não utilizar a substituição (a opção predefinida), a linha amostrada não é colocada de volta na piscina de linhas para potencial reutilização. Como resultado, cada linha pode ser atribuída a apenas uma dobra.
 
 4. **Divisão aleatória**: Selecione esta opção se pretender que as linhas sejam atribuídas aleatoriamente a dobras.
 
-    Se você não selecionar essa opção, as linhas serão atribuídas a dobras usando o método Round Robin.
+    Se não selecionar esta opção, as linhas são atribuídas a dobras utilizando o método de robin redondo.
 
-5. **Semente aleatória**: Opcionalmente, digite uma prótese para usar como valor de semente. Essa opção será importante se você quiser que as linhas sejam divididas da mesma maneira toda vez. Caso contrário, o valor padrão de 0 significa que uma semente de início aleatório será usada.
+5. **Semente aleatória**: Opcionalmente, digite uma prótese para usar como valor de semente. Esta opção é importante se quiser que as linhas sejam sempre divididas da mesma forma. Caso contrário, o valor padrão de 0 significa que será utilizada uma semente de arranque aleatória.
 
 6. **Especifique o método de partição**: Indique como pretende que os dados sejam distribuídos por cada partição, utilizando estas opções:
 
@@ -124,9 +124,9 @@ Use esta opção quando você quiser dividir o conjunto de dados em subconjuntos
 
         Por exemplo, se pretender criar três divisórias, com a primeira partição contendo 50% dos dados, e as restantes duas divisórias que contêm 25% dos dados, clique na Lista de proporções separadas por caixa de texto **vírina** e digite estes números: `.5, .25, .25`
 
-        A soma de todos os tamanhos de partição deve somar exatamente 1.
+        A soma de todos os tamanhos das divisórias deve somar exatamente 1.
 
-        - Se introduzir números que somam **menos de 1**, é criada uma partição extra para manter as restantes linhas. Por exemplo, se você digitar os valores 0,2 e 3, será criada uma terceira partição que contém a porcentagem restante de 50% de todas as linhas.
+        - Se introduzir números que somam **menos de 1**, é criada uma partição extra para manter as restantes linhas. Por exemplo, se escrever os valores .2 e .3, é criada uma terceira partição que detém os restantes 50% de todas as linhas.
 
         - Se introduzir números que somam mais de **1**, um erro é levantado quando executa o gasoduto.
 
@@ -134,11 +134,11 @@ Use esta opção quando você quiser dividir o conjunto de dados em subconjuntos
 
 8. Executar o pipeline.
 
-    Com essa opção, o módulo gera vários conjuntos de resultados, particionados usando as regras que você especificou.
+    Com esta opção, o módulo produz vários conjuntos de dados, divididos usando as regras que especificou.
 
-### <a name="use-data-from-a-predefined-partition"></a>Usar dados de uma partição predefinida  
+### <a name="use-data-from-a-predefined-partition"></a>Utilizar dados de uma partição predefinida  
 
-Essa opção é usada quando você divide um conjunto de um DataSet em várias partições e agora deseja carregar cada partição por vez para análise ou processamento posterior.
+Esta opção é usada quando dividiu um conjunto de dados em várias divisórias e agora pretende carregar cada partição por sua vez para posterior análise ou processamento.
 
 1. Adicione o módulo **de partição e amostra** ao gasoduto.
 
@@ -146,24 +146,24 @@ Essa opção é usada quando você divide um conjunto de um DataSet em várias p
 
 3. **Modo de partição ou amostra**: Selecione **Pick Fold**.
 
-4. **Especifique qual a dobra a amostrar**a partir de : Selecione uma divisória para utilizar digitando o seu índice. Índices de partição são baseados em 1. Por exemplo, se você dividiu o conjunto de um em três partes, as partições teriam os índices 1, 2 e 3.
+4. **Especifique qual a dobra a amostrar**a partir de : Selecione uma divisória para utilizar digitando o seu índice. Os índices de partição são baseados em 1. Por exemplo, se dividisse o conjunto de dados em três partes, as divisórias teriam os índices 1, 2 e 3.
 
-    Se você digitar um valor de índice inválido, um erro de tempo de design será gerado: "Error 0018: DataSet contém dados inválidos".
+    Se escrever um valor de índice inválido, é levantado um erro de tempo de design: "Error 0018: Dataset contém dados inválidos."
 
-    Além de agrupar o conjunto de um por dobras, você pode separar o conjunto de um em dois grupos: uma dobra de destino e todo o resto. Para isso, digite o índice de uma única dobra e, em seguida, selecione a opção, **Escolha o complemento da dobra selecionada,** para obter tudo menos os dados na dobra especificada.
+    Além de agrupar o conjunto de dados por dobras, pode separar o conjunto de dados em dois grupos: uma dobra-alvo, e tudo o resto. Para isso, digite o índice de uma única dobra e, em seguida, selecione a opção, **Escolha o complemento da dobra selecionada,** para obter tudo menos os dados na dobra especificada.
 
 5. Se estiver a trabalhar com várias divisórias, deve adicionar instâncias adicionais do módulo **de partilha e amostra** para manusear cada partição.
 
-    Por exemplo, digamos que os pacientes particionados anteriormente em quatro dobras usando a idade. Para trabalhar com cada dobra individual, precisa de quatro cópias do módulo **Partition and Sample** e, em cada uma, selecione uma dobra diferente, como mostrado abaixo. Não é correto utilizar a saída de **Atribuir a dobrar** diretamente.  
+    Por exemplo, o módulo **de partição e amostra** na segunda linha está definido para Atribuir a **Dobras**, e os módulos da terceira linha estão definidos para **pick fold**.   
 
-    [![Partição e amostra](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    ![Partição e amostras](./media/module/partition-and-sample.png)
 
 5. Executar o pipeline.
 
-    Com essa opção, o módulo gera um único conjunto de registros contendo apenas as linhas atribuídas a essa dobra.
+    Com esta opção, o módulo produz um único conjunto de dados contendo apenas as linhas atribuídas a essa dobra.
 
 > [!NOTE]
->  Você não pode exibir as designações de dobra diretamente; Eles estão presentes apenas nos metadados.
+>  Não é possível visualizar diretamente as designações dobráveis; estão presentes apenas nos metadados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

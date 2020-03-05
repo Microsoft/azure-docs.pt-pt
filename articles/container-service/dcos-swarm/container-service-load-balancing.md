@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Contêineres de balanceamento de carga no cluster de DC/so do Azure
+title: (DEPRECIADO) Contentores de balanço de carga no cluster Azure DC/OS
 description: Balanceamento de carga entre múltiplos contentores num cluster DC/OS do Azure Container Service.
 author: rgardler
 ms.service: container-service
@@ -7,14 +7,14 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a8f863f16888e6eca2dbc72c5dd612c38edbe46e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277839"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273385"
 ---
-# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>PRETERIDO Balancear carga de contêineres em um cluster DC/OS do serviço de contêiner do Azure
+# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(DEPRECIADO) Carregar contentores de balanço num cluster Azure Container Service DC/OS
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -43,9 +43,11 @@ O **Balanceador de Carga Marathon (marathon lb)** encaminha pedidos de entrada p
 
 O Balanceador de Carga Marathon reconfigura-se dinamicamente, com base nos contentores que tenha implementado. É também resiliente à perda de um contentor ou de um agente. Se isto ocorrer, o Apache Mesos reinicia o contentor noutro local e o marathon-lb adapta-se.
 
+Vá a [https://shell.azure.com](https://shell.azure.com) para abrir cloud Shell no seu navegador.
+
 Execute o seguinte comando para instalar o balanceador de carga marathon no cluster do agente público.
 
-```azurecli-interactive
+```console
 dcos package install marathon-lb
 ```
 
@@ -95,9 +97,9 @@ Em seguida, crie um ficheiro com o nome *hello-web.json* e copie os seguintes co
 }
 ```
 
-Utilize a CLI de DC/OS para executar a aplicação. Por padrão, o Marathon implanta o aplicativo no cluster privado. Isto significa que a implementação acima só é acessível através do seu balanceador de carga, o que é normalmente o comportamento pretendido.
+Utilize a CLI de DC/OS para executar a aplicação. Por padrão, a Maratona implementa a aplicação para o cluster privado. Isto significa que a implementação acima só é acessível através do seu balanceador de carga, o que é normalmente o comportamento pretendido.
 
-```azurecli-interactive
+```console
 dcos marathon app add hello-web.json
 ```
 

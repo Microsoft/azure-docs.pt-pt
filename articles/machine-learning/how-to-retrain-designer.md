@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
-ms.openlocfilehash: b69cd4c8459ffae363f02247b1f20488afe1cd9b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 8e7874ec2a0ea160d29f8755ca8680c4dfbeec1d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921606"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268491"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Remodelar modelos com designer de Machine Learning Azure (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -119,7 +119,7 @@ Utilize os seguintes passos para submeter um ponto final de gasoduto executado p
 
 1. Selecione o oleoduto que pretende executar.
 
-1. Selecione **Executar**.
+1. Selecione **Submeter**.
 
 1. No diálogo de configuração, pode especificar um novo valor de percurso de dados de entrada, que aponta para o seu novo conjunto de dados.
 
@@ -127,7 +127,9 @@ Utilize os seguintes passos para submeter um ponto final de gasoduto executado p
 
 ### <a name="submit-runs-with-code"></a>Submeter corre com código
 
-Existem várias formas de aceder ao seu ponto final REST programaticamente dependendo do seu ambiente de desenvolvimento. Pode encontrar amostras de código que lhe mostrem como submeter o gasoduto funciona com parâmetros no separador **Consumir** do seu oleoduto.
+Pode encontrar o ponto final REST de um oleoduto publicado no painel de visão geral. Ao ligar para o ponto final, pode retreinar o oleoduto publicado.
+
+Para fazer uma chamada REST, você precisará de um cabeçalho de autenticação tipo OAuth 2.0. Consulte a seguinte [secção tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) para obter mais detalhes sobre a instalação da autenticação no seu espaço de trabalho e fazer uma chamada REST parametrizada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

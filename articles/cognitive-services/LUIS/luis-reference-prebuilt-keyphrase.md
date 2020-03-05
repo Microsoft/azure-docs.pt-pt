@@ -1,35 +1,35 @@
 ---
-title: Entidade predefinida keyphrase-LUIS
+title: Entidade pré-construída - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade keyphrase predefinidas em Reconhecimento vocal (LUIS).
+description: Este artigo contém keyphrase informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 51d1bd515651824545d486207ad4a74476aa7092
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491281"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270532"
 ---
-# <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>entidade predefinida keyPhrase para um aplicativo LUIS
-A entidade keyPhrase extrai uma variedade de frases-chave de um expressão. Você não precisa adicionar o exemplo declarações que contém keyPhrase ao aplicativo. A entidade keyPhrase tem suporte em [muitas culturas](luis-language-support.md#languages-supported) como parte dos recursos de [análise de texto](../text-analytics/overview.md) . 
+# <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>keyPhrase entidade pré-construída para uma app LUIS
+A entidade keyPhrase extrai uma variedade de frases-chave de uma expressão. Não é necessário adicionar frases de exemplo contendo o tecladoPhrase à aplicação. A entidade keyPhrase é suportada em [muitas culturas](luis-language-support.md#languages-supported) como parte das funcionalidades de análise de [texto.](../text-analytics/overview.md)
 
-## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Resolução para entidade keyPhrase predefinida
+## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Resolução de entidade keyPhrase pré-criados
 
-Os seguintes objetos de entidade são retornados para a consulta:
+Os seguintes objetos de entidade são devolvidos para consulta:
 
 `where is the educational requirements form for the development and engineering group`
 
-#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 
 ```json
 "entities": {
@@ -39,8 +39,8 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
+O seguinte JSON está com o parâmetro `verbose` definido para `true`:
 
 ```json
 "entities": {
@@ -76,9 +76,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo a seguir mostra a resolução da entidade **Builtin. keyPhrase** .
+O exemplo seguinte mostra a resolução da entidade **builtin.keyPhrase.**
 
 ```json
 "entities": [
@@ -96,10 +96,10 @@ O exemplo a seguir mostra a resolução da entidade **Builtin. keyPhrase** .
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre as entidades [percentual](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md)e [idade](luis-reference-prebuilt-age.md) .
+Conheça a [percentagem](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md)e as entidades [etárias.](luis-reference-prebuilt-age.md)

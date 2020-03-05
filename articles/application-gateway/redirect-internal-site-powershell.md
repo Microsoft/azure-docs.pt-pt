@@ -1,31 +1,31 @@
 ---
-title: Redirecionamento interno usando o PowerShell
+title: Reorientação interna usando PowerShell
 titleSuffix: Azure Application Gateway
-description: Saiba como criar um gateway de aplicativo que redireciona o tráfego da Web interno para o pool de back-end apropriado de servidores usando o Azure PowerShell.
+description: Aprenda a criar um portal de aplicações que redirecione o tráfego interno da web para o conjunto apropriado de servidores usando o Azure Powershell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 4e0c7707066028996e360a342db9f8dc0fd87599
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 92fed35c828398c048d704e1ec9b537904939967
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075115"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272928"
 ---
-# <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com redirecionamento interno usando Azure PowerShell
+# <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um portal de aplicação com reorientação interna usando o Azure PowerShell
 
-Você pode usar o Azure PowerShell para configurar o [redirecionamento de tráfego da Web](multiple-site-overview.md) ao criar um [Gateway de aplicativo](overview.md). Neste tutorial, você define um pool de back-end usando um conjunto de dimensionamento de máquinas virtuais. Em seguida, você configura ouvintes e regras com base em domínios que você possui para garantir que o tráfego da Web chegue no pool apropriado. Este tutorial pressupõe que você possui vários domínios e usa exemplos de *www.contoso.com* e *www\.contoso.org*.
+Pode utilizar o Azure Powershell para configurar a [redirecção](multiple-site-overview.md) do tráfego web quando criar um gateway de [aplicação](overview.md). Neste tutorial, você define uma piscina de backend usando um conjunto de escala de máquinas virtuais. Em seguida, configura os ouvintes e as regras com base em domínios que possui para garantir que o tráfego web chegue à piscina apropriada. Este tutorial assume que possui vários domínios e utiliza exemplos de *contoso.com de\.* e www\.*contoso.org.*
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
 > * Para criar um gateway de aplicação
-> * Adicionar ouvintes e regra de redirecionamento
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end
+> * Adicione os ouvintes e a regra de reorientação
+> * Crie um conjunto de escala de máquina virtual com a piscina de backend
 > * Criar um registo CNAME no seu domínio
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -34,11 +34,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo Azure PowerShell versão 1.0.0 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 1.0.0 ou posterior do módulo PowerShell Azure. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos do Azure usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos Azure utilizando o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede
 
-Crie as configurações de sub-rede para *myBackendSubnet* e *myAGSubnet* usando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Crie a rede virtual denominada *myVNet* usando [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) com as configurações de sub-rede. E, finalmente, crie o endereço IP público denominado *myAGPublicIPAddress* usando [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estes recursos são utilizados para fornecer conectividade de rede ao gateway de aplicação e aos respetivos recursos associados.
+Crie as configurações da sub-rede para *myBackendSubnet* e *myAGSubnet* utilizando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Crie a rede virtual chamada *myVNet* utilizando [a New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) com as configurações da sub-rede. E, finalmente, crie o endereço IP público chamado *myAGPublicIPAddress* usando [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estes recursos são utilizados para fornecer conectividade de rede ao gateway de aplicação e aos respetivos recursos associados.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -72,7 +72,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
 
-Associe o *myAGSubnet* que você criou anteriormente ao gateway de aplicativo usando [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Atribua *myAGPublicIPAddress* ao gateway de aplicativo usando [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). E, em seguida, você pode criar a porta HTTP usando [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
+Associe *myAGSubnet* que criou anteriormente para o gateway da aplicação utilizando a [Configuração New-AzApplicationGatewayIP .](/powershell/module/az.network/new-azapplicationgatewayipconfiguration) Atribuir *o myAGPublicIPAddress* ao gateway da aplicação utilizando [o New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). E depois pode criar a porta HTTP utilizando a [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -92,7 +92,7 @@ $frontendPort = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>Criar o conjunto e as definições de back-end
 
-Crie um pool de back-end chamado *contosoPool* para o gateway de aplicativo usando [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Defina as configurações para o pool de back-end usando [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Crie um pool de backend chamado *contosoPool* para o gateway da aplicação usando [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure as definições para o pool backend utilizando [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -105,11 +105,11 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
   -RequestTimeout 120
 ```
 
-### <a name="create-the-first-listener-and-rule"></a>Criar o primeiro ouvinte e regra
+### <a name="create-the-first-listener-and-rule"></a>Criar o primeiro ouvinte e governar
 
-É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os ouvintes são criados para os domínios de *www.contoso.com* e *www\.contoso.org*.
+É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os ouvintes são criados para os domínios de *\.contoso.com* e www *\.contoso.org.*
 
-Crie o primeiro ouvinte chamado *contosoComListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração de front-end e a porta de front-end que você criou anteriormente. É necessária uma regra para o serviço de escuta saber qual o conjunto de back-end a utilizar para o tráfego de entrada. Crie uma regra básica chamada *contosoComRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Crie o primeiro ouvinte chamado *contosoComListener* utilizando [o New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração frontal e a porta frontend que criou anteriormente. É necessária uma regra para o serviço de escuta saber qual o conjunto de back-end a utilizar para o tráfego de entrada. Crie uma regra básica chamada *contosoComRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $contosoComlistener = New-AzApplicationGatewayHttpListener `
@@ -128,7 +128,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Agora que você criou os recursos de suporte necessários, especifique os parâmetros para o gateway de aplicativo denominado *myAppGateway* usando [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)e, em seguida, crie-o usando [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Agora que criou os recursos de apoio necessários, especifique parâmetros para o portal da aplicação chamado *myAppGateway* usando [New-AzApplicationGatewaySku,](/powershell/module/az.network/new-azapplicationgatewaysku)e depois crie-o usando [new-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -149,7 +149,7 @@ $appgw = New-AzApplicationGateway `
   -Sku $sku
 ```
 
-### <a name="add-the-second-listener"></a>Adicionar o segundo ouvinte
+### <a name="add-the-second-listener"></a>Adicione o segundo ouvinte
 
 Adicione o ouvinte chamado *contosoOrgListener* que é necessário para redirecionar o tráfego usando [Add-AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
 
@@ -173,9 +173,9 @@ Add-AzApplicationGatewayHttpListener `
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
+### <a name="add-the-redirection-configuration"></a>Adicione a configuração de reorientação
 
-Você pode configurar o redirecionamento para o ouvinte usando [Add-AzApplicationGatewayRedirectConfiguration](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration). 
+Pode configurar a reorientação para o ouvinte utilizando a [Configuração de direção Add-AzApplicationGatewayRedirect](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration). 
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -197,9 +197,9 @@ Add-AzApplicationGatewayRedirectConfiguration `
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="add-the-second-routing-rule"></a>Adicionar a segunda regra de roteamento
+### <a name="add-the-second-routing-rule"></a>Adicione a segunda regra de encaminhamento
 
-Em seguida, você pode associar a configuração de redirecionamento a uma nova regra chamada *contosoOrgRule* usando [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
+Pode então associar a configuração de redirecionamento a uma nova regra chamada *contosoOrgRule* utilizando [add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -222,7 +222,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria um conjunto de dimensionamento de máquinas virtuais que dá suporte ao pool de back-end que você criou. O conjunto de dimensionamento que você cria é denominado *myvmss* e contém duas instâncias de máquina virtual em que você instala o IIS. Pode atribuir o conjunto de dimensionamento ao conjunto de back-end quando configurar as definições de IP.
+Neste exemplo, cria-se um conjunto de escala de máquina virtual que suporta a piscina de backend que criou. O conjunto de escala que cria *chama-se myvmss* e contém duas caixas de máquinas virtuais nas quais instala o IIS. Pode atribuir o conjunto de dimensionamento ao conjunto de back-end quando configurar as definições de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -247,7 +247,7 @@ Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
   -OsDiskCreateOption FromImage
 Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
@@ -284,7 +284,7 @@ Update-AzVmss `
 
 ## <a name="create-cname-record-in-your-domain"></a>Criar registo CNAME no seu domínio
 
-Depois de criar o gateway de aplicação com o respetivo endereço IP público, pode obter o endereço DNS e utilizá-lo para criar um registo CNAME no seu domínio. Você pode usar [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço DNS do gateway de aplicativo. Copie o valor *fqdn* de DNSSettings e utilize-o como o valor do registo CNAME que criar. Não é recomendada a utilização de registos A, uma vez que o VIP pode ser alterado no reinício do gateway de aplicação.
+Depois de criar o gateway de aplicação com o respetivo endereço IP público, pode obter o endereço DNS e utilizá-lo para criar um registo CNAME no seu domínio. Pode utilizar o [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço DNS do gateway da aplicação. Copie o valor *fqdn* de DNSSettings e utilize-o como o valor do registo CNAME que criar. Não é recomendada a utilização de registos A, uma vez que o VIP pode ser alterado no reinício do gateway de aplicação.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -292,19 +292,19 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Introduza o nome de domínio na barra de endereço do seu browser. Como, [https://www.contoso.com](https://www.contoso.com).
+Introduza o nome de domínio na barra de endereço do seu browser. Tais como, [https://www.contoso.com. ](https://www.contoso.com)
 
 ![Testar o site contoso no gateway de aplicação](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Altere o endereço para seu outro domínio, por exemplo https://www.contoso.org e você verá que o tráfego foi Redirecionado de volta para o ouvinte para `www.contoso.com`.
+Mude o endereço para o outro domínio, por exemplo, https://www.contoso.org e deverá ver se o tráfego foi redirecionado para o ouvinte para www\.contoso.com.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu a:
+Neste artigo, aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar a rede
 > * Para criar um gateway de aplicação
-> * Adicionar ouvintes e regra de redirecionamento
-> * Criar um conjunto de dimensionamento de máquinas virtuais com os pools de back-end
+> * Adicione os ouvintes e a regra de reorientação
+> * Crie um conjunto de escala de máquina virtual com as piscinas de backend
 > * Criar um registo CNAME no seu domínio

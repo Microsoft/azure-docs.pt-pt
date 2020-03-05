@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 8b0ab8ca6bec07d92af1b7e0ebe7b2a3cd45899d
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: ce3b3839319de38020b968ff8db1ee6713b29c47
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206430"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269982"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Bolhas de Índice JSON do Armazenamento Azure usando REST
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327f53fb39e58f7b70040eb41b6cd80aca18e510
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522038"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269359"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Ative o acesso à chave de segurança sem palavras-passe para dispositivos Windows 10 com Diretório Ativo Azure (pré-visualização)
 
@@ -29,13 +29,13 @@ Este documento centra-se em permitir a autenticação baseada na chave de segura
 
 ## <a name="requirements"></a>Requisitos
 
-| Tipo de Dispositivo | Ingressado no Azure AD | Ingressado no Azure AD híbrido |
+| Device Type | Azure AD juntou-se | AD Hybrid Azure juntou-se |
 | --- | --- | --- |
 | [Autenticação azure multi-factor](howto-mfa-getstarted.md) | X | X |
 | [Pré-visualização combinada de registo de informações de segurança](concept-registration-mfa-sspr-combined.md) | X | X |
 | Chaves de [segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis | X | X |
 | WebAuthN requer versão 1809 do Windows 1809 ou superior | X | X |
-| [Dispositivos unidos do Azure AD](../devices/concept-azure-ad-join.md) requerem versão 1809 do Windows 1809 ou superior | X |   |
+| [Dispositivos unidos do Azure AD](../devices/concept-azure-ad-join.md) requerem versão 1903 do Windows 10 ou superior | X |   |
 | [Dispositivos aderes híbridos Azure](../devices/concept-azure-ad-join-hybrid.md) requerem Windows 10 Insider Build 18945 ou superior |   | X |
 | Controladores de domínio do Windows Server 2016/2019 totalmente remendados. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) versão 1.4.32.0 ou posterior |   | X |
@@ -54,6 +54,7 @@ Os seguintes cenários não são suportados:
 - Inicie sessão num servidor utilizando uma chave de segurança.
 - Se não usou a sua chave de segurança para iniciar sessão no seu dispositivo enquanto estiver online, não pode usá-la para iniciar sessão ou desbloquear offline.
 - Inserição ou desbloqueio de um dispositivo Windows 10 com uma chave de segurança contendo várias contas Azure AD. Este cenário utiliza a última conta adicionada à chave de segurança. O WebAuthN permite que os utilizadores escolham a conta que desejam utilizar.
+- Desbloqueie um dispositivo com o Windows 10 versão 1809. Para uma experiência mais boa, utilize a versão 1903 do Windows 10 ou superior.
 
 ## <a name="prepare-devices-for-preview"></a>Prepare os dispositivos para pré-visualização
 
@@ -79,7 +80,7 @@ As organizações podem optar por utilizar um ou mais dos seguintes métodos par
 
 Para permitir a utilização de chaves de segurança utilizando o Intune, complete os seguintes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para a **microsoft Intune** > **Device > inscrição** **do Windows** > Windows Hello **for Business** > **Properties**.
 1. Em **definições,** coloque **as teclas de segurança para iniciar** **sessão ativada**.
 
@@ -89,7 +90,7 @@ A configuração das chaves de segurança para iniciar sessão não depende da c
 
 Para direcionar grupos específicos de dispositivos para ativar o prestador de credenciais, utilize as seguintes definições personalizadas via Intune:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue na ** > ** **configuração** do dispositivo > **microsoft** > **Criar perfil**.
 1. Configure o novo perfil com as seguintes definições:
    - Nome: Chaves de segurança para Windows Iniciar sessão

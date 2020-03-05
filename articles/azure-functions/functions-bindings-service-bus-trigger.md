@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 3aba570bd7f80eab205fe52a731a1be933067012
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493205"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273571"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho de ônibus de serviço Azure para funções azure
 
@@ -276,7 +276,7 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A anotação `ServiceBusQueueTrigger` permite criar uma função que funciona quando uma mensagem de fila de ônibus de serviço é criada. As opções de configuração disponíveis incluem nome da fila e nome da cadeia de conexão.
+A anotação `ServiceBusQueueTrigger` permite criar uma função que funciona quando uma mensagem de fila de ônibus de serviço é criada. As opções de configuração disponíveis incluem o nome da fila e o nome da corda de ligação.
 
 A anotação `ServiceBusTopicTrigger` permite-lhe designar um tópico e subscrição para direcionar o que os dados desencadeiam a função.
 
@@ -306,7 +306,7 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Os seguintes tipos de parâmetro estão disponíveis para a mensagem de fila ou tópico:
+Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem tópico:
 
 * `string` - Se a mensagem for texto.
 * `byte[]` - Útil para dados binários.
@@ -317,7 +317,7 @@ Estes tipos de parâmetros destinam-se à versão 1.x das Funções Azure; para 
 
 # <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
-Os seguintes tipos de parâmetro estão disponíveis para a mensagem de fila ou tópico:
+Os seguintes tipos de parâmetros estão disponíveis para a fila ou mensagem tópico:
 
 * `string` - Se a mensagem for texto.
 * `byte[]` - Útil para dados binários.
@@ -370,11 +370,8 @@ O gatilho do Ônibus de serviço fornece várias [propriedades de metadados.](./
 |`Label`|`string`|O rótulo específico da aplicação.|
 |`CorrelationId`|`string`|O ID de correlação.|
 
-> [!NOTE]
-> Atualmente, o gatilho do Service Bus que funciona com filas e subscrições ativadas por sessão está em pré-visualização. Por favor, [rastreie este item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para mais atualizações sobre este assunto. 
-
 Consulte [exemplos](#example) de código que usam estas propriedades no início deste artigo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Envie mensagens de ônibus de serviço Azure a partir de funções Azure (encadernação de saída)](./functions-bindings-service-bus-output.md)

@@ -1,18 +1,18 @@
 ---
-title: Tutorial – configurar funções de Azure Analysis Services | Microsoft Docs
-description: Saiba como configurar Azure Analysis Services administrador e as funções de usuário usando o portal do Azure ou SQL Server Management Studio.
+title: Tutorial - Configure Azure Analysis Services funções [ Configure Azure Analysis Services] Microsoft Docs
+description: Saiba como configurar o administrador dos Serviços de Análise azure e as funções de utilizador utilizando o portal Azure ou o Estúdio de Gestão de Servidores SQL.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572379"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273686"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e de administrador de servidor
 
@@ -82,7 +82,7 @@ Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo a partir do seu
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Adicionar um utilizador à função de administrador de base de dados modelo
 
-Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo à função de Administrador de Vendas de Internet que já existe no modelo. Esta função tem permissões de Controlo total (Administrador) para a base de dados do modelo de exemplo adventureworks. Esta tarefa utiliza o comando TMSL [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) num script criado para si.
+Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo à função de Administrador de Vendas de Internet que já existe no modelo. Esta função tem permissões de Controlo total (Administrador) para a base de dados do modelo de exemplo adventureworks. Esta tarefa utiliza o comando TMSL [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) num script criado para si.
 
 1. No **Object Explorer**, expanda **Bases de Dados** > **adventureworks** > **Funções**. 
 2. Clique com botão direito do rato em **Administrador de Vendas da Internet** e, em seguida, clique em **Função de Script como** > **CRIAR OU SUBSTITUIR PARA** > **Nova Janela do Editor de Consulta**.
@@ -98,7 +98,7 @@ Nesta tarefa, irá adicionar uma conta de utilizador ou de grupo à função de 
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Adicionar uma nova função de base de dados modelo e adicionar um utilizador ou grupo
 
-Nesta tarefa, irá utilizar o comando [Criar](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) num script TMSL para criar uma nova função Global de Vendas da Internet, especificar permissões de *leitura* para a função e adicionar uma conta de utilizador ou de grupo a partir do seu Azure AD.
+Nesta tarefa, irá utilizar o comando [Criar](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) num script TMSL para criar uma nova função Global de Vendas da Internet, especificar permissões de *leitura* para a função e adicionar uma conta de utilizador ou de grupo a partir do seu Azure AD.
 
 1. No **Object Explorer**, clique com o botão direito do rato em **adventureworks** e, em seguida, clique em **Nova Consulta** > **XMLA**. 
 2. Copie e cole o seguinte script TMSL no editor de consultas:

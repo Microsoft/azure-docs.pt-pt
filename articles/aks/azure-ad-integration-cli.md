@@ -4,12 +4,12 @@ description: Aprenda a usar o Azure CLI para criar e azure ative diretório Azur
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: fef22b1b2d81f76e95a15c0e3a746440b95df8ca
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d17ae12beecf9d83ef6d688af799787c5ccf322b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596611"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273775"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrar o Diretório Ativo Azure com o Serviço Azure Kubernetes utilizando o Azure CLI
 
@@ -27,9 +27,11 @@ Aplicam-se as seguintes limitações:
 
 Precisa da versão Azure CLI 2.0.61 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
 
+Vá a [https://shell.azure.com](https://shell.azure.com) para abrir cloud Shell no seu navegador.
+
 Para consistência e para ajudar a executar os comandos neste artigo, crie uma variável para o seu nome de cluster AKS desejado. O exemplo que se segue usa o nome *myakscluster:*
 
-```azurecli-interactive
+```console
 aksname="myakscluster"
 ```
 
@@ -209,8 +211,10 @@ kubectl get pods --all-namespaces
 Recebe um sinal de autenticação solicitado para autenticar usando credenciais de AD Azure usando um navegador web. Depois de autenticar com sucesso, o comando `kubectl` exibe as cápsulas no cluster AKS, como mostra a seguinte saída de exemplo:
 
 ```console
-$ kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces
+```
 
+```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.
 
 NAMESPACE     NAME                                    READY   STATUS    RESTARTS   AGE
@@ -229,7 +233,7 @@ O símbolo de autenticação recebido para `kubectl` está em cache. Só é soli
 
 Se vir uma mensagem de erro de autorização depois de ter assinado com sucesso a utilização de um navegador web como na seguinte saída de exemplo, verifique os seguintes problemas possíveis:
 
-```console
+```output
 error: You must be logged in to the server (Unauthorized)
 ```
 

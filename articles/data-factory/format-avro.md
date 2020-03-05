@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 6d867ccd8704d4aba4627e7b81638394b7e1e8d3
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1717969aeb24a153f986c70ef60db1aac5c840fb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423784"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267778"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato Avro na Fábrica de Dados Azure
 
@@ -83,7 +83,11 @@ As seguintes propriedades são suportadas na atividade de cópia ***\*pia\**** s
 
 ## <a name="data-type-support"></a>Suporte de tipo de dados
 
-Os tipos de [dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) da Avro não são suportados (registos, enums, matrizes, mapas, sindicatos e fixos).
+### <a name="copy-activity"></a>Atividade Copiar
+Os tipos de [dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) da Avro não são suportados (registos, enums, matrizes, mapas, sindicatos e fixos) na Atividade de Cópia.
+
+### <a name="data-flows"></a>Fluxos de dados
+Ao trabalhar com ficheiros Avro em fluxos de dados, pode ler e escrever tipos de dados complexos, mas certifique-se de limpar primeiro o esquema físico do conjunto de dados. Nos fluxos de dados, pode definir a sua projeção lógica e obter colunas que são estruturas complexas, em seguida, mapear automaticamente esses campos para um ficheiro Avro.
 
 ## <a name="next-steps"></a>Passos seguintes
 

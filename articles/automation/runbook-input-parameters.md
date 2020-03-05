@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ddb08f774bbb8aa3bc4b10bcd0dd213c8583465e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 274ee0fe98281e733994f2d5df38886409cbc913
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249799"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273657"
 ---
 # <a name="runbook-input-parameters"></a>Parâmetros de entrada do runbook
 
@@ -148,19 +148,19 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
 * **Cmdlets do Gestor de Recursos Azure:** Pode iniciar um livro de execução automation que foi criado num grupo de recursos utilizando o [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0
 ).
 
-```powershell
-  $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
+   ```powershell
+     $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
   
-  Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
-```
+     Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
+   ```
 
 * **Cmdlets modelo de implantação clássico Azure:** Pode iniciar um livro de execução de automatização que foi criado num grupo de recursos padrão utilizando o [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
-```powershell
-  $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
+   ```powershell
+     $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
   
-  Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
-```
+     Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
+   ```
 
 > [!NOTE]
 > Quando inicia um livro de execução utilizando cmdlets PowerShell, um parâmetro predefinido, *o MicrosoftApplicationManagementStartedBy,* é criado com o valor **PowerShell**. Pode ver este parâmetro no painel de detalhes do trabalho.  
@@ -169,7 +169,7 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
 
 * **Método de Gestor de Recursos Azure:** Pode iniciar um livro de execução utilizando o SDK de uma linguagem de programação. Abaixo está C# um código para iniciar um livro de execução na sua conta Deautomação. Pode ver todo o código no nosso [repositório GitHub.](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)  
 
-  ```csharp
+   ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -185,11 +185,11 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
          });
       return response.Job;
       }
-  ```
+   ```
 
 * Método de modelo de **implantação clássico azure:** Pode iniciar um livro de recorrem utilizando o SDK de uma linguagem de programação. Abaixo está C# um código para iniciar um livro de execução na sua conta Deautomação. Pode ver todo o código no nosso [repositório GitHub.](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)
 
-  ```csharp
+   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -205,20 +205,20 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
        });
       return response.Job;
     }
-  ```
+   ```
 
-  Para iniciar este método, crie um dicionário para armazenar os parâmetros *vMName* e *resourceGroupName* e os seus valores. Então comece o livro de corridas. Abaixo está C# o código para chamar o método que é definido acima.
+   Para iniciar este método, crie um dicionário para armazenar os parâmetros *vMName* e *resourceGroupName* e os seus valores. Então comece o livro de corridas. Abaixo está C# o código para chamar o método que é definido acima.
 
-  ```csharp
-  IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
+   ```csharp
+   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
-  // Add parameters to the dictionary.
+   // Add parameters to the dictionary.
   RunbookParameters.Add("VMName", "WSVMClassic");
-  RunbookParameters.Add("resourceGroupName", "WSSC1");
+   RunbookParameters.Add("resourceGroupName", "WSSC1");
   
-  //Call the StartRunbook method with parameters
-  StartRunbook("Get-AzureVMGraphical", RunbookParameters);
-  ```
+   //Call the StartRunbook method with parameters
+   StartRunbook("Get-AzureVMGraphical", RunbookParameters);
+   ```
 
 #### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>Inicie um livro de corridas utilizando a API REST e atribua parâmetros
 
@@ -238,7 +238,7 @@ Para passar os parâmetros para o trabalho do livro de corridas, use o corpo de 
 
 Se pretender iniciar o livro de execução **Get-AzureVMTextual** criado anteriormente com *VMName* e *resourceGroupName* como parâmetros, utilize o seguinte formato JSON para o organismo de pedido.
 
-   ```json
+```json
     {
       "properties":{
         "runbook":{
@@ -248,7 +248,7 @@ Se pretender iniciar o livro de execução **Get-AzureVMTextual** criado anterio
          "resourceGroupName":"ContosoSales"}
         }
     }
-   ```
+```
 
 Um código de estado HTTP 201 é devolvido se o trabalho for criado com sucesso. Para obter mais informações sobre os cabeçalhos de resposta e o corpo de resposta, consulte criar um trabalho de [livro de rés-do-lista utilizando a API REST](/rest/api/automation/job/create).
 
@@ -330,7 +330,7 @@ Agora pode ligar para o livro de execução da sua máquina local utilizando o A
     >[!NOTE]
     >Para os livros de execução PowerShell, **Add-AzAccount** e **Add-AzureRMAccount** são pseudónimos de **Connect-AzAccount**. Note que estes pseudónimos não estão disponíveis para livros gráficos. Um livro de execução gráfico só pode usar o **próprio Connect-AzAccount.**
 
-2. Obtenha o conteúdo do ficheiro JSON guardado e converta-o numa corda. `JsonPath` é o caminho onde guardou o ficheiro JSON.
+1. Obtenha o conteúdo do ficheiro JSON guardado e converta-o numa corda. `JsonPath` é o caminho onde guardou o ficheiro JSON.
 
    ```powershell
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
@@ -354,7 +354,7 @@ Agora pode ligar para o livro de execução da sua máquina local utilizando o A
    ```
 
    Note que está a definir o valor dos *Parâmetros* para o objeto PowerShell que contém os valores do ficheiro JSON.
-1. Iniciar o runbook
+1. Inicie o livro de corridas.
 
    ```powershell
    $job = Start-AzAutomationRunbook @RBParams

@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Tutorial do serviço de contêiner do Azure – dimensionar aplicativo
+title: (DEPRECIADO) Tutorial do Serviço de Contentores Azure - Aplicação de escala
 description: Tutorial do Azure Container Service – Dimensionar Aplicação
 author: dlepow
 ms.service: container-service
@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b0aa78a519567a8e1ffd76e26f1d9ea3ca701fca
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2ea8a5428c1fabdfda4f2298c0559792537df481
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274182"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273987"
 ---
-# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>PRETERIDO Dimensionar kubernetes pods e infraestrutura de kubernetes
+# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(DEPRECIADO) Cápsulas de Escala Kubernetes e infraestrutura kubernetes
 
 > [!TIP]
-> Para obter a versão atualizada deste tutorial que usa o serviço kubernetes do Azure, consulte [tutorial: dimensionar aplicativos no serviço kubernetes do Azure (AKs)](../../aks/tutorial-kubernetes-scale.md).
+> Para a versão atualizada este tutorial que utiliza o Serviço Azure Kubernetes, consulte [Tutorial: Aplicações de escala no Serviço Azure Kubernetes (AKS)](../../aks/tutorial-kubernetes-scale.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -42,13 +42,15 @@ Se ainda não concluiu estes passos e pretende acompanhar, regresse ao [Tutorial
 
 Deste modo, o front-end do Azure Vote e a instância de Redis foi implementada, cada um com uma réplica única. Para verificar, execute o comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
-```azurecli-interactive
+Vá a [https://shell.azure.com](https://shell.azure.com) para abrir cloud Shell no seu navegador.
+
+```console
 kubectl get pods
 ```
 
 Saída:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -56,19 +58,19 @@ azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 
 Altere manualmente o número de pods na implementação `azure-vote-front` com o comando [kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale). Este exemplo aumenta o número para 5.
 
-```azurecli-interactive
+```console
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
 Execute [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) para verificar se o Kubernetes está a criar os pods. Um ou dois minutos depois, os pods adicionais estão em execução:
 
-```azurecli-interactive
+```console
 kubectl get pods
 ```
 
 Saída:
 
-```bash
+```output
 NAME                                READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
 azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
@@ -84,7 +86,7 @@ O Kubernetes suporta [dimensionamento automático horizontal de pods](https://ku
 
 Para utilizar o dimensionamento automático, os seus pods têm de ter os pedidos de CPU e os limites definidos. Na implementação `azure-vote-front`, o contentor de front-end pede 0,25 de CPU, com um limite de 0,5 de CPU. As definições têm o seguinte aspeto:
 
-```YAML
+```yaml
 resources:
   requests:
      cpu: 250m
@@ -95,19 +97,19 @@ resources:
 O exemplo seguinte utiliza o comando [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) para dimensionar automaticamente o número de pods na implementação `azure-vote-front`. Aqui, se a utilização da CPU exceder 50%, o dimensionamento automático aumenta os pods para um máximo de 10.
 
 
-```azurecli-interactive
+```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
 Para ver o estado do dimensionamento automático, execute o seguinte comando:
 
-```azurecli-interactive
+```console
 kubectl get hpa
 ```
 
 Saída:
 
-```bash
+```output
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
@@ -126,7 +128,7 @@ az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-co
 
 A saída do comando mostra o número de nós de agente no valor de `agentPoolProfiles:count`:
 
-```azurecli
+```output
 {
   "agentPoolProfiles": [
     {

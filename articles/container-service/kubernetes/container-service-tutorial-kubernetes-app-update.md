@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Tutorial do serviço de contêiner do Azure – atualizar aplicativo
+title: (DEPRECIADO) Tutorial do Serviço de Contentores Azure - Aplicação de atualização
 description: Tutorial do Azure Container Service – Atualizar Aplicação
 author: iainfoulds
 ms.service: container-service
@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b4b893f185ba7e205ffebd7d939b8a2aa20a3e13
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: e65ca30e4f15b6f69f39160c67813047c40ce8ee
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275550"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274118"
 ---
-# <a name="deprecated-update-an-application-in-kubernetes"></a>PRETERIDO Atualizar um aplicativo no kubernetes
+# <a name="deprecated-update-an-application-in-kubernetes"></a>(DEPRECIADO) Atualizar uma aplicação em Kubernetes
 
 > [!TIP]
-> Para obter a versão atualizada deste tutorial que usa o serviço kubernetes do Azure, consulte [tutorial: atualizar um aplicativo no AKs (serviço kubernetes do Azure)](../../aks/tutorial-kubernetes-app-update.md).
+> Para a versão atualizada este tutorial que utiliza o Serviço Azure Kubernetes, consulte [Tutorial: Atualize uma aplicação no Serviço Azure Kubernetes (AKS)](../../aks/tutorial-kubernetes-app-update.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -53,7 +53,7 @@ vi azure-vote/azure-vote/config_file.cfg
 
 Altere os valores de `VOTE1VALUE` e `VOTE2VALUE`, e guarde o ficheiro.
 
-```bash
+```plaintext
 # UI Configurations
 TITLE = 'Azure Voting App'
 VOTE1VALUE = 'Blue'
@@ -109,7 +109,7 @@ kubectl get pod
 
 Saída:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-217588096-5w632    1/1       Running   0          10m
 azure-vote-front-233282510-b5pkz   1/1       Running   0          10m
@@ -120,25 +120,25 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 Se não tiver vários pods em execução na imagem azure-vote-front, dimensione a implementação `azure-vote-front`.
 
 
-```azurecli-interactive
+```bash
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
 Para atualizar a aplicação, utilize o comando [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set). Atualize `<acrLoginServer>` com o nome do anfitrião ou o servidor de início de sessão do seu registo de contentor.
 
-```azurecli-interactive
+```bash
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
 Para monitorizar a implementação, utilize o comando [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get). Uma vez que a aplicação atualizada é implementada, os seus pods são terminados e recriados com a nova imagem de contentor.
 
-```azurecli-interactive
+```bash
 kubectl get pod
 ```
 
 Saída:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
 azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
@@ -150,7 +150,7 @@ azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 
 Obtenha o endereço IP externo do serviço `azure-vote-front`.
 
-```azurecli-interactive
+```bash
 kubectl get service azure-vote-front
 ```
 

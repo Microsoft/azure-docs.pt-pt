@@ -1,38 +1,38 @@
 ---
-title: Entidades predefinidas de número de telefone – LUIS
+title: Número de telefone Entidades Pré-construídas - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidade predefinidas de número de telefone em Reconhecimento vocal (LUIS).
+description: Este artigo contém informações de entidade pré-criados numéricas na compreensão de idiomas (LUIS) do telefone.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 1cc7469bf6b29ed864fac3955dc8770aa879f84d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e2c8e27c6d4195252c6a5b423fa98b2a4247182
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499533"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270478"
 ---
-# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entidade de número de telefone predefinida para um aplicativo LUIS
-A entidade `phonenumber` extrai uma variedade de números de telefone, incluindo o código do país. Como essa entidade já está treinada, você não precisa adicionar o exemplo declarações ao aplicativo. A entidade `phonenumber` tem suporte apenas na cultura `en-us`. 
+# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída para um aplicativo LUIS
+A entidade `phonenumber` extrai uma variedade de números de telefone, incluindo código country. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo para a aplicação. A entidade `phonenumber` é apoiada apenas na cultura `en-us`.
 
-## <a name="types-of-a-phone-number"></a>Tipos de um número de telefone
-`Phonenumber` é gerenciado no repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml)
+## <a name="types-of-a-phone-number"></a>Tipos de número de telefone
+`Phonenumber` é gerido a partir do repositório GitHub [de texto de reconhecimento](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml)
 
-## <a name="resolution-for-this-prebuilt-entity"></a>Resolução para esta entidade predefinida
+## <a name="resolution-for-this-prebuilt-entity"></a>Resolução para esta entidade pré-construída
 
-Os seguintes objetos de entidade são retornados para a consulta:
+Os seguintes objetos de entidade são devolvidos para consulta:
 
 `my mobile is 1 (800) 642-7676`
 
-#### <a name="v3-responsetabv3"></a>[Resposta v3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O JSON a seguir é com o parâmetro `verbose` definido como `false`:
+O seguinte JSON está com o parâmetro `verbose` definido para `false`:
 
 ```json
 "entities": {
@@ -41,8 +41,8 @@ O JSON a seguir é com o parâmetro `verbose` definido como `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3, resposta detalhada](#tab/V3-verbose)
-O JSON a seguir é com o parâmetro `verbose` definido como `true`:
+#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
+O seguinte JSON está com o parâmetro `verbose` definido para `true`:
 
 ```json
 "entities": {
@@ -68,9 +68,9 @@ O JSON a seguir é com o parâmetro `verbose` definido como `true`:
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Resposta v2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo a seguir mostra a resolução da entidade **Builtin. PhoneNumber** .
+O exemplo seguinte mostra a resolução da entidade **builtin.phonenumber.**
 
 ```json
 "entities": [
@@ -86,10 +86,10 @@ O exemplo a seguir mostra a resolução da entidade **Builtin. PhoneNumber** .
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
 
-Saiba mais sobre as entidades [percentual](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md)e [temperatura](luis-reference-prebuilt-temperature.md) . 
+Conheça a [percentagem,](luis-reference-prebuilt-percentage.md) [número](luis-reference-prebuilt-number.md)e as entidades de [temperatura.](luis-reference-prebuilt-temperature.md)

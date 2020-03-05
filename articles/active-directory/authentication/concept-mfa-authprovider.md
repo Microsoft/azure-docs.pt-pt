@@ -1,6 +1,6 @@
 ---
-title: Provedores de autenticação multifator do Azure-Azure Active Directory
-description: Quando você deve usar um provedor de autenticação com o Azure MFA?
+title: Fornecedores azure multi-factor Auth - Diretório Ativo Azure
+description: Quando deve utilizar um Fornecedor Auth com MFA Azure?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,66 +11,66 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43a620d32fcfa7970dbdb5bee9740cc8f8b33e50
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a275e5ab394b54960a2340848152741762b28f8c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155134"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269387"
 ---
-# <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando usar um provedor de autenticação multifator do Azure
+# <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando utilizar um fornecedor de autenticação multifactor Azure
 
 A verificação de dois passos está disponível por predefinição para os administradores globais que tenham utilizadores do Azure Active Directory e do Office 365. No entanto, se pretender tirar partido das [funcionalidades avançadas](howto-mfa-mfasettings.md), deverá comprar a versão completa do Multi-Factor Authentication (MFA) do Azure.
 
-Um provedor de autenticação multifator do Azure é usado para aproveitar os recursos fornecidos pela autenticação multifator do Azure para usuários que **não têm licenças**.
+Um Fornecedor Auth Azure Multi-Factor é utilizado para tirar partido das funcionalidades fornecidas pela Autenticação Multi-Factor Azure para utilizadores que **não possuam licenças.**
 
 > [!NOTE]
-> A partir de 1º de setembro, 2018 novos provedores de autenticação podem não ser mais criados. Os provedores de autenticação existentes podem continuar sendo usados e atualizados, mas a migração não é mais possível. A autenticação multifator continuará disponível como um recurso em licenças Azure AD Premium.
+> A partir de 01 de setembro de 2018, os novos fornecedores de auth já não podem ser criados. Os fornecedores auth existentes podem continuar a ser utilizados e atualizados, mas a migração já não é possível. A autenticação multifactor continuará disponível como funcionalidade nas licenças Azure AD Premium.
 
-## <a name="caveats-related-to-the-azure-mfa-sdk"></a>ADVERTÊNCIAS relacionadas ao SDK do Azure MFA
+## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Ressalvas relacionadas com o SDK Azure MFA
 
-Observe que o SDK foi preterido e só continuará a funcionar até 14 de novembro de 2018. Após esse tempo, as chamadas para o SDK irão falhar.
+Note que o SDK foi depreciado e só continuará a trabalhar até 14 de novembro de 2018. Após esse tempo, as chamadas para o SDK irão falhar.
 
 ## <a name="what-is-an-mfa-provider"></a>O que é um Fornecedor de MFA?
 
-Há dois tipos de provedores de autenticação, e a distinção está em relação a como sua assinatura do Azure é cobrada. A opção por autenticação calcula o número de autenticações executadas num mês relativamente ao seu inquilino. Esta é a melhor opção no caso de existirem vários utilizadores que são ocasionalmente autenticados. A opção por utilizador calcula o número de indivíduos no seu inquilino que executam a verificação de dois passos num mês. Esta é a melhor opção caso existam alguns utilizadores com licenças, mas tem de alargar a MFA a mais utilizadores para além dos limites da sua licença.
+Existem dois tipos de fornecedores Auth, e a distinção é em torno da forma como a sua subscrição Azure é cobrada. A opção por autenticação calcula o número de autenticações executadas num mês relativamente ao seu inquilino. Esta é a melhor opção no caso de existirem vários utilizadores que são ocasionalmente autenticados. A opção por utilizador calcula o número de indivíduos no seu inquilino que executam a verificação de dois passos num mês. Esta é a melhor opção caso existam alguns utilizadores com licenças, mas tem de alargar a MFA a mais utilizadores para além dos limites da sua licença.
 
 ## <a name="manage-your-mfa-provider"></a>Gerir o Fornecedor de MFA
 
 Não pode alterar o modelo de utilização (por utilizador ativado ou por autenticação) após a criação de um fornecedor do MFA.
 
-Se você comprou licenças suficientes para cobrir todos os usuários habilitados para MFA, você pode excluir o provedor MFA completamente.
+Se adquiriu licenças suficientes para cobrir todos os utilizadores que estão habilitados para o MFA, pode eliminar completamente o fornecedor de MFA.
 
-Se o fornecedor do MFA não estiver associado a um inquilino do Azure AD ou associar o novo fornecedor do MFA a um inquilino diferente do Azure AD, as definições do utilizador e as opções de configuração não são transferidas. Além disso, os servidores do Azure MFA existentes precisam ser reativados usando as credenciais de ativação geradas por meio do provedor de MFA. A reativação dos servidores MFA para vinculá-los ao provedor MFA não afeta a chamada telefônica e a autenticação de mensagens de texto, mas as notificações de aplicativo móvel param de funcionar para todos os usuários até que eles reativem o aplicativo móvel.
+Se o fornecedor do MFA não estiver associado a um inquilino do Azure AD ou associar o novo fornecedor do MFA a um inquilino diferente do Azure AD, as definições do utilizador e as opções de configuração não são transferidas. Além disso, os servidores Azure MFA existentes precisam de ser reativados utilizando credenciais de ativação geradas através do Provedor mFA.
 
-### <a name="removing-an-authentication-provider"></a>Removendo um provedor de autenticação
+### <a name="removing-an-authentication-provider"></a>Remoção de um fornecedor de autenticação
 
 > [!CAUTION]
-> Não há nenhuma confirmação ao excluir um provedor de autenticação. Selecionar **excluir** é um processo permanente.
+> Não existe confirmação ao apagar um fornecedor de autenticação. Selecionar **eliminar** é um processo permanente.
 
-Os provedores de autenticação podem ser encontrados no **portal do Azure** > **Azure Active Directory** > **segurança** > **provedores**de > **MFA** . Clique em provedores listados para ver detalhes e configurações associadas a esse provedor.
+Os fornecedores de autenticação podem ser encontrados no **portal Azure** > **Diretório Ativo** > Segurança > **Prestadores**de ** > ** **MFA.** Clique em fornecedores listados para ver detalhes e configurações associados a esse fornecedor.
 
-Antes de remover um provedor de autenticação, anote todas as configurações personalizadas definidas em seu provedor. Decida quais configurações precisam ser migradas para as configurações gerais do MFA de seu provedor e conclua a migração dessas configurações. 
+Antes de remover um fornecedor de autenticação, tome nota de quaisquer configurações personalizadas configuradas no seu fornecedor. Decida quais as configurações que precisam de ser migradas para as definições gerais de MFA do seu fornecedor e complete a migração dessas configurações. 
 
-Os servidores do Azure MFA vinculados aos provedores deverão ser reativados usando as credenciais geradas em **portal do Azure** > **Azure Active Directory** > **segurança** > **MFA** > **configurações do servidor**. Antes de reativar, os seguintes arquivos devem ser excluídos do diretório `\Program Files\Multi-Factor Authentication Server\Data\` nos servidores do Azure MFA em seu ambiente:
+Os Servidores Azure MFA ligados aos fornecedores terão de ser reativados utilizando credenciais geradas no **portal Azure** > **Diretório Ativo do Diretório Ativo** do Azure >  ** > Definições** do Servidor **MFA** > . Antes de reativar, os seguintes ficheiros devem ser eliminados do diretório `\Program Files\Multi-Factor Authentication Server\Data\` em Servidores MFA Azure no seu ambiente:
 
-- cacerts
-- certificado
-- groupCACert
-- groupKey
-- groupName
-- licenseKey
+- caCert
+- cert
+- grupoCACert
+- grupoChave
+- nome de grupo
+- licençaChave
 - pkey
 
-![Excluir um provedor de autenticação da portal do Azure](./media/concept-mfa-authprovider/authentication-provider-removal.png)
+![Eliminar um fornecedor de auth do portal Azure](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-Depois de confirmar que todas as configurações foram migradas, você pode navegar até o **portal do Azure** > **Azure Active Directory** > **segurança** > os **provedores** de > do **MFA** e selecionar as reticências **...** e selecionar **excluir**.
+Quando tiver confirmado que todas as definições foram migradas, pode navegar até ao **portal Azure** > **Diretório Ativo** de Segurança > **Fornecedores** de >  ** > ** **MFA** e selecionar as elipses... e selecionar **Apagar**.
 
 > [!WARNING]
-> A exclusão de um provedor de autenticação excluirá todas as informações de relatório associadas a esse provedor. Talvez você queira salvar os relatórios de atividade antes de excluir seu provedor.
+> A eliminação de um fornecedor de autenticação eliminará qualquer informação de reporte associada a esse fornecedor. Pode querer guardar relatórios de atividade antes de apagar o seu fornecedor.
 
 > [!NOTE]
-> Os usuários com versões mais antigas do aplicativo Microsoft Authenticator e do servidor MFA do Azure podem precisar registrar novamente seu aplicativo.
+> Os utilizadores com versões mais antigas da aplicação Microsoft Authenticator e do Azure MFA Server poderão ter de voltar a registar a sua aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

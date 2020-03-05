@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 27c359a594cec66708647d5a648c7e8414c0d92c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 949cdb4c53531a548380a6f0116fb45f91d7ba66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917480"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268762"
 ---
 # <a name="enter-data-manually-module"></a>Introduza manualmente o módulo de dados
 
@@ -89,11 +89,9 @@ Este módulo pode ser útil em cenários como estes:
         |0.00016|0.004|0.999961|0.00784|1|  
         |0|0.004|0.999955|0.008615|1|  
   
-4.  Pressione ENTER após cada linha, para iniciar uma nova linha.  
-  
-     **Certifique-se de que pressiona ENTER após a última fila.** 
+4.  Pressione ENTER após cada linha, para iniciar uma nova linha.      
      
-     Se premir enter várias vezes para adicionar várias linhas vazias, a última linha vazia é removida aparada, mas outras filas vazias são tratadas como valores em falta.  
+     Se premir enter várias vezes para adicionar várias linhas vazias, as linhas vazias serão removidas.  
   
      Se criar filas com valores em falta, pode sempre filtrar mais tarde.  
   

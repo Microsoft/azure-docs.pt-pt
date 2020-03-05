@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 02/28/2020
-ms.openlocfilehash: 701e279e349bdc3b92d5b5c2dc50e23199f9d766
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: e2d1a1c6e924e879e05af80e2e36a38e8a5cde66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78160816"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273948"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configure um IR auto-hospedado como procuração para um IR Azure-SSIS na Fábrica de Dados Azure
 
@@ -167,6 +167,7 @@ As segundas tarefas de encenação que executam o seu IR Azure-SSIS não são fa
 
 - Apenas são suportadas as tarefas de fluxo de dados com conectividade de base de dados aberta (ODBC), OLEDB ou Flat File e as fontes ODBC, OLEDB ou Flat File. 
 - Apenas os serviços ligados ao armazenamento Azure Blob que estão configurados com *chave de conta,* *Assinatura de Acesso Partilhado (SAS) URI,* ou autenticação principal de *serviço* são atualmente suportados.
+- *O mapeado* de parâmetros na Fonte OLEDB ainda não é suportado. Como suposições, utilize o *Comando SQL from Variable* como modo de *acesso* e utilize a *Expressão* para inserir as suas variáveis/parâmetros num comando SQL. Para ilustrar isto, pode encontrar um pacote de *amostras (ParameterMappingSample.dtsx)* na pasta *SelfhostedIrProxy/Limitações* do nosso recipiente de pré-visualização pública, introduzindo o seguinte SAS URI no [Azure Storage Explorer](https://storageexplorer.com/): *https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c* .
 
 ## <a name="next-steps"></a>Passos seguintes
 

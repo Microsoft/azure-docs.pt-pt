@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, chapéu vermelho
-ms.openlocfilehash: 5d28a19126c9b7ae4ef7afe2a6b69bd4a13e0c83
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228240"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271363"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contentores privilegiados num cluster do Azure Red Hat OpenShift
 
@@ -137,6 +137,8 @@ Comece com a secção "Instalar consola".
 
 Durante `oc create -f twistlock_console.yaml` no Passo 2, terá um Erro ao criar o espaço de nome.
 Pode ignorá-lo com segurança, o espaço de nome foi criado anteriormente com o comando `oc new-project`.
+
+Utilize `azure-disk` para o tipo de armazenamento.
 
 ### <a name="create-an-external-route-to-console"></a>Criar uma rota externa para consola
 

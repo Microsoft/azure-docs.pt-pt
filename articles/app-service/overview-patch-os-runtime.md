@@ -4,12 +4,12 @@ description: Saiba como o Azure App Service atualiza o OS e os tempos de execuç
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02fa89305c19ee4ec5e151ad36f7f5fa3e130f63
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846255"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273627"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>SO e patching de tempo de execução no Serviço de Aplicações Azure
 
@@ -51,7 +51,7 @@ Atualizações e depreciações de tempo de execução são anunciados aqui:
 
 ### <a name="new-patch-updates"></a>Novas atualizações de patch
 
-As atualizações de patch para .NET, PHP, Java SDK ou tomcat/Jetty são aplicadas automaticamente, sobrecarregando a instalação existente com a nova versão. As atualizações de patch node.js são instaladas lado a lado com as versões existentes (semelhantes às versões principais e menores na secção seguinte). As novas versões de patch Python podem ser instaladas manualmente através de extensões do [local),](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)lado a lado com as instalações python incorporadas.
+As atualizações de patch para .NET, PHP, Java SDK ou tomcat/Jetty são aplicadas automaticamente, sobrecarregando a instalação existente com a nova versão. As atualizações de patch node.js são instaladas lado a lado com as versões existentes (semelhantes às versões principais e menores na secção seguinte). As novas versões de patch Python podem ser instaladas manualmente através de extensões do [local,](https://azure.microsoft.com/blog/azure-web-sites-extensions/)lado a lado com as instalações python incorporadas.
 
 ### <a name="new-major-and-minor-versions"></a>Novas versões principais e menores
 
@@ -75,15 +75,15 @@ Embora as informações críticas do OS estão bloqueadas a partir do acesso (ve
 
 A tabela que se segue mostra como é que as versões do Windows e do tempo de execução do idioma que estão a executar as suas aplicações:
 
-| Proteção das | Onde encontrá-lo | 
+| Informações | Onde encontrá-lo | 
 |-|-|
 | Versão do Windows | Ver `https://<appname>.scm.azurewebsites.net/Env.cshtml` (de acordo com informações do Sistema) |
-| Versão do .NET | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| versão .NET | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | versão .NET Core | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br> `dotnet --version` |
-| Versão de PHP | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br> `php --version` |
+| Versão PHP | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br> `php --version` |
 | Versão Padrão Node.js | Na [Cloud Shell,](../cloud-shell/overview.md)executar o seguinte comando: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Versão de Python | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br> `python --version` |  
-| Versão Java | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br> `java -version` |  
+| Versão do Java | No `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no pedido de comando: <br> `java -version` |  
 
 > [!NOTE]  
 > O acesso à localização do registo `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, onde as informações sobre [os patches "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) são armazenadas, é bloqueada.

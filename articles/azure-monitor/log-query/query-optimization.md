@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/28/2019
-ms.openlocfilehash: 4fad7d1e3359264c647ffc2d5f67dc547c87a13a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e5c3da94cf2440b30dc59fe20bc51a34095f7d5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196659"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269051"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Monitor Azure
 O Azure Monitor Logs utiliza o [Azure Data Explorer (ADX)](/azure/data-explorer/) para armazenar dados de registo e executar consultas para analisar esses dados. Cria, gere e mantém os clusters ADX para si e otimiza-os para a sua carga de trabalho de análise de registo. Quando executa uma consulta, está otimizada e encaminhada para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Tanto o Azure Monitor Logs como o Azure Data Explorer utilizam muitos mecanismos automáticos de otimização de consultas. Embora as otimizações automáticas ofereçam um impulso significativo, são em alguns casos em que pode melhorar drasticamente o seu desempenho de consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -63,7 +63,7 @@ Alguns dos comandos e funções de consulta são pesados no seu consumo de CPU. 
 
 Estas funções consomem CPU proporcionalmente ao número de linhas que estão a processar. A otimização mais eficiente é adicionar onde as condições no início da consulta podem filtrar o maior número possível de registos antes da execução da função intensiva do CPU.
 
-Por exemplo, as seguintes consultas produzem exatamente o mesmo resultado, mas a segunda é de longe a mais eficiente, uma vez que a condição [antes]() de analisar exclui muitos registos:
+Por exemplo, as seguintes consultas produzem exatamente o mesmo resultado, mas a segunda é de longe a mais eficiente, uma vez que a condição [antes](/azure/kusto/query/whereoperator) de analisar exclui muitos registos:
 
 ```Kusto
 //less efficient

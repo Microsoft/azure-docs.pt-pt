@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 15f63544a98c6d7bb7171081d9c3e084890e15ec
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: a50dbe4d1e100032282891ccd15a94330f7fead4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78256001"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272977"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Autoria gráfica em Automação Azure
 
@@ -380,7 +380,7 @@ O exemplo seguinte utiliza a saída de uma atividade chamada **Get Twitter Conne
 
 ## <a name="authenticating-to-azure-resources"></a>Autenticação aos recursos do Azure
 
-Os livros de execução da Azure Automation que gerem os recursos do Azure exigem a autenticação ao Azure. A [conta Run As](automation-create-runas-account.md), também referida como um principal de serviço, é o mecanismo padrão que um livro de execução da Automação utiliza para aceder aos recursos do Gestor de Recursos Azure na sua subscrição. Pode adicionar esta funcionalidade a um livro de execução gráfico adicionando o ativo de ligação **AzureRunAsConnection,** que utiliza o cmdlet PowerShell [Get-AutomationConnection,](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) à tela. Também pode adicionar o cmdlet [Connect-AzAccount.](/powershell/module/az.profile/connect-azaccount) Este cenário é ilustrado no seguinte exemplo.
+Os livros de execução da Azure Automation que gerem os recursos do Azure exigem a autenticação ao Azure. A [conta Run As](automation-create-runas-account.md), também referida como um principal de serviço, é o mecanismo padrão que um livro de execução da Automação utiliza para aceder aos recursos do Gestor de Recursos Azure na sua subscrição. Pode adicionar esta funcionalidade a um livro de execução gráfico adicionando o ativo de ligação **AzureRunAsConnection,** que utiliza o cmdlet PowerShell [Get-AutomationConnection,](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) à tela. Também pode adicionar o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Este cenário é ilustrado no seguinte exemplo.
 
 ![Executar como atividades de autenticação](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 

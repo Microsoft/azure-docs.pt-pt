@@ -1,6 +1,6 @@
 ---
-title: Como usar o armazenamento de filas do Azure v 2.1 do Python – armazenamento do Azure
-description: Saiba como usar o Azure serviço Fila v 2.1 do Python para criar e excluir filas, e inserir, obter e excluir mensagens.
+title: Como utilizar o armazenamento de fila Azure v2.1 da Python - Armazenamento Azure
+description: Aprenda a utilizar o serviço De Fila Azure v2.1 da Python para criar e apagar filas, e inserir, obter e apagar mensagens.
 author: mhopkins-msft
 ms.service: storage
 ms.author: mhopkins
@@ -9,61 +9,61 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-october2019
-ms.openlocfilehash: b5382a6a1ea381d57a026e9d42190152e38f7696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7812b62e2de3181ae1a901241a977e37f855704b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209529"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268030"
 ---
-# <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Como usar o armazenamento de filas do Azure v 2.1 do Python
+# <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Como utilizar o armazenamento de fila Azure v2.1 da Python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-Este artigo demonstra cenários comuns usando o serviço de armazenamento de filas do Azure. Os cenários abordados incluem inserção, inspeção, obtenção e exclusão de mensagens da fila e criação e exclusão de filas.
+Este artigo demonstra cenários comuns utilizando o serviço de armazenamento de fila Azure. Os cenários abordados incluem inserir, espreitar, receber e apagar mensagens de fila, e criar e apagar filas.
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Descrição geral
 
-Os exemplos neste artigo são escritos em Python e usam o [SDK do armazenamento do Microsoft Azure para Python]. Para obter mais informações sobre filas, consulte a seção [próximas etapas](#next-steps) .
+As amostras deste artigo estão escritas em Python e utilizam o [Microsoft Azure Storage SDK para Python]. Para mais informações sobre as filas, consulte a secção [Degraus Seguintes.](#next-steps)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="download-and-install-azure-storage-sdk-for-python"></a>Baixe e instale o SDK do armazenamento do Azure para Python
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>Descarregue e instale O Armazenamento Azure SDK para Python
 
-O [SDK do armazenamento do Azure para Python](https://github.com/azure/azure-storage-python) requer o python versão 2,7, 3,3 ou posterior.
+O [Azure Storage SDK para Python](https://github.com/azure/azure-storage-python) requer a versão Python 2.7, 3.3 ou mais tarde.
  
 ### <a name="install-via-pypi"></a>Instalar via PyPi
 
-Para instalar por meio do índice de pacote do Python (PyPI), digite:
+Para instalar através do Índice de Pacotepython (PyPI), escreva:
 
 ```bash
-pip install azure-storage-blob==2.1.0
+pip install azure-storage-queue==2.1.0
 ```
 
 > [!NOTE]
-> Se você estiver atualizando do SDK do armazenamento do Azure para o Python versão 0,36 ou anterior, desinstale o SDK mais antigo usando `pip uninstall azure-storage` antes de instalar o pacote mais recente.
+> Se estiver a atualizar a partir do Azure Storage SDK para a versão Python 0.36 ou mais cedo, desinstale o SDK mais antigo usando `pip uninstall azure-storage` antes de instalar o pacote mais recente.
 
-Para métodos de instalação alternativos, consulte [SDK do armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python/).
+Para métodos de instalação alternativos, consulte [Azure Storage SDK para Python](https://github.com/Azure/azure-storage-python/).
 
-## <a name="view-the-sample-application"></a>Exibir o aplicativo de exemplo
+## <a name="view-the-sample-application"></a>Ver a aplicação da amostra
 
-Para exibir e executar um aplicativo de exemplo que mostra como usar o Python com filas do Azure, consulte [armazenamento do Azure: introdução com filas do Azure em Python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
+Para visualizar e executar uma aplicação de amostra que mostre como usar Python com filas Azure, consulte [O Armazenamento Azure: Começar com filas Azure em Python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
 
-Para executar o aplicativo de exemplo, verifique se você instalou os pacotes `azure-storage-queue` e `azure-storage-common`.
+Para executar a aplicação da amostra, certifique-se de que instalou os pacotes `azure-storage-queue` e `azure-storage-common`.
 
 ## <a name="create-a-queue"></a>Criar uma fila
 
-O objeto [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) permite que você trabalhe com filas. O código a seguir cria um objeto `QueueService`. Adicione o seguinte próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o armazenamento do Azure programaticamente:
+O objeto [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) permite-lhe trabalhar com filas. O código seguinte cria um objeto `QueueService`. Adicione o seguinte perto do topo de qualquer ficheiro Python no qual deseje aceder programáticamente ao Armazenamento Azure:
 
 ```python
 from azure.storage.queue import QueueService
 ```
 
-O código a seguir cria um objeto `QueueService` usando o nome da conta de armazenamento e a chave de conta. Substitua *myaccount* e *MyKey* pelo nome e pela chave da sua conta.
+O código seguinte cria um objeto `QueueService` utilizando o nome da conta de armazenamento e a chave de conta. Substitua *a minha conta* e a minha *chave* pelo nome da sua conta e chave.
 
 ```python
 queue_service = QueueService(account_name='myaccount', account_key='mykey')
@@ -73,13 +73,13 @@ queue_service.create_queue('taskqueue')
 
 ## <a name="insert-a-message-into-a-queue"></a>Introduzir uma mensagem numa fila
 
-Para inserir uma mensagem em uma fila, use o método [put_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) para criar uma nova mensagem e adicioná-la à fila.
+Para inserir uma mensagem numa fila, utilize o método [put_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) para criar uma nova mensagem e adicioná-la à fila.
 
 ```python
 queue_service.put_message('taskqueue', u'Hello World')
 ```
 
-As mensagens da fila do Azure são armazenadas como texto. Se você quiser armazenar dados binários, configure as funções codificação Base64 e decodificação no objeto serviço fila antes de colocar uma mensagem na fila.
+As mensagens de fila Azure são armazenadas como texto. Se pretender armazenar dados binários, configurar as funções de codificação e descodificação do Base64 no objeto de serviço de fila antes de colocar uma mensagem na fila.
 
 ```python
 # setup queue Base64 encoding and decoding functions
@@ -89,7 +89,7 @@ queue_service.decode_function = QueueMessageFormat.binary_base64decode
 
 ## <a name="peek-at-the-next-message"></a>Pré-visualização da mensagem seguinte
 
-Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-) . Por padrão, `peek_messages` exibe uma única mensagem.
+Pode espreitar a mensagem na frente de uma fila sem a retirar da fila, chamando o método [peek_messages.](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-) Por padrão, `peek_messages` espreita uma única mensagem.
 
 ```python
 messages = queue_service.peek_messages('taskqueue')
@@ -97,9 +97,9 @@ for message in messages:
     print(message.content)
 ```
 
-## <a name="dequeue-messages"></a>Remover mensagens da fila
+## <a name="dequeue-messages"></a>Mensagens de defila
 
-Seu código remove uma mensagem de uma fila em duas etapas. Ao chamar [get_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-), você obtém a próxima mensagem em uma fila por padrão. Uma mensagem retornada de `get_messages` torna-se invisível para qualquer outra mensagem de leitura de código dessa fila. Por predefinição, esta mensagem permanece invisível durante 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar [Delete_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-message-queue-name--message-id--pop-receipt--timeout-none-). Esse processo de duas etapas para remover uma mensagem garante que quando o código não processar uma mensagem devido a uma falha de hardware ou de software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente. Seu código chama `delete_message` logo após a mensagem ser processada.
+O seu código remove uma mensagem de uma fila em dois passos. Quando liga [get_messages,](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-)recebe a próxima mensagem numa fila por defeito. Uma mensagem devolvida de `get_messages` torna-se invisível para qualquer outra mensagem de leitura de código desta fila. Por predefinição, esta mensagem permanece invisível durante 30 segundos. Para terminar de remover a mensagem da fila, também deve ligar [para delete_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-message-queue-name--message-id--pop-receipt--timeout-none-). Este processo em duas etapas de remoção de uma mensagem garante que quando o seu código não processa uma mensagem devido a falha de hardware ou software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O seu código chama `delete_message` logo após a mensagem ter sido processada.
 
 ```python
 messages = queue_service.get_messages('taskqueue')
@@ -108,7 +108,7 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
 
-Existem duas formas através das quais pode personalizar a obtenção de mensagens a partir de uma fila. Em primeiro lugar, pode obter um lote de mensagens (até 32). Em segundo lugar, pode definir um tempo limite de invisibilidade superior ou inferior, dando mais ou menos tempo ao código para processar totalmente cada mensagem. O exemplo de código a seguir usa o método `get_messages` para obter 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Define também o tempo limite de invisibilidade para cinco minutos para cada mensagem.
+Existem duas formas através das quais pode personalizar a obtenção de mensagens a partir de uma fila. Em primeiro lugar, pode obter um lote de mensagens (até 32). Em segundo lugar, pode definir um tempo limite de invisibilidade superior ou inferior, dando mais ou menos tempo ao código para processar totalmente cada mensagem. O exemplo de código que se segue utiliza o método `get_messages` para obter 16 mensagens numa chamada. Em seguida, processa cada mensagem usando um para loop. Define também o tempo limite de invisibilidade para cinco minutos para cada mensagem.
 
 ```python
 messages = queue_service.get_messages(
@@ -120,7 +120,7 @@ for message in messages:
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Alterar os conteúdos de uma mensagem em fila
 
-Pode alterar os conteúdos de uma mensagem no local na fila de espera. Se a mensagem representa uma tarefa de trabalho, pode utilizar esta funcionalidade para atualizar o estado da tarefa de trabalho. O código a seguir usa o método [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) para atualizar uma mensagem. O tempo limite de visibilidade é definido como 0, o que significa que a mensagem aparece imediatamente e o conteúdo é atualizado.
+Pode alterar os conteúdos de uma mensagem no local na fila de espera. Se a mensagem representa uma tarefa de trabalho, pode utilizar esta funcionalidade para atualizar o estado da tarefa de trabalho. O código abaixo utiliza o método [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) para atualizar uma mensagem. O tempo de tempo de visibilidade está definido para 0, o que significa que a mensagem aparece imediatamente e o conteúdo é atualizado.
 
 ```python
 messages = queue_service.get_messages('taskqueue')
@@ -131,7 +131,7 @@ for message in messages:
 
 ## <a name="get-the-queue-length"></a>Obter o comprimento da fila
 
-Pode obter uma estimativa do número de mensagens numa fila. O método [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) solicita que o serviço fila retorne metadados sobre a fila e o `approximate_message_count`. O resultado é aproximado apenas porque as mensagens podem ser adicionadas ou removidas depois que o serviço fila responde à sua solicitação.
+Pode obter uma estimativa do número de mensagens numa fila. O método [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) pede ao serviço de fila que devolva metadados sobre a fila e o `approximate_message_count`. O resultado é apenas aproximada porque as mensagens podem ser adicionadas ou removidas após o serviço de fila responder ao seu pedido.
 
 ```python
 metadata = queue_service.get_queue_metadata('taskqueue')
@@ -140,7 +140,7 @@ count = metadata.approximate_message_count
 
 ## <a name="delete-a-queue"></a>Eliminar uma fila
 
-Para excluir uma fila e todas as mensagens contidas nela, chame o método [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-queue-queue-name--fail-not-exist-false--timeout-none-) .
+Para apagar uma fila e todas as mensagens contidas, ligue para o método [delete_queue.](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-queue-queue-name--fail-not-exist-false--timeout-none-)
 
 ```python
 queue_service.delete_queue('taskqueue')
@@ -148,11 +148,11 @@ queue_service.delete_queue('taskqueue')
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber mais.
+Agora que aprendeu o básico do armazenamento de fila, siga estes links para saber mais.
 
-* [Referência da API do Python das filas do Azure](/python/api/azure-storage-queue)
+* [Referência da API de Azure Queues Python](/python/api/azure-storage-queue)
 * [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/)
 * [API REST dos Serviços do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355)
 
 [Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
+[Microsoft Azure Storage SDK para Python]: https://github.com/Azure/azure-storage-python

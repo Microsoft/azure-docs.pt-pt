@@ -1,5 +1,5 @@
 ---
-title: (PRETERIDO) Utilizar o ACR com um cluster do DC/OS do Azure
+title: (DEPRECIADO) Utilização de ACR com um cluster Azure DC/OS
 description: Utilizar o Azure Container Registry com um cluster DC/OS no Azure Container Service
 services: container-service
 author: julienstroheker
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 8319f2f5405271679d0c11d4ac68492cdec8fc14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1dccc42301cf73fb215d99636dfee9eef9bc59e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148922"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274167"
 ---
-# <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(PRETERIDO) Utilizar o ACR com um cluster de DC/OS para implementar a sua aplicação
+# <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(DEPRECIADO) Use ACR com um cluster DC/OS para implementar a sua aplicação
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -46,7 +46,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM
 
 Após a criação do registo, a CLI do Azure produz dados semelhantes aos seguintes. Tome nota do `name` e do `loginServer`, uma vez que serão utilizados em passos posteriores.
 
-```azurecli
+```output
 {
   "adminUserEnabled": false,
   "creationDate": "2017-06-06T03:40:56.511597+00:00",
@@ -93,7 +93,7 @@ FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.f
 
 Crie uma ligação SSH com o mestre (ou o primeiro mestre) do cluster baseado em DC/SO. Atualize o nome de utilizador se tiver sido utilizado um valor não predefinido ao criar o cluster.
 
-```azurecli-interactive
+```console
 ssh azureuser@$FQDN
 ```
 
@@ -107,13 +107,13 @@ docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --passw
 
 Crie um ficheiro comprimido com os valores de autenticação de registo de contentor.
 
-```azurecli-interactive
+```console
 tar czf docker.tar.gz .docker
 ```
 
 Copie este ficheiro para o armazenamento partilhado do cluster. Este passo disponibiliza o ficheiro em todos os nós do cluster DC/OS.
 
-```azurecli-interactive
+```console
 cp docker.tar.gz /mnt/share/dcosshare
 ```
 
@@ -123,25 +123,25 @@ Agora, a partir de uma máquina de desenvolvimento ou de qualquer outro sistema 
 
 Crie um contentor a partir da imagem do Ubuntu.
 
-```azurecli-interactive
+```console
 docker run ubuntu --name base-image
 ```
 
-Capture agora o contentor para uma nova imagem. O nome da imagem tem de incluir o nome `loginServer` do contentor no formato `loginServer/imageName`.
+Capture agora o contentor para uma nova imagem. O nome da imagem deve incluir o nome `loginServer` do registo do contentor com um formato de `loginServer/imageName`.
 
-```azurecli-interactive
+```console
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
 Inicie sessão no Azure Container Registry. Substitua o nome pelo nome loginServer, --username pelo nome do registo de contentor e --password por uma das palavras-passe fornecidas.
 
-```azurecli-interactive
+```console
 docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
 ```
 
 Por fim, carregue a imagem para o registo do ACR. Este exemplo carrega uma imagem com o nome dcos-demo.
 
-```azurecli-interactive
+```console
 docker push mycontainerregistry30678.azurecr.io/dcos-demo
 ```
 
@@ -189,11 +189,11 @@ Para utilizar uma imagem a partir do registo do ACR, crie um ficheiro com o nome
 
 Implemente a aplicação com a CLI do DC/OC.
 
-```azurecli-interactive
+```console
 dcos marathon app add acrDemo.json
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou o DC/OS para utilizar o Azure Container Registry, incluindo as seguintes tarefas:
 

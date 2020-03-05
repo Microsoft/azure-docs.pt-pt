@@ -1,56 +1,56 @@
 ---
-title: Atualização assíncrona para modelos de Azure Analysis Services | Microsoft Docs
-description: Descreve como usar a API REST do Azure Analysis Services para codificar a atualização assíncrona de dados de modelo.
+title: Atualização assíncrona para os modelos azure analysis services  Microsoft Docs
+description: Descreve como usar os Serviços de Análise Azure REST API para codificar a atualização assíncrona dos dados do modelo.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2281f9d493edf955881772ec174c82b527f1b6fa
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029872"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273725"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
-Usando qualquer linguagem de programação que dê suporte a chamadas REST, você pode executar operações assíncronas de atualização de dados em seus Azure Analysis Services modelos de tabela. Isso inclui a sincronização de réplicas somente leitura para expansão de consulta. 
+Ao utilizar qualquer linguagem de programação que suporte as chamadas REST, pode realizar operações de atualização de dados assíncronas nos seus modelos tabular dos Serviços de Análise Azure. Isto inclui sincronização de réplicas apenas de leitura para consulta scale-out. 
 
-As operações de atualização de dados podem levar algum tempo, dependendo de vários fatores, incluindo o volume de dados, o nível de otimização usando partições, etc. Essas operações têm sido tradicionalmente invocadas com métodos existentes, como o uso de [Tom](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (modelo de objeto de tabela), cmdlets do [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) ou [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (linguagem de script de modelo de tabela). No entanto, esses métodos podem exigir conexões HTTP de longa execução confiáveis com frequência.
+As operações de atualização de dados podem demorar algum tempo dependendo de uma série de fatores, incluindo o volume de dados, o nível de otimização usando divisórias, etc. Estas operações têm sido tradicionalmente invocadas com métodos existentes, tais como a utilização de [TOM](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Modelo de Objeto Tabular), cmdlets [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) ou [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Linguagem de Scriptscript modelo tabular). No entanto, estes métodos podem exigir muitas vezes ligações HTTP pouco fiáveis e de longa duração.
 
-A API REST para Azure Analysis Services permite que as operações de atualização de dados sejam executadas de forma assíncrona. Usando a API REST, as conexões HTTP de execução longa de aplicativos cliente não são necessárias. Também há outros recursos internos de confiabilidade, como tentativas automáticas e confirmações em lote.
+A API REST para serviços de análise azure permite que as operações de atualização de dados sejam realizadas de forma assíncrona. Ao utilizar a API REST, não são necessárias ligações http de aplicações de clientes a longo prazo. Existem também outras funcionalidades incorporadas para a fiabilidade, tais como retrys automáticos e compromissos em lotes.
 
-## <a name="base-url"></a>URL Base
+## <a name="base-url"></a>Base URL
 
-A URL base segue este formato:
+O URL base segue este formato:
 
 ```
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Por exemplo, considere um modelo chamado AdventureWorks em um servidor chamado `myserver`, localizado na região oeste dos EUA do Azure. O nome do servidor é:
+Por exemplo, considere um modelo chamado AdventureWorks num servidor chamado `myserver`, localizado na região oeste dos EUA Azure. O nome do servidor é:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
 ```
 
-A URL base para esse nome de servidor é:
+O URL base para este nome de servidor é:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-Usando a URL base, os recursos e as operações podem ser acrescentados com base nos seguintes parâmetros: 
+Utilizando o URL base, os recursos e operações podem ser anexados com base nos seguintes parâmetros: 
 
-![Atualização assíncrona](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
+![Atualização asincronizada](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
-- Tudo o que termina em **s** é uma coleção.
-- Tudo que termina com **()** é uma função.
+- Tudo o que acaba em **s** é uma coleção.
+- Tudo o que termina com **()** é uma função.
 - Qualquer outra coisa é um recurso/objeto.
 
-Por exemplo, você pode usar o verbo POST na coleção refreshs para executar uma operação de atualização:
+Por exemplo, pode utilizar o verbo POST na coleção Refreshes para realizar uma operação de atualização:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -58,22 +58,22 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 ## <a name="authentication"></a>Autenticação
 
-Todas as chamadas devem ser autenticadas com um token de Azure Active Directory (OAuth 2) válido no cabeçalho de autorização e devem atender aos seguintes requisitos:
+Todas as chamadas devem ser autenticadas com um token de Diretório Ativo Azure (OAuth 2) válido no cabeçalho da Autorização e devem satisfazer os seguintes requisitos:
 
-- O token deve ser um token de usuário ou uma entidade de serviço de aplicativo.
-- O token deve ter a audiência correta definida como `https://*.asazure.windows.net`.
-- O usuário ou aplicativo deve ter permissões suficientes no servidor ou no modelo para fazer a chamada solicitada. O nível de permissão é determinado por funções dentro do modelo ou do grupo de administradores no servidor.
+- O símbolo deve ser um símbolo do utilizador ou um diretor de serviço de aplicação.
+- O símbolo deve ter o público correto definido para `https://*.asazure.windows.net`.
+- O utilizador ou aplicação deve ter permissões suficientes no servidor ou modelo para efelo a chamada solicitada. O nível de permissão é determinado por funções dentro do modelo ou pelo grupo de administração no servidor.
 
     > [!IMPORTANT]
-    > Atualmente, as permissões de função de **administrador do servidor** são necessárias.
+    > Atualmente, são necessárias permissões de função **de administração** do servidor.
 
-## <a name="post-refreshes"></a>POSTAR/refreshes
+## <a name="post-refreshes"></a>POST /refreshes
 
-Para executar uma operação de atualização, use o verbo POST na coleção/refreshes para adicionar um novo item de atualização à coleção. O cabeçalho de local na resposta inclui a ID de atualização. O aplicativo cliente pode se desconectar e verificar o status mais tarde, se necessário, porque ele é assíncrono.
+Para efetuar uma operação de atualização, utilize o verbo POST na coleção /refreshes para adicionar um novo item de atualização à coleção. O cabeçalho de localização na resposta inclui o ID de atualização. A aplicação do cliente pode desligar e verificar o estado mais tarde, se necessário, porque é assíncrono.
 
-Apenas uma operação de atualização é aceita por vez para um modelo. Se houver uma operação atual de atualização em execução e outra for enviada, o código de status HTTP de conflito 409 será retornado.
+Apenas uma operação de atualização é aceite de cada vez para um modelo. Se houver uma operação de atualização atual e outra for submetida, o código de estado do Conflito HTTP 409 é devolvido.
 
-O corpo pode ser semelhante ao seguinte:
+O corpo pode assemelhar-se ao seguinte:
 
 ```
 {
@@ -95,35 +95,35 @@ O corpo pode ser semelhante ao seguinte:
 
 ### <a name="parameters"></a>Parâmetros
 
-Não é necessário especificar parâmetros. O padrão é aplicado.
+Não são necessários parâmetros de especificação. O predefinido é aplicado.
 
 | Nome             | Tipo  | Descrição  |Predefinição  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comando de atualização](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) TMSL: Full, clearValues, calcula, datasomente, Automatic e unfragment. Não há suporte para adicionar tipo.      |   automático      |
-| `CommitMode`     | Enum  | Determina se os objetos serão confirmados em lotes ou somente quando forem concluídos. Os modos incluem: padrão, transacional, partialBatch.  |  transacional       |
-| `MaxParallelism` | Int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism que pode ser definida no [comando TMSL Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) ou usando outros métodos.       | 10        |
-| `RetryCount`     | Int   | Indica o número de vezes que a operação tentará novamente antes de falhar.      |     0    |
-| `Objects`        | Matriz | Uma matriz de objetos a ser processada. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partição" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
+| `Type`           | Enum  | O tipo de processamento a realizar. Os tipos estão alinhados com os tipos de comando de [atualização](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) TMSL: completos, clarosValores, calcular, dadosApenas, automáticos e desfragmentados. Adicionar tipo não é suportado.      |   Automático      |
+| `CommitMode`     | Enum  | Determina se os objetos serão cometidos em lotes ou apenas quando estiverem completos. Os modos incluem: padrão, transacional, parcialmenteBatch.  |  transacional       |
+| `MaxParallelism` | Int   | Este valor determina o número máximo de fios para executar comandos de processamento em paralelo. Este valor alinhado com a propriedade MaxParallelism que pode ser definida no comando da [Sequência](https://docs.microsoft.com/analysis-services/tmsl/sequence-command-tmsl) TMSL ou usando outros métodos.       | 10        |
+| `RetryCount`     | Int   | Indica o número de vezes que a operação voltará a tentar antes de falhar.      |     0    |
+| `Objects`        | Array | Uma série de objetos a serem processados. Cada objeto inclui: "mesa" ao processar toda a tabela ou "mesa" e "partição" ao processar uma partição. Se não forem especificados objetos, todo o modelo é refrescado. |   Processar todo o modelo      |
 
-CommitMode é igual a partialBatch. Ele é usado ao fazer uma carga inicial de conjuntos de grandes volumes que podem levar horas. Se a operação de atualização falhar depois de confirmar com êxito um ou mais lotes, os lotes confirmados com êxito permanecerão confirmados (eles não serão revertidos com êxito em lotes confirmados).
+CommitMode é igual a batch parcial. É usado quando se faz uma carga inicial de grandes conjuntos de dados que podem levar horas. Se a operação de atualização falhar depois de cometer com sucesso um ou mais lotes, os lotes bem sucedidos permanecerão comprometidos (não voltará a rolar com sucesso em lotes comprometidos).
 
 > [!NOTE]
-> No momento da gravação, o tamanho do lote é o valor de MaxParallelism, mas esse valor pode ser alterado.
+> No momento da escrita, o tamanho do lote é o valor MaxParallelism, mas este valor pode mudar.
 
-### <a name="status-values"></a>Valores de status
+### <a name="status-values"></a>Valores de estado
 
 |Valor do estado  |Descrição  |
 |---------|---------|
-|`notStarted`    |   Operação ainda não iniciada.      |
-|`inProgress`     |   Operação em andamento.      |
-|`timedOut`     |    A operação atingiu o tempo limite com base no tempo limite especificado pelo usuário.     |
-|`cancelled`     |   Operação cancelada pelo usuário ou pelo sistema.      |
-|`failed`     |   Falha na operação.      |
-|`succeeded`      |   Operação bem-sucedida.      |
+|`notStarted`    |   A operação ainda não começou.      |
+|`inProgress`     |   Operação em curso.      |
+|`timedOut`     |    Funcionamento cronometrado com base no tempo limite especificado do utilizador.     |
+|`cancelled`     |   Operação cancelada pelo utilizador ou pelo sistema.      |
+|`failed`     |   A operação falhou.      |
+|`succeeded`      |   A operação foi bem sucedida.      |
 
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-Para verificar o status de uma operação de atualização, use o verbo GET na ID de atualização. Aqui está um exemplo do corpo da resposta. Se a operação estiver em andamento, `inProgress` será retornado no status.
+Para verificar o estado de uma operação de atualização, utilize o verbo GET no ID de atualização. Aqui está um exemplo do corpo de resposta. Se a operação estiver em curso, `inProgress` é devolvido em estado de situação.
 
 ```
 {
@@ -147,12 +147,12 @@ Para verificar o status de uma operação de atualização, use o verbo GET na I
 }
 ```
 
-## <a name="get-refreshes"></a>OBTER/refreshes
+## <a name="get-refreshes"></a>GET /refreshes
 
-Para obter uma lista de operações de atualização históricas para um modelo, use o verbo GET na coleção/refreshes. Aqui está um exemplo do corpo da resposta. 
+Para obter uma lista de operações históricas de atualização para um modelo, use o verbo GET na coleção /refreshes. Aqui está um exemplo do corpo de resposta. 
 
 > [!NOTE]
-> No momento da gravação, os últimos 30 dias de operações de atualização são armazenados e retornados, mas esse número pode ser alterado.
+> No momento da escrita, os últimos 30 dias de operações de atualização são armazenados e devolvidos, mas este número pode mudar.
 
 ```
 [
@@ -173,15 +173,15 @@ Para obter uma lista de operações de atualização históricas para um modelo,
 
 ## <a name="delete-refreshesrefreshid"></a>DELETE /refreshes/\<refreshId>
 
-Para cancelar uma operação de atualização em andamento, use o verbo DELETE na ID de atualização.
+Para cancelar uma operação de atualização em curso, utilize o verbo DELETE no ID de atualização.
 
-## <a name="post-sync"></a>POSTAR/Sync
+## <a name="post-sync"></a>POST /sincronização
 
-Após realizar operações de atualização, pode ser necessário sincronizar os novos dados com réplicas para expansão de consulta. Para executar uma operação de sincronização para um modelo, use o verbo POST na função/Sync. O cabeçalho de local na resposta inclui a ID da operação de sincronização.
+Depois de realizar operações de atualização, pode ser necessário sincronizar os novos dados com réplicas para consulta de escala. Para efetuar uma operação sincronizada para um modelo, utilize o verbo POST na função /sincronização. O cabeçalho de localização na resposta inclui o ID de operação de sincronização.
 
-## <a name="get-sync-status"></a>OBTER status de/Sync
+## <a name="get-sync-status"></a>GET /estado de sincronização
 
-Para verificar o status de uma operação de sincronização, use o verbo GET passando a ID da operação como um parâmetro. Veja um exemplo do corpo da resposta:
+Para verificar o estado de uma operação de sincronização, utilize o verbo GET passando o ID de funcionamento como parâmetro. Aqui está um exemplo do corpo de resposta:
 
 ```
 {
@@ -196,33 +196,33 @@ Para verificar o status de uma operação de sincronização, use o verbo GET pa
 
 Valores para `syncstate`:
 
-- 0: replicando. Os arquivos de banco de dados estão sendo replicados para uma pasta de destino.
-- 1: reidratar. O banco de dados está sendo alimentado em instância (s) de servidor somente leitura.
-- 2: concluído. A operação de sincronização foi concluída com êxito.
-- 3: falha. Falha na operação de sincronização.
-- 4: finalizando. A operação de sincronização foi concluída, mas está executando etapas de limpeza.
+- 0: Replicação. Os ficheiros da base de dados estão a ser replicados para uma pasta-alvo.
+- 1: Reidratação. A base de dados está a ser rehidratada em exemplos de servidores apenas de leitura.
+- 2: Concluído. A operação de sincronização concluída com sucesso.
+- 3: Falhou. A operação de sincronização falhou.
+- 4: Finalizar. A operação de sincronização está concluída, mas está a realizar etapas de limpeza.
 
 ## <a name="code-sample"></a>Exemplo de código
 
-Aqui está um C# exemplo de código para ajudá-lo a começar, [RestApiSample no GitHub](https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample).
+Aqui está C# uma amostra de código para começar, [RestApiSample no GitHub.](https://github.com/Microsoft/Analysis-Services/tree/master/RestApiSample)
 
-### <a name="to-use-the-code-sample"></a>Para usar o exemplo de código
+### <a name="to-use-the-code-sample"></a>Para utilizar a amostra de código
 
-1.  Clone ou baixe o repositório. Abra a solução RestApiSample.
-2.  Localize o cliente de linha **. BaseAddress =..** . e forneça sua [URL base](#base-url).
+1.  Clone ou baixe o repo. Abra a solução RestApiSample.
+2.  Encontre o cliente da **linha. Endereço base = ...** e fornecer o seu [URL base](#base-url).
 
-O exemplo de código usa a autenticação de [entidade de serviço](#service-principal) .
+A amostra de código utiliza a autenticação [do principal de serviço.](#service-principal)
 
-### <a name="service-principal"></a>Principal de serviço
+### <a name="service-principal"></a>Diretor de serviço
 
-Consulte [criar entidade de serviço-portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar uma entidade de serviço e atribuir as permissões necessárias no Azure as. Depois de concluir as etapas, conclua as seguintes etapas adicionais:
+Consulte o [diretor de serviço Create - Portal Azure](../active-directory/develop/howto-create-service-principal-portal.md) e Adicione um principal de serviço ao papel de administrador do [servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar um diretor de serviço e atribuir as permissões necessárias no Azure AS. Depois de concluído os passos, complete os seguintes passos adicionais:
 
-1.  No exemplo de código, Find **String Authority =...** , substitua **Common** pela ID de locatário da sua organização.
-2.  Comentar/remover marca de comentário para que a classe ClientCredential seja usada para instanciar o objeto cred. Certifique-se de que a ID do aplicativo \<> e \<valores de > de chave de aplicativo sejam acessados de forma segura ou use a autenticação baseada em certificado para entidades de serviço.
+1.  Na amostra de código, encontre a autoridade de **cordas = ... ,** substitua o **comum** pela identificação do inquilino da sua organização.
+2.  Comentário/não comentário para que a classe ClientCredential seja usada para instantaneamente o objeto de cred. Certifique-se de que o \<App ID> e \<App Key> os valores são acedidos de forma segura ou utilizam a autenticação baseada em certificados para os principais de serviço.
 3.  Execute o exemplo.
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Exemplos](analysis-services-samples.md)   
 [API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: ffe3d359dffea3278337de00bea42e0b959e10f6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505761"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269524"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Diretório Ativo Azure
 
@@ -90,7 +90,7 @@ Se for um fornecedor e quiser colocar o seu dispositivo nesta lista de dispositi
 - Os utilizadores finais podem registar e gerir estes métodos de autenticação sem palavras-passe no seu portal de conta
 - Os utilizadores finais podem iniciar sessão com estes métodos de autenticação sem palavras-passe
    - Aplicação do Autenticador Microsoft: Funciona em cenários onde é utilizada a autenticação AD Azure, incluindo em todos os navegadores, durante a configuração do Windows 10 out Of Box (OOBE) e com aplicações móveis integradas em qualquer sistema operativo.
-   - Teclas de segurança: Trabalhe no ecrã de bloqueio para o Windows 10 e na web em navegadores suportados como o Microsoft Edge.
+   - Teclas de segurança: Trabalhe no ecrã de bloqueio para o Windows 10 e na web em navegadores suportados como o Microsoft Edge (legado e novo Edge).
 
 ## <a name="next-steps"></a>Passos seguintes
 

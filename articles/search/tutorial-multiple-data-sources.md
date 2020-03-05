@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 272926e6c3572f03cc316ee696893941fd91968d
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 8e75d9de45c64813ac75de635371d2435fb9261f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206882"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271486"
 ---
 # <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Tutorial: Dados do índice de várias fontes de dados emC#
 

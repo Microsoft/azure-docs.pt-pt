@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.author: jgao
-ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3129d4c664ec487f2def6cc0d2668b7493f4c988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616302"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272652"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -222,10 +222,16 @@ As saídas de scriptde de implantação devem ser guardadas na localização AZ_
 
 [jq](https://stedolan.github.io/jq/) é usado na amostra anterior. Vem com as imagens do contentor. Ver Ambiente de [desenvolvimento configure](#configure-development-environment).
 
-## <a name="handle-non-terminating-errors"></a>Lidar com erros não terminadores
+## <a name="develop-deployment-scripts"></a>Desenvolver scripts de implantação
+
+### <a name="handle-non-terminating-errors"></a>Lidar com erros não terminadores
 
 Pode controlar a forma como o PowerShell reage a erros não terminadores utilizando a [**variável $ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) no seu script de implementação. O motor de script de implantação não define/altera o valor.  Apesar do valor que definiu para $ErrorActionPreference, o script de implementação define o estado de fornecimento de recursos para *Failed* quando o script encontra um erro.
+
+### <a name="pass-secured-strings-to-deployment-script"></a>Passe cordas seguras para o script de implementação
+
+A definição de variáveis ambientais nos casos do seu recipiente permite-lhe fornecer uma configuração dinâmica da aplicação ou script executada pelo recipiente. O script de implantação trata de variáveis ambientais não seguras e seguras da mesma forma que a Instância do Contentor Azure. Para obter mais informações, consulte As [variáveis ambiente definidas em instâncias de contentores](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Scripts de implementação de depurados
 

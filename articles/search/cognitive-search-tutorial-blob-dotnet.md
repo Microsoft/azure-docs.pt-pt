@@ -6,14 +6,14 @@ manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/27/2020
-ms.openlocfilehash: 0c37f1ce2f173f4bf527e7cca30f010101b01720
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 0b9e7732e5274fd71c773a19d17e09ecdaa2ceb0
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190692"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270008"
 ---
 # <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: C# Use e IA para gerar conteúdo pesquisável a partir de blobs Azure
 

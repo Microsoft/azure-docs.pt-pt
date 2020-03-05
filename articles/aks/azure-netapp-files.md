@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: zarhoads
-ms.openlocfilehash: 42985e57d63c01553532928b2ba04ed5ee3dd8fb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 1c4996df66d475c63110e3d2797f55598fd85b8d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596645"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273756"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrar ficheiros Azure NetApp com o Serviço Azure Kubernetes
 
@@ -42,7 +42,7 @@ As seguintes limitações aplicam-se quando utiliza ficheiros Azure NetApp:
 
 Registe o fornecedor de recursos *Microsoft.NetApp:*
 
-```azure-cli
+```azurecli
 az provider register --namespace Microsoft.NetApp --wait
 ```
 
@@ -52,14 +52,16 @@ az provider register --namespace Microsoft.NetApp --wait
 Quando cria uma conta Azure NetApp para uso com AKS, precisa de criar a conta no grupo de recursos do **nó.** Primeiro, obtenha o nome do grupo de recursos com o comando [az aks mostrar][az-aks-show] e adicionar o parâmetro de consulta `--query nodeResourceGroup`. O exemplo seguinte obtém o grupo de recursos do nó para o cluster AKS chamado *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+```
 
+```output
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Crie uma conta Azure NetApp Files no grupo de recursos do **nó** e na mesma região que o seu cluster AKS utilizando a [conta az netappfiles criar][az-netappfiles-account-create]. O exemplo seguinte cria uma conta chamada *myaccount1* no grupo de recursos *MC_myResourceGroup_myAKSCluster_eastus* e região *oriental:*
 
-```azure-cli
+```azurecli
 az netappfiles account create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --location eastus \
@@ -68,7 +70,7 @@ az netappfiles account create \
 
 Criar um novo conjunto de capacidades utilizando a criação de pool [de az netappfiles][az-netappfiles-pool-create]. O exemplo seguinte cria uma nova piscina de capacidade chamada *mypool1* com 4 TB em tamanho e nível de serviço *Premium:*
 
-```azure-cli
+```azurecli
 az netappfiles pool create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --location eastus \
@@ -80,7 +82,7 @@ az netappfiles pool create \
 
 Crie uma subnet para [delegar ficheiros Azure NetApp][anf-delegate-subnet] utilizando a [rede az vnet criar][az-network-vnet-subnet-create]. *Esta sub-rede deve estar na mesma rede virtual que o seu cluster AKS.*
 
-```azure-cli
+```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
 VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
 VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -95,7 +97,7 @@ az network vnet subnet create \
 
 Criar um volume utilizando o volume de [ficheiros az netappfiles criar][az-netappfiles-volume-create].
 
-```azure-cli
+```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
 LOCATION=eastus
 ANF_ACCOUNT_NAME=myaccount1
@@ -125,9 +127,12 @@ az netappfiles volume create \
 ## <a name="create-the-persistentvolume"></a>Criar o Volume Persistente
 
 Enumera os detalhes do seu volume utilizando [o volume de ficheiros az netappfiles][az-netappfiles-volume-show]
-```azure-cli
-$ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
 
+```azurecli
+az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
+```
+
+```output
 {
   ...
   "creationToken": "myfilepath2",
@@ -245,7 +250,9 @@ Verifique se o seu volume foi montado na cápsula utilizando o [executivo kubect
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash
+```
 
+```output
 root@nginx-nfs:/# df -h
 Filesystem             Size  Used Avail Use% Mounted on
 ...

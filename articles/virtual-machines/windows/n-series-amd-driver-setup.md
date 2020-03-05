@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 6dc8c54b9d138ab62e086cca59cd5b4801fa6130
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 164f07f6545c1c225814958bba5722536b11a9b4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228335"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269427"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instale controladores GPU AMD em VMs da série N executando Windows
 
@@ -43,6 +43,8 @@ Para especificações básicas, capacidades de armazenamento e detalhes do disco
 3. Por favor, inicie o VM e, em seguida, desinstale o controlador de pré-visualização executando "amdcleanuputility-x64.exe" localizado na pasta "...\AMDCleanUninstallUtility". O caminho exato variará em função dos ficheiros de instalação do condutor anteriores.  
 
 4. Faça o download e instale o mais recente controlador.
+
+5. Reinicie a VM.
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação do condutor
 
