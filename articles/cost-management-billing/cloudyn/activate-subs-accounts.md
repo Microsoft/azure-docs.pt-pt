@@ -5,16 +5,16 @@ keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/24/2020
-ms.topic: quickstart
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 6b788df15b14f8e2e0b394cf7002a1c8236d2c67
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2467ee65b3f7090e5854bdd7848abab667ccfe55
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770494"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301374"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar subscrições e contas do Azure com o Cloudyn
 
