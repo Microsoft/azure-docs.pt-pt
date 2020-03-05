@@ -203,9 +203,9 @@
         - name: Biblioteca de cliente
           items:
             - name: Migrar de Microsoft.Azure.EventHubs para Azure.Messaging.EventHubs
-              href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md'
+              href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md'
             - name: Azure.Messaging.EventHubs (mais recente)
-              href: /dotnet/api/azure.messaging.eventhubs?view=azure-dotnet-preview
+              href: /dotnet/api/azure.messaging.eventhubs
             - name: Microsoft.Azure.EventHubs (legado)
               href: /dotnet/api/microsoft.azure.eventhubs
             - name: Microsoft.ServiceBus.Messaging (legado)
@@ -231,9 +231,9 @@
         - name: Biblioteca de cliente
           items:
             - name: azure-eventhub versão 5
-              href: /python/api/azure-eventhub/?view=azure-python-preview
+              href: /python/api/overview/azure/eventhub/client
             - name: azure-eventhub versão 1
-              href: /python/api/azure-eventhub/?view=azure-python
+              href: /python/api/azure-eventhub/?view=azure-python-previous
         - name: Biblioteca de gestão
           href: /python/api/overview/azure/event-hub?view=azure-python
     - name: JavaScript
@@ -243,9 +243,9 @@
         - name: Biblioteca de cliente
           items:
             - name: azure/eventhubs versão 5
-              href: /javascript/api/@azure/event-hubs/?view=azure-node-preview
-            - name: azure/eventhubs versão 2
               href: /javascript/api/@azure/event-hubs/?view=azure-node-latest
+            - name: azure/eventhubs versão 2
+              href: /javascript/api/@azure/event-hubs/?view=azure-node-legacy
         - name: Biblioteca de gestão
           href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
     - name: REST

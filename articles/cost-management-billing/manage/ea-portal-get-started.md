@@ -3,16 +3,16 @@ title: Introdução ao portal Azure Enterprise
 description: Este artigo explica como é que os clientes do Contrato Enterprise do Azure (Azure EA) utilizam o portal Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: fa55eebe6d051addcb5249908fd52e7e6ce44f12
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 5b84cbf4ae7065f13442852cfbf646aa49771e1f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598413"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272418"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao portal Azure Enterprise
 

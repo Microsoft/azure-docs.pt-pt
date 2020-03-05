@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 5e7d01c5383898fb14f57188cd1bee7ea64e8263
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 5e1117bdefc4916fedc5c316632641d77c2f09d3
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200970"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206032"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -65,7 +65,7 @@ O Contribuidor do Cost Management é a função de privilégios mínimos recomen
 
 - **Agir quando os orçamentos são excedidos** – os Contribuidores do Cost Management também necessitam de acesso para criar e/ou gerir grupos de ações para reagir automaticamente a utilizações excedidas. Pondere conceder o [Contribuidor de Monitorização](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a um grupo de recursos que contenha um grupo de ações para utilizar quando os limiares do orçamento são excedidos. A automatização de ações específicas requer funções adicionais para os serviços específicos utilizados, como a Automatização e as Funções do Azure.
 - **Agendar exportação de dados de custos** – os Contribuidores do Cost Management também necessitam de acesso para gerir as contas de armazenamento para agendarem uma exportação para copiar dados para uma conta de armazenamento. Pondere conceder o [Contribuidor de Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a um grupo de recursos que contenha a conta de armazenamento de onde são exportados os dados de custos.
-- **Ver recomendações de poupança de custos** – os Leitores do Cost Management e Contribuidores do Cost Management têm acesso para *ver* recomendações de custos por predefinição. Contudo, o acesso para agir sobre as recomendações de custos requer acesso a recursos individuais. Pondere conceder uma [função específica a um serviço](../../role-based-access-control/built-in-roles.md#built-in-role-descriptions), caso queira agir sobre uma recomendação com base nos custos.
+- **Ver recomendações de poupança de custos** – os Leitores do Cost Management e Contribuidores do Cost Management têm acesso para *ver* recomendações de custos por predefinição. Contudo, o acesso para agir sobre as recomendações de custos requer acesso a recursos individuais. Pondere conceder uma [função específica a um serviço](../../role-based-access-control/built-in-roles.md#descriptions-and-ids), caso queira agir sobre uma recomendação com base nos custos.
 
 ## <a name="enterprise-agreement-scopes"></a>Âmbitos do Contrato Enterprise
 

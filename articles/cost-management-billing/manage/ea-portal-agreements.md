@@ -3,16 +3,16 @@ title: Contratos e emendas do Azure EA
 description: Este artigo explica como os contratos e as emendas do Azure EA afetam a utilização do Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: c38f28120b7c84077d8d5012c4be4698680e5fdb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200817"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301425"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e emendas do Azure EA
 
@@ -25,10 +25,6 @@ Todas as emendas destinadas aos clientes do Azure precisam de passar pelo parcei
 ## <a name="enrollment-provisioning-status"></a>Estado do aprovisionamento da inscrição
 
 A data de início de uma nova alocação monetária é definida pela data em que o centro de operações regional a processou. Dado que as encomendas de alocação monetária através do Azure EA Portal são processadas no fuso horário UTC, poderá sofrer algum atraso se a sua nota de encomenda de alocação monetária tiver sido processada numa região diferente. A data de início da cobertura na nota de encomenda em https://www.explore.ms mostra o início da alocação monetária. A data de início da cobertura aplica-se quando a alocação monetária aparece no Azure EA Portal.
-
-## <a name="special-pricing-and-azure-commitment-discount-amendments"></a>Preços especiais e emendas dos descontos de alocação do Azure
-
-Se precisar de preços especiais e emendas do Desconto de Compromisso do Azure (ACD), terá de as discutir com a equipa da conta. A equipa de Operações do Azure pode aplicar o ACD depois de uma emenda ter sido processada pela Business Desk e pedida à equipa de Operações do Azure. O desconto ACD só se aplica ao mês atual. Os meses anteriores são compensados pelo crédito retroativo. 
 
 ## <a name="support-offer-not-provisioned"></a>Oferta de suporte não aprovisionada
 

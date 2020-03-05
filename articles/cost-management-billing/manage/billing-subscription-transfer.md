@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3eb76535a8047840a577f5b044001d85c20b13f0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188399"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245393"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
 
@@ -45,7 +45,7 @@ Se for um cliente do Contrato Enterprise (EA), os administradores de empresa pod
 
     > [!IMPORTANT]
     >
-    > Se optar por mover a subscrição para o inquilino do Microsoft Azure AD da nova conta, todas as atribuições de [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) para gerir os recursos na subscrição serão permanentemente removidos. Apenas o utilizador na nova conta que aceite o seu pedido de transferência terá acesso para gerir recursos na subscrição. Para obter mais informações, veja [Transferir a subscrição para um utilizador noutro inquilino do Microsoft Azure AD](../../cognitive-services/acoustics/known-issues.md). Como alternativa, pode desmarcar a caixa para o inquilino da Subscrição do Microsoft Azure AD para transferir a propriedade de faturação sem mover a subscrição para o inquilino da nova conta. Se o fizer, as permissões RBAC existentes para gerir os recursos do Azure serão mantidas.
+    > Se optar por mover a subscrição para o inquilino do Microsoft Azure AD da nova conta, todas as atribuições de [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md) para gerir os recursos na subscrição serão permanentemente removidos. Apenas o utilizador na nova conta que aceite o seu pedido de transferência terá acesso para gerir recursos na subscrição. Para obter mais informações, veja [Transferir a subscrição para um utilizador noutro inquilino do Microsoft Azure AD](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories). Como alternativa, pode desmarcar a caixa para o inquilino da Subscrição do Microsoft Azure AD para transferir a propriedade de faturação sem mover a subscrição para o inquilino da nova conta. Se o fizer, as permissões RBAC existentes para gerir os recursos do Azure serão mantidas.
 
     ![Enviar página de transferência](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 

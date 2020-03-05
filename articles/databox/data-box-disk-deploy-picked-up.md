@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 03/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1003b862d7fbe19545cf705570866479132c1f03
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845480"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273180"
 ---
 ::: zone target="chromeless"
 
@@ -51,7 +51,7 @@ Antes de começar, certifique-se de que concluiu o [Tutorial: Copiar dados para 
 
 A localização a partir da qual pretende devolver o dispositivo determina os passos seguintes. As instruções são diferentes para os E.U.A./Canadá, a União Europeia (UE), a Austrália ou os países da Ásia.
 
-### <a name="in-us-or-canadatabin-us-or-canada"></a>[Nos E.U.A. ou Canadá](#tab/in-us-or-canada)
+### <a name="in-us-or-canada"></a>[Nos E.U.A. ou Canadá](#tab/in-us-or-canada)
 
 Se pretender devolver o dispositivo nos E.U.A. ou no Canadá, siga os passos abaixo.
 
@@ -67,7 +67,7 @@ Se pretender devolver o dispositivo nos E.U.A. ou no Canadá, siga os passos aba
     - Se não indicar o número de rastreio, terá de pagar uma taxa adicional à UPS na recolha.
     - Em vez de agendar a recolha, também pode entregar o Data Box Disk na localização de entrega mais próxima.
 
-### <a name="in-europetabin-europe"></a>[Na Europa](#tab/in-europe)
+### <a name="in-europe"></a>[Na Europa](#tab/in-europe)
 
 Se pretender devolver o dispositivo na Europa, siga os passos abaixo.
 
@@ -80,7 +80,7 @@ Se pretender devolver o dispositivo na Europa, siga os passos abaixo.
 4. Aceda ao site da DHL Express do seu país/região e selecione **Book a Courier Collection (Agendar uma Recolha por Estafeta) > eReturn Shipment (Envio eReturn)** .    
 3. Especifique o número de carta de porte aéreo e clique em **Schedule Pickup (Agendar Recolha)** para marcar uma recolha.
 
-### <a name="in-australiatabin-australia"></a>[Na Austrália](#tab/in-australia)
+### <a name="in-australia"></a>[Na Austrália](#tab/in-australia)
 
 Os datacenters do Azure na Austrália têm uma notificação de segurança adicional. Para todos os envios dirigidos aos mesmos, é necessária uma notificação antecipada. Siga os passos abaixo para recolhas na Austrália.
 
@@ -88,7 +88,7 @@ Os datacenters do Azure na Austrália têm uma notificação de segurança adici
 3. Afixe a guia à caixa. 
 4. Marque uma recolha online através da ligação https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="in-japantabin-japan"></a>[No Japão](#tab/in-japan)
+### <a name="in-japan"></a>[No Japão](#tab/in-japan)
 
 1. Escreva o nome e o endereço da sua empresa na nota de expedição como as informações do remetente.
 2. Utilize o modelo que se segue para enviar um e-mail à Quantium Solutions.
@@ -115,7 +115,7 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 - E-mail：Customerservice.JP@quantiumsolutions.com 
 - Telefone: 03-5755-0150 
 
-### <a name="in-koreatabin-korea"></a>[Na Coreia do Sul](#tab/in-korea)
+### <a name="in-korea"></a>[Na Coreia do Sul](#tab/in-korea)
 
 1. Certifique-se de que inclui a nota de expedição de devolução.
 2. Para solicitar a recolha quando a nota de expedição estiver presente:
@@ -130,7 +130,7 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
     4. Se efetuar o pedido por telefone, recebe uma confirmação verbal.
 
 
-### <a name="in-singaporetabin-singapore"></a>[Em Singapura](#tab/in-singapore)
+### <a name="in-singapore"></a>[Em Singapura](#tab/in-singapore)
 
 1. Imprima a guia de remessa e afixe-a à caixa. Se a guia estiver danificada ou a tiver perdido:
     - Aceda a **Descrição Geral > Transferir guia de remessa** e obtenha uma guia de remessa para devolução.
@@ -157,7 +157,7 @@ Se necessário, pode contactar o Apoio ao Cliente da Quantium Solutions (em japo
 
 3. Entregue a caixa ao estafeta.
 
-### <a name="in-self-managedtabin-selfmanaged"></a>[Em Envio Autónomo](#tab/in-selfmanaged)
+### <a name="in-self-managed"></a>[Em Envio Autónomo](#tab/in-selfmanaged)
 
 Se estiver a utilizar o Data Box Disk no Japão, Singapura, Coreia e Europa Ocidental e tiver selecionado a opção de envio autónomo durante a criação da encomenda, siga estas instruções. 
 
@@ -175,8 +175,6 @@ Se estiver a utilizar o Data Box Disk no Japão, Singapura, Coreia e Europa Ocid
 3. A equipa de Operações do Azure Data Box trabalhará consigo para organizar a entrega no Datacenter do Azure.
 
 ::: zone target="docs"
-
----
 
 ## <a name="next-steps"></a>Passos seguintes
 
