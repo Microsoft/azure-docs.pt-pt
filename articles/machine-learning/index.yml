@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 02/16/2020
-  ms.openlocfilehash: d5bfbd7d50ffead1c695b764453215466e7b56ef
-  ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+  ms.date: 03/05/2020
+  ms.openlocfilehash: 5165456617193f4701b1bc635c103d0719c8f403
+  ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/20/2020
-  ms.locfileid: "77486156"
+  ms.lasthandoff: 03/05/2020
+  ms.locfileid: "78328562"
 landingContent:
 - title: Introdução ao Azure ML
   linkLists:

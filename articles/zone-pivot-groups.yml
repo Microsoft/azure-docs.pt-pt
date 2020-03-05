@@ -202,6 +202,14 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: java-build-tools-set
+  title: Ferramentas de compilação
+  prompt: Escolha uma ferramenta de compilação
+  pivots:
+  - id: java-build-tools-maven
+    title: Maven
+  - id: java-build-tools-gradle
+    title: Gradle
 - id: platforms-set-of-three
   title: Plataformas
   prompt: Escolher uma plataforma
@@ -213,9 +221,9 @@ groups:
   - id: platform-android
     title: Android
 metadata:
-  ms.openlocfilehash: 607549f85430f62a0a2047f66f993f640ed481ec
-  ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+  ms.openlocfilehash: 38e3ec0926385f7bacdc256d8e2cba90fc9dd19e
+  ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/03/2020
-  ms.locfileid: "78250801"
+  ms.lasthandoff: 03/04/2020
+  ms.locfileid: "78271043"
