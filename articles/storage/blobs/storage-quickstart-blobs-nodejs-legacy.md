@@ -1,18 +1,18 @@
 ---
-title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V10 para JavaScript'
-description: Criar, carregar e excluir BLOBs e contêineres no node. js com a biblioteca de cliente de armazenamento do Azure V10 para JavaScript
+title: 'Quickstart: Biblioteca de clientes de armazenamento Azure Blob v10 para JavaScript'
+description: Criar, carregar e eliminar bolhas e contentores no Node.js com a biblioteca de clientes azure storage v10 para JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 6a530c96c99a9f22f1943a5b874656bcabd9594b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906465"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269508"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Quickstart: Gerir bolhas com JavaScript v10 SDK em Node.js
 
@@ -80,7 +80,7 @@ Container "demo" is deleted
 Done
 ```
 
-Se você estiver usando uma nova conta de armazenamento para este guia de início rápido, poderá ver apenas o contêiner de *demonstração* listado sob o rótulo "*contêineres:* ".
+Se estiver a utilizar uma nova conta de armazenamento para este arranque rápido, então só poderá ver o recipiente *de demonstração* listado sob a etiqueta "*Contentores:* ".
 
 ## <a name="understanding-the-code"></a>Compreender o código
 
@@ -205,7 +205,7 @@ Tal como acontece com o contentor, o blob de blocos ainda não existe. A variáv
 
 ### <a name="using-the-aborter-class"></a>Utilizar a classe Aborter
 
-Os pedidos feitos pela API podem ser definidos para o intervalo após um determinado intervalo. A classe de *anulador* é responsável por gerenciar como as solicitações expiraram. O código a seguir cria um contexto em que um conjunto de solicitações recebe 30 minutos para ser executado.
+Os pedidos feitos pela API podem ser definidos para o intervalo após um determinado intervalo. A classe *Aborter* é responsável pela gestão da forma como os pedidos são esgotados. O seguinte código cria um contexto em que um conjunto de pedidos é dado 30 minutos para executar.
 
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);
@@ -363,7 +363,7 @@ const downloadedContent = await streamToString(downloadResponse.readableStreamBo
 console.log(`Downloaded blob content: "${downloadedContent}"`);
 ```
 
-A resposta é devolvida como um fluxo. Neste exemplo, o fluxo é convertido em uma cadeia de caracteres usando a seguinte função auxiliar *streamToString* .
+A resposta é devolvida como um fluxo. Neste exemplo, o fluxo é convertido numa corda utilizando a seguinte função de ajudante *streamToString.*
 
 ```javascript
 // A helper method used to read a Node.js readable stream into a string
@@ -408,5 +408,5 @@ Todos os dados escritos na conta de armazenamento são eliminados automaticament
 Este início rápido demonstra como gerir blobs e contentores no armazenamento de Blobs do Azure com Node.js. Para saber mais sobre a utilização deste SDK, consulte o repositório do GitHub.
 
 > [!div class="nextstepaction"]
-> [Azure Storage V10 SDK para o repositório de javascript](https://github.com/Azure/azure-storage-js)
-> [referência de API de JavaScript do armazenamento do Azure](/javascript/api/overview/azure/storage?view=azure-node-legacy)
+> [Azure Storage v10 SDK para repositório JavaScript](https://github.com/Azure/azure-storage-js)
+> [Referência JavaScript API](/javascript/api/overview/azure/storage-overview) de armazenamento azul

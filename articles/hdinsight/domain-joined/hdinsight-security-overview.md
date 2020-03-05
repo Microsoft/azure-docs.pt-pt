@@ -1,18 +1,18 @@
 ---
 title: Visão geral da segurança da empresa em Azure HDInsight
 description: Aprenda os vários métodos para garantir a segurança da empresa no Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: overview
-ms.date: 09/23/2019
-ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/03/2020
+ms.openlocfilehash: 95bfe7d7788133d8548598cb30c8084bf64a977f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122119"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267706"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança da empresa em Azure HDInsight
 
@@ -36,13 +36,13 @@ Todos os clusters implantados num VNET também terão um ponto final privado que
 
 O Pacote de [Segurança Empresarial](apache-domain-joined-architecture.md) da HDInsight fornece autenticação baseada em Diretório ativo, suporte multiutilizador e controlo de acesso baseado em papéis. A integração do Diretório Ativo é conseguida através da utilização de Serviços de [Domínio de Diretório Ativo Azure.](../../active-directory-domain-services/overview.md) Com estas capacidades, pode criar um cluster HDInsight que se juntou a um domínio de Diretório Ativo gerido. Em seguida, pode configurar uma lista de colaboradores da empresa que podem autenticar e iniciar sessão no cluster.
 
-Com esta configuração, os colaboradores da empresa podem iniciar sessão nos nós do cluster utilizando as suas credenciais de domínio. Também podem usar as suas credenciais de domínio para autenticar com outros pontos finais aprovados, como Apache Ambari Views, ODBC, JDBC, PowerShell e REST APIs para interagir com o cluster. 
+Com esta configuração, os colaboradores da empresa podem iniciar sessão nos nós do cluster utilizando as suas credenciais de domínio. Também podem usar as suas credenciais de domínio para autenticar com outros pontos finais aprovados, como Apache Ambari Views, ODBC, JDBC, PowerShell e REST APIs para interagir com o cluster.
 
 ### <a name="authorization"></a>Autorização
 
 As melhores práticas que a maioria das empresas segue é garantir que nem todos os colaboradores tenham acesso a todos os recursos empresariais. Da mesma forma, o administrador pode definir políticas de controlo de acesso baseadas em papéis para os recursos de cluster. Isto só está disponível nos clusters da ESP.
 
-A administração hadoop pode configurar o controlo de acesso baseado em funções (RBAC) para proteger a Apache [Hive,](apache-domain-joined-run-hive.md) [HBase](apache-domain-joined-run-hbase.md) e [Kafka](apache-domain-joined-run-kafka.md) usando esses plugins em Apache Ranger. Configurar as políticas rBAC permite-lhe associar permissões com um papel na organização. Esta camada de abstração facilita a garantia de que as pessoas têm apenas as permissões necessárias para desempenhar as suas responsabilidades de trabalho. A Ranger também lhe permite auditar o acesso de dados dos colaboradores e quaisquer alterações feitas para aceder às políticas de controlo.
+A administração hadoop pode configurar o controlo de acesso baseado em funções (RBAC) para proteger a [Apache Hive,](apache-domain-joined-run-hive.md) [HBase](apache-domain-joined-run-hbase.md)e [Kafka](apache-domain-joined-run-kafka.md) usando esses plugins em Apache Ranger. Configurar as políticas rBAC permite-lhe associar permissões com um papel na organização. Esta camada de abstração facilita a garantia de que as pessoas têm apenas as permissões necessárias para desempenhar as suas responsabilidades de trabalho. A Ranger também lhe permite auditar o acesso de dados dos colaboradores e quaisquer alterações feitas para aceder às políticas de controlo.
 
 Por exemplo, o administrador pode configurar o [Apache Ranger](https://ranger.apache.org/) para definir políticas de controlo de acesso para o Hive. Esta funcionalidade garante a filtragem ao nível da linha e da coluna (máscara de dados) e filtra os dados sensíveis de utilizadores não autorizados.
 
@@ -50,9 +50,9 @@ Por exemplo, o administrador pode configurar o [Apache Ranger](https://ranger.ap
 
 A auditoria de todos os acessos aos recursos do cluster, e os dados, é necessário para acompanhar o acesso não autorizado ou não intencional dos recursos. É tão importante como proteger os recursos do cluster HDInsight de utilizadores não autorizados e garantir os dados.
 
-O administrador pode visualizar e reportar todo o acesso aos recursos e dados do cluster HDInsight. O administrador também pode visualizar e reportar todas as alterações às políticas de controlo de acesso criadas em Apache Ranger suportados pontos finais. 
+O administrador pode visualizar e reportar todo o acesso aos recursos e dados do cluster HDInsight. O administrador também pode visualizar e reportar todas as alterações às políticas de controlo de acesso criadas em Apache Ranger suportados pontos finais.
 
-Para aceder aos registos de auditoria apache Ranger e Ambari, bem como aos registos de acesso ssh, ative o [Monitor Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) e veja as tabelas que fornecem registos de auditoria.
+Para aceder aos registos de auditoria apache Ranger e Ambari, e registos de acesso ssh, ative o [Monitor Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) e veja as tabelas que fornecem registos de auditoria.
 
 ### <a name="encryption"></a>Encriptação
 
@@ -62,7 +62,7 @@ Ambas as lojas de dados para clusters HDInsight, armazenamento Azure Blob e Arma
 
 ### <a name="compliance"></a>Conformidade
 
-As ofertas de conformidade da Azure baseiam-se em vários tipos de garantias, incluindo certificações formais, atestados, validações, autorizações e avaliações produzidas por empresas de auditoria independentes, bem como alterações contratuais, autoavaliações e documentos de orientação do cliente produzidos pela Microsoft. Para obter informações sobre conformidade com o HDInsight, consulte o [Microsoft Trust Center](https://www.microsoft.com/trust-center) e a visão geral da conformidade do Microsoft [Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+As ofertas de conformidade da Azure baseiam-se em vários tipos de garantias, incluindo certificações formais, atestados, validações, autorizações e avaliações produzidas por empresas de auditoria independentes, alterações contratuais, autoavaliações e documentos de orientação do cliente produzidos pela Microsoft. Para obter informações sobre conformidade com o HDInsight, consulte o [Microsoft Trust Center](https://www.microsoft.com/trust-center) e a visão geral da conformidade do Microsoft [Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
 
 ## <a name="shared-responsibility-model"></a>Modelo de responsabilidade partilhada
 
