@@ -1,6 +1,6 @@
 ---
 title: Computação em escala em Azure Synapse Analytics - T-SQL
-description: Computação de escala em Azure Synapse Analytics utilizando o Estúdio de Gestão de Servidores T-SQL e SQL (SSMS). Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
+description: Computação de escala em Azure Synapse Analytics utilizando o Estúdio de Gestão de Servidores T-SQL e SQL (SSMS). Aumente horizontalmente a computação para obter um melhor desempenho ou dimensione a computação novamente para reduzir os custos.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg

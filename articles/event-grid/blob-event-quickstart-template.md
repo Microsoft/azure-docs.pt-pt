@@ -8,12 +8,13 @@ ms.author: spelluru
 ms.date: 02/27/2020
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: dac8549291adb25fd0c8de9845e681f536dfbbbb
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.custom: subject-armqs
+ms.openlocfilehash: 343ed57c87ea6df5db4cde0978132af31419f905
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163829"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303346"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Route Blob eventos de armazenamento para ponto final web usando o modelo de Gestor de Recursos Azure
 

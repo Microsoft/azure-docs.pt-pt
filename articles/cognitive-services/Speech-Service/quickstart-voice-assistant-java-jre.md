@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-ms.openlocfilehash: 45719eebb9cd74b0a5c4278e87b90978dcc3790f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6baa98d50c50146e93b4832053f63f3bead90a6d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119699"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330839"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Quickstart: Criar um assistente de voz com o Speech SDK, Java (Pré-visualização)
 
 Os quickstarts também estão disponíveis para [discurso a texto,](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre) [texto-a-fala,](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre)e [tradução da fala.](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre)
 
-Neste artigo, cria-se uma aplicação de consola Java utilizando o [Azure Cognitive Services Speech SDK](speech-sdk.md). A aplicação liga-se a um bot previamente autoria configurado para usar o canal Direct Line Speech, envia um pedido de voz e devolve uma atividade de resposta de voz (se configurado). A aplicação é construída com o pacote Speech SDK Maven e o Eclipse Java IDE no Windows, Ubuntu Linux ou no macOS. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
+Neste artigo, cria-se uma aplicação de consola Java utilizando o [Azure Cognitive Services Speech SDK](speech-sdk.md). A aplicação liga-se a um bot previamente autoria configurado para usar o canal Direct Line Speech, envia um pedido de voz e devolve uma atividade de resposta de voz (se configurado). A aplicação é construída com o pacote Speech SDK Maven e o Eclipse Java IDE no Windows, Linux ou no macOS. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
-- Sistema operativo: Windows (64-bits), Ubuntu Linux 16.04/18.04 (64-bits) ou macOS 10.13 ou mais tarde.
+- Sistema operativo: Windows (64-bits), Ubuntu Linux 16.04/18.04 (64-bit), RHEL/CentOS 8 (x64) ou macOS 10.13 ou mais tarde.
 - [Eclipse Java IDE.](https://www.eclipse.org/downloads/)
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - Uma chave de subscrição Azure para o serviço De Fala. [Obtenha um de graça](get-started.md) ou crie-o no [portal Azure.](https://portal.azure.com)
@@ -42,6 +42,17 @@ Se estiver a executar ubuntu 16.04/18.04, certifique-se de que estas dependênci
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
+
+No RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum groupinstall "Development tools"
+sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl wget
+```
+
+> [!NOTE]
+> No RHEL/CentOS 8, siga as instruções sobre como configurar o [OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 Se estiver a executar o Windows (64 bits), C++ certifique-se de que instalou o Microsoft Visual Redistribuable para a sua plataforma:
 
@@ -474,7 +485,7 @@ Amostras adicionais, como ler o discurso a partir de um ficheiro áudio, estão 
 > [!div class="nextstepaction"]
 > [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0) (Criar e implementar um bot básico)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Sobre assistentes de voz](voice-assistants.md)
 - [Obtenha uma chave de subscrição do serviço Speech gratuitamente](get-started.md)

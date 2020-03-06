@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 761011cba71c3907994616904cc854003abda7ee
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 70fa17e3e6f91bf393865cc979a8e47e4bf8687b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245143"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393334"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treine e implante um modelo do CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -375,7 +375,7 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 ```
 
 > [!NOTE]
-> Pode receber um aviso sobre "Não verificamos a existência do Serviço LocalWebservice". Pode ignorar com segurança isto, uma vez que não está a implementar um serviço web local.
+> Pode receber um aviso sobre "Falhou em verificar a existência do Serviço LocalWebservice" ou "Falhou em criar o cliente Docker". Pode ignorar com segurança isto, uma vez que não está a implementar um serviço web local.
 
 Este comando implementa um novo serviço chamado `myservice`, utilizando a versão 1 do modelo que registou anteriormente.
 

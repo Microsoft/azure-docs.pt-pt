@@ -1,222 +1,222 @@
 ---
 title: Gerar mapas
-description: Este artigo descreve como gerar mapas no Azure FarmBeats.
+description: Este artigo descreve como gerar mapas em Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482637"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385184"
 ---
 # <a name="generate-maps"></a>Gerar mapas
 
-Usando o Azure FarmBeats, você pode gerar os seguintes mapas usando imagens de satélite e entradas de dados de sensor. Os mapas ajudam você a ver a localização geográfica do seu farm e a identificar o local apropriado para seus dispositivos.
+Utilizando o Azure FarmBeats, pode gerar os seguintes mapas utilizando imagens de satélite e informações de dados de sensores. Os mapas ajudam-no a ver a localização geográfica da sua quinta e a identificar a localização adequada para os seus dispositivos.
 
-  - **Mapa de posicionamento do sensor**: fornece recomendações sobre quantos sensores usar e onde colocá-los em um farm.
-  - **Mapa de índices satélite**: mostra o índice de vegetação e o índice de água para um farm.
-  - **Calor de umidade de solo**: mostra a distribuição de umidade de solo ao recusar dados de satélite e dados de sensor.
+  - **Mapa de colocação**de sensores : Fornece recomendações sobre quantos sensores usar e onde colocá-los numa fazenda.
+  - **Mapa dos Índices**de Satélite: Mostra o índice de vegetação e o índice de água para uma fazenda.
+  - Mapa de calor da **humidade do solo:** Mostra a distribuição da humidade do solo através da fusão de dados de satélite e dados de sensores.
 
-## <a name="sensor-placement-map"></a>Mapa de posicionamento do sensor
+## <a name="sensor-placement-map"></a>Mapa de colocação de sensores
 
-Um mapa de posicionamento de sensor FarmBeats ajuda você com o posicionamento de sensores de umidade de solo. A saída do mapa consiste em uma lista de coordenadas para a implantação do sensor. As entradas desses sensores são usadas juntamente com imagens satélite para gerar o calor de umidade de solo.
+Um mapa de colocação de sensores FarmBeats ajuda-o com a colocação de sensores de humidade do solo. A saída do mapa consiste numa lista de coordenadas para a implantação do sensor. As inputs destes sensores são usadas juntamente com imagens de satélite para gerar o mapa de calor da humidade do solo.
 
-Esse mapa é derivado ao segmentar o canopy como visto em várias datas ao longo do ano. Até mesmo Bare-solo e edifícios fazem parte do Canopy. Você pode remover os sensores que não são necessários no local. Este mapa é para orientação, e você pode alterar a posição e os números um pouco com base no seu conhecimento personalizado. A adição de sensores não reresultará em calor de umidade de terra, mas haverá uma possibilidade de deterioração na precisão do calor se o número do sensor for reduzido.
+Este mapa é derivado segmentando o dossel como visto ao longo de várias datas ao longo do ano. Até o solo e os edifícios nus fazem parte da copa. Pode remover sensores que não são necessários no local. Este mapa é para orientação, e você pode alterar a posição e os números ligeiramente com base no seu conhecimento personalizado. Adicionar sensores não regredirá os resultados do mapa de calor da humidade do solo, mas há a possibilidade de deterioração da precisão do mapa térmico se o número do sensor for reduzido.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Atenda aos seguintes pré-requisitos antes de tentar gerar um mapa de posicionamento de sensor:
+Conheça os seguintes pré-requisitos antes de tentar gerar um mapa de colocação de sensores:
 
-- O tamanho do farm deve ser maior que um acre.
-- O número de cenas de sentinela sem nuvem deve ser maior que seis para o intervalo de datas selecionado.
-- Pelo menos seis cenas de sentinela sem nuvem devem ter um NDVI (índice vegetação de diferença normalizado) maior ou igual a 0,3.
+- O tamanho da fazenda deve ser mais de um hectare.
+- O número de cenas sentinela sem nuvens deve ser mais de seis para o intervalo de data seleto.
+- Pelo menos seis cenas sentinelas sem nuvens devem ter um Índice de Vegetação de Diferença Normalizada (NDVI) maior ou igual a 0,3.
 
     > [!NOTE]
-    > O Sentinel permite apenas dois threads simultâneos por usuário. Como resultado, os trabalhos são colocados na fila e podem levar mais tempo para serem concluídos.
+    > O Sentinel permite apenas dois fios simultâneos por utilizador. Como resultado, os empregos ficam em fila e podem demorar mais tempo a ser concluídos.
 
-### <a name="dependencies-on-sentinel"></a>Dependências no sentinela
+### <a name="dependencies-on-sentinel"></a>Dependências do Sentinela
 
-As seguintes dependências pertencem ao sentinela:
+As seguintes dependências dizem respeito ao Sentinel:
 
-- Dependemos do desempenho de sentinela para baixar imagens satélite. Verifique o status de desempenho do Sentinela e [as atividades](https://scihub.copernicus.eu/twiki/do/view/SciHubNews/WebHome)de manutenção.
-- O Sentinel permite apenas dois [threads de downloads](https://sentinels.copernicus.eu/web/sentinel/sentinel-data-access/typologies-and-services) simultâneos por usuário.
-- A geração de mapa de precisão é afetada pela [cobertura do Sentinel e pela frequência de revisita]( https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage).
+- Dependemos do desempenho do Sentinel para descarregar imagens de satélite. Verifique o estado de desempenho do Sentinel e [as atividades de](https://scihub.copernicus.eu/twiki/do/view/SciHubNews/WebHome)manutenção.
+- O Sentinel permite apenas dois [downloads simultâneos por](https://sentinels.copernicus.eu/web/sentinel/sentinel-data-access/typologies-and-services) utilizador.
+- A geração de mapas de precisão é afetada pela [cobertura do Sentinel e revisita a frequência.]( https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage)
 
-## <a name="create-a-sensor-placement-map"></a>Criar um mapa de posicionamento do sensor
-Esta seção detalha os procedimentos para criar mapas de posicionamento de sensor.
+## <a name="create-a-sensor-placement-map"></a>Criar um mapa de colocação de sensores
+Esta secção detalha os procedimentos para a criação de mapas de colocação de sensores.
 
 > [!NOTE]
-> Você pode iniciar um mapa de posicionamento de sensor na página **mapas** ou no menu suspenso **gerar mapas de precisão** na página de **detalhes do farm** .
+> Pode iniciar um mapa de colocação de sensores a partir da página **do Maps** ou do menu de drop-down do Generate **Precision Maps** na página de Dados da **Fazenda.**
 
 Siga estes passos.
 
-1. Na home page, vá para **mapas** no menu de navegação à esquerda.
-2. Selecione **criar mapas**e selecione o **posicionamento do sensor** no menu suspenso.
+1. Na página inicial, vá ao **Maps** a partir do menu de navegação à esquerda.
+2. Selecione **Create Maps**, e selecione **Sensor Placement** a partir do menu suspenso.
 
-    ![Selecionar o posicionamento do sensor](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-1.png)
+    ![Selecione colocação de sensores](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-1.png)
 
-3. Depois de selecionar o **posicionamento do sensor**, a janela de posicionamento do **sensor** é exibida.
+3. Depois de selecionar a **colocação**do sensor, aparece a janela **de colocação do sensor.**
 
-    ![Janela de posicionamento do sensor](./media/get-sensor-data-from-sensor-partner/sensor-placement-1.png)
+    ![Janela de colocação do sensor](./media/get-sensor-data-from-sensor-partner/sensor-placement-1.png)
 
-4. Selecione um farm no menu suspenso **farm** .
-   Para pesquisar e selecionar seu farm, você pode rolar na lista suspensa ou inserir o nome do farm na caixa de texto.
-5. Para gerar um mapa para o último ano, selecione **recomendado**.
-6. Para gerar um mapa para um intervalo de datas personalizado, selecione a opção **selecionar intervalo de datas**. Insira a data de início e de término para a qual você deseja gerar o mapa de posicionamento do sensor.
-7. Selecione **gerar mapas**.
- Uma mensagem de confirmação com detalhes do trabalho é exibida.
+4. Selecione uma quinta do menu de entrega da **Fazenda.**
+   Para pesquisar e selecionar a sua quinta, pode rolar na lista de lançamentos ou inserir o nome da quinta na caixa de texto.
+5. Para gerar um mapa para o ano passado, selecione **Recommended**.
+6. Para gerar um mapa para uma gama de datas personalizada, selecione a opção **Select Date Range**. Introduza a data de início e fim para a qual pretende gerar o mapa de Colocação de Sensores.
+7. Selecione **Generate Maps**.
+ Aparece uma mensagem de confirmação com detalhes do trabalho.
 
-  Para obter informações sobre o status do trabalho, consulte a seção **exibir trabalhos**. Se o status do trabalho mostrar *falha*, uma mensagem de erro detalhada aparecerá na dica de ferramenta do status de *falha* . Nesse caso, repita as etapas anteriores e tente novamente.
+  Para obter informações sobre o estado do trabalho, consulte a secção **Ver Empregos**. Se o estado de trabalho mostrar *falha,* aparece uma mensagem de erro detalhada na ponta da ferramenta do estado *falhado.* Neste caso, repita os passos anteriores e tente novamente.
 
-  Se o problema persistir, consulte a seção [solucionar problemas](troubleshoot-azure-farmbeats.md) ou contate o [Fórum do Azure FarmBeats para obter suporte](https://aka.ms/FarmBeatsMSDN) com os logs relevantes.
+  Se o problema persistir, consulte a secção [Troubleshoot](troubleshoot-azure-farmbeats.md) ou contacte o [fórum Azure FarmBeats para obter apoio](https://aka.ms/FarmBeatsMSDN) com registos relevantes.
 
-### <a name="view-and-download-a-sensor-placement-map"></a>Exibir e baixar um mapa de posicionamento do sensor
+### <a name="view-and-download-a-sensor-placement-map"></a>Ver e descarregar um mapa de colocação de sensores
 
 Siga estes passos.
 
-1. Na home page, vá para **mapas** no menu de navegação à esquerda.
+1. Na página inicial, vá ao **Maps** a partir do menu de navegação à esquerda.
 
-    ![Selecione mapas no menu de navegação à esquerda](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
+    ![Selecione Mapas do menu de navegação à esquerda](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2. Selecione **Filtrar** na navegação à esquerda da janela.
-  A janela **filtro** exibe os critérios de pesquisa.
+2. Selecione **Filtro** a partir da navegação esquerda da janela.
+  A janela **Filter** apresenta critérios de pesquisa.
 
-    ![Janela de filtro](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
+    ![Janela do filtro](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3. Selecione os valores de **tipo**, **Data**e **nome** nos menus suspensos. Em seguida, selecione **aplicar** para pesquisar o mapa que você deseja exibir.
+3. Selecione **Valores de Tipo,** **Data**e **Nome** dos menus suspensos. Em seguida, selecione **Aplicar** para procurar o mapa que pretende ver.
   A data em que o trabalho foi criado é mostrada no formato type_farmname_YYYY-MM-DD.
-4. Percorra a lista de mapas disponíveis usando as barras de navegação no final da página.
-5. Selecione o mapa que você deseja exibir. Uma janela pop-up exibe a visualização do mapa selecionado.
-6. Selecione **baixar**e baixe o arquivo geojson de coordenadas do sensor.
+4. Percorra a lista de mapas disponíveis utilizando as barras de navegação no final da página.
+5. Selecione o mapa que pretende ver. Uma janela pop-up exibe a pré-visualização do mapa selecionado.
+6. Selecione **Download**, e baixe o ficheiro GeoJSON das coordenadas de sensores.
 
-    ![Visualização do mapa de posicionamento do sensor](./media/get-sensor-data-from-sensor-partner/download-sensor-placement-map-1.png)
+    ![Pré-visualização do mapa de colocação do sensor](./media/get-sensor-data-from-sensor-partner/download-sensor-placement-map-1.png)
 
-## <a name="satellite-indices-map"></a>Mapa de índices satélite
+## <a name="satellite-indices-map"></a>Mapa de Índices de Satélite
 
-As seções a seguir explicam os procedimentos envolvidos na criação e exibição de um mapa de índices satélite.
-
-> [!NOTE]
-> Você pode iniciar um mapa de índices satélite na página **mapas** ou no menu suspenso **gerar mapas de precisão** na página detalhes do **farm** .
-
-O FarmBeats fornece a capacidade de gerar NDVI, índice de vegetação aprimorado (EVI) e mapas de índice de água de diferença normalizada (NDWI) para farms. Esses índices ajudam a determinar como o corte está crescendo no momento ou cresceu no passado e os níveis de água representativos no solo.
-
+As seguintes secções explicam os procedimentos envolvidos na criação e visualização de um mapa de Índices de Satélite.
 
 > [!NOTE]
-> Uma imagem de Sentinela é necessária para os dias para os quais o mapa é gerado.
+> Pode iniciar um mapa de Índices de Satélite a partir da página **do Maps** ou do menu de drop-down do Generate **Precision Maps** na página de Dados da **Fazenda.**
+
+FarmBeats fornece-lhe a capacidade de gerar mapas NDVI, Enhanced Vegetation Index (EVI) e Normalizado Difference Water Index (NDWI) para as explorações. Estes índices ajudam a determinar como a cultura está atualmente a crescer, ou cresceu no passado, e os níveis representativos da água no solo.
 
 
-## <a name="create-a-satellite-indices-map"></a>Criar um mapa de índices satélite
+> [!NOTE]
+> É necessária uma imagem Sentinelpara os dias para os quais o mapa é gerado.
+
+
+## <a name="create-a-satellite-indices-map"></a>Criar um mapa de índices de satélite
 
 Siga estes passos.
 
-1. Na home page, vá para **mapas** no menu de navegação à esquerda.
-2. Selecione **criar mapas**e selecione **índices satélites** no menu suspenso.
+1. Na página inicial, vá ao **Maps** a partir do menu de navegação à esquerda.
+2. Selecione **Create Maps**, e selecione **Índices** de Satélite do menu suspenso.
 
-    ![Selecione os índices satélite no menu suspenso](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-satellite-indices-1.png)
+    ![Selecione Índices de Satélite do menu suspenso](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-satellite-indices-1.png)
 
-3. Depois de selecionar os **índices satélites**, a janela de **índices satélite** é exibida.
+3. Depois de selecionar **índices**de satélite, aparece a janela **de índices** de satélite.
 
-    ![Janela de índices satélite](./media/get-sensor-data-from-sensor-partner/satellitte-indices-1.png)
+    ![Janela de índices de satélite](./media/get-sensor-data-from-sensor-partner/satellitte-indices-1.png)
 
-4. Selecione um farm no menu suspenso.
-   Para pesquisar e selecionar seu farm, você pode rolar na lista suspensa ou inserir o nome do farm.   
-5. Para gerar um mapa para a última semana, selecione **esta semana**.
-6. Para gerar um mapa para um intervalo de datas personalizado, selecione a opção **selecionar intervalo de datas**. Insira a data de início e de término para a qual você deseja gerar o mapa de índices satélite.
-7. Selecione **gerar mapas**.
-    Uma mensagem de confirmação com detalhes do trabalho é exibida.
+4. Selecione uma quinta a partir do menu suspenso.
+   Para pesquisar e selecionar a sua quinta, pode rolar na lista de drop-down ou inserir o nome da quinta.   
+5. Para gerar um mapa para a última semana, selecione **This Week**.
+6. Para gerar um mapa para uma gama de datas personalizada, selecione a opção **Select Date Range**. Introduza a data de início e fim para a qual pretende gerar o mapa de Índices de Satélite.
+7. Selecione **Generate Maps**.
+    Aparece uma mensagem de confirmação com detalhes do trabalho.
 
-    ![Mensagem de confirmação do mapa de índices satélite](./media/get-sensor-data-from-sensor-partner/successful-satellitte-indices-1.png)
+    ![Mensagem de confirmação do mapa de índices de satélite](./media/get-sensor-data-from-sensor-partner/successful-satellitte-indices-1.png)
 
-    Para obter informações sobre o status do trabalho, consulte a seção **exibir trabalhos**. Se o status do trabalho mostrar *falha*, uma mensagem de erro detalhada aparecerá na dica de ferramenta do status de *falha* . Nesse caso, repita as etapas anteriores e tente novamente.
+    Para obter informações sobre o estado do trabalho, consulte a secção **Ver Empregos**. Se o estado de trabalho mostrar *falha,* aparece uma mensagem de erro detalhada na ponta da ferramenta do estado *falhado.* Neste caso, repita os passos anteriores e tente novamente.
 
-    Se o problema persistir, consulte a seção [solucionar problemas](troubleshoot-azure-farmbeats.md) ou contate o [Fórum do Azure FarmBeats para obter suporte](https://aka.ms/FarmBeatsMSDN) com os logs relevantes.
+    Se o problema persistir, consulte a secção [Troubleshoot](troubleshoot-azure-farmbeats.md) ou contacte o [fórum Azure FarmBeats para obter apoio](https://aka.ms/FarmBeatsMSDN) com registos relevantes.
 
-### <a name="view-and-download-a-map"></a>Exibir e baixar um mapa
+### <a name="view-and-download-a-map"></a>Ver e baixar um mapa
 
 Siga estes passos.
 
-1. Na home page, vá para **mapas** no menu de navegação à esquerda.
+1. Na página inicial, vá ao **Maps** a partir do menu de navegação à esquerda.
 
-    ![Selecionar mapas](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
+    ![Selecione Mapas](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2. Selecione **Filtrar** na navegação à esquerda da janela. A janela **filtro** exibe os critérios de pesquisa.
+2. Selecione **Filtro** a partir da navegação esquerda da janela. A janela **Filter** apresenta critérios de pesquisa.
 
     ![Janela de filtro exibe critérios de pesquisa](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3. Selecione os valores de **tipo**, **Data**e **nome** nos menus suspensos. Em seguida, selecione **aplicar** para pesquisar o mapa que você deseja exibir.
+3. Selecione **Valores de Tipo,** **Data**e **Nome** dos menus suspensos. Em seguida, selecione **Aplicar** para procurar o mapa que pretende ver.
   A data em que o trabalho foi criado é mostrada no formato type_farmname_YYYY-MM-DD.
 
-4. Percorra a lista de mapas disponíveis usando as barras de navegação no final da página.
-5. Para cada combinação de **nome** e **Data**do farm, os três mapas a seguir estão disponíveis:
+4. Percorra a lista de mapas disponíveis utilizando as barras de navegação no final da página.
+5. Para cada combinação de Nome e **Data** **de Fazenda,** estão disponíveis os seguintes três mapas:
     - NDVI
     - EVI
     - NDWI
-6. Selecione o mapa que você deseja exibir. Uma janela pop-up exibe a visualização do mapa selecionado.
-7. Selecione **baixar** no menu suspenso para selecionar o formato de download. O mapa é baixado e armazenado em sua pasta local no computador.
+6. Selecione o mapa que pretende ver. Uma janela pop-up exibe a pré-visualização do mapa selecionado.
+7. Selecione **Baixar** a partir do menu suspenso para selecionar o formato de descarregamento. O mapa é descarregado e armazenado na sua pasta local no seu computador.
 
-    ![Visualização de mapa de índices satélite selecionados](./media/get-sensor-data-from-sensor-partner/download-satellite-indices-map-1.png)
+    ![Pré-visualização do mapa de índices de satélite selecionados](./media/get-sensor-data-from-sensor-partner/download-satellite-indices-map-1.png)
 
-## <a name="soil-moisture-heatmap"></a>Calor de umidade de solo
+## <a name="soil-moisture-heatmap"></a>Mapa de calor da humidade do solo
 
-A umidade de solo é a água que é mantida nos espaços entre as partículas de solo. A calor de umidade de solo ajuda você a entender os dados de umidade de solo em qualquer profundidade, em alta resolução em seu farm. Para gerar um calor de umidade de solo preciso e utilizável, uma implantação uniforme de sensores é necessária. Todos os sensores devem ser do mesmo provedor. Provedores diferentes têm diferenças na maneira como a umidade de solo é medida junto com as diferenças na calibragem. O calor é gerado para uma determinada profundidade usando os sensores implantados nessa profundidade.
+A humidade do solo é a água que é mantida nos espaços entre partículas de solo. O mapa de calor da humidade do solo ajuda-o a compreender os dados de humidade do solo a qualquer profundidade, em alta resolução dentro da sua quinta. Para gerar um mapa de calor preciso e utilizável da humidade do solo, é necessária uma implantação uniforme de sensores. Todos os sensores devem ser do mesmo fornecedor. Diferentes fornecedores têm diferenças na forma como a humidade do solo é medida juntamente com as diferenças de calibração. O mapa de calor é gerado para uma profundidade particular utilizando os sensores implantados a essa profundidade.
 
 ### <a name="before-you-begin"></a>Antes de começar
 
-Atenda aos seguintes pré-requisitos antes de tentar gerar um calor de umidade de solo:
+Conheça os seguintes pré-requisitos antes de tentar gerar um mapa de calor da Humidade do Solo:
 
-- Pelo menos três sensores de umidade de solo devem ser implantados. Não tente criar um calor de umidade de solo antes que os sensores sejam implantados e associados ao farm.
-- A geração de um calor de umidade de solo é influenciada pela cobertura do caminho do Sentinel, pela nuvem e pela sombra da nuvem. Pelo menos uma cena de sentinela sem nuvem deve estar disponível nos últimos 120 dias, a partir do dia para o qual a calor de umidade de solo foi solicitada.
-- Pelo menos metade dos sensores implantados no farm deve estar online e ter dados transmitidos para o datahub.
-- O calor deve ser gerado usando medidas de sensor do mesmo provedor.
+- Devem ser implantados pelo menos três sensores de humidade do solo. Não tente criar um mapa de calor da humidade do solo antes que os sensores sejam implantados e associados à quinta.
+- Gerar um mapa de calor da humidade do solo é influenciado pela cobertura do caminho do Sentinel, cobertura de nuvens e sombra de nuvens. Pelo menos uma Cena Sentinel sem nuvens deve estar disponível nos últimos 120 dias, a partir do dia para o qual foi solicitado o mapa de calor da humidade do solo.
+- Pelo menos metade dos sensores implantados na quinta devem estar online e ter dados a transmitir para o datahub.
+- O mapa térmico deve ser gerado utilizando medidas de sensor do mesmo fornecedor.
 
 
-## <a name="create-a-soil-moisture-heatmap"></a>Criar um calor de umidade de solo
-
-Siga estes passos.
-
-1. Na home page, vá para **mapas** no menu de navegação à esquerda para exibir a página **mapas** .
-2. Selecione **criar mapas**e selecione **umidade de solo** no menu suspenso.
-
-    ![Selecione umidade de solo no menu suspenso](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-soil-moisture-1.png)
-
-3. Depois de selecionar a **umidade de solo**, a janela de umidade de **solo** é exibida.
-
-    ![Janela de umidade do solo](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
-
-4. Selecione um farm no menu suspenso **farm** .
-   Para pesquisar e selecionar seu farm, você pode rolar a partir da lista suspensa ou inserir o nome do farm no menu suspenso **selecionar Farm** .
-5. No menu suspenso **selecionar medida do sensor de umidade de solo** , selecione a medida do sensor de umidade de solo (profundidade) para a qual você deseja gerar o mapa.
-Para localizar a medida do sensor, vá para **sensores**e selecione qualquer sensor de umidade do solo. Em seguida, na seção **Propriedades do sensor** , use o valor em nome da **medida**.
-6. Para gerar um mapa para **hoje** ou **esta semana**, selecione uma das opções.
-7. Para gerar um mapa para um intervalo de datas personalizado, selecione a opção **selecionar intervalo de datas**. Insira a data de início e de término para a qual você deseja gerar o calor de umidade de solo.
-8. Selecione **gerar mapas**.
- Uma mensagem de confirmação com detalhes do trabalho é exibida.
-
-   ![Mensagem de confirmação do mapa de umidade do solo](./media/get-sensor-data-from-sensor-partner/successful-soil-moisture-1.png)
-
-    Para obter informações sobre o status do trabalho, consulte a seção **exibir trabalhos**. Se o status do trabalho mostrar *falha*, uma mensagem de erro detalhada aparecerá na dica de ferramenta do status de *falha* . Nesse caso, repita as etapas anteriores e tente novamente.
-
-    Se o problema persistir, consulte a seção [solucionar problemas](troubleshoot-azure-farmbeats.md) ou contate o [Fórum do Azure FarmBeats para obter suporte](https://aka.ms/FarmBeatsMSDN) com os logs relevantes.
-
-### <a name="view-and-download-a-map"></a>Exibir e baixar um mapa
+## <a name="create-a-soil-moisture-heatmap"></a>Criar um mapa de calor da humidade do solo
 
 Siga estes passos.
 
-1. Na home page, vá para **mapas** no menu de navegação à esquerda.
+1. Na página inicial, vá ao **Maps** a partir do menu de navegação à esquerda para ver a página do **Maps.**
+2. Selecione **Create Maps**, e selecione **Soil Moisture** do menu suspenso.
 
-    ![Ir para mapas](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
+    ![Selecione humidade do solo a partir do menu suspenso](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-soil-moisture-1.png)
 
-2. Selecione **Filtrar** na navegação à esquerda da janela. A janela **filtro** é exibida de onde você pode pesquisar mapas.
+3. Depois de selecionar a humidade do **solo,** aparece a janela humidade do **solo.**
 
-    ![Selecionar filtro na navegação à esquerda](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
+    ![Janela de humidade do solo](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
-3.  Selecione os valores de **tipo**, **Data**e **nome** nos menus suspensos. Em seguida, selecione **aplicar** para pesquisar o mapa que você deseja exibir. A data em que o trabalho foi criado é mostrada no formato type_farmname_YYYY-MM-DD.
-4. Selecione o ícone de **classificação** ao lado dos cabeçalhos de tabela para classificar de acordo com o **farm**, **Data**, **criado em**, **ID do trabalho**e **tipo de trabalho**.
-5. Percorra a lista de mapas disponíveis usando os botões de navegação no final da página.
-6. Selecione o mapa que você deseja exibir. Uma janela pop-up exibe a visualização do mapa selecionado.
-7. Selecione **baixar** no menu suspenso para selecionar o formato de download. O mapa é baixado e armazenado na pasta especificada.
+4. Selecione uma quinta do menu de entrega da **Fazenda.**
+   Para pesquisar e selecionar a sua quinta, pode deslocar-se da lista de drop-down ou inserir o nome da quinta no menu de entrega da **fazenda Select.**
+5. No menu de desmedido do sensor de humidade do **solo Select,** selecione a medida do sensor de humidade do solo (profundidade) para a qual pretende gerar o mapa.
+Para encontrar a medida do sensor, vá aos **Sensores**e selecione qualquer sensor de humidade do solo. Em seguida, sob a secção Propriedades do **Sensor,** utilize o valor em Nome de **Medida**.
+6. Para gerar um mapa para **hoje** ou **para esta semana,** selecione uma das opções.
+7. Para gerar um mapa para uma gama de datas personalizada, selecione a opção **Select Date Range**. Introduza a data de início e fim para a qual pretende gerar o mapa de calor da humidade do solo.
+8. Selecione **Generate Maps**.
+ Aparece uma mensagem de confirmação com detalhes do trabalho.
 
-    ![Visualização de calor de umidade de solo](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
+   ![Mensagem de confirmação do mapa da humidade do solo](./media/get-sensor-data-from-sensor-partner/successful-soil-moisture-1.png)
+
+    Para obter informações sobre o estado do trabalho, consulte a secção **Ver Empregos**. Se o estado de trabalho mostrar *falha,* aparece uma mensagem de erro detalhada na ponta da ferramenta do estado *falhado.* Neste caso, repita os passos anteriores e tente novamente.
+
+    Se o problema persistir, consulte a secção [Troubleshoot](troubleshoot-azure-farmbeats.md) ou contacte o [fórum Azure FarmBeats para obter apoio](https://aka.ms/FarmBeatsMSDN) com registos relevantes.
+
+### <a name="view-and-download-a-map"></a>Ver e baixar um mapa
+
+Siga estes passos.
+
+1. Na página inicial, vá ao **Maps** a partir do menu de navegação à esquerda.
+
+    ![Ir ao Maps](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
+
+2. Selecione **Filtro** a partir da navegação esquerda da janela. A janela **Filter** exibe de onde pode procurar mapas.
+
+    ![Selecione Filtro a partir da navegação esquerda](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
+
+3.  Selecione **Valores de Tipo,** **Data**e **Nome** dos menus suspensos. Em seguida, selecione **Aplicar** para procurar o mapa que pretende ver. A data em que o trabalho foi criado é mostrada no formato type_farmname_YYYY-MM-DD.
+4. Selecione o ícone **Ordenar** ao lado dos cabeçalhos da tabela para ordenar de acordo com **a Fazenda**, **Data**, **Criada On,** **ID de Trabalho**e Tipo **de Trabalho**.
+5. Percorra a lista de mapas disponíveis utilizando os botões de navegação no final da página.
+6. Selecione o mapa que pretende ver. Uma janela pop-up exibe a pré-visualização do mapa selecionado.
+7. Selecione **Baixar** a partir do menu suspenso para selecionar o formato de descarregamento. O mapa é descarregado e armazenado na pasta especificada.
+
+    ![Pré-visualização do mapa de calor da humidade do solo](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

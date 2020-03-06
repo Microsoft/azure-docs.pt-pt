@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f187dba4eace61695a72e4b7b08731e65ff0d7f9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612801"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299113"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Problemas de resolução de problemas de união de domínio com um domínio gerido pela Azure AD Domain Services
 
@@ -55,7 +55,7 @@ Para resolver problemas relacionados com credenciais, reveja os seguintes passos
 
 1. Tente utilizar o formato UPN para especificar credenciais, como `dee@aaddscontoso.onmicrosoft.com`. Certifique-se de que esta UPN está corretamente configurada em Azure AD.
     * O *Nome SAMAccountName* para a sua conta pode ser autogerado se houver vários utilizadores com o mesmo prefixo UPN no seu inquilino ou se o seu prefixo UPN for excessivamente longo. Por isso, o formato *SAMAccountName* para a sua conta pode ser diferente do que espera ou utiliza no seu domínio no local.
-1. Tente utilizar as credenciais para uma conta de utilizador que pertence ao grupo de *administradores da AAD DC* para se juntar aos VMs ao domínio gerido pelo Azure AD DS.
+1. Tente usar as credenciais para uma conta de utilizador que faz parte do domínio gerido pelo Azure AD DS para se juntar aos VMs ao domínio gerido.
 1. Certifique-se de que ativou a sincronização da [palavra-passe][enable-password-sync] e esperou o suficiente para que a sincronização inicial da palavra-passe esteja concluída.
 
 ## <a name="next-steps"></a>Passos seguintes

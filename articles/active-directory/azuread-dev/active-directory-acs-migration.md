@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 7b009a6e2f540dc076340a6803679a541e60adc7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63ace9af31dd284c61fae188744b24361f33c170
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165348"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377908"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controlo de Acesso Azure
 
@@ -68,13 +68,13 @@ Siga os passos nesta secção para saber qual das suas aplicações será impact
 ### <a name="download-and-install-acs-powershell"></a>Descarregue e instale acs PowerShell
 
 1. Vá à Galeria PowerShell e baixe [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
-1. Instale o módulo em execução
+2. Instale o módulo em execução
 
     ```powershell
     Install-Module -Name Acs.Namespaces
     ```
 
-1. Obtenha uma lista de todos os comandos possíveis executando
+3. Obtenha uma lista de todos os comandos possíveis executando
 
     ```powershell
     Get-Command -Module Acs.Namespaces
@@ -94,8 +94,8 @@ Siga os passos nesta secção para saber qual das suas aplicações será impact
   
     Poderá ter de executar `Set-ExecutionPolicy -ExecutionPolicy Bypass` antes de poder executar comandos e ser administrador dessas subscrições para executar os comandos.
 
-1. Enumere as suas subscrições Azure disponíveis utilizando o cmdlet **Get-AcsSubscription.**
-1. Enumere os seus espaços de nome ACS utilizando o cmdlet **Get-AcsNamespace.**
+2. Enumere as suas subscrições Azure disponíveis utilizando o cmdlet **Get-AcsSubscription.**
+3. Enumere os seus espaços de nome ACS utilizando o cmdlet **Get-AcsNamespace.**
 
 ### <a name="check-which-applications-will-be-impacted"></a>Verifique quais as aplicações que serão impactadas
 
@@ -103,8 +103,8 @@ Siga os passos nesta secção para saber qual das suas aplicações será impact
 
     Por exemplo, se um dos espaços de nome for um teste de contoso, vá para `https://contoso-test.accesscontrol.windows.net`
 
-1. No âmbito das **relações Trust**, selecione **as aplicações do partido Relying** para ver a lista de aplicações que serão impactadas pela reforma da ACS.
-1. Repita os passos 1-2 para qualquer outro espaço de nome ACS que tenha.
+2. No âmbito das **relações Trust**, selecione **as aplicações do partido Relying** para ver a lista de aplicações que serão impactadas pela reforma da ACS.
+3. Repita os passos 1-2 para qualquer outro espaço de nome ACS que tenha.
 
 ## <a name="retirement-schedule"></a>Horário de reforma
 
@@ -210,7 +210,7 @@ A um nível elevado, *o Azure Ative Directory é provavelmente a melhor escolha 
 | Faça upload de certificados de assinatura de token personalizados | Suportado | Suportado |
 | Personalizar reclamações em fichas |- Passar por pedidos de entrada de fornecedores de identidade<br />- Obtenha acesso ao fornecedor de identidade como reivindicação<br />- Emitir reclamações de saída com base nos valores dos créditos de entrada<br />- Emitir reclamações de produção com valores constantes |- Não pode passar por reclamações de fornecedores de identidade federados<br />- Não é possível obter acesso do fornecedor de identidade como reivindicação<br />- Não pode emitir reclamações de saída com base em valores de créditos de entrada<br />- Pode emitir reclamações de produção com valores constantes<br />- Pode emitir reclamações de saída com base em propriedades dos utilizadores sincronizados com a Azure AD |
 | **Automatização** | | |
-| Automatizar tarefas de configuração e gestão | Suportado através do Serviço de Gestão de Controlo de Acesso | Suportado via Microsoft Graph e Azure AD Graph API |
+| Automatizar tarefas de configuração e gestão | Suportado através do Serviço de Gestão de Controlo de Acesso | Suportado usando a Microsoft Graph API |
 
 Se decidir que o Azure AD é o melhor caminho de migração para as suas aplicações e serviços, deve estar ciente de duas formas de integrar a sua app com o Azure AD.
 
@@ -261,7 +261,7 @@ O quadro seguinte compara as funcionalidades do Controlo de Acesso que são rele
 | Faça upload de certificados de assinatura de token personalizados | Suportado | Chaves de assinatura personalizadas, não certificados, suportadas através de políticas personalizadas |
 | Personalizar reclamações em fichas |- Passar por pedidos de entrada de fornecedores de identidade<br />- Obtenha acesso ao fornecedor de identidade como reivindicação<br />- Emitir reclamações de saída com base nos valores dos créditos de entrada<br />- Emitir reclamações de produção com valores constantes |- Pode passar por reclamações de fornecedores de identidade; políticas personalizadas necessárias para algumas reivindicações<br />- Não é possível obter acesso do fornecedor de identidade como reivindicação<br />- Pode emitir reclamações de saída com base nos valores dos pedidos de entrada através de políticas personalizadas<br />- Pode emitir reclamações de produção com valores constantes através de políticas personalizadas |
 | **Automatização** | | |
-| Automatizar tarefas de configuração e gestão | Suportado através do Serviço de Gestão de Controlo de Acesso |- Criação de utilizadores permitidos via Azure AD Graph API<br />- Não pode criar inquilinos, candidaturas ou políticas B2C programáticamente |
+| Automatizar tarefas de configuração e gestão | Suportado através do Serviço de Gestão de Controlo de Acesso |- Criação de utilizadores permitidos através da API do Microsoft Graph<br />- Não pode criar inquilinos, candidaturas ou políticas B2C programáticamente |
 
 Se decidir que o Azure AD B2C é o melhor caminho de migração para as suas aplicações e serviços, comece com os seguintes recursos:
 
@@ -325,7 +325,7 @@ Também pode utilizar o Azure AD para autenticação servidor-a-servidor utiliza
 | Métodos de autenticação do cliente |- Senha simples<br />- SWT assinado<br />- Ficha SAML de um fornecedor de identidade federado |- Senha simples<br />- JWT assinado |
 | Formatos simbólicos |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | Apenas JWT |
 | Transformação de token |- Adicionar reclamações personalizadas<br />- Lógica simples de emissão se-então reivindicar | Adicionar reclamações personalizadas | 
-| Automatizar tarefas de configuração e gestão | Suportado através do Serviço de Gestão de Controlo de Acesso | Suportado via Microsoft Graph e Azure AD Graph API |
+| Automatizar tarefas de configuração e gestão | Suportado através do Serviço de Gestão de Controlo de Acesso | Suportado usando a Microsoft Graph API |
 
 Para obter orientações sobre a implementação de cenários servidor-servidor, consulte os seguintes recursos:
 

@@ -3,12 +3,12 @@ title: Conformidade usando a política azure
 description: Atribuir políticas incorporadas na Política Azure para auditar o cumprimento dos seus registos de contentores Azure
 ms.topic: article
 ms.date: 02/26/2020
-ms.openlocfilehash: 331fcfaf72b1ad2022aa3edeefefa597e5bcfe17
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 012cd013de1c60fddcfb28e4bca96d761ada41ab
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925673"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330741"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditoria cumprimento dos registos de contentores azure utilizando a Política Azure
 
@@ -68,14 +68,14 @@ Name                                                                            
 [Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Em [seguida,](/cli/azure/policy/state#az-policy-assignment-list) executar a lista de estado de política az para devolver o estado de conformidade formado jSON para todos os recursos sob uma identificação de política específica:
+Em [seguida,](/cli/azure/policy/state#az-policy-state-list) executar a lista de estado de política az para devolver o estado de conformidade formado jSON para todos os recursos sob uma identificação de política específica:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-Ou executar a lista de estado de [política az](/cli/azure/policy/state#az-policy-assignment-list) para devolver o estado de conformidade formado pela JSON de um recurso específico de registo, como o *meu registo:*
+Ou executar a lista de estado de [política az](/cli/azure/policy/state#az-policy-state-list) para devolver o estado de conformidade formado pela JSON de um recurso específico de registo, como o *meu registo:*
 
 ```azurecli
 az policy state list \

@@ -1,18 +1,18 @@
 ---
-title: CONCAT na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre como a função de sistema SQL CONCAT no Azure Cosmos DB retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres
+title: CONCAT em linguagem de consulta do Azure Cosmos DB
+description: Saiba como funciona o sistema CONCAT SQL em Azure Cosmos DB devolve uma corda que é o resultado da concatenação de dois ou mais valores de cadeia
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: adb8564d4addaaa3f4a383b32941549aed3d53bd
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c8a0941376ed74d7f8cb819d78df43eb9f0b7bd1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871555"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302615"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAT (Azure Cosmos DB)
  Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres.  
@@ -26,7 +26,7 @@ CONCAT(<str_expr1>, <str_expr2> [, <str_exprN>])
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É uma expressão de cadeia de caracteres para concatenar aos outros valores. A função `CONCAT` requer pelo menos dois argumentos de *str_expr* .  
+   É uma expressão de corda para concatenar aos outros valores. A função `CONCAT` requer pelo menos dois argumentos *str_expr.*  
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -46,9 +46,12 @@ SELECT CONCAT("abc", "def") AS concat
 [{"concat": "abcdef"}]  
 ```  
   
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

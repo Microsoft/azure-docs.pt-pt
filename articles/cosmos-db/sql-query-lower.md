@@ -1,23 +1,23 @@
 ---
-title: INFERIOR na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função de sistema SQL inferior no Azure Cosmos DB para retornar uma expressão de cadeia de caracteres após converter dados de caracteres maiúsculos em minúsculas
+title: LOWER em linguagem de consulta de Azure Cosmos DB
+description: Saiba mais sobre a função do sistema Lower SQL em Azure Cosmos DB para devolver uma expressão de cadeia após converter dados de caracteres maiúsculos em minúsculas
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 35efbb8d4d97ab52abb20487d15a80985946c499
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 80dba57d4fe05630eb5ae4f8fc96bd0aa214c6d4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732608"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302275"
 ---
-# <a name="lower-azure-cosmos-db"></a>INFERIOR (Azure Cosmos DB)
+# <a name="lower-azure-cosmos-db"></a>LOWER (Azure Cosmos DB)
  Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em maiúsculas em minúsculas.  
 
-A função de sistema inferior não utiliza o índice. Se você planeja fazer comparações que não diferenciam maiúsculas de minúsculas, a função de sistema inferior pode consumir uma quantidade significativa de RU. Se esse for o caso, em vez de usar a função de sistema inferior para normalizar os dados a cada vez para comparações, você poderá normalizar a capitalização após a inserção. Em seguida, uma consulta como SELECT * de c, em que LOWER (c. Name) = ' Bob ' simplesmente se torna SELECT * de c onde c.name = ' Bob '.
+A função do sistema LOWER não utiliza o índice. Se planeia fazer comparações frequentes de casos insensíveis, a função do sistema LOWER pode consumir uma quantidade significativa de RU's. Se for esse o caso, em vez de utilizar a função do sistema LOWER para normalizar os dados de cada vez para comparações, pode normalizar o invólucro após a inserção. Em seguida, uma consulta como SELECT * From c WHERE LOWER (c.name) = 'bob' torna-se simplesmente SELECT * DE c ONDE c.name = 'bob'.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -28,7 +28,7 @@ LOWER(<str_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É uma expressão de cadeia de caracteres.  
+   É uma expressão de cordas.  
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -36,7 +36,7 @@ LOWER(<str_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra como usar `LOWER` em uma consulta.  
+  O exemplo que se segue mostra como usar `LOWER` numa consulta.  
   
 ```sql
 SELECT LOWER("Abc") AS lower
@@ -49,8 +49,12 @@ SELECT LOWER("Abc") AS lower
   
 ```  
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

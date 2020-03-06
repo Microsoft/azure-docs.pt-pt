@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b242a76e1daec7d401d797e8c9887821117246
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 667fb39aabfec14cff01221b82a45ba8ad1d68d4
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656947"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329737"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Atribuir etiquetas de sensibilidade aos grupos do Office 365 no Diretório Ativo azure (pré-visualização)
 
-O Azure Ative Directory (Azure AD) suporta a aplicação de etiquetas de sensibilidade publicadas pelo Centro de [Conformidade Microsoft 365](https://sip.protection.office.com/homepage) para os grupos office 365. As etiquetas de sensibilidade aplicam-se ao grupo através de serviços como Outlook, Microsoft Teams e SharePoint. Esta funcionalidade encontra-se atualmente em pré-visualização pública. Para obter mais informações sobre o suporte de aplicações do Office 365, consulte o [suporte do Office 365 para etiquetas](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels)de sensibilidade .
+O Azure Ative Directory (Azure AD) suporta a aplicação de etiquetas de sensibilidade publicadas pelo Centro de [Conformidade Microsoft 365](https://sip.protection.office.com/homepage) para os grupos office 365. As etiquetas de sensibilidade aplicam-se ao grupo através de serviços como Outlook, Microsoft Teams e SharePoint. Esta funcionalidade encontra-se atualmente em pré-visualização pública. Para obter mais informações sobre o suporte de aplicações do Office 365, consulte o [suporte do Office 365 para etiquetas](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels)de sensibilidade .
 
 > [!IMPORTANT]
 > Para configurar esta funcionalidade, deve existir pelo menos uma licença Azure Ative Directory Premium P1 ativa na sua organização Azure AD.

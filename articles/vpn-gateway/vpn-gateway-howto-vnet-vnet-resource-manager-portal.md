@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18ef9d89a2366e6d4db3c3154bae0bd83e0386f1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: dbdc13b8c861c620bfdbaaf53c0901a51bb9ce08
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654788"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399208"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma ligação de gateway VPN de VNet a VNet com o portal do Azure
 
@@ -75,16 +75,16 @@ Este artigo mostra-lhe como ligar VNets com o tipo de ligação de VNet a VNet. 
 
 - **Definições de rede virtual**
     - **Nome**: VNet1
-    - **Espaço**de endereço : 10.11.0.0/16
+    - **Espaço**de endereço : 10.1.0.0/16
     - **Subscrição**: Selecione a subscrição que pretende utilizar.
     - **Grupo de recursos**: TestRG1
     - **Localização**: Leste dos EUA
     - **Sub-rede**
         - **Nome**: FrontEnd
-        - Intervalo de **endereços**: 10.11.0.0/24
+        - Intervalo de **endereços**: 10.1.0.0/24
     - **Sub-rede gateway:**
         - **Nome**: *GatewaySubnet* é preenchido automaticamente
-        - Intervalo de **endereços:** 10.11.255.0/27
+        - Intervalo de **endereços**: 10.1.255.0/27
 
 - **Definições de gateway de rede virtual**
     - **Nome**: VNet1GW
@@ -126,11 +126,6 @@ Se já tiver uma VNet, certifique-se de que as definições são compatíveis co
 
 ### <a name="to-create-a-virtual-network"></a>Para criar uma rede virtual
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
-
-## <a name="add-additional-address-space-and-create-subnets"></a>Adicionar espaços de endereços adicionais e criar sub-redes
-Pode adicionar espaços de endereços adicionais e criar sub-redes assim que a VNet tiver sido criada.
-
-[!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="create-a-virtual-network-gateway"></a>Criar um gateway de rede virtual
 Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muitas vezes, pode demorar 45 minutos ou mais, dependendo do SKU de gateway selecionado. Se estiver a criar esta configuração como exercício, consulte as [definições](#example-settings)do Exemplo .

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 84db3996b49a95d1ef6a9f1e80299605cc31d669
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: e22a9ae2888187dc877876ee5d4d4ec4ecb7c6e5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602607"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329447"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: Utilize um modelo de capacidade do dispositivo para criar um dispositivo IoT Plug and Play (pré-visualização) e conectá-lo à sua aplicação IoT Central
 
@@ -169,10 +169,10 @@ Utiliza o dispositivo SDK para construir o código de código do dispositivo ger
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. Depois de a construção completar com sucesso, no mesmo comando executar a sua aplicação. Substitua `<scopeid>` e `<primarykey>` os valores que observou anteriormente:
+1. Depois de a construção completar com sucesso, no mesmo comando executar a sua aplicação. Substitua `<scopeid>` e `<devicekey>` os valores que observou anteriormente:
 
     ```cmd
-    .\Release\devkit_device.exe mxchip-001 <scopeid> <primarykey>
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
     ```
 
 1. A aplicação do dispositivo começa a enviar dados para o IoT Hub. Às vezes vemos o erro `Error registering device for DPS` primeira vez que dirigemos o comando anterior. Se vir este erro, tente novamente o comando.

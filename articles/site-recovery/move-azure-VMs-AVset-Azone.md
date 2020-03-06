@@ -1,5 +1,5 @@
 ---
-title: Mover VMs para uma região do Azure com zonas de disponibilidade usando Azure Site Recovery
+title: Mover VMs para uma região de Azure com zonas de disponibilidade usando a recuperação do site Azure
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -7,145 +7,145 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5728ce7125695b191de4f91d5bd9003384f428a7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693178"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298313"
 ---
-# <a name="move-azure-vms-into-availability-zones"></a>Mover VMs do Azure para Zonas de Disponibilidade
-Zonas de Disponibilidade no Azure ajudam a proteger seus aplicativos e dados de falhas do datacenter. Cada Zona de Disponibilidade é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física de Zonas de Disponibilidade em uma região ajuda a proteger aplicativos e dados de falhas do datacenter. Com o Zonas de Disponibilidade, o Azure oferece um SLA (contrato de nível de serviço) de 99,99% para o tempo de atividade de VMs (máquinas virtuais). Zonas de Disponibilidade têm suporte em regiões selecionadas, conforme mencionado no [que são zonas de disponibilidade no Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
+# <a name="move-azure-vms-into-availability-zones"></a>Mover VMs Azure para zonas de disponibilidade
+As Zonas de Disponibilidade em Azure ajudam a proteger as suas aplicações e dados de falhas no datacenter. Cada Zona de Disponibilidade é composta por um ou mais datacenters equipados com potência independente, arrefecimento e networking. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região ajuda a proteger aplicações e dados de falhas no datacenter. Com Zonas de Disponibilidade, o Azure oferece um acordo de nível de serviço (SLA) de 99,99% para o tempo de uptime das máquinas virtuais (VMs). As Zonas de Disponibilidade são suportadas em regiões selecionadas, como mencionado em [O que são Zonas de Disponibilidade em Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region)
 
-Em um cenário em que suas VMs são implantadas como *instância única* em uma região específica e você deseja melhorar sua disponibilidade movendo essas VMs para uma zona de disponibilidade, você pode fazer isso usando Azure site Recovery. Essa ação pode ser categorizada ainda mais em:
+Num cenário em que os seus VMs são implantados como *instância única* numa região específica, e você quer melhorar a sua disponibilidade movendo estes VMs para uma Zona de Disponibilidade, você pode fazê-lo usando a Recuperação do Site Azure. Esta ação pode ser ainda categorizada em:
 
-- Mover VMs de instância única para Zonas de Disponibilidade em uma região de destino
-- Mover VMs em um conjunto de disponibilidade para Zonas de Disponibilidade em uma região de destino
+- Mover VMs de instância única para zonas de disponibilidade numa região-alvo
+- Mover VMs em uma disponibilidade definida em Zonas de Disponibilidade em uma região alvo
 
 > [!IMPORTANT]
-> Atualmente, o Azure Site Recovery dá suporte à movimentação de VMs de uma região para outra, mas não dá suporte à movimentação em uma região.
+> Atualmente, a Azure Site Recovery apoia a deslocação de VMs de uma região para outra, mas não suporta a deslocação dentro de uma região.
 
-## <a name="check-prerequisites"></a>Verificar pré-requisitos
+## <a name="check-prerequisites"></a>Verificar os pré-requisitos
 
-- Verifique se a região de destino tem [suporte para zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region). Verifique se [há suporte para a combinação](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support)de região da região de origem/destino. Tome uma decisão informada sobre a região de destino.
+- Verifique se a região alvo tem [suporte para zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region). Verifique se a sua escolha da [combinação região fonte/região alvo é suportada](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Tome uma decisão informada sobre a região alvo.
 - Certifique-se de que compreende a [arquitetura e os componentes do cenário](azure-to-azure-architecture.md).
 - Veja os [requisitos e limitações de suporte](azure-to-azure-support-matrix.md).
-- Verifique as permissões da conta. Se você acabou de criar sua conta gratuita do Azure, você é o administrador da sua assinatura. Se você não for o administrador da assinatura, trabalhe com o administrador para atribuir as permissões necessárias. Para habilitar a replicação para uma VM e eventualmente copiar dados para o destino usando Azure Site Recovery, você deve ter:
+- Verifique as permissões da conta. Se acabou de criar a sua conta Azure gratuita, é o administrador da sua subscrição. Se não for o administrador de subscrição, trabalhe com o administrador para atribuir as permissões de que necessita. Para permitir a replicação de um VM e, eventualmente, copiar dados para o alvo utilizando a Recuperação do Site Azure, deve ter:
 
-    1. Permissão para criar uma VM nos recursos do Azure. A função interna *colaborador da máquina virtual* tem essas permissões, que incluem:
+    1. Permissão para criar um VM em recursos Azure. O papel integrado da *Máquina Virtual* tem estas permissões, que incluem:
         - Permissão para criar uma VM no grupo de recursos selecionado
         - Permissão para criar uma VM na rede virtual selecionada
         - Permissão para escrever na conta de armazenamento selecionada
 
-    2. Permissão para gerenciar tarefas de Azure Site Recovery. A função *colaborador de site Recovery* tem todas as permissões necessárias para gerenciar site Recovery ações em um cofre dos serviços de recuperação.
+    2. Permissão para gerir tarefas de recuperação de sites do Azure. O papel do Colaborador de *Recuperação* do Site tem todas as permissões necessárias para gerir as ações de recuperação do site num cofre de Serviços de Recuperação.
 
-## <a name="prepare-the-source-vms"></a>Preparar as VMs de origem
+## <a name="prepare-the-source-vms"></a>Prepare as VMs de origem
 
-1. Suas VMs devem usar discos gerenciados se você quiser movê-los para uma zona de disponibilidade usando Site Recovery. Você pode converter VMs do Windows existentes que usam discos não gerenciados para usar discos gerenciados. Siga as etapas em [converter uma máquina virtual do Windows de discos não gerenciados em discos gerenciados](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Verifique se o conjunto de disponibilidade está configurado como *gerenciado*.
-2. Verifique se todos os certificados raiz mais recentes estão presentes nas VMs do Azure que você deseja mover. Se os certificados raiz mais recentes não estiverem presentes, a cópia de dados para a região de destino não poderá ser habilitada devido a restrições de segurança.
+1. Os seus VMs devem utilizar discos geridos se pretender movê-los para uma Zona de Disponibilidade utilizando a Recuperação do Site. Pode converter vMs windows existentes que utilizam discos não geridos para utilizar discos geridos. Siga os passos em [Converter uma máquina virtual do Windows de discos não geridos para discos geridos](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Certifique-se de que o conjunto de disponibilidade está *configurado*como gerido .
+2. Verifique se todos os certificados de raiz mais recentes estão presentes nos VMs Azure que pretende mover. Se os certificados de raiz mais recentes não estiverem presentes, a cópia de dados para a região alvo não pode ser ativada devido a restrições de segurança.
 
-3. Para VMs do Windows, instale todas as atualizações mais recentes do Windows na VM, para que todos os certificados de raiz fidedigna fiquem na máquina. Em um ambiente desconectado, siga os processos padrão de atualização de certificado e atualização do Windows para sua organização.
+3. Para VMs do Windows, instale todas as atualizações mais recentes do Windows na VM, para que todos os certificados de raiz fidedigna fiquem na máquina. Num ambiente desligado, siga os processos padrão de atualização do Windows e atualização de certificados para a sua organização.
 
-4. Para VMs do Linux, siga as orientações fornecidas pelo seu distribuidor do Linux para obter os certificados raiz confiáveis mais recentes e a lista de certificados revogados na VM.
-5. Certifique-se de não usar um proxy de autenticação para controlar a conectividade de rede para as VMs que você deseja mover.
+4. Para os VMs Linux, siga as orientações fornecidas pelo seu distribuidor Linux para obter os mais recentes certificados de raiz fidedignos e lista de revogação de certificados no VM.
+5. Certifique-se de que não utiliza um proxy de autenticação para controlar a conectividade da rede para VMs que pretende mover.
 
-6. Se a VM que você está tentando mover não tiver acesso à Internet e usar um proxy de firewall para controlar o acesso de saída, verifique os requisitos em [configurar conectividade de rede de saída](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+6. Se o VM que está a tentar mover não tem acesso à internet e utiliza um proxy de firewall para controlar o acesso de saída, verifique os requisitos na conectividade de rede de saída da [Configure](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 
-7. Identifique o layout de rede de origem e os recursos que você usa atualmente para verificação, incluindo balanceadores de carga, NSGs e IP público.
+7. Identifique o layout de rede de origem e os recursos que utiliza atualmente para verificação, incluindo equilibradores de carga, NSGs e IP público.
 
-## <a name="prepare-the-target-region"></a>Preparar a região de destino
+## <a name="prepare-the-target-region"></a>Preparar a região alvo
 
-1. Verifique se sua assinatura do Azure permite criar VMs na região de destino usada para recuperação de desastre. Se necessário, entre em contato com o suporte para habilitar a cota necessária.
+1. Verifique se a sua subscrição Azure permite criar VMs na região alvo utilizada para a recuperação de desastres. Se necessário, contacte o suporte para ativar a quota necessária.
 
-2. Certifique-se de que a sua subscrição tem recursos suficientes para suportar as VMs com tamanhos que correspondem às VMs de origem. Se você usar Site Recovery para copiar dados para o destino, ele escolherá o mesmo tamanho ou o tamanho mais próximo possível para a VM de destino.
+2. Certifique-se de que a sua subscrição tem recursos suficientes para suportar as VMs com tamanhos que correspondem às VMs de origem. Se utilizar a Recuperação do Site para copiar dados para o alvo, ele escolhe o mesmo tamanho ou o tamanho mais próximo possível para o VM alvo.
 
-3. Crie um recurso de destino para cada componente identificado no layout de rede de origem. Essa ação garante que depois de você passar para a região de destino, suas VMs terão toda a funcionalidade e os recursos que você tinha na origem.
+3. Crie um recurso-alvo para todos os componentes identificados no layout de rede de origem. Esta ação garante que, depois de cortar para a região alvo, os seus VMs têm todas as funcionalidades e funcionalidades que tinha na fonte.
 
     > [!NOTE]
-    > Azure Site Recovery descobre e cria automaticamente uma conta de armazenamento e rede virtual quando você habilita a replicação para a VM de origem. Você também pode criar previamente esses recursos e atribuir à VM como parte da etapa habilitar replicação. Mas para todos os outros recursos, conforme mencionado posteriormente, você precisa criá-los manualmente na região de destino.
+    > A Recuperação do Site Azure descobre e cria automaticamente uma rede virtual e uma conta de armazenamento quando ativa a replicação para o VM de origem. Também pode pré-criar estes recursos e atribuir ao VM como parte do passo de replicação ativa. Mas para quaisquer outros recursos, como mencionado mais tarde, é necessário criá-los manualmente na região alvo.
 
-     Os documentos a seguir informam como criar os recursos de rede usados com mais frequência que são relevantes para você, com base na configuração da VM de origem.
+     Os seguintes documentos dizem como criar os recursos de rede mais utilizados que são relevantes para si, com base na configuração vm de origem.
 
     - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer)
-    - [IP público](../virtual-network/virtual-network-public-ip-address.md)
+    - [IP Público](../virtual-network/virtual-network-public-ip-address.md)
     
-   Para qualquer outro componente de rede, consulte a [documentação](https://docs.microsoft.com/azure/#pivot=products&panel=network)de rede.
+   Para quaisquer outros componentes de rede, consulte a [documentação](https://docs.microsoft.com/azure/?pivot=products&panel=network)de rede .
 
     > [!IMPORTANT]
-    > Certifique-se de usar um balanceador de carga com redundância de zona no destino. Você pode ler mais em [Standard Load Balancer e zonas de disponibilidade](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+    > Certifique-se de que utiliza um equilibrador de carga redundante no alvo. Pode ler mais nas Zonas de [Equilíbrio de Carga Padrão e Disponibilidade.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 
-4. [Crie manualmente uma rede que não seja de produção](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) na região de destino se desejar testar a configuração antes de passar para a região de destino. É recomendável que essa abordagem cause interferência mínima com o ambiente de produção.
+4. [Crie](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manualmente uma rede de não produção na região alvo se quiser testar a configuração antes de cortar para a região alvo. Recomendamos esta abordagem porque causa uma interferência mínima no ambiente de produção.
 
 ## <a name="enable-replication"></a>Ativar a replicação
-As etapas a seguir o orientarão ao usar Azure Site Recovery para habilitar a replicação de dados para a região de destino, antes de você movê-los para o Zonas de Disponibilidade.
+Os seguintes passos irão guiá-lo ao utilizar a Recuperação do Site Azure para permitir a replicação de dados para a região alvo, antes de os transferir eventualmente para Zonas de Disponibilidade.
 
 > [!NOTE]
-> Essas etapas são para uma única VM. Você pode estender o mesmo para várias VMs. Vá para o cofre dos serviços de recuperação, selecione **+ replicar**e selecione as VMs relevantes juntas.
+> Estes passos são para um único VM. Pode estender o mesmo a vários VMs. Vá ao cofre dos Serviços de Recuperação, selecione **+ Replicate,** e selecione os VMs relevantes em conjunto.
 
-1. No portal do Azure, selecione **máquinas virtuais**e selecione a VM que você deseja mover para zonas de disponibilidade.
+1. No portal Azure, selecione **máquinas Virtuais,** e selecione o VM que pretende mover-se para Zonas de Disponibilidade.
 2. Em **Operações**, selecione **Recuperação após desastre**.
-3. Em **Configurar recuperação de desastre** > **região de destino**, selecione a região de destino para a qual você irá replicar. Verifique se essa região [dá suporte](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) a zonas de disponibilidade.
+3. Em **Configurar recuperação após desastre** > **Região de destino**, selecione a região de destino para a qual irá replicar. Certifique-se de que esta região [suporta](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) zonas de disponibilidade.
 
-    ![Seleção da região de destino](media/azure-vms-to-zones/enable-rep-1.PNG)
+    ![Seleção da região-alvo](media/azure-vms-to-zones/enable-rep-1.PNG)
 
-4. Selecione **Avançar: configurações avançadas**.
-5. Escolha os valores apropriados para a assinatura de destino, grupo de recursos de VM de destino e rede virtual.
-6. Na seção **disponibilidade** , escolha a zona de disponibilidade na qual você deseja mover a VM. 
+4. Selecione **Seguinte: Configurações avançadas**.
+5. Escolha os valores apropriados para a subscrição alvo, grupo de recursos VM alvo e rede virtual.
+6. Na secção **Disponibilidade,** escolha a Zona de Disponibilidade para onde pretende mover o VM. 
    > [!NOTE]
-   > Se você não vir a opção de conjunto de disponibilidade ou zona disponibilidade, verifique se os [pré-requisitos](#prepare-the-source-vms) foram atendidos e se a [preparação](#prepare-the-source-vms) das VMs de origem foi concluída.
+   > Se não vir a opção para o conjunto de disponibilidade ou zona de availabilty, certifique-se de que os [pré-requisitos](#prepare-the-source-vms) são cumpridos e a [preparação](#prepare-the-source-vms) de VMs de origem está completa.
   
-    ![Seleções para escolher uma zona de disponibilidade](media/azure-vms-to-zones/enable-rep-2.PNG)
+    ![Seleções para escolher uma Zona de Disponibilidade](media/azure-vms-to-zones/enable-rep-2.PNG)
 
-7. Selecione **Ativar Replicação**. Essa ação inicia um trabalho para habilitar a replicação para a VM.
+7. Selecione **Ativar Replicação**. Esta ação inicia um trabalho para permitir a replicação para o VM.
 
-## <a name="check-settings"></a>Verificar configurações
+## <a name="check-settings"></a>Verificar as definições
 
 Após a tarefa de replicação ser concluída, pode ver o estado da replicação, modificar a replicação e testar a implementação.
 
 1. No menu da VM, clique em **Recuperação após desastre**.
-2. Você pode verificar a integridade da replicação, os pontos de recuperação que foram criados e a origem e as regiões de destino no mapa.
+2. Pode verificar a saúde da replicação, os pontos de recuperação que foram criados e a fonte, e as regiões-alvo no mapa.
 
    ![Estado de replicação](media/azure-to-azure-quickstart/replication-status.png)
 
 ## <a name="test-the-configuration"></a>Testar a configuração
 
-1. No menu máquina virtual, selecione **recuperação de desastre**.
-2. Selecione o ícone **failover de teste** .
-3. Em **failover de teste**, selecione um ponto de recuperação a ser usado para o failover:
+1. No menu da máquina virtual, selecione **Recuperação de Desastres.**
+2. Selecione o ícone Failover do **teste.**
+3. No **Teste Failover,** selecione um ponto de recuperação para utilizar para a falha:
 
    - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo serviço do Site Recovery. O carimbo de data/hora é apresentado. Com esta opção, não é despendido tempo a processar os dados, pelo que oferece um RTO (objetivo de tempo de recuperação) baixo.
    - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha de todas as VMs para o último ponto de recuperação consistente com a aplicação. O carimbo de data/hora é apresentado.
    - **Personalizado**: selecione qualquer ponto de recuperação.
 
-3. Selecione a rede virtual do Azure de destino para a qual você deseja mover as VMs do Azure para testar a configuração. 
+3. Selecione o alvo de teste Rede virtual Azure para a qual pretende mover os VMs Azure para testar a configuração. 
 
     > [!IMPORTANT]
-    > Recomendamos que você use uma rede VM do Azure separada para a falha de teste, e não a rede de produção na região de destino na qual você deseja mover suas VMs.
+    > Recomendamos que utilize uma rede Azure VM separada para a falha de teste e não a rede de produção na região alvo para a qual pretende mover os seus VMs.
 
-4. Para começar a testar a movimentação, selecione **OK**. Para acompanhar o progresso, selecione a VM para abrir suas propriedades. Ou, você pode selecionar o trabalho de **failover de teste** no nome do cofre > **configurações** > **trabalhos** > **trabalhos de site Recovery**.
+4. Para começar a testar o movimento, selecione **OK**. Para acompanhar o progresso, selecione o VM para abrir as suas propriedades. Ou, pode selecionar o trabalho **de Failover** de Teste no nome do cofre > **Configurações** > **Empregos** > trabalhos de **recuperação**do site .
 5. Após a conclusão da ativação pós-falha, a VM do Azure de réplica é apresentada no portal do Azure > **Máquinas Virtuais**. Certifique-se de que a VM está em execução, tem as dimensões adequadas e está ligada à rede devida.
-6. Se você quiser excluir a VM criada como parte do teste da movimentação, selecione **limpar failover de teste** no item replicado. Em **observações**, registre e salve as observações associadas ao teste.
+6. Se pretender eliminar o VM criado como parte do teste do movimento, **selecione falha** no teste de limpeza no item replicado. Em **Notas,** registe e guarde quaisquer observações associadas ao teste.
 
-## <a name="move-to-the-target-region-and-confirm"></a>Mover para a região de destino e confirmar
+## <a name="move-to-the-target-region-and-confirm"></a>Mover-se para a região alvo e confirmar
 
-1.  No menu máquina virtual, selecione **recuperação de desastre**.
-2. Selecione o ícone de **failover** .
+1.  No menu da máquina virtual, selecione **Recuperação de Desastres.**
+2. Selecione o ícone **Failover.**
 3. Em **Ativação pós-falha**, selecione **Mais recente**. 
 4. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tenta encerrar a VM de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**. 
-5. Depois que o trabalho for concluído, verifique se a VM aparece na região de destino do Azure conforme o esperado.
-6. Em **Itens replicados**, clique com o botão direito do rato na VM > **Consolidar**. Isso conclui o processo de movimentação para a região de destino. Aguarde até que o trabalho de confirmação seja concluído.
+5. Depois de terminar o trabalho, verifique se o VM aparece na região-alvo de Azure, como esperado.
+6. Em **Itens replicados**, clique com o botão direito do rato na VM > **Consolidar**. Isto termina o processo de mudança para a região alvo. Espere até que o trabalho de compromisso esteja terminado.
 
-## <a name="discard-the-resource-in-the-source-region"></a>Descartar o recurso na região de origem
+## <a name="discard-the-resource-in-the-source-region"></a>Descartar o recurso na região nascente
 
-Vá para a VM. Selecione **desabilitar replicação**. Essa ação interrompe o processo de copiar os dados para a VM.  
+Vai para a VM. Selecione **Desativar a replicação**. Esta ação interrompe o processo de cópia dos dados para o VM.  
 
 > [!IMPORTANT]
-> Faça a etapa anterior para evitar a cobrança por Site Recovery replicação após a movimentação. As definições de replicação da origem são limpas automaticamente. Observe que a extensão de Site Recovery instalada como parte da replicação não é removida e precisa ser removida manualmente.
+> Faça o passo anterior para evitar ser cobrado para a replicação da Recuperação do Local após a mudança. As definições de replicação da origem são limpas automaticamente. Note que a extensão de recuperação do local que é instalada como parte da replicação não é removida e precisa de ser removida manualmente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aumentou a disponibilidade de uma VM do Azure ao migrar para um conjunto de disponibilidade ou zona de disponibilidade. Agora você pode definir a recuperação de desastre para a VM movida.
+Neste tutorial, aumentou a disponibilidade de um VM Azure, movendo-se para um conjunto de disponibilidade ou Zona de Disponibilidade. Agora pode definir a recuperação de desastres para o VM movido.
 
 > [!div class="nextstepaction"]
 > [Configurar a recuperação após desastre após a migração](azure-to-azure-quickstart.md)

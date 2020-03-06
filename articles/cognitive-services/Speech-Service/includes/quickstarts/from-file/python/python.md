@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/30/2020
 ms.author: dapine
-ms.openlocfilehash: f3a6ffeede05c1a2e9a883d40df19819e6a4bb3b
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 4e8d100000e7191c77c09a1b2e4c28088e247d8f
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446851"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384029"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -93,7 +93,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instale e use o SDK de Fala com código de estúdio visual
 
-1. Faça o download e instale uma versão de 64 bits de [Python,](https://www.python.org/downloads/)3.5 ou mais tarde, no seu computador.
+1. Descarregue e instale uma versão de 64 bits de [Python](https://www.python.org/downloads/), 3.5 a 3.8, no seu computador.
 1. Descarregue e instale o Código do [Estúdio Visual.](https://code.visualstudio.com/Download)
 1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione **File** > **Preferências** > **Extensões** do menu. Pesquisa por **Python.**
 

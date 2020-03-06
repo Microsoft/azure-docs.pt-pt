@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7495c6b114e232a9aad0075e173abebcb3c92cd0
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 4ce56b64502904308f45c74a5471447d93419452
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273602"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303057"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Ativos variáveis na Automação Azure
 
@@ -33,9 +33,6 @@ Uma vez que as variáveis de Automação são persistidas, estão disponíveis m
 Ao criar uma variável, pode especificar a sua encriptação e armazenamento pela Azure Automation como um ativo seguro. Outros ativos seguros incluem credenciais, certificados e ligações. A Azure Automation encripta estes ativos e armazena-os utilizando uma chave única que é gerada para cada conta De Automação. A chave está armazenada num cofre de chaves gerido pelo sistema. Antes de armazenar um ativo seguro, a Azure Automation carrega a chave a partir do Cofre de Chaves e depois usa-a para encriptar o ativo. 
 
 A Azure Automation armazena cada variável encriptada de forma segura. O seu valor não pode ser recuperado utilizando o cmdlet [Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) que envia como parte do módulo Azure PowerShell. A única maneira de recuperar um valor encriptado é utilizando a atividade **Get-AutomationVariable** numa configuração de livro de execução ou DSC.
-
->[!NOTE]
->Se pretender remover a encriptação para uma variável, deve eliminar a variável e recriá-la como não encriptada.
 
 >[!NOTE]
 >Este artigo foi atualizado para utilizar o novo módulo AZ do Azure PowerShell. Pode continuar a utilizar o módulo AzureRM, que continuará a receber correções de erros até, pelo menos, dezembro de 2020. Para obter mais informações sobre o novo módulo Az e a compatibilidade do AzureRM, veja [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para instruções de instalação do módulo Az no seu Executor Híbrido, consulte [Instalar o Módulo PowerShell Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para a sua conta Automation, pode atualizar os seus módulos para a versão mais recente, utilizando [como atualizar os módulos Azure PowerShell em Automação Azure](../automation-update-azure-modules.md).
@@ -96,6 +93,9 @@ As funções na tabela seguinte são usadas para aceder e recuperar variáveis n
 1. Na sua conta De automação, clique no azulejo **Do Ativo** e, em seguida, na lâmina **do Ativo,** selecione **Variáveis**.
 2. No azulejo **Variáveis,** selecione **Adicionar uma variável**.
 3. Complete as opções na lâmina **New Variable** e clique em **Criar** para salvar a nova variável.
+
+>[!NOTE]
+>Se pretender remover a encriptação para uma variável, deve eliminar a variável e recriá-la como não encriptada.
 
 ### <a name="create-a-new-variable-with-windows-powershell"></a>Criar uma nova variável com o Windows PowerShell
 

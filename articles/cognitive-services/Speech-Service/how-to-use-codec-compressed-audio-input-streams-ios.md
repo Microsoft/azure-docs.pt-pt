@@ -1,7 +1,7 @@
 ---
-title: Áudio compactado do codec de fluxo com o SDK de fala no iOS
+title: Áudio comprimido de código de fluxo com o SDK da fala no iOS
 titleSuffix: Azure Cognitive Services
-description: Saiba como transmitir áudio compactado para o serviço de fala com o SDK de fala no iOS.
+description: Aprenda a transmitir áudio comprimido para o serviço de Fala com o SDK de Fala no iOS.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,61 +10,61 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2089f4191ddd57fa8dc19862bd195756c166f2d4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5d65ac83fc8a41008971108c5b370c1d0416113b
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805863"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331524"
 ---
-# <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Como usar a entrada de áudio compactado por codec com o SDK de fala no iOS
+# <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Como: Utilizar a entrada de áudio comprimido codec com o SDK de Fala no iOS
 
-A API de **fluxo de entrada de áudio compactada** do SDK de fala fornece uma maneira de transmitir áudio compactado para o serviço de fala usando um fluxo de recepção ou de envio por push.
+A API de entrada de **áudio comprimido** do Speech SDK fornece uma forma de transmitir áudio comprimido para o serviço de Fala usando um fluxo de puxar ou empurrar.
 
 > [!IMPORTANT]
-> O SDK de fala versão 1.7.0 ou superior é necessário para streaming de áudio compactado no iOS. Também há suporte para [ C++o, C#o e o Java no Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md) e [Java no Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
+> A versão 1.7.0 ou superior do Speech SDK é necessária para o streaming de áudio comprimido no iOS. Também é suportado para [ C++, C#e Java em Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)](how-to-use-codec-compressed-audio-input-streams.md) e [Java no Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
 
-Para wav/PCM, consulte a documentação de fala principal. Fora de wav/PCM, há suporte para os seguintes formatos de entrada compactados do Codec:
+Para acenar/PCM consulte a documentação da fala principal. Fora do wav/PCM, são suportados os seguintes formatos de entrada comprimidos codec:
 
 - MP3
 - OPUS/OGG
 - FLAC
-- ALAW no contêiner WAV
-- MULAW no contêiner WAV
+- ALAW em recipiente de awav
+- MULAW em recipiente de awav
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O tratamento de áudio compactado é implementado usando o [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licenciamento, essas funções não podem ser enviadas com o SDK, mas uma biblioteca de wrapper que contém essas funções precisa ser criada por desenvolvedores de aplicativos e fornecida com os aplicativos usando o SDK.
+O manuseamento do áudio comprimido é implementado utilizando [gStreamer](https://gstreamer.freedesktop.org). Por razões de licenciamento, estas funções não podem ser enviadas com o SDK, mas uma biblioteca de invólucros contendo estas funções precisa de ser construída por desenvolvedores de aplicações e enviada com as aplicações usando o SDK.
 
-Para criar essa biblioteca de wrapper, primeiro Baixe e instale o [SDK do GStreamer](https://gstreamer.freedesktop.org/data/pkg/ios/1.16.0/gstreamer-1.0-devel-1.16.0-ios-universal.pkg). Em seguida, baixe o projeto Xcode para a [biblioteca de wrapper](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/compressed-streams/GStreamerWrapper).
+Para construir esta biblioteca de invólucros, primeiro descarregue e instale o [GStreamer SDK](https://gstreamer.freedesktop.org/data/pkg/ios/1.16.0/gstreamer-1.0-devel-1.16.0-ios-universal.pkg). Em seguida, descarregue o projeto Xcode para a [biblioteca de invólucros.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/compressed-streams/GStreamerWrapper)
 
-Abra o projeto no Xcode e compile-o para o destino do **dispositivo IOS genérico** --ele não funcionará para compilá-lo para um destino específico.
+Abra o projeto em Xcode e construa-o para o alvo **genérico do dispositivo iOS** -- não funcionará para construí-lo para um alvo específico.
 
-A etapa de compilação irá gerar um pacote de estrutura dinâmica com uma biblioteca dinâmica para todas as arquiteturas necessárias com o nome de `GStreamerWrapper.framework`.
+O passo de construção gerará um conjunto de quadros dinâmicos com uma biblioteca dinâmica para todas as arquiteturas necessárias com o nome de `GStreamerWrapper.framework`.
 
-Essa estrutura deve ser incluída em todos os aplicativos que usam fluxos de áudio compactados com o SDK do serviço de fala.
+Esta estrutura deve ser incluída em todas as aplicações que utilizam fluxos de áudio comprimidos com o serviço de fala SDK.
 
-Aplique as seguintes configurações em seu projeto Xcode para fazer isso:
+Aplique as seguintes definições no seu projeto Xcode para o concretizar:
 
-1. Copie o `GStreamerWrapper.framework` que você acabou de criar e a estrutura do SDK de fala dos serviços cognitivas, que pode ser baixado [aqui](https://aka.ms/csspeech/iosbinary)para o diretório que contém o projeto de exemplo.
-1. Ajuste os caminhos para as estruturas nas configurações do _projeto_.
-   1. Na guia **geral** sob o cabeçalho **binários inseridos** , adicione a biblioteca do SDK como uma estrutura: **adicionar binários inseridos** > **Adicionar outro...** > Navegue até o diretório escolhido e selecione ambas as estruturas.
+1. Copie tanto o `GStreamerWrapper.framework` que acabou de construir como o quadro do SDK de Discurso dos Serviços Cognitivos, que pode transferir daqui [para](https://aka.ms/csspeech/iosbinary)o diretório que contém o seu projeto de amostra.
+1. Ajuste os caminhos para as estruturas nas _Definições_do Projeto .
+   1. No separador **Geral** sob o cabeçalho **Embedded Binaries,** adicione a biblioteca SDK como uma estrutura: **Adicione binários incorporados** > **Adicione outros...** > Navegue ao diretório que escolheu e selecione ambos os quadros.
    1. Vá para o separador **Build Settings** (Definições de Compilação) e ative a definição **All** (Tudo).
 1. Adicione o diretório `$(SRCROOT)/..` a _Framework Search Paths_ (Caminhos de Pesquisa da Arquitetura) no cabeçalho **Search Paths** (Caminhos de Pesquisa).
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>Código de exemplo usando a entrada de áudio compactado por codec
+## <a name="example-code-using-codec-compressed-audio-input"></a>Código de exemplo utilizando entrada de áudio comprimido codec
 
-Para transmitir em um formato de áudio compactado para o serviço de fala, crie um `SPXPullAudioInputStream` ou `SPXPushAudioInputStream`.
+Para transmitir num formato áudio comprimido para o serviço De Fala, crie uma `SPXPullAudioInputStream` ou `SPXPushAudioInputStream`.
 
-O trecho a seguir mostra como criar um `SPXAudioConfiguration` de uma instância de um `SPXPushAudioInputStream`, especificando MP3 como o formato de compactação do fluxo.
+O seguinte corte mostra como criar uma `SPXAudioConfiguration` a partir de um caso de `SPXPushAudioInputStream`, especificando mp3 como o formato de compressão do fluxo.
 
 [!code-objectivec[Set up the input stream](~/samples-cognitive-services-speech-sdk/samples/objective-c/ios/compressed-streams/CompressedStreamsSample/CompressedStreamsSample/ViewController.m?range=66-77&highlight=2-11)]
 
-O próximo trecho mostra como os dados de áudio compactados podem ser lidos de um arquivo e bombeados para o `SPXPushAudioInputStream`.
+O próximo corte mostra como os dados de áudio comprimidos podem ser lidos a partir de um ficheiro e bombeados para o `SPXPushAudioInputStream`.
 
 [!code-objectivec[Push compressed audio data into the stream](~/samples-cognitive-services-speech-sdk/samples/objective-c/ios/compressed-streams/CompressedStreamsSample/CompressedStreamsSample/ViewController.m?range=105-151&highlight=19-44)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Veja como reconhecer a fala em Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
+- [Veja como reconhecer o discurso em Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

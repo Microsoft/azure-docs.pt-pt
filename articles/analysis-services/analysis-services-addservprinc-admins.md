@@ -8,19 +8,16 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b75740e9bff714ad68c93bea7e387e60da2f1c59
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212507"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298093"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicione um principal de serviço à função de administrador do servidor 
 
  Para automatizar tarefas PowerShell não atendidas, um diretor de serviço deve ter privilégios de administrador de **servidor** no servidor serviços de análise sendo geridos. Este artigo descreve como adicionar um principal de serviço ao papel de administradores do servidor num servidor Azure AS. Pode fazê-lo usando o Estúdio de Gestão de Servidores SQL ou um modelo de Gestor de Recursos.
- 
-> [!NOTE]
-> Para operações de servidor utilizando cmdlets Azure PowerShell, o diretor de serviço também deve pertencer à função **Proprietário** para o recurso no Controlo de Acesso baseado em [papel Azure (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="before-you-begin"></a>Antes de começar
 Antes de completar esta tarefa, deve ter um diretor de serviço registado no Diretório Ativo Azure.
@@ -42,7 +39,7 @@ Pode configurar administradores de servidores utilizando o Estúdio de Gestão d
     
     ![Procurar conta principal de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
-## <a name="using-a-resource-manager-template"></a>Usando um modelo do Resource Manager
+## <a name="using-a-resource-manager-template"></a>Utilizar um modelo do Resource Manager
 
 Também pode configurar os administradores do servidor implementando o servidor de Serviços de Análise utilizando um modelo de Gestor de Recursos Azure. A identidade que executa a implantação deve pertencer ao papel **de Contribuinte** para o recurso no Controlo de Acesso baseado em [Funções Azure (RBAC)](../role-based-access-control/overview.md).
 
@@ -96,6 +93,24 @@ O seguinte modelo de Gestor de Recursos implementa um servidor de Serviços de A
     ]
 }
 ```
+
+## <a name="using-managed-identities"></a>Usando identidades geridas
+
+Uma identidade gerida também pode ser adicionada à lista de Administradores de Serviços de Análise. Por exemplo, pode ter uma App Lógica com uma identidade gerida atribuída pelo sistema, e quer [conceder-lhe](../logic-apps/create-managed-service-identity.md)a capacidade de administrar o seu servidor de Serviços de Análise.
+
+Na maioria das partes do portal Azure e APIs, as identidades geridas são identificadas usando o seu principal de serviço ID. No entanto, os Serviços de Análise exigem que sejam identificados utilizando o ID do cliente. Para obter o ID do cliente para um diretor de serviço, pode utilizar o Azure CLI:
+
+```bash
+az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
+```
+
+Alternativamente, pode utilizar o PowerShell:
+
+```powershell
+(Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
+```
+
+Em seguida, pode utilizar este ID do cliente em conjunto com o ID do inquilino para adicionar a identidade gerida à lista de Administradores de Serviços de Análise, como descrito acima.
 
 ## <a name="related-information"></a>Informações relacionadas
 

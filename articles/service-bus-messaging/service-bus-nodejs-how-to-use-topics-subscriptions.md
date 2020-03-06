@@ -1,6 +1,6 @@
 ---
-title: Use os tópicos do barramento de serviço do Azure com o pacote de Node. js do Azure/Service-Bus
-description: Saiba como usar os tópicos e as assinaturas do barramento de serviço no Azure de um aplicativo node. js usando o pacote do Azure/Service-Bus.
+title: Utilize tópicos de ônibus de serviço Azure com pacote azure/service-bus Node.js
+description: Saiba como utilizar tópicos e subscrições de ônibus de serviço em Azure a partir de uma aplicação Node.js usando o pacote azure/service-bus.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -14,49 +14,48 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: e6ac3c74a0a8346ad8a6820c676224bfcba0e8b4
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: c85b63b4a56e74b0fef9a122ec995b4106496cbe
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264446"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330451"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Início rápido: como usar os tópicos e as assinaturas do barramento de serviço com o Node. js e o pacote do Azure-SB
-> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Quickstart: Como utilizar tópicos e subscrições de ônibus de serviço com Node.js e o pacote azure-sb
+Neste tutorial, você aprende a criar aplicações Node.js para enviar mensagens para um tópico de ônibus de serviço e receber mensagens de uma subscrição de Ônibus de serviço usando o pacote [azure-sb.](https://www.npmjs.com/package/azure-sb) As amostras estão escritas no JavaScript e utilizam o módulo Node.js [Azure](https://www.npmjs.com/package/azure) que utiliza internamente o pacote `azure-sb`.
 
-Neste tutorial, você aprenderá a criar aplicativos node. js para enviar mensagens para um tópico do barramento de serviço e receber mensagens de uma assinatura do barramento de serviço usando o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) . Os exemplos são escritos em JavaScript e usam o [módulo do Azure](https://www.npmjs.com/package/azure) node. js que usa internamente o pacote de `azure-sb`.
+> [!IMPORTANT]
+> O pacote [azure-sb](https://www.npmjs.com/package/azure-sb) utiliza APIs de [tempo de execução service Bus REST](/rest/api/servicebus/service-bus-runtime-rest). Você pode obter uma experiência mais rápida usando o novo pacote [de@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) que usa o [protocolo AMQP 1.0](service-bus-amqp-overview.md)mais rápido . 
+> 
+> Para saber mais sobre o novo pacote, consulte [como utilizar tópicos e subscrições de Ônibus de serviço com pacote Node.js e @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), caso contrário continue a ler para ver como usar o pacote [azure.](https://www.npmjs.com/package/azure)
 
-O pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) usa [APIs REST de tempo de execução do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Você pode obter uma experiência mais rápida usando o novo pacote de [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) que usa o [protocolo AMQP 1,0](service-bus-amqp-overview.md)mais rápido. Para saber mais sobre o novo pacote, consulte [como usar os tópicos e as assinaturas do barramento de serviço com o Node. js e o pacote @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), caso contrário, continue lendo para ver como usar o pacote [do Azure](https://www.npmjs.com/package/azure) .
+Os cenários aqui abordados incluem:
 
-Os cenários abordados aqui incluem:
+- Criação de tópicos e subscrições 
+- Criação de filtros de subscrição 
+- Envio de mensagens para um tópico 
+- Receber mensagens de uma subscrição
+- Apagar tópicos e subscrições 
 
-- Criando tópicos e assinaturas 
-- Criando filtros de assinatura 
-- Enviando mensagens para um tópico 
-- Recebendo mensagens de uma assinatura
-- Excluindo tópicos e assinaturas 
-
-Para obter mais informações sobre tópicos e assinaturas, consulte a seção [próximas etapas](#next-steps) .
+Para mais informações sobre tópicos e subscrições, consulte a secção [Next steps.](#next-steps)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios do assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Siga as etapas no [início rápido: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um **namespace** do barramento de serviço e obter a **cadeia de conexão**.
+- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar os benefícios do seu Estúdio Visual ou dos benefícios de [subscrição da MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Siga os passos no [Quickstart: Use o portal Azure para criar um tópico de ônibus de serviço e subscrições do tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um espaço de **nome** de ônibus de serviço e obter a cadeia de **ligação**.
 
     > [!NOTE]
-    > Você criará um **tópico** e uma **assinatura** para o tópico usando o **node. js** neste guia de início rápido. 
+    > Você vai criar um **tópico** e uma **subscrição** para o tópico usando **Node.js** neste arranque rápido. 
 
 ## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
-Crie um aplicativo node. js em branco. Para obter instruções sobre como criar um aplicativo node. js, consulte [criar e implantar um aplicativo node. js em um site do Azure], [serviço de nuvem do node. js][Node.js Cloud Service] usando o Windows PowerShell ou site com o WebMatrix.
+Crie uma aplicação node.js em branco. Para obter instruções sobre a criação de uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js para um Web Site Azure], [Node.js Cloud Service][Node.js Cloud Service] utilizando o Windows PowerShell ou Web Site com WebMatrix.
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o barramento de serviço
-Para usar o barramento de serviço, baixe o pacote do Azure do node. js. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço.
+## <a name="configure-your-application-to-use-service-bus"></a>Configure a sua aplicação para utilizar o Service Bus
+Para utilizar o Service Bus, faça o download do pacote Node.js Azure. Este pacote inclui um conjunto de bibliotecas que comunicam com os serviços service Bus REST.
 
-### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usar o Gerenciador de pacotes de nó (NPM) para obter o pacote
-1. Abra uma interface de linha de comando, como **PowerShell** (Windows), **terminal** (Mac) ou **bash** (Unix).
-2. Navegue até a pasta em que você criou o aplicativo de exemplo.
-3. Digite **NPM install Azure** na janela de comando, que deve resultar na seguinte saída:
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Use O Gestor de Pacotes do Nó (NPM) para obter o pacote
+1. Abra uma interface de linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
+2. Navegue para a pasta onde criou a sua aplicação de amostra.
+3. Digite **npm instale azul** na janela de comando, o que deve resultar na seguinte saída:
 
    ```
        azure@0.7.5 node_modules\azure
@@ -71,30 +70,30 @@ Para usar o barramento de serviço, baixe o pacote do Azure do node. js. Este pa
    ├── xml2js@0.2.7 (sax@0.5.2)
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
-3. Você pode executar manualmente o comando **ls** para verificar se uma pasta **node\_modules** foi criada. Dentro dessa pasta, encontre o pacote **do Azure** , que contém as bibliotecas necessárias para acessar os tópicos do barramento de serviço.
+3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta **de módulos\_nó.** Dentro dessa pasta, encontre o pacote **azul,** que contém as bibliotecas que precisa para aceder aos tópicos do Service Bus.
 
 ### <a name="import-the-module"></a>Importar o módulo
-Usando o bloco de notas ou outro editor de texto, adicione o seguinte à parte superior do arquivo **Server. js** do aplicativo:
+Utilizando o Bloco de Notas ou outro editor de texto, adicione o seguinte ao ficheiro topo do **servidor.js** da aplicação:
 
 ```javascript
 var azure = require('azure');
 ```
 
-### <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do barramento de serviço
-O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para a cadeia de conexão que você obteve na etapa anterior, "obter as credenciais". Se essa variável de ambiente não estiver definida, você deverá especificar as informações da conta ao chamar `createServiceBusService`.
+### <a name="set-up-a-service-bus-connection"></a>Configurar uma ligação de ônibus de serviço
+O módulo Azure lê a variável ambiental `AZURE_SERVICEBUS_CONNECTION_STRING` para a cadeia de ligação que obteve do passo anterior, "Obtenha as credenciais". Se esta variável ambiental não estiver definida, deve especificar as informações da conta ao ligar para `createServiceBusService`.
 
-Para obter um exemplo de como definir as variáveis de ambiente para um serviço de nuvem do Azure, consulte [definir variáveis de ambiente](../container-instances/container-instances-environment-variables.md#azure-cli-example).
+Para um exemplo de definição das variáveis ambientais para um Serviço azure cloud, consulte [as variáveis ambiente definidas](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
 ## <a name="create-a-topic"></a>Criar um tópico
-O objeto **ServiceBusService** permite que você trabalhe com tópicos. O código a seguir cria um objeto **ServiceBusService** . Adicione-o próximo à parte superior do arquivo **Server. js** , após a instrução para importar o módulo do Azure:
+O objeto **ServiceBusService** permite-lhe trabalhar com tópicos. O seguinte código cria um objeto **ServiceBusService.** Adicione-o perto da parte superior do ficheiro **server.js,** após a declaração para importar o módulo azul:
 
 ```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Se você chamar `createTopicIfNotExists` no objeto **ServiceBusService** , o tópico especificado será retornado (se existir) ou um novo tópico com o nome especificado será criado. O código a seguir usa `createTopicIfNotExists` para criar ou se conectar ao tópico chamado `MyTopic`:
+Se ligar para `createTopicIfNotExists` no objeto **ServiceBusService,** o tópico especificado é devolvido (se existir), ou é criado um novo tópico com o nome especificado. O código seguinte utiliza `createTopicIfNotExists` para criar ou ligar ao tópico denominado `MyTopic`:
 
 ```javascript
 serviceBusService.createTopicIfNotExists('MyTopic',function(error){
@@ -105,9 +104,9 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-O método `createTopicIfNotExists` também dá suporte a opções adicionais, que permitem que você substitua as configurações de tópico padrão, como a vida útil da mensagem ou o tamanho máximo do tópico. 
+O método `createTopicIfNotExists` também suporta opções adicionais, que lhe permitem anular as definições de tópicopadrão, tais como tempo de mensagem para viver ou tamanho máximo do tópico. 
 
-O exemplo a seguir define o tamanho máximo do tópico como 5 GB com uma vida útil de um minuto:
+O exemplo que se segue define o tamanho máximo do tópico para 5 GB com um tempo para viver de um minuto:
 
 ```javascript
 var topicOptions = {
@@ -123,37 +122,37 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 ```
 
 ### <a name="filters"></a>Filtros
-Operações de filtragem opcionais podem ser aplicadas às operações executadas usando **ServiceBusService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Filtros são objetos que implementam um método com a assinatura:
+As operações de filtragem opcionais podem ser aplicadas às operações realizadas através do **ServiceBusService**. As operações de filtragem podem incluir a exploração madeireira, a retentar automaticamente, etc. Os filtros são objetos que implementam um método com a assinatura:
 
 ```javascript
 function handle (requestOptions, next)
 ```
 
-Depois de executar o pré-processamento nas opções de solicitação, o método chama `next`e passa um retorno de chamada com a seguinte assinatura:
+Após a realização do pré-processamento das opções de pedido, o método chama `next`, e passa uma chamada com a seguinte assinatura:
 
 ```javascript
 function (returnObject, finalCallback, next)
 ```
 
-Nesse retorno de chamada, e depois de processar o `returnObject` (a resposta da solicitação para o servidor), o retorno de chamada deve invocar Next (se existir) para continuar processando outros filtros ou invocar `finalCallback` para encerrar a invocação de serviço.
+Nesta chamada, e após o processamento do `returnObject` (a resposta do pedido ao servidor), o backback deve invocar o próximo (se existir) para continuar a processar outros filtros, ou invocar `finalCallback` para acabar com a invocação do serviço.
 
-O Azure SDK para Node.js inclui dois filtros que implementam lógica de repetição: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O código a seguir cria um objeto **ServiceBusService** que usa o **ExponentialRetryPolicyFilter**:
+O Azure SDK para Node.js inclui dois filtros que implementam lógica de repetição: **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O seguinte código cria um objeto **ServiceBusService** que utiliza o **ExponencialRetryPolicyFilter:**
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
 ```
 
-## <a name="create-subscriptions"></a>Criar assinaturas
-As assinaturas de tópico também são criadas com o objeto **ServiceBusService** . As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da assinatura.
+## <a name="create-subscriptions"></a>Criar subscrições
+As subscrições de tópicos também são criadas com o objeto **ServiceBusService.** As subscrições são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues na fila virtual da subscrição.
 
 > [!NOTE]
-> Por padrão, as assinaturas são persistentes até que elas ou o tópico ao qual estão associadas sejam excluídas. Se seu aplicativo contiver lógica para criar uma assinatura, ele deverá primeiro verificar se a assinatura existe usando o método `getSubscription`.
+> Por predefinição, as subscrições são persistentes até que eles, ou o tópico a que estão associados, sejam eliminados. Se a sua aplicação contiver lógica para criar uma subscrição, deve primeiro verificar se a subscrição existe utilizando o método `getSubscription`.
 >
-> Você pode fazer com que as assinaturas sejam excluídas automaticamente definindo a [Propriedade AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> Pode ter as subscrições automaticamente eliminadas, definindo a [propriedade AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma subscrição com o filtro (MatchAll) predefinido
-O filtro **filtro matchall** é o filtro padrão usado quando uma assinatura é criada. Quando utiliza o filtro **MatchAll**, todas as mensagens publicadas para o tópico são colocadas na fila virtual da subscrição. O exemplo a seguir cria uma assinatura chamada mymessages e usa o filtro **filtro matchall** padrão.
+O filtro **MatchAll** é o filtro predefinido utilizado quando uma subscrição é criada. Quando utiliza o filtro **MatchAll**, todas as mensagens publicadas para o tópico são colocadas na fila virtual da subscrição. O exemplo seguinte cria uma subscrição chamada AllMessages e utiliza o filtro **MatchAll** predefinido.
 
 ```javascript
 serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
@@ -164,18 +163,18 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Criar subscrições com filtros
-Você também pode criar filtros que permitem o escopo de quais mensagens enviadas a um tópico devem aparecer em uma assinatura de tópico específica.
+Também pode criar filtros que lhe permitam examinar quais as mensagens enviadas para um tópico que devem aparecer dentro de uma subscrição específica de tópicos.
 
-O tipo de filtro mais flexível com suporte das assinaturas é o **sqlfilter**, que implementa um subconjunto de SQL92. Os filtros do SQL operam nas propriedades das mensagens publicadas para o tópico. Para obter mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, examine a sintaxe [sqlfilter. Sqlexpression][SqlFilter.SqlExpression] .
+O tipo de filtro mais flexível suportado por subscrições é o **SqlFilter,** que implementa um subconjunto de SQL92. Os filtros do SQL operam nas propriedades das mensagens publicadas para o tópico. Para mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, reveja a sintaxe [SqlFilter.SqlExpression.][SqlFilter.SqlExpression]
 
-Os filtros podem ser adicionados a uma assinatura usando o método `createRule` do objeto **ServiceBusService** . Esse método permite que você adicione novos filtros a uma assinatura existente.
+Os filtros podem ser adicionados a uma subscrição utilizando o método `createRule` do objeto **ServiceBusService.** Este método permite-lhe adicionar novos filtros a uma subscrição existente.
 
 > [!NOTE]
-> Como o filtro padrão é aplicado automaticamente a todas as novas assinaturas, primeiro você deve remover o filtro padrão ou o **filtro matchall** substituirá quaisquer outros filtros que você possa especificar. Você pode remover a regra padrão usando o método `deleteRule` do objeto **ServiceBusService** .
+> Uma vez que o filtro predefinido é aplicado automaticamente a todas as novas subscrições, tem primeiro de remover o filtro predefinido ou o **MatchAll** sobrepor-se-á a quaisquer outros filtros que possa especificar. Pode remover a regra predefinida utilizando o método `deleteRule` do objeto **ServiceBusService.**
 >
 >
 
-O exemplo a seguir cria uma assinatura chamada `HighMessages` com um **sqlfilter** que seleciona apenas as mensagens que têm uma propriedade personalizada `messagenumber` maior que 3:
+O exemplo seguinte cria uma subscrição chamada `HighMessages` com um **SqlFilter** que seleciona apenas mensagens que tenham uma propriedade personalizada `messagenumber` superior a 3:
 
 ```javascript
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
@@ -210,7 +209,7 @@ var rule={
 }
 ```
 
-Da mesma forma, o exemplo a seguir cria uma assinatura chamada `LowMessages` com um **sqlfilter** que seleciona apenas as mensagens que têm uma propriedade `messagenumber` menor ou igual a 3:
+Da mesma forma, o exemplo seguinte cria uma subscrição chamada `LowMessages` com um **SqlFilter** que apenas seleciona mensagens que tenham uma propriedade `messagenumber` inferior ou igual a 3:
 
 ```javascript
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
@@ -245,14 +244,14 @@ var rule={
 }
 ```
 
-Quando uma mensagem é enviada para `MyTopic`, ela é entregue aos destinatários inscritos na assinatura do tópico `AllMessages` e entregue de forma seletiva aos destinatários inscritos nas assinaturas do tópico `HighMessages` e `LowMessages` (dependendo do conteúdo da mensagem).
+Quando uma mensagem é agora enviada para `MyTopic`, é entregue aos recetores subscritos pela subscrição do tópico `AllMessages`, e entregue seletivamente aos recetores subscritos das assinaturas de tópicos `HighMessages` e `LowMessages` (dependendo do conteúdo da mensagem).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Como enviar mensagens para um tópico
-Para enviar uma mensagem para um tópico do barramento de serviço, seu aplicativo deve usar o método `sendTopicMessage` do objeto **ServiceBusService** .
-As mensagens enviadas aos tópicos do barramento de serviço são objetos **BrokeredMessage** .
-Os objetos **BrokeredMessage** têm um conjunto de propriedades padrão (como `Label` e `TimeToLive`), um dicionário que é usado para manter Propriedades personalizadas específicas do aplicativo e um corpo de dados de cadeia de caracteres. Um aplicativo pode definir o corpo da mensagem passando um valor de cadeia de caracteres para a `sendTopicMessage` e todas as propriedades padrão necessárias são preenchidas por valores padrão.
+Para enviar uma mensagem para um tópico de ônibus de serviço, a sua aplicação deve usar o método `sendTopicMessage` do objeto **ServiceBusService.**
+As mensagens enviadas para os tópicos do Service Bus são objetos **BrokeredMessage.**
+Os objetos **BrokeredMessage** têm um conjunto de propriedades padrão (como `Label` e `TimeToLive`), um dicionário que é usado para conter propriedades personalizadas específicas da aplicação, e um corpo de dados de cordas. Uma aplicação pode definir o corpo da mensagem passando um valor de cadeia para o `sendTopicMessage` e quaisquer propriedades padrão necessárias são povoadas por valores padrão.
 
-O exemplo a seguir demonstra como enviar cinco mensagens de teste para `MyTopic`. O valor da propriedade `messagenumber` de cada mensagem varia de acordo com a iteração do loop (essa propriedade determina quais assinaturas o receberão):
+O exemplo que se segue demonstra como enviar cinco mensagens de teste para `MyTopic`. O valor `messagenumber` propriedade de cada mensagem varia na iteração do loop (esta propriedade determina quais as subscrições que a recebem):
 
 ```javascript
 var message = {
@@ -273,17 +272,17 @@ for (i = 0;i < 5;i++) {
 }
 ```
 
-Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite para o número de mensagens mantidas em um tópico, mas há um limite no tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento de criação, com um limite superior de 5 GB.
+Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há limite para o número de mensagens realizadas num tópico, mas há um limite para o tamanho total das mensagens realizadas por um tópico. O tamanho do tópico é definido no momento de criação, com um limite superior de 5 GB.
 
-## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
-As mensagens são recebidas de uma assinatura usando o método `receiveSubscriptionMessage` no objeto **ServiceBusService** . Por padrão, as mensagens são excluídas da assinatura à medida que são lidas. No entanto, você pode definir o parâmetro opcional `isPeekLock` como **true** para leitura (PEEK) e bloquear a mensagem sem excluí-la da assinatura.
+## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma subscrição
+As mensagens são recebidas de uma subscrição utilizando o método `receiveSubscriptionMessage` no objeto **ServiceBusService.** Por predefinição, as mensagens são eliminadas da subscrição à medida que são lidas. No entanto, pode definir o parâmetro opcional `isPeekLock` **fiel** para ler (espreitar) e bloquear a mensagem sem a apagar da subscrição.
 
-O comportamento padrão de ler e excluir a mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem quando há uma falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e depois falha antes de processá-la. Como o barramento de serviço marcou a mensagem como sendo consumida, quando o aplicativo é reiniciado e começa a consumir mensagens novamente, ele perdeu a mensagem que foi consumida antes da falha.
+O comportamento padrão de ler e apagar a mensagem como parte da operação de receção é o modelo mais simples, e funciona melhor para cenários em que uma aplicação pode tolerar não processar uma mensagem quando há uma falha. Para compreender este comportamento, considere um cenário em que o consumidor emita o pedido de receção e, em seguida, se despenhe antes de processá-lo. Como o Service Bus marcou a mensagem como sendo consumida, então quando a aplicação recomeça e começa a consumir mensagens novamente, perdeu a mensagem que foi consumida antes do acidente.
 
-Se o parâmetro `isPeekLock` for definido como **true**, o Receive se tornará uma operação de duas etapas, o que torna possível o suporte a aplicativos que não podem tolerar mensagens perdidas. Quando o barramento de serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, bloqueia-a para impedir que outros consumidores a recebam e a retorna ao aplicativo.
-Depois que o aplicativo processa a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de recebimento chamando o método **deleteMessage** e passa a mensagem para exclusão como um parâmetro. O método **deleteMessage** marca a mensagem como consumida e a remove da assinatura.
+Se o parâmetro `isPeekLock` estiver definido como **verdadeiro,** o recebimento torna-se uma operação em duas fases, o que permite apoiar aplicações que não podem tolerar mensagens perdidas. Quando a Service Bus recebe um pedido, encontra a próxima mensagem a consumir, bloqueia-a para evitar que outros consumidores o recebam e devolve-a à aplicação.
+Após o processo da aplicação a mensagem (ou armazená-la de forma fiável para o processamento futuro), completa a segunda fase do processo de receção, chamando o método **deleteMessage,** e passa a mensagem para apagar como parâmetro. O método **deleteMessage** marca a mensagem como consumida e remove-a da subscrição.
 
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando `receiveSubscriptionMessage`. O exemplo primeiro recebe e exclui uma mensagem da assinatura ' LowMessages ' e recebe uma mensagem da assinatura ' HighMessages ' usando `isPeekLock` definido como true. Em seguida, ele exclui a mensagem usando `deleteMessage`:
+O exemplo que se segue demonstra como as mensagens podem ser recebidas e processadas utilizando `receiveSubscriptionMessage`. O exemplo recebe e elimina primeiro uma mensagem da subscrição 'LowMessages', e depois recebe uma mensagem da subscrição 'HighMessages' usando `isPeekLock` definida como verdadeira. Em seguida, elimina a mensagem utilizando `deleteMessage`:
 
 ```javascript
 serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
@@ -307,15 +306,15 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele poderá chamar o método `unlockMessage` no objeto **ServiceBusService** . Esse método faz com que o barramento de serviço desbloqueie a mensagem na assinatura e torne-a disponível para ser recebida novamente. Nessa instância, seja pelo mesmo aplicativo de consumo ou por outro aplicativo de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não conseguir processar a mensagem por alguma razão, então pode ligar para o método `unlockMessage` no objeto **ServiceBusService.** Este método faz com que o Service Bus desbloqueie a mensagem dentro da subscrição e a disponibilize novamente para ser recebida. Neste caso, quer pela mesma aplicação consumista, quer por outra aplicação consumista.
 
-Também há um tempo limite associado a uma mensagem bloqueada na assinatura. Se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o barramento de serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
+Há também um intervalo associado a uma mensagem bloqueada dentro da subscrição. Se a aplicação não processar a mensagem antes de expirar o prazo de bloqueio (por exemplo, se a aplicação falhar), então o Service Bus desbloqueia automaticamente a mensagem e disponibiliza-a para ser recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `deleteMessage` seja chamado, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Esse comportamento é geralmente chamado *de processamento de pelo menos uma vez*. Ou seja, cada mensagem é processada pelo menos uma vez, mas, em determinadas situações, a mesma mensagem pode ser entregue novamente. Se o cenário não puder tolerar o processamento duplicado, você deverá adicionar lógica ao seu aplicativo para lidar com a entrega de mensagens duplicada. Você pode usar a propriedade **MessageId** da mensagem, que permanece constante nas tentativas de entrega.
+No caso de a aplicação falhar após o processamento da mensagem, mas antes de o método `deleteMessage` ser chamado, a mensagem é reentregue à aplicação quando reinicia. Este comportamento é frequentemente chamado *de Pelo menos uma vez processamento*. Ou seja, cada mensagem é processada pelo menos uma vez, mas em certas situações a mesma mensagem pode ser retransmitida. Se o cenário não puder tolerar o processamento duplicado, então deve adicionar lógica à sua aplicação para lidar com a entrega de mensagens duplicadas. Pode utilizar a propriedade **MessageId** da mensagem, que permanece constante em todas as tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminar tópicos e subscrições
-Os tópicos e as assinaturas são persistentes, a menos que a [Propriedade autoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) seja definida e deve ser explicitamente excluída por meio do [portal do Azure][Azure portal] ou programaticamente.
-O exemplo a seguir demonstra como excluir o tópico chamado `MyTopic`:
+Os tópicos e subscrições são persistentes a menos que a [propriedade autoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) seja definida, e deve ser explicitamente eliminada através do [portal Azure][Azure portal] ou programáticamente.
+O exemplo que se segue demonstra como eliminar o tema denominado `MyTopic`:
 
 ```javascript
 serviceBusService.deleteTopic('MyTopic', function (error) {
@@ -325,7 +324,7 @@ serviceBusService.deleteTopic('MyTopic', function (error) {
 });
 ```
 
-A eliminação de um tópico elimina também quaisquer subscrições registadas com o tópico. As subscrições também podem ser eliminadas de modo independente. O exemplo a seguir mostra como excluir uma assinatura denominada `HighMessages` do tópico `MyTopic`:
+A eliminação de um tópico elimina também quaisquer subscrições registadas com o tópico. As subscrições também podem ser eliminadas de modo independente. O exemplo que se segue mostra como eliminar uma subscrição denominada `HighMessages` do tema `MyTopic`:
 
 ```javascript
 serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
@@ -336,14 +335,14 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 ```
 
 > [!NOTE]
-> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
+> Você pode gerir recursos de ônibus de serviço com [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). O Service Bus Explorer permite que os utilizadores se conectem a um espaço de nome do Bus de Serviço e administram entidades de mensagens de forma fácil. A ferramenta fornece funcionalidades avançadas como funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, subscrições, serviços de retransmissão, centros de notificação e centros de eventos. 
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que você aprendeu os conceitos básicos dos tópicos do barramento de serviço, siga estes links para saber mais.
+Agora que aprendeu o básico dos tópicos do Service Bus, siga estes links para saber mais.
 
-* Consulte [filas, tópicos e assinaturas][Queues, topics, and subscriptions].
+* Ver [Filas, tópicos e subscrições.][Queues, topics, and subscriptions]
 * Referência da API para [SqlFilter][SqlFilter].
-* Visite o repositório [SDK do Azure para nó][Azure SDK for Node] no github.
+* Visite o [Azure SDK para][Azure SDK for Node] repositório de nó no GitHub.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.com
@@ -351,6 +350,6 @@ Agora que você aprendeu os conceitos básicos dos tópicos do barramento de ser
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /javascript/api/@azure/arm-servicebus/sqlfilter?view=azure-node-latest
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Criar e implantar um aplicativo node. js em um site do Azure]: ../app-service/app-service-web-get-started-nodejs.md
+[Criar e implementar uma aplicação Node.js para um Web Site Azure]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 

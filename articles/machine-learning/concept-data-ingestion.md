@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 35c133a4d9d95dc6e942d5b8c3e8d21debb9493b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268551"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303125"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Ingestão de dados em Aprendizagem automática azure
 
@@ -71,4 +71,5 @@ No diagrama seguinte, o gasoduto Azure Machine Learning consiste em dois passos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Saiba como construir um pipeline de ingestão de dados para machine learning com [a Azure Data Factory](how-to-data-ingest-adf.md)
 * Aprenda a automatizar e gerir os ciclos de vida de desenvolvimento dos seus gasodutos de ingestão de dados com [pipelines Azure](how-to-cicd-data-ingestion.md).

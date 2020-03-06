@@ -17,16 +17,16 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f25f13c60a60e1a397e4c63443ee786a9acdf6d1
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273804"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399302"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para aceder ao Diretório Ativo Azure reportando API
 
-As [APIs de relatórios Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs de linguagens e ferramentas de programação.
+As [APIs de relatórios Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs de linguagens e ferramentas de programação.
 
 O relatório API usa [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) para autorizar o acesso às APIs web.
 
@@ -191,7 +191,6 @@ Precisa destes valores ao configurar chamadas para a API de reporte.
 
 Esta secção lista as mensagens de erro comuns que pode encontrar ao aceder a relatórios de atividade utilizando a API do Microsoft Graph e passos para a sua resolução.
 
-
 ### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>Erro: Falhou em obter funções de utilizador do Microsoft Graph
 
  Inscreva-se na sua conta utilizando ambos os botões de entrada no II do Graph Explorer para evitar um erro ao tentar iniciar sessão utilizando o Graph Explorer. 
@@ -204,7 +203,6 @@ Se encontrar esta mensagem de erro enquanto tenta aceder a sessão utilizando o 
 
 ![Modificar permissões UI](./media/troubleshoot-graph-api/modify-permissions.png)
 
-
 ### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Erro: Inquilino não é B2C ou inquilino não tem licença premium
 
 O acesso aos relatórios de entrada requer uma licença azure Ative Diretório premium 1 (P1). Se vir esta mensagem de erro ao aceder a inscrições, certifique-se de que o seu inquilino está licenciado com uma licença Azure AD P1.
@@ -215,7 +213,7 @@ O acesso aos relatórios de entrada requer uma licença azure Ative Diretório p
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Erro: Falha de aplicação AAD 'Ler dados de directório' 
 
-### <a name="error-application-missing-microsoft-api-read-all-audit-log-data-permission"></a>Erro: Falha de aplicação Da Microsoft API 'Leia todos os dados de registo de auditoria'
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Erro: Falha de aplicação Microsoft Graph API 'Leia todos os dados de registo de auditoria'
 
 Siga os passos nos [Pré-requisitos para aceder à API](howto-configure-prerequisites-for-reporting-api.md) de reporte ativo do Azure para garantir que a sua aplicação está a funcionar com o conjunto certo de permissões. 
 

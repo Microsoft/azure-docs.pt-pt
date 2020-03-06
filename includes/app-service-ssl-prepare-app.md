@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 1c3f2009dc71df1a5496d585bdcba986a79ac0d0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
-ms.translationtype: MT
+ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768469"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301012"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar a sua aplicação Web
 
-Para vincular um certificado SSL personalizado (um certificado de terceiros ou certificado do Serviço de Aplicações) à sua aplicação Web, o [plano do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/) tem de estar no escalão **Básico**, **Standard**,**Premium** ou **Isolado**. Neste passo, vai confirmar que a aplicação Web está no escalão de preço suportado.
+Para criar encadernações de segurança personalizadas ou ativar certificados de cliente para a sua app App Service, o seu [plano de Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/) deve estar no nível **Básico**, **Standard**, **Premium**ou **Isolado.** Neste passo, vai confirmar que a aplicação Web está no escalão de preço suportado.
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -25,15 +25,15 @@ Abra o [Portal do Azure](https://portal.azure.com).
 
 ### <a name="navigate-to-your-web-app"></a>Navegue até à sua aplicação Web
 
-Pesquise e selecione **serviços de aplicativos**.
+Procure e selecione Serviços de **Aplicações**.
 
-![Selecionar serviços de aplicativos](./media/app-service-ssl-prepare-app/app-services.png)
+![Selecione Serviços de Aplicações](./media/app-service-ssl-prepare-app/app-services.png)
 
-Na página **serviços de aplicativos** , selecione o nome do seu aplicativo Web.
+Na página de Serviços de **Aplicações,** selecione o nome da sua aplicação web.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-ssl-prepare-app/select-app.png)
 
-Você tem descarregou na página de gerenciamento do seu aplicativo Web.  
+Aterrou na página de gestão da sua aplicação web.  
 
 ### <a name="check-the-pricing-tier"></a>Verificar o escalão de preço
 
@@ -45,7 +45,7 @@ Confirme que a aplicação Web não está no escalão **F1** ou **D1**. O escal�
 
 ![Verificar o escalão de preço](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-O SSL personalizado não é suportado nos escalões **F1** ou **D1**. Se precisar de aumentar verticalmente, siga os passos na secção seguinte. Caso contrário, feche a página **escalar verticalmente** e ignore a seção [escalar verticalmente o plano do serviço de aplicativo](#scale-up-your-app-service-plan) .
+O SSL personalizado não é suportado nos escalões **F1** ou **D1**. Se precisar de aumentar verticalmente, siga os passos na secção seguinte. Caso contrário, feche a página **Scale up** e salte a secção de [plano seletiva](#scale-up-your-app-service-plan) para cima.
 
 ### <a name="scale-up-your-app-service-plan"></a>Aumentar verticalmente o seu plano do Serviço de Aplicações
 

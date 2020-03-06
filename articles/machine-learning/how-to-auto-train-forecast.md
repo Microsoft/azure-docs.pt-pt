@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 859f8a9c2bf644461c8945255de9f925b4e943f4
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 93695b407762766b0bdd40c9d99a0bf4965f59a8
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251855"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328784"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-train um modelo de previsão de série de tempo
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +113,7 @@ Para as tarefas de previsão, o machine learning automatizado utiliza passos de 
 
 O [](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)`AutoMLConfig`objeto define as definições e dados necessários para uma tarefa automatizada de aprendizagem automática de máquinas. Semelhante a um problema de regressão, define-se parâmetros de treino padrão como tipo de tarefa, número de iterações, dados de treino e número de validações cruzadas. Para as tarefas de previsão, existem parâmetros adicionais que devem ser definidos que afetam a experiência. A tabela seguinte explica cada parâmetro e a sua utilização.
 
-| Param | Descrição | Necessário |
+| Nome&nbsp;parâmetro | Descrição | Necessário |
 |-------|-------|-------|
 |`time_column_name`|Utilizada para especificar a coluna data nos dados de entrada utilizados para a construção da série de tempo e inferindo a sua frequência.|✓|
 |`grain_column_names`|Nomes ou grupos de séries individuais nos dados de entrada. Se o grão não for definido, presume-se que o conjunto de dados é uma série de tempo.||

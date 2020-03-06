@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 44dbe6d036000aaff403e212052f8fdb21647a80
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
-ms.translationtype: MT
+ms.openlocfilehash: b31698f166866f8ee7f89f13120f31ecbe3d4913
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71210303"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355600"
 ---
-| Resource | Limite predefinido | Limite máximo |
+| Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
-| Alertas de métricas (clássicos) |100 regras de alerta ativas por assinatura. | Chamar suporte. |
-| Alertas de métricas |1000 regras de alerta ativas por assinatura no Azure Public, Azure China 21Vianet e nuvens do Azure governamental. | Chamar suporte. |
-| Alertas de registo de atividade | 100 regras de alerta ativas por assinatura. | O mesmo que o padrão. |
-| Alertas de registo | 512 | Chamar suporte. |
-| Grupos de ações |2\.000 grupos de ação por assinatura. | Chamar suporte. |
-| Configurações de autoescala |100 por região por assinatura. | O mesmo que o padrão. |
+| Alertas métricos (clássico) |100 regras de alerta ativo por subscrição. | Apoio de chamada. |
+| Alertas de métricas |2\.000 regras de alerta ativo por subscrição em nuvens públicas azure, Azure China 21Vianet e Azure Government. | Apoio de chamada. |
+| Alertas do registo de atividades | 100 regras de alerta ativo por subscrição. | O mesmo que o padrão. |
+| Alertas de registo | 512 | Apoio de chamada. |
+| Grupos de ação |2\.000 grupos de ação por subscrição. | Apoio de chamada. |
+| definições de escala automática |100 por região por subscrição. | O mesmo que o padrão. |

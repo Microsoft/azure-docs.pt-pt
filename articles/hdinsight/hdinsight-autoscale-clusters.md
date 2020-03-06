@@ -7,21 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/21/2020
-ms.openlocfilehash: 6eb8f86d7bfa1c140c6422753840ded8a37ce3c4
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.date: 03/05/2020
+ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616095"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399709"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Escala automaticamente os clusters Azure HDInsight
 
 > [!Important]
-> A funcionalidade Azure HDInsight Autoscale foi lançada para disponibilidade geral a 7 de novembro de 2019 para os clusters Spark e Hadoop e incluiu melhorias não disponíveis na versão de pré-visualização da funcionalidade. Se criou um cluster Spark antes de 7 de novembro de 2019 e pretende utilizar a funcionalidade De Escala Automática no seu cluster, o caminho recomendado é criar um novo cluster e ativar a Escala Automática no novo cluster. 
+> A funcionalidade Azure HDInsight Autoscale foi lançada para disponibilidade geral a 7 de novembro de 2019 para os clusters Spark e Hadoop e incluiu melhorias não disponíveis na versão de pré-visualização da funcionalidade. Se criou um cluster Spark antes de 7 de novembro de 2019 e pretende utilizar a funcionalidade De Escala Automática no seu cluster, o caminho recomendado é criar um novo cluster e ativar a Escala Automática no novo cluster.
 >
->A escala automática para clusters De Consulta Interativa (LLAP) e HBase ainda está em pré-visualização. A escala automática só está disponível nos clusters Spark, Hadoop, Interactive Query e HBase. 
-
+> A escala automática para clusters De Consulta Interativa (LLAP) e HBase ainda está em pré-visualização. A escala automática só está disponível nos clusters Spark, Hadoop, Interactive Query e HBase.
 
 A função de cluster Autoscale da Azure HDInsight escala automaticamente o número de nós de trabalhador num cluster para cima e para baixo. Outros tipos de nós no cluster não podem ser escalados atualmente.  Durante a criação de um novo cluster HDInsight, pode ser definido um número mínimo e máximo de nós de trabalhadores. A escala automática monitoriza então os requisitos de recursos da carga de análise e escala o número de nós dos trabalhadores para cima ou para baixo. Não há nenhuma taxa adicional para esta funcionalidade.
 
@@ -59,23 +58,18 @@ A escala automática monitoriza continuamente o cluster e recolhe as seguintes m
 
 As métricas acima são verificadas a cada 60 segundos. A escala automática toma decisões de escala e escala com base nestas métricas.
 
-### <a name="load-based-cluster-scale-up"></a>Escala de cluster baseada em carga
+### <a name="load-based-scale-conditions"></a>Condições de escala baseadas em carga
 
 Quando forem detetadas as seguintes condições, a Escala Automática emitirá um pedido de escala:
 
-* O CPU total pendente é maior do que o TOTAL de CPU gratuito por mais de 3 minutos.
-* A memória total pendente é maior do que a memória total gratuita por mais de 3 minutos.
+|Aumento vertical|Redução da escala|
+|---|---|
+|O CPU total pendente é maior do que o TOTAL de CPU gratuito por mais de 3 minutos.|O CPU total pendente é inferior ao total de CPU gratuito por mais de 10 minutos.|
+|A memória total pendente é maior do que a memória total gratuita por mais de 3 minutos.|A memória total pendente é inferior a memória gratuita total por mais de 10 minutos.|
 
-O serviço HDInsight calcula quantos novos nós de trabalhador são necessários para satisfazer os atuais requisitos de CPU e memória, e emite um pedido de escala para adicionar o número necessário de nós.
+Para aumentar a escala, o serviço HDInsight calcula quantos novos nós de trabalhador são necessários para satisfazer os atuais requisitos de CPU e memória, e emite um pedido de escala para adicionar o número necessário de nós.
 
-### <a name="load-based-cluster-scale-down"></a>Escala de cluster baseada em carga
-
-Quando forem detetadas as seguintes condições, a Escala Automática emitirá um pedido de redução de escala:
-
-* O CPU total pendente é inferior ao total de CPU gratuito por mais de 10 minutos.
-* A memória total pendente é inferior a memória gratuita total por mais de 10 minutos.
-
-Com base no número de contentores AM por nó e nos atuais requisitos de CPU e memória, a Escala Automática emite um pedido para remover um determinado número de nós. O serviço também deteta quais os nódosos candidatos à remoção com base na execução atual do emprego. A operação de redução da escala primeiro desativa os nós e, em seguida, retira-os do cluster.
+Para a redução da escala, com base no número de contentores AM por nó e nos atuais requisitos de CPU e memória, a Escala Automática emite um pedido para remover um determinado número de nós. O serviço também deteta quais os nódosos candidatos à remoção com base na execução atual do emprego. A operação de redução da escala primeiro desativa os nós e, em seguida, retira-os do cluster.
 
 ## <a name="get-started"></a>Introdução
 

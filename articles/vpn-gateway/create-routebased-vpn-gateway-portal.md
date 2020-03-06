@@ -1,58 +1,58 @@
 ---
-title: 'Criar um gateway de VPN baseado em rota: Portal'
+title: 'Criar um gateway VPN baseado em rota: portal'
 titleSuffix: Azure VPN Gateway
-description: Criar um gateway de VPN baseado em rota usando o portal do Azure
+description: Criar um VPN Gateway baseado em rota usando o portal Azure
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a44bdf654842d964a02f6aebe60e3632aabcd64d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6156d689a29ee348f9b1974d1520eb7d186a8d8d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151680"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331354"
 ---
-# <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Criar um gateway de VPN baseado em rota usando o portal do Azure
+# <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Criar um gateway VPN baseado em rota usando o portal Azure
 
-Este artigo ajuda você a criar rapidamente um gateway de VPN do Azure baseado em rota usando o portal do Azure.  Um gateway de VPN é usado ao criar uma conexão VPN com sua rede local. Você também pode usar um gateway de VPN para conectar o VNets. 
+Este artigo ajuda-o a criar rapidamente um gateway Azure VPN baseado em rotas utilizando o portal Azure.  Um gateway VPN é usado ao criar uma ligação VPN à sua rede no local. Também pode utilizar um gateway VPN para ligar VNets. 
 
-As etapas neste artigo criarão uma VNet, uma sub-rede, uma sub-rede de gateway e um gateway de VPN baseado em rota (gateway de rede virtual). Depois que a criação do gateway for concluída, você poderá criar conexões. Essas etapas exigem uma assinatura do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Os passos neste artigo criarão um VNet, uma subnet, uma subnet gateway e um gateway VPN baseado em rota (gateway de rede virtual). Uma vez concluída a criação do portal, pode criar ligações. Estes passos requerem uma subscrição Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="vnet"></a>Criar uma rede virtual
 
-[!INCLUDE [create-gateway](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="gwvalues"></a>Configurar e criar o gateway
+## <a name="gwvalues"></a>Configure e crie o portal
 
 Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muitas vezes, pode demorar 45 minutos ou mais, dependendo do SKU de gateway selecionado.
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
+[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 >[!NOTE]
->O SKU do gateway básico não oferece suporte à autenticação IKEv2 ou RADIUS. Se você planeja ter clientes Mac conectados à sua rede virtual, não use a SKU básica.
+>O Gateway Básico SKU não suporta a autenticação IKEv2 ou RADIUS. Se planeia que os clientes Mac se conectem à sua rede virtual, não utilize o SKU Básico.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="viewgw"></a>Exibir o gateway de VPN
+## <a name="viewgw"></a>Ver o gateway VPN
 
-1. Depois que o gateway for criado, navegue até VNet1 no Portal. O gateway de VPN aparece na página Visão geral como um dispositivo conectado.
+1. Depois de criado o portal, navegue para VNet1. O gateway VPN aparece na página 'Overview' como um dispositivo conectado.
 
    ![Dispositivos conectados](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "Dispositivos conectados")
 
-2. Na lista de dispositivos, clique em **VNet1GW** para exibir mais informações.
+2. Na lista de dispositivos, clique em **VNet1GW** para ver mais informações.
 
-   ![Exibir gateway de VPN](./media/create-routebased-vpn-gateway-portal/view-gateway.png "Exibir gateway de VPN")
+   ![Ver gateway VPN](./media/create-routebased-vpn-gateway-portal/view-gateway.png "Ver gateway VPN")
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois que o gateway terminar de criar, você poderá criar uma conexão entre sua rede virtual e outra VNet. Ou crie uma conexão entre sua rede virtual e um local.
+Uma vez que o gateway termine de criar, pode criar uma ligação entre a sua rede virtual e outro VNet. Ou criar uma ligação entre a sua rede virtual e um local no local.
 
 > [!div class="nextstepaction"]
-> [Criar uma conexão site a site](vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br><br>
-> [Criar uma conexão ponto a site](vpn-gateway-howto-point-to-site-resource-manager-portal.md)<br><br>
-> [Criar uma conexão com outra VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> [Criar uma ligação site-a-local](vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br><br>
+> [Criar uma ligação ponto-a-local](vpn-gateway-howto-point-to-site-resource-manager-portal.md)<br><br>
+> [Criar uma ligação a outro VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

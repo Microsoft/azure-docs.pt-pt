@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/16/2020
-ms.openlocfilehash: 1d0264a0b7ac4e97d9a2811ba61ab64fcedd6fb9
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/04/2020
+ms.openlocfilehash: e87e5ec14f4475218cff4338a37d6bd6fb7fbb3a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587554"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403037"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriais de vídeo sobre fluxo de dados de mapeamento
 
@@ -144,3 +144,5 @@ Como as atualizações são constantemente feitas para o produto, algumas funcio
 [Expressões de data/hora](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
 
 [Conjuntos de divisão e declaração de caso](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
+
+[Diversão com interpolação de cordas e parâmetros](https://youtu.be/hb3-cn2CMgM)

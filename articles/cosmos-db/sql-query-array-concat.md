@@ -1,18 +1,18 @@
 ---
-title: ARRAY_CONCAT na linguagem de consulta Azure Cosmos DB
-description: Saiba como a função de sistema SQL Concat da matriz em Azure Cosmos DB retorna uma matriz que é o resultado da concatenação de dois ou mais valores de matriz
+title: ARRAY_CONCAT na linguagem de consulta do Azure Cosmos DB
+description: Saiba como funciona o sistema Array Concat SQL em Azure Cosmos DB devolve uma matriz que é o resultado da concatenação de dois ou mais valores de matriz
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 10370e16c95f4fc747dd3a66a56794da38562972
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 8f2b37181e5d743809bb1f60be4056cb4442a8d2
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871827"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295883"
 ---
 # <a name="array_concat-azure-cosmos-db"></a>ARRAY_CONCAT (Azure Cosmos DB)
  Devolve uma matriz que é o resultado da concatenação de dois ou mais valores de matriz.  
@@ -26,7 +26,7 @@ ARRAY_CONCAT (<arr_expr1>, <arr_expr2> [, <arr_exprN>])
 ## <a name="arguments"></a>Argumentos
   
 *arr_expr*  
-   É uma expressão de matriz para concatenar com os outros valores. A função `ARRAY_CONCAT` requer pelo menos dois argumentos de *arr_expr* .  
+   É uma expressão matriz para concatenar aos outros valores. A função `ARRAY_CONCAT` requer pelo menos dois *argumentos arr_expr.*  
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -46,9 +46,12 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 [{"arrayConcat": ["apples", "strawberries", "bananas"]}]  
 ```  
   
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções de matriz Azure Cosmos DB](sql-query-array-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

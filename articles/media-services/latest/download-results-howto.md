@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 82a5f65b441e3457b61c8ea0c6ff57d091854f07
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 0c81523d43fd316c3dc65cc2a5b34557f24014b5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925985"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303414"
 ---
 # <a name="download-the-results-of-a-job"></a>Descarregue os resultados de um trabalho
 

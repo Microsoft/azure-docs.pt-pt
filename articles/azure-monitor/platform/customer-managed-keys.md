@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: b3e110766b2e131330f3108b7938e9e5e01e48a4
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: d14b4a3f4c3fdddac64596760fdbbfefce49036a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208564"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364399"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuração da chave gerida pelo cliente do Azure Monitor 
 
@@ -283,6 +283,11 @@ Content-type: application/json
 
 Para a configuração cmk de Insights de Aplicação, siga o conteúdo do Apêndice para este passo.
 
+É necessário ter permissões de 'write' tanto no seu espaço de trabalho como no recurso *Cluster* para realizar esta operação, que incluem estas ações:
+
+- No espaço de trabalho: Microsoft.OperationalInsights/workspaces/write
+- No recurso *Cluster:* Microsoft.OperationalInsights/clusters/write
+
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
 Authorization: Bearer <token>
@@ -290,18 +295,17 @@ Content-type: application/json
 
 {
   "properties": {
-    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
+    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     }
 }
 ```
-O *clusterDefinitionId* é o valor *clusterId* fornecido na resposta do passo anterior.
 
 **Resposta**
 
 ```json
 {
   "properties": {
-    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
+    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     },
   "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name/linkedservices/cluster",
   "name": "workspace-name/cluster",
@@ -478,7 +482,6 @@ Log Analytics e Application Insights estão a usar a mesma plataforma de loja de
 A configuração de Insights de Aplicação CMK é idêntica ao processo ilustrado neste artigo, incluindo constrangimentos e resolução de problemas, exceto estas etapas:
 
 - Criar um recurso *cluster*
-
 - Associar um componente a um recurso *cluster*
 
 Ao configurar a CMK para Insights de Aplicação, utilize estes passos em vez dos acima indicados.
@@ -534,6 +537,11 @@ A identidade é atribuída ao recurso *cluster* no momento da criação.
 > Copie e guarde o valor de "princípio-id", uma vez que vai precisar dele nos próximos passos.
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associar um componente a um recurso *cluster* usando [componentes - Criar ou atualizar](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
+
+É necessário ter permissões de 'write' tanto no seu componente como no recurso *Cluster* para realizar esta operação, que incluem estas ações:
+
+- No componente: Microsoft.Insights/component/write
+- No recurso *Cluster:* Microsoft.OperationalInsights/clusters/write
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01

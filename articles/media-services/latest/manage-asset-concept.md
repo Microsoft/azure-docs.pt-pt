@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1e912e8147f83571d073d5456019d043ff983ceb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: b1ec4ee3d7a51c2a21a5bbd8888ea4662cf78bf5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925621"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304162"
 ---
 # <a name="manage-assets"></a>Gerir recursos
 
@@ -94,7 +94,7 @@ curl -X PUT \
  Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
 ```
 
-### <a name="also-see"></a>Também ver
+### <a name="see-also"></a>Consulte também
 
 * [Criar uma entrada de emprego a partir de um arquivo local](job-input-from-local-file-how-to.md)
 * [Criar uma entrada de trabalho a partir de um URL HTTPS](job-input-from-http-how-to.md)

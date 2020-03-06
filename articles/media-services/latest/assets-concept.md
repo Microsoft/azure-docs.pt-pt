@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 68bb1fea88ab7ba30e0ba07839f2d962840b7818
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ce32343faefbcf2484ec0b1b39f752654a2d8514
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921186"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303618"
 ---
 # <a name="assets-in-azure-media-services"></a>Ativos em Serviços De Mídia Azure
 
@@ -75,6 +75,6 @@ Para proteger os seus ativos inativos, os recursos devem ser encriptados pela en
 
 [Gerir ativos em Serviços de Media](manage-asset-concept.md)
 
-## <a name="also-see"></a>Também ver
+## <a name="see-also"></a>Consulte também
 
 [Diferenças entre Serviços de Media v2 e v3](migrate-from-v2-to-v3.md)

@@ -4,12 +4,12 @@ description: Conheça as limitações conhecidas quando executa piscinas de nós
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 65c62324a27e8377a1cc9833595b15cf08c6c820
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615646"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298177"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para piscinas de nó do Windows Server e cargas de trabalho de aplicação no Serviço Azure Kubernetes (AKS)
 
@@ -69,7 +69,7 @@ Durante a pré-visualização, as piscinas de nó do Windows não suportam a rot
 
 ## <a name="how-many-node-pools-can-i-create"></a>Quantas piscinas de nós posso criar?
 
-O cluster AKS pode ter um máximo de oito (8) piscinas de nós. Você pode ter um máximo de 400 nódosos através daquelas piscinas de nó. [Limitações][nodepool-limitations]da piscina do nó.
+O cluster AKS pode ter um máximo de 10 piscinas de nós. Você pode ter um máximo de 1000 nódosos através daquelas piscinas de nó. [Limitações][nodepool-limitations]da piscina do nó.
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>Como posso dizer as minhas piscinas de nós do Windows?
 

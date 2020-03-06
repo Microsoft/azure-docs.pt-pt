@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Scale compute - Portal Azure '
-description: Computação em escala na piscina SQL no portal Azure. Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
+description: Computação em escala na piscina SQL no portal Azure. Aumente horizontalmente a computação para obter um melhor desempenho ou dimensione a computação novamente para reduzir os custos.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg

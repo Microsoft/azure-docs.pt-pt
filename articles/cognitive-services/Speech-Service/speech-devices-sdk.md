@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 854e7beb2afd8ae838455f77ff448f13d8b3fbea
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 43d08b466076672587e7f6545193e326283c0031
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188967"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330792"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Acerca do SDK de Dispositivos de Voz
 
@@ -47,7 +47,7 @@ A aplicação é construída com o pacote Speech SDK, e o Eclipse Java IDE (v4) 
 ### <a name="linux"></a>Linux
 
 Para o Linux, a aplicação da amostra é fornecida como uma aplicação java transversal. Descarregue a versão mais recente do [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
-A aplicação é construída com o pacote Speech SDK, e o Eclipse Java IDE (v4) em 64 bits Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
+A aplicação é construída com o pacote Speech SDK, e o Eclipse Java IDE (v4) em 64 bits Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
 Binários adicionais são fornecidos para suportar os próximos dispositivos, [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2), e [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter).
 

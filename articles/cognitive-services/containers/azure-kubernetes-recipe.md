@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 5c8b3ed329c03bd08b2a0b3e26ada7a4e36ceb49
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1968bc03bfddb9d6f6c8fe743a2a1a99722c074d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716885"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399166"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implemente o recipiente de deteção de linguagem Text Analytics para o Serviço Azure Kubernetes
 
@@ -80,8 +80,11 @@ Para implantar o recipiente no Serviço Azure Kubernetes, as imagens do recipien
 
     Guarde os resultados para obter a propriedade **loginServer.** Isto fará parte do endereço do contentor alojado, utilizado mais tarde no ficheiro `language.yml`.
 
-    ```console
-    > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    ```azurecli-interactive
+    az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    ```
+
+    ```output
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
@@ -126,7 +129,7 @@ Para implantar o recipiente no Serviço Azure Kubernetes, as imagens do recipien
 
     Para acompanhar a versão no registo do seu contentor, adicione a etiqueta com um formato de versão, como `v1`.
 
-1. Empurre a imagem para o registo do seu contentor. Esta ação poderá demorar alguns minutos.
+1. Empurre a imagem para o registo do seu contentor. Esta operação poderá demorar alguns minutos.
 
     ```console
     docker push pattyregistry.azurecr.io/language-frontend:v1
@@ -136,8 +139,7 @@ Para implantar o recipiente no Serviço Azure Kubernetes, as imagens do recipien
 
     Quando o processo estiver concluído, os resultados devem ser semelhantes a:
 
-    ```console
-    > docker push pattyregistry.azurecr.io/language-frontend:v1
+    ```output
     The push refers to repository [pattyregistry.azurecr.io/language-frontend]
     82ff52ee6c73: Pushed
     07599c047227: Pushed
@@ -150,7 +152,7 @@ Para implantar o recipiente no Serviço Azure Kubernetes, as imagens do recipien
 
 ## <a name="get-language-detection-docker-image"></a>Obtenha imagem de Docker de deteção de linguagem
 
-1. Puxe a versão mais recente da imagem do Docker para a máquina local. Esta ação poderá demorar alguns minutos. Se houver uma versão mais recente deste recipiente, mude o valor de `1.1.006770001-amd64-preview` para a versão mais recente.
+1. Puxe a versão mais recente da imagem do Docker para a máquina local. Esta operação poderá demorar alguns minutos. Se houver uma versão mais recente deste recipiente, mude o valor de `1.1.006770001-amd64-preview` para a versão mais recente.
 
     ```console
     docker pull mcr.microsoft.com/azure-cognitive-services/language:1.1.006770001-amd64-preview
@@ -162,7 +164,7 @@ Para implantar o recipiente no Serviço Azure Kubernetes, as imagens do recipien
     docker tag mcr.microsoft.com/azure-cognitive-services/language pattiyregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
-1. Empurre a imagem para o registo do seu contentor. Esta ação poderá demorar alguns minutos.
+1. Empurre a imagem para o registo do seu contentor. Esta operação poderá demorar alguns minutos.
 
     ```console
     docker push pattyregistry.azurecr.io/language:1.1.006770001-amd64-preview
@@ -180,8 +182,7 @@ São necessários os seguintes passos para obter as informações necessárias p
 
     Guarde os resultados `appId` valor para o parâmetro designado no passo 3, `<appId>`. Guarde o `password` para o parâmetro secreto do cliente da próxima secção `<client-secret>`.
 
-    ```console
-    > az ad sp create-for-rbac --skip-assignment
+    ```output
     {
       "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "displayName": "azure-cli-2018-12-31-18-39-32",
@@ -199,8 +200,7 @@ São necessários os seguintes passos para obter as informações necessárias p
 
     Guarde a saída para o valor do parâmetro de alcance, `<acrId>`, no passo seguinte. Parece que:
 
-    ```console
-    > az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
+    ```output
     /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattyregistry
     ```
 
@@ -220,10 +220,9 @@ São necessários os seguintes passos para obter as informações necessárias p
     az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
     ```
 
-    Esta etapa pode levar alguns minutos. O resultado é:
+    Este passo pode demorar alguns minutos. O resultado é:
 
-    ```console
-    > az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
+    ```output
     {
       "aadProfile": null,
       "addonProfiles": null,
@@ -300,8 +299,7 @@ Esta secção utiliza o **KUBectl** CLI para falar com o Serviço Azure Kubernet
 
     A resposta parece:
 
-    ```console
-    > kubectl get nodes
+    ```output
     NAME                       STATUS    ROLES     AGE       VERSION
     aks-nodepool1-13756812-0   Ready     agent     6m        v1.9.11
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
@@ -337,8 +335,7 @@ Esta secção utiliza o **KUBectl** CLI para falar com o Serviço Azure Kubernet
 
     A resposta é:
 
-    ```console
-    > kubectl apply -f language.yml
+    ```output
     service "language-frontend" created
     deployment.apps "language-frontend" created
     service "language" created
@@ -353,8 +350,7 @@ Para os dois contentores, verifique se os serviços de `language-frontend` e `la
 kubectl get all
 ```
 
-```console
-> kubectl get all
+```output
 NAME                                     READY     STATUS    RESTARTS   AGE
 pod/language-586849d8dc-7zvz5            1/1       Running   0          13h
 pod/language-frontend-68b9969969-bz9bg   1/1       Running   1          13h
@@ -405,7 +401,7 @@ az group delete --name cogserv-container-rg
 
 * [kubectl para Utilizadores de Docker](https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Recipientes de Serviços Cognitivos](../cognitive-services-container-support.md)

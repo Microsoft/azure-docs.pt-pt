@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este quickstart mostra-lhe como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente uma aplicação .NET Core no Serviço Azure Kubernetes
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: f3e91ec11e054e0a069eb97a3700b051476be0a1
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 7c97c42448700fdf1f69cbbef68a407716aabfd2
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251992"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399497"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Quickstart: Debug e iterate em Kubernetes: Visual Studio Code e .NET Core - Azure Dev Spaces
 
@@ -110,6 +110,9 @@ Este comando constrói e executa o seu serviço em Espaços Azure Dev em modo de
 > Se não vir nenhum comando da Azure Dev Spaces na Paleta de *Comando,* certifique-se de ter instalado a extensão do Código do [Estúdio Visual para espaços Azure Dev](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Verifique também que abriu o *dev-spaces/samples/dotnetcore/start-start/webfrontend* diretório no Visual Studio Code.
 
 Pode ver o serviço a funcionar abrindo o URL público.
+
+> [!Note]
+> Inicialmente, a URL pública pode mostrar um erro *de Bad Gateway.* Aguarde alguns segundos antes de refrescar a página web e deverá ver o seu serviço a funcionar.
 
 Clique em *Debug* e *pare de depuração* para parar o debugger.
 

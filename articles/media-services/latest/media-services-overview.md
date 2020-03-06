@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: df1602fe82b4a625dd5f01de2bd7236816fbb0ac
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 873db6315841b585aa0ba6bcb843bfe05567836f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164666"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299266"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral do Azure Media Services v3
 
@@ -51,8 +51,8 @@ A Media Services permite-lhe construir uma variedade de fluxos de trabalho medi�
 * Analise o conteúdo de áudio ou de vídeos registados. Por exemplo, para alcançar uma maior satisfação do cliente, as organizações podem extrair a conversão de voz em texto e criar índices de pesquisa e dashboards. Em seguida, podem extrair informações relativas a queixas comuns, fontes de queixas e outros dados relevantes.
 * Crie um serviço de subscrição de vídeo e transmita conteúdo DRM protegido quando um cliente (por exemplo, um estúdio cinematográfico) necessita de restringir o acesso e a utilização de obras proprietárias protegidas por direitos de autor.
 * Disponibilize conteúdo offline para reprodução em aviões, comboios e automóveis. Um cliente poderá ter de transferir o conteúdo para o telemóvel ou tablet para reprodução posterior quando se prevê que esteja desligado da rede.
-* Implementar uma plataforma de vídeo educacional de e-learning com azure Media Services e [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) para legendagem fala-a-texto, traduzindo para várias línguas, e assim por diante.
-* Utilize o Azure Media Services juntamente com as APIs dos [Serviços Cognitivos Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) para adicionar legendas e legendas a vídeos para atender a um público mais vasto (por exemplo, pessoas com deficiências auditivas ou pessoas que queiram ler numa língua diferente).
+* Implementar uma plataforma de vídeo educacional de e-learning com azure Media Services e [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/?pivot=products&panel=ai) para legendagem fala-a-texto, traduzindo para várias línguas, e assim por diante.
+* Utilize o Azure Media Services juntamente com as APIs dos [Serviços Cognitivos Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) para adicionar legendas e legendas a vídeos para atender a um público mais vasto (por exemplo, pessoas com deficiências auditivas ou pessoas que queiram ler numa língua diferente).
 * Habilitar o CDN azure a alcançar uma grande escala para lidar melhor com cargas elevadas instantâneas (por exemplo, o início de um evento de lançamento do produto).
 
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a utilizar a v3? 

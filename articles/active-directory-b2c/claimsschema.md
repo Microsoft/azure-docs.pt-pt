@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b997e15b4e987b7a18890606326f52a82cb15212
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189929"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397791"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -56,8 +56,11 @@ O elemento **ClaimType** contém os seguintes elementos:
 | Máscara | 0:1 | Uma cadeia opcional de caracteres mascarados que podem ser aplicados ao exibir a alegação. Por exemplo, o número de telefone 324-232-4343 pode ser mascarado como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Uma descrição do tipo de reclamação que pode ser útil para os utilizadores entenderem o seu propósito. O valor pode ser [localizado.](localization.md) |
 | UserInputType | 0:1 | O tipo de controlo de entrada que deve estar disponível para o utilizador ao introduzir manualmente os dados de reclamação para o tipo de reclamação. Consulte os tipos de entrada do utilizador definidos mais tarde nesta página. |
+| AdminHelpText | 0:1 | Uma descrição do tipo de reclamação que pode ser útil para os administradores entenderem o seu propósito. |
 | Restrição | 0:1 | As restrições de valor para esta reclamação, tais como uma expressão regular (Regex) ou uma lista de valores aceitáveis. O valor pode ser [localizado.](localization.md) |
 PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicadoValidaçõesInputput.** Os elementos **Predicados ValidaçãoDereferência** permitem-lhe realizar um processo de validação para garantir que apenas os dados devidamente formados são introduzidos. Para mais informações, consulte [Predicados](predicates.md). |
+
+
 
 ### <a name="datatype"></a>Tipo de dados
 
@@ -71,7 +74,7 @@ O elemento **DataType** suporta os seguintes valores:
 |duration|Representa um intervalo de tempo em anos, meses, dias, horas, minutos e segundos. O formato é `PnYnMnDTnHnMnS`, onde `P` indica positivo, ou `N` para valor negativo. `nY` é o número de anos seguidos de uma `Y`literal. `nMo` é o número de meses seguido de uma `Mo`literal. `nD` é o número de dias seguidos de uma `D`literal. Exemplos: `P21Y` representa 21 anos. `P1Y2Mo` representa um ano e dois meses. `P1Y2Mo5D` representa um ano, dois meses e cinco dias.  `P1Y2M5DT8H5M620S` representa um ano, dois meses, cinco dias, oito horas, cinco minutos e vinte segundos.  |
 |phoneNumber|Representa um número de telefone. |
 |int| Representa o número entre -2.147.483.648 e 2.147.483.647|
-|longa| Representa o número entre -9.223.372.036.854.775.808 para 9.223.372.036.854.775.807 |
+|long| Representa o número entre -9.223.372.036.854.775.808 para 9.223.372.036.854.775.807 |
 |string| Representa o texto como uma sequência de unidades de código UTF-16.|
 |stringCollection|Representa uma coleção de `string`.|
 |userIdentidade| Representa uma identidade de utilizador.|

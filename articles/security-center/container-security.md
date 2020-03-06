@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 45ce8a808efc5b882c90f99875fdde661e292774
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fac9cba28f90f3642de660ed7d070b165c06bb2e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205981"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303261"
 ---
 # <a name="container-security-in-security-center"></a>Segurança de contentores no Centro de Segurança
 
@@ -37,6 +37,8 @@ Para obter instruções sobre como utilizar estas funcionalidades, consulte [mon
 Para monitorizar o registo de contentores Azure baseado no ARM, certifique-se de que está no nível padrão do Security Center (ver [preços).](/azure/security-center/security-center-pricing) Em seguida, ative o pacote opcional de registos de contentores. Quando uma nova imagem é empurrada, o Security Center digitaliza a imagem usando um scanner do fornecedor de vulnerabilidadelíder da indústria, qualys.
 
 Quando os problemas forem encontrados – por Qualys ou Security Center – será notificado no painel do Centro de Segurança. Para cada vulnerabilidade, o Security Center fornece recomendações atol, juntamente com uma classificação de gravidade, e orientação para como remediar a questão. Para obter detalhes sobre as recomendações do Centro de Segurança para os contentores, consulte a [lista de recomendações de referência.](recommendations-reference.md#recs-containers)
+
+Filtros do Centro de Segurança e classifica as descobertas do scanner. Quando uma imagem é saudável, o Centro de Segurança marca-a como tal. O Centro de Segurança gera recomendações de segurança apenas para imagens que têm problemas a resolver. Ao notificar apenas quando há problemas, o Centro de Segurança reduz o potencial de alertas informais indesejados.
 
 ## <a name="environment-hardening"></a>Endurecimento ambiental
 
@@ -61,11 +63,11 @@ A AKS fornece controlos de segurança e visibilidade na postura de segurança do
 
 Para obter detalhes sobre as recomendações relevantes do Centro de Segurança que possam aparecer para esta funcionalidade, consulte a secção de [contentores](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
 
-## <a name="run-time-protection---real-time-threat-protection"></a>Proteção em tempo de execução - Proteção contra ameaças em tempo real
+## <a name="run-time-protection---real-time-threat-detection"></a>Proteção em tempo de execução - Deteção de ameaças em tempo real
 
-O Security Center fornece proteção contra ameaças em tempo real para os seus ambientes contentorizados e gera alertas para atividades suspeitas. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
+O Security Center fornece deteção de ameaças em tempo real para os seus ambientes contentorizados e gera alertas para atividades suspeitas. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
 
-Detetamos ameaças ao nível do hospedeiro e do cluster AKS. Para mais detalhes, consulte [a proteção contra ameaças para os contentores Azure](threat-protection.md#azure-containers).
+Detetamos ameaças ao nível do hospedeiro e do cluster AKS. Para mais detalhes, consulte a [deteção de ameaças para os contentores Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 
 ## <a name="container-security-faq"></a>FAQ de segurança de contentores
@@ -73,10 +75,12 @@ Detetamos ameaças ao nível do hospedeiro e do cluster AKS. Para mais detalhes,
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>Que tipos de imagens podem digitalizar o Azure Security Center?
 O Centro de Segurança digitaliza imagens baseadas em Linux OS que fornecem acesso à concha. 
 
-O scanner Qualys não suporta imagens super minimalistas como imagens de [riscado Docker,](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contêm apenas a sua aplicação e as suas dependências de tempo de funcionamento (sem um gestor de pacotes, concha ou S).
+O scanner Qualys não suporta imagens super minimalistas, como imagens de [riscado docker,](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que apenas contêm a sua aplicação e as suas dependências de tempo de execução sem um gestor de pacotes, concha ou S.
 
-### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>Como é que digitalizamos o Azure Security Center uma imagem?
-A imagem é extraída do registo. É então executado numa caixa de areia isolada com o scanner Qualys que extrai uma lista de vulnerabilidades conhecidas.
+### <a name="how-does-azure-security-center-scan-an-image"></a>Como é que o Azure Security Center digitaliza uma imagem?
+A imagem é retirada do registo. É então executado numa caixa de areia isolada com o scanner Qualys que extrai uma lista de vulnerabilidades conhecidas.
+
+Filtros do Centro de Segurança e classifica as descobertas do scanner. Quando uma imagem é saudável, o Centro de Segurança marca-a como tal. O Centro de Segurança gera recomendações de segurança apenas para imagens que têm problemas a resolver. Ao notificar apenas quando há problemas, o Centro de Segurança reduz o potencial de alertas informais indesejados.
 
 ### <a name="how-often-does-azure-security-center-scan-my-images"></a>Com que frequência o Centro de Segurança Azure digitaliza as minhas imagens?
 Os exames de imagem são acionados em cada impulso.

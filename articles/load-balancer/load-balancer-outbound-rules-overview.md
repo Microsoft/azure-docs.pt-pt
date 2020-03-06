@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: d35241850d60e82b79bba0384f60c40e3ecd6427
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192528"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304196"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
 
@@ -206,7 +206,6 @@ Ao usar um Standard Balanceador de carga interno, NAT de saída não está dispo
 - O número máximo de portas efémeras utilizáveis por endereço IP frontal é de 64.000.
 - O intervalo do tempo de saída configurável é de 4 a 120 minutos (240 a 7200 segundos).
 - Balanceador de carga não suporta o ICMP para NAT de saída.
-- Não é possível utilizar o portal para configurar ou ver regras de saída.  Utilize modelos, REST API, Az CLI 2.0 ou PowerShell.
 - As regras de saída só podem ser aplicadas à configuração primária de IP de um NIC.  Vários NICs são suportados.
 
 ## <a name="next-steps"></a>Passos seguintes

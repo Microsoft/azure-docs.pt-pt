@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 02/04/2020
+ms.date: 03/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 9a567a8f62f8f12de725f6d9420576680a3005fe
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b0b9cffe0b69545a6d0219941b48ac9eb0f399b3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194585"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300592"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Dados de carga do Armazenamento de Lagos De Dados Azure para SQL Analytics
 Este guia descreve como usar tabelas externas da PolyBase para carregar dados do Armazenamento do Lago De Dados Azure. Embora possa fazer consultas adhoc em dados armazenados no Data Lake Storage, recomendamos a importação dos dados para um melhor desempenho. 
@@ -46,6 +46,8 @@ Pode saltar esta secção e proceder a "Criar a fonte de dados externa" ao auten
 Para aceder à sua conta de Armazenamento de Data Lake, terá de criar uma Chave Master de Base de Dados para encriptar o seu segredo credencial. Em seguida, cria uma Credencial de Base de Dados Scoped para armazenar o seu segredo. Ao autenticar utilizando os principais de serviço (utilizador da Aplicação de Diretório Sonártica, a Base de Dados Scoped Credenciais armazena as credenciais principais do serviço criadas em AAD. Também pode utilizar a Credencial scoped base de dados para armazenar a chave da conta de armazenamento para gen2.
 
 Para se ligar ao Data Lake Storage utilizando os principais de serviço, tem **primeiro** de criar uma Aplicação de Diretório Ativo Azure, criar uma chave de acesso e conceder o acesso à aplicação à conta data Lake Storage. Para obter instruções, consulte [Authenticate to Azure Data Lake Storage utilizando o Diretório Ativo](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+
+Inicie sessão na sua piscina SQL com um utilizador com permissões de nível CONTROL e execute as seguintes declarações SQL na sua base de dados:
 
 ```sql
 -- A: Create a Database Master Key.

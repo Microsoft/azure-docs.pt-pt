@@ -1,18 +1,18 @@
 ---
-title: ARRAY_SLICE na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre como a função de sistema SQL de fatia de matriz em Azure Cosmos DB retorna parte de uma expressão de matriz
+title: ARRAY_SLICE na linguagem de consulta do Azure Cosmos DB
+description: Saiba como a função do sistema SQL da fatia array em Azure Cosmos DB devolve parte de uma expressão de matriz
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3c65886eabfa87f729e18fb854aca6662d1d6fac
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: a98cb17d22f41776ff788d12ced6aa988ad0b10e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871793"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303329"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
  Devolve a parte de uma expressão de matriz.
@@ -39,7 +39,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra como obter diferentes fatias de uma matriz usando `ARRAY_SLICE`.  
+  O exemplo que se segue mostra como obter diferentes fatias de uma matriz usando `ARRAY_SLICE`.  
   
 ```sql
 SELECT
@@ -67,8 +67,12 @@ SELECT
 }]  
 ```  
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções de matriz Azure Cosmos DB](sql-query-array-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

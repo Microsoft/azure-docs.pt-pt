@@ -1,20 +1,20 @@
 ---
-title: RADIANOs na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre os RADIANOs da função do sistema SQL no Azure Cosmos DB.
+title: RADIANS em linguagem de consulta de Azure Cosmos DB
+description: Saiba mais sobre a função do sistema SQL RADIANS em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: cef572eaf879110fd52657ac358f1261f594692d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 7831ef4bbd65bce7329b1ecf0f602b110a16834b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349621"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302241"
 ---
-# <a name="radians-azure-cosmos-db"></a>RADIANOs (Azure Cosmos DB)
+# <a name="radians-azure-cosmos-db"></a>RADIANS (Azure Cosmos DB)
  Devolve o radianos quando uma expressão numérica, em graus, que é introduzida.  
   
 ## <a name="syntax"></a>Sintaxe
@@ -52,8 +52,12 @@ SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(
    }]  
 ```  
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

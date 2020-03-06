@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 89fa06dda418f328b3bc07aada49aa347e35220a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1e18223736964b0327a4c8f6ddb73ddb4f58889a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182266"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78305018"
 ---
-## <a name="rootcert"></a>Criar um certificado raiz autoassinado
+## <a name="rootcert"></a>Criar um certificado de raiz auto-assinado
 
-Use o cmdlet New-SelfSignedCertificate para criar um certificado raiz autoassinado. Para obter informações adicionais sobre parâmetros, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Utilize o cmdlet New Self-SignedCertificate para criar um certificado de raiz auto-assinado. Para obter informações adicionais sobre parâmetros, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Em um computador que executa o Windows 10 ou o Windows Server 2016, abra um console do Windows PowerShell com privilégios elevados. Esses exemplos não funcionam no Azure Cloud Shell "Experimente". Você deve executar esses exemplos localmente.
-2. Use o exemplo a seguir para criar o certificado raiz autoassinado. O exemplo a seguir cria um certificado raiz autoassinado chamado ' P2SRootCert ' que é instalado automaticamente em ' Certificates-Current User\Personal\Certificates '. Você pode exibir o certificado abrindo *certmgr. msc*ou *gerenciar certificados de usuário*.
+1. A partir de um computador que executa o Windows 10 ou windows Server 2016, abra uma consola Windows PowerShell com privilégios elevados. Estes exemplos não funcionam na Casca de Nuvem Azure "Experimente". Deve executar estes exemplos localmente.
+2. Utilize o seguinte exemplo para criar o certificado raiz auto-assinado. O exemplo seguinte cria um certificado de raiz auto-assinado chamado 'P2SRootCert' que é automaticamente instalado em 'Certificados-Utilizador Corrente\Certificados pessoais\'. Pode ver o certificado abrindo *certmgr.msc,* ou *gerir certificados*de utilizador.
 
    ```powershell
    $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -28,20 +28,21 @@ Use o cmdlet New-SelfSignedCertificate para criar um certificado raiz autoassina
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
+ 3. Deixe a consola PowerShell aberta se quiser criar um certificado de cliente logo após a criação deste certificado de raiz.
 
 ## <a name="clientcert"></a>Gerar um certificado de cliente
 
-Cada computador cliente que se ligue uma VNet por Ponto a Site tem de ter um certificado de cliente instalado. Você gera um certificado de cliente do certificado raiz autoassinado e, em seguida, exporta e instala o certificado do cliente. Se o certificado do cliente não estiver instalado, a autenticação falhará. 
+Cada computador cliente que se ligue uma VNet por Ponto a Site tem de ter um certificado de cliente instalado. Gera um certificado de cliente a partir do certificado raiz auto-assinado e depois exporta e instala o certificado de cliente. Se o certificado de cliente não estiver instalado, a autenticação falha. 
 
-As etapas a seguir orientarão você na geração de um certificado de cliente de um certificado raiz autoassinado. Você pode gerar vários certificados de cliente do mesmo certificado raiz. Quando você gera certificados de cliente usando as etapas abaixo, o certificado do cliente é instalado automaticamente no computador que você usou para gerar o certificado. Se você quiser instalar um certificado de cliente em outro computador cliente, poderá exportar o certificado.
+Os seguintes passos passam por gerar um certificado de cliente a partir de um certificado de raiz auto-assinado. Pode gerar vários certificados de cliente a partir do mesmo certificado de raiz. Quando gera certificados de cliente utilizando os passos abaixo, o certificado de cliente é automaticamente instalado no computador que usou para gerar o certificado. Se quiser instalar um certificado de cliente noutro computador cliente, pode exportar o certificado.
 
-Os exemplos usam o cmdlet New-SelfSignedCertificate para gerar um certificado de cliente que expira em um ano. Para obter informações adicionais sobre parâmetros, como definir um valor de expiração diferente para o certificado do cliente, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Os exemplos usam o cmdlet New SelfSignedCertificate para gerar um certificado de cliente que expira dentro de um ano. Para obter informações adicionais sobre parâmetros, tais como a definição de um valor de validade diferente para o certificado de cliente, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-### <a name="example-1"></a>Exemplo 1
+### <a name="example-1---powershell-console-session-still-open"></a>Exemplo 1 - Sessão de consola PowerShell ainda em aberto
 
-Use este exemplo se você não tiver fechado o console do PowerShell depois de criar o certificado raiz autoassinado. Este exemplo continua da seção anterior e usa a variável ' $cert ' declarada. Se você fechou o console do PowerShell depois de criar o certificado raiz autoassinado ou estiver criando certificados de cliente adicionais em uma nova sessão de console do PowerShell, use as etapas no [exemplo 2](#ex2).
+Use este exemplo se não tiver fechado a consola PowerShell depois de criar o certificado raiz auto-assinado. Este exemplo continua a partir da secção anterior e utiliza a variável declarada "$cert". Se fechou a consola PowerShell depois de criar o certificado raiz auto-assinado, ou estiver a criar certificados adicionais de cliente numa nova sessão de consola powerShell, utilize os passos no [Exemplo 2](#ex2).
 
-Modifique e execute o exemplo para gerar um certificado de cliente. Se você executar o exemplo a seguir sem modificá-lo, o resultado será um certificado de cliente chamado ' P2SChildCert '.  Se você quiser nomear o certificado filho outra coisa, modifique o valor CN. Não altere a textextension ao executar este exemplo. O certificado de cliente que você gera é instalado automaticamente em ' Certificates-Current User\Personal\Certificates ' no seu computador.
+Modifique e execute o exemplo para gerar um certificado de cliente. Se executar o seguinte exemplo sem modificá-lo, o resultado é um certificado de cliente chamado 'P2SChildCert'.  Se quiser nomear o certificado de criança outra coisa, modifique o valor NC. Não altere a Extensão de Texto ao executar este exemplo. O certificado de cliente que gera é automaticamente instalado em 'Certificados - Utilizador Atual\Certificados Pessoais\' no seu computador.
 
 ```powershell
 New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
@@ -51,16 +52,16 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="ex2"></a>Exemplo 2
+### <a name="ex2"></a>Exemplo 2 - Nova sessão de consola PowerShell
 
-Se você estiver criando certificados de cliente adicionais ou não estiver usando a mesma sessão do PowerShell usada para criar seu certificado raiz autoassinado, use as seguintes etapas:
+Se estiver a criar certificados adicionais de cliente, ou se não estiver a utilizar a mesma sessão PowerShell que usou para criar o seu certificado raiz auto-assinado, utilize os seguintes passos:
 
-1. Identifique o certificado raiz autoassinado que está instalado no computador. Esse cmdlet retorna uma lista de certificados que estão instalados no seu computador.
+1. Identifique o certificado de raiz auto-assinado que está instalado no computador. Este cmdlet devolve uma lista de certificados que estão instalados no seu computador.
 
    ```powershell
    Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
-2. Localize o nome da entidade na lista retornada e copie a impressão digital que está localizada ao lado dele para um arquivo de texto. No exemplo a seguir, há dois certificados. O nome CN é o nome do certificado raiz autoassinado do qual você deseja gerar um certificado filho. Nesse caso, ' P2SRootCert '.
+2. Localize o nome do assunto na lista retornada e, em seguida, copie a impressão digital que está localizada ao lado dele para um ficheiro de texto. No exemplo seguinte, existem dois certificados. O nome NC é o nome do certificado raiz auto-assinado a partir do qual pretende gerar um certificado de criança. Neste caso, "P2SRootCert".
 
    ```
    Thumbprint                                Subject
@@ -68,18 +69,18 @@ Se você estiver criando certificados de cliente adicionais ou não estiver usan
    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
-3. Declare uma variável para o certificado raiz usando a impressão digital da etapa anterior. Substitua a impressão digital pela impressão digital do certificado raiz do qual você deseja gerar um certificado filho.
+3. Declare uma variável para o certificado de raiz utilizando a impressão digital do passo anterior. Substitua a impressão digital por impressão digital do certificado de raiz a partir do qual pretende gerar um certificado de criança.
 
    ```powershell
    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
    ```
 
-   Por exemplo, usando a impressão digital para P2SRootCert na etapa anterior, a variável é parecida com esta:
+   Por exemplo, usando a impressão digital para P2SRootCert no passo anterior, a variável é assim:
 
    ```powershell
    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
    ```
-4. Modifique e execute o exemplo para gerar um certificado de cliente. Se você executar o exemplo a seguir sem modificá-lo, o resultado será um certificado de cliente chamado ' P2SChildCert '. Se você quiser nomear o certificado filho outra coisa, modifique o valor CN. Não altere a textextension ao executar este exemplo. O certificado de cliente que você gera é instalado automaticamente em ' Certificates-Current User\Personal\Certificates ' no seu computador.
+4. Modifique e execute o exemplo para gerar um certificado de cliente. Se executar o seguinte exemplo sem modificá-lo, o resultado é um certificado de cliente chamado 'P2SChildCert'. Se quiser nomear o certificado de criança outra coisa, modifique o valor NC. Não altere a Extensão de Texto ao executar este exemplo. O certificado de cliente que gera é automaticamente instalado em 'Certificados - Utilizador Atual\Certificados Pessoais\' no seu computador.
 
    ```powershell
    New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
@@ -89,14 +90,14 @@ Se você estiver criando certificados de cliente adicionais ou não estiver usan
    -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
    ```
 
-## <a name="cer"></a>Exportar a chave pública do certificado raiz (. cer)
+## <a name="cer"></a>Exportar a chave pública do certificado de raiz (.cer)
 
 [!INCLUDE [Export public key](vpn-gateway-certificates-export-public-key-include.md)]
 
-### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exportar o certificado raiz autoassinado e a chave privada para armazená-lo (opcional)
+### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exportar o certificado de raiz auto-assinado e a chave privada para armazená-lo (opcional)
 
-Talvez você queira exportar o certificado raiz autoassinado e armazená-lo com segurança como backup. Se necessário, você pode instalá-lo posteriormente em outro computador e gerar mais certificados de cliente. Para exportar o certificado raiz autoassinado como um. pfx, selecione o certificado raiz e use as mesmas etapas, conforme descrito em [exportar um certificado de cliente](#clientexport).
+Pode querer exportar o certificado de raiz auto-assinado e armazená-lo com segurança como cópia de segurança. Se necessário, pode posteriormente instalá-lo noutro computador e gerar mais certificados de cliente. Para exportar o certificado de raiz auto-assinado como .pfx, selecione o certificado de raiz e utilize os mesmos passos descritos na [Exportação de um certificado](#clientexport)de cliente .
 
-## <a name="clientexport"></a>Exportar o certificado do cliente
+## <a name="clientexport"></a>Exportar o certificado de cliente
 
 [!INCLUDE [Export client certificate](vpn-gateway-certificates-export-client-cert-include.md)]

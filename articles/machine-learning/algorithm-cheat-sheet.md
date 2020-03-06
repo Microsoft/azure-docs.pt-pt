@@ -1,67 +1,67 @@
 ---
-title: Roteiro de Machine Learning de algoritmos
+title: Folha de batota do algoritmo de aprendizagem automática
 titleSuffix: Azure Machine Learning
-description: Uma folha de consulta de algoritmo de Machine Learning imprimível ajuda a escolher o algoritmo certo para seu modelo de previsão no designer de Azure Machine Learning.
+description: Uma folha de batota de algoritmo de aprendizagem automática imprimível ajuda-o a escolher o algoritmo certo para o seu modelo preditivo no designer de Machine Learning Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 11/04/2019
-ms.openlocfilehash: 82d4131170002a3d9ffd78933c9dc566c3b1d921
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 03/05/2020
+ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767635"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328626"
 ---
-# <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Roteiro de Machine Learning de algoritmo para Azure Machine Learning designer
+# <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Folha de batota de algoritmo de aprendizagem automática para designer de aprendizagem automática azure
 
-A **folha** de consulta do algoritmo de Azure Machine Learning ajuda a escolher o algoritmo certo para um modelo de análise preditiva.
+A Folha de Batota do Algoritmo de **Aprendizagem automática Azure** ajuda-o a escolher o algoritmo certo para um modelo de análise preditiva.
 
-O Azure Machine Learning tem uma grande biblioteca de algoritmos da ***classificação,*** ***sistemas de recomendação,*** ***agrupamento,*** ***deteção de anomalias,*** ***regressão***e famílias de análise de ***texto.*** Cada um foi projetado para resolver um tipo diferente de problema de aprendizado de máquina.
+O Azure Machine Learning tem uma grande biblioteca de algoritmos da ***classificação,*** ***sistemas de recomendação,*** ***agrupamento,*** ***deteção de anomalias,*** ***regressão***e famílias de análise de ***texto.*** Cada um é projetado para resolver um tipo diferente de problema de aprendizagem automática.
 
 Para obter orientação adicional, consulte [Como selecionar algoritmos](how-to-select-algorithms.md)
 
-## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Download: roteiro de Machine Learning de algoritmos
+## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Download: Machine Learning Algorithm Cheat Sheet
 
-**Baixe a folha de consulta aqui: [Machine Learning folha de consulta do algoritmo (11x17 em.)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri)**
+**Descarregue a folha de batota aqui: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri)**
 
-![Roteiro de Machine Learning de algoritmos: saiba como escolher um algoritmo de Machine Learning.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
+![Folha de batota do algoritmo de aprendizagem automática: Aprenda a escolher um algoritmo de aprendizagem automática.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
 
-Baixe e imprima a folha de consulta do algoritmo de Machine Learning no tamanho de tablóide para mantê-la útil e obter ajuda para escolher um algoritmo.
+Descarregue e imprima a Folha de Batota do Algoritmo de Aprendizagem automática em tamanho tabloide para mantê-lo à mão e obter ajuda na escolha de um algoritmo.
 
-## <a name="how-to-use-the-machine-learning-algorithm-cheat-sheet"></a>Como usar a folha de consulta do algoritmo de Machine Learning
+## <a name="how-to-use-the-machine-learning-algorithm-cheat-sheet"></a>Como usar a folha de batota do algoritmo de aprendizagem automática
 
-As sugestões oferecidas nesta folha de consulta de algoritmo são regras aproximadas. Alguns podem ser tortos e alguns podem ser flagrantemente violados. Esta folha de batota destina-se a sugerir um ponto de partida. Não tenha medo de executar uma competição de cabeça a cabeça entre vários algoritmos em seus dados. Simplesmente não há nenhum substituto para entender os princípios de cada algoritmo e o sistema que gerou os dados.
+As sugestões oferecidas nesta folha de batota de algoritmo são regras aproximadas do polegar. Alguns podem ser dobrados, e outros podem ser flagrantemente violados. Esta folha de batota destina-se a sugerir um ponto de partida. Não tenha medo de fazer uma competição frente-a-frente entre vários algoritmos nos seus dados. Simplesmente não há substituto para compreender os princípios de cada algoritmo e o sistema que gerou os seus dados.
 
-Cada algoritmo de aprendizado de máquina tem seu próprio estilo ou tendência indutivo. Para um problema específico, vários algoritmos podem ser apropriados e um algoritmo pode ser um melhor ajuste do que outros. Mas nem sempre é possível saber com antecedência qual é a melhor opção. Em casos como esses, vários algoritmos são listados juntos na folha de consulta. Uma estratégia apropriada seria testar um algoritmo e, se os resultados ainda não forem satisfatórios, tente os outros. 
+Cada algoritmo de aprendizagem automática tem o seu próprio estilo ou preconceito indutivo. Para um problema específico, vários algoritmos podem ser apropriados, e um algoritmo pode ser melhor do que outros. Mas nem sempre é possível saber de antemão qual é o melhor ajuste. Em casos como este, vários algoritmos estão listados juntos na folha de batota. Uma estratégia adequada seria experimentar um algoritmo, e se os resultados ainda não forem satisfatórios, experimente os outros. 
 
-Para saber mais sobre os algoritmos no Azure Machine Learning, acesse o [algoritmo e a referência do módulo](algorithm-module-reference/module-reference.md).
+Para saber mais sobre os algoritmos em Azure Machine Learning, vá ao Algoritmo e à referência do [módulo.](algorithm-module-reference/module-reference.md)
 
-## <a name="kinds-of-machine-learning"></a>Tipos de aprendizado de máquina
+## <a name="kinds-of-machine-learning"></a>Tipos de aprendizagem automática
 
-Há três categorias principais de aprendizado de máquina: *aprendizado supervisionado*, *aprendizado não supervisionado*e *aprendizado de reforço*.
+Existem três categorias principais de aprendizagem automática: *aprendizagem supervisionada,* *aprendizagem sem supervisão*e aprendizagem de *reforço.*
 
 ### <a name="supervised-learning"></a>Aprendizagem supervisionada
 
-No aprendizado supervisionado, cada ponto de dados é rotulado ou associado a uma categoria ou valor de interesse. Um exemplo de um rótulo categórico é atribuir uma imagem como um ' gato ' ou um ' cachorro '. Um exemplo de um rótulo de valor é o preço de venda associado a um carro usado. O objetivo do aprendizado supervisionado é estudar muitos exemplos rotulados como esses, e então ser capaz de fazer previsões sobre pontos de dados futuros. Por exemplo, identificar novas fotos com o animal correto ou atribuir preços de venda precisos a outros carros usados. Esse é um tipo popular e útil de aprendizado de máquina.
+Na aprendizagem supervisionada, cada ponto de dados é rotulado ou associado a uma categoria ou valor de interesse. Um exemplo de um rótulo categórico é atribuir uma imagem como um "gato" ou um "cão". Um exemplo de um rótulo de valor é o preço de venda associado a um carro usado. O objetivo da aprendizagem supervisionada é estudar muitos exemplos rotulados como estes, e depois ser capaz de fazer previsões sobre futuros pontos de dados. Por exemplo, identificar novas fotos com o animal correto ou atribuir preços de venda precisos a outros carros usados. Este é um tipo popular e útil de aprendizagem automática.
 
-### <a name="unsupervised-learning"></a>Aprendizagem não supervisionada
+### <a name="unsupervised-learning"></a>Aprendizagem sem supervisão
 
-No aprendizado não supervisionado, os pontos de dados não têm rótulos associados a eles. Em vez disso, o objetivo de um algoritmo de aprendizado não supervisionado é organizar os dados de alguma forma ou descrever sua estrutura. Os grupos de aprendizagem não supervisionados são dados em clusters, como o K-means faz, ou encontra diferentes formas de olhar para dados complexos para que pareça mais simples.
+Na aprendizagem não supervisionada, os pontos de dados não têm rótulos associados a eles. Em vez disso, o objetivo de um algoritmo de aprendizagem não supervisionado é organizar os dados de alguma forma ou descrever a sua estrutura. Os grupos de aprendizagem não supervisionados são dados em clusters, como o K-means faz, ou encontra diferentes formas de olhar para dados complexos para que pareça mais simples.
 
 ### <a name="reinforcement-learning"></a>Aprendizagem por reforço
 
-No reforço Learning, o algoritmo Obtém a escolha de uma ação em resposta a cada ponto de dados. É uma abordagem comum em robótica, em que o conjunto de leituras de sensor em um ponto no tempo é um ponto de dados, e o algoritmo deve escolher a próxima ação do robô. Também é uma opção natural para Internet das Coisas aplicativos. O algoritmo de aprendizado também recebe um sinal de recompensa um pouco mais tarde, indicando quão boa é a decisão. Com base neste sinal, o algoritmo modifica a sua estratégia de forma a alcançar a maior recompensa. 
+Na aprendizagem do reforço, o algoritmo pode escolher uma ação em resposta a cada ponto de dados. É uma abordagem comum na robótica, onde o conjunto de leituras de sensores em um ponto do tempo é um ponto de dados, e o algoritmo deve escolher a próxima ação do robô. É também um ajuste natural para aplicações da Internet das Coisas. O algoritmo de aprendizagem também recebe um sinal de recompensa pouco tempo depois, indicando quão boa foi a decisão. Com base neste sinal, o algoritmo modifica a sua estratégia de forma a alcançar a maior recompensa. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Consulte orientação adicional sobre [como selecionar algoritmos](how-to-select-algorithms.md)
 
-* [Saiba mais sobre o estúdio em Azure Machine Learning e o portal do Azure](overview-what-is-azure-ml.md).
+* [Conheça o estúdio em Azure Machine Learning e o portal Azure.](overview-what-is-azure-ml.md)
 
-* [Tutorial: criar um modelo de previsão no designer de Azure Machine Learning](tutorial-designer-automobile-price-train-score.md).
+* [Tutorial: Construa um modelo de previsão no designer de machine learning Azure.](tutorial-designer-automobile-price-train-score.md)
 
-* [Saiba mais sobre aprendizado profundo versus aprendizado de máquina](concept-deep-learning-vs-machine-learning.md).
+* [Saiba mais sobre aprendizagem profunda vs. machine learning](concept-deep-learning-vs-machine-learning.md).

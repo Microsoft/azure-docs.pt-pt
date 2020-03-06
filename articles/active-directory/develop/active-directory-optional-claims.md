@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585854"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300073"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer reclamações opcionais à sua aplicação Azure AD
 
@@ -122,7 +122,7 @@ Este objeto OptionalClaims faz com que o token de ID devolvido ao cliente inclua
 ## <a name="configuring-optional-claims"></a>Configurar reclamações opcionais
 
 > [!IMPORTANT]
-> As fichas de acesso são **sempre** geradas usando o manifesto do recurso, não o cliente.  Então, no pedido `...scope=https://graph.microsoft.com/user.read...` o recurso é graph.  Assim, o sinal de acesso é criado usando o manifesto Graph, e não o manifesto do cliente.  Alterar o manifesto para a sua aplicação nunca fará com que os tokens para o Graph pareçam diferentes.  Para validar que as alterações `accessToken` estão em vigor, solicite um sinal para a sua aplicação e não outra aplicação.  
+> As fichas de acesso são **sempre** geradas usando o manifesto do recurso, não o cliente.  Assim, no pedido `...scope=https://graph.microsoft.com/user.read...` o recurso é a API do Microsoft Graph.  Assim, o token de acesso é criado usando o manifesto Microsoft Graph API, e não o manifesto do cliente.  Alterar o manifesto para a sua aplicação nunca fará com que os tokens para que a API do Microsoft Graph pareça diferente.  Para validar que as alterações `accessToken` estão em vigor, solicite um sinal para a sua aplicação e não outra aplicação.  
 
 Pode configurar reclamações opcionais para a sua aplicação através do UI ou do manifesto de aplicação.
 
@@ -349,7 +349,7 @@ Nesta secção, pode percorrer um cenário para ver como pode utilizar a funcion
 Existem várias opções disponíveis para atualizar as propriedades na configuração de identidade de uma aplicação para ativar e configurar reclamações opcionais:
 -    Pode utilizar a **configuração Token (pré-visualização)** UI (ver exemplo abaixo)
 -    Pode utilizar o **Manifesto** (ver exemplo abaixo). Leia primeiro o documento manifesto de [apresentação da aplicação DaD Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) para uma introdução ao manifesto.
--   Também é possível escrever uma aplicação que utiliza a [API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) do Gráfico para atualizar a sua aplicação. O tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência API gráfico pode ajudá-lo a configurar as reclamações opcionais.
+-   Também é possível escrever uma aplicação que utiliza a [API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) do Microsoft Graph para atualizar a sua aplicação. O tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência DaPi do Microsoft Graph pode ajudá-lo a configurar as reclamações opcionais.
 
 **Exemplo:** No exemplo abaixo, utilizará a **configuração Token (pré-visualização)** UI e **Manifesto** para adicionar reclamações opcionais aos tokens de acesso, ID e SAML destinados à sua aplicação. Serão adicionadas diferentes reclamações opcionais a cada tipo de ficha que a aplicação pode receber:
 -    As fichas de identificação irão agora conter a UPN para utilizadores federados na forma completa (`<upn>_<homedomain>#EXT#@<resourcedomain>`).

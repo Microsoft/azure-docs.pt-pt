@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 9cab78e85b8644f29bfcd067b104b1b5c10c2266
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8c7c9c2e3a1195422db30ba913b1cea3a1a360e4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249843"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301697"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados utilizando os Databricks Azure
 
@@ -59,7 +59,7 @@ Complete estas tarefas antes de iniciar este tutorial:
 
    Há algumas coisas específicas que terás de fazer enquanto fazes os passos nesse artigo.
 
-   * Ao executar os passos na [Atribuição da aplicação a uma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) secção de papel do artigo, certifique-se de atribuir a função de Colaborador de Dados **blob** de armazenamento ao principal de serviço no âmbito da conta Data Lake Storage Gen2. Se atribuir o papel ao grupo de recursos-mãe ou subscrição, receberá erros relacionados com permissões até que essas atribuições de funções se propaguem na conta de armazenamento.
+   * Ao executar os passos na [Atribuição da aplicação a uma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) secção de papel do artigo, certifique-se de atribuir a função de Colaborador de Dados **blob** de armazenamento ao principal de serviço no âmbito da conta Data Lake Storage Gen2. Se atribuir o papel ao grupo de recursos-mãe ou subscrição, receberá erros relacionados com permissões até que essas atribuições de funções se propaguem na conta de armazenamento.
 
       Se preferir utilizar uma lista de controlo de acesso (ACL) para associar o diretor de serviço a um ficheiro ou diretório específico, referência Controlo de [acesso em Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 

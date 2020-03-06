@@ -160,6 +160,8 @@
       items:
         - name: No portal do Azure
           items:
+            - name: Descrição geral
+              href: azure-file-share-backup-overview.md
             - name: Cópia de segurança
               href: backup-afs.md
             - name: Restauro

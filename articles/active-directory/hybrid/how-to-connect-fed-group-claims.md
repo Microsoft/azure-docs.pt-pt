@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 3b45bcff300cc3e749d387ea83df2f96e51d3c66
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 78b36e1f5ababf2551bd69682807a8ed308ae24d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274264"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298450"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configure reivindicações de grupo para candidaturas com Diretório Ativo Azure (Pré-visualização Pública)
 

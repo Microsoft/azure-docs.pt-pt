@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/07/2019
+ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: 66bc1e5441210b8d9153812c826643159fe53d50
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: a9519be591581fa434825f1a1fb31749788a21a8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251316"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395715"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -64,6 +64,7 @@ Os dados não são armazenados na sua conta. As operações realizadas pela API 
 Pode começar a utilizar a API textanalytics nos seus processos, mesmo que não tenha muita experiência em programação. Use estes tutoriais para aprender como pode usar a API para analisar o texto de diferentes formas para se adaptar ao seu nível de experiência. 
 
 * Programação mínima necessária:
+    * [Extrair informações em Excel usando Análise de Texto e Automatização de Energia](tutorials/extract-excel-information.md)
     * [Utilize o API de Análise de Texto e MS Flow para identificar o sentimento de comentários num grupo Yammer](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
     * [Integrar o Power BI com a API de Análise de Texto para analisar o feedback do cliente](tutorials/tutorial-power-bi-key-phrases.md)
 * Experiência de programação recomendada:

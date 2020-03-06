@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Tutorial do serviço de contêiner do Azure – preparar ACR
+title: (DEPRECIADO) Tutorial do Serviço de Contentores Azure - Prepare a ACR
 description: Tutorial do Azure Container Service – Prepara ACR
 author: iainfoulds
 ms.service: container-service
@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fbd718b62246e820bfa01353080815b62912bd00
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 087530fd3834c4ec4620c087134bee0ed26bb6c9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274134"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399777"
 ---
-# <a name="deprecated-deploy-and-use-azure-container-registry"></a>PRETERIDO Implantar e usar o registro de contêiner do Azure
+# <a name="deprecated-deploy-and-use-azure-container-registry"></a>(DEPRECIADO) Implementar e utilizar o Registo de Contentores Azure
 
 > [!TIP]
-> Para obter a versão atualizada deste tutorial que usa o serviço kubernetes do Azure, consulte [tutorial: implantar e usar o registro de contêiner do Azure](../../aks/tutorial-kubernetes-prepare-acr.md).
+> Para a versão atualizada este tutorial que utiliza o Serviço Azure Kubernetes, consulte [Tutorial: Desdobre e utilize](../../aks/tutorial-kubernetes-prepare-acr.md)o Registo de Contentores Azure .
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -74,7 +74,7 @@ docker images
 
 Saída:
 
-```bash
+```output
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
 redis                        latest              a1b99da73d05        7 days ago          106MB
@@ -103,7 +103,7 @@ docker images
 
 Saída:
 
-```bash
+```output
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
 mycontainerregistry082.azurecr.io/azure-vote-front   v1            eaf2b9c57e5e        8 minutes ago       716 MB
@@ -133,7 +133,7 @@ az acr repository list --name <acrName> --output table
 
 Saída:
 
-```azurecli
+```output
 Result
 ----------------
 azure-vote-front
@@ -147,7 +147,7 @@ az acr repository show-tags --name <acrName> --repository azure-vote-front --out
 
 Saída:
 
-```azurecli
+```output
 Result
 --------
 v1

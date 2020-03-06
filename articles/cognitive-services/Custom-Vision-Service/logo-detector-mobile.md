@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: usar o detector de logotipo personalizado para reconhecer os serviços do Azure-Visão Personalizada'
+title: 'Tutorial: Use detetor de logotipo personalizado para reconhecer serviços Azure - Visão Personalizada'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, você passará por um aplicativo de exemplo que usa Visão Personalizada como parte de um cenário de detecção de logotipo. Saiba como Visão Personalizada é usado com outros componentes para fornecer um aplicativo de ponta a ponta.
+description: Neste tutorial, você vai passar por uma aplicação de amostra que usa a Visão Personalizada como parte de um cenário de deteção de logotipo. Saiba como a Visão Personalizada é usada com outros componentes para fornecer uma aplicação de ponta a ponta.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,116 +10,116 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 6ff12122d541a9dbb160a424e0d11cf03fdcb9fe
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 51fa6d4859eb4b7f059b499ba73d84d9fc65e6f6
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970232"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398982"
 ---
-# <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: reconhecer logotipos de serviço do Azure em imagens da câmera
+# <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviço Azure em imagens de câmara
 
-Neste tutorial, você explorará um aplicativo de exemplo que usa Visão Personalizada como parte de um cenário maior. O aplicativo de provisionamento visual de ia, um aplicativo Xamarin. Forms para plataformas móveis, analisa fotos de câmera de logotipos de serviço do Azure e, em seguida, implanta os serviços reais na conta do Azure do usuário. Aqui você aprenderá como ele usa Visão Personalizada em coordenação com outros componentes para fornecer um aplicativo útil de ponta a ponta. Você pode executar todo o cenário do aplicativo para você mesmo ou pode concluir apenas a parte Visão Personalizada da instalação e explorar como o aplicativo o utiliza.
+Neste tutorial, você vai explorar uma aplicação de amostra que usa a Visão Personalizada como parte de um cenário maior. A aplicação AI Visual Provision, uma aplicação Xamarin.Forms para plataformas móveis, analisa imagens de câmaras de logótipos de serviço sinuosos e, em seguida, implementa os serviços reais para a conta Azure do utilizador. Aqui você vai aprender como ele usa a Visão Personalizada em coordenação com outros componentes para fornecer uma aplicação útil de ponta a ponta. Você pode executar todo o cenário da aplicação para si mesmo, ou você pode completar apenas a parte Custom Vision da configuração e explorar como a aplicação a utiliza.
 
 Este tutorial irá mostrar-lhe como:
 
 > [!div class="checklist"]
-> - Crie um detector de objeto personalizado para reconhecer logotipos de serviço do Azure.
-> - Conecte seu aplicativo ao Azure Pesquisa Visual Computacional e Visão Personalizada.
-> - Crie uma conta de entidade de serviço do Azure para implantar serviços do Azure do aplicativo.
+> - Crie um detetor de objetos personalizado para reconhecer os logótipos do serviço Azure.
+> - Ligue a sua aplicação à Azure Computer Vision e à Custom Vision.
+> - Crie uma conta principal de serviço Azure para implementar serviços Azure a partir da app.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
-- A carga de trabalho do Xamarin para Visual Studio (consulte [instalando o Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
-- Um emulador do iOS ou Android para Visual Studio
-- O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)
+- [Estúdio Visual 2017 ou mais tarde](https://www.visualstudio.com/downloads/)
+- A carga de trabalho xamarin para estúdio visual (ver [Instalação Xamarin)](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows)
+- Um emulador iOS ou Android para Estúdio Visual
+- O [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)
 
-## <a name="get-the-source-code"></a>Obter o código-fonte
+## <a name="get-the-source-code"></a>Obtenha o código fonte
 
-Se você quiser usar o aplicativo Web fornecido, clone ou baixe o código-fonte do aplicativo do repositório de [provisionamento visual do ia](https://github.com/Microsoft/AIVisualProvision) no github. Abra o arquivo *Source/VisualProvision. sln* no Visual Studio. Posteriormente, você editará alguns dos arquivos de projeto para que possa executar o aplicativo.
+Se pretender utilizar a aplicação web fornecida, clonar ou descarregar o código fonte da aplicação a partir do repositório [de Fornecimento Visual AI](https://github.com/Microsoft/AIVisualProvision) no GitHub. Abra o ficheiro *Source/VisualProvision.sln* no Estúdio Visual. Mais tarde, vai editar alguns dos ficheiros do projeto para que possa executar a aplicação.
 
-## <a name="create-an-object-detector"></a>Criar um detector de objeto
+## <a name="create-an-object-detector"></a>Criar um detetor de objetos
 
-Entre no site do [visão personalizada](https://customvision.ai/) e crie um novo projeto. Especifique um projeto de detecção de objeto e use o domínio de logotipo; Isso permitirá que o serviço use um algoritmo otimizado para detecção de logotipo. 
+Inscreva-se no site da [Visão Personalizada](https://customvision.ai/) e crie um novo projeto. Especificar um projeto de deteção de objetos e utilizar o domínio Logotipo; isto permitirá ao serviço utilizar um algoritmo otimizado para deteção de logotipo. 
 
-![Janela New-Project no site Visão Personalizada no navegador Chrome](media/azure-logo-tutorial/new-project.png)
+![Janela de novo projeto no site da Custom Vision no navegador Chrome](media/azure-logo-tutorial/new-project.png)
 
 ## <a name="upload-and-tag-images"></a>Carregar e etiquetar imagens
 
-Em seguida, treine o algoritmo de detecção de logotipo carregando imagens de logotipos de serviço do Azure e marcando-as manualmente. O repositório AIVisualProvision inclui um conjunto de imagens de treinamento que você pode usar. No site, selecione o botão **Adicionar imagens** na guia **imagens de treinamento** . Em seguida, vá para a pasta **Documents/images/Training_DataSet** do repositório. Você precisará marcar manualmente os logotipos em cada imagem, portanto, se estiver apenas testando esse projeto, talvez você queira carregar apenas um subconjunto das imagens. Carregue pelo menos 15 instâncias de cada marca que você planeja usar.
+Em seguida, treine o algoritmo de deteção de logotipos carregando imagens de logotipos de serviço Azure e marcando-os manualmente. O repositório AIVisualProvision inclui um conjunto de imagens de treino que pode utilizar. No site, selecione o botão **Adicionar imagens** no separador **Imagens de Treino.** Em seguida, vá para a pasta **Documentos/Imagens/Training_DataSet** do repositório. Terá de marcar manualmente os logótipos em cada imagem, por isso, se estiver apenas a testar este projeto, poderá querer fazer o upload apenas de um subconjunto das imagens. Faça upload de pelo menos 15 instâncias de cada etiqueta que pretende utilizar.
 
-Depois de carregar as imagens de treinamento, selecione a primeira na exibição. A janela de marcação será exibida. Desenhe caixas e atribua marcas para cada logotipo em cada imagem. 
+Depois de fazer o upload das imagens de treino, selecione a primeira no visor. A janela de marcação aparecerá. Desenhe caixas e atribua etiquetas para cada logotipo em cada imagem. 
 
-![Marcação de logotipo no site Visão Personalizada](media/azure-logo-tutorial/tag-logos.png)
+![Marcação de logotipo no site da Visão Personalizada](media/azure-logo-tutorial/tag-logos.png)
 
-O aplicativo está configurado para trabalhar com cadeias de caracteres de marca específicas. Você encontrará as definições no arquivo *Source\VisualProvision\Services\Recognition\RecognitionService.cs* :
+A aplicação está configurada para funcionar com cordas de etiquetas específicas. Encontrará as definições no ficheiro *Source\VisualProvision\Services\RecognitionService.cs:*
 
 [!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
-Depois de marcar uma imagem, acesse a direita para marcar a próxima. Feche a janela de marcação quando terminar.
+Depois de marcar uma imagem, vá para a direita para marcar a próxima. Feche a janela de marcação quando terminar.
 
-## <a name="train-the-object-detector"></a>Treinar o detector de objeto
+## <a name="train-the-object-detector"></a>Treine o detetor de objetos
 
-No painel esquerdo, defina a opção **marcas** como **marcada** para exibir suas imagens. Em seguida, selecione o botão verde na parte superior da página para treinar o modelo. O algoritmo treinará o reconhecimento das mesmas marcas em novas imagens. Ele também testará o modelo em algumas de suas imagens existentes para gerar pontuações de precisão.
+No painel esquerdo, coloque o interruptor **de etiquetas** para **O Tagged** para exibir as suas imagens. Em seguida, selecione o botão verde na parte superior da página para treinar o modelo. O algoritmo vai treinar para reconhecer as mesmas etiquetas em novas imagens. Também irá testar o modelo em algumas das suas imagens existentes para gerar pontuações de precisão.
 
-![O site Visão Personalizada, na guia imagens de treinamento. Nesta captura de tela, o botão treinar é descrito](media/azure-logo-tutorial/train-model.png)
+![O site Custom Vision, no separador Imagens de Formação. Nesta imagem, o botão Train está delineado](media/azure-logo-tutorial/train-model.png)
 
-## <a name="get-the-prediction-url"></a>Obter a URL de previsão
+## <a name="get-the-prediction-url"></a>Obtenha o URL de previsão
 
-Depois que o modelo for treinado, você estará pronto para integrá-lo ao seu aplicativo. Você precisará obter a URL do ponto de extremidade (o endereço do seu modelo, que o aplicativo consultará) e a chave de previsão (para conceder ao aplicativo acesso a solicitações de previsão). Na guia **desempenho** , selecione o botão **URL de previsão** na parte superior da página.
+Depois de o seu modelo ser treinado, está pronto para integrá-lo na sua aplicação. Terá de obter o URL de ponto final (o endereço do seu modelo, que a app irá consultar) e a chave de previsão (para conceder acesso à app aos pedidos de previsão). No separador **Performance,** selecione o botão URL de **Previsão** na parte superior da página.
 
-![O site Visão Personalizada, mostrando uma janela API de previsão que exibe um endereço URL e uma chave de API](media/azure-logo-tutorial/cusvis-endpoint.png)
+![O site Custom Vision, mostrando uma janela De previsão API que exibe um endereço URL e chave API](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copie a URL do ponto de extremidade e o valor da **chave de previsão** para os campos apropriados no arquivo *Source\VisualProvision\AppSettings.cs* :
+Copie o URL do ponto final e o valor da **chave de previsão** para os campos apropriados no ficheiro *Source\VisualProvision\AppSettings.cs:*
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
-## <a name="examine-custom-vision-usage"></a>Examinar o uso de Visão Personalizada
+## <a name="examine-custom-vision-usage"></a>Examinar o uso da visão personalizada
 
-Abra o arquivo *Source/VisualProvision/Services/rerecognition/CustomVisionService. cs* para ver como o aplicativo usa sua chave de visão personalizada e a URL do ponto de extremidade. O método **PredictImageContentsAsync** usa um fluxo de bytes de um arquivo de imagem junto com um token de cancelamento (para gerenciamento de tarefas assíncronas), chama a API de previsão de visão personalizada e retorna o resultado da previsão. 
+Abra o ficheiro *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* para ver como a aplicação utiliza a chave Visão Personalizada e o URL final. O método **PredictImageContentsAsync** leva um fluxo de byte de um ficheiro de imagem juntamente com um símbolo de cancelamento (para gestão de tarefas assíncronas), chama a Previsão de Visão Personalizada API, e devolve o resultado da previsão. 
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-Esse resultado assume a forma de uma instância de **PredictionResult** , que contém uma lista de instâncias de **previsão** . Uma **previsão** contém uma marca detectada e seu local de caixa delimitadora na imagem.
+Este resultado assume a forma de uma instância **De previsãoResult,** que por si só contém uma lista de casos de **Previsão.** Uma **Previsão** contém uma etiqueta detetada e a sua localização da caixa de limitador na imagem.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
-Para saber mais sobre como o aplicativo lida com esses dados, comece com o método **GetResourcesAsync** . Esse método é definido no arquivo *Source/VisualProvision/Services/rerecognition/RecognitionService. cs* .  
+Para saber mais sobre como a aplicação lida com estes dados, comece com o método **GetResourcesAsync.** Este método é definido no ficheiro *Fonte/VisualProvision/Services/RecognitionService.cs.*  
 
-## <a name="add-computer-vision"></a>Adicionar Pesquisa Visual Computacional
+## <a name="add-computer-vision"></a>Adicionar visão de computador
 
-A parte Visão Personalizada do tutorial foi concluída. Se desejar executar o aplicativo, você também precisará integrar o serviço de Pesquisa Visual Computacional. O aplicativo usa o recurso de reconhecimento de texto Pesquisa Visual Computacional para complementar o processo de detecção de logotipo. Um logotipo do Azure pode ser reconhecido por sua aparência *ou* pelo texto impresso perto dele. Ao contrário dos modelos de Visão Personalizada, Pesquisa Visual Computacional é pretreinado para executar determinadas operações em imagens ou vídeos.
+A parte da Visão Personalizada do tutorial está completa. Se quiser executar a aplicação, terá de integrar o serviço Computer Vision também. A aplicação utiliza a funcionalidade de reconhecimento de texto Computer Vision para complementar o processo de deteção do logotipo. Um logótipo Azure pode ser reconhecido pela sua aparência *ou* pelo texto impresso perto dele. Ao contrário dos modelos Custom Vision, a Computer Vision está pré-treinada para realizar determinadas operações em imagens ou vídeos.
 
-Assine o serviço de Pesquisa Visual Computacional para obter uma URL de chave e ponto de extremidade. Para obter ajuda sobre esta etapa, consulte [como obter chaves de assinatura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
+Subscreva o serviço Computer Vision para obter um URL chave e ponto final. Para obter ajuda neste passo, consulte [Como obter chaves de subscrição](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
 
-![O serviço de Pesquisa Visual Computacional no portal do Azure, com o menu de início rápido selecionado. Um link para chaves é descrito, como é a URL do ponto de extremidade da API](media/azure-logo-tutorial/comvis-keys.png)
+![O serviço Computer Vision no portal Azure, com o menu Quickstart selecionado. Um link para teclas é delineado, assim como o URL final do ponto final da API](media/azure-logo-tutorial/comvis-keys.png)
 
-Em seguida, abra o arquivo *Source\VisualProvision\AppSettings.cs* e popule as variáveis `ComputerVisionEndpoint` e `ComputerVisionKey` com os valores corretos.
+Em seguida, abra o ficheiro *Source\VisualProvision\AppSettings.cs* e povoe as variáveis `ComputerVisionEndpoint` e `ComputerVisionKey` com os valores corretos.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-O aplicativo requer uma conta de entidade de serviço do Azure para implantar serviços em sua assinatura do Azure. Uma entidade de serviço permite delegar permissões específicas a um aplicativo usando o controle de acesso baseado em função. Para saber mais, confira o [Guia de entidades de serviço](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+A aplicação requer uma conta principal de serviço Azure para implementar serviços para a sua subscrição Azure. Um diretor de serviço permite-lhe delegar permissões específicas para uma aplicação utilizando o controlo de acesso baseado em papéis. Para saber mais, consulte o guia dos diretores de [serviço.](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)
 
-Você pode criar uma entidade de serviço usando Azure Cloud Shell ou a CLI do Azure, conforme mostrado aqui. Para começar, entre e selecione a assinatura que você deseja usar.
+Pode criar um diretor de serviço utilizando a Azure Cloud Shell ou o Azure CLI, como mostrado aqui. Para começar, inicie o sessão e selecione a subscrição que pretende utilizar.
 
-```console
+```azurecli
 az login
 az account list
 az account set --subscription "<subscription name or subscription id>"
 ```
 
-Em seguida, crie sua entidade de serviço. (Esse processo pode levar algum tempo para ser concluído.)
+Em seguida, crie o seu diretor de serviço. (Este processo pode levar algum tempo para terminar.)
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
 ```
 
-Após a conclusão bem-sucedida, você deverá ver a saída JSON a seguir, incluindo as credenciais necessárias.
+Após a conclusão bem sucedida, deverá ver a seguinte saída JSON, incluindo as credenciais necessárias.
 
 ```json
 {
@@ -131,55 +131,55 @@ Após a conclusão bem-sucedida, você deverá ver a saída JSON a seguir, inclu
 }
 ```
 
-Anote os valores de `clientId` e `tenantId`. Adicione-os aos campos apropriados no arquivo *Source\VisualProvision\AppSettings.cs* .
+Tome nota dos valores `clientId` e `tenantId`. Adicione-os aos campos apropriados no ficheiro *Source\VisualProvision\AppSettings.cs.*
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
-Neste ponto, você concedeu ao aplicativo acesso a:
+Neste momento, deu à aplicação acesso a:
 
 - Um modelo de Visão Personalizada treinado
-- O serviço Pesquisa Visual Computacional
-- Uma conta de entidade de serviço
+- O serviço de Visão Computacional
+- Uma conta principal de serviço
 
-Siga estas etapas para executar o aplicativo:
+Siga estes passos para executar a aplicação:
 
-1. No Gerenciador de Soluções do Visual Studio, selecione o projeto **VisualProvision. Android** ou o projeto **VisualProvision. Ios** . Escolha um emulador correspondente ou dispositivo móvel conectado no menu suspenso na barra de ferramentas principal. Em seguida, execute o aplicativo.
-
-    > [!NOTE]
-    > Você precisará de um dispositivo MacOS para executar um emulador do iOS.
-
-1. Na primeira tela, insira a ID do cliente da entidade de serviço, a ID do locatário e a senha. Selecione o botão **logon** .
+1. No Visual Studio Solution Explorer, selecione o projeto **VisualProvision.Android** ou o projeto **VisualProvision.iOS.** Escolha um emulador correspondente ou dispositivo móvel conectado a partir do menu suspenso na barra de ferramentas principal. Em seguida, executar a aplicação.
 
     > [!NOTE]
-    > Em alguns emuladores, o botão de **logon** pode não ser ativado nesta etapa. Se isso acontecer, pare o aplicativo, abra o arquivo *Source/VisualProvision/Pages/LoginPage. XAML* , localize o botão `Button` rótulo de **logon**, remova a linha a seguir e execute o aplicativo novamente.
+    > Necessitará de um dispositivo MacOS para executar um emulador iOS.
+
+1. No primeiro ecrã, introduza o seu serviço principal de identificação do cliente, identificação do inquilino e senha. Selecione o botão **Iniciar sessão.**
+
+    > [!NOTE]
+    > Em alguns emuladores, o botão **login** pode não ser ativado neste passo. Se isso acontecer, pare a aplicação, abra o ficheiro *Source/VisualProvision/Pages/LoginPage.xaml,* encontre o `Button` elemento com o **BOTÃO LOGIN,** remova a linha seguinte e, em seguida, executar novamente a aplicação.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
     
-    ![A tela do aplicativo, mostrando os campos para as credenciais da entidade de serviço](media/azure-logo-tutorial/app-credentials.png)
+    ![O ecrã da aplicação, mostrando campos para credenciais principais de serviço](media/azure-logo-tutorial/app-credentials.png)
 
-1. Na próxima tela, selecione sua assinatura do Azure no menu suspenso. (Esse menu deve conter todas as assinaturas às quais sua entidade de serviço tem acesso.) Selecione o botão **continuar** . Neste ponto, o aplicativo pode solicitar que você conceda acesso à câmera do dispositivo e ao armazenamento de fotos. Conceda as permissões de acesso.
+1. No ecrã seguinte, selecione a subscrição do Azure a partir do menu suspenso. (Este menu deve conter todas as subscrições a que o seu diretor de serviço tem acesso.) Selecione o botão **Continuar.** Neste ponto, a aplicação pode levar-lhe a conceder acesso à câmara do dispositivo e armazenamento de fotografias. Conceda as permissões de acesso.
 
-    ![A tela do aplicativo, mostrando um campo suspenso para a assinatura de destino do Azure](media/azure-logo-tutorial/app-az-subscription.png)
+    ![O ecrã da aplicação, mostrando um campo de drop-down para subscrição target Azure](media/azure-logo-tutorial/app-az-subscription.png)
 
 
-1. A câmera em seu dispositivo será ativada. Tire uma foto de um dos logotipos de serviço do Azure que você treinou. Uma janela de implantação deve solicitar que você selecione uma região e um grupo de recursos para os novos serviços (como faria se estivesse implantando-os do portal do Azure). 
+1. A câmara do seu dispositivo será ativada. Tire uma foto de um dos logótipos do serviço Azure que treinou. Uma janela de implantação deve instá-lo a selecionar uma região e um grupo de recursos para os novos serviços (como faria se os estivesse a implantar no portal Azure). 
 
-    ![Uma tela de câmera do smartphone concentrada em duas recortes de papel dos logotipos do Azure](media/azure-logo-tutorial/app-camera-capture.png)
+    ![Um ecrã de câmera de smartphone focado em dois recortes de papel de logotipos Do Azure](media/azure-logo-tutorial/app-camera-capture.png)
 
-    ![Uma tela de aplicativo mostrando campos para a região de implantação e o grupo de recursos](media/azure-logo-tutorial/app-deployment-options.png)
+    ![Um ecrã de aplicativo mostrando campos para a região de implantação e grupo de recursos](media/azure-logo-tutorial/app-deployment-options.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você seguiu todas as etapas deste cenário e usou o aplicativo para implantar os serviços do Azure em sua conta, vá para a [portal do Azure](https://ms.portal.azure.com/). Lá, cancele os serviços que você não deseja usar.
+Se seguiu todos os passos deste cenário e usou a app para implementar serviços Azure na sua conta, vá ao [portal Azure.](https://ms.portal.azure.com/) Lá, cancele os serviços que não quer usar.
 
-Se você planeja criar seu próprio projeto de detecção de objetos com Visão Personalizada, talvez queira excluir o projeto de detecção de logotipo criado neste tutorial. Uma avaliação gratuita para Visão Personalizada permite apenas dois projetos. Para excluir o projeto de detecção de logotipo, no [site visão personalizada](https://customvision.ai), abra **projetos** e, em seguida, selecione o ícone de lixeira em **meu novo projeto**.
+Se planeia criar o seu próprio projeto de deteção de objetos com visão personalizada, talvez queira eliminar o projeto de deteção de logotipo que criou neste tutorial. Um teste gratuito para visão personalizada permite apenas dois projetos. Para eliminar o projeto de deteção de logotipos, no site da [Visão Personalizada,](https://customvision.ai)abra **Projetos** e, em seguida, selecione o ícone do lixo no âmbito do **My New Project**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você configura e explorou um aplicativo Xamarin. Forms com recursos completos que usa o serviço de Visão Personalizada para detectar logotipos em imagens de câmera móvel. Em seguida, Aprenda as práticas recomendadas para criar um modelo de Visão Personalizada para que, ao criar um para seu próprio aplicativo, você possa torná-lo poderoso e preciso.
+Neste tutorial, você montou e explorou uma aplicação Xamarin.Forms completa que usa o serviço Custom Vision para detetar logotipos em imagens de câmaras móveis. Em seguida, aprenda as melhores práticas para construir um modelo Custom Vision para que quando criar um para a sua própria app, possa torná-lo poderoso e preciso.
 
 > [!div class="nextstepaction"]
-> [Como melhorar seu classificador](getting-started-improving-your-classifier.md)
+> [Como melhorar o seu classificador](getting-started-improving-your-classifier.md)

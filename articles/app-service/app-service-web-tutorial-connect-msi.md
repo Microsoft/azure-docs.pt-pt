@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: b57ee458b857db5692f34e51f388ca8374a3c03b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: edea7a7b4dcb5ed18adcbab973f9f351543c6422
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524398"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330877"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
@@ -240,6 +240,9 @@ GO
 *\<nome de identidade>* é o nome da identidade gerida em Azure AD. Uma vez que é atribuído ao sistema, é sempre o mesmo que o nome da sua aplicação App Service. Para conceder permissões a um grupo Azure AD, utilize o nome de exibição do grupo (por exemplo, *myAzureSQLDBAccessGroup*).
 
 Escreva `EXIT` para regressar à linha de comandos do Cloud Shell.
+
+> [!NOTE]
+> Os serviços de back-end de identidades geridas também [mantêm uma cache simbólica](overview-managed-identity.md#obtain-tokens-for-azure-resources) que atualiza o símbolo para um recurso-alvo apenas quando expira. Se cometer um erro ao configurar as suas permissões de Base de Dados SQL e tentar modificar as permissões *depois* de tentar obter um sinal com a sua aplicação, não obtém um novo símbolo com as permissões atualizadas até que o token em cache expire.
 
 ### <a name="modify-connection-string"></a>Modificar a cadeia de ligação
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 1d203fd0c6777eee96311f45f4d5dfb8728ff431
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 48935dc74d6d22bcafa31afebbdfcb829e122815
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210606"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399246"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Encriptação lateral do servidor de discos geridos pelo Azure
 
@@ -56,14 +56,14 @@ Para revogar o acesso às chaves geridas pelo cliente, consulte [o Azure Key Vau
 
 ### <a name="supported-regions"></a>Regiões suportadas
 
-No momento, há suporte apenas para as seguintes regiões:
+Atualmente, apenas as seguintes regiões são apoiadas:
 
-- Disponível como uma oferta GA nas regiões leste dos EUA, oeste dos EUA 2 e EUA Central do Sul.
-- Disponível como uma visualização pública nas regiões EUA Central ocidental, leste dos EUA 2, Canadá central e Europa Setentrional.
+- Disponível como uma oferta de GA nas regiões leste dos EUA, Oeste dos EUA 2 e Centro-Sul dos EUA.
+- Disponível como uma pré-visualização pública nas regiões do Centro-Oeste dos EUA, Leste dos EUA 2, Canadá Central e Norte da Europa.
 
 ### <a name="restrictions"></a>Restrições
 
-Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
+Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 
 - Apenas são suportadas [teclas RSA "macias" e "duras"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2080, sem outras teclas ou tamanhos.
 - Os discos criados a partir de imagens personalizadas que são encriptadas utilizando encriptação do lado do servidor e chaves geridas pelo cliente devem ser encriptados utilizando as mesmas chaves geridas pelo cliente e devem estar na mesma subscrição.
@@ -72,6 +72,7 @@ Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
 - Todos os recursos relacionados com as suas chaves geridas pelo cliente (Cofres chave Azure, conjuntos de encriptação de discos, VMs, discos e instantâneos) devem estar na mesma subscrição e região.
 - Discos, instantâneos e imagens encriptadas com chaves geridas pelo cliente não podem mover-se para outra subscrição.
 - Se utilizar o portal Azure para criar o seu conjunto de encriptação de discos, não pode utilizar instantâneos por enquanto.
+- Os discos geridos encriptados utilizando chaves geridas pelo cliente também não podem ser encriptados com encriptação do disco Azure.
 
 ### <a name="cli"></a>CLI
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configuração do seu cofre de chave azure e conjunto de encriptação de disco

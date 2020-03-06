@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/02/2020
+ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 185556e3045cb1a879bc256f4f2932549de71cd8
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: d56cd3b3d286d69a51d8cc14eb8020343cf7295a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274943"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302989"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity-problems"></a>Problemas de resolução de problemas Da rede virtual naT problemas de conectividade
 
@@ -44,7 +44,7 @@ Um único [recurso de gateway NAT](nat-gateway-resource.md) suporta de 64.000 at
 #### <a name="steps"></a>Passos:
 
 1. Investigue como a sua aplicação está a criar conectividade de saída (por exemplo, revisão de códigos ou captura de pacotes). 
-2. Determine se esta atividade é comportamento esperado ou se a aplicação está a portar-se mal.  Utilize métricas no Monitor Azure para fundamentar as suas descobertas.
+2. Determine se esta atividade é comportamento esperado ou se a aplicação está a portar-se mal.  Utilize [métricas](nat-metrics.md) no Monitor Azure para fundamentar as suas descobertas.
 3. Avaliar se os padrões apropriados são seguidos.
 4. Avaliar se a exaustão da porta SNAT deve ser atenuada com endereços IP adicionais atribuídos ao recurso de gateway NAT.
 
@@ -83,3 +83,4 @@ A tabela a seguir pode ser utilizada num ponto de partida para o qual as ferrame
 
 - Conheça a [Rede Virtual NAT](nat-overview.md)
 - Saiba mais sobre o [recurso de gateway NAT](nat-gateway-resource.md)
+- Conheça [métricas e alertas para os recursos](nat-metrics.md)de gateway NAT .

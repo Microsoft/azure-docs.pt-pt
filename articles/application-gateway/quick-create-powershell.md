@@ -1,55 +1,58 @@
 ---
-title: 'Início rápido: tráfego direto da Web usando o PowerShell'
+title: 'Quickstart: Tráfego web direto usando PowerShell'
 titleSuffix: Azure Application Gateway
-description: Saiba como usar Azure PowerShell para criar um gateway de Aplicativo Azure que direciona o tráfego da Web para máquinas virtuais em um pool de back-end.
+description: Aprenda a usar o Azure PowerShell para criar um Portal de Aplicações Azure que direciona o tráfego web para máquinas virtuais numa piscina de backend.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 03/05/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9c3fac7aecaf37b5822ad6e8c655867f6f2c683c
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: abb38dfc342c8ff692ed1a3a05376b5dcefe8a3d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872711"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399570"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Início rápido: tráfego direto da Web com gateway de Aplicativo Azure usando Azure PowerShell
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Quickstart: Tráfego web direto com Portal de Aplicação Azure usando Azure PowerShell
 
-Este guia de início rápido mostra como usar Azure PowerShell para criar rapidamente um gateway de aplicativo.  Depois de criar o gateway de aplicativo, você o testará para verificar se ele está funcionando corretamente. Com o gateway de Aplicativo Azure, você direciona o tráfego da Web do aplicativo para recursos específicos atribuindo ouvintes a portas, criando regras e adicionando recursos a um pool de back-end. Para simplificar, este artigo usa uma configuração simples com um IP de front-end público, um ouvinte básico para hospedar um único site nesse gateway de aplicativo, duas máquinas virtuais usadas para o pool de back-end e uma regra de roteamento de solicitação básica.
+Neste arranque rápido, utiliza-se o Azure PowerShell para criar um portal de aplicação. Depois testa-o para se certificar de que funciona corretamente. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+O gateway da aplicação direciona o tráfego web da aplicação para recursos específicos em um pool backend. Você atribui os ouvintes aos portos, cria regras e adiciona recursos a uma piscina de backend. Por uma questão de simplicidade, este artigo usa uma configuração simples com um IP frontal público, um ouvinte básico para hospedar um único site na porta de aplicação, uma regra básica de encaminhamento de pedidos, e duas máquinas virtuais na piscina de backend.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Também pode completar este quickstart utilizando o [Azure CLI](quick-create-cli.md) ou o [portal Azure](quick-create-portal.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="azure-powershell-module"></a>Módulo do Azure PowerShell
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Versão 1.0.0 ou mais tarde do Azure PowerShell](/powershell/azure/install-az-ps) (se executar o Azure PowerShell localmente).
 
-Se você optar por instalar e usar Azure PowerShell localmente, este tutorial exigirá o módulo Azure PowerShell versão 1.0.0 ou posterior.
+## <a name="connect-to-azure"></a>Ligar ao Azure
 
-1. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). 
-2. Para criar uma conexão com o Azure, execute `Login-AzAccount`.
+Para se conectar com Azure, execute `Connect-AzAccount`.
 
-### <a name="resource-group"></a>Grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
-No Azure, você aloca recursos relacionados a um grupo de recursos. Você pode usar um grupo de recursos existente ou criar um novo. Neste exemplo, você criará um novo grupo de recursos usando o cmdlet [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) da seguinte maneira: 
+Em Azure, você aloca recursos relacionados a um grupo de recursos. Pode utilizar um grupo de recursos existente ou criar um novo.
+
+Para criar um novo grupo de recursos, utilize o `New-AzResourceGroup` cmdlet: 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
+## <a name="create-network-resources"></a>Criar recursos de rede
 
-### <a name="required-network-resources"></a>Recursos de rede necessários
+Para que o Azure se comunique entre os recursos que cria, precisa de uma rede virtual.  A sub-rede de gateway de aplicação só pode conter gateways de aplicação. Não são permitidos outros recursos.  Pode criar uma nova sub-rede para o Application Gateway ou utilizar uma existente. Neste exemplo, cria-se duas subredes neste exemplo: uma para o gateway da aplicação e outra para os servidores de backend. Pode configurar o IP Frontend do Gateway de Aplicação para ser público ou privado de acordo com o seu caso de utilização. Neste exemplo, você escolherá um IP Frontend Público.
 
-Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual.  A sub-rede do gateway de aplicativo pode conter somente gateways de aplicativo. Nenhum outro recurso é permitido.  Você pode criar uma nova sub-rede para o gateway de aplicativo ou usar uma existente. Neste exemplo, você cria duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end. Você pode configurar o IP de front-end do gateway de aplicativo para ser público ou privado de acordo com seu caso de uso. Neste exemplo, você escolherá um IP de front-end público.
-
-1. Crie as configurações de sub-rede chamando [New-AzVirtualNetworkSubnetConfig](/powershell/module/Az.network/new-Azvirtualnetworksubnetconfig).
-2. Crie a rede virtual com as configurações de sub-rede chamando [New-AzVirtualNetwork](/powershell/module/Az.network/new-Azvirtualnetwork). 
-3. Crie o endereço IP público chamando [New-AzPublicIpAddress](/powershell/module/Az.network/new-Azpublicipaddress). 
+1. Crie as configurações da sub-rede utilizando `New-AzVirtualNetworkSubnetConfig`.
+2. Crie a rede virtual com as configurações da sub-rede utilizando `New-AzVirtualNetwork`. 
+3. Crie o endereço IP público utilizando `New-AzPublicIpAddress`. 
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -71,13 +74,13 @@ New-AzPublicIpAddress `
   -AllocationMethod Static `
   -Sku Standard
 ```
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
 
-1. Use [New-AzApplicationGatewayIPConfiguration](/powershell/module/Az.network/new-Azapplicationgatewayipconfiguration) para criar a configuração que associa a sub-rede que você criou com o gateway de aplicativo. 
-2. Use [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/Az.network/new-Azapplicationgatewayfrontendipconfig) para criar a configuração que atribui o endereço IP público que você criou anteriormente para o gateway de aplicativo. 
-3. Use [New-AzApplicationGatewayFrontendPort](/powershell/module/Az.network/new-Azapplicationgatewayfrontendport) para atribuir a porta 80 para acessar o gateway de aplicativo.
+1. Use `New-AzApplicationGatewayIPConfiguration` para criar a configuração que associa a subnet que criou com o gateway da aplicação. 
+2. Utilize `New-AzApplicationGatewayFrontendIPConfig` para criar a configuração que atribui o endereço IP público que criou anteriormente para o gateway da aplicação. 
+3. Utilize `New-AzApplicationGatewayFrontendPort` para atribuir a porta 80 para aceder ao gateway da aplicação.
 
 ```azurepowershell-interactive
 $vnet   = Get-AzVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
@@ -96,8 +99,8 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool"></a>Criar o conjunto de back-end
 
-1. Use [New-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/new-Azapplicationgatewaybackendaddresspool) para criar o pool de back-end para o gateway de aplicativo. O pool de back-end estará vazio por enquanto e, ao criar as NICs do servidor back-end na próxima seção, você as adicionará ao pool de back-end.
-2. Defina as configurações para o pool de back-end com [New-AzApplicationGatewayBackendHttpSetting](/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsetting).
+1. Use `New-AzApplicationGatewayBackendAddressPool` para criar o backend pool para o gateway de aplicação. A piscina de backend estará vazia por enquanto e enquanto você criar os NICs do servidor de backend na próxima secção, você irá adicioná-los à piscina de backend.
+2. Configure as definições para a piscina de backend com `New-AzApplicationGatewayBackendHttpSetting`.
 
 ```azurepowershell-interactive
 $address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
@@ -114,10 +117,10 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSetting `
 
 ### <a name="create-the-listener-and-add-a-rule"></a>Criar o serviço de escuta e adicionar uma regra
 
-O Azure requer um ouvinte para habilitar o gateway de aplicativo para rotear o tráfego adequadamente para o pool de back-end. O Azure também requer uma regra para que o ouvinte saiba qual pool de back-end deve ser usado para tráfego de entrada. 
+O Azure requer um ouvinte que permita a entrada de aplicação para o encaminhamento do tráfego adequadamente para a piscina de backend. O Azure também requer uma regra para que o ouvinte saiba qual piscina de backend a utilizar para o tráfego de entrada. 
 
-1. Crie um ouvinte usando [New-AzApplicationGatewayHttpListener](/powershell/module/Az.network/new-Azapplicationgatewayhttplistener) com a configuração front-end e a porta de front-end que você criou anteriormente. 
-2. Use [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/Az.network/new-Azapplicationgatewayrequestroutingrule) para criar uma regra chamada *rule1*. 
+1. Crie um ouvinte utilizando `New-AzApplicationGatewayHttpListener` com a configuração frontal e a porta frontal que criou anteriormente. 
+2. Use `New-AzApplicationGatewayRequestRoutingRule` para criar uma regra chamada *regra 1*. 
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -135,10 +138,10 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Agora que você criou os recursos de suporte necessários, crie o gateway de aplicativo:
+Agora que criou os recursos de apoio necessários, crie o portal de aplicação:
 
-1. Use [New-AzApplicationGatewaySku](/powershell/module/Az.network/new-Azapplicationgatewaysku) para especificar parâmetros para o gateway de aplicativo.
-2. Use [New-AzApplicationGateway](/powershell/module/Az.network/new-Azapplicationgateway) para criar o gateway de aplicativo.
+1. Utilize `New-AzApplicationGatewaySku` para especificar parâmetros para o gateway da aplicação.
+2. Utilize `New-AzApplicationGateway` para criar o portal de aplicação.
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -159,18 +162,18 @@ New-AzApplicationGateway `
   -Sku $sku
 ```
 
-### <a name="backend-servers"></a>Servidores back-end
+### <a name="backend-servers"></a>Servidores backend
 
-Agora que você criou o gateway de aplicativo, crie as máquinas virtuais de back-end que hospedarão os sites. O back-end pode ser composto por NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, IPs internos, FQDN (nomes de domínio totalmente qualificados) e back-ends de vários locatários como Azure App serviço. Neste exemplo, você cria duas máquinas virtuais para o Azure usar como servidores de back-end para o gateway de aplicativo. Você também instala o IIS nas máquinas virtuais para verificar se o Azure criou com êxito o gateway de aplicativo.
+Agora que criou o Gateway de Aplicação, crie as máquinas virtuais de backend que irão acolher os websites. Backend pode ser composto por NICs, conjuntos de escala de máquinas virtuais, IPs públicos, IPs internos, nomes de domínio totalmente qualificados (FQDN), e back-ends multi-inquilinos como o Azure App Service. Neste exemplo, cria-se duas máquinas virtuais para o Azure utilizar como servidores de backend para o gateway da aplicação. Também instala o IIS nas máquinas virtuais para verificar se o Azure criou com sucesso o portal de aplicação.
 
 #### <a name="create-two-virtual-machines"></a>Criar duas máquinas virtuais
 
-1. Obtenha a configuração do pool de back-end do gateway de aplicativo criado recentemente com [Get-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/get-Azapplicationgatewaybackendaddresspool)
-2. Crie uma interface de rede com [New-AzNetworkInterface](/powershell/module/Az.network/new-Aznetworkinterface). 
-3. Crie uma configuração de máquina virtual com [New-AzVMConfig](/powershell/module/Az.compute/new-Azvmconfig).
-4. Crie a máquina virtual com [New-AzVM](/powershell/module/Az.compute/new-Azvm).
+1. Obtenha a configuração de piscina de backend Application Gateway recentemente criada com `Get-AzApplicationGatewayBackendAddressPool`.
+2. Criar uma interface de rede com `New-AzNetworkInterface`.
+3. Criar uma configuração virtual da máquina com `New-AzVMConfig`.
+4. Crie a máquina virtual com `New-AzVM`.
 
-Quando você executa o exemplo de código a seguir para criar as máquinas virtuais, o Azure solicita suas credenciais. Introduza *azureuser* para o nome de utilizador e *Azure123456!* para a senha:
+Quando executa a seguinte amostra de código para criar as máquinas virtuais, o Azure pede-lhe credenciais. Insira *o azureuser* para o nome de utilizador e uma palavra-passe:
     
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway -ResourceGroupName myResourceGroupAG -Name myAppGateway
@@ -221,10 +224,10 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Embora o IIS não seja necessário para criar o gateway de aplicativo, você o instalou neste guia de início rápido para verificar se o Azure criou o gateway de aplicativo com êxito. Use o IIS para testar o gateway de aplicativo:
+Embora o IIS não seja necessário para criar o gateway da aplicação, instalou-o neste arranque rápido para verificar se o Azure criou com sucesso o portal de aplicações. Utilize o IIS para testar o gateway de aplicação:
 
-1. Execute [Get-AzPublicIPAddress](/powershell/module/Az.network/get-Azpublicipaddress) para obter o endereço IP público do gateway de aplicativo. 
-2. Copie e cole o endereço IP público na barra de endereços do seu navegador. Ao atualizar o navegador, você deverá ver o nome da máquina virtual. Uma resposta válida verifica se o gateway de aplicativo foi criado com êxito e se pode se conectar com êxito com o back-end.
+1. Faça `Get-AzPublicIPAddress` para obter o endereço IP público do gateway de aplicação. 
+2. Copie e cole o endereço IP público na barra de endereços do seu navegador. Ao atualizar o navegador, deverá ver o nome da máquina virtual. Uma resposta válida verifica que o gateway da aplicação foi criado com sucesso e pode ligar-se com sucesso ao backend.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -235,9 +238,9 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando você não precisar mais dos recursos que criou com o gateway de aplicativo, remova o grupo de recursos. Removendo o grupo de recursos, você também remove o gateway de aplicativo e todos os seus recursos relacionados. 
+Quando já não precisa dos recursos que criou com o portal de aplicação, elimine o grupo de recursos. Ao eliminar o grupo de recursos, também elimina o gateway da aplicação e todos os seus recursos relacionados. 
 
-Para remover o grupo de recursos, chame o cmdlet [Remove-AzResourceGroup](/powershell/module/Az.resources/remove-Azresourcegroup) da seguinte maneira:
+Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupAG

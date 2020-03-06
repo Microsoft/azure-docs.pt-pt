@@ -1,7 +1,7 @@
 ---
-title: 'Guia de início rápido: SDK de fala para Java (Windows, Linux, macOS) instalação de plataforma-serviço de fala'
+title: 'Quickstart: Speech SDK for Java (Windows, Linux, macOS) configuração da plataforma - Serviço de discurso'
 titleSuffix: Azure Cognitive Services
-description: Use este guia para configurar sua plataforma para usar Java (Windows, Linux, macOS) com o SDK do serviço de fala.
+description: Utilize este guia para configurar a sua plataforma para utilizar java (Windows, Linux, macOS) com o serviço de Fala SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f6b994bce1d38872cffb1e6e389136742be6d48
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4970f115ee3eee78d7268e3e955e20048b74df0d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469081"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383969"
 ---
-Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para o JRE do Java 8 de 64 bits.
+Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) de Discurso para Java 8 JRE de 64 bits.
 
 > [!NOTE]
 > Para o SDK de Dispositivos de Voz e o dispositivo Roobo, veja [SDK de Dispositivos de Voz](~/articles/cognitive-services/speech-service/speech-devices-sdk.md).
@@ -26,35 +26,45 @@ Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/spe
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-- O pacote do SDK de fala do Java está disponível para estes sistemas operacionais:
-  - Windows: 64 bits somente
-  - Mac: macOS X versão 10,13 ou posterior
-  - Linux: 64 bits somente no Ubuntu 16, 4, Ubuntu 18, 4 ou Debian 9
+- O pacote Java Speech SDK está disponível para estes sistemas operativos:
+  - Janelas: apenas 64 bits
+  - Mac: macOS X versão 10.13 ou posterior
+  - Linux: 64-bit apenas em Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-- [Java IDE Eclipse](https://www.eclipse.org/downloads/) (requer que o Java já esteja instalado)
-- As plataformas Linux com suporte exigirão determinadas bibliotecas instaladas (`libssl` para suporte do Secure Sockets Layer e `libasound2` para suporte a som). Consulte a distribuição abaixo para os comandos necessários para instalar as versões corretas dessas bibliotecas.
+- [Eclipse Java IDE](https://www.eclipse.org/downloads/) (requer Java já instalado)
+- As plataformas Linux suportadas exigirão certas bibliotecas instaladas (`libssl` para suporte de camada de tomadas seguras e `libasound2` para suporte sonoro). Consulte a sua distribuição abaixo para os comandos necessários para instalar as versões corretas destas bibliotecas.
 
-  - No Ubuntu, execute os seguintes comandos para instalar os pacotes necessários:
+  - Em Ubuntu, execute os seguintes comandos para instalar as embalagens necessárias:
 
         ```sh
         sudo apt-get update
         sudo apt-get install build-essential libssl1.0.0 libasound2
         ```
 
-  - No Debian 9, execute os seguintes comandos para instalar os pacotes necessários:
+  - No Debian 9, execute os seguintes comandos para instalar as embalagens necessárias:
 
         ```sh
         sudo apt-get update
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-- No Windows, você precisa do [Microsoft Visual C++ redistribuível para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para sua plataforma. Observe que a instalação desta pela primeira vez pode exigir que você reinicie o Windows antes de continuar com este guia.
+  - No RHEL/CentOS 8, execute os seguintes comandos para instalar as embalagens necessárias:
 
-## <a name="create-an-eclipse-project-and-install-the-speech-sdk"></a>Criar um projeto do Eclipse e instalar o SDK de fala
+        ```sh
+        sudo yum update
+        sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
+        ```
+
+> [!NOTE]
+> No RHEL/CentOS 8, siga as instruções sobre como configurar o [OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+
+- No Windows, é necessário o [Microsoft Visual C++ Redistribuable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Note que a instalação desta esta sede pela primeira vez poderá exigir que reinicie o Windows antes de continuar com este guia.
+
+## <a name="create-an-eclipse-project-and-install-the-speech-sdk"></a>Crie um projeto Eclipse e instale o Speech SDK
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 

@@ -486,7 +486,7 @@ O WordPress é ligado ao servidor do Redis. O **estado** da ligação aparece na
 
 ![O WordPress é ligado ao servidor do Redis. O **estado** da ligação aparece na mesma página.][6]
 
-**Parabéns**, ligou o WordPress ao Redis. A aplicação pronta para produção está agora a utilizar a **Base de Dados do Azure para MySQL, o armazenamento persistente e o Redis**. Pode agora aumentar o seu plano do Serviço de Aplicações para múltiplas instâncias.
+**Parabéns**, ligou o WordPress ao Redis. A aplicação pronta para produção está agora a utilizar a **Base de Dados do Azure para MySQL, o armazenamento persistente e o Redis**. Pode agora aumentar horizontalmente o seu plano do Serviço de Aplicações para múltiplas instâncias.
 
 ## <a name="find-docker-container-logs"></a>Localizar registos de Contentor do Docker
 

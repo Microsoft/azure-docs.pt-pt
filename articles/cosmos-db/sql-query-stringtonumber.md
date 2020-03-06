@@ -1,21 +1,21 @@
 ---
-title: StringToNumber na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL StringToNumber no Azure Cosmos DB.
+title: StringToNumber na linguagem de consulta do Azure Cosmos DB
+description: Saiba mais sobre a função do sistema SQL StringToNumber em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8b9596738d9b02fa26f9c363287323b905654a1f
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5ca8d0c4a6d244823dda6f0f79a3cf5c743a12a9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349237"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296427"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
- Retorna a expressão convertida em um número. Se a expressão não puder ser convertida, retornará indefinido.  
+ Expressão de devoluções traduzida para um número. Se a expressão não puder ser traduzida, regressa indefinido.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -26,17 +26,17 @@ StringToNumber(<str_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É uma expressão de cadeia de caracteres a ser analisada como uma expressão de número JSON. Os números em JSON devem ser um número inteiro ou um ponto flutuante. Para obter detalhes sobre o formato JSON, consulte [JSON.org](https://json.org/)  
+   É uma expressão de corda a ser analisada como uma expressão json número. Os números em JSON devem ser inteiros ou um ponto flutuante. Para mais detalhes sobre o formato JSON, consulte [json.org](https://json.org/)  
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Retorna uma expressão de número ou indefinido.  
+  Devolve uma expressão de número ou indefinida.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra como `StringToNumber` se comporta entre diferentes tipos. 
+  O exemplo que se segue mostra como `StringToNumber` se comporta em diferentes tipos. 
 
-O espaço em branco é permitido somente antes ou depois do número.
+O Espaço Branco só é permitido antes ou depois do número.
 
 ```sql
 SELECT 
@@ -65,7 +65,7 @@ SELECT
 {{}}
 ```  
 
-A expressão passada será analisada como uma expressão numérica; essas entradas não são avaliadas como número de tipo e, portanto, retornam indefinidamente. 
+A expressão aprovada será analisada como expressão número; estas inputs não avaliam o tipo Número e, portanto, regressam indefinidas. 
 
 ```sql
 SELECT 
@@ -83,8 +83,12 @@ SELECT
 {{}}
 ```  
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

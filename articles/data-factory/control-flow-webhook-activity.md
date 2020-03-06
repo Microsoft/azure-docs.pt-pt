@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 8c52bb21276071581a83fb3ee6a3a4a31ba0bb4a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109997"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399993"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Fábrica de Dados Azure
 Pode utilizar uma atividade de webhook para controlar a execução de gasodutos através do seu código personalizado. Utilizando a atividade do webhook, os clientes podem ligar para um ponto final e passar um URL de callback. A execução do gasoduto aguarda que a chamada seja invocada antes de prosseguir para a próxima atividade.
@@ -55,21 +55,21 @@ Pode utilizar uma atividade de webhook para controlar a execução de gasodutos 
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade do gancho web | Cadeia | Sim |
-tipo | Deve ser definido para **WebHook**. | Cadeia | Sim |
+nome | Nome da atividade do gancho web | String | Sim |
+tipo | Deve ser definido para **WebHook**. | String | Sim |
 método | Método API de repouso para o ponto final alvo. | Cadeia. Tipos suportados: 'POST' | Sim |
 url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). | Sim |
-conector | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: "cabeçalhos" : {"Aceitar-Linguagem": "en-us", "Content-Type": "application/json" }. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Sim, é necessário um cabeçalho do tipo conteúdo. "headers":{ "Content-Type":"application/json"} |
+cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e escrever num pedido: "cabeçalhos" : {"Aceitar-Linguagem": "en-us", "Content-Type": "application/json" }. | Corda (ou expressão com resultadoTipo de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. "headers":{ "Content-Type":"application/json"} |
 corpo | Representa a carga útil que é enviada para o ponto final. | JSON válido (ou expressão com resultadoType of JSON). Consulte o esquema da carga útil do pedido na secção esquema de [carga útil solicitação.](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) | Sim |
-autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Básicos" ou "Certificado de Cliente". Para mais informações, consulte a secção [autenticação.](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) Se não for necessária a autenticação, exclua este imóvel. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não |
-tempo limite | Quanto tempo a atividade &#39;vai esperar&#39; que a chamadaBackUri seja invocada. Quanto tempo a atividade vai esperar que o 'callBackUri' seja invocado. O valor predefinido é de 10mins ("00:10:00"). Formato é Timespan i.e. d.hh:mm:ss | Cadeia | Não |
+autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Básicos" ou "Certificado de Cliente". Para mais informações, consulte a secção [autenticação.](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) Se não for necessária a autenticação, exclua este imóvel. | Corda (ou expressão com resultadoTipo de corda) | Não |
+tempo limite | Quanto tempo a atividade &#39;vai esperar&#39; que a chamadaBackUri seja invocada. Quanto tempo a atividade vai esperar que o 'callBackUri' seja invocado. O valor predefinido é de 10mins ("00:10:00"). Formato é Timespan i.e. d.hh:mm:ss | String | Não |
 Estado do relatório no callback | Permite ao utilizador o relatório o estado falhado da atividade do webhook que marcará a atividade como falhada | Booleano | Não |
 
 ## <a name="authentication"></a>Autenticação
 
 Abaixo estão os tipos de autenticação suportados na atividade do webhook.
 
-### <a name="none"></a>Nenhuma
+### <a name="none"></a>Nenhum
 
 Se não for necessária a autenticação, não inclua o imóvel de "autenticação".
 
@@ -116,6 +116,10 @@ Especifique o uri de recurso para o qual o token de acesso será solicitado util
 A Azure Data Factory passará uma propriedade adicional "callBackUri" no corpo até ao ponto final do url, e espera que este uri seja invocado antes do valor limite especificado. Se o uri não for invocado, a atividade falhará com o estado 'TimedOut'.
 
 A própria atividade do webhook falha quando a chamada para o ponto final personalizado falha. Qualquer mensagem de erro pode ser adicionada no corpo da chamada e usada numa atividade subsequente.
+
+Mais para cada chamada rest API o cliente terá um tempo de tempo se o ponto final não responder em 1 min. Esta é a melhor prática padrão http. Para corrigir este problema, é necessário implementar o padrão 202 neste caso em que o ponto final devolverá 202 (Aceito) e o cliente irá fazer uma sondagem.
+
+O intervalo de 1 min no pedido não tem nada a ver com o tempo limite de atividade. Isso será usado para esperar pela chamada Uri.
 
 O corpo passado de volta para o callback URI deve ser válido JSON. Tem de definir o cabeçalho do Tipo conteúdo para `application/json`.
 

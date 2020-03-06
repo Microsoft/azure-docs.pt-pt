@@ -7,20 +7,21 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 7f5e24261fd5d006004a51186e22f6bfe1b8ab32
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 5a7c4ce6d5868efef4cfb4fbe2183ec8337ff5b6
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589186"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301850"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Tutorial: Converter código experimental ML para código de produção
 
-Um projeto de aprendizagem automática requer experimentação onde hipóteses são testadas com ferramentas ágeis como o Jupyter Notebook usando conjuntos de dados reais. Uma vez que o modelo esteja pronto para a produção, o código-modelo deve ser colocado num repositório de código de produção. Em alguns casos, o código-modelo deve ser convertido para scripts Python a colocar no repositório do código de produção. Este tutorial abrange uma abordagem recomendada sobre como exportar código de experimentação para scripts Python.  
+Um projeto de aprendizagem automática requer experimentação onde hipóteses são testadas com ferramentas ágeis como o Jupyter Notebook usando conjuntos de dados reais. Uma vez que o modelo esteja pronto para a produção, o código-modelo deve ser colocado num repositório de código de produção. Em alguns casos, o código-modelo deve ser convertido para scripts Python a colocar no repositório do código de produção. Este tutorial abrange uma abordagem recomendada sobre como exportar código de experimentação para scripts Python.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
+>
 > * Código não essencial limpo
 > * Refactor Jupyter Notebook código em funções
 > * Criar scripts Python para tarefas relacionadas
@@ -41,7 +42,7 @@ from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import joblib
- 
+
 X, y = load_diabetes(return_X_y=True)
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -64,13 +65,15 @@ joblib.dump(value=reg, filename=model_name)
 ## <a name="refactor-code-into-functions"></a>Refactor código em funções
 
 Em segundo lugar, o código Jupyter tem de ser refactorado em funções. A refactoring do código em funções facilita o teste da unidade e torna o código mais manejável. Nesta secção, irá refactor:
+
 - O caderno de treino de regressão de Diabetes Ridge,`experimentation/Diabetes Ridge Regression Training.ipynb`
 - O caderno de pontuação de regressão de Diabetes Ridge(`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
 
 ### <a name="refactor-diabetes-ridge-regression-training-notebook-into-functions"></a>Refactor Diabetes Ridge Regressão Caderno de treino em funções
+
 Em `experimentation/Diabetes Ridge Regression Training.ipynb`, complete os seguintes passos:
 
-1. Crie uma função chamada `train_model`, que leva os parâmetros `data` e `alpha` e devolve um modelo. 
+1. Crie uma função chamada `train_model`, que leva os parâmetros `data` e `alpha` e devolve um modelo.
 1. Copie o código sob as rubricas "Modelo de Comboio no Conjunto de Formação" e "Modelo de Validação no Conjunto de Validação" na função `train_model`.
 
 A função `train_model` deve parecer o seguinte código:
@@ -106,7 +109,7 @@ def main():
 
     model_name = "sklearn_regression_model.pkl"
     alpha = 0.5
-    
+
     X, y = load_diabetes(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -147,7 +150,7 @@ def main():
 
     model_name = "sklearn_regression_model.pkl"
     alpha = 0.5
-    
+
     X, y = load_diabetes(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -163,6 +166,7 @@ main()
 ```
 
 ### <a name="refactor-diabetes-ridge-regression-scoring-notebook-into-functions"></a>Refactor Diabetes Ridge Regressão Reporcaderno em funções
+
 Em `experimentation/Diabetes Ridge Regression Scoring.ipynb`, complete os seguintes passos:
 
 1. Crie uma nova função chamada `init`, que não tem parâmetros e não devolve nada.
@@ -212,6 +216,7 @@ request_header = {}
 prediction = run(raw_data, request_header)
 print("Test result: ", prediction)
 ```
+
 O código anterior define variáveis `raw_data` e `request_header`, chama a `run` função com `raw_data` e `request_header`, e imprime as previsões.
 
 Após a refactoring, `experimentation/Diabetes Ridge Regression Scoring.ipynb` deve parecer o seguinte código sem a marcação:
@@ -242,11 +247,14 @@ print("Test result: ", prediction)
 ```
 
 ## <a name="combine-related-functions-in-python-files"></a>Combine funções relacionadas em ficheiros Python
+
 Em terceiro lugar, as funções relacionadas precisam de ser fundidas em ficheiros Python para ajudar melhor a reutilizar o código. Nesta secção, estará a criar ficheiros Python para os seguintes cadernos:
+
 - O caderno de treino de regressão de Diabetes Ridge,`experimentation/Diabetes Ridge Regression Training.ipynb`
 - O caderno de pontuação de regressão de Diabetes Ridge(`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-training-notebook"></a>Crie o ficheiro Python para o caderno de treino de regressão de Diabetes Ridge
+
 Converta o seu caderno num script executável executando a seguinte declaração num pedido de comando, que utiliza o pacote nbconvert e o caminho do `experimentation/Diabetes Ridge Regression Training.ipynb`:
 
 ```
@@ -274,7 +282,7 @@ def train_model(data, alpha):
 def main():
     model_name = "sklearn_regression_model.pkl"
     alpha = 0.5
-    
+
     X, y = load_diabetes(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -292,6 +300,7 @@ main()
 O ficheiro `train.py` encontrado no diretório `diabetes_regression/training` no repositório MLOpsPython apoia argumentos de linha de comando (nomeadamente `build_id`, `model_name`e `alpha`). O suporte para argumentos de linha de comando pode ser adicionado ao seu ficheiro `train.py` para suportar nomes de modelos dinâmicos e valores `alpha`, mas não é necessário que o código execute com sucesso.
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-scoring-notebook"></a>Crie o ficheiro Python para o notebook de pontuação de Regressão de Diabetes Ridge
+
 Dissimular o seu caderno para um guião executável executando a seguinte declaração num pedido de comando que utiliza o pacote nbconvert e o caminho do `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
@@ -344,11 +353,13 @@ def init():
 ```
 
 ## <a name="create-unit-tests-for-each-python-file"></a>Criar testes unitários para cada ficheiro Python
+
 Em quarto lugar, é necessário criar testes unitários para cada ficheiro Python, o que torna o código mais robusto e mais fácil de manter. Nesta secção, estará a criar um teste de unidade para uma das funções em `train.py`.
 
-`train.py` contém duas funções: `train_model` e `main`. Cada função precisa de um teste de unidade, mas só criaremos um único teste de unidade para a função `train_model` usando a estrutura Pytest neste tutorial.  Pytest não é o único quadro de testes da unidade Python, mas é um dos mais usados. Para mais informações, visite [Pytest.](https://pytest.org)
+`train.py` contém duas funções: `train_model` e `main`. Cada função precisa de um teste de unidade, mas só criaremos um único teste de unidade para a função `train_model` usando a estrutura Pytest neste tutorial. Pytest não é o único quadro de testes da unidade Python, mas é um dos mais usados. Para mais informações, visite [Pytest.](https://pytest.org)
 
 Um teste de unidade geralmente contém três ações principais:
+
 - Organizar objeto - criar e configurar objetos necessários
 - Agir sobre um objeto
 - Afirmar o que se espera
@@ -379,29 +390,40 @@ class TestTrain:
 ```
 
 ## <a name="use-your-own-model-with-mlopspython-code-template"></a>Use o seu próprio modelo com modelo de código MLOpsPython
-Se tem seguido os passos deste guia, terá um conjunto de scripts que se relacionam com os scripts de comboio/pontuação/teste disponíveis no repositório MLOpsPython.  De acordo com a estrutura acima mencionada, os seguintes passos irão percorrer o que é necessário para usar estes ficheiros para o seu próprio projeto de aprendizagem automática:  
 
-1.  Siga o Guia de Início
-2.  Substituir o Código de Formação
-3.  Substituir o Código de Pontuação
-4.  Atualizar o Código de Avaliação
+Se tem seguido os passos deste guia, terá um conjunto de scripts que se relacionam com os scripts de comboio/pontuação/teste disponíveis no repositório MLOpsPython.  De acordo com a estrutura acima mencionada, os seguintes passos irão percorrer o que é necessário para usar estes ficheiros para o seu próprio projeto de aprendizagem automática:
+
+1. Siga o guia MLOpsPython [Getting Started](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md)
+2. Siga as [instruções](https://github.com/microsoft/MLOpsPython/blob/master/bootstrap/README.md) mlOpsPython para criar o seu ponto de partida do projeto
+3. Substituir o Código de Formação
+4. Substituir o Código de Pontuação
+5. Atualizar o Código de Avaliação
 
 ### <a name="follow-the-getting-started-guide"></a>Siga o Guia de Início
-Seguindo o guia de arranque é necessário ter a infraestrutura de suporte e os oleodutos para executar MLOpsPython.  Recomendamos a implementação do código MLOpsPython como está antes de colocar o seu próprio código para garantir que a estrutura e o gasoduto estão a funcionar corretamente.  Também é útil familiarizar-se com a estrutura de código do repositório.
+Seguir o guia [Getting Started](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md) é necessário ter a infraestrutura de suporte e os oleodutos para executar MLOpsPython.
+
+### <a name="follow-the-bootstrap-instructions"></a>Siga as instruções da Bootstrap
+
+O guia de [repositório Sabotador Do MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/bootstrap/README.md) irá ajudá-lo a preparar rapidamente o repositório para o seu projeto.
+
+**Nota:** Uma vez que o script bootstrap mudará o nome da pasta diabetes_regression para o nome do projeto à sua escolha, vamos referir-nos ao seu projeto como `[project name]` quando os caminhos estiverem envolvidos.
 
 ### <a name="replace-training-code"></a>Substituir código de formação
-A substituição do código utilizado para treinar o modelo e a remoção ou substituição dos respetivos ensaios unitários é necessária para que a solução funcione com o seu próprio código.  Siga minuciosamente estes passos:
 
-1. Substitua `diabetes_regression\training\train.py`. Este guião treina o seu modelo localmente ou no computacional Azure ML.
-1. Remova ou substitua os testes da unidade de treino encontrados em `tests/unit/code_test.py`
+A substituição do código utilizado para treinar o modelo e a remoção ou substituição dos respetivos ensaios unitários é necessária para que a solução funcione com o seu próprio código. Siga minuciosamente estes passos:
+
+1. Substitua `[project name]/training/train.py`. Este guião treina o seu modelo localmente ou no computacional Azure ML.
+1. Remova ou substitua os testes da unidade de treino encontrados em `[project name]/training/test_train.py`
 
 ### <a name="replace-score-code"></a>Substituir código de pontuação
-Para que o modelo forneça capacidades de inferência em tempo real, o código de pontuação precisa de ser substituído. O modelo MLOpsPython usa o código de pontuação para implementar o modelo para fazer pontuação em tempo real em aplicações ACI, AKS ou Web.  Se quiser continuar a marcar, substitua `diabetes_regression/scoring/score.py`.
+
+Para que o modelo forneça capacidades de inferência em tempo real, o código de pontuação precisa de ser substituído. O modelo MLOpsPython usa o código de pontuação para implementar o modelo para fazer pontuação em tempo real em aplicações ACI, AKS ou Web. Se quiser continuar a marcar, substitua `[project name]/scoring/score.py`.
 
 ### <a name="update-evaluation-code"></a>Código de Avaliação de Atualização
-O modelo MLOpsPython usa o guião evaluate_model para comparar o desempenho do modelo recém-treinado e o modelo de produção atual baseado no Error Quadrado Médio. Se o desempenho do modelo recém-treinado for melhor do que o modelo de produção atual, então os gasodutos continuam. Caso contrário, os oleodutos estão parados. Para manter a avaliação, substitua todos os casos de `mse` em `diabetes_regression/evaluate/evaluate_model.py` com a métrica que deseja. 
 
-Para se livrar da avaliação, detete a variável de gasoduto DevOps `RUN_EVALUATION` em `.pipelines\diabetes_regression-variables` para `false`.
+O modelo MLOpsPython usa o guião evaluate_model para comparar o desempenho do modelo recém-treinado e o modelo de produção atual baseado no Error Quadrado Médio. Se o desempenho do modelo recém-treinado for melhor do que o modelo de produção atual, então os gasodutos continuam. Caso contrário, os oleodutos são cancelados. Para manter a avaliação, substitua todos os casos de `mse` em `[project name]/evaluate/evaluate_model.py` com a métrica que deseja.
+
+Para se livrar da avaliação, detete a variável de gasoduto DevOps `RUN_EVALUATION` em `.pipelines/[project name]-variables-template.yml` para `false`.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,7 +1,7 @@
 ---
-title: Treinar novamente um serviço Web clássico
+title: Retre um serviço web clássico
 titleSuffix: ML Studio (classic) - Azure
-description: Saiba como treinar novamente um modelo e atualizar um serviço Web clássico para usar o modelo treinado recentemente no Azure Machine Learning Studio (clássico).
+description: Aprenda a retreinar um modelo e atualizar um serviço web clássico para usar o modelo recém-treinado no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,84 +10,71 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: eac7674ae4a88621a803c70bd55a88e65b2cb7e9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: caf2437b4a4853bc29f094d082a4ea15d2f7a3c9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838696"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388475"
 ---
-# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Readaptação e implantação de um serviço Web clássico do Studio (clássico)
+# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retre e implemente um clássico serviço web Studio (clássico)
 
-Treinar novamente os modelos de aprendizado de máquina é uma maneira de garantir que eles permaneçam precisos e com base nos dados mais relevantes disponíveis. Este artigo mostrará como readaptar um serviço Web clássico do Studio (clássico). Para obter um guia sobre como treinar novamente um novo serviço Web de estúdio (clássico), [Veja este artigo de instruções.](retrain-machine-learning-model.md)
+Retreinar modelos de aprendizagem automática é uma forma de garantir que se mantêm precisos e baseados nos dados mais relevantes disponíveis. Este artigo irá mostrar-lhe como retreinar um clássico serviço web studio (clássico). Para um guia sobre como retreinar um novo serviço web Studio (clássico), [veja este artigo como fazer.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você já tenha um teste de treinamento e um experimento de previsão. Essas etapas são explicadas em [readaptação e implantação de um modelo de aprendizado de máquina.](/azure/machine-learning/studio/retrain-machine-learning-model) No entanto, em vez de implantar o modelo de aprendizado de máquina como um novo serviço Web, você implantará seu experimento de previsão como um serviço Web clássico.
+Este artigo assume que já tem uma experiência de reconversão e uma experiência preditiva. Estes passos são explicados na [Retrain e implantam um modelo de aprendizagem automática.](/azure/machine-learning/studio/retrain-machine-learning-model) No entanto, em vez de implementar o seu modelo de machine learning como um novo serviço web, irá implementar a sua experiência preditiva como um serviço web clássico.
      
-## <a name="add-a-new-endpoint"></a>Adicionar um novo ponto de extremidade
+## <a name="add-a-new-endpoint"></a>Adicione um novo ponto final
 
-O serviço Web de previsão implantado contém um ponto de extremidade de Pontuação padrão que é mantido em sincronia com o treinamento original e os experimentos de Pontuação treinados modelo. Para atualizar seu serviço Web para com um novo modelo treinado, você deve criar um novo ponto de extremidade de pontuação.
+O serviço web preditivo que implementou contém um ponto final de pontuação predefinido que é mantido em sincronização com o modelo treinado por experiências de treino e pontuação originais. Para atualizar o seu serviço web com um novo modelo treinado, tem de criar um novo ponto final de pontuação.
 
-Há duas maneiras pelas quais você pode adicionar um novo ponto de extremidade a um serviço Web:
+Existem duas formas de adicionar um novo ponto final a um serviço web:
 
 * Através de programação
-* Usando o portal de serviços Web do Azure
+* Utilização do portal Azure Web Services
 
 > [!NOTE]
-> Certifique-se de que você está adicionando o ponto de extremidade ao serviço Web de previsão, não ao serviço Web de treinamento. Se você tiver implantado corretamente um treinamento e um serviço Web de previsão, verá dois serviços Web separados listados. O serviço Web de previsão deve terminar com "[exp. de previsão]".
+> Certifique-se de que está adicionando o ponto final ao Serviço Web Preditivo, não ao Serviço Web de Formação. Se implementou corretamente um Treino e um Serviço Web Preditivo, deverá ver dois serviços web separados listados. O Serviço Web Preditivo deve terminar com "[exp preditivo.]".
 >
 
-### <a name="programmatically-add-an-endpoint"></a>Adicionar programaticamente um ponto de extremidade
+### <a name="programmatically-add-an-endpoint"></a>Adicione programáticamente um ponto final
 
-Você pode adicionar pontos de extremidade de Pontuação usando o código de exemplo fornecido neste [repositório GitHub](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
+Pode adicionar pontos finais de pontuação utilizando o código de amostra fornecido neste [repositório GitHub](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
-### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Usar o portal de serviços Web do Azure para adicionar um ponto de extremidade
+### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Utilize o portal Azure Web Services para adicionar um ponto final
 
-1. Em Machine Learning Studio (clássico), na coluna de navegação à esquerda, clique em serviços Web.
-1. Na parte inferior do painel do serviço Web, clique em **gerenciar visualização de pontos de extremidade**.
+1. No Machine Learning Studio (clássico), na coluna de navegação à esquerda, clique em Web Services.
+1. Na parte inferior do painel de instrumentos do serviço web, clique em **Gerir a pré-visualização de pontos finais**.
 1. Clique em **Adicionar**.
-1. Digite um nome e uma descrição para o novo ponto de extremidade. Selecione o nível de log e se os dados de exemplo estão habilitados. Para obter mais informações sobre registro em log, consulte [habilitar o log para serviços web Machine Learning](web-services-logging.md).
+1. Escreva um nome e descrição para o novo ponto final. Selecione o nível de registo e se os dados de exemplo estão ativados. Para obter mais informações sobre a exploração madeireira, consulte [A exploração de login para serviços web de aprendizagem automática](web-services-logging.md).
 
-## <a name="update-the-added-endpoints-trained-model"></a>Atualizar o modelo treinado do ponto de extremidade adicionado
+## <a name="update-the-added-endpoints-trained-model"></a>Atualizar o modelo treinado do ponto final
 
-### <a name="retrieve-patch-url"></a>Recuperar URL do PATCH
+### <a name="retrieve-patch-url"></a>Recuperar URL patch
 
-### <a name="option-1-programmatically"></a>Opção 1: programaticamente
+Siga estes passos para obter o URL PATCH correto utilizando o portal web:
 
-Para obter a URL correta do PATCH programaticamente, siga estas etapas:
-
-1. Execute o código de exemplo [addendpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) .
-1. Na saída de addendpoint, localize o valor *HelpLocation* e copie a URL.
-
-   ![HelpLocation na saída do exemplo addendpoint.](./media/retrain-classic/addEndpoint-output.png)
-1. Cole a URL em um navegador para navegar até uma página que fornece links de ajuda para o serviço Web.
-1. Clique no link **Atualizar recurso** para abrir a página de ajuda do patch.
-
-### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>Opção 2: usar o Azure Machine Learning Portal de serviços Web
-
-Siga estas etapas para obter a URL correta do PATCH usando o portal da Web:
-
-1. Entre no portal de [Serviços Web do Azure Machine Learning](https://services.azureml.net/) .
-1. Clique em **Serviços Web** ou **Serviços Web clássicos** na parte superior.
-1. Clique no serviço Web de pontuação com o qual você está trabalhando (se você não modificou o nome padrão do serviço Web, ele terminará em "[pontuação exp.]").
-1. Clique em **+ novo**.
-1. Depois que o ponto de extremidade for adicionado, clique no nome do ponto de extremidade.
-1. Na URL do **patch** , clique em **ajuda da API** para abrir a página de ajuda de aplicação de patch.
+1. Inscreva-se no portal [Azure Machine Learning Web Services.](https://services.azureml.net/)
+1. Clique em **Web Services** ou Classic **Web Services** no topo.
+1. Clique no serviço web de pontuação com o qual está a trabalhar (se não modificar o nome padrão do serviço web, terminará em "[Scoring Exp.]").
+1. Clique **em +Novo**.
+1. Depois de adicionado o ponto final, clique no nome final.
+1. No url do **Patch,** clique em **Ajuda API** para abrir a página de ajuda de remendos.
 
 > [!NOTE]
-> Se você adicionou o ponto de extremidade ao serviço Web de treinamento em vez do serviço Web de previsão, receberá o seguinte erro ao clicar no link **Atualizar recurso** : "Desculpe, mas esse recurso não tem suporte ou está disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Pedimos desculpas pelo inconveniente e estamos trabalhando para aprimorar esse fluxo de trabalho. "
+> Se adicionar o ponto final ao Serviço Web de Treino em vez do Serviço Web Preditivo, receberá o seguinte erro quando clicar na ligação **'Update Resource':** "Desculpe, mas esta funcionalidade não é suportada ou disponível neste contexto. Este Serviço Web não tem recursos atualizados. Pedimos desculpa pelo inconveniente e estamos a trabalhar para melhorar este fluxo de trabalho."
 >
 
-A página de ajuda do PATCH contém a URL do PATCH que você deve usar e fornece um código de exemplo que você pode usar para chamá-la.
+A página de ajuda patch contém o URL patch que deve usar e fornece código de amostra que pode usar para chamá-lo.
 
-![URL do patch.](./media/retrain-classic/ml-help-page-patch-url.png)
+![Patch URL.](./media/retrain-classic/ml-help-page-patch-url.png)
 
-### <a name="update-the-endpoint"></a>Atualizar o ponto de extremidade
+### <a name="update-the-endpoint"></a>Atualizar o ponto final
 
-Agora você pode usar o modelo treinado para atualizar o ponto de extremidade de pontuação que você criou anteriormente.
+Agora pode utilizar o modelo treinado para atualizar o ponto final de pontuação que criou anteriormente.
 
-O código de exemplo a seguir mostra como usar o *BaseLocation*, o *RelativeLocation*, o *SASBLOBTOKEN*e a URL de patch para atualizar o ponto de extremidade.
+O seguinte código de amostra mostra-lhe como utilizar o *Url baseLocation*, *RelativeLocation,* *SasBlobToken*e PATCH para atualizar o ponto final.
 
     private async Task OverwriteModel()
     {
@@ -101,8 +88,8 @@ O código de exemplo a seguir mostra como usar o *BaseLocation*, o *RelativeLoca
                     Location = new AzureBlobDataReference()
                     {
                         BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
-                        RelativeLocation = "your endpoint relative location", //from the output, for example: “experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner”
-                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: “?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl”
+                        RelativeLocation = "your endpoint relative location", //from the output, for example: "experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner"
+                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: "?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl"
                     }
                 }
             }
@@ -127,25 +114,25 @@ O código de exemplo a seguir mostra como usar o *BaseLocation*, o *RelativeLoca
         }
     }
 
-O *apiKey* e o *endpointUrl* para a chamada podem ser obtidos no painel do ponto de extremidade.
+O *apiKey* e o *endpointUrl* para a chamada podem ser obtidos a partir do painel de instrumentos de ponto final.
 
-O valor do parâmetro *Name* nos *recursos* deve corresponder ao nome do recurso do modelo treinado salvo no experimento de previsão. Para obter o nome do recurso:
+O valor do parâmetro *nome* em *Recursos* deve coincidir com o Nome de Recurso do Modelo Treinado salvo na experiência preditiva. Para obter o nome do recurso:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-1. No menu à esquerda, clique em **Machine Learning**.
-1. Em nome, clique em seu espaço de trabalho e clique em **Serviços Web**.
-1. Em nome, clique em **modelo de censo [EXP de previsão.]** .
-1. Clique no novo ponto de extremidade adicionado.
-1. No painel do ponto de extremidade, clique em **Atualizar recurso**.
-1. Na página de documentação atualizar a API do recurso para o serviço Web, você pode encontrar o **nome do recurso** em **recursos atualizáveis**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. No menu esquerdo, clique em **Machine Learning**.
+1. Em Nome, clique no seu espaço de trabalho e, em seguida, clique em **Web Services**.
+1. Em nome, clique **no Census Model [exp preditivo.]** .
+1. Clique no novo ponto final que adicionou.
+1. No painel de instrumentos de ponto final, clique em **Atualizar Recurso**.
+1. Na página de Documentação API de Recurso atualizado para o serviço web, pode encontrar o Nome de **Recurso** em **Recursos Updatable**.
 
-Se o token SAS expirar antes de concluir a atualização do ponto de extremidade, você deverá executar um GET com a ID do trabalho para obter um novo token.
+Se o seu token SAS expirar antes de terminar a atualização do ponto final, tem de realizar um GET com o ID de trabalho para obter um token fresco.
 
-Quando o código for executado com êxito, o novo ponto de extremidade deverá começar a usar o modelo retreinado em aproximadamente 30 segundos.
+Quando o código tiver sido executado com sucesso, o novo ponto final deve começar a utilizar o modelo retreinado em aproximadamente 30 segundos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como gerenciar serviços Web ou controlar várias execuções de experimentos, consulte os seguintes artigos:
+Para saber mais sobre como gerir os serviços web ou acompanhar as várias experiências, consulte os seguintes artigos:
 
-* [Explore o portal de serviços Web](manage-new-webservice.md)
-* [Gerenciar iterações de experimento](manage-experiment-iterations.md)
+* [Explore o portal de Serviços Web](manage-new-webservice.md)
+* [Gerir iterações de experimentação](manage-experiment-iterations.md)

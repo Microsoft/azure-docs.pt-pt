@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
 ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484728"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355735"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registar extensões de ligação de funções Azure
 
@@ -29,7 +29,7 @@ A tabela seguinte indica quando e como regista encadernações.
 |Portal do Azure|Automático|Automático|
 |Non-.NET línguas ou desenvolvimento local de Ferramentas Nucleares|Automático|[Utilize ferramentas nucleares e pacotes de extensões de funções Azure](#extension-bundles)|
 |C#biblioteca de classes usando O Estúdio Visual|[Use ferramentas NuGet](#vs)|[Use ferramentas NuGet](#vs)|
-|C#biblioteca de classes usando Código de Estúdio Visual|N/A|[Utilizar cli core .NET](#vs-code)|
+|C#biblioteca de classes usando Código de Estúdio Visual|N/D|[Utilizar cli core .NET](#vs-code)|
 
 ## <a name="extension-bundles"></a>Pacotes de extensão para o desenvolvimento local
 
@@ -75,6 +75,6 @@ Substitua `<BINDING_TYPE_NAME>` pelo nome da embalagem que contém a encadernaç
 
 Substitua `<TARGET_VERSION>` no exemplo por uma versão específica da embalagem, como `3.0.0-beta5`. Versões válidas estão listadas nas páginas de pacotes individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem às funções funcionais 1.x ou 2.x são especificadas no artigo de referência para a ligação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Gatilho de função Azure e exemplo de ligação](./functions-bindings-example.md)

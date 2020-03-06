@@ -1,7 +1,7 @@
 ---
-title: Implantar um modelo para inferência com GPU
+title: Implementar um modelo de inferência com AGP
 titleSuffix: Azure Machine Learning
-description: Este artigo ensina como usar Azure Machine Learning para implantar um modelo de aprendizado profundo Tensorflow habilitado para GPU como um serviço Web. solicitações de inferência de serviço e pontuação.
+description: Este artigo ensina-o a usar o Azure Machine Learning para implementar um modelo de aprendizagem profunda ativado pela GPU como serviço web.service e pedidos de inferência de pontuação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,50 +9,50 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 39fc57a6da20549447f782399e9571f7a0ffeea7
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/05/2020
+ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122530"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398338"
 ---
-# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
+# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementar um modelo de aprendizagem profunda para inferência com GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este artigo ensina como usar Azure Machine Learning para implantar um modelo habilitado para GPU como um serviço Web. As informações neste artigo se baseiam na implantação de um modelo no serviço de kubernetes do Azure (AKS). O cluster AKS fornece um recurso de GPU que é usado pelo modelo para inferência.
+Este artigo ensina-o a usar o Azure Machine Learning para implementar um modelo ativado pela GPU como um serviço web. A informação neste artigo baseia-se na implementação de um modelo no Serviço Azure Kubernetes (AKS). O cluster AKS fornece um recurso GPU que é usado pelo modelo de inferência.
 
-A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado é usado para fazer previsões. O uso de GPUs em vez de CPUs oferece vantagens de desempenho na computação altamente paralelizáveis.
+Inferência, ou pontuação do modelo, é a fase em que o modelo implantado é usado para fazer previsões. A utilização de GPUs em vez de CPUs oferece vantagens de desempenho em cálculos altamente paralelos.
 
 > [!IMPORTANT]
-> Para implantações de serviço Web, a inferência de GPU só tem suporte no serviço kubernetes do Azure. Para a inferência usando um __pipeline de Machine Learning__, há suporte para GPUs somente na computação Azure Machine Learning. Para obter mais informações sobre como usar pipelines de ML, consulte [executar previsões de lote](how-to-use-parallel-run-step.md). 
+> Para implementações de serviços web, a inferência da GPU só é suportada no Serviço Azure Kubernetes. Para inferência utilizando um pipeline de __aprendizagem automática,__ as GPUs só são suportadas na Computação de Aprendizagem automática Azure. Para obter mais informações sobre a utilização de gasodutos ML, consulte as previsões do [lote de execução](how-to-use-parallel-run-step.md). 
 
 > [!TIP]
-> Embora os trechos de código neste artigo usem um modelo TensorFlow, você pode aplicar as informações a qualquer estrutura de Machine Learning que ofereça suporte a GPUs.
+> Embora os fragmentos de código neste artigo utilizem um modelo TensorFlow, pode aplicar a informação a qualquer quadro de aprendizagem automática que suporte as GPUs.
 
 > [!NOTE]
-> As informações neste artigo se baseiam nas informações no artigo [como implantar o serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md) . Onde esse artigo geralmente aborda a implantação no AKS, este artigo aborda a implantação específica da GPU.
+> A informação deste artigo baseia-se na informação no artigo do [Serviço De Como Implantar no Serviço Azure Kubernetes.](how-to-deploy-azure-kubernetes-service.md) Sempre que esse artigo cubra geralmente a implantação para a AKS, este artigo abrange a implantação específica da GPU.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
+* Uma área de trabalho do Azure Machine Learning. Para mais informações, consulte Criar um espaço de [trabalho azure machine learning](how-to-manage-workspace.md).
 
-* Um ambiente de desenvolvimento do Python com o SDK do Azure Machine Learning instalado. Para obter mais informações, consulte [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
+* Um ambiente de desenvolvimento Python com o Azure Machine Learning SDK instalado. Para mais informações, consulte [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
-* Um modelo registrado que usa uma GPU.
+* Um modelo registado que usa uma GPU.
 
-    * Para saber como registrar modelos, consulte [implantar modelos](how-to-deploy-and-where.md#registermodel).
+    * Para aprender a registar modelos, consulte [Modelos de Implantação](how-to-deploy-and-where.md#registermodel).
 
-    * Para criar e registrar o modelo de Tensorflow usado para criar este documento, consulte [como treinar um modelo de Tensorflow](how-to-train-tensorflow.md).
+    * Para criar e registar o modelo Tensorflow utilizado para criar este documento, consulte [Como Treinar um Modelo TensorFlow](how-to-train-tensorflow.md).
 
-* Uma compreensão geral de [como e onde implantar modelos](how-to-deploy-and-where.md).
+* Uma compreensão geral de [Como e onde implementar modelos.](how-to-deploy-and-where.md)
 
-## <a name="connect-to-your-workspace"></a>Ligar à sua área de trabalho
+## <a name="connect-to-your-workspace"></a>Ligue-se ao seu espaço de trabalho
 
-Para se conectar a um espaço de trabalho existente, use o seguinte código:
+Para se ligar a um espaço de trabalho existente, utilize o seguinte código:
 
 > [!IMPORTANT]
-> Esse trecho de código espera que a configuração do espaço de trabalho seja salva no diretório atual ou em seu pai. Para obter mais informações sobre como criar um espaço de trabalho, consulte [criar e gerenciar espaços de trabalho do Azure Machine Learning](how-to-manage-workspace.md).   Para obter mais informações sobre como salvar a configuração no arquivo, consulte [criar um arquivo de configuração de espaço de trabalho](how-to-configure-environment.md#workspace).
+> Este código de corte espera que a configuração do espaço de trabalho seja guardada no diretório atual ou no seu progenitor. Para obter mais informações sobre a criação de um espaço de trabalho, consulte Criar e gerir espaços de [trabalho azure machine learning.](how-to-manage-workspace.md)   Para obter mais informações sobre como guardar a configuração para arquivar, consulte Criar um ficheiro de [configuração do espaço de trabalho](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -61,11 +61,11 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-## <a name="create-a-kubernetes-cluster-with-gpus"></a>Criar um cluster kubernetes com GPUs
+## <a name="create-a-kubernetes-cluster-with-gpus"></a>Criar um cluster Kubernetes com GPUs
 
-O serviço kubernetes do Azure fornece várias opções de GPU diferentes. Você pode usar qualquer um deles para a inferência de modelo. Consulte [a lista de VMs da série N](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) para obter uma análise completa dos recursos e dos custos.
+O Serviço Azure Kubernetes oferece muitas opções de GPU diferentes. Podes usar qualquer um deles para inferência de modelo. Consulte [a lista de VMs da série N](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) para obter uma desagregação completa de capacidades e custos.
 
-O código a seguir demonstra como criar um novo cluster AKS para seu espaço de trabalho:
+O seguinte código demonstra como criar um novo cluster AKS para o seu espaço de trabalho:
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -92,16 +92,16 @@ except ComputeTargetException:
 ```
 
 > [!IMPORTANT]
-> O Azure cobrará você desde que o cluster AKS exista. Certifique-se de excluir o cluster AKS quando tiver terminado.
+> O Azure vai cobrar-te enquanto o cluster AKS existir. Certifique-se de eliminar o seu cluster AKS quando terminar.
 
-Para obter mais informações sobre como usar o AKS com Azure Machine Learning, consulte [como implantar no serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md).
+Para obter mais informações sobre a utilização de AKS com Azure Machine Learning, consulte [Como se implementar no Serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
 
-## <a name="write-the-entry-script"></a>Gravar o script de entrada
+## <a name="write-the-entry-script"></a>Escreva o script de entrada
 
-O script de entrada recebe dados enviados para o serviço Web, passa-os para o modelo e retorna os resultados da pontuação. O script a seguir carrega o modelo Tensorflow na inicialização e, em seguida, usa o modelo para pontuar dados.
+O script de entrada recebe os dados submetidos ao serviço web, passa-os para o modelo e devolve os resultados da pontuação. O seguinte script carrega o modelo Tensorflow no arranque e, em seguida, usa o modelo para marcar dados.
 
 > [!TIP]
-> O script de entrada é específico do seu modelo. Por exemplo, o script deve saber a estrutura a ser usada com seu modelo, formatos de dados, etc.
+> O script de entrada é específico do seu modelo. Por exemplo, o script deve conhecer a estrutura a utilizar com o seu modelo, formatos de dados, etc.
 
 ```python
 import json
@@ -135,11 +135,11 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Esse arquivo é denominado `score.py`. Para obter mais informações sobre scripts de entrada, consulte [como e onde implantar](how-to-deploy-and-where.md).
+Este ficheiro chama-se `score.py`. Para obter mais informações sobre os scripts de entrada, consulte [Como e onde implementar](how-to-deploy-and-where.md).
 
-## <a name="define-the-conda-environment"></a>Definir o ambiente Conda
+## <a name="define-the-conda-environment"></a>Defina o ambiente de condomínio
 
-O arquivo de ambiente Conda especifica as dependências para o serviço. Ele inclui dependências exigidas pelo modelo e pelo script de entrada. Observe que você deve indicar os padrões do azureml com a versão > = 1.0.45 como uma dependência Pip, pois ele contém a funcionalidade necessária para hospedar o modelo como um serviço Web. O YAML a seguir define o ambiente para um modelo de Tensorflow. Ele especifica `tensorflow-gpu`, que fará uso da GPU usada nesta implantação:
+O arquivo ambiental do condomínio especifica as dependências do serviço. Inclui dependências exigidas tanto pelo modelo como pelo script de entrada. Por favor, note que deve indicar incumprimentos em azureml com verion >= 1.0.45 como dependência de pip, porque contém a funcionalidade necessária para hospedar o modelo como um serviço web. O Seguinte YAML define o ambiente para um modelo Tensorflow. Especifica `tensorflow-gpu`, que utilizará a GPU utilizada nesta implantação:
 
 ```yaml
 name: project_environment
@@ -157,11 +157,11 @@ channels:
 - conda-forge
 ```
 
-Para este exemplo, o arquivo é salvo como `myenv.yml`.
+Para este exemplo, o ficheiro é guardado como `myenv.yml`.
 
-## <a name="define-the-deployment-configuration"></a>Definir a configuração de implantação
+## <a name="define-the-deployment-configuration"></a>Definir a configuração de implementação
 
-A configuração de implantação define o ambiente do serviço kubernetes do Azure usado para executar o serviço Web:
+A configuração de implementação define o ambiente de serviço Azure Kubernetes usado para executar o serviço web:
 
 ```python
 from azureml.core.webservice import AksWebservice
@@ -172,11 +172,11 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-Para obter mais informações, consulte a documentação de referência para [AksService. deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
+Para mais informações, consulte a documentação de referência para [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
 
 ## <a name="define-the-inference-configuration"></a>Definir a configuração de inferência
 
-A configuração de inferência aponta para o script de entrada e um objeto de ambiente, que usa uma imagem do Docker com suporte de GPU. Observe que o arquivo YAML usado para a definição de ambiente deve listar o azureml-padrões com a versão > = 1.0.45 como uma dependência Pip, pois ele contém a funcionalidade necessária para hospedar o modelo como um serviço Web.
+A configuração da inferência aponta para o script de entrada e um objeto de ambiente, que usa uma imagem de estivador com suporte de GPU. Por favor, note que o ficheiro YAML utilizado para a definição de ambiente deve listar os incumprimentos em azureml com a versão >= 1.0.45 como dependência do pip, porque contém a funcionalidade necessária para hospedar o modelo como um serviço web.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -187,12 +187,12 @@ myenv.docker.base_image = DEFAULT_GPU_IMAGE
 inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
-Para obter mais informações sobre ambientes, consulte [criar e gerenciar ambientes para treinamento e implantação](how-to-use-environments.md).
-Para obter mais informações, consulte a documentação de referência para [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
+Para obter mais informações sobre ambientes, consulte [Criar e gerir ambientes para formação e implantação.](how-to-use-environments.md)
+Para mais informações, consulte a documentação de referência para [inferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
 
 ## <a name="deploy-the-model"></a>Implementar o modelo
 
-Implante o modelo em seu cluster AKS e aguarde até que ele crie seu serviço.
+Desloque o modelo para o seu cluster AKS e espere que crie o seu serviço.
 
 ```python
 from azureml.core.model import Model
@@ -214,13 +214,13 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Se o objeto `InferenceConfig` tiver `enable_gpu=True`, o parâmetro `deployment_target` deverá fazer referência a um cluster que fornece uma GPU. Caso contrário, a implantação falhará.
+> Se o `InferenceConfig` objeto tiver `enable_gpu=True`, então o parâmetro `deployment_target` deve fazer referência a um cluster que forneça uma GPU. Caso contrário, o destacamento falhará.
 
-Para obter mais informações, consulte a documentação de referência para o [modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+Para mais informações, consulte a documentação de referência para [o Modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a name="issue-a-sample-query-to-your-service"></a>Emitir uma consulta de exemplo para seu serviço
+## <a name="issue-a-sample-query-to-your-service"></a>Emita uma amostra de consulta ao seu serviço
 
-Envie uma consulta de teste para o modelo implantado. Quando você envia uma imagem JPEG para o modelo, ela classifica a imagem. O exemplo de código a seguir baixa dados de teste e, em seguida, seleciona uma imagem de teste aleatória para enviar ao serviço.
+Envie uma consulta de teste ao modelo implantado. Quando envias uma imagem jpeg para o modelo, marca a imagem. A amostra de código seguinte descarrega dados de teste e, em seguida, seleciona uma imagem de teste aleatória para enviar para o serviço.
 
 ```python
 # Used to test your webservice
@@ -273,14 +273,14 @@ print("label:", y_test[random_index])
 print("prediction:", resp.text)
 ```
 
-Para obter mais informações sobre como criar um aplicativo cliente, consulte [criar cliente para consumir o serviço Web implantado](how-to-consume-web-service.md).
+Para obter mais informações sobre a criação de uma aplicação de cliente, consulte [Criar o cliente para consumir o serviço web implantado.](how-to-consume-web-service.md)
 
 ## <a name="clean-up-the-resources"></a>Limpar os recursos
 
-Se você criou o cluster AKS especificamente para este exemplo, exclua seus recursos depois de terminar.
+Se criou o cluster AKS especificamente para este exemplo, apague os seus recursos depois de terminar.
 
 > [!IMPORTANT]
-> O Azure cobra com base em quanto tempo o cluster AKS é implantado. Certifique-se de limpá-lo depois de concluir a tarefa.
+> O Azure diz-te com base no tempo que o cluster AKS está implantado. Certifique-se de limpá-lo depois de terminar.
 
 ```python
 aks_service.delete()
@@ -289,6 +289,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Implantar modelo em FPGA](how-to-deploy-fpga-web-service.md)
-* [Implantar modelo com ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
-* [Treinar modelos do Tensorflow DNN](how-to-train-tensorflow.md)
+* [Modelo de implantação na FPGA](how-to-deploy-fpga-web-service.md)
+* [Implementar modelo com ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
+* [Modelos DNN de Tensorflow de Comboio](how-to-train-tensorflow.md)

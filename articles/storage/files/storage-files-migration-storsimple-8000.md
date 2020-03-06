@@ -7,16 +7,25 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 78100a5dd38b211f6b0241d5a0bac10cf86b09f6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: d04b38fac2b42d2d510902c7ba54ddebb8e3f410
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250954"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330315"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migração para O Ficheiro Sincronizado Azure
 
-A série StorSimple 8000 representa duas SKUs separadas e é possível migrar os dados de qualquer uma destas SKUs para um ambiente De sincronização de ficheiros Azure. Este artigo abrange a migração de ambos os aparelhos para o Azure File Sync e fornece os necessários conhecimentos de fundo e migrações para tornar a sua migração para o Azure File Sync um sucesso.
+A série StorSimple 8000 está representada pelo 8100 ou pelo 8600 aparelho físico no local e pelos seus componentes de serviço em nuvem. É possível migrar os dados de qualquer um destes aparelhos para um ambiente De sincronização de ficheiros Azure. Este artigo fornece os conhecimentos de fundo necessários e etapas de migração para uma migração bem sucedida para O Ficheiro Sincronizado Azure.
+
+## <a name="storsimple"></a>StorSimple
+
+StorSimple é um produto da Microsoft descontinuado. O suporte alargado a este produto e ao seu serviço na nuvem expira em 31 de dezembro de 2022. É importante começar a planear uma migração fora do StorSimple imediatamente.
+
+O Azure File Sync é o serviço Azure de longo prazo padrão e estratégico para o quais os aparelhos StorSimple podem ser migrados.
+
+> [!IMPORTANT]
+> A Microsoft está empenhada em ajudar os clientes na sua migração. Envie um e-mail AzureFilesMigration@microsoft .com para um plano de migração personalizado, bem como assistência durante a migração.
 
 ## <a name="azure-file-sync"></a>Azure File Sync
 

@@ -1,6 +1,6 @@
 ---
-title: Conectar o Azure ExpressRoute com a infraestrutura de nuvem do Oracle | Microsoft Docs
-description: Conectar o Azure ExpressRoute com o FastConnect de infraestrutura de nuvem da Oracle (OCI) para habilitar soluções de aplicativos Oracle entre nuvem
+title: Ligue azure ExpressRoute com a Oracle Cloud Infrastructure  Microsoft Docs
+description: Connect Azure ExpressRoute com Oracle Cloud Infrastructure (OCI) FastConnect para ativar soluções de aplicação Oracle em nuvem cruzada
 documentationcenter: virtual-machines
 author: romitgirdhar
 manager: gwallace
@@ -13,93 +13,93 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 63543c0ac34536b736bd4b8cdbd47fdd98e9f9be
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802216"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302054"
 ---
-# <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar uma interconexão direta entre o Azure e a infraestrutura de nuvem do Oracle  
+# <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Criar uma interligação direta entre a Azure e a Oracle Cloud Infrastructure  
 
-Para criar uma [experiência integrada de várias nuvens](oracle-oci-overview.md) (versão prévia), a Microsoft e a Oracle oferecem interconexão direta entre o Azure e o Oracle Cloud Infrastructure (OCI) por meio do [ExpressRoute](../../../expressroute/expressroute-introduction.md) e do [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Por meio da interconexão do ExpressRoute e do FastConnect, os clientes podem experimentar baixa latência, alta taxa de transferência, conectividade direta privada entre as duas nuvens.
+Para criar uma [experiência multi-cloud integrada (pré-visualização),](oracle-oci-overview.md) a Microsoft e a Oracle oferecem interligação direta entre a Azure e a Oracle Cloud Infrastructure (OCI) através do [ExpressRoute](../../../expressroute/expressroute-introduction.md) e [do FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Através da interligação ExpressRoute e FastConnect, os clientes podem experimentar baixa latência, alta entrada, conectividade direta privada entre as duas nuvens.
 
 > [!IMPORTANT]
-> A conexão entre Microsoft Azure e OCI está no estágio de visualização. Para estabelecer conectividade de baixa latência entre o Azure e o OCI, sua assinatura do Azure deve primeiro ser habilitada para esse recurso. Você deve se registrar na visualização concluindo este pequeno [formulário de pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Você não poderá usar a funcionalidade até receber um email de confirmação. Você também pode contatar seu representante da Microsoft para ser habilitado para esta versão prévia. O acesso ao recurso de visualização está sujeito à disponibilidade e restrito pela Microsoft a seu exclusivo critério. A conclusão da pesquisa não garante o acesso. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para ver os detalhes de Microsoft Azure. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> A ligação entre o Microsoft Azure e o OCI está na fase de pré-visualização. Para estabelecer uma baixa conectividade de latência entre o Azure e o OCI, a subscrição do Azure deve ser ativada primeiro para esta capacidade. Deve inscrever-se na pré-visualização preenchendo este formulário de [sondagem](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)curta . Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Não poderá utilizar a capacidade até receber um e-mail de confirmação. Pode também contactar o seu representante da Microsoft para estar ativado para esta pré-visualização. O acesso à capacidade de pré-visualização está sujeito a disponibilidade e restringido pela Microsoft a seu exclusivo critério. A conclusão do inquérito não garante o acesso. Esta pré-visualização é fornecida sem um acordo de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte os [Termos De Utilização Suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para visualizações do Microsoft Azure para mais detalhes. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
-A imagem a seguir mostra uma visão geral de alto nível da interconexão:
+A imagem seguinte mostra uma visão geral de alto nível da interconexão:
 
-![Conexão de rede entre redes em nuvem](media/configure-azure-oci-networking/azure-oci-connect.png)
+![Conexão de rede de nuvem cruzada](media/configure-azure-oci-networking/azure-oci-connect.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para estabelecer a conectividade entre o Azure e o OCI, você deve ter uma assinatura ativa do Azure e uma locação de OCI ativa.
+* Para estabelecer conectividade entre o Azure e o OCI, deve ter uma subscrição azure ativa e um arrendamento OCI ativo.
 
-* A conectividade só é possível quando um local de emparelhamento do ExpressRoute do Azure está em proximidade com ou no mesmo local de emparelhamento que o FastConnect de OCI. Consulte [limitações de visualização](oracle-oci-overview.md#preview-limitations).
+* A conectividade só é possível quando um local de observação do Azure ExpressRoute estiver próximo ou no mesmo local de observação que o OCI FastConnect. Ver [Disponibilidade da Região](oracle-oci-overview.md#region-availability).
 
-* Sua assinatura do Azure deve ser habilitada para esse recurso de visualização.
+* A subscrição do Azure deve estar ativada para esta capacidade de pré-visualização.
 
-## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Configurar a conectividade direta entre o ExpressRoute e o FastConnect
+## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Configure a conectividade direta entre expressRoute e FastConnect
 
-1. Crie um circuito de ExpressRoute padrão em sua assinatura do Azure em um grupo de recursos. 
-    * Ao criar o ExpressRoute, escolha **Oracle Cloud FastConnect** como o provedor de serviços. Para criar um circuito do ExpressRoute, consulte o [guia passo a passo](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
-    * Um circuito do Azure ExpressRoute fornece opções de largura de banda granulares, enquanto FastConnect dá suporte a 1, 2, 5 ou 10 Gbps. Portanto, é recomendável escolher uma dessas opções de largura de banda correspondentes em ExpressRoute.
+1. Crie um circuito ExpressRoute padrão na sua subscrição Azure sob um grupo de recursos. 
+    * Ao criar o ExpressRoute, escolha o **Oracle Cloud FastConnect** como fornecedor de serviços. Para criar um circuito ExpressRoute, consulte o [guia passo a passo](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    * Um circuito Azure ExpressRoute fornece opções de largura de banda granular, enquanto o FastConnect suporta 1, 2, 5 ou 10 Gbps. Por isso, recomenda-se escolher uma destas opções de largura de banda correspondentes no ExpressRoute.
 
-    ![Criar circuito de ExpressRoute](media/configure-azure-oci-networking/exr-create-new.png)
-1. Anote sua chave de **serviço**do ExpressRoute. Você precisa fornecer a chave ao configurar o circuito do FastConnect.
+    ![Criar circuito ExpressRoute](media/configure-azure-oci-networking/exr-create-new.png)
+1. Anote a sua chave de **serviço**ExpressRoute . Tem de fornecer a tecla enquanto configura o circuito FastConnect.
 
-    ![Chave de serviço do ExpressRoute](media/configure-azure-oci-networking/exr-service-key.png)
+    ![Chave de serviço ExpressRoute](media/configure-azure-oci-networking/exr-service-key.png)
 
     > [!IMPORTANT]
-    > Você será cobrado pelos encargos do ExpressRoute assim que o circuito do ExpressRoute for provisionado (mesmo que o **status** do provedor **não seja provisionado**).
+    > Será cobrado para taxas ExpressRoute logo que o circuito ExpressRoute seja provisionado (mesmo que o Estatuto do **Fornecedor** não esteja **provisionado).**
 
-1. Anote dois espaços de endereço IP privado de/30 cada um que não se sobreponha à sua rede virtual do Azure ou ao espaço de endereço IP de rede de nuvem virtual de OCI. Iremos nos referir ao primeiro espaço de endereço IP como espaço de endereço primário e ao segundo espaço de endereço IP que o espaço de endereço secundário. Anote os endereços que você precisa ao configurar o circuito FastConnect.
-1. Crie um DRG (gateway de roteamento dinâmico). Você precisará disso ao criar seu circuito FastConnect. Para obter mais informações, consulte a documentação do [Gateway de roteamento dinâmico](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
-1. Crie um circuito FastConnect em seu locatário do Oracle. Para obter mais informações, consulte a [documentação do Oracle](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
+1. Esculpe dois espaços privados de endereçoIP de /30 cada um que não se sobreponham à sua rede virtual Azure ou ao espaço IP Address da rede virtual de nuvem virtual OCI. Vamos referir o primeiro espaço de endereçoIP como espaço de endereço primário e o segundo espaço de endereçoIP como espaço de endereço secundário. Anote os endereços, que necessita ao configurar o circuito FastConnect.
+1. Crie um Gateway de Encaminhamento Dinâmico (DRG). Vai precisar disto ao criar o seu circuito FastConnect. Para mais informações, consulte a documentação [Dynamic Routing Gateway.](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm)
+1. Crie um circuito FastConnect sob o seu inquilino Oracle. Para mais informações, consulte a documentação do [Oráculo.](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm)
   
-    * Em configuração do FastConnect, selecione **Microsoft Azure: ExpressRoute** como o provedor.
-    * Selecione o gateway de roteamento dinâmico que você provisionou na etapa anterior.
-    * Selecione a largura de banda a ser provisionada. Para um desempenho ideal, a largura de banda deve corresponder à largura de banda selecionada ao criar o circuito de ExpressRoute.
-    * Em **chave de serviço do provedor**, Cole a chave de serviço do ExpressRoute.
-    * Use o primeiro/30 espaço de endereço IP privado gravado em uma etapa anterior para o **endereço IP do BGP primário** e o segundo/30 espaço de endereço IP privado para o endereço **IP do BGP secundário** .
-        * Atribua o primeiro endereço utilizável dos dois intervalos para o endereço IP do Oracle BGP (primário e secundário) e o segundo endereço para o endereço IP do BGP do cliente (de uma perspectiva FastConnect). O primeiro endereço IP utilizável é o segundo endereço IP no espaço de endereço/30 (o primeiro endereço IP é reservado pela Microsoft).
+    * Sob a configuração FastConnect, selecione **Microsoft Azure: ExpressRoute** como fornecedor.
+    * Selecione o Gateway de Encaminhamento Dinâmico que forprovisionou no passo anterior.
+    * Selecione a largura de banda a fornecer. Para um desempenho ótimo, a largura de banda deve corresponder à largura de banda selecionada ao criar o circuito ExpressRoute.
+    * Na **Chave de Serviço do Fornecedor,** cola a chave de serviço ExpressRoute.
+    * Utilize o primeiro espaço de endereço IP privado /30 esculpido num passo anterior para o **Endereço IP BGP primário** e o segundo espaço de endereço IP privado /30 para o Endereço IP **BGP secundário.**
+        * Atribuir o primeiro endereço utilizável das duas gamas para o Endereço IP Oracle BGP (Primário e Secundário) e o segundo endereço para o endereço IP do cliente BGP (do ponto de vista fastConnect). O primeiro endereço IP utilizável é o segundo endereço IP no espaço de endereço /30 (o primeiro endereço IP é reservado pela Microsoft).
     * Clique em **Criar**.
-1. Conclua a vinculação do FastConnect à rede de nuvem virtual em seu locatário do Oracle por meio do gateway de roteamento dinâmico, usando a tabela de rotas.
-1. Navegue até o Azure e verifique se o **status do provedor** do seu circuito do ExpressRoute foi alterado para **provisionado** e se um emparelhamento do tipo **privado do Azure** foi provisionado. Este é um pré-requisito para as etapas a seguir.
+1. Complete ligando o FastConnect à rede de nuvem virtual sob o seu inquilino Oracle através do Dynamic Routing Gateway, utilizando a Route Table.
+1. Navegue para o Azure e certifique-se de que o Estatuto do **Fornecedor** para o seu circuito ExpressRoute mudou para **Provisioned** e que foi aprovisionado um epeering de tipo **Azure privado.** Este é um pré-requisito para os seguintes passos.
 
-    ![Status do provedor de ExpressRoute](media/configure-azure-oci-networking/exr-provider-status.png)
-1. Clique no emparelhamento **privado do Azure** . Você verá os detalhes de emparelhamento que foram automaticamente configurados com base nas informações inseridas durante a configuração do circuito FastConnect.
+    ![Estado do fornecedor ExpressRoute](media/configure-azure-oci-networking/exr-provider-status.png)
+1. Clique no olho **privado azure.** Verá que os dados de observação foram configurados automaticamente com base nas informações que introduziu ao configurar o circuito FastConnect.
 
-    ![Configurações de emparelhamento privado](media/configure-azure-oci-networking/exr-private-peering.png)
+    ![Configurações de observação privada](media/configure-azure-oci-networking/exr-private-peering.png)
 
-## <a name="connect-virtual-network-to-expressroute"></a>Conectar a rede virtual ao ExpressRoute
+## <a name="connect-virtual-network-to-expressroute"></a>Ligue a rede virtual ao ExpressRoute
 
-1. Crie uma rede virtual e um gateway de rede virtual, se ainda não tiver feito isso. Para obter detalhes, consulte o [guia passo a passo](../../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
-1. Configure a conexão entre o gateway de rede virtual e o circuito do ExpressRoute executando o [script Terraform](https://github.com/microsoft/azure-oracle/tree/master/InterConnect-2) ou executando o comando do PowerShell para [Configurar o ExpressRoute FastPath](../../../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
+1. Crie uma rede virtual e um portal de rede virtual, se ainda não o fez. Para mais detalhes, consulte o [guia passo a passo](../../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
+1. Configure a ligação entre o gateway da rede virtual e o circuito ExpressRoute executando o [script Terraform](https://github.com/microsoft/azure-oracle/tree/master/InterConnect-2) ou executando o comando PowerShell para Configurar o [FastPath ExpressRoute](../../../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
 
-Depois de concluir a configuração de rede, você pode verificar a validade da sua configuração clicando em **obter registros ARP** e **obter tabela de rotas** na folha emparelhamento privado do ExpressRoute no portal do Azure.
+Uma vez concluída a configuração da rede, pode verificar a validade da sua configuração clicando na **Tabela Get ARP Records** e Obter a tabela de **rotas** sob a lâmina de observação privada ExpressRoute no portal Azure.
 
 ## <a name="automation"></a>Automatização
 
-A Microsoft criou scripts Terraform para habilitar a implantação automatizada da interconexão de rede. Os scripts do Terraform precisam se autenticar no Azure antes da execução, porque eles exigem permissões adequadas na assinatura do Azure. A autenticação pode ser executada usando uma [entidade de serviço Azure Active Directory](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) ou usando o CLI do Azure. Para obter mais informações, consulte a [documentação do Terraform](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html).
+A Microsoft criou scripts Terraform para permitir a implementação automatizada da interligação da rede. Os scripts Terraform precisam de autenticar com o Azure antes da execução, porque requerem permissões adequadas na subscrição do Azure. A autenticação pode ser realizada através de um [diretor de serviço Azure Ative Directory](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) ou utilizando o Azure CLI. Para mais informações, consulte a [documentação terraforme.](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html)
 
-Os scripts Terraform e a documentação relacionada para implantar a inter-Connect podem ser encontrados neste [repositório GitHub](https://aka.ms/azureociinterconnecttf).
+Os scripts Terraform e documentação relacionada para implementar o inter-connect podem ser encontrados neste [repositório GitHub](https://aka.ms/azureociinterconnecttf).
 
 ## <a name="monitoring"></a>Monitorização
 
-Instalando agentes em ambas as nuvens, você pode aproveitar o Azure [Monitor de desempenho de rede (NPM)](../../../expressroute/how-to-npm.md) para monitorar o desempenho da rede de ponta a ponta. O NPM ajuda você a identificar rapidamente os problemas de rede e a eliminá-los.
+Instalando agentes em ambas as nuvens, pode aproveitar o Monitor de Desempenho da Rede Azure [(NPM)](../../../expressroute/how-to-npm.md) para monitorizar o desempenho da rede de ponta a ponta. O NPM ajuda-o a identificar facilmente os problemas de rede e ajuda a eliminá-los.
 
-## <a name="delete-the-interconnect-link"></a>Excluir o link de interconexão
+## <a name="delete-the-interconnect-link"></a>Eliminar o link de interligação
 
-Para excluir a interconexão, as etapas a seguir devem ser seguidas, na ordem específica especificada. Se não fizer isso, isso resultará em um circuito de ExpressRoute de "estado de falha".
+Para eliminar a interligação, devem ser seguidos os seguintes passos, na ordem específica dada. Se não o fizer, resultará num circuito expressroute "estado falhado".
 
-1. Exclua a conexão do ExpressRoute. Exclua a conexão clicando no ícone **excluir** na página de sua conexão. Para obter mais informações, consulte a [documentação do ExpressRoute](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
-1. Exclua o Oracle FastConnect do console de nuvem da Oracle.
-1. Depois que o circuito do Oracle FastConnect tiver sido excluído, você poderá excluir o circuito do Azure ExpressRoute.
+1. Elimine a ligação ExpressRoute. Elimine a ligação clicando no ícone **Eliminar** na página para a sua ligação. Para mais informações, consulte a [documentação ExpressRoute](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
+1. Elimine o Oracle FastConnect da Consola Oracle Cloud.
+1. Uma vez eliminado o circuito Oracle FastConnect, pode eliminar o circuito Azure ExpressRoute.
 
-Neste ponto, o processo de exclusão e desprovisionamento é concluído.
+Neste momento, o processo de eliminação e dedeprovisionamento está concluído.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre a conexão entre nuvem entre o OCI e o Azure, consulte a [documentação do Oracle](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
-* Use [scripts Terraform](https://aka.ms/azureociinterconnecttf) para implantar a infraestrutura para aplicativos Oracle direcionados no Azure e configurar a interconexão de rede. 
+* Para obter mais informações sobre a ligação entre o OCI e o Azure, consulte a documentação do [Oráculo](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
+* Utilize [scripts Terraform](https://aka.ms/azureociinterconnecttf) para implementar infraestruturas para aplicações oráculos direcionadas sobre o Azure e configurar a interligação da rede. 

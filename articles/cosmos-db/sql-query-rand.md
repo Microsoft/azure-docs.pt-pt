@@ -1,21 +1,21 @@
 ---
-title: RAND na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função RAND do sistema SQL no Azure Cosmos DB.
+title: RAND em linguagem de consulta de Azure Cosmos DB
+description: Conheça a função rand do sistema SQL em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4a0672000e630c9e06df84d9c2da5cb8b988c05a
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e44878b6d65725f08aeca4eb07088315ae2bb78a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349595"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302224"
 ---
 # <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
- Retorna um valor numérico gerado aleatoriamente de [0, 1).
+ Devolve um valor numérico gerado aleatoriamente a partir de [0,1).
  
 ## <a name="syntax"></a>Sintaxe
   
@@ -29,11 +29,11 @@ RAND ()
 
 ## <a name="remarks"></a>Observações
 
-  `RAND` é uma função não determinística. Chamadas repetitivas de `RAND` não retornam os mesmos resultados.
+  `RAND` é uma função não determinística. Chamadas repetitivas de `RAND` não devolvem os mesmos resultados.
 
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir retorna um valor numérico gerado aleatoriamente.
+  O exemplo seguinte devolve um valor numérico gerado aleatoriamente.
   
 ```sql
 SELECT RAND() AS rand 
@@ -45,8 +45,12 @@ SELECT RAND() AS rand
 [{"rand": 0.87860053195618093}]  
 ``` 
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

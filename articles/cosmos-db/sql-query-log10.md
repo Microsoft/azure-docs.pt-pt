@@ -1,18 +1,18 @@
 ---
-title: LOG10 na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL LOG10 no Azure Cosmos DB para retornar o logaritmo de base 10 da expressão numérica especificada
+title: LOG10 em linguagem de consulta do Azure Cosmos DB
+description: Saiba mais sobre a função do sistema LOG10 SQL em Azure Cosmos DB para devolver o logarithm base-10 da expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5950a2a40a78716a76e49fcdaeb3129948b6a0e1
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 6f47200f6978d91f46c010640bb9c2bb26e9b7d5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871062"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302496"
 ---
 # <a name="log10-azure-cosmos-db"></a>LOG10 (Azure Cosmos DB)
  Devolve o logaritmo base 10 da expressão especificada numérico.  
@@ -50,8 +50,12 @@ SELECT LOG10(100) AS log10
 [{log10: 2}]  
 ```  
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

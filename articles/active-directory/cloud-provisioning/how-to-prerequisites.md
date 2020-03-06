@@ -1,6 +1,6 @@
 ---
-title: Pré-requisitos para o provisionamento Azure AD Connect Cloud no Azure AD
-description: Este artigo descreve os pré-requisitos e os requisitos de hardware necessários para o provisionamento na nuvem.
+title: Pré-requisitos para o fornecimento de nuvem azure AD Connect em Azure AD
+description: Este artigo descreve os pré-requisitos e requisitos de hardware que necessita para o fornecimento de nuvens.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,73 +11,77 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 382c588ca005f95f4ae38e7506c0e3e8d842bd2c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909045"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298654"
 ---
-# <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o provisionamento do Azure AD Connect Cloud
-Este artigo fornece orientação sobre como escolher e usar o provisionamento de nuvem do Azure Active Directory (Azure AD) Connect como sua solução de identidade.
+# <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o fornecimento de nuvem azure AD Connect
+Este artigo fornece orientações sobre como escolher e utilizar o Azure Ative Directory (Azure AD) Connect cloud provisioning como a sua solução de identidade.
 
 
 
-## <a name="cloud-provisioning-agent-requirements"></a>Requisitos do agente de provisionamento de nuvem
-Você precisa do seguinte para usar Azure AD Connect provisionamento de nuvem:
+## <a name="cloud-provisioning-agent-requirements"></a>Requisitos do agente de fornecimento de nuvem
+Você precisa do seguinte para usar o fornecimento de nuvem Azure AD Connect:
     
-- Uma conta de administrador global para seu locatário do Azure AD.
-- Um servidor local para o agente de provisionamento com o Windows 2012 R2 ou posterior.
-- Configurações de firewall local.
+- Uma conta de administrador global para o seu inquilino Azure AD que não é um utilizador convidado.
+- Um servidor no local para o agente de provisionamento com o Windows 2012 R2 ou posterior.
+- Configurações de firewall no local.
 
 >[!NOTE]
 >Atualmente, o agente de provisionamento só pode ser instalado em servidores de língua inglesa. A instalação de um pacote de língua inglesa num servidor não inglês não é uma suver válida e resultará na não instalação do agente. 
 
-O restante do documento fornece instruções passo a passo para esses pré-requisitos.
+O resto do documento fornece instruções passo a passo para estes pré-requisitos.
 
-### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração Azure Active Directory
+### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração do Diretório Ativo Azure
 
-1. Crie uma conta de administrador global somente em nuvem no seu locatário do Azure AD. Dessa forma, você pode gerenciar a configuração do seu locatário se os serviços locais falharem ou ficarem indisponíveis. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). A conclusão desta etapa é essencial para garantir que você não fique bloqueado do seu locatário.
-1. Adicione um ou mais [nomes de domínio personalizados](../active-directory-domains-add-azure-portal.md) ao seu locatário do Azure AD. Os usuários podem entrar com um desses nomes de domínio.
+1. Crie uma conta de administrador global apenas em nuvem no seu inquilino Azure AD. Desta forma, pode gerir a configuração do seu inquilino se os seus serviços no local falharem ou ficarem indisponíveis. Saiba como adicionar uma conta de [administrador global só para a nuvem.](../active-directory-users-create-azure-portal.md) Terminar este passo é fundamental para garantir que não seja trancado fora do seu inquilino.
+1. Adicione um ou mais nomes de [domínio personalizados](../active-directory-domains-add-azure-portal.md) ao seu inquilino Azure AD. Os seus utilizadores podem iniciar sessão com um destes nomes de domínio.
 
-### <a name="in-your-on-premises-environment"></a>Em seu ambiente local
+### <a name="in-your-directory-in-active-directory"></a>No seu diretório em Diretório Ativo
 
-1. Identifique um servidor de host ingressado no domínio que executa o Windows Server 2012 R2 ou superior com um mínimo de 4 GB de RAM e do tempo de execução do .NET 4.7.1 +.
+Executar a [ferramenta IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) para preparar os atributos de diretório para sincronização.
 
-1. Se houver um firewall entre seus servidores e o Azure AD, configure os seguintes itens:
-   - Verifique se os agentes podem fazer solicitações de *saída* para o Azure ad nas seguintes portas:
+### <a name="in-your-on-premises-environment"></a>No seu ambiente no local
+
+1. Identifique um servidor de anfitriões associado ao domínio que execute o Windows Server 2012 R2 ou superior com um mínimo de 4-GB de RAM e .NET 4.7.1+ tempo de execução.
+
+1. Se houver uma firewall entre os seus servidores e a AD Azure, configure os seguintes itens:
+   - Certifique-se de que os agentes podem fazer pedidos de *saída* à Azure AD sobre as seguintes portas:
 
         | Número da porta | Como é usado |
         | --- | --- |
-        | **80** | Baixa as listas de certificados revogados (CRLs) ao validar o certificado SSL.  |
-        | **443** | Manipula toda a comunicação de saída com o serviço. |
-        | **8080** (opcional) | Os agentes relatarão seu status a cada 10 minutos pela porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do AD do Azure. |
+        | **80** | Descarrega as listas de revogação do certificado (CRLs) enquanto valida o certificado SSL.  |
+        | **443** | Lida com toda a comunicação de saída com o serviço. |
+        | **8080** (opcional) | Os agentes reportam o seu estado a cada 10 minutos sobre o porto 8080, se a porta 443 não estiver disponível. Este estado é apresentado no portal Azure AD. |
      
-   - Se o firewall impõe regras de acordo com os usuários de origem, abra essas portas para o tráfego de serviços do Windows que são executados como um serviço de rede.
-   - Se o firewall ou o proxy permitir que você especifique os sufixos seguros, adicione conexões a \*. msappproxy.net e \*. servicebus.windows.net. Caso contrário, permita o acesso aos [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
-   - Seus agentes precisam de acesso a login.windows.net e login.microsoftonline.com para o registro inicial. Abra seu firewall para essas URLs também.
-   - Para a validação de certificado, desbloqueie as seguintes URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 e www\.microsoft.com:80. Essas URLs são usadas para validação de certificado com outros produtos da Microsoft, portanto, talvez você já tenha essas URLs desbloqueadas.
+   - Se a sua firewall aplicar regras de acordo com os utilizadores originários, abra estas portas para tráfego a partir de serviços Windows que funcionam como um serviço de rede.
+   - Se a sua firewall ou procuração lhe permitir especificar sufixos seguros, adicione ligações a \*.msappproxy.net e \*.servicebus.windows.net. Caso contrário, permita o acesso às gamas IP do Centro de [Dados Azure,](https://www.microsoft.com/download/details.aspx?id=41653)que são atualizadas semanalmente.
+   - Os seus agentes precisam de acesso a login.windows.net e login.microsoftonline.com para registo inicial. Abra a sua firewall para os URLs também.
+   - Para validação de certificados, desbloqueie os seguintes URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80 e www\.microsoft.com:80. Estes URLs são usados para validação de certificados com outros produtos da Microsoft, pelo que pode já ter estes URLs desbloqueados.
 
-### <a name="verify-the-port"></a>Verificar a porta
-Para verificar se o Azure está escutando na porta 443 e se o agente pode se comunicar com ele, use a seguinte URL:
+### <a name="verify-the-port"></a>Verifique a porta
+Para verificar se o Azure está a ouvir na porta 443 e que o seu agente pode comunicar com ele, utilize o seguinte URL:
 
 https://aadap-portcheck.connectorporttest.msappproxy.net/ 
 
-Esse teste verifica se os agentes podem se comunicar com o Azure pela porta 443. Abra um navegador e vá para a URL anterior do servidor em que o agente está instalado.
+Este teste verifica que os seus agentes podem comunicar com azure sobre a porta 443. Abra um navegador e vá para o URL anterior a partir do servidor onde o agente está instalado.
 
-![Verificação de acessibilidade de porta](media/how-to-install/verify2.png)
+![Verificação da viabilidade portuária](media/how-to-install/verify2.png)
 
 ### <a name="additional-requirements"></a>Requisitos adicionais
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
 
-#### <a name="tls-requirements"></a>Requisitos de TLS
+#### <a name="tls-requirements"></a>Requisitos tLS
 
 >[!NOTE]
->O TLS é um protocolo que fornece comunicações seguras. A alteração das configurações de TLS afeta toda a floresta. Para obter mais informações, consulte [atualizar para habilitar o tls 1,1 e o tls 1,2 como protocolos de segurança padrão no WinHTTP no Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi).
+>Transporte Layer Security (TLS) é um protocolo que prevê comunicações seguras. A alteração das definições de TLS afeta toda a floresta. Para mais informações, consulte [o Update para ativar tLS 1.1 e TLS 1.2 como protocolos de segurança predefinidos no WinHTTP no Windows](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi).
 
-O Windows Server que hospeda o agente de provisionamento de nuvem Azure AD Connect deve ter o TLS 1,2 habilitado antes de você instalá-lo.
+O servidor Windows que acolhe o agente de fornecimento de nuvem Azure AD Connect deve ter TLS 1.2 ativado antes de o instalar.
 
-Para habilitar o TLS 1,2, siga estas etapas.
+Para ativar o TLS 1.2, siga estes passos.
 
 1. Defina as seguintes chaves de registo:
     
@@ -93,6 +97,6 @@ Para habilitar o TLS 1,2, siga estas etapas.
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-- [O que é provisionamento?](what-is-provisioning.md)
-- [O que é Azure AD Connect provisionamento de nuvem?](what-is-cloud-provisioning.md)
+- [O que é o provisionamento?](what-is-provisioning.md)
+- [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)
 

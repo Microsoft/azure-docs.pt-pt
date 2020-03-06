@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 6ba6aab1a1b4a78af1a991cbf74083a41f0c0306
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: dedab3ca330651f892a7dbd42a0201d8145256a8
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652178"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402552"
 ---
 A biblioteca de clientes Bing Web Search facilita C# a integração da Bing Web Search na sua aplicação. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 
@@ -28,7 +28,7 @@ Aqui estão algumas coisas de que precisará antes de executar este início ráp
   * [Gestor de Pacotes NuGet](https://github.com/jmrog/vscode-nuget-package-manager)
 * [SDK .NET Core](https://www.microsoft.com/net/download)
 
-[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-install-dependencies"></a>Criar um projeto e instalar dependências
 
@@ -422,3 +422,4 @@ Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de re
 
 > [!div class="nextstepaction"]
 > [Exemplos do SDK Node.js dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
+                                    

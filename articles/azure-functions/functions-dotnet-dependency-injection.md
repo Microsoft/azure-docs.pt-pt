@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: df2acedd7f472b96d55d9ecc294d47e7173c5f90
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915712"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329021"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilize a injeção de dependência em funções .NET Azure
 
@@ -131,6 +131,52 @@ Se precisar do seu próprio fornecedor de registo, registe um tipo personalizado
 > [!WARNING]
 > - Não adicione `AddApplicationInsightsTelemetry()` à recolha de serviços, uma vez que regista serviços que entram em conflito com os serviços prestados pelo ambiente.
 > - Não registe o seu próprio `TelemetryConfiguration` ou `TelemetryClient` se estiver a utilizar a funcionalidade Inejáding Application Insights. Se precisar configurar o seu próprio `TelemetryClient` instância, crie um através do `TelemetryConfiguration` injetado, como mostrado nas [Funções Monitor Azure](./functions-monitoring.md#version-2x-and-later-2).
+
+### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> e ILoggerFactory
+
+O hospedeiro injetará serviços `ILogger<T>` e `ILoggerFactory` em construtores.  No entanto, por defeito, estes novos filtros de registo serão filtrados dos registos de função.  Terá de modificar o ficheiro `host.json` para optar por filtros e categorias adicionais.  A amostra seguinte demonstra a adição de um `ILogger<HttpTrigger>` com registos que serão expostos pelo hospedeiro.
+
+```csharp
+namespace MyNamespace
+{
+    public class HttpTrigger
+    {
+        private readonly ILogger<HttpTrigger> _log;
+
+        public HttpTrigger(ILogger<HttpTrigger> log)
+        {
+            _log = log;
+        }
+
+        [FunctionName("HttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
+        {
+            _log.LogInformation("C# HTTP trigger function processed a request.");
+
+            // ...
+    }
+}
+```
+
+E um ficheiro `host.json` que adiciona o filtro de registo.
+
+```json
+{
+    "version": "2.0",
+    "logging": {
+        "applicationInsights": {
+            "samplingExcludedTypes": "Request",
+            "samplingSettings": {
+                "isEnabled": true
+            }
+        },
+        "logLevel": {
+            "MyNamespace.HttpTrigger": "Information"
+        }
+    }
+}
+```
 
 ## <a name="function-app-provided-services"></a>App de funções prestada serviços
 

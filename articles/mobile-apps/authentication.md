@@ -1,73 +1,73 @@
 ---
-title: Adicionar autenticação aos seus aplicativos móveis com Visual Studio App Center e serviços do Azure
-description: Saiba mais sobre os serviços como Visual Studio App Center que ajudam a configurar a autenticação do usuário e a permitir que os aplicativos móveis se autentiquem com contas sociais, Azure Active Directory e autenticação personalizada.
+title: Adicione autenticação às suas aplicações móveis com visual studio app center e serviços Azure
+description: Conheça os serviços como o Visual Studio App Center que ajudam a configurar a autenticação do utilizador e permitem que as aplicações móveis se autentiquem com contas sociais, Diretório Ativo Azure e autenticação personalizada.
 author: elamalani
 ms.assetid: 34a8a070-2222-4faf-9090-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: bc7d8d4aaec6ebe27a0f8d2ecc11ca408266f7ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 261c12e63f8f348e1673dbc46c89c614caf3283b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453232"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296359"
 ---
-# <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>Adicionar autenticação e gerenciar identidades de usuário em seus aplicativos móveis
+# <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>Adicione a autenticação e gerencie as identidades dos utilizadores nas suas aplicações móveis
 
-Ter uma visão do usuário e seu comportamento em seu aplicativo permite que os desenvolvedores envolvam melhor os usuários criando experiências personalizadas para eles. Seja você um desenvolvedor de aplicativos que esteja criando um aplicativo de colaboração para usuários dentro da sua organização ou que esteja criando a próxima plataforma de rede social, você precisa de uma maneira de autenticar usuários e gerenciar identidades de usuário. Um serviço de gerenciamento de identidade é um dos recursos mais importantes de um serviço de back-end móvel.
+Ter uma visão do utilizador e o seu comportamento em toda a sua aplicação capacita os desenvolvedores a envolverem melhor os utilizadores, criando experiências personalizadas para eles. Quer seja um desenvolvedor de aplicações que esteja a construir uma aplicação de colaboração para utilizadores dentro da sua organização ou esteja a criar a próxima plataforma de rede social, precisa de uma forma de autenticar os utilizadores e gerir as identidades dos utilizadores. Um serviço de gestão de identidade é uma das características mais importantes de um serviço de back-end móvel.
 
-Use os seguintes serviços para habilitar a autenticação de usuário em seus aplicativos móveis.
+Utilize os seguintes serviços para permitir a autenticação do utilizador nas suas aplicações móveis.
 
 ## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center autenticação](/appcenter/auth/) é um serviço de gerenciamento de identidade baseado em nuvem que os desenvolvedores podem usar para autenticar usuários e gerenciar identidades de usuário. App Center autenticação também se integra a outras partes do Visual Studio App Center. Os desenvolvedores podem usar a identidade do usuário para [exibir dados do usuário](/appcenter/data/index) em outros serviços e até mesmo [enviar notificações por push para os usuários em vez de dispositivos individuais](/appcenter/push/push-to-user#app-center-auth-set-identity). 
+[O App Center Auth](/appcenter/auth/) é um serviço de gestão de identidade baseado na nuvem que os desenvolvedores podem usar para autenticar os utilizadores e gerir as identidades dos utilizadores. O App Center Auth também se integra com outras partes do Visual Studio App Center. Os desenvolvedores podem usar a identidade do utilizador para [visualizar os dados](/appcenter/data/index) dos utilizadores noutros serviços e até [enviar notificações push aos utilizadores em vez de dispositivos individuais.](/appcenter/push/push-to-user#setting-user-identity) 
 
-**Principais funcionalidades**
-- Da plataforma Azure Active Directory B2C (Azure AD B2C). 
-    - Nível empresarial.
+**Principais características**
+- Alimentado por Azure Ative Directory B2C (Azure AD B2C). 
+    - Grau de empresa.
     - Altamente disponível.
     - Serviço seguro e global.
-- Traga sua própria identidade e a opção de usar outros provedores de gerenciamento de identidade e acesso populares, como Auth0 e firebase.
-- Suporte a Azure Active Directory.
-    - Conectar locatários existentes do Azure AD. 
-    - Habilite a autenticação em um domínio corporativo.
-    - Gerencie o acesso a dados confidenciais.
-- Experiência do usuário simples e experiência do SDK do mágico encapsulando a biblioteca de autenticação da Microsoft com o SDK do Visual Studio App Center.
-- Suporte de plataforma para iOS, Android, Xamarin e reagir nativo.
+- Traga a sua própria identidade e a opção de usar outros fornecedores populares de identidade e gestão de acesso, como o Auth0 e firebase.
+- Suporte do Diretório Ativo Azure.
+    - Ligue os inquilinos da Azure AD existentes. 
+    - Permitir a autenticação contra um domínio corporativo.
+    - Gerir o acesso a dados sensíveis.
+- Experiência simples do utilizador e experiência mágica do SDK envolvendo a Microsoft Authentication Library com o Visual Studio App Center SDK.
+- Suporte de plataforma para iOS, Android, Xamarin e React Native.
 
 **Referências**
-- [Inscreva-se com Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
-- [Introdução ao App Center auth](/appcenter/auth/)
+- [Inscreva-se no Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
+- [Começar com app center Auth](/appcenter/auth/)
 
 ## <a name="azure-active-directory-b2c"></a>Azure Active Directory B2C
-[Azure ad B2C](https://azure.microsoft.com/services/active-directory-b2c/) é um serviço de gerenciamento de identidade entre empresas (B2C) que os desenvolvedores podem usar para autenticar seus clientes. Esse serviço de rótulo de branco permite que os desenvolvedores personalizem e controlem como os usuários interagem com segurança com seus aplicativos Web, de área de trabalho, móveis ou de página única. Usando Azure AD B2C, os usuários podem se inscrever, entrar, redefinir senhas e editar perfis. Azure AD B2C implementa uma forma do OpenID Connect e dos protocolos OAuth 2,0. 
+[O Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/) é um serviço de gestão de identidade entre empresas e consumidores (B2C) que os desenvolvedores podem usar para autenticar os seus clientes. Este serviço de etiquetabranca permite que os desenvolvedores personalizem e controlem a forma como os utilizadores interagem de forma segura com as suas aplicações web, desktop, mobile ou de uma só página. Utilizando o Azure AD B2C, os utilizadores podem inscrever-se, iniciar sessão, redefinir palavras-passe e editar perfis. O Azure AD B2C implementa uma forma dos protocolos OpenID Connect e OAuth 2.0. 
 
-**Principais funcionalidades**
-- Autentique com segurança os clientes com seu provedor de identidade preferencial.
-- Gerencie a identidade e o acesso do cliente.
-- Obter suporte de entrada para mídias sociais, como Facebook, GitHub, Google, LinkedIn, Twitter, WeChat e Weibo.
-- Conecte-se às suas contas de usuário usando protocolos padrão do setor, como OpenID Connect ou SAML, para tornar possível o gerenciamento de identidade em uma variedade de plataformas.
-- Forneça experiências de registro e de entrada com marca.
-- Integre-se facilmente a bancos de dados CRM, ferramentas de análise de marketing e sistemas de verificação de contas.
-- Capturar dados de entrada, de preferência e de conversão para clientes.
+**Principais características**
+- Autenticar de forma segura os clientes com o seu fornecedor de identidade preferido.
+- Gerir a identidade e o acesso do cliente.
+- Obtenha suporte de inscrição para redes sociais como Facebook, GitHub, Google, LinkedIn, Twitter, WeChat e Weibo.
+- Conecte-se às suas contas de utilizador utilizando protocolos padrão da indústria, como o OpenID Connect ou o SAML, para tornar possível a gestão de identidade numa variedade de plataformas.
+- Forneça registo de marca e experiências de inscrição.
+- Integrar facilmente com bases de dados crm, ferramentas de análise de marketing e sistemas de verificação de contas.
+- Capture dados de inscrição, preferência e conversão para os clientes.
 
 **Referências**
 - [Portal do Azure](https://portal.azure.com/)
-- [Documentação do Azure AD B2C](/azure/active-directory-b2c/)
+- [Documentação Azure AD B2C](/azure/active-directory-b2c/)
 - [Inícios rápidos](/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app)
 - [Amostras](/azure/active-directory-b2c/code-samples)
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-[Azure Active Directory](https://azure.microsoft.com/services/active-directory/) é o serviço de gerenciamento de acesso e identidade baseado em nuvem da Microsoft, que ajuda seus funcionários a entrar e obter acesso a:
-- Recursos externos, como Microsoft Office 365, o portal do Azure e milhares de outros aplicativos SaaS (software como serviço).
+[O Azure Ative Directory](https://azure.microsoft.com/services/active-directory/) é o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft, que ajuda os seus colaboradores a iniciarem sessão e a terem acesso a:
+- Recursos externos, como o Microsoft Office 365, o portal Azure, e milhares de outros softwares como aplicações de serviço (SaaS).
 - Recursos internos, como as aplicações na sua rede empresarial e a intranet, juntamente com quaisquer aplicações na cloud desenvolvida pela sua organização.
 
-**Principais funcionalidades**
-- Acesso contínuo e altamente seguro conectando os usuários aos aplicativos de que precisam.
-- Proteção de identidade abrangente e segurança aprimorada para identidades e acesso com base no usuário, no local, no dispositivo, nos dados e no contexto do aplicativo.
-- Milhares de aplicativos previamente integrados para aplicativos comerciais e personalizados, como o Office 365, o Salesforce.com e o box.
-- Capacidade de gerenciar o acesso em escala.
+**Principais características**
+- Acesso sem emenda e altamente seguro ligando os utilizadores às aplicações de que necessitam.
+- Proteção completa da identidade e segurança reforçada para identidades e acesso com base no contexto de utilizador, localização, dispositivo, dados e aplicação.
+- Milhares de aplicações pré-integradas para aplicações comerciais e personalizadas, como office 365, Salesforce.com e Box.
+- Capacidade de gerir o acesso à escala.
 
 **Referências**
 - [Portal do Azure](https://portal.azure.com/)

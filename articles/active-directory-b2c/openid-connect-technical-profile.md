@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 11d631f6977f760c8253fbaa0dc66af05def42a2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 8e8a56fdfd57b44677cf5459eb1a4e6e46e6bdae
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184014"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399063"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OpenID Connect numa política personalizada do Diretório Ativo Azure B2C
 
@@ -77,9 +77,11 @@ O perfil técnico também devolve reclamações que não são devolvidas pelo fo
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | client_id | Sim | O identificador de aplicação do fornecedor de identidade. |
-| IdTokenAudience | Não | O público do id_token. Se especificado, o Azure AD B2C verifica se o token está numa reclamação devolvida pelo fornecedor de identidade e é igual à especificada. |
-| METADADOS | Sim | Um URL que aponta para um documento de configuração JSON formatado de acordo com a especificação OpenID Connect Discovery, que também é conhecida como um ponto final de configuração aberta bem conhecido. |
-| Nome do provedor | Não | O nome do fornecedor de identidade. |
+| IdTokenAudience | Não | O público do id_token. Se especificado, o Azure AD B2C verifica se a reclamação `aud` num token devolvido pelo fornecedor de identidade é igual à especificada nos metadados IdTokenAudience.  |
+| METADADOS | Sim | Um URL que aponta para um documento de configuração do fornecedor de identidade OpenID Connect, que também é conhecido como ponto final de configuração conhecido do OpenID. O URL pode conter a expressão `{tenant}`, que é substituída pelo nome do inquilino.  |
+| authorization_endpoint | Não | Um URL que aponta para um ponto final de autorização de autorização de configuração do fornecedor de identidade OpenID Connect. O valor dos metadados authorization_endpoint tem precedência sobre o `authorization_endpoint` especificado no ponto final de configuração bem conhecido do OpenID. O URL pode conter a expressão `{tenant}`, que é substituída pelo nome do inquilino. |
+| emitente | Não | O identificador único de um fornecedor de identidade OpenID Connect. O valor dos metadados emitentes tem precedência sobre o `issuer` especificado no ponto final de configuração bem conhecido do OpenID.  Se especificado, o Azure AD B2C verifica se a `iss` reclamação num token devolvido pelo fornecedor de identidade é igual à especificada nos metadados emitentes. |
+| Nome do provedor | Não | O nome do fornecedor de identidade.  |
 | response_types | Não | O tipo de resposta de acordo com a especificação OpenID Connect Core 1.0. Valores possíveis: `id_token`, `code`ou `token`. |
 | response_mode | Não | O método que o fornecedor de identidade utiliza para enviar o resultado de volta para O Azure AD B2C. Valores possíveis: `query`, `form_post` (predefinido) ou `fragment`. |
 | scope | Não | O âmbito do pedido definido de acordo com a especificação OpenID Connect Core 1.0. Como `openid`, `profile`e `email`. |

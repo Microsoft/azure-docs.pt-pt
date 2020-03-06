@@ -1,18 +1,18 @@
 ---
-title: ATAN na linguagem de consulta Azure Cosmos DB
-description: Saiba como a função de sistema SQL do arco tangente (ATAN) em Azure Cosmos DB retorna o ângulo, em radianos, cuja tangente é a expressão numérica especificada
+title: ATAN em linguagem de consulta de Azure Cosmos DB
+description: Saiba como o sistema Arctangent (ATAN ) SQL funciona em Azure Cosmos DB devolve o ângulo, em radianos, cuja tangente é a expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8fd398e343a3e617ceb9f49ca8f31ee776a7f073
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 899c94a939be7825dca82522eab235bde9252896
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873459"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302683"
 ---
 # <a name="atan-azure-cosmos-db"></a>ATAN (Azure Cosmos DB)
  Devolve o ângulo em radianos, cuja tangente é a expressão numérica especificada. Isso também é chamado o arco de tangente.  
@@ -34,7 +34,7 @@ ATAN(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir retorna o `ATAN` do valor especificado.  
+  O exemplo seguinte devolve o `ATAN` do valor especificado.  
   
 ```sql
 SELECT ATAN(-45.01) AS atan  
@@ -46,9 +46,12 @@ SELECT ATAN(-45.01) AS atan
 [{"atan": -1.5485826962062663}]  
 ```  
   
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

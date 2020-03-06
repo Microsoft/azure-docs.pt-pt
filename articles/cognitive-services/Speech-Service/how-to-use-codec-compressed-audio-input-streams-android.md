@@ -1,7 +1,7 @@
 ---
-title: Áudio compactado do codec de fluxo com o SDK de fala no Android
+title: Áudio comprimido de código stream com o SDK de Fala no Android
 titleSuffix: Azure Cognitive Services
-description: Saiba como transmitir áudio compactado para o serviço de fala com o SDK de fala no Android.
+description: Saiba como transmitir áudio comprimido para o serviço De Discurso com o Speech SDK no Android.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,40 +10,40 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 01135229167dde3784137ab1b06dfc931766a2e0
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 1539ca9aa18892f617f278e67c8b6141f5f6d880
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805846"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331132"
 ---
-# <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Como usar a entrada de áudio compactado por codec com o SDK de fala no Android
+# <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Como: Utilizar a entrada de áudio comprimido codec com o SDK de Fala no Android
 
-A API de **fluxo de entrada de áudio compactada** do SDK de fala fornece uma maneira de transmitir áudio compactado para o serviço de fala usando PullStream ou PushStream.
+A API de entrada de **áudio comprimido** do Speech SDK fornece uma forma de transmitir áudio comprimido para o serviço de Fala usando pullStream ou PushStream.
 
 > [!IMPORTANT]
-> O áudio de entrada compactado de streaming tem suporte no momento para [ C++o, C#o e o Java no Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). Também há suporte para Java no Android e [no Objective-C na plataforma iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) .
-> O Speech SDK versão 1.7.0 ou superior é necessário.
+> O streaming de áudio de entrada comprimido é atualmente suportado para [ C++, C#e Java em Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)](how-to-use-codec-compressed-audio-input-streams.md). Também é suportado para Java em Android e [Objective-C na plataforma iOS.](how-to-use-codec-compressed-audio-input-streams-ios.md)
+> É necessária a versão 1.7.0 ou superior do Discurso SDK.
 
-Para wav/PCM, consulte a documentação de fala principal. Fora de wav/PCM, há suporte para os seguintes formatos de entrada compactados do Codec:
+Para acenar/PCM consulte a documentação da fala principal. Fora do wav/PCM, são suportados os seguintes formatos de entrada comprimidos codec:
 
 - MP3
 - OPUS/OGG
 - FLAC
-- ALAW no contêiner WAV
-- MULAW no contêiner WAV
+- ALAW em recipiente de awav
+- MULAW em recipiente de awav
 
-## <a name="prerequisites-to-using-codec-compressed-audio-input-on-android"></a>Pré-requisitos para usar a entrada de áudio compactado por codec no Android
+## <a name="prerequisites-to-using-codec-compressed-audio-input-on-android"></a>Pré-requisitos para a utilização de entrada de áudio comprimido codec no Android
 
-O codec de áudio compactado é implementado usando [GStreamer](https://gstreamer.freedesktop.org). Por motivos de licenciamento, os binários GStreamer não são compilados com o SDK. Você precisará usar os binários predefinidos para Android. Para baixar as bibliotecas predefinidas, consulte [Installing for Android Development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
+O áudio comprimido codec é implementado utilizando [gStreamer](https://gstreamer.freedesktop.org). Por razões de licenciamento, os binários Gstreamer não são compilados com o SDK. Terá de usar os binários pré-construídos para Android. Para descarregar as bibliotecas pré-construídas, consulte [Instalação para Desenvolvimento Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` é obrigatório. Verifique se os plug-ins GStreamer estão vinculados em `libgstreamer_android.so`.
+`libgstreamer_android.so` é necessário. Certifique-se de que os seus plugins GStreamer estão ligados em `libgstreamer_android.so`.
 
 ```make
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 audioresample audioparsers ogg opusparse opus wavparse alaw mulaw flac
 ```
 
-Um exemplo `Android.mk` e `Application.mk` arquivo são fornecidos abaixo. Siga estas etapas para criar o objeto compartilhado GStreamer: `libgstreamer_android.so`.
+Um exemplo `Android.mk` e `Application.mk` ficheiro são fornecidos abaixo. Siga estes passos para criar o objeto partilhado gstreamer: `libgstreamer_android.so`.
 
 ```make
 # Android.mk
@@ -97,7 +97,7 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-Você pode criar `libgstreamer_android.so` usando o comando a seguir no Ubuntu 16, 4 ou 18, 4. As linhas de comando a seguir foram testadas apenas para [GStreamer Android versão 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) com [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
+Pode construir `libgstreamer_android.so` utilizando o seguinte comando em Ubuntu 16.04 ou 18.04. As seguintes linhas de comando foram testadas apenas para a [versão 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) do Android Android com [o Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
 
 ```sh
 # assuming wget and unzip already installed on the system
@@ -129,13 +129,13 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 #ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=x86 NDK_LIBS_OUT=$(pwd)
 ```
 
-Depois que o objeto compartilhado (libgstreamer_android. so) é criado, o desenvolvedor do aplicativo precisa posicionar o objeto compartilhado no aplicativo do Android, para que ele possa ser carregado pelo SDK do Speech.
+Uma vez que o objeto partilhado (libgstreamer_android.so) é construído, o desenvolvedor de aplicações precisa colocar o objeto partilhado na aplicação Android, para que possa ser carregado por sdk de fala.
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>Código de exemplo usando a entrada de áudio compactado por codec
+## <a name="example-code-using-codec-compressed-audio-input"></a>Código de exemplo utilizando entrada de áudio comprimido codec
 
-Para transmitir em um formato de áudio compactado para o serviço de fala, crie `PullAudioInputStream` ou `PushAudioInputStream`. Em seguida, crie um `AudioConfig` de uma instância de sua classe de fluxo, especificando o formato de compactação do fluxo.
+Para transmitir num formato áudio comprimido para o serviço De Fala, crie `PullAudioInputStream` ou `PushAudioInputStream`. Em seguida, crie uma `AudioConfig` a partir de uma instância da sua classe de fluxo, especificando o formato de compressão do fluxo.
 
-Vamos supor que você tenha uma classe de fluxo de entrada chamada `myPullStream` e esteja usando OPUS/OGG. Seu código pode ter a seguinte aparência:
+Vamos supor que tem uma classe de fluxo de entrada chamada `myPullStream` e está usando OPUS/OGG. O seu código pode parecer assim:
 
 ```java
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
@@ -160,4 +160,4 @@ String text = result.getText();
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Veja como reconhecer a fala em Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
+- [Veja como reconhecer o discurso em Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

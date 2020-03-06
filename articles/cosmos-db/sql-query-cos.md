@@ -1,18 +1,18 @@
 ---
-title: COS na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre como a função de sistema do cosseno (COS) do SQL no Azure Cosmos DB retorna o cosseno trigonométrica do ângulo especificado, em radianos, na expressão especificada
+title: COS em linguagem de consulta do Azure Cosmos DB
+description: Saiba como o sistema SQL cosine (COS) em Azure Cosmos DB devolve a cosina trigonométrica do ângulo especificado, em radians, na expressão especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 05546ef531059e05a1426a288a48446d63d8e5df
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 40d277ff38691e2cb74bd4d5d78a666c304acfcd
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873408"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304026"
 ---
 # <a name="cos-azure-cosmos-db"></a>COS (Azure Cosmos DB)
  Devolve o cosseno trigonométricos do ângulo especificado, em radianos, a expressão especificada.  
@@ -34,7 +34,7 @@ COS(<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir calcula a `COS` do ângulo especificado.  
+  O exemplo seguinte calcula o `COS` do ângulo especificado.  
   
 ```sql
 SELECT COS(14.78) AS cos  
@@ -46,8 +46,12 @@ SELECT COS(14.78) AS cos
 [{"cos": -0.59946542619465426}]  
 ```  
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

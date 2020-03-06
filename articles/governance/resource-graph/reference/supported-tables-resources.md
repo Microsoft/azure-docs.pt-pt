@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Gestor de Recursos Suportados
 description: Forneça uma lista dos tipos de recursos do Gestor de Recursos suportados pelo Azure Resource Graph e change History.
-ms.date: 03/02/2020
+ms.date: 03/05/2020
 ms.topic: reference
-ms.openlocfilehash: 3d6ba89cbf5c35c2a06a214029971341c4184b41
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 597e1c2f7e04a7861099763d809ac09978e09805
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227334"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399602"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos azure e referência do tipo de recurso
 
@@ -348,6 +348,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do Gestor de [
 - microsoft.search/searchservices
 - microsoft.security/automações
 - microsoft.security/iotsecuritysolutions
+- microsoft.securitydetonation/chambers
 - microsoft.servicebus/namespaces
 - microsoft.servicefabric/clusters
 - microsoft.servicefabric/containergroupsets

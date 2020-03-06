@@ -3,12 +3,12 @@ title: Gráficos de leme da loja
 description: Saiba como armazenar gráficos helm para as suas aplicações Kubernetes usando repositórios no Registo de Contentores Azure
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: 26588bb4dc3cf50656103b50d5d0559908a1ccb7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 7969efe37558fffb26b983131c56ae11f3ef9368
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524636"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398972"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Empurre e puxe gráficos helm para um registo de contentores Azure
 
@@ -118,7 +118,7 @@ helm chart push mycontainerregistry.azurecr.io/helm/wordpress:latest
 
 Após um impulso bem sucedido, a saída é semelhante a:
 
-```console
+```output
 The push refers to repository [mycontainerregistry.azurecr.io/helm/wordpress]
 ref:     mycontainerregistry.azurecr.io/helm/wordpress:latest
 digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
@@ -141,7 +141,7 @@ az acr repository show \
 
 A saída é semelhante a:
 
-```console
+```output
 {
   "changeableAttributes": {
     "deleteEnabled": true,
@@ -168,7 +168,7 @@ az acr repository show-manifests \
 
 A saída, abreviada neste exemplo, mostra um `configMediaType` de `application/vnd.cncf.helm.config.v1+json`:
 
-```console
+```output
 [
   {
     [...]
@@ -216,7 +216,7 @@ helm inspect chart wordpress
 
 Quando não é fornecido nenhum número de versão, a *versão mais recente* é utilizada. O Helm devolve informações detalhadas sobre o seu gráfico, como mostra a seguinte saída condensada:
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 dependencies:
@@ -256,7 +256,7 @@ helm install wordpress --generate-name
 
 À medida que a instalação prossegue, siga as instruções na saída de comando para ver os URLs e credenciais WorPress. Você também pode executar o comando `kubectl get pods` para ver os recursos Kubernetes implantados através da tabela Helm:
 
-```console
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s
@@ -311,7 +311,7 @@ helm fetch stable/wordpress
 
 Digite `ls` para listar o gráfico descarregado e note a versão Wordpress incluída no nome de ficheiro. O comando `helm fetch stable/wordpress` não especificou uma versão em particular, por isso a *versão mais recente* foi recolhida. Na saída de exemplo seguinte, o gráfico Wordpress é a versão *8.1.0:*
 
-```
+```output
 wordpress-8.1.0.tgz
 ```
 
@@ -323,7 +323,7 @@ az acr helm push --name mycontainerregistry wordpress-8.1.0.tgz
 
 Após alguns momentos, o Azure CLI informa que o seu gráfico é guardado, como mostra a seguinte saída de exemplo:
 
-```
+```output
 {
   "saved": true
 }
@@ -345,7 +345,7 @@ helm search mycontainerregistry
 
 O gráfico Wordpress empurrado no passo anterior está listado, como mostra a seguinte saída de exemplo:
 
-```
+```output
 NAME                CHART VERSION   APP VERSION DESCRIPTION
 helmdocs/wordpress  8.1.0           5.3.2       Web publishing platform for building blogs and websites.
 ```
@@ -366,7 +366,7 @@ helm inspect mycontainerregistry/wordpress
 
 Quando não é fornecido nenhum número de versão, a *versão mais recente* é utilizada. O Helm devolve informações detalhadas sobre o seu gráfico, como mostra a seguinte saída de exemplo condensado:
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 description: Web publishing platform for building blogs and websites.
@@ -416,7 +416,7 @@ Os seguintes passos são concluídos durante o processo de instalação:
 
 À medida que a instalação prossegue, siga as instruções na saída de comando para ver os URLs e credenciais WorPress. Você também pode executar o comando `kubectl get pods` para ver os recursos Kubernetes implantados através da tabela Helm:
 
-```
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s

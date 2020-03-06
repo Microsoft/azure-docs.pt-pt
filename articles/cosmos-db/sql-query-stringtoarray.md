@@ -1,21 +1,21 @@
 ---
-title: StringToArray na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL StringToArray no Azure Cosmos DB.
+title: StringToArray em linguagem de consulta de DD Do Cosmos azure
+description: Saiba mais sobre a função do sistema SQL StringToArray em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2d1f90da50950ac6ff4f87ffe96ebad9f3d811cc
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349274"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302921"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
- Retorna a expressão convertida em uma matriz. Se a expressão não puder ser convertida, retornará indefinido.  
+ Expressão de retorno traduzida para um Array. Se a expressão não puder ser traduzida, regressa indefinido.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -26,20 +26,20 @@ StringToArray(<str_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É uma expressão de cadeia de caracteres a ser analisada como uma expressão de matriz JSON. 
+   É uma expressão de corda a ser analisada como uma expressão JSON Array. 
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Retorna uma expressão de matriz ou indefinido. 
+  Devolve uma expressão de matriz ou indefinida. 
   
 ## <a name="remarks"></a>Observações
-  Valores de cadeia de caracteres aninhados devem ser gravados com aspas duplas para serem JSON válidos. Para obter detalhes sobre o formato JSON, consulte [JSON.org](https://json.org/)
+  Os valores das cordas aninhados devem ser escritos com duas citações para serem jSON válidos. Para mais detalhes sobre o formato JSON, consulte [json.org](https://json.org/)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra como `StringToArray` se comporta entre diferentes tipos. 
+  O exemplo que se segue mostra como `StringToArray` se comporta em diferentes tipos. 
   
- Veja a seguir exemplos de entrada válida.
+ Seguem-se exemplos com entrada válida.
 
 ```sql
 SELECT 
@@ -56,10 +56,10 @@ Aqui está o conjunto de resultados.
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
-Veja a seguir um exemplo de entrada inválida. 
+Segue-se um exemplo de entrada inválida. 
    
- Aspas simples dentro da matriz não são JSON válidos.
-Mesmo que eles sejam válidos em uma consulta, eles não serão analisados em matrizes válidas. As cadeias de caracteres na cadeia de matriz devem ter escape "[\\" \\ "]" ou a aspa ao redor deve ser única ' [""] '.
+ As cotações únicas dentro da matriz não são válidas JSON.
+Mesmo que sejam válidos dentro de uma consulta, não irão analisar matrizes válidas. As cordas dentro da corda de matriz devem ser escapadas "[\\"\\"]" ou a citação circundante deve ser única "["]".
 
 ```sql
 SELECT
@@ -72,9 +72,9 @@ Aqui está o conjunto de resultados.
 [{}]
 ```
 
-Veja a seguir exemplos de entrada inválida.
+Seguem-se exemplos de entrada inválida.
    
- A expressão passada será analisada como uma matriz JSON; o seguinte não é avaliado para a matriz de tipos e, portanto, retorna indefinido.
+ A expressão aprovada será analisada como uma matriz JSON; os seguintes não avaliam a matriz de tipo e, assim, regressam indefinidos.
    
 ```sql
 SELECT
@@ -91,8 +91,12 @@ Aqui está o conjunto de resultados.
 [{}]
 ```
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

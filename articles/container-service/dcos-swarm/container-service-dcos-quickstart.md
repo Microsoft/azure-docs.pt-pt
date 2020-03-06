@@ -1,5 +1,5 @@
 ---
-title: PRETERIDO Início rápido do serviço de contêiner do Azure – implantar cluster DC/OS
+title: (DEPRECIADO) Serviço de Contentores Azure Quickstart - Deploy dc/OS Cluster
 description: Guia de Introdução do Azure Container Service - Implementar Cluster do DC/OS
 author: iainfoulds
 ms.service: container-service
@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9efedd5b619a2a3bd592019fea3ca48b7244ca10
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6274e24bae2e2a6eade0122fe244652eb29cacf9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278506"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399221"
 ---
-# <a name="deprecated-deploy-a-dcos-cluster"></a>PRETERIDO Implantar um cluster de DC/so
+# <a name="deprecated-deploy-a-dcos-cluster"></a>(DEPRECIADO) Implementar um cluster DC/OS
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-O DC/OS oferece uma plataforma distribuída para executar aplicações modernas em contentores. Com o Azure Container Service, o aprovisionamento de um cluster DC/OS pronto para produção é simples e rápido. Este guia de introdução detalha os passos básicos necessários para implementar um DC/OS do cluster e executar carga de trabalho básica.
+O DC/OS oferece uma plataforma distribuída para executar aplicações modernas em contentores. Com o Azure Container Service, o aprovisionamento de um cluster DC/OS pronto para produção é simples e rápido. Este arranque rápido detalha os passos básicos necessários para implantar um cluster DC/S e executar carga de trabalho básica.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -32,7 +32,7 @@ Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
@@ -128,19 +128,19 @@ O mecanismo de agendamento predefinido para um cluster ACS DC/OS é o Marathon. 
 
 Execute o seguinte comando para agendar a aplicação para ser executada no cluster DC/OS.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 Para ver o estado de implementação da aplicação, execute o seguinte comando.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 Quando o valor da coluna **A AGUARDAR** muda de *Verdadeiro* para *Falso*, a implementação de aplicação é concluída.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
@@ -165,7 +165,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de introdução, implementou um cluster DC/OS e executou um contentor de Docker simples no cluster. Para saber mais sobre o Azure Container Service, continue o tutorial do ACS.
+Neste arranque rápido, você implantou um cluster DC/OS e executou um simples recipiente Docker no cluster. Para saber mais sobre o Azure Container Service, continue o tutorial do ACS.
 
 > [!div class="nextstepaction"]
 > [Gerir um Cluster de ACS DC/OS](container-service-dcos-manage-tutorial.md)

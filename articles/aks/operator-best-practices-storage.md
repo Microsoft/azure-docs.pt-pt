@@ -4,12 +4,12 @@ description: Conheça as práticas recomendadas de operador de cluster de armaze
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a58a42f65472a9c4b495e0cb964eefa40bf82041
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: b1336d10b091be4f3eb2a711401cafd3f58221fe
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649624"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399471"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Melhores práticas para armazenamento e cópias de segurança no Azure Kubernetes Service (AKS)
 
@@ -75,7 +75,7 @@ Quando precisar de ligar o armazenamento ao pods, se utilizar volumes persistent
 
 ![Afirmações de volume persistente num cluster de serviços de Kubernetes do Azure (AKS)](media/concepts-storage/persistent-volume-claims.png)
 
-Uma afirmação de volume persistente (PVC) permite-lhe criar dinamicamente o armazenamento, conforme necessário. Os discos do Azure subjacentes são criados como pods de pedido-los. Na definição do pod, solicita um volume para ser criados e anexados a um caminho de montagem projetado
+Uma afirmação de volume persistente (PVC) permite-lhe criar dinamicamente o armazenamento, conforme necessário. Os discos do Azure subjacentes são criados como pods de pedido-los. Na definição da cápsula, solicita a criação e a fixação de um volume a um caminho de montagem designado.
 
 Para os conceitos sobre como criar e utilizar volumes de forma dinâmica, consulte Reivindicações de [Volumes Persistentes][aks-concepts-storage-pvcs].
 

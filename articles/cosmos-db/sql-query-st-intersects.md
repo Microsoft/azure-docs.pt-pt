@@ -1,18 +1,18 @@
 ---
-title: ST_INTERSECTS na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL ST_INTERSECTS no Azure Cosmos DB.
+title: ST_INTERSECTS na linguagem de consulta do Azure Cosmos DB
+description: Saiba mais sobre a função do sistema SQL ST_INTERSECTS em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 549c6b69e9112a491060478e859338c14e977612
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f3c3878956b90ffb45556ed819046af9eb7618f1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349377"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303142"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
  Devolve uma expressão booleana que indica se o objeto de GeoJSON (ponto, polígono ou LineString) especificado no primeiro argumento intersetar-GeoJSON (ponto, polígono ou LineString) no segundo argumento.  
@@ -26,7 +26,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *spatial_expr*  
-   É uma expressão de objeto de ponto geojson, polígono ou LineString.  
+   É uma expressão de objeto GeoJSON Point, Polygon ou LineString.  
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -51,8 +51,12 @@ WHERE ST_INTERSECTS(a.location, {
 [{ "id": "IntersectingPolygon" }]  
 ```  
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema beneficiará de um [índice geoespacial.](index-policy.md#spatial-indexes)
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções espaciais Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

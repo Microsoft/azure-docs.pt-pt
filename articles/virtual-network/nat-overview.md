@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: allensu
-ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 205826a6ad952383582f5a8086cbd8b85dbc3794
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669544"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359244"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>O que é a Rede Virtual NAT (Visualização Pública)?
 
@@ -192,13 +192,13 @@ Queremos saber como podemos melhorar o serviço. Partilhe connosco o seu [feedba
 
 ## <a name="limitations"></a>Limitações
 
-- O NAT é compatível com os recursos padrão de IP público sku, prefixo ip público e equilibrador de carga.   Os recursos básicos (por exemplo, o equilíbrio básico de carga) e quaisquer produtos derivados deles não são compatíveis com o NAT.  Os recursos básicos devem ser colocados numa sub-rede não configurada com NAT.
-- A família de endereços IPv4 é apoiada.  O NAT não interage com a família iPv6.
-- A exploração de fluxo sanções da NSG não é suportada quando se utiliza NAT.
-- O NAT não pode abranger várias redes virtuais.
+* O NAT é compatível com os recursos padrão de IP público sku, prefixo ip público e equilibrador de carga.   Os recursos básicos (por exemplo, o equilíbrio básico de carga) e quaisquer produtos derivados deles não são compatíveis com o NAT.  Os recursos básicos devem ser colocados numa sub-rede não configurada com NAT.
+* A família de endereços IPv4 é apoiada.  O NAT não interage com a família iPv6.  O NAT não pode ser implantado numa sub-rede com prefixo IPv6.
+* A exploração de fluxo sanções da NSG não é suportada quando se utiliza NAT.
+* O NAT não pode abranger várias redes virtuais.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [recurso de gateway NAT.](./nat-gateway-resource.md)
-- [Diga-nos o que construir a seguir no UserVoice](https://aka.ms/natuservoice).
-- [Forneça feedback sobre a Pré-Visualização Pública](https://aka.ms/natfeedback).
+* Saiba mais sobre o [recurso de gateway NAT.](./nat-gateway-resource.md)
+* [Diga-nos o que construir a seguir para a Rede Virtual NAT no UserVoice](https://aka.ms/natuservoice).
+* [Forneça feedback sobre a Pré-Visualização Pública](https://aka.ms/natfeedback).

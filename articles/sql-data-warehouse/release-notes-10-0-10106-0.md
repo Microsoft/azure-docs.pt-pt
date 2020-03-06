@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 4811f24fb942689bddcc9d9d1bcb8c33d147c1af
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 934e804b60312a32300c4b884ea8fd15e2195870
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78256007"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302037"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas de lançamento da Azure Synapse Analytics
 
@@ -38,6 +38,13 @@ Utilize a versão identificada para confirmar qual a versão aplicada à sua pis
 > ```
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="february-2020"></a>Fevereiro de 2020
+
+| Melhorias nos serviços | Detalhes |
+| --- | --- |
+|**Nível de compatibilidade da base de dados (Pré-visualização)**| Com esta versão, os utilizadores podem agora definir o nível de compatibilidade de uma base de dados para obter o idioma Transact-SQL e comportamentos de processamento de consulta de uma versão específica do motor SQL Analytics. Para mais informações, consulte [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?view=azure-sqldw-latest&branch=pr-en-us-13797) e [Alter Configuração scoped Database](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-ver15).|
+|**Sp_describe_undeclared_parameters**| Permitir que os utilizadores vejam os metadados sobre parâmetros não declarados num lote Transact-SQL. Para mais informações, consulte [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?view=sql-server-ver15).|
 
 ## <a name="january-2020"></a>Janeiro de 2020
 

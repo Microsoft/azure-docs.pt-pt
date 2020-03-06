@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: evansma
-ms.openlocfilehash: 50e5be309d56f58a79fa19b5270a0b6d2fd3db92
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 1506a4180a5991e6f6e8ed946192bcbf10bbeac0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268236"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296156"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de Consultoria para O Mercado Azure e AppSource
 Os Serviços de Consultoria no Azure Marketplace e no AppSource fornecem aos parceiros da Microsoft o objetivo de conectar os clientes com serviços de apoio e alargar o seu uso de Objetivos De Negócios e Azure. 
@@ -39,7 +39,7 @@ As ofertas de Serviços de Consultoria baseadas no Microsoft Dynamics 365, Power
 As ofertas de Serviços de Consultoria e Serviços Geridos que se baseiam no Microsoft Azure são elegíveis para serem listadas no Azure Marketplace. Para mais informações, consulte artigos sobre a publicação de um serviço de [consultoria Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) e publique uma oferta de [serviços geridos ao Azure Marketplace.](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)
 
 > [!Note]
-> Os serviços de consultoria no Azure Marketplace devem aproveitar as ofertas orientadas para um público técnico com foco em *soluções e serviços técnicos do Azure.* ** Os serviços de consultoria no AppSource devem aproveitar as ofertas orientadas para a sua experiência na entrega de soluções de qualidade para a Dynamics 365, Power BI ou PowerApps para listar as suas ofertas de serviços de consultoria no AppSource
+> Os serviços de consultoria no Azure Marketplace devem aproveitar as ofertas orientadas para um público técnico com foco em *soluções e serviços técnicos do Azure.* ** Os serviços de consultoria no AppSource devem aproveitar as ofertas orientadas para a sua experiência na entrega de soluções de qualidade para a Dynamics 365, Power BI ou Power Apps para listar as suas ofertas de serviços de consultoria no AppSource
 > 
 > 
 > [!TIP]
@@ -67,7 +67,7 @@ Os parceiros são obrigados a ter uma **competência de prata ou ouro** na área
 | Dynamics 365 for Customer Insights | Deve ter pelo menos 1 implementação bem sucedida na produção da [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) com pelo menos 5 medidas e 5 segmentos. |
 | Dinâmica 365 Business Central | Deve ser certificado gold ou silver em competência de Planeamento de [Recursos Empresariais](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e deve ser o fornecedor de soluções em nuvem para pelo menos 3 clientes Business Central. <br> <br> OU <br> <br> Deve ter publicado uma [aplicação Business Central no AppSource](https://appsource.microsoft.com/) |
 | Power BI | Deve estar listado na montra do [parceiro Power BI.](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=)|
-|Power Apps | Deve ser elegível para Benefícios Avançados no Programa de [Parceria PowerApps](https://aka.ms/PowerAppsPartner). |
+|Power Apps | Deve ser elegível para Benefícios Avançados no Programa de Parceria de [Aplicações De Energia.](https://aka.ms/PowerAppsPartner) |
 
 Recursos adicionais e apoio:
 

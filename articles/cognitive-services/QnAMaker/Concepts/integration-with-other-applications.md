@@ -3,12 +3,12 @@ title: Integrar com outras aplicações - QnA Maker
 description: A QnA Maker integra-se em aplicações de clientes, como bots de chat, bem como com outros serviços de processamento de linguagem natural, como o Language Understanding (LUIS).
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: f75ee92f2ecd14f5c3e017aeee2340cff0c92561
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 38b275aa2b8cf5768a2bc95634a7ff4892893eda
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843393"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300524"
 ---
 # <a name="design-knowledge-base-for-client-applications"></a>Base de conhecimento de design para aplicações de clientes
 
@@ -20,7 +20,7 @@ A QnA Maker integra-se com aplicações de clientes de conversação, como [o Mi
 
 ## <a name="create-a-bot-without-writing-any-code"></a>Criar um bot sem escrever qualquer código
 
-Depois de publicar a sua base de conhecimentos, crie um bot a partir da página **Publicar,** selecionando o bot **Create.** Utilize o tutorial de [bot](../tutorials/create-qna-bot.md) para saber o que acontece depois de selecionar o botão.
+Depois de publicar a sua base de conhecimentos, crie um bot a partir da página **Publicar,** selecionando o bot **Create.** Utilize o tutorial de [bot](../Quickstarts/create-publish-knowledge-base.md) para saber o que acontece depois de selecionar o botão.
 
 ## <a name="providing-multi-turn-conversations"></a>Proporcionando conversas multi-turn
 

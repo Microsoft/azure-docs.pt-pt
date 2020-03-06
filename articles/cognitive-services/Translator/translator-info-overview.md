@@ -11,24 +11,24 @@ ms.topic: overview
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 8f27e8e8693fc5d1d3e432b78f2877d71274f146
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f6b55163440b25bf69c76e9b1217c439b0884d5d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978480"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331047"
 ---
 # <a name="what-is-the-translator-text-api"></a>O que é a API de Texto do Microsoft Translator?
 
 A API de Texto do Microsoft Translator é fácil de integrar nas suas aplicações, sites, ferramentas e soluções. Pode adicionar experiências de utilizador de vários idiomas em [mais de 60 idiomas](languages.md) e pode ser utilizada em qualquer plataforma de hardware com qualquer sistema operativo para a tradução de idioma de texto para texto.
 
-A API de Texto do Microsoft Translator faz parte da coleção de [APIs dos Serviços Cognitivos](https://docs.microsoft.com/azure/#pivot=products&panel=ai) do Azure de aprendizagem automática e algoritmos de IA na cloud, e é prontamente consumível nos seus projetos de desenvolvimento.
+A API de Texto do Microsoft Translator faz parte da coleção de [APIs dos Serviços Cognitivos](https://docs.microsoft.com/azure/?pivot=products&panel=ai) do Azure de aprendizagem automática e algoritmos de IA na cloud, e é prontamente consumível nos seus projetos de desenvolvimento.
 
 ## <a name="about-microsoft-translator"></a>Sobre o Microsoft Translator
 
 O Microsoft Translator é um serviço de tradução automática com base na cloud. No serviço de núcleo está a API de Texto do Microsoft Translator, que potencializa vários produtos e serviços da Microsoft, e é utilizada por milhares de empresas em todo o mundo nas suas aplicações e fluxos de trabalho, o que permite que o conteúdo alcance o público global.
 
-A tradução de voz, com tecnologia da API de Texto do Microsoft Translator, também está disponível através do [Serviço de Voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Ele combina a funcionalidade da API de Tradução de Fala e o serviço de Fala Personalizada em um serviço unificado e totalmente personalizável. O serviço de fala está substituindo o API de Tradução de Fala, que será encerrado em 15 de outubro de 2019.
+A tradução de voz, com tecnologia da API de Texto do Microsoft Translator, também está disponível através do [Serviço de Voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina a funcionalidade da API do Discurso tradutor e do Serviço de Discurso Personalizado num serviço unificado e totalmente personalizável. O Serviço de Discurso está a substituir a API do Discurso tradutor, que será desativada no dia 15 de outubro de 2019.
 
 ## <a name="language-support"></a>Suporte de idiomas
 
@@ -55,5 +55,5 @@ Saiba mais sobre a [personalização de idiomas](customization.md)
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Inscrever-se](translator-text-how-to-signup.md) para obter uma chave de acesso.
-- A [referência de API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) fornece a documentação técnica para as APIs.
+- [A referência da API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) fornece a documentação técnica para as APIs.
 - [Detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

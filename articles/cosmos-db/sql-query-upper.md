@@ -1,23 +1,23 @@
 ---
-title: UPPER na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL no Azure Cosmos DB.
+title: UPPER em linguagem de consulta de Azure Cosmos DB
+description: Saiba mais sobre a função do sistema SQL UPPER em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9809a138a5e28eb069d545d39cfda815c915bd78
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 5129b4fffafb6918f655263cac2f5564635acf36
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75728893"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303975"
 ---
 # <a name="upper-azure-cosmos-db"></a>UPPER (Azure Cosmos DB)
  Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em minúsculas em maiúsculas.  
 
-A função de sistema superior não utiliza o índice. Se você planeja fazer comparações que não diferenciam maiúsculas de minúsculas, a função de sistema superior pode consumir uma quantidade significativa de RU. Se esse for o caso, em vez de usar a função de sistema superior para normalizar os dados a cada vez para comparações, você poderá normalizar a capitalização após a inserção. Em seguida, uma consulta como SELECT * de c, em que UPPER (c. Name) = ' BOB ' simplesmente se torna SELECT * de c onde c.name = ' BOB '.
+A função do sistema SUPERIOR não utiliza o índice. Se planeia fazer comparações frequentes de casos insensíveis, a função do sistema SUPERIOR pode consumir uma quantidade significativa de RU's. Se for esse o caso, em vez de utilizar a função do sistema SUPERIOR para normalizar os dados de cada vez para comparações, pode normalizar o invólucro após a inserção. Em seguida, uma consulta como SELECT * From c WHERE UPPER (c.name) = 'BOB' torna-se simplesmente SELECT * DE c ONDE c.name = 'BOB'.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -28,7 +28,7 @@ UPPER(<str_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É uma expressão de cadeia de caracteres.  
+   É uma expressão de cordas.  
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -36,7 +36,7 @@ UPPER(<str_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra como usar `UPPER` em uma consulta  
+  O exemplo que se segue mostra como usá`UPPER` numa consulta  
   
 ```sql
 SELECT UPPER("Abc") AS upper  
@@ -48,8 +48,12 @@ SELECT UPPER("Abc") AS upper
 [{"upper": "ABC"}]  
 ```
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/21/2019
+ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: ecaf9e007d93b3a99a7609ebf36307f3a6dad15c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2b689588bcbca640dd55b25c52c462ad1a363da5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199959"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296342"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Backup e restauro na piscina Azure Synapse SQL
 
@@ -58,7 +58,7 @@ As seguintes listas de detalhes para os períodos de retenção de pontos de res
 2. As fotos não são tiradas quando uma piscina SQL é interrompida.
 3. A idade de um ponto de restauro é medida pelos dias de calendário absoluto a partir do momento em que o ponto de restauro é tomado, incluindo quando a piscina SQL é interrompida.
 4. Em qualquer momento, um pool SQL é garantido para ser capaz de armazenar até 42 pontos de restauro definidos pelo utilizador e 42 pontos de restauro automáticos, desde que estes pontos de restauro não tenham atingido o período de retenção de 7 dias
-5. Se for tirada uma fotografia, a piscina SQL é então interrompida por mais de 7 dias e, em seguida, retoma, é possível que o ponto de restauro persista até que existam 42 pontos de restauro totais (incluindo definidos pelo utilizador e automáticos)
+5. Se for tirada uma fotografia, a piscina SQL é então interrompida por mais de 7 dias e, em seguida, retoma, o ponto de restauro persistirá até que existam 42 pontos de restauro totais (incluindo definidos pelo utilizador e automáticos)
 
 ### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Retenção de instantâneos quando uma piscina SQL é largada
 

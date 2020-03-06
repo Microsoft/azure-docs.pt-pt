@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: e3dffca1d5e98de60941aab4400469810c9cfc30
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c9b25fe7bc47e05972aebb194e9d94c1ea6dd247
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613751"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298739"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Junte-se a uma máquina virtual do Windows Server para um domínio gerido pelo Azure Ative Directory Services usando um modelo de Gestor de Recursos
 
@@ -34,7 +34,7 @@ Para completar este tutorial, necessita dos seguintes recursos e privilégios:
     * Se necessário, crie um inquilino do [Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Um Azure Ative Directory Domain Services gerido domínio habilitado e configurado no seu inquilino Azure AD.
     * Se necessário, o primeiro tutorial cria e configura uma instância de Serviços de [Domínio de Diretório Ativo Azure.][create-azure-ad-ds-instance]
-* Uma conta de utilizador que é membro do grupo de administradores da *Azure AD DC* no seu inquilino Azure AD.
+* Uma conta de utilizador que faz parte do domínio gerido pelo Azure AD DS.
 
 ## <a name="azure-resource-manager-template-overview"></a>Visão geral do modelo do Gestor de Recursos Azure
 
@@ -94,7 +94,7 @@ Para criar um VM do Servidor windows, junte-o a um domínio gerido por AD DS azu
     | Prefixo de etiqueta DNS          | Introduza um nome DNS para utilizar para o VM, como *o myvm*. |
     | Tamanho da VM                   | Especifique um tamanho VM, como *Standard_DS2_v2*. |
     | Domínio para aderir            | O nome DNS de domínio gerido pelo Azure AD DS, como *aaddscontoso.com*. |
-    | Nome de utilizador de domínio           | A conta de utilizador no domínio gerido pelo Azure AD DS deve ser utilizada para aderir ao VM ao domínio gerido, como `contosoadmin@aaddscontoso.com`. Esta conta deve ser membro do grupo de *administradores da AD DC azure.* |
+    | Nome de utilizador de domínio           | A conta de utilizador no domínio gerido pelo Azure AD DS deve ser utilizada para aderir ao VM ao domínio gerido, como `contosoadmin@aaddscontoso.com`. Esta conta deve fazer parte do domínio gerido pela AD DS azure. |
     | Palavra-passe de domínio           | A palavra-passe para a conta de utilizador especificada na definição anterior. |
     | Caminho opcional da OU          | O OU personalizado para adicionar o VM. Se não especificar um valor para este parâmetro, o VM é adicionado ao *AAD DC Computers* OU padrão. |
     | Nome de utilizador de administrador vm         | Especifique uma conta de administrador local para criar no VM. |
@@ -104,7 +104,7 @@ Para criar um VM do Servidor windows, junte-o a um domínio gerido por AD DS azu
 
 > [!WARNING]
 > **Manuseie as palavras-passe com cuidado.**
-> O ficheiro de parâmetro de modelo solicita a palavra-passe para uma conta de utilizador que é membro do grupo de *administradores da AD DC do Azure.* Não introduza manualmente valores neste ficheiro e deixe-o acessível em partilhas de ficheiros ou outros locais partilhados.
+> O ficheiro de parâmetro de modelo solicita a palavra-passe para uma conta de utilizador que faz parte do domínio gerido pelo Azure AD DS. Não introduza manualmente valores neste ficheiro e deixe-o acessível em partilhas de ficheiros ou outros locais partilhados.
 
 Leva alguns minutos para que a implantação termine com sucesso. Quando terminado, o Windows VM é criado e se juntou ao domínio gerido pelo Azure AD DS. O VM pode ser gerido ou assinado na utilização de contas de domínio.
 
@@ -123,7 +123,7 @@ Para se juntar a um VM de servidor windows existente a um domínio gerido por AD
     | Grupo de recursos            | Escolha o grupo de recursos com o seu VM existente. |
     | Localização                  | Selecione a localização do seu VM existente. |
     | Lista VM                   | Insira a lista separada da vírce dos VM(s) existentes para se juntar ao domínio gerido pela AD DS Azure, como o *myVM1,myVM2 .* |
-    | Nome de utilizador de adesão ao domínio     | A conta de utilizador no domínio gerido pelo Azure AD DS deve ser utilizada para aderir ao VM ao domínio gerido, como `contosoadmin@aaddscontoso.com`. Esta conta deve ser membro do grupo de *administradores da AD DC azure.* |
+    | Nome de utilizador de adesão ao domínio     | A conta de utilizador no domínio gerido pelo Azure AD DS deve ser utilizada para aderir ao VM ao domínio gerido, como `contosoadmin@aaddscontoso.com`. Esta conta deve fazer parte do domínio gerido pela AD DS azure. |
     | Domain Join User Password | A palavra-passe para a conta de utilizador especificada na definição anterior. |
     | Caminho opcional da OU          | O OU personalizado para adicionar o VM. Se não especificar um valor para este parâmetro, o VM é adicionado ao *AAD DC Computers* OU padrão. |
 
@@ -131,7 +131,7 @@ Para se juntar a um VM de servidor windows existente a um domínio gerido por AD
 
 > [!WARNING]
 > **Manuseie as palavras-passe com cuidado.**
-> O ficheiro de parâmetro de modelo solicita a palavra-passe para uma conta de utilizador que é membro do grupo de *administradores da AD DC do Azure.* Não introduza manualmente valores neste ficheiro e deixe-o acessível em partilhas de ficheiros ou outros locais partilhados.
+> O ficheiro de parâmetro de modelo solicita a palavra-passe para uma conta de utilizador que faz parte do domínio gerido pelo Azure AD DS. Não introduza manualmente valores neste ficheiro e deixe-o acessível em partilhas de ficheiros ou outros locais partilhados.
 
 Leva alguns momentos para que a implantação termine com sucesso. Quando terminados, os VMs do Windows especificados são unidos ao domínio gerido pelo Azure AD DS e podem ser geridos ou assinados na utilização de contas de domínio.
 

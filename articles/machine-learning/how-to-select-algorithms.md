@@ -1,7 +1,7 @@
 ---
-title: Como selecionar um algoritmo de aprendizado de máquina
+title: Como selecionar um algoritmo de aprendizagem automática
 titleSuffix: Azure Machine Learning
-description: Como selecionar algoritmos de Azure Machine Learning para aprendizado supervisionado e não supervisionado em experimentos de clustering, classificação ou regressão.
+description: Como selecionar algoritmos de Aprendizagem automática Azure para aprendizagem supervisionada e sem supervisão em experiências de agrupamento, classificação ou regressão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,118 +9,118 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 01/21/2020
-ms.openlocfilehash: 65f43bf87e704c85d83220f4ffbc50581aafb549
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 03/05/2020
+ms.openlocfilehash: e0482bac9569a834adf3e1cdef2b3f702980eac0
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315470"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328668"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Como selecionar algoritmos para Azure Machine Learning
 
-Uma pergunta comum é "qual algoritmo de aprendizado de máquina devo usar?" O algoritmo selecionado depende principalmente de dois aspectos diferentes do cenário de ciência de dados:
+Uma pergunta comum é: "Que algoritmo de aprendizagem automática devo usar?" O algoritmo que selecionar depende principalmente de dois aspetos diferentes do seu cenário de ciência de dados:
 
- - **O que você deseja fazer com seus dados?** Especificamente, qual é a pergunta comercial que você deseja responder aprendendo com seus dados passados?
+ - **O que quer fazer com os seus dados?** Especificamente, qual é a questão do negócio que quer responder aprendendo com os seus dados anteriores?
 
- - **Quais são os requisitos de seu cenário de ciência de dados?** Especificamente, qual é a precisão, o tempo de treinamento, a linearidade, o número de parâmetros e o número de recursos aos quais sua solução dá suporte?
+ - **Quais são os requisitos do seu cenário de ciência de dados?** Especificamente, qual é a precisão, tempo de treino, linearidade, número de parâmetros e número de funcionalidades que a sua solução suporta?
 
- ![Considerações para escolher algoritmos: o que você deseja saber? Quais são os requisitos do cenário?](./media/how-to-select-algorithms/how-to-select-algorithms.png)
+ ![Considerações para escolher algoritmos: O que quer saber? Quais são os requisitos do cenário?](./media/how-to-select-algorithms/how-to-select-algorithms.png)
 
-## <a name="business-scenarios-and-the-machine-learning-algorithm-cheat-sheet"></a>Roteiros de negócios e a folha de consulta do algoritmo de Machine Learning
+## <a name="business-scenarios-and-the-machine-learning-algorithm-cheat-sheet"></a>Cenários de negócios e a folha de batota do algoritmo de aprendizagem automática
 
-A [folha](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) de consulta do algoritmo de Azure Machine Learning ajuda na primeira consideração: **o que você deseja fazer com seus dados**? Na folha de consulta do algoritmo de Machine Learning, procure a tarefa que você deseja fazer e localize um algoritmo de [Designer de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) para a solução de análise preditiva. 
+A Folha de Batota do Algoritmo de [Aprendizagem automática Azure](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) ajuda-o com a primeira consideração: **O que quer fazer com os seus dados**? Na Folha de Batota do Algoritmo de Aprendizagem automática, procure uma tarefa que queira fazer e, em seguida, encontre um algoritmo de designer de [machine learning Azure](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) para a solução de análise preditiva. 
 
-O designer de Machine Learning fornece um portfólio abrangente de algoritmos, como [floresta de decisão multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri), [sistemas de recomendação](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-recommender?WT.mc_id=docs-article-lazzeri), [regressão de rede neural](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri), [rede neural multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri)e [clustering de K-](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri)means. Cada algoritmo é projetado para resolver um tipo diferente de problema de aprendizado de máquina. Consulte o [algoritmo do designer de Machine Learning e a referência de módulo](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri) para obter uma lista completa, juntamente com a documentação sobre como cada algoritmo funciona e como ajustar parâmetros para otimizar o algoritmo.
+O designer de Machine Learning fornece um portfólio abrangente de algoritmos, tais como Floresta de [Decisão Multiclasse,](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) [Sistemas de Recomendação,](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-recommender?WT.mc_id=docs-article-lazzeri) [Regressão da Rede Neural,](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) [Rede Neural Multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri)e [Clustering K-Means.](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) Cada algoritmo é projetado para resolver um tipo diferente de problema de aprendizagem automática. Consulte o algoritmo de design de [Machine Learning e](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri) a referência do módulo para uma lista completa juntamente com documentação sobre como cada algoritmo funciona e como sintonizar parâmetros para otimizar o algoritmo.
 
 > [!NOTE]
-> Para baixar a folha de consulta do algoritmo de aprendizado de máquina, vá para a folha de consulta [do algoritmo do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
+> Para descarregar a folha de batota do algoritmo de aprendizagem automática, vá à folha de batota do algoritmo de [aprendizagem da Máquina Azure](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
 > 
 > 
 
-Juntamente com as diretrizes na folha de consulta do algoritmo Azure Machine Learning, tenha em mente outros requisitos ao escolher um algoritmo de aprendizado de máquina para sua solução. A seguir, são fatores adicionais a serem considerados, como precisão, tempo de treinamento, linearidade, número de parâmetros e número de recursos.
+Juntamente com a orientação na Folha de Batota de Algoritmo de Aprendizagem automática Azure, lembre-se de outros requisitos ao escolher um algoritmo de aprendizagem automática para a sua solução. Seguem-se fatores adicionais a ter em conta, como a precisão, o tempo de treino, a linearidade, o número de parâmetros e o número de características.
 
 ## <a name="additional-requirements-for-a-data-science-scenario"></a>Requisitos adicionais para um cenário de ciência de dados
 
-Depois de saber o que você deseja fazer com seus dados, você precisa determinar os requisitos adicionais para sua solução. 
+Assim que souber o que pretende fazer com os seus dados, tem de determinar requisitos adicionais para a sua solução. 
 
-Faça escolhas e, possivelmente, compensações para os seguintes requisitos:
+Faça escolhas e, possivelmente, trocas para os seguintes requisitos:
 
-- Correta
-- Tempo de preparação
+- Precisão
+- Tempo de treino
 - Linearidade
 - Número de parâmetros
-- Número de recursos
+- Número de características
 
-## <a name="accuracy"></a>Correta
+## <a name="accuracy"></a>Precisão
 
-A precisão no aprendizado de máquina mede a eficácia de um modelo como a proporção de resultados verdadeiros em casos totais. No Machine Learning designer, o [módulo avaliar modelo](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri) computa um conjunto de métricas de avaliação padrão do setor. Você pode usar este módulo para medir a precisão de um modelo treinado.
+A precisão na aprendizagem automática mede a eficácia de um modelo como proporção de resultados reais para casos totais. No designer de Machine Learning, o [módulo De Avaliação](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri) computa um conjunto de métricas de avaliação padrão da indústria. Pode utilizar este módulo para medir a precisão de um modelo treinado.
 
-Obter a resposta mais precisa possível nem sempre é necessário. Às vezes, uma aproximação é adequada, dependendo de como você deseja usá-la. Se esse for o caso, você poderá reduzir drasticamente o tempo de processamento acompanhando os métodos mais aproximados. Os métodos aproximados também tendem naturalmente a evitar o superajuste.
+Obter a resposta mais precisa possível nem sempre é necessário. Às vezes, uma aproximação é adequada, dependendo do que se quer usar. Se for esse o caso, poderá reduzir drasticamente o seu tempo de processamento mantendo-se com métodos mais aproximados. Os métodos aproximados também tendem naturalmente a evitar o excesso de encaixe.
 
-Há três maneiras de usar o módulo avaliar modelo:
+Existem três formas de utilizar o módulo Modelo de Avaliação:
 
-- Gerar pontuações sobre seus dados de treinamento para avaliar o modelo
-- Gerar pontuações no modelo, mas comparar essas pontuações com pontuações em um conjunto de teste reservado
-- Comparar pontuações para dois modelos diferentes, mas relacionados, usando o mesmo conjunto de dados
+- Gere pontuações sobre os seus dados de treino de forma a avaliar o modelo
+- Gere pontuações no modelo, mas compare essas pontuações com pontuações num conjunto de testes reservados
+- Compare pontuações para dois modelos diferentes mas relacionados, usando o mesmo conjunto de dados
 
-Para obter uma lista completa de métricas e abordagens que você pode usar para avaliar a precisão dos modelos de aprendizado de máquina, consulte [avaliar módulo modelo](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri).
+Para obter uma lista completa de métricas e abordagens que pode utilizar para avaliar a precisão dos modelos de aprendizagem automática, consulte avaliar o [módulo Model](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri).
 
-## <a name="training-time"></a>Tempo de preparação
+## <a name="training-time"></a>Tempo de treino
 
-No aprendizado supervisionado, o treinamento significa usar dados históricos para criar um modelo de aprendizado de máquina que minimiza os erros. O número de minutos ou horas necessárias para treinar um modelo varia muito entre algoritmos. O tempo de treinamento geralmente está fortemente vinculado à precisão; um normalmente acompanha o outro. 
+Na aprendizagem supervisionada, a formação significa usar dados históricos para construir um modelo de aprendizagem automática que minimize os erros. O número de minutos ou horas necessários para treinar um modelo varia muito entre algoritmos. O tempo de treino está muitas vezes intimamente ligado à precisão; um normalmente acompanha o outro. 
 
-Além disso, alguns algoritmos são mais sensíveis ao número de pontos de dados do que outros. Você pode escolher um algoritmo específico porque tem uma limitação de tempo, especialmente quando o conjunto de dados é grande.
+Além disso, alguns algoritmos são mais sensíveis ao número de pontos de dados do que outros. Pode escolher um algoritmo específico porque tem uma limitação de tempo, especialmente quando o conjunto de dados é grande.
 
-No Machine Learning designer, criar e usar um modelo de aprendizado de máquina normalmente é um processo de três etapas:
+No designer de Machine Learning, criar e usar um modelo de machine learning é tipicamente um processo em três etapas:
 
-1.  Configure um modelo, escolhendo um tipo específico de algoritmo e, em seguida, definindo seus parâmetros ou hiperparâmetros. 
+1.  Configure um modelo, escolhendo um tipo específico de algoritmo, e, em seguida, definindo os seus parâmetros ou hiperparâmetros. 
 
-2.  Forneça um conjunto de dados que seja rotulado e que seja compatível com o algoritmo. Conecte os dados e o modelo para [treinar o módulo modelo](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/train-model?WT.mc_id=docs-article-lazzeri).
+2.  Forneça um conjunto de dados que esteja rotulado e tenha dados compatíveis com o algoritmo. Ligue os dados e o modelo ao [módulo Modelo de Comboio](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/train-model?WT.mc_id=docs-article-lazzeri).
 
-3.  Após a conclusão do treinamento, use o modelo treinado com um dos [módulos de Pontuação](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/score-model?WT.mc_id=docs-article-lazzeri) para fazer previsões sobre novos dados.
+3.  Após o treino estar concluído, utilize o modelo treinado com um dos módulos de [pontuação](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/score-model?WT.mc_id=docs-article-lazzeri) para fazer previsões sobre novos dados.
 
 ## <a name="linearity"></a>Linearidade
 
-A linearidade em estatísticas e no aprendizado de máquina significa que há uma relação linear entre uma variável e uma constante em seu conjunto de informações. Por exemplo, os algoritmos de classificação linear pressupõem que as classes podem ser separadas por uma linha reta (ou sua analogia de alta dimensional).
+Linearidade nas estatísticas e machine learning significa que existe uma relação linear entre uma variável e uma constante no seu conjunto de dados. Por exemplo, os algoritmos de classificação linear assumem que as classes podem ser separadas por uma linha reta (ou o seu analógico superior).
 
-Muitos algoritmos de aprendizado de máquina fazem uso da linearidade. No Azure Machine Learning designer, eles incluem: 
+Muitos algoritmos de aprendizagem automática fazem uso da linearidade. No designer de Machine Learning Azure, incluem: 
 
 - [Regressão logística multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri)
 - [Regressão logística de duas classes](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri)
-- [Computadores de vetor de suporte](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri)  
+- [Máquinas vetoriais de suporte](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri)  
 
-Algoritmos de regressão linear pressupõem que as tendências de dados seguem uma linha reta. Essa suposição não é muito boa para alguns problemas, mas para outros, ela reduz a precisão. Apesar de suas desvantagens, os algoritmos lineares são populares como uma primeira estratégia. Eles tendem a ser forma algorítmica simples e rápidos de treinar.
+Os algoritmos lineares de regressão assumem que as tendências de dados seguem uma linha reta. Esta suposição não é má para alguns problemas, mas para outros reduz a precisão. Apesar das suas desvantagens, os algoritmos lineares são populares como uma primeira estratégia. Tendem a ser algorítmicos simples e rápidos para treinar.
 
 ![Limite de classe não linear](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-***Limite de classe não linear***: *depender de um algoritmo de classificação linear resultaria em baixa precisão.*
+***Limite***de classe não linear : Confiar num algoritmo de *classificação linear resultaria em baixa precisão.*
 
-![Dados com uma tendência não linear](./media/how-to-select-algorithms/nonlinear-trend.png)
+![Dados com tendência não linear](./media/how-to-select-algorithms/nonlinear-trend.png)
 
-***Dados com uma tendência não linear***: *usar um método de regressão linear geraria erros muito maiores do que o necessário.*
+***Dados com uma tendência não linear:*** Utilizar um método de *regressão linear geraria erros muito maiores do que o necessário.*
 
 ## <a name="number-of-parameters"></a>Número de parâmetros
 
-Os parâmetros são os botões que um cientista de dados obtém para se transformar ao configurar um algoritmo. Eles são números que afetam o comportamento do algoritmo, como tolerância a erros ou número de iterações, ou opções entre variantes de como o algoritmo se comporta. Às vezes, o tempo de treinamento e a precisão do algoritmo podem ser confidenciais para obter apenas as configurações corretas. Normalmente, os algoritmos com um grande número de parâmetros exigem a mais avaliação e o erro para encontrar uma boa combinação.
+Os parâmetros são os botões que um cientista de dados consegue rodar ao configurar um algoritmo. São números que afetam o comportamento do algoritmo, como a tolerância ao erro ou o número de iterações, ou opções entre variantes de como o algoritmo se comporta. O tempo de treino e a precisão do algoritmo podem, por vezes, ser sensíveis a obter apenas as configurações certas. Tipicamente, algoritmos com um grande número de parâmetros requerem o maior teste e erro para encontrar uma boa combinação.
 
-Como alternativa, há o [módulo ajustar hiperparâmetros de modelo](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/tune-model-hyperparameters?WT.mc_id=docs-article-lazzeri) no designer de Machine Learning: o objetivo desse módulo é determinar os hiperparâmetros ideais para um modelo de aprendizado de máquina. O módulo cria e testa vários modelos usando diferentes combinações de configurações. Ele compara métricas em todos os modelos para obter as combinações de configurações. 
+Em alternativa, existe o [módulo tune Model Hyperparameters](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/tune-model-hyperparameters?WT.mc_id=docs-article-lazzeri) no designer de Machine Learning: O objetivo deste módulo é determinar os hiperparâmetros ideais para um modelo de machine learning. O módulo constrói e testa vários modelos utilizando diferentes combinações de configurações. Compara métricas em todos os modelos para obter as combinações de configurações. 
 
-Embora essa seja uma ótima maneira de certificar-se de que você colocou o espaço de parâmetro, o tempo necessário para treinar um modelo aumenta exponencialmente com o número de parâmetros. A vantagem é que ter muitos parâmetros normalmente indica que um algoritmo tem maior flexibilidade. Geralmente, isso pode atingir uma precisão muito boa, desde que você encontre a combinação certa de configurações de parâmetro.
+Embora esta seja uma ótima maneira de se certificar de que você estendeu o espaço do parâmetro, o tempo necessário para treinar um modelo aumenta exponencialmente com o número de parâmetros. O lado positivo é que ter muitos parâmetros tipicamente indica que um algoritmo tem maior flexibilidade. Muitas vezes pode obter uma precisão muito boa, desde que possa encontrar a combinação certa de definições de parâmetros.
 
-## <a name="number-of-features"></a>Número de recursos
+## <a name="number-of-features"></a>Número de características
 
-No Machine Learning, um recurso é uma variável quantificável do fenômeno que você está tentando analisar. Para determinados tipos de dados, o número de recursos pode ser muito grande em comparação ao número de pontos de dados. Geralmente, esse é o caso com dados genéticos ou textuais. 
+Na aprendizagem automática, uma característica é uma variável quantificável do fenómeno que está a tentar analisar. Para certos tipos de dados, o número de funcionalidades pode ser muito grande em comparação com o número de pontos de dados. É frequentemente o caso da genética ou dos dados texuais. 
 
-Um grande número de recursos pode atrasár alguns algoritmos de aprendizado, tornando o tempo de treinamento unfeasibly longo. As [máquinas de vetor de suporte](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) são particularmente adequadas para cenários com um grande número de recursos. Por esse motivo, eles foram usados em muitos aplicativos da recuperação de informações para a classificação de texto e imagem. As máquinas de vetor de suporte podem ser usadas para tarefas de classificação e regressão.
+Um grande número de funcionalidades pode afundar alguns algoritmos de aprendizagem, tornando o tempo de treino invisivelmente longo. [As máquinas vetoriais](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) de suporte são particularmente adequadas a cenários com um elevado número de características. Por esta razão, têm sido utilizados em muitas aplicações, desde a recuperação de informação até à classificação de texto e imagem. As máquinas vetoriais de suporte podem ser usadas tanto para tarefas de classificação como para a regressão.
 
-A seleção de recursos refere-se ao processo de aplicação de testes estatísticos a entradas, dado uma saída especificada. O objetivo é determinar quais colunas são mais previsíveis na saída. O [módulo seleção de recursos baseada em filtro](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/filter-based-feature-selection?WT.mc_id=docs-article-lazzeri) no Machine Learning designer fornece vários algoritmos de seleção de recursos para escolher. O módulo inclui métodos de correlação, como os valores de correlação Pearson e qui-quadrado.
+A seleção de funcionalidades refere-se ao processo de aplicação de testes estatísticos a entradas, dada uma saída especificada. O objetivo é determinar quais as colunas mais preditivas da saída. O módulo de seleção de [funcionalidades baseado](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/filter-based-feature-selection?WT.mc_id=docs-article-lazzeri) em filtros no designer de machine learning fornece vários algoritmos de seleção de funcionalidades para escolher. O módulo inclui métodos de correlação como a correlação pearson e os valores cin-quadrados.
 
-Você também pode usar o [módulo de importância do recurso de permuta](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) para calcular um conjunto de pontuações de importância do recurso para seu conjunto de seus conjuntos de resultados. Você pode aproveitar essas pontuações para ajudá-lo a determinar os melhores recursos a serem usados em um modelo.
+Também pode utilizar o [módulo De Importância](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) da Característica Permutação para calcular um conjunto de pontuações de importância de funcionalidades para o seu conjunto de dados. Em seguida, pode aproveitar estas pontuações para ajudá-lo a determinar as melhores funcionalidades para usar num modelo.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
- - [Saiba mais sobre o designer de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
- - Para obter descrições de todos os algoritmos de aprendizado de máquina disponíveis no designer de Azure Machine Learning, consulte [algoritmo de designer de Machine Learning e referência de módulo](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)
- - Para explorar a relação entre aprendizado profundo, aprendizado de máquina e ia, consulte [aprendizado profundo versus Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)
+ - [Saiba mais sobre o designer de machine learning Azure](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
+ - Para descrições de todos os algoritmos de aprendizagem automática disponíveis no designer de machine learning azure, consulte algoritmo de design de [Machine Learning e referência](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri) de módulo
+ - Para explorar a relação entre a aprendizagem profunda, a aprendizagem automática e a IA, consulte [Deep Learning vs. Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)

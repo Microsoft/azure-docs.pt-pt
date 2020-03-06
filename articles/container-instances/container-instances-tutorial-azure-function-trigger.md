@@ -4,12 +4,12 @@ description: Criar uma função PowerShell ativada por HTTP para automatizar a c
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 9dbb22a2449e4c41bff802ab827da4489fc7ffeb
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196540"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331030"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Utilize uma função Azure desencadeada por HTTP para criar um grupo de contentores
 
@@ -42,7 +42,7 @@ Este artigo assume que publica o projeto usando o nome *myfunctionapp*, num grup
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>Ativar uma identidade gerida pelo Azure na aplicação de função
 
-Agora, ative uma [identidade gerida](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity) atribuída pelo sistema na sua aplicação de função. O anfitrião powerShell que executa a aplicação pode autenticar automaticamente usando esta identidade, permitindo que as funções tomem ações sobre os serviços Do Azure a que a identidade foi dada acesso. Neste tutorial, você concede as permissões de identidade geridas para criar recursos no grupo de recursos da app de função. 
+Agora, ative uma [identidade gerida](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) atribuída pelo sistema na sua aplicação de função. O anfitrião powerShell que executa a aplicação pode autenticar automaticamente usando esta identidade, permitindo que as funções tomem ações sobre os serviços Do Azure a que a identidade foi dada acesso. Neste tutorial, você concede as permissões de identidade geridas para criar recursos no grupo de recursos da app de função. 
 
 Primeiro use o comando de show do [grupo AZ][az-group-show] para obter a identificação do grupo de recursos da aplicação de função e armazená-lo em uma variável ambiental. Este exemplo pressupõe que dirige o comando numa concha bash.
 

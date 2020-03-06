@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: dech
-ms.openlocfilehash: 2e1f0313b6e611eac6968c17cececd382a6d45fe
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 117d4a5c1c4ac00e6d6a561f7dc4254a15a24f9c
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664083"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330690"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Quickstart: Use Node.js para ligar e consultar dados da conta API Da Azure Cosmos DB SQL
 
@@ -33,9 +33,17 @@ Neste arranque rápido, cria e gere uma conta API Azure Cosmos DB SQL a partir d
 - [Node.js 6.0.0+](https://nodejs.org/).
 - [Git](https://www.git-scm.com/downloads).
 
-## <a name="create-a-database"></a>Criar uma base de dados
+## <a name="create-an-azure-cosmos-account"></a>Criar uma conta do Azure Cosmos
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+Para este fim de arranque rápido, você pode usar o [experiment o Azure Cosmos DB para](https://azure.microsoft.com/try/cosmosdb/) a opção gratuita para criar uma conta Azure Cosmos.
+
+1. Navegue para a [prova Azure Cosmos DB para](https://azure.microsoft.com/try/cosmosdb/) página gratuita.
+
+1. Escolha a conta **SQL** API e selecione **Criar**. Inscreva-se utilizando a sua conta Microsoft, como outlook.
+
+1. Depois de o início de inscrição, a sua conta Azure Cosmos deve estar pronta. Selecione **Open no portal Azure** para abrir a conta recém-criada.
+
+A opção "try Azure Cosmos DB gratuitamente" não requer uma subscrição Azure e oferece-lhe uma conta Azure Cosmos por um período limitado de 30 dias. Se quiser utilizar a conta Azure Cosmos por um período mais longo, [deverá,](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) em vez disso, criar a conta dentro da sua subscrição Azure.
 
 ## <a name="add-a-container"></a>Adicione um recipiente
 
@@ -145,7 +153,7 @@ Os seguintes fragmentos são retirados do ficheiro _app.js_.
   ```
 
 > [!NOTE]
-> Tanto nos métodos de "atualização" como de "apagar", o item tem de ser selecionado a partir da base de dados, ligando para `conatiner.item()`. Os dois parâmetros passados são a identificação do item e a chave de partição do item. Neste caso, a chave de parição é o valor do campo "categoria".
+> Tanto nos métodos de "atualização" como de "apagar", o item tem de ser selecionado a partir da base de dados, ligando para `container.item()`. Os dois parâmetros passados são a identificação do item e a chave de partição do item. Neste caso, a chave de parição é o valor do campo "categoria".
 
 ## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação
 
@@ -176,10 +184,6 @@ Agora pode voltar ao Data Explorer, modificar e trabalhar com estes novos dados.
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

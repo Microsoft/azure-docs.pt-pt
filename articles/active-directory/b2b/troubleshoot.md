@@ -15,12 +15,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d970bbc5619bc25a1cf5d6abbdcf41fb4a0ae196
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c7c0a4567da11b10b9a0571656103ef2f17c7da4
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77195526"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399052"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directory B2B colaboração
 
@@ -102,7 +102,6 @@ A partir de 18 de novembro de 2019, os utilizadores convidados do seu diretório
 ## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Num inquilino do Governo dos EUA, não posso convidar um utilizador convidado de colaboração B2B.
 
 Dentro da nuvem do Governo dos EUA, a colaboração B2B é atualmente apoiada apenas entre inquilinos que estão tanto dentro da nuvem do Governo dos EUA azure como que ambos apoiam a colaboração B2B. Se convidar um utilizador num inquilino que não faz parte da nuvem do Governo dos EUA ou que ainda não apoia a colaboração B2B, terá um erro. Para mais detalhes e limitações, consulte [O Diretório Ativo Azure Premium P1 e As Variações P2.](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

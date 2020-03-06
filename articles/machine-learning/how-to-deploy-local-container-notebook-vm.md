@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 28d176289a0b6cfe659f390feb441158c57f6533
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.date: 03/05/2020
+ms.openlocfilehash: afbd9950c31bc1c40b01ec0aaf3d2bfffb8a6b94
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169942"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398194"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implementar um modelo para os casos de computação de machine learning azure
 

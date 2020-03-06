@@ -1,7 +1,7 @@
 ---
-title: Enviar solicitações de pesquisa para o API de Pesquisa de Vídeo do Bing
+title: Envie pedidos de pesquisa para a API de Pesquisa de Vídeo Bing
 titleSuffix: Azure Cognitive Services
-description: Este artigo descreve os parâmetros e atributos das solicitações enviadas ao API de Pesquisa de Vídeo do Bing, bem como o objeto de resposta JSON retornado.
+description: Este artigo descreve os parâmetros e atributos dos pedidos enviados para a API de Pesquisa de Vídeo Bing, bem como o objeto de resposta JSON que devolve.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: aahi
 ms.openlocfilehash: b27aa1409d543c157069d2701c49ef54a097e552
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766553"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387750"
 ---
-# <a name="sending-search-requests-to-the-bing-video-search-api"></a>Envio de solicitações de pesquisa para o API de Pesquisa de Vídeo do Bing
+# <a name="sending-search-requests-to-the-bing-video-search-api"></a>Envio de pedidos de pesquisa para a API de Pesquisa de Vídeo Bing
 
-Este artigo descreve os parâmetros e atributos das solicitações enviadas ao API de Pesquisa de Vídeo do Bing, bem como o objeto de resposta JSON retornado. 
+Este artigo descreve os parâmetros e atributos dos pedidos enviados para a API de Pesquisa de Vídeo Bing, bem como o objeto de resposta JSON que devolve. 
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Sugira termos de pesquisa com o API de Sugestão Automática do Bing
+## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Sugerir termos de pesquisa com a API Bing Autosuggest
 
 Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu termo de pesquisa, utilize a [API de Sugestão Automática do Bing](../../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API devolve cadeias de consulta sugerida com base em termos de pesquisa parcial à medida que o utilizador escreve.
 
-Depois que o usuário inserir seu termo de pesquisa, codifique a URL antes de definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query) . Por exemplo, se o utilizador introduzir *sailing dinghies*, defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
+Depois de o utilizador introduzir o seu termo de pesquisa, codifica-o em URL antes de definir o parâmetro de consulta [q.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query) Por exemplo, se o utilizador introduzir *sailing dinghies*, defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
 
-## <a name="sending-a-request"></a>Enviando uma solicitação
+## <a name="sending-a-request"></a>Envio de um pedido
 
 Para obter os resultados da pesquisa de vídeo, enviaria um pedido GET ao seguinte ponto final:  
   
@@ -39,10 +39,10 @@ https://api.cognitive.microsoft.com/bing/v7.0/videos/search
    
 O pedido tem de utilizar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Fazer chamadas de um servidor também fornece um único ponto de atualização para versões futuras da API.
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Fazer chamadas a partir de um servidor também fornece um único ponto de upgrade para futuras versões da API.
 
   
-O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido deve também especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista opcional de parâmetros de consulta, como `pricing`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.  
+O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista opcional de parâmetros de consulta, como `pricing`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.  
   
 O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:  
   
@@ -55,7 +55,7 @@ Os cabeçalhos de IP e localização do cliente são importantes para devolver o
 
 Para obter uma lista de todos os cabeçalhos de pedido e resposta, veja [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#headers).
 
-## <a name="example-search-request"></a>Exemplo de solicitação de pesquisa
+## <a name="example-search-request"></a>Pedido de pesquisa de exemplo
 
 A seguir, é-lhe mostrado um pedido de pesquisa que inclui todos os parâmetros de consulta e cabeçalhos sugeridos. Se for a primeira vez que está a chamar qualquer uma das APIs do Bing, não inclua o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se tiver chamado anteriormente uma API do Bing e o Bing tiver devolvido um ID de cliente para o utilizador e a combinação de dispositivo. 
   
@@ -69,7 +69,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-## <a name="example-json-response"></a>Exemplo de resposta JSON
+## <a name="example-json-response"></a>Exemplo resposta JSON
 
 O código a seguir mostra a resposta ao pedido anterior. O exemplo também mostra os cabeçalhos de resposta específicos do Bing.
 

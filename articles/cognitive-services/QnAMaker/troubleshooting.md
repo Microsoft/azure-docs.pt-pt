@@ -4,12 +4,12 @@ description: A lista com curadoria das perguntas mais frequentes sobre o serviç
 ms.topic: troubleshooting
 ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 37aae8e67ccc84a6e22be8ce8a304fc4884ead52
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
-ms.translationtype: HT
+ms.openlocfilehash: 4596c16a5d7c9053bf0e27af476c66fe8fa9ed35
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273386"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296104"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Resolução de problemas para O Criador de QnA
 
@@ -224,7 +224,7 @@ Se tiver conteúdo a partir de vários idiomas, certifique-se de que criar um se
 <details>
 <summary><b>Como posso criar um novo bot com o QnA Maker?</b></summary>
 
-**Resposta**: Siga as instruções [desta](./Tutorials/create-qna-bot.md) documentação para criar o seu Bot com o Serviço Bot Azure.
+**Resposta**: Siga as instruções [desta](./Quickstarts/create-publish-knowledge-base.md) documentação para criar o seu Bot com o Serviço Bot Azure.
 
 </details>
 
@@ -255,7 +255,7 @@ A chave final da base de conhecimento está rotulada `QnAAuthkey` no serviço AB
 
 **Resposta**: Siga estes passos para incorporar o serviço QnA Maker como um controlo de chat web no seu site:
 
-1. Crie o seu bot FAQ seguindo as instruções [aqui](./Tutorials/create-qna-bot.md).
+1. Crie o seu bot FAQ seguindo as instruções [aqui](./Quickstarts/create-publish-knowledge-base.md).
 2. Ativar o chat web seguindo os passos [aqui](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
 
 </details>

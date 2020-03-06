@@ -1,122 +1,145 @@
 ---
-title: Exibir relatório de auditoria para funções de recurso do Azure no PIM – Azure AD | Microsoft Docs
-description: Exiba a atividade e o histórico de auditoria das funções de recurso do Azure no Azure AD Privileged Identity Management (PIM).
+title: Ver relatório de auditoria para funções de recursos azure na Gestão de Identidade Privilegiada (PIM) - Azure AD  Microsoft Docs
+description: Ver histórico de atividades e auditorias para funções de recursos Azure na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
 editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718fd4054d5e21c7f6309b3b1ac65a459c514ea0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 4bf65ad595fb1ab70eb6613b6d54ac2a4f69141e
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548021"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329639"
 ---
-# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Exibir a atividade e o histórico de auditoria das funções de recurso do Azure no Privileged Identity Management
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Ver histórico de atividades e auditorias para funções de recursos Azure na Gestão de Identidade Privilegiada
 
-Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode exibir a atividade, ativações e o histórico de auditoria para funções de recursos do Azure em sua organização. Isso inclui assinaturas, grupos de recursos e até mesmo máquinas virtuais. Qualquer recurso dentro do portal do Azure que aproveita a funcionalidade RBAC (controle de acesso baseado em função) do Azure pode aproveitar os recursos de segurança e gerenciamento do ciclo de vida no Privileged Identity Management.
+Com o Azure Ative Directory (Azure AD) Privileged Identity Management (PIM), pode ver atividade, ativações e histórico de auditoria para funções de recursos Azure dentro da sua organização. Isto inclui subscrições, grupos de recursos e até máquinas virtuais. Qualquer recurso dentro do portal Azure que aproveite a funcionalidade de controlo de acesso baseado em funções do Azure pode tirar partido das capacidades de gestão de segurança e ciclo de vida na Gestão de Identidade Privilegiada.
 
 > [!NOTE]
-> Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
+> Se a sua organização tiver funções de gestão subcontratadas a um prestador de serviços que utiliza a [gestão de recursos delegados do Azure,](../../lighthouse/concepts/azure-delegated-resource-management.md)as atribuições de funções autorizadas por esse prestador de serviços não serão mostradas aqui.
 
-## <a name="view-activity-and-activations"></a>Exibir atividade e ativações
+## <a name="view-activity-and-activations"></a>Ver atividade e ativações
 
-Para ver quais ações um usuário específico realizou em vários recursos, você pode exibir a atividade de recursos do Azure associada a um determinado período de ativação.
+Para ver que ações um utilizador específico tomou em vários recursos, pode ver a atividade de recursos Azure que está associada a um determinado período de ativação.
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Clique em **recursos do Azure**.
+1. Selecione **recursos Azure**.
 
-1. Clique no recurso para o qual você deseja exibir a atividade e as ativações.
+1. Selecione o recurso para o quais pretende visualizar a atividade e as ativações.
 
-1. Clique em **funções** ou **Membros**.
+1. Selecione **Funções** ou **Membros**.
 
-1. Clique em um usuário.
+1. Selecione um utilizador.
 
-    Você vê uma exibição gráfica das ações do usuário nos recursos do Azure por data. Ele também mostra as ativações de função recentes no mesmo período de tempo.
+    Você vê um resumo das ações do utilizador em recursos Azure até à data. Também mostra as recentes ativações de papéis durante o mesmo período de tempo.
 
-    ![Detalhes do usuário com Resumo de atividade de recursos e ativações de função](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Detalhes do utilizador com resumo da atividade de recursos e ativações de funções](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-1. Clique em uma ativação de função específica para ver os detalhes e a atividade de recurso do Azure correspondente que ocorreu enquanto esse usuário estava ativo.
+1. Selecione uma ativação de função específica para ver detalhes e a atividade de recursos azure correspondente que ocorreu enquanto esse utilizador estava ativo.
 
-    ![Ativação de função selecionada e detalhes da atividade exibidos por data](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    [![Ativação de funções selecionada e detalhes da atividade](media/azure-pim-resource-rbac/export-membership.png "Ativação de funções selecionada e detalhes da atividade")](media/azure-pim-resource-rbac/export-membership.png)
 
-## <a name="export-role-assignments-with-children"></a>Exportar atribuições de função com filhos
+## <a name="export-role-assignments-with-children"></a>Atribuição de funções de exportação com crianças
 
-Você pode ter um requisito de conformidade onde deve fornecer uma lista completa de atribuições de função para auditores. Privileged Identity Management permite consultar atribuições de função em um recurso específico, que inclui atribuições de função para todos os recursos filho. Anteriormente, era difícil para os administradores obter uma lista completa de atribuições de função para uma assinatura e tinham de exportar atribuições de função para cada recurso específico. Usando Privileged Identity Management, você pode consultar todas as atribuições de função ativas e qualificadas em uma assinatura, incluindo atribuições de função para todos os grupos de recursos e recursos.
+Pode ter um requisito de conformidade em que deve fornecer uma lista completa de atribuições de funções a auditores. A Gestão privilegiada da Identidade permite-lhe consultar atribuições de funções num recurso específico, que inclui atribuições de funções para todos os recursos infantis. Anteriormente, era difícil para os administradores obter uma lista completa de atribuições de funções para uma subscrição e tinham de exportar atribuições de funções para cada recurso específico. Utilizando a Gestão de Identidade Privilegiada, pode consultar todas as atribuições de funções ativas e elegíveis numa subscrição, incluindo atribuições de funções para todos os grupos e recursos de recursos.
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Clique em **recursos do Azure**.
+1. Selecione **recursos Azure**.
 
-1. Clique no recurso para o qual você deseja exportar atribuições de função, como uma assinatura.
+1. Selecione o recurso para o quais pretende exportar atribuições de funções, como uma subscrição.
 
-1. Clique em **Membros**.
+1. Selecione **Membros**.
 
-1. Clique em **Exportar** para abrir o painel Exportar associação.
+1. Selecione **Export** para abrir o painel de adesão à Exportação.
 
-    ![Exportar o painel de associação para exportar todos os membros](media/azure-pim-resource-rbac/export-membership.png)
+    [![Painel de adesão à exportação para exportação de todos os membros](media/azure-pim-resource-rbac/export-membership.png "Página de adesão à exportação para exportação de todos os membros")](media/azure-pim-resource-rbac/export-membership.png)
 
-1. Clique em **exportar todos os membros** para exportar todas as atribuições de função em um arquivo CSV.
+1. Selecione **Exportar todos os membros** para exportar todas as atribuições de funções num ficheiro CSV.
 
-    ![Atribuições de função exportadas no arquivo CSV como exibidas no Excel](media/azure-pim-resource-rbac/export-csv.png)
+    ![Atribuições de funções exportadas em ficheiro CSV como exibição no Excel](media/azure-pim-resource-rbac/export-csv.png)
 
-## <a name="view-resource-audit-history"></a>Exibir histórico de auditoria de recursos
+## <a name="view-resource-audit-history"></a>Ver histórico de auditoria de recursos
 
-A auditoria de recursos fornece uma exibição de todas as atividades de função de um recurso.
+A auditoria de recursos dá-lhe uma visão de toda a atividade de papel para um recurso.
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Clique em **recursos do Azure**.
+1. Selecione **recursos Azure**.
 
-1. Clique no recurso para o qual você deseja exibir o histórico de auditoria.
+1. Selecione o recurso para o que pretende ver o histórico de auditoria.
 
-1. Clique em **auditoria de recurso**.
+1. Selecione **a auditoria de recursos**.
 
-1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
+1. Filtre o histórico utilizando uma data ou gama personalizada predefinida.
 
-    ![Lista de auditoria de recursos com filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    [![Lista de auditoria de recursos com filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png "Lista de auditoria de recursos com filtros")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. Para **tipo de auditoria**, selecione **Ativar (atribuído + ativado)** .
+1. Para **o tipo de auditoria,** selecione Activate **(Atribuído + Ativado)** .
 
-    ![Lista de auditoria de recursos filtrada por ativar tipo de auditoria](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    Lista de auditoria de [![recursos filtrada pelo tipo de auditoria Activate ![](media/azure-pim-resource-rbac/rbac-audit-activity.png "Lista de auditoria de recursos filtrada pela Activate")](media/azure-pim-resource-rbac/rbac-audit-activity.png) Lista de auditoria de recursos que é filtrada pelo tipo de auditoria Activate](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
-1. Em **ação**, clique em **(atividade)** para que um usuário veja os detalhes da atividade do usuário nos recursos do Azure.
+1. Em **Ação,** clique **(atividade)** para que um utilizador veja o detalhe de atividade desse utilizador nos recursos Do Azure.
 
-    ![Detalhes da atividade do usuário para uma ação específica](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![Detalhes da atividade do utilizador para uma determinada ação](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
-## <a name="view-my-audit"></a>Exibir minha auditoria
+## <a name="view-my-audit"></a>Ver a minha auditoria
 
-Minha auditoria permite que você exiba sua atividade de função pessoal.
+A minha auditoria permite-lhe visualizar a sua atividade pessoal.
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Open **Azure AD Privileged Identity Management.**
 
-1. Clique em **recursos do Azure**.
+1. Selecione **recursos Azure**.
 
-1. Clique no recurso para o qual você deseja exibir o histórico de auditoria.
+1. Selecione o recurso para o que pretende ver o histórico de auditoria.
 
-1. Clique em **minha auditoria**.
+1. Selecione **A minha auditoria**.
 
-1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
+1. Filtre o histórico utilizando uma data ou gama personalizada predefinida.
 
-    ![Lista de auditoria para o usuário atual](media/azure-pim-resource-rbac/my-audit-time.png)
-    
+    [![Lista de auditoria para o utilizador atual](media/azure-pim-resource-rbac/my-audit-time.png "Lista de auditoria para o utilizador atual")](media/azure-pim-resource-rbac/my-audit-time.png)
+
 > [!NOTE]
-> O acesso ao histórico de auditoria requer uma função de administrador global ou de administrador de função privilegiada.
+> O acesso ao histórico de auditoria requer um papel de Administrador Global ou Administrador de Funções Privilegiadas.
+
+## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Obtenha razão, aprovador e número de bilhete para eventos de aprovação
+
+1. Inscreva-se no [portal Azure](https://aad.portal.azure.com) com permissões de funções de administrador privilegiado e abra a Azure AD.
+1. Selecione **registos de auditoria**.
+1. Utilize o filtro **De serviço** para exibir apenas eventos de auditoria para o serviço de Gestão de Identidade Privilegiada. Na página de registos da **Auditoria,** pode:
+
+    - Consulte a razão de um evento de auditoria na coluna **'Razão do Estado'.**
+    - Consulte o aprovador na coluna **Iniciado por (ator)** para o evento "adicionar membro ao pedido de função aprovado".
+
+    [![Filtrar o registo de auditoria do serviço PIM](media/azure-pim-resource-rbac/filter-audit-logs.png "Filtrar o registo de auditoria do serviço PIM")](media/azure-pim-resource-rbac/filter-audit-logs.png)
+
+1. Selecione um evento de registo de auditoria para ver o número do bilhete no separador **Atividade** do painel **Detalhes.**
+  
+    [![Verifique o número do bilhete para o evento de auditoria](media/azure-pim-resource-rbac/audit-event-ticket-number.png "Verifique o número do bilhete para o evento de auditoria")](media/azure-pim-resource-rbac/audit-event-ticket-number.png)]
+
+1. Pode visualizar o requester (pessoa ativando o papel) no separador **Targets** do painel **De Detalhes** para um evento de auditoria. Existem três tipos-alvo para funções de recurso Azure:
+
+    - O papel **(Tipo** = Função)
+    - O requester **(Tipo** = Outro)
+    - O aprovador **(Tipo** = Utilizador)
+
+    [![Verifique o tipo de alvo](media/azure-pim-resource-rbac/audit-event-target-type.png "Verifique o tipo de alvo")](media/azure-pim-resource-rbac/audit-event-target-type.png)
+
+Tipicamente, o evento de log imediatamente acima do evento de aprovação é um evento para "Adicionar membro ao papel concluído" onde o **Iniciado por (ator)** é o solicitador. Na maioria dos casos, não precisará de encontrar o solicitador no pedido de aprovação do ponto de vista da auditoria.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Atribuir funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-assign-roles.md)
-- [Aprovar ou negar solicitações para funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-approval-workflow.md)
-- [Exibir histórico de auditoria para funções do Azure AD no Privileged Identity Management](pim-how-to-use-audit-log.md)
+- [Atribuir funções de recurso Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)
+- [Aprovar ou negar pedidos de funções de recurso Azure na Gestão de Identidade Privilegiada](pim-resource-roles-approval-workflow.md)
+- [Ver histórico de auditoria para funções da Azure AD na Gestão de Identidade Privilegiada](pim-how-to-use-audit-log.md)

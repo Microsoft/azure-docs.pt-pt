@@ -1,18 +1,18 @@
 ---
-title: IS_DEFINED na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL IS_DEFINED no Azure Cosmos DB.
+title: IS_DEFINED na linguagem de consulta do Azure Cosmos DB
+description: Saiba mais sobre a função do sistema SQL IS_DEFINED em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2c3193262a41b3c6772d4fe29c78a132bc51bbd8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a5fcaf52d8e9e6b942a95f0b0c43f3f654c5d5d2
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349883"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303856"
 ---
 # <a name="is_defined-azure-cosmos-db"></a>IS_DEFINED (Azure Cosmos DB)
  Devolve um valor booleano que indica se a propriedade foi atribuída um valor.  
@@ -46,8 +46,12 @@ SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isD
 [{"isDefined1":true,"isDefined2":false}]  
 ```  
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema beneficiará de um índice de [alcance](index-policy.md#includeexclude-strategy).
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Funções de verificação de tipo Azure Cosmos DB](sql-query-type-checking-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de verificação de tipos Azure Cosmos DB](sql-query-type-checking-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

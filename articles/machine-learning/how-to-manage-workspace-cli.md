@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 11/05/2019
-ms.openlocfilehash: 06b890a9186ec38ce3f851c9f36b778ec7549f76
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/05/2020
+ms.openlocfilehash: 5e90416b23b057ad5079a551242895802ac641c9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580554"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399126"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para azure machine learning com azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

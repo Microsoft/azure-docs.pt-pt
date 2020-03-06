@@ -1,21 +1,21 @@
 ---
-title: StringToObject na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função do sistema SQL StringToObject no Azure Cosmos DB.
+title: StringToObject em linguagem de consulta de DD Do MB
+description: Saiba mais sobre a função do sistema SQL StringToObject em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f09c27458a630386664f3f6579cfeee0721d8be9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349209"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296386"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
- Retorna a expressão convertida em um objeto. Se a expressão não puder ser convertida, retornará indefinido.  
+ Expressão de retorno traduzida para um Objeto. Se a expressão não puder ser traduzida, regressa indefinido.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -26,17 +26,17 @@ StringToObject(<str_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É uma expressão de cadeia de caracteres a ser analisada como uma expressão de objeto JSON. Observe que os valores de cadeia de caracteres aninhados devem ser gravados com aspas duplas para serem válidos. Para obter detalhes sobre o formato JSON, consulte [JSON.org](https://json.org/)  
+   É uma expressão de corda a ser analisada como uma expressão de objeto JSON. Note que os valores das cordas aninhados devem ser escritos com duas citações para serem válidos. Para mais detalhes sobre o formato JSON, consulte [json.org](https://json.org/)  
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Retorna uma expressão de objeto ou indefinido.  
+  Devolve uma expressão de objeto ou indefinida.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra como `StringToObject` se comporta entre diferentes tipos. 
+  O exemplo que se segue mostra como `StringToObject` se comporta em diferentes tipos. 
   
- Veja a seguir exemplos de entrada válida.
+ Seguem-se exemplos com entrada válida.
 
 ```sql
 SELECT 
@@ -55,10 +55,10 @@ Aqui está o conjunto de resultados.
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
- Veja a seguir exemplos de entrada inválida.
-Mesmo que eles sejam válidos em uma consulta, eles não serão analisados para objetos válidos. As cadeias dentro da cadeia de caracteres do objeto devem ter escape "{\\" a\\":\\" Str\\"}" ou a aspa ao redor deve ser única ' {"a": "Str"} '.
+ Seguem-se exemplos com entrada inválida.
+Mesmo que sejam válidos dentro de uma consulta, não irão analisar objetos válidos. As cordas dentro da cadeia do objeto devem ser escapadas "{\\"um\\":\\"str\\"}" ou a citação circundante deve ser única '{'a': "str"}'.
 
-As aspas simples ao redor dos nomes de propriedade não são JSON válidos.
+As cotações únicas em torno dos nomes de propriedade não são válidas JSON.
 
 ```sql
 SELECT 
@@ -71,7 +71,7 @@ Aqui está o conjunto de resultados.
 [{}]
 ```  
 
-Nomes de propriedade sem aspas ao redor não são JSON válidos.
+Os nomes de propriedade sem cotações circundantes não são válidos jSON.
 
 ```sql
 SELECT 
@@ -84,9 +84,9 @@ Aqui está o conjunto de resultados.
 [{}]
 ``` 
 
-Veja a seguir exemplos de entrada inválida.
+Seguem-se exemplos com entrada inválida.
 
- A expressão passada será analisada como um objeto JSON; essas entradas não são avaliadas para o tipo Object e, portanto, retornam indefinidamente.
+ A expressão aprovada será analisada como um objeto JSON; estas inputs não avaliam para escrever objeto e, assim, retornar indefinidos.
 
 ```sql
 SELECT 
@@ -104,8 +104,12 @@ SELECT
 [{}]
 ```
 
+## <a name="remarks"></a>Observações
+
+Esta função do sistema não utilizará o índice.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

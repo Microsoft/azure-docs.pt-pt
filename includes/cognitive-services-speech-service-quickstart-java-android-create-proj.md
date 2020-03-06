@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: travisw
-ms.openlocfilehash: a7ce6bc2b6fa272c8dd3c4bf95bc06a37d1fe28f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 270a8316ee7c23ebb54c7d0633fb9159ef33acbd
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119738"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384056"
 ---
 1. Lance o Android Studio e selecione **Iniciar um novo projeto Android Studio** na janela **Welcome.**
 
@@ -27,7 +27,7 @@ O Android Studio demora algum tempo a preparar o seu novo projeto Android. Em se
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK dos Serviços Cognitivos é de 1.9.0.
+A versão atual do SDK dos Serviços Cognitivos é de 1.10.0.
 
 O Speech SDK para Android está embalado como [AAR (Biblioteca Android),](https://developer.android.com/studio/projects/android-library)que inclui as bibliotecas necessárias e as permissões necessárias para android.
 Está hospedado num repositório Maven em https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -42,7 +42,7 @@ Configure o projeto para utilizar o SDK de Voz. Abra a janela **Project Structur
 
    ![Screenshot da dependência da Biblioteca](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Na janela que aparece, introduza o nome e a versão do SDK de Discurso para *Android.microsoft.cognitiveservices.speech:client-sdk:1.9.0*. Em seguida, selecione **OK**.
+1. Na janela que aparece, introduza o nome e a versão do SDK de Discurso para *Android.microsoft.cognitiveservices.speech:client-sdk:1.10.0*. Em seguida, selecione **OK**.
    O SDK da fala deve ser adicionado à lista de dependências agora, como mostra:
 
    ![Screenshot do Speech SDK na lista de dependências](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

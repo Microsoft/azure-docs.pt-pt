@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 274ee0fe98281e733994f2d5df38886409cbc913
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 17be351d4af3d277242af70ea96e8735a5f68bc9
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273657"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329090"
 ---
 # <a name="runbook-input-parameters"></a>Parâmetros de entrada do runbook
 
@@ -270,7 +270,7 @@ Pode criar um [webhook](automation-webhooks.md) para o seu livro de execução e
 
 ![Criar webhook e atribuir parâmetros](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
-Quando executa um livro de execução utilizando um webhook, é enviado o parâmetro de entrada predefinido *[WebhookData,](automation-webhooks.md#details-of-a-webhook)* juntamente com os parâmetros de entrada que define. 
+Quando executa um livro de execução utilizando um webhook, é enviado o parâmetro de entrada predefinido *[WebhookData,](automation-webhooks.md)* juntamente com os parâmetros de entrada que define. 
 
 ![Parâmetro WebhookData](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 

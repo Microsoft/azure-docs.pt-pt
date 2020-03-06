@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: 510a2c3f04cc4c307acad18ee3012d9407155f9f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 063e5c9e7d75fd1c07d148c265b1fe64eee3cbc8
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766452"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303533"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Quickstart: Criar alertas personalizados
 
@@ -80,7 +80,6 @@ Utilize grupos de segurança para agrupar os seus dispositivos em categorias ló
 ## <a name="alerts-available-for-customization"></a>Alertas disponíveis para personalização
 
 O Azure Security Center for IoT oferece um grande número de alertas que podem ser personalizados de acordo com as suas necessidades específicas. Reveja a tabela de [alerta personalizável](concept-customizable-security-alerts.md) para a gravidade do alerta, fonte de dados, descrição e as nossas etapas de reparação sugeridas se e quando cada alerta for recebido. 
-|
 
 
 ## <a name="next-steps"></a>Passos seguintes

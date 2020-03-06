@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Carregar dados usando portal E SSMS Azure'
-description: Tutorial usa portal Azure e SQL Server Management Studio para carregar o armazém de dados WideWorldImportersDW de uma bolha azure global para uma piscina Azure Synapse Analytics Sql.
+description: Tutorial usa portal Azure e SQL Server Management Studio para carregar o armazém de dados WideWorldImportersDW de uma bolha azure global para uma piscina Azure Synapse Analytics SQL.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 8e58c315ddc171ba19e0bce1cea4f694691f946e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d8242731466df9b80a6a6c3f0e340d6deb76e7d4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193667"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304043"
 ---
-# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregue dados para piscina Azure Synapse Analytics Sql
+# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregue dados para piscina Azure Synapse Analytics SQL
 
 Este tutorial utiliza a PolyBase para carregar o armazém de dados WideWorldImportersDW do armazenamento azure Blob para o seu armazém de dados na piscina Azure Synapse Analytics SQL. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para:
 
@@ -45,7 +45,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Criar um armazém de dados em branco na piscina SQL
 
-Um pool Sql é criado com um conjunto definido de [recursos computacionais.](memory-concurrency-limits.md) O pool SQL é criado dentro de um grupo de [recursos Azure](../azure-resource-manager/management/overview.md) e em um [servidor lógico Azure SQL](../sql-database/sql-database-features.md). 
+Um pool SQL é criado com um conjunto definido de [recursos computacionais.](memory-concurrency-limits.md) O pool SQL é criado dentro de um grupo de [recursos Azure](../azure-resource-manager/management/overview.md) e em um [servidor lógico Azure SQL](../sql-database/sql-database-features.md). 
 
 Siga estes passos para criar uma piscina SQL em branco. 
 
@@ -100,7 +100,7 @@ O serviço Azure Synapse Analytics cria uma firewall ao nível do servidor que i
 1. Selecione o nome do servidor. 
     ![server name](media/load-data-wideworldimportersdw/find-server-name.png) 
 
-1. Selecione **Mostrar definições de firewall**. A página de **definições de Firewall** para o servidor de piscina Sql abre. 
+1. Selecione **Mostrar definições de firewall**. A página de **definições de Firewall** para o servidor de piscina SQL abre. 
 
     ![definições do servidor](media/load-data-wideworldimportersdw/server-settings.png) 
 

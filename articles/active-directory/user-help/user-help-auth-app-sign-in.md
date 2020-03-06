@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b5f2b42728fd6f3d61695b4f88cc416015dd97cb
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108273"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78297852"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inscreva-se nas suas contas utilizando a aplicação Microsoft Authenticator
 
@@ -49,13 +49,19 @@ O registo telefónico só está disponível em dispositivos iOS e Android com o 
 
 ### <a name="turn-on-phone-sign-in"></a>Ligue o sinal de telefone
 
-- Abra a aplicação Microsoft Authenticator, vá à sua conta de trabalho ou escolar e ligue o registo telefónico:
+Abra a aplicação Microsoft Authenticator, vá à sua conta de trabalho ou escola e ligue o registo telefónico.
 
-    - **Se vir este ícone ![ícone mostrando que está configurado](media/user-help-auth-app-sign-in/icon.png).** Se este ícone aparecer ao lado do seu trabalho ou nome de conta escolar, significa que já configura o registo telefónico para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
+Num dispositivo Android:
 
-    - **Se tem usado a aplicação para verificação de dois fatores.** Se já tiver usado a aplicação e a verificação de dois fatores, pode escolher a seta de entrega ao lado do nome da conta e, em seguida, selecione **Ativar**o sinal de telefone .
+- **Se vir este ícone ![ícone mostrando que está configurado](media/user-help-auth-app-sign-in/icon.png).** Se este ícone aparecer ao lado do seu trabalho ou nome de conta escolar, significa que já configura o registo telefónico para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
+- **Se já estiver a usar a aplicação para verificação de dois fatores.** Se já tiver usado a aplicação e a verificação de dois fatores, pode selecionar a seta ao lado do nome da conta e, em seguida, selecionar **ativar**o registo do telefone .
+- **Se não encontrar o seu trabalho ou a conta escolar.** Se não encontrar o seu trabalho ou conta escolar no **ecrã** contas da app, significa que ainda não a adicionou à app. Adicione o seu trabalho ou conta escolar seguindo os passos do artigo Adicionar o [seu trabalho ou conta escolar.](user-help-auth-app-add-work-school-account.md)
 
-    - **Se não encontrar o seu trabalho ou a conta escolar.** Se não encontrar o seu trabalho ou conta escolar no **ecrã** contas da app, significa que ainda não a adicionou à app. Adicione o seu trabalho ou conta escolar seguindo os passos do artigo Adicionar o [seu trabalho ou conta escolar.](user-help-auth-app-add-work-school-account.md)
+Num dispositivo iOS:
+
+- **Quando toca no azulejo da conta,** a conta abre-se para uma visão completa do ecrã da conta. Se vir o **registo do telefone ativado,** isso significa que está totalmente configurado para iniciar sessão sem a sua palavra-passe. Se vir o sinal de entrada do **telefone,** toque-o para ligar o sinal de telefone.
+- **Se já tem usado a app para verificação de dois fatores,** pode tocar no azulejo da conta, que depois se expande para uma visão completa do ecrã da conta. Em seguida, toque em **ativar** o sinal de telefone para ligar o sinal de telefone.
+- **Se não encontrar o seu trabalho ou conta escolar** no ecrã contas da app, significa que ainda não a adicionou à app. Adicione o seu trabalho ou conta escolar seguindo os passos do artigo Adicionar o seu trabalho ou conta escolar.
 
 Depois de ligar o registo do telefone, pode iniciar sessão utilizando apenas a aplicação Microsoft Authenticator.
 
@@ -82,13 +88,19 @@ Pode saquear o registo telefónico para a sua conta pessoal da Microsoft, como a
 
 ### <a name="turn-on-phone-sign-in"></a>Ligue o sinal de telefone 
 
-- Abra a aplicação Microsoft Authenticator, vá à sua conta pessoal da Microsoft e ligue o registo do telefone:
+Abra a aplicação Microsoft Authenticator, vá à sua conta de trabalho ou escola e ligue o registo telefónico.
 
-    - **Se vir este ícone ![ícone mostrando que está configurado](media/user-help-auth-app-sign-in/icon.png).** Se este ícone aparecer ao lado do nome da sua conta, significa que já configura o registo telefónico para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
+Num dispositivo Android:
 
-    - **Se tem usado a aplicação para verificação de dois fatores.** Se já tiver usado a aplicação e a verificação de dois fatores, pode escolher a seta de entrega ao lado do nome da conta e, em seguida, selecione **Ativar**o sinal de telefone .
+- **Se vir este ícone ![ícone mostrando que está configurado](media/user-help-auth-app-sign-in/icon.png).** Se este ícone aparecer ao lado do nome pessoal da sua conta Microsoft, significa que já configura o registo do telefone para a conta. Pode ser-lhe pedido que adicione notificações push para a sua conta, para que possa ser notificado sobre pedidos de autenticação fora da app.
+- **Se tem usado a aplicação para verificação de dois fatores.** Se já tiver usado a aplicação e a verificação de dois fatores, pode selecionar a seta ao lado do nome da conta e, em seguida, selecionar **ativar**o registo do telefone .
+- **Se não encontrar o seu trabalho ou a conta escolar.** Se não conseguir encontrar **a** sua conta no ecrã contas da app, significa que ainda não a adicionou à app. Adicione a sua conta seguindo os passos do artigo contas pessoais da [Microsoft.](user-help-auth-app-add-personal-ms-account.md)
 
-    - **Se não encontrar a sua conta.** Se não conseguir encontrar **a** sua conta no ecrã contas da app, significa que ainda não a adicionou à app. Adicione a sua conta pessoal da Microsoft seguindo os passos no artigo pessoal da [sua conta Microsoft.](user-help-auth-app-add-personal-ms-account.md#add-your-personal-microsoft-account)
+Num dispositivo iOS:
+
+- **Quando toca no azulejo da conta,** a conta abre-se para uma visão completa do ecrã da conta. Se vir o **registo do telefone ativado,** isso significa que está totalmente configurado para iniciar sessão sem a sua palavra-passe. Se vir o sinal de entrada do **telefone,** toque-o para ligar o sinal de telefone.
+- **Se já estiver a utilizar a aplicação para verificação de dois fatores,** pode tocar no azulejo da conta, que depois se expande para uma visão completa do ecrã da conta. Em seguida, toque em **ativar** o sinal de telefone para ligar o sinal de telefone.
+- **Se não conseguir encontrar** **a** sua conta no ecrã contas da app, significa que ainda não a adicionou à app. Adicione a sua conta pessoal da Microsoft seguindo os passos no artigo contas pessoais da [Microsoft.](user-help-auth-app-add-personal-ms-account.md)
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Inscreva-se na sua conta através do registo telefónico
 
@@ -100,7 +112,7 @@ Pode saquear o registo telefónico para a sua conta pessoal da Microsoft, como a
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Inscreva-se usando verificação de dois fatores para a sua conta
 
-O método padrão de verificação de dois fatores requer que introduza o seu nome de utilizador e palavra-passe no dispositivo a que está a iniciar sessão e, em seguida, escolha se a aplicação Microsoft Authenticator envia uma notificação ou se prefere copiar o código de verificação associado do ecrã de **Contas** da aplicação Microsoft Authenticator. Liga a verificação de dois fatores para a sua conta como parte do processo para adicionar a conta à aplicação Microsoft Authenticator.
+O método padrão de verificação de dois fatores requer que introduza o seu nome de utilizador e palavra-passe no dispositivo onde está a iniciar sessão e, em seguida, escolha se a aplicação Microsoft Authenticator recebe a aplicação Microsoft Authenticator. Num dispositivo Android, estes códigos de verificação podem ser encontrados no ecrã contas. Num dispositivo iOS, estes códigos de verificação podem ser encontrados no ecrã das **Contas** ou na visão completa do ecrã de uma conta, dependendo do tipo de conta. Liga a verificação de dois fatores para a sua conta como parte do processo para adicionar a conta à aplicação Microsoft Authenticator.
 
 >[!Note]
 >Se não vir o seu trabalho ou conta escolar ou a sua conta pessoal no ecrã de **Contas** da aplicação Autenticadora Microsoft, significa que não adicionou a conta à aplicação Microsoft Authenticator. Para adicionar a sua conta, consulte [Adicionar o seu trabalho ou conta escolar](user-help-auth-app-add-work-school-account.md) ou Adicionar as suas contas [pessoais](user-help-auth-app-add-personal-ms-account.md).

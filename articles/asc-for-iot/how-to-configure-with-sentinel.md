@@ -1,6 +1,6 @@
 ---
 title: Guia azure security center for IoT para configuração com Azure Sentinel (pré-visualização) Microsoft Docs
-description: Esta forma de orientar explica como configurar o Azure Sentinel para receber dados do seu Centro de Segurança Azure para a solução IoT.
+description: Explica como configurar o Azure Sentinel para receber dados do seu Centro de Segurança Azure para a solução IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
-ms.openlocfilehash: f6e7eddd6ddbcec61c3d8d173891cbc9abaaf08f
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 082b33332051fee9da2aebe63b0c41edb300afaf
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463183"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303550"
 ---
 > [!IMPORTANT]
 > O Centro de Segurança Azure para o conector de dados IoT em Azure Sentinel está atualmente em pré-visualização pública.
@@ -48,10 +48,10 @@ Ligue os alertas do Azure Security Center para ioT e transmita-os diretamente pa
 ## <a name="connect-to-azure-security-center-for-iot"></a>Ligue-se ao Centro de Segurança Azure para IoT
 
 1. No Azure Sentinel, selecione **conectores de dados** e, em seguida, clique no Centro de **Segurança Azure para azulejos IoT.**
-1. A partir do painel inferior direito, clique na **página do conector Aberto**. 
+1. A partir da parte inferior do painel direito, clique na **página do conector Aberto**. 
 1. Clique em **Connect**, ao lado de cada subscrição do IoT Hub cujos alertas e alertas de dispositivo deseja transmitir para o Azure Sentinel. 
-    - Se o Azure Security Center for IoT não estiver ativado nesse Hub, verá uma mensagem de aviso Enable. Clique no link **'Ativar'** para iniciar o serviço. 
-1. Pode decidir se deseja que os alertas do Azure Security Center para ioT gerem automaticamente incidentes em Azure Sentinel. Em caso **de criar incidentes,** selecione **Enable** para ativar a regra analítica padrão para criar incidentes automaticamente a partir de alertas gerados no serviço de segurança conectado. Esta regra pode ser alterada ou editada de acordo com as regras **Do Analytics** > **Ative.**
+    - Se o Azure Security Center for IoT não estiver ativado no Hub, verá uma mensagem de aviso Enable. Clique no link **'Ativar'** para iniciar e ativar o serviço. 
+1. Pode decidir se deseja que os alertas do Azure Security Center para ioT gerem automaticamente incidentes em Azure Sentinel. Em caso **de criar incidentes,** selecione **Enable** para permitir que a regra crie automaticamente incidentes a partir dos alertas gerados.  Esta regra pode ser alterada ou editada de acordo com as regras **do Analytics** > **Ative.**
 
 > [!NOTE]
 >Pode levar 10 segundos ou mais para refrescar a lista do hub depois de fazer alterações de ligação. 

@@ -4,12 +4,12 @@ description: Fornece orientações de resolução de problemas para ajudá-lo a 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: f8988d3df7f61d2fce4c8fa5b49e42e872c185b8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: ed91a1cd8600f4e1ac208b0036c3d4ba74c0e6bb
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603150"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295968"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Resolver problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
 
@@ -44,19 +44,19 @@ Também recomendamos vivamente que reveja o serviço de [backup Azure FAQ](backu
 
 Estrangulamentos no computador que está a ser apoiado podem causar atrasos. Por exemplo, a capacidade do computador de ler ou escrever para o disco, ou largura de banda disponível para enviar dados através da rede, pode causar estrangulamentos.
 
-O Windows fornece uma ferramenta incorporada chamada [Performance Monitor](h https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) para detetar estes estrangulamentos.
+O Windows fornece uma ferramenta incorporada chamada [Performance Monitor](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) para detetar estes estrangulamentos.
 
 Aqui estão alguns contadores de desempenho e gamas que podem ser úteis no diagnóstico de estrangulamentos para backups ideais.
 
 | Contador | Estado |
 | --- | --- |
-| Disco Lógico (Disco Físico)--%idle |• 100% ocioso a 50% inativo = Saudável</br>• 49% ocioso a 20% de inatividade = Aviso ou Monitor</br>• 19% ocioso a 0% de ocioso = Crítico ou Fora de Especificação |
-| Disco Lógico (Disco Físico)--%Avg. Disk Sec Ler ou Escrever |• 0,001 ms a 0,015 ms = Saudável</br>• 0,015 ms a 0,025 ms = Aviso ou Monitor</br>• 0,026 ms ou mais = Crítico ou Fora de Especificação |
+| Disco Lógico (Disco Físico)--%idle |* 100% ocioso a 50% ocioso = Saudável</br>* 49% ocioso a 20% inativo = Aviso ou Monitor</br>* 19% ocioso a 0% ocioso = Crítico ou Fora de Especificação |
+| Disco Lógico (Disco Físico)--%Avg. Disk Sec Ler ou Escrever |* 0,001 ms a 0,015 ms = Saudável</br>* 0,015 ms a 0,025 ms = Aviso ou Monitor</br>* 0,026 ms ou mais = Crítico ou Fora de Especificação |
 | Disco Lógico (Disco Físico)--Comprimento da fila do disco atual (para todos os casos) |80 pedidos por mais de 6 minutos |
-| Memória -- Pool Não Paged Bytes |• Menos de 60% da piscina consumida = Saudável<br>• 61% a 80% da piscina consumida = Aviso ou Monitor</br>• Maior de 80% de piscina consumida = Crítica ou Fora de Especificação |
-| Memória -Pool Paged Bytes |• Menos de 60% da piscina consumida = Saudável</br>• 61% a 80% da piscina consumida = Aviso ou Monitor</br>• Maior de 80% de piscina consumida = Crítica ou Fora de Especificação |
-| Memória-- Megabytes Disponíveis |• 50% da memória gratuita disponível ou mais = Saudável</br>• 25% da memória gratuita disponível = Monitor</br>• 10% da memória gratuita disponível = Aviso</br>• Menos de 100 MB ou 5% da memória gratuita disponível = Crítico ou Fora de Especificação |
-| Processador-- hora do processador\%(todas as instâncias) |• Menos de 60% consumido = Saudável</br>• 61% a 90% consumido = Monitor ou Precaução</br>• 91% a 100% consumido = Crítico |
+| Memória -- Pool Não Paged Bytes |* Menos de 60% da piscina consumida = Saudável<br>* 61% a 80% da piscina consumida = Aviso ou Monitor</br>* Maior de 80% de piscina consumida = Crítica ou Fora de Especificação |
+| Memória -Pool Paged Bytes |* Menos de 60% da piscina consumida = Saudável</br>* 61% a 80% da piscina consumida = Aviso ou Monitor</br>* Maior de 80% de piscina consumida = Crítica ou Fora de Especificação |
+| Memória-- Megabytes Disponíveis |* 50% da memória gratuita disponível ou mais = Saudável</br>* 25% da memória gratuita disponível = Monitor</br>* 10% da memória gratuita disponível = Aviso</br>* Menos de 100 MB ou 5% da memória gratuita disponível = Crítico ou Fora de Especificação |
+| Processador-- hora do processador\%(todas as instâncias) |* Menos de 60% consumido = Saudável</br>* 61% a 90% consumido = Monitor ou Cuidado</br>* 91% a 100% consumido = Crítico |
 
 > [!NOTE]
 > Se determinar que a infraestrutura é o culpado, recomendamos que desfragmente regularmente os discos para um melhor desempenho.

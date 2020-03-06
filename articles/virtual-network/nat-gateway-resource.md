@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 26de7a6d05bde8d80e22bd8801ae9b5dc8faeb36
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d920bde856521f1e662536c1187881e143612039
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669561"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359099"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Conceber redes virtuais com recursos de gateway NAT (Visualização Pública)
 
@@ -335,7 +335,7 @@ Uma porta SNAT está disponível para reutilização para o mesmo endereço IP d
 ## <a name="limitations"></a>Limitações
 
 - O NAT é compatível com os recursos padrão de IP público sku, prefixo ip público e equilibrador de carga.   Os recursos básicos (por exemplo, o equilíbrio básico de carga) e quaisquer produtos derivados deles não são compatíveis com o NAT.  Os recursos básicos devem ser colocados numa sub-rede não configurada com NAT.
-- A família de endereços IPv4 é apoiada.  O NAT não interage com a família iPv6.
+- A família de endereços IPv4 é apoiada.  O NAT não interage com a família iPv6.  O NAT não pode ser implantado numa sub-rede com prefixo IPv6.
 - A exploração de fluxo sanções da NSG não é suportada quando se utiliza NAT.
 - O NAT não pode abranger várias redes virtuais.
 
@@ -349,21 +349,25 @@ Queremos saber como podemos melhorar o serviço. Partilhe connosco o seu [feedba
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre a [rede virtual NAT.](nat-overview.md)
-- Tutorial para validar na NaT Gateway
-  * [Azure CLI,](tutorial-create-validate-nat-gateway-cli.md)
-  * [PowerShell,](tutorial-create-validate-nat-gateway-cli.md)
-  * [Portal](tutorial-create-validate-nat-gateway-cli.md)
-- Quickstart para implantar um recurso de gateway NAT
-  * [Azure CLI,](./quickstart-create-nat-gateway-cli.md)
-  * [PowerShell,](./quickstart-create-nat-gateway-powershell.md)
-  * [Portal.](./quickstart-create-nat-gateway-portal.md)
-- Saiba mais sobre [as zonas de disponibilidade.](../availability-zones/az-overview.md)
-- Saiba mais sobre o [equilíbrio de carga padrão.](../load-balancer/load-balancer-standard-overview.md)
-- Saiba mais sobre [as zonas de disponibilidade e o equilibrador de carga padrão.](../load-balancer/load-balancer-standard-availability-zones.md)
-- Saiba mais sobre a API do recurso de gateway NAT
-  * [REST API,](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  * [Azure CLI,](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
-  * [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
-- [Diga-nos o que construir a seguir no UserVoice](https://aka.ms/natuservoice).
-- [Forneça feedback sobre a Pré-Visualização Pública](https://aka.ms/natfeedback).
+* Conheça a [rede virtual NAT](nat-overview.md).
+* Conheça [métricas e alertas para os recursos](nat-metrics.md)de gateway NAT .
+* Saiba mais sobre a resolução de recursos de [gateway na NAT.](troubleshoot-nat.md)
+* [Diga-nos o que construir a seguir para a Rede Virtual NAT no UserVoice](https://aka.ms/natuservoice).
+* [Forneça feedback sobre a Pré-Visualização Pública](https://aka.ms/natfeedback).
+* Tutorial para validar na NaT Gateway
+  - [Azure CLI,](tutorial-create-validate-nat-gateway-cli.md)
+  - [PowerShell,](tutorial-create-validate-nat-gateway-cli.md)
+  - [Portal](tutorial-create-validate-nat-gateway-cli.md)
+* Quickstart para implantar um recurso de gateway NAT
+  - [Azure CLI,](./quickstart-create-nat-gateway-cli.md)
+  - [PowerShell,](./quickstart-create-nat-gateway-powershell.md)
+  - [Portal.](./quickstart-create-nat-gateway-portal.md)
+* Conheça a API do recurso de gateway NAT
+  - [REST API,](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
+  - [Azure CLI,](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+* Conheça [as zonas de disponibilidade.](../availability-zones/az-overview.md)
+* Saiba mais sobre o [equilíbrio de carga padrão.](../load-balancer/load-balancer-standard-overview.md)
+* Conheça [as zonas de disponibilidade e o equilibrador de carga padrão.](../load-balancer/load-balancer-standard-availability-zones.md)
+
+

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: detectar faces em uma imagem com a API REST do Azure eC#'
+title: 'Quickstart: Detete rostos numa imagem com a API do REST Azure eC#'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará a API REST do C# Azure facial com para detectar faces em uma imagem.
+description: Neste arranque rápido, utilizará a API De C# REPOUSO Face Azure para detetar rostos numa imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,32 +10,32 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: e4174ba19d518b4b1dfef9921fe39b0c76f6d1e3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 8d1349c096b6a6c9bffef38a8b8b3c7ea6bbd432
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169285"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301816"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Início rápido: detectar faces em uma imagem usando a API REST de face eC#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Quickstart: Detete rostos numa imagem usando a API Face REST eC#
 
-Neste guia de início rápido, você usará a API REST do C# Azure face para detectar faces humanas em uma imagem.
+Neste arranque rápido, você usará a API C# Face Face Azur com para detetar rostos humanos numa imagem.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de assinatura facial. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de face e obter sua chave.
+- Uma chave de subscrição Face. Você pode obter uma chave de subscrição de teste gratuito da [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou, siga as instruções na [Conta Criar uma Conta de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço Face e obter a sua chave.
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
 
-1. No Visual Studio, crie um novo projeto de **aplicativo de console (.NET Framework)** e nomeie-o **FaceDetection**. 
+1. No Estúdio Visual, crie um novo projeto de **aplicação de consola (.NET Framework)** e nomeie-o **FaceDetection**.
 1. Se houver outros projetos na sua solução, selecione esta como o único projeto de arranque.
 
-## <a name="add-face-detection-code"></a>Adicionar código de detecção facial
+## <a name="add-face-detection-code"></a>Adicionar código de deteção facial
 
-Abra o arquivo *Program.cs* do novo projeto. Aqui, você adicionará o código necessário para carregar imagens e detectar rostos.
+Abra o arquivo *de Program.cs* do novo projeto. Aqui, irá adicionar o código necessário para carregar imagens e detetar rostos.
 
 ### <a name="include-namespaces"></a>Incluir espaços de nomes
 
@@ -44,6 +44,7 @@ Adicione as declarações `using` seguintes à parte superior do ficheiro *Progr
 ```csharp
 using System;
 using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -51,7 +52,7 @@ using System.Text;
 
 ### <a name="add-essential-fields"></a>Adicionar campos essenciais
 
-Adicione a classe **programa** que contém os campos a seguir. Esses dados especificam como se conectar ao serviço de face e onde obter os dados de entrada. Você precisará atualizar o campo `subscriptionKey` com o valor de sua chave de assinatura, e talvez seja necessário alterar a cadeia de caracteres de `uriBase` para que ela contenha a cadeia de caracteres do ponto de extremidade do recurso.
+Adicione a classe **Programa** contendo os seguintes campos. Estes dados especificam como ligar ao serviço Face e onde obter os dados de entrada. Terá de atualizar o campo `subscriptionKey` com o valor da sua chave de subscrição, e poderá ter de alterar a cadeia `uriBase` para que contenha a corda final do seu recurso.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -63,19 +64,23 @@ namespace DetectFace
 
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
-        
+
         // replace <myresourcename> with the string found in your endpoint URL
         const string uriBase =
             "https://<myresourcename>.cognitive.microsoft.com/face/v1.0/detect";
 ```
 
-### <a name="receive-image-input"></a>Entrada de imagem de recebimento
+### <a name="receive-image-input"></a>Receber entrada de imagem
 
-Adicione o código a seguir ao método **Main** da classe **Program** . Esse código grava um prompt no console solicitando que o usuário insira uma URL de imagem. Em seguida, ele chama outro método, **MakeAnalysisRequest**, para processar a imagem nesse local.
+Adicione o seguinte código ao método **principal** da classe **Programa.** Este código escreve um pedido à consola pedindo ao utilizador que introduza um URL de imagem. Em seguida, chama outro método, **MakeAnalysisRequest,** para processar a imagem naquele local.
 
 ```csharp
         static void Main(string[] args)
         {
+
+            // Explicitly set TLS 1.2.
+            ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol |
+                SecurityProtocolType.Tls12;
 
             // Get the path and filename to process from the user.
             Console.WriteLine("Detect faces:");
@@ -103,11 +108,11 @@ Adicione o código a seguir ao método **Main** da classe **Program** . Esse có
         }
 ```
 
-### <a name="call-the-face-detection-rest-api"></a>Chamar a API REST de detecção facial
+### <a name="call-the-face-detection-rest-api"></a>Ligue para a deteção facial REST API
 
-Adicione o seguinte método à classe **Programa**. Ele constrói uma chamada REST para o API de Detecção Facial para detectar informações de face na imagem remota (a cadeia de caracteres `requestParameters` especifica quais atributos de face recuperar). Em seguida, ele grava os dados de saída em uma cadeia de caracteres JSON.
+Adicione o seguinte método à classe **Programa**. Constrói uma chamada REST para a API facial para detetar informações faciais na imagem remota (a cadeia `requestParameters` especifica quais os atributos faciais para recuperar). Em seguida, escreve os dados de saída para uma cadeia JSON.
 
-Você definirá os métodos auxiliares nas etapas a seguir.
+Definirá os métodos de ajudante nos seguintes passos.
 
 ```csharp
         // Gets the analysis of the specified image by using the Face REST API.
@@ -154,9 +159,9 @@ Você definirá os métodos auxiliares nas etapas a seguir.
         }
 ```
 
-### <a name="process-the-input-image-data"></a>Processar os dados da imagem de entrada
+### <a name="process-the-input-image-data"></a>Processar os dados de imagem de entrada
 
-Adicione o seguinte método à classe **Programa**. Esse método converte a imagem na URL especificada em uma matriz de bytes.
+Adicione o seguinte método à classe **Programa**. Este método converte a imagem no URL especificado numa matriz byte.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -171,9 +176,9 @@ Adicione o seguinte método à classe **Programa**. Esse método converte a imag
         }
 ```
 
-### <a name="parse-the-json-response"></a>Analisar a resposta JSON
+### <a name="parse-the-json-response"></a>Parse a resposta JSON
 
-Adicione o seguinte método à classe **Programa**. Esse método formata a entrada JSON para ser legível com mais facilidade. Seu aplicativo gravará esses dados de cadeia de caracteres no console. Em seguida, você pode fechar a classe e o namespace.
+Adicione o seguinte método à classe **Programa**. Este método formata a entrada JSON para ser mais facilmente legível. A sua aplicação irá escrever estes dados de cordas para a consola. Pode então fechar a aula e o espaço de nome.
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.
@@ -244,7 +249,7 @@ Adicione o seguinte método à classe **Programa**. Esse método formata a entra
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
-Uma resposta bem-sucedida exibirá dados de face em formato JSON facilmente legível. Por exemplo:
+Uma resposta bem sucedida mostrará os dados do Face em formato JSON facilmente legível. Por exemplo:
 
 ```json
 [
@@ -342,7 +347,7 @@ Uma resposta bem-sucedida exibirá dados de face em formato JSON facilmente leg�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você criou um aplicativo de console .NET simples que usa chamadas REST com o serviço de face do Azure para detectar rostos em uma imagem e retornar seus atributos. Em seguida, explore a documentação de referência do API de Detecção Facial para saber mais sobre os cenários com suporte.
+Neste arranque rápido, criou uma aplicação simples de consola .NET que utiliza chamadas REST com o serviço Azure Face para detetar rostos numa imagem e devolver os seus atributos. Em seguida, explore a documentação de referência da API face para saber mais sobre os cenários suportados.
 
 > [!div class="nextstepaction"]
 > [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

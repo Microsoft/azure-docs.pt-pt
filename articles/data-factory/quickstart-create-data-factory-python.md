@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar um Azure Data Factory usando o Python'
+title: 'Quickstart: Criar uma fábrica de dados Azure usando python'
 description: Crie uma fábrica de dados do Azure para copiar dados de uma localização no armazenamento de Blobs do Azure para outra localização.
 services: data-factory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 1f799c8f2e2b209e9939845047c61d50bc1a244d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3b8edd249b19a61f8c80eb5b8c9df25754d4f070
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898526"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399514"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Criar uma fábrica de dados e um oleoduto usando python
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](quickstart-create-data-factory-python.md)
 
@@ -38,7 +38,7 @@ Os oleodutos podem ingerir dados de lojas de dados díspares. Os oleodutos proce
 
 * [Python 3.4+](https://www.python.org/downloads/).
 
-* [Uma conta de armazenamento do Azure](../storage/common/storage-account-create.md).
+* [Uma conta de Armazenamento Azure.](../storage/common/storage-account-create.md)
 
 * [Explorador de Armazenamento Azure](https://storageexplorer.com/) (opcional).
 
@@ -68,7 +68,7 @@ Os oleodutos podem ingerir dados de lojas de dados díspares. Os oleodutos proce
     pip install azure-mgmt-datafactory
     ```
 
-    O [SDK do Python para data Factory](https://github.com/Azure/azure-sdk-for-python) dá suporte a Python 2,7, 3,3, 3,4, 3,5, 3,6 e 3,7.
+    O [Python SDK para data factory](https://github.com/Azure/azure-sdk-for-python) suporta Python 2.7, 3.3, 3.4, 3.5, 3.6 e 3.7.
 
 ## <a name="create-a-data-factory-client"></a>Criar um cliente de fábrica de dados
 
@@ -157,7 +157,7 @@ Adicione o código seguinte ao método **Main** que cria uma **fábrica de dados
 
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
 
-Adicione o código seguinte ao método **Main** que cria um **serviço ligado do Armazenamento do Azure**.
+Adicione o código seguinte ao método **Main**, que cria um **serviço ligado do Armazenamento do Microsoft Azure**.
 
 Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Neste início rápido, só precisa de criar um serviço ligado do Armazenamento do Azure como origem de cópia e arquivo sink, com o nome "AzureStorageLinkedService" no exemplo. Substitua `<storageaccountname>` e `<storageaccountkey>` pelo nome e pela chave da sua conta de Armazenamento do Azure.
 
@@ -379,9 +379,9 @@ def main():
     act_name = 'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
-    dsin_ref = DatasetReference(ds_name)
-    dsOut_ref = DatasetReference(dsOut_name)
-    copy_activity = CopyActivity(act_name, inputs=[dsin_ref], outputs=[
+    dsin_ref = DatasetReference(reference_name=ds_name)
+    dsOut_ref = DatasetReference(reference_name=dsOut_name)
+    copy_activity = CopyActivity(name=act_name, inputs=[dsin_ref], outputs=[
                                  dsOut_ref], source=blob_source, sink=blob_sink)
 
     # Create a pipeline with the copy activity

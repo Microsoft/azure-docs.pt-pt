@@ -15,12 +15,12 @@ ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d6d621646aaa5c8c44a20cf327cd10fa31990b0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484541"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299334"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Compreenda o esquema da AD Azure
 Um objeto no Azure Ative Directory (Azure AD), como qualquer diretório, é uma construção programática de dados de alto nível que representa coisas como utilizadores, grupos e contactos. Quando cria um novo utilizador ou contacta em Azure AD, está a criar uma nova instância desse objeto. Estes casos podem ser diferenciados com base nas suas propriedades.
@@ -75,7 +75,7 @@ Para ver o esquema e verificar, siga estes passos.
 1.  Vá ao [Graph Explorer.](https://developer.microsoft.com/graph/graph-explorer)
 1.  Inscreva-se na sua conta de administrador global.
 1.  À esquerda, selecione **modificar permissões** e certifique-se de que **o Diretório.ReadWrite.All** is *Consented*.
-1.  Executar a consulta https://graph.microsoft.com/beta/serviceprincipals/?$filter=começa com (Displayname,'Active'). Esta consulta devolve uma lista filtrada de diretores de serviço.
+1.  Execute a consulta `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`. Esta consulta devolve uma lista filtrada de diretores de serviço.
 1.  Localize `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` e note o valor para `"id"`.
     ```
     "value": [
@@ -251,7 +251,7 @@ Para ver o esquema e verificar, siga estes passos.
 
    ![Esquema devolvido](media/concept-attributes/schema1.png)
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o provisionamento?](what-is-provisioning.md)
 - [O que é o fornecimento de nuvem Azure AD Connect?](what-is-cloud-provisioning.md)

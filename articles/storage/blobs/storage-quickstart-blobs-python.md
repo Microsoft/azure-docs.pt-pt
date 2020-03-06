@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 1eff8bbd7ce601a0145bb3c6c05bc09ee0024daf
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 19a35a6586b04818c09190899714345d21e0088d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196761"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330758"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Quickstart: Gerir bolhas com Python v12 SDK
 
@@ -103,7 +103,7 @@ O armazenamento da Blob Azure está otimizado para armazenar quantidades massiva
 
 O diagrama seguinte mostra a relação entre estes recursos.
 
-![Diagrama da arquitetura de armazenamento blob](./media/storage-blob-introduction/blob1.png)
+![Diagrama da arquitetura de armazenamento blob](./media/storage-blobs-introduction/blob1.png)
 
 Utilize as seguintes aulas de Python para interagir com estes recursos:
 

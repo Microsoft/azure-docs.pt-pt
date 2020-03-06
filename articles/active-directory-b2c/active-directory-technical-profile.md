@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 06c9e79a68540cb10557b0951b743bf841963057
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2c36a2c47605e7e672996a4a33734c9281dad042
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190267"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78397825"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de Diretório Ativo Azure numa política personalizada azure Ative Directory B2C
 
@@ -28,8 +28,8 @@ O Azure Ative Directory B2C (Azure AD B2C) presta suporte à gestão de utilizad
 
 O **nome** atributo do elemento **protocolo** tem de ser definido para `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo`Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Todos os perfis técnicos da AD Azure incluem o perfil técnico **AAD-Common.** Os seguintes perfis técnicos não especificam o protocolo porque o protocolo está configurado no perfil técnico **AAD-Common:**
-
+Os perfis técnicos da AD AD de [política personalizada](custom-policy-get-started.md#custom-policy-starter-pack) incluem o perfil técnico **AAD-Common.** Os perfis técnicos da AD Azure não especificam o protocolo porque o protocolo está configurado no perfil técnico **AAD-Common:**
+ 
 - **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Procure uma conta social no diretório.
 - **AAD-UserWriteUsingAlternativeSecurityId** - Criar uma nova conta social.
 - **AAD-UserReadUsingEmailAddress** - Procure uma conta local no diretório.

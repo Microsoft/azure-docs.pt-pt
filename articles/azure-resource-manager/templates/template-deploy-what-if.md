@@ -1,124 +1,291 @@
 ---
-title: Implantação de modelo What-if (visualização)
-description: Determine quais alterações ocorrerão para seus recursos antes de implantar um modelo de Azure Resource Manager.
+title: Implementação do modelo o que-se (Pré-visualização)
+description: Determine quais as mudanças que acontecerão aos seus recursos antes de implementar um modelo de Gestor de Recursos Azure.
 author: mumian
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 03/05/2020
 ms.author: jgao
-ms.openlocfilehash: edb9f5e35008b1270031d8e2d5c8a5efa37cb554
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b9d4150779842614a5dc284a2b3a489593fabfe1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484171"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388507"
 ---
-# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Operação What-If da implantação de modelo do Resource Manager (versão prévia)
+# <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Implementação do modelo do Gestor de Recursos que-se operação (Pré-visualização)
 
-Antes de implantar um modelo, talvez você queira Visualizar as alterações que ocorrerão. Azure Resource Manager fornece a operação What-If para permitir que você veja como os recursos serão alterados se você implantar o modelo. A operação What-If não faz nenhuma alteração nos recursos existentes. Em vez disso, ele prevê as alterações se o modelo especificado for implantado.
+Antes de implementar um modelo, é melhor visualizar as alterações que irão acontecer. O Azure Resource Manager fornece a operação "what-if" para que veja como os recursos vão mudar se implementar o modelo. A operação "e se" não faz alterações nos recursos existentes. Em vez disso, prevê as alterações se o modelo especificado for implantado.
 
 > [!NOTE]
-> A operação What-If está atualmente em visualização. Para usá-lo, você deve [se inscrever para a versão prévia](https://aka.ms/armtemplatepreviews). Como uma versão de visualização, os resultados podem, às vezes, mostrar que um recurso será alterado quando, na verdade, nenhuma alteração ocorrerá. Estamos trabalhando para reduzir esses problemas, mas precisamos de sua ajuda. Informe esses problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+> A operação "e se" está atualmente em pré-visualização. Para usá-lo, deve [inscrever-se para a pré-visualização](https://aka.ms/armtemplatepreviews). Como um lançamento de pré-visualização, os resultados podem por vezes mostrar que um recurso mudará quando, na verdade, nenhuma mudança acontecerá. Estamos a trabalhar para reduzir estes problemas, mas precisamos da sua ajuda. Por favor, informe estas questões em [https://aka.ms/whatifissues. ](https://aka.ms/whatifissues)
 
-Você pode usar a operação What-If com o `New-AzDeploymentWhatIf` comando do PowerShell ou as [implantações-What If](/rest/api/resources/deployments/whatif) operação REST.
+Pode utilizar a operação "what-if" com os comandos PowerShell ou as operações REST API.
 
-No PowerShell, a saída é semelhante a:
+No PowerShell, a saída inclui resultados codificados por cores que o ajudam a ver os diferentes tipos de alterações.
 
-![Implantação do modelo do Resource Manager e-se operação fullresourcepayload e tipos de alteração](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+![Implementação do modelo do Gestor de Recursos o que-se operação fullresourcepayload e tipos de mudança](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+
+O texto é:
+
+```powershell
+Resource and property changes are indicated with these symbols:
+  - Delete
+  + Create
+  ~ Modify
+
+The deployment will update the following scope:
+
+Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+  ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
+    - tags.Owner: "Team A"
+    ~ properties.addressSpace.addressPrefixes: [
+      - 0: "10.0.0.0/16"
+      + 0: "10.0.0.0/15"
+      ]
+    ~ properties.subnets: [
+      - 0:
+
+          name:                     "subnet001"
+          properties.addressPrefix: "10.0.0.0/24"
+
+      ]
+
+Resource changes: 1 to modify.
+```
+
+## <a name="what-if-commands"></a>E se comandos
+
+Pode utilizar a API Azure PowerShell ou Azure REST para a operação "e se".
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Para ver uma pré-visualização das alterações antes de implementar um modelo, adicione o parâmetro de comutação `-Whatif` ao comando de implantação.
+
+* `New-AzResourceGroupDeployment -Whatif` para implantações de grupos de recursos
+* `New-AzSubscriptionDeployment -Whatif` e `New-AzDeployment -Whatif` para implementações de nível de subscrição
+
+Ou, pode utilizar o parâmetro `-Confirm` mudar para pré-visualizar as alterações e ser solicitado para continuar com a implementação.
+
+* `New-AzResourceGroupDeployment -Confirm` para implantações de grupos de recursos
+* `New-AzSubscriptionDeployment -Confirm` e `New-AzDeployment -Confirm` para implementações de nível de subscrição
+
+Os comandos anteriores devolvem um resumo de texto que pode inspecionar manualmente. Para obter um objeto que possa inspecionar programáticamente para obter alterações, utilize:
+
+* `$results = Get-AzResourceGroupDeploymentWhatIf` para implantações de grupos de recursos
+* `$results = Get-AzSubscriptionDeploymentWhatIf` ou `$results = Get-AzDeploymentWhatIf` para implementações de nível de subscrição
+
+> [!NOTE]
+> Antes do lançamento da versão 2.0.1-alpha5, usou o comando `New-AzDeploymentWhatIf`. Este comando foi substituído pelos comandos `Get-AzDeploymentWhatIf`, `Get-AzResourceGroupDeploymentWhatIf`e `Get-AzSubscriptionDeploymentWhatIf`. Se usou uma versão anterior, precisa atualizar essa sintaxe. O parâmetro `-ScopeType` foi removido.
+
+### <a name="azure-rest-api"></a>API de DESCANSO Azul
+
+Para a API REST, utilize:
+
+* [Implementações - E se](/rest/api/resources/deployments/whatif) para implementações de grupos de recursos
+* [Implementações - E se no âmbito de subscrição](/rest/api/resources/deployments/whatifatsubscriptionscope) para implementações de nível de subscrição
 
 ## <a name="change-types"></a>Alterar tipos
 
-A operação What-If lista seis tipos diferentes de alterações:
+A operação "e se" enumera seis tipos diferentes de alterações:
 
-- **Criar**: o recurso não existe atualmente, mas está definido no modelo. O recurso será criado.
+- **Criar**: O recurso não existe atualmente, mas está definido no modelo. O recurso será criado.
 
-- **Excluir**: esse tipo de alteração se aplica somente ao usar o [modo completo](deployment-modes.md) para implantação. O recurso existe, mas não está definido no modelo. Com o modo completo, o recurso será excluído. Somente os recursos que [dão suporte à exclusão de modo completo](complete-mode-deletion.md) são incluídos nesse tipo de alteração.
+- **Eliminar**: Este tipo de alteração só se aplica quando se utiliza [o modo completo](deployment-modes.md) de implantação. O recurso existe, mas não está definido no modelo. Com o modo completo, o recurso será eliminado. Apenas os recursos que suportam a [eliminação completa](complete-mode-deletion.md) do modo estão incluídos neste tipo de alteração.
 
-- **Ignorar**: o recurso existe, mas não está definido no modelo. O recurso não será implantado ou modificado.
+- **Ignore**: O recurso existe, mas não está definido no modelo. O recurso não será implantado ou modificado.
 
-- **NoChange**: o recurso existe e é definido no modelo. O recurso será reimplantado, mas as propriedades do recurso não serão alteradas. Esse tipo de alteração é retornado quando [ResultFormat](#result-format) é definido como `FullResourcePayloads`, que é o valor padrão.
+- **NoChange**: O recurso existe e é definido no modelo. O recurso será redistribuído, mas as propriedades do recurso não mudarão. Este tipo de alteração é devolvido quando o [ResultFormat](#result-format) está definido para `FullResourcePayloads`, que é o valor padrão.
 
-- **Modify**: o recurso existe e é definido no modelo. O recurso será reimplantado e as propriedades do recurso serão alteradas. Esse tipo de alteração é retornado quando [ResultFormat](#result-format) é definido como `FullResourcePayloads`, que é o valor padrão.
+- **Modificar**: O recurso existe e é definido no modelo. O recurso será redistribuído e as propriedades do recurso mudarão. Este tipo de alteração é devolvido quando o [ResultFormat](#result-format) está definido para `FullResourcePayloads`, que é o valor padrão.
 
-- **Implantar**: o recurso existe e é definido no modelo. O recurso será reimplantado. As propriedades do recurso podem ou não ser alteradas. A operação retorna esse tipo de alteração quando não tem informações suficientes para determinar se as propriedades serão alteradas. Você só verá essa condição quando [ResultFormat](#result-format) estiver definido como `ResourceIdOnly`.
+- **Implementação**: O recurso existe e é definido no modelo. O recurso será redistribuído. As propriedades do recurso podem ou não mudar. A operação devolve este tipo de alteração quando não tem informação suficiente para determinar se alguma propriedade irá mudar. Só vê esta condição quando o [Formato de Resultados](#result-format) está definido para `ResourceIdOnly`.
 
-## <a name="deployment-scope"></a>Escopo da implantação
+## <a name="result-format"></a>Formato resultado
 
-Você pode usar a operação What-If para implantações no nível de assinatura ou grupo de recursos. Você define o escopo de implantação com o parâmetro `-ScopeType`. Os valores aceitos são `Subscription` e `ResourceGroup`. Este artigo demonstra implantações de grupo de recursos.
+Pode controlar o nível de detalhe que é devolvido sobre as alterações previstas. Nos comandos de implantação (`New-Az*Deployment`), utilize o parâmetro **-WhatIfResultFormat.** Nos comandos programáticos do objeto (`Get-Az*DeploymentWhatIf`), utilize o parâmetro **ResultFormat.**
 
-Para saber mais sobre implantações em nível de assinatura, confira [criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md#).
+Defina o parâmetro de formato para **FullResourcePayloads** para obter uma lista de recursos que irão alterar e detalhes sobre as propriedades que irão mudar. Defina o parâmetro de formato para **O RecursoIdOnly** para obter uma lista de recursos que irão mudar. O valor predefinido é **FullResourcePayloads**.  
 
-## <a name="result-format"></a>Formato do resultado
+Os seguintes resultados mostram os dois formatos de saída diferentes:
 
-Você pode controlar o nível de detalhe que é retornado sobre as alterações previstas. Defina o parâmetro `ResultFormat` como `FullResourcePayloads` para obter uma lista de recursos que serão alterados e detalhes sobre as propriedades que serão alteradas. Defina o parâmetro `ResultFormat` como `ResourceIdOnly` para obter uma lista de recursos que serão alterados. O valor predefinido é `FullResourcePayloads`.  
+- Cargas completas de recursos
 
-As capturas de tela a seguir mostram os dois formatos de saída diferentes:
+  ```powershell
+  Resource and property changes are indicated with these symbols:
+    - Delete
+    + Create
+    ~ Modify
 
-- Cargas de recursos completas
+  The deployment will update the following scope:
 
-    ![Implantação do modelo do Gerenciador de recursos e-se operação fullresourcepayloads saída](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
+  Scope: /subscriptions/./resourceGroups/ExampleGroup
 
-- Somente ID do recurso
+    ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
+      - tags.Owner: "Team A"
+      ~ properties.addressSpace.addressPrefixes: [
+        - 0: "10.0.0.0/16"
+        + 0: "10.0.0.0/15"
+        ]
+      ~ properties.subnets: [
+        - 0:
 
-    ![Implantação do modelo do Gerenciador de recursos e-se operação resourceidonly saída](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-resourceidonly.png)
+          name:                     "subnet001"
+          properties.addressPrefix: "10.0.0.0/24"
 
-## <a name="run-what-if-operation"></a>Executar a operação What-If
+        ]
+
+  Resource changes: 1 to modify.
+  ```
+
+- ID de recursos apenas
+
+  ```powershell
+  Resource and property changes are indicated with this symbol:
+    ! Deploy
+
+  The deployment will update the following scope:
+
+  Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+    ! Microsoft.Network/virtualNetworks/vnet-001
+
+  Resource changes: 1 to deploy.
+  ```
+
+## <a name="run-what-if-operation"></a>Executar o que-se operação
 
 ### <a name="set-up-environment"></a>Configurar o ambiente
 
-Para ver como funciona o que acontece, vamos executar alguns testes. Primeiro, implante um modelo de [modelos de início rápido do Azure que cria uma conta de armazenamento](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json). O tipo de conta de armazenamento padrão é `Standard_LRS`. Você usará essa conta de armazenamento para testar como as alterações são relatadas por What-If.
+Para ver como funciona, vamos fazer alguns testes. Primeiro, implemente um [modelo que crie uma rede virtual.](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json) Utilizará esta rede virtual para testar como as mudanças são reportadas pelo "e se".
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzResourceGroup `
   -Name ExampleGroup `
   -Location centralus
 New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
 ```
 
-### <a name="test-modification"></a>Modificação de teste
+### <a name="test-modification"></a>Modificação do teste
 
-Após a conclusão da implantação, você estará pronto para testar a operação What-If. Execute o comando What-If, mas altere o tipo de conta de armazenamento para `Standard_GRS`.
+Depois da implementação terminar, está pronto para testar a operação "e se". Desta vez implemente um [modelo que altera a rede virtual](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Falta-lhe uma das etiquetas originais, uma sub-rede foi removida e o prefixo de endereço mudou.
 
-```azurepowershell-interactive
-New-AzDeploymentWhatIf `
-  -ScopeType ResourceGroup `
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Whatif `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" `
-  -storageAccountType Standard_GRS
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
 
-A saída What-If é semelhante a:
+A saída do que-se parece semelhante a:
 
-![Saída da operação What-If da implantação de modelo do Resource Manager](./media/template-deploy-what-if/resource-manager-deployment-whatif-output.png)
+![Implementação do modelo do Gestor de Recursos o que-se a saída de operação](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-Observe na parte superior da saída que as cores são definidas para indicar o tipo de alterações.
+A saída de texto é:
 
-Na parte inferior da saída, ele mostra que o nome do SKU (tipo de conta de armazenamento) será alterado de **Standard_LRS** para **Standard_GRS**.
+```powershell
+Resource and property changes are indicated with these symbols:
+  - Delete
+  + Create
+  ~ Modify
 
-Algumas das propriedades listadas como excluídas não serão realmente alteradas. Na imagem anterior, essas propriedades são accessTier, Encryption. KeySource e outras nessa seção. As propriedades podem ser relatadas incorretamente como excluídas quando não estão no modelo, mas são definidas automaticamente durante a implantação como valores padrão. Esse resultado é considerado "ruído" na resposta What-If. O recurso implantado final terá os valores definidos para as propriedades. Como a operação What-If amadurece, essas propriedades serão filtradas do resultado.
+The deployment will update the following scope:
 
-### <a name="test-deletion"></a>Exclusão de teste
+Scope: /subscriptions/./resourceGroups/ExampleGroup
 
-A operação What-If dá suporte ao uso do [modo de implantação](deployment-modes.md). Quando definido para o modo completo, os recursos que não estão no modelo são excluídos. O exemplo a seguir implanta um [modelo que não tem recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) no modo completo.
+  ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
+    - tags.Owner: "Team A"
+    ~ properties.addressSpace.addressPrefixes: [
+      - 0: "10.0.0.0/16"
+      + 0: "10.0.0.0/15"
+      ]
+    ~ properties.subnets: [
+      - 0:
 
-```azurepowershell-interactive
-New-AzDeploymentWhatIf `
-  -ScopeType ResourceGroup `
+        name:                     "subnet001"
+        properties.addressPrefix: "10.0.0.0/24"
+
+      ]
+
+Resource changes: 1 to modify.
+```
+
+Note no topo da saída que as cores são definidas para indicar o tipo de alterações.
+
+Na parte inferior da saída, mostra que a etiqueta Proprietário foi eliminada. O prefixo do endereço passou de 10.0.0.0/16 para 10.0.0.0.0/15. A sub-rede chamada subnet001 foi eliminada. Lembre-se que estas mudanças não foram realmente implementadas. Você vê uma pré-visualização das mudanças que acontecerão se implementar o modelo.
+
+Algumas das propriedades que estão listadas como eliminadas não vão realmente mudar. As propriedades podem ser incorretamente reportadas como eliminadas quando não estão no modelo, mas são automaticamente definidas durante a implementação como valores predefinidos. Este resultado é considerado "ruído" na resposta "e se". O recurso implantado final terá os valores definidos para as propriedades. À medida que a operação se amadurece, estas propriedades serão filtradas fora do resultado.
+
+## <a name="programmatically-evaluate-what-if-results"></a>Avaliar programáticamente os resultados do que se
+
+Agora, vamos avaliar programáticamente os resultados do que se, definindo o comando para uma variável.
+
+```azurepowershell
+$results = Get-AzResourceGroupDeploymentWhatIf `
+  -ResourceGroupName ExampleGroup `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
+```
+
+Pode ver um resumo de cada mudança.
+
+```azurepowershell
+foreach ($change in $results.Changes)
+{
+  $change.Delta
+}
+```
+
+## <a name="confirm-deletion"></a>Confirmar eliminação
+
+A operação "e se" suporta a utilização do modo de [implantação](deployment-modes.md). Quando definido para completar o modo, os recursos não no modelo são eliminados. O exemplo seguinte implementa um [modelo que não tem recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) em modo completo.
+
+Para pré-visualizar alterações antes de implementar um modelo, utilize o parâmetro de comutação `-Confirm` com o comando de implantação. Se as alterações forem como esperava, confirme que pretende que a implementação esteja concluída.
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Confirm `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
   -Mode Complete
 ```
 
-Como nenhum recurso está definido no modelo e o modo de implantação está definido como concluído, a conta de armazenamento será excluída.
+Como não são definidos recursos no modelo e o modo de implementação está definido para ser concluído, a rede virtual será eliminada.
 
-![Implantação do modelo do Resource Manager o modo de implantação de saída de operação de conclusão](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
+![Modo de implementação do modelo do Gestor de Recursos o que-se o modo de implementação de saída de operação completo](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
 
-É importante lembrar que, se não fizer nenhuma alteração real. A conta de armazenamento ainda existe em seu grupo de recursos.
+A saída de texto é:
+
+```powershell
+Resource and property changes are indicated with this symbol:
+  - Delete
+
+The deployment will update the following scope:
+
+Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+  - Microsoft.Network/virtualNetworks/vnet-001
+
+      id:
+"/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.Network/virtualNet
+works/vnet-001"
+      location:        "centralus"
+      name:            "vnet-001"
+      tags.CostCenter: "12345"
+      tags.Owner:      "Team A"
+      type:            "Microsoft.Network/virtualNetworks"
+
+Resource changes: 1 to delete.
+
+Are you sure you want to execute the deployment?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+```
+
+Vê as alterações esperadas e pode confirmar que quer que a implantação seja executada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se você observar resultados incorretos da versão de visualização de What-If, informe os problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- Para implantar modelos com Azure PowerShell, consulte [implantar recursos com modelos do Resource Manager e Azure PowerShell](deploy-powershell.md).
-- Para implantar modelos com REST, consulte [implantar recursos com modelos do Resource Manager e a API REST do Gerenciador de recursos](deploy-rest.md).
-- Para reverter para uma implantação bem-sucedida quando você receber um erro, consulte [reverter em caso de erro para a implantação bem-sucedida](rollback-on-error.md).
+- Se notar resultados incorretos a partir da versão prévia do que-se, por favor reporte os problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- Para implementar modelos com O PowerShell Azure, consulte [a implantação de recursos com modelos](deploy-powershell.md)de Gestor de Recursos e PowerShell Azure .
+- Para implementar modelos com REST, consulte implementar recursos com modelos de Gestor de [Recursos e Gestor de Recursos REST API](deploy-rest.md).
