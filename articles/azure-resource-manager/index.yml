@@ -10,19 +10,19 @@ metadata:
   ms.collection: collection
   author: tfitzmac
   ms.author: tomfitz
-  ms.date: 12/19/2019
-  ms.openlocfilehash: d094dce17f9f79b37bc5a226d756713f6e57be6a
-  ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+  ms.date: 03/04/2020
+  ms.openlocfilehash: 6a0c4ecff3f381dc12ba3ce6f385782754857bfe
+  ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/06/2020
-  ms.locfileid: "75680652"
+  ms.lasthandoff: 03/05/2020
+  ms.locfileid: "78297736"
 highlightedContent:
   items:
   - title: O que é o Resource Manager?
     itemType: overview
     url: management/overview.md
-  - title: O que são os modelos?
+  - title: O que são modelos do ARM?
     itemType: overview
     url: templates/overview.md
   - title: Criar o primeiro modelo
@@ -30,7 +30,7 @@ highlightedContent:
     url: templates/template-tutorial-create-first-template.md
 conceptualContent:
   items:
-  - title: Implementar modelos do Resource Manager
+  - title: Implementar modelos do ARM
     links:
     - url: templates/overview.md
       itemType: overview

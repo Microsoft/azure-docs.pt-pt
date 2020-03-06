@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 15a1d5ddd84a9683a2666ecbd58918b99186278e
-  ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+  ms.openlocfilehash: 25cff0d0ea007bdd55131ab334a5813344991d0e
+  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/19/2020
-  ms.locfileid: "77468166"
+  ms.lasthandoff: 03/06/2020
+  ms.locfileid: "78672137"
 landingContent:
 - title: Sobre a Configuração da Aplicação Azure
   linkLists:
@@ -60,6 +60,8 @@ landingContent:
       url: quickstart-azure-functions-csharp.md
     - text: Codificar uma aplicação Spring Boot
       url: quickstart-java-spring-app.md
+    - text: Modelo Azure Resource Manager
+      url: quickstart-resource-manager.md
   - linkListType: tutorial
     links:
     - text: Utilizar a configuração dinâmica em ASP.NET Core

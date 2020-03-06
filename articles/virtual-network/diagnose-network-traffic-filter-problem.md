@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar um problema de filtragem de tráfego de rede de máquina virtual | Documentos da Microsoft
-description: Saiba como diagnosticar um problema de filtragem de tráfego de rede de máquina virtual ao visualizar as regras de segurança efetivas para uma máquina virtual.
+title: Diagnosticar um problema de filtro de tráfego de rede de máquinas virtuais Microsoft Docs
+description: Aprenda a diagnosticar um problema de filtro de tráfego de rede de máquinas virtuais visualizando as regras de segurança eficazes para uma máquina virtual.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -16,72 +16,72 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712662"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388867"
 ---
-# <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtragem de tráfego de rede de máquina virtual
+# <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquinas virtuais
 
-Neste artigo, saiba como diagnosticar um problema de filtragem de tráfego de rede ao visualizar as regras de segurança de grupo (NSG) de segurança de rede que estão em vigor a partir de uma máquina virtual (VM).
+Neste artigo, aprende-se a diagnosticar um problema de filtro de tráfego de rede, visualizando as regras de segurança do grupo de segurança da rede (NSG) que são eficazes para uma máquina virtual (VM).
 
-Os NSGs permitem controlar os tipos de tráfego esse fluxo dentro e fora de uma VM. Pode associar um NSG a uma sub-rede numa rede virtual do Azure, uma interface de rede ligada a uma VM, ou ambos. As regras de segurança efetivas aplicadas a uma interface de rede são uma agregação das regras que existem no NSG associado a uma interface de rede e a sub-rede a interface de rede está numa. As regras em NSGs diferentes, às vezes, podem entrar em conflito entre si e afetar a conectividade de rede de uma VM. Pode ver todas as regras de segurança efetivas de NSGs que são aplicadas em interfaces de rede da VM. Se não estiver familiarizado com a rede virtual, a interface de rede ou a conceitos NSG, consulte [descrição geral de rede Virtual](virtual-networks-overview.md), [interface de rede](virtual-network-network-interface.md), e [descrição geral dosdegruposdesegurançaderede](security-overview.md).
+As NSGs permitem controlar os tipos de tráfego que fluem dentro e fora de um VM. Pode associar um NSG a uma subrede numa rede virtual Azure, uma interface de rede ligada a um VM, ou ambos. As regras de segurança efetivas aplicadas a uma interface de rede são uma agregação das regras existentes no NSG associadas a uma interface de rede, e a subrede em que a interface de rede está. Regras em nsgs diferentes podem por vezes entrar em conflito entre si e afetar a conectividade da rede de uma VM. Pode ver todas as regras de segurança eficazes dos NSGs que são aplicadas nas interfaces de rede do seu VM. Se não estiver familiarizado com conceitos de rede virtual, interface de rede ou NSG, consulte [a visão geral da rede virtual,](virtual-networks-overview.md)interface de [rede](virtual-network-network-interface.md)e visão geral dos grupos de segurança [da rede.](security-overview.md)
 
 ## <a name="scenario"></a>Cenário
 
-Tentar estabelecer ligação a uma VM através da porta 80 a partir da internet, mas a ligação falha. Para determinar por que não é possível aceder a porta 80 a partir da Internet, pode ver as regras de segurança efetivas para interfaces de rede através do Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell), ou o [da CLI do Azure](#diagnose-using-azure-cli).
+Tenta-se ligar-se a um VM através da porta 80 da internet, mas a ligação falha. Para determinar por que não consegue aceder à porta 80 a partir da Internet, pode ver as regras de segurança eficazes para uma interface de rede utilizando o [portal](#diagnose-using-azure-portal)Azure, [PowerShell](#diagnose-using-powershell)ou o [Azure CLI](#diagnose-using-azure-cli).
 
-Os passos que se seguem partem do princípio de que tem uma VM existente para ver as regras de segurança efetivas para. Se não tiver uma VM existente, primeiro implementar um [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM para concluir as tarefas neste artigo com. Os exemplos neste artigo são para uma VM com o nome *myVM* com uma interface de rede com o nome *myVMVMNic*. A interface de rede e a VM estiver num grupo de recursos com o nome *myResourceGroup*e o *E.U.A. Leste* região. Altere os valores nos passos, conforme apropriado, para diagnosticar o problema para a VM.
+Os passos que se seguem assumem que tem um VM existente para ver as regras de segurança eficazes para. Se não tiver um VM existente, implemente primeiro um [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM para completar as tarefas neste artigo com. Os exemplos deste artigo são para um VM chamado *myVM* com uma interface de rede chamada *myVVVMNic*. O VM e a interface de rede estão num grupo de recursos chamado *myResourceGroup*, e estão na região *leste dos EUA.* Mude os valores nos passos, se for caso disso, para o VM para o que está a diagnosticar o problema.
 
-## <a name="diagnose-using-azure-portal"></a>Diagnosticar através do portal do Azure
+## <a name="diagnose-using-azure-portal"></a>Diagnosticar usando o portal Azure
 
-1. Inicie sessão no Azure [portal](https://portal.azure.com) com uma conta do Azure com o [as permissões necessárias](virtual-network-network-interface.md#permissions).
-2. Na parte superior do portal do Azure, introduza o nome da VM na caixa de pesquisa. Quando o nome da VM for apresentada nos resultados da pesquisa, selecione-o.
-3. Sob **configurações**, selecione **Networking**, conforme mostrado na imagem seguinte:
+1. Inicie sessão no [portal](https://portal.azure.com) Azure com uma conta Azure que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+2. No topo do portal Azure, insira o nome do VM na caixa de pesquisa. Quando o nome do VM aparecer nos resultados da pesquisa, selecione-o.
+3. Em **DEFINIÇÕES**, selecione **Networking**, como mostrado na seguinte imagem:
 
    ![Ver regras de segurança](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-   As regras que vê listadas na imagem anterior são para uma interface de rede com o nome **myVMVMNic**. Ver o que há **regras de porta de entrada** para a interface de rede de dois grupos de segurança de rede diferente:
+   As regras que vê listadas na imagem anterior são para uma interface de rede chamada **myVMVMNic**. Verifica que existem regras de entrada na **interface** da rede de dois grupos diferentes de segurança de rede:
    
-   - **mySubnetNSG**: Associado à sub-rede que está a interface de rede.
-   - **myVMNSG**: Associado à interface de rede na VM com o nome **myVMVMNic**.
+   - **mySubnetNSG**: Associado à sub-rede em que a interface de rede está.
+   - **myVMNSG**: Associado à interface de rede no VM denominado **myVMVMNic**.
 
-   A regra com o nome **DenyAllInBound** é o que está a impedir comunicação de entrada para a VM através da porta 80, a internet, conforme descrito no [cenário](#scenario). As listas de regra *0.0.0.0/0* para **origem**, que inclui a internet. Nenhuma outra regra com prioridade mais alta (número mais baixo) permite que a porta 80 entrada. Para permitir que a porta 80 para a VM de entrada da internet, consulte [resolver um problema](#resolve-a-problem). Para saber mais sobre as regras de segurança e como o Azure aplica-as, veja [grupos de segurança de rede](security-overview.md).
+   A regra chamada **DenyAllInBound** é o que impede a comunicação de entrada para o VM sobre a porta 80, a partir da internet, como descrito no [cenário](#scenario). A regra lista *0.0.0.0/0* para a **SOURCE,** que inclui a internet. Nenhuma outra regra com uma prioridade mais elevada (número inferior) permite a entrada da porta 80. Para permitir a entrada da porta 80 no VM a partir da internet, consulte [Resolver um problema](#resolve-a-problem). Para saber mais sobre as regras de segurança e como o Azure as aplica, consulte os grupos de [segurança da Rede.](security-overview.md)
 
-   Na parte inferior da imagem, verá também **regras de porta de saída**. Em que são as regras de porta de saída para a interface de rede. Embora a figura mostra apenas quatro regras de entrada para cada NSG, seus NSGs podem ter muitas regras mais de quatro. Na imagem, veja **VirtualNetwork** sob **origem** e **destino** e **AzureLoadBalancer** em  **ORIGEM**. **VirtualNetwork** e **AzureLoadBalancer** são [etiquetas de serviço](security-overview.md#service-tags). Etiquetas de serviço representam um grupo de prefixos de endereços IP para o ajudar a minimizar a complexidade para a criação de regra de segurança.
+   Na parte inferior da imagem, consulte também regras de **porta de saída**. Segundo estas são as regras de saída da porta para a interface da rede. Embora a imagem apenas mostre quatro regras de entrada para cada NSG, os seus NSGs podem ter muito mais do que quatro regras. Na imagem, **vê-se** a Rede Virtual em **FONTE** e **DESTINO** e **AzureLoadBalancer** em **SOURCE**. **VirtualNetwork** e **AzureLoadBalancer** são etiquetas de [serviço.](security-overview.md#service-tags) As etiquetas de serviço representam um grupo de prefixos de endereço IP para ajudar a minimizar a complexidade para a criação de regras de segurança.
 
-4. Certifique-se de que a VM está em execução, estadual e, em seguida, selecione **regras de segurança efetivas**, conforme mostrado na imagem anterior, para ver as regras de segurança efetivas, mostradas na imagem seguinte:
+4. Certifique-se de que o VM está em estado de funcionamento e, em seguida, selecione regras de **segurança eficazes,** como mostra a imagem anterior, para ver as regras de segurança efetivas, mostradas na imagem seguinte:
 
-   ![Ver regras de segurança efetivas](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![Ver regras de segurança eficazes](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-   As regras listadas são que as mesmas conforme vimos na passo 3, embora haja guias diferentes para o NSG associado à interface de rede e a sub-rede. Como pode ver na imagem, são apresentadas apenas as 50 primeiras regras. Para transferir um ficheiro. csv que contém todas as regras, selecione **transferir**.
+   As regras listadas são as mesmas que viu no passo 3, embora existam separadores diferentes para o NSG associados à interface de rede e à sub-rede. Como pode ver na imagem, apenas as primeiras 50 regras são mostradas. Para descarregar um ficheiro .csv que contenha todas as regras, selecione **Download**.
 
-   Para ver os prefixos que cada etiqueta de serviço representa, selecione uma regra, tal como a regra com o nome **AllowAzureLoadBalancerInbound**. A imagem seguinte mostra os prefixos para o **AzureLoadBalancer** etiqueta de serviço:
+   Para ver quais os prefixos que cada etiqueta de serviço representa, selecione uma regra, como a regra denominada **AllowAzureLoadBalancerInbound**. A imagem seguinte mostra os prefixos da etiqueta de serviço **AzureLoadBalancer:**
 
-   ![Ver regras de segurança efetivas](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![Ver regras de segurança eficazes](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
-   Embora o **AzureLoadBalancer** etiquetas de serviço apenas representam um prefixo, outras etiquetas de serviço representam vários prefixos.
+   Embora a etiqueta de serviço **AzureLoadBalancer** represente apenas um prefixo, outras etiquetas de serviço representam vários prefixos.
 
-5. Os passos anteriores mostraram as regras de segurança para uma interface de rede com o nome **myVMVMNic**, mas também viu uma interface de rede com o nome **myVMVMNic2** em algumas das imagens anteriores. A VM neste exemplo tem duas interfaces de rede ligados ao mesmo. As regras de segurança efetivas podem ser diferentes para cada interface de rede.
+5. Os passos anteriores mostraram as regras de segurança de uma interface de rede chamada **myVVVMNic,** mas também viu uma interface de rede chamada **myVMVMNic2** em algumas das imagens anteriores. O VM neste exemplo tem duas interfaces de rede ligadas ao mesmo. As regras de segurança eficazes podem ser diferentes para cada interface de rede.
 
-   Para ver as regras para o **myVMVMNic2** interface de rede, selecione-o. Como mostrado na imagem que se segue, a interface de rede tem as mesmas regras associadas à sua sub-rede como a **myVMVMNic** interface, de rede, uma vez que ambas as interfaces de rede estão na mesma sub-rede. Quando associa um NSG a uma sub-rede, as suas regras são aplicadas a todas as interfaces de rede na sub-rede.
+   Para ver as regras da interface de rede **myVMVMNic2,** selecione-a. Como mostra a imagem que se segue, a interface de rede tem as mesmas regras associadas à sua subnet a interface de rede **myVMVMNic,** porque ambas as interfaces de rede estão na mesma sub-rede. Quando associa um NSG a uma subneta, as suas regras são aplicadas a todas as interfaces de rede na subrede.
 
    ![Ver regras de segurança](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
-   Ao contrário do **myVMVMNic** interface de rede, o **myVMVMNic2** interface de rede não tem um grupo de segurança de rede associado à mesma. Cada interface de rede e sub-rede podem ter zero ou um NSG associado a si. O NSG associado a cada interface de rede ou sub-rede pode ser o mesmo, ou em diferentes. Pode associar o mesmo grupo de segurança de rede a tantas interfaces de rede e sub-redes que escolher.
+   Ao contrário da interface de rede **myVVVMNic,** a interface de rede **myVVVMNic2** não tem um grupo de segurança de rede associado a ele. Cada interface de rede e sub-rede podem ter zero, ou um, NSG associado a ela. O NSG associado a cada interface de rede ou sub-rede pode ser o mesmo, ou diferente. Pode associar o mesmo grupo de segurança de rede ao maior número de interfaces e subredes de rede que quiser.
 
-Apesar de regras de segurança efetivas foram visualizadas através da VM, também pode ver as regras de segurança efetivas por meio de um indivíduo:
-- **Interface de rede**: Saiba como [exibir uma interface de rede](virtual-network-network-interface.md#view-network-interface-settings).
-- **NSG**: Saiba como [ver um NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
+Embora regras de segurança eficazes tenham sido vistas através do VM, você também pode ver regras de segurança eficazes através de um indivíduo:
+- **Interface de rede**: Aprenda a [visualizar uma interface](virtual-network-network-interface.md#view-network-interface-settings)de rede .
+- **NSG:** Aprenda a [ver um NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
 
-## <a name="diagnose-using-powershell"></a>Diagnosticar a utilizar o PowerShell
+## <a name="diagnose-using-powershell"></a>Diagnosticar usando PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pode executar os comandos que se seguem na [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, terá do módulo Azure PowerShell, versão 1.0.0 ou posterior. Executar `Get-Module -ListAvailable Az` no seu computador, para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver executando o PowerShell localmente, terá também de ser executado `Connect-AzAccount` iniciar sessão no Azure com uma conta que tenha o [as permissões necessárias](virtual-network-network-interface.md#permissions)].
+Pode executar os comandos que se seguem na Casca de [Nuvem Azure,](https://shell.azure.com/powershell)ou executando a PowerShell a partir do seu computador. A Casca de Nuvem Azure é uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, precisa do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no seu computador, para encontrar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar a PowerShell localmente, também precisa de executar `Connect-AzAccount` para entrar no Azure com uma conta que tenha as [permissões necessárias].](virtual-network-network-interface.md#permissions)
 
-Obter as regras de segurança efetivas para uma interface de rede com [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). O exemplo seguinte obtém as regras de segurança efetivas para uma interface de rede com o nome *myVMVMNic*, que é um grupo de recursos chamado *myResourceGroup*:
+Obtenha as regras de segurança eficazes para uma interface de rede com [get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). O exemplo seguinte obtém as regras de segurança eficazes para uma interface de rede chamada *myVMVMNic,* que está num grupo de recursos chamado *myResourceGroup:*
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -89,19 +89,19 @@ Get-AzEffectiveNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-Resultado é devolvido no formato json. Para compreender a saída, veja [interpretar a saída do comando](#interpret-command-output).
-Saída só é devolvida se um NSG é associado a interface de rede, a sub-rede na qual que a interface de rede se encontra ou ambos. A VM tem de ser em execução. Uma VM pode ter várias interfaces de rede com diferentes NSGs aplicados. Quando a resolução de problemas, execute o comando para cada interface de rede.
+A saída é devolvida em formato Json. Para compreender a saída, consulte [a saída de comando .](#interpret-command-output)
+A saída só é devolvida se um NSG estiver associado à interface de rede, a sub-rede em que a interface de rede está, ou ambos. O VM deve estar no estado de corrida. Um VM pode ter várias interfaces de rede com NSGs diferentes aplicados. Quando resolver problemas, execute o comando para cada interface de rede.
 
-Se ainda estiver a ter um problema de conectividade, veja [diagnóstico adicional](#additional-diagnosis) e [considerações](#considerations).
+Se ainda tiver um problema de conectividade, consulte [um diagnóstico](#additional-diagnosis) adicional e [considerações.](#considerations)
 
-Se não souber o nome de uma interface de rede, mas souber o nome da VM a interface de rede está ligada a, os seguintes comandos devolvem os IDs de todas as interfaces de rede ligadas a uma VM:
+Se não sabe o nome de uma interface de rede, mas sabe o nome do VM a interface de rede a que a interface de rede está ligada, os seguintes comandos devolvem os IDs de todas as interfaces de rede anexadas a um VM:
 
 ```azurepowershell-interactive
 $VM = Get-AzVM -Name myVM -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
 ```
 
-Recebe um resultado semelhante ao seguinte exemplo:
+Recebe uma saída semelhante ao seguinte exemplo:
 
 ```powershell
 NetworkInterfaces
@@ -109,13 +109,13 @@ NetworkInterfaces
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
 ```
 
-Na saída anterior, o nome de interface de rede está *myVMVMNic*.
+Na saída anterior, o nome da interface de rede é *myVMVMNic*.
 
-## <a name="diagnose-using-azure-cli"></a>Diagnosticar com a CLI do Azure
+## <a name="diagnose-using-azure-cli"></a>Diagnosticar usando Azure CLI
 
-Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este artigo requer a versão 2.0.32 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de ser executado `az login` e inicie sessão no Azure com uma conta que tenha o [as permissões necessárias](virtual-network-network-interface.md#permissions).
+Se utilizar comandos de interface de linha de comando Azure (CLI) para completar tarefas neste artigo, execute os comandos na [Casca de Nuvem Azure,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este artigo requer a versão Azure CLI 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI localmente, também precisa de executar `az login` e entrar no Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
 
-Obter as regras de segurança efetivas para uma interface de rede com [az network nic lista-em vigor-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). O exemplo seguinte obtém as regras de segurança efetivas para uma interface de rede com o nome *myVMVMNic* que está no grupo de recursos chamado *myResourceGroup*:
+Obtenha as regras de segurança eficazes para uma interface de rede com [az rede nic lista-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). O exemplo seguinte obtém as regras de segurança eficazes para uma interface de rede chamada *myVMVMNic* que está num grupo de recursos chamado *myResourceGroup:*
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -123,12 +123,12 @@ az network nic list-effective-nsg \
   --resource-group myResourceGroup
 ```
 
-Resultado é devolvido no formato json. Para compreender a saída, veja [interpretar a saída do comando](#interpret-command-output).
-Saída só é devolvida se um NSG é associado a interface de rede, a sub-rede na qual que a interface de rede se encontra ou ambos. A VM tem de ser em execução. Uma VM pode ter várias interfaces de rede com diferentes NSGs aplicados. Quando a resolução de problemas, execute o comando para cada interface de rede.
+A saída é devolvida em formato Json. Para compreender a saída, consulte [a saída de comando .](#interpret-command-output)
+A saída só é devolvida se um NSG estiver associado à interface de rede, a sub-rede em que a interface de rede está, ou ambos. O VM deve estar no estado de corrida. Um VM pode ter várias interfaces de rede com NSGs diferentes aplicados. Quando resolver problemas, execute o comando para cada interface de rede.
 
-Se ainda estiver a ter um problema de conectividade, veja [diagnóstico adicional](#additional-diagnosis) e [considerações](#considerations).
+Se ainda tiver um problema de conectividade, consulte [um diagnóstico](#additional-diagnosis) adicional e [considerações.](#considerations)
 
-Se não souber o nome de uma interface de rede, mas souber o nome da VM a interface de rede está ligada a, os seguintes comandos devolvem os IDs de todas as interfaces de rede ligadas a uma VM:
+Se não sabe o nome de uma interface de rede, mas sabe o nome do VM a interface de rede a que a interface de rede está ligada, os seguintes comandos devolvem os IDs de todas as interfaces de rede anexadas a um VM:
 
 ```azurecli-interactive
 az vm show \
@@ -136,7 +136,7 @@ az vm show \
   --resource-group myResourceGroup
 ```
 
-Dentro de saída retornada, verá informações semelhantes ao seguinte exemplo:
+Dentro da saída devolvida, vê informações semelhantes ao seguinte exemplo:
 
 ```azurecli
 "networkProfile": {
@@ -150,58 +150,58 @@ Dentro de saída retornada, verá informações semelhantes ao seguinte exemplo:
       },
 ```
 
-Na saída anterior, o nome de interface de rede está *myVMVMNic interface*.
+Na saída anterior, o nome da interface de rede é *interface myVMVMNic*.
 
-## <a name="interpret-command-output"></a>Interpretar a saída do comando
+## <a name="interpret-command-output"></a>Interpretar a saída de comando
 
-Independentemente se tiver usado o [PowerShell](#diagnose-using-powershell), ou o [CLI do Azure](#diagnose-using-azure-cli) para diagnosticar o problema, recebe um resultado que contém as seguintes informações:
+Independentemente de ter usado o [PowerShell](#diagnose-using-powershell), ou o [Azure CLI](#diagnose-using-azure-cli) para diagnosticar o problema, recebe uma saída que contém as seguintes informações:
 
-- **NetworkSecurityGroup**: O ID do grupo de segurança de rede.
-- **Associação**: Se o grupo de segurança de rede está associado a um *NetworkInterface* ou *sub-rede*. Se um NSG é associado a ambos, o resultado é devolvido com **NetworkSecurityGroup**, **associação**, e **EffectiveSecurityRules**, para cada NSG. Se o NSG é associado ou desassociar imediatamente antes de executar o comando para ver as regras de segurança efetivas, poderá ter de aguardar alguns segundos para que a alteração para refletir no resultado do comando.
-- **EffectiveSecurityRules**: Obter uma explicação de cada propriedade é detalhada no [criar uma regra de segurança](manage-network-security-group.md#create-a-security-rule). Regra nomes prefaciados pela *defaultSecurityRules /* são padrão regras de segurança que existem em cada NSG. Regra nomes prefaciados pela *securityrules foi /* são regras que criou. As regras que especificam um [etiqueta de serviço](security-overview.md#service-tags), tal como **Internet**, **VirtualNetwork**, e **AzureLoadBalancer** para o  **destinationAddressPrefix** ou **sourceAddressPrefix** propriedades, também tem valores para o **expandedDestinationAddressPrefix** propriedade. O **expandedDestinationAddressPrefix** propriedade apresenta uma lista de todos os prefixos de endereço representados por etiqueta de serviço.
+- **NetworkSecurityGroup**: O ID do grupo de segurança da rede.
+- **Associação**: Se o grupo de segurança da rede está associado a uma Interface de *Rede* ou *subnet*. Se um NSG estiver associado a ambos, a saída é devolvida com **NetworkSecurityGroup**, **Association**, e **EffectiveSecurityRules**, para cada NSG. Se o NSG estiver associado ou dissociado imediatamente antes de executar o comando para ver as regras de segurança eficazes, poderá ter de esperar alguns segundos para que a alteração se reflita na saída do comando.
+- **Regras de Segurança Eficazes**: Uma explicação de cada propriedade é detalhada em [Criar uma regra](manage-network-security-group.md#create-a-security-rule)de segurança . Os nomes de regras prefaciados com regras de *segurança padrão/* são regras de segurança padrão que existem em cada NSG. Nomes de regras prefaciados com *segurançaRegras/* são regras que criou. As regras que especificam uma [etiqueta de serviço](security-overview.md#service-tags), como **internet,** **VirtualNetwork,** e **AzureLoadBalancer** para as propriedades **DestinationAddressPrefix** ou **sourceAddressPrefix,** também têm valores para a propriedade **expandidaDestinationAddressPrefix.** A propriedade **expandidaDestinationAddressPrefix** lista todos os prefixos de endereço representados pela etiqueta de serviço.
 
-Se vir regras duplicadas listadas no resultado, é porque um NSG é associado à interface de rede e a sub-rede. Ambos os NSGs têm as mesmas regras padrão e podem ter regras duplicadas adicionais, se tiver criado as suas próprias regras que são os mesmos em ambos os NSGs.
+Se vir regras duplicadas listadas na saída, é porque um NSG está associado tanto à interface de rede como à sub-rede. Ambos os NSGs têm as mesmas regras padrão, e podem ter regras duplicadas adicionais, se você criou as suas próprias regras que são as mesmas em ambos os NSGs.
 
-A regra com o nome **defaultSecurityRules/DenyAllInBound** é o que está a impedir comunicação de entrada para a VM através da porta 80, a internet, conforme descrito no [cenário](#scenario). Nenhuma outra regra com prioridade mais alta (número mais baixo) permite que a porta 80 de entrada da internet.
+A regra denominada **defaultSecurityRules/DenyAllInBound** é o que impede a comunicação de entrada para o VM sobre a porta 80, a partir da internet, conforme descrito no [cenário](#scenario). Nenhuma outra regra com uma prioridade maior (número inferior) permite a entrada da porta 80 a partir da internet.
 
 ## <a name="resolve-a-problem"></a>Resolver um problema
 
-Se utilizar o Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell), ou o [da CLI do Azure](#diagnose-using-azure-cli) para diagnosticar o problema apresentado a [cenário](#scenario) desta artigo, a solução é criar uma regra de segurança de rede com as seguintes propriedades:
+Quer utilize o [portal](#diagnose-using-azure-portal)Azure, [PowerShell,](#diagnose-using-powershell)ou o [Azure CLI](#diagnose-using-azure-cli) para diagnosticar o problema apresentado no [cenário](#scenario) neste artigo, a solução é criar uma regra de segurança de rede com as seguintes propriedades:
 
-| Propriedade                | Value                                                                              |
+| Propriedade                | Valor                                                                              |
 |---------                |---------                                                                           |
-| source                  | Qualquer                                                                                |
+| Origem                  | Qualquer                                                                                |
 | Intervalo de portas de origem      | Qualquer                                                                                |
-| Destino             | O endereço IP da VM, um intervalo de endereços IP ou todos os endereços na sub-rede. |
+| Destino             | O endereço IP do VM, uma gama de endereços IP, ou todos os endereços na sub-rede. |
 | Intervalos de portas de destino | 80                                                                                 |
-| Protocol                | TCP                                                                                |
+| Protocolo                | TCP                                                                                |
 | Ação                  | Permitir                                                                              |
 | Prioridade                | 100                                                                                |
-| Name                    | Allow-HTTP-All                                                                     |
+| Nome                    | Allow-HTTP-All                                                                     |
 
-Depois de criar a regra, é permitida a porta 80 de entrada da internet, porque a prioridade da regra é maior do que a regra de segurança predefinida com o nome *DenyAllInBound*, que nega o tráfego. Saiba como [criar uma regra de segurança](manage-network-security-group.md#create-a-security-rule). Se diferentes NSGs estão associados à interface de rede e a sub-rede, tem de criar a mesma regra em ambos os NSGs.
+Depois de criar a regra, a porta 80 é permitida a entrada a partir da internet, porque a prioridade da regra é maior do que a regra de segurança padrão chamada *DenyAllInBound*, que nega o tráfego. Aprenda a criar uma regra de [segurança.](manage-network-security-group.md#create-a-security-rule) Se diferentes NSGs estiverem associados tanto à interface da rede como à sub-rede, deve criar a mesma regra em ambos os NSGs.
 
-Quando o Azure processa o tráfego de entrada, processa regras num NSG associado à sub-rede (se houver um NSG associado) e, em seguida, processa as regras num NSG associado à interface de rede. Se houver um NSG associado para a interface de rede e a sub-rede, a porta tem de estar aberta em ambos os NSGs, para o tráfego alcance a VM. Para facilitar a administração e comunicação com problemas, recomendamos que associa um NSG a uma sub-rede, em vez de interfaces de rede individuais. Se as VMs numa sub-rede têm regras de segurança diferentes, pode tornar a rede de membros de interfaces de um grupo de segurança de aplicação (ASG) e especifique um ASG como origem e destino de uma regra de segurança. Saiba mais sobre [grupos de segurança de aplicativo](security-overview.md#application-security-groups).
+Quando o Azure processa o tráfego de entrada, processa as regras no NSG associadas à sub-rede (se houver um NSG associado), e depois processa as regras no NSG associadas à interface da rede. Se houver um NSG associado à interface de rede e à sub-rede, a porta deve estar aberta em ambas as NSGs, para que o tráfego chegue ao VM. Para aliviar os problemas de administração e comunicação, recomendamos que associe um NSG a uma subnet, em vez de interfaces individuais de rede. Se os VMs dentro de uma subnet precisarem de regras de segurança diferentes, pode fazer as interfaces de rede membros de um grupo de segurança de aplicações (ASG), e especificar um ASG como fonte e destino de uma regra de segurança. Saiba mais sobre grupos de segurança de [aplicações.](security-overview.md#application-security-groups)
 
-Se ainda estiver a ter problemas de comunicação, consulte [considerações](#considerations) e diagnóstico adicional.
+Se ainda tiver problemas de comunicação, consulte [considerações](#considerations) e diagnóstico adicional.
 
 ## <a name="considerations"></a>Considerações
 
-Na solução de problemas de conectividade, considere os seguintes pontos:
+Considere os seguintes pontos ao resolver problemas de conectividade:
 
-* Regras de segurança predefinidas bloquear o acesso de entrada da internet e permitem apenas tráfego de entrada a partir da rede virtual. Para permitir o tráfego de entrada da Internet, adicione regras de segurança com uma prioridade mais alta do que as regras predefinidas. Saiba mais sobre [regras de segurança predefinidas](security-overview.md#default-security-rules), ou como [adicionar uma regra de segurança](manage-network-security-group.md#create-a-security-rule).
-* Se tiver executado o peering redes virtuais, por predefinição, o **VIRTUAL_NETWORK** etiqueta de serviço automaticamente se expande para incluir os prefixos de redes virtuais em modo de peering. Para resolver quaisquer problemas relacionados com o peering de rede virtual, pode ver os prefixos no **ExpandedAddressPrefix** lista. Saiba mais sobre [peering de rede virtual](virtual-network-peering-overview.md) e [etiquetas de serviço](security-overview.md#service-tags).
-* Regras de segurança efetivas só são mostradas para uma interface de rede, se houver um NSG associado à interface de rede da VM e, em alternativa, sub-rede, e se a VM está em execução.
-* Se não há nenhum NSGs associados com a interface de rede ou sub-rede e, se tiver um [endereço IP público](virtual-network-public-ip-address.md) atribuído a uma VM, a todas as portas estão abertas para acesso de entrada do e acesso de saída para qualquer lugar. Se a VM tiver um endereço IP público, recomendamos que aplicar um NSG à sub-rede da interface de rede.
+* As regras de segurança predefinidas bloqueiam o acesso à entrada a partir da internet e apenas permitem o tráfego de entrada a partir da rede virtual. Para permitir o tráfego de entrada a partir da Internet, adicione regras de segurança com uma prioridade maior do que as regras padrão. Saiba mais sobre [as regras](security-overview.md#default-security-rules)de segurança padrão , ou como adicionar uma regra de [segurança](manage-network-security-group.md#create-a-security-rule).
+* Se tiver espreitado redes virtuais, por padrão, a etiqueta de serviço **VIRTUAL_NETWORK** expande-se automaticamente para incluir prefixos para redes virtuais com pares. Para resolver problemas relacionados com o peering virtual da rede, pode ver os prefixos na lista **DePrefixo expandido.** Saiba mais sobre [o peering de rede virtual](virtual-network-peering-overview.md) e [etiquetas de serviço.](security-overview.md#service-tags)
+* Regras de segurança eficazes só são mostradas para uma interface de rede se houver um NSG associado à interface de rede do VM e, ou, sub-rede, e se o VM estiver em estado de funcionamento.
+* Se não existirem NSGs associados à interface ou sub-rede de rede, e tiver um [endereço IP público](virtual-network-public-ip-address.md) atribuído a um VM, todas as portas estão abertas para acesso de entrada e saída a qualquer lugar. Se o VM tiver um endereço IP público, recomendamos a aplicação de um NSG na sub-rede da interface de rede.
 
 ## <a name="additional-diagnosis"></a>Diagnóstico adicional
 
-* Para executar um teste rápido para determinar se o tráfego é permitido para ou a partir de uma VM, utilize o [fluxo de IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) capacidade do observador de rede do Azure. Verificação do fluxo de IP indica se o tráfego é permitido ou negado. Se negado, fluxo de IP Certifique-se diz a quais regras de segurança é negar o tráfego.
-* Se não existirem não existem regras de segurança, fazendo com que a conectividade de rede de uma VM efetuar a ativação, o problema pode ser devido a:
-  * Software de firewall em execução no sistema de operativo da VM
-  * Rotas configuradas para aplicações virtuais ou tráfego no local. O tráfego da Internet pode ser redirecionado para a sua rede no local através de [imposição de túnel](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se forçar o tráfego de internet de túnel para uma aplicação virtual ou no local, poderá não conseguir ligar à VM a partir da internet. Para saber como diagnosticar problemas de rotas que poderão impedir o fluxo de tráfego de VM, veja [diagnosticar um problema de encaminhamento de tráfego de rede virtual machine](diagnose-network-routing-problem.md).
+* Para efelo um teste rápido para determinar se o tráfego é permitido de ou para um VM, utilize a capacidade de [verificação](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) de fluxo IP do Observador da Rede Azure. A verificação do fluxo IP diz-lhe se o tráfego é permitido ou negado. Se negado, a verificação do fluxo IP diz-lhe qual a regra de segurança que está a negar o tráfego.
+* Se não houver regras de segurança que causem o fracasso da conectividade da rede de um VM, o problema pode dever-se a:
+  * Software de firewall em execução dentro do sistema operativo da VM
+  * Rotas configuradas para aparelhos virtuais ou tráfego no local. O tráfego de internet pode ser redirecionado para a sua rede no local através [de túneis forçados](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se forçar o tráfego de internet do túnel a um aparelho virtual, ou no local, poderá não conseguir ligar-se ao VM a partir da internet. Para aprender a diagnosticar problemas de rota que possam impedir o fluxo de tráfego para fora do VM, consulte [Diagnosticar um problema de encaminhamento](diagnose-network-routing-problem.md)de tráfego de rede de máquinas virtuais .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre todas as tarefas, propriedades e definições para um [grupo de segurança de rede](manage-network-security-group.md#work-with-network-security-groups) e [regras de segurança](manage-network-security-group.md#work-with-security-rules).
-- Saiba mais sobre [regras de segurança predefinidas](security-overview.md#default-security-rules), [etiquetas de serviço](security-overview.md#service-tags), e [como o Azure processa as regras de segurança para o tráfego de entrada e saída](security-overview.md#network-security-groups) para uma VM.
+- Conheça todas as tarefas, propriedades e configurações para um grupo de segurança de [rede](manage-network-security-group.md#work-with-network-security-groups) e regras de [segurança.](manage-network-security-group.md#work-with-security-rules)
+- Conheça [as regras](security-overview.md#default-security-rules)de segurança padrão , etiquetas de [serviço,](security-overview.md#service-tags)e [como o Azure processa as regras](security-overview.md#network-security-groups) de segurança para o tráfego de entrada e saída para um VM.

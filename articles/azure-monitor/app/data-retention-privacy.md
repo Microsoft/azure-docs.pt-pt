@@ -4,11 +4,11 @@ description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
 ms.date: 09/29/2019
 ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78254881"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368044"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados em Insights de Aplicação
 

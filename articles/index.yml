@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 89c9b59a1f258e57adc98a917160d2ed2d6f4e33
-  ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+  ms.openlocfilehash: 256bae142cad43325f96871c377eaa53660ffafe
+  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/28/2020
-  ms.locfileid: "78163918"
+  ms.lasthandoff: 03/06/2020
+  ms.locfileid: "78673523"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -1247,7 +1247,7 @@ tools:
     imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
     url: https://docs.microsoft.com/azure/python/
   - title: .NET
-    imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
+    imageSrc: ./media/index/net-logo.svg
     url: https://docs.microsoft.com/dotnet/azure/
   - title: Node.js
     imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
@@ -1288,7 +1288,7 @@ additionalContent:
       url: azure-government/index.yml
     - title: Azure Alemanha
       summary: Uma cloud dedicada que cumpre os regulamentos alemães de processamento de dados.
-      url: germany/index.md
+      url: germany/index.yml
     - title: Azure China 21Vianet
       summary: Uma cloud dedicada localizada na China e operada pela 21Vianet.
       url: https://docs.microsoft.com/azure/china/

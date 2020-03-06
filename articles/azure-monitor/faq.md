@@ -8,11 +8,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
 ms.openlocfilehash: 169cc3f6a195a7339ab33eb9f00d9937451a93e0
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620439"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395383"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Monitor Azure frequentemente questionado
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 71cf1a2c4a0a2ff07d2aa0b48a8ee3bb3da8a540
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919720"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373093"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de Gestão de Atualização em Azure
 
@@ -27,9 +27,9 @@ Pode ativar a Gestão de Atualizações para máquinas virtuais (VMs) utilizando
 > [!NOTE]
 > A solução Update Management requer a ligação de um espaço de trabalho de Log Analytics à sua conta Deautomação. Para obter uma lista definitiva de regiões apoiadas, consulte [os mapeamentos do Espaço de Trabalho Azure.](./how-to/region-mappings.md) Os mapeamentos da região não afetam a capacidade de gerir VMs numa região separada da sua conta de Automação.
 
-Está disponível um modelo de Gestor de [Recursos](automation-update-management-deploy-template.md) Azure que lhe permite implementar a solução de Gestão de Atualização para uma nova conta de Automação ou existente e espaço de trabalho log Analytics na sua subscrição.
-
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Está disponível um modelo de Gestor de [Recursos](automation-update-management-deploy-template.md) Azure que lhe permite implementar a solução de Gestão de Atualização para uma nova conta de Automação ou existente e espaço de trabalho log Analytics na sua subscrição.
 
 ## <a name="solution-overview"></a>Descrição geral da solução
 
@@ -248,10 +248,15 @@ A Update Management conta com o repositório de atualização configurado localm
 
 Para começar a atualizar os sistemas, é necessário ativar a solução de Gestão de Atualização. Seguem-se os métodos recomendados e suportados para embarcar na solução:
 
-* [De uma máquina virtual](automation-onboard-solutions-from-vm.md)
-* [Desde navegar em várias máquinas](automation-onboard-solutions-from-browse.md)
-* [Da sua conta de Automação](automation-onboard-solutions-from-automation-account.md)
-* [Com um livro de execução azure Automation](automation-onboard-solutions.md)
+- [De uma máquina virtual](automation-onboard-solutions-from-vm.md)
+
+- [Desde navegar em várias máquinas](automation-onboard-solutions-from-browse.md)
+
+- [Da sua conta de Automação](automation-onboard-solutions-from-automation-account.md)
+
+- [Com um livro de execução azure Automation](automation-onboard-solutions.md)
+
+- [Com um modelo de Gestor de Recursos Azure](automation-update-management-deploy-template.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

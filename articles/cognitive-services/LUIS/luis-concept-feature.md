@@ -1,5 +1,5 @@
 ---
-title: Recursos-LUIS
+title: Características - LUIS
 titleSuffix: Azure Cognitive Services
 description: Adicione recursos para um modelo de idioma para fornecer sugestões sobre como a reconhecer a entrada que deseja identificar ou classificar.
 services: cognitive-services
@@ -12,83 +12,83 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
 ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280904"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393893"
 ---
-# <a name="machine-learned-features"></a>Recursos aprendidos por máquina 
+# <a name="machine-learned-features"></a>Características aprendidas por máquinas 
 
-No Machine Learning, um _recurso_ é uma característica ou atributo diferenciado dos dados que seu sistema observa & aprende. No Reconhecimento vocal (LUIS), um recurso descreve e explica o que é significativo sobre suas intenções e entidades.
+No machine learning, uma _característica_ é um traço distintivo ou atributo de dados que o seu sistema observa e aprende através. Na Compreensão da Linguagem (LUIS), uma funcionalidade descreve e explica o que é significativo sobre as suas intenções e entidades.
 
-No [portal do Luis de visualização](https://preview.luis.ai), os recursos são _descritores_ porque são usados para _descrever_ a intenção ou a entidade.  
+No [portal DE pré-visualização LUIS,](https://preview.luis.ai)as funcionalidades são _descritores_ porque são usadas para _descrever_ a intenção ou entidade.  
 
-## <a name="features-_descriptors_-in-language-understanding"></a>Recursos (_descritores_) no reconhecimento vocal
+## <a name="features-_descriptors_-in-language-understanding"></a>Características _(descritores)_ na compreensão da linguagem
 
-Recursos, também conhecidos como descritores, descrevem pistas para ajudar a Reconhecimento vocal a identificar o exemplo declarações. As funcionalidades incluem: 
+As funcionalidades, também conhecidas como descritores, descrevem pistas para ajudar a Compreensão da Linguagem a identificar as expressões do exemplo. As funcionalidades incluem: 
 
-* Lista de frases como um recurso para intenções ou entidades
-* Entidades como recursos para intenções ou entidades
+* Lista de frases como recurso a intenções ou entidades
+* Entidades como características de intenções ou entidades
 
-Os recursos devem ser considerados como uma parte necessária do esquema para a decomposição do modelo. 
+As funcionalidades devem ser consideradas como uma parte necessária do seu esquema para a decomposição do modelo. 
 
 ## <a name="what-is-a-phrase-list"></a>O que é uma lista de frases
 
-Uma lista de frases é uma lista de palavras, frases, números ou outros caracteres que ajudam a identificar o conceito que você está tentando identificar. A lista não diferencia maiúsculas de minúsculas. 
+Uma lista de frases é uma lista de palavras, frases, números ou outros caracteres que ajudam a identificar o conceito que está a tentar identificar. A lista é insensível a casos. 
 
 ## <a name="when-to-use-a-phrase-list"></a>Quando usar uma lista de frases
 
-Com uma lista de frases, LUIS considera contexto e generalizações para identificar itens semelhantes a, mas não uma correspondência de texto exata. Se você precisar que seu aplicativo LUIS seja capaz de generalizar e identificar novos itens, use uma lista de frases. 
+Com uma lista de frases, a LUIS considera o contexto e generaliza para identificar itens semelhantes, mas não uma correspondência exata de texto. Se precisar da sua aplicação LUIS para poder generalizar e identificar novos itens, utilize uma lista de frases. 
 
-Quando você quiser ser capaz de reconhecer novas instâncias, como um Agendador de reunião que deve reconhecer os nomes de novos contatos ou um aplicativo de inventário que deve reconhecer novos produtos, comece com uma entidade aprendida por computador. Em seguida, crie uma lista de frases que ajude a LUIS a localizar palavras com significado semelhante. Esta lista de frases orienta o LUIS a reconhecer exemplos adicionando um significado adicional ao valor dessas palavras. 
+Quando pretende reconhecer novos casos, como um programador de reuniões que deve reconhecer os nomes de novos contactos, ou uma app de inventário que deve reconhecer novos produtos, comece por uma entidade aprendida por máquinas. Em seguida, crie uma lista de frases que ajude LUIS a encontrar palavras com significado semelhante. Esta lista de frases guia luis a reconhecer exemplos adicionando significado adicional ao valor dessas palavras. 
 
 Listas de frase são como vocabulário específicas de domínio que o ajudam a com a melhorar a qualidade da compreensão dos objetivos e entidades. 
 
 ## <a name="considerations-when-using-a-phrase-list"></a>Considerações ao usar uma lista de frases
 
-Uma lista de frases é aplicada, por padrão, a todos os modelos no aplicativo. Isso funcionará para listas de frases que podem cruzar todas as intenções e entidades. Para desdação, você deve aplicar uma lista de frases apenas aos modelos aos quais ela é relevante. 
+Uma lista de frases é aplicada, por padrão, a todos os modelos da aplicação. Isto funcionará para listas de frases que possam cruzar todas as intenções e entidades. Para a descomposição, deve aplicar uma lista de frases apenas aos modelos a que é relevante. 
 
-Se você criar uma lista de frases (criada globalmente por padrão), aplique-a posteriormente como um descritor (recurso) a um modelo específico, ela será removida dos outros modelos. Essa remoção adiciona relevância à lista de frases para o modelo ao qual ela é aplicada, ajudando a melhorar a precisão que ela fornece no modelo. 
+Se criar uma lista de frases (criada globalmente por padrão), depois aplice-a como descritor (recurso) a um modelo específico, é removida dos outros modelos. Esta remoção acrescenta relevância à lista de frases para o modelo a que é aplicada, ajudando a melhorar a precisão que proporciona no modelo. 
 
-O sinalizador `enabledForAllModels` controla esse escopo de modelo na API. 
+A bandeira `enabledForAllModels` controla este âmbito de modelo na API. 
 
 <a name="how-to-use-phrase-lists"></a>
 
 ### <a name="how-to-use-a-phrase-list"></a>Como usar uma lista de frases
 
-[Crie uma lista de frases](luis-how-to-add-features.md) quando sua intenção ou entidade tiver palavras ou frases importantes, como:
+[Crie uma lista de frases](luis-how-to-add-features.md) quando a sua intenção ou entidade tem palavras ou frases importantes tais como:
 
-* termos do setor
-* gírias
-* abreviações
-* idioma específico da empresa
-* linguagem que é de outro idioma, mas frequentemente usada em seu aplicativo
-* Palavras-chave e frases em seu exemplo declarações
+* termos da indústria
+* gíria
+* abreviaturas
+* linguagem específica da empresa
+* linguagem que é de outra língua, mas frequentemente usado na sua app
+* palavras-chave e frases nas suas declarações exemplo
 
-**Não** adicione todas as palavras ou frases possíveis. Em vez disso, adicione algumas palavras ou frases de cada vez e, em seguida, retreine e publique. À medida que a lista cresce ao longo do tempo, você pode achar que alguns termos têm muitas formas (sinônimos). Divida-os em outra lista. 
+**Não** adicione todas as palavras ou frases possíveis. Em vez disso, adicione algumas palavras ou frases de cada vez, em seguida, retree e publique. À medida que a lista cresce ao longo do tempo, poderá descobrir que alguns termos têm muitas formas (sinónimos). Quebre isto para outra lista. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="when-to-use-an-entity-as-a-feature"></a>Quando usar uma entidade como um recurso 
+## <a name="when-to-use-an-entity-as-a-feature"></a>Quando usar uma entidade como recurso 
 
-Uma entidade pode ser adicionada como um recurso no nível de intenção ou de entidade. 
+Uma entidade pode ser adicionada como uma funcionalidade a nível de intenção ou entidade. 
 
-### <a name="entity-as-a-feature-to-an-intent"></a>Entidade como um recurso para uma intenção
+### <a name="entity-as-a-feature-to-an-intent"></a>Entidade como característica de uma intenção
 
-Adicione uma entidade como um descritor (recurso) a uma intenção quando a detecção dessa entidade for significativa para a intenção.
+Adicione uma entidade como descritor (recurso) a uma intenção quando a deteção dessa entidade é significativa para a intenção.
 
-Por exemplo, se a intenção é para reservar um vôo e a entidade são informações de tíquete (como o número de estações, origem e destino), localizar a entidade de informações de tíquete deve adicionar peso à previsão da tentativa de vôo do livro. 
+Por exemplo, se a intenção é reservar um voo e a entidade for informação de bilhetes (como o número de lugares, origem e destino), então encontrar a entidade de informação do bilhete deve adicionar peso à previsão da intenção do voo do livro. 
 
-### <a name="entity-as-a-feature-to-another-entity"></a>Entidade como um recurso para outra entidade
+### <a name="entity-as-a-feature-to-another-entity"></a>Entidade como recurso a outra entidade
 
-Uma entidade (A) deve ser adicionada como um recurso a outra entidade (B) quando a detecção dessa entidade (A) é significativa para a previsão da entidade (B).
+Uma entidade (A) deve ser adicionada como uma característica a outra entidade (B) quando a deteção dessa entidade (A) for significativa para a previsão da entidade (B).
 
-Por exemplo, se a entidade endereço (a) for detectada, a localização do endereço (A) adiciona peso à previsão para a entidade endereço de envio (B). 
+Por exemplo, se a entidade de endereço de rua (A) for detetada, então encontrar o endereço de rua (A) adiciona peso à previsão para a entidade de endereço de envio (B). 
 
 ## <a name="best-practices"></a>Melhores práticas
-Conheça [as práticas recomendadas](luis-concept-best-practices.md).
+Aprenda [as melhores práticas.](luis-concept-best-practices.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [Adicionar recursos](luis-how-to-add-features.md) para saber mais sobre como adicionar recursos ao seu aplicativo Luis.
+Consulte [funcionalidades adicionais](luis-how-to-add-features.md) para saber mais sobre como adicionar funcionalidades à sua aplicação LUIS.

@@ -1,6 +1,6 @@
 ---
-title: Migrando servidores e VMs para o Azure com Azure Site Recovery
-description: Descreve como migrar VMs de IaaS locais e do Azure para o Azure usando o serviço Azure Site Recovery.
+title: Servidores migratórios e VMs para Azure com recuperação do site Azure
+description: Descreve como migrar no local e VMs Azure IaaS para Azure usando o serviço de recuperação de locais Azure.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,40 +9,40 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620607"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362908"
 ---
 # <a name="about-migration"></a>Acerca da migração
 
-Leia este artigo para obter uma visão geral rápida de como o serviço de [Azure site Recovery](site-recovery-overview.md) ajuda a migrar computadores. 
+Leia este artigo para uma visão geral rápida de como o serviço de recuperação de [sites Azure](site-recovery-overview.md) o ajuda a migrar máquinas. 
 
-Veja o que você pode migrar usando Site Recovery:
+Aqui está o que você pode migrar usando a Recuperação do Site:
 
-- **Migrar do local para o Azure**: migrar VMs do Hyper-V locais, VMS VMware e servidores físicos para o Azure. Após a migração, as cargas de trabalho em execução nas máquinas no local vão estar em execução em VMs do Azure. 
+- **Migrar de instalações para Azure**: Migrar no local Hiper-V VMs, VMs VMware e servidores físicos para Azure. Após a migração, as cargas de trabalho em execução nas máquinas no local vão estar em execução em VMs do Azure. 
 - **Migrar no Azure**: migre VMs do Azure entre regiões do Azure. 
 - **Migrar AWS**: migre instâncias do Windows AWS para VMs IaaS do Azure. 
 
 > [!NOTE]
-> Agora você pode migrar do local para o Azure usando o serviço migrações para Azure. [Saiba mais](../migrate/migrate-overview.md).
+> Agora pode migrar de instalações para Azure usando o serviço Azure Migrate. [Saiba mais](../migrate/migrate-overview.md).
 
 ## <a name="what-do-we-mean-by-migration"></a>O que queremos dizer com migração?
 
-Além de usar Site Recovery para recuperação de desastres de VMs locais e do Azure, você pode usar o serviço de Site Recovery para migrá-los. Qual é a diferença?
+Além de utilizar a Recuperação do Site para a recuperação de desastres nas instalações e vMs azure, pode utilizar o serviço de Recuperação do Site para os migrar. Qual é a diferença?
 
-- Para a recuperação de desastres, você replica os computadores regularmente para o Azure. Quando ocorre uma interrupção, você realiza o failover dos computadores do site primário para o site secundário do Azure e os acessa a partir daí. Quando o site primário estiver disponível novamente, você realiza o failback do Azure.
-- Para a migração, você Replica máquinas locais para o Azure ou VMs do Azure para uma região secundária. Em seguida, faça o failover da VM do site primário para o secundário e conclua o processo de migração. Não há nenhuma reativação pós-falha envolvida.  
+- Para a recuperação de desastres, você replica máquinas regularmente para Azure. Quando ocorre uma paragem, falha-se as máquinas do local primário para o local secundário do Azure e acede-as a partir daí. Quando o site principal estiver disponível novamente, você ressatique de Azure.
+- Para a migração, você replica máquinas no local para Azure, ou VMs Azure para uma região secundária. Depois falha-se o VM do local primário para o secundário e completa-se o processo de migração. Não há nenhuma reativação pós-falha envolvida.  
 
 
 ## <a name="migration-scenarios"></a>Cenários de migração
 
 **Cenário** | **Detalhes**
 --- | ---
-**Migrar do local para o Azure** | Você pode migrar VMs VMware locais, VMs Hyper-V e servidores físicos para o Azure. Para fazer isso, você completa quase as mesmas etapas que faria para a recuperação completa de desastres. Você simplesmente não faz failback de computadores do Azure para o site local.
-**Migrar entre regiões do Azure** | Você pode migrar VMs do Azure de uma região do Azure para outra. Depois que a migração for concluída, você poderá configurar a recuperação de desastre para as VMs do Azure agora na região secundária para a qual você migrou.
-**Migrar o AWS para o Azure** | Pode migrar instâncias do AWS para VMs do Azure. Site Recovery trata as instâncias de AWS como servidores físicos para fins de migração. 
+**Migrar de instalações para Azure** | Pode migrar vMs no local, VMs hiper-V e servidores físicos para o Azure. Para isso, completa-se quase os mesmos passos que faria para a recuperação total de desastres. Simplesmente não falha saquede máquinas de Azure para o local.
+**Migrar entre regiões do Azure** | Pode migrar VMs Azure de uma região de Azure para outra. Após a migração estar completa, pode configurar a recuperação de desastres para os VMs Azure agora na região secundária para onde emigrou.
+**Migrar o AWS para o Azure** | Pode migrar instâncias do AWS para VMs do Azure. A Recuperação do Site trata os casos de AWS como servidores físicos para efeitos de migração. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

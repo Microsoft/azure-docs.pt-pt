@@ -559,11 +559,17 @@
             - name: Eliminar De (Delta Lake no Azure Databricks)
               href: /azure/databricks/spark/latest/spark-sql/language-manual/delete-from
               maintainContext: true
+            - name: Negar
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/deny
+              maintainContext: true
             - name: Descrever a Base de Dados
               href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-database
               maintainContext: true
             - name: Descrever a Função
               href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-function
+              maintainContext: true
+            - name: Descrever o Histórico (Delta Lake no Azure Databricks)
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-history
               maintainContext: true
             - name: Descrever a Tabela
               href: /azure/databricks/spark/latest/spark-sql/language-manual/describe-table
@@ -577,6 +583,9 @@
             - name: Remover a Tabela
               href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-table
               maintainContext: true
+            - name: Remover a Vista
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/drop-view
+              maintainContext: true
             - name: Explicar
               href: /azure/databricks/spark/latest/spark-sql/language-manual/explain
               maintainContext: true
@@ -585,6 +594,9 @@
               maintainContext: true
             - name: Funções
               href: /azure/databricks/spark/latest/spark-sql/language-manual/functions
+              maintainContext: true
+            - name: Concessão
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/grant
               maintainContext: true
             - name: Gerar
               href: /azure/databricks/spark/latest/spark-sql/language-manual/generate
@@ -598,6 +610,9 @@
             - name: Unir (Delta Lake no Azure Databricks)
               href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
               maintainContext: true
+            - name: Msck
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/msck
+              maintainContext: true
             - name: Otimizar (Delta Lake no Azure Databricks)
               href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
               maintainContext: true
@@ -606,6 +621,9 @@
               maintainContext: true
             - name: Repor
               href: /azure/databricks/spark/latest/spark-sql/language-manual/reset
+              maintainContext: true
+            - name: Revogar
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/revoke
               maintainContext: true
             - name: Selecione
               href: /azure/databricks/spark/latest/spark-sql/language-manual/select
@@ -624,6 +642,9 @@
               maintainContext: true
             - name: Mostrar as Funções
               href: /azure/databricks/spark/latest/spark-sql/language-manual/show-functions
+              maintainContext: true
+            - name: Mostrar Concessão
+              href: /azure/databricks/spark/latest/spark-sql/language-manual/show-grant
               maintainContext: true
             - name: Mostrar as Partições
               href: /azure/databricks/spark/latest/spark-sql/language-manual/show-partitions
@@ -879,10 +900,10 @@
               href: /azure/databricks/applications/mlflow/quick-start
               maintainContext: true
             - name: Introdução ao MLflow Java e Scala
-              href: /azure/databricks/applications/mlflow/  quick-start-java-scala
+              href: /azure/databricks/applications/mlflow/quick-start-java-scala
               maintainContext: true
             - name: Introdução ao MLflow Python
-              href: /azure/databricks/applications/mlflow/  quick-start-python
+              href: /azure/databricks/applications/mlflow/quick-start-python
               maintainContext: true
             - name: Introdução ao MLflow R
               href: /azure/databricks/applications/mlflow/quick-start-r
@@ -1091,8 +1112,8 @@
                 - name: Ativar o Controlo de acesso a tabelas
                   href: /azure/databricks/administration-guide/access-control/table-acls/table-acl
                   maintainContext: true
-                - name: Definir as Permissões num Objeto de Dados
-                  href: /azure/databricks/administration-guide/access-control/table-acls/object-permissions
+                - name: Definir Privilégios num Objeto de Dados
+                  href: /azure/databricks/administration-guide/access-control/table-acls/object-privileges
                   maintainContext: true
             - name: Controlo de acesso a áreas de trabalho
               href: /azure/databricks/administration-guide/access-control/workspace-acl
@@ -1160,6 +1181,9 @@
           items:
             - name: Quem eliminou uma área de trabalho no Azure
               href: /azure/databricks/kb/administration/who-deleted-workspace
+              maintainContext: true
+            - name: Quem eliminou um cluster no Azure
+              href: /azure/databricks/kb/administration/who-deleted-cluster
               maintainContext: true
         - name: Business intelligence
           items:
@@ -1723,6 +1747,15 @@
               items:
                 - name: Versões de runtime suportadas
                   href: /azure/databricks/release-notes/runtime/supported
+                  maintainContext: true
+                - name: Databricks Runtime 6.4
+                  href: /azure/databricks/release-notes/runtime/6.4
+                  maintainContext: true
+                - name: Databricks Runtime 6.4 ML
+                  href: /azure/databricks/release-notes/runtime/6.4ml
+                  maintainContext: true
+                - name: Databricks Runtime 6.4 Genomics
+                  href: /azure/databricks/release-notes/runtime/6.4genomics
                   maintainContext: true
                 - name: Databricks Runtime 6.3
                   href: /azure/databricks/release-notes/runtime/6.3

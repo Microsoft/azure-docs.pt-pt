@@ -1,6 +1,6 @@
 ---
-title: Configurar instância gerenciada do ponto de extremidade público
-description: Saiba como configurar um ponto de extremidade público para instância gerenciada
+title: Configurar ponto final público - instância gerida
+description: Saiba como configurar um ponto final público para o exemplo gerido
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,45 +11,45 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
 ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227988"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360453"
 ---
-# <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurar ponto de extremidade público na instância gerenciada do banco de dados SQL do Azure
+# <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configure ponto final público em caso gerido na Base de Dados Azure SQL
 
-O ponto de extremidade público para uma [instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) permite o acesso a dados para sua instância gerenciada de fora da [rede virtual](../virtual-network/virtual-networks-overview.md). Você pode acessar sua instância gerenciada de serviços multilocatários do Azure, como Power BI, serviço de Azure App ou uma rede local. Usando o ponto de extremidade público em uma instância gerenciada, você não precisa usar uma VPN, o que pode ajudar a evitar problemas de taxa de transferência de VPN.
+O ponto final público para uma [instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) permite o acesso de dados à sua instância gerida de fora da [rede virtual](../virtual-network/virtual-networks-overview.md). Você pode aceder a sua instância gerida a partir de serviços azure multi-inquilinos como Power BI, Azure App Service ou uma rede no local. Ao utilizar o ponto final público numa instância gerida, não precisa de utilizar uma VPN, que pode ajudar a evitar problemas de entrada de VPN.
 
-Neste artigo, você aprenderá a:
+Neste artigo, aprenderá a:
 
 > [!div class="checklist"]
-> - Habilite o ponto de extremidade público para sua instância gerenciada no portal do Azure
-> - Habilitar o ponto de extremidade público para sua instância gerenciada usando o PowerShell
-> - Configurar o grupo de segurança de rede da instância gerenciada para permitir o tráfego para o ponto de extremidade público da instância gerenciada
-> - Obter a cadeia de conexão de ponto de extremidade público da instância gerenciada
+> - Ativar ponto final público para a sua instância gerida no portal Azure
+> - Ativar ponto final público para a sua instância gerida usando powerShell
+> - Configure o seu grupo de segurança de rede de instância gerido para permitir o tráfego para o ponto final da instância gerida
+> - Obtenha a cadeia de conexão de ponto final de instância gerida
 
 ## <a name="permissions"></a>Permissões
 
-Devido à sensibilidade dos dados que estão em uma instância gerenciada, a configuração para habilitar o ponto de extremidade público da instância gerenciada requer um processo de duas etapas. Essa medida de segurança segue a separação de tarefas (SoD):
+Devido à sensibilidade dos dados que se encontra numa instância gerida, a configuração para ativar o ponto final do caso gerido requer um processo em duas etapas. Esta medida de segurança adere à separação de direitos (SoD):
 
-- A habilitação do ponto de extremidade público em uma instância gerenciada precisa ser feita pelo administrador da instância gerenciada. O administrador da instância gerenciada pode ser encontrado na página **visão geral** do recurso de instância gerenciada do SQL.
-- Permitir o tráfego usando um grupo de segurança de rede que precisa ser feito por um administrador de rede. Para obter mais informações, consulte [permissões de grupo de segurança de rede](../virtual-network/manage-network-security-group.md#permissions).
+- A via final pública sobre uma instância gerida tem de ser feita pela administração de instância gerida. A administração de instância gerida pode ser encontrada na página **de visão geral** do seu recurso de instância gerido pela SQL.
+- Permitir o tráfego utilizando um grupo de segurança de rede que precisa de ser feito por um administrador de rede. Para mais informações, consulte [as permissões](../virtual-network/manage-network-security-group.md#permissions)do grupo de segurança da rede .
 
-## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Habilitando o ponto de extremidade público para uma instância gerenciada no portal do Azure
+## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Habilitar o ponto final público para uma instância gerida no portal Azure
 
-1. Inicie o portal do Azure em <https://portal.azure.com/.>
-1. Abra o grupo de recursos com a instância gerenciada e selecione a **instância gerenciada do SQL** na qual você deseja configurar o ponto de extremidade público.
-1. Nas configurações de **segurança** , selecione a guia **rede virtual** .
-1. Na página configuração de rede virtual, selecione **habilitar** e, em seguida, o ícone **salvar** para atualizar a configuração.
+1. Lançar o portal Azure em <https://portal.azure.com/.>
+1. Abra o grupo de recursos com a instância gerida e selecione a instância gerida pelo **SQL** em que pretende configurar o ponto final público.
+1. Nas definições de **Segurança,** selecione o separador de **rede Virtual.**
+1. Na página de configuração da rede Virtual, selecione **'Activar'** e, em seguida, o ícone **Guardar** para atualizar a configuração.
 
 ![mi-vnet-config.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-config.png)
 
-## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Habilitando o ponto de extremidade público para uma instância gerenciada usando o PowerShell
+## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Habilitar o ponto final público para uma instância gerida usando powerShell
 
-### <a name="enable-public-endpoint"></a>Habilitar ponto de extremidade público
+### <a name="enable-public-endpoint"></a>Ativar o ponto final do público
 
-Execute os comandos do PowerShell a seguir. Substitua **Subscription-ID** pela sua ID de assinatura. Também substitua **RG-Name** pelo grupo de recursos da instância gerenciada e substitua **mi** pelo nome da instância gerenciada.
+Executar os seguintes comandos PowerShell. Substitua **o id de subscrição** pelo seu ID de subscrição. Substitua também o **nome rg** pelo grupo de recursos para a sua instância gerida e substitua o **nome mi** pelo nome da sua instância gerida.
 
 ```powershell
 Install-Module -Name Az
@@ -70,50 +70,50 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi = $mi | Set-AzSqlInstance -PublicDataEndpointEnabled $true -force
 ```
 
-### <a name="disable-public-endpoint"></a>Desabilitar ponto de extremidade público
+### <a name="disable-public-endpoint"></a>Desativar o ponto final do público
 
-Para desabilitar o ponto de extremidade público usando o PowerShell, execute o seguinte comando (e também não se esqueça de fechar o NSG da porta de entrada 3342 se você o tiver configurado):
+Para desativar o ponto final público utilizando o PowerShell, executaria o seguinte comando (e também não se esqueça de fechar o NSG para a porta de entrada 3342 se o tiver configurado):
 
 ```powershell
 Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ```
 
-## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Permitir tráfego de ponto de extremidade público no grupo de segurança de rede
+## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Permitir o tráfego de pontos finais públicos no grupo de segurança da rede
 
-1. Se você tiver a página de configuração da instância gerenciada ainda aberta, navegue até a guia **visão geral** . caso contrário, volte para o recurso de **instância gerenciada do SQL** . Selecione o link **rede virtual/sub-rede** , que levará você para a página de configuração de rede virtual.
+1. Se tiver a página de configuração da instância gerida ainda aberta, navegue para o separador **Overview.** Caso contrário, volte ao recurso de **instância gerido pela SQL.** Selecione a ligação **rede/sub-rede Virtual,** que o levará à página de configuração da rede Virtual.
 
     ![mi-overview.png](media/sql-database-managed-instance-public-endpoint-configure/mi-overview.png)
 
-1. Selecione a guia **sub-redes** no painel de configuração à esquerda da sua rede virtual e anote o grupo de **segurança** para sua instância gerenciada.
+1. Selecione o separador **Subnets** no painel de configuração à esquerda da sua rede Virtual e tome nota do **GRUPO DE SEGURANÇA** para a sua instância gerida.
 
     ![mi-vnet-subnet.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-subnet.png)
 
-1. Volte para o grupo de recursos que contém a instância gerenciada. Você deve ver o nome do **grupo de segurança de rede** indicado acima. Selecione o nome para acessar a página de configuração do grupo de segurança de rede.
+1. Volte para o seu grupo de recursos que contém a sua instância gerida. Deve ver o nome do grupo de segurança da **Rede** acima referido. Selecione o nome para entrar na página de configuração do grupo de segurança da rede.
 
-1. Selecione a guia **regras de segurança de entrada** e **adicione** uma regra com prioridade mais alta do que a regra de **deny_all_inbound** com as seguintes configurações: </br> </br>
+1. Selecione o separador de regras de **segurança de entrada** e **adicione** uma regra que tenha uma prioridade superior à regra **deny_all_inbound** com as seguintes definições: </br> </br>
 
     |Definição  |Valor sugerido  |Descrição  |
     |---------|---------|---------|
-    |**Origem**     |Qualquer endereço IP ou marca de serviço         |<ul><li>Para serviços do Azure como Power BI, selecione a marca de serviço de nuvem do Azure</li> <li>Para seu computador ou VM do Azure, use o endereço IP de NAT</li></ul> |
-    |**Intervalos de portas de origem**     |*         |Deixe isso para * (qualquer) como as portas de origem geralmente são alocadas dinamicamente e, como tal, imprevisíveis |
-    |**Destino**     |Qualquer         |Deixando o destino como qualquer para permitir o tráfego na sub-rede da instância gerenciada |
-    |**Intervalos de portas de destino**     |3342         |Porta de destino do escopo para 3342, que é o ponto de extremidade TDS público da instância gerenciada |
-    |**Protocolo**     |TCP         |A instância gerenciada usa o protocolo TCP para TDS |
-    |**Ação**     |Allow         |Permitir o tráfego de entrada para a instância gerenciada por meio do ponto de extremidade público |
-    |**Prioridade**     |1300         |Verifique se essa regra é de prioridade mais alta do que a regra de **deny_all_inbound** |
+    |**Origem**     |Qualquer endereço IP ou etiqueta de serviço         |<ul><li>Para serviços Azure como Power BI, selecione a etiqueta de serviço Azure Cloud</li> <li>Para o seu computador ou Azure VM, utilize o endereço IP NAT</li></ul> |
+    |**Gamas de portas de origem**     |*         |Deixe isto para * (qualquer) como as portas de origem são geralmente dinamicamente atribuídas e, como tal, imprevisíveis |
+    |**Destino**     |Qualquer         |Deixando o destino como Qualquer para permitir o tráfego na subnet de instância gerida |
+    |**Gamas portuárias de destino**     |3342         |Porta de destino de âmbito para 3342, que é o ponto final público tDS de instância gerida |
+    |**Protocolo**     |TCP         |Instância gerida usa protocolo TCP para TDS |
+    |**Ação**     |Permitir         |Permitir que o tráfego de entrada gerencie a instância através do ponto final público |
+    |**Prioridade**     |1300         |Certifique-se de que esta regra é mais prioritária do que a **regra deny_all_inbound** |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
-    > A porta 3342 é usada para conexões de ponto de extremidade público para instância gerenciada e não pode ser alterada neste ponto.
+    > O porto 3342 é utilizado para ligações públicas de ponto final para instância gerida, e não pode ser alterado neste momento.
 
-## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Obtendo a cadeia de conexão de ponto de extremidade público da instância gerenciada
+## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Obtenção da cadeia de ligação de ponto final de instância gerida
 
-1. Navegue até a página de configuração da instância gerenciada do SQL que foi habilitada para o ponto de extremidade público. Selecione a guia **cadeias de conexão** na configuração **configurações** .
-1. Observe que o nome do host do ponto de extremidade público é fornecido no formato < mi_name >. **Public**. < dns_zone >. Database. Windows. net e que a porta usada para a conexão é 3342.
+1. Navegue para a página de configuração de instância gerida pela SQL que foi ativada para ponto final público. Selecione o separador de **cordas de ligação** sob a configuração **Definições.**
+1. Note que o nome do anfitrião do ponto final do público vem no formato <mi_name>. **público**.<dns_zone>.database.windows.net e que a porta utilizada para a ligação é 3342.
 
     ![mi-public-endpoint-conn-string.png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [usar a instância gerenciada do banco de dados SQL do Azure com segurança com o ponto de extremidade público](sql-database-managed-instance-public-endpoint-securely.md).
+- Saiba mais sobre a utilização da Base de [Dados Azure SQL gerida](sql-database-managed-instance-public-endpoint-securely.md)de forma segura com ponto final público .

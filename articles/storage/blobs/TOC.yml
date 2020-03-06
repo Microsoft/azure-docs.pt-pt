@@ -162,6 +162,8 @@
               href: storage-blobs-latency.md
             - name: Capacidade reservada do Armazenamento do Azure
               href: storage-blob-reserved-capacity.md
+            - name: Planear e gerir custos
+              href: ../common/storage-plan-manage-costs.md
         - name: Simultaneidade
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Procurar e compreender dados de blob
@@ -419,12 +421,6 @@
                   href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
             - name: Xamarin
               href: storage-xamarin-blob-storage.md
-        - name: Gerir blobs
-          items:
-            - name: CLI do Azure
-              href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: CLI clássica do Azure
-              href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Mover entre regiões
           href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Resolução de problemas
@@ -636,8 +632,24 @@
           href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Conceitos
       items:
-        - name: Contas de armazenamento
+        - name: Processar macrodados
+          href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Controlador do Sistema de Ficheiros de Blobs do Azure para o Hadoop
+          href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: URI do Sistema de Ficheiros de Blobs do Azure
+          href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Acerca dos espaços de nomes hierárquicos
+          href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Acerca das contas de armazenamento
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Melhores práticas
+          href: data-lake-storage-best-practices.md
+        - name: Redundância de dados
+          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Soluções de transferência de dados
+          href: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Simultaneidade
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Segurança
           items:
             - name: Autorizar operações de dados
@@ -652,23 +664,6 @@
               href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Utilizar Pontos Finais Privados do Azure
               href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Redundância de dados
-          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Migração de dados
-          items:
-            - name: Comparar soluções de transferência de dados
-              href: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              items:
-                - name: 'Conjunto de dados grande, pouca largura de banda de rede'
-                  href: ../common/storage-solution-large-dataset-low-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Conjunto de dados grande, largura de banda de rede entre moderada e alta'
-                  href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Conjunto de dados pequeno, largura de banda de rede entre baixa e moderada'
-                  href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Transferência de dados periódica
-                  href: ../common/storage-solution-periodic-data-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Simultaneidade
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Compatibilidade
           items:
             - name: Acesso multiprotocolo
@@ -679,14 +674,6 @@
               href: data-lake-storage-supported-azure-services.md
             - name: Plataformas open source suportadas
               href: data-lake-storage-supported-open-source-platforms.md
-        - name: Processar macrodados
-          href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Controlador do Sistema de Ficheiros de Blobs do Azure para o Hadoop
-          href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: URI do Sistema de Ficheiros de Blobs do Azure
-          href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Acerca dos espaços de nomes hierárquicos
-          href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Monitorizar e resolver problemas
           items:
             - name: 'Monitorizar, diagnosticar e resolver problemas'
@@ -697,13 +684,19 @@
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Registos de análise de armazenamento
               href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Melhores práticas
-          href: data-lake-storage-best-practices.md
     - name: Procedimento
       items:
-        - name: Criar uma conta de armazenamento para o seu Data Lake
-          href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Proteger dados
+        - name: Criar
+          items:
+            - name: Criar uma conta de armazenamento v2 para fins gerais
+              href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Migrar
+          items:
+            - name: Atualizar do Data Lake Storage Gen1
+              href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Migrar um arquivo HDFS local
+              href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Proteger
           items:
             - name: Autorizar acesso aos dados
               items:
@@ -767,19 +760,7 @@
                   href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Ativar o Transport Layer Security
                   href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Recuperação após desastre
-          items:
-            - name: Consulte a propriedade Last Sync Time
-              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Iniciar a ativação pós-falha da conta
-              href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Utilizar um emulador de armazenamento
-          items:
-            - name: Utilizar o emulador de open-source Azurite
-              href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Utilizar o emulador de armazenamento do Azure
-              href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 'Gerir diretórios, ficheiros e ACLs'
+        - name: Gerir
           items:
             - name: .NET
               href: data-lake-storage-directory-file-acl-dotnet.md
@@ -795,19 +776,9 @@
               href: data-lake-storage-directory-file-acl-cli.md
             - name: Explorador de Armazenamento
               href: data-lake-storage-explorer.md
-        - name: Otimizar o desempenho
-          items:
-            - name: Descrição geral
-              href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar o Spark no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar o Hive no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar o MapReduce no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar o Storm no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Transferir dados
+            - name: CLI do Sistema de Ficheiros do Hadoop
+              href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Transferir
           items:
             - name: AzCopy
               items:
@@ -821,14 +792,28 @@
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Transferir dados com a biblioteca do Movimento de Dados
               href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Migrar dados
+        - name: Otimizar
           items:
-            - name: Atualizar do Data Lake Storage Gen1
-              href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migrar um arquivo HDFS local
-              href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Utilizar com CLI do Sistema de Ficheiros do Hadoop
-          href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Otimizar o desempenho
+              href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Otimizar o Spark no HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Otimizar o Hive no HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Otimizar o MapReduce no HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Otimizar o Storm no HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Recuperar
+          items:
+            - name: Consulte a propriedade Last Sync Time
+              href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Emular
+          items:
+            - name: Utilizar o emulador de open-source Azurite
+              href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Utilizar o emulador de armazenamento do Azure
+              href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Referência
       items:
         - name: .NET

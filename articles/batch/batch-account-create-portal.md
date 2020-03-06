@@ -1,5 +1,5 @@
 ---
-title: Criar uma conta no portal do Azure-lote do Azure | Microsoft Docs
+title: Criar uma conta no portal Azure - Azure Batch [ Lote Azul ] Microsoft Docs
 description: Saiba como criar uma conta do Azure Batch no portal do Azure a executar cargas de trabalho paralelas em grande escala na nuvem
 services: batch
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.date: 02/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048636"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394922"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -49,13 +49,13 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
     d. **Localização**: a região do Azure na qual se cria a conta do Batch. Apenas as regiões suportadas pela sua subscrição e grupo de recursos são apresentadas como opções.
 
-    e. **Conta de armazenamento**: Uma conta opcional de Armazenamento Azure que associa à sua conta Batch. Uma conta de armazenamento de uso geral V2 é recomendada para o melhor desempenho. Para todas as opções da conta de armazenamento em Batch, consulte a visão geral da [funcionalidade lote](batch-api-basics.md#azure-storage-account). No portal, selecione uma conta de armazenamento existente ou crie uma nova.
+    e. **Conta de armazenamento**: Uma conta opcional de Armazenamento Azure que associa à sua conta Batch. Recomenda-se uma conta de armazenamento v2 de uso geral para o melhor desempenho. Para todas as opções da conta de armazenamento em Batch, consulte a visão geral da [funcionalidade lote](batch-api-basics.md#azure-storage-account). No portal, selecione uma conta de armazenamento existente, ou crie uma nova.
 
       ![Criar uma conta de armazenamento][storage_account]
 
     f. **Modo de atribuição da piscina**: No separador **definições avançadas** pode especificar o modo de atribuição do pool como **serviço de lote** ou **subscrição do Utilizador**. Para a maioria dos cenários, aceite o serviço de **lote**padrão .
 
-      ![Modo de alocação do pool do lote][pool_allocation]
+      ![Modo de alocação de piscina de lote][pool_allocation]
 
 1. Selecione **Criar** para criar a conta.
 
@@ -112,11 +112,11 @@ No modo de subscrição de utilizador, é necessário um cofre de chaves do Azur
 
 1. Na página **Criar Key Vault**, introduza um nome para o cofre de chaves e crie um grupo de recursos na região em que quer a sua conta do Batch. Deixe as definições restantes nos valores predefinidos e selecione **Criar**.
 
-Ao criar a conta do lote no modo de assinatura do usuário, use o grupo de recursos para o cofre de chaves. Especifique a **subscrição** do Utilizador como o modo de atribuição da piscina, selecione o cofre chave e verifique a caixa para conceder acesso ao Lote Azure ao cofre da chave. 
+Ao criar a conta Batch no modo de subscrição do utilizador, utilize o grupo de recursos para o cofre chave. Especifique a **subscrição** do Utilizador como o modo de atribuição da piscina, selecione o cofre chave e verifique a caixa para conceder acesso ao Lote Azure ao cofre da chave. 
 
 Se preferir conceder acesso manual mente ao cofre chave, aceda à secção **de políticas** de acesso do cofre chave e selecione Adicionar Política de **Acesso** e procurar o **Microsoft Azure Batch**. Uma vez selecionado, terá de configurar as **permissões Secretas** utilizando o menu drop down. O Lote Azure deve ter um mínimo de **obter,** **lista,** **conjunto**e **eliminar** permissões.
 
-![Permissões secretas para o lote do Azure](./media/batch-account-create-portal/secret-permissions.png)
+![Permissões secretas para O Lote Azure](./media/batch-account-create-portal/secret-permissions.png)
 
 
 > [!NOTE]
@@ -126,9 +126,9 @@ Se preferir conceder acesso manual mente ao cofre chave, aceda à secção **de 
 
 
 
-### <a name="configure-subscription-quotas"></a>Configurar cotas de assinatura
+### <a name="configure-subscription-quotas"></a>Configure quotas de subscrição
 
-As cotas de núcleo não são definidas por padrão nas contas do lote de assinatura do usuário. As cotas de núcleo devem ser definidas manualmente porque as cotas de núcleo do lote padrão não se aplicam a contas no modo de assinatura do usuário.
+As quotas de base não são definidas por padrão nas contas do Lote de subscrição do utilizador. As quotas de base devem ser definidas manualmente porque as quotas de base padrão do Lote não se aplicam às contas no modo de subscrição do utilizador.
 
 1. No [portal Azure,][azure_portal]selecione a sua conta de modo de subscrição do utilizador Para exibir as suas definições e propriedades.
 

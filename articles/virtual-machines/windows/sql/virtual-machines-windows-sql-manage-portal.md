@@ -1,6 +1,6 @@
 ---
-title: Gerenciar VMs SQL Server no Azure usando o portal do Azure | Microsoft Docs
-description: Saiba como acessar o recurso de máquina virtual do SQL no portal do Azure para uma VM SQL Server hospedada no Azure.
+title: Gerir VMs do Servidor SQL em Azure utilizando o portal Azure  Microsoft Docs
+description: Saiba como aceder ao recurso de máquina virtual SQL no portal Azure para um VM SQL Server hospedado no Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,73 +14,73 @@ ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 244ad7d079fd7baf25f8079557576c42d25ca785
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102053"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387819"
 ---
-# <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gerenciar VMs SQL Server no Azure usando o portal do Azure
+# <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gerencie os VMs do Servidor SQL em Azure utilizando o portal Azure
 
-No [portal do Azure](https://portal.azure.com), o recurso de **máquinas virtuais do SQL** é um serviço de gerenciamento independente. Você pode usá-lo para exibir todas as suas VMs SQL Server simultaneamente e modificar as configurações dedicadas a SQL Server: 
+No [portal Azure,](https://portal.azure.com)o recurso **sql virtual machines** é um serviço de gestão independente. Pode usá-lo para visualizar todos os seus VMs do Servidor SQL simultaneamente e modificar as definições dedicadas ao Servidor SQL: 
 
-![Recurso de máquinas virtuais do SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+![Recurso de máquinas virtuais SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
 
 
 ## <a name="remarks"></a>Observações
 
-- Recomendamos que você use o recurso de **máquinas virtuais do SQL** para exibir e gerenciar suas VMs SQL Server no Azure. Mas, no momento, o recurso de **máquinas virtuais do SQL** não oferece suporte ao gerenciamento de SQL Server VMs de [fim de suporte](virtual-machines-windows-sql-server-2008-eos-extend-support.md) . Para gerenciar as configurações de SQL Server VMs de fim de suporte, use a [guia Configuração de SQL Server](#access-the-sql-server-configuration-tab) preterida em vez disso. 
-- O recurso de **máquinas virtuais do SQL** está disponível somente para VMs SQL Server que foram [registradas com o provedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md). 
+- Recomendamos que utilize o recurso das **máquinas virtuais SQL** para visualizar e gerir os seus VMs sQL Server em Azure. Mas atualmente, o recurso **sql virtual machines** não suporta a gestão de VMs de servidor SQL de [fim de suporte.](virtual-machines-windows-sql-server-2008-eos-extend-support.md) Para gerir as definições para os vMs do servidor SQL, utilize o separador de [configuração do Servidor SQL](#access-the-sql-server-configuration-tab) deprecatado. 
+- O recurso **sql de máquinas virtuais está** disponível apenas para VMs de servidor SQL que [se registaram com o fornecedor de recursos SQL VM](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
-## <a name="access-the-sql-virtual-machines-resource"></a>Acessar o recurso de máquinas virtuais do SQL
-Para acessar o recurso de **máquinas virtuais do SQL** , faça o seguinte:
+## <a name="access-the-sql-virtual-machines-resource"></a>Aceda ao recurso das máquinas virtuais SQL
+Para aceder ao recurso das **máquinas virtuais SQL,** faça o seguinte:
 
 1. Abra o [Portal do Azure](https://portal.azure.com). 
-1. Selecione **todos os serviços**. 
-1. Insira as **máquinas virtuais do SQL** na caixa de pesquisa.
-1. (Opcional): Selecione a estrela ao lado de **máquinas virtuais do SQL** para adicionar essa opção ao menu **favoritos** . 
-1. Selecione **máquinas virtuais do SQL**. 
+1. Selecione **todos os Serviços**. 
+1. Introduza **as máquinas virtuais SQL** na caixa de pesquisa.
+1. (Opcional): Selecione a estrela ao lado de **máquinas virtuais SQL** para adicionar esta opção ao seu menu **Favoritos.** 
+1. Selecione **máquinas virtuais SQL**. 
 
-   ![Localizar SQL Server máquinas virtuais em todos os serviços](media/virtual-machines-windows-sql-manage-portal/sql-vm-search.png)
+   ![Encontre máquinas virtuais Do Servidor SQL em todos os serviços](media/virtual-machines-windows-sql-manage-portal/sql-vm-search.png)
 
-1. O portal lista todas as VMs SQL Server disponíveis na assinatura. Selecione aquele que você deseja gerenciar para abrir o recurso de **máquinas virtuais do SQL** . Use a caixa de pesquisa se sua VM SQL Server não estiver aparecendo. 
+1. O portal lista todos os VMs do Servidor SQL disponíveis na subscrição. Selecione o que pretende conseguir para abrir o recurso das **máquinas virtuais SQL.** Utilize a caixa de pesquisa se o seu VM do Servidor SQL não aparecer. 
 
-   ![Todas as VMs SQL Server disponíveis](media/virtual-machines-windows-sql-manage-portal/all-sql-vms.png)
+   ![Todos os VMs de Servidor SQL disponíveis](media/virtual-machines-windows-sql-manage-portal/all-sql-vms.png)
 
-   Selecionar sua VM de SQL Server abre o recurso de **máquinas virtuais do SQL** : 
+   A seleção do seu VM do Servidor SQL abre o recurso das **máquinas virtuais SQL:** 
 
 
-   ![Recurso de máquinas virtuais do SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-resource.png)
+   ![Recurso de máquinas virtuais SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-resource.png)
 
 > [!TIP]
-> O recurso de **máquinas virtuais do SQL** é para configurações de SQL Server dedicadas. Selecione o nome da VM na caixa **máquina virtual** para abrir as configurações específicas para a VM, mas não exclusivo para SQL Server. 
+> O recurso **das máquinas virtuais SQL** destina-se a configurações dedicadas do Servidor SQL. Selecione o nome do VM na caixa **de máquinas Virtual** para abrir definições específicas para o VM, mas não exclusiva do Servidor SQL. 
 
-## <a name="access-the-sql-server-configuration-tab"></a>Acessar a guia de configuração do SQL Server
-A guia **configuração de SQL Server** foi preterida. Neste momento, é o único método para gerenciar VMs SQL Server [de fim de suporte](virtual-machines-windows-sql-server-2008-eos-extend-support.md) e SQL Server VMs que não foram [registradas com o provedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
+## <a name="access-the-sql-server-configuration-tab"></a>Aceda ao separador de configuração do Servidor SQL
+O separador de **configuração do Servidor SQL** foi depreciado. Neste momento, é o único método para gerir VMs de servidor SQL de [suporte](virtual-machines-windows-sql-server-2008-eos-extend-support.md) final e VMs de servidor SQL que não foram registados no fornecedor de [recursos SQL VM](virtual-machines-windows-sql-register-with-resource-provider.md).
 
-Para acessar a guia de **configuração de SQL Server** preterida, vá para o recurso de **máquinas virtuais** . Utilize os passos seguintes:
+Para aceder ao separador de configuração do **Servidor SQL** deprecatado, aceda ao recurso das **máquinas Virtuais.** Utilize os passos seguintes:
 
 1. Abra o [Portal do Azure](https://portal.azure.com). 
-1. Selecione **todos os serviços**. 
-1. Insira **máquinas virtuais** na caixa de pesquisa.
-1. (Opcional): Selecione a estrela ao lado de **máquinas virtuais** para adicionar essa opção ao menu **favoritos** . 
-1. Selecione **máquinas virtuais**. 
+1. Selecione **todos os Serviços**. 
+1. Introduza **máquinas virtuais** na caixa de pesquisa.
+1. (Opcional): Selecione a estrela ao lado de **máquinas virtuais** para adicionar esta opção ao seu menu **Favoritos.** 
+1. Selecione **máquinas Virtuais**. 
 
-   ![Pesquisar máquinas virtuais](media/virtual-machines-windows-sql-manage-portal/vm-search.png)
+   ![Pesquisa de máquinas virtuais](media/virtual-machines-windows-sql-manage-portal/vm-search.png)
 
-1. O portal lista todas as máquinas virtuais na assinatura. Selecione aquele que você deseja gerenciar para abrir o recurso de **máquinas virtuais** . Use a caixa de pesquisa se sua VM SQL Server não estiver aparecendo. 
-1. Selecione **configuração de SQL Server** no painel **configurações** para gerenciar sua VM SQL Server. 
+1. O portal lista todas as máquinas virtuais na subscrição. Selecione o que pretende conseguir abrir o recurso das **máquinas Virtuais.** Utilize a caixa de pesquisa se o seu VM do Servidor SQL não aparecer. 
+1. Selecione **a configuração do Servidor SQL** no painel **definições** para gerir o vM do servidor SQL. 
 
-   ![Configuração de SQL Server](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
+   ![Configuração do Servidor SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os artigos seguintes: 
 
-* [Visão geral de SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
-* [Perguntas frequentes para SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-faq.md)
-* [Diretrizes de preços para SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-pricing-guidance.md)
-* [Notas de versão para SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-release-notes.md)
+* [Visão geral do Servidor SQL num VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
+* [FAQ para Servidor SQL em um VM do Windows](virtual-machines-windows-sql-server-iaas-faq.md)
+* [Orientação de preços para O Servidor SQL num VM do Windows](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [Notas de lançamento para SQL Server num VM do Windows](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 

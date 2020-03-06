@@ -1,16 +1,16 @@
 ---
-title: 'Início rápido: sua primeira consulta do PowerShell'
-description: Neste guia de início rápido, você seguirá as etapas para habilitar o módulo do grafo de recursos para Azure PowerShell e executar sua primeira consulta.
+title: 'Quickstart: A sua primeira consulta powerShell'
+description: Neste arranque rápido, siga os passos para ativar o módulo De recursos para o Azure PowerShell e execute a sua primeira consulta.
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304142"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360224"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Início rápido: executar sua primeira consulta de grafo de recursos usando Azure PowerShell
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Quickstart: Execute a sua primeira consulta de gráfico de recursos usando o Azure PowerShell
 
 O primeiro passo para utilizar o Azure Resource Graph é garantir que o módulo do Azure PowerShell está instalado. Este início rápido explica-lhe o processo para adicionar o módulo à instalação do Azure PowerShell.
 
@@ -24,7 +24,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="add-the-resource-graph-module"></a>Adicionar o módulo do Resource Graph
 
-Para ativar o Azure PowerShell para consultar o Azure Resource Graph, tem de adicionar o módulo. Esse módulo pode ser usado com o PowerShell instalado localmente, com [Azure cloud Shell](https://shell.azure.com)ou com a [imagem do Docker do PowerShell](https://hub.docker.com/_/microsoft-powershell).
+Para ativar o Azure PowerShell para consultar o Azure Resource Graph, tem de adicionar o módulo. Este módulo pode ser utilizado com powerShell instalado localmente, com [Azure Cloud Shell,](https://shell.azure.com)ou com a [imagem PowerShell Docker](https://hub.docker.com/_/microsoft-powershell).
 
 ### <a name="base-requirements"></a>Requisitos de base
 
@@ -36,16 +36,16 @@ O módulo do Azure Resource Graph necessita do seguinte software:
 
 ### <a name="install-the-module"></a>Instalar o módulo
 
-O módulo do grafo de recursos para o PowerShell é **AZ. ResourceGraph**.
+O módulo De Recurso Graph para PowerShell é **Az.ResourceGraph**.
 
-1. Em um prompt **administrativo** do PowerShell, execute o seguinte comando:
+1. A partir de um pedido **administrativo** da PowerShell, executar o seguinte comando:
 
    ```azurepowershell-interactive
    # Install the Resource Graph module from PowerShell Gallery
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Valide se o módulo foi importado e se é a versão mais recente (0.7.5):
+1. Valide que o módulo foi importado e é a versão mais recente (0.7.5):
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -54,7 +54,7 @@ O módulo do grafo de recursos para o PowerShell é **AZ. ResourceGraph**.
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
-Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e o **Tipo de Recurso** de cada recurso.
+Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e **Tipo de Recurso** de cada recurso.
 
 1. Execute a primeira consulta do Azure Resource Graph com o cmdlet `Search-AzGraph`:
 
@@ -88,7 +88,7 @@ Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura d
 Quando a consulta final é executada várias vezes, partindo do princípio de que nada no seu ambiente está a mudar, os resultados devolvidos serão consistentes e conforme o esperado – ordenados pela propriedade **Nome**, mas continuam a ser limitados aos cinco resultados principais.
 
 > [!NOTE]
-> Se a consulta não retornar resultados de uma assinatura à qual você já tem acesso, observe que `Search-AzGraph` cmdlet usa como padrão assinaturas no contexto padrão. Para ver a lista de IDs de assinatura que fazem parte do contexto padrão, execute este `(Get-AzContext).Account.ExtendedProperties.Subscriptions` se desejar pesquisar em todas as assinaturas às quais você tem acesso, é possível definir o PSDefaultParameterValues para `Search-AzGraph` cmdlet executando `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> Se a consulta não devolver os resultados de uma subscrição a que já tem acesso, note que `Search-AzGraph` cmdlet predefinido sintetiza as subscrições no contexto predefinido. Para ver a lista de IDs de subscrição que fazem parte do contexto predefinido executar este `(Get-AzContext).Account.ExtendedProperties.Subscriptions` Se deseja pesquisar todas as subscrições a que tem acesso, pode definir os PSDefaultParâmetrometerValues para `Search-AzGraph` cmdlet, executando `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -107,7 +107,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você adicionou o módulo de grafo de recursos ao seu ambiente de Azure PowerShell e executou sua primeira consulta. Para saber mais sobre a linguagem de gráfico de recursos, continue na página de detalhes da linguagem de consulta.
+Neste arranque rápido, adicionou o módulo De recursos gráficos ao seu ambiente Azure PowerShell e executa a sua primeira consulta. Para saber mais sobre a linguagem do gráfico de recursos, continue na página de detalhes da linguagem da consulta.
 
 > [!div class="nextstepaction"]
-> [Obter mais informações sobre a linguagem de consulta](./concepts/query-language.md)
+> [Obtenha mais informações sobre a linguagem de consulta](./concepts/query-language.md)

@@ -1,6 +1,6 @@
 ---
-title: Automatizar tarefas para integração corporativa
-description: Saiba mais sobre como automatizar os fluxos de trabalho que integram aplicativos, dados, serviços e sistemas com o mínimo de código para integração corporativa usando o aplicativo lógico do Azure.
+title: Automatizar tarefas para integração empresarial
+description: Saiba automatizar fluxos de trabalho que integram apps, dados, serviços e sistemas com código mínimo para integração empresarial utilizando apps da Azure Logic.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,15 +8,15 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/29/2018
 ms.openlocfilehash: 2327632fc2a71855874bb8fe45e97af430fa696a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791852"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358947"
 ---
-# <a name="overview---what-is-azure-logic-apps"></a>Visão geral – o que são os aplicativos lógicos do Azure?
+# <a name="overview---what-is-azure-logic-apps"></a>Visão geral - O que é Azure Logic Apps?
 
-O [aplicativo lógico do Azure](https://azure.microsoft.com/services/logic-apps) é um serviço de nuvem que ajuda a agendar, automatizar e orquestrar tarefas, processos de negócios e [fluxos de trabalho](#logic-app-concepts) quando você precisa integrar aplicativos, dados, sistemas e serviços em empresas ou organizações. Os aplicativos lógicos simplificam a forma como você projeta e cria soluções escalonáveis para [integração](https://azure.microsoft.com/product-categories/integration/)de aplicativos, integração de dados, integração de sistemas, integração de aplicativos empresariais (EAI) e comunicação entre empresas (B2B), seja na nuvem, no local ou em ambos.
+[O Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) é um serviço na nuvem que o ajuda a agendar, automatizar e orquestrar tarefas, processos de negócio e [fluxos](#logic-app-concepts) de trabalho quando precisa de integrar apps, dados, sistemas e serviços entre empresas ou organizações. As Aplicações Lógicas simplificam a forma como concebe e constrói soluções escaláveis para [integração](https://azure.microsoft.com/product-categories/integration/)de aplicações, integração de dados, integração de sistemas, integração de aplicações empresariais (EAI) e comunicação business-to-business (B2B), seja na nuvem, nas instalações, ou em ambos.
 
 Por exemplo, seguem-se algumas cargas de trabalho que pode automatizar com as aplicações lógicas:
 
@@ -28,13 +28,13 @@ Por exemplo, seguem-se algumas cargas de trabalho que pode automatizar com as ap
 
 * Monitorizar tweets sobre um assunto específico, analisar sentimentos e criar alertas ou tarefas para itens que precisam de revisão.
 
-Para criar soluções de integração corporativa com os aplicativos lógicos do Azure, você pode escolher entre uma galeria crescente com [centenas de conectores prontos para uso](../connectors/apis-list.md), que incluem serviços como o barramento de serviço do azure, Azure functions, armazenamento do azure, SQL Server, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, compartilhamentos de arquivos e muito mais. Os [conectores](#logic-app-concepts) disponibilizam [acionadores](#logic-app-concepts), [ações](#logic-app-concepts) ou ambos para criar aplicações lógicas que acedem aos dados em segurança e os processam em tempo real.
+Para construir soluções de integração empresarial com apps azure logic, pode escolher entre uma galeria em crescimento com [centenas de conectores prontos a usar,](../connectors/apis-list.md)que incluem serviços como Azure Service Bus, Azure Functions, Azure Storage, SQL Server, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, ações de arquivo, e muito mais. Os [conectores](#logic-app-concepts) disponibilizam [acionadores](#logic-app-concepts), [ações](#logic-app-concepts) ou ambos para criar aplicações lógicas que acedem aos dados em segurança e os processam em tempo real.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
 ## <a name="how-does-logic-apps-work"></a>Como funciona o Logic Apps? 
 
-Cada fluxo de trabalho de aplicação lógica começa com um acionador, que é acionado quando um evento específico ocorre ou quando novos dados disponíveis cumprem critérios específicos. Muitos disparadores fornecidos pelos conectores em aplicativos lógicos incluem recursos básicos de agendamento para que você possa configurar a frequência com que suas cargas de trabalho são executadas. Para um agendamento mais complexo ou recorrências avançadas, você pode usar um gatilho de recorrência como a primeira etapa em qualquer fluxo de trabalho. Saiba mais sobre [fluxos de trabalho baseados em agenda](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Cada fluxo de trabalho de aplicação lógica começa com um acionador, que é acionado quando um evento específico ocorre ou quando novos dados disponíveis cumprem critérios específicos. Muitos gatilhos fornecidos pelos conectores em Aplicações Lógicas incluem capacidades básicas de agendamento para que possa configurar a regularidade das suas cargas de trabalho. Para agendamentos mais complexos ou recorrências avançadas, pode utilizar um gatilho de Recorrência como primeiro passo em qualquer fluxo de trabalho. Saiba mais sobre [fluxos de trabalho baseados em horários.](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
 
 Sempre que o acionador é acionado, o motor do Logic Apps cria uma instância da aplicação lógica que executa as ações no fluxo de trabalho. Estas ações também podem incluir conversões de dados e controlos de fluxo, como instruções condicionais, instruções switch, ciclos e ramificações. Por exemplo, esta aplicação lógica começa com um acionador do Dynamics 365 com os critérios “Quando um registo é atualizado” incorporados. Se o acionador detetar um evento que corresponde a este critério, o acionador é acionado e executa as ações do fluxo de trabalho. Neste exemplo, estas ações incluem transformação XML, atualizações de dados, ramificação de decisões e notificações por e-mail.
 
@@ -98,11 +98,11 @@ Por outro lado, o BizTalk Server pode ligar e comunicar com aplicações lógica
 
 ### <a name="write-once-reuse-often"></a>Escreva uma vez, reutilize frequentemente
 
-Crie seus aplicativos lógicos como modelos de Azure Resource Manager para que você possa [automatizar a implantação de aplicativos lógicos](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) em vários ambientes e regiões.
+Crie as suas aplicações lógicas como modelos do Gestor de Recursos Azure para que possa automatizar a implementação de [aplicações lógicas](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) em vários ambientes e regiões.
 
 ### <a name="built-in-extensibility"></a>Extensibilidade incorporada
 
-Se você não encontrar o conector para o qual deseja executar o código personalizado, poderá estender os aplicativos lógicos criando e chamando seus próprios trechos de código sob demanda por meio de [Azure Functions](../azure-functions/functions-overview.md). Crie as suas próprias [APIs](../logic-apps/logic-apps-create-api-app.md) e [conectores personalizados](../logic-apps/custom-connector-overview.md) aos quais pode ligar a partir das aplicações lógicas.
+Se não encontrar o conector que pretende executar código personalizado, pode estender aplicações lógicas criando e chamando o seu próprio código de snippets on-demand através de [Funções Azure](../azure-functions/functions-overview.md). Crie as suas próprias [APIs](../logic-apps/logic-apps-create-api-app.md) e [conectores personalizados](../logic-apps/custom-connector-overview.md) aos quais pode ligar a partir das aplicações lógicas.
 
 ### <a name="pay-only-for-what-you-use"></a>Paga apenas o que utilizar
   
@@ -120,7 +120,7 @@ Saiba mais sobre o Logic Apps com estes vídeos introdutórios:
 
 * **Fluxo de trabalho**: visualize, estruture, crie, automatize e implemente os processos empresariais como uma série de passos.
 
-* **Conectores geridos**: as suas aplicações lógicas precisam de aceder a dados, serviços e sistemas. Pode utilizar conectores pré-criados geridos pela Microsoft, que foram concebidos para criar, aceder e trabalhar com os seus dados. Consulte [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md).
+* **Conectores geridos**: as suas aplicações lógicas precisam de aceder a dados, serviços e sistemas. Pode utilizar conectores pré-criados geridos pela Microsoft, que foram concebidos para criar, aceder e trabalhar com os seus dados. Consulte [conectores para aplicações lógicas azure](../connectors/apis-list.md).
 
 * **Acionadores**: vários conectores geridos pela Microsoft fornecem acionadores que são acionados quando eventos ou novos dados cumprem condições específicas. Por exemplo, um evento poderá estar a receber um e-mail ou a detetar alterações na sua conta de Armazenamento do Azure. Sempre que o acionador é acionado, o motor do Logic Apps cria uma nova instância da aplicação lógica que executa o fluxo de trabalho.
 

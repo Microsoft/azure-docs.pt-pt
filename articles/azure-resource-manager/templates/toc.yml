@@ -1,8 +1,8 @@
-- name: Documentação do modelo do Azure Resource Manager
+- name: Documentação do modelo do ARM
   href: index.yml
 - name: Descrição geral
   items:
-    - name: O que são os modelos do Azure Resource Manager?
+    - name: O que são modelos do ARM?
       href: overview.md
 - name: Guias de Início Rápido
   items:

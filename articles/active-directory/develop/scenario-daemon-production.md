@@ -16,11 +16,11 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: db5f52c95daf4e93c140b4c93f39dad19971319d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775209"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377336"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>App Daemon que chama APIs web - mude para a produção
 
@@ -41,7 +41,7 @@ Terá de explicar aos seus clientes como realizar estas operações. Para mais i
 
 Aqui estão alguns links para ajudá-lo a aprender mais:
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 - Quickstart: [Adquira um símbolo e ligue para o Microsoft Graph API a partir de uma aplicação](./quickstart-v2-netcore-daemon.md)de consola utilizando a identidade da aplicação .
 - Documentação de referência para:
@@ -60,11 +60,11 @@ Aqui estão alguns links para ajudá-lo a aprender mais:
 
     ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[python](#tab/python)
 
 Experimente o quickstart [Adquira um token e ligue para o Microsoft Graph API a partir de uma aplicação](./quickstart-v2-python-daemon.md)de consola Python usando a identidade da app .
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 A MSAL Java está atualmente em pré-visualização pública. Para mais informações, consulte [as amostras de dev da MSAL Java.](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples)
 

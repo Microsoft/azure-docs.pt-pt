@@ -13,11 +13,11 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/06/2020
 ms.openlocfilehash: 5bbb537ef6545852423bf5315b7636671c598fdc
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194857"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360072"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-azure-synapse"></a>Encriptação transparente de dados para Base de Dados SQL e Azure Synapse
 

@@ -1,6 +1,6 @@
 ---
-title: Visão geral da plataforma Microsoft Identity (v 2.0) – Azure
-description: Saiba mais sobre a plataforma e o ponto de extremidade da plataforma Microsoft Identity (v 2.0).
+title: Visão geral da plataforma de identidade da Microsoft (v2.0) - Azure
+description: Conheça a plataforma e plataforma de fim da plataforma da plataforma da plataforma da plataforma da plataforma da plataforma da plataforma da plataforma da plataforma da microsoft (v2.0).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -16,29 +16,29 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6280f3784247b671521a4994be1f233d4913d90c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
-ms.translationtype: MT
+ms.openlocfilehash: f6953fb5d016c802db260c55bc4970c3f029ab1a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194505"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356306"
 ---
-# <a name="microsoft-identity-platform-v20-overview"></a>Visão geral da plataforma Microsoft Identity (v 2.0)
+# <a name="microsoft-identity-platform-v20-overview"></a>Visão geral da plataforma de identidade da Microsoft (v2.0)
 
-A plataforma de identidade da Microsoft é uma evolução da plataforma de programador do Azure Active Directory (Azure AD). Ele permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtenham tokens para chamar APIs da Microsoft, como Microsoft Graph ou APIs que os desenvolvedores criaram. A plataforma de identidade da Microsoft consiste em:
+A plataforma de identidade da Microsoft é uma evolução da plataforma de programador do Azure Active Directory (Azure AD). Permite que os desenvolvedores construam aplicações que assinam todas as identidades da Microsoft e que liguem para as APIs da Microsoft, como o Microsoft Graph, ou APIs que os desenvolvedores construíram. A plataforma de identidade da Microsoft consiste em:
 
 - **OAuth 2.0 e OpenID Connect serviço de autenticação padrão** que permite aos desenvolvedores autenticar qualquer identidade da Microsoft, incluindo:
-  - Contas corporativas ou de estudante (provisionadas por meio do Azure AD)
+  - Trabalho ou contas escolares (provisionados através da AD Azure)
   - Contas pessoais da Microsoft (como Skype, Xbox e Outlook.com)
   - Contas sociais ou locais (via Azure AD B2C)
 - **Bibliotecas de código aberto**: Bibliotecas de Autenticação da Microsoft (MSAL) e suporte a outras bibliotecas compatíveis com padrões
 - Portal de gestão de **aplicações**: Uma experiência de registo e configuração construída no portal Azure, juntamente com todas as suas outras capacidades de gestão Azure.
-- **Configuração de aplicação API e PowerShell**: que permite configuração programática das suas aplicações através da REST API (Microsoft Graph e Azure Ative Directory Graph 1.6) e PowerShell, para que possa automatizar as suas tarefas DevOps.
+- **Configuração de aplicação API e PowerShell**: que permite a configuração programática das suas aplicações através do Microsoft Graph API e PowerShell, para que possa automatizar as suas tarefas DevOps.
 - **Conteúdo do desenvolvedor**: documentação conceptual e de referência, amostras de arranque rápido, amostras de código, tutoriais e guias de como fazer.
 
-Para os desenvolvedores, a plataforma de identidade da Microsoft oferece integração direta a inovações no espaço de segurança e identidade, como autenticação sem senha, autenticação de etapa para e acesso condicional.  Você não precisa implementar essa funcionalidade por conta própria: aplicativos integrados com a plataforma de identidade da Microsoft aproveitam de forma nativa essas inovações.
+Para os desenvolvedores, a plataforma de identidade da Microsoft oferece uma integração perfeita em inovações no espaço de identidade e segurança, tais como autenticação sem palavras-passe, autenticação step-up e Acesso Condicional.  Não é preciso implementar essa funcionalidade por si mesmo: aplicações integradas na plataforma de identidade da Microsoft aproveitam-se de tais inovações.
 
-Com a plataforma de identidade da Microsoft, você pode escrever código uma vez e acessar qualquer usuário. Você pode criar um aplicativo uma vez e fazê-lo funcionar em várias plataformas ou criar um aplicativo que funcione como um cliente, bem como um aplicativo de recurso (API).
+Com a plataforma de identidade da Microsoft, pode escrever código uma vez e contactar qualquer utilizador. Pode construir uma aplicação uma vez e fazê-la funcionar em muitas plataformas, ou construir uma app que funcione como cliente, bem como uma aplicação de recursos (API).
 
 ## <a name="getting-started"></a>Introdução
 
@@ -57,13 +57,13 @@ Escolha um [cenário](authentication-flows-app-scenarios.md) que se aplique a si
 - [Construa uma app daemon](scenario-daemon-overview.md)
 - [Construir uma aplicação móvel](scenario-mobile-overview.md)
 
-O gráfico a seguir descreve os cenários de aplicativos de autenticação comuns – use-os como referência ao integrar a plataforma de identidade da Microsoft ao seu aplicativo.
+O gráfico seguinte descreve cenários comuns de aplicações de autenticação – use-a como referência ao integrar a plataforma de identidade da Microsoft com a sua aplicação.
 
 [cenários de aplicação ![na plataforma de identidade da Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se você quiser saber mais sobre os principais conceitos de autenticação, recomendamos que comece com estes tópicos:
+Se quiser saber mais sobre conceitos de autenticação core, recomendamos que comece com estes tópicos:
 
 - [Fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)
 - [Noções básicas de autenticação](authentication-scenarios.md)
@@ -77,7 +77,7 @@ Construa uma aplicação rica em dados que chama [Microsoft Graph](https://docs.
 Quando estiver pronto para lançar a sua app num ambiente de **produção,** reveja estas boas práticas:
 
 - [Ative](msal-logging.md) o registo na sua aplicação.
-- Habilite a telemetria em seu aplicativo.
+- Ativar a telemetria na sua aplicação.
 - Ative [proxies e personalize clientes HTTP.](msal-net-provide-httpclient.md)
 - Teste a sua integração seguindo a lista de verificação de [integração](identity-platform-integration-checklist.md)da plataforma de identidade da Microsoft .
 

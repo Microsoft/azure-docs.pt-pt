@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 9efc7d3ba072b0281d932b31365e7458034c30f5
-  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+  ms.openlocfilehash: 8b0f01a48ff2b1be42650d346808195f434a1f2f
+  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/25/2020
-  ms.locfileid: "77582624"
+  ms.lasthandoff: 03/06/2020
+  ms.locfileid: "78672991"
 landingContent:
 - title: Saiba mais sobre o Azure Backup
   linkLists:
@@ -111,7 +111,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Fazer a cópia de segurança de computadores Windows com o agente MARS do Azure Backup
-      url: backup-configure-vault.md
+      url: backup-windows-with-mars-agent.md
     - text: Gerir as cópias de segurança do Agente MARS com o serviço Azure Backup
       url: backup-azure-manage-mars.md
     - text: Matriz de suporte do agente MARS

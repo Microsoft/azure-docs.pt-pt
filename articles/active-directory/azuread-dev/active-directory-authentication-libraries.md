@@ -14,11 +14,11 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: fd880c98878f1f778047cd2d60b115b857ad0809
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251656"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377464"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de autenticação de diretório ativo Azure
 
@@ -40,7 +40,7 @@ A Biblioteca de Autenticação de Diretórios Ativos Azure (ADAL) v1.0 permite q
 | Plataforma | Biblioteca | Transferência | Código Fonte | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
 | .NET Client, Windows Store, UWP, Xamarin iOS e Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [Aplicativo de ambiente de trabalho](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Referência](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
-| Javascript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
+| JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[aplicativo iOS](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Referência](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
 | Android |ADAL |[Maven](https://search.maven.org/search?q=g:com.microsoft.aad+AND+a:adal&core=gav) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Aplicativo Android](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Aplicação Web Node.Js](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[Referência](https://docs.microsoft.com/javascript/api/overview/azure/activedirectory) |
@@ -78,7 +78,7 @@ Neste cenário, um desenvolvedor tem uma aplicação em execução num servidor 
 
 Neste cenário, um desenvolvedor tem uma aplicação web a funcionar num servidor que precisa de aceder a um recurso remoto, como uma API web. A API web não permite chamadas anónimas, pelo que deve ser chamada de um serviço autorizado em nome de um utilizador autenticado. A Web API está pré-configurada para confiar em fichas de acesso emitidas por um inquilino específico da AD Azure, e a Azure AD está pré-configurada para emitir fichas de acesso para esse recurso a um serviço com credenciais de cliente. Uma vez autenticado o utilizador na aplicação web, a aplicação pode obter um código de autorização para o utilizador a partir do Azure AD. A aplicação web pode então usar a ADAL para obter um token de acesso e um sinal de atualização em nome de um utilizador usando o código de autorização e credenciais de cliente associadas à aplicação da Azure AD. Uma vez que a aplicação web esteja na posse do token de acesso, pode ligar para a Web API até que o token expire. Quando o token expirar, a aplicação web pode usar a ADAL para obter um novo sinal de acesso utilizando o token de atualização que foi previamente recebido. Para obter uma amostra de código que demonstre este cenário, consulte o [cliente nativo da Web API para a Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Veja Também
 
 - [O guia do desenvolvedor do Diretório Ativo Azure](v1-overview.md)
 - [Cenários de autenticação para o diretório Azure Ative](v1-authentication-scenarios.md)

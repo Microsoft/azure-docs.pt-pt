@@ -1,46 +1,46 @@
 ---
-title: Funções de plantas do Azure
-description: Descreve as funções disponíveis para uso com artefatos de Blueprint em definições e atribuições de plantas do Azure.
+title: Funções de Plantas Azure
+description: Descreve as funções disponíveis para utilização com artefactos de plantas em definições e atribuições de Plantas Azure.
 ms.date: 12/09/2019
 ms.topic: reference
 ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970895"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386245"
 ---
-# <a name="functions-for-use-with-azure-blueprints"></a>Funções para uso com plantas do Azure
+# <a name="functions-for-use-with-azure-blueprints"></a>Funções para utilização com plantas azure
 
-Os planos gráficos do Azure fornecem funções que tornam a definição Blueprint mais dinâmica. Essas funções são para uso com definições de Blueprint e artefatos de Blueprint. Um artefato de modelo do Resource Manager dá suporte ao uso completo de funções do Resource Manager, além de obter um valor dinâmico por meio de um parâmetro Blueprint.
+A Azure Blueprints fornece funções tornando uma definição de planta mais dinâmica. Estas funções são para uso com definições de plantas e artefactos de plantas. Um artefacto de modelo de gestor de recursos suporta o uso total das funções do Gestor de Recursos, além de obter um valor dinâmico através de um parâmetro de planta.
 
-Há suporte para as seguintes funções:
+As seguintes funções são suportadas:
 
-- [artefato](#artifacts)
+- [artefactos](#artifacts)
 - [concat](#concat)
 - [parameters](#parameters)
-- [resourceGroup](#resourcegroup)
-- [resourceGroups](#resourcegroups)
+- [recursosGroup](#resourcegroup)
+- [recursosGrupos](#resourcegroups)
 - [subscrição](#subscription)
 
 ## <a name="artifacts"></a>artifacts
 
 `artifacts(artifactName)`
 
-Retorna um objeto das propriedades preenchidas com as saídas dos artefatos do Blueprint.
+Devolve um objeto de propriedades povoadas com as saídas de artefactos de plantas.
 
 > [!NOTE]
-> A função `artifacts()` não pode ser usada de dentro de um modelo do Resource Manager. A função só pode ser usada na definição do Blueprint JSON ou no artefato JSON ao gerenciar o plano gráfico com Azure PowerShell ou a API REST como parte de [plantas como código](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+> A função `artifacts()` não pode ser usada a partir de dentro de um modelo de gestor de recursos. A função só pode ser utilizada na definição de planta JSON ou no artefacto JSON ao gerir a planta com a Azure PowerShell ou a REST API como parte das [Plantas-como código](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| artifactName |Sim |string |O nome de um artefato de plano gráfico. |
+| artifactName |Sim |string |O nome de um artefacto de planta. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um objeto de propriedades de saída. As propriedades de **saída** são dependentes do tipo de artefato de plano gráfico que está sendo referenciado. Todos os tipos seguem o formato:
+Um objeto de propriedades de saída. As propriedades de **saída** dependem do tipo de artefacto de planta que está a ser referenciado. Todos os tipos seguem o formato:
 
 ```json
 {
@@ -48,7 +48,7 @@ Um objeto de propriedades de saída. As propriedades de **saída** são dependen
 }
 ```
 
-#### <a name="policy-assignment-artifact"></a>Artefato de atribuição de política
+#### <a name="policy-assignment-artifact"></a>Artefacto de atribuição de políticas
 
 ```json
 {
@@ -60,11 +60,11 @@ Um objeto de propriedades de saída. As propriedades de **saída** são dependen
 }
 ```
 
-#### <a name="resource-manager-template-artifact"></a>Artefato do modelo do Resource Manager
+#### <a name="resource-manager-template-artifact"></a>Artefacto de modelo do gestor de recursos
 
-As propriedades de **saídas** do objeto retornado são definidas no modelo do Resource Manager e retornadas pela implantação.
+As propriedades de **saída** do objeto devolvido são definidas dentro do modelo de Gestor de Recursos e devolvidas pela implementação.
 
-#### <a name="role-assignment-artifact"></a>Artefato de atribuição de função
+#### <a name="role-assignment-artifact"></a>Artefacto de atribuição de papéis
 
 ```json
 {
@@ -78,7 +78,7 @@ As propriedades de **saídas** do objeto retornado são definidas no modelo do R
 
 ### <a name="example"></a>Exemplo
 
-Um artefato do modelo do Resource Manager com a ID _myTemplateArtifact_ que contém a seguinte propriedade de saída de exemplo:
+Um artefacto de modelo de Gestor de Recursos com o _ID myTemplateArtifact_ contendo a seguinte propriedade de saída de amostra:
 
 ```json
 {
@@ -104,37 +104,37 @@ Um artefato do modelo do Resource Manager com a ID _myTemplateArtifact_ que cont
 }
 ```
 
-Alguns exemplos de recuperação de dados do exemplo _myTemplateArtifact_ são:
+Alguns exemplos de recuperação de dados da amostra _myTemplateArtifact_ são:
 
 | Expressão | Tipo | Valor |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["primeiro", "segundo"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | primeiro |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "meu valor de cadeia de caracteres" |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"MyProperty": "meu valor", "anotherproperty": true} |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "meu valor" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "Primeiro" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "O meu valor de corda" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "O meu valor" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | Verdadeiro |
 
-## <a name="concat"></a>Concat
+## <a name="concat"></a>concat
 
 `concat(string1, string2, string3, ...)`
 
-Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres concatenada.
+Combina múltiplos valores de cordas e devolve a corda concatenada.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| string1 |Sim |string |O primeiro valor para concatenação. |
-| argumentos adicionais |Não |string |Valores adicionais em ordem sequencial para concatenação |
+| cadeia1 |Sim |string |O primeiro valor para a concatenação. |
+| argumentos adicionais |Não |string |Valores adicionais na ordem sequencial de concatenação |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres de valores concatenados.
+Uma série de valores concatenados.
 
 ### <a name="remarks"></a>Observações
 
-A função Azure Blueprint difere da função de modelo Azure Resource Manager, pois só funciona com cadeias de caracteres.
+A função Azure Blueprint difere da função do modelo do Gestor de Recursos Azure, na medida em que funciona apenas com cordas.
 
 ### <a name="example"></a>Exemplo
 
@@ -144,25 +144,25 @@ A função Azure Blueprint difere da função de modelo Azure Resource Manager, 
 
 `parameters(parameterName)`
 
-Retorna um valor de parâmetro Blueprint. O nome do parâmetro especificado deve ser definido na definição do Blueprint ou em artefatos do Blueprint.
+Devolve um valor de parâmetro de planta. O nome do parâmetro especificado deve ser definido na definição da planta ou nos artefactos da planta.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sim |string |O nome do parâmetro a ser retornado. |
+| parameterName |Sim |string |O nome do parâmetro para voltar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-O valor do parâmetro de artefato Blueprint ou Blueprint especificado.
+O valor do parâmetro de plantas ou artefactos de planta especificado.
 
 ### <a name="remarks"></a>Observações
 
-A função Azure Blueprint difere da função de modelo de Azure Resource Manager, pois só funciona com parâmetros de plano gráfico.
+A função Azure Blueprint difere da função do modelo do Gestor de Recursos Azure, na medida em que funciona apenas com parâmetros de planta.
 
 ### <a name="example"></a>Exemplo
 
-Defina o parâmetro _principalIds_ na definição do Blueprint:
+Definir _os principais parâmetros_ na definição de projeto:
 
 ```json
 {
@@ -184,7 +184,7 @@ Defina o parâmetro _principalIds_ na definição do Blueprint:
 }
 ```
 
-Em seguida, use _principalIds_ como o argumento para `parameters()` em um artefato Blueprint:
+Em seguida, utilize os _principados como_ argumento para `parameters()` num artefacto de plantas:
 
 ```json
 {
@@ -218,13 +218,13 @@ O objeto devolvido é no seguinte formato:
 
 ### <a name="remarks"></a>Observações
 
-A função Azure Blueprint difere da função de modelo Azure Resource Manager. A função `resourceGroup()` não pode ser usada em um artefato de nível de assinatura ou na definição Blueprint. Ele só pode ser usado em artefatos de Blueprint que fazem parte de um artefato de grupo de recursos.
+A função Azure Blueprint difere da função de modelo do Gestor de Recursos Azure. A função `resourceGroup()` não pode ser usada num artefacto de nível de subscrição ou na definição de planta. Só pode ser usado em artefactos de plantas que fazem parte de um artefacto de grupo de recursos.
 
-Um uso comum da função `resourceGroup()` é criar recursos no mesmo local que o artefato do grupo de recursos.
+Um uso comum da função `resourceGroup()` é criar recursos no mesmo local que o artefacto do grupo de recursos.
 
 ### <a name="example"></a>Exemplo
 
-Para usar o local do grupo de recursos, defina na definição do plano gráfico ou durante a atribuição, como o local de outro artefato, declare um objeto de espaço reservado do grupo de recursos na definição do Blueprint. Neste exemplo, _NetworkingPlaceholder_ é o nome do espaço reservado do grupo de recursos.
+Para utilizar a localização do grupo de recursos, definida na definição de planta ou durante a atribuição, como localização para outro artefacto, declare um objeto de espaço reservado de grupo de recursos na definição de planta. Neste exemplo, o Suporte à _Rede Placeholder_ é o nome do espaço reservado do grupo de recursos.
 
 ```json
 {
@@ -240,7 +240,7 @@ Para usar o local do grupo de recursos, defina na definição do plano gráfico 
 }
 ```
 
-Em seguida, use a função `resourceGroup()` no contexto de um artefato Blueprint destinado a um objeto de espaço reservado do grupo de recursos. Neste exemplo, o artefato do modelo é implantado no grupo de recursos _NetworkingPlaceholder_ e fornece o parâmetro _localização_ populado dinamicamente com o local do grupo de recursos _NetworkingPlaceholder_ para o modelo. O local do grupo de recursos _NetworkingPlaceholder_ poderia ter sido estaticamente definido na definição do Blueprint ou definido dinamicamente durante a atribuição. Em ambos os casos, o artefato do modelo recebe essas informações como um parâmetro e as usa para implantar os recursos no local correto.
+Em seguida, utilize a função `resourceGroup()` no contexto de um artefacto de planta que está a visar um objeto de espaço reservado de grupo de recursos. Neste exemplo, o artefacto do modelo é implantado no grupo de recursos _NetworkingPlaceholder_ e fornece recursos paramétricosLocalização dinamicamente povoada com a localização do grupo de recursos _NetworkingPlaceholder_ para o modelo. A localização do grupo de recursos _NetworkingPlaceholder_ poderia ter sido definida estáticamente na definição de projeto ou definida dinamicamente durante a atribuição. Em qualquer dos casos, o artefacto do modelo é fornecido essa informação como parâmetro e usa-a para implantar os recursos para a localização correta.
 
 ```json
 {
@@ -261,17 +261,17 @@ Em seguida, use a função `resourceGroup()` no contexto de um artefato Blueprin
 }
 ```
 
-## <a name="resourcegroups"></a>resourceGroups
+## <a name="resourcegroups"></a>recursosGrupos
 
 `resourceGroups(placeholderName)`
 
-Retorna um objeto que representa o artefato do grupo de recursos especificado. Ao contrário de `resourceGroup()`, que requer o contexto do artefato, essa função é usada para obter as propriedades de um espaço reservado do grupo de recursos específico quando não está no contexto desse grupo de recursos.
+Devolve um objeto que representa o artefacto do grupo de recursos especificado. Ao contrário `resourceGroup()`, que requer contexto do artefacto, esta função é usada para obter as propriedades de um espaço reservado de um grupo de recursos específico quando não está no contexto desse grupo de recursos.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| placeholderName |Sim |string |O nome do espaço reservado do artefato do grupo de recursos a ser retornado. |
+| placeholderName |Sim |string |O nome do espaço reservado do artefacto do grupo de recursos para regressar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -286,7 +286,7 @@ O objeto devolvido é no seguinte formato:
 
 ### <a name="example"></a>Exemplo
 
-Para usar o local do grupo de recursos, defina na definição do plano gráfico ou durante a atribuição, como o local de outro artefato, declare um objeto de espaço reservado do grupo de recursos na definição do Blueprint. Neste exemplo, _NetworkingPlaceholder_ é o nome do espaço reservado do grupo de recursos.
+Para utilizar a localização do grupo de recursos, definida na definição de planta ou durante a atribuição, como localização para outro artefacto, declare um objeto de espaço reservado de grupo de recursos na definição de planta. Neste exemplo, o Suporte à _Rede Placeholder_ é o nome do espaço reservado do grupo de recursos.
 
 ```json
 {
@@ -302,7 +302,7 @@ Para usar o local do grupo de recursos, defina na definição do plano gráfico 
 }
 ```
 
-Em seguida, use a função `resourceGroups()` do contexto de qualquer artefato do Blueprint para obter uma referência ao objeto de espaço reservado do grupo de recursos. Neste exemplo, o artefato do modelo é implantado fora do grupo de recursos _NetworkingPlaceholder_ e fornece o parâmetro _artifactLocation_ populado dinamicamente com o local do grupo de recursos _NetworkingPlaceholder_ para o modelo. O local do grupo de recursos _NetworkingPlaceholder_ poderia ter sido estaticamente definido na definição do Blueprint ou definido dinamicamente durante a atribuição. Em ambos os casos, o artefato do modelo recebe essas informações como um parâmetro e as usa para implantar os recursos no local correto.
+Em seguida, utilize a função `resourceGroups()` a partir do contexto de qualquer artefacto de planta para obter uma referência ao objeto de espaço reservado do grupo de recursos. Neste exemplo, o artefacto do modelo é implantado fora do grupo de recursos _NetworkingPlaceholder_ e fornece _artefactos_ paramétricosLocalização dinamicamente povoada com a localização do grupo de recursos _NetworkingPlaceholder_ para o modelo. A localização do grupo de recursos _NetworkingPlaceholder_ poderia ter sido definida estáticamente na definição de projeto ou definida dinamicamente durante a atribuição. Em qualquer dos casos, o artefacto do modelo é fornecido essa informação como parâmetro e usa-a para implantar os recursos para a localização correta.
 
 ```json
 {
@@ -327,7 +327,7 @@ Em seguida, use a função `resourceGroups()` do contexto de qualquer artefato d
 
 `subscription()`
 
-Retorna detalhes sobre a assinatura para a atribuição de Blueprint atual.
+Devolve detalhes sobre a subscrição para a atribuição do projeto atual.
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -344,7 +344,7 @@ O objeto devolvido é no seguinte formato:
 
 ### <a name="example"></a>Exemplo
 
-Use o nome de exibição da assinatura e a função `concat()` para criar uma Convenção de nomenclatura passada como parâmetro _resourceName_ para o artefato do modelo.
+Utilize o nome de exibição da subscrição e a função `concat()` para criar uma convenção de nomeação aprovada como recurso de _parâmetronome nome_ para o artefacto do modelo.
 
 ```json
 {

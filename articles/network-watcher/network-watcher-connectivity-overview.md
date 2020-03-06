@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842874"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396959"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à resolução de problemas de ligação no Vigilante da Rede Azure
 
@@ -46,7 +46,7 @@ A tabela seguinte mostra as propriedades devolvidas quando a sessão de problema
 |Hops[].Issues | Uma coleção de problemas que foram encontrados durante o cheque naquele salto. Se não houver problemas, o valor está em branco.|
 |Hops[].Issues[].Origin | No salto atual, onde ocorreu a questão. Os valores possíveis são:<br/> **Entrada** - A questão está no link do salto anterior para o salto atual<br/>**Outbound** - A questão está no link do salto atual para o próximo salto<br/>**Local** - A questão está no salto atual.|
 |Hops[].Issues[].Severity | A gravidade do problema detetado. Os valores possíveis são **Erro** e **Aviso.** |
-|Hops[].Issues[].Type |O tipo de problema encontrado. Os valores possíveis são: <br/>**CPU**<br/>**Memória**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Hops[].Issues[].Type |O tipo de problema encontrado. Os valores possíveis são: <br/>**CPU**<br/>**Memória**<br/>**GuestFirewall**<br/>**Resolução dns**<br/>**Regra de Segurança da Rede**<br/>**Via Definida pelo Utilizador** |
 |Hops[].Issues[].Context |Detalhes sobre o assunto encontrados.|
 |Hops[].Issues[].Context[].key |Chave do par de valor chave devolvido.|
 |Hops[].Issues[].Context[].value |Valor do par de valor chave devolvido.|

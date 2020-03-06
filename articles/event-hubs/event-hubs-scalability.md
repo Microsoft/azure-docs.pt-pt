@@ -1,6 +1,6 @@
 ---
-title: Escalabilidade-hubs de eventos do Azure | Microsoft Docs
-description: Este artigo fornece informações sobre como dimensionar os hubs de eventos do Azure usando partições e unidades de produtividade.
+title: Escalabilidade - Hubs de Eventos Azure  Microsoft Docs
+description: Este artigo fornece informações sobre como escalar os Hubs de Eventos Azure utilizando divisórias e unidades de produção.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -15,37 +15,37 @@ ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
 ms.openlocfilehash: 2b36faef8c39a8e9b02a056576ae7f5a77b1f6bf
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309528"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78365394"
 ---
-# <a name="scaling-with-event-hubs"></a>Dimensionamento com hubs de eventos
+# <a name="scaling-with-event-hubs"></a>Escalacom Hubs de Eventos
 
-Há dois fatores que influenciam o dimensionamento com os hubs de eventos.
+Há dois fatores que influenciam a escalação com os Centros de Eventos.
 *   Unidades de débito
 *   Partições
 
 ## <a name="throughput-units"></a>Unidades de débito
 
-A capacidade de débito do Event Hubs é controlada por *unidades de débito*. As unidades de débito são unidades de capacidade previamente compradas. Uma única taxa de transferência permite que você:
+A capacidade de débito do Event Hubs é controlada por *unidades de débito*. As unidades de débito são unidades de capacidade previamente compradas. Uma única entrada permite::
 
 * Entrada: Até 1 MB por segundo ou 1000 eventos por segundo (o que acontecer primeiro).
 * Saída: Até 2 MB por segundo ou 4096 eventos por segundo.
 
-Além da capacidade das unidades de débito adquiridas, a entrada é limitada e é devolvida uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). A saída não produz exceções de limitação, mas continua a ser limitada à capacidade das unidades de débito adquiridas. Se receber exceções da taxa de publicação ou estiver à espera de ver uma saída superior, não se esqueça de verificar quantas unidades de débito adquiriu para o espaço de nomes. Pode gerir unidades de débito no **escala** painel dos espaços de nomes no [portal do Azure](https://portal.azure.com). Também pode gerir unidades de débito programaticamente usando a [APIs de Hubs de eventos](event-hubs-api-overview.md).
+Além da capacidade das unidades de débito adquiridas, a entrada é limitada e é devolvida uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). A saída não produz exceções de limitação, mas continua a ser limitada à capacidade das unidades de débito adquiridas. Se receber exceções da taxa de publicação ou estiver à espera de ver uma saída superior, não se esqueça de verificar quantas unidades de débito adquiriu para o espaço de nomes. Pode gerir unidades de entrada na lâmina **de escala** dos espaços de nome no [portal Azure](https://portal.azure.com). Também pode gerir as unidades de produção programáticamente utilizando as APIs do [Event Hubs](event-hubs-api-overview.md).
 
 Unidades de débito são previamente adquiridas e são faturadas por hora. Assim que forem adquiridas, as unidades de débito são faturadas por um mínimo de uma hora. Débito até 20 unidades podem ser adquiridas para um espaço de nomes de Hubs de eventos e são partilhadas entre todos os hubs de eventos nesse espaço de nomes.
 
-O **ampliação automática** funcionalidade dos Hubs de eventos de dimensionamento automaticamente do aumento do número de unidades de débito, para utilização de satisfazer as necessidades. Aumentar as unidades de débito impede cenários, no qual de limitação:
+A função **de auto-insuflar** os Centros de Eventos aumenta automaticamente aumentando o número de unidades de produção, para satisfazer as necessidades de utilização. Aumentar as unidades de débito impede cenários, no qual de limitação:
 
 - As taxas de entrada de dados excederem as unidades de débito do conjunto.
 - Taxas de pedidos de saída de dados excederem as unidades de débito do conjunto.
 
 O serviço de Hubs de eventos aumenta o débito, quando a carga aumenta acima do limiar mínimo, sem quaisquer pedidos a falhar com erros de ServerBusy. 
 
-Para obter mais informações sobre o recurso de inflar automaticamente, consulte [dimensionar automaticamente unidades de produtividade](event-hubs-auto-inflate.md).
+Para obter mais informações sobre a função de inflação automática, consulte [automaticamente as unidades](event-hubs-auto-inflate.md)de produção .
 
 ## <a name="partitions"></a>Partições
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
@@ -61,4 +61,4 @@ O publicador de eventos apenas tem conhecimento da respetiva chave de partição
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 - [Dimensionar automaticamente unidades de débito](event-hubs-auto-inflate.md)
-- [Descrição geral de serviço de Hubs de eventos](event-hubs-what-is-event-hubs.md)
+- [Visão geral do serviço De Evento Hubs](event-hubs-what-is-event-hubs.md)

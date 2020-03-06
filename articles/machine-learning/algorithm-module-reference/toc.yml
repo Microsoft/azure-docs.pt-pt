@@ -144,11 +144,5 @@
       href: score-svd-recommender.md
     - name: Preparar Recomendador SVD
       href: train-svd-recommender.md
-- name: Deteção de anomalias
-  items:
-    - name: Deteção de Anomalias Baseada em PCA
-      href: pca-based-anomaly-detection.md
-    - name: Preparar Modelo de Deteção de Anomalias
-      href: train-anomaly-detection-model.md
 - name: Erros e resolução de problemas do módulo
   href: designer-error-codes.md

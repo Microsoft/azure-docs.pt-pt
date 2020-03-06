@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 5cbb819ef1300f16a40dbdd0da52a35bdf578e59
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: f1be146a5173c86a8b19bca5c7b3b8c72d72b9c5
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598192"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362428"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes (FAQ) sobre ficheiros Azure
 [O Azure Files](storage-files-introduction.md) oferece partilhas de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de Mensagens de [Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão da indústria. Pode montar partilhas de ficheiros Azure simultaneamente em implementações em nuvem ou no local de implementações de Windows, Linux e macOS. Também pode cache as partilhas de ficheiros Azure nas máquinas do Windows Server utilizando o Azure File Sync para acesso rápido perto do local onde os dados são utilizados.
@@ -179,12 +179,12 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="ad-support-rest-apis"></a>
 **Existem APIs REST para suportar O Diretório/Ficheiro NTFS ACLs/ ficheiro NTFS?**
 
-    Sim, apoiamos APIs REST que obtêm, set ou copiam NTFS ACLs para diretórios ou ficheiros ao utilizar a API REST [2019-02](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-02-02) (ou posterior).
+    Sim, apoiamos APIs REST que obtêm, set ou copiam NTFS ACLs para diretórios ou ficheiros ao utilizar a API REST [2019-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou posterior).
 
 * <a id="ad-vm-subscription"></a>
 **Posso aceder a Ficheiros Azure com credenciais Azure AD de um VM sob uma subscrição diferente?**
 
-    Se a subscrição sob a qual a parte de ficheiro é implantada estiver associada ao mesmo inquilino Azure AD que a implantação de Serviços de Domínio Azure AD para a qual o VM é associado ao domínio, então poderá aceder aos Ficheiros Azure utilizando as mesmas credenciais De AD Azure. A limitação é imposta não à subscrição, mas ao inquilino da AD Azure associado.    
+    Se a subscrição sob a qual a parte de ficheiro é implantada estiver associada ao mesmo inquilino Azure AD que a implantação de Serviços de Domínio Azure AD para a qual o VM é associado ao domínio, então poderá aceder aos Ficheiros Azure utilizando as mesmas credenciais De AD Azure. A limitação é imposta não à subscrição, mas ao inquilino da AD Azure associado.
     
 * <a id="ad-support-subscription"></a>
 Posso permitir a **autenticação Azure Files Azure AD DS ou AD com um inquilino DaD Azure que é diferente do inquilino primário com que a parte do ficheiro está associada?**
