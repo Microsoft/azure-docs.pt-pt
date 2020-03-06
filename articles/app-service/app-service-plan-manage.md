@@ -1,102 +1,102 @@
 ---
-title: Gerenciar plano do serviço de aplicativo
-description: Saiba como executar tarefas diferentes para gerenciar um plano do serviço de aplicativo, como criar, mover, dimensionar e excluir.
-keywords: serviço de aplicativo, serviço de aplicativo do Azure, escala, plano do serviço de aplicativo, alterar, criar, gerenciar, gerenciamento
+title: Gerir o plano de serviço de aplicações
+description: Aprenda a executar diferentes tarefas para gerir um plano de Serviço de Aplicações, tais como criar, mover, escalar e eliminar.
+keywords: serviço de aplicações, serviço de aplicações azure, escala, plano de serviço de aplicações, alteração, criação, gestão, gestão
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681188"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356147"
 ---
-# <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do serviço de aplicativo no Azure
+# <a name="manage-an-app-service-plan-in-azure"></a>Gerir um plano de serviço de aplicações em Azure
 
-Um [plano de serviço Azure app](overview-hosting-plans.md) fornece os recursos que um aplicativo do serviço de aplicativo precisa executar. Este guia mostra como gerenciar um plano do serviço de aplicativo.
+Um [plano azure App Service](overview-hosting-plans.md) fornece os recursos que uma aplicação do App Service precisa de executar. Este guia mostra como gerir um plano de Serviço de Aplicações.
 
 ## <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 
 > [!TIP]
-> Se você tiver um Ambiente do Serviço de Aplicativo, consulte [criar um plano do serviço de aplicativo em um ambiente do serviço de aplicativo](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
+> Se tiver um Ambiente de Serviço de Aplicações, consulte Criar um plano de serviço de aplicações num ambiente de serviço de [aplicações.](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
 
-Você pode criar um plano do serviço de aplicativo vazio ou pode criar um plano como parte da criação do aplicativo.
+Pode criar um plano de Serviço de Aplicações vazio, ou pode criar um plano como parte da criação de apps.
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
+1. No [portal Azure,](https://portal.azure.com)selecione **Criar um recurso**.
 
-   ![Crie um recurso no portal do Azure.][createResource] 
+   ![Crie um recurso no portal Azure.][createResource] 
 
-1. Selecione **novo** > **aplicativo Web** ou outro tipo de aplicativo do serviço de aplicativo.
+1. Selecione **New** > **Web App** ou outro tipo de app de serviço de aplicação.
 
-   ![Crie um aplicativo no portal do Azure.][createWebApp] 
+   ![Crie uma aplicação no portal Azure.][createWebApp] 
 
-2. Configure a seção **detalhes da instância** antes de configurar o plano do serviço de aplicativo. As configurações, como **publicar** e **sistemas operacionais** , podem alterar os tipos de preço disponíveis para seu plano do serviço de aplicativo. A **região** determina onde o plano do serviço de aplicativo é criado. 
+2. Configure a secção detalhes da **instância** antes de configurar o plano de serviço de aplicações. Definições como **Publicar** e **Sistemas Operativos** podem alterar os níveis de preços disponíveis para o seu plano de Serviço de Aplicações. **A região** determina onde é criado o seu plano de Serviço de Aplicações. 
    
-3. Na seção **plano do serviço de aplicativo** , selecione um plano existente ou crie um plano selecionando **criar novo**.
+3. Na secção Plano de Serviço de **Aplicações,** selecione um plano existente ou crie um plano selecionando **criar novos**.
 
-   ![Crie um plano do serviço de aplicativo.][createASP] 
+   ![Crie um plano de Serviço de Aplicações.][createASP] 
 
-4. Ao criar um plano, você pode selecionar o tipo de preço do novo plano. Em **SKU e tamanho**, selecione **alterar tamanho** para alterar o tipo de preço. 
+4. Ao criar um plano, pode selecionar o nível de preços do novo plano. Em **Sku e tamanho**, selecione **Alterar** tamanho para alterar o nível de preços. 
 
 <a name="move"></a>
 
-## <a name="move-an-app-to-another-app-service-plan"></a>Mover um aplicativo para outro plano do serviço de aplicativo
+## <a name="move-an-app-to-another-app-service-plan"></a>Mova uma aplicação para outro plano de Serviço de Aplicações
 
-Você pode mover um aplicativo para outro plano do serviço de aplicativo, desde que o plano de origem e o plano de destino estejam no _mesmo grupo de recursos e região geográfica_.
+Pode mover uma aplicação para outro plano de Serviço de Aplicações, desde que o plano de origem e o plano-alvo estejam no mesmo grupo de _recursos e região geográfica._
 
 > [!NOTE]
-> O Azure implanta cada novo plano do serviço de aplicativo em uma unidade de implantação, internamente chamado de espaço Web. Cada região pode ter muitos espaços Web, mas seu aplicativo só pode mover entre planos criados no mesmo espaço Web. Um Ambiente do Serviço de Aplicativo é um espaço Web isolado, portanto, os aplicativos podem ser movidos entre planos na mesma Ambiente do Serviço de Aplicativo, mas não entre planos em diferentes ambientes de serviço de aplicativo.
+> O Azure implementa cada novo plano de Serviço de Aplicações numa unidade de implantação, chamada internamente de webspace. Cada região pode ter muitos webspaces, mas a sua aplicação só pode mover-se entre planos que são criados no mesmo espaço web. Um App Service Environment é um webspace isolado, pelo que as aplicações podem ser movidas entre planos no mesmo App Service Environment, mas não entre planos em diferentes Ambientes de Serviço sinuoso.
 >
-> Não é possível especificar o espaço Web que você deseja ao criar um plano, mas é possível garantir que um plano seja criado no mesmo espaço da Web de um plano existente. Em resumo, todos os planos criados com a mesma combinação de grupo de recursos e região são implantados no mesmo espaço Web. Por exemplo, se você criou um plano no grupo de recursos A e na região B, qualquer plano que você criar posteriormente no grupo de recursos A e a região B será implantado no mesmo espaço Web. Observe que os planos não podem mover espaços do webspace depois de criados, portanto, você não pode mover um plano para "o mesmo espaço Web" como outro plano, movendo-o para outro grupo de recursos.
+> Não é possível especificar o espaço web que pretende ao criar um plano, mas é possível garantir que um plano seja criado no mesmo espaço web que um plano existente. Em resumo, todos os planos criados com o mesmo grupo de recursos e a combinação da região são implantados no mesmo espaço web. Por exemplo, se criou um plano no grupo de recursos A e na região B, então qualquer plano que crie posteriormente no grupo de recursos A e na região B é implantado no mesmo espaço web. Note que os planos não podem mover webspaces depois de criados, por isso não pode mover um plano para "o mesmo espaço web" que outro plano, transferindo-o para outro grupo de recursos.
 > 
 
-1. Na [portal do Azure](https://portal.azure.com), procure e selecione serviços de **aplicativos** e selecione o aplicativo que você deseja mover.
+1. No [portal Azure,](https://portal.azure.com)procure e selecione **serviços de App** e selecione a app que pretende mover.
 
-2. No menu à esquerda, selecione **Alterar plano do serviço de aplicativo**.
+2. A partir do menu esquerdo, selecione plano de serviço de **aplicações de mudança**.
 
-3. Na lista suspensa **plano do serviço de aplicativo** , selecione um plano existente para o qual mover o aplicativo. A lista suspensa mostra apenas os planos que estão no mesmo grupo de recursos e região geográfica que o plano do serviço de aplicativo atual. Se esse plano não existir, ele permitirá que você crie um plano por padrão. Você também pode criar um novo plano manualmente selecionando **criar novo**.
+3. No plano de dropdown do **App Service,** selecione um plano existente para mover a app para. A queda mostra apenas planos que se encontram no mesmo grupo de recursos e região geográfica que o atual plano de Serviço de Aplicações. Se não existir tal plano, permite-lhe criar um plano por defeito. Também pode criar um novo plano manualmente selecionando **criar novo**.
 
-4. Se você criar um plano, poderá selecionar o tipo de preço do novo plano. Em **tipo de preço**, selecione a camada existente para alterá-la. 
+4. Se criar um plano, pode selecionar o nível de preços do novo plano. No **Nível de Preços,** selecione o nível existente para alterá-lo. 
    
    > [!IMPORTANT]
-   > Se você estiver movendo um aplicativo de um plano de camadas superiores para um plano de nível inferior, como de **D1** a **F1**, o aplicativo poderá perder certos recursos no plano de destino. Por exemplo, se seu aplicativo usar certificados SSL, você poderá ver esta mensagem de erro:
+   > Se estiver a mover uma aplicação de um plano de nível superior para um plano de nível inferior, como de **D1** para **F1,** a aplicação pode perder certas capacidades no plano alvo. Por exemplo, se a sua aplicação utilizar certificados SSL, poderá ver esta mensagem de erro:
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 
 5. Quando terminar, selecione **OK**.
    
-   ![Seletor de plano do serviço de aplicativo.][change] 
+   ![Seletor de plano de serviço de aplicações.][change] 
 
-## <a name="move-an-app-to-a-different-region"></a>Mover um aplicativo para uma região diferente
+## <a name="move-an-app-to-a-different-region"></a>Mova uma aplicação para uma região diferente
 
-A região em que seu aplicativo é executado é a região do plano do serviço de aplicativo em que ele está. No entanto, você não pode alterar a região de um plano do serviço de aplicativo. Se você quiser executar seu aplicativo em uma região diferente, uma alternativa será a clonagem de aplicativo. A clonagem faz uma cópia do seu aplicativo em um plano do serviço de aplicativo novo ou existente em qualquer região.
+A região em que a sua aplicação funciona é a região do plano de Serviço de Aplicações em que se encontra. No entanto, não é possível alterar a região de um plano de Serviço sinuoso. Se quiser executar a sua aplicação numa região diferente, uma alternativa é a clonagem de aplicações. A clonagem faz uma cópia da sua aplicação num novo ou existente plano de Serviço de Aplicações em qualquer região.
 
-Você pode encontrar **clonar aplicativo** na seção **ferramentas de desenvolvimento** do menu.
+Pode encontrar **a App Clone** na secção **Ferramentas** de Desenvolvimento do menu.
 
 > [!IMPORTANT]
-> A clonagem tem algumas limitações. Você pode ler sobre eles em [Azure app clonagem de aplicativo de serviço](app-service-web-app-cloning.md).
+> A clonagem tem algumas limitações. Pode ler sobre eles na clonagem da App De Serviço de [Aplicações Azure](app-service-web-app-cloning.md).
 
-## <a name="scale-an-app-service-plan"></a>Dimensionar um plano do serviço de aplicativo
+## <a name="scale-an-app-service-plan"></a>Escala rés-da-aplicação
 
-Para escalar verticalmente o tipo de preço do plano do serviço de aplicativo, consulte [escalar verticalmente um aplicativo no Azure](manage-scale-up.md).
+Para aumentar o nível de preços de um plano de app service, consulte [scale up uma app em Azure](manage-scale-up.md).
 
-Para escalar horizontalmente a contagem de instâncias de um aplicativo, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Para escalonar a contagem de exemplos de uma aplicação, consulte a contagem de [exemplos de escala manual mente ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 <a name="delete"></a>
 
-## <a name="delete-an-app-service-plan"></a>Excluir um plano do serviço de aplicativo
+## <a name="delete-an-app-service-plan"></a>Eliminar um plano de serviço de aplicações
 
-Para evitar encargos inesperados, quando você exclui o último aplicativo em um plano do serviço de aplicativo, o serviço de aplicativo também exclui o plano por padrão. Se você optar por manter o plano em vez disso, deverá alterar o plano para a camada **gratuita** para que não seja cobrado.
+Para evitar encargos inesperados, ao eliminar a última aplicação num plano de Serviço de Aplicações, o App Service também elimina o plano por padrão. Se optar por manter o plano, deve mudar o plano para **free** tier para não ser cobrado.
 
 > [!IMPORTANT]
-> Os planos do serviço de aplicativo que não têm aplicativos associados a eles ainda incorrem em encargos porque continuam a reservar as instâncias de VM configuradas.
+> Os planos do Serviço de Aplicações que não têm aplicações associadas ainda incorrem em encargos porque continuam a reservar as instâncias de VM configuradas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Aumentar verticalmente uma aplicação no Azure](manage-scale-up.md)
+> [Escalar uma app em Azure](manage-scale-up.md)
 
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png

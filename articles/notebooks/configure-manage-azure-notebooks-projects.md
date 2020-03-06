@@ -4,11 +4,11 @@ description: Saiba como gerir metadados de projetos, ficheiros de projetos, ambi
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197696"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360648"
 ---
 # <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Gerir e configurar projetos na Pré-visualização de cadernos Azure
 
@@ -93,7 +93,7 @@ A página de pré-visualização suporta vários comandos de barra de ferramenta
 
 | Comando | Atalho de teclado | Ação |
 | --- | --- | --- |
-| Partilha | s | Apresenta o popup partilha a partir da qual pode obter uma ligação, partilhar a mídia social, obter o HTML para incorporar e enviar um e-mail. |
+| Partilhar | s | Apresenta o popup partilha a partir da qual pode obter uma ligação, partilhar a mídia social, obter o HTML para incorporar e enviar um e-mail. |
 | Clone | c  | Clone o bloco de notas à sua conta. |
 | Executar | R | Se tem permissão para fazer isso, é executado o bloco de notas. |
 | Transferência | d | Transfere uma cópia do bloco de notas. |

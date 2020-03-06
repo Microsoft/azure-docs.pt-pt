@@ -1,53 +1,53 @@
 ---
-title: Visão geral do cache HPC do Azure
-description: Descreve o cache do HPC do Azure, uma solução de acelerador de acesso a arquivo para computação de alto desempenho
+title: Visão geral do Cache Azure HPC
+description: Descreve o Azure HPC Cache, uma solução aceleradora de acesso a ficheiros para computação de alto desempenho
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582132"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388229"
 ---
 # <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
 
-O cache do HPC do Azure acelera o acesso aos seus dados para tarefas HPC (computação de alto desempenho). Ao armazenar arquivos em cache no Azure, o cache HPC do Azure traz a escalabilidade da computação em nuvem para o fluxo de trabalho existente. Esse serviço pode ser usado até mesmo para fluxos de trabalho em que os dados são armazenados em links de WAN, como em seu ambiente NAS (armazenamento conectado à rede) do datacenter local.
+O Cache Azure HPC acelera o acesso aos seus dados para tarefas de computação de alto desempenho (HPC). Ao arquivar ficheiros em Azure, o Azure HPC Cache traz a escalabilidade da computação em nuvem ao seu fluxo de trabalho existente. Este serviço pode ser utilizado mesmo para fluxos de trabalho onde os seus dados são armazenados através de links WAN, como no seu ambiente local de armazenamento ligado à rede de dados (NAS).
 
-O cache HPC do Azure é fácil de iniciar e monitorar da portal do Azure. O armazenamento NFS existente ou novos contêineres de blob podem se tornar parte de seu namespace agregado, o que torna o acesso de cliente simples, mesmo se você alterar o destino de armazenamento de back-end.
+A Azure HPC Cache é fácil de lançar e monitorizar a partir do portal Azure. O armazenamento nfs existente ou novos recipientes Blob podem tornar-se parte do seu espaço de nome agregado, o que torna o acesso ao cliente simples mesmo que altere o alvo de armazenamento final.
 
 ## <a name="use-cases"></a>Casos de utilização
 
-O cache HPC do Azure aprimora melhor a produtividade para fluxos de trabalho como estes:
+A Azure HPC Cache melhor aumenta a produtividade para fluxos de trabalho como estes:
 
-* Fluxo de trabalho de acesso a arquivo intenso de leitura
-* Dados armazenados no armazenamento acessível por NFS, BLOB do Azure ou ambos
-* Farms de computação de até 75.000 núcleos de CPU
+* Fluxo de trabalho de acesso a ficheiros pesados de leitura
+* Dados armazenados em armazenamento acessível à NFS, Azure Blob, ou ambos
+* Fazendas de computação de até 75.000 núcleos de CPU
 
-O cache do HPC do Azure pode ser adicionado a uma ampla variedade de fluxos de trabalho em vários setores. Qualquer sistema em que um grande número de máquinas precisa acessar um conjunto de arquivos em escala e com baixa latência se beneficiará desse serviço. As seções a seguir fornecem exemplos específicos.
+A Azure HPC Cache pode ser adicionada a uma grande variedade de fluxos de trabalho em muitas indústrias. Qualquer sistema onde um grande número de máquinas precise de aceder a um conjunto de ficheiros em escala e com baixa latência beneficiará deste serviço. As secções abaixo dão exemplos específicos.
 
-### <a name="visual-effects-vfx-rendering"></a>Renderização de efeitos visuais (VFX)
+### <a name="visual-effects-vfx-rendering"></a>Prestação de efeitos visuais (VFX)
 
-Em mídia e entretenimento, o cache HPC do Azure pode acelerar o acesso a dados para projetos de renderização de tempo crítico. Os fluxos de trabalho de renderização VFX geralmente exigem o processamento de último minuto por um grande número de nós de computação. Os dados desses fluxos de trabalho normalmente estão localizados em um ambiente NAS local. O cache HPC do Azure pode armazenar em cache esses dados de arquivo na nuvem para reduzir a latência e aumentar a flexibilidade para renderização sob demanda.
+Nos meios de comunicação e entretenimento, o Azure HPC Cache pode acelerar o acesso de dados a projetos de renderização críticos de tempo. Os fluxos de trabalho de renderização VFX exigem frequentemente processamento de última hora por um grande número de nódos de cálculo. Os dados para estes fluxos de trabalho estão tipicamente localizados num ambiente NAS no local. A Cache Azure HPC pode cache que os dados de ficheiros na nuvem para reduzir a latência e aumentar a flexibilidade para a renderização a pedido.
 
 ### <a name="life-sciences"></a>Ciências da vida
 
-Muitos fluxos de trabalho de ciências biomédicas podem se beneficiar do cache de arquivos de escalabilidade horizontal.
+Muitos fluxos de trabalho em ciências da vida podem beneficiar do cachede arquivo scale-out.
 
-Um Instituto de pesquisa que deseja portar seus fluxos de trabalho de análise de genoma para o Azure pode facilmente deslocar usando o cache do HPC do Azure. Como o cache fornece acesso a arquivos POSIX, nenhuma alteração no lado do cliente é necessária para executar o fluxo de trabalho do cliente existente na nuvem.
+Um instituto de investigação que quer colocar os seus fluxos de trabalho de análise genómica em Azure pode facilmente deslocá-los usando azure HPC Cache. Como a cache fornece acesso a ficheiros POSIX, não são necessárias alterações do lado do cliente para executar o fluxo de trabalho do cliente existente na nuvem.
 
-O cache HPC do Azure também pode ser aproveitado para melhorar a eficiência em tarefas como análise secundária, simulação de Pharmacological ou análise de imagem orientada por ia.
+A Cache Azure HPC também pode ser alavancada para melhorar a eficiência em tarefas como análise secundária, simulação farmacológica ou análise de imagem orientada por IA.
 
 ### <a name="financial-services-analytics"></a>Análise de serviços financeiros
 
-Uma implantação de cache do HPC do Azure pode ajudar a acelerar cálculos de análise quantitativos, cargas de trabalho de análise de risco e simulações Monte Carlo para fornecer às empresas de serviços financeiros melhores insights para tomar decisões estratégicas.
+Uma implantação de Cache Azure HPC pode ajudar a acelerar os cálculos de análise quantitativa, as cargas de trabalho de análise de risco e as simulações de Monte Carlo para dar às empresas de serviços financeiros uma melhor visão para tomarem decisões estratégicas.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O cache do HPC do Azure está disponível nessas regiões do Azure:
+Azure HPC Cache está disponível nestas regiões azure:
 
 * E.U.A. Leste
 * E.U.A. Leste 2
@@ -55,19 +55,19 @@ O cache do HPC do Azure está disponível nessas regiões do Azure:
 * Europa Ocidental
 * Ásia Sudeste
 * Sydney
-* E.U.A. Oeste 2
+* E.U.A.Oeste 2
 * Coreia do Sul Central
 
-Verifique a [página do produto de cache HPC do Azure](https://azure.microsoft.com/services/hpc-cache) para obter as informações de disponibilidade mais recentes.
+Consulte a página do [produto Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para obter as informações mais recentes sobre a disponibilidade.
 
-## <a name="service-availability"></a>Disponibilidade do serviço
+## <a name="service-availability"></a>Disponibilidade de serviço
 
-Você deve solicitar acesso para cada assinatura que será usada com o cache do HPC do Azure. Essa restrição ajuda a garantir a qualidade do serviço nos meses iniciais de disponibilidade geral.
+Tem de solicitar acesso para cada subscrição que utilizará com o Azure HPC Cache. Esta restrição ajuda a garantir a qualidade do serviço nos primeiros meses de disponibilidade geral.
 
-Solicitar acesso preenchendo [este formulário](https://aka.ms/onboard-hpc-cache). Depois que sua assinatura for adicionada à lista de acesso, você poderá criar caches.
+Solicite acesso preenchendo [este formulário](https://aka.ms/onboard-hpc-cache). Depois de a sua subscrição ser adicionada à lista de acesso, pode criar caches.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Leia a [página do produto cache HPC do Azure](https://azure.microsoft.com/services/hpc-cache) para saber mais sobre seus recursos
-* Saiba mais sobre os [pré-requisitos](hpc-cache-prereqs.md) do produto
-* [Criar um cache HPC do Azure](hpc-cache-create.md) do portal do Azure
+* Leia a página de [produto Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para saber mais sobre as suas capacidades
+* Conheça os [pré-requisitos](hpc-cache-prereqs.md) do produto
+* [Crie um Cache Azure HPC](hpc-cache-create.md) do portal Azure

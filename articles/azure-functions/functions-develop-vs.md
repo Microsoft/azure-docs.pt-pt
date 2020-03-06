@@ -5,11 +5,11 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: b3d683153a1e70f4c65dcc5e401f4ee702af8b49
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484711"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357091"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver funções azure usando o Estúdio Visual  
 
@@ -228,7 +228,7 @@ Para ativar insights de aplicação para a sua aplicação de funções:
 
 Para saber mais, consulte as [Funções Monitor Azure](functions-monitoring.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as Ferramentas Nucleares das Funções Azure, consulte as [funções de Código e teste azure localmente](functions-run-local.md).
 

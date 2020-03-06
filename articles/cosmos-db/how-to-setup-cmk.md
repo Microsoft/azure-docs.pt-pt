@@ -8,11 +8,11 @@ ms.date: 01/14/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
 ms.openlocfilehash: 44bbd7eab80ecb1cbfef9738e42b4070dff31180
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506057"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392413"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configure as chaves geridas pelo cliente para a sua conta Azure Cosmos com o Cofre chave Azure
 
@@ -91,7 +91,7 @@ Quando criar uma nova conta Azure Cosmos DB a partir do portal Azure, escolha a 
 
 ![Definição de parâmetros CMK no portal Azure](./media/how-to-setup-cmk/portal-cosmos-enc.png)
 
-### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
+### <a name="using-azure-powershell"></a>Com o Azure PowerShell
 
 Quando cria uma nova conta Azure Cosmos DB com a PowerShell:
 

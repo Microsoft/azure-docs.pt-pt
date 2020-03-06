@@ -1,5 +1,5 @@
 ---
-title: Solucionando problemas de falha de alocação do serviço de nuvem | Microsoft Docs
+title: Falha na atribuição do Serviço de Nuvem de Resolução de Problemas [ Falha na atribuição do Serviço de Nuvem ] Microsoft Docs
 description: Resolução de problemas com a falha de atribuição quando implementar os Serviços Cloud no Azure
 services: azure-service-management, cloud-services
 documentationcenter: ''
@@ -15,59 +15,59 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155645"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395824"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Resolução de problemas com a falha de atribuição quando implementar os Serviços Cloud no Azure
 ## <a name="summary"></a>Resumo
-Quando você implanta instâncias em um serviço de nuvem ou adiciona novas instâncias de função Web ou de trabalho, Microsoft Azure aloca recursos de computação. Ocasionalmente, você pode receber erros ao executar essas operações mesmo antes de alcançar os limites de assinatura do Azure. Este artigo explica as causas de algumas das falhas de alocação comuns e sugere a possível correção. As informações também podem ser úteis quando você planeja a implantação de seus serviços.
+Quando implementa instâncias num Serviço cloud ou adiciona novas instâncias de papel web ou de trabalhador, o Microsoft Azure atribui recursos computacionais. Pode ocasionalmente receber erros ao realizar estas operações mesmo antes de atingir os limites de subscrição do Azure. Este artigo explica as causas de algumas das falhas comuns de atribuição e sugere uma possível reparação. A informação também pode ser útil quando planeia a implantação dos seus serviços.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-### <a name="background--how-allocation-works"></a>Plano de fundo – como funciona a alocação
-Os servidores nos datacenters do Azure são divididos em partições em clusters. Uma nova solicitação de alocação de serviço de nuvem é tentada em vários clusters. Quando a primeira instância é implantada em um serviço de nuvem (em preparo ou produção), esse serviço de nuvem é fixado em um cluster. Todas as implantações adicionais para o serviço de nuvem ocorrerão no mesmo cluster. Neste artigo, vamos nos referir a isso como "fixado a um cluster". O diagrama 1 abaixo ilustra o caso de uma alocação normal que é tentada em vários clusters; O diagrama 2 ilustra o caso de uma alocação fixada no cluster 2 porque é aí que o serviço de nuvem existente CS_1 está hospedado.
+### <a name="background--how-allocation-works"></a>Antecedentes – Como funciona a atribuição
+Os servidores nos datacenters do Azure são divididos em partições em clusters. Um novo pedido de atribuição de serviço sinuoso é tentado em vários clusters. Quando a primeira instância é implantada para um serviço de nuvem (em preparação ou produção), esse serviço de nuvem fica preso a um cluster. Quaisquer outras implementações para o serviço de nuvem ocorrerão no mesmo cluster. Neste artigo, vamos referir-nos a isto como "preso a um aglomerado". O diagrama 1 abaixo ilustra o caso de uma atribuição normal que é tentada em vários clusters; Diagrama 2 ilustra o caso de uma alocação que está fixada ao Cluster 2 porque é aí que está hospedado o CS_1 de Serviço de Nuvem existente.
 
-![Diagrama de alocação](./media/cloud-services-allocation-failure/Allocation1.png)
+![Diagrama de atribuição](./media/cloud-services-allocation-failure/Allocation1.png)
 
-### <a name="why-allocation-failure-happens"></a>Por que a falha de alocação ocorre
-Quando uma solicitação de alocação é fixada em um cluster, há uma chance maior de falha na localização de recursos gratuitos, já que o pool de recursos disponível é limitado a um cluster. Além disso, se sua solicitação de alocação for fixada em um cluster, mas o tipo de recurso solicitado não for suportado por esse cluster, sua solicitação falhará mesmo que o cluster tenha recursos livres. O diagrama 3 abaixo ilustra o caso em que uma alocação fixa falha porque o único cluster candidato não tem recursos gratuitos. O diagrama 4 ilustra o caso em que uma alocação fixada falha porque o único cluster candidato não dá suporte ao tamanho de VM solicitado, mesmo que o cluster tenha recursos gratuitos.
+### <a name="why-allocation-failure-happens"></a>Por que falha na atribuição acontece
+Quando um pedido de atribuição é fixado a um cluster, há uma maior chance de não encontrar recursos gratuitos, uma vez que o conjunto de recursos disponíveis está limitado a um cluster. Além disso, se o seu pedido de atribuição estiver fixado num cluster, mas o tipo de recurso que solicitou não for suportado por esse cluster, o seu pedido falhará mesmo que o cluster tenha recursos gratuitos. O diagrama 3 abaixo ilustra o caso em que uma atribuição fixada falha porque o único aglomerado de candidatos não tem recursos livres. O diagrama 4 ilustra o caso em que uma atribuição fixada falha porque o único cluster de candidatos não suporta a dimensão vm solicitada, mesmo que o cluster tenha recursos livres.
 
-![Falha de alocação fixada](./media/cloud-services-allocation-failure/Allocation2.png)
+![Falha na atribuição de fixações](./media/cloud-services-allocation-failure/Allocation2.png)
 
-## <a name="troubleshooting-allocation-failure-for-cloud-services"></a>Solucionando problemas de falha de alocação para serviços de nuvem
+## <a name="troubleshooting-allocation-failure-for-cloud-services"></a>Falha na atribuição de problemas para serviços na nuvem
 ### <a name="error-message"></a>Mensagem de Erro
-Você pode ver a seguinte mensagem de erro:
+Pode ver a seguinte mensagem de erro:
 
     "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
 ### <a name="common-issues"></a>Problemas Comuns
-Aqui estão os cenários de alocação comuns que fazem com que uma solicitação de alocação seja fixada em um único cluster.
+Aqui estão os cenários comuns de atribuição que fazem com que um pedido de atribuição seja fixado a um único cluster.
 
-* Implantando no slot de preparo – se um serviço de nuvem tiver uma implantação em qualquer slot, o serviço de nuvem inteiro será fixado em um cluster específico.  Isto significa que, se já existir uma implementação no bloco de produção, só será possível alocar uma implementação de teste nova no mesmo cluster que o bloco de produção. Se o cluster estiver se aproximando da capacidade, a solicitação poderá falhar.
-* Dimensionamento – adicionar novas instâncias a um serviço de nuvem existente deve alocar no mesmo cluster.  Regra geral, é possível alocar pequenos pedidos de dimensionamento, mas nem sempre. Se o cluster estiver se aproximando da capacidade, a solicitação poderá falhar.
-* Grupo de afinidade – uma nova implantação em um serviço de nuvem vazio pode ser alocada pela malha em qualquer cluster nessa região, a menos que o serviço de nuvem seja fixado em um grupo de afinidade. As implantações no mesmo grupo de afinidade serão tentadas no mesmo cluster. Se o cluster estiver se aproximando da capacidade, a solicitação poderá falhar.
-* Grupo de afinidade vNet-redes virtuais mais antigas foram ligadas a grupos de afinidade em vez de regiões, e os serviços de nuvem nessas redes virtuais seriam fixados no cluster do grupo de afinidade. As implantações para esse tipo de rede virtual serão tentadas no cluster fixado. Se o cluster estiver se aproximando da capacidade, a solicitação poderá falhar.
+* Implantação para A Ranhura de Encenação - Se um serviço de nuvem tiver uma implantação em qualquer uma das ranhuras, então todo o serviço de nuvem está preso a um cluster específico.  Isto significa que, se já existir uma implementação no bloco de produção, só será possível alocar uma implementação de teste nova no mesmo cluster que o bloco de produção. Se o cluster estiver perto da capacidade, o pedido pode falhar.
+* Escalagem - Adicionar novos casos a um serviço de nuvem existente deve ser atribuído no mesmo cluster.  Regra geral, é possível alocar pequenos pedidos de dimensionamento, mas nem sempre. Se o cluster estiver perto da capacidade, o pedido pode falhar.
+* Affinity Group - Uma nova implantação para um serviço de nuvem vazia pode ser atribuída pelo tecido em qualquer cluster daquela região, a menos que o serviço de nuvem esteja preso a um grupo de afinidade. As implantações para o mesmo grupo de afinidade serão tentadas no mesmo aglomerado. Se o cluster estiver perto da capacidade, o pedido pode falhar.
+* Affinity Group vNet - Redes Virtuais Mais Antigas estavam ligadas a grupos de afinidade em vez de regiões, e os serviços em nuvem nestas Redes Virtuais seriam fixados ao cluster do grupo de afinidade. As implantações para este tipo de rede virtual serão tentadas no cluster fixado. Se o cluster estiver perto da capacidade, o pedido pode falhar.
 
 ## <a name="solutions"></a>Soluções
-1. Reimplantar em um novo serviço de nuvem-essa solução provavelmente será mais bem-sucedida, pois permitirá que a plataforma escolha entre todos os clusters nessa região.
+1. Reimplante-se para um novo serviço na nuvem - Esta solução é provável que seja mais bem sucedida, pois permite que a plataforma escolha entre todos os clusters daquela região.
 
-   * Implantar a carga de trabalho em um novo serviço de nuvem  
-   * Atualizar o CNAME ou um registro para apontar o tráfego para o novo serviço de nuvem
-   * Uma vez que o tráfego zero vá para o site antigo, você poderá excluir o serviço de nuvem antigo. Essa solução deve incorrer em tempo de inatividade.
-2. Excluir slots de produção e de preparo-essa solução preservará o nome DNS existente, mas causará tempo de inatividade para seu aplicativo.
+   * Desloque a carga de trabalho para um novo serviço na nuvem  
+   * Atualize o CNAME ou Um disco para apontar o tráfego para o novo serviço na nuvem
+   * Uma vez que o tráfego zero vai para o antigo site, você pode apagar o antigo serviço de nuvem. Esta solução deve incorrer em tempo de inatividade zero.
+2. Eliminar tanto as ranhuras de produção como de encenação - Esta solução preservará o nome DNS existente, mas causará tempo de inatividade na sua aplicação.
 
-   * Exclua os slots de produção e de preparo de um serviço de nuvem existente para que o serviço de nuvem esteja vazio e, em seguida,
-   * Crie uma nova implantação no serviço de nuvem existente. Isso tentará realizar a alocação novamente em todos os clusters na região. Verifique se o serviço de nuvem não está vinculado a um grupo de afinidade.
-3. IP Reservado-essa solução preservará seu endereço IP existente, mas causará tempo de inatividade para seu aplicativo.  
+   * Elimine as ranhuras de produção e encenação de um serviço de nuvem existente para que o serviço de nuvem esteja vazio, e depois
+   * Crie uma nova implementação no serviço de nuvem existente. Isto tentará novamente a atribuição de todos os agrupamentos da região. Certifique-se de que o serviço de nuvem não está ligado a um grupo de afinidade.
+3. IP reservado - Esta solução irá preservar o seu endereço IP existente, mas causará tempo de inatividade na sua aplicação.  
 
-   * Criar um ReservedIP para sua implantação existente usando o PowerShell
+   * Crie um IP Reservado para a sua implementação existente usando powershell
 
      ```
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
-   * Siga #2 acima, certificando-se de especificar o novo ReservedIP no CSCFG do serviço.
-4. Remover grupo de afinidade para novas implantações – grupos de afinidades não são mais recomendados. Siga os passos para o n.º 1 acima para implementar um novo serviço cloud. Verifique se o serviço de nuvem não está em um grupo de afinidade.
-5. Converter em uma rede virtual regional – consulte [como migrar de grupos de afinidades para uma rede virtual regional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+   * Siga #2 de cima, certificando-se de especificar o novo IP Reservado no CSCFG do serviço.
+4. Remova o grupo de afinidade para novas implementações - Os Grupos affinity já não são recomendados. Siga os passos para o n.º 1 acima para implementar um novo serviço cloud. Certifique-se de que o serviço de nuvem não está num grupo de afinidade.
+5. Converter-se numa Rede Virtual Regional - Ver [como migrar dos Grupos Affinity para uma Rede Virtual Regional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).

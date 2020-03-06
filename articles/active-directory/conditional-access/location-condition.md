@@ -1,6 +1,6 @@
 ---
-title: Condição de localização em Azure Active Directory acesso condicional
-description: Saiba como usar a condição de local para controlar o acesso aos seus aplicativos de nuvem com base no local de rede de um usuário.
+title: Condição de localização no Acesso Condicional do Diretório Ativo Azure
+description: Saiba como usar a condição de localização para controlar o acesso às suas aplicações na nuvem com base na localização da rede de um utilizador.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -13,83 +13,83 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 915675af1e646f2cb77e36c0018ed372ff9496fc
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380303"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377585"
 ---
-# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual é a condição de local em Azure Active Directory acesso condicional? 
+# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual é a condição de localização no Acesso Condicional do Diretório Ativo Azure? 
 
-Com o [acesso condicional do Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), você pode controlar como os usuários autorizados podem acessar seus aplicativos de nuvem. A condição de local de uma política de acesso condicional permite que você vincule as configurações de controles de acesso aos locais de rede dos usuários.
+Com o Acesso Condicional do [Diretório Ativo Azure (Azure AD),](../active-directory-conditional-access-azure-portal.md)pode controlar como os utilizadores autorizados podem aceder às suas aplicações na nuvem. O estado de localização de uma política de Acesso Condicional permite-lhe ligar as definições de controlos de acesso às localizações da rede dos seus utilizadores.
 
-Este artigo fornece as informações necessárias para configurar a condição de local.
+Este artigo fornece-lhe a informação de que precisa para configurar a condição de localização.
 
 ## <a name="locations"></a>Localizações
 
-O Azure AD permite o logon único para dispositivos, aplicativos e serviços de qualquer lugar na Internet pública. Com a condição de localização, você pode controlar o acesso aos seus aplicativos de nuvem com base no local de rede de um usuário. Casos de uso comuns para a condição de localização são:
+A Azure AD permite um único acesso a dispositivos, aplicações e serviços de qualquer parte da internet pública. Com a condição de localização, pode controlar o acesso às suas aplicações na nuvem com base na localização da rede de um utilizador. Os casos de utilização comuns para a condição de localização são:
 
-- Exigir a autenticação multifator para usuários que acessam um serviço quando estão fora da rede corporativa.
-- Bloqueio de acesso para usuários que acessam um serviço de países ou regiões específicas.
+- Exigindo a autenticação de vários fatores para os utilizadores que acedam a um serviço quando estão fora da rede corporativa.
+- Bloquear o acesso aos utilizadores que acedam a um serviço de países ou regiões específicos.
 
-Um local é um rótulo para um local de rede que representa um local nomeado ou IPs confiáveis de autenticação multifator.
+Uma localização é uma etiqueta para uma localização de rede que representa uma localização nomeada ou iPs fidedignos de autenticação multifactor.
 
 ## <a name="named-locations"></a>Locais nomeados
 
-Com os locais nomeados, você pode criar agrupamentos lógicos de intervalos de endereços IP ou países e regiões.
+Com localizações nomeadas, pode criar agrupamentos lógicos de gamas de endereços IP ou países e regiões.
 
-Você pode acessar seus locais nomeados na seção **gerenciar** da página acesso condicional.
+Pode aceder aos seus locais nomeados na secção **Gerir** a página de Acesso Condicional.
 
-![Locais nomeados no acesso condicional](./media/location-condition/02.png)
+![Locais nomeados em Acesso Condicional](./media/location-condition/02.png)
 
 Um local nomeado tem os seguintes componentes:
 
-![Criar um novo local nomeado](./media/location-condition/42.png)
+![Criar uma nova localização nomeada](./media/location-condition/42.png)
 
-- **Nome** -o nome de exibição de um local nomeado.
-- **Intervalos de IP** -um ou mais intervalos de endereços IPv4 no formato CIDR. Não há suporte para a especificação de um intervalo de endereços IPv6.
+- **Nome** - O nome de exibição de um local nomeado.
+- **Intervalos IP** - Uma ou mais gamas de endereços IPv4 em formato CIDR. A especificação de uma gama de endereços IPv6 não é suportada.
 
    > [!NOTE]
-   > Os intervalos de endereços IPv6 não podem ser incluídos atualmente em um local nomeado. Isso significa que os intervalos de IPv6 não podem ser excluídos de uma política de acesso condicional.
+   > As gamas de endereços IPv6 não podem ser incluídas num local nomeado. Isto significa que as gamas IPv6 não podem ser excluídas de uma política de acesso condicional.
 
-- **Marcar como local confiável** – um sinalizador que você pode definir para um local nomeado para indicar um local confiável. Normalmente, os locais confiáveis são áreas de rede controladas pelo departamento de ti. Além do acesso condicional, os locais nomeados confiáveis também são usados pelos relatórios de segurança do Azure Identity Protection e do Azure AD para reduzir os [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
-- **Países/regiões** -essa opção permite que você selecione um ou mais países ou regiões para definir um local nomeado.
-- **Incluir áreas desconhecidas** – alguns endereços IP não são mapeados para um país ou região específica. Essa opção permite que você escolha se esses endereços IP devem ser incluídos no local nomeado. Use essa configuração quando a política que usa o local nomeado deve se aplicar a locais desconhecidos.
+- **Marque como local de confiança** - Uma bandeira que pode definir para um local nomeado para indicar uma localização confiável. Normalmente, as localizações fidedignas são áreas de rede que são controladas pelo seu departamento de TI. Além do Acesso Condicional, as localizações com nomes confiáveis também são usadas pela Azure Identity Protection e pelos relatórios de segurança da Azure AD para reduzir [falsos positivos.](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)
+- **Países/Regiões** - Esta opção permite-lhe selecionar um ou mais países ou regiões para definir um local nomeado.
+- **Incluir áreas desconhecidas** - Alguns endereços IP não estão mapeados para um país ou região específicos. Esta opção permite-lhe escolher se estes endereços IP devem ser incluídos no local nomeado. Utilize esta definição quando a política que utiliza a localização nomeada deve aplicar-se a locais desconhecidos.
 
-O número de locais nomeados que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Você pode configurar locais com base nas seguintes limitações:
+O número de locais nomeados que pode configurar está limitado pelo tamanho do objeto relacionado em Azure AD. Pode configurar localizações com base nas seguintes limitações:
 
-- Um local nomeado com até 1200 intervalos de IP.
-- Um máximo de 90 locais nomeados com um intervalo de IP atribuído a cada um deles.
+- Um local nomeado com até 1200 gamas IP.
+- Um máximo de 90 locais nomeados com uma gama IP atribuída a cada um deles.
 
-A política de acesso condicional se aplica ao tráfego IPv4 e IPv6. Atualmente, os locais nomeados não permitem que os intervalos de IPv6 sejam configurados. Essa limitação causa as seguintes situações:
+A política de acesso condicional aplica-se ao tráfego IPv4 e IPv6. Atualmente, as localizações nomeadas não permitem configurar as gamas IPv6. Esta limitação provoca as seguintes situações:
 
-- A política de acesso condicional não pode ser direcionada para intervalos IPv6 específicos
-- A política de acesso condicional não pode excluir intervalos IPV6 específicos
+- A política de acesso condicional não pode ser direcionada a gamas específicas de IPv6
+- A política de acesso condicional não pode excluir gamas específicas do IPV6
 
-Se uma política estiver configurada para ser aplicada a "qualquer local", ela será aplicada ao tráfego IPv4 e IPv6. Os locais nomeados configurados para países e regiões especificados só dão suporte a endereços IPv4. O tráfego IPv6 só será incluído se a opção "incluir áreas desconhecidas" estiver selecionada.
+Se uma política estiver configurada para se aplicar a "Qualquer localização", aplicar-se-á ao tráfego IPv4 e IPv6. Locais nomeados configurados para países e regiões especificados apenas suportam endereços IPv4. O tráfego iPv6 só está incluído se a opção de "incluir áreas desconhecidas" selecionada.
 
 ## <a name="trusted-ips"></a>IPs Fidedignos
 
-Você também pode configurar intervalos de endereços IP que representam a intranet local da sua organização nas [configurações do serviço de autenticação multifator](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esse recurso permite que você configure até 50 intervalos de endereços IP. Os intervalos de endereços IP estão no formato CIDR. Para obter mais informações, consulte [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+Também pode configurar gamas de endereços IP que representam a intranet local da sua organização nas [definições do serviço de autenticação de vários fatores.](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx) Esta funcionalidade permite configurar até 50 intervalos de endereços IP. As gamas de endereços IP estão no formato CIDR. Para mais informações, consulte [IPs fidedignos](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Se você tiver IPs confiáveis configurados, eles aparecerão como **IPs confiáveis MFA** na lista de locais para a condição de localização.
+Se tiver IPs fidedignos configurados, eles aparecem como **IPS fidedignos** do MFA na lista de locais para a condição de localização.
 
-### <a name="skipping-multi-factor-authentication"></a>Ignorando a autenticação multifator
+### <a name="skipping-multi-factor-authentication"></a>Saltar a autenticação de vários fatores
 
-Na página Configurações do serviço de autenticação multifator, você pode identificar usuários da intranet corporativa selecionando **ignorar autenticação multifator para solicitações de usuários federados na minha intranet**. Essa configuração indica que a declaração de rede corporativa interna, que é emitida pelo AD FS, deve ser confiável e usada para identificar o usuário como estando na rede corporativa. Para obter mais informações, consulte [habilitar o recurso de IPs confiáveis usando o acesso condicional](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+Na página de definições de serviço de autenticação de vários fatores, pode identificar utilizadores de intranet corporativos selecionando a **autenticação de vários fatores Skip para pedidos de utilizadores federados na minha intranet**. Esta definição indica que a alegação de rede corporativa interna, emitida pela AD FS, deve ser confiável e usada para identificar o utilizador como estando na rede corporativa. Para mais informações, consulte [a funcionalidade IPs fidedigno utilizando acesso condicional](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
-Depois de marcar essa opção, incluindo o local nomeado, os **IPs confiáveis do MFA** serão aplicados a qualquer política com essa opção selecionada.
+Depois de verificar esta opção, incluindo a localização nomeada, o **MFA Trusted IPS** aplicar-se-á a quaisquer políticas com esta opção selecionadas.
 
-Para aplicativos móveis e de área de trabalho, que têm tempos de vida de longa duração de sessão, o acesso condicional é reavaliado periodicamente. O padrão é uma vez por hora. Quando a declaração de rede corporativa interna é emitida apenas no momento da autenticação inicial, o Azure AD pode não ter uma lista de intervalos de IP confiáveis. Nesse caso, é mais difícil determinar se o usuário ainda está na rede corporativa:
+Para aplicações móveis e de desktop, que têm vida longa, o Acesso Condicional é periodicamente reavaliado. O padrão é uma vez por hora. Quando a reclamação de rede corporativa interna só for emitida no momento da autenticação inicial, a Azure AD pode não ter uma lista de gamas IP fidedignas. Neste caso, é mais difícil determinar se o utilizador ainda está na rede corporativa:
 
-1. Verifique se o endereço IP do usuário está em um dos intervalos de IP confiáveis.
-2. Verifique se os três primeiros octetos do endereço IP do usuário correspondem aos três primeiros octetos do endereço IP da autenticação inicial. O endereço IP é comparado com a autenticação inicial quando a declaração de rede corporativa interna foi emitida originalmente e a localização do usuário foi validada.
+1. Verifique se o endereço IP do utilizador está numa das gamas IP confiáveis.
+2. Verifique se os três primeiros octetos do endereço IP do utilizador correspondem aos três primeiros octetos do endereço IP da autenticação inicial. O endereço IP é comparado com a autenticação inicial quando a reclamação da rede corporativa interna foi originalmente emitida e a localização do utilizador foi validada.
 
-Se ambas as etapas falharem, um usuário será considerado como não está mais em um IP confiável.
+Se ambos os passos falharem, considera-se que um utilizador já não se encontra num IP fidedigno.
 
 ## <a name="location-condition-configuration"></a>Configuração da condição de localização
 
-Ao configurar a condição de local, você tem a opção de distinguir entre:
+Quando configurar a condição de localização, tem a opção de distinguir entre:
 
 - Qualquer local
 - Todos os locais confiáveis
@@ -99,54 +99,54 @@ Ao configurar a condição de local, você tem a opção de distinguir entre:
 
 ### <a name="any-location"></a>Qualquer local
 
-Por padrão, a seleção de **qualquer local** faz com que uma política seja aplicada a todos os endereços IP, o que significa qualquer endereço na Internet. Essa configuração não está limitada a endereços IP que você configurou como local nomeado. Ao selecionar **qualquer local**, você ainda pode excluir locais específicos de uma política. Por exemplo, você pode aplicar uma política a todos os locais, exceto locais confiáveis, para definir o escopo para todos os locais, exceto a rede corporativa.
+Por predefinição, a seleção **de qualquer local** faz com que uma política seja aplicada a todos os endereços IP, o que significa qualquer endereço na Internet. Esta definição não se limita aos endereços IP que configuracomo localização nomeada. Ao selecionar **Qualquer local,** ainda pode excluir localizações específicas de uma política. Por exemplo, pode aplicar uma política em todos os locais, exceto locais fidedignos para definir o âmbito para todos os locais, exceto a rede corporativa.
 
 ### <a name="all-trusted-locations"></a>Todos os locais confiáveis
 
-Esta opção se aplica a:
+Esta opção aplica-se a:
 
-- Todos os locais que foram marcados como local confiável
-- **IPs confiáveis de MFA** (se configurado)
+- Todos os locais que foram marcados como localização confiável
+- **IPS fidedignos** do MFA (se configurado)
 
 ### <a name="selected-locations"></a>Locais selecionados
 
-Com essa opção, você pode selecionar um ou mais locais nomeados. Para uma política com essa configuração a ser aplicada, um usuário precisa se conectar de qualquer um dos locais selecionados. Quando você clica em **selecionar** , o controle de seleção de rede nomeado que mostra a lista de redes nomeadas é aberta. A lista também mostra se o local de rede foi marcado como confiável. O local nomeado chamado de **IPs confiáveis MFA** é usado para incluir as configurações de IP que podem ser definidas na página de configuração do serviço multi-factor Authentication.
+Com esta opção, pode selecionar um ou mais locais nomeados. Para uma política com esta definição a aplicar, o utilizador precisa de se conectar a partir de qualquer um dos locais selecionados. Quando **clicar, selecione** o controlo de seleção de rede nomeado que mostra a lista de redes nomeadas abertas. A lista também mostra se a localização da rede foi marcada como confiável. A localização denominada **MFA Trusted IPs** é usada para incluir as definições IP que podem ser configuradas na página de definição do serviço de autenticação de vários fatores.
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
-### <a name="when-is-a-location-evaluated"></a>Quando um local é avaliado?
+### <a name="when-is-a-location-evaluated"></a>Quando é avaliado um local?
 
-As políticas de acesso condicional são avaliadas quando:
+As políticas de Acesso Condicional são avaliadas quando:
 
-- Um usuário entra inicialmente em um aplicativo Web, móvel ou de área de trabalho.
-- Um aplicativo móvel ou de área de trabalho que usa autenticação moderna, usa um token de atualização para adquirir um novo token de acesso. Por padrão, essa verificação é uma vez por hora.
+- Um utilizador inicialmente inicia sintetizar uma aplicação web, móvel ou desktop.
+- Uma aplicação móvel ou de ambiente de trabalho que utiliza a autenticação moderna, usa um token refrescante para adquirir um novo token de acesso. Por defeito, este cheque é uma vez por hora.
 
-Essa verificação significa que, para aplicativos móveis e de desktop usando autenticação moderna, uma alteração no local seria detectada dentro de uma hora após a alteração do local de rede. Para aplicativos móveis e de área de trabalho que não usam autenticação moderna, a política é aplicada em cada solicitação de token. A frequência da solicitação pode variar com base no aplicativo. Da mesma forma, para aplicativos Web, a política é aplicada na entrada inicial e é boa para o tempo de vida da sessão no aplicativo Web. Devido a diferenças nos tempos de vida de sessão entre aplicativos, o tempo entre a avaliação da política também varia. Cada vez que o aplicativo solicita um novo token de entrada, a política é aplicada.
+Este controlo significa aplicações móveis e de ambiente de trabalho utilizando a autenticação moderna, uma alteração de localização seria detetada no prazo de uma hora após a alteração da localização da rede. Para aplicações móveis e de desktop que não utilizem a autenticação moderna, a política é aplicada em cada pedido simbólico. A frequência do pedido pode variar em função da aplicação. Da mesma forma, para aplicações web, a política é aplicada no início do início de sessão e é boa para a vida útil da sessão na aplicação web. Devido às diferenças nas sessões de vida através das candidaturas, o tempo entre a avaliação de políticas também variará. Sempre que o pedido solicita um novo sinal de inscrição, a política é aplicada.
 
-Por padrão, o Azure AD emite um token por hora. Depois de mover a rede corporativa, dentro de uma hora a política é imposta para aplicativos que usam autenticação moderna.
+Por padrão, a Azure AD emite um símbolo de hora a hora. Depois de sair da rede corporativa, dentro de uma hora a política é aplicada para aplicações usando a autenticação moderna.
 
-### <a name="user-ip-address"></a>Endereço IP do usuário
+### <a name="user-ip-address"></a>Endereço IP do utilizador
 
-O endereço IP usado na avaliação da política é o endereço IP público do usuário. Para dispositivos em uma rede privada, esse endereço IP não é o IP do dispositivo do usuário na intranet, é o endereço usado pela rede para se conectar à Internet pública.
+O endereço IP que é utilizado na avaliação de políticas é o endereço IP público do utilizador. Para dispositivos numa rede privada, este endereço IP não é o IP cliente do dispositivo do utilizador na intranet, é o endereço utilizado pela rede para ligar à internet pública.
 
 > [!WARNING]
-> Se o dispositivo tiver apenas um endereço IPv6, não haverá suporte para configurar a condição de local.
+> Se o seu dispositivo tiver apenas um endereço IPv6, configurar a condição de localização não é suportado.
 
-### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Carregamento em massa e download de locais nomeados
+### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Upload e descarregamento a granel de locais nomeados
 
-Quando você cria ou atualiza localizações nomeadas, para atualizações em massa, você pode carregar ou baixar um arquivo CSV com os intervalos de IP. Um upload substitui os intervalos de IP na lista por aqueles do arquivo. Cada linha do arquivo contém um intervalo de endereços IP no formato CIDR.
+Quando criar ou atualizar localizações nomeadas, para atualizações a granel, pode fazer o upload ou descarregar um ficheiro CSV com as gamas IP. Um upload substitui as gamas IP na lista com as do ficheiro. Cada linha do ficheiro contém uma gama de endereços IP no formato CIDR.
 
 ### <a name="cloud-proxies-and-vpns"></a>Proxies de nuvem e VPNs
 
-Quando você usa um proxy hospedado na nuvem ou uma solução de VPN, o endereço IP que o Azure AD usa ao avaliar uma política é o endereço IP do proxy. O cabeçalho X-Forwarded-for (XFF) que contém o endereço IP público do usuário não é usado porque não há nenhuma validação proveniente de uma fonte confiável, portanto, apresentaria um método para falsificando um endereço IP.
+Quando utiliza uma solução de procuração ou VPN hospedada em nuvem, o endereço IP Que o AD do Azure utiliza enquanto avalia uma apólice é o endereço IP do proxy. O cabeçalho X-Forwarded-For (XFF) que contém o endereço IP público do utilizador não é utilizado porque não existe validação de que provém de uma fonte de confiança, pelo que apresentaria um método para fingir um endereço IP.
 
-Quando um proxy de nuvem está em vigor, uma política usada para exigir um dispositivo ingressado no domínio pode ser usada ou a declaração interna corpnet de AD FS.
+Quando um proxy de nuvem está em vigor, uma política que é usada para exigir um dispositivo de domínio unificado pode ser usada, ou a reivindicação interna da rede de rede a partir de AD FS.
 
-### <a name="api-support-and-powershell"></a>Suporte a API e PowerShell
+### <a name="api-support-and-powershell"></a>Suporte aAPI e PowerShell
 
-A API e o PowerShell ainda não têm suporte para locais nomeados ou para políticas de acesso condicional.
+A API e powerShell ainda não são suportadas para locais nomeados, ou para políticas de Acesso Condicional.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se você quiser saber como configurar uma política de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md).
-- Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
+- Se quiser saber configurar uma política de Acesso Condicional, consulte [RequireM para aplicações específicas com Acesso Condicional de Diretório Ativo Azure](app-based-mfa.md).
+- Se estiver pronto para configurar as políticas de Acesso Condicional para o seu ambiente, consulte as [melhores práticas de Acesso Condicional no Diretório Ativo Azure](best-practices.md).

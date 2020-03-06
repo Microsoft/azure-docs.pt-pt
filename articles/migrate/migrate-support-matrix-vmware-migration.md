@@ -3,12 +3,12 @@ title: Apoio à migração de VMware em Azure Migrate
 description: Conheça o suporte à migração VMware VM em Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: eea2ef1f84e5c31dd18ea4ef65ccf2796231352b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 9d8dc4dadc975a0fb69ea207f6062b72231460ef
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597988"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388937"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração vMware
 
@@ -35,7 +35,7 @@ Reveja [este artigo](server-migrate-overview.md) para descobrir qual o método q
 --- | ---
 **VMware vCenter Server** | Versão 5.5, 6.0, 6.5 ou 6.7.
 **VMware vSphere ESXI hospedeiro** | Versão 5.5, 6.0, 6.5 ou 6.7.
-**vCenter Server permissões** | A migração sem agente utiliza o [Aparelho migratório](migrate-appliance.md). O aparelho necessita destas permissões:<br/><br/> - **Datastore.Browse:** Permita a navegação de ficheiros de registo VM para resolver a criação e eliminação de instantâneos.<br/><br/> - **Datastore.LowLevelFileOperations**: Permitir operações de leitura/escrita/exclusão/renome no navegador da datastore, para resolver a criação e eliminação de instantâneos.<br/><br/> - **VirtualMachine.Configuration.DiskChangeTracking**: Permitir ativar ou desativar o rastreio de alterações dos discos VM, para puxar blocos alterados de dados entre instantâneos.<br/><br/> - **VirtualMachine.Configuration.DiskLease**: Permita que as operações de locação de discos para um VM, leiam o disco utilizando o Kit de Desenvolvimento virtual do disco VMware vSphere (VDDK).<br/><br/> - **VirtualMachine.Provisioning.AllowDiskAccess**: (especificamente para vSphere 6.0 ou superior) Permitir abrir um disco num VM para acesso de leitura aleatório no disco utilizando o VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowReadOnlyDiskAccess**: Permita abrir um disco num VM, para ler o disco utilizando o VDDK.<br/><br/>- **VirtualMachine.Provisioning.AllowVirtualMachineDownload**: Permite a leitura de operações em ficheiros associados a um VM, para descarregar os registos e resolução de problemas se ocorrer falha.<br/><br/> - **VirtualMachine.SnapshotManagement.***: Permitir a criação e gestão de instantâneos VM para replicação.<br/><br/> - **Máquina Virtual.Interaction.Power Off**: Permitir que o VM seja desligado durante a migração para Azure.
+**vCenter Server permissões** | A migração sem agente utiliza o [Aparelho migratório](migrate-appliance.md). O aparelho necessita destas permissões:<br/><br/> - **Datastore.Browse:** Permita a navegação de ficheiros de registo VM para resolver a criação e eliminação de instantâneos.<br/><br/> - **Datastore.LowLevelFileOperations**: Permitir operações de leitura/escrita/exclusão/renome no navegador da datastore, para resolver a criação e eliminação de instantâneos.<br/><br/> - **VirtualMachine.Configuration.DiskChangeTracking**: Permitir ativar ou desativar o rastreio de alterações dos discos VM, para puxar blocos alterados de dados entre instantâneos.<br/><br/> - **VirtualMachine.Configuration.DiskLease**: Permita que as operações de locação de discos para um VM, leiam o disco utilizando o Kit de Desenvolvimento virtual do disco VMware vSphere (VDDK).<br/><br/> - **VirtualMachine.Provisioning.AllowDiskAccess**: (especificamente para vSphere 6.0 ou superior) Permitir abrir um disco num VM para acesso de leitura aleatório no disco utilizando o VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowReadOnlyDiskAccess**: Permita abrir um disco num VM, para ler o disco utilizando o VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowDiskRandomAccess**: Permita abrir um disco num VM, para ler o disco utilizando o VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowVirtualMachineDownload**: Permite a leitura de operações em ficheiros associados a um VM, para descarregar os registos e resolução de problemas se ocorrer falha.<br/><br/> - **VirtualMachine.SnapshotManagement.***: Permitir a criação e gestão de instantâneos VM para replicação.<br/><br/> - **Máquina Virtual.Interaction.Power Off**: Permitir que o VM seja desligado durante a migração para Azure.
 
 
 

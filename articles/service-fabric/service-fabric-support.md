@@ -1,70 +1,70 @@
 ---
-title: Saiba mais sobre as opções de suporte do Azure Service Fabric
-description: Versões de Cluster Service Fabric do Azure com suporte e links para tíquetes de suporte de arquivo
+title: Conheça as opções de suporte de tecido de serviço Azure
+description: Versões de cluster azure service fabric suportadas e links para arquivar bilhetes de suporte
 author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465631"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389876"
 ---
-# <a name="azure-service-fabric-support-options"></a>Opções de suporte do Azure Service Fabric
+# <a name="azure-service-fabric-support-options"></a>Opções de suporte de tecido de serviço Azure
 
-Para fornecer o suporte apropriado para seus clusters Service Fabric em que você está executando as cargas de trabalho do aplicativo, configuramos várias opções para você. Dependendo do nível de suporte necessário e da gravidade do problema, você terá que escolher as opções corretas. 
+Para fornecer o suporte adequado para os seus clusters de Tecido de Serviço em que está a executar as suas cargas de trabalho de aplicação, estabelecemos várias opções para si. Dependendo do nível de apoio necessário e da gravidade da questão, pode escolher as opções certas. 
 
-## <a name="report-production-issues-or-request-paid-support-for-azure"></a>Relatar problemas de produção ou solicitar suporte pago para o Azure
+## <a name="report-production-issues-or-request-paid-support-for-azure"></a>Reportar questões de produção ou solicitar apoio pago ao Azure
 
-Para relatar problemas em seu cluster Service Fabric implantado no Azure, abra um tíquete para suporte [no portal do Azure ou no](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) [portal de suporte da Microsoft](https://support.microsoft.com/oas/default.aspx?prid=16146).
+Para reportar problemas no seu cluster Service Fabric implantado no Azure, abra um bilhete de suporte [no portal Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) ou [no portal](https://support.microsoft.com/oas/default.aspx?prid=16146)de suporte da Microsoft .
 
 Saiba mais sobre:
  
 - [Suporte da Microsoft para o Azure](https://azure.microsoft.com/support/plans/?b=16.44).
-- [Suporte Premier da Microsoft](https://support.microsoft.com/en-us/premier).
+- [Suporte premier da Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Clusters em execução em uma camada de confiabilidade bronze ou cluster de nó único permitirão que você execute somente cargas de trabalho de teste. Se você tiver problemas com um cluster em execução em confiabilidade bronze ou cluster de nó único, a equipe de suporte da Microsoft ajudará você a mitigar o problema, mas não executará uma análise da causa raiz. Consulte [as características de confiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obter mais detalhes.
+> Os clusters que funcionam num nível de fiabilidade de bronze ou num cluster de nó único permitirão-lhe executar apenas trabalhos de trabalho de teste. Se tiver problemas com um cluster em execução de fiabilidade de bronze ou Cluster de Nó Único, a equipa de suporte da Microsoft irá ajudá-lo a mitigar o problema, mas não realizará uma Análise de Causa seletiva. Consulte [as características de fiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obter mais detalhes.
 >
-> Para obter mais informações sobre o que é necessário para um cluster pronto para produção, consulte a [lista de verificação de preparação de produção](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Para obter mais informações sobre o que é necessário para um cluster pronto para a produção, consulte a lista de verificação de [prontidão](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)de produção .
 
 <a id="getlivesitesupportonprem"></a>
 
-## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Relatar problemas de produção ou solicitar suporte pago para clusters de Service Fabric autônomos
+## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Reportar problemas de produção ou solicitar apoio pago para clusters autónomos de tecidos de serviço
 
-Para relatar problemas em seu cluster Service Fabric implantado localmente ou em outras nuvens, abra um tíquete para suporte profissional no [portal de suporte da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Para reportar problemas no seu cluster Service Fabric implantado no local ou em outras nuvens, abra um bilhete para suporte profissional no portal de suporte da [Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Saiba mais sobre:
 
-- [Suporte profissional da Microsoft para o local](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
-- [Suporte Premier da Microsoft](https://support.microsoft.com/en-us/premier).
+- [Suporte Profissional da Microsoft para as instalações.](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0)
+- [Suporte premier da Microsoft](https://support.microsoft.com/en-us/premier).
 
-## <a name="report-azure-service-fabric-issues"></a>Relatar problemas de Service Fabric do Azure
+## <a name="report-azure-service-fabric-issues"></a>Reporte problemas de tecido de serviço Azure
 
-Configuramos um repositório GitHub para relatar problemas de Service Fabric.  Também estamos monitorando ativamente os fóruns a seguir.
+Criámos um repo GitHub para reportar problemas de Tecido de Serviço.  Estamos também a monitorizar ativamente os seguintes fóruns.
 
-### <a name="github-repo"></a>Repositório do GitHub 
+### <a name="github-repo"></a>Repo GitHub 
 
-Relatar problemas do Azure Service Fabric no [repositório git de problemas do Service Fabric](https://github.com/Azure/service-fabric-issues). Este repositório destina-se a emitir relatórios e controlar problemas com o Azure Service Fabric e para fazer pequenas solicitações de recursos. Não **use isso para relatar problemas de site ativo**.
+Reporte Problemas de tecido de serviço Azure sobre questões de [serviço-tecido git repo](https://github.com/Azure/service-fabric-issues). Este repo destina-se a reportar e rastrear problemas com a Azure Service Fabric e a fazer pequenos pedidos de funcionalidades. **Não utilize isto para relatar problemas no site ao vivo**.
 
-### <a name="stackoverflow-and-msdn-forums"></a>Fóruns do StackOverflow e do MSDN
+### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow e fóruns mSDN
 
-A [marca de Service Fabric em StackOverflow][stackoverflow] e o [Fórum de Service Fabric no MSDN][msdn-forum] são mais bem usadas para fazer perguntas sobre como a plataforma funciona e como você pode realizar determinadas tarefas com ela.
+A etiqueta de tecido de [serviço no StackOverflow][stackoverflow] e o fórum de tecido de [serviço na MSDN][msdn-forum] são mais utilizados para fazer perguntas sobre como a plataforma funciona e como poderá realizar certas tarefas com ela.
 
-### <a name="azure-feedback-forum"></a>Fórum de comentários do Azure
+### <a name="azure-feedback-forum"></a>Fórum de Feedback de Azure
 
-O [Fórum de comentários do Azure para Service Fabric][uservoice-forum] é o melhor lugar para enviar ideias de grandes recursos que você tem para o produto à medida que analisamos as solicitações mais populares fazem parte de nosso planejamento de média a longo prazo. Incentivamos você a Rally o suporte para suas sugestões na Comunidade.
+O [Azure Feedback Forum for Service Fabric][uservoice-forum] é o melhor local para apresentar grandes ideias de funcionalidades que você tem para o produto à medida que analisamos os pedidos mais populares fazem parte do nosso planeamento a médio e longo prazo. Encorajamo-lo a reunir apoio para as suas sugestões dentro da comunidade.
 
-## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versões de visualização do Service Fabric-sem suporte para uso em produção
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versões de pré-visualização de tecido de serviço - sem suporte para uso de produção
 
-De tempos em tempos, lançamos versões que têm recursos significativos dos quais queremos comentários, que são lançadas como visualizações. Essas versões de visualização só devem ser usadas para fins de teste. O cluster de produção deve estar sempre executando uma versão suportada, estável e Service Fabric. Uma versão de visualização sempre começa com um número de versão principal e secundária de 255. Por exemplo, se você vir uma Service Fabric versão 255.255.5703.949, essa versão de lançamento só será usada em clusters de teste e estará em versão prévia. Essas versões de visualização também são anunciadas no [blog da equipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) e terão detalhes sobre os recursos incluídos.
-Não há nenhuma opção de suporte pago para essas versões de visualização. Use uma das opções listadas em [relatar problemas do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) para fazer perguntas ou fornecer comentários.
+De tempos a tempos, lançamos versões que têm funcionalidades significativas que queremos feedback, que são lançadas como pré-visualizações. Estas versões de pré-visualização só devem ser utilizadas para efeitos de teste. O seu cluster de produção deve estar sempre a executar uma versão suportada, estável e de Tecido de Serviço. Uma versão de pré-visualização começa sempre com um número de versão maior e menor de 255. Por exemplo, se vir uma versão 255.255.5703.949 do Service Fabric, essa versão de lançamento só deve ser utilizada em clusters de teste e está em pré-visualização. Estes lançamentos de pré-visualização também são anunciados no blog da [equipa service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) e terão detalhes sobre as funcionalidades incluídas.
+Não existe uma opção de apoio remunerado para estes lançamentos de pré-visualização. Utilize uma das opções listadas em questões do [Report Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) para fazer perguntas ou fornecer feedback.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Versões Service Fabric com suporte](service-fabric-versions.md)
+[Versões de Tecido de Serviço Suportado](service-fabric-versions.md)
 
 <!--references-->
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric

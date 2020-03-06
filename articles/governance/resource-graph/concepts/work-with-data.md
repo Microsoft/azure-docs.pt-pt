@@ -1,29 +1,29 @@
 ---
 title: Trabalhar com grandes conjuntos de dados
-description: Entenda como obter, Formatar, paginar e ignorar registros em grandes conjuntos de dados ao trabalhar com o grafo de recursos do Azure.
+description: Compreenda como obter, formato, página e saltar registos em grandes conjuntos de dados enquanto trabalha com o Azure Resource Graph.
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2c6aca0c468630cee79222bc77bdc20dc9d95b19
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304013"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388617"
 ---
-# <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recursos do Azure
+# <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com grandes conjuntos de dados de recursos Azure
 
-O grafo de recursos do Azure foi projetado para trabalhar com e obter informações sobre recursos em seu ambiente do Azure. O grafo de recursos torna esses dados rápidos, mesmo ao consultar milhares de registros. O grafo de recursos tem várias opções para trabalhar com esses grandes conjuntos de dados.
+O Azure Resource Graph foi concebido para trabalhar e obter informações sobre recursos no seu ambiente Azure. O Resource Graph faz com que estes dados sejam rápidos, mesmo quando consultam milhares de registos. O Resource Graph tem várias opções para trabalhar com estes grandes conjuntos de dados.
 
-Para obter orientação sobre como trabalhar com consultas em alta frequência, consulte [diretrizes para solicitações limitadas](./guidance-for-throttled-requests.md).
+Para obter orientações sobre o trabalho com consultas de alta frequência, consulte [Orientação para pedidos acelerados](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Tamanho do resultado do conjunto de dados
 
-Por padrão, o grafo de recursos limita qualquer consulta para retornar apenas registros **100** . Esse controle protege o usuário e o serviço de consultas não intencionais que resultariam em grandes conjuntos de dados. Esse evento geralmente acontece quando um cliente está experimentando consultas para localizar e filtrar recursos da forma que atenda às suas necessidades específicas. Esse controle é diferente de usar os operadores de linguagem [superior](/azure/kusto/query/topoperator) ou [limite](/azure/kusto/query/limitoperator) do Azure data Explorer para limitar os resultados.
+Por padrão, o Resource Graph limita qualquer consulta à devolução de apenas **100** registos. Este controlo protege tanto o utilizador como o serviço de consultas não intencionais que resultariam em grandes conjuntos de dados. Este evento acontece mais frequentemente como um cliente está experimentando consultas para encontrar e filtrar recursos da forma que se adequa às suas necessidades particulares. Este controlo é diferente de utilizar os [operadores](/azure/kusto/query/topoperator) de línguas do Top Ou [limite](/azure/kusto/query/limitoperator) o Azure Data Explorer para limitar os resultados.
 
 > [!NOTE]
-> Ao usar o **primeiro**, é recomendável ordenar os resultados por pelo menos uma coluna com `asc` ou `desc`. Sem classificação, os resultados retornados são aleatórios e não podem ser repetidos.
+> Ao utilizar **primeiro,** recomenda-se encomendar os resultados por pelo menos uma coluna com `asc` ou `desc`. Sem triagem, os resultados devolvidos são aleatórios e não repetíveis.
 
-O limite padrão pode ser substituído por todos os métodos de interação com o grafo de recursos. Os exemplos a seguir mostram como alterar o limite de tamanho do conjunto de dados para _200_:
+O limite padrão pode ser ultrapassado através de todos os métodos de interação com o Resource Graph. Os seguintes exemplos mostram como alterar o limite de tamanho do conjunto de dados para _200:_
 
 ```azurecli-interactive
 az graph query -q "Resources | project name | order by name asc" --first 200 --output table
@@ -33,20 +33,20 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-Na [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), o controle é **$Top** e faz parte de **QueryRequestOptions**.
+Na [API REST,](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)o controlo é **$top** e faz parte das **Opções De Pedidos**de Consulta .
 
-O controle _mais restritivo_ ganhará. Por exemplo, se a consulta usar os operadores **superior** ou **limite** e resultar em mais registros do que o **primeiro**, os registros máximos retornados seriam iguais a **primeiro**. Da mesma forma, se **Top** ou **Limit** for menor do que **First**, o conjunto de registros retornado será o valor menor configurado por **Top** ou **Limit**.
+O controlo _mais restritivo_ vai ganhar. Por exemplo, se a sua consulta utilizar os operadores **superiores** ou **limitadores** e resultar em mais registos do que **primeiro,** os registos máximos devolvidos seriam iguais ao **Primeiro**. Da mesma forma, se **o topo** ou o **limite** forem menores do que **o Primeiro,** o recorde devolvido seria o valor mais pequeno configurado por **topo** ou **limite**.
 
-O **primeiro** tem, no momento, um valor máximo permitido de _5000_.
+**A primeira** tem atualmente um valor máximo permitido de _5000_.
 
-## <a name="skipping-records"></a>Ignorando registros
+## <a name="skipping-records"></a>Faltando recordes
 
-A próxima opção para trabalhar com grandes conjuntos de dados é o controle **Skip** . Esse controle permite que a consulta salte ou ignore o número definido de registros antes de retornar os resultados. **Skip** é útil para consultas que classificam resultados de uma maneira significativa em que a intenção é obter registros em algum lugar no meio do conjunto de resultados. Se os resultados necessários estiverem no final do conjunto de dados retornado, será mais eficiente usar uma configuração de classificação diferente e recuperar os resultados da parte superior do conjunto de dados em vez disso.
+A próxima opção para trabalhar com grandes conjuntos de dados é o controlo **Skip.** Este controlo permite que a sua consulta salte ou salte o número definido de registos antes de devolver os resultados. **Skip** é útil para consultas que tipo resulta de uma forma significativa onde a intenção é obter em algum lugar no meio do conjunto de resultados. Se os resultados necessários estiverem no final do conjunto de dados devolvidos, é mais eficiente utilizar uma configuração de tipo diferente e recuperar os resultados do topo do conjunto de dados.
 
 > [!NOTE]
-> Ao usar **Skip**, é recomendável ordenar os resultados por pelo menos uma coluna com `asc` ou `desc`. Sem classificação, os resultados retornados são aleatórios e não podem ser repetidos.
+> Ao utilizar **o Skip,** recomenda-se encomendar os resultados por pelo menos uma coluna com `asc` ou `desc`. Sem triagem, os resultados devolvidos são aleatórios e não repetíveis.
 
-Os exemplos a seguir mostram como ignorar os _10_ primeiros registros que uma consulta resultaria, em vez de iniciar o conjunto de resultados retornado com o registro 11:
+Os seguintes exemplos mostram como saltar os primeiros _10_ registos em que uma consulta resultaria, em vez de iniciar o resultado devolvido estabelecido com o 11º recorde:
 
 ```azurecli-interactive
 az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
@@ -56,16 +56,16 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-Na [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), o controle é **$Skip** e faz parte de **QueryRequestOptions**.
+Na [API REST,](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)o controlo é **$skip** e faz parte das **Opções De Pedidos**de Consulta .
 
 ## <a name="paging-results"></a>Resultados de paginação
 
-Quando for necessário interromper um conjunto de resultados em conjuntos menores de registros para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registros retornados, use paginação. O **QueryResponse** da [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) fornece valores para indicar que um conjunto de resultados foi dividido: **resultTruncated** e **$skipToken**.
-**resultTruncated** é um valor booliano que informa ao consumidor se há registros adicionais não retornados na resposta. Essa condição também pode ser identificada quando a propriedade **Count** for menor que a propriedade **totalRecords** . **totalRecords** define quantos registros correspondem à consulta.
+Quando for necessário quebrar um resultado definido em registos menores para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registos devolvidos, use a paging. O [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** fornece valores que indicam que foi quebrado um conjunto de resultados: **resultadoTruncated** e **$skipToken**.
+**resultadoTruncated** é um valor booleano que informa o consumidor se houver registos adicionais não devolvidos na resposta. Esta condição também pode ser identificada quando a propriedade **contada** é inferior à propriedade **total da Records.** **totalRecords** define quantos registos correspondem à consulta.
 
-Quando **resultTruncated** é **true**, a propriedade **$skipToken** é definida na resposta. Esse valor é usado com os mesmos valores de consulta e assinatura para obter o próximo conjunto de registros que corresponderam à consulta.
+Quando **o resultadoTruncated** é **verdadeiro,** a **propriedade $skipToken** é definida na resposta. Este valor é usado com os mesmos valores de consulta e subscrição para obter o próximo conjunto de registos que correspondem à consulta.
 
-Os exemplos a seguir mostram como **ignorar** os primeiros 3000 registros e retornar os **primeiros** 1000 registros após os registros ignorados com CLI do Azure e Azure PowerShell:
+Os seguintes exemplos mostram como **saltar** os primeiros 3000 discos e devolver os **primeiros** 1000 registos depois de esses registos terem saltado com o Azure CLI e o Azure PowerShell:
 
 ```azurecli-interactive
 az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
@@ -76,21 +76,21 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 ```
 
 > [!IMPORTANT]
-> A consulta deve **projetar** o campo **ID** para que a paginação funcione. Se ele estiver ausente da consulta, a resposta não incluirá o **$skipToken**.
+> A consulta deve **projetar** o campo **de identificação** para que a paginação funcione. Se faltar na consulta, a resposta não incluirá o **$skipToken.**
 
-Para obter um exemplo, consulte a [consulta de próxima página](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) nos documentos da API REST.
+Por exemplo, consulte a [consulta da página seguinte](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) nos médicos REST API.
 
-## <a name="formatting-results"></a>Formatando resultados
+## <a name="formatting-results"></a>Resultados da formatação
 
-Os resultados de uma consulta de gráfico de recursos são fornecidos em dois formatos, _tabela_ e _objectarray_. O formato é configurado com o parâmetro **resultFormat** como parte das opções de solicitação. O formato de _tabela_ é o valor padrão para **resultFormat**.
+Os resultados de uma consulta de gráfico de recursos são fornecidos em dois formatos, _Tabela_ e _ObjectArray_. O formato é configurado com o parâmetro **formato de resultados** como parte das opções de pedido. O formato _Tabela_ é o valor padrão para **o resultadoFormat**.
 
-Os resultados de CLI do Azure são fornecidos em JSON por padrão. Os resultados em Azure PowerShell são um **PSCustomObject** por padrão, mas podem ser convertidos rapidamente em JSON usando o cmdlet `ConvertTo-Json`. Para outros SDKs, os resultados da consulta podem ser configurados para gerar o formato _objectarray_ .
+Os resultados do Azure CLI são fornecidos em JSON por padrão. Os resultados em Azure PowerShell são um **PSCustomObject** por padrão, mas podem ser rapidamente convertidos para JSON usando o `ConvertTo-Json` cmdlet. Para outros SDKs, os resultados da consulta podem ser configurados para a saída do formato _ObjectArray._
 
-### <a name="format---table"></a>Formatar tabela
+### <a name="format---table"></a>Formato - Tabela
 
-O formato padrão, _tabela_, retorna resultados em um formato JSON projetado para realçar o design de coluna e os valores de linha das propriedades retornadas pela consulta. Esse formato se assemelha bastante aos dados, conforme definido em uma tabela ou planilha estruturada, com as colunas identificadas primeiro e, em seguida, cada linha representando os dados alinhados a essas colunas.
+O formato predefinido, _Tabela,_ devolve resultados num formato JSON projetado para destacar o design da coluna e os valores de linha das propriedades devolvidas pela consulta. Este formato assemelha-se de perto aos dados definidos numa tabela estruturada ou numa folha de cálculo com as colunas identificadas primeiro e, em seguida, cada linha representando dados alinhados com essas colunas.
 
-Aqui está um exemplo de um resultado de consulta com a formatação de _tabela_ :
+Aqui está uma amostra de um resultado de consulta com a formatação da _tabela:_
 
 ```json
 {
@@ -128,11 +128,11 @@ Aqui está um exemplo de um resultado de consulta com a formatação de _tabela_
 }
 ```
 
-### <a name="format---objectarray"></a>Format-objectarray
+### <a name="format---objectarray"></a>Formato - ObjectArray
 
-O formato _objectarray_ também retorna resultados em um formato JSON. No entanto, esse design se alinha à relação de par chave/valor comum em JSON em que a coluna e os dados de linha são correspondidos em grupos de matriz.
+O formato _ObjectArray_ também devolve resultados num formato JSON. No entanto, este design alinha-se com a relação chave/relação de par de valor comum na JSON, onde os dados da coluna e da linha são combinados em grupos de matriz.
 
-Aqui está um exemplo de um resultado de consulta com a formatação _objectarray_ :
+Aqui está uma amostra de um resultado de consulta com a formatação _ObjectArray:_
 
 ```json
 {
@@ -149,7 +149,7 @@ Aqui está um exemplo de um resultado de consulta com a formatação _objectarra
 }
 ```
 
-Aqui estão alguns exemplos de como definir **resultFormat** para usar o formato _objectarray_ :
+Aqui estão alguns exemplos de definição **do resultadoForma** para usar o formato _ObjectArray:_
 
 ```csharp
 var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
@@ -166,6 +166,6 @@ response = client.resources(request)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte o idioma em uso em [consultas de início](../samples/starter.md).
-- Consulte usos avançados em [consultas avançadas](../samples/advanced.md).
-- Saiba mais sobre como [explorar recursos](explore-resources.md).
+- Consulte o idioma utilizado nas [consultas de arranque](../samples/starter.md).
+- Consulte [utilizações avançadas em consultas avançadas.](../samples/advanced.md)
+- Saiba mais sobre como [explorar recursos.](explore-resources.md)

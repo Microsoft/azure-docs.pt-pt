@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao failover local de VMs do Azure com o Azure Site Recovery
-description: Descreve como se conectar a VMs do Azure após o failover do local para o Azure usando o Azure Site Recovery
+title: Ligue-se a VMs Azure no local falha com recuperação do site Azure
+description: Descreve como ligar-se aos VMs Azure após falha das instalações para Azure usando a Recuperação do Site Azure
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,152 +8,152 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: f222cdd315b79503b1bdea032f495c71df4682b5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084254"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363034"
 ---
-# <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conectar-se a VMs do Azure após o failover do local 
+# <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Ligue-se aos VMs Azure após falha no local 
 
 
-Este artigo descreve como configurar a conectividade para que você possa se conectar com êxito às VMs do Azure após o failover.
+Este artigo descreve como configurar a conectividade para que possa ligar-se com sucesso aos VMs Azure após a falha.
 
-Quando você configura a recuperação de desastre de VMs (máquinas virtuais) locais e servidores físicos no Azure, [Azure site Recovery](site-recovery-overview.md) inicia a replicação de computadores no Azure. Em seguida, quando ocorrerem interrupções, você poderá fazer failover para o Azure do site local. Quando ocorre o failover, o Site Recovery cria VMs do Azure usando dados replicados locais. Como parte do planejamento da recuperação de desastres, você precisa descobrir como se conectar a aplicativos em execução nessas VMs do Azure após o failover.
+Quando configura a recuperação de desastres de máquinas virtuais no local (VMs) e servidores físicos para o Azure, a [Azure Site Recovery](site-recovery-overview.md) começa a replicar máquinas para o Azure. Depois, quando ocorrerem interrupções, pode falhar com o Azure a partir do seu local no local. Quando ocorre a falha, a Recuperação do Site cria VMs Azure, utilizando dados replicados no local. Como parte do planeamento de recuperação de desastres, você precisa descobrir como se conectar a aplicações que executam estes VMs Azure após falha.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Prepare os computadores locais antes do failover.
-> * Prepare as VMs do Azure após o failover. 
-> * Reter endereços IP em VMs do Azure após o failover.
-> * Atribua novos endereços IP às VMs do Azure após o failover.
+> * Prepare as máquinas no local antes de falhar.
+> * Prepare os VMs Azure após a falha. 
+> * Mantenha endereços IP em VMs Azure após a falha.
+> * Atribuir novos endereços IP aos VMs Azure após a falha.
 
-## <a name="prepare-on-premises-machines"></a>Preparar computadores locais
+## <a name="prepare-on-premises-machines"></a>Prepare máquinas no local
 
-Para garantir a conectividade com as VMs do Azure, prepare seus computadores locais antes do failover.
+Para garantir a conectividade com os VMs Azure, prepare as suas máquinas no local antes de falhar.
 
-### <a name="prepare-windows-machines"></a>Preparar computadores Windows
+### <a name="prepare-windows-machines"></a>Preparar máquinas Windows
 
-Em máquinas locais do Windows, faça o seguinte:
+No local, faça o seguinte:
 
-1. Defina as configurações do Windows. Isso inclui remover todas as rotas persistentes estáticas ou o proxy WinHTTP e definir a política SAN de disco como **OnlineAll**. [Siga](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) estas instruções.
+1. Configure as definições do Windows. Estes incluem remover quaisquer rotas estáticas persistentes ou proxy WinHTTP, e definir a política SAN do disco para **OnlineAll**. [Siga](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) estas instruções.
 
-2. Verifique se [esses serviços](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) estão em execução.
+2. Certifique-se de que [estes serviços](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) estão em funcionamento.
 
-3. Habilite a área de trabalho remota (RDP) para permitir conexões remotas com o computador local. [Saiba como habilitar o](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) RDP com o PowerShell.
+3. Ativar o ambiente de trabalho remoto (RDP) para permitir ligações remotas à máquina no local. [Aprenda](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) a ativar rdp com powerShell.
 
-4. Para acessar uma VM do Azure pela Internet após o failover, no firewall do Windows no computador local, permita TCP e UDP no perfil público e defina o RDP como um aplicativo permitido para todos os perfis.
+4. Para aceder a um Azure VM através da internet após a falha, no Windows Firewall na máquina no local, permitir TCP e UDP no perfil público, e definir RDP como uma aplicação permitida para todos os perfis.
 
-5. Se você quiser acessar uma VM do Azure em uma VPN site a site após o failover, no firewall do Windows no computador local, permita o RDP para o domínio e os perfis particulares. [Saiba](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) como permitir o tráfego RDP.
-6. Certifique-se de que não haja nenhuma atualização do Windows pendente na VM local quando você disparar um failover. Se houver, as atualizações poderão iniciar a instalação na VM do Azure após o failover e você não poderá entrar na VM até que as atualizações sejam concluídas.
+5. Se pretender aceder a um Azure VM através de uma VPN site-to-site após a falha, no Windows Firewall na máquina no local, permita RDP para os perfis de Domínio e Privado. [Saiba](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) como permitir o tráfego de RDP.
+6. Certifique-se de que não existem atualizações do Windows pendentes no VM no local quando acionar uma falha. Se houver, as atualizações podem começar a instalar-se no VM Azure após a falha, e não poderá assinar no VM até que as atualizações terminem.
 
-### <a name="prepare-linux-machines"></a>Preparar computadores Linux
+### <a name="prepare-linux-machines"></a>Prepare as máquinas Linux
 
-Em computadores Linux locais, faça o seguinte:
+Nas máquinas Linux no local, faça o seguinte:
 
-1. Verifique se o serviço de Secure Shell está definido para iniciar automaticamente na inicialização do sistema.
+1. Verifique se o serviço Secure Shell está programado para iniciar automaticamente a bota do sistema.
 2. Verifique se as regras de firewall permitem uma ligação SSH.
 
 
-## <a name="configure-azure-vms-after-failover"></a>Configurar VMs do Azure após o failover
+## <a name="configure-azure-vms-after-failover"></a>Configure VMs Azure após falha
 
-Após o failover, faça o seguinte nas VMs do Azure que são criadas.
+Depois de failover, faça o seguinte nos VMs Azure que são criados.
 
-1. Para se conectar à VM pela Internet, atribua um endereço IP público à VM. Você não pode usar o mesmo endereço IP público para a VM do Azure que você usou para seu computador local. [Saiba mais](../virtual-network/virtual-network-public-ip-address.md)
-2. Verifique se as regras do NSG (grupo de segurança de rede) na VM permitem conexões de entrada para a porta RDP ou SSH.
-3. Verifique o [diagnóstico de inicialização](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para exibir a VM.
+1. Para ligar ao VM através da internet, atribua um endereço IP público ao VM. Não pode utilizar o mesmo endereço IP público para o VM Azure que usou para a sua máquina no local. [Saiba mais](../virtual-network/virtual-network-public-ip-address.md)
+2. Verifique se as regras do grupo de segurança da rede (NSG) sobre o VM permitem a entrada de ligações à porta RDP ou SSH.
+3. Verifique os [diagnósticos da Bota](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para ver o VM.
 
 
 > [!NOTE]
-> O serviço de bastiões do Azure oferece acesso RDP privado e SSH para VMs do Azure. [Saiba mais](../bastion/bastion-overview.md) sobre este serviço.
+> O serviço Azure Bastion oferece acesso privado de RDP e SSH aos VMs Azure. [Saiba mais](../bastion/bastion-overview.md) sobre este serviço.
 
 ## <a name="set-a-public-ip-address"></a>Definir um endereço IP público
 
-Como alternativa à atribuição de um endereço IP público manualmente a uma VM do Azure, você pode atribuir o endereço durante o failover usando um script ou um runbook de automação do Azure em um [plano de recuperação](site-recovery-create-recovery-plans.md)site Recovery, ou pode configurar o roteamento no nível do DNS usando o Gerenciador de tráfego do Azure. [Saiba mais](concepts-public-ip-address-with-site-recovery.md) sobre como configurar um endereço público.
+Como alternativa à atribuição de um endereço IP público manualmente a um VM Azure, pode atribuir o endereço durante a falha utilizando um livro de execução de script ou automação Azure num plano de [recuperação](site-recovery-create-recovery-plans.md)do site, ou pode configurar o encaminhamento ao nível de DNS utilizando o Gestor de Tráfego Azure. [Saiba mais](concepts-public-ip-address-with-site-recovery.md) sobre a criação de um endereço público.
 
 
 ## <a name="assign-an-internal-address"></a>Atribuir um endereço interno
 
-Para definir o endereço IP interno de uma VM do Azure após o failover, você tem algumas opções:
+Para definir o endereço IP interno de um VM Azure após a falha, você tem algumas opções:
 
-- **Manter o mesmo endereço IP**: você pode usar o mesmo endereço IP na VM do Azure como aquele alocado para o computador local.
-- **Usar endereço IP diferente**: você pode usar um endereço IP diferente para a VM do Azure.
+- **Reter**o mesmo endereço IP : Pode utilizar o mesmo endereço IP no VM Azure que o atribuído à máquina no local.
+- **Utilize um endereço IP diferente:** Pode utilizar um endereço IP diferente para o VM Azure.
 
 
 ## <a name="retain-ip-addresses"></a>Reter endereços IP
 
-Site Recovery permite que você mantenha os mesmos endereços IP ao fazer failover no Azure. Manter o mesmo endereço IP evita possíveis problemas de rede após o failover, mas introduz alguma complexidade.
+A Recuperação do Site permite reter os mesmos endereços IP ao falhar com o Azure. A manutenção do mesmo endereço IP evita potenciais problemas de rede após o fracasso, mas introduz alguma complexidade.
 
-- Se a VM do Azure de destino usar o mesmo endereço IP/sub-rede que o site local, você não poderá se conectar entre eles usando uma conexão VPN site a site ou ExpressRoute, devido à sobreposição de endereço. As sub-redes devem ser exclusivas.
-- Você precisa de uma conexão do local para o Azure após o failover, para que os aplicativos estejam disponíveis em VMs do Azure. O Azure não dá suporte a VLANs ampliadas. portanto, se você quiser manter os endereços IP, precisará obter o espaço IP para o Azure ao fazer failover de toda a sub-rede, além da máquina local.
-- O failover de sub-rede garante que uma sub-rede específica não esteja disponível simultaneamente no local e no Azure.
+- Se o target Azure VM utilizar o mesmo endereço IP/subnet que o seu site no local, não pode ligar-se entre eles utilizando uma ligação VPN site-para-site ou ExpressRoute, devido à sobreposição do endereço. As subredes devem ser únicas.
+- Você precisa de uma ligação do local para Azure após o failover, para que as aplicações estejam disponíveis em VMs Azure. O Azure não suporta VLANs esticados, por isso, se quiser reter endereços IP, tem de levar o espaço IP para O Azure falhando em toda a subnet, além da máquina no local.
+- A falha da subnet garante que uma subnet específica não está disponível simultaneamente no local e em Azure.
 
-A retenção de endereços IP requer as seguintes etapas:
+A conservação dos endereços IP requer os seguintes passos:
 
-- Nas propriedades de rede & de computação do item replicado, defina a rede e o endereçamento IP para a VM do Azure de destino para espelhar a configuração local.
-- As sub-redes devem ser gerenciadas como parte do processo de recuperação de desastre. Você precisa de uma VNet do Azure para corresponder à rede local e, depois que as rotas de rede de failover devem ser modificadas para refletir que a sub-rede foi movida para o Azure e novos locais de endereço IP.  
+- Nas propriedades computacionais e de rede do item replicado, a rede definida e o endereço IP para o target Azure VM para espelhar a definição no local.
+- As subredes devem ser geridas como parte do processo de recuperação de desastres. É necessário um Azure VNet para combinar com a rede no local, e depois de as rotas da rede failover devem ser modificadas para refletir que a subnet se mudou para Azure, e novas localizações de endereços IP.  
 
 ### <a name="failover-example"></a>Exemplo de failover
 
-Vamos examinar um exemplo.
+Vejamos um exemplo.
 
-- O Woodgrove Bank da empresa fictícia hospeda seus aplicativos de negócios locais, eles hospedam seus aplicativos móveis no Azure.
-- Eles se conectam do local para o Azure por VPN site a site. 
-- O Woodgrove está usando Site Recovery para replicar computadores locais para o Azure.
-- Seus aplicativos locais usam endereços IP embutidos em código, portanto, eles desejam manter os mesmos endereços IP no Azure.
-- No local, os computadores que executam os aplicativos estão em execução em três sub-redes:
+- A empresa fictícia Woodgrove Bank acolhe as suas aplicações de negócio no local, alojando as suas aplicações móveis em Azure.
+- Ligam-se desde as instalações até ao Azure através da VPN local-a-local. 
+- A Woodgrove está a usar a Recuperação do Local para replicar máquinas no local para o Azure.
+- As suas aplicações no local utilizam endereços IP codificados, pelo que pretendem reter os mesmos endereços IP em Azure.
+- No local, as máquinas que executam as aplicações estão a funcionar em três subredes:
     - 192.168.1.0/24.
     - 192.168.2.0/24
     - 192.168.3.0/24
-- Seus aplicativos em execução no Azure estão localizados na **rede** de VNet do Azure do Azure em duas sub-redes:
+- As suas aplicações em funcionamento em Azure estão localizadas na Rede Azure VNet **Azure** em duas subredes:
 - 172.16.1.0/24
 - 172.16.2.0/24.
 
-Para manter os endereços, veja o que eles fazem.
+Para reter os endereços, eis o que fazem.
 
-1. Quando eles habilitam a replicação, eles especificam que os computadores devem replicar para a **rede do Azure**.
-2. Eles criam a **rede de recuperação** no Azure. Essa VNet espelha a sub-rede 192.168.1.0/24 em sua rede local.
-3. O Woodgrove configura uma [conexão vnet a vnet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre as duas redes. 
+1. Quando ativam a replicação, especificam que as máquinas devem replicar-se na **rede Azure**.
+2. Criam rede de **recuperação** em Azure. Este VNet espelha a sub-rede 192.168.1.0/24 na sua rede no local.
+3. Woodgrove estabelece uma [ligação VNet-to-VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre as duas redes. 
 
     > [!NOTE]
-    > Dependendo dos requisitos do aplicativo, uma conexão VNet a VNet pode ser configurada antes do failover, como uma etapa manual/script do runbook de automação do Azure em um [plano de recuperação](site-recovery-create-recovery-plans.md)site Recovery ou após a conclusão do failover.
+    > Dependendo dos requisitos de aplicação, uma ligação VNet-to-VNet poderia ser configurada antes da falha, como um manual de passo/scripted step/Azure automation runbook em um plano de recuperação de [recuperação](site-recovery-create-recovery-plans.md)do site, ou após a falha estar completa.
 
-4. Antes do failover, nas propriedades da máquina em Site Recovery, elas definem o endereço IP de destino como o endereço do computador local, conforme descrito no próximo procedimento.
-5. Após o failover, as VMs do Azure são criadas com o mesmo endereço IP. O Woodgrove conecta-se da **rede do Azure** à rede virtual de **recuperação** usando o emparelhamento VNet (com conectividade de trânsito habilitada).
-6. No local, o Woodgrove precisa fazer alterações na rede, incluindo a modificação de rotas para refletir que 192.168.1.0/24 foi movido para o Azure.  
+4. Antes do failover, nas propriedades da máquina na Recuperação do Local, eles definiram o endereço IP alvo para o endereço da máquina no local, conforme descrito no procedimento seguinte.
+5. Após a falha, os VMs Azure são criados com o mesmo endereço IP. A Woodgrove liga-se da **Rede Azure** à Rede de **Recuperação** VNet utilizando o peering VNet (com conectividade de trânsito ativada).
+6. No local, a Woodgrove precisa de fazer alterações de rede, incluindo modificar rotas para refletir que 192.168.1.0.0/24 mudou-se para Ota.  
 
-**Infraestrutura antes do failover**
+**Infraestrutura antes do fracasso**
 
-![Antes do failover de sub-rede](./media/site-recovery-network-design/network-design7.png)
-
-
-**Infraestrutura após o failover**
-
-![Após o failover de sub-rede](./media/site-recovery-network-design/network-design9.png)
+![Antes da falha da sub-rede](./media/site-recovery-network-design/network-design7.png)
 
 
-### <a name="set-target-network-settings"></a>Definir configurações de rede de destino
+**Infraestrutura após falha**
 
-Antes do failover, especifique as configurações de rede e o endereço IP para a VM do Azure de destino.
-
-1.  No cofre dos serviços de recuperação-> **itens replicados**, selecione o computador local.
-2. Na página **computação e rede** do computador, clique em **Editar**para definir as configurações de rede e adaptador para a VM do Azure de destino.
-3. Em **Propriedades de rede**, selecione a rede de destino na qual a VM do Azure será localizada quando for criada após o failover.
-4. Em **interfaces de rede**, configure os adaptadores de rede na rede de destino. Por padrão Site Recovery mostra todas as NICs detectadas no computador local.
-    - Em **tipo de interface de rede de destino** , você pode definir cada NIC como **primária**, **secundária**ou **não criar** se não precisar dessa NIC específica na rede de destino. Um adaptador de rede deve ser definido como primário para o failover. Observe que a modificação da rede de destino afeta todas as NICs para a VM do Azure.
-    - Clique no nome da NIC para especificar a sub-rede na qual a VM do Azure será implantada.
-    - Substitua **Dynamic** pelo endereço IP privado que você deseja atribuir à VM do Azure de destino. Se um endereço IP não for especificado Site Recovery atribuirá o próximo endereço IP disponível na sub-rede à NIC no failover.
-    - [Saiba mais](site-recovery-manage-network-interfaces-on-premises-to-azure.md) sobre como gerenciar NICs para o failover local no Azure.
+![Após falha na rede](./media/site-recovery-network-design/network-design9.png)
 
 
-## <a name="get-new-ip-addresses"></a>Obter novos endereços IP
+### <a name="set-target-network-settings"></a>Definir definições de rede de destino
 
-Nesse cenário, a VM do Azure Obtém um novo endereço IP após o failover. Uma atualização de DNS para atualizar registros de computadores com failover para apontar para o endereço IP da VM do Azure.
+Antes da falha, especifique as definições de rede e o endereço IP para o Target Azure VM.
+
+1.  No cofre dos Serviços de Recuperação -> **Itens replicados,** selecione a máquina no local.
+2. Na página **Compute e Network** para a máquina, clique em **Editar,** para configurar definições de rede e adaptador para o target Azure VM.
+3. Nas **propriedades da Rede,** selecione a rede de destino na qual o Azure VM estará localizado quando for criado após a falha.
+4. Nas **interfaces da Rede,** configure os adaptadores de rede na rede alvo. Por predefinição, a Recuperação do Site mostra todos os NICs detetados na máquina no local.
+    - No tipo de interface de **rede Target** pode definir cada NIC como **Primário,** **Secundário,** ou **não criar** se não precisar desse NIC específico na rede de destino. Um adaptador de rede deve ser definido como primário para a falha. Note que modificar a rede alvo afeta todos os NICs para o VM Azure.
+    - Clique no nome NIC para especificar a subrede em que o VM Azure será implantado.
+    - Revê a **Dynamic** com o endereço IP privado que pretende atribuir ao Azure VM. Se um endereço IP não for especificado, a Recuperação do Site atribuirá o próximo endereço IP disponível na subnet ao NIC em failover.
+    - [Saiba mais](site-recovery-manage-network-interfaces-on-premises-to-azure.md) sobre a gestão de NICs para falhas no local para o Azure.
+
+
+## <a name="get-new-ip-addresses"></a>Obtenha novos endereços IP
+
+Neste cenário, o Azure VM recebe um novo endereço IP após a falha. Uma atualização DNS para atualizar os registos de máquinas falhadas para apontar para o endereço IP do VM Azure.
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-[Saiba mais sobre como](site-recovery-active-directory.md) replicar o Active Directory local e o DNS para o Azure.
+[Saiba mais sobre](site-recovery-active-directory.md) a replicação no local Ative Directory e DNS para Azure.
 
 

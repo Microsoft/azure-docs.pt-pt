@@ -1,6 +1,6 @@
 ---
-title: Trabalhando com grandes conjuntos de dimensionamento de máquinas virtuais do Azure
-description: O que você precisa saber sobre grandes conjuntos de dimensionamento de máquinas virtuais do Azure para usá-los em seu aplicativo.
+title: Trabalhando com grandes conjuntos de escala de máquinas virtuais azure
+description: O que precisa de saber sobre grandes conjuntos de máquinas virtuais Azure para os utilizar na sua aplicação.
 author: cynthn
 ms.author: cynthn
 tags: azure-resource-manager
@@ -9,11 +9,11 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.openlocfilehash: 618b677ee836327e8ed4ab7798ab35d92b364c98
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76272531"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393082"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala
 Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
@@ -35,7 +35,7 @@ Para decidir se a aplicação pode utilizar eficazmente os conjuntos de dimensio
 - O balanceamento de carga de camada 4 com conjuntos de dimensionamento compostos por vários grupos de colocação requer o [SKU Balanceador de Carga do Azure Standard](../load-balancer/load-balancer-standard-overview.md). O SKU Balanceador de Carga do Azure Standard oferece mais benefícios, como a capacidade de balancear a carga entre diversos conjuntos de dimensionamento. O SKU Standard também requer que os conjuntos de dimensionamento tenham um Grupo de Segurança de rede associado ao mesmo, caso contrário, os conjuntos NAT não funcionam corretamente. Se tiver de utilizar o SKU Balanceador de Carga do Azure Básico, confirme que o conjunto de dimensionamento está configurado para utilizar um único grupo de colocação, que é a predefinição.
 - O balanceamento de carga de camada 7 com o Gateway de Aplicação do Azure é suportado para todos os conjuntos de dimensionamento.
 - Um conjunto de dimensionamento é definido com uma única sub-rede - certifique-se de que a sub-rede tem um espaço de endereço suficientemente grande para todas as VMs necessárias. Por predefinição, um conjunto de dimensionamento aprovisiona em excesso (cria VMs adicionais no momento da implementação ou ao aumentar horizontalmente, o que não lhe é cobrado) para melhorar a fiabilidade e o desempenho da implementação. Permita um espaço de endereço 20% maior do que o número de VMs que planeia dimensionar.
-- Os domínios de falha e os domínios de atualização só são consistentes dentro de um grupo de colocação. Esta arquitetura não altera a disponibilidade geral de um conjunto de dimensionamento, uma vez que as VMs são distribuídas por hardware físico distinto, mas tal não significa que, se precisar de garantir que duas VMs estão em hardware diferente, certifique-se de que estão em domínios de falha diferentes no mesmo grupo de colocação. Consulte estas [Opções de disponibilidade](/azure/virtual-machines/windows/availability)de link. 
+- Os domínios de falha e os domínios de atualização só são consistentes dentro de um grupo de colocação. Esta arquitetura não altera a disponibilidade geral de um conjunto de dimensionamento, uma vez que as VMs são distribuídas por hardware físico distinto, mas tal não significa que, se precisar de garantir que duas VMs estão em hardware diferente, certifique-se de que estão em domínios de falha diferentes no mesmo grupo de colocação. Consulte este link [Opções de disponibilidade.](/azure/virtual-machines/windows/availability) 
 - O domínio de falha e o ID do grupo de colocação são apresentados na _vista de instância_ da VM do conjunto de dimensionamento. Pode ver a vista de instância da VM de um conjunto de dimensionamento no [Explorador de Recursos do Azure](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Criar um conjunto de dimensionamento de grande escala
@@ -43,7 +43,7 @@ Quando cria um conjunto de dimensionamento no portal do Azure, basta especificar
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-Você pode criar um grande conjunto de dimensionamento de máquinas virtuais usando o comando [CLI do Azure](https://github.com/Azure/azure-cli) _AZ vmss Create_ . Este comando configura as predefinições inteligentes, como a dimensão da sub-rede baseada no argumento _instance-count_:
+Pode criar um grande conjunto de máquinas virtuais utilizando o [Azure CLI](https://github.com/Azure/azure-cli) _az vmss criar_ comando. Este comando configura as predefinições inteligentes, como a dimensão da sub-rede baseada no argumento _instance-count_:
 
 ```bash
 az group create -l southcentralus -n biginfra
@@ -54,7 +54,7 @@ O comando _vmss create_ repõe as predefinições de certos valores de configura
 az vmss create --help
 ```
 
-Se estiver a criar um conjunto de dimensionamento de grande escala ao compor um modelo do Azure Resource Manager, certifique-se de que o modelo cria um conjunto de dimensionamento com base em Managed Disks do Azure. Você pode definir a propriedade _singlePlacementGroup_ como _false_ na seção de _Propriedades_ do recurso _Microsoft. Compute/virtualMachineScaleSets_ . O fragmento JSON seguinte mostra o início de um modelo de conjunto de dimensionamento, incluindo a capacidade de 1000 VMs e a definição _"singlePlacementGroup" : falso_:
+Se estiver a criar um conjunto de dimensionamento de grande escala ao compor um modelo do Azure Resource Manager, certifique-se de que o modelo cria um conjunto de dimensionamento com base em Managed Disks do Azure. Pode definir a propriedade _singlePlacementGroup_ como _falsa_ na secção _de propriedades_ do recurso _Microsoft.Compute/virtualMachineScaleSets._ O fragmento JSON seguinte mostra o início de um modelo de conjunto de dimensionamento, incluindo a capacidade de 1000 VMs e a definição _"singlePlacementGroup" : falso_:
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",

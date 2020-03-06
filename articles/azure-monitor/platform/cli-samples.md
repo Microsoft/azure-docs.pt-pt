@@ -5,11 +5,11 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.openlocfilehash: 69687cee8b8a907b82f2c848242ac64d54dedb87
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663509"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360876"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Amostras de arranque rápido do Azure Monitor CLI
 Este artigo mostra que experimenta comandos de interface de linha de comando (CLI) para ajudá-lo a aceder às funcionalidades do Monitor Azure. O Azure Monitor permite-lhe serviços de cloud, máquinas virtuais e aplicações web e enviar notificações de alerta ou call web URLs com base em valores de dados de telemetria configurados.

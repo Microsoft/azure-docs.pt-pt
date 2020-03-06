@@ -1,7 +1,7 @@
 ---
-title: Suporte ao idioma-QnA Maker
+title: Suporte de idiomas - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Uma lista de cultura, linguagens naturais com suporte pelo QnA Maker para sua base de dados de conhecimento. Não misture idiomas na mesma base de dados de conhecimento.
+description: Uma lista de cultura, idiomas suportados pelo QnA Maker para sua base de dados de conhecimento. Não misture idiomas na mesma base de dados de conhecimento.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,46 +11,46 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720996"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389226"
 ---
-# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte a idiomas para um recurso QnA Maker e bases de dados de conhecimento
+# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte linguístico para um recurso qna maker e bases de conhecimento
 
-Idioma do serviço é selecionado quando você cria a primeira base de dados de conhecimento no recurso. Todas as bases de dados de conhecimento adicionais no recurso devem estar no mesmo idioma. 
+A linguagem para o serviço é selecionada quando cria a primeira base de conhecimentos no recurso. Todas as bases de conhecimento adicionais do recurso devem estar na mesma língua. 
 
-O idioma determina a relevância dos resultados QnA Maker fornece em resposta a consultas de usuário.
+O idioma determina a relevância dos resultados que o QnA Maker fornece em resposta às consultas dos utilizadores.
 
-Saiba mais sobre o [impacto da seleção de idioma](../how-to/language-knowledge-base.md).
+Saiba mais sobre o [impacto da seleção linguística.](../how-to/language-knowledge-base.md)
 
-## <a name="languages-supported"></a>Idiomas com suporte
+## <a name="languages-supported"></a>Idiomas suportados
 
-A lista a seguir contém os idiomas com suporte para um recurso de QnA Maker. 
+A lista seguinte contém as línguas suportadas para um recurso QnA Maker. 
 
 |Idioma|
 |--|
 |Árabe|
-|Armênio|
-|Bengalês|
-|Basco|
+|Arménio|
+|Bengali|
+|Basco (Basco)|
 |Búlgaro|
 |Catalão|
 |Chinese_Simplified|
 |Chinese_Traditional|
 |Croata|
-|Tcheco|
+|Checo|
 |Dinamarquês|
-|Holandês|
+|Neerlandês|
 |Português|
-|Estoniano|
+|Estónio|
 |Finlandês|
 |Francês|
 |Galego|
 |Alemão|
 |Grego|
-|Guzerate|
+|Guzarate|
 |Hebraico|
 |Hindi|
 |Húngaro|
@@ -59,11 +59,11 @@ A lista a seguir contém os idiomas com suporte para um recurso de QnA Maker.
 |Irlandês|
 |Italiano|
 |Japonês|
-|Kannada|
+|Canarim|
 |Coreano|
 |Letão|
 |Lituano|
-|Malaiala|
+|Malayalam|
 |Malaio|
 |Norueguês|
 |Polaco|
@@ -77,8 +77,8 @@ A lista a seguir contém os idiomas com suporte para um recurso de QnA Maker.
 |Esloveno|
 |Espanhol|
 |Sueco|
-|Tâmil|
-|Telugu|
+|Tamil|
+|Télego|
 |Tailandês|
 |Turco|
 |Ucraniano|
@@ -88,4 +88,4 @@ A lista a seguir contém os idiomas com suporte para um recurso de QnA Maker.
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Seleção de idioma](../how-to/language-knowledge-base.md)
+> [Seleção de idiomas](../how-to/language-knowledge-base.md)
