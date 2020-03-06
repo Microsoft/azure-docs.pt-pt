@@ -1,7 +1,7 @@
 ---
-title: Usar URIs de redirecionamento com MSAL (iOS/macOS) | Azure
+title: Utilize URIs redirecionamento com MSAL (iOS/macOS)  Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre as diferenças entre a biblioteca de autenticação da Microsoft para ObjectiveC (MSAL para iOS e macOS) e a biblioteca de autenticação do Azure AD para ObjectiveC (ADAL. ObjC) e como migrar entre eles.
+description: Conheça as diferenças entre a Microsoft Authentication Library for ObjectiveC (MSAL for iOS e macOS) e a Azure AD Authentication Library for ObjectiveC (ADAL). ObjC) e como migrar entre eles.
 services: active-directory
 documentationcenter: dev-center-name
 author: mmacy
@@ -18,50 +18,50 @@ ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
 ms.openlocfilehash: c36c6b1b1b08de6d2db9a7f7f9ebd3b162c02383
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085637"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377128"
 ---
-# <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Usando URIs de redirecionamento com a biblioteca de autenticação da Microsoft para iOS e macOS
+# <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Utilização de URIs redirecionados com a biblioteca de autenticação da Microsoft para iOS e macOS
 
-Quando um usuário é autenticado, o Azure Active Directory (Azure AD) envia o token para o aplicativo usando o URI de redirecionamento registrado com o aplicativo do Azure AD.
+Quando um utilizador autentica, o Azure Ative Directory (Azure AD) envia o símbolo para a app utilizando o URI redirecionado registado na aplicação Azure AD.
 
-A MSAL (biblioteca de autenticação da Microsoft) requer que o URI de redirecionamento seja registrado com o aplicativo do Azure AD em um formato específico. O MSAL usará um URI de redirecionamento padrão, se você não especificar um. O formato é `msauth.[Your_Bundle_Id]://auth`.
+A biblioteca de autenticação da Microsoft (MSAL) exige que o URI redirecionado seja registado na aplicação Azure AD num formato específico. A MSAL utiliza um URI de redirecionamento predefinido, se não especificar um. O formato é `msauth.[Your_Bundle_Id]://auth`.
 
-O formato de URI de redirecionamento padrão funciona para a maioria dos aplicativos e cenários, incluindo autenticação orientada e exibição da Web do sistema. Use o formato padrão sempre que possível.
+O formato DE REdirecionamento padrão URI funciona para a maioria das aplicações e cenários, incluindo autenticação intermediada e visualização web do sistema. Utilize o formato predefinido sempre que possível.
 
-No entanto, talvez seja necessário alterar o URI de redirecionamento para cenários avançados, conforme descrito abaixo.
+No entanto, poderá ter de alterar o URI redirecionado para cenários avançados, como descrito abaixo.
 
-## <a name="scenarios-that-require-a-different-redirect-uri"></a>Cenários que exigem um URI de redirecionamento diferente
+## <a name="scenarios-that-require-a-different-redirect-uri"></a>Cenários que requerem um URI redirecionado diferente
 
-### <a name="cross-app-single-sign-on-sso"></a>SSO (logon único) entre aplicativos
+### <a name="cross-app-single-sign-on-sso"></a>Sinal único de aplicação cruzada (SSO)
 
-Para que a plataforma de identidade da Microsoft Compartilhe tokens entre aplicativos, cada aplicativo precisa ter a mesma ID de cliente ou ID do aplicativo. Esse é o identificador exclusivo fornecido quando você registrou seu aplicativo no portal (não a ID do pacote de aplicativos que você registra por aplicativo com a Apple).
+Para que a plataforma Microsoft Identity partilhe tokens em aplicações, cada aplicação precisa de ter o mesmo ID de cliente ou ID de aplicação. Este é o identificador único fornecido quando registou a sua aplicação no portal (não o pacote de aplicações ID que regista por app com a Apple).
 
-Os URIs de redirecionamento precisam ser diferentes para cada aplicativo iOS. Isso permite que o serviço de identidade da Microsoft identifique exclusivamente aplicativos diferentes que compartilham uma ID de aplicativo. Cada aplicativo pode ter vários URIs de redirecionamento registrados no portal do Azure. Cada aplicativo em seu pacote terá um URI de redirecionamento diferente. Por exemplo:
+Os URIs redirecionados têm de ser diferentes para cada aplicação iOS. Isto permite que o serviço de identidade da Microsoft identifique exclusivamente diferentes aplicações que partilham um ID de aplicação. Cada aplicação pode ter vários URIs redirecionados registados no portal Azure. Cada aplicação na sua suite terá um URI de redirecionamento diferente. Por exemplo:
 
-Dado o seguinte registro de aplicativo no portal do Azure:
+Dado o seguinte registo de candidatura no portal Azure:
 
     Client ID: ABCDE-12345 (this is a single client ID)
     RedirectUris: msauth.com.contoso.app1://auth, msauth.com.contoso.app2://auth, msauth.com.contoso.app3://auth
 
 App1 usa redirecionamento `msauth.com.contoso.app1://auth` App2 usa `msauth.com.contoso.app2://auth` App3 usa `msauth.com.contoso.app1://auth`
 
-### <a name="migrating-from-adal-to-msal"></a>Migrando do ADAL para o MSAL
+### <a name="migrating-from-adal-to-msal"></a>Migração da ADAL para a MSAL
 
-Ao migrar o código que usou a ADAL (biblioteca de autenticação do Azure AD) para o MSAL, talvez você já tenha um URI de redirecionamento configurado para seu aplicativo. Você pode continuar usando o mesmo URI de redirecionamento, desde que seu aplicativo ADAL tenha sido configurado para dar suporte a cenários orientados e seu URI de redirecionamento atenda aos requisitos de formato de URI de redirecionamento MSAL.
+Ao migrar o código que usou a Biblioteca de Autenticação AD Azure (ADAL) para a MSAL, pode já ter um URI redirecionado configurado para a sua aplicação. Pode continuar a utilizar o mesmo URI redirecionado desde que a sua aplicação ADAL tenha sido configurada para suportar cenários intermediados e o seu REdirect URI satisfaz os requisitos de formato URI redirecionamento da MSAL.
 
-## <a name="msal-redirect-uri-format-requirements"></a>Requisitos de formato de URI de redirecionamento MSAL
+## <a name="msal-redirect-uri-format-requirements"></a>Requisitos de formato URI redirecionamento MSAL
 
 * O redirecionamento mSAL URI deve estar na forma `<scheme>://host`
 
-    Onde `<scheme>` é uma cadeia única que identifica a sua aplicação. Ele se baseia principalmente no identificador de pacote do seu aplicativo para garantir a exclusividade. Por exemplo, se o Bundle ID da sua aplicação for `com.contoso.myapp`, o seu URI redirecionado estaria na forma: `msauth.com.contoso.myapp://auth`.
+    Onde `<scheme>` é uma cadeia única que identifica a sua aplicação. Baseia-se principalmente no Identificador de Pacoteda sua aplicação para garantir a singularidade. Por exemplo, se o Bundle ID da sua aplicação for `com.contoso.myapp`, o seu URI redirecionado estaria na forma: `msauth.com.contoso.myapp://auth`.
 
-    Se estiver a migrar da ADAL, o seu URI redirecionado terá provavelmente este formato: `<scheme>://[Your_Bundle_Id]`, onde `scheme` é uma cadeia única. Esse formato continuará a funcionar quando você usar o MSAL.
+    Se estiver a migrar da ADAL, o seu URI redirecionado terá provavelmente este formato: `<scheme>://[Your_Bundle_Id]`, onde `scheme` é uma cadeia única. Este formato continuará a funcionar quando utilizar o MSAL.
 
-* `<scheme>` devem ser registados na lista info.plist da sua aplicação em `CFBundleURLTypes > CFBundleURLSchemes`.  Neste exemplo, o info. plist foi aberto como código-fonte:
+* `<scheme>` devem ser registados na lista info.plist da sua aplicação em `CFBundleURLTypes > CFBundleURLSchemes`.  Neste exemplo, info.plist foi aberto como código fonte:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -76,11 +76,11 @@ Ao migrar o código que usou a ADAL (biblioteca de autenticação do Azure AD) p
     ```
     
 
-MSAL verificará se o URI de redirecionamento se registra corretamente e retorna um erro se não for.
+A MSAL verificará se o seu URI redireciona corretamente e devolverá um erro se não for.
     
 * Se quiser utilizar links universais como um URI redirecionado, o `<scheme>` deve ser `https` e não precisa de ser declarado em `CFBundleURLSchemes`. Em vez disso, configure a aplicação e o domínio de acordo com as instruções da Apple na [Universal Links for Developers](https://developer.apple.com/ios/universal-links/) e ligue para o método `handleMSALResponse:sourceApplication:` de `MSALPublicClientApplication` quando a sua aplicação for aberta através de um link universal.
 
-## <a name="use-a-custom-redirect-uri"></a>Usar um URI de redirecionamento personalizado
+## <a name="use-a-custom-redirect-uri"></a>Use um URI de redirecionamento personalizado
 
 Para utilizar um URI de redirecionamento personalizado, passe o parâmetro `redirectUri` para `MSALPublicClientApplicationConfig` e passe esse objeto para `MSALPublicClientApplication` quando rubricar o objeto. Se o URI redireccionador for inválido, o inicializador devolverá `nil` e definirá o `redirectURIError`com informações adicionais.  Por exemplo:
 
@@ -112,9 +112,9 @@ do {
 
 
 
-## <a name="handle-the-url-opened-event"></a>Manipular o evento de URL aberta
+## <a name="handle-the-url-opened-event"></a>Manuseie o evento aberto url
 
-Seu aplicativo deve chamar MSAL quando receber qualquer resposta por meio de esquemas de URL ou links universais. Ligue para o método `handleMSALResponse:sourceApplication:` de `MSALPublicClientApplication` quando a sua aplicação for aberta. Aqui está um exemplo de esquemas personalizados:
+A sua aplicação deve ligar para a MSAL quando receber qualquer resposta através de esquemas de URL ou links universais. Ligue para o método `handleMSALResponse:sourceApplication:` de `MSALPublicClientApplication` quando a sua aplicação for aberta. Aqui está um exemplo para esquemas personalizados:
 
 Objetivo C:
 

@@ -10,11 +10,11 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: fcc2013f67c6e91182979a9bcab683894088a1d5
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110372"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397181"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (Java)
 
@@ -122,7 +122,7 @@ Nesta secção, modifica a aplicação do dispositivo que criou em [Enviar mensa
     mvn clean package -DskipTests
     ```
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de ligação do hub IoT
 
 Neste artigo cria um serviço de backend para receber mensagens de notificação de envio de ficheiros do hub IoT que criou no [Envio de telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md). Para receber mensagens de notificação de upload de ficheiros, o seu serviço necessita da permissão de ligação do **serviço.** Por padrão, cada Hub IoT é criado com uma política de acesso partilhado chamada **serviço** que concede esta permissão.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0f50fe51f9c1cdef3c3f07c91640f5b9b9616229
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 18ac583837c7cb8b2dabbfa6f7d7210c8afe3fcb
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370963"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402765"
 ---
 # <a name="connect-to-a-wfs-service"></a>Ligue-se a um serviço WFS
 
@@ -91,7 +91,7 @@ O seguinte código utiliza o cliente WFS para explorar os serviços WFS. Selecio
 
 <br/>
 
-<iframe height='700' scrolling='no' title= 'Explorador de serviço wfs' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o explorador de <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>serviçoPen WFS</a> da Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' style='width: 100%;' scrolling='no' title= 'Explorador de serviço wfs' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o explorador de <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>serviçoPen WFS</a> da Azure Maps<a href='https://codepen.io/azuremaps'> (@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Também pode utilizar um serviço de procuração para carregar recursos que estão alojados em domínios que não estão ativados. Primeiro definiria uma variável para manter o url de serviço proxy e definiria a opção `proxyService` para o cliente WFS. Para tornar uma opção de serviço proxy para o utilizador, adicione uma entrada de utilizador ao UI. Carregue a url de serviço quando a entrada estiver clicada. Os seguintes cortes mostram-lhe como usar o serviço de procuração.

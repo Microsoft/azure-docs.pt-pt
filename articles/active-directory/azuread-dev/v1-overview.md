@@ -17,11 +17,11 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 638c265fda3c8b331415d54047180b3c0ee2174a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77197549"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377932"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Diretório Ativo Azure para programadores (v1.0) visão geral
 

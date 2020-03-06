@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 2b726dff1e2c23b94118a11fb6b6ccf1f9622d4d
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592749"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374537"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Crie e configure um cluster Azure Kubernetes Services (AKS) para utilizar nós virtuais usando o Azure CLI
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756322"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396294"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Sequência de mensagens e carimbos de data/hora
 
@@ -34,7 +34,7 @@ A ordem de chegada absoluta é, por exemplo, em cenários empresariais em que um
 
 A capacidade de carimbar o tempo funciona como uma autoridade neutra e de confiança que captura com precisão a hora utc de chegada de uma mensagem, refletida na propriedade **EnqueuedTimeUtc.** O valor é útil se um cenário de negócio depender de prazos, como se um item de trabalho foi submetido numa determinada data antes da meia-noite, mas o processamento está muito aquém do atraso na fila.
 
-## <a name="scheduled-messages"></a>Mensagens agendadas
+## <a name="scheduled-messages"></a>Mensagens programadas
 
 Pode enviar mensagens para uma fila ou tópico para processamento atrasado; por exemplo, agendar um trabalho para se tornar disponível para processamento por um sistema em determinado momento. Esta capacidade realiza um programador de tempo distribuído fiável.
 
@@ -48,7 +48,7 @@ Como a funcionalidade está ancorada em mensagens individuais e as mensagens só
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as mensagens do barramento de serviço, consulte os seguintes tópicos:
+Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

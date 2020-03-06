@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596373"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374667"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opções de acesso e identidade para o Serviço Azure Kubernetes (AKS)
 

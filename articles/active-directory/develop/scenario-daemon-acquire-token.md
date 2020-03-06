@@ -16,11 +16,11 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7f1010949a72f95ef2836c43666e6cea9281e04d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77611905"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377346"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App Daemon que chama APIs web - adquira um token
 

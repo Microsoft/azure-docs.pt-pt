@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
 ms.openlocfilehash: a720627e1783d2e29ef180b7855132ea59444cab
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659235"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394695"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Orientação para dados pessoais armazenados em Log Analytics e Insights de Aplicação
 

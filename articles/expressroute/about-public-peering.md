@@ -1,6 +1,6 @@
 ---
-title: Criar e gerenciar o emparelhamento público do Azure ExpressRoute
-description: Saiba mais e gerencie o emparelhamento público do Azure
+title: Criar e gerir o público azure ExpressRoute
+description: Conheça e gerea o público azure
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,73 +8,73 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: bae44f67a485546ba29148a114d88df198f7c3e6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483092"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361693"
 ---
-# <a name="create-and-manage-expressroute-public-peering"></a>Criar e gerenciar o emparelhamento público do ExpressRoute
+# <a name="create-and-manage-expressroute-public-peering"></a>Criar e gerir o público expressRoute peering
 
 > [!div class="op_single_selector"]
-> * [Artigo – emparelhamento público](about-public-peering.md)
-> * [Vídeo - peering público](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Artigo-emparelhamento da Microsoft](expressroute-circuit-peerings.md#microsoftpeering)
+> * [Artigo - Público](about-public-peering.md)
+> * [Vídeo - Público a espreitar](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Artigo - Microsoft peering](expressroute-circuit-peerings.md#microsoftpeering)
 >
 
-Este artigo ajuda você a criar e gerenciar a configuração de roteamento de emparelhamento público para um circuito do ExpressRoute. Você também pode verificar o status, atualizar ou excluir e desprovisionar emparelhamentos. Este artigo se aplica a circuitos do Resource Manager que foram criados antes do emparelhamento público ter sido preterido. Se você tiver um circuito já existente (criado antes do emparelhamento público ser preterido), você poderá gerenciar/configurar o emparelhamento público usando [Azure PowerShell](#powershell), [CLI do Azure](#cli)e o [portal do Azure](#portal).
+Este artigo ajuda-o a criar e gerir a configuração de encaminhamento público para um circuito ExpressRoute. Também pode verificar o estado, atualizar ou apagar e desprovisionar os pares. Este artigo aplica-se aos circuitos do Gestor de Recursos que foram criados antes de o público ser depreciado. Se tiver um circuito anteriormente existente (criado antes de o público ser depreciado), pode gerir/configurar o público através [do Azure PowerShell,](#powershell) [Azure CLI](#cli)e do [portal Azure](#portal).
 
 >[!NOTE]
->O emparelhamento público foi preterido. Não é possível criar um emparelhamento público em novos circuitos do ExpressRoute. Se você tiver um novo circuito do ExpressRoute, use o [emparelhamento da Microsoft](expressroute-circuit-peerings.md#microsoftpeering) para seus serviços do Azure.
+>O público está premeditado. Não é possível criar o público a espreitar novos circuitos ExpressRoute. Se tiver um novo circuito ExpressRoute, utilize a [Microsoft a espreitar](expressroute-circuit-peerings.md#microsoftpeering) pelos seus serviços Azure.
 >
 
-## <a name="connectivity"></a>Ligação
+## <a name="connectivity"></a>Conectividade
 
-Conectividade é sempre iniciada a partir da WAN aos serviços do Microsoft Azure. Serviços do Microsoft Azure não será capazes de iniciar as ligações na sua rede através deste domínio de encaminhamento. Se o circuito do ExpressRoute estiver habilitado para o emparelhamento público do Azure, você poderá acessar os [intervalos de IP públicos usados no Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) por meio do circuito.
+Conectividade é sempre iniciada a partir da WAN aos serviços do Microsoft Azure. Serviços do Microsoft Azure não será capazes de iniciar as ligações na sua rede através deste domínio de encaminhamento. Se o seu circuito ExpressRoute estiver ativado para o público azure, pode aceder às gamas públicas de [IP utilizadas em Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) sobre o circuito.
 
-Depois que o emparelhamento público estiver habilitado, você poderá se conectar à maioria dos serviços do Azure. Não podemos permitem-lhe escolher seletivamente os serviços para os quais podemos anunciar rotas.
+Uma vez que o público esteja ativado, você pode ligar-se à maioria dos serviços Azure. Não podemos permitem-lhe escolher seletivamente os serviços para os quais podemos anunciar rotas.
 
-* Serviços como o armazenamento do Azure, bancos de dados SQL e sites são oferecidos em endereços IP públicos.
-* Por meio do domínio de roteamento de emparelhamento público, você pode se conectar de modo privado aos serviços hospedados em endereços IP públicos, incluindo VIPs de seus serviços de nuvem.
+* Serviços como o Armazenamento Azure, bases de dados SQL e Websites são oferecidos em endereços IP públicos.
+* Através do domínio de encaminhamento público, pode conectar-se privadamente a serviços hospedados em endereços IP públicos, incluindo VIPs dos seus serviços na nuvem.
 * Pode ligar o domínio de peering público para sua rede de Perímetro e ligar a todos os serviços do Azure em seus endereços IP públicos a partir da WAN sem ter de se ligar através da internet.
 
 ## <a name="services"></a>Serviços
 
-Esta seção mostra os serviços disponíveis em emparelhamento público. Como o emparelhamento público é preterido, não há nenhum plano para adicionar serviços novos ou adicionais ao emparelhamento público. Se você usar o emparelhamento público e o serviço que deseja usar for compatível apenas com o emparelhamento da Microsoft, será necessário alternar para o emparelhamento da Microsoft. Consulte [emparelhamento da Microsoft](expressroute-faqs.md#microsoft-peering) para obter uma lista de serviços com suporte.
+Esta secção mostra os serviços disponíveis em público. Como o público é depreciado, não há plano para adicionar serviços novos ou adicionais ao público. Se utilizar o peering público e o serviço que pretende utilizar é suportado apenas por via da Microsoft, tem de mudar para o peering da Microsoft. Consulte [a Microsoft à procura](expressroute-faqs.md#microsoft-peering) de uma lista de serviços suportados.
 
-**Porta**
+**Apoiado:**
 
 * Power BI
-* A maioria dos serviços do Azure é suportada. Verifique diretamente com o serviço que você deseja usar para verificar o suporte.
+* A maioria dos serviços do Azure é suportada. Verifique diretamente com o serviço que pretende utilizar para verificar o suporte.
 
-**Sem suporte:**
+**Não suportado:**
   * CDN
   * Azure Front Door
-  * Servidor de autenticação multifator (Herdado)
+  * Servidor de Autenticação Multifactor (legado)
   * Gestor de Tráfego
 
-Para validar a disponibilidade de um serviço específico, você pode verificar a documentação desse serviço para ver se há um intervalo reservado publicado para esse serviço. Em seguida, você pode pesquisar os intervalos de IP do serviço de destino e comparar com os intervalos listados nas [marcas de serviço e intervalos de IP do Azure – arquivo XML de nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). Como alternativa, você pode abrir um tíquete de suporte para o serviço em questão para fins de esclarecimento.
+Para validar a disponibilidade de um serviço específico, pode consultar a documentação desse serviço para ver se existe uma gama reservada publicada para esse serviço. Em seguida, poderá consultar as gamas IP do serviço alvo e comparar com as gamas listadas nas [gamas e etiquetas de serviço Azure IP – Ficheiro Public Cloud XML](https://www.microsoft.com/download/details.aspx?id=56519). Em alternativa, pode abrir um bilhete de apoio para o serviço em questão para esclarecimento.
 
-## <a name="compare"></a>Comparação de peering
+## <a name="compare"></a>Comparação de olhares
 
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 > [!NOTE]
-> O emparelhamento público do Azure tem 1 endereço IP NAT associado a cada sessão BGP. Para mais de 2 endereços IP NAT, mude para o emparelhamento da Microsoft. O emparelhamento da Microsoft permite que você configure suas próprias alocações NAT, bem como Use filtros de rota para anúncios de prefixo seletivo. Para obter mais informações, consulte [mover para o emparelhamento da Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> O público azure tem 1 endereço IP NAT associado a cada sessão de BGP. Para maiores de 2 endereços IP NAT, mude para o peering da Microsoft. O peering da Microsoft permite-lhe configurar as suas próprias alocações NAT, bem como utilizar filtros de rotas para anúncios de prefixo seletivo. Para mais informações, consulte [Move to Microsoft peering](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 >
 
-## <a name="custom-route-filters"></a>Filtros de rota personalizados
+## <a name="custom-route-filters"></a>Filtros de rota personalizadas
 
-Pode definir filtros de rota personalizada dentro da sua rede para consumir apenas as rotas que precisa. Consulte a [encaminhamento](expressroute-routing.md) página para obter informações detalhadas sobre a configuração do encaminhamento.
+Pode definir filtros de rota personalizada dentro da sua rede para consumir apenas as rotas que precisa. Consulte a página [de Encaminhamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração do encaminhamento.
 
-## <a name="powershell"></a>Etapas de Azure PowerShell
+## <a name="powershell"></a>Passos Azure PowerShell
 
 
 [!INCLUDE [CloudShell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-Como o emparelhamento público é preterido, não é possível configurar o emparelhamento público em um novo circuito do ExpressRoute.
+Como o público está premeditado, não é possível configurar o público num novo circuito ExpressRoute.
 
-1. Verifique se você tem um circuito do ExpressRoute provisionado e também habilitado. Utilize o seguinte exemplo:
+1. Verifique se tem um circuito ExpressRoute que está aprovisionado e também está ativado. Utilize o seguinte exemplo:
 
    ```azurepowershell-interactive
    Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -135,7 +135,7 @@ Como o emparelhamento público é preterido, não é possível configurar o empa
    > 
    >
 
-### <a name="getpublic"></a>Para obter detalhes de peering públicos do Azure
+### <a name="getpublic"></a>Para obter detalhes públicos de Azure
 
 Pode obter detalhes de configuração com o seguinte cmdlet:
 
@@ -145,7 +145,7 @@ Pode obter detalhes de configuração com o seguinte cmdlet:
   Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
-### <a name="updatepublic"></a>Para atualizar a configuração do peering público do Azure
+### <a name="updatepublic"></a>Para atualizar a configuração de peering público do Azure
 
 Pode atualizar qualquer parte da configuração com o exemplo seguinte. Neste exemplo, o ID de VLAN do circuito está a ser atualizado de 200 para 600.
 
@@ -155,7 +155,7 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="deletepublic"></a>Para eliminar o peering público do Azure
+### <a name="deletepublic"></a>Para apagar o público azure peering
 
 Pode remover a sua configuração de peering executando o seguinte exemplo:
 
@@ -164,7 +164,7 @@ Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRou
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="cli"></a>Etapas de CLI do Azure
+## <a name="cli"></a>Passos Azure CLI
 
 
 [!INCLUDE [CloudShell](../../includes/expressroute-cloudshell-powershell-about.md)]
@@ -212,7 +212,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    * Uma sub-rede /30 para a ligação secundária. Esta tem de ser um prefixo IPv4 válido.
    * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN.
    * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes.
-   * **Opcional –** um hash MD5 se optar por utilizar um.
+   * **Opcional -** Um haxixe MD5 se optar por usar um.
 
    Execute o exemplo seguinte para configurar o peering público do Azure para o seu circuito:
 
@@ -229,7 +229,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    > [!IMPORTANT]
    > Assegure que especifica o seu número AS como ASN de peering, não cliente ASN.
 
-### <a name="getpublic"></a>Para ver os detalhes de peering públicos do Azure
+### <a name="getpublic"></a>Para ver detalhes públicos de Azure
 
 Pode obter detalhes de configuração com o exemplo seguinte:
 
@@ -264,7 +264,7 @@ O resultado é semelhante ao seguinte exemplo:
 }
 ```
 
-### <a name="updatepublic"></a>Para atualizar a configuração do peering público do Azure
+### <a name="updatepublic"></a>Para atualizar a configuração de peering público do Azure
 
 Pode atualizar qualquer parte da configuração com o exemplo seguinte. Neste exemplo, o ID de VLAN do circuito está a ser atualizado de 200 para 600.
 
@@ -272,7 +272,7 @@ Pode atualizar qualquer parte da configuração com o exemplo seguinte. Neste ex
 az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
-### <a name="deletepublic"></a>Para eliminar o peering público do Azure
+### <a name="deletepublic"></a>Para apagar o público azure peering
 
 Pode remover a sua configuração de peering executando o seguinte exemplo:
 
@@ -280,25 +280,25 @@ Pode remover a sua configuração de peering executando o seguinte exemplo:
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
-## <a name="portal"></a>Etapas de portal do Azure
+## <a name="portal"></a>Passos do portal Azure
 
-Para configurar o emparelhamento, use as etapas do PowerShell ou da CLI contidas neste artigo. Para gerenciar um emparelhamento, você pode usar as seções abaixo. Para referência, essas etapas são semelhantes ao gerenciamento de um [emparelhamento da Microsoft no portal](expressroute-howto-routing-portal-resource-manager.md#msft).
+Para configurar o epeering, utilize os passos PowerShell ou CLI contidos neste artigo. Para gerir um epeering, pode utilizar as secções abaixo. Para referência, estes passos parecem semelhantes à gestão de um [microsoft peering no portal](expressroute-howto-routing-portal-resource-manager.md#msft).
 
-### <a name="get"></a>Para ver os detalhes de peering públicos do Azure
+### <a name="get"></a>Para ver detalhes públicos de Azure
 
-Exiba as propriedades do emparelhamento público do Azure selecionando o emparelhamento no Portal.
+Veja as propriedades do público azure espreitando selecionando o olhar no portal.
 
-### <a name="update"></a>Para atualizar a configuração do peering público do Azure
+### <a name="update"></a>Para atualizar a configuração de peering público do Azure
 
-Selecione a linha para emparelhamento e, em seguida, modifique as propriedades de emparelhamento.
+Selecione a linha para espreitar e, em seguida, modifique as propriedades de observação.
 
-### <a name="delete"></a>Para eliminar o peering público do Azure
+### <a name="delete"></a>Para apagar o público azure peering
 
-Remova a configuração de emparelhamento selecionando o ícone Excluir.
+Remova a sua configuração de observação selecionando o ícone de exclusão.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Próxima etapa, [vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md).
+Próximo passo, [Ligue uma rede virtual a um circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 * Para obter mais informações sobre o fluxo de trabalho do ExpressRoute, veja [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md).
 * Para obter mais informações sobre peering do circuito, veja [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).

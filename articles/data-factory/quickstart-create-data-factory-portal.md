@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 02/25/2020
 ms.author: jingwang
 ms.openlocfilehash: 15e1c3de5392238e9e1dbfd324fe40087950a766
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164230"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380815"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Quickstart: Criar uma fábrica de dados utilizando a UI da Fábrica de Dados Azure
 

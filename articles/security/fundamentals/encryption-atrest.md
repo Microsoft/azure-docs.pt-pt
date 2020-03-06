@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/07/2020
 ms.author: barclayn
 ms.openlocfilehash: 682f0b66f7632bce16ae134e71ea27c4df976f43
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087096"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389953"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados azure-at-rest
 
@@ -269,7 +269,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | **Análise**                    |                    |                    |                    |
 | Azure Stream Analytics           | Sim                | -                  | -                  |
 | Hubs de Eventos                       | Sim                | Sim, todos os Comprimentos RSA. | -                  |
-| Funções                        | Sim                | Sim, todos os Comprimentos RSA. | -                  |
+| Functions                        | Sim                | Sim, todos os Comprimentos RSA. | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
 | Apache Kafka no Azure HDInsight  | Sim                | Todos os comprimentos RSA.   | -                  |
@@ -279,11 +279,11 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Azure Data Factory               | Sim                | Sim                | -                  |
 | Azure Data Lake Store            | Sim                | Sim, RSA 2048-bit  | -                  |
 | **Contentores**                   |                    |                    |                    |
-| Azure Kubernetes Service         | Sim                | Sim                | -                  |
+| Serviço Kubernetes do Azure         | Sim                | Sim                | -                  |
 | Container Instances              | Sim                | Sim                | -                  |
 | Registo de Contentor               | Sim                | Sim                | -                  |
 | **Computação**                      |                    |                    |                    |
-| Máquinas Virtuais                 | Sim                | Sim, RSA 2048-bit  | -                  |
+| Virtual Machines                 | Sim                | Sim, RSA 2048-bit  | -                  |
 | Conjunto de escala de máquina virtual        | Sim                | Sim, RSA 2048-bit  | -                  |
 | SAP HANA                         | Sim                | Sim, RSA 2048-bit  | -                  |
 | Serviço de Aplicações                      | Sim                | Sim                | -                  |
@@ -306,7 +306,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Azure Databricks                 | Sim                | Sim                | -                  |
 | **DevOps**                       |                    |                    |                    |
 | DevOps do Azure                     | Sim                | -                  | Sim                |
-| Azure Repos                      | Sim                | -                  | Sim                |
+| Repositórios do Azure                      | Sim                | -                  | Sim                |
 | **Identidade**                     |                    |                    |                    |
 | Azure Active Directory           | Sim                | -                  | -                  |
 | Azure Active Directory Domain Services | Sim          | Sim, RSA 2048-bit  | -                  |
@@ -324,7 +324,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 | Armazenamento de Blobs                     | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Armazenamento em Disco                     | Sim                | Sim                | -                  |
 | Armazenamento de disco gerido             | Sim                | Sim                | -                  |
-| File Storage                     | Sim                | Sim, RSA 2048-bit  | -                  |
+| Armazenamento de Ficheiros                     | Sim                | Sim, RSA 2048-bit  | -                  |
 | Armazenamento de filas                    | Sim                | Sim                | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
 | Azure NetApp Files               | Sim                | -                  | -                  |

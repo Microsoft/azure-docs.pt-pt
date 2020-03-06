@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
 ms.openlocfilehash: 940baf219f1b3994585472f0eed9d171ba319d4e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023145"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359943"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados individuais na Base de Dados Azure SQL
 
@@ -29,7 +29,7 @@ O vídeo seguinte mostra a alteração dinâmica do nível de serviço e do tama
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ## <a name="impact"></a>Impacto
 
@@ -50,7 +50,7 @@ A alteração do nível de serviço ou do tamanho da computação envolve princi
 
 A latência estimada para alterar o nível de serviço ou redimensionar o tamanho do cálculo de uma única base de dados ou piscina elástica é parametrizada da seguinte forma:
 
-|Escalão de serviço|Base de dados única básica,</br>Padrão (S0-S1)|Piscina elástica básica,</br>Padrão (S2-S12), </br>Hiperescala, </br>Base de dados única de propósito geral ou piscina elástica|Premium ou Business Critical única base de dados ou piscina elástica|
+|Camada de serviços|Base de dados única básica,</br>Padrão (S0-S1)|Piscina elástica básica,</br>Padrão (S2-S12), </br>Hiperescala, </br>Base de dados única de propósito geral ou piscina elástica|Premium ou Business Critical única base de dados ou piscina elástica|
 |:---|:---|:---|:---|
 |**Base de dados única básica,</br> Standard (S0-S1)**|&bull; &nbsp;latência de tempo constante independente do espaço utilizado</br>&bull; &nbsp;Tipicamente, menos de 5 minutos|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
 |**Piscina elástica básica, </br>Standard (S2-S12), </br>Hiperescala, base de dados única </br>Propósito Geral ou piscina elástica**|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;latência de tempo constante independente do espaço utilizado</br>&bull; &nbsp;Tipicamente, menos de 5 minutos|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido à cópia de dados</br>&bull; &nbsp;Tipicamente, menos de 1 minuto por GB de espaço utilizado|
@@ -112,7 +112,7 @@ else {
 - O preço de armazenamento de uma única base de dados é a soma dos valores de armazenamento de dados e armazenamento de registos multiplicados pelo preço unitário de armazenamento do nível de serviço. O custo do TempDB está incluído no preço vCore. Para mais detalhes sobre o preço do armazenamento extra, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
@@ -121,7 +121,7 @@ else {
 - O preço do armazenamento extra para uma única base de dados é o valor extra de armazenamento multiplicado pelo preço extra de armazenamento do nível de serviço. Para mais detalhes sobre o preço do armazenamento extra, consulte os preços da Base de [Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
+> Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para mais informações, consulte Gerir o espaço de ficheiros na Base de [Dados Azure SQL](sql-database-file-space-management.md).
 
 ### <a name="geo-replicated-database"></a>Base de dados geo-replicada
 
@@ -129,7 +129,7 @@ Para alterar o tamanho da base de dados de uma base de dados secundária replica
 
 ## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>Restrições P11 e P15 quando o tamanho máximo é superior a 1 TB
 
-Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Oeste EUA Central, regiões de US DoD e central do governo dos EUA. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. As seguintes considerações e limitações aplicam-se às bases de dados P11 e P15 com um tamanho máximo superior a 1 TB:
+Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China Leste, China North, Alemanha Central, Alemanha Nordeste, Oeste Dos EUA, regiões do DoD dos EUA e Central do Governo dos EUA. Nestas regiões, o máximo de armazenamento no nível Premium está limitado a 1 TB. As seguintes considerações e limitações aplicam-se às bases de dados P11 e P15 com um tamanho máximo superior a 1 TB:
 
 - Se o tamanho máximo de uma base de dados P11 ou P15 alguma vez tiver sido fixado num valor superior a 1 TB, então só pode ser restaurado ou copiado para uma base de dados P11 ou P15.  Posteriormente, a base de dados pode ser redimensionada para um tamanho de cálculo diferente, desde que a quantidade de espaço atribuído no momento da operação de rescaling não exceda os limites máximos de tamanho do novo tamanho do cálculo.
 - Para cenários de geo-replicação ativa:

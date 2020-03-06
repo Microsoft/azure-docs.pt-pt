@@ -1,33 +1,33 @@
 ---
-title: referência de host. JSON para Azure Functions 1. x
-description: Documentação de referência para o arquivo Azure Functions host. JSON com o tempo de execução v1.
+title: referência host.json para funções Azure 1.x
+description: Documentação de referência para o ficheiro host.json funções azure com o tempo de funcionamento v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 2b00e2343e0959e07b195e2e98c6719a1893b8c8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769613"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356825"
 ---
-# <a name="hostjson-reference-for-azure-functions-1x"></a>referência de host. JSON para Azure Functions 1. x
+# <a name="hostjson-reference-for-azure-functions-1x"></a>referência host.json para funções Azure 1.x
 
-> [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
+> [!div class="op_single_selector" title1="Selecione a versão do tempo de funcionamento das Funções Azure que está a utilizar: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
-O arquivo de metadados *host. JSON* contém opções de configuração globais que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações que estão disponíveis para o tempo de execução v1. O esquema JSON está em http://json.schemastore.org/host.
+O ficheiro de metadados *host.json* contém opções de configuração global que afetam todas as funções para uma aplicação de função. Este artigo lista as definições disponíveis para o tempo de execução v1. O esquema da JSON está em http://json.schemastore.org/host.
 
 > [!NOTE]
-> Este artigo é para as funções do Azure 1.x.  Para obter uma referência de host. JSON nas funções 2. x e posterior, consulte [referência de host. JSON para Azure Functions 2. x](functions-host-json.md).
+> Este artigo é para as funções do Azure 1.x.  Para uma referência do host.json nas funções 2.x e posteriormente, consulte a [referência host.json para as Funções Azure 2.x](functions-host-json.md).
 
-Outras opções de configuração de aplicativo de funções são gerenciadas em suas [configurações de aplicativo](functions-app-settings.md).
+Outras opções de configuração de aplicações de função são geridas nas definições da sua [aplicação](functions-app-settings.md).
 
-Algumas configurações de host. JSON são usadas apenas ao executar localmente no arquivo [local. Settings. JSON](functions-run-local.md#local-settings-file) .
+Algumas definições host.json só são usadas quando são feitas localmente no ficheiro [local.settings.json.](functions-run-local.md#local-settings-file)
 
-## <a name="sample-hostjson-file"></a>Arquivo host. JSON de exemplo
+## <a name="sample-hostjson-file"></a>Arquivo host.json da amostra
 
-Os arquivos *host. JSON* de exemplo a seguir têm todas as opções possíveis especificadas.
+Os *seguintes ficheiros host.json* da amostra têm todas as opções possíveis especificadas.
 
 
 ```json
@@ -110,7 +110,7 @@ Os arquivos *host. JSON* de exemplo a seguir têm todas as opções possíveis e
 }
 ```
 
-As seções a seguir deste artigo explicam cada propriedade de nível superior. Todos são opcionais, salvo indicação em contrário.
+As seguintes secções deste artigo explicam cada propriedade de alto nível. Todos são opcionais, salvo indicação em contrário.
 
 ## <a name="aggregator"></a>agregador
 
@@ -122,7 +122,7 @@ As seções a seguir deste artigo explicam cada propriedade de nível superior. 
 
 ## <a name="documentdb"></a>DocumentDB
 
-Definições de configuração para o [gatilho Azure Cosmos DB e associações](functions-bindings-cosmosdb.md).
+Configurações de configuração para o [gatilho e encadernação Azure Cosmos DB](functions-bindings-cosmosdb.md).
 
 ```json
 {
@@ -138,23 +138,23 @@ Definições de configuração para o [gatilho Azure Cosmos DB e associações](
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço de Azure Cosmos DB. As opções são `Direct` e `Gateway`|
-|Protocolo|Https|O protocolo de conexão usado pela função quando a conexão com o serviço de Azure Cosmos DB.  Leia [aqui para obter uma explicação dos dois modos](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|n/d|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
+|GatewayMode|Gateway|O modo de ligação utilizado pela função ao ligar-se ao serviço Azure Cosmos DB. As opções são `Direct` e `Gateway`|
+|Protocolo|Https|O protocolo de ligação utilizado pela função quando a ligação ao serviço Azure Cosmos DB.  Leia [aqui para uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|n/d|Alugar prefixo para usar em todas as funções numa aplicação.|
 
-## <a name="durabletask"></a>durableTask
+## <a name="durabletask"></a>tarefa durável
 
 [!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
 
 ## <a name="eventhub"></a>eventHub
 
-Definições de configuração para [gatilhos e associações de Hub de eventos](functions-bindings-event-hubs.md).
+Definições de configuração para [gatilhos e encadernações](functions-bindings-event-hubs.md)do Centro de Eventos .
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funções
 
-Uma lista de funções que o host de trabalho executa. Uma matriz vazia significa executar todas as funções. Destinado para uso somente quando [executado localmente](functions-run-local.md). Em aplicativos de funções no Azure, você deve seguir as etapas em [como desabilitar funções no Azure Functions](disable-function.md) para desabilitar funções específicas em vez de usar essa configuração.
+Uma lista de funções que o anfitrião do emprego dirige. Uma matriz vazia significa executar todas as funções. Destinado a ser utilizado apenas quando [se funciona localmente](functions-run-local.md). Nas aplicações de função em Azure, deve seguir os passos em [Como desativar funções em Funções Azure](disable-function.md) para desativar funções específicas em vez de utilizar esta definição.
 
 ```json
 {
@@ -164,7 +164,7 @@ Uma lista de funções que o host de trabalho executa. Uma matriz vazia signific
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica a duração do tempo limite para todas as funções. Em um plano de consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é 5 minutos. Em um plano do serviço de aplicativo, não há nenhum limite geral e o padrão é _NULL_, o que indica que não há tempo limite.
+Indica a duração do tempo de paragem para todas as funções. Num plano de consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos, e o valor predefinido é de 5 minutos. Num plano de Serviço de Aplicações, não existe um limite global e o predefinido é _nulo_, o que indica que não há prazo.
 
 ```json
 {
@@ -174,7 +174,7 @@ Indica a duração do tempo limite para todas as funções. Em um plano de consu
 
 ## <a name="healthmonitor"></a>healthMonitor
 
-Definições de configuração do [Monitor de integridade do host](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+Configurações de configuração para monitor de [saúde anfitrião](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
 ```
 {
@@ -190,15 +190,15 @@ Definições de configuração do [Monitor de integridade do host](https://githu
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|enabled|true|Especifica se o recurso está habilitado. | 
-|healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade de segundo plano periódicas. | 
-|healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração de `healthCheckThreshold`.| 
-|healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes que uma reciclagem de host seja iniciada.| 
-|comlimite|0.80|O limite no qual um contador de desempenho será considerado não íntegro.| 
+|enabled|true|Especifica se a funcionalidade está ativada. | 
+|healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações periódicas de saúde de fundo. | 
+|healthCheckWindow|2 minutos|Uma janela de tempo deslizante utilizada em conjunto com a definição `healthCheckThreshold`.| 
+|healthCheckThreshold|6|Número máximo de vezes que o exame de saúde pode falhar antes de iniciar um ciclo de acolhimento.| 
+|contralimiar|0.80|O limiar em que um contador de desempenho será considerado insalubre.| 
 
 ## <a name="http"></a>http
 
-Definições de configuração para [gatilhos e associações http](functions-bindings-http-webhook.md).
+Definições de configuração para [gatilhos e encadernações de http](functions-bindings-http-webhook.md).
 
 ```json
 {
@@ -213,16 +213,16 @@ Definições de configuração para [gatilhos e associações http](functions-bi
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|dynamicThrottlesEnabled|false|Quando habilitado, essa configuração faz com que o pipeline de processamento de solicitações Verifique periodicamente os contadores de desempenho do sistema como conexões/threads/processos/memória/CPU/etc. e, se qualquer um desses contadores estiver acima de um limite alto interno (80%), as solicitações serão rejeitadas com uma resposta 429 "muito ocupado" até que os contadores retornem aos níveis normais.|
-|maxConcurrentRequests|Não associado (`-1`)|O número máximo de funções HTTP que serão executadas em paralelo. Isso permite que você controle a simultaneidade, o que pode ajudar a gerenciar a utilização de recursos. Por exemplo, você pode ter uma função HTTP que usa muitos recursos do sistema (memória/CPU/soquetes), de modo que isso cause problemas quando a simultaneidade for muito alta. Ou você pode ter uma função que faça solicitações de saída para um serviço de terceiros, e essas chamadas precisam ser limitadas por taxa. Nesses casos, a aplicação de uma limitação aqui pode ajudar.|
-|maxOutstandingRequests|Não associado (`-1`)|O número máximo de solicitações pendentes que são mantidas em um determinado momento. Esse limite inclui solicitações que estão na fila, mas não iniciaram a execução, bem como qualquer execução em andamento. Todas as solicitações de entrada acima desse limite são rejeitadas com uma resposta de 429 "muito ocupado". Isso permite que os chamadores empreguem estratégias de repetição baseadas em tempo, além de ajudar você a controlar as latências de solicitação máximas. Isso controla somente o enfileiramento que ocorre no caminho de execução do host de script. Outras filas, como a fila de solicitações ASP.NET, ainda estarão em vigor e não serão afetadas por essa configuração.|
-|routePrefix|api|O prefixo de rota que se aplica a todas as rotas. Use uma cadeia de caracteres vazia para remover o prefixo padrão. |
+|dynamicThrottlesEnabled|false|Quando ativada, esta definição faz com que o gasoduto de processamento de pedidos verifique periodicamente os contadores de desempenho do sistema, tais como ligações/fios/processos/memória/cpu/etc. e se algum desses contadores estiver acima de um limiar elevado incorporado (80%), os pedidos serão rejeitados com uma resposta de 429 "Demasiado Ocupado" até que o contador(s) volte aos níveis normais.|
+|maxConcurrentRequests|sem limites (`-1`)|O número máximo de funções HTTP que serão executadas em paralelo. Isto permite controlar a conmoeda, o que pode ajudar a gerir a utilização de recursos. Por exemplo, pode ter uma função HTTP que utiliza muitos recursos do sistema (memória/cpu/tomadas) de tal forma que causa problemas quando a moeda é demasiado elevada. Ou pode ter uma função que faz pedidos de saída para um serviço de terceiros, e essas chamadas precisam de ser limitadas. Nestes casos, aplicar um acelerador aqui pode ajudar.|
+|maxOutstandingRequests|sem limites (`-1`)|O número máximo de pedidos pendentes que são realizados a qualquer momento. Este limite inclui pedidos que estão em fila mas que não começaram a executar, bem como quaisquer execuções em curso. Quaisquer pedidos de entrada acima deste limite são rejeitados com uma resposta 429 "Demasiado Ocupada". Isso permite que os chamadores empreguem estratégias de retry baseadas no tempo, e também o ajuda a controlar as lateências máximas de pedido. Isto apenas controla a fila que ocorre dentro do caminho de execução do hospedeiro script. Outras filas, como a fila de pedidos de ASP.NET, continuarão em vigor e não serão afetadas por este cenário.|
+|routePrefix|api|O prefixo da rota que se aplica a todas as rotas. Utilize uma corda vazia para remover o prefixo predefinido. |
 
 ## <a name="id"></a>ID
 
-A ID exclusiva para um host de trabalho. Pode ser um GUID de caso inferior com traços removidos. Necessário ao executar localmente. Ao executar no Azure, recomendamos que você não defina um valor de ID. Uma ID é gerada automaticamente no Azure quando `id` é omitida. 
+A identificação única para um anfitrião de emprego. Pode ser um GUIA minúsculo com traços removidos. Necessário quando correr localmente. Ao correr em Azure, recomendamos que não detete um valor de identificação. Um ID é gerado automaticamente em Azure quando `id` é omitida. 
 
-Se você compartilhar uma conta de armazenamento em vários aplicativos de funções, certifique-se de que cada aplicativo de funções tem um `id`diferente. Você pode omitir a propriedade `id` ou definir manualmente cada `id` do aplicativo de funções para um valor diferente. O gatilho de temporizador usa um bloqueio de armazenamento para garantir que haverá apenas uma instância de temporizador quando um aplicativo de funções for dimensionado para várias instâncias. Se dois aplicativos de funções compartilharem o mesmo `id` e cada um usar um gatilho de temporizador, somente um temporizador será executado.
+Se partilhar uma conta de Armazenamento em várias aplicações de função, certifique-se de que cada aplicação de função tem um `id`diferente . Pode omitir a propriedade `id` ou definir manualmente a `id` de cada aplicação de função para um valor diferente. O gatilho do temporizador utiliza um bloqueio de armazenamento para garantir que haverá apenas uma instância temporizador quando uma aplicação de função se esescala para várias instâncias. Se duas aplicações de função partilharem o mesmo `id` e cada um usar um gatilho temporizador, apenas um temporizador será executado.
 
 ```json
 {
@@ -230,9 +230,9 @@ Se você compartilhar uma conta de armazenamento em vários aplicativos de funç
 }
 ```
 
-## <a name="logger"></a>Digita
+## <a name="logger"></a>Madeireiro
 
-Controla a filtragem de logs gravados por um [objeto ILogger](functions-monitoring.md#write-logs-in-c-functions) ou por [Context. log](functions-monitoring.md#write-logs-in-javascript-functions).
+Controla a filtragem de registos escritos por um [objeto ILogger](functions-monitoring.md#write-logs-in-c-functions) ou por [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
 ```json
 {
@@ -251,13 +251,13 @@ Controla a filtragem de logs gravados por um [objeto ILogger](functions-monitori
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|categoryFilter|n/d|Especifica a filtragem por categoria| 
-|defaultLevel|Proteção das|Para todas as categorias não especificadas na matriz de `categoryLevels`, envie logs nesse nível e acima para Application Insights.| 
-|categoryLevels|n/d|Uma matriz de categorias que especifica o nível de log mínimo a ser enviado para Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor e os valores mais longos têm precedência. No arquivo *host. JSON* de exemplo anterior, todas as categorias que começam com o log "host. agregador" no nível de `Information`. Todas as outras categorias que começam com "host", como "host. executor", fazem logon no nível de `Error`.| 
+|categoriaFilter|n/d|Especifica a filtragem por categoria| 
+|defaultLevel|Informações|Para quaisquer categorias não especificadas na matriz de `categoryLevels`, envie registos a este nível e acima para Insights de Aplicação.| 
+|categoriaNíveis|n/d|Um conjunto de categorias que especifica o nível mínimo de registo a enviar para Insights de Aplicação para cada categoria. A categoria aqui especificada controla todas as categorias que começam com o mesmo valor, e os valores mais longos têm precedência. No ficheiro *host.json* da amostra anterior, todas as categorias que começam com o log "Host.Aggregator" a `Information` nível. Todas as outras categorias que começam com "Host",, como "Host.Executor", registam `Error` nível.| 
 
 ## <a name="queues"></a>filas
 
-Definições de configuração para [gatilhos e associações de fila de armazenamento](functions-bindings-storage-queue.md).
+Configurações de configuração para [gatilhos e encadernações](functions-bindings-storage-queue.md)de fila de armazenamento .
 
 ```json
 {
@@ -273,15 +273,15 @@ Definições de configuração para [gatilhos e associações de fila de armazen
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|maxPollingInterval|60000|O intervalo máximo em milissegundos entre as pesquisas de fila.| 
-|visibilityTimeout|0|O intervalo de tempo entre as repetições quando o processamento de uma mensagem falha.| 
-|batchSize|16|O número de mensagens de fila que o tempo de execução do Functions recupera simultaneamente e processa em paralelo. Quando o número que está sendo processado chega à `newBatchThreshold`, o tempo de execução Obtém outro lote e começa a processar essas mensagens. Portanto, o número máximo de mensagens simultâneas sendo processadas por função é `batchSize` mais `newBatchThreshold`. Esse limite se aplica separadamente a cada função disparada por fila. <br><br>Se você quiser evitar a execução paralela para mensagens recebidas em uma fila, poderá definir `batchSize` como 1. No entanto, essa configuração elimina a simultaneidade somente contanto que seu aplicativo de funções seja executado em uma única máquina virtual (VM). Se o aplicativo de funções for dimensionado para várias VMs, cada VM poderá executar uma instância de cada função disparada por fila.<br><br>O `batchSize` máximo é 32. | 
-|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de suspeitas.| 
-|newBatchThreshold|batchSize/2|Sempre que o número de mensagens sendo processadas simultaneamente chega a esse número, o tempo de execução recupera outro lote.| 
+|maxPollingInterval|60000|O intervalo máximo em milissegundos entre as sondagens.| 
+|visibilidadeTimeout|0|O intervalo de tempo entre as tentativas de repetição ao processamento de uma mensagem falha.| 
+|batchSize|16|O número de mensagens de fila que as Funções executam o tempo de funcionamento recupera simultaneamente e processa em paralelo. Quando o número que está a ser processado chega ao `newBatchThreshold`, o tempo de execução recebe outro lote e começa a processar essas mensagens. Assim, o número máximo de mensagens simultâneas que são processadas por função é `batchSize` mais `newBatchThreshold`. Este limite aplica-se separadamente a cada função acionada pela fila. <br><br>Se quiser evitar a execução paralela de mensagens recebidas numa fila, pode definir `batchSize` para 1. No entanto, esta definição elimina a conmoeda apenas enquanto a sua aplicação de função funcionar numa única máquina virtual (VM). Se a aplicação de função se dimensionar para vários VMs, cada VM pode executar uma instância de cada função desencadeada pela fila.<br><br>O máximo `batchSize` é 32. | 
+|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila do veneno.| 
+|newBatchThreshold|loteTamanho/2|Sempre que o número de mensagens que estão a ser processadas simultaneamente chega a este número, o tempo de execução recupera outro lote.| 
 
 ## <a name="sendgrid"></a>SendGrid
 
-Parâmetro de configuração para a [Associação de saída SendGrind](functions-bindings-sendgrid.md)
+Definição de configuração para a ligação de [saída SendGrind](functions-bindings-sendgrid.md)
 
 ```json
 {
@@ -292,11 +292,11 @@ Parâmetro de configuração para a [Associação de saída SendGrind](functions
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|de|n/d|O endereço de email do remetente em todas as funções.| 
+|from|n/d|O endereço de e-mail do remetente em todas as funções.| 
 
-## <a name="servicebus"></a>serviceBus
+## <a name="servicebus"></a>serviçoBus
 
-Configuração para [gatilhos e associações do barramento de serviço](functions-bindings-service-bus.md).
+Definição de configuração para [gatilhos e encadernações](functions-bindings-service-bus.md)de ônibus de serviço .
 
 ```json
 {
@@ -310,13 +310,13 @@ Configuração para [gatilhos e associações do barramento de serviço](functio
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que deve iniciar o bombardeamento de mensagens. Por predefinição, o runtime das funções processa várias mensagens em simultâneo. Para direcionar o tempo de execução para processar apenas uma única fila ou uma mensagem de tópico ao mesmo tempo, defina `maxConcurrentCalls` como 1. | 
+|maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que deve iniciar o bombardeamento de mensagens. Por predefinição, o runtime das funções processa várias mensagens em simultâneo. Para direcionar o tempo de execução para processar apenas uma única fila ou mensagem de tópico de cada vez, detete `maxConcurrentCalls` para 1. | 
 |prefetchCount|n/d|A predefinição PrefetchCount que será utilizada pelo MessageReceiver subjacente.| 
-|autoRenewTimeout|00:05:00|A duração máxima em que o bloqueio da mensagem será renovado automaticamente.| 
+|autoRenovarTimeout|00:05:00|A duração máxima em que o bloqueio da mensagem será renovado automaticamente.| 
 
 ## <a name="singleton"></a>singleton
 
-Definições de configuração para comportamento de bloqueio singleton. Para obter mais informações, consulte o [problema do GitHub sobre o suporte singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
+Definições de configuração para o comportamento de bloqueio de Singleton. Para mais informações, consulte a [questão do GitHub sobre o suporte singleton.](https://github.com/Azure/azure-webjobs-sdk-script/issues/912)
 
 ```json
 {
@@ -332,17 +332,17 @@ Definições de configuração para comportamento de bloqueio singleton. Para ob
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|lockPeriod|00:00:15|O período em que os bloqueios de nível de função são obtidos. Os bloqueios são renovados automaticamente.| 
-|listenerLockPeriod|00:01:00|O período em que os bloqueios de ouvinte são obtidos.| 
-|listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para recuperação de bloqueio de ouvinte se um bloqueio de ouvinte não pôde ser adquirido na inicialização.| 
-|lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo que o tempo de execução tentará adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|n/d|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockPeriod|00:00:15|O período para o período em que as fechaduras de nível de função são tomadas. As fechaduras renovam automaticamente.| 
+|listenerLockPeriod|00:01:00|O período para o que as fechaduras dos ouvintes são tomados.| 
+|listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo utilizado para a recuperação do bloqueio do ouvinte se não fosse adquirido um bloqueio de ouvintes no arranque.| 
+|lockAcquisitionTimeout|00:01:00|O tempo máximo de tempo que o tempo de execução tentará adquirir um cadeado.| 
+|lockAcquisitionPollingInterval|n/d|O intervalo entre tentativas de aquisição de fechaduras.| 
 
 ## <a name="tracing"></a>rastreio
 
-*Versão 1. x*
+*Versão 1.x*
 
-Definições de configuração para logs que você cria usando um objeto `TraceWriter`. Consulte [ C# log](functions-reference-csharp.md#logging) e registro em log do [node. js](functions-reference-node.md#writing-trace-output-to-the-console).
+Configurações de configuração para registos que cria utilizando um objeto `TraceWriter`. Ver [ C# Logging](functions-reference-csharp.md#logging) e [Node.js Logging](functions-reference-node.md#writing-trace-output-to-the-console).
 
 ```json
 {
@@ -355,12 +355,12 @@ Definições de configuração para logs que você cria usando um objeto `TraceW
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|consoleLevel|info|O nível de rastreamento do log do console. As opções são: `off`, `error`, `warning`, `info`e `verbose`.|
-|fileLoggingMode|debugOnly|O nível de rastreamento para registro em log de arquivo. As opções são `never`, `always``debugOnly`.| 
+|consoleLevel|info|O nível de rastreio para o registo de consolas. As opções são: `off`, `error`, `warning`, `info`e `verbose`.|
+|fileLoggingMode|debugsó|O nível de rastreio para a exploração de ficheiros. As opções são `never`, `always`, `debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories
 
-Um conjunto de [diretórios de código compartilhado](functions-reference-csharp.md#watched-directories) que deve ser monitorado para alterações.  Garante que, quando o código nesses diretórios for alterado, as alterações sejam coletadas por suas funções.
+Um conjunto de [diretórios](functions-reference-csharp.md#watched-directories) de código partilhados que devem ser monitorizados para alterações.  Garante que quando o código nestas diretórios é alterado, as alterações são captadas pelas suas funções.
 
 ```json
 {
@@ -371,7 +371,7 @@ Um conjunto de [diretórios de código compartilhado](functions-reference-csharp
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como atualizar o arquivo host. JSON](functions-reference.md#fileupdate)
+> [Saiba como atualizar o ficheiro host.json](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [Consulte Configurações globais em variáveis de ambiente](functions-app-settings.md)
+> [Ver configurações globais em variáveis ambientais](functions-app-settings.md)

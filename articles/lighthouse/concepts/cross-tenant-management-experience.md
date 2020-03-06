@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados da Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 02/14/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb484ea936bbb64b3ca3d7fcf648de0d0ef73c66
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
-ms.translationtype: HT
+ms.openlocfilehash: 42368bcbc9f15f9ff5ef957b4c88f15bf070f25b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78328685"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402082"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -37,7 +37,14 @@ Utilizando a gestão de recursos delegados do Azure, os utilizadores autorizados
 
 Pode executar tarefas de gestão em recursos delegados diretamente no portal ou utilizando APIs e ferramentas de gestão (como o Azure CLI e o Azure PowerShell). Todas as APIs existentes podem ser utilizadas quando trabalham com recursos delegados, desde que a funcionalidade seja suportada para gestão de inquilinos transversais e o utilizador tenha as permissões adequadas.
 
-Também fornecemos APIs para executar tarefas de gestão de recursos delegados Azure. Para mais informações, consulte a secção **referência.**
+O [Cmdlet](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) De Subscrição De PowerShell Azure PowerShell mostra o ID do **inquilino** para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence ao seu inquilino fornecedor de serviços ou a um inquilino de cliente gerido.
+
+Da mesma forma, comandos Azure CLI, como a lista de [contas az,](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **geridosByTenants.**
+
+> [!TIP]
+> Se não vir estes valores ao utilizar o Azure CLI, tente limpar a cache executando `az account clear` seguido de `az login --identity`.
+
+Também fornecemos APIs específicos para executar tarefas de gestão de recursos delegados azure. Para mais informações, consulte a secção **referência.**
 
 ## <a name="enhanced-services-and-scenarios"></a>Serviços e cenários melhorados
 

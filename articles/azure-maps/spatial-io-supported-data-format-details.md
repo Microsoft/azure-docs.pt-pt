@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: cbeb1ccaed6ec2c62aaa731e88fcefbe84d1df02
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: fff801731c3c3a94b4039a8c65ad8ccaab7cc725
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370885"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402743"
 ---
 # <a name="supported-data-format-details"></a>Detalhes do formato de dados suportados
 
@@ -391,39 +391,39 @@ A primeira linha de dados será digitalizada para cordas que estão em formato d
 
 Ao digitalizar a linha do cabeçalho, qualquer informação do tipo que esteja no nome da coluna será extraída e usada para lançar as células nessa coluna. Aqui está um exemplo de um nome de coluna que tem um valor de tipo: "Nome de coluna (nome de letra)". Os seguintes nomes de tipo de caso insensível são suportados:
 
-**Números**
+#### <a name="numbers"></a>Números
 
-    - edm.int64
-    - int
-    - long
-    - edm.double
-    - float
-    - double
-    - número
+- edm.int64
+- int
+- long
+- edm.double
+- float
+- double
+- número
 
-**Booleans**
+#### <a name="booleans"></a>Booleans
 
-    - edm.boolean
-    - bool
-    - boolean
+- edm.boolean
+- bool
+- boolean
 
-**Datas**
+#### <a name="dates"></a>Datas
 
-    - edm.datetime
-    - date
-    - datetime
+- edm.datetime
+- date
+- datetime
 
-**Geografia**
+#### <a name="geography"></a>Geografia
 
-    - edm.geografia
-    - Geografia
+- edm.geografia
+- Geografia
 
-**Cordas**
+#### <a name="strings"></a>Cadeias
 
-    - edm.string
-    - varchar
-    - texto
-    - caso 'corda
+- edm.string
+- varchar
+- texto
+- caso 'corda
 
 Se nenhuma informação do tipo puder ser extraída do cabeçalho, e a opção dinâmica de dactilografia estiver ativada durante a leitura, então cada célula será analisada individualmente para determinar qual o tipo de dados que é mais adequado para ser lançado como.
 

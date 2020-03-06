@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 7b47e7b0672716141f62e3f7df4b0d3ed95c663d
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
-ms.translationtype: MT
+ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114292"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78370335"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de networking de funções Azure
 
@@ -111,7 +111,7 @@ Para fornecer um nível de segurança mais elevado, pode restringir uma série d
 
 ### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual
 
-Quando criar uma aplicação de função, deve criar ou ligar-se a uma conta de Armazenamento Azure de uso geral que suporta o armazenamento de Blob, Queue e Mesa. Não pode utilizar atualmente quaisquer restrições de rede virtuais nesta conta. Se configurar um ponto final do serviço de rede virtual na conta de armazenamento que está a usar para a sua aplicação de função, isso irá quebrar a sua aplicação. Esta funcionalidade encontra-se atualmente disponível utilizando o Plano Premium e uma integração de rede virtual.
+Quando criar uma aplicação de função, deve criar ou ligar-se a uma conta de Armazenamento Azure de uso geral que suporta o armazenamento de Blob, Queue e Mesa. Não pode utilizar atualmente quaisquer restrições de rede virtuais nesta conta. Se configurar um ponto final do serviço de rede virtual na conta de armazenamento que está a usar para a sua aplicação de função, isso irá quebrar a sua aplicação.
 
 [Saiba mais sobre os requisitos da conta de armazenamento.](./functions-create-function-app-portal.md#storage-account-requirements)
 
