@@ -1,7 +1,7 @@
 ---
 title: Como e por que motivo são adicionadas aplicações ao AAD
 titleSuffix: Microsoft identity platform
-description: O que significa que um aplicativo seja adicionado ao Azure AD e como eles ficam lá?
+description: O que significa que uma aplicação seja adicionada à AD Azure e como é que eles chegam lá?
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,141 +14,141 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: daf26f346ab10906eb5c37c6d7d2bb24736417cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d47ed3a4cd4fbdcb69b956d3c8418f70a71cf44f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698821"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78375660"
 ---
-# <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao Azure AD
+# <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que as aplicações são adicionadas ao Azure AD
 
-Há duas representações de aplicativos no Azure AD:
+Existem duas representações de candidaturas em Azure AD:
 
-* [Objetos de aplicativo](app-objects-and-service-principals.md#application-object) -embora haja [exceções](#notes-and-exceptions), os objetos de aplicativo podem ser considerados a definição de um aplicativo.
-* [Entidades de serviço](app-objects-and-service-principals.md#service-principal-object) – podem ser consideradas uma instância de um aplicativo. As entidades de serviço geralmente fazem referência a um objeto de aplicativo e um objeto de aplicativo pode ser referenciado por várias entidades de serviço entre os diretórios.
+* [Objetos](app-objects-and-service-principals.md#application-object) de aplicação - Embora existam [exceções,](#notes-and-exceptions)os objetos de aplicação podem ser considerados a definição de uma aplicação.
+* [Diretores](app-objects-and-service-principals.md#service-principal-object) de serviço - Pode ser considerado um exemplo de uma aplicação. Os diretores de serviço geralmente referenciam um objeto de aplicação, e um objeto de aplicação pode ser referenciado por vários diretores de serviço em todos os diretórios.
 
-## <a name="what-are-application-objects-and-where-do-they-come-from"></a>O que são objetos de aplicativo e de onde eles vêm?
+## <a name="what-are-application-objects-and-where-do-they-come-from"></a>O que são objetos de aplicação e de onde vêm?
 
-Você pode gerenciar [objetos de aplicativo](app-objects-and-service-principals.md#application-object) no portal do Azure por meio da experiência de [registros do aplicativo](https://aka.ms/appregistrations) . Os objetos de aplicativo descrevem o aplicativo para o Azure AD e podem ser considerados a definição do aplicativo, permitindo que o serviço saiba como emitir tokens para o aplicativo com base em suas configurações. O objeto de aplicativo só existirá em seu diretório base, mesmo se for um aplicativo multilocatário que dá suporte a entidades de serviço em outros diretórios. O objeto de aplicativo pode incluir qualquer um dos seguintes (bem como informações adicionais não mencionadas aqui):
+Pode gerir objetos de [aplicação](app-objects-and-service-principals.md#application-object) no portal Azure através da experiência Registos de [Aplicações.](https://aka.ms/appregistrations) Os objetos de aplicação descrevem a aplicação à AD Azure e podem ser consideradas a definição da aplicação, permitindo que o serviço saiba como emitir fichas para a aplicação com base nas suas definições. O objeto de aplicação só existirá no seu diretório de residência, mesmo que seja um serviço de apoio a candidaturas multi-inquilinos em outros diretórios. O objeto de aplicação pode incluir qualquer um dos seguintes (bem como informações adicionais não mencionadas aqui):
 
-* Nome, logotipo e Publicador
-* URIs de Redirecionamento
-* Segredos (chaves simétricas e/ou assimétricas usadas para autenticar o aplicativo)
-* Dependências de API (OAuth)
-* APIs/recursos/escopos publicados (OAuth)
+* Nome, logotipo e editor
+* Redirecionamento de URIs
+* Segredos (chaves simétricas e/ou assimétricas utilizadas para autenticar a aplicação)
+* Dependências da API (OAuth)
+* APIs/recursos/âmbitos publicados (OAuth)
 * Funções de aplicativo (RBAC)
-* Metadados e configuração de SSO
-* Configuração e metadados de provisionamento do usuário
-* Configuração e metadados de proxy
+* Metadados e configuração sSO
+* Fornecimento de metadados e configuração do utilizador
+* Metadados e configuração proxy
 
-Os objetos de aplicativo podem ser criados por meio de vários caminhos, incluindo:
+Os objetos de aplicação podem ser criados através de múltiplas vias, incluindo:
 
-* Registros de aplicativo no portal do Azure
-* Criando um novo aplicativo usando o Visual Studio e Configurando-o para usar a autenticação do Azure AD
-* Quando um administrador adiciona um aplicativo da Galeria de aplicativos (que também criará uma entidade de serviço)
-* Usando a API Microsoft Graph ou o PowerShell para criar um novo aplicativo
-* Muitos outros incluindo várias experiências de desenvolvedor no Azure e em experiências do Gerenciador de API entre os centros de desenvolvedores
+* Inscrições de candidatura no portal Azure
+* Criar uma nova aplicação utilizando o Visual Studio e configurá-lo para usar a autenticação Azure AD
+* Quando um administrador adiciona uma aplicação da galeria de aplicações (que também criará um diretor de serviço)
+* Utilização do Microsoft Graph API ou PowerShell para criar uma nova aplicação
+* Muitos outros, incluindo várias experiências de desenvolvimento em Azure e em experiências de explorador estoque da API em centros de desenvolvimento
 
-## <a name="what-are-service-principals-and-where-do-they-come-from"></a>O que são as entidades de serviço e de onde elas vêm?
+## <a name="what-are-service-principals-and-where-do-they-come-from"></a>O que são os diretores de serviço e de onde vêm?
 
-Você pode gerenciar [entidades de serviço](app-objects-and-service-principals.md#service-principal-object) no portal do Azure por meio da experiência de [aplicativos empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) . As entidades de serviço são o que governa um aplicativo se conectando ao Azure AD e pode ser considerado a instância do aplicativo em seu diretório. Para qualquer aplicativo específico, ele pode ter no máximo um objeto de aplicativo (que é registrado em um diretório "Home") e um ou mais objetos de entidade de serviço que representam instâncias do aplicativo em todos os diretórios nos quais ele atua. 
+Pode gerir [os principais de serviços](app-objects-and-service-principals.md#service-principal-object) no portal Azure através da experiência [De aplicações empresariais.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) Os diretores de serviço são o que rege uma aplicação que liga a Azure AD e pode ser considerada a instância da aplicação no seu diretório. Para qualquer aplicação, pode ter, no máximo, um objeto de aplicação (que está registado num diretório "casa") e um ou mais objetos principais de serviço que representam instâncias da aplicação em cada diretório em que atua. 
 
-A entidade de serviço pode incluir:
+O diretor de serviço pode incluir:
 
-* Uma referência de volta a um objeto de aplicativo por meio da propriedade ID do aplicativo
-* Registros de atribuições de função de aplicativo de usuário e grupo locais
-* Registros de permissões de usuário local e de administrador concedidas ao aplicativo
-  * Por exemplo: permissão para que o aplicativo acesse o email de um usuário específico
-* Registros de políticas locais, incluindo a política de acesso condicional
-* Registros de configurações locais alternativas para um aplicativo
-  * Regras de transformação de declarações
-  * Mapeamentos de atributo (provisionamento de usuário)
-  * Funções de aplicativo específicas do diretório (se o aplicativo oferecer suporte a funções personalizadas)
+* Uma referência de volta a um objeto de aplicação através da propriedade id aplicação
+* Registos de atribuições locais de aplicação de utilizadores e de grupo
+* Registos de permissões de utilizadores locais e administradores concedidas ao pedido
+  * Por exemplo: permissão para a aplicação aceder a um e-mail de um determinado utilizador
+* Registos de políticas locais, incluindo a política de acesso condicional
+* Registos de configurações locais alternativas para uma aplicação
+  * Regras de transformação de sinistros
+  * Mapeamentos de atributos (fornecimento de utilizadores)
+  * Funções de aplicativo específicas para o diretório (se a aplicação suporta funções personalizadas)
   * Nome ou logotipo específico do diretório
 
-Assim como os objetos de aplicativo, as entidades de serviço também podem ser criadas por meio de vários caminhos, incluindo:
+Tal como os objetos de aplicação, os principais de serviço também podem ser criados através de múltiplas vias, incluindo:
 
-* Quando os usuários entram em um aplicativo de terceiros integrado ao Azure AD
-  * Durante a entrada, os usuários são solicitados a conceder permissão ao aplicativo para acessar seu perfil e outras permissões. A primeira pessoa a dar consentimento faz com que uma entidade de serviço represente o aplicativo a ser adicionado ao diretório.
-* Quando os usuários entram no Microsoft serviços online como o [Office 365](https://products.office.com/)
-  * Quando você assina o Office 365 ou inicia uma avaliação, uma ou mais entidades de serviço são criadas no diretório que representa os vários serviços que são usados para fornecer toda a funcionalidade associada ao Office 365.
-  * Alguns serviços do Office 365, como o SharePoint, criam entidades de serviço em uma base contínua para permitir a comunicação segura entre componentes, incluindo fluxos de trabalho.
-* Quando um administrador adiciona um aplicativo da Galeria de aplicativos (isso também criará um objeto de aplicativo subjacente)
-* Adicionar um aplicativo para usar o [proxy de aplicativo do AD do Azure](/azure/active-directory/manage-apps/application-proxy)
-* Conectar um aplicativo para logon único usando SAML ou SSO (logon único) de senha
-* Programaticamente por meio do API do Graph do Azure AD ou do PowerShell
+* Quando os utilizadores assinam uma aplicação de terceiros integrada com a Azure AD
+  * Durante o início do sessão, é solicitado aos utilizadores que autorizem a aplicação a aceder ao seu perfil e outras permissões. A primeira pessoa a dar consentimento faz com que um diretor de serviço que represente o pedido seja adicionado ao diretório.
+* Quando os utilizadores assinam serviços online da Microsoft como [o Office 365](https://products.office.com/)
+  * Quando subscreve o Office 365 ou inicia um ensaio, um ou mais diretores de serviço são criados no diretório que representa os vários serviços que são utilizados para fornecer toda a funcionalidade associada ao Office 365.
+  * Alguns serviços do Office 365, como o SharePoint, criam os principais de serviços de forma contínua para permitir uma comunicação segura entre componentes, incluindo fluxos de trabalho.
+* Quando um administrador adiciona uma aplicação da galeria de aplicações (isto também criará um objeto de aplicação subjacente)
+* Adicione uma aplicação para usar o Proxy de [Aplicação AD Azure](/azure/active-directory/manage-apps/application-proxy)
+* Ligue uma aplicação para um único sinal utilizando o SAML ou o sinal único de senha (SSO)
+* Programáticamente através da Microsoft Graph API ou PowerShell
 
-## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Como os objetos de aplicativo e as entidades de serviço estão relacionados entre si?
+## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Como estão os objetos de aplicação e os diretores de serviço relacionados uns com os outros?
 
-Um aplicativo tem um objeto de aplicativo em seu diretório base que é referenciado por uma ou mais entidades de serviço em cada um dos diretórios onde ele opera (incluindo o diretório base do aplicativo).
+Uma aplicação tem um objeto de aplicação no seu diretório de residência que é referenciado por um ou mais diretores de serviço em cada um dos diretórios onde opera (incluindo o diretório de residência da aplicação).
 
-![Mostra a relação entre os objetos de aplicativo e as entidades de serviço][apps_service_principals_directory]
+![Mostra relação entre objetos de aplicativos e diretores de serviço][apps_service_principals_directory]
 
-No diagrama anterior, a Microsoft mantém dois diretórios internamente (mostrados à esquerda) que ele usa para publicar aplicativos:
+No diagrama anterior, a Microsoft mantém dois diretórios internamente (mostrados à esquerda) que utiliza para publicar aplicações:
 
-* Um para aplicativos da Microsoft (diretório de serviços da Microsoft)
-* Um para aplicativos de terceiros previamente integrados (diretório da Galeria de aplicativos)
+* Um para aplicações da Microsoft (diretório de serviços da Microsoft)
+* Uma para aplicações de terceiros pré-integradas (diretório de galerias de aplicações)
 
-Editores/fornecedores de aplicativos que se integram ao Azure AD precisam ter um diretório de publicação (mostrado à direita como "algum diretório SaaS").
+Os editores/fornecedores de aplicações que se integrem com a Azure AD são obrigados a ter um diretório editorial (apresentado à direita como "Algum Diretório SaaS").
 
-Os aplicativos que você mesmo adiciona (representados como **aplicativo (seu)** no diagrama) incluem:
+As aplicações que se adiciona (representada como **App (sua)** no diagrama) incluem:
 
-* Aplicativos que você desenvolveu (integrado ao Azure AD)
-* Aplicativos que você conectou para logon único
-* Aplicativos que você publicou usando o proxy de aplicativo do Azure AD
+* Apps que desenvolveu (integradas com a Azure AD)
+* Aplicativos que ligou para um único sign-on
+* Apps que publicou usando o proxy de aplicação DaD Azure
 
-### <a name="notes-and-exceptions"></a>Observações e exceções
+### <a name="notes-and-exceptions"></a>Notas e exceções
 
-* Nem todas as entidades de serviço apontam de volta para um objeto de aplicativo. Quando o Azure AD foi originalmente criado, os serviços fornecidos aos aplicativos eram mais limitados e a entidade de serviço era suficiente para estabelecer uma identidade de aplicativo. A entidade de serviço original estava mais perto da forma para a conta de serviço de Active Directory do Windows Server. Por esse motivo, ainda é possível criar entidades de serviço por meio de caminhos diferentes, como usar o PowerShell do Azure AD, sem primeiro criar um objeto de aplicativo. O API do Graph do Azure AD requer um objeto de aplicativo antes de criar uma entidade de serviço.
-* Nem todas as informações descritas acima são atualmente expostas por meio de programação. Os itens a seguir estão disponíveis apenas na interface do usuário:
-  * Regras de transformação de declarações
-  * Mapeamentos de atributo (provisionamento de usuário)
-* Para obter informações mais detalhadas sobre a entidade de serviço e objetos de aplicativo, consulte a documentação de referência da API REST do Azure AD Graph:
-  * [Aplicação](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Entidade de serviço](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+* Nem todos os diretores de serviço apontam para um objeto de aplicação. Quando a Azure AD foi originalmente construída, os serviços prestados às candidaturas eram mais limitados e o diretor de serviço era suficiente para estabelecer uma identidade de aplicação. O diretor de serviço original estava mais próximo da conta de serviço do Windows Server Ative Directory. Por esta razão, ainda é possível criar diretores de serviço através de diferentes vias, como usar o Azure AD PowerShell, sem primeiro criar um objeto de aplicação. O Microsoft Graph API requer um objeto de aplicação antes de criar um diretor de serviço.
+* Nem todas as informações acima descritas são atualmente expostas programáticamente. Os seguintes só estão disponíveis na UI:
+  * Regras de transformação de sinistros
+  * Mapeamentos de atributos (fornecimento de utilizadores)
+* Para obter informações mais detalhadas sobre o principal de serviço e objetos de aplicação, consulte a documentação de referência da Microsoft Graph API:
+  * [Candidatura](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
+  * [Diretor de Serviço](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
-## <a name="why-do-applications-integrate-with-azure-ad"></a>Por que os aplicativos se integram ao Azure AD?
+## <a name="why-do-applications-integrate-with-azure-ad"></a>Porque é que as aplicações se integram com a Azure AD?
 
-Os aplicativos são adicionados ao Azure AD para aproveitar um ou mais dos serviços que ele fornece, incluindo:
+As candidaturas são adicionadas à Azure AD para alavancar um ou mais dos serviços que presta, incluindo:
 
-* Autenticação e autorização de aplicativos
-* Autenticação e autorização de usuário
-* SSO usando Federação ou senha
-* Provisionamento e sincronização de usuários
-* Controle de acesso baseado em função-use o diretório para definir funções de aplicativo para executar verificações de autorização baseadas em função em um aplicativo
-* Serviços de autorização OAuth-usados pelo Office 365 e outros aplicativos da Microsoft para autorizar o acesso a APIs/recursos
-* Publicação de aplicativos e proxy – publique um aplicativo de uma rede privada para a Internet
+* Autenticação e autorização de pedido
+* Autenticação e autorização do utilizador
+* SSO usando federação ou senha
+* Fornecimento e sincronização dos utilizadores
+* Controlo de acesso baseado em funções - Utilize o diretório para definir funções de aplicação para realizar controlos de autorização baseados em funções num pedido
+* Serviços de autorização OAuth - Utilizados pelo Office 365 e outras aplicações da Microsoft para autorizar o acesso a APIs/recursos
+* Publicação de aplicações e procuração - Publique uma aplicação de uma rede privada para a internet
 
-## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Quem tem permissão para adicionar aplicativos à minha instância do Azure AD?
+## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Quem tem permissão para adicionar aplicações à minha instância de Anúncio Salé- Azure?
 
-Embora existam algumas tarefas que somente os administradores globais podem fazer (como adicionar aplicativos da Galeria de aplicativos e configurar um aplicativo para usar o proxy de aplicativo) por padrão, todos os usuários em seu diretório têm direitos para registrar objetos de aplicativo que estão desenvolvendo e a critério sobre quais aplicativos eles compartilham/fornecem acesso aos seus dados organizacionais por meio de consentimento. Se uma pessoa for o primeiro usuário em seu diretório para entrar em um aplicativo e conceder consentimento, isso criará uma entidade de serviço em seu locatário; caso contrário, as informações de concessão de consentimento serão armazenadas na entidade de serviço existente.
+Embora existam algumas tarefas que apenas os administradores globais podem fazer (como adicionar aplicações a partir da galeria de aplicações e configurar uma aplicação para usar o Proxy de Aplicação) por padrão todos os utilizadores do seu diretório têm o direito de registar objetos de aplicação que estão desenvolvendo e discrição sobre quais as aplicações que partilham/dar acesso aos seus dados organizacionais por consentimento. Se uma pessoa for o primeiro utilizador do seu diretório a iniciar sessão com um pedido e conceder o consentimento, isso criará um diretor de serviço no seu inquilino; caso contrário, as informações de concessão de consentimento serão armazenadas no principal do serviço existente.
 
-Permitir que os usuários se registrem e consentissem em aplicativos podem inicialmente se parecer com a relação, mas tenha em mente o seguinte:
+Permitir que os utilizadores se registem e consintam com as aplicações pode inicialmente parecer preocupante, mas tenha em mente o seguinte:
 
 
-* Os aplicativos foram capazes de aproveitar o Windows Server Active Directory para autenticação de usuário por muitos anos sem exigir que o aplicativo seja registrado ou registrado no diretório. Agora, a organização terá visibilidade aprimorada para exatamente quantos aplicativos estão usando o diretório e para qual finalidade.
-* A delegação dessas responsabilidades aos usuários nega a necessidade de um processo de publicação e registro de aplicativo controlado por administrador. Com o Serviços de Federação do Active Directory (AD FS) (ADFS) era provável que um administrador tivesse que adicionar um aplicativo como uma terceira parte confiável em nome de seus desenvolvedores. Agora os desenvolvedores podem autoatendimento.
-* Os usuários que entrarem em aplicativos que usam suas contas organizacionais para fins comerciais é uma coisa boa. Se eles subseqüentemente deixarem a organização, eles perderão automaticamente o acesso à sua conta no aplicativo que estavam usando.
-* Ter um registro de quais dados foram compartilhados com qual aplicativo é algo bom. Os dados são mais transportáveis do que nunca e é útil ter um registro claro de quem compartilhou quais dados com quais aplicativos.
-* Proprietários de API que usam o Azure AD para OAuth decidem exatamente quais permissões os usuários podem conceder a aplicativos e quais permissões exigem que um administrador concorde. Somente os administradores podem consentir maiores escopos e permissões mais significativas, enquanto o consentimento do usuário é definido para os próprios dados e funcionalidades dos usuários.
-* Quando um usuário adiciona ou permite que um aplicativo acesse seus dados, o evento pode ser auditado para que você possa exibir os relatórios de auditoria dentro do portal do Azure para determinar como um aplicativo foi adicionado ao diretório.
+* As aplicações têm sido capazes de alavancar o Diretório Ativo do Windows Server para a autenticação do utilizador durante muitos anos sem exigir que a aplicação seja registada ou gravada no diretório. Agora, a organização terá melhorado a visibilidade para exatamente quantas aplicações estão a usar o diretório e com que finalidade.
+* Delegar estas responsabilidades para com os utilizadores nega a necessidade de um registo e processo de publicação de aplicações orientados pela administração. Com os Serviços da Federação de Diretório Ativo (ADFS), era provável que um administrador tivesse de adicionar um pedido como parte de base em nome dos seus desenvolvedores. Agora os desenvolvedores podem autosserviço.
+* Os utilizadores que se inscrevam em aplicações que utilizem as suas contas de organização para fins comerciais é uma coisa boa. Se posteriormente saírem da organização, perderão automaticamente o acesso à sua conta na aplicação que estavam a utilizar.
+* Ter um registo dos dados partilhados com que aplicação é uma coisa boa. Os dados são mais transportáveis do que nunca e é útil ter um registo claro de quem partilhou quais os dados com que aplicações.
+* Os proprietários da API que usam a AD Azure para a OAuth decidem exatamente quais as permissões que os utilizadores podem conceder às aplicações e quais as permissões que exigem que um administrador concorde. Apenas os administradores podem consentir com âmbitos maiores e permissões mais significativas, enquanto o consentimento do utilizador é alargado aos dados e capacidades dos próprios utilizadores.
+* Quando um utilizador adiciona ou permite que uma aplicação aceda aos seus dados, o evento pode ser auditado para que possa ver os Relatórios de Auditoria dentro do portal Azure para determinar como uma aplicação foi adicionada ao diretório.
 
-Se você ainda quiser impedir que os usuários em seu diretório registrem aplicativos e entrem em aplicativos sem aprovação do administrador, há duas configurações que podem ser alteradas para desativar esses recursos:
+Se ainda pretender impedir que os utilizadores do seu diretório registem aplicações e que se inscrevam em aplicações sem aprovação de administradores, existem duas definições que pode alterar para desativar essas capacidades:
 
-* Para impedir que os usuários consentissem em aplicativos em seu próprio nome:
-  1. Na portal do Azure, vá para a seção [configurações de usuário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) em aplicativos empresariais.
-  2. Alterar **os usuários podem consentir os aplicativos que acessam os dados da empresa em seu nome** para **não**.
+* Para evitar que os utilizadores consintam com as aplicações em seu próprio nome:
+  1. No portal Azure, vá à secção de [definições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) do Utilizador sob aplicações da Enterprise.
+  2. Alterar **os Utilizadores podem consentir em aplicações que acedam aos dados** da empresa em seu nome para **O**.
      
      > [!NOTE]
-     > Se você decidir desativar o consentimento do usuário, será necessário que um administrador consentido em qualquer novo aplicativo que um usuário precise usar.
+     > Se decidir desligar o consentimento do utilizador, será necessário um administrador para consentir com qualquer nova aplicação que o utilizador precise de utilizar.
 
-* Para impedir que os usuários registrem seus próprios aplicativos:
-  1. Na portal do Azure, vá para a seção [configurações do usuário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) em Azure Active Directory
-  2. Alterar **os usuários podem registrar aplicativos** **no.**
+* Para evitar que os utilizadores registem as suas próprias aplicações:
+  1. No portal Azure, vá à secção de [definições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) do Utilizador sob o Diretório Ativo Azure
+  2. Alterar **os Utilizadores podem registar aplicações** para **Nº**.
 
 > [!NOTE]
-> A própria Microsoft usa a configuração padrão com os usuários capazes de registrar aplicativos e dar consentimento a aplicativos em seu próprio nome.
+> A própria Microsoft utiliza a configuração predefinida com utilizadores capazes de registar aplicações e consentir com aplicações em seu próprio nome.
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg

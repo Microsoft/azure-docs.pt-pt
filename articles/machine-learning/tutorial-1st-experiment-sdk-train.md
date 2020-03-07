@@ -11,11 +11,11 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116532"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78354989"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treine o seu primeiro modelo ML
 
@@ -50,9 +50,9 @@ Nesta parte do tutorial, você executa o código na amostra de tutoriais de cade
 ## <a name="connect-workspace-and-create-experiment"></a>Ligar espaço de trabalho e criar experiência
 
 > [!Important]
-> O restante deste artigo contém o mesmo conteúdo que você vê no bloco de anotações.  
+> O resto deste artigo contém o mesmo conteúdo que se vê no caderno.  
 >
-> Alterne para o notebook Jupyter agora se você quiser ler ao executar o código. 
+> Mude para o caderno Jupyter agora se quiser ler enquanto executa o código. 
 > Para executar uma única célula de código num caderno, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
 
 Importe a classe `Workspace` e carregue as suas informações de subscrição a partir do ficheiro `config.json` utilizando a função `from_config().` Este procura o ficheiro JSON no diretório atual por padrão, mas também pode especificar um parâmetro de percurso para apontar para o ficheiro usando `from_config(path="your/file/path")`. Num servidor de portátil em nuvem, o ficheiro encontra-se automaticamente no diretório raiz.

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148166"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357809"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre as definições de configuração do Gateway VPN
 

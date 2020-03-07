@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
 ms.openlocfilehash: 4732304384b8c221ae7c8d99da7f714613ad9050
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472116"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396496"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos do IoT Hub
 

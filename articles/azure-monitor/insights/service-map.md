@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
 ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663628"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395340"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução do mapa de serviço em Azure
 

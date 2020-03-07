@@ -9,11 +9,11 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.openlocfilehash: 25c047dc9b2ce08ca39e69c6f106e41c5d9bd0dc
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484898"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360985"
 ---
 # <a name="azure-storage-analytics-logging"></a>Exploração analítica de armazenamento azure
 
@@ -202,7 +202,7 @@ Para saber mais sobre como descarregar ficheiros específicos, consulte [O Downl
 
 Quando tiver descarregado os seus dados de registo, pode visualizar as entradas de registo nos ficheiros. Estes ficheiros de registo utilizam um formato de texto delimitado que muitas ferramentas de leitura de registo são capazes de analisar, incluindo o Microsoft Message Analyzer (para mais informações, consulte o guia [Monitoring, Diagnosticng e Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Diferentes ferramentas têm diferentes instalações para formatação, filtragem, triagem, anúncio de pesquisa do conteúdo dos seus ficheiros de registo. Para obter mais informações sobre o formato e conteúdo do ficheiro de registo de registo de registo de armazenamento, consulte o [Formato](/rest/api/storageservices/storage-analytics-log-format) de Registo de Armazenamento Analytics e [o Armazenamento Analytics Operações registadas e Mensagens](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)de Estado .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Formato de registo de armazenamento analytics](/rest/api/storageservices/storage-analytics-log-format)
 * [Armazenamento Analytics Operações registadas e Mensagens de Estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)

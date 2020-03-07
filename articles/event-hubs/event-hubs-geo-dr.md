@@ -15,11 +15,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158031"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355985"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de eventos do Azure - recuperação após desastre geográfico 
 
@@ -58,9 +58,9 @@ As seguintes combinações de espaços de nomes primários e secundários são s
 | Espaço de nome primário | Espaço de nome secundário | Suportado | 
 | ----------------- | -------------------- | ---------- |
 | Standard | Standard | Sim | 
-| Standard | Dedicado | Sim | 
-| Dedicado | Dedicado | Sim | 
-| Dedicado | Standard | Não | 
+| Standard | Dedicada | Sim | 
+| Dedicada | Dedicada | Sim | 
+| Dedicada | Standard | Não | 
 
 > [!NOTE]
 > Não se pode emparelhar espaços de nomes que estão no mesmo aglomerado dedicado. Pode emparelhar espaços de nome sinuosos em aglomerados separados. 
@@ -71,7 +71,7 @@ A seção a seguir uma visão geral do processo de ativação pós-falha e expli
 
 ![1][]
 
-### <a name="setup"></a>Configuração
+### <a name="setup"></a>Configurar
 
 Primeiro cria ou utiliza um espaço de nomes de principal existente e um novo espaço de nomes secundário, em seguida, emparelhe os dois. Esse emparelhamento dá-lhe um alias que pode utilizar para ligar. Uma vez que utilizar um alias, não é necessário que alterar as cadeias de ligação. Apenas novos namespaces podem ser adicionados a seu emparelhamento de ativação pós-falha. Por fim, deve adicionar alguma monitorização para detetar se uma ativação pós-falha é necessária. Na maioria dos casos, o serviço é uma parte de um vasto ecossistema, portanto, os failovers automáticos são raramente possíveis, como, com muita frequência as ativações pós-falha devem ser executadas em sincronia com o subsistema de restantes ou a infraestrutura.
 

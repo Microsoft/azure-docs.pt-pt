@@ -14,11 +14,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f04bd7788a9cc9657e14aedfb153182d6e53eb95
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562246"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78374722"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Ver atribuições de papéis personalizados no Diretório Ativo Azure
 

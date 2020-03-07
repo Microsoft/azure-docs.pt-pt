@@ -16,11 +16,11 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58cddcde71e6e86b9abe07eb4200f13ad55ea659
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76897089"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78376412"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidade do utilizador e Azure AD Connect Health 
 
@@ -30,10 +30,10 @@ ms.locfileid: "76897089"
 >Este artigo trata da Azure AD Connect Health e da privacidade do utilizador.  Para obter informações sobre o Azure AD Connect e a privacidade do utilizador consulte o artigo [aqui](reference-connect-user-privacy.md).
 
 ## <a name="user-privacy-classification"></a>Classificação da privacidade do utilizador
-A Azure AD Connect Health enquadra-se na categoria de processador de **dados** da classificação rGPD. Como um pipeline de processador de dados, o serviço fornece serviços de processamento de dados para parceiros-chave e consumidores finais. A Azure AD Connect Health não gera dados do utilizador e não tem controlo independente sobre o que os dados pessoais são recolhidos e como são utilizados. A recuperação de dados, agregação, análise e reporte na Azure AD Connect Health baseiam-se nos dados existentes no local. 
+A Azure AD Connect Health enquadra-se na categoria de processador de **dados** da classificação rGPD. Como um pipeline de processador de dados, o serviço fornece serviços de processamento de dados a parceiros-chave e consumidores finais. A Azure AD Connect Health não gera dados do utilizador e não tem controlo independente sobre o que os dados pessoais são recolhidos e como são utilizados. A recuperação de dados, agregação, análise e reporte na Azure AD Connect Health baseiam-se nos dados existentes no local. 
 
 ## <a name="data-retention-policy"></a>Política de retenção de dados
-A Azure AD Connect Health não gera relatórios, realiza análises ou fornece insights para além de 30 dias. Por isso, a Azure AD Connect Health não armazena, processa ou retém quaisquer dados para além de 30 dias. Esse design é compatível com as normas de GDPR, os regulamentos de conformidade de privacidade da Microsoft e as políticas de retenção de dados do Azure AD. 
+A Azure AD Connect Health não gera relatórios, realiza análises ou fornece insights para além de 30 dias. Por isso, a Azure AD Connect Health não armazena, processa ou retém quaisquer dados para além de 30 dias. Este design está em conformidade com os regulamentos do RGPD, os regulamentos de conformidade de privacidade da Microsoft e as políticas de retenção de dados da Azure AD. 
 
 Os servidores com dados ativos do **serviço de saúde não estão atualizados** alertas de **erro** por mais de 30 dias consecutivos sugerem que nenhum dado chegou à Connect Health durante esse período de tempo. Estes servidores serão desativados e não mostrados no portal Connect Health. Para voltar a ativar os servidores, deve desinstalar e [reinstalar o agente de saúde](how-to-connect-health-agent-install.md). Por favor, note que isto não se aplica a **avisos** com o mesmo tipo de alerta. Os avisos indicam que faltam dados parciais do servidor para o qual está alertado. 
  

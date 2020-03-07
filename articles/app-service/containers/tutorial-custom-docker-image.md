@@ -9,11 +9,11 @@ ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 965897afc8e23c123575de0c497d4071ff4ca85a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767107"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356962"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Construa uma imagem personalizada e corra no Serviço de Aplicações a partir de um registo privado
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --conf
 cd docker-django-webapp-linux
 ```
 
-## <a name="build-the-image-from-the-docker-file"></a>Compilar a imagem a partir do ficheiro Docker
+## <a name="build-the-image-from-the-docker-file"></a>Compilar a imagem a partir do Dockerfile
 
 No repositório Git, veja _Dockerfile_. Este ficheiro descreve o ambiente do Python que é necessário para executar a sua aplicação. Além disso, a imagem configura um servidor [SSH](https://www.ssh.com/ssh/protocol/) para comunicação segura entre o contentor e o anfitrião.
 
@@ -99,7 +99,7 @@ Navegue para `http://localhost:8000` para confirmar que a aplicação Web e o co
 
 Para criar uma aplicação que utiliza a imagem que acaba de criar, executa comandos Azure CLI que criam um grupo de recursos, empurra a imagem e, em seguida, cria a aplicação web do plano app Service para executá-la.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
@@ -252,7 +252,7 @@ Depois de modificar o ficheiro do Python e de o guardar, tem de recriar e enviar
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="enable-ssh-connections"></a>Habilitar conexões SSH
+## <a name="enable-ssh-connections"></a>Ativar ligações SSH
 
 O SSH permite a comunicação segura entre um contentor e um cliente. Para permitir a ligação SSH ao seu recipiente, a sua imagem personalizada deve ser configurada para o mesmo. Vamos dar uma olhada no repositório da amostra que já tem a configuração necessária.
 
@@ -336,15 +336,15 @@ O que aprendeu:
 > * Aceder aos registos de diagnósticos
 > * Ligar ao contentor com SSH
 
-Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para seu aplicativo.
+Avance para o próximo tutorial para aprender a mapear um nome DNS personalizado para a sua aplicação.
 
 > [!div class="nextstepaction"]
-> [Tutorial: mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Mapeie o nome dNS personalizado para a sua aplicação](../app-service-web-tutorial-custom-domain.md)
 
-Ou então, confira outros recursos:
-
-> [!div class="nextstepaction"]
-> [Configurar contêiner personalizado](configure-custom-container.md)
+Ou, confira outros recursos:
 
 > [!div class="nextstepaction"]
-> [Tutorial: aplicativo WordPress com vários contêineres](tutorial-multi-container-app.md)
+> [Configurar recipiente personalizado](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Aplicação WordPress multi-contentor](tutorial-multi-container-app.md)

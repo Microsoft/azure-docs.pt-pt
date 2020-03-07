@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: requisitos de NAT para circuitos'
+title: 'Azure ExpressRoute: requisitos na NAT para circuitos'
 description: Esta página fornece os requisitos detalhados para configurar e gerir o NAT para circuitos do ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083386"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358366"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos do NAT do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir os NATs. Alguns fornecedores de conectividade oferecem a configuração e a gestão do NAT como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece tal serviço. Se não for possível, terá de cumprir os requisitos descritos abaixo. 
@@ -20,7 +20,7 @@ Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de conf
 Reveja a página [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md) para obter uma descrição geral de vários domínios de encaminhamento. Para cumprir os requisitos públicos de endereço IP para o Azure público e peering da Microsoft, recomendamos que configure o NAT entre a sua rede e a Microsoft. Esta secção fornece uma descrição detalhada da infraestrutura do NAT que tem de configurar.
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Requisitos do NAT para peering da Microsoft
-O caminho de peering da Microsoft permite-lhe ligar aos serviços em nuvem da Microsoft que não são suportados através do caminho de peering público do Azure. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online e o Skype for Business. A Microsoft espera suportar uma conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de realizar um SNAT para endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft. O tráfego destinado à sua rede a partir dos serviços cloud da Microsoft tem de realizar um SNAT no intervalo de Internet para prevenir o [encaminhamento assimétrico](expressroute-asymmetric-routing.md). A figura a seguir fornece uma imagem de alto nível de como o NAT deve ser configurado para o emparelhamento da Microsoft.
+O caminho de peering da Microsoft permite-lhe ligar aos serviços em nuvem da Microsoft que não são suportados através do caminho de peering público do Azure. A lista de serviços inclui os serviços do Office 365, tais como Exchange Online, SharePoint Online e Skype for Business. A Microsoft espera suportar uma conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de realizar um SNAT para endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft. O tráfego destinado à sua rede a partir dos serviços cloud da Microsoft tem de realizar um SNAT no intervalo de Internet para prevenir o [encaminhamento assimétrico](expressroute-asymmetric-routing.md). O valor abaixo fornece uma imagem de alto nível de como o NAT deve ser configurado para o peering da Microsoft.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -42,7 +42,7 @@ O caminho de peering da Microsoft permite-lhe ligar aos serviços em nuvem da Mi
 ## <a name="nat-requirements-for-azure-public-peering"></a>Requisitos do NAT para o peering público Azure
 
 > [!NOTE]
-> O emparelhamento público do Azure não está disponível para novos circuitos.
+> O público azure não está disponível para novos circuitos.
 > 
 
 O caminho de peering público Azure permite-lhe ligar a todos os serviços alojados no Azure ao longo dos respetivos endereços IP públicos. Estes incluem os serviços listados nas [FAQ do ExpressRoute](expressroute-faqs.md) e quaisquer serviços alojados pelos ISVs no Microsoft Azure. 

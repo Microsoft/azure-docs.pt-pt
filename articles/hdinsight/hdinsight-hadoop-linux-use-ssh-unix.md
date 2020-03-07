@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: 31e85876d60ae6fcd8f3b29633506d698a323acb
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192953"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386407"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Ligue-se ao HDInsight (Apache Hadoop) utilizando o SSH
 

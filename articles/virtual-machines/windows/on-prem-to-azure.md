@@ -1,6 +1,6 @@
 ---
-title: Migrar do AWS e de outras plataformas para Managed Disks no Azure
-description: Crie VMs no Azure usando VHDs carregados de outras nuvens, como AWS ou outras plataformas de virtualização, e aproveite o Azure Managed Disks.
+title: Migrar da AWS e de outras plataformas para discos geridos em Azure
+description: Crie VMs em Azure usando VHDs carregados de outras nuvens como AWS ou outras plataformas de virtualização e aproveite os Discos Geridos azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: roygara
@@ -16,68 +16,68 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dbce2969ccb508c2bf3ee33730d0b112caa45c9e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033052"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388641"
 ---
-# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar de Amazon Web Services (AWS) e outras plataformas para Managed Disks no Azure
+# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar de Amazon Web Services (AWS) e outras plataformas para Discos Geridos em Azure
 
-Você pode carregar arquivos VHD de soluções de virtualização AWS ou local para o Azure para criar VMs que tiram proveito de Managed Disks. O Managed Disks do Azure elimina a necessidade de gerenciar contas de armazenamento para VMs IaaS do Azure. Você precisa especificar apenas o tipo (Premium ou Standard) e o tamanho do disco necessário, e o Azure cria e gerencia o disco para você. 
+Pode enviar ficheiros VHD a partir de soluções de virtualização AWS ou no local para o Azure para criar VMs que tirem partido dos Discos Geridos. Os Discos Geridos azure remove a necessidade de gerir as contas de armazenamento para VMs Azure IaaS. Só tem de especificar o tipo (Premium ou Standard) e o tamanho do disco que necessita, e o Azure cria e gere o disco para si. 
 
-Você pode carregar VHDs generalizados e especializados. 
-- **VHD generalizado** -teve todas as informações de sua conta pessoal removidas usando o Sysprep. 
-- **VHD especializado** – mantém as contas de usuário, aplicativos e outros dados de estado de sua VM original. 
+Pode fazer o upload de VHDs generalizados e especializados. 
+- **Generalizado VHD** - teve todas as suas informações pessoais de conta removidas usando sysprep. 
+- **VHD especializado** - mantém as contas, aplicações e outros dados do estado do seu VM original. 
 
 > [!IMPORTANT]
-> Antes de carregar qualquer VHD no Azure, você deve seguir [preparar um VHD do Windows ou VHDX para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Antes de enviar qualquer VHD para Azure, deve seguir [Prepare um Windows VHD ou VHDX para fazer o upload para O Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
 
 | Cenário                                                                                                                         | Documentação                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Você tem instâncias AWS EC2 existentes que gostaria de migrar para VMs do Azure usando Managed disks                              | [Mover uma VM do Amazon Web Services (AWS) para o Azure](aws-to-azure.md)                           |
-| Você tem uma VM de outra plataforma de virtualização que deseja usar como uma imagem para criar várias VMs do Azure. | [Carregar um VHD generalizado e usá-lo para criar uma nova VM no Azure](upload-generalized-managed.md) |
-| Você tem uma VM exclusivamente personalizada que deseja recriar no Azure.                                                      | [Carregar um VHD especializado no Azure e criar uma nova VM](create-vm-specialized.md)         |
+| Tem instâncias AWS EC2 existentes que gostaria de migrar para VMs Azure usando discos geridos                              | [Mova um VM da Amazon Web Services (AWS) para O Azure](aws-to-azure.md)                           |
+| Você tem um VM de outra plataforma de virtualização que você gostaria de usar como uma imagem para criar vários VMs Azure. | [Faça upload de um VHD generalizado e use-o para criar um novo VM em Azure](upload-generalized-managed.md) |
+| Você tem um VM personalizado exclusivo que você gostaria de recriar em Azure.                                                      | [Faça upload de um VHD especializado para o Azure e crie um novo VM](create-vm-specialized.md)         |
 
 
-## <a name="overview-of-managed-disks"></a>Visão geral do Managed Disks
+## <a name="overview-of-managed-disks"></a>Visão geral dos discos geridos
 
-O Azure Managed Disks simplifica o gerenciamento de VM, eliminando a necessidade de gerenciar contas de armazenamento. Managed Disks também se beneficiam da melhor confiabilidade das VMs em um conjunto de disponibilidade. Ele garante que os discos de diferentes VMs em um conjunto de disponibilidade estejam suficientemente isolados entre si para evitar um ponto único de falha. Ele coloca automaticamente discos de diferentes VMs em um conjunto de disponibilidade em diferentes unidades de escala de armazenamento (carimbos), o que limita o impacto de falhas de unidade de escala de armazenamento único causadas devido a falhas de hardware e software.
-Com base em suas necessidades, você pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponíveis, consulte nosso artigo [selecionar um tipo de disco](disks-types.md).
+A Azure Managed Disks simplifica a gestão da VM removendo a necessidade de gerir as contas de armazenamento. Os Discos Geridos também beneficiam de uma melhor fiabilidade dos VMs num Conjunto de Disponibilidade. Garante que os discos de diferentes VMs num Conjunto de Disponibilidade estão suficientemente isolados uns dos outros para evitar um único ponto de falha. Coloca automaticamente discos de diferentes VMs num Conjunto de Disponibilidade em diferentes unidades de escala de armazenamento (selos) que limita o impacto das falhas da unidade de armazenamento único causadas devido a falhas de hardware e software.
+Com base nas suas necessidades, pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponíveis, consulte o nosso artigo [Selecione um tipo](disks-types.md)de disco .
 
-## <a name="plan-for-the-migration-to-managed-disks"></a>Planejar a migração para Managed Disks
+## <a name="plan-for-the-migration-to-managed-disks"></a>Plano para a migração para Discos Geridos
 
-Esta seção ajuda você a tomar a melhor decisão sobre tipos de disco e VM.
+Esta secção ajuda-o a tomar a melhor decisão sobre os tipos de VM e disco.
 
-Se você estiver planejando a migração de discos não gerenciados para o Managed disks, você deve estar ciente de que os usuários com a função [colaborador da máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) não poderão alterar o tamanho da VM (pois eles poderiam ser previamente convertidos). Isso ocorre porque as VMs com discos gerenciados exigem que o usuário tenha a permissão Microsoft. Compute/disks/Write nos discos do sistema operacional.
+Se está a planear migrar de discos não geridos para discos geridos, deve estar ciente de que os utilizadores com a função de Colaborador de [Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) não serão capazes de alterar o tamanho do VM (uma vez que poderiam pré-conversão). Isto porque os VMs com discos geridos exigem que o utilizador tenha a permissão Microsoft.Compute/disks/write nos discos OS.
 
 ### <a name="location"></a>Localização
 
-Escolha um local onde o Azure Managed Disks está disponível. Se você estiver migrando para o Managed Disks Premium, verifique também se o armazenamento Premium está disponível na região em que você planeja migrar. Consulte [Serviços do Azure por região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre locais disponíveis.
+Escolha um local onde estejam disponíveis discos geridos pelo Azure. Se estiver a migrar para Discos Premium Geridos, certifique-se também de que o armazenamento Premium está disponível na região para onde planeia migrar. Consulte os [Serviços Azure por Região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre os locais disponíveis.
 
 ### <a name="vm-sizes"></a>Tamanhos de VM
 
-Se estiver migrando para o Premium Managed Disks, você precisará atualizar o tamanho da VM para o tamanho com capacidade de armazenamento Premium disponível na região em que a VM está localizada. Examine os tamanhos de VM que são capazes de armazenar o armazenamento Premium. As especificações de tamanho de VM do Azure são listadas em [tamanhos de máquinas virtuais](sizes.md).
-Examine as características de desempenho de máquinas virtuais que funcionam com o armazenamento Premium e escolha o tamanho de VM mais apropriado que melhor atenda à sua carga de trabalho. Verifique se há largura de banda suficiente disponível em sua VM para direcionar o tráfego de disco.
+Se estiver a migrar para Discos Premium Geridos, tem de atualizar o tamanho do VM para o tamanho premium de armazenamento disponível na região onde se encontra o VM. Reveja os tamanhos vm que são premium armazenamento capazes. As especificações do tamanho Do VM Azure estão listadas em [tamanhos para máquinas virtuais.](sizes.md)
+Reveja as características de desempenho das máquinas virtuais que funcionam com o Armazenamento Premium e escolha o tamanho VM mais adequado que melhor se adapte à sua carga de trabalho. Certifique-se de que existe largura de banda suficiente disponível no seu VM para conduzir o tráfego do disco.
 
-### <a name="disk-sizes"></a>Tamanhos de disco
+### <a name="disk-sizes"></a>Tamanhos do disco
 
-**Managed Disks Premium**
+**Discos geridos premium**
 
-Há sete tipos de discos gerenciados Premium que podem ser usados com sua VM e cada um tem IOPs e limites de taxa de transferência específicos. Leve em consideração esses limites ao escolher o tipo de disco Premium para sua VM com base nas necessidades do seu aplicativo em termos de capacidade, desempenho, escalabilidade e picos de carga.
+Existem sete tipos de discos geridos premium que podem ser usados com o seu VM e cada um tem IOPs específicos e limites de entrada. Tenha em conta estes limites ao escolher o tipo de disco Premium para o seu VM com base nas necessidades da sua aplicação em termos de capacidade, desempenho, escalabilidade e pico de cargas máximas.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+| Tipo de discos premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
 | Tamanho do disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPs por disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
 | Débito por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
-**Managed Disks padrão**
+**Discos geridos padrão**
 
-Há sete tipos de Managed disks padrão que podem ser usados com sua VM. Cada uma delas tem capacidade diferente, mas tem os mesmos limites de IOPS e taxa de transferência. Escolha o tipo de Managed disks padrão com base nas necessidades de capacidade do seu aplicativo.
+Existem sete tipos de discos geridos padrão que podem ser usados com o seu VM. Cada um deles tem capacidades diferentes, mas têm os mesmos limites de IOPS e de entrada. Escolha o tipo de discos Standard Managed com base nas necessidades de capacidade da sua aplicação.
 
 | Tipo de Disco Standard  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
@@ -87,15 +87,15 @@ Há sete tipos de Managed disks padrão que podem ser usados com sua VM. Cada um
 
 ### <a name="disk-caching-policy"></a>Política de cache de disco 
 
-**Managed Disks Premium**
+**Discos geridos premium**
 
-Por padrão, a política de cache de disco é *somente leitura* para todos os discos de dados Premium e *leitura/gravação* para o disco do sistema operacional Premium anexado à VM. Essa definição de configuração é recomendada para alcançar o desempenho ideal para o IOs do seu aplicativo. Para discos de dados de gravação intensa ou somente gravação (como SQL Server arquivos de log), desabilite o cache de disco para que você possa obter melhor desempenho do aplicativo.
+Por predefinição, a política de cache de disco é *Read-Only* para todos os discos de dados Premium e *Read-Write* para o disco do sistema operativo Premium ligado ao VM. Esta configuração de configuração é recomendada para obter o desempenho ideal para os IOs da sua aplicação. Para discos de dados de escrita pesadas ou escritas (como ficheiros de registo do SQL Server), desative o cache do disco para que possa obter um melhor desempenho de aplicação.
 
 ### <a name="pricing"></a>Preços
 
-Examine os [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). O preço do Managed Disks Premium é o mesmo que os discos não gerenciados Premium. Mas os preços para Managed Disks padrão são diferentes dos discos não gerenciados padrão.
+Reveja os [preços dos Discos Geridos](https://azure.microsoft.com/pricing/details/managed-disks/). O preço dos Discos Premium Geridos é o mesmo que os Discos Premium Não Geridos. Mas os preços dos Discos Geridos Standard são diferentes dos Discos Não Geridos Standard.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Antes de carregar qualquer VHD no Azure, você deve seguir [preparar um VHD do Windows ou VHDX para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Antes de enviar qualquer VHD para Azure, deve seguir [Prepare um Windows VHD ou VHDX para fazer o upload para O Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

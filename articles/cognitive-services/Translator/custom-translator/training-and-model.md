@@ -1,7 +1,7 @@
 ---
-title: O que é treinamento e modelo? -Tradutor personalizado
+title: O que é treino e modelo? -Tradutor personalizado
 titleSuffix: Azure Cognitive Services
-description: Um modelo é o sistema, que fornece tradução para um par de idiomas específico. O resultado de um treinamento bem-sucedido é um modelo. Ao treinar um modelo, três conjuntos de dados mutuamente exclusivos são DataSet de treinamento, ajustando DataSet e testando DataSet.
+description: Um modelo é o sistema, que fornece tradução para um par de idiomas específico. O resultado de um treino bem sucedido é um modelo. Ao treinar um modelo, são necessários três conjuntos de dados mutuamente exclusivos, afinação de dados e o conjunto de dados de teste.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,47 +10,47 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.openlocfilehash: 71f1e3f460fa58b999af0a60c8cffa90c8ac8cd4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446735"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395517"
 ---
-# <a name="what-are-trainings-and-models"></a>O que são treinamentos e modelos?
+# <a name="what-are-trainings-and-models"></a>O que são treinos e modelos?
 
 Um modelo é o sistema, que fornece tradução para um par de idiomas específico.
-O resultado de um treinamento bem-sucedido é um modelo. Ao treinar um modelo, três tipos de documento mutuamente exclusivos são necessários: treinamento, ajuste e teste. O tipo de documento de dicionário também pode ser fornecido. Consulte [alinhamento de frase](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+O resultado de um treino bem sucedido é um modelo. Ao treinar um modelo, são necessários três tipos de documentos mutuamente exclusivos: formação, afinação e testes. O tipo de documento do dicionário também pode ser fornecido. Por favor, refira-se ao alinhamento da [frase.](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences)
 
-Se apenas os dados de treinamento forem fornecidos ao enfileirar um treinamento, o tradutor personalizado montará automaticamente os dados de ajuste e teste. Ele usará um subconjunto aleatório de frases de seus documentos de treinamento e excluirá essas frases dos próprios dados de treinamento.
+Se apenas forem fornecidos dados de treino na fila de um treino, o Tradutor Personalizado reunirá automaticamente os dados de afinação e teste. Utilizará um subconjunto aleatório de frases dos seus documentos de formação e excluirá estas frases dos próprios dados de formação.
 
-## <a name="training-document-type-for-custom-translator"></a>Tipo de documento de treinamento para o tradutor personalizado
+## <a name="training-document-type-for-custom-translator"></a>Tipo de documento de treino para tradutor personalizado
 
-Os documentos incluídos no conjunto de treinamento são usados pelo Tradutor personalizado como base para a criação do modelo. Durante a execução do treinamento, as frases que estão presentes nesses documentos são alinhadas (ou emparelhadas). Você pode usar o Liberties para compor seu conjunto de documentos de treinamento. Você pode incluir documentos que você acredita que são de relevância tangential em um modelo. Novamente, exclua-os em outro para ver o impacto na [Pontuação Bleu (antiestudo de avaliação bilíngüe)](what-is-bleu-score.md). Desde que você mantenha o conjunto de ajuste e a constante de conjunto de teste, sinta-se à vontade para experimentar a composição do conjunto de treinamento. Essa abordagem é uma maneira eficaz de modificar a qualidade do seu sistema de tradução.
+Os documentos incluídos no conjunto de formação são usados pelo Tradutor Personalizado como base para a construção do seu modelo. Durante a execução do treino, as frases presentes nestes documentos estão alinhadas (ou emparelhadas). Pode tomar liberdades na composição do seu conjunto de documentos de treino. Pode incluir documentos que acredita serem de relevância tangencial num modelo. Mais uma vez, exclua-os noutro para ver o impacto na [pontuação BLEU (Avaliação Bilingue)](what-is-bleu-score.md)pontuação . Desde que mantenha o conjunto de afinação e o conjunto de testes constantes, sinta-se à vontade para experimentar a composição do conjunto de treino. Esta abordagem é uma forma eficaz de modificar a qualidade do seu sistema de tradução.
 
-Você pode executar vários treinamentos dentro de um projeto e comparar as [pontuações de Bleu](what-is-bleu-score.md) em todas as execuções de treinamento. Quando você estiver executando vários treinamentos para comparação, certifique-se de que os mesmos dados de ajuste/teste sejam especificados a cada vez. Além disso, certifique-se também de inspecionar os resultados manualmente na guia ["teste"](how-to-view-system-test-results.md) .
+Você pode executar vários treinos dentro de um projeto e comparar as [pontuações de BLEU](what-is-bleu-score.md) em todos os treinos. Quando estiver a realizar vários treinos para comparação, certifique-se de que os mesmos dados de afinação/teste são especificados de cada vez. Certifique-se também de que inspecione os resultados manualmente no separador ["Testing".](how-to-view-system-test-results.md)
 
-## <a name="tuning-document-type-for-custom-translator"></a>Ajustando o tipo de documento para o tradutor personalizado
+## <a name="tuning-document-type-for-custom-translator"></a>Tipo de documento de afinação para tradutor personalizado
 
-Os documentos paralelos incluídos neste conjunto são usados pelo Tradutor personalizado para ajustar o sistema de tradução para obter resultados ideais.
+Os documentos paralelos incluídos neste conjunto são utilizados pelo Tradutor Personalizado para afinar o sistema de tradução para obter resultados ideais.
 
-Os dados de ajuste são usados durante o treinamento para ajustar todos os parâmetros e pesos do sistema de tradução para os valores ideais. Escolha seus dados de ajuste com cuidado: os dados de ajuste devem ser representativos do conteúdo dos documentos que você pretende traduzir no futuro. Os dados de ajuste têm uma influência importante sobre a qualidade das traduções produzidas. O ajuste permite que o sistema de tradução forneça traduções mais próximas dos exemplos fornecidos nos dados de ajuste. Você não precisa de mais de 2500 frases em seus dados de ajuste. Para uma qualidade de tradução ideal, é recomendável selecionar o conjunto de ajuste manualmente escolhendo a seleção mais representativa de sentenças.
+Os dados de afinação são utilizados durante o treino para ajustar todos os parâmetros e pesos do sistema de tradução aos valores ideais. Escolha cuidadosamente os seus dados de afinação: os dados de afinação devem ser representativos do conteúdo dos documentos que pretende traduzir no futuro. Os dados de afinação têm uma grande influência na qualidade das traduções produzidas. A sintonização permite que o sistema de tradução forneça traduções mais próximas das amostras que fornece nos dados de afinação. Não precisa de mais de 2500 frases nos seus dados de afinação. Para uma ótima qualidade de tradução, é aconselhável selecionar manualmente o conjunto de afinação, escolhendo a seleção mais representativa das frases.
 
-Ao criar seu conjunto de ajuste, escolha frases que sejam um tamanho significativo e representativo das sentenças futuras que você espera traduzir. Você também deve escolher frases que tenham palavras e frases que você pretende traduzir na distribuição aproximada esperada em suas traduções futuras. Na prática, um comprimento de frase de 7 a 10 palavras produzirá os melhores resultados, pois essas frases contêm contexto suficiente para mostrar inflexão e fornecer um comprimento de frase que seja significativo, sem ser excessivamente complexa.
+Ao criar o seu conjunto de afinação, escolha frases que sejam uma duração significativa e representativa das frases futuras que espera traduzir. Você também deve escolher frases que têm palavras e frases que pretende traduzir na distribuição aproximada que você espera nas suas traduções futuras. Na prática, uma duração de frase de 7 a 10 palavras produzirá os melhores resultados, porque estas frases contêm contexto suficiente para mostrar inflexão e fornecer uma frase de comprimento que é significativa, sem ser excessivamente complexa.
 
-Uma boa descrição do tipo de sentenças a ser usada no conjunto de ajuste é o Proseware: frases fluentes reais. Não são células de tabela, não Poems, não listas de coisas, não apenas Pontuação ou números em uma linguagem de sentença regular.
+Uma boa descrição do tipo de frases a utilizar no conjunto de afinação é a prosa: frases fluentes reais. Nem células de mesa, nem poemas, nem listas de coisas, não só pontuação, nem números numa frase - linguagem regular.
 
-Se você selecionar manualmente os dados de ajuste, ele não deverá ter nenhuma das mesmas frases que os dados de treinamento e teste. Os dados de ajuste têm um impacto significativo na qualidade das traduções – escolha as sentenças com cuidado.
+Se selecionar manualmente os seus dados de afinação, não deve ter nenhuma das mesmas frases que os seus dados de treino e teste. Os dados de afinação têm um impacto significativo na qualidade das traduções - escolha as frases cuidadosamente.
 
-Se você não tiver certeza do que escolher para seus dados de ajuste, basta selecionar os dados de treinamento e permitir que o tradutor personalizado selecione os dados de ajuste para você. Quando você permite que o tradutor personalizado escolha os dados de ajuste automaticamente, ele usará um subconjunto aleatório de frases de seus documentos de treinamento bilíngües e excluirá essas frases do próprio material de treinamento.
+Se não tiver a certeza do que escolher para os seus dados de afinação, basta selecionar os dados de treino e deixar o Tradutor Personalizado selecionar os dados de afinação para si. Quando deixar o Tradutor Personalizado escolher automaticamente os dados de afinação, utilizará um subconjunto aleatório de frases dos seus documentos de treino bilingues e excluirá estas frases do próprio material de treino.
 
-## <a name="testing-dataset-for-custom-translator"></a>Testando conjunto de teste para o tradutor personalizado
+## <a name="testing-dataset-for-custom-translator"></a>Teste conjunto de dados para tradutor personalizado
 
-Os documentos paralelos incluídos no conjunto de teste são usados para calcular a pontuação BLEU (antiestudo de avaliação bilíngüe). Essa pontuação indica a qualidade do seu sistema de tradução. Na verdade, essa Pontuação informa a você como as traduções realizadas pelo sistema de tradução resultantes desse treinamento correspondem às frases de referência no conjunto de dados de teste.
+Os documentos paralelos incluídos no conjunto de testes são utilizados para calcular a pontuação BLEU (Avaliação Bilingue) pontuação. Esta pontuação indica a qualidade do seu sistema de tradução. Esta partitura realmente diz-lhe como as traduções feitas pelo sistema de tradução resultantes deste treino correspondem às frases de referência no conjunto de dados de teste.
 
-A pontuação BLEU é uma medida do Delta entre a conversão automática e a tradução de referência. Seu valor varia de 0 a 100. Uma pontuação de 0 indica que uma única palavra da referência é exibida na tradução. Uma pontuação de 100 indica que a conversão automática corresponde exatamente à referência: a mesma palavra está na mesma posição exata. A pontuação que você recebe é a média da Pontuação de BLEU para todas as frases dos dados de teste.
+A pontuação BLEU é uma medição do delta entre a tradução automática e a tradução de referência. O seu valor varia entre 0 e 100. Uma pontuação de 0 indica que nem uma única palavra da referência aparece na tradução. Uma pontuação de 100 indica que a tradução automática corresponde exatamente à referência: a mesma palavra está exatamente na mesma posição. A pontuação que recebe é a média de pontuação bleu para todas as frases dos dados de teste.
 
-Os dados de teste devem incluir documentos paralelos onde as frases de idioma de destino são as traduções mais desejáveis das sentenças de idioma de origem correspondentes no par de destino de origem. Talvez você queira usar os mesmos critérios usados para compor os dados de ajuste. No entanto, os dados de teste não têm influência sobre a qualidade do sistema de tradução. Ele é usado exclusivamente para gerar a pontuação de BLEU para você.
+Os dados do teste devem incluir documentos paralelos em que as frases linguísticas-alvo são as traduções mais desejáveis das frases linguísticas de origem correspondentes no par de alvos-alvo de origem. Pode querer utilizar os mesmos critérios utilizados para compor os dados de afinação. No entanto, os dados de teste não têm qualquer influência sobre a qualidade do sistema de tradução. É usado exclusivamente para gerar a pontuação BLEU para si.
 
-Você não precisa de mais de 2.500 frases como os dados de teste. Quando você permite que o sistema escolha o conjunto de testes automaticamente, ele usará um subconjunto aleatório de frases de seus documentos de treinamento bilíngüe e excluirá essas frases do próprio material de treinamento.
+Não precisa de mais de 2.500 frases como dados de teste. Quando deixar o sistema escolher o conjunto de testes automaticamente, utilizará um subconjunto aleatório de frases dos seus documentos de treino bilingues e excluirá estas frases do próprio material de treino.
 
-Você pode exibir as traduções personalizadas do conjunto de teste e compará-las às traduções fornecidas no conjunto de testes, navegando até a guia teste em um modelo.
+Pode visualizar as traduções personalizadas do conjunto de testes e compará-las com as traduções fornecidas no seu conjunto de testes, navegando para o separador de teste dentro de um modelo.

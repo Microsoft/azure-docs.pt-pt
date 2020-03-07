@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: aschhab
 ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759283"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396671"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagens, bloqueios e acordo
 
@@ -136,7 +136,7 @@ O mecanismo típico de identificação de entregas de mensagens duplicadas é ve
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as mensagens do barramento de serviço, consulte os seguintes tópicos:
+Para saber mais sobre as mensagens de ônibus de serviço, consulte os seguintes tópicos:
 
 * [Filas, tópicos e subscrições do Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

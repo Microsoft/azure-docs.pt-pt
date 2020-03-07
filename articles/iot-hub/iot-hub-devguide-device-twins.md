@@ -1,68 +1,68 @@
 ---
-title: Entender o dispositivo gêmeos do Hub IoT do Azure | Microsoft Docs
-description: Guia do desenvolvedor – usar dispositivos gêmeos para sincronizar dados de estado e de configuração entre o Hub IoT e seus dispositivos
+title: Compreenda os gémeos do dispositivo Azure IoT Hub  Microsoft Docs
+description: Guia de desenvolvedores - use gémeos dispositivos para sincronizar dados de estado e configuração entre o IoT Hub e os seus dispositivos
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 4b80004a3d818e66cc2fb61f3d611bbe3e3ded92
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
-ms.translationtype: MT
+ms.date: 02/01/2020
+ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807039"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358576"
 ---
-# <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
+# <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e usar gémeos dispositivos em IoT Hub
 
-*Dispositivos gêmeos* são documentos JSON que armazenam informações de estado do dispositivo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um dispositivo "r" para cada dispositivo que você conecta ao Hub IoT. 
+*Os gémeos* do dispositivo são documentos JSON que armazenam informações estatais do dispositivo, incluindo metadados, configurações e condições. O Azure IoT Hub mantém um dispositivo twin para cada dispositivo que liga ao IoT Hub. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Este artigo descreve:
 
-* A estrutura do dispositivo: *marcas*, propriedades *desejadas* e *relatadas*.
-* As operações que os aplicativos de dispositivo e back-ends podem executar no dispositivo gêmeos.
+* A estrutura do dispositivo twin: *tags,* propriedades *desejadas* e *comunicadas*.
+* As operações que as aplicações do dispositivo e as extremidades traseiras podem ser operadas em gémeos dispositivos.
 
-Use dispositivos gêmeos para:
+Utilize gémeos do dispositivo para:
 
-* Armazene metadados específicos do dispositivo na nuvem. Por exemplo, o local de implantação de uma máquina de venda.
+* Guarde metadados específicos do dispositivo na nuvem. Por exemplo, a localização de implantação de uma máquina de venda automática.
 
-* Relatar informações de estado atual, como recursos disponíveis e condições do seu aplicativo de dispositivo. Por exemplo, um dispositivo está conectado ao seu hub IoT por celular ou Wi-Fi.
+* Informe as informações atuais do Estado, tais como capacidades e condições disponíveis da aplicação do seu dispositivo. Por exemplo, um dispositivo está ligado ao seu hub IoT sobre celular ou WiFi.
 
-* Sincronize o estado dos fluxos de trabalho de longa execução entre o aplicativo de dispositivo e o aplicativo de back-end. Por exemplo, quando o back-end da solução especifica a nova versão do firmware a ser instalada, e o aplicativo do dispositivo relata os vários estágios do processo de atualização.
+* Sincronizar o estado dos fluxos de trabalho de longo prazo entre a aplicação do dispositivo e a aplicação back-end. Por exemplo, quando a solução traseira especifica a nova versão do firmware para instalar, e a aplicação do dispositivo reporta as várias fases do processo de atualização.
 
-* Consulte os metadados, a configuração ou o estado do dispositivo.
+* Consulta dos metadados, configuração ou estado do seu dispositivo.
 
-Consulte as [diretrizes de comunicação do dispositivo para a nuvem](iot-hub-devguide-d2c-guidance.md) para obter orientação sobre como usar Propriedades relatadas, mensagens do dispositivo para a nuvem ou carregamento de arquivo.
+Consulte [a orientação de comunicação Dispositivo-nuvem](iot-hub-devguide-d2c-guidance.md) para obter orientações sobre a utilização de propriedades reportadas, mensagens dispositivo-a-nuvem ou upload de ficheiros.
 
-Consulte as [diretrizes de comunicação da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md) para obter orientação sobre como usar as propriedades desejadas, métodos diretos ou mensagens da nuvem para o dispositivo.
+Consulte [a orientação de comunicação Cloud-to-device](iot-hub-devguide-c2d-guidance.md) para obter orientações sobre a utilização de propriedades desejadas, métodos diretos ou mensagens cloud-to-device.
 
-## <a name="device-twins"></a>Dispositivo gêmeos
+## <a name="device-twins"></a>Gémeos dispositivo
 
-Dispositivo gêmeos armazene informações relacionadas ao dispositivo que:
+Os gémeos do dispositivo armazenam informações relacionadas com dispositivos que:
 
-* O dispositivo e back-ends podem usar para sincronizar as condições do dispositivo e a configuração.
+* As extremidades do dispositivo e das costas podem ser utilizadas para sincronizar as condições e configurações do dispositivo.
 
-* O back-end da solução pode usar para consultar e direcionar operações de longa execução.
+* A extremidade traseira da solução pode usar para consultar e visar operações de longo prazo.
 
-O ciclo de vida de um dispositivo é vinculado à [identidade do dispositivo](iot-hub-devguide-identity-registry.md)correspondente. Dispositivos gêmeos são criados e excluídos implicitamente quando uma identidade de dispositivo é criada ou excluída no Hub IoT.
+O ciclo de vida de um dispositivo twin está ligado à identidade do [dispositivo](iot-hub-devguide-identity-registry.md)correspondente . Os gémeos do dispositivo são implicitamente criados e eliminados quando uma identidade do dispositivo é criada ou eliminada no IoT Hub.
 
-Um dispositivo "r" é um documento JSON que inclui:
+Um twin de dispositivo é um documento JSON que inclui:
 
-* **Marcações**. Uma seção do documento JSON que o back-end da solução pode ler e gravar. As marcas não são visíveis para os aplicativos do dispositivo.
+* **Etiquetas.** Uma secção do documento JSON que a solução traseira pode ler e escrever. As etiquetas não são visíveis para aplicações de dispositivos.
 
-* **Propriedades desejadas**. Usado junto com as propriedades relatadas para sincronizar a configuração ou as condições do dispositivo. O back-end da solução pode definir as propriedades desejadas e o aplicativo do dispositivo pode lê-las. O aplicativo do dispositivo também pode receber notificações de alterações nas propriedades desejadas.
+* **Propriedades desejadas.** Usado juntamente com propriedades reportadas para sincronizar a configuração ou as condições do dispositivo. A solução traseira pode definir as propriedades desejadas, e a aplicação do dispositivo pode lê-las. A aplicação do dispositivo também pode receber notificações de alterações nas propriedades desejadas.
 
-* **Propriedades relatadas**. Usado junto com as propriedades desejadas para sincronizar a configuração ou as condições do dispositivo. O aplicativo do dispositivo pode definir propriedades relatadas e o back-end da solução pode lê-las e consultá-las.
+* **Propriedades reportadas.** Usado juntamente com as propriedades desejadas para sincronizar a configuração ou as condições do dispositivo. A aplicação do dispositivo pode definir propriedades reportadas, e a solução traseira pode lê-las e questioná-las.
 
-* **Propriedades de identidade do dispositivo**. A raiz do documento JSON de dispositivo de alta disponibilidade contém as propriedades somente leitura da identidade do dispositivo correspondente armazenada no [registro de identidade](iot-hub-devguide-identity-registry.md).
+* **Propriedades de identidade do dispositivo.** A raiz do documento JSON gémeo do dispositivo contém as propriedades apenas de leitura a partir da identidade do dispositivo correspondente armazenada no [registo de identidade](iot-hub-devguide-identity-registry.md).
 
-![Captura de tela das propriedades de dispositivo.](./media/iot-hub-devguide-device-twins/twin.png)
+![Screenshot das propriedades gémeas do dispositivo](./media/iot-hub-devguide-device-twins/twin.png)
 
-O exemplo a seguir mostra um documento JSON de dispositivo de entrelaçamento:
+O exemplo seguinte mostra um documento JSON gémeo do dispositivo:
 
 ```json
 {
@@ -108,20 +108,20 @@ O exemplo a seguir mostra um documento JSON de dispositivo de entrelaçamento:
 }
 ```
 
-No objeto raiz estão as propriedades de identidade do dispositivo e os objetos de contêiner para `tags` e as propriedades `reported` e `desired`. O contêiner `properties` contém alguns elementos somente leitura (`$metadata`, `$etag`e `$version`) descritos nos [metadados do dispositivo](iot-hub-devguide-device-twins.md#device-twin-metadata) e nas seções de [simultaneidade otimista](iot-hub-devguide-device-twins.md#optimistic-concurrency) .
+No objeto raiz encontram-se as propriedades de identidade do dispositivo e objetos de contentores para `tags` e propriedades `reported` e `desired`. O recipiente `properties` contém alguns elementos apenas de leitura (`$metadata`, `$etag`e `$version`) descritos nas secções de [metadados duplos do Dispositivo](iot-hub-devguide-device-twins.md#device-twin-metadata) e [de conmoeda otimista.](iot-hub-devguide-device-twins.md#optimistic-concurrency)
 
-### <a name="reported-property-example"></a>Exemplo da propriedade relatada
+### <a name="reported-property-example"></a>Exemplo de propriedade reportada
 
-No exemplo anterior, o dispositivo "r" contém uma propriedade `batteryLevel` que é relatada pelo aplicativo do dispositivo. Essa propriedade possibilita consultar e operar em dispositivos com base no último nível de bateria relatado. Outros exemplos incluem os recursos de dispositivo de relatório de aplicativo do dispositivo ou as opções de conectividade.
+No exemplo anterior, o dispositivo twin contém uma propriedade `batteryLevel` que é reportada pela aplicação do dispositivo. Esta propriedade permite consultar e operar em dispositivos com base no último nível de bateria reportado. Outros exemplos incluem as capacidades do dispositivo de reporte de dispositivos ou opções de conectividade.
 
 > [!NOTE]
-> As propriedades relatadas simplificam os cenários em que o back-end da solução está interessado no último valor conhecido de uma propriedade. Use [mensagens do dispositivo para a nuvem](iot-hub-devguide-messages-d2c.md) se o back-end da solução precisar processar a telemetria do dispositivo na forma de sequências de eventos com carimbo de data/hora, como uma série temporal.
+> As propriedades reportadas simplificam cenários onde a solução final está interessada no último valor conhecido de um imóvel. Utilize [mensagens dispositivo-cloud](iot-hub-devguide-messages-d2c.md) se a extremidade traseira da solução precisar de processar a telemetria do dispositivo sob a forma de sequências de eventos timestamped, como séries de tempo.
 
-### <a name="desired-property-example"></a>Exemplo da propriedade desejada
+### <a name="desired-property-example"></a>Exemplo de propriedade desejada
 
-No exemplo anterior, as propriedades desejadas e relatadas do dispositivo de `telemetryConfig` são usadas pelo back-end da solução e o aplicativo do dispositivo para sincronizar a configuração de telemetria para este dispositivo. Por exemplo:
+No exemplo anterior, as propriedades de desejadas e reportadas pelo dispositivo `telemetryConfig` são utilizadas pela solução traseira e pela aplicação do dispositivo para sincronizar a configuração da telemetria para este dispositivo. Por exemplo:
 
-1. O back-end da solução define a propriedade desejada com o valor de configuração desejado. Aqui está a parte do documento com o conjunto de propriedades desejado:
+1. A extremidade traseira da solução define a propriedade desejada com o valor de configuração desejado. Aqui está a parte do documento com o conjunto de propriedades pretendido:
 
    ```json
    "desired": {
@@ -132,7 +132,7 @@ No exemplo anterior, as propriedades desejadas e relatadas do dispositivo de `te
    },
    ```
 
-2. O aplicativo do dispositivo é notificado sobre a alteração imediatamente se conectado ou na primeira reconexão. Em seguida, o aplicativo de dispositivo relata a configuração atualizada (ou uma condição de erro usando a propriedade `status`). Aqui está a parte das propriedades relatadas:
+2. A aplicação do dispositivo é notificada da alteração imediatamente se estiver ligada ou no primeiro reconectar-se. A aplicação do dispositivo reporta então a configuração atualizada (ou uma condição de erro utilizando a propriedade `status`). Aqui está a parte das propriedades reportadas:
 
    ```json
    "reported": {
@@ -144,21 +144,21 @@ No exemplo anterior, as propriedades desejadas e relatadas do dispositivo de `te
    }
    ```
 
-3. O back-end da solução pode acompanhar os resultados da operação de configuração em vários dispositivos [consultando](iot-hub-devguide-query-language.md) dispositivos gêmeos.
+3. A extremidade traseira da solução pode acompanhar os resultados da operação de configuração em muitos dispositivos [consultando](iot-hub-devguide-query-language.md) gémeos dispositivos.
 
 > [!NOTE]
-> Os trechos de código anteriores são exemplos, otimizados para facilitar a leitura, de uma maneira de codificar uma configuração de dispositivo e seu status. O Hub IoT não impõe um esquema específico para as propriedades desejadas do dispositivo e relatadas no dispositivo gêmeos.
+> Os excertos anteriores são exemplos, otimizados para a legibilidade, de uma forma de codificar a configuração de um dispositivo e o seu estado. O IoT Hub não impõe um esquema específico para o dispositivo que twin desejado e reportado propriedades no dispositivo gémeos.
 > 
 
-Você pode usar o gêmeos para sincronizar operações de longa execução, como atualizações de firmware. Para obter mais informações sobre como usar propriedades para sincronizar e acompanhar uma operação de execução longa em dispositivos, consulte [usar as propriedades desejadas para configurar dispositivos](tutorial-device-twins.md).
+Pode utilizar gémeos para sincronizar operações de longo prazo, como atualizações de firmware. Para obter mais informações sobre como utilizar propriedades para sincronizar e rastrear uma operação de longo curso através dos dispositivos, consulte [utilize propriedades desejadas para configurar dispositivos](tutorial-device-twins.md).
 
 ## <a name="back-end-operations"></a>Operações de back-end
 
-O back-end da solução opera no dispositivo usando as seguintes operações atômicas, expostas por meio de HTTPS:
+A extremidade traseira da solução funciona no dispositivo twin utilizando as seguintes operações atómicas, expostas através de HTTPS:
 
-* **Recuperar o dispositivo de entrelaçamento por ID**. Esta operação retorna o documento de dispositivo de entrelaçamento, incluindo marcas e propriedades do sistema desejadas e reportadas.
+* **Recuperar dispositivo gémeo por ID**. Esta operação devolve o documento twin do dispositivo, incluindo etiquetas e propriedades desistema desejadas e reportadas.
 
-* **Atualização parcial do dispositivo**. Essa operação permite que o back-end da solução atualize parcialmente as marcas ou as propriedades desejadas em um dispositivo. A atualização parcial é expressa como um documento JSON que adiciona ou atualiza qualquer propriedade. As propriedades definidas como `null` são removidas. O exemplo a seguir cria uma nova propriedade desejada com o valor `{"newProperty": "newValue"}`, substitui o valor existente de `existingProperty` por `"otherNewValue"`e remove `otherOldProperty`. Nenhuma outra alteração é feita nas propriedades ou marcas desejadas existentes:
+* **Atualizar parcialmente o dispositivo twin**. Esta operação permite que a solução volte a atualizar parcialmente as etiquetas ou propriedades desejadas num dispositivo twin. A atualização parcial é expressa como um documento JSON que adiciona ou atualiza qualquer propriedade. As propriedades definidas para `null` são removidas. O exemplo seguinte cria um novo imóvel desejado com valor `{"newProperty": "newValue"}`, substitui o valor existente de `existingProperty` com `"otherNewValue"`, e remove `otherOldProperty`. Não são feitas outras alterações às propriedades ou etiquetas existentes:
 
    ```json
    {
@@ -174,31 +174,31 @@ O back-end da solução opera no dispositivo usando as seguintes operações at�
    }
    ```
 
-* **Substituir as propriedades desejadas**. Essa operação permite que o back-end da solução substitua completamente todas as propriedades desejadas existentes e substitua um novo documento JSON por `properties/desired`.
+* **Substitua as propriedades desejadas**. Esta operação permite que a solução volte a substituir completamente todas as propriedades existentes e substituir um novo documento JSON para `properties/desired`.
 
-* **Substituir marcas**. Essa operação permite que o back-end da solução substitua completamente todas as marcas existentes e substitua um novo documento JSON por `tags`.
+* **Substitua as etiquetas**. Esta operação permite que a solução volte a substituir todas as etiquetas existentes e substituir um novo documento JSON para `tags`.
 
-* **Receber notificações de entrelaçamento**. Esta operação permite que o back-end da solução seja notificado quando a cópia de cópia for modificada. Para fazer isso, sua solução de IoT precisa criar uma rota e definir a fonte de dados igual a *twinChangeEvents*. Por padrão, essas rotas não existem previamente, portanto, nenhuma notificação de entrelaçamento é enviada. Se a taxa de alteração for muito alta, ou por outros motivos, como falhas internas, o Hub IoT poderá enviar apenas uma notificação que contenha todas as alterações. Portanto, se seu aplicativo precisar de auditoria e log confiáveis de todos os Estados intermediários, você deverá usar mensagens do dispositivo para a nuvem. A mensagem de notificação de entrelaçamento inclui propriedades e corpo.
+* **Receba notificações duplas**. Esta operação permite que a solução de volta seja notificada quando o gémeo é modificado. Para tal, a sua solução IoT precisa de criar uma rota e de definir a Fonte de Dados igual a *twinChangeEvents*. Por predefinição, não existem tais rotas antes, pelo que não são enviadas notificações gémeas. Se a taxa de alteração for demasiado elevada, ou por outras razões, como falhas internas, o IoT Hub poderá enviar apenas uma notificação que contenha todas as alterações. Portanto, se a sua aplicação necessitar de auditoria e registo fiável de todos os estados intermédios, deve utilizar mensagens dispositivo-cloud. A mensagem de notificação gémea inclui propriedades e corpo.
 
   - Propriedades
 
     | Nome | Valor |
     | --- | --- |
-    tipo de $content | application/json |
-    $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
+    $content | application/json |
+    $iothub-enqueuedtime |  Hora da notificação ser enviada |
     $iothub-message-source | twinChangeEvents |
     $content-encoding | utf-8 |
     deviceId | ID do dispositivo |
     hubName | Nome do Hub IoT |
-    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) carimbo de data/hora da operação |
+    operationTimestamp | Carimbo de tempo [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) de operação |
     iothub-message-schema | twinChangeNotification |
-    opType | "replaceTwin" ou "updateTwin" |
+    opType | "substituir Twin" ou "updateTwin" |
 
-    As propriedades do sistema de mensagens são prefixadas com o símbolo de `$`.
+    As propriedades do sistema de mensagens são pré-fixadas com o símbolo `$`.
 
   - Corpo
         
-    Esta seção inclui todas as alterações de entrelaçamento em um formato JSON. Ele usa o mesmo formato que um patch, com a diferença de que ele pode conter todas as seções de myup: Tags, Properties. reported, Properties. Desired e que ele contém os elementos "$metadata". Por exemplo,
+    Esta secção inclui todas as alterações gémeas num formato JSON. Usa o mesmo formato que um patch, com a diferença de que pode conter todas as secções gémeas: tags, properties.reported, properties.desireed, e que contém os elementos "$metadata". Por exemplo,
 
     ```json
     {
@@ -219,37 +219,41 @@ O back-end da solução opera no dispositivo usando as seguintes operações at�
     }
     ```
 
-Todas as operações anteriores dão suporte à [simultaneidade otimista](iot-hub-devguide-device-twins.md#optimistic-concurrency) e exigem a permissão de **perconnect** , conforme definido em [controlar o acesso ao Hub IOT](iot-hub-devguide-security.md).
+Todas as operações anteriores suportam [a conmoeda otimista](iot-hub-devguide-device-twins.md#optimistic-concurrency) e requerem a permissão **ServiceConnect,** tal como definida no [acesso ao IoT Hub](iot-hub-devguide-security.md).
 
-Além dessas operações, o back-end da solução pode:
+Além destas operações, a solução de fundo pode:
 
-* Consulte o dispositivo gêmeos usando a [linguagem de consulta do Hub IOT](iot-hub-devguide-query-language.md)semelhante ao SQL.
+* Consultar os gémeos do dispositivo usando a linguagem de [consulta IoT Hub](iot-hub-devguide-query-language.md)semelhante a SQL .
 
-* Executar operações em grandes conjuntos de dispositivos gêmeos usando [trabalhos](iot-hub-devguide-jobs.md).
+* Efetuar operações em grandes conjuntos de gémeos dispositivos utilizando [trabalhos](iot-hub-devguide-jobs.md).
 
-## <a name="device-operations"></a>Operações do dispositivo
+## <a name="device-operations"></a>Operações de dispositivos
 
-O aplicativo do dispositivo opera no dispositivo usando as seguintes operações atômicas:
+A aplicação do dispositivo funciona no dispositivo twin utilizando as seguintes operações atómicas:
 
-* **Recuperar o dispositivo**. Esta operação retorna o documento de dispositivo de documentos (incluindo as propriedades do sistema desejadas e reportadas) para o dispositivo conectado no momento. (As marcas não são visíveis para os aplicativos do dispositivo.)
+* **Recuperar o dispositivo twin**. Esta operação devolve o documento twin do dispositivo (incluindo as propriedades do sistema desejados e reportados) para o dispositivo atualmente ligado. (As etiquetas não são visíveis para aplicações de dispositivos.)
 
-* **Atualizar parcialmente as propriedades relatadas**. Essa operação habilita a atualização parcial das propriedades relatadas do dispositivo conectado no momento. Esta operação usa o mesmo formato de atualização JSON usado pelo back-end da solução para uma atualização parcial das propriedades desejadas.
+* **Atualizar parcialmente as propriedades reportadas.** Esta operação permite a atualização parcial das propriedades reportadas do dispositivo atualmente ligado. Esta operação utiliza o mesmo formato de atualização JSON que a solução traseira utiliza para uma atualização parcial das propriedades desejadas.
 
-* **Observe as propriedades desejadas**. O dispositivo conectado no momento pode optar por ser notificado das atualizações para as propriedades desejadas quando elas ocorrerem. O dispositivo recebe a mesma forma de atualização (substituição parcial ou completa) executada pelo back-end da solução.
+* **Observe as propriedades desejadas.** O dispositivo atualmente ligado pode optar por ser notificado das atualizações para as propriedades desejadas quando elas acontecerem. O dispositivo recebe a mesma forma de atualização (substituição parcial ou completa) executada pela extremidade traseira da solução.
 
-Todas as operações anteriores exigem a permissão **DeviceConnect** , conforme definido em [controlar o acesso ao Hub IOT](iot-hub-devguide-security.md).
+Todas as operações anteriores requerem a permissão **DeviceConnect,** tal como definida no [Control Access to IoT Hub](iot-hub-devguide-security.md).
 
-Os [SDKs do dispositivo IOT do Azure](iot-hub-devguide-sdks.md) facilitam o uso das operações anteriores de várias linguagens e plataformas. Para obter mais informações sobre os detalhes dos primitivos do Hub IoT para sincronização de propriedades desejadas, consulte [fluxo de reconexão do dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow).
+Os [SDKs do dispositivo Azure IoT](iot-hub-devguide-sdks.md) facilitam a utilização das operações anteriores de muitos idiomas e plataformas. Para obter mais informações sobre os detalhes dos primitivos do IoT Hub para sincronização de propriedades desejadas, consulte o fluxo de [reconexão do Dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow).
 
-## <a name="tags-and-properties-format"></a>Formato de marcas e propriedades
+## <a name="tags-and-properties-format"></a>Formato de tags e propriedades
 
-Marcas, propriedades desejadas e propriedades relatadas são objetos JSON com as seguintes restrições:
+Tags, propriedades desejadas e propriedades reportadas são objetos JSON com as seguintes restrições:
 
-* Todas as chaves em objetos JSON são codificadas em UTF-8, diferencia maiúsculas de minúsculas e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controle UNICODE (segmentos C0 e C1) e `.`, `$`e SP.
+* **Teclas**: Todas as teclas em objetos JSON são codificadas, sensíveis a casos e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controlo UNICODE (segmentos C0 e C1) e `.`, `$`e SP.
 
-* Todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booliano, número, Cadeia de caracteres, objeto. Não são permitidas matrizes. O valor máximo de inteiros é 4503599627370495 e o valor mínimo para inteiros é-4503599627370496.
+* **Valores**: Todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booleano, número, corda, objeto. Não são permitidas matrizes.
 
-* Todos os objetos JSON em marcas, propriedades desejadas e relatadas podem ter uma profundidade máxima de 10. Por exemplo, o seguinte objeto é válido:
+    * Os inteiros podem ter um valor mínimo de -4503599627370496 e um valor máximo de 4503599627370495.
+
+    * Os valores das cordas são uTF-8 codificados e podem ter um comprimento máximo de 4 KB.
+
+* **Profundidade**: A profundidade máxima dos objetos JSON em etiquetas, propriedades desejadas e propriedades reportadas é de 10. Por exemplo, o seguinte objeto é válido:
 
    ```json
    {
@@ -281,19 +285,27 @@ Marcas, propriedades desejadas e propriedades relatadas são objetos JSON com as
    }
    ```
 
-* Todos os valores de cadeia de caracteres podem ter no máximo 4 KB de comprimento.
+## <a name="device-twin-size"></a>Tamanho gémeo do dispositivo
 
-## <a name="device-twin-size"></a>Tamanho do dispositivo
+O IoT Hub impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB cada um no valor de `properties/desired` e `properties/reported`. Estes totais são exclusivos de elementos de leitura como `$etag`, `$version`e `$metadata/$lastUpdated`.
 
-O Hub IoT impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB, cada um com o valor de `properties/desired` e `properties/reported`. Esses totais são exclusivos de elementos somente leitura.
+O tamanho gémeo é calculado da seguinte forma:
 
-O tamanho é calculado pela contagem de todos os caracteres, excluindo caracteres de controle UNICODE (segmentos C0 e C1) e espaços que estão fora das constantes de cadeia de caracteres.
+* Para cada imóvel no documento JSON, o IoT Hub calcula cumulativamente e adiciona o comprimento da chave e valor da propriedade.
 
-O Hub IoT rejeita com um erro todas as operações que aumentariam o tamanho desses documentos acima do limite.
+* As chaves de propriedade são consideradas como cordas codificadas pelo UTF8.
 
-## <a name="device-twin-metadata"></a>Metadados de entrelaçamento do dispositivo
+* Os valores de propriedade simples são considerados como cordas codificadas por UTF8, valores numéricos (8 Bytes) ou valores booleanos (4 Bytes).
 
-O Hub IoT mantém o carimbo de data/hora da última atualização para cada objeto JSON nas propriedades relatadas e desejadas do dispositivo. Os carimbos de data/hora estão em UTC e são codificados no formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+* O tamanho das cordas codificadas uTF8 é calculado contando todos os caracteres, excluindo caracteres de controlo UNICODE (segmentos C0 e C1).
+
+* Os valores de propriedade complexos (objetos aninhados) são calculados com base no tamanho agregado das chaves de propriedade e valores de propriedade que contêm.
+
+O IoT Hub rejeita com um erro todas as operações que aumentem a dimensão do `tags`, `properties/desired`, ou `properties/reported` documentos acima do limite.
+
+## <a name="device-twin-metadata"></a>Metadados gémeos do dispositivo
+
+O IoT Hub mantém o carimbo de tempo da última atualização para cada objeto JSON em propriedades desejadas e reportadas pelo dispositivo. Os carimbos temporais estão em UTC e codificados no formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
 Por exemplo:
 
@@ -342,55 +354,55 @@ Por exemplo:
 }
 ```
 
-Essas informações são mantidas em todos os níveis (não apenas nas folhas da estrutura JSON) para preservar as atualizações que removem as chaves de objeto.
+Esta informação é mantida em todos os níveis (e não apenas nas folhas da estrutura JSON) para preservar atualizações que removem as teclas do objeto.
 
-## <a name="optimistic-concurrency"></a>Simultaneidade otimista
+## <a name="optimistic-concurrency"></a>Conmoeda otimista
 
-As propriedades de marcas, desejadas e relatadas oferecem suporte à simultaneidade otimista.
-As marcas têm uma ETag, de acordo com a [RFC7232](https://tools.ietf.org/html/rfc7232), que representa a representação JSON da marca. Você pode usar ETags em operações de atualização condicionais do back-end da solução para garantir a consistência.
+Tags, desejados e propriedades relatadas todos suportam conmoeda otimista.
+As etiquetas têm um ETag, de acordo com [o RFC7232,](https://tools.ietf.org/html/rfc7232)que representa a representação json da etiqueta. Pode utilizar ETags em operações de atualização condicional a partir da extremidade traseira da solução para garantir a consistência.
 
-As propriedades desejadas e relatadas do dispositivo ' r ' não têm ETags, mas têm um valor `$version` que é garantido como incremental. Da mesma forma que uma ETag, a versão pode ser usada pela parte de atualização para impor a consistência das atualizações. Por exemplo, um aplicativo de dispositivo para uma propriedade relatada ou o back-end da solução para uma propriedade desejada.
+As propriedades desejadas e reportadas não têm ETags, mas têm um valor `$version` que é garantido ser incremental. Da mesma forma que um ETag, a versão pode ser usada pela parte de atualização para impor a consistência das atualizações. Por exemplo, um aplicativo de dispositivo para uma propriedade reportada ou a solução traseira para uma propriedade desejada.
 
-As versões também são úteis quando um agente de observação (como o aplicativo de dispositivo que observa as propriedades desejadas) deve reconciliar corridas entre o resultado de uma operação de recuperação e uma notificação de atualização. A [seção fluxo de reconexão do dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow) fornece mais informações.
+As versões também são úteis quando um agente de observação (como a aplicação do dispositivo que observa as propriedades desejadas) deve conciliar as corridas entre o resultado de uma operação de recuperação e uma notificação de atualização. A secção de fluxo de [reconexão](iot-hub-devguide-device-twins.md#device-reconnection-flow) do Dispositivo fornece mais informações.
 
 ## <a name="device-reconnection-flow"></a>Fluxo de reconexão do dispositivo
 
-O Hub IoT não preserva as propriedades desejadas notificações de atualização para dispositivos desconectados. Ele segue que um dispositivo que está se conectando deve recuperar o documento de propriedades desejadas completo, além de assinar notificações de atualização. Devido à possibilidade de corridas entre as notificações de atualização e a recuperação completa, o seguinte fluxo deve ser garantido:
+O IoT Hub não preserva as notificações de atualização de propriedades desejadas para dispositivos desligados. Daí resulta que um dispositivo que está em ligação deve recuperar o documento de propriedades desejadas, além de subscrever notificações de atualização. Dada a possibilidade de corridas entre notificações atualizadas e recuperação total, deve ser assegurado o seguinte fluxo:
 
-1. O aplicativo do dispositivo se conecta a um hub IoT.
-2. O aplicativo de dispositivo assina as notificações de atualização das propriedades desejadas.
-3. O aplicativo do dispositivo recupera o documento completo para as propriedades desejadas.
+1. A aplicação do dispositivo liga-se a um hub IoT.
+2. A aplicação do dispositivo subscreve as notificações de atualização de propriedades desejadas.
+3. A aplicação do dispositivo recupera o documento completo para as propriedades desejadas.
 
-O aplicativo do dispositivo pode ignorar todas as notificações com `$version` menor ou igual à versão do documento recuperado completo. Essa abordagem é possível porque o Hub IoT garante que as versões sempre incrementam.
+A aplicação do dispositivo pode ignorar todas as notificações com `$version` menos ou igual do que a versão do documento recuperado completo. Esta abordagem é possível porque o IoT Hub garante que as versões sempre incrementam.
 
 > [!NOTE]
-> Essa lógica já está implementada nos [SDKs do dispositivo IOT do Azure](iot-hub-devguide-sdks.md). Essa descrição será útil somente se o aplicativo do dispositivo não puder usar nenhum dos SDKs do dispositivo IoT do Azure e precisar programar a interface MQTT diretamente.
+> Esta lógica já está implementada nos [SDKs do dispositivo Azure IoT.](iot-hub-devguide-sdks.md) Esta descrição só é útil se a aplicação do dispositivo não puder utilizar nenhum dos SDKs do dispositivo Azure IoT e deve programar a interface MQTT diretamente.
 > 
 
 ## <a name="additional-reference-material"></a>Material de referência adicional
 
-Outros tópicos de referência no guia do desenvolvedor do Hub IoT incluem:
+Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
-* O artigo [pontos de extremidade do Hub IOT](iot-hub-devguide-endpoints.md) descreve os vários pontos de extremidade que cada Hub IOT expõe para operações de tempo de execução e de gerenciamento.
+* O artigo de [pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) descreve os vários pontos finais que cada hub IoT expõe para operações de execução e gestão.
 
-* O artigo [limitação e cotas](iot-hub-devguide-quotas-throttling.md) descreve as cotas que se aplicam ao serviço Hub IOT e o comportamento de limitação esperado ao usar o serviço.
+* O artigo [de Estrangulamento e quotas](iot-hub-devguide-quotas-throttling.md) descreve as quotas aplicáveis ao serviço IoT Hub e o comportamento de estrangulamento a esperar quando utilizar o serviço.
 
-* O artigo [SDKs do dispositivo e do serviço do Azure IOT](iot-hub-devguide-sdks.md) lista os diversos SDKs de linguagem que você pode usar ao desenvolver aplicativos de dispositivo e de serviço que interagem com o Hub IOT.
+* O [artigo do Dispositivo E Serviço Azure IoT](iot-hub-devguide-sdks.md) lista os vários SDKs linguísticos que pode utilizar quando desenvolve aplicações de dispositivos e serviços que interagem com o IoT Hub.
 
-* O artigo [linguagem de consulta do Hub IOT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md) descreve a linguagem de consulta do Hub IOT que você pode usar para recuperar informações do Hub IOT sobre seu dispositivo gêmeos e trabalhos.
+* A linguagem de [consulta IoT Hub para gémeos de dispositivos, empregos e](iot-hub-devguide-query-language.md) artigo de encaminhamento de mensagens descreve a linguagem de consulta IoT Hub que você pode usar para obter informações do IoT Hub sobre os seus gémeos e empregos do seu dispositivo.
 
-* O artigo de [suporte do MQTT Hub IOT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IOT para o protocolo MQTT.
+* O artigo de [suporte IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você aprendeu sobre dispositivos gêmeos, talvez esteja interessado nos seguintes tópicos do guia do desenvolvedor do Hub IoT:
+Agora que já aprendeu sobre gémeos dispositivos, pode estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 
-* [Entender e usar o gêmeos do módulo no Hub IoT](iot-hub-devguide-module-twins.md)
-* [Invocar um método direto em um dispositivo](iot-hub-devguide-direct-methods.md)
+* [Compreender e usar gémeos módulos no IoT Hub](iot-hub-devguide-module-twins.md)
+* [Invoque um método direto num dispositivo](iot-hub-devguide-direct-methods.md)
 * [Programar tarefas em vários dispositivos](iot-hub-devguide-jobs.md)
 
-Para experimentar alguns dos conceitos descritos neste artigo, consulte os seguintes tutoriais do Hub IoT:
+Para experimentar alguns dos conceitos descritos neste artigo, consulte os seguintes tutoriais IoT Hub:
 
-* [Como usar o dispositivo.](iot-hub-node-node-twin-getstarted.md)
-* [Como usar as propriedades de dispositivo.](tutorial-device-twins.md)
-* [Gerenciamento de dispositivos com as ferramentas de IoT do Azure para VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Como usar o dispositivo twin](iot-hub-node-node-twin-getstarted.md)
+* [Como usar propriedades gémeas do dispositivo](tutorial-device-twins.md)
+* [Gestão de dispositivos com ferramentas Azure IoT para código VS](iot-hub-device-management-iot-toolkit.md)

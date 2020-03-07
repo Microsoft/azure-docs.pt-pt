@@ -1,6 +1,6 @@
 ---
-title: O que é um ponto de extremidade privado do Azure?
-description: Saiba mais sobre o ponto de extremidade privado do Azure
+title: O que é um Ponto Final Privado Azure?
+description: Saiba mais sobre o Azure Private Endpoint
 services: private-link
 author: malopMSFT
 ms.service: private-link
@@ -8,131 +8,131 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
 ms.openlocfilehash: dd73f42aaa0d0bd1884892143d96446935a401a5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048445"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395489"
 ---
-# <a name="what-is-azure-private-endpoint"></a>O que é o ponto de extremidade privado do Azure?
+# <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
 
-O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço de forma privada e segura com a tecnologia Azure Private Link. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente o serviço em sua VNet. O serviço poderia ser um serviço Azure como Azure Storage, Azure Cosmos DB, SQL, etc. ou o seu próprio [Serviço de Ligação Privada.](private-link-service-overview.md)
+O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço de forma privada e segura com a tecnologia Azure Private Link. O Private Endpoint utiliza um endereço IP privado do seu VNet, efetivamente trazendo o serviço para o seu VNet. O serviço poderia ser um serviço Azure como Azure Storage, Azure Cosmos DB, SQL, etc. ou o seu próprio [Serviço de Ligação Privada.](private-link-service-overview.md)
   
-## <a name="private-endpoint-properties"></a>Propriedades do ponto de extremidade privado 
- Um ponto de extremidade privado especifica as seguintes propriedades: 
+## <a name="private-endpoint-properties"></a>Propriedades private endpoint 
+ Um Ponto Final Privado especifica as seguintes propriedades: 
 
 
 |Propriedade  |Descrição |
 |---------|---------|
-|Nome    |    Um nome exclusivo dentro do grupo de recursos.      |
-|Subrede    |  A sub-rede para implantar e alocar endereços IP privados de uma rede virtual. Para obter os requisitos de sub-rede, consulte a seção limitações neste artigo.         |
-|Recurso de link privado    |   O recurso de link privado para se conectar usando a ID de recurso ou alias da lista de tipos disponíveis. Um identificador de rede exclusivo será gerado para todo o tráfego enviado para esse recurso.       |
-|Subrecurso de destino   |      O subrecurso a ser conectado. Cada tipo de recurso de link privado tem opções diferentes para selecionar com base na preferência.    |
-|Método de aprovação de conexão    |  Automático ou manual. Com base nas permissões de RBAC (controle de acesso baseado em função), seu ponto de extremidade privado pode ser aprovado automaticamente. Se você tentar se conectar a um recurso de link privado sem RBAC, use o método manual para permitir que o proprietário do recurso aprove a conexão.        |
-|Mensagem de solicitação     |  Você pode especificar uma mensagem para que as conexões solicitadas sejam aprovadas manualmente. Essa mensagem pode ser usada para identificar uma solicitação específica.        |
-|Estado da ligação   |   Uma propriedade somente leitura que especifica se o ponto de extremidade privado está ativo. Somente pontos de extremidade privados em um Estado aprovado podem ser usados para enviar tráfego. Outros Estados disponíveis: <br>-**Aprovado**: A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada.</br><br>-**Pendente**: A ligação foi criada manualmente e está pendente de aprovação pelo proprietário de recursos de ligação privada.</br><br>-**Rejeitado**: A ligação foi rejeitada pelo proprietário de recursos de ligação privada.</br><br>-**Desligado**: A ligação foi removida pelo proprietário do recurso de ligação privada. O ponto de extremidade privado se torna informativo e deve ser excluído para limpeza. </br>|
+|Nome    |    Um nome único dentro do grupo de recursos.      |
+|Subrede    |  A subnet para implantar e alocar endereços IP privados a partir de uma rede virtual. Para obter requisitos de sub-rede, consulte a secção Limitações neste artigo.         |
+|Recurso de ligação privada    |   O recurso de ligação privada para ligar usando identificação ou pseudónimo de recursos, a partir da lista de tipos disponíveis. Será gerado um identificador de rede único para todo o tráfego enviado para este recurso.       |
+|Subrecurso-alvo   |      O subrecurso para ligar. Cada tipo de recurso de ligação privada tem diferentes opções para selecionar com base na preferência.    |
+|Método de aprovação de ligação    |  Automático ou manual. Com base em permissões de controlo de acesso baseadas em funções (RBAC), o seu ponto final privado pode ser aprovado automaticamente. Se tentar ligar-se a um recurso de ligação privada sem RBAC, utilize o método manual para permitir ao proprietário do recurso aprovar a ligação.        |
+|Mensagem de Pedido     |  Pode especificar uma mensagem para que as ligações solicitadas sejam aprovadas manualmente. Esta mensagem pode ser usada para identificar um pedido específico.        |
+|Estado da ligação   |   Uma propriedade só para leitura que especifica se o ponto final privado está ativo. Apenas pontos finais privados num estado aprovado podem ser usados para enviar tráfego. Estados adicionais disponíveis: <br>-**Aprovado**: A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada.</br><br>-**Pendente**: A ligação foi criada manualmente e está pendente de aprovação pelo proprietário de recursos de ligação privada.</br><br>-**Rejeitado**: A ligação foi rejeitada pelo proprietário de recursos de ligação privada.</br><br>-**Desligado**: A ligação foi removida pelo proprietário do recurso de ligação privada. O ponto final privado torna-se informativo e deve ser eliminado para limpeza. </br>|
 
-Aqui estão alguns detalhes importantes sobre pontos de extremidade privados: 
+Aqui estão alguns detalhes chave sobre pontos finais privados: 
 - O ponto final privado permite a conectividade entre os consumidores do mesmo VNet, VNets regionalmente peered, VNets globalmente e em instalações usando [VPN](https://azure.microsoft.com/services/vpn-gateway/) ou [Rota Expresso](https://azure.microsoft.com/services/expressroute/) e serviços alimentados por Private Link.
  
-- Ao criar um ponto de extremidade privado, uma interface de rede também é criada para o ciclo de vida do recurso. A interface recebe um endereço IP privado da sub-rede que mapeia para o serviço de vínculo privado.
+- Ao criar um ponto final privado, é também criada uma interface de rede para o ciclo de vida do recurso. A interface é atribuída a um endereço IP privado da subnet que mapeia para o Serviço de Ligação Privada.
  
-- O ponto de extremidade privado deve ser implantado na mesma região que a rede virtual. 
+- O ponto final privado deve ser implantado na mesma região que a rede virtual. 
  
-- O recurso de link privado pode ser implantado em uma região diferente da rede virtual e do ponto de extremidade privado.
+- O recurso de ligação privada pode ser implantado numa região diferente da rede virtual e do ponto final privado.
  
-- Vários pontos de extremidade privados podem ser criados usando o mesmo recurso de link privado. Para uma única rede usando uma configuração de servidor DNS comum, a prática recomendada é usar um único ponto de extremidade privado para um determinado recurso de link privado para evitar entradas duplicadas ou conflitos na resolução de DNS. 
+- Vários pontos finais privados podem ser criados usando o mesmo recurso de ligação privada. Para uma única rede utilizando uma configuração comum do servidor DNS, a prática recomendada é utilizar um único ponto final privado para um determinado recurso de ligação privada para evitar entradas duplicadas ou conflitos na resolução dNS. 
  
-- Vários pontos de extremidade privados podem ser criados nas mesmas ou em sub-redes diferentes na mesma rede virtual. Há limites para o número de pontos de extremidade privados que você pode criar em uma assinatura. Para mais detalhes, consulte [os limites de Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Vários pontos finais privados podem ser criados nas mesmas subredes ou diferentes dentro da mesma rede virtual. Existem limites para o número de pontos finais privados que pode criar numa subscrição. Para mais detalhes, consulte [os limites de Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
  
-## <a name="private-link-resource"></a>Recurso de link privado 
-Um recurso de link privado é o destino de destino de um determinado ponto de extremidade particular. A seguir está uma lista de tipos de recursos de link privado disponíveis: 
+## <a name="private-link-resource"></a>Recurso de ligação privada 
+Um recurso de ligação privada é o alvo de destino de um determinado ponto final privado. Segue-se uma lista dos tipos de recursos de ligação privada disponíveis: 
  
-|Nome do recurso do link privado  |Tipo de recurso   |Sub-recursos  |
+|Nome de recurso de ligação privada  |Tipo de recurso   |Subrecursos  |
 |---------|---------|---------|
-|**Serviço de Link Privado** (Seu próprio serviço)   |  Microsoft. Network/privateLinkServices       | vazio |
-|**Base de Dados SQL do Azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
-|**Análise synapse azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
+|**Serviço de Link Privado** (Seu próprio serviço)   |  Microsoft.Network/privateLinkServices       | vazio |
+|**Base de Dados SQL do Azure** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
+|**Análise synapse azure** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Armazenamento do Azure**  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Tabela (mesa, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAccounts    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
-|**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, tabela|
+|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Mesa|
 |**Base de Dados Azure para PostgreSQL -Servidor único** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
 |**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
 |**Cofre de Chaves do Azure** | Microsoft.KeyVault/vaults    | vault |
  
-## <a name="network-security-of-private-endpoints"></a>Segurança de rede de pontos de extremidade privados 
-Ao usar pontos de extremidade privados para serviços do Azure, o tráfego é protegido para um recurso de link particular específico. A plataforma executa um controle de acesso para validar conexões de rede que atingem apenas o recurso de link particular especificado. Para acessar recursos adicionais dentro do mesmo serviço do Azure, são necessários pontos de extremidade privados adicionais. 
+## <a name="network-security-of-private-endpoints"></a>Segurança da rede de pontos finais privados 
+Ao utilizar pontos finais privados para serviços Azure, o tráfego é garantido a um recurso de ligação privada específico. A plataforma executa um controlo de acesso para validar as ligações de rede atingindo apenas o recurso de ligação privada especificado. Para aceder a recursos adicionais dentro do mesmo serviço Azure, são necessários pontos finais privados adicionais. 
  
-Você pode bloquear completamente suas cargas de trabalho de acessar pontos de extremidade públicos para se conectar a um serviço do Azure com suporte. Esse controle fornece uma camada de segurança de rede adicional para seus recursos, fornecendo uma proteção interna do vazamento que impede o acesso a outros recursos hospedados no mesmo serviço do Azure. 
+Pode bloquear completamente as suas cargas de trabalho desde o acesso a pontos finais públicos para se ligar a um serviço Azure suportado. Este controlo fornece uma camada adicional de segurança de rede aos seus recursos, fornecendo uma proteção de exfiltração incorporada que impede o acesso a outros recursos alojados no mesmo serviço Azure. 
  
-## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Acesso a um recurso de link privado usando o fluxo de trabalho de aprovação 
-Você pode se conectar a um recurso de link privado usando os seguintes métodos de aprovação de conexão:
+## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Acesso a um recurso de ligação privada utilizando fluxo de trabalho de aprovação 
+Pode ligar-se a um recurso de ligação privada utilizando os seguintes métodos de aprovação de ligação:
 - **Aprovado automaticamente** quando possui ou tem permissão no recurso de ligação privada específico. A permissão necessária baseia-se no tipo de recurso de ligação privada no seguinte formato: Microsoft.\<Provider><resource_type>/privateEndpointConnectionApproval/action
-- **Pedido manual** quando não tiver a permissão necessária e gostaria de solicitar acesso. Um fluxo de trabalho de aprovação será iniciado. O ponto final privado e a subsequente ligação do ponto final privado serão criados num estado “Pendente”. O proprietário do recurso de ligação privada é responsável por aprovar a ligação. Depois de aprovado, o ponto de extremidade privado é habilitado para enviar o tráfego normalmente, conforme mostrado no diagrama de fluxo de trabalho de aprovação a seguir.  
+- **Pedido manual** quando não tiver a permissão necessária e gostaria de solicitar acesso. Será iniciado um fluxo de trabalho de aprovação. O ponto final privado e a subsequente ligação do ponto final privado serão criados num estado “Pendente”. O proprietário do recurso de ligação privada é responsável por aprovar a ligação. Depois de aprovado, o ponto final privado está habilitado a enviar tráfego normalmente, como mostra o seguinte diagrama de fluxo de trabalho de aprovação.  
 
-![aprovação do fluxo de trabalho](media/private-endpoint-overview/private-link-paas-workflow.png)
+![aprovação de fluxo de trabalho](media/private-endpoint-overview/private-link-paas-workflow.png)
  
-O proprietário do recurso de link privado pode executar as seguintes ações em uma conexão de ponto de extremidade particular: 
-- Examine todos os detalhes de conexões do ponto de extremidade privado. 
-- Aprove uma conexão de ponto de extremidade particular. O ponto de extremidade privado correspondente será habilitado para enviar o tráfego para o recurso de link privado. 
-- Rejeite uma conexão de ponto de extremidade privada. O ponto de extremidade privado correspondente será atualizado para refletir o status.
-- Exclua uma conexão de ponto de extremidade particular em qualquer Estado. O ponto de extremidade privado correspondente será atualizado com um estado desconectado para refletir a ação, o proprietário do ponto de extremidade privado só poderá excluir o recurso neste ponto. 
+O proprietário de recursos de ligação privada pode realizar as seguintes ações sobre uma ligação de ponto final privado: 
+- Reveja todos os detalhes das ligações de fim de ponta privadas. 
+- Aprove uma ligação de ponto final privado. O ponto final privado correspondente será permitido enviar tráfego para o recurso de ligação privada. 
+- Rejeite uma ligação de ponto final privado. O ponto final privado correspondente será atualizado para refletir o estado.
+- Elimine uma ligação de ponto final privado em qualquer estado. O ponto final privado correspondente será atualizado com um estado desligado para refletir a ação, o proprietário do ponto final privado só pode apagar o recurso neste momento. 
  
 > [!NOTE]
-> Somente um ponto de extremidade privado em um Estado aprovado pode enviar tráfego para um determinado recurso de link privado. 
+> Apenas um ponto final privado num estado aprovado pode enviar tráfego para um determinado recurso de ligação privada. 
 
-### <a name="connecting-using-alias"></a>Conectando usando alias
-Alias é um moniker exclusivo gerado quando o proprietário do serviço cria o serviço de vínculo privado por trás de um balanceador de carga padrão. O proprietário do serviço pode compartilhar esse alias com seus consumidores offline. Os consumidores podem solicitar uma conexão com o serviço de vínculo privado usando o URI do recurso ou o alias. Se você quiser se conectar usando o alias, deverá criar um ponto de extremidade privado usando o método de aprovação de conexão manual. Para usar o método de aprovação de conexão manual, defina o parâmetro de solicitação manual como true durante o fluxo de criação do ponto de extremidade privado. Veja a criação de pontos de venda privado sinuosos da [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e da [rede Az.](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) 
+### <a name="connecting-using-alias"></a>Ligação usando Alias
+Alias é um apelido único que é gerado quando o proprietário do serviço cria o serviço de ligação privada por trás de um equilibrista de carga padrão. O proprietário do serviço pode partilhar este Alias com os seus consumidores offline. Os consumidores podem solicitar uma ligação ao serviço de ligação privada utilizando o recurso URI ou o Alias. Se pretender ligar-se utilizando alias, deve criar um ponto final privado utilizando o método de homologação manual de ligação. Para utilizar o método de homologação manual de ligação, defina o parâmetro manual de pedido para o verdadeiro durante o fim do ponto de partida privado criar fluxo. Veja a criação de pontos de venda privado sinuosos da [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e da [rede Az.](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) 
 
 ## <a name="dns-configuration"></a>Configuração do DNS 
-Ao se conectar a um recurso de link privado usando um FQDN (nome de domínio totalmente qualificado) como parte da cadeia de conexão, é importante definir corretamente as configurações de DNS para resolver o endereço IP privado alocado. Os serviços do Azure existentes já podem ter uma configuração de DNS para usar ao se conectar por meio de um ponto de extremidade público. Isso precisa ser substituído para se conectar usando seu ponto de extremidade privado. 
+Ao ligar-se a um recurso de ligação privado utilizando um nome de domínio totalmente qualificado (FQDN) como parte da cadeia de ligação, é importante configurar corretamente as definições de DNS para resolver o endereço IP privado atribuído. Os serviços Azure existentes podem já ter uma configuração DNS para utilizar ao ligar em um ponto final público. Isto precisa de ser ultrapassado para se ligar usando o seu ponto final privado. 
  
-O adaptador de rede associado ao ponto de extremidade privado contém o conjunto completo de informações necessárias para configurar o DNS, incluindo endereços IP privados e FQDN alocados para um determinado recurso de link privado. 
+A interface de rede associada ao ponto final privado contém o conjunto completo de informações necessárias para configurar o seu DNS, incluindo endereços IP FQDN e privados atribuídos para um determinado recurso de ligação privada. 
  
-Você pode usar as seguintes opções para definir as configurações de DNS para pontos de extremidade privados: 
-- **Utilize o ficheiro Anfitrião (apenas recomendado para testes)** . Você pode usar o arquivo de host em uma máquina virtual para substituir o DNS.  
-- **Utilize uma zona Privada de DNS**. Você pode usar zonas DNS privadas para substituir a resolução DNS para um determinado ponto de extremidade particular. Uma zona DNS privada pode ser vinculada à sua rede virtual para resolver domínios específicos.
-- **Utilize o seu servidor DNS personalizado**. Você pode usar seu próprio servidor DNS para substituir a resolução DNS para um determinado recurso de link privado. Se o seu [servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) estiver hospedado numa rede virtual, pode criar uma regra de encaminhamento DNS para utilizar uma zona Privada de DNS para simplificar a configuração de todos os recursos de ligação privada.
+Pode utilizar as seguintes opções para configurar as definições de DNS para pontos finais privados: 
+- **Utilize o ficheiro Anfitrião (apenas recomendado para testes)** . Pode utilizar o ficheiro anfitrião numa máquina virtual para anular o DNS.  
+- **Utilize uma zona Privada de DNS**. Você pode usar zonas privadas de DNS para anular a resolução DNS para um determinado ponto final privado. Uma zona privada de DNS pode ser ligada à sua rede virtual para resolver domínios específicos.
+- **Utilize o seu servidor DNS personalizado**. Pode utilizar o seu próprio servidor DNS para anular a resolução dNS para um determinado recurso de ligação privada. Se o seu [servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) estiver hospedado numa rede virtual, pode criar uma regra de encaminhamento DNS para utilizar uma zona Privada de DNS para simplificar a configuração de todos os recursos de ligação privada.
  
 > [!IMPORTANT]
-> Não é recomendável substituir uma zona que esteja ativamente em uso para resolver pontos de extremidade públicos. As conexões com recursos não poderão ser resolvidas corretamente sem o encaminhamento de DNS para o DNS público. Para evitar problemas, crie um nome de domínio diferente ou siga o nome sugerido para cada serviço abaixo. 
+> Não é aconselhável anular uma zona que está ativamente em uso para resolver pontos finais públicos. As ligações aos recursos não serão capazes de resolver corretamente sem que o DNS reencaminha sacar ao DNS público. Para evitar problemas, crie um nome de domínio diferente ou siga o nome sugerido para cada serviço abaixo. 
  
-Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito na tabela a seguir:
+Para os serviços Azure, utilize os nomes de zona recomendados descritos no quadro seguinte:
 
-|Tipo de recurso de link privado   |Subrecursos  |Nome da zona  |
+|Tipo de recurso de ligação privada   |Subrecurso  |Nome da zona  |
 |---------|---------|---------|
-|Banco de BD SQL/DW (Microsoft. SQL/Servers)    |  SQL Server (sqlServer)        |   privatelink.database.windows.net       |
-|Conta de armazenamento (Microsoft. Storage/storageAccounts)    |  Blob (bolha, blob_secondary)        |    privatelink.blob.core.windows.net      |
-|Conta de armazenamento (Microsoft. Storage/storageAccounts)    |    Tabela (mesa, table_secondary)      |   privatelink.table.core.windows.net       |
-|Conta de armazenamento (Microsoft. Storage/storageAccounts)    |    Fila (fila, queue_secondary)     |   privatelink.queue.core.windows.net       |
-|Conta de armazenamento (Microsoft. Storage/storageAccounts)   |    Arquivo (arquivo, file_secondary)      |    privatelink.file.core.windows.net      |
-|Conta de armazenamento (Microsoft. Storage/storageAccounts)     |  Web (web, web_secondary)        |    privatelink.web.core.windows.net      |
-|Data Lake sistema de arquivos Gen2 (Microsoft. Storage/storageAccounts)  |  Data Lake File System Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|SQL |privatelink.documents.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabela|privatelink.table.cosmos.azure.com|
-|Banco de dados do Azure para PostgreSQL-servidor único (Microsoft. DBforPostgreSQL/Servers)|postgresqlServer|privatelink.postgres.database.azure.com|
-|Banco de dados do Azure para MySQL (Microsoft. DBforMySQL/Servers)|mysqlServer|privatelink.mysql.database.azure.com|
-|Banco de dados do Azure para MariaDB (Microsoft. DBforMariaDB/Servers)|mariadbServer|privatelink.mariadb.database.azure.com|
+|SQL DB/DW (Microsoft.Sql/servidores)    |  Sql Server (sqlServer)        |   privatelink.database.windows.net       |
+|Conta de Armazenamento (Microsoft.Storage/storageAccounts)    |  Blob (bolha, blob_secondary)        |    privatelink.blob.core.windows.net      |
+|Conta de Armazenamento (Microsoft.Storage/storageAccounts)    |    Tabela (mesa, table_secondary)      |   privatelink.table.core.windows.net       |
+|Conta de Armazenamento (Microsoft.Storage/storageAccounts)    |    Fila (fila, queue_secondary)     |   privatelink.queue.core.windows.net       |
+|Conta de Armazenamento (Microsoft.Storage/storageAccounts)   |    Arquivo (arquivo, file_secondary)      |    privatelink.file.core.windows.net      |
+|Conta de Armazenamento (Microsoft.Storage/storageAccounts)     |  Web (web, web_secondary)        |    privatelink.web.core.windows.net      |
+|Data Lake File System Gen2 (Microsoft.Storage/storageAccounts)  |  Data Lake File System Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|SQL |privatelink.documents.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Tabela|privatelink.table.cosmos.azure.com|
+|Base de Dados Azure para PostgreSQL - Servidor único (Microsoft.DBforPostgreSQL/servidores)|postgresqlServer|privatelink.postgres.database.azure.com|
+|Base de Dados Azure para MySQL (Microsoft.DBforMySQL/servidores)|mysqlServer|privatelink.mysql.database.azure.com|
+|Base de Dados Azure para MariaDB (Microsoft.DBforMariaDB/servidores)|mariadbServer|privatelink.mariadb.database.azure.com|
 |Cofre de Chaves Azure (Microsoft.KeyVault/cofres)|vault|privatelink.vaultcore.azure.net|
  
-O Azure criará um registro DNS de nome canônico (CNAME) no DNS público para redirecionar a resolução para os nomes de domínio sugeridos. Você poderá substituir a resolução pelo endereço IP privado dos seus pontos de extremidade privados. 
+O Azure criará um registo de DNS de nome canónico (CNAME) no DNS público para redirecionar a resolução para os nomes de domínio sugeridos. Poderá anular a resolução com o endereço IP privado dos seus pontos finais privados. 
  
-Seus aplicativos não precisam alterar a URL de conexão. Ao tentar resolver usando um DNS público, o servidor DNS agora será resolvido para seus pontos de extremidade privados. O processo não afeta seus aplicativos. 
+As suas aplicações não precisam de alterar o URL de ligação. Ao tentar resolver a utilização de um DNS público, o servidor DNS irá agora resolver os seus pontos finais privados. O processo não afeta as suas aplicações. 
  
 ## <a name="limitations"></a>Limitações
  
-A tabela a seguir inclui uma lista de limitações conhecidas ao usar pontos de extremidade privados: 
+O quadro seguinte inclui uma lista de limitações conhecidas ao utilizar pontos finais privados: 
 
 
 |Limitação |Descrição |Mitigação  |
 |---------|---------|---------|
-|As regras do NSG (grupo de segurança de rede) e as rotas definidas pelo usuário não se aplicam ao ponto de extremidade privado    |Não há suporte para NSG em pontos de extremidade privados. Embora as sub-redes que contenham o ponto de extremidade privado possam ter NSG associado a ela, as regras não serão efetivas no tráfego processado pelo ponto de extremidade privado. Deve ter políticas de [rede desativadas](disable-private-endpoint-network-policy.md) para implantar pontos finais privados numa subnet. O NSG ainda é imposto em outras cargas de trabalho hospedadas na mesma sub-rede. As rotas em qualquer sub-rede do cliente usarão um prefixo/32, alterando o comportamento de roteamento padrão requer um UDR semelhante  | Controle o tráfego usando regras de NSG para o tráfego de saída em clientes de origem. Implementar rotas individuais com prefixo /32 para sobrepor rotas de pontos finais privados. Os registos de fluxo NSG e informações de monitorização para ligações de saída ainda são suportados e podem ser usados        |
+|As regras do Grupo de Segurança da Rede (NSG) e as rotas definidas pelo utilizador não se aplicam ao Ponto Final Privado    |A NSG não é apoiada em pontos finais privados. Embora as subredes que contenham o ponto final privado possam ter o NSG associado a ele, as regras não serão eficazes no tráfego processado pelo ponto final privado. Deve ter políticas de [rede desativadas](disable-private-endpoint-network-policy.md) para implantar pontos finais privados numa subnet. O NSG ainda é aplicado em outras cargas de trabalho alojadas na mesma subnet. As rotas em qualquer subnet do cliente estarão a usar um prefixo /32, alterando o comportamento de encaminhamento predefinido requer um UDR semelhante  | Controlar o tráfego utilizando regras de NSG para tráfego de saída em clientes de origem. Implementar rotas individuais com prefixo /32 para sobrepor rotas de pontos finais privados. Os registos de fluxo NSG e informações de monitorização para ligações de saída ainda são suportados e podem ser usados        |
 
 
 ## <a name="next-steps"></a>Passos seguintes

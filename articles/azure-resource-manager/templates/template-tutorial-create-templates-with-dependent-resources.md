@@ -6,11 +6,11 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: f60f248ec3fbbe5adfb61bf361546d1d5e238f54
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250203"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387064"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 

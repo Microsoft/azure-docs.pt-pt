@@ -1,25 +1,25 @@
 ---
-title: Diretrizes para o desenvolvimento de Azure Functions
-description: Conheça os conceitos e as técnicas de Azure Functions de que você precisa para desenvolver funções no Azure, em todas as linguagens de programação e associações.
+title: Orientação para o desenvolvimento de Funções Azure
+description: Aprenda os conceitos e técnicas de Funções Azure que precisa para desenvolver funções em Azure, em todas as linguagens e encadernações de programação.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769018"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357985"
 ---
-# <a name="azure-functions-developers-guide"></a>Guia de desenvolvedores do Azure Functions
-Em Azure Functions, as funções específicas compartilham alguns conceitos técnicos e componentes essenciais, independentemente da linguagem ou da associação usada. Antes de ir para os detalhes de aprendizagem específicos de um determinado idioma ou associação, leia esta visão geral que se aplica a todos eles.
+# <a name="azure-functions-developers-guide"></a>Guia de desenvolvedores de funções azure
+Nas Funções Azure, as funções específicas partilham alguns conceitos e componentes técnicos fundamentais, independentemente da linguagem ou da ligação que utilize. Antes de entrar em detalhes de aprendizagem específicos de uma determinada língua ou de ligação, não se esqueça de ler através desta visão geral que se aplica a todos eles.
 
-Este artigo pressupõe que você já tenha lido o [Azure Functions visão geral](functions-overview.md).
+Este artigo assume que já leu a visão geral das [Funções Azure.](functions-overview.md)
 
 ## <a name="function-code"></a>Código de função
-Uma *função* é o conceito principal no Azure functions. Uma função contém duas partes importantes: seu código, que pode ser escrito em uma variedade de linguagens, e algumas configurações, o arquivo function. JSON. Para idiomas compilados, esse arquivo de configuração é gerado automaticamente de anotações em seu código. Para linguagens de script, você mesmo deve fornecer o arquivo de configuração.
+Uma *função* é o conceito primário em Funções Azure. Uma função contém duas peças importantes - o seu código, que pode ser escrito em uma variedade de idiomas, e algum config, o arquivo fun.json. Para idiomas compilados, este ficheiro de config é gerado automaticamente a partir de anotações no seu código. Para scripts idiomas, você deve fornecer o arquivo de config você mesmo.
 
-O arquivo function. JSON define o gatilho, as associações e outras definições de configuração da função. Cada função tem um, e apenas um, acionador. O tempo de execução usa esse arquivo de configuração para determinar os eventos a serem monitorados e como passar dados para e retornar dados de uma execução de função. Este é um arquivo function. JSON de exemplo.
+O ficheiro função.json define o gatilho, as ligações e outras definições de configuração da função. Cada função tem um e único gatilho. O tempo de execução utiliza este ficheiro de config para determinar os eventos para monitorizar e como transmitir dados e devolver dados de uma execução de função. Segue-se um ficheiro de função exemplo.json.
 
 ```json
 {
@@ -36,70 +36,70 @@ O arquivo function. JSON define o gatilho, as associações e outras definiçõe
 }
 ```
 
-Para obter mais informações, consulte [Azure Functions os conceitos de gatilhos e associações](functions-triggers-bindings.md).
+Para mais informações, consulte as [Funções Azure despoletou e encaderna conceitos.](functions-triggers-bindings.md)
 
-A propriedade `bindings` é onde você configura gatilhos e associações. Cada associação compartilha algumas configurações comuns e algumas configurações que são específicas a um tipo específico de associação. Cada associação requer as seguintes configurações:
+A propriedade `bindings` é onde configura tanto gatilhos como encadernações. Cada encadernação partilha algumas configurações comuns e algumas configurações específicas para um tipo particular de encadernação. Cada encadernação requer as seguintes definições:
 
-| Propriedade | Valores/tipos | Comentários |
+| Propriedade | Valores/Tipos | Comentários |
 | --- | --- | --- |
-| `type` |string |Tipo de associação. Por exemplo, `queueTrigger`. |
-| `direction` |' in ', ' out ' |Indica se a associação é para receber dados na função ou enviar dados da função. |
-| `name` |string |O nome que é usado para os dados vinculados na função. Para C#, este é um nome de argumento; para JavaScript, é a chave em uma lista de chave/valor. |
+| `type` |string |Tipo de encadernação. Por exemplo, `queueTrigger`. |
+| `direction` |'in', 'out' |Indica se a ligação é para receber dados na função ou para enviar dados da função. |
+| `name` |string |O nome utilizado para os dados vinculados na função. Pois, C#este é um nome de argumento; para javaScript, é a chave numa lista de chaves/valor. |
 
 ## <a name="function-app"></a>Function app
-Um aplicativo de funções fornece um contexto de execução no Azure no qual suas funções são executadas. Como tal, é a unidade de implantação e gerenciamento para suas funções. Um aplicativo de funções é composto de uma ou mais funções individuais que são gerenciadas, implantadas e dimensionadas juntas. Todas as funções em um aplicativo de funções compartilham o mesmo plano de preços, método de implantação e versão de tempo de execução. Imagine um aplicativo de funções como uma maneira de organizar e gerenciar coletivamente suas funções. Para saber mais, consulte [como gerenciar um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md). 
+Uma aplicação de função fornece um contexto de execução em Azure no qual as suas funções funcionam. Como tal, é a unidade de implantação e gestão para as suas funções. Uma aplicação de função é composta por uma ou mais funções individuais que são geridas, implantadas e dimensionadas em conjunto. Todas as funções de uma aplicação de função partilham o mesmo plano de preços, método de implementação e versão de tempo de execução. Pense numa aplicação de função como uma forma de organizar e gerir coletivamente as suas funções. Para saber mais, consulte [como gerir uma aplicação de função](functions-how-to-use-azure-function-app-settings.md). 
 
 > [!NOTE]
-> Todas as funções em um aplicativo de funções devem ser criadas no mesmo idioma. Em [versões anteriores](functions-versions.md) do tempo de execução de Azure functions, isso não era necessário.
+> Todas as funções numa aplicação de função devem ser da autoria da mesma língua. Em [versões anteriores](functions-versions.md) do tempo de funcionamento das Funções Azure, isso não era necessário.
 
-## <a name="folder-structure"></a>Estrutura de pastas
+## <a name="folder-structure"></a>Estrutura de pasta
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-O acima é a estrutura de pastas padrão (e recomendada) para um aplicativo de funções. Se você quiser alterar o local do arquivo do código de uma função, modifique a seção `scriptFile` do arquivo _Function. JSON_ . Também é recomendável usar a [implantação de pacote](deployment-zip-push.md) para implantar seu projeto em seu aplicativo de funções no Azure. Você também pode usar ferramentas existentes como [integração e implantação contínua](functions-continuous-deployment.md) e DevOps do Azure.
+A acima é a estrutura de pasta predefinida (e recomendada) para uma aplicação Função. Se desejar alterar a localização do ficheiro do código de uma função, modifique a secção `scriptFile` do ficheiro _função.json._ Recomendamos também a utilização da implementação de [pacotes](deployment-zip-push.md) para implementar o seu projeto na sua aplicação de funções no Azure. Também pode utilizar ferramentas existentes como [integração contínua e implantação](functions-continuous-deployment.md) e Azure DevOps.
 
 > [!NOTE]
-> Se estiver implantando um pacote manualmente, certifique-se de implantar o arquivo _host. JSON_ e as pastas de função diretamente na pasta `wwwroot`. Não inclua a pasta `wwwroot` em suas implantações. Caso contrário, você acabará com `wwwroot\wwwroot` pastas.
+> Se implementar manualmente um pacote, certifique-se de que implementa o ficheiro _host.json_ e funfun as pastas diretamente para a pasta `wwwroot`. Não inclua a pasta `wwwroot` nas suas implementações. Caso contrário, acabas com pastas `wwwroot\wwwroot`.
 
-#### <a name="use-local-tools-and-publishing"></a>Usar ferramentas locais e publicação
-Os aplicativos de funções podem ser criados e publicados usando uma variedade de ferramentas, incluindo o [Visual Studio](./functions-develop-vs.md), o [Visual Studio Code](functions-create-first-function-vs-code.md), o [IntelliJ](./functions-create-maven-intellij.md), o [Eclipse](./functions-create-maven-eclipse.md)e o [Azure Functions Core Tools](./functions-develop-local.md). Para obter mais informações, consulte [código e teste Azure Functions localmente](./functions-develop-local.md).
+#### <a name="use-local-tools-and-publishing"></a>Utilize ferramentas locais e publicações
+As aplicações de função podem ser da autoria e publicadas usando uma variedade de ferramentas, incluindo [Visual Studio](./functions-develop-vs.md), Visual [Studio Code](functions-create-first-function-vs-code.md), [IntelliJ,](./functions-create-maven-intellij.md) [Eclipse,](./functions-create-maven-eclipse.md)e as [Ferramentas Core funções do Azure.](./functions-develop-local.md) Para mais informações, consulte [Código e teste funções Azure localmente](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-## <a id="fileupdate"></a>Como editar funções no portal do Azure
-O editor de funções interno do portal do Azure permite que você atualize seu código e o arquivo *Function. JSON* diretamente embutido. Isso é recomendado apenas para pequenas alterações ou provas de conceito – a prática recomendada é usar uma ferramenta de desenvolvimento local como VS Code.
+## <a id="fileupdate"></a>Como editar funções no portal Azure
+O editor de Funções incorporado no portal Azure permite-lhe atualizar o seu código e o seu ficheiro *function.json* diretamente inline. Isto é recomendado apenas para pequenas alterações ou provas de conceito - a melhor prática é usar uma ferramenta de desenvolvimento local como o Código VS.
 
 ## <a name="parallel-execution"></a>Execução paralela
-Quando vários eventos de disparo ocorrem mais rápido do que um tempo de execução de função de thread único pode processá-los, o tempo de execução pode invocar a função várias vezes em paralelo.  Se um aplicativo de funções estiver usando o [plano de Hospedagem de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work), o aplicativo de funções poderá ser dimensionado automaticamente.  Cada instância do aplicativo de funções, se o aplicativo for executado no plano de Hospedagem de consumo ou em um [plano de hospedagem do serviço de aplicativo](../app-service/overview-hosting-plans.md)regular, poderá processar invocações de função simultâneas em paralelo usando vários threads.  O número máximo de invocações de função simultâneas em cada instância de aplicativo de função varia de acordo com o tipo de gatilho que está sendo usado, bem como os recursos usados por outras funções no aplicativo de funções.
+Quando vários eventos de desencadeamento ocorrem mais rapidamente do que um tempo de funcionamento da função de um fio único pode processá-los, o tempo de execução pode invocar a função várias vezes em paralelo.  Se uma aplicação de função estiver a utilizar o plano de hospedagem do [Consumo,](functions-scale.md#how-the-consumption-and-premium-plans-work)a aplicação de função pode ser automaticamente ampliada.  Cada instância da aplicação de funções, quer a app seja executado no plano de hospedagem do Consumo ou num plano regular de hospedagem do Serviço de [Aplicações,](../app-service/overview-hosting-plans.md)pode processar invocações de funções simultâneas em paralelo utilizando vários fios.  O número máximo de invocações de funções simultâneas em cada instância de aplicação de função varia em função do tipo de gatilho utilizado, bem como dos recursos utilizados por outras funções dentro da aplicação de função.
 
-## <a name="functions-runtime-versioning"></a>Controle de versão do Functions Runtime
+## <a name="functions-runtime-versioning"></a>Funções versão de tempo de execução
 
-Você pode configurar a versão do tempo de execução do Functions usando a configuração do aplicativo `FUNCTIONS_EXTENSION_VERSION`. Por exemplo, o valor "~ 3" indica que seu Aplicativo de funções usará 3. x como sua versão principal. Os aplicativos de funções são atualizados para cada nova versão secundária à medida que são liberados. Para obter mais informações, incluindo como exibir a versão exata do seu aplicativo de funções, consulte [como direcionar Azure Functions versões de tempo de execução](set-runtime-version.md).
+Pode configurar a versão do tempo de execução das Funções utilizando a definição de aplicações `FUNCTIONS_EXTENSION_VERSION`. Por exemplo, o valor "~3" indica que a sua App de Funções utilizará 3.x como versão principal. As Aplicações de Função são atualizadas para cada nova versão menor à medida que são lançadas. Para mais informações, incluindo como visualizar a versão exata da sua aplicação de funções, consulte as versões de execução do Funcionamento das [Funções Azure](set-runtime-version.md).
 
 ## <a name="repositories"></a>Repositórios
-O código para Azure Functions é de software livre e armazenado em repositórios GitHub:
+O código para funções Azure é de código aberto e armazenado em repositórios GitHub:
 
 * [Funções do Azure](https://github.com/Azure/Azure-Functions)
-* [Host Azure Functions](https://github.com/Azure/azure-functions-host/)
-* [Portal de Azure Functions](https://github.com/azure/azure-functions-ux)
-* [Modelos de Azure Functions](https://github.com/azure/azure-functions-templates)
-* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/) (SDK de WebJobs do Azure)
-* [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/) (Extensões do SDK de WebJobs do Azure)
+* [Anfitrião de Funções Azure](https://github.com/Azure/azure-functions-host/)
+* [Portal funções azure](https://github.com/azure/azure-functions-ux)
+* [Modelos de funções azure](https://github.com/azure/azure-functions-templates)
+* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
+* [Extensões SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Enlaces
-Aqui está uma tabela de todas as associações com suporte.
+Aqui está uma mesa de todas as encadernações apoiadas.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
-Está tendo problemas com erros provenientes das associações? Examine a documentação [Azure Functions códigos de erro de associação](functions-bindings-error-pages.md) .
+Ter problemas com erros vindos das encadernações? Reveja a documentação dos Códigos de Erro de Ligação das [Funções Azure.](functions-bindings-error-pages.md)
 
-## <a name="reporting-issues"></a>Problemas de relatório
+## <a name="reporting-issues"></a>Questões de reporte
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, consulte os seguintes recursos:
 
-* [Azure Functions gatilhos e associações](functions-triggers-bindings.md)
+* [Funções Azure desencadeiam e encadernam](functions-triggers-bindings.md)
 * [Criar código e testar as Funções do Azure localmente](./functions-develop-local.md)
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
-* [Referência C# do Azure Functions Developer](functions-dotnet-class-library.md)
-* [Azure Functions referência do desenvolvedor node. js](functions-reference-node.md)
+* [Referência do C# desenvolvedor de Funções Azure](functions-dotnet-class-library.md)
+* [Referência do desenvolvedor de funções Azure Node.js](functions-reference-node.md)

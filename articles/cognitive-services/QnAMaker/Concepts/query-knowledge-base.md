@@ -4,11 +4,11 @@ description: Uma base de conhecimento deve ser publicada. Uma vez publicada, a b
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843323"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389245"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consulta da base de conhecimento para respostas
 
@@ -24,7 +24,7 @@ A base de conhecimento da QnA Maker treinada e [publicada](/azure/cognitive-serv
 
 O processo é explicado na tabela seguinte.
 
-|Passo|Finalidade|
+|Passo|Objetivo|
 |--|--|
 |1|A aplicação do cliente envia a consulta do utilizador para a [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|O QnA Maker pré-processa a consulta do utilizador com deteção de idiomas, soletradores e quebra-palavras.|

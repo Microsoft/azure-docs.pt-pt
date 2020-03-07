@@ -11,11 +11,11 @@ ms.date: 06/07/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183572"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389919"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizadores no Diretório Ativo Azure B2C
 

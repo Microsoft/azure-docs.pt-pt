@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rohink
 ms.openlocfilehash: 3d8f899a7899243129d31c2620a51dc764a8e917
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938650"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392636"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 
@@ -67,7 +67,7 @@ Algumas considerações adicionais aplicam-se ao configurar as Aplicações Web 
 
 1. Apenas as Aplicações Web no SKU 'Standard' ou superior são elegíveis para utilização com o Traffic Manager. Tenta adicionar uma Aplicação Web de uma falha sku inferior. A degradação do SKU de uma Aplicação Web existente resulta em Traffic Manager deixar de enviar tráfego para essa Web App. Para obter mais informações sobre planos suportados consulte os Planos de [Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/)
 2. Quando um ponto final recebe um pedido HTTP, utiliza o cabeçalho 'anfitrião' no pedido para determinar qual a Aplicação Web que deve servir o pedido. O cabeçalho do hospedeiro contém o nome DNS utilizado para iniciar o pedido, por exemplo, "contosoapp.azurewebsites.net". Para utilizar um nome DNS diferente com a sua Web App, o nome DNS deve ser registado como um nome de domínio personalizado para a App. Ao adicionar um ponto final da Web App como ponto final do Azure, o nome DNS do perfil do Gestor de Tráfego está automaticamente registado para a App. Este registo é automaticamente removido quando o ponto final é eliminado.
-3. Cada perfil do Traffic Manager pode ter, no máximo, um ponto final da Web App de cada região do Azure. Para contornar esta restrição, pode configurar uma Aplicação Web como um ponto final externo. Para obter mais informações, consulte as [perguntas frequentes](traffic-manager-faqs.md#traffic-manager-endpoints).
+3. Cada perfil do Traffic Manager pode ter, no máximo, um ponto final da Web App de cada região do Azure. Para contornar esta restrição, pode configurar uma Aplicação Web como um ponto final externo. Para mais informações, consulte as [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints).
 
 ## <a name="enabling-and-disabling-endpoints"></a>Habilitar e desativar pontos finais
 
@@ -91,7 +91,7 @@ Para mais detalhes, consulte [a monitorização](traffic-manager-monitoring.md#e
 
 Se todos os pontos finais de um perfil estiverem desativados, ou se o perfil em si estiver desativado, então o Gestor de Tráfego envia uma resposta 'NXDOMAIN' a uma nova consulta de DNS.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>Perguntas mais frequentes
 
 * [Posso usar o Traffic Manager com pontos finais de várias subscrições?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 

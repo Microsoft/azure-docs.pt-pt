@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 568a21cee5b50a8914c603976f5951d0235dbff7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157181"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358275"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e a terminologia nos Hubs de eventos do Azure
 
@@ -26,7 +26,7 @@ Os Hubs de eventos do Azure é uma serviço que ingere e processa grandes volume
 
 Este artigo baseia-se na informação no artigo de [visão geral,](event-hubs-what-is-event-hubs.md)e fornece detalhes técnicos e de implementação sobre componentes e funcionalidades do Event Hubs.
 
-## <a name="namespace"></a>Espaço de nomes
+## <a name="namespace"></a>Espaço de Nomes
 Um espaço de nome de Event Hubs fornece um recipiente de digitalização único, referenciado pelo seu nome de [domínio totalmente qualificado,](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)no qual cria um ou mais centros de eventos ou tópicos de Kafka. 
 
 ## <a name="event-hubs-for-apache-kafka"></a>Hubs de Eventos para o Apache Kafka
