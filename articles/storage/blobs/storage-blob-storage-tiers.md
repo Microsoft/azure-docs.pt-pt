@@ -9,11 +9,11 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368714"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389086"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento Azure Blob: hot, cool e archive access tiers
 
@@ -51,7 +51,7 @@ O nível de acesso quente tem custos de armazenamento mais elevados do que os n�
 
 ## <a name="cool-access-tier"></a>Escalão de acesso esporádico
 
-O nível de acesso fresco tem custos de armazenamento mais baixos e custos de acesso mais elevados em comparação com o armazenamento quente. Esta camada destina-se de dados que permanecem na camada de acesso esporádico durante, pelo menos, 30 dias. Os cenários de utilização de exemplo para o nível de acesso cool incluem:
+O nível de acesso fresco tem custos de armazenamento mais baixos e custos de acesso mais elevados em comparação com o armazenamento quente. Esta camada destina-se a dados que permanecem na camada de acesso esporádico durante, pelo menos, 30 dias. Os cenários de utilização de exemplo para o nível de acesso cool incluem:
 
 - Conjuntos de dados de cópia de segurança e recuperação após desastre de curto prazo.
 - Conteúdo de multimédia mais antigo que já não é visualizado com frequência, mas que deverá estar disponível de imediato quando acedido.
@@ -117,8 +117,8 @@ A tabela seguinte mostra uma comparação entre o armazenamento de blocos de des
 
 |                                           | **Desempenho premium**   | **Nível quente** | **Nível legal**       | **Nível de arquivo**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
-| **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Banda           |
-| **Disponibilidade** <br> **(leituras RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Banda           |
+| **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Offline           |
+| **Disponibilidade** <br> **(leituras RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Offline           |
 | **Custos de utilização**                         | Custos de armazenamento mais elevados, menor acesso e custo de transação | Custos de armazenamento mais elevados, acessomais baixos e custos de transação | Custos de armazenamento mais baixos, acesso mais elevado e custos de transação | Os custos de armazenamento mais baixos, os custos de acesso mais elevados e os custos de transação |
 | **Tamanho mínimo do objeto**                   | N/D                       | N/D          | N/D                 | N/D               |
 | **Duração mínima do armazenamento**              | N/D                       | N/D          | 30 dias<sup>1</sup> | 180 dias
@@ -140,8 +140,8 @@ Nesta secção, são demonstrados os seguintes cenários utilizando o portal Azu
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Alterar a camada de acesso predefinida de uma conta GPv2 ou de Armazenamento de Blobs
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No portal Azure, procure e selecione **Todos os Recursos.**
 
@@ -155,7 +155,7 @@ Nesta secção, são demonstrados os seguintes cenários utilizando o portal Azu
 
 ![Alterar o nível da conta de armazenamento](media/storage-tiers/account-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 O seguinte script PowerShell pode ser usado para alterar o nível de conta. A variável `$rgName` deve ser inicializada com o nome do seu grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da sua conta de armazenamento. 
 ```powershell
 #Initialize the following with your resource group and storage account names
@@ -168,8 +168,8 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 ---
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Alterar o nível de uma bolha numa conta de armazenamento GPv2 ou Blob
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No portal Azure, procure e selecione **Todos os Recursos.**
 
@@ -185,7 +185,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ![Alterar o nível da conta de armazenamento](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 O seguinte script PowerShell pode ser usado para alterar o nível de blob. A variável `$rgName` deve ser inicializada com o nome do seu grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da sua conta de armazenamento. A variável `$containerName` deve ser inicializada com o nome do recipiente. A variável `$blobName` deve ser inicializada com o seu nome blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names

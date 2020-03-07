@@ -1,5 +1,5 @@
 ---
-title: Pontos de extremidade de serviço de rede virtual do Azure
+title: Pontos finais do serviço de rede virtual Azure
 titlesuffix: Azure Virtual Network
 description: Saiba como ativar o acesso direto aos recursos do Azure a partir de uma rede virtual através de pontos finais de serviço.
 services: virtual-network
@@ -14,36 +14,36 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 72c2c90f7a71bd9bf251adb492168fa5d2baa60a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378697"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380132"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
-Os pontos de extremidade de serviço de rede virtual (VNet) estendem o espaço de endereço privado da rede virtual. Os pontos de extremidade também estendem a identidade de sua VNet para os serviços do Azure por meio de uma conexão direta. Os pontos finais permitem-lhe obter os seus recursos críticos de serviço do Azure apenas para as suas redes virtuais. O tráfego da sua VNet para o serviço do Azure permanece sempre na rede backbone do Microsoft Azure.
+Os pontos finais do serviço rede virtual (VNet) estendem o espaço de endereços privados da rede virtual. Os pontos finais também estendem a identidade do seu VNet aos serviços Azure através de uma ligação direta. Os pontos finais permitem-lhe obter os seus recursos críticos de serviço do Azure apenas para as suas redes virtuais. O tráfego da sua VNet para o serviço do Azure permanece sempre na rede backbone do Microsoft Azure.
 
-Esse recurso está disponível para os seguintes serviços e regiões do Azure. O recurso *Microsoft.\** está entre parênteses. Habilite esse recurso do lado da sub-rede ao configurar pontos de extremidade de serviço para seu serviço:
+Esta funcionalidade está disponível para os seguintes serviços e regiões azure. O *recurso\*Microsoft* está em parênteses. Ative este recurso a partir do lado da subrede enquanto configura pontos finais de serviço para o seu serviço:
 
 **Disponível em Geral**
 
-- **[Armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft. Storage*): geralmente disponível em todas as regiões do Azure.
-- **[Banco de dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): geralmente disponível em todas as regiões do Azure.
-- **[SQL data warehouse do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): geralmente disponível em todas as regiões do Azure.
-- **[Banco de dados do Azure para servidor PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): geralmente disponível em regiões do Azure em que o serviço de banco de dados está disponível.
-- **[Banco de dados do Azure para servidor MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): geralmente disponível em regiões do Azure em que o serviço de banco de dados está disponível.
-- **[Banco de dados do Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft. SQL*): geralmente disponível em regiões do Azure em que o serviço de banco de dados está disponível.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. AzureCosmosDB*): geralmente disponível em todas as regiões do Azure.
-- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** (*Microsoft. keyvault*): geralmente disponível em todas as regiões do Azure.
-- **[Barramento de serviço do Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. ServiceBus*): geralmente disponível em todas as regiões do Azure.
-- **[Hubs de eventos do Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. EventHub*): geralmente disponíveis em todas as regiões do Azure.
-- **[Azure data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. AzureActiveDirectory*): geralmente disponível em todas as regiões do Azure em que ADLS Gen1 está disponível.
-- **[Azure app serviço](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** : geralmente disponível em todas as regiões do Azure em que o serviço de aplicativo está disponível.
+- **[Armazenamento Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** *(Microsoft.Storage):* Geralmente disponível em todas as regiões do Azure.
+- **[Base de Dados Azure SQL](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível em todas as regiões do Azure.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível em todas as regiões do Azure.
+- **[Base de Dados Azure para servidor PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível nas regiões do Azure onde o serviço de base de dados está disponível.
+- **[Base de Dados Azure para servidor MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.Sql*): Geralmente disponível nas regiões do Azure onde o serviço de base de dados está disponível.
+- **[Base de Dados Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** *(Microsoft.Sql*): Geralmente disponível nas regiões do Azure onde o serviço de base de dados está disponível.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*): Geralmente disponível em todas as regiões do Azure.
+- **[Cofre chave Azure](../key-vault/key-vault-overview-vnet-service-endpoints.md)** *(Microsoft.KeyVault*): Geralmente disponível em todas as regiões do Azure.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.ServiceBus*): Geralmente disponível em todas as regiões do Azure.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** *(Microsoft.EventHub*): Geralmente disponível em todas as regiões do Azure.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Geralmente disponível em todas as regiões do Azure onde a ADLS Gen1 está disponível.
+- Serviço de **[Aplicações Azure](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** : Geralmente disponível em todas as regiões do Azure onde o serviço de aplicações está disponível.
 
-**Visualização pública**
+**Pré-visualização pública**
 
-- **[Registro de contêiner do Azure](../container-registry/container-registry-vnet.md)** (*Microsoft. ContainerRegistry*): visualização disponível em todas as regiões do Azure em que o registro de contêiner do Azure está disponível.
+- **[Registo de contentores Azure](../container-registry/container-registry-vnet.md)** *(Microsoft.ContainerRegistry*): Pré-visualização disponível em todas as regiões do Azure onde o Registo de Contentores Azure está disponível.
 
 Para obter as notificações mais atualizadas, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -51,105 +51,105 @@ Para obter as notificações mais atualizadas, veja a página [Atualizações da
 
 Os pontos finais de serviço oferecem as seguintes vantagens:
 
-- **Segurança aprimorada para seus recursos de serviço do Azure**: espaços de endereço privado de VNet podem se sobrepor. Não é possível usar espaços sobrepostos para identificar exclusivamente o tráfego originado de sua VNet. Os pontos de extremidade de serviço fornecem a capacidade de proteger os recursos de serviço do Azure para sua rede virtual, estendendo a identidade de VNet para o serviço. Depois de habilitar os pontos de extremidade de serviço em sua rede virtual, você pode adicionar uma regra de rede virtual para proteger os recursos de serviço do Azure para sua rede virtual. A adição de regra fornece segurança aprimorada removendo totalmente o acesso à Internet pública aos recursos e permitindo o tráfego somente de sua rede virtual.
-- **Roteamento ideal para o tráfego de serviço do Azure de sua rede virtual**: hoje, todas as rotas em sua rede virtual que forçam o tráfego de Internet para seus dispositivos locais e/ou virtuais também forçam o tráfego de serviço do Azure a obter a mesma rota que o tráfego de Internet. Os pontos finais de serviço fornecem encaminhamento ótimo para o tráfego do Azure. 
+- **Segurança melhorada para os seus recursos**de serviço Azure : Os espaços de endereços privados VNet podem sobrepor-se. Não pode usar espaços sobrepostos para identificar exclusivamente o tráfego originário do seu VNet. Os pontos finais do serviço proporcionam a capacidade de garantir recursos de serviço Azure à sua rede virtual, alargando a identidade VNet ao serviço. Assim que ativar pontos finais de serviço na sua rede virtual, pode adicionar uma regra de rede virtual para proteger os recursos de serviço Azure à sua rede virtual. A adição de regras proporciona uma maior segurança, removendo totalmente o acesso à internet pública aos recursos e permitindo o tráfego apenas a partir da sua rede virtual.
+- **O ótimo encaminhamento para o tráfego de serviços Azure a partir da sua rede virtual**: Hoje, quaisquer rotas da sua rede virtual que forcem o tráfego de internet para os seus locais e/ou aparelhos virtuais também forçam o tráfego de serviço saque de serviço do Azure a seguir o mesmo caminho que o tráfego de internet. Os pontos finais de serviço fornecem encaminhamento ótimo para o tráfego do Azure. 
 
-  Os pontos finais assumem sempre o tráfego de serviço diretamente a partir da rede virtual para o serviço na rede backbone do Microsoft Azure. Manter o tráfego na rede backbone do Azure permite-lhe continuar a auditar e a monitorizar o tráfego de Internet de saída das suas redes virtuais através da imposição de túnel e sem afetar o tráfego de serviço. Para obter mais informações sobre rotas definidas pelo usuário e túnel forçado, consulte [Roteamento de tráfego de rede virtual do Azure](virtual-networks-udr-overview.md).
-- **Fácil de configurar com menos overhead de gestão**: já não necessita de endereços IP reservados e públicos nas redes virtuais para proteger os recursos do Azure através da firewall do IP. Não há nenhum NAT (conversão de endereços de rede) ou dispositivos de gateway necessários para configurar os pontos de extremidade de serviço. Você pode configurar pontos de extremidade de serviço por meio de um simples clique em uma sub-rede. Não há nenhuma sobrecarga adicional para manter os pontos de extremidade.
+  Os pontos finais assumem sempre o tráfego de serviço diretamente a partir da rede virtual para o serviço na rede backbone do Microsoft Azure. Manter o tráfego na rede backbone do Azure permite-lhe continuar a auditar e a monitorizar o tráfego de Internet de saída das suas redes virtuais através da imposição de túnel e sem afetar o tráfego de serviço. Para obter mais informações sobre rotas definidas pelo utilizador e túneis forçados, consulte o [encaminhamento](virtual-networks-udr-overview.md)de tráfego da rede virtual Azure .
+- **Fácil de configurar com menos overhead de gestão**: já não necessita de endereços IP reservados e públicos nas redes virtuais para proteger os recursos do Azure através da firewall do IP. Não existem tradução de endereços de rede (NAT) ou dispositivos gateway necessários para configurar os pontos finais do serviço. Pode configurar os pontos finais do serviço através de um simples clique numa subnet. Não há despesas adicionais para manter os pontos finais.
 
 ## <a name="limitations"></a>Limitações
 
 - A funcionalidade só está disponível para redes virtuais implementadas através do modelo de implementação Azure Resource Manager.
-- Os pontos finais estão ativados nas sub-redes configuradas em redes virtuais do Azure. Os pontos de extremidade não podem ser usados para o tráfego de seu local para os serviços do Azure. Para obter mais informações, consulte [proteger o acesso do serviço do Azure do local](#secure-azure-services-to-virtual-networks)
-- No Azure SQL, um ponto final de serviço aplica-se apenas ao tráfego de serviço do Azure numa região da rede virtual. Para o armazenamento do Azure, os pontos de extremidade também se estendem para incluir regiões emparelhadas em que você implanta a rede virtual para oferecer suporte ao tráfego de armazenamento com redundância geográfica (RA-GRS) e armazenamento com redundância geográfica (GRS). Para obter mais informações, consulte [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-- Para Azure Data Lake Storage (ADLS) Gen 1, o recurso de integração VNet só está disponível para redes virtuais na mesma região. Observe também que a integração de rede virtual para ADLS Gen1 usa a segurança do ponto de extremidade do serviço de rede virtual entre sua rede virtual e Azure Active Directory (AD do Azure) para gerar declarações de segurança adicionais no token de acesso. Essas afirmações são, posteriormente, utilizadas para autenticar a rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso. A marca *Microsoft. AzureActiveDirectory* listada em serviços que dão suporte a pontos de extremidade de serviço é usada somente para dar suporte a pontos de extremidade de serviço para o ADLS Gen 1. O Azure AD não dá suporte a pontos de extremidade de serviço nativamente. Para obter mais informações sobre a integração de VNet do Azure Data Lake Store Gen 1, consulte [segurança de rede em Azure data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Os pontos finais estão ativados nas sub-redes configuradas em redes virtuais do Azure. Os pontos finais não podem ser usados para o tráfego das suas instalações para os serviços Azure. Para mais informações, consulte [o acesso ao serviço Secure Azure a partir do local](#secure-azure-services-to-virtual-networks)
+- No Azure SQL, um ponto final de serviço aplica-se apenas ao tráfego de serviço do Azure numa região da rede virtual. Para o Armazenamento Azure, os pontos finais também se estendem para incluir regiões emparelhadas onde você implementa a rede virtual para apoiar o tráfego de Armazenamento Geo-Redundante de Read-Access (RA-GRS) e Geo-Redundant Storage (GRS). Para mais informações, consulte [regiões emparelhadas de Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)
+- Para o Azure Data Lake Storage (ADLS) Gen 1, a capacidade de integração VNet só está disponível para redes virtuais dentro da mesma região. Note também que a integração virtual da rede para a ADLS Gen1 utiliza a segurança do serviço de rede virtual entre a sua rede virtual e o Azure Ative Directory (Azure AD) para gerar reclamações de segurança adicionais no token de acesso. Essas afirmações são, posteriormente, utilizadas para autenticar a rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso. A tag *Microsoft.AzureActiveDirectory* listada em pontos finais de serviços de suporte é usada apenas para suportar pontos finais de serviço para ADLS Gen 1. A Azure AD não suporta pontos finais de serviço de forma nativa. Para obter mais informações sobre a integração da Azure Data Lake Store Gen 1 VNet, consulte a [segurança da rede em Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="secure-azure-services-to-virtual-networks"></a>Proteger serviços do Azure para redes virtuais
+## <a name="secure-azure-services-to-virtual-networks"></a>Serviços Secure Azure para redes virtuais
 
-- Um ponto final de serviço de rede virtual transmite a identidade da sua rede virtual ao serviço do Azure. Depois de habilitar os pontos de extremidade de serviço em sua rede virtual, você pode adicionar uma regra de rede virtual para proteger os recursos de serviço do Azure para sua rede virtual.
+- Um ponto final de serviço de rede virtual transmite a identidade da sua rede virtual ao serviço do Azure. Assim que ativar pontos finais de serviço na sua rede virtual, pode adicionar uma regra de rede virtual para proteger os recursos de serviço Azure à sua rede virtual.
 - Atualmente, o tráfego de serviço do Azure a partir de uma rede virtual utiliza endereços IP públicos como endereços IP de origem. Com pontos finais de serviço, o tráfego de serviço comuta-se para utilizar endereços privados da rede virtual como endereços IP de origem quando acede ao serviço do Azure a partir de uma rede virtual. Esta comutação permite-lhe aceder aos serviços sem necessitar de endereços IP reservados públicos utilizados nas firewalls IP.
 
    >[!NOTE]
    > Com pontos finais de serviço, os endereços IP de origem das máquinas virtuais na sub-rede para tráfego de serviço mudam da utilização de endereços IPv4 públicos para a utilizam de endereços IPv4 privados. As regras de firewall de serviço do Azure existentes com os endereços IP públicos do Azure deixarão de funcionar com esta troca. Certifique-se de que as regras de firewall do serviço do Azure permitem esta troca antes de configurar os pontos finais de serviço. Também poderá experienciar uma interrupção temporária do tráfego de serviço desta sub-rede ao configurar pontos finais de serviço. 
  
-## <a name="secure-azure-service-access-from-on-premises"></a>Proteger o acesso do serviço do Azure do local
+## <a name="secure-azure-service-access-from-on-premises"></a>Acesso ao serviço Secure Azure a partir do local
 
-  Por padrão, os recursos de serviço do Azure protegidos para redes virtuais não são acessíveis de redes locais. Se você quiser permitir o tráfego local, também deverá permitir endereços IP públicos (normalmente, NAT) do seu local ou do ExpressRoute. Você pode adicionar esses endereços IP por meio da configuração de firewall IP para recursos de serviço do Azure.
+  Por padrão, os recursos de serviço azure garantidos a redes virtuais não são acessíveis a partir de redes no local. Se pretender permitir o tráfego a partir do local, também deve permitir endereços IP públicos (tipicamente, NAT) a partir das suas instalações ou ExpressRoute. Pode adicionar estes endereços IP através da configuração de firewall IP para recursos de serviço Azure.
 
-  ExpressRoute: se você estiver usando o [expressroute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para emparelhamento público ou emparelhamento da Microsoft de seu local, será necessário identificar os endereços IP de NAT que você está usando. Para o emparelhamento público, cada circuito do ExpressRoute usa dois endereços IP NAT, por padrão, aplicados ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede Microsoft Azure. Para o emparelhamento da Microsoft, os endereços IP de NAT são fornecidos pelo cliente ou fornecidos pelo provedor de serviços. Para permitir o acesso aos recursos de serviço, você deve permitir esses endereços IP públicos na configuração de firewall de IP do recurso. Para localizar os endereços IP do circuito do ExpressRoute de emparelhamento público, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do portal do Azure. Para obter mais informações sobre NAT para emparelhamento público e da Microsoft para o ExpressRoute, consulte [requisitos de NAT do expressroute](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
+  ExpressRoute: Se estiver a utilizar o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para espreitar publicamente ou a Microsoft a espreitar das suas instalações, terá de identificar os endereços IP NAT que está a usar. Para o público, cada circuito ExpressRoute utiliza dois endereços IP NAT, por padrão, aplicados ao tráfego de serviços Azure quando o tráfego entra na espinha dorsal da rede Microsoft Azure. Para o peering da Microsoft, os endereços IP NAT são fornecidos pelo cliente ou fornecidos pelo prestador de serviços. Para permitir o acesso aos seus recursos de serviço, deve permitir estes endereços IP públicos na definição de firewall IP de recursos. Para encontrar os seus endereços IP do circuito ExpressRoute, abra um bilhete de apoio com a [ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal Azure. Para obter mais informações sobre o NAT para o público expressRoute e para o peering da Microsoft, consulte [os requisitos do ExpressRoute NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 ![Proteger serviços do Azure para redes virtuais](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
 ### <a name="configuration"></a>Configuração
 
-- Configurar pontos de extremidade de serviço em uma sub-rede em uma rede virtual. Os pontos finais funcionam com qualquer tipo de instância de computação em execução nessa sub-rede.
-- Você pode configurar vários pontos de extremidade de serviço para todos os serviços do Azure com suporte (armazenamento do Azure ou banco de dados SQL do Azure, por exemplo) em uma sub-rede.
-- Na Base de Dados SQL do Azure, as redes virtuais têm de estar na mesma região que o recurso de serviço do Azure. Se utilizar contas do Armazenamento do Microsoft Azure GRS e RA-GRS, a conta principal deve existir na mesma região que a rede virtual. Para todos os outros serviços, você pode proteger os recursos de serviço do Azure para redes virtuais em qualquer região. 
+- Configure os pontos finais do serviço numa subnet numa rede virtual. Os pontos finais funcionam com qualquer tipo de instância de computação em execução nessa sub-rede.
+- Pode configurar vários pontos finais de serviço para todos os serviços azure suportados (Azure Storage ou Azure SQL Database, por exemplo) numa subnet.
+- Na Base de Dados SQL do Azure, as redes virtuais têm de estar na mesma região que o recurso de serviço do Azure. Se utilizar contas do Armazenamento do Microsoft Azure GRS e RA-GRS, a conta principal deve existir na mesma região que a rede virtual. Para todos os outros serviços, pode garantir recursos de serviço Azure a redes virtuais em qualquer região. 
 - A rede virtual onde o ponto final está configurado pode existir na mesma subscrição ou numa subscrição diferente que a do recurso de serviço do Azure. Para obter mais informações sobre as permissões necessárias para configurar pontos finais e para proteger serviços do Azure, veja [Aprovisionamento](#provisioning).
 - Para os serviços suportados, pode proteger recursos novos ou existentes para redes virtuais através de pontos finais de serviço.
 
 ### <a name="considerations"></a>Considerações
 
-- Depois de habilitar um ponto de extremidade de serviço, os endereços IP de origem das máquinas virtuais na chave de sub-rede. Os endereços IP de origem são alternados do uso de endereços IPv4 públicos para usar seu endereço IPv4 privado ao se comunicar com o serviço dessa sub-rede. Todas as ligações TCP abertas existentes para o serviço serão fechadas durante esta mudança. Certifique-se de que não existem tarefas críticas em execução quando ativar ou desativar um ponto final de serviço para um serviço para uma sub-rede. Verifique também se as aplicações conseguem ligar-se automaticamente aos serviços do Azure após esta mudança do endereço IP.
+- Depois de ativar um ponto final de serviço, os endereços IP de origem das máquinas virtuais no interruptor de sub-rede. Os endereços IP de origem passam da utilização de endereços IPv4 públicos para utilização do seu endereço IPv4 privado ao comunicarcom o serviço a partir dessa sub-rede. Todas as ligações TCP abertas existentes para o serviço serão fechadas durante esta mudança. Certifique-se de que não existem tarefas críticas em execução quando ativar ou desativar um ponto final de serviço para um serviço para uma sub-rede. Verifique também se as aplicações conseguem ligar-se automaticamente aos serviços do Azure após esta mudança do endereço IP.
 
-  A mudança do endereço IP só afeta o tráfego de serviço da rede virtual. Não há nenhum impacto em qualquer outro tráfego endereçado de ou para os endereços IPv4 públicos atribuídos às suas máquinas virtuais. Nos serviços do Azure, se tiver regras de firewall existente que utilizem IPs públicos do Azure, estas regras deixam de funcionar com a mudança para os endereços privados da rede virtual.
-- Com os pontos de extremidade de serviço, as entradas DNS dos serviços do Azure permanecem como estão hoje e continuam a ser resolvidas para endereços IP públicos atribuídos ao serviço do Azure.
+  A mudança do endereço IP só afeta o tráfego de serviço da rede virtual. Não há qualquer impacto em qualquer outro tráfego endereçado para ou a partir dos endereços públicos do IPv4 atribuídos às suas máquinas virtuais. Nos serviços do Azure, se tiver regras de firewall existente que utilizem IPs públicos do Azure, estas regras deixam de funcionar com a mudança para os endereços privados da rede virtual.
+- Com os pontos finais de serviço, as entradas de DNS para os serviços Azure permanecem hoje como está e continuam a resolver os endereços IP públicos atribuídos ao serviço Azure.
 
 - Grupos de segurança de rede (NSGs) com pontos finais de serviço:
-  - Por padrão, o NSGs permite o tráfego de Internet de saída e também permite o tráfego de sua VNet para os serviços do Azure. Esse tráfego continua a funcionar com pontos de extremidade de serviço como está. 
-  - Se você quiser negar todo o tráfego de Internet de saída e permitir apenas o tráfego para serviços específicos do Azure, poderá fazer isso usando as [marcas de serviço](security-overview.md#service-tags) em seu NSGs. Você pode especificar os serviços do Azure com suporte como destino em suas regras do NSG e o Azure também fornece a manutenção de endereços IP subjacentes a cada marca. Para obter mais informações, consulte [Etiquetas de Serviço do Azure para NSGs.](security-overview.md#service-tags) 
+  - Por padrão, os NSGs permitem o tráfego de internet de saída e também permitem o tráfego dos seus serviços VNet para Azure. Este tráfego continua a funcionar com pontos finais de serviço como está. 
+  - Se quiser negar todo o tráfego de internet de saída e permitir apenas tráfego para serviços específicos do Azure, pode fazê-lo usando [etiquetas](security-overview.md#service-tags) de serviço nos seus NSGs. Pode especificar os serviços Azure suportados como destino nas suas regras NSG e o Azure também fornece a manutenção de endereços IP subjacentes a cada etiqueta. Para obter mais informações, consulte [Etiquetas de Serviço do Azure para NSGs.](security-overview.md#service-tags) 
 
 ### <a name="scenarios"></a>Cenários
 
 - **Redes virtuais múltiplas, ligadas ou ponto a ponto**: para proteger serviços do Azure em várias sub-redes numa rede virtual ou em várias redes virtuais, pode ativar pontos finais de serviço em cada uma destas sub-redes de forma independente e proteger os recursos de serviço do Azure em todas essas sub-redes.
-- **Filtrando o tráfego de saída de uma rede virtual para os serviços do Azure**: se você quiser inspecionar ou filtrar o tráfego enviado a um serviço do Azure de uma rede virtual, poderá implantar um dispositivo de rede virtual na rede virtual. Em seguida, pode aplicar pontos finais de serviço à sub-rede onde está implementada a aplicação de rede virtual e proteger o recurso de serviço do Azure apenas nesta sub-rede. Esse cenário pode ser útil se você quiser usar a filtragem de dispositivo de virtualização de rede para restringir o acesso de serviço do Azure de sua rede virtual somente a recursos específicos do Azure. Para obter mais informações, veja [saída com aplicações de rede virtual](/azure/architecture/reference-architectures/dmz/nva-ha).
-- **Protegendo os recursos do Azure para serviços implantados diretamente em redes virtuais**: você pode implantar diretamente vários serviços do Azure em sub-redes específicas em uma rede virtual. Pode proteger recursos de serviço do Azure para sub-redes de [serviços geridos](virtual-network-for-azure-services.md) ao configurar um ponto final de serviço na sub-rede do serviço gerido.
-- **Tráfego de disco de uma máquina virtual do Azure: o**tráfego de disco da máquina virtual para discos gerenciados e não gerenciados não é afetado por pontos de extremidade de serviço que encaminham alterações para o armazenamento do Azure. Esse tráfego inclui diskIO, bem como montagem e desmontagem. Você pode limitar o acesso REST a blobs de página para selecionar redes por meio de pontos de extremidade de serviço e [regras de rede de armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **Filtrar o tráfego de saída de uma rede virtual para os serviços Azure**: Se pretender inspecionar ou filtrar o tráfego enviado para um serviço Azure a partir de uma rede virtual, pode implantar um aparelho virtual de rede dentro da rede virtual. Em seguida, pode aplicar pontos finais de serviço à sub-rede onde está implementada a aplicação de rede virtual e proteger o recurso de serviço do Azure apenas nesta sub-rede. Este cenário pode ser útil se pretender utilizar a filtragem de aparelhos virtuais da rede para restringir o acesso ao serviço Azure da sua rede virtual apenas a recursos específicos do Azure. Para obter mais informações, veja [saída com aplicações de rede virtual](/azure/architecture/reference-architectures/dmz/nva-ha).
+- **Garantir os recursos do Azure aos serviços implantados diretamente em redes virtuais:** Pode utilizar diretamente vários serviços Azure em subredes específicas numa rede virtual. Pode proteger recursos de serviço do Azure para sub-redes de [serviços geridos](virtual-network-for-azure-services.md) ao configurar um ponto final de serviço na sub-rede do serviço gerido.
+- **O tráfego de discos de uma máquina virtual Azure**: Tráfego de disco de máquina virtual para discos geridos e não geridos não é afetado por alterações de encaminhamento de pontos finais de serviço para armazenamento Azure. Este tráfego inclui discoIO, bem como montagem e desmontagem. Pode limitar o acesso do REST às páginas blobs para selecionar redes através de pontos finais de serviço e regras da [rede de armazenamento Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ### <a name="logging-and-troubleshooting"></a>Registo e resolução de problemas
 
-Depois de configurar os pontos de extremidade de serviço para um serviço específico, valide se a rota do ponto final do serviço está em vigor por: 
+Uma vez configurado os pontos finais do serviço para um serviço específico, valide que a rota final do serviço está em vigor por: 
  
 - Validação do endereço IP de origem de qualquer pedido de serviço no diagnóstico do serviço. Todos os novos pedidos com pontos finais de serviço mostram o endereço IP de origem para o pedido como o endereço IP privado da rede virtual atribuído ao cliente que efetua o pedido a partir da sua rede virtual. Sem o ponto final, o endereço é um endereço IP público do Azure.
 - Visualização das rotas efetivas em qualquer interface de rede numa sub-rede. A rota para o serviço:
   - Mostra uma rota predefinida mais específica para endereçar intervalos de prefixo de cada serviço
   - Tem um nextHopType de *VirtualNetworkServiceEndpoint*
-  - Indica que uma conexão mais direta com o serviço está em vigor em comparação com as rotas de túnel forçado
+  - Indica que uma ligação mais direta ao serviço está em vigor comparada com quaisquer rotas de túneis forçados
 
 >[!NOTE]
-> As rotas do ponto final de serviço substituem quaisquer rotas BGP ou UDR para a correspondência de prefixo de endereço de um serviço do Azure. Para obter mais informações, consulte [solução de problemas com rotas efetivas](diagnose-network-routing-problem.md).
+> As rotas do ponto final de serviço substituem quaisquer rotas BGP ou UDR para a correspondência de prefixo de endereço de um serviço do Azure. Para mais informações, consulte a [resolução de problemas com rotas eficazes](diagnose-network-routing-problem.md).
 
 ## <a name="provisioning"></a>Aprovisionamento
 
-Os pontos de extremidade de serviço podem ser configurados em redes virtuais independentemente de um usuário com acesso de gravação a uma rede virtual. Para proteger os recursos de serviço do Azure para uma VNet, o usuário deve ter permissão para *Microsoft. Network/virtualNetworks/sub-redes/joinViaServiceEndpoint/Action* para as sub-redes adicionadas. As funções internas de administrador de serviços incluem essa permissão por padrão. Você pode modificar a permissão criando funções personalizadas.
+Os pontos finais do serviço podem ser configurados em redes virtuais de forma independente por um utilizador com acesso por escrito a uma rede virtual. Para garantir os recursos de serviço do Azure a um VNet, o utilizador deve ter permissão para *Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* para as subredes adicionadas. As funções de administrador de serviço incorporado incluem esta permissão por padrão. Pode modificar a permissão criando papéis personalizados.
 
-Para obter mais informações sobre funções internas, consulte [funções internas para recursos do Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para obter mais informações sobre como atribuir permissões específicas a funções personalizadas, consulte [funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter mais informações sobre papéis incorporados, consulte [as funções incorporadas para os recursos azure.](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Para obter mais informações sobre a atribuição de permissões específicas a papéis personalizados, consulte [funções personalizadas para os recursos Do Azure.](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 As redes virtuais e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço da rede virtual e do Azure pertencerem a subscrições diferentes, os recursos devem existir no mesmo inquilino do Active Directory (AD). 
 
 ## <a name="pricing-and-limits"></a>Preços e limites
 
-Não há nenhum custo adicional para usar pontos de extremidade de serviço. O modelo de preços atual para os serviços do Azure (armazenamento do Azure, banco de dados SQL do Azure, etc.) aplica-se como está hoje.
+Não há nenhuma taxa adicional para usar pontos finais de serviço. O atual modelo de preços dos serviços Azure (Azure Storage, Azure SQL Database, etc.) aplica-se hoje.
 
-Não há limite para o número total de pontos de extremidade de serviço em uma rede virtual.
+Não há limite para o número total de pontos finais de serviço numa rede virtual.
 
-Determinados serviços do Azure, como contas de armazenamento do Azure, podem impor limites no número de sub-redes usadas para proteger o recurso. Consulte a documentação para vários serviços na seção [próximas etapas](#next-steps) para obter detalhes.
+Certos serviços Azure, como as Contas de Armazenamento Azure, podem impor limites ao número de subredes utilizadas para a segurança do recurso. Consulte a documentação para vários serviços na secção [Passos Seguintes](#next-steps) para mais detalhes.
 
-## <a name="vnet-service-endpoint-policies"></a>Políticas de ponto de extremidade de serviço VNet 
+## <a name="vnet-service-endpoint-policies"></a>Políticas de ponto final do serviço VNet 
 
-As políticas de ponto de extremidade de serviço de VNet permitem filtrar o tráfego de rede virtual para os serviços do Azure. Esse filtro permite apenas recursos específicos do serviço do Azure em pontos de extremidade de serviço. Políticas de ponto final de serviço fornecem controlo de acesso granular para tráfego de rede virtual para serviços do Azure. Para obter mais informações, consulte [políticas de ponto de extremidade de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+As políticas de endpoint do serviço VNet permitem filtrar o tráfego de rede virtual para os serviços Azure. Este filtro permite apenas recursos de serviço específicos do Azure sobre os pontos finais do serviço. Políticas de ponto final de serviço fornecem controlo de acesso granular para tráfego de rede virtual para serviços do Azure. Para mais informações, consulte [as Políticas finais](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)do serviço de rede virtual.
 
-## <a name="faqs"></a>FAQs
+## <a name="faqs"></a>Perguntas mais frequentes
 
-Para perguntas frequentes, consulte [ponto de extremidade de serviço de rede virtual FAQs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints).
+Para perguntas frequentes, consulte [FAQs finais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)de serviço de rede virtual .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Configurar pontos de extremidade de serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
-- [Proteger uma conta de armazenamento do Azure para uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Proteger um banco de dados SQL do Azure para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Proteger um SQL Data Warehouse do Azure para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Integração de serviço do Azure em redes virtuais](virtual-network-for-azure-services.md)
-- [Políticas de ponto de extremidade de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Configure pontos finais do serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
+- [Garanta uma conta de Armazenamento Azure a uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Proteja uma Base de Dados Azure SQL para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Proteja um Armazém de Dados Azure SQL para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+- [Integração de serviços Azure em redes virtuais](virtual-network-for-azure-services.md)
+- [Políticas de fim do serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

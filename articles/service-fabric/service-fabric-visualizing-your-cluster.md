@@ -1,24 +1,24 @@
 ---
-title: Visualizando seu cluster usando o Azure Service Fabric Explorer
-description: Service Fabric Explorer é um aplicativo para inspecionar e gerenciar aplicativos de nuvem e nós em um cluster Microsoft Azure Service Fabric.
+title: Visualizar o seu cluster usando o Azure Service Fabric Explorer
+description: Service Fabric Explorer é uma aplicação para inspecionar e gerir aplicações e nós em nuvem num cluster microsoft Azure Service Fabric.
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
 ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464110"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364973"
 ---
-# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o seu cluster com o Explorador do Service Fabric
+# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o cluster com o Service Fabric Explorer
 
-Service Fabric Explorer (SFX) é uma ferramenta de código-fonte aberto para inspecionar e gerenciar clusters de Service Fabric do Azure. Service Fabric Explorer é um aplicativo de área de trabalho para Windows, macOS e Linux.
+Service Fabric Explorer (SFX) é uma ferramenta de código aberto para inspecionar e gerir clusters de tecido de serviço Azure. Service Fabric Explorer é uma aplicação de desktop para Windows, macOS e Linux.
 
-## <a name="service-fabric-explorer-download"></a>Download de Service Fabric Explorer
+## <a name="service-fabric-explorer-download"></a>Download do Explorador de Tecido de Serviço
 
-Use os links a seguir para baixar o Service Fabric Explorer como um aplicativo de área de trabalho:
+Utilize os seguintes links para baixar o Service Fabric Explorer como uma aplicação de ambiente de trabalho:
 
 - Windows
   - https://aka.ms/sfx-windows
@@ -31,111 +31,111 @@ Use os links a seguir para baixar o Service Fabric Explorer como um aplicativo d
   - https://aka.ms/sfx-macos
 
 > [!NOTE]
-> A versão da área de trabalho do Service Fabric Explorer pode ter mais ou menos recursos do que o suporte ao cluster. Você pode fazer fallback para a versão Service Fabric Explorer implantada no cluster para garantir a compatibilidade total de recursos.
+> A versão de desktop do Service Fabric Explorer pode ter mais ou menos funcionalidades do que o suporte do cluster. Pode voltar à versão Service Fabric Explorer implantada no cluster para garantir a compatibilidade total da funcionalidade.
 >
 >
 
-### <a name="running-service-fabric-explorer-from-the-cluster"></a>Executando Service Fabric Explorer do cluster
+### <a name="running-service-fabric-explorer-from-the-cluster"></a>Running Service Fabric Explorer do cluster
 
-Service Fabric Explorer também é hospedado em um ponto de extremidade de gerenciamento HTTP do Cluster Service Fabric. Para iniciar o SFX em um navegador da Web, navegue até o ponto de extremidade de gerenciamento HTTP do cluster em qualquer navegador, por exemplo, https:\//clusterFQDN: 19080.
+O Service Fabric Explorer também está hospedado num ponto final de gestão http do cluster service Fabric. Para lançar o SFX num navegador web, navegue para o ponto final de gestão http do cluster a partir de qualquer navegador - por exemplo, https:\//clusterFQDN:19080.
 
-Para a instalação da estação de trabalho do desenvolvedor, você pode iniciar Service Fabric Explorer no cluster local navegando até https://localhost:19080/Explorer. Veja este artigo para [preparar seu ambiente de desenvolvimento](service-fabric-get-started.md).
+Para a configuração da estação de trabalho do desenvolvedor, pode lançar o Service Fabric Explorer no seu cluster local navegando até https://localhost:19080/Explorer. Veja este artigo para preparar o seu ambiente de [desenvolvimento.](service-fabric-get-started.md)
 
 > [!NOTE]
-> Se o cluster estiver protegido por um certificado autoassinado, você receberá uma mensagem de erro do navegador da Web "este site não é seguro". Você pode simplesmente prosseguir com os navegadores da Web mais modernos, substituindo o aviso. Em um ambiente de produção, seu cluster deve ser protegido usando o nome comum e um certificado emitido por uma autoridade de certificação. 
+> Se o seu cluster for protegido por um certificado auto-assinado, receberá uma mensagem de erro do navegador "Este site não é seguro". Você pode simplesmente proceder através da maioria dos navegadores web modernos, substituindo o aviso. Num ambiente de produção, o seu cluster deve ser protegido com o nome comum e um certificado emitido pela autoridade do certificado. 
 >
 >
 
-## <a name="connect-to-a-service-fabric-cluster"></a>Conectar-se a um Cluster Service Fabric
-Para se conectar a um Cluster Service Fabric, você precisa do ponto de extremidade de gerenciamento de clusters (FQDN/IP) e da porta do ponto de extremidade de gerenciamento HTTP (19080 por padrão). Por exemplo, https\://mysfcluster.westus.cloudapp.azure.com:19080. Use a caixa de seleção "conectar-se ao localhost" para se conectar a um cluster local em sua estação de trabalho.
+## <a name="connect-to-a-service-fabric-cluster"></a>Ligar a um cluster de tecido de serviço
+Para ligar a um cluster de tecido de serviço, necessita do ponto final de gestão de clusters (FQDN/IP) e da porta final de gestão HTTP (19080 por padrão). Por exemplo, https\://mysfcluster.westus.cloudapp.azure.com:19080. Utilize a caixa de verificação "Connect to localhost" para se ligar a um cluster local na sua estação de trabalho.
 
 ### <a name="connect-to-a-secure-cluster"></a>Ligar a um cluster seguro
-Você pode controlar o acesso do cliente ao Cluster Service Fabric com certificados ou usando Azure Active Directory (AAD).
+Pode controlar o acesso do cliente ao seu cluster de Tecido de Serviço, quer com certificados, quer utilizando o Azure Ative Directory (AAD).
 
-Se você tentar se conectar a um cluster seguro, dependendo da configuração do cluster, será necessário apresentar um certificado de cliente ou entrar usando o AAD.
+Se tentar ligar-se a um cluster seguro, dependendo da configuração do cluster será necessário apresentar um certificado de cliente ou assinar através do AAD.
 
-## <a name="understand-the-service-fabric-explorer-layout"></a>Entender o layout do Service Fabric Explorer
-Você pode navegar pelo Service Fabric Explorer usando a árvore à esquerda. Na raiz da árvore, o painel do cluster fornece uma visão geral do cluster, incluindo um resumo da integridade do aplicativo e do nó.
+## <a name="understand-the-service-fabric-explorer-layout"></a>Compreenda o layout do Explorador de Tecido de Serviço
+Pode navegar através do Service Fabric Explorer utilizando a árvore à esquerda. Na raiz da árvore, o painel de instrumentos do cluster fornece uma visão geral do seu cluster, incluindo um resumo da aplicação e da saúde do nó.
 
-![Painel do Cluster Service Fabric Explorer][sfx-cluster-dashboard]
+![Painel de cluster do Explorador de Tecido de Serviço][sfx-cluster-dashboard]
 
-### <a name="view-the-clusters-layout"></a>Exibir o layout do cluster
-Nós em um Cluster Service Fabric são colocados em uma grade bidimensional de domínios de falha e domínios de atualização. Esse posicionamento garante que seus aplicativos permaneçam disponíveis na presença de falhas de hardware e atualizações de aplicativos. Você pode exibir como o cluster atual é apresentado usando o mapa de cluster.
+### <a name="view-the-clusters-layout"></a>Veja o layout do cluster
+Os nós de um cluster de tecido de serviço são colocados através de uma grelha bidimensional de domínios de falha e domínios de upgrade. Esta colocação garante que as suas aplicações permanecem disponíveis na presença de falhas de hardware e atualizações de aplicações. Pode ver como o cluster atual é estabelecido usando o mapa do cluster.
 
-![Service Fabric Explorer o mapa de cluster][sfx-cluster-map]
+![Mapa do cluster do Explorador de Tecido de Serviço][sfx-cluster-map]
 
-### <a name="view-applications-and-services"></a>Exibir aplicativos e serviços
-O cluster contém duas subárvores: uma para aplicativos e outra para nós.
+### <a name="view-applications-and-services"></a>Ver aplicações e serviços
+O aglomerado contém duas subárvores: uma para aplicações e outra para nós.
 
-Você pode usar a exibição de aplicativo para navegar pela hierarquia lógica de Service Fabric: aplicativos, serviços, partições e réplicas.
+Pode utilizar a visão de aplicação para navegar através da hierarquia lógica do Service Fabric: aplicações, serviços, divisórias e réplicas.
 
-No exemplo a seguir, o aplicativo **MyApp** consiste em dois serviços, **MyStatefulService** e **WebService**. Como **MyStatefulService** tem monitoração de estado, ele inclui uma partição com uma réplica primária e duas secundárias. Por outro lado, WebSvcService é sem monitoração de estado e contém uma única instância.
+No exemplo abaixo, a aplicação **MyApp** é composta por dois serviços, **MyStatefulService** e **WebService.** Uma vez que **o MyStatefulService** é imponente, inclui uma partição com uma réplica primária e duas secundárias. Em contraste, o WebSvcService é apátrida e contém uma única instância.
 
-![Service Fabric Explorer exibição do aplicativo][sfx-application-tree]
+![Vista de aplicação do Explorador de Tecido de Serviço][sfx-application-tree]
 
-Em cada nível da árvore, o painel principal mostra informações pertinentes sobre o item. Por exemplo, você pode ver o status de integridade e a versão de um serviço específico.
+Em cada nível da árvore, o painel principal mostra informações pertinentes sobre o item. Por exemplo, pode ver o estado de saúde e a versão para um determinado serviço.
 
-![Painel do Service Fabric Explorer Essentials][sfx-service-essentials]
+![Painel essencial do Explorador de Tecidode Serviço][sfx-service-essentials]
 
-### <a name="view-the-clusters-nodes"></a>Exibir os nós do cluster
-A vista do nó mostra o esquema físico do cluster. Para um determinado nó, pode inspecionar as aplicações que têm um código implementado nesse nó. Mais especificamente, você pode ver quais réplicas estão sendo executadas nesse momento.
+### <a name="view-the-clusters-nodes"></a>Veja os nós do cluster
+A vista do nó mostra o esquema físico do cluster. Para um determinado nó, pode inspecionar as aplicações que têm um código implementado nesse nó. Mais especificamente, pode ver quais as réplicas que estão a correr por lá.
 
 ## <a name="actions"></a>Ações
-O Service Fabric Explorer oferece uma maneira rápida de invocar ações em nós, aplicativos e serviços no cluster.
+O Service Fabric Explorer oferece uma forma rápida de invocar ações em nós, aplicações e serviços dentro do seu cluster.
 
-Por exemplo, para excluir uma instância do aplicativo, escolha o aplicativo na árvore à esquerda e, em seguida, escolha **ações** > **excluir aplicativo**.
+Por exemplo, para eliminar uma instância de aplicação, escolha a aplicação a partir da árvore à esquerda e, em seguida, escolha **ações** > **Eliminar aplicação**.
 
-![Excluindo um aplicativo no Service Fabric Explorer][sfx-delete-application]
+![Apagar uma aplicação no Service Fabric Explorer][sfx-delete-application]
 
 > [!TIP]
-> Você pode executar as mesmas ações clicando nas reticências ao lado de cada elemento.
+> Pode realizar as mesmas ações clicando na elipse ao lado de cada elemento.
 >
-> Todas as ações que podem ser executadas por meio de Service Fabric Explorer também podem ser executadas por meio do PowerShell ou de uma API REST, para habilitar a automação.
+> Todas as ações que podem ser realizadas através do Service Fabric Explorer também podem ser realizadas através da PowerShell ou de uma API REST, para permitir a automatização.
 >
 >
 
-Você também pode usar Service Fabric Explorer para criar instâncias de aplicativo para um determinado tipo de aplicativo e versão. Escolha o tipo de aplicativo no modo de exibição de árvore e clique no link **criar instância de aplicativo** ao lado da versão que você deseja no painel direito.
+Também pode utilizar o Service Fabric Explorer para criar instâncias de aplicação para um determinado tipo e versão de aplicação. Escolha o tipo de aplicação na vista da árvore e, em seguida, clique no link de instância da **aplicação Create** ao lado da versão que deseja no painel certo.
 
-![Criando uma instância do aplicativo no Service Fabric Explorer][sfx-create-app-instance]
+![Criar uma instância de aplicação no Service Fabric Explorer][sfx-create-app-instance]
 
 > [!NOTE]
-> Service Fabric Explorer não dá suporte a parâmetros ao criar instâncias de aplicativo. As instâncias de aplicativo usam valores de parâmetro padrão.
+> O Service Fabric Explorer não suporta parâmetros na criação de instâncias de aplicação. As instâncias de aplicação utilizam valores de parâmetros predefinidos.
 >
 >
 
-## <a name="event-store"></a>Repositório de eventos
-O EventStore é um recurso oferecido pela plataforma que fornece Service Fabric eventos de plataforma disponíveis no Service Fabric Explorer e por meio da API REST. Você pode ver uma exibição de instantâneo do que está acontecendo no cluster para cada entidade, por exemplo, nó, serviço, aplicativo e consulta com base na hora do evento. Você também pode ler mais sobre o EventStore na [visão geral do EventStore](service-fabric-diagnostics-eventstore.md).   
+## <a name="event-store"></a>Loja de Eventos
+EventStore é uma funcionalidade oferecida pela plataforma que fornece eventos da plataforma Service Fabric disponíveis no Service Fabric Explorer e através da REST API. Pode ver uma visão instantânea do que se passa no seu cluster para cada entidade, por exemplo, nó, serviço, aplicação e consulta com base no tempo do evento. Também pode ler mais sobre a EventStore na visão geral da [EventStore](service-fabric-diagnostics-eventstore.md).   
 
-![EventStore][sfx-eventstore]
-
->[!NOTE]
->A partir da versão Service Fabric 6,4. EventStore não está habilitado por padrão e deve ser habilitado no modelo do Resource Manager
+![Loja de Eventos][sfx-eventstore]
 
 >[!NOTE]
->A partir da versão Service Fabric 6,4. as APIs EventStore só estão disponíveis para clusters do Windows em execução somente no Azure. Estamos trabalhando para portar essa funcionalidade para o Linux, bem como para nossos clusters autônomos.
+>A partir da versão 6.4 do Tecido de Serviço. EventStore não está ativada por padrão e deve ser ativada no modelo de gestor de recursos
 
-## <a name="image-store-viewer"></a>Visualizador de Repositório de Imagens
-O Visualizador de repositório de imagens é um recurso oferecido se o uso de Repositório de Imagens nativo permitir a exibição do conteúdo atual do repositório de imagens e a obtenção de informações de arquivos e pastas, juntamente com a remoção de arquivos/pastas.
+>[!NOTE]
+>A partir da versão 6.4 do Tecido de Serviço. as APIs da EventStore só estão disponíveis para clusters Windows que executam apenas em Azure. Estamos a trabalhar na colocação desta funcionalidade para o Linux, bem como para os nossos clusters autónomos.
 
-![Service Fabric Explorer o mapa de cluster][sfx-imagestore]
+## <a name="image-store-viewer"></a>Espectador de loja de imagem
+O visualizador da loja de imagens é uma funcionalidade oferecida se utilizar a Native Image Store que permite visualizar o conteúdo atual da loja Image e obter informações de ficheiros e pastas, juntamente com a remoção de ficheiros/pastas.
 
-## <a name="backup-and-restore"></a>Backup e Restauro
-O Service Fabric Explorer oferece a capacidade de fazer a interface com [backup e restauração](./service-fabric-reliable-services-backup-restore.md). Para ver os recursos de backup e restauração no SFX, o modo avançado deve ser habilitado.
+![Mapa do cluster do Explorador de Tecido de Serviço][sfx-imagestore]
 
-![Habilitar o modo avançado][0]
+## <a name="backup-and-restore"></a>Cópia de Segurança e Restauro
+Service Fabric Explorer oferece a capacidade de interagir com [backup e restauro](./service-fabric-reliable-services-backup-restore.md). Para ver as funcionalidades de Backup e Restauro no SFX, o modo avançado deve ser ativado.
+
+![Ativar o modo avançado][0]
  
-As seguintes operações são possíveis:
+São possíveis as seguintes operações:
 
-* Criar, editar e excluir uma política de backup.
-* Habilitar e desabilitar o backup de um aplicativo, serviço ou partição.
-* Suspender e retomar o backup de um aplicativo, serviço ou partição.
-* Disparar e acompanhar o backup de uma partição.
-* Disparar e rastrear a restauração de uma partição.
+* Criar, editar e eliminar uma Política de Backup.
+* Ativar e desativar o Backup para uma aplicação, serviço ou partição.
+* Suspender e retomar o Backup para uma aplicação, serviço ou partição.
+* Gatilho e rastreie o backup de uma divisória.
+* Gatilho e faixa Restaurar para uma partição.
 
-Para obter mais informações sobre o serviço de backup e restauração, consulte a [referência da API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+Para mais informações sobre o serviço de Backup e Restauro, consulte a [referência REST API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Passos seguintes
-* [Gerenciando seus aplicativos Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-* [Service Fabric a implantação de aplicativo usando o PowerShell](service-fabric-deploy-remove-applications.md)
+* [Gerir as suas aplicações de Tecido de Serviço no Estúdio Visual](service-fabric-manage-application-in-visual-studio.md)
+* [Implementação de aplicações de tecido de serviço utilizando powerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-dashboard.png

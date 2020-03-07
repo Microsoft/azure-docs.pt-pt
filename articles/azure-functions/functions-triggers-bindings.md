@@ -1,56 +1,56 @@
 ---
-title: Gatilhos e associações no Azure Functions
-description: Aprenda a usar gatilhos e associações para conectar sua função do Azure a eventos online e serviços baseados em nuvem.
+title: Gatilhos e encadernações em Funções Azure
+description: Aprenda a usar gatilhos e encadernações para ligar a sua Função Azure a eventos online e serviços baseados na nuvem.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226569"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356877"
 ---
-# <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de Azure Functions de gatilhos e associações
+# <a name="azure-functions-triggers-and-bindings-concepts"></a>Funções Azure desencadeia e encaderna conceitos
 
-Neste artigo, você aprende os conceitos de alto nível em torno de gatilhos e associações de funções.
+Neste artigo aprende-se os conceitos de alto nível que envolvem funções degatilhos e encadernações.
 
-Os gatilhos são o que causa a execução de uma função. Um gatilho define como uma função é invocada e uma função deve ter exatamente um gatilho. Os gatilhos têm dados associados, que geralmente são fornecidos como a carga da função. 
+Os gatilhos são o que faz com que uma função funcione. Um gatilho define como uma função é invocada e uma função deve ter exatamente um gatilho. Os gatilhos têm dados associados, que são muitas vezes fornecidos como a carga útil da função. 
 
-A associação a uma função é uma maneira de conectar declarativamente outro recurso à função; as associações podem ser conectadas como *associações de entrada*, associações de *saída*ou ambas. Os dados das associações são fornecidos para a função como parâmetros.
+Vincular a uma função é uma forma de ligar declarativamente outro recurso à função; as encadernações podem ser ligadas como *encadernações*de entrada, *encadernações*de saída, ou ambas. Os dados das encadernações são fornecidos à função como parâmetros.
 
-Você pode misturar e combinar associações diferentes para atender às suas necessidades. Associações são opcionais e uma função pode ter uma ou várias associações de entrada e/ou saída.
+Pode misturar e combinar diferentes encadernações de acordo com as suas necessidades. As encadernações são opcionais e uma função pode ter uma ou múltipla supressão de entradas e/ou de saída.
 
-Gatilhos e associações permitem que você evite codificar o acesso a outros serviços. Sua função recebe dados (por exemplo, o conteúdo de uma mensagem da fila) em parâmetros de função. Você envia dados (por exemplo, para criar uma mensagem de fila) usando o valor de retorno da função. 
+Os gatilhos e encadernações permitem evitar o acesso a outros serviços. A sua função recebe dados (por exemplo, o conteúdo de uma mensagem de fila) nos parâmetros de função. Envia dados (por exemplo, para criar uma mensagem de fila) utilizando o valor de retorno da função. 
 
-Considere os exemplos a seguir de como você pode implementar funções diferentes.
+Considere os seguintes exemplos de como poderia implementar diferentes funções.
 
-| Cenário de exemplo | Acionador | Associação de entrada | Associação de saída |
+| Cenário de exemplo | Acionador | Encadernação de entrada | Encadernação de saída |
 |-------------|---------|---------------|----------------|
-| Uma nova mensagem de fila chega, que executa uma função para gravar em outra fila. | <sup>*</sup> de fila | *None* | <sup>*</sup> de fila |
-|Um trabalho agendado lê o conteúdo do armazenamento de BLOBs e cria um novo documento Cosmos DB. | Temporizador | Blob Storage | BD do Cosmos |
-|A grade de eventos é usada para ler uma imagem do armazenamento de BLOBs e um documento do Cosmos DB para enviar um email. | Event Grid | Armazenamento de BLOBs e Cosmos DB | SendGrid |
-| Um webhook que usa Microsoft Graph para atualizar uma planilha do Excel. | HTTP | *None* | Microsoft Graph |
+| Chega uma nova mensagem de fila que funciona com uma função de escrever para outra fila. | <sup>Fila*</sup> | *Nenhuma.* | <sup>Fila*</sup> |
+|Um trabalho programado lê conteúdos de Blob Storage e cria um novo documento Cosmos DB. | Temporizador | Armazenamento de Blobs | BD do Cosmos |
+|A Grelha de Eventos é usada para ler uma imagem do Blob Storage e um documento da Cosmos DB para enviar um e-mail. | Event Grid | Blob Storage e Cosmos DB | SendGrid |
+| Um webhook que usa o Microsoft Graph para atualizar uma folha excel. | HTTP | *Nenhuma.* | Microsoft Graph |
 
 <sup>\*</sup> Representa filas diferentes
 
-Esses exemplos não devem ser completos, mas são fornecidos para ilustrar como você pode usar gatilhos e associações juntos.
+Estes exemplos não são para ser exaustivos, mas são fornecidos para ilustrar como pode utilizar gatilhos e encadernações em conjunto.
 
-###  <a name="trigger-and-binding-definitions"></a>Definições de associação e gatilho
+###  <a name="trigger-and-binding-definitions"></a>Definições de gatilho e de ligação
 
-Os gatilhos e as associações são definidos de forma diferente, dependendo da abordagem de desenvolvimento.
+Os gatilhos e encadernações são definidos de forma diferente dependendo da abordagem de desenvolvimento.
 
-| Plataforma | Gatilhos e associações são configurados por... |
+| Plataforma | Os gatilhos e encadernações são configurados por... |
 |-------------|--------------------------------------------|
-| C#biblioteca de classes | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;métodos e parâmetros de decoração C# com atributos |
-| Todos os outros (incluindo portal do Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atualizando [Function. JSON](./functions-reference.md) ([esquema](http://json.schemastore.org/function)) |
+| C#biblioteca de classes | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;métodos e parâmetros de decoração com C# atributos |
+| Todos os outros (incluindo o portal Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ atualização função.json](./functions-reference.md) [(esquema)](http://json.schemastore.org/function) |
 
-O portal fornece uma interface do usuário para essa configuração, mas você pode editar o arquivo diretamente abrindo o **Editor avançado** disponível por meio da guia **integrar** da sua função.
+O portal fornece um UI para esta configuração, mas pode editar o ficheiro diretamente abrindo o **editor Avançado** disponível através do separador **Integrado** da sua função.
 
-No .NET, o tipo de parâmetro define o tipo de dados para dados de entrada. Por exemplo, use `string` para associar ao texto de um gatilho de fila, uma matriz de bytes para ler como binário e um tipo personalizado para desserializar para um objeto.
+Em .NET, o tipo de parâmetro define o tipo de dados para os dados de entrada. Por exemplo, utilize `string` para se ligar ao texto de um gatilho de fila, um matriz byte para ler como binário e um tipo personalizado para desserializar a um objeto.
 
-Para idiomas que são digitados dinamicamente, como JavaScript, use a propriedade `dataType` no arquivo *Function. JSON* . Por exemplo, para ler o conteúdo de uma solicitação HTTP em formato binário, defina `dataType` como `binary`:
+Para idiomas que são dinamicamente digitados como JavaScript, utilize a propriedade `dataType` no ficheiro *fun.json.* Por exemplo, ler o conteúdo de um pedido HTTP em formato binário, definir `dataType` para `binary`:
 
 ```json
 {
@@ -63,31 +63,31 @@ Para idiomas que são digitados dinamicamente, como JavaScript, use a propriedad
 
 Outras opções para `dataType` são `stream` e `string`.
 
-## <a name="binding-direction"></a>Direção da Associação
+## <a name="binding-direction"></a>Direção vinculativa
 
-Todos os gatilhos e associações têm uma propriedade `direction` no arquivo [Function. JSON](./functions-reference.md) :
+Todos os gatilhos e encadernações têm uma propriedade `direction` no ficheiro [função.json:](./functions-reference.md)
 
-- Para gatilhos, a direção é sempre `in`
-- As associações de entrada e saída usam `in` e `out`
-- Algumas ligações dão suporte a uma direção especial `inout`. Se você usar `inout`, somente o **Editor avançado** estará disponível por meio da guia **integrar** no Portal.
+- Para os gatilhos, a direção é sempre `in`
+- As encadernações de entrada e saída utilizam `in` e `out`
+- Algumas encadernações apoiam uma direção especial `inout`. Se utilizar `inout`, apenas o **editor Avançado** está disponível através do separador **Integrano** no portal.
 
-Quando você usa [atributos em uma biblioteca de classes](functions-dotnet-class-library.md) para configurar gatilhos e associações, a direção é fornecida em um construtor de atributo ou inferida a partir do tipo de parâmetro.
+Quando utiliza [atributos numa biblioteca](functions-dotnet-class-library.md) de classes para configurar gatilhos e encadernações, a direção é fornecida num construtor de atributos ou inferida do tipo de parâmetro.
 
-## <a name="supported-bindings"></a>Associações com suporte
+## <a name="supported-bindings"></a>Encadernações apoiadas
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-Para obter informações sobre quais associações estão na visualização ou são aprovadas para uso em produção, consulte [idiomas com suporte](supported-languages.md).
+Para obter informações sobre quais as encadernações em pré-visualização ou aprovadas para utilização da produção, consulte [as línguas apoiadas.](supported-languages.md)
 
 ## <a name="resources"></a>Recursos
-- [Expressões e padrões de associação](./functions-bindings-expressions-patterns.md)
-- [Usando o valor de retorno da função do Azure](./functions-bindings-return-value.md)
-- [Como registrar uma expressão de associação](./functions-bindings-register.md)
-- Testado
-  - [Estratégias para testar seu código no Azure Functions](functions-test-a-function.md)
-  - [Executar manualmente uma função não disparada por HTTP](functions-manually-run-non-http.md)
-- [Tratamento de erros de associação](./functions-bindings-errors.md)
+- [Expressões e padrões de ligação](./functions-bindings-expressions-patterns.md)
+- [Utilização do valor de retorno da Função Azure](./functions-bindings-return-value.md)
+- [Como registar uma expressão vinculativa](./functions-bindings-register.md)
+- Ensaio:
+  - [Estratégias para testar o seu código em Funções Azure](functions-test-a-function.md)
+  - [Executar manualmente uma função não ativada por HTTP](functions-manually-run-non-http.md)
+- [Manuseamento de erros de encadernação](./functions-bindings-errors.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Registrar Azure Functions extensões de associação](./functions-bindings-register.md)
+> [Registar extensões de ligação de funções Azure](./functions-bindings-register.md)

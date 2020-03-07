@@ -7,11 +7,11 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 76af5f398edd736874fa79095f2e80c02298eac0
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164649"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356857"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento de fila Azure para funções azure
 
@@ -316,8 +316,8 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | deve ser definido para `queue`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
-|**direção** | n/d | deve ser definido para `out`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
+|**tipo** | n/d | Deve ser definido para `queue`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**direção** | n/d | Deve ser definido para `out`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
 |**nome** | n/d | O nome da variável que representa a fila no código de função. Definir para `$return` para referenciar o valor de devolução da função.|
 |**queueName** |**Nome da fila** | O nome da fila. |
 |**conexão** | **Conexão** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução das Funções procura uma definição de aplicação que se chama "MyStorage". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação que é denominada `AzureWebJobsStorage`.|

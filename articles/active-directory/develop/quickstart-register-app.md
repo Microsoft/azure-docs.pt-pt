@@ -1,5 +1,5 @@
 ---
-title: Registrar um aplicativo com a plataforma de identidade da Microsoft | Azure
+title: Registe uma aplicação com a plataforma de identidade microsoft / Azure
 description: Saiba como adicionar e registar uma aplicação na plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
@@ -13,23 +13,23 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: bb741fe36e00c3d528470866669e64e9b0b221ae
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704141"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78377241"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registe uma aplicação com a plataforma de identidade da Microsoft
 
 Os programadores empresariais e os fornecedores de software como serviço (SaaS) podem desenvolver serviços cloud comerciais ou aplicações de linha de negócio que podem ser integrados na plataforma de identidade da Microsoft, de modo a proporcionar início de sessão protegido e autorização para os serviços que oferecem.
 
-Este guia de início rápido mostra como adicionar e registrar um aplicativo usando a experiência de **registros de aplicativo** no portal do Azure para que seu aplicativo possa ser integrado à plataforma Microsoft Identity. Para saber mais sobre os novos recursos e aprimoramentos na nova experiência de registros do aplicativo, consulte [esta postagem no blog](https://developer.microsoft.com/graph/blogs/new-app-registration/).
+Este quickstart mostra-lhe como adicionar e registar uma aplicação utilizando a experiência de **registos** da App no portal Azure para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Para saber mais sobre as novas funcionalidades e melhorias na experiência de registo de novas aplicações, consulte [esta publicação de blog.](https://developer.microsoft.com/graph/blogs/new-app-registration/)
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registar uma nova aplicação através do portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino do Azure AD que pretende.
-1. Procure e selecione **Azure Active Directory**. Na página **Active Directory** , selecione **registros de aplicativo** e, em seguida, selecione **novo registro**.
+1. Procure e selecione **Azure Ative Directory**. Na página **'Diretório Ativo',** selecione registos de **Aplicações** e, em seguida, selecione **Nova inscrição**.
 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 
    - **Nome** - Introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação.
@@ -49,11 +49,11 @@ Este guia de início rápido mostra como adicionar e registrar um aplicativo usa
 
 1. Quando terminar, selecione **Registar**.
 
-    [![mostra a tela para registrar um novo aplicativo no portal do Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    [![Mostra o ecrã para registar uma nova aplicação no portal Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
 O Azure AD atribui um ID de aplicação (cliente) exclusivo à sua aplicação e será encaminhado para a página **Descrição Geral** da sua aplicação. Para adicionar mais capacidades à aplicação, pode selecionar outras opções de configuração, incluindo imagem corporativa, certificados e segredos, permissões de API e muito mais.
 
-[![exemplo de uma página de visão geral do aplicativo recentemente registrado](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+[![Exemplo da página geral de uma aplicação recém-registada](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

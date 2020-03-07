@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.openlocfilehash: 7e00d03a8b3ec7ef56935ff7714fd932bc343cd3
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493049"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357015"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Ligação de saída de ônibus de serviço Azure para funções Azure
 
@@ -297,7 +297,7 @@ Nas Funções Azure 1.x, o tempo de funcionamento cria a fila se não existir e 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Use os seguintes tipos de parâmetro para a associação de saída:
+Utilize os seguintes tipos de parâmetros para a ligação de saída:
 
 * `out T paramName` - `T` pode ser qualquer tipo json-serializável. Se o valor do parâmetro for nulo quando a função sai, as funções cria a mensagem com um objeto nulo.
 * `out string` - Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
@@ -314,7 +314,7 @@ Ao trabalhar C# com funções:
 
 # <a name="c-script"></a>[C#Roteiro](#tab/csharp-script)
 
-Use os seguintes tipos de parâmetro para a associação de saída:
+Utilize os seguintes tipos de parâmetros para a ligação de saída:
 
 * `out T paramName` - `T` pode ser qualquer tipo json-serializável. Se o valor do parâmetro for nulo quando a função sai, as funções cria a mensagem com um objeto nulo.
 * `out string` - Se o valor do parâmetro for nulo quando a função sai, as funções não criam uma mensagem.
@@ -387,6 +387,6 @@ Esta secção descreve as definições de configuração global disponíveis par
 |Preenchimento automático|true|Se o gatilho deve marcar imediatamente a mensagem como completa (autocompleta) ou esperar que a função saia com sucesso para ligar completa.|
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que deve iniciar o bombardeamento de mensagens. Por predefinição, o runtime das funções processa várias mensagens em simultâneo. Para direcionar o tempo de execução para processar apenas uma única fila ou mensagem de tópico de cada vez, detete `maxConcurrentCalls` para 1. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar uma função quando uma fila de ônibus de serviço ou mensagem tópico é criada (Gatilho)](./functions-bindings-service-bus-trigger.md)

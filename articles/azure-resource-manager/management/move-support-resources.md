@@ -4,11 +4,11 @@ description: Lista os tipos de recursos Azure que podem ser transferidos para um
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: 8ab194ad240e4f3e0994314ef9ade3bc7159cf81
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671851"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387703"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover apoio operacional para recursos
 Este artigo enumera se um tipo de recurso Azure suporta a operação de movimento. Também fornece informações sobre condições especiais a considerar ao mover um recurso.
@@ -543,7 +543,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | dimensões | Não | Não |
 > | Exportações | Não | Não |
 > | subscrições externas | Não | Não |
-> | previsão | Não | Não |
+> | Previsão | Não | Não |
 > | consulta | Não | Não |
 > | Reportconfigs | Não | Não |
 > | relatórios | Não | Não |
@@ -1326,7 +1326,7 @@ Salte para um espaço de nome do fornecedor de recursos:
 > | requisitos de verificação de conectores de dados | Não | Não |
 > | entidades | Não | Não |
 > | entidades | Não | Não |
-> | Incidentes | Não | Não |
+> | incidentes | Não | Não |
 > | consentimentos de escritório | Não | Não |
 > | settings | Não | Não |
 

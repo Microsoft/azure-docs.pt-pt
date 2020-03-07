@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: 043369bd6112c4cac36539bbd764393d889439c0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672281"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384485"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Tiroteio de problemas em Azure Diagnostics
 Este artigo descreve informações de resolução de problemas relevantes para a utilização de Diagnósticos Azure. Para obter mais informações sobre diagnósticos Azure, consulte a visão geral do [Azure Diagnostics.](diagnostics-extension-overview.md)

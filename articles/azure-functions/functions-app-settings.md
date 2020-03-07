@@ -4,11 +4,11 @@ description: Documentação de referência para as definições de aplicação d
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963704"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355913"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -28,7 +28,7 @@ A chave de instrumentação Application Insights, se estiver a utilizar o Applic
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-Na versão 2. x e versões posteriores do tempo de execução do functions, o configura o comportamento do aplicativo com base no ambiente de tempo de execução. Este valor é lido durante a [inicialização.](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43) Pode definir `AZURE_FUNCTIONS_ENVIRONMENT` a qualquer valor, mas [são apoiados três valores:](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) [Desenvolvimento,](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development) [Encenação](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [Produção.](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production) Quando `AZURE_FUNCTIONS_ENVIRONMENT` não está definida, não passa de `Development` num ambiente local e `Production` em Azure. Esta definição deve ser utilizada em vez de `ASPNETCORE_ENVIRONMENT` para definir o ambiente de tempo de execução. 
+Na versão 2.x e versões posteriores do tempo de execução das Funções, configura o comportamento da aplicação com base no ambiente de tempo de execução. Este valor é lido durante a [inicialização.](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43) Pode definir `AZURE_FUNCTIONS_ENVIRONMENT` a qualquer valor, mas [são apoiados três valores:](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) [Desenvolvimento,](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development) [Encenação](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [Produção.](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production) Quando `AZURE_FUNCTIONS_ENVIRONMENT` não está definida, não passa de `Development` num ambiente local e `Production` em Azure. Esta definição deve ser utilizada em vez de `ASPNETCORE_ENVIRONMENT` para definir o ambiente de tempo de execução. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -95,7 +95,7 @@ Caminho para o compilador utilizado para o TypeScript. Pode substituir a predefi
 
 ## <a name="function_app_edit_mode"></a>FUNÇÃO\_APP\_EDITAR\_MODE
 
-Determina se a edição no portal do Azure está habilitada. Valores válidos são "readwrite" e "só de leitura".
+Dita se a edição no portal Azure está ativada. Valores válidos são "readwrite" e "só de leitura".
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -111,10 +111,10 @@ A versão do runtime das funções para utilizar esta aplicação de função. U
 
 ## <a name="functions_v2_compatibility_mode"></a>FUNÇÕES\_V2\_MODO de\_de COMPATIBILIDADE
 
-Essa configuração permite que seu aplicativo de funções seja executado em um modo compatível com versão 2. x no tempo de execução da versão 3. x. Utilize esta definição apenas se encontrar problemas ao [atualizar a sua aplicação de funções da versão 2.x para 3.x do tempo de execução](functions-versions.md#migrating-from-2x-to-3x). 
+Esta definição permite que a sua aplicação de função seja executada num modo compatível com a versão 2.x no tempo de execução da versão 3.x. Utilize esta definição apenas se encontrar problemas ao [atualizar a sua aplicação de funções da versão 2.x para 3.x do tempo de execução](functions-versions.md#migrating-from-2x-to-3x). 
 
 >[!IMPORTANT]
-> Essa configuração destina-se somente como uma solução alternativa de curto prazo enquanto você atualiza seu aplicativo para ser executado corretamente na versão 3. x. Esta definição é suportada desde que o tempo de [execução 2.x seja suportado](functions-versions.md). Se encontrar problemas que impeçam a sua aplicação de funcionar na versão 3.x sem utilizar esta definição, por favor [informe o seu problema](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
+> Esta definição destina-se apenas a uma suposição de curto prazo enquanto atualiza a sua aplicação para ser executada corretamente na versão 3.x. Esta definição é suportada desde que o tempo de [execução 2.x seja suportado](functions-versions.md). Se encontrar problemas que impeçam a sua aplicação de funcionar na versão 3.x sem utilizar esta definição, por favor [informe o seu problema](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
 
 Requer que as [funções\_versão\_extensão](functions-app-settings.md#functions_extension_version) sejam definidas para `~3`.
 
@@ -124,7 +124,7 @@ Requer que as [funções\_versão\_extensão](functions-app-settings.md#function
 
 ## <a name="functions_worker_process_count"></a>FUNÇÕES\_processo de\_de trabalhador\_CONTAGEM
 
-Especifica o número máximo de processos de trabalhadores linguísticos, com um valor padrão de `1`. O valor máximo permitido é `10`. As invocações de função são distribuídas uniformemente entre os processos de trabalho de linguagem. Os processos dos trabalhadores linguísticos são gerados a cada 10 segundos até que seja alcançada a contagem definida pelas funções\_trabalhador\_processo\_COUNT. A utilização de múltiplos processos de trabalhador estonteante linguagem não é o mesmo que [escalonar](functions-scale.md). Considere usar essa configuração quando sua carga de trabalho tiver uma combinação de invocações associadas à CPU e de e/s. Essa configuração se aplica a todos os idiomas do non-.NET.
+Especifica o número máximo de processos de trabalhadores linguísticos, com um valor padrão de `1`. O valor máximo permitido é `10`. As invocações de funções são distribuídas uniformemente entre os processos dos trabalhadores linguísticos. Os processos dos trabalhadores linguísticos são gerados a cada 10 segundos até que seja alcançada a contagem definida pelas funções\_trabalhador\_processo\_COUNT. A utilização de múltiplos processos de trabalhador estonteante linguagem não é o mesmo que [escalonar](functions-scale.md). Considere utilizar esta definição quando a sua carga de trabalho tiver uma mistura de invocações ligadas a CPU e I/O-bound. Esta definição aplica-se a todas as línguas non-.NET.
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -141,7 +141,7 @@ O runtime de trabalho de idioma carregar na function app.  Corresponderá à lin
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Para consumo & apenas planos Premium. Cadeia de ligação para a conta de armazenamento onde o código de aplicação de função e a configuração são armazenadas. Ver [Criar uma aplicação de função](functions-infrastructure-as-code.md#create-a-function-app).
+Apenas para planos de Consumo e Premium. Cadeia de ligação para a conta de armazenamento onde o código de aplicação de função e a configuração são armazenadas. Ver [Criar uma aplicação de função](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -149,7 +149,7 @@ Para consumo & apenas planos Premium. Cadeia de ligação para a conta de armaze
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Para consumo & apenas planos Premium. O caminho de ficheiro para o código de aplicação de função e a configuração. Utilizado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. A predefinição é uma cadeia exclusiva que começa com o nome da aplicação de função. Ver [Criar uma aplicação de função](functions-infrastructure-as-code.md#create-a-function-app).
+Apenas para planos de Consumo e Premium. O caminho de ficheiro para o código de aplicação de função e a configuração. Utilizado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. A predefinição é uma cadeia exclusiva que começa com o nome da aplicação de função. Ver [Criar uma aplicação de função](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -169,11 +169,11 @@ O número máximo de instâncias de que a aplicação de função pode aumentar 
 ## <a name="website_node_default_version"></a>SITE\_NODE\_DEFAULT_VERSION
 
 _Só janelas._  
-Define a versão do node. js a ser usada ao executar seu aplicativo de funções no Windows. Você deve usar um til (~) para que o tempo de execução use a versão mais recente disponível da versão principal de destino. Por exemplo, quando definido para `~10`, a versão mais recente do Nó.js 10 é usada. Quando uma versão principal é destinada a um til, você não precisa atualizar manualmente a versão secundária. 
+Define a versão do Node.js para utilizar ao executar a sua aplicação de funções no Windows. Deve utilizar um tilde (~) para que o tempo de execução utilize a versão mais recente disponível da versão principal direcionada. Por exemplo, quando definido para `~10`, a versão mais recente do Nó.js 10 é usada. Quando uma versão principal é direcionada com um tilde, não é preciso atualizar manualmente a versão menor. 
 
 |Chave|Valor da amostra|
 |---|------------|
-|SITE\_NODE\_DEFAULT_VERSION|~ 10|
+|SITE\_NODE\_DEFAULT_VERSION|~10|
 
 ## <a name="website_run_from_package"></a>WEBSITE\_executar\_do pacote de\_
 
@@ -191,8 +191,8 @@ Por predefinição, os proxies de funções utilizará um atalho para enviar as 
 
 |Chave|Valor|Descrição|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local não serão mais enviadas diretamente para a função e, em vez disso, serão direcionadas de volta para o front-end HTTP para o Aplicativo de funções|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este é o valor predefinido. Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local serão encaminhadas diretamente para essa função|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|As chamadas com um URL de backend que indique uma função na App de Função local deixarão de ser enviadas diretamente para a função e serão, em vez disso, direcionadas para a extremidade frontal http para a App de Funções|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este é o valor predefinido. Chamadas com um URL de backend apontando para uma função na App de Função local serão reencaminhadas diretamente para essa Função|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES

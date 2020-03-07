@@ -17,11 +17,11 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48370e2806b70d550bce95ceff3857a79561f247
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522701"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378368"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verifique o estado do fornecimento de utilizadores
 
