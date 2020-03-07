@@ -7,11 +7,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.openlocfilehash: 566b6db829c9694a7e5e83cc25695e71ada0bc8d
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461458"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356961"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como utilizar as Aplicações Móveis Node.js SDK
 
@@ -332,7 +332,7 @@ As Aplicações Móveis lêum ficheiro JavaScript chamado *azureMobile.js* do si
 
 O ficheiro azureMobile.js deve exportar um objeto de configuração. As configurações mais comuns são:
 
-* Configurações do banco de dados
+* Definições de base de dados
 * Definições de registo de diagnóstico
 * Definições alternativas de CORS
 
@@ -374,7 +374,7 @@ A maioria das definições no ficheiro azureMobile.js têm uma configuração de
 
 Para definir uma definição de aplicação:
 
-1. Inicie sessão no [Portal do Azure].
+1. Inicie sessão no [portal do Azure].
 1. Selecione **Todos os recursos** ou **Serviços de Aplicações**e, em seguida, selecione o nome da sua aplicação móvel.
 1. O painel **Definições** abre por defeito. Se não o fizer, selecione **Definições**.
 1. No menu **GENERAL,** selecione **as definições**de Aplicação .
@@ -391,7 +391,7 @@ Alterar a maioria das definições de aplicações requer um reinício do servi�
 
 A utilização da Base de Dados Azure SQL como uma loja de dados é idêntica em todos os tipos de aplicações do Serviço de Aplicações Azure. Se ainda não o fez, siga estes passos para criar uma extremidade mobile Apps:
 
-1. Inicie sessão no [Portal do Azure].
+1. Inicie sessão no [portal do Azure].
 1. Na parte superior esquerda da janela, selecione o botão **+NEW** > **Web + Mobile** > Mobile **App,** e, em seguida, forneça um nome para as suas Aplicações Móveis na extremidade traseira.
 1. Na caixa do **Grupo de Recursos,** introduza o mesmo nome que a sua aplicação.
 1. O plano de serviço de aplicações padrão é selecionado. Se quiser alterar o seu plano de Serviço de Aplicações:

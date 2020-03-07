@@ -1,6 +1,6 @@
 ---
-title: Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do VMware
-description: Saiba mais sobre os Planejador de Implantações do Azure Site Recovery para recuperação de desastre de VMs VMware no Azure.
+title: Planejador de Implantação de Recuperação de Sítios Azure para recuperação de desastres vMware
+description: Saiba mais sobre o Planejador de Implantação de Recuperação de Sítios Azure para a recuperação de desastres de VMware VMs para Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: mayg
 ms.openlocfilehash: 50a236154a0340bd49e84a8ca02f656e3cd9994a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084534"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395018"
 ---
-# <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Planejador de Implantações do Azure Site Recovery para VMware para o Azure
+# <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Planejador de Implantação de Implantação de Sítios Azure para VMware para Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de VMware para o Azure.
 
 ## <a name="overview"></a>Descrição geral
@@ -41,8 +41,8 @@ A ferramenta disponibiliza os seguintes detalhes:
 
 **Requisitos de infraestrutura do Azure**
 
-* Requisito de tipo de armazenamento (armazenamento Standard ou Premium) para cada VM
-* Número total de contas de armazenamento Standard e Premium a serem configuradas para replicação (inclui contas de armazenamento de cache)
+* Tipo de armazenamento (armazenamento standard ou premium) para cada VM
+* Número total de contas de armazenamento standard e premium a criar para replicação (inclui contas de armazenamento de cache)
 * Sugestões de nomenclatura de contas de armazenamento, com base na documentação de orientação do Armazenamento
 * Número de núcleos do Azure a configurar antes da ativação pós-falha ou reativação pós-falha de teste na subscrição
 * Tamanho recomendado da VM do Azure para cada VM no local
@@ -65,7 +65,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 | | **VMware para o Azure** |**Hyper-V para o Azure**|**Azure para o Azure**|**Hyper-V para um site secundário**|**VMware para um site secundário**
 --|--|--|--|--|--
 Cenários suportados |Sim|Sim|Não|Sim*|Não
-Versão suportada | vCenter 6,7, 6,5, 6,0 ou 5,5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
+Versão suportada | vCenter 6.7, 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configuração suportada|vCenter, ESXi| Cluster Hyper-V, anfitrião Hyper-V|ND|Cluster Hyper-V, anfitrião Hyper-V|ND|
 Número de servidores para os quais podem ser criados perfis por instância de execução do Planeador de Implementações do Site Recovery |Único (é possível criar um perfil de cada vez de VMs pertencentes a um vCenter Server ou um servidor ESXi)|Vários (pode criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| ND |Vários (pode criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| ND
 
@@ -76,8 +76,8 @@ A ferramenta tem duas fases principais – a criação de perfis e a geração d
 
 | Requisito do servidor | Descrição|
 |---|---|
-|Medição da criação de perfis e do débito| <ul><li>Sistema operativo: Windows Server 2016 ou Windows Server 2012 R2<br>(que corresponda idealmente, pelo menos, às [recomendações de tamanho do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração da máquina : 8 vCPus, 16 GB de RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure a partir deste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>As configurações de nível de estatísticas do VMware vCenter podem ser de nível 1 ou superior</li><li>Permitir porta do vCenter (padrão 443): Site Recovery Planejador de Implantações usa essa porta para se conectar ao servidor vCenter/host ESXi</ul></ul>|
-| Geração de relatórios | Um computador Windows ou Windows Server com o Excel 2013 ou posterior.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6,0 R3](https://aka.ms/download_powercli) é necessário apenas quando você passa a opção de usuário no comando de geração de relatório para buscar as informações mais recentes de configuração da VM das VMs. O Planejador de Implantações se conecta ao vCenter Server. Permitir porta de porta do vCenter (padrão 443) para se conectar ao vCenter Server.</li>|
+|Medição da criação de perfis e do débito| <ul><li>Sistema operativo: Windows Server 2016 ou Windows Server 2012 R2<br>(que corresponda idealmente, pelo menos, às [recomendações de tamanho do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração da máquina : 8 vCPus, 16 GB de RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure a partir deste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>As definições de nível de nível de estatísticas VMware vCenter podem ser de 1 ou superior nível</li><li>Permitir a porta vCenter (padrão 443): O Planificador de Implementação de Recuperação do Site utiliza esta porta para se ligar ao servidor vCenter/hospedeiro ESXi</ul></ul>|
+| Geração de relatórios | Um Windows PC ou Windows Server com Excel 2013 ou mais tarde.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) só é necessário quando passa a opção -Utilizador no comando de geração de relatórios para obter as mais recentes informações de configuração VM dos VMs. O Planificador de Implementação liga-se ao servidor vCenter. Permita que a porta vCenter (padrão 443) se ligue ao servidor vCenter.</li>|
 | Permissões de utilizador | Permissão só de leitura para a conta de utilizador utilizada para aceder ao VMware vCenter Server/anfitrião ESXi do VMware vSphere durante a criação do perfil |
 
 > [!NOTE]
@@ -98,13 +98,13 @@ Pode executá-la no Windows Server 2012 R2 se o servidor tiver acesso à rede pa
 Esta contém vários ficheiros e sub-pastas. O ficheiro executável é ASRDeploymentPlanner.exe, na pasta principal.
 
     Exemplo: copie o ficheiro .zip para a unidade E:\ e extraia-o.
-    E:\ASR Deployment Planner_v2.3. zip
+    E:\ASR Deployment Planner_v2.3.zip
 
-    Planner_v2 implantação do E:\ASR. 3 \ ASRDeploymentPlanner. exe
+    E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Atualizar para a versão mais recente do Planeador de Implementações
 
-As atualizações mais recentes são resumidas no [histórico de versão](site-recovery-deployment-planner-history.md)do planejador de implantações.
+As últimas atualizações são resumidas no histórico da [versão](site-recovery-deployment-planner-history.md)Deployment Planner .
 
 Se tiver uma versão anterior do Planeador de Implementações, execute um dos seguintes procedimentos:
  * Se a versão mais recente não contiver uma correção de criação de perfis e a criação de perfis já estiver em curso na sua versão atual da ferramenta, continue com a mesma.
@@ -119,7 +119,7 @@ Se tiver uma versão anterior do Planeador de Implementações, execute um dos s
 
 
 ## <a name="version-history"></a>Histórico de versões
-A versão mais recente da ferramenta de Planejador de Implantações de Site Recovery é 2,5.
+A mais recente versão da ferramenta de implantação de implementação de conjuntos é de 2.5.
 Veja a página [Histórico de versões do Planeador de Implementações do Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) para obter as correções que foram adicionadas em cada atualização.
 
 ## <a name="next-steps"></a>Passos seguintes

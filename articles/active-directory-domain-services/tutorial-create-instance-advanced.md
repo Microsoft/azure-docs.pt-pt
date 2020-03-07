@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: e3f09d4e2500b98a7ce68139cd97a04c0d60d73e
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f6817c1ec308e75a4af88825d46848b504775e19
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612550"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383670"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Crie e configure uma instância de Serviços de Domínio de Diretório Ativo Azure com opções avançadas de configuração
 
@@ -139,7 +139,7 @@ Complete os campos na janela da *Rede* da seguinte forma:
 
 Um grupo administrativo especial chamado *AAD DC Administrators* é utilizado para a gestão do domínio Azure AD DS. Aos membros deste grupo são concedidas permissões administrativas em VMs que são unidas ao domínio gerido. Em VMs de domínio, este grupo é adicionado ao grupo de administradores locais. Os membros deste grupo também podem usar o Remote Desktop para ligar remotamente a VMs unidos pelo domínio.
 
-Não tem permissões de Administrador de *Domínio* ou *Administrador de Empresa* num domínio gerido utilizando O DS Azure. Estas permissões são reservadas pelo serviço e não são disponibilizadas aos utilizadores dentro do inquilino. Em vez disso, o grupo de administradores da *AAD DC* permite-lhe realizar algumas operações privilegiadas. Estas operações incluem a junção de computadores ao domínio, pertencentes ao grupo de administração em VMs filiados ao domínio, e a configuração da Política de Grupo.
+Não tem permissões de Administrador de *Domínio* ou *Administrador de Empresa* num domínio gerido utilizando O DS Azure. Estas permissões são reservadas pelo serviço e não são disponibilizadas aos utilizadores dentro do inquilino. Em vez disso, o grupo de administradores da *AAD DC* permite-lhe realizar algumas operações privilegiadas. Estas operações incluem pertencer ao grupo de administração em VMs filiados em domínios e configurar a Política de Grupo.
 
 O assistente cria automaticamente o grupo *de administradores aAD DC* no seu diretório Azure AD. Se tiver um grupo existente com este nome no seu diretório Azure AD, o assistente seleciona este grupo. Pode optar opcionalmente por adicionar utilizadores adicionais a este grupo de *Administradores aAD DC* durante o processo de implementação. Estes passos podem ser concluídos mais tarde.
 

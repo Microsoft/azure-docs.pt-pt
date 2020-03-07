@@ -1,6 +1,6 @@
 ---
-title: Copiar dados do Amazon redshift
-description: Saiba mais sobre como copiar dados do Amazon redshift para armazenamentos de dados de coletor com suporte usando Azure Data Factory.
+title: Copiar dados da Amazon Redshift
+description: Saiba como copiar dados da Amazon Redshift para lojas de dados de sink suportadas utilizando a Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -12,58 +12,58 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 4d729a0117c7c409d1a3e0c3fd440aed96153203
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893326"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396530"
 ---
-# <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados do Amazon redshift usando o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+# <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados da Amazon Redshift usando a Fábrica de Dados Azure
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Versão atual](connector-amazon-redshift.md)
 
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um Amazon redshift. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados Azure para copiar dados de um Redshift Amazon. Baseia-se no artigo de visão geral da [atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Este conector do Amazon redshift tem suporte para as seguintes atividades:
+Este conector Amazon Redshift é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Copiar atividade](copy-activity-overview.md) com matriz de [origem/pia suportada](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados do Amazon redshift para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados da Amazon Redshift para qualquer loja de dados suportada. Para obter uma lista de lojas de dados que são suportadas como fontes/pias pela atividade de cópia, consulte a tabela de lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Especificamente, esse conector do Amazon redshift dá suporte à recuperação de dados do redshift usando consulta ou suporte interno a UNLOAD de redshift.
+Especificamente, este conector Amazon Redshift suporta a recuperação de dados da Redshift utilizando o suporte redshift unload incorporado.
 
 > [!TIP]
-> Para obter o melhor desempenho ao copiar grandes quantidades de dados do redshift, considere o uso do descarregamento redshift interno por meio do Amazon S3. Consulte [a seção usar Unload para copiar dados do Amazon redshift](#use-unload-to-copy-data-from-amazon-redshift) para obter detalhes.
+> Para obter o melhor desempenho ao copiar grandes quantidades de dados da Redshift, considere usar o REDShift UNLOAD incorporado através da Amazon S3. Consulte o Use UNLOAD para copiar dados da secção [Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) para obter mais detalhes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você estiver copiando dados para um armazenamento de dados local usando o [autohospedado Integration Runtime](create-self-hosted-integration-runtime.md), conceda Integration Runtime (use o endereço IP da máquina) o acesso ao cluster do Amazon redshift. Consulte [autorizar o acesso ao cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) para obter instruções.
-* Se você estiver copiando dados para um armazenamento de dados do Azure, consulte [intervalos de IP do Data Center do Azure](https://www.microsoft.com/download/details.aspx?id=41653) para o endereço IP de computação e intervalos SQL usados pelos data centers do Azure.
+* Se estiver a copiar dados para uma loja de dados no local utilizando o Tempo de [Integração Auto-hospedado,](create-self-hosted-integration-runtime.md)conceda o Tempo de Integração (use o endereço IP da máquina) o acesso ao cluster Amazon Redshift. Consulte [autorizar o acesso ao cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) para obter instruções.
+* Se estiver a copiar dados para uma loja de dados Azure, consulte [o Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) para o endereço IP computacional e as gamas SQL utilizadas pelos centros de dados Azure.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector do Amazon redshift.
+As seguintes secções fornecem detalhes sobre propriedades que são usadas para definir entidades da Fábrica de Dados específicas do conector Amazon Redshift.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As propriedades a seguir têm suporte para o serviço vinculado do Amazon redshift:
+As seguintes propriedades são suportadas para o serviço ligado à Amazon Redshift:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type deve ser definida como: **AmazonRedshift** | Sim |
-| servidor |Endereço IP ou nome do host do servidor Amazon redshift. |Sim |
-| porta |O número da porta TCP que o servidor Amazon redshift usa para escutar conexões de cliente. |Não, o padrão é 5439 |
-| base de dados |Nome do banco de dados do Amazon redshift. |Sim |
-| o nome de utilizador |Nome do usuário que tem acesso ao banco de dados. |Sim |
-| palavra-passe |Senha da conta de usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+| tipo | A propriedade tipo deve ser definida para: **AmazonRedshift** | Sim |
+| servidor |Endereço IP ou nome anfitrião do servidor Amazon Redshift. |Sim |
+| porta |O número da porta TCP que o servidor Amazon Redshift usa para ouvir as ligações dos clientes. |Não, o padrão é 5439. |
+| database |Nome da base de dados Amazon Redshift. |Sim |
+| o nome de utilizador |Nome do utilizador que tenha acesso à base de dados. |Sim |
+| palavra-passe |Palavra-passe para a conta de utilizador. Marque este campo como um SecureString para o armazenar de forma segura na Data Factory, ou [refira um segredo armazenado no Cofre de Chaves Azure](store-credentials-in-key-vault.md). |Sim |
+| connectVia | O Tempo de [Integração](concepts-integration-runtime.md) a utilizar para se ligar à loja de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**
 
@@ -93,16 +93,16 @@ As propriedades a seguir têm suporte para o serviço vinculado do Amazon redshi
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de redshift do Amazon.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo conjuntos de [dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Amazon Redshift.
 
-Para copiar dados do Amazon redshift, há suporte para as seguintes propriedades:
+Para copiar dados da Amazon Redshift, são suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **AmazonRedshiftTable** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AmazonRedshiftTable** | Sim |
 | schema | Nome do esquema. |Não (se for especificada "query" na origem de atividade)  |
 | table | Nome da tabela. |Não (se for especificada "query" na origem de atividade)  |
-| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se for especificada "query" na origem de atividade) |
+| tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Use `schema` e `table` para uma nova carga de trabalho. | Não (se for especificada "query" na origem de atividade) |
 
 **Exemplo**
 
@@ -122,25 +122,25 @@ Para copiar dados do Amazon redshift, há suporte para as seguintes propriedades
 }
 ```
 
-Se você estivesse usando `RelationalTable` dataset tipado, ele ainda tem suporte como está, enquanto você é sugerido para usar o novo no futuro.
+Se estiver a utilizar `RelationalTable` conjunto de dados dactilografado, ainda é suportado como está, enquanto é sugerido que utilize o novo para a frente.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela fonte do Amazon redshift.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas por fonte da Amazon Redshift.
 
-### <a name="amazon-redshift-as-source"></a>Amazon redshift como fonte
+### <a name="amazon-redshift-as-source"></a>Amazon Redshift como fonte
 
-Para copiar dados do Amazon redshift, defina o tipo de fonte na atividade de cópia como **AmazonRedshiftSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados da Amazon Redshift, delineie o tipo de origem na atividade de cópia para **AmazonRedshiftSource**. As seguintes propriedades são suportadas na secção de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **AmazonRedshiftSource** | Sim |
-| consulta |Use a consulta personalizada para ler os dados. Por exemplo: selecione * em MyTable. |Não (se for especificado "tableName" no conjunto de dados) |
-| redshiftUnloadSettings | Grupo de propriedades ao usar o descarregamento do Amazon redshift. | Não |
-| s3LinkedServiceName | Refere-se a um Amazon S3 a ser usado como um armazenamento provisório, especificando um nome de serviço vinculado do tipo "AmazonS3". | Sim se estiver usando UNLOAD |
-| bucketName | Indique o Bucket S3 para armazenar os dados provisórios. Se não for fornecido, Data Factory serviço o gerará automaticamente.  | Sim se estiver usando UNLOAD |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AmazonRedshiftSource** | Sim |
+| consulta |Use a consulta personalizada para ler dados. Por exemplo: selecione * do MyTable. |Não (se for especificado "tableName" no conjunto de dados) |
+| redshiftUnloadSettings | Grupo imobiliário ao usar a Amazon Redshift UNLOAD. | Não |
+| s3LinkedServiceName | Refere-se a um Amazon S3 a ser usado como uma loja provisória, especificando um nome de serviço ligado do tipo "AmazonS3". | Sim, se usar o UNLOAD |
+| bucketName | Indique o balde S3 para armazenar os dados provisórios. Caso não seja fornecido, o serviço Data Factory gera-o automaticamente.  | Sim, se usar o UNLOAD |
 
-**Exemplo: origem do Amazon redshift na atividade de cópia usando UNLOAD**
+**Exemplo: Fonte da Amazon Redshift na atividade de cópia usando UNLOAD**
 
 ```json
 "source": {
@@ -156,17 +156,17 @@ Para copiar dados do Amazon redshift, defina o tipo de fonte na atividade de có
 }
 ```
 
-Saiba mais sobre como usar o UNLOAD para copiar dados do Amazon redshift com eficiência na próxima seção.
+Saiba mais sobre como usar o UNLOAD para copiar dados da Amazon Redshift de forma eficiente a partir da próxima secção.
 
-## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Usar UNLOAD para copiar dados do Amazon redshift
+## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Use UNLOAD para copiar dados da Amazon Redshift
 
-[Unload](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) é um mecanismo fornecido pelo Amazon redshift, que pode descarregar os resultados de uma consulta em um ou mais arquivos no Amazon S3 (Simple Storage Service). É a maneira recomendada pela Amazon para copiar um conjunto de dados grandes do redshift.
+[Unload](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) é um mecanismo fornecido pela Amazon Redshift, que pode descarregar os resultados de uma consulta a um ou mais ficheiros sobre o Serviço de Armazenamento Simples da Amazon (Amazon S3). É a forma recomendada pela Amazon para copiar grandes conjuntos de dados da Redshift.
 
-**Exemplo: copiar dados do Amazon redshift para o Azure SQL Data Warehouse usando UNLOAD, cópia preparada e polybase**
+**Exemplo: copiar dados da Amazon Redshift para O Armazém de Dados Azure SQL utilizando UNLOAD, cópia encenada e PolyBase**
 
-Para este caso de uso de exemplo, a atividade de cópia descarrega os dados do Amazon redshift para o Amazon S3 conforme configurado em "redshiftUnloadSettings" e, em seguida, copia dados do Amazon S3 para o blob do Azure, conforme especificado em "stagingSettings", por fim, use o polybase para carregar dados em dados SQL Armazén. Todo o formato provisório é manipulado pela atividade de cópia corretamente.
+Para este caso de utilização da amostra, a atividade de cópia descarrega dados da Amazon Redshift para a Amazon S3 configuradas em "redshiftUnloadSettings", e depois copia dados da Amazon S3 para o Azure Blob conforme especificado em "stagingSettings", por último, utilizar a PolyBase para carregar dados em Dados SQL O armazém. Todo o formato provisório é manuseado corretamente pela atividade da cópia.
 
-![Fluxo de trabalho de cópia do redshift para SQL DW](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+![Redshift para SQL DW copy workflow](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[
@@ -212,28 +212,28 @@ Para este caso de uso de exemplo, a atividade de cópia descarrega os dados do A
 ]
 ```
 
-## <a name="data-type-mapping-for-amazon-redshift"></a>Mapeamento de tipo de dados para Amazon redshift
+## <a name="data-type-mapping-for-amazon-redshift"></a>Mapeamento de tipo de dados para Amazon Redshift
 
-Ao copiar dados do Amazon redshift, os seguintes mapeamentos são usados de tipos de dados do Amazon redshift para Azure Data Factory tipos de dados provisórios. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
+Ao copiar dados da Amazon Redshift, os seguintes mapeamentos são usados desde tipos de dados da Amazon Redshift para tipos de dados provisórios da Azure Data Factory. Consulte [schema e mapeamentos](copy-activity-schema-and-type-mapping.md) de tipo de dados para saber como a atividade de cópia mapeia o esquema de origem e o tipo de dados para a pia.
 
-| Tipo de dados do Amazon redshift | Tipo de dados intermediárias de fábrica de dados |
+| Tipo de dados da Amazon Redshift | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | BIGINT |Int64 |
 | BOOLEAN |String |
-| º |String |
+| CHAR |String |
 | DATA |DateTime |
-| DECIMAL |Decimal |
-| DOUBLE PRECISION |Double |
+| DECIMAL |decimal |
+| DOUBLE PRECISION |Valor de duplo |
 | INTEGER |Int32 |
 | REAL |Único |
 | SMALLINT |Int16 |
 | TEXT |String |
 | TIMESTAMP |DateTime |
-| VARCHAR |String |
+| RIO VARCHAR |String |
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber mais detalhes sobre as propriedades, consulte a [atividade de Lookup.](control-flow-lookup-activity.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista de lojas de dados suportadas como fontes e pias pela atividade de cópia na Azure Data Factory, consulte as lojas de [dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

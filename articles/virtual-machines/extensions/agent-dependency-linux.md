@@ -1,6 +1,6 @@
 ---
-title: Extensão de máquina virtual de dependência Azure Monitor para Linux
-description: Implante o Azure Monitor agente de dependência na máquina virtual Linux usando uma extensão de máquina virtual.
+title: Extensão de máquina virtual de Dependência do Monitor Azure para Linux
+description: Desloque o agente de dependência do Monitor Azure na máquina virtual Linux utilizando uma extensão virtual da máquina.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mgoedtel
@@ -15,25 +15,25 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 82f9c5a67cb056752cf8310be3b7c9f0bd2501e9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979638"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383315"
 ---
-# <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual de dependência Azure Monitor para Linux
+# <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual de Dependência do Monitor Azure para Linux
 
-O Azure Monitor para a funcionalidade de mapa de VMs obtém seus dados do agente do Microsoft Dependency. A extensão da máquina virtual do agente de dependência de VM do Azure para Linux é publicada e suportada pela Microsoft. A extensão instala o agente de dependência em máquinas virtuais do Azure. Este documento detalha as plataformas com suporte, as configurações e as opções de implantação para a extensão de máquina virtual do agente de dependência de VM do Azure para Linux.
+O Azure Monitor para a funcionalidade de mapa de VMs obtém seus dados do agente do Microsoft Dependency. A extensão virtual da máquina virtual do agente de dependência Azure VM para o Linux é publicada e suportada pela Microsoft. A extensão instala o agente Dependency em máquinas virtuais Azure. Este documento detalha as plataformas, configurações e opções de implementação suportadas para a extensão virtual da máquina virtual do agente de dependência Azure VM para o Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão do agente de dependência de VM do Azure para Linux pode ser executada nos sistemas operacionais com suporte listados na seção [sistemas operacionais com suporte](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) no artigo Azure monitor para VMs implantação.
+A extensão do agente de dependência Azure VM para o Linux pode ser executada contra os sistemas operativos suportados listados na secção de [sistemas operativos suportados](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) do artigo de implantação do Monitor Azure para VMs.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão do agente de dependência de VM do Azure em uma VM Linux do Azure. 
+O seguinte JSON mostra o esquema para a extensão do agente de dependência Azure VM em um VM Azure Linux. 
 
 ```json
 {
@@ -73,7 +73,7 @@ O JSON a seguir mostra o esquema para a extensão do agente de dependência de V
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/exemplo |
+| Nome | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publicador | Microsoft.Azure.Monitoring.DependencyAgent |
@@ -82,11 +82,11 @@ O JSON a seguir mostra o esquema para a extensão do agente de dependência de V
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Você pode implantar extensões de VM do Azure com modelos de Azure Resource Manager. Você pode usar o esquema JSON detalhado na seção anterior em um modelo de Azure Resource Manager para executar a extensão do agente de dependência de VM do Azure durante uma implantação de modelo de Azure Resource Manager.
+Pode implementar extensões Azure VM com modelos de Gestor de Recursos Azure. Pode utilizar o esquema JSON detalhado na secção anterior num modelo de Gestor de Recursos Azure para executar a extensão do agente de dependência Azure VM durante uma implementação do modelo de gestor de recursos Azure.
 
-O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual. Ou você pode colocá-lo no nível raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/templates/child-resource-name-type.md).
+O JSON para uma extensão virtual da máquina pode ser aninhado dentro do recurso virtual da máquina. Ou, pode colocá-lo no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação do JSON afeta o valor do nome e do tipo de recursos. Para mais informações, consulte o nome e o [tipo de definição para os recursos infantis.](../../azure-resource-manager/templates/child-resource-name-type.md)
 
-O exemplo a seguir pressupõe que a extensão do agente de dependência está aninhada dentro do recurso de máquina virtual. Quando você Aninha o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
+O exemplo que se segue pressupõe que a extensão do agente dependency está aninhada dentro do recurso virtual da máquina. Ao nidificar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
 
 ```json
@@ -107,7 +107,7 @@ O exemplo a seguir pressupõe que a extensão do agente de dependência está an
 }
 ```
 
-Quando você coloca a extensão JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual pai. O tipo reflete a configuração aninhada. 
+Quando coloca a extensão JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual dos pais. O tipo reflete a configuração aninhada. 
 
 ```json
 {
@@ -129,7 +129,7 @@ Quando você coloca a extensão JSON na raiz do modelo, o nome do recurso inclui
 
 ## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
-Você pode usar o CLI do Azure para implantar a extensão de VM do agente de dependência em uma máquina virtual existente.  
+Pode utilizar o AZURE CLI para implantar a extensão VM do agente de dependência para uma máquina virtual existente.  
 
 ```azurecli
 
@@ -145,7 +145,7 @@ az vm extension set \
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
-Os dados sobre o estado das implantações de extensão podem ser recuperados do portal do Azure e usando o CLI do Azure. Para ver o estado de implantação das extensões de uma determinada VM, execute o seguinte comando usando o CLI do Azure:
+Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o Azure CLI. Para ver o estado de implantação das extensões para um dado VM, execute o seguinte comando utilizando o Azure CLI:
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -159,4 +159,4 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Ou, você pode arquivar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**. Para obter informações sobre como usar o suporte do Azure, leia as [perguntas frequentes sobre suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em algum ponto deste artigo, contacte os especialistas da Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Ou pode arquivar um incidente de apoio azure. Vá ao site de [suporte azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**. Para obter informações sobre como utilizar o Suporte Azure, leia o suporte do [Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

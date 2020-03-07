@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
 ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669119"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360875"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorizado pelo Monitor Azure?
 Este artigo descreve as diferentes aplicações e serviços que são monitorizados pelo Azure Monitor. 

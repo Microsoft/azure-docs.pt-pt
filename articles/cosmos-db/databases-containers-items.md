@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 43a842c3b6d6d421eca4196c7f3facc7876318cd
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768009"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387022"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhe com bases de dados, contentores e itens em Azure Cosmos DB
 
-Depois de criar uma [conta do Azure Cosmos DB](account-overview.md) na sua subscrição do Azure, pode gerir dados na sua conta através da criação de bases de dados, contentores e itens. Este artigo descreve cada uma dessas entidades. 
+Depois de criar uma [conta Azure Cosmos DB](account-overview.md) sob a sua subscrição Azure, pode gerir dados na sua conta criando bases de dados, contentores e itens. Este artigo descreve cada uma dessas entidades. 
 
 A imagem seguinte mostra a hierarquia de diferentes entidades numa conta Azure Cosmos DB:
 
@@ -26,9 +26,9 @@ A imagem seguinte mostra a hierarquia de diferentes entidades numa conta Azure C
 
 Pode criar uma ou várias bases de dados azure cosmos na sua conta. Uma base de dados é análoga a um espaço de nome. Uma base de dados é a unidade de gestão de um conjunto de contentores Azure Cosmos. A tabela seguinte mostra como uma base de dados do Cosmos do Azure está mapeada para várias entidades de API específicas:
 
-| Entidade Azure Cosmos | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Entidade Azure Cosmos | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
-|Base de dados do Cosmos do Azure | Base de Dados | Espaço de chaves | Base de Dados | Base de Dados | N/D |
+|Base de dados do Cosmos do Azure | Base de Dados | Espaço de chaves | Base de Dados | Base de Dados | ND |
 
 > [!NOTE]
 > Com as contas API da Tabela, quando cria a sua primeira tabela, uma base de dados padrão é criada automaticamente na sua conta Azure Cosmos.
@@ -37,12 +37,12 @@ Pode criar uma ou várias bases de dados azure cosmos na sua conta. Uma base de 
 
 Pode interagir com uma base de dados Azure Cosmos com APIs Azure Cosmos conforme descrito na tabela seguinte:
 
-| Operação | CLI do Azure | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Operação | CLI do Azure | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerar todos os bancos de dados| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | N/D | N/D |
-|Base de dados de leitura| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | N/D | N/D |
-|Criar nova base de dados| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | N/D | N/D |
-|Atualizar base de dados| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | N/D | N/D |
+|Enumerar todos os bancos de dados| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | ND | ND |
+|Base de dados de leitura| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | ND | ND |
+|Criar nova base de dados| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | ND | ND |
+|Atualizar base de dados| Sim | Sim | Sim (a base de dados é mapeado para um keyspace) | Sim | ND | ND |
 
 
 ## <a name="azure-cosmos-containers"></a>Contentores do Azure Cosmos
@@ -68,19 +68,19 @@ Pode utilizar [o feed](change-feed.md) de alteração para subscrever o registo 
 
 Pode registar [procedimentos armazenados, gatilhos, funções definidas pelo utilizador (UDFs)](stored-procedures-triggers-udfs.md)e [fundir procedimentos](how-to-manage-conflicts.md) para o seu recipiente Azure Cosmos. 
 
-Pode especificar uma [restrição de chave única](unique-keys.md) no seu recipiente Azure Cosmos. Ao criar uma política de chaves exclusivas, garantir a exclusividade de um ou mais valores por chave de partição lógica. Se criar um recipiente utilizando uma política-chave única, não podem ser criados itens novos ou atualizados com valores que dupliquem os valores especificados pela restrição de chave única. Para obter mais informações, consulte [restrições de chave exclusivas](unique-keys.md).
+Pode especificar uma [restrição de chave única](unique-keys.md) no seu recipiente Azure Cosmos. Ao criar uma política de chaves exclusivas, garantir a exclusividade de um ou mais valores por chave de partição lógica. Se criar um recipiente utilizando uma política-chave única, não podem ser criados itens novos ou atualizados com valores que dupliquem os valores especificados pela restrição de chave única. Para saber mais, consulte [constrangimentos de chaves únicos.](unique-keys.md)
 
 Um contentor Azure Cosmos é especializado em entidades específicas da API, como mostra a seguinte tabela:
 
-| Entidade Azure Cosmos | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Entidade Azure Cosmos | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
-|Contentor do Cosmos do Azure | Contentor | Tabelas | Coleção | Graph | Tabelas |
+|Contentor do Cosmos do Azure | Contentor | Tabela | Coleção | Graph | Tabela |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propriedades de um contentor do Cosmos do Azure
 
 Um recipiente Azure Cosmos tem um conjunto de propriedades definidas pelo sistema. Dependendo da API que utiliza, algumas propriedades podem não estar diretamente expostas. O quadro seguinte descreve a lista de propriedades definidas pelo sistema:
 
-| Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo utilizador | Finalidade | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo utilizador | Objetivo | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_livrar | Gerado pelo sistema | Identificador exclusivo do contentor | Sim | Não | Não | Não | Não |
 |\_veado | Gerado pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
@@ -96,19 +96,19 @@ Um recipiente Azure Cosmos tem um conjunto de propriedades definidas pelo sistem
 
 Um contentor Azure Cosmos suporta as seguintes operações quando utiliza qualquer uma das APIs do Cosmos Do Azure:
 
-| Operação | CLI do Azure | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Operação | CLI do Azure | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
-| Enumerar contentores numa base de dados | Sim | Sim | Sim | Sim | N/D | N/D |
-| Ler um contentor | Sim | Sim | Sim | Sim | N/D | N/D |
-| Criar um novo recipiente | Sim | Sim | Sim | Sim | N/D | N/D |
-| Atualizar um recipiente | Sim | Sim | Sim | Sim | N/D | N/D |
-| Eliminar um contentor | Sim | Sim | Sim | Sim | N/D | N/D |
+| Enumerar contentores numa base de dados | Sim | Sim | Sim | Sim | ND | ND |
+| Ler um contentor | Sim | Sim | Sim | Sim | ND | ND |
+| Criar um novo recipiente | Sim | Sim | Sim | Sim | ND | ND |
+| Atualizar um recipiente | Sim | Sim | Sim | Sim | ND | ND |
+| Eliminar um contentor | Sim | Sim | Sim | Sim | ND | ND |
 
 ## <a name="azure-cosmos-items"></a>Itens do Cosmos do Azure
 
-Dependendo de qual API você usa, um item Cosmos do Azure pode representar um documento em uma coleção, uma linha em uma tabela ou um nó ou borda em um grafo. A tabela seguinte mostra o mapeamento de entidades específicas da API para um item Azure Cosmos:
+Dependendo da API que você usa, um item Azure Cosmos pode representar um documento em uma coleção, uma linha em uma mesa, ou um nó ou borda em um gráfico. A tabela seguinte mostra o mapeamento de entidades específicas da API para um item Azure Cosmos:
 
-| Entidade Cosmos | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Entidade Cosmos | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
 |Item do Cosmos do Azure | Documento | linha | Documento | Nó ou borda | Item |
 
@@ -116,7 +116,7 @@ Dependendo de qual API você usa, um item Cosmos do Azure pode representar um do
 
 Cada item Azure Cosmos tem as seguintes propriedades definidas pelo sistema. Dependendo da API que usas, algumas delas podem não estar diretamente expostas.
 
-| Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo utilizador| Finalidade | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Propriedade definida pelo sistema | Gerado pelo sistema ou configurável pelo utilizador| Objetivo | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_livrar | Gerado pelo sistema | Identificador único do item | Sim | Não | Não | Não | Não |
 |\_veado | Gerado pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
@@ -132,7 +132,7 @@ Cada item Azure Cosmos tem as seguintes propriedades definidas pelo sistema. Dep
 
 Os itens da Azure Cosmos suportam as seguintes operações. Você pode usar qualquer uma das APIs Azure Cosmos para realizar as operações.
 
-| Operação | CLI do Azure | SQL API | API para Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
+| Operação | CLI do Azure | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
 | Inserir, substituir, eliminar, Upsert, leitura | Não | Sim | Sim | Sim | Sim | Sim |
 

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de e para Azure Data Lake Storage Gen1
-description: Saiba como copiar dados de e para Data Lake Store usando Azure Data Factory
+title: Copiar dados de e para azure Data Lake Storage Gen1
+description: Saiba copiar dados de e para data lake store usando a Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,90 +13,90 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b6a60536bae6fbedf01eda7aa340e90ced58e004
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930103"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387458"
 ---
-# <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados de e para Data Lake Storage Gen1 usando Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+# <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados de e para Data Lake Storage Gen1 utilizando data factory
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](data-factory-azure-datalake-connector.md)
 > * [Versão 2 (versão atual)](../connector-azure-data-lake-store.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço de Data Factory, consulte [Azure data Lake Storage Gen1 Connector na v2](../connector-azure-data-lake-store.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o [conector Azure Data Lake Storage Gen1 em V2](../connector-azure-data-lake-store.md).
 
-Este artigo explica como usar a atividade de cópia no Azure Data Factory para mover dados de e para o Azure Data Lake Storage Gen1 (anteriormente conhecido como Azure Data Lake Store). Ele se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , uma visão geral da movimentação de dados com a atividade de cópia.
+Este artigo explica como usar a Atividade de Cópia na Fábrica de Dados Azure para mover dados de e para o Azure Data Lake Storage Gen1 (anteriormente conhecido como Azure Data Lake Store). Baseia-se no artigo de atividades do [movimento Data,](data-factory-data-movement-activities.md) uma visão geral do movimento de dados com a Atividade de Cópia.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
-Você pode copiar dados **de Azure data Lake Store** para os seguintes armazenamentos de dados:
+Pode copiar dados **da Azure Data Lake Store** para as seguintes lojas de dados:
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-Você pode copiar dados dos seguintes repositórios de dados **para Azure data Lake Store**:
+Pode copiar dados das seguintes lojas de dados **para a Azure Data Lake Store:**
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> Crie uma conta de Data Lake Store antes de criar um pipeline com a atividade de cópia. Para obter mais informações, consulte Introdução [ao Azure data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md).
+> Crie uma conta Data Lake Store antes de criar um pipeline com copy activity. Para mais informações, consulte [Start start with Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-## <a name="supported-authentication-types"></a>Tipos de autenticação com suporte
-O conector de Data Lake Store dá suporte a esses tipos de autenticação:
+## <a name="supported-authentication-types"></a>Tipos de autenticação suportado
+O conector Data Lake Store suporta estes tipos de autenticação:
 * Autenticação do principal de serviço
-* Autenticação de credencial de usuário (OAuth)
+* Autenticação credencial do utilizador (OAuth)
 
-Recomendamos que você use a autenticação de entidade de serviço, especialmente para uma cópia de dados agendada. O comportamento de expiração do token pode ocorrer com a autenticação de credenciais do usuário. Para obter detalhes de configuração, consulte a seção [Propriedades do serviço vinculado](#linked-service-properties) .
+Recomendamos que utilize a autenticação principal do serviço, especialmente para uma cópia de dados agendada. O comportamento de expiração do token pode ocorrer com a autenticação credencial do utilizador. Para mais detalhes de configuração, consulte a secção de propriedades de [serviço Linked.](#linked-service-properties)
 
 ## <a name="get-started"></a>Introdução
-Você pode criar um pipeline com uma atividade de cópia que move dados de/para um Azure Data Lake Store usando diferentes ferramentas/APIs.
+Pode criar um pipeline com uma atividade de cópia que move dados de/para uma Loja de Lagos De Dados Azure utilizando diferentes ferramentas/APIs.
 
-A maneira mais fácil de criar um pipeline para copiar dados é usar o **Assistente de cópia**. Para obter um tutorial sobre como criar um pipeline usando o assistente de cópia, consulte [tutorial: criar um pipeline usando o assistente de cópia](data-factory-copy-data-wizard-tutorial.md).
+A forma mais fácil de criar um pipeline para copiar dados é utilizar o **Assistente de Cópia**. Para um tutorial sobre a criação de um pipeline utilizando o Assistente de Cópia, consulte [Tutorial: Crie um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Estúdio Visual,** **Azure PowerShell,** **Modelo de Gestor de Recursos Azure,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um pipeline com uma atividade de cópia.
 
-Se você usar as ferramentas ou APIs, execute as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
+Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de sumidouro:
 
-1. Crie um **Data Factory**. Um data factory pode conter um ou mais pipelines.
-2. Crie **Serviços vinculados** para vincular armazenamentos de dados de entrada e saída ao seu data Factory. Por exemplo, se você estiver copiando dados de um armazenamento de BLOBs do Azure para um Azure Data Lake Store, crie dois serviços vinculados para vincular sua conta de armazenamento do Azure e Azure Data Lake armazenamento ao seu data factory. Para propriedades do serviço vinculado que são específicas para Azure Data Lake Store, consulte a seção [Propriedades do serviço vinculado](#linked-service-properties) .
-2. Crie **conjuntos** de dados para representar o dado de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar o contêiner de BLOBs e a pasta que contém o dado de entrada. Além disso, você cria outro conjunto de dados para especificar a pasta e o caminho do arquivo no repositório de Data Lake que contém os dados copiados do armazenamento de BLOBs. Para propriedades do conjunto de informações que são específicas para Azure Data Lake Store, consulte a seção [Propriedades do conjunto](#dataset-properties) de informações.
-3. Crie um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto como uma saída. No exemplo mencionado anteriormente, você usa o Blobname como uma origem e AzureDataLakeStoreSink como um coletor para a atividade de cópia. Da mesma forma, se você estiver copiando de Azure Data Lake Store para o armazenamento de BLOBs do Azure, use AzureDataLakeStoreSource e BlobSink na atividade de cópia. Para propriedades da atividade de cópia que são específicas para Azure Data Lake Store, consulte a seção [Propriedades da atividade de cópia](#copy-activity-properties) . Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para seu armazenamento de dados.
+1. Criar uma fábrica de **dados.** Uma fábrica de dados pode conter um ou mais oleodutos.
+2. Crie **serviços ligados** para ligar as lojas de dados de entrada e saída à sua fábrica de dados. Por exemplo, se estiver a copiar dados de um armazenamento de blob Azure para uma Loja de Lagos De Dados Azure, cria dois serviços ligados para ligar a sua conta de armazenamento Azure e a loja Azure Data Lake à sua fábrica de dados. Para propriedades de serviço ligadas específicas à Azure Data Lake Store, consulte a secção de [propriedades de serviço ligadas.](#linked-service-properties)
+2. Crie **conjuntos** de dados para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado no último passo, cria-se um conjunto de dados para especificar o recipiente e a pasta blob que contém os dados de entrada. E cria outro conjunto de dados para especificar a pasta e o caminho de ficheiros na loja Data Lake que detém os dados copiados do armazenamento de blob. Para propriedades de conjunto de dados específicas da Azure Data Lake Store, consulte a secção de propriedades do conjunto de [dados.](#dataset-properties)
+3. Crie um **pipeline** com uma atividade de cópia que tome um conjunto de dados como entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, utiliza o BlobSource como fonte e o AzureDataLakeStoreSink como um lavatório para a atividade da cópia. Da mesma forma, se estiver a copiar da Azure Data Lake Store para o Armazenamento De Blob Azure, utiliza o AzureDataLakeStoreSource e o BlobSink na atividade da cópia. Para propriedades de atividade de cópia específicas da Azure Data Lake Store, consulte a secção de propriedades de atividade de [cópia.](#copy-activity-properties) Para obter mais informações sobre como utilizar uma loja de dados como fonte ou pia, clique no link na secção anterior para a sua loja de dados.
 
-Quando você usa o assistente, as definições de JSON para essas entidades de Data Factory (serviços vinculados, conjuntos de valores e o Pipeline) são criadas automaticamente para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades de Data Factory usando o formato JSON. Para obter exemplos com definições de JSON para Data Factory entidades usadas para copiar dados de/para um Azure Data Lake Store, consulte a seção [exemplos de JSON](#json-examples-for-copying-data-to-and-from-data-lake-store) deste artigo.
+Quando utiliza o assistente, as definições jSON para estas entidades da Fábrica de Dados (serviços ligados, conjuntos de dados e o pipeline) são automaticamente criadas para si. Quando utiliza ferramentas/APIs (exceto .NET API), define estas entidades da Fábrica de Dados utilizando o formato JSON. Para amostras com definições JSON para entidades da Fábrica de Dados que são usadas para copiar dados de/para uma Loja de Lagos De Dados Azure, consulte a secção de exemplos da [JSON](#json-examples-for-copying-data-to-and-from-data-lake-store) deste artigo.
 
-As seções a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir Data Factory entidades específicas para Data Lake Store.
+As seguintes secções fornecem detalhes sobre as propriedades jSON que são usadas para definir entidades data Factory específicas para data lake store.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
-Um serviço vinculado vincula um armazenamento de dados a um data factory. Você cria um serviço vinculado do tipo **AzureDataLakeStore** para vincular seus dados de data Lake Store ao seu data Factory. A tabela a seguir descreve os elementos JSON específicos para Data Lake Store serviços vinculados. Você pode escolher entre a entidade de serviço e a autenticação de credenciais de usuário.
+Um serviço ligado liga uma loja de dados a uma fábrica de dados. Cria um serviço ligado do tipo **AzureDataLakeStore** para ligar os dados da Data Lake Store à sua fábrica de dados. A tabela seguinte descreve elementos JSON específicos dos serviços ligados à Data Lake Store. Pode escolher entre o diretor de serviço e a autenticação credencial do utilizador.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| **tipo** | A propriedade de tipo deve ser definida como **AzureDataLakeStore**. | Sim |
-| **dataLakeStoreUri** | Informações sobre a conta do Azure Data Lake Store. Estas informações recebe um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
-| **subscriptionId** | ID de subscrição do Azure à qual pertence a conta do Data Lake Store. | Necessário para o sink |
-| **resourceGroupName** | Nome do grupo de recursos do Azure à qual pertence a conta do Data Lake Store. | Necessário para o sink |
+| **tipo** | A propriedade tipo deve ser definida para **AzureDataLakeStore**. | Sim |
+| **dataLakeStoreUri** | Informações sobre a conta do Azure Data Lake Store. Esta informação tem um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
+| **subscriçãoId** | ID de subscrição do Azure à qual pertence a conta do Data Lake Store. | Necessário para o sink |
+| **nome de grupo de recursos** | Nome do grupo de recursos do Azure à qual pertence a conta do Data Lake Store. | Necessário para o sink |
 
-### <a name="service-principal-authentication-recommended"></a>Autenticação de entidade de serviço (recomendada)
-Para usar a autenticação de entidade de serviço, registre uma entidade de aplicativo no Azure Active Directory (AD do Azure) e conceda a ela acesso ao Data Lake Store. Para obter passos detalhados, consulte [autenticação serviço a serviço](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
+### <a name="service-principal-authentication-recommended"></a>Autenticação do principal de serviço (recomendado)
+Para utilizar a autenticação principal do serviço, registe uma entidade de aplicação no Azure Ative Directory (Azure AD) e conceda-lhe o acesso à Data Lake Store. Para obter passos detalhados, consulte a [autenticação serviço-a-serviço](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
 * ID da aplicação
 * Chave da aplicação
 * ID do inquilino
 
 > [!IMPORTANT]
 > Certifique-se de que conceder a service principal permissão adequada no Azure Data Lake Store:
->- **Para usar data Lake Store como fonte**, conceda pelo menos a permissão de acesso a dados de **leitura + execução** para listar e copiar o conteúdo de uma pasta ou permissão de **leitura** para copiar um único arquivo. Nenhum requisito no controle de acesso no nível da conta.
->- **Para usar data Lake Store como coletor**, conceda pelo menos a permissão de acesso a dados **Write + execute** para criar itens filho na pasta. E se você usar Azure IR para capacitar a cópia (tanto a origem quanto o coletor estão na nuvem), para permitir que Data Factory detecte a região de Data Lake Store, conceda pelo menos a função **leitor** no controle de acesso da conta (iam). Se você quiser evitar essa função IAM, [especifique executionLocation](data-factory-data-movement-activities.md#global) com o local do seu data Lake Store na atividade de cópia.
->- Se você **usar o assistente de cópia para criar pipelines**, conceda pelo menos a função **leitor** no controle de acesso à conta (iam). Além disso, conceda pelo menos permissão de **leitura + execução** ao seu data Lake Store raiz ("/") e seus filhos. Caso contrário, você poderá ver a mensagem "as credenciais fornecidas são inválidas".
+>- Para utilizar a **Data Lake Store como fonte,** conceda pelo menos ler + **executar** permissão de acesso a dados para listar e copiar o conteúdo de uma pasta, ou **ler** permissão para copiar um único ficheiro. Sem requisitos no controlo de acesso ao nível da conta.
+>- Para utilizar a **Data Lake Store como pia,** conceda pelo menos write + **Execute** a permissão de acesso a dados para criar itens infantis na pasta. E se utilizar o Azure IR para capacitar a cópia (tanto a fonte como a pia estão na nuvem), de modo a permitir que a Data Factory detete a região da Data Lake Store, conceda pelo menos o papel **de Leitor** no controlo de acesso à conta (IAM). Se pretender evitar esta função IAM, [especifique a execuçãoLocalização](data-factory-data-movement-activities.md#global) com a localização da sua Data Lake Store na atividade de cópia.
+>- Se utilizar o **Copy Wizard para obter pipelines**de autor, conceda pelo menos o papel do **Leitor** no controlo de acesso à conta (IAM). Além disso, conceda pelo menos **ler + Executar** permissão para a raiz da data Lake Store ("/") e seus filhos. Caso contrário, poderá ver a mensagem "As credenciais fornecidas são inválidas".
 
-Use a autenticação de entidade de serviço especificando as seguintes propriedades:
+Utilize a autenticação principal do serviço especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Especifique o ID de cliente. da aplicação | Sim |
-| **servicePrincipalKey** | Especifique a chave da aplicação. | Sim |
-| **tenant** | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
+| **serviçoPrincipalId** | Especifique o ID de cliente. da aplicação | Sim |
+| **serviçoPrincipalKey** | Especifique a chave da aplicação. | Sim |
+| **inquilino** | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
 
-**Exemplo: autenticação de entidade de serviço**
+**Exemplo: Autenticação principal do serviço**
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -114,21 +114,21 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 }
 ```
 
-### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
-Como alternativa, você pode usar a autenticação de credenciais de usuário para copiar de ou para Data Lake Store especificando as seguintes propriedades:
+### <a name="user-credential-authentication"></a>Autenticação credencial do utilizador
+Em alternativa, pode utilizar a autenticação credencial do utilizador para copiar de ou para data lake Store, especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| **nesse** | Clique no botão **autorizar** no Editor de data Factory e insira sua credencial que atribui a URL de autorização gerada automaticamente a essa propriedade. | Sim |
-| **sessionId** | ID da sessão OAuth da sessão de autorização do OAuth. Cada ID de sessão é exclusiva e pode ser usada apenas uma vez. Essa configuração é gerada automaticamente quando você usa o editor de Data Factory. | Sim |
+| **autorização** | Clique no botão **Autorizar** no Editor da Fábrica de Dados e introduza a sua credencial que atribui o URL de autorização autogerado a esta propriedade. | Sim |
+| **sessionId** | OAuth session ID da sessão de autorização da OAuth. Cada id da sessão é único e só pode ser usado uma vez. Esta definição é gerada automaticamente quando utiliza o Editor da Fábrica de Dados. | Sim |
 
 > [!IMPORTANT]
-> Certifique-se de conceder a permissão adequada ao usuário no Azure Data Lake Store:
->- **Para usar data Lake Store como fonte**, conceda pelo menos a permissão de acesso a dados de **leitura + execução** para listar e copiar o conteúdo de uma pasta ou permissão de **leitura** para copiar um único arquivo. Nenhum requisito no controle de acesso no nível da conta.
->- **Para usar data Lake Store como coletor**, conceda pelo menos a permissão de acesso a dados **Write + execute** para criar itens filho na pasta. E se você usar Azure IR para capacitar a cópia (tanto a origem quanto o coletor estão na nuvem), para permitir que Data Factory detecte a região de Data Lake Store, conceda pelo menos a função **leitor** no controle de acesso da conta (iam). Se você quiser evitar essa função IAM, [especifique executionLocation](data-factory-data-movement-activities.md#global) com o local do seu data Lake Store na atividade de cópia.
->- Se você **usar o assistente de cópia para criar pipelines**, conceda pelo menos a função **leitor** no controle de acesso à conta (iam). Além disso, conceda pelo menos permissão de **leitura + execução** ao seu data Lake Store raiz ("/") e seus filhos. Caso contrário, você poderá ver a mensagem "as credenciais fornecidas são inválidas".
+> Certifique-se de que concede ao utilizador a permissão adequada na Loja de Lagos De Dados Do Azure:
+>- Para utilizar a **Data Lake Store como fonte,** conceda pelo menos ler + **executar** permissão de acesso a dados para listar e copiar o conteúdo de uma pasta, ou **ler** permissão para copiar um único ficheiro. Sem requisitos no controlo de acesso ao nível da conta.
+>- Para utilizar a **Data Lake Store como pia,** conceda pelo menos write + **Execute** a permissão de acesso a dados para criar itens infantis na pasta. E se utilizar o Azure IR para capacitar a cópia (tanto a fonte como a pia estão na nuvem), de modo a permitir que a Data Factory detete a região da Data Lake Store, conceda pelo menos o papel **de Leitor** no controlo de acesso à conta (IAM). Se pretender evitar esta função IAM, [especifique a execuçãoLocalização](data-factory-data-movement-activities.md#global) com a localização da sua Data Lake Store na atividade de cópia.
+>- Se utilizar o **Copy Wizard para obter pipelines**de autor, conceda pelo menos o papel do **Leitor** no controlo de acesso à conta (IAM). Além disso, conceda pelo menos **ler + Executar** permissão para a raiz da data Lake Store ("/") e seus filhos. Caso contrário, poderá ver a mensagem "As credenciais fornecidas são inválidas".
 
-**Exemplo: autenticação de credenciais de usuário**
+**Exemplo: Autenticação credencial do utilizador**
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -146,20 +146,20 @@ Como alternativa, você pode usar a autenticação de credenciais de usuário pa
 ```
 
 #### <a name="token-expiration"></a>Expiração do token
-O código de autorização que você gera usando o botão **autorizar** expira após um determinado período de tempo. A seguinte mensagem significa que o token de autenticação expirou:
+O código de autorização que gera utilizando o botão **Autorizar** expira após um certo período de tempo. A seguinte mensagem significa que o símbolo de autenticação expirou:
 
-Erro de operação de credencial: invalid_grant-AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID de rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID de correlação: fac30a0c-6be6-4e02-8D69-a776d2ffefd7 timestamp: 2015-12-15 21-09-31Z.
+Erro de operação credencial: invalid_grant - AADSTS70002: Erro validando credenciais. AADSTS70008: A subvenção de acesso fornecida é expirada ou revogada. Identificação do traço: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z.
 
-A tabela a seguir mostra os tempos de expiração de diferentes tipos de contas de usuário:
+O quadro seguinte mostra os prazos de validade de diferentes tipos de contas de utilizador:
 
-| Tipo de utilizador | Expira após |
+| Tipo de utilizador | Expira depois |
 |:--- |:--- |
-| Contas de usuário *não* gerenciadas pelo Azure Active Directory (por exemplo, @hotmail.com ou @live.com) |12 horas |
-| Contas de usuários gerenciadas pelo Azure Active Directory |14 dias após a última execução de fatia <br/><br/>90 dias, se uma fatia com base em um serviço vinculado baseado em OAuth for executada pelo menos uma vez a cada 14 dias |
+| Contas de utilizador *não* geridas pelo Azure Ative Directory (por exemplo, @hotmail.com ou @live.com) |12 horas |
+| Contas de utilizadores geridas pelo Azure Ative Directory |14 dias após a última corrida de fatias <br/><br/>90 dias, se uma fatia baseada num serviço ligado baseado em OAuth funciona pelo menos uma vez a cada 14 dias |
 
-Se você alterar sua senha antes do tempo de expiração do token, o token expirará imediatamente. Você verá a mensagem mencionada anteriormente nesta seção.
+Se alterar a sua palavra-passe antes do tempo de validade do token, o token expira imediatamente. Verá a mensagem mencionada anteriormente nesta secção.
 
-Você pode reautorizar a conta usando o botão **autorizar** quando o token expirar para reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **SessionID** e **Authorization** programaticamente usando o seguinte código:
+Pode reautorizar a conta utilizando o botão **Autorizar** quando o token expirar para recolocar o serviço ligado. Também pode gerar valores para as propriedades **sessionId** e **autorização** programáticamente utilizando o seguinte código:
 
 
 ```csharp
@@ -186,33 +186,33 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-Para obter detalhes sobre as classes de Data Factory usadas no código, consulte os tópicos classe [AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)e [classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) . Adicione uma referência à versão `2.9.10826.1824` do `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` para a classe `WindowsFormsWebAuthenticationDialog` usada no código.
+Para mais detalhes sobre as classes Data Factory utilizadas no código, consulte a [classe AzureDataLakeStoreLinkedService,](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx) [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)e os tópicos da [Classe AuthorizationSessionGetResponse.](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) Adicione uma referência à versão `2.9.10826.1824` de `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` para a classe `WindowsFormsWebAuthenticationDialog` utilizada no código.
 
-## <a name="troubleshooting-tips"></a>Sugestões para a resolução de problemas
+## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 
-**Sintoma:** Ao copiar dados **para** o Azure data Lake Store, se a atividade de cópia falhar com o seguinte erro:
+**Sintoma:** Ao copiar dados **para** a Azure Data Lake Store, se a sua atividade de cópia falhar com o seguinte erro:
 
   ```
   Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
   ```
 
-**Causa raiz:** Há dois motivos possíveis:
+**Causa da raiz:** Existem 2 possíveis razões:
 
-1. O `resourceGroupName` e/ou `subscriptionId` especificado em Azure Data Lake Store serviço vinculado está incorreto;
-2. O usuário ou a entidade de serviço não tem a permissão necessária.
+1. O serviço ligado ao `resourceGroupName` e/ou `subscriptionId` especificado no serviço ligado à Loja de Lagos De Dados do Azure está incorreto;
+2. O utilizador ou o diretor de serviço não tem a permissão necessária.
 
 **Resolução:**
 
-1. Verifique se as `subscriptionId` e `resourceGroupName` especificadas no serviço vinculado `typeProperties` são, de fato, aquelas às quais sua conta do data Lake pertence.
+1. Certifique-se de que o `subscriptionId` e `resourceGroupName` especifica no serviço vinculado `typeProperties` são, de facto, aqueles a que a sua conta de data lake pertence.
 
-2. Certifique-se de conceder pelo menos a função **leitor** ao usuário ou à entidade de serviço na conta do data Lake. Veja como fazer isso:
+2. Certifique-se de que concede pelo menos o papel **de Leitor** ao utilizador ou diretor de serviço na conta data lake. Eis como fazê-lo:
 
-    1. Acesse o portal do Azure-> sua conta de Data Lake Store
-    2. Clique em **controle de acesso (iam)** na folha do data Lake Store
-    3. Clique em **Adicionar atribuição de função**
-    4. Defina **função** como **leitor**e selecione o usuário ou a entidade de serviço que você usa para copiar para conceder acesso
+    1. Vá ao portal Azure -> a sua conta Data Lake Store
+    2. Clique no controlo de **acesso (IAM)** na lâmina da Data Lake Store
+    3. Clique em **Adicionar atribuição de funções**
+    4. Definir **Função** como **Leitor**, e selecione o utilizador ou o principal de serviço que usa para copiar para conceder acesso
 
-3. Se você não quiser conceder a função de **leitor** para o usuário ou entidade de serviço, a alternativa é [especificar explicitamente um local de execução](data-factory-data-movement-activities.md#global) na atividade de cópia com o local do seu data Lake Store. Exemplo:
+3. Se não quiser conceder o papel de **Leitor** ao utilizador ou ao diretor de serviço, alternativa é [especificar explicitamente um local](data-factory-data-movement-activities.md#global) de execução na atividade de cópia com a localização da sua Data Lake Store. Exemplo:
 
     ```json
     {
@@ -232,23 +232,23 @@ Para obter detalhes sobre as classes de Data Factory usadas no código, consulte
     ```
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para especificar um DataSet para representar dados de entrada em um Data Lake Store, você define a propriedade **Type** do conjunto como **AzureDataLakeStore**. Defina a propriedade **linkedServiceName** do conjunto de um como o nome do data Lake Store serviço vinculado. Para obter uma lista completa de seções e propriedades JSON disponíveis para definir conjuntos de os, consulte o artigo [criando conjuntos](data-factory-create-datasets.md) de os. As seções de um conjunto de dados em JSON, como a **estrutura**, a **disponibilidade**e a **política**, são semelhantes para todos os tipos de conjunto de dados (Azure SQL Database, BLOB do Azure e tabela do Azure, por exemplo). A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações como o local e o formato dos dados no armazenamento de dados.
+Para especificar um conjunto de dados para representar dados de entrada numa Data Lake Store, você definiu a propriedade **tipo** do conjunto de dados para **AzureDataLakeStore**. Detete a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço ligado à Data Lake Store. Para obter uma lista completa das secções e propriedades da JSON disponíveis para definir conjuntos de dados, consulte o artigo Criação de conjuntos de [dados.](data-factory-create-datasets.md) As secções de um conjunto de dados na JSON, tais como **estrutura,** **disponibilidade,** e **política,** são semelhantes para todos os tipos de conjuntos de dados (base de dados Azure SQL, blob Azure e tabela Azure, por exemplo). A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações como localização e formato dos dados na loja de dados.
 
-A seção **typeproperties** para um DataSet do tipo **AzureDataLakeStore** contém as seguintes propriedades:
+A secção **TypeProperties** para um conjunto de dados do tipo **AzureDataLakeStore** contém as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| **folderPath** |Caminho para o contêiner e a pasta em Data Lake Store. |Sim |
-| **fileName** |Nome do arquivo em Azure Data Lake Store. A propriedade **filename** é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se você especificar **filename**, a atividade (incluindo Copy) funcionará no arquivo específico.<br/><br/>Quando **filename** não for especificado, Copy inclui todos os arquivos em **FolderPath** no conjunto de dados de entrada.<br/><br/>Quando **filename** não for especificado para um conjunto de resultados de saída e **preserveHierarchy** não for especificado no coletor de atividade, o nome do arquivo gerado estará no formato `Data._Guid_.txt`. Por exemplo: Data. 0a405f8a-93ff-4c6f-b3be-f69616f1df7a. txt. |Não |
-| **partitionedBy** |A propriedade **partitionedBy** é opcional. Você pode usá-lo para especificar um caminho dinâmico e um nome de arquivo para dados de série temporal. Por exemplo, **FolderPath** pode ser parametrizado para cada hora dos dados. Para obter detalhes e exemplos, consulte a propriedade partitionedBy. |Não |
-| **format** | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**e **ParquetFormat**. Definir o **tipo** propriedade sob **formato** para um dos seguintes valores. Para obter mais informações, consulte as seções [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), formato [Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) nos [formatos de arquivo e compactação com suporte](data-factory-supported-file-and-compression-formats.md) no artigo Azure data Factory. <br><br> Se você quiser copiar arquivos "no estado em que se encontram" entre repositórios baseados em arquivo (cópia binária), ignore a seção `format` nas definições de conjunto de dados de entrada e saída. |Não |
-| **çã** | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Os níveis de suporte são **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de arquivo e compactação com suporte pelo Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| **pastaCaminho** |Caminho para o recipiente e pasta na Data Lake Store. |Sim |
+| **nome de ficheiro** |Nome do ficheiro na Loja do Lago De dados Azure. A propriedade **fileName** é opcional e sensível a casos. <br/><br/>Se especificar o nome do **ficheiro,** a atividade (incluindo a Cópia) funciona no ficheiro específico.<br/><br/>Quando o nome do **ficheiro** não é especificado, a Cópia inclui todos os ficheiros na **pastaPath** no conjunto de dados de entrada.<br/><br/>Quando o nome do **ficheiro** não é especificado para um conjunto de dados de saída e preservar a **hierarquia** não é especificado no sumidouro de atividade, o nome do ficheiro gerado está no formato `Data._Guid_.txt`. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
+| **divididoBy** |A propriedade **dividida Por** é opcional. Pode usá-lo para especificar um caminho dinâmico e nome de ficheiro para dados da série de tempo. Por exemplo, **a pastaO caminho** pode ser parametrizado para cada hora de dados. Para mais detalhes e exemplos, consulte a propriedade partitionedBy. |Não |
+| **formato** | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat**e **ParquetFormat**. Desloque a propriedade **tipo** em **formato** a um destes valores. Para mais informações, consulte as secções de [formato Texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format)e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) nos [formatos de Ficheiro e compressão suportados pelo artigo da Azure Data Factory.](data-factory-supported-file-and-compression-formats.md) <br><br> Se pretender copiar ficheiros "as-is" entre lojas baseadas em ficheiros (cópia binária), ignore a secção `format` nas definições de conjunto de dados de entrada e de saída. |Não |
+| **compressão** | Especifica o tipo e o nível de compressão dos dados. Os tipos suportados são **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são **Ideais** e **Mais Rápidos.** Para mais informações, consulte [formatos de Ficheiro e compressão suportados pela Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
-### <a name="the-partitionedby-property"></a>A propriedade partitionedBy
-Você pode especificar propriedades **FolderPath** e **filename** dinâmicas para dados de série temporal com a propriedade **partitionedBy** , funções de data Factory e variáveis de sistema. Para obter detalhes, consulte o artigo [funções de Azure data Factory e variáveis do sistema](data-factory-functions-variables.md) .
+### <a name="the-partitionedby-property"></a>A propriedade divididaPor
+Pode especificar propriedades dinâmicas de **pastasPath** e **fileName** para dados de séries de tempo com a propriedade **divididaBy,** funções data Factory e variáveis do sistema. Para mais detalhes, consulte o [artigo Azure Data Factory - funções e variáveis](data-factory-functions-variables.md) do sistema.
 
 
-No exemplo a seguir, `{Slice}` é substituído pelo valor da variável de sistema Data Factory `SliceStart` no formato especificado (`yyyyMMddHH`). O nome `SliceStart` se refere à hora de início da fatia. A propriedade `folderPath` é diferente para cada fatia, como em `wikidatagateway/wikisampledataout/2014100103` ou `wikidatagateway/wikisampledataout/2014100104`.
+No exemplo seguinte, `{Slice}` é substituído pelo valor da variável do sistema Data Factory `SliceStart` no formato especificado (`yyyyMMddHH`). O nome `SliceStart` refere-se à hora de início da fatia. A propriedade `folderPath` é diferente para cada fatia, como em `wikidatagateway/wikisampledataout/2014100103` ou `wikidatagateway/wikisampledataout/2014100104`.
 
 ```JSON
 "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
@@ -258,7 +258,7 @@ No exemplo a seguir, `{Slice}` é substituído pelo valor da variável de sistem
 ],
 ```
 
-No exemplo a seguir, o ano, o mês, o dia e a hora de `SliceStart` são extraídos em variáveis separadas que são usadas pelas propriedades `folderPath` e `fileName`:
+No exemplo seguinte, o ano, mês, dia e hora das `SliceStart` são extraídos em variáveis separadas que são utilizadas pelas propriedades `folderPath` e `fileName`:
 ```JSON
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
@@ -270,54 +270,54 @@ No exemplo a seguir, o ano, o mês, o dia e a hora de `SliceStart` são extraíd
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-Para obter mais detalhes sobre conjuntos de data de série temporal, agendamento e fatias, consulte os conjuntos de os [DataSets nos artigos Azure data Factory](data-factory-create-datasets.md) e [Data Factory agendamento e execução](data-factory-scheduling-and-execution.md) .
+Para mais detalhes sobre conjuntos de dados, agendamento e fatias da série de tempo, consulte os dados da Fábrica de [Dados azure](data-factory-create-datasets.md) e artigos de [programação e execução da Fábrica](data-factory-scheduling-and-execution.md) de Dados.
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte o artigo [criando pipelines](data-factory-create-pipelines.md) . Propriedades como nome, descrição, tabelas de entrada e saída e política estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo Criação de [pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e a política estão disponíveis para todos os tipos de atividades.
 
-As propriedades disponíveis na seção **typeproperties** de uma atividade variam de acordo com cada tipo de atividade. Para uma atividade de cópia, elas variam de acordo com os tipos de fontes e coletores.
+As propriedades disponíveis na secção **tipoPropriedades** de uma atividade variam com cada tipo de atividade. Para uma atividade de cópia, variam dependendo dos tipos de fontes e pias.
 
-**AzureDataLakeStoreSource** dá suporte à seguinte propriedade na seção **typeproperties** :
+**AzureDataLakeStoreSource** suporta a seguinte propriedade na secção **TypeProperties:**
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| **recursive** |Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. |True (valor padrão), false |Não |
+| **recursivo** |Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. |Verdadeiro (valor predefinido), Falso |Não |
 
-**AzureDataLakeStoreSink** dá suporte às seguintes propriedades na seção **typeproperties** :
+**AzureDataLakeStoreSink** suporta as seguintes propriedades na secção **TypeProperties:**
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| **copyBehavior** |Especifica o comportamento de cópia. |<b>PreserveHierarchy</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy</b>: todos os arquivos da pasta de origem são criados no primeiro nível da pasta de destino. Os arquivos de destino são criados com nomes gerados automaticamente.<br/><br/><b>MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome de ficheiro ou blob for especificado, o nome de ficheiro intercalada é o nome especificado. Caso contrário, o nome do arquivo será gerado automaticamente. |Não |
+| **copiarComportamento** |Especifica o comportamento da cópia. |<b>PreserveHierarchy</b>: Preserva a hierarquia dos ficheiros na pasta-alvo. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><br/><b>Hierarquia plana</b>: Todos os ficheiros da pasta fonte são criados no primeiro nível da pasta-alvo. Os ficheiros-alvo são criados com nomes autogerados.<br/><br/><b>MergeFiles</b>: Funda todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro ou blob for especificado, o nome de ficheiro intercalada é o nome especificado. Caso contrário, o nome do ficheiro é autogerado. |Não |
 
 ### <a name="recursive-and-copybehavior-examples"></a>Exemplos de recursiva e copyBehavior
 Esta secção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursiva e copyBehavior.
 
 | recursive | copyBehavior | Comportamento resultante |
 | --- | --- | --- |
-| true |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a mesma estrutura da origem<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
-| true |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>o Pasta1 de destino é criado com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File5 |
-| true |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>o Pasta1 de destino é criado com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + 5 ficheiro de conteúdo é mesclado num ficheiro com o nome de ficheiro gerado automaticamente |
-| false |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/><br/>Subfolder1 com File3, File4 e File5 não são aplicadas. |
-| false |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/><br/>Subfolder1 com File3, File4 e File5 não são aplicadas. |
-| false |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 conteúdo é mesclado num arquivo com o nome de ficheiro gerado automaticamente. Nome gerado automaticamente para File1<br/><br/>Subfolder1 com File3, File4 e File5 não são aplicadas. |
+| true |preserveHierarchy |Para uma pasta de origem Pasta 1 com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo Pasta 1 é criada com a mesma estrutura que a fonte<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;File5. |
+| true |flattenHierarchy |Para uma pasta de origem Pasta 1 com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo 1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/>&nbsp;&nbsp;&nbsp; &nbsp;nome gerado automaticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File5 |
+| true |mergeFiles |Para uma pasta de origem Pasta 1 com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo 1 é criada com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File5 conteúdos são fundidos num só ficheiro com nome de ficheiro gerado automaticamente |
+| false |preserveHierarchy |Para uma pasta de origem Pasta 1 com a seguinte estrutura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo Pasta 1 é criada com a seguinte estrutura<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/><br/><br/>Subfolder1 com File3, File4 e File5 não são aplicadas. |
+| false |flattenHierarchy |Para uma pasta de origem Pasta 1 com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo Pasta 1 é criada com a seguinte estrutura<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/><br/>Subfolder1 com File3, File4 e File5 não são aplicadas. |
+| false |mergeFiles |Para uma pasta de origem Pasta 1 com a seguinte estrutura:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp; &nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;File5  5<br/><br/>a pasta-alvo Pasta 1 é criada com a seguinte estrutura<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;os conteúdos File1 + File2 são fundidos num ficheiro com nome de ficheiro gerado automaticamente. Nome gerado automaticamente para File1<br/><br/>Subfolder1 com File3, File4 e File5 não são aplicadas. |
 
-## <a name="supported-file-and-compression-formats"></a>Formatos de arquivo e compactação com suporte
-Para obter detalhes, consulte os [formatos de arquivo e compactação no Azure data Factory](data-factory-supported-file-and-compression-formats.md) artigo.
+## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiros e compressão suportados
+Para mais detalhes, consulte os [formatos de Arquivo e compressão no artigo da Azure Data Factory.](data-factory-supported-file-and-compression-formats.md)
 
-## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>Exemplos de JSON para copiar dados de e para Data Lake Store
-Os exemplos a seguir fornecem definições de exemplo de JSON. Você pode usar essas definições de exemplo para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de e para Data Lake Store e o armazenamento de BLOBs do Azure. No entanto, os dados podem ser copiados _diretamente_ de qualquer uma das fontes para qualquer um dos coletores com suporte. Para obter mais informações, consulte a seção "armazenamentos e formatos de dados com suporte" no artigo [mover dados usando a atividade de cópia](data-factory-data-movement-activities.md) .
+## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>Exemplos jSON para copiar dados de e para data lake store
+Os seguintes exemplos fornecem definições JSON de amostra. Pode utilizar estas definições de amostra para criar um pipeline utilizando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [o Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de e para data Lake Store e armazenamento Azure Blob. No entanto, os dados podem ser copiados _diretamente_ de qualquer uma das fontes para qualquer uma das pias suportadas. Para mais informações, consulte a secção "Lojas e formatos de dados suportados" nos dados do Movimento utilizando o artigo [Copy Activity.](data-factory-data-movement-activities.md)
 
-### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Exemplo: copiar dados do armazenamento de BLOBs do Azure para Azure Data Lake Store
-O código de exemplo nesta seção mostra:
+### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Exemplo: Copiar dados do Armazenamento de Blob Azure para a Loja de Lagos De Dados Azure
+O código de exemplo nesta secção mostra:
 
-* Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* Um serviço vinculado do tipo [AzureDataLakeStore](#linked-service-properties).
-* Um [conjunto](data-factory-create-datasets.md) de dados de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* Um [conjunto](data-factory-create-datasets.md) de uma saída do tipo [AzureDataLakeStore](#dataset-properties).
-* Um [pipeline](data-factory-create-pipelines.md) com uma atividade de cópia que usa [blobname](data-factory-azure-blob-connector.md#copy-activity-properties) e [AzureDataLakeStoreSink](#copy-activity-properties).
+* Um serviço ligado do tipo [AzureStorage.](data-factory-azure-blob-connector.md#linked-service-properties)
+* Um serviço ligado do tipo [AzureDataLakeStore.](#linked-service-properties)
+* Um conjunto de [dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* Um [conjunto](data-factory-create-datasets.md) de dados de saída do tipo [AzureDataLakeStore](#dataset-properties).
+* Um [pipeline](data-factory-create-pipelines.md) com uma atividade de cópia que utiliza [blobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e [AzureDataLakeStoreSink](#copy-activity-properties).
 
-Os exemplos mostram como os dados de série temporal do armazenamento de BLOBs do Azure são copiados para Data Lake Store a cada hora.
+Os exemplos mostram como os dados da série de tempo do Armazenamento De Blob Azure são copiados para data lake store a cada hora.
 
 **Serviço ligado do Armazenamento do Azure**
 
@@ -333,7 +333,7 @@ Os exemplos mostram como os dados de série temporal do armazenamento de BLOBs d
 }
 ```
 
-**Azure Data Lake Store serviço vinculado**
+**Serviço ligado à Azure Data Lake Store**
 
 ```JSON
 {
@@ -353,12 +353,12 @@ Os exemplos mostram como os dados de série temporal do armazenamento de BLOBs d
 ```
 
 > [!NOTE]
-> Para obter detalhes de configuração, consulte a seção [Propriedades do serviço vinculado](#linked-service-properties) .
+> Para mais detalhes de configuração, consulte a secção de propriedades de [serviço Linked.](#linked-service-properties)
 >
 
 **Conjunto de dados de entrada do blobs do Azure**
 
-No exemplo a seguir, os dados são coletados de um novo BLOB a cada hora (`"frequency": "Hour", "interval": 1`). O caminho da pasta e o nome do arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa a parte de ano, mês e dia da hora de início. O nome do arquivo usa a parte de hora da hora de início. A configuração de `"external": true` informa ao serviço de Data Factory que a tabela é externa à data factory e não é produzida por uma atividade no data factory.
+No exemplo seguinte, os dados são recolhidos a partir de uma nova bolha a cada hora (`"frequency": "Hour", "interval": 1`). O caminho da pasta e o nome do ficheiro para a bolha são avaliados dinamicamente com base no tempo de início da fatia que está a ser processada. O caminho da pasta utiliza o ano, mês e parte do dia da hora de início. O nome do ficheiro usa a parte de hora da hora de início. A definição `"external": true` informa o serviço data Factory de que a tabela é externa à fábrica de dados e não é produzida por uma atividade na fábrica de dados.
 
 ```JSON
 {
@@ -419,9 +419,9 @@ No exemplo a seguir, os dados são coletados de um novo BLOB a cada hora (`"freq
 }
 ```
 
-**Conjunto de Azure Data Lake Store de saída**
+**Conjunto de dados de saída da Azure Data Lake Store**
 
-O exemplo a seguir copia dados para Data Lake Store. Novos dados são copiados para Data Lake Store a cada hora.
+O exemplo seguinte copia dados para data lake store. Novos dados são copiados para data lake store a cada hora.
 
 ```JSON
 {
@@ -440,9 +440,9 @@ O exemplo a seguir copia dados para Data Lake Store. Novos dados são copiados p
 }
 ```
 
-**Atividade de cópia em um pipeline com uma origem de BLOB e um coletor de Data Lake Store**
+**Copiar atividade em um oleoduto com uma fonte blob e um lavatório data lake store**
 
-No exemplo a seguir, o pipeline contém uma atividade de cópia configurada para usar os conjuntos de dados de entrada e saída. A atividade de cópia está agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de `source` é definido como `BlobSource`e o tipo de `sink` é definido como `AzureDataLakeStoreSink`.
+No exemplo seguinte, o pipeline contém uma atividade de cópia configurada para utilizar os conjuntos de dados de entrada e saída. A atividade de cópia está programada para funcionar a cada hora. Na definição jSON do gasoduto, o tipo de `source` está definido para `BlobSource`, e o tipo `sink` está definido para `AzureDataLakeStoreSink`.
 
 ```json
 {
@@ -492,18 +492,18 @@ No exemplo a seguir, o pipeline contém uma atividade de cópia configurada para
 }
 ```
 
-### <a name="example-copy-data-from-azure-data-lake-store-to-an-azure-blob"></a>Exemplo: copiar dados de Azure Data Lake Store para um blob do Azure
-O código de exemplo nesta seção mostra:
+### <a name="example-copy-data-from-azure-data-lake-store-to-an-azure-blob"></a>Exemplo: Copiar dados da Azure Data Lake Store para uma bolha Azure
+O código de exemplo nesta secção mostra:
 
-* Um serviço vinculado do tipo [AzureDataLakeStore](#linked-service-properties).
-* Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* Um [conjunto](data-factory-create-datasets.md) de dados de entrada do tipo [AzureDataLakeStore](#dataset-properties).
-* Um [conjunto](data-factory-create-datasets.md) de uma saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* Um [pipeline](data-factory-create-pipelines.md) com uma atividade de cópia que usa [AzureDataLakeStoreSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+* Um serviço ligado do tipo [AzureDataLakeStore.](#linked-service-properties)
+* Um serviço ligado do tipo [AzureStorage.](data-factory-azure-blob-connector.md#linked-service-properties)
+* Um conjunto de [dados](data-factory-create-datasets.md) de entrada do tipo [AzureDataLakeStore](#dataset-properties).
+* Um [conjunto](data-factory-create-datasets.md) de dados de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* Um [pipeline](data-factory-create-pipelines.md) com uma atividade de cópia que utiliza [O AzureDataLakeStoreSource](#copy-activity-properties) e [o BlobSink.](data-factory-azure-blob-connector.md#copy-activity-properties)
 
-O código copia dados de série temporal de Data Lake Store para um blob do Azure a cada hora.
+O código copia dados da série de tempo da Data Lake Store para uma bolha Azure a cada hora.
 
-**Azure Data Lake Store serviço vinculado**
+**Serviço ligado à Azure Data Lake Store**
 
 ```json
 {
@@ -521,7 +521,7 @@ O código copia dados de série temporal de Data Lake Store para um blob do Azur
 ```
 
 > [!NOTE]
-> Para obter detalhes de configuração, consulte a seção [Propriedades do serviço vinculado](#linked-service-properties) .
+> Para mais detalhes de configuração, consulte a secção de propriedades de [serviço Linked.](#linked-service-properties)
 >
 
 **Serviço ligado do Armazenamento do Azure**
@@ -537,9 +537,9 @@ O código copia dados de série temporal de Data Lake Store para um blob do Azur
   }
 }
 ```
-**Azure Data Lake conjunto de dados de entrada**
+**Conjunto de dados de entrada do Lago de Dados Azure**
 
-Neste exemplo, definir `"external"` como `true` informa ao serviço de Data Factory que a tabela é externa à data factory e não é produzida por uma atividade na data factory.
+Neste exemplo, a definição de `"external"` para `true` informa o serviço data Factory de que a tabela é externa à fábrica de dados e não é produzida por uma atividade na fábrica de dados.
 
 ```json
 {
@@ -574,7 +574,7 @@ Neste exemplo, definir `"external"` como `true` informa ao serviço de Data Fact
 ```
 **Conjunto de dados de saída do blob do Azure**
 
-No exemplo a seguir, os dados são gravados em um novo BLOB a cada hora (`"frequency": "Hour", "interval": 1`). O caminho da pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa a parte de ano, mês, dia e horas da hora de início.
+No exemplo seguinte, os dados são escritos para uma nova bolha a cada hora (`"frequency": "Hour", "interval": 1`). O caminho da pasta para a bolha é avaliado dinamicamente com base no tempo de início da fatia que está a ser processada. O caminho da pasta utiliza o ano, mês, dia e horas da hora de início.
 
 ```JSON
 {
@@ -632,9 +632,9 @@ No exemplo a seguir, os dados são gravados em um novo BLOB a cada hora (`"frequ
 }
 ```
 
-**Uma atividade de cópia em um pipeline com uma fonte de Azure Data Lake Store e um coletor de BLOB**
+**Uma atividade de cópia em um oleoduto com uma fonte azure Data Lake Store e um lavatório blob**
 
-No exemplo a seguir, o pipeline contém uma atividade de cópia configurada para usar os conjuntos de dados de entrada e saída. A atividade de cópia está agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de `source` é definido como `AzureDataLakeStoreSource`e o tipo de `sink` é definido como `BlobSink`.
+No exemplo seguinte, o pipeline contém uma atividade de cópia configurada para utilizar os conjuntos de dados de entrada e saída. A atividade de cópia está programada para funcionar a cada hora. Na definição jSON do gasoduto, o tipo de `source` está definido para `AzureDataLakeStoreSource`, e o tipo `sink` está definido para `BlobSink`.
 
 ```json
 {
@@ -682,7 +682,7 @@ No exemplo a seguir, o pipeline contém uma atividade de cópia configurada para
 }
 ```
 
-Na definição da atividade de cópia, você também pode mapear colunas do conjunto de fonte de origem para colunas no conjunto de coleta. Para obter detalhes, consulte [mapeando colunas do conjunto de informações em Azure data Factory](data-factory-map-columns.md).
+Na definição de atividade de cópia, também pode mapear colunas do conjunto de dados de origem para colunas no conjunto de dados do lavatório. Para mais detalhes, consulte [mapeiar colunas de conjuntos](data-factory-map-columns.md)de dados na Azure Data Factory .
 
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
-Para saber mais sobre os fatores que afetam o desempenho da atividade de cópia e como otimizá-la, consulte o artigo [Guia de desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md) .
+Para conhecer os fatores que afetam o desempenho da Atividade de Cópia e como otimizá-lo, consulte o artigo de [performance e afinação](data-factory-copy-activity-performance.md) da Atividade de Cópia.

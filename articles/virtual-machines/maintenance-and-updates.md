@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
 ms.openlocfilehash: eaf7616b3bd69828829342b4dca9247c009d3475
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121858"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388681"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção para máquinas virtuais em Azure
 

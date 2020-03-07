@@ -1,6 +1,6 @@
 ---
-title: Formato JSON no Azure Data Factory
-description: Este tópico descreve como lidar com o formato JSON no Azure Data Factory.
+title: Formato JSON na Fábrica de Dados Azure
+description: Este tópico descreve como lidar com o formato JSON na Azure Data Factory.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049853"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397003"
 ---
-# <a name="json-format-in-azure-data-factory"></a>Formato JSON no Azure Data Factory
+# <a name="json-format-in-azure-data-factory"></a>Formato JSON na Fábrica de Dados Azure
 
 Siga este artigo quando pretender **analisar os ficheiros JSON ou escrever os dados no formato JSON**. 
 
@@ -24,17 +24,17 @@ O formato JSON é suportado para os seguintes conectores: [Amazon S3,](connector
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta seção fornece uma lista das propriedades com suporte pelo DataSet JSON.
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados JSON.
 
 | Propriedade         | Descrição                                                  | Necessário |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Json**. | Sim      |
-| localização         | Configurações de local dos arquivos. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location`. **Consulte detalhes no artigo do conector -> Secção**de propriedades do conjunto de dados . | Sim      |
-| encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", " WINDOWS-1252 "," WINDOWS-1253 "," WINDOWS-1254 "," WINDOWS-1255 "," WINDOWS-1256 "," WINDOWS-1257 "," WINDOWS-1258 ".| Não       |
-| compressionCodec | O codec de compactação usado para ler/gravar arquivos de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **desinsuflação,** **ZipDeflate,** **snappy,** ou **lz4**. para usar ao salvar o arquivo. <br>Observação a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4".<br>Note ao utilizar a atividade de cópia para descomprimir ficheiros ZipDeflate e escrever para uma loja de dados de sumidouro baseada em ficheiros, os ficheiros serão extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/`. | Não       |
-| compressionLevel | A taxa de compactação. <br>Os valores permitidos são **Ideais** ou **Mais Rápidos.**<br>- **Mais rápido:** A operação de compressão deve estar concluída o mais rapidamente possível, mesmo que o ficheiro resultante não esteja devidamente comprimido.<br>- **Optimal**: O funcionamento da compressão deve ser optimizadamente comprimido, mesmo que a operação leve mais tempo a concluir. Para mais informações, consulte o tópico [do Nível de Compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
+| localização         | Definições de localização dos ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location`. **Consulte detalhes no artigo do conector -> Secção**de propriedades do conjunto de dados . | Sim      |
+| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM001140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859", "ISO-8859", "ISO-8859-5", "ISO-8859" -6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1251", " WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Não       |
+| compressãoCodec | O codec de compressão utilizado para ler/escrever ficheiros de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **desinsuflação,** **ZipDeflate,** **snappy,** ou **lz4**. para usar ao guardar o ficheiro. <br>Nota atualmente A atividade da Cópia não suporta "snappy" e "lz4".<br>Note ao utilizar a atividade de cópia para descomprimir ficheiros ZipDeflate e escrever para uma loja de dados de sumidouro baseada em ficheiros, os ficheiros serão extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/`. | Não       |
+| compressionLevel | A relação de compressão. <br>Os valores permitidos são **Ideais** ou **Mais Rápidos.**<br>- **Mais rápido:** A operação de compressão deve estar concluída o mais rapidamente possível, mesmo que o ficheiro resultante não esteja devidamente comprimido.<br>- **Optimal**: O funcionamento da compressão deve ser optimizadamente comprimido, mesmo que a operação leve mais tempo a concluir. Para mais informações, consulte o tópico [do Nível de Compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
 
-Veja abaixo um exemplo de conjunto de um DataSet no armazenamento de BLOBs do Azure:
+Abaixo está um exemplo de conjunto de dados JSON no Armazenamento de Blob Azure:
 
 ```json
 {
@@ -61,7 +61,7 @@ Veja abaixo um exemplo de conjunto de um DataSet no armazenamento de BLOBs do Az
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta seção fornece uma lista das propriedades com suporte pela origem e pelo coletor JSON.
+Para obter uma lista completa de secções e imóveis disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte json e pia.
 
 ### <a name="json-as-source"></a>JSON como fonte
 
@@ -70,9 +70,9 @@ As seguintes propriedades são suportadas na atividade de cópia ***\*secção\*
 | Propriedade      | Descrição                                                  | Necessário |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **JSONSource**. | Sim      |
-| storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings`. **Consulte os detalhes no artigo do conector -> Secção de propriedades**de atividadede cópia . | Não       |
+| storeSettings | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings`. **Consulte os detalhes no artigo do conector -> Secção de propriedades**de atividadede cópia . | Não       |
 
-### <a name="json-as-sink"></a>JSON como coletor
+### <a name="json-as-sink"></a>JSON como pia
 
 As seguintes propriedades são suportadas na atividade de cópia ***\*pia\**** secção.
 
@@ -80,7 +80,7 @@ As seguintes propriedades são suportadas na atividade de cópia ***\*pia\**** s
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida para **JSONSink**. | Sim      |
 | formatSettings | Um grupo de propriedades. Consulte a tabela de definições de **escrita JSON** abaixo. | Não       |
-| storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings`. **Consulte os detalhes no artigo do conector -> Secção de propriedades**de atividadede cópia . | Não       |
+| storeSettings | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings`. **Consulte os detalhes no artigo do conector -> Secção de propriedades**de atividadede cópia . | Não       |
 
 Definições de **escrita JSON** suportadas em `formatSettings`:
 
@@ -91,12 +91,12 @@ Definições de **escrita JSON** suportadas em `formatSettings`:
 
 ### <a name="json-file-patterns"></a>Padrões de ficheiro JSON
 
-A atividade de cópia pode detectar e analisar automaticamente os padrões de arquivos JSON a seguir. 
+A atividade de cópia pode detetar e analisar automaticamente os seguintes padrões dos ficheiros JSON. 
 
 - **Tipo I: setOfObjects**
 
     Cada ficheiro contém um único objeto ou múltiplos objetos delimitados por linha/concatenados. 
-    Quando essa opção é escolhida no coletor da atividade de cópia, a atividade de cópia produz um único arquivo JSON com cada objeto por linha (delimitado por linha).
+    Quando esta opção é escolhida no sink de atividade de cópia, a atividade de cópia produz um único ficheiro JSON com cada objeto por linha (linha delimitada).
 
     * **Exemplo de JSON de objeto único**
 
@@ -181,7 +181,7 @@ A atividade de cópia pode detectar e analisar automaticamente os padrões de ar
     ]
     ```
 
-## <a name="mapping-data-flow-properties"></a>Mapeando Propriedades de fluxo de dados
+## <a name="mapping-data-flow-properties"></a>Mapeando propriedades de fluxo de dados
 
 Os tipos de ficheiros JSON podem ser usados como um lavatório e uma fonte no fluxo de dados de mapeamento.
 

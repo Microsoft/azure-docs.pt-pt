@@ -1,7 +1,7 @@
 ---
-title: Pesquisar vídeos usando o API de Pesquisa de Vídeo do Bing
+title: Pesquisa de vídeos usando a API de pesquisa de vídeo bing
 titleSuffix: Azure Cognitive Services
-description: O Pesquisa de Vídeo do Bing APIfinds e retorna vídeos relevantes da Web, fornece vários recursos para recuperação de vídeo inteligente e focada na Web.
+description: O Bing Video Search APIencontra e devolve vídeos relevantes da web, fornece várias funcionalidades para uma recuperação inteligente e focada de vídeo na web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111435"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387762"
 ---
-# <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisar vídeos com o API de Pesquisa de Vídeo do Bing
+# <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisa de vídeos com a API de pesquisa de vídeo bing
 
-O API de Pesquisa de Vídeo do Bing facilita a integração dos recursos de pesquisa de notícias cognitivas do Bing em seus aplicativos. Embora a API Localize principalmente e retorne vídeos relevantes da Web, ela fornece vários recursos para recuperação de vídeo inteligente e focada na Web.
+A API bing video search facilita a integração das capacidades cognitivas de pesquisa de notícias do Bing nas suas aplicações. Enquanto a API encontra e devolve principalmente vídeos relevantes da web, fornece várias funcionalidades para uma recuperação inteligente e focada de vídeo na web.
 
 ## <a name="getting-videos"></a>Obter vídeos
 
@@ -98,7 +98,7 @@ A resposta contém uma resposta [Vídeos](https://docs.microsoft.com/rest/api/co
 
 ## <a name="video-thumbnails"></a>Miniaturas de vídeo
 
-Você pode exibir todos ou um subconjunto das miniaturas de vídeo retornadas pelo API de Pesquisa de Vídeo do Bing. Se for apresentado um subconjunto, dê ao utilizador uma opção para ver os vídeos restantes. como parte dos [requisitos de uso e exibição](../UseAndDisplayRequirements.md)da API do Bing, você deve exibir os vídeos na ordem fornecida na resposta. Para obter informações sobre o redimensionamento da miniatura, veja [Redimensionar e Recortar Miniaturas](../../bing-web-search/resize-and-crop-thumbnails.md). 
+Pode exibir tudo, ou um subconjunto das miniaturas de vídeo devolvidas pela API de Pesquisa de Vídeo Bing. Se for apresentado um subconjunto, dê ao utilizador uma opção para ver os vídeos restantes. como parte dos requisitos de [utilização e exibição](../UseAndDisplayRequirements.md)da API bing, deve exibir os vídeos na ordem fornecida na resposta. Para obter informações sobre o redimensionamento da miniatura, veja [Redimensionar e Recortar Miniaturas](../../bing-web-search/resize-and-crop-thumbnails.md). 
 
 À medida que o utilizador coloca o cursor sobre a miniatura, pode utilizar [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) para reproduzir uma versão em miniatura do vídeo. Certifique-se de que adiciona um atributo à miniatura de movimento quando a apresentar.
 
@@ -106,7 +106,7 @@ Você pode exibir todos ou um subconjunto das miniaturas de vídeo retornadas pe
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
 -->
 
-Quando uma miniatura é clicada, há três opções para exibir o vídeo:
+Quando uma miniatura é clicada, existem três opções para visualizar o vídeo:
 
 - Utilize [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-hostpageurl) para ver o vídeo no site anfitrião (por exemplo, o YouTube)
 - Utilize [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-websearchurl) para ver o vídeo no browser de vídeos do Bing

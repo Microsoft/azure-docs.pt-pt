@@ -12,11 +12,11 @@ ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
 ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759385"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396275"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
@@ -39,7 +39,7 @@ Um espaço de nome é um recipiente para todos os componentes de mensagens. Vár
 
 As mensagens são enviadas e recebidas de *filas*. As filas armazenam mensagens até que a aplicação recetora esteja disponível para recebê-las e processá-las.
 
-![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
+![Filas](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
 As mensagens nas filas são encomendadas e marcadas à chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues no modo *pull,* apenas entregando mensagens quando solicitadas.
 
@@ -104,7 +104,7 @@ O Service Bus suporta protocolos de segurança como [Assinaturas de Acesso Parti
 
 ### <a name="geo-disaster-recovery"></a>Recuperação após desastre geográfica
 
-Quando as regiões do Azure ou datacenters experimentam o tempo de inatividade, a recuperação de geo-desastres permite que o processamento de dados continue a operar numa região ou datacenter diferente. Para obter mais informações, consulte [recuperação de desastre geográfico do barramento de serviço do Azure](service-bus-geo-dr.md).
+Quando as regiões do Azure ou datacenters experimentam o tempo de inatividade, a recuperação de geo-desastres permite que o processamento de dados continue a operar numa região ou datacenter diferente. Para mais informações, consulte [a recuperação geo-desastre do Azure Service Bus.](service-bus-geo-dr.md)
 
 ### <a name="security"></a>Segurança
 

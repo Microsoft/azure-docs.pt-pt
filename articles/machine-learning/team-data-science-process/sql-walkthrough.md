@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a47f30cf00624faf098c8b605534cf355eacadee
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718536"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393418"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Server
 Neste tutorial, você percorre o processo de construção e implementação de um modelo de machine learning usando o SQL Server e um conjunto de dados disponível publicamente -- o conjunto de dados de Viagens de Táxi de [NYC.](https://www.andresmh.com/nyctaxitrips/) O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, funcionalidades de engenharia para facilitar a aprendizagem, em seguida, criar e implementar um modelo.
@@ -191,7 +191,7 @@ Neste exemplo investiga se qualquer um dos campos de longitude e/ou latitude opt
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploração: distribuição de viagens gorjetas versus não inclinadas
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploração: Distribuição de viagens não inclinadas vs. Não Gorjeta
 Neste exemplo localiza o número de viagens que foram tipados versus não tipados num tempo determinado período (ou no conjunto de dados completo se abrangendo o ano completo). Essa distribuição reflete a distribuição de etiqueta de binário para ser utilizado mais tarde para a Modelagem de classificação binária.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (

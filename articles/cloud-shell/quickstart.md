@@ -1,6 +1,6 @@
 ---
-title: Guia de início rápido Azure Cloud Shell-bash
-description: Saiba como usar a linha de comando do bash em seu navegador com Azure Cloud Shell.
+title: Azure Cloud Shell Quickstart - Bash
+description: Saiba como usar a linha de comando Bash no seu navegador com a Azure Cloud Shell.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
@@ -11,90 +11,90 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
 ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757402"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394542"
 ---
-# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Início rápido para Bash no Azure Cloud Shell
+# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Quickstart para Bash em Azure Cloud Shell
 
-Este documento detalha como usar o bash em Azure Cloud Shell no [portal do Azure](https://ms.portal.azure.com/).
+Este documento detalha como usar bash em Azure Cloud Shell no [portal Azure](https://ms.portal.azure.com/).
 
 > [!NOTE]
-> Um [PowerShell no guia de início rápido do Azure cloud Shell](quickstart-powershell.md) também está disponível.
+> Também está disponível um [PowerShell em Azure Cloud Shell](quickstart-powershell.md) Quickstart.
 
-## <a name="start-cloud-shell"></a>Iniciar Cloud Shell
-1. Inicie o **Cloud Shell** na navegação superior do portal do Azure. <br>
+## <a name="start-cloud-shell"></a>Iniciar a nuvem shell
+1. Lance **cloud shell** a partir da navegação superior do portal Azure. <br>
 ![](media/quickstart/shell-icon.png)
 
-2. Selecione uma assinatura para criar uma conta de armazenamento e Microsoft Azure compartilhamento de arquivos.
-3. Selecione "criar armazenamento"
+2. Selecione uma subscrição para criar uma conta de armazenamento e partilhar o Microsoft Azure Files.
+3. Selecione "Criar armazenamento"
 
 > [!TIP]
-> Você é autenticado automaticamente para CLI do Azure em cada sessão.
+> É automaticamente autenticado para o Azure CLI em todas as sessões.
 
-### <a name="select-the-bash-environment"></a>Selecionar o ambiente bash
-Verifique se a lista suspensa ambiente do lado esquerdo da janela do shell diz `Bash`. <br>
+### <a name="select-the-bash-environment"></a>Selecione o ambiente Bash
+Verifique se o ambiente cai do lado esquerdo da janela da concha diz `Bash`. <br>
 ![](media/quickstart/env-selector.png)
 
-### <a name="set-your-subscription"></a>Definir sua assinatura
-1. Listar assinaturas às quais você tem acesso.
+### <a name="set-your-subscription"></a>Detete a sua subscrição
+1. Lista as assinaturas a que tem acesso.
    ```azurecli-interactive
    az account list
    ```
 
-2. Defina sua assinatura preferida: <br>
+2. Detete a sua subscrição preferida: <br>
 ```azurecli-interactive
 az account set --subscription 'my-subscription-name'
 ```
 
 > [!TIP]
-> Sua assinatura será lembrada para sessões futuras usando `/home/<user>/.azure/azureProfile.json`.
+> A sua subscrição será lembrada para futuras sessões utilizando `/home/<user>/.azure/azureProfile.json`.
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Crie um novo grupo de recursos em Westus chamado "MyRG".
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+Crie um novo grupo de recursos na WestUS chamado "MyRG".
 ```azurecli-interactive
 az group create --location westus --name MyRG
 ```
 
 ### <a name="create-a-linux-vm"></a>Criar uma VM do Linux
-Crie uma VM do Ubuntu em seu novo grupo de recursos. O CLI do Azure criará chaves SSH e configurará a VM com elas. <br>
+Crie um Ubuntu VM no seu novo grupo de recursos. O Azure CLI criará chaves SSH e configurará o VM com elas. <br>
 
 ```azurecli-interactive
 az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> O uso de `--generate-ssh-keys` instrui CLI do Azure para criar e configurar chaves públicas e privadas na sua VM e no diretório `$Home`. Por padrão, as chaves são colocadas em Cloud Shell em `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub`. Sua pasta de `.ssh` é persistida na imagem de 5 GB do compartilhamento de arquivos anexado usada para persistir `$Home`.
+> A utilização `--generate-ssh-keys` instrui o Azure CLI a criar e configurar chaves públicas e privadas no seu VM e `$Home` diretório. Por predefinição, as teclas são colocadas na Cloud Shell em `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub`. A sua pasta `.ssh` é persistida na imagem de 5 GB da sua partilha de ficheiros anexada utilizada para persistir `$Home`.
 
-Seu nome de usuário nessa VM será seu nome de usuário usado no Cloud Shell ($ User@Azure:).
+O seu nome de utilizador neste VM será o seu nome de utilizador usado na Cloud Shell ($User@Azure:).
 
-### <a name="ssh-into-your-linux-vm"></a>SSH em sua VM Linux
-1. Pesquise o nome da VM na barra de pesquisa portal do Azure.
-2. Clique em "conectar" para obter o nome da VM e o endereço IP público. <br>
+### <a name="ssh-into-your-linux-vm"></a>SSH no seu Linux VM
+1. Procure o seu nome VM na barra de pesquisa do portal Azure.
+2. Clique em "Connect" para obter o nome VM e endereço IP público. <br>
    ![](media/quickstart/sshcmd-copy.png)
 
-3. SSH em sua VM com o `ssh` cmd.
+3. SSH no seu VM com o `ssh` cmd.
    ```
    ssh username@ipaddress
    ```
 
-Após estabelecer a conexão SSH, você deverá ver o prompt de boas-vindas do Ubuntu. <br>
+Ao estabelecer a ligação SSH, deve ver o pedido de boas-vindas de Ubuntu. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Limpeza 
-1. Saia da sessão SSH.
+1. Saia da sua sessão de ssh.
    ```azurecli-interactive
    exit
    ```
 
-2. Exclua seu grupo de recursos e todos os recursos dentro dele.
+2. Elimine o seu grupo de recursos e quaisquer recursos dentro dele.
    ```azurecli-interactive
    az group delete -n MyRG
    ```
 
 ## <a name="next-steps"></a>Passos seguintes
-[Saiba mais sobre a persistência de arquivos para Bash no Cloud Shell](persisting-shell-storage.md) <br>
-[Saiba mais sobre o CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
-[Saiba mais sobre o armazenamento de arquivos do Azure](../storage/files/storage-files-introduction.md) <br>
+[Saiba mais sobre os ficheiros persistindo para Bash na Cloud Shell](persisting-shell-storage.md) <br>
+[Conheça o Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
+[Saiba mais sobre o armazenamento de Ficheiros Azure](../storage/files/storage-files-introduction.md) <br>

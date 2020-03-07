@@ -6,11 +6,11 @@ ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
 ms.openlocfilehash: fc9db23f7733f97ca207e834d4543fbdb1b9db5c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671499"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362310"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -561,7 +561,7 @@ A amostragem de taxa fixa é uma característica do SDK nas versões ASP.NET a p
 
 Antes do v2.5.0-beta2 do ASP.NET SDK, e v2.2.0-beta3 de ASP.NET Core SDK, a decisão de amostragem baseou-se no hash do ID do utilizador para aplicações que definem "utilizador" (isto é, aplicações web mais típicas). Para os tipos de aplicações que não definiram os utilizadores (como serviços web), a decisão de amostragem baseou-se na identificação de operação do pedido. Versões recentes dos ASP.NET e ASP.NET Os SDKs core utilizam o ID de operação para a decisão de amostragem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [A filtragem](../../azure-monitor/app/api-filtering-sampling.md) pode fornecer um controlo mais rigoroso do que o seu SDK envia.
 * Leia o artigo da Rede de Desenvolvedores [Otimize Telemetria com Insights de Aplicação](https://msdn.microsoft.com/magazine/mt808502.aspx).

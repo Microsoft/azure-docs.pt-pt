@@ -1,6 +1,6 @@
 ---
-title: Selecionar imagens de VM do Linux com o CLI do Azure
-description: Saiba como usar o CLI do Azure para determinar o editor, a oferta, a SKU e a versão das imagens de VM do Marketplace.
+title: Selecione imagens VM Linux com o Azure CLI
+description: Saiba como usar o Azure CLI para determinar a editora, oferta, SKU e versão para imagens De Marketplace VM.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -17,31 +17,31 @@ ms.date: 01/25/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e4dd51640c4eeda2ec99c14812a534ee506faeda
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036871"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391988"
 ---
-# <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Localizar imagens de VM do Linux no Azure Marketplace com o CLI do Azure
+# <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Encontre imagens De VM Linux no Azure Marketplace com o Azure CLI
 
-Este tópico descreve como usar o CLI do Azure para localizar imagens de VM no Azure Marketplace. Use essas informações para especificar uma imagem do Marketplace quando você criar uma VM programaticamente com a CLI, modelos do Resource Manager ou outras ferramentas.
+Este tópico descreve como usar o Azure CLI para encontrar imagens VM no Azure Marketplace. Utilize estas informações para especificar uma imagem do Marketplace quando criar um VM programáticamente com os modelos CLI, Resource Manager ou outras ferramentas.
 
-Também procure imagens disponíveis e ofertas usando a vitrine do [Azure Marketplace](https://azuremarketplace.microsoft.com/) , o [portal do Azure](https://portal.azure.com)ou [Azure PowerShell](../windows/cli-ps-findimage.md). 
+Navegue também em imagens e ofertas disponíveis utilizando a montra [Azure Marketplace,](https://azuremarketplace.microsoft.com/) o [portal Azure,](https://portal.azure.com)ou [azure PowerShell.](../windows/cli-ps-findimage.md) 
 
-Verifique se você instalou as [CLI do Azure](/cli/azure/install-azure-cli) mais recentes e se está conectado a uma conta do Azure (`az login`).
+Certifique-se de que instalou o mais recente [Azure CLI](/cli/azure/install-azure-cli) e está registado numa conta Azure (`az login`).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
-## <a name="list-popular-images"></a>Listar imagens populares
+## <a name="list-popular-images"></a>Lista rumine imagens populares
 
-Execute o comando [AZ VM Image List](/cli/azure/vm/image) , sem a opção `--all`, para ver uma lista de imagens de VM populares no Azure Marketplace. Por exemplo, execute o seguinte comando para exibir uma lista armazenada em cache de imagens populares em formato de tabela:
+Executar o comando da lista de [imagens az vm,](/cli/azure/vm/image) sem a opção `--all`, para ver uma lista de imagens vM populares no Mercado Azure. Por exemplo, executar o seguinte comando para exibir uma lista em cache de imagens populares em formato de tabela:
 
 ```azurecli
 az vm image list --output table
 ```
 
-A saída inclui a imagem URN (o valor na coluna *urn* ). Ao criar uma VM com uma dessas imagens populares do Marketplace, você pode especificar, como alternativa, o *UrnAlias*, uma forma abreviada, como *UbuntuLTS*.
+A saída inclui a urn de imagem (o valor na coluna *Urn).* Ao criar um VM com uma destas imagens populares do Marketplace, pode especificar alternativamente as *UrnAlias*, um formulário encurtado como *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -59,9 +59,9 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 
 ## <a name="find-specific-images"></a>Encontrar imagens específicas
 
-Para localizar uma imagem de VM específica no Marketplace, use o comando `az vm image list` com a opção `--all`. Essa versão do comando leva algum tempo para ser concluída e pode retornar uma saída demorada, de modo que você geralmente filtra a lista por `--publisher` ou outro parâmetro. 
+Para encontrar uma imagem VM específica no Mercado, utilize o comando `az vm image list` com a opção `--all`. Esta versão do comando demora algum tempo a completar e pode devolver uma saída longa, por isso normalmente filtra a lista por `--publisher` ou outro parâmetro. 
 
-Por exemplo, o comando a seguir exibe todas as ofertas do Debian (Lembre-se de que, sem a opção `--all`, ele pesquisa apenas o cache local de imagens comuns):
+Por exemplo, o comando seguinte exibe todas as ofertas de Debian (lembre-se que sem o interruptor `--all`, ele apenas procura a cache local de imagens comuns):
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
@@ -108,11 +108,11 @@ Debian             credativ     8                    credativ:Debian:8:8.0.20190
 ...
 ```
 
-Aplique filtros semelhantes com as opções `--location`, `--publisher`e `--sku`. Você pode executar correspondências parciais em um filtro, como Pesquisar `--offer Deb` para localizar todas as imagens Debian.
+Aplique filtros semelhantes com as opções `--location`, `--publisher`e `--sku`. Pode realizar partidas parciais num filtro, como procurar `--offer Deb` para encontrar todas as imagens de Debian.
 
-Se você não especificar um local específico com a opção `--location`, os valores para o local padrão serão retornados. (Defina um local padrão diferente executando `az configure --defaults location=<location>`.)
+Se não especificar um determinado local com a opção `--location`, os valores para a localização predefinida são devolvidos. (Desloque uma localização padrão diferente executando `az configure --defaults location=<location>`.)
 
-Por exemplo, o comando a seguir lista todos os SKUs do Debian 8 no local Europa Ocidental:
+Por exemplo, o seguinte comando lista todas as 8 SKUs de Debian 8 na localização da Europa Ocidental:
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -150,17 +150,17 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201901221        
 ...
 ```
 
-## <a name="navigate-the-images"></a>Navegar pelas imagens
+## <a name="navigate-the-images"></a>Navegue nas imagens
  
-Outra maneira de localizar uma imagem em um local é executar os comandos [AZ VM Image List-Publishers](/cli/azure/vm/image), [AZ VM Image List-offers](/cli/azure/vm/image)e [AZ VM Image List-SKUs](/cli/azure/vm/image) em sequência. Com esses comandos, você determina esses valores:
+Outra forma de encontrar uma imagem num local é executar as [listas de imagens az vm](/cli/azure/vm/image), ofertas de lista de [imagens az vm](/cli/azure/vm/image), e comandos [az vm image list-skus](/cli/azure/vm/image) em sequência. Com estes comandos, determina estes valores:
 
 1. Listar os publicadores de imagem.
 2. Para um determinado publicador, liste as respetivas ofertas.
 3. Para uma determinada oferta, liste as respetivas SKUs.
 
-Em seguida, para uma SKU selecionada, você pode escolher uma versão a ser implantada.
+Em seguida, para um SKU selecionado, pode escolher uma versão para implementar.
 
-Por exemplo, o comando a seguir lista os editores de imagem no local oeste dos EUA:
+Por exemplo, o seguinte comando lista os editores de imagem na localização dos EUA Ocidentais:
 
 ```azurecli
 az vm image list-publishers --location westus --output table
@@ -196,7 +196,7 @@ westus      akumina
 ...
 ```
 
-Use essas informações para encontrar ofertas de um Publicador específico. Por exemplo, para o editor *canônico* na localização oeste dos EUA, encontre ofertas executando `azure vm image list-offers`. Passe o local e o Publicador como no exemplo a seguir:
+Utilize estas informações para encontrar ofertas de um editor específico. Por exemplo, para a editora *canónica* na localização dos EUA Ocidentais, encontre ofertas executando `azure vm image list-offers`. Passe a localização e a editora como no seguinte exemplo:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -213,7 +213,7 @@ westus      UbunturollingSnappy
 westus      UbuntuServer
 westus      Ubuntu_Core
 ```
-Você vê que, na região oeste dos EUA, a Canonical publica a oferta *UbuntuServer* no Azure. Mas que SKUs? Para obter esses valores, execute `azure vm image list-skus` e defina o local, o editor e a oferta que você descobriu:
+Na região oeste dos EUA, a Canonical publica a oferta *ubuntuServer* no Azure. Mas que SKUs? Para obter esses valores, faça `azure vm image list-skus` e detete te a localização, editora e oferta que descobriu:
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -244,7 +244,7 @@ westus      18.10-DAILY
 westus      19.04-DAILY
 ```
 
-Por fim, use o comando `az vm image list` para encontrar uma versão específica do SKU que você deseja, por exemplo, *18, 4-LTS*:
+Por fim, utilize o comando `az vm image list` para encontrar uma versão específica do SKU que deseja, por exemplo, *18.04-LTS:*
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 18.04-LTS --all --output table
@@ -278,17 +278,17 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-Agora você pode escolher precisamente a imagem que deseja usar, anotando o valor de URN. Passe esse valor com o parâmetro `--image` ao criar uma VM com o comando [AZ VM Create](/cli/azure/vm) . Lembre-se de que você pode opcionalmente substituir o número de versão no URN por "mais recente". Essa versão é sempre a versão mais recente da imagem. 
+Agora pode escolher precisamente a imagem que pretende utilizar tomando nota do valor URN. Passe este valor com o parâmetro `--image` quando criar um VM com o [az vm criar](/cli/azure/vm) comando. Lembre-se que pode substituir opcionalmente o número da versão na URN por "mais recente". Esta versão é sempre a versão mais recente da imagem. 
 
-Se você implantar uma VM com um modelo do Resource Manager, defina os parâmetros da imagem individualmente nas propriedades de `imageReference`. Veja a [referência do modelo](/azure/templates/microsoft.compute/virtualmachines).
+Se implementar um VM com um modelo de Gestor de Recursos, defina os parâmetros de imagem individualmente nas propriedades `imageReference`. Veja a [referência do modelo](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
-### <a name="view-plan-properties"></a>Exibir Propriedades do plano
+### <a name="view-plan-properties"></a>Ver propriedades do plano
 
-Para exibir as informações do plano de compra de uma imagem, execute o comando [AZ VM Image Show](/cli/azure/image) . Se a propriedade `plan` na saída não for `null`, a imagem terá os termos que você precisa aceitar antes da implantação programática.
+Para ver a informação do plano de compra de uma imagem, execute o comando de [show de imagem az vm.](/cli/azure/image) Se a propriedade `plan` na saída não for `null`, a imagem tem termos que precisa de aceitar antes da implementação programática.
 
-Por exemplo, a imagem canônica do Ubuntu Server 18, 4 LTS não tem termos adicionais, porque as informações de `plan` são `null`:
+Por exemplo, a imagem Canónica Ubuntu Server 18.04 LTS não tem termos adicionais, porque a informação `plan` é `null`:
 
 ```azurecli
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
@@ -310,7 +310,7 @@ Saída:
 }
 ```
 
-A execução de um comando semelhante para a imagem RabbitMQ certificada pela BitNami mostra as seguintes propriedades de `plan`: `name`, `product`e `publisher`. (Algumas imagens também têm uma propriedade `promotion code`.) Para implantar essa imagem, consulte as seções a seguir para aceitar os termos e habilitar a implantação programática.
+Executar um comando semelhante para o RabbitMQ Certified by Bitnami mostra as seguintes propriedades `plan`: `name`, `product`e `publisher`. (Algumas imagens também têm uma propriedade `promotion code`.) Para implementar esta imagem, consulte as seguintes secções para aceitar os termos e permitir a implementação programática.
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
@@ -335,15 +335,15 @@ Saída:
 }
 ```
 
-### <a name="accept-the-terms"></a>Aceitar os termos
+### <a name="accept-the-terms"></a>Aceite os termos
 
-Para exibir e aceitar os termos de licença, use o comando [AZ VM Image Accept-terms](/cli/azure/vm/image?) . Ao aceitar os termos, você habilita a implantação programática em sua assinatura. Você só precisa aceitar os termos uma vez por assinatura para a imagem. Por exemplo:
+Para visualizar e aceitar os termos da licença, utilize o comando de [aceitação de termos de imagem az vm.](/cli/azure/vm/image?) Quando aceita os termos, permite a implementação programática na sua subscrição. Só precisa de aceitar termos uma vez por subscrição para a imagem. Por exemplo:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
-A saída inclui uma `licenseTextLink` aos termos de licença e indica que o valor de `accepted` é `true`:
+A saída inclui uma `licenseTextLink` aos termos da licença, e indica que o valor da `accepted` é `true`:
 
 ```
 {
@@ -362,9 +362,9 @@ A saída inclui uma `licenseTextLink` aos termos de licença e indica que o valo
 }
 ```
 
-### <a name="deploy-using-purchase-plan-parameters"></a>Implantar usando parâmetros do plano de compra
+### <a name="deploy-using-purchase-plan-parameters"></a>Implementar utilizando parâmetros do plano de compra
 
-Depois de aceitar os termos da imagem, você pode implantar uma VM na assinatura. Para implantar a imagem usando o comando `az vm create`, forneça parâmetros para o plano de compra, além de um URN para a imagem. Por exemplo, para implantar uma VM com a imagem RabbitMQ certificada pela BitNami:
+Depois de aceitar os termos da imagem, pode implementar um VM na subscrição. Para implementar a imagem utilizando o comando `az vm create`, forneça parâmetros para o plano de compra, além de um URN para a imagem. Por exemplo, para implantar um VM com o RabbitMQ Certificado pela imagem Bitnami:
 
 ```azurecli
 az group create --name myResourceGroupVM --location westus
@@ -373,4 +373,4 @@ az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabb
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para criar uma máquina virtual rapidamente usando as informações da imagem, consulte [criar e gerenciar VMs do Linux com o CLI do Azure](tutorial-manage-vm.md).
+Para criar rapidamente uma máquina virtual utilizando a informação de imagem, consulte [Create and Manage Linux VMs com o Azure CLI](tutorial-manage-vm.md).

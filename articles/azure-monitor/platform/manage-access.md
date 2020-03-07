@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 10/22/2019
 ms.openlocfilehash: 24ff081d40d5cd3adf771511ca0b52d66c287b63
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272628"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373267"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir acesso a dados de log e espaços de trabalho no Monitor Azure
 
@@ -291,7 +291,7 @@ Para criar uma função com acesso apenas à tabela _SecurityBaseline,_ crie uma
 * Os proprietários de espaço de trabalho são tratados como qualquer outro utilizador para controlo de acesso por mesa.
 * Recomendamos a atribuição de funções a grupos de segurança em vez de utilizadores individuais para reduzir o número de atribuições. Isto também irá ajudá-lo a usar as ferramentas de gestão de grupo existentes para configurar e verificar o acesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Consulte a visão geral do [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recolher dados de computadores no seu datacenter ou outro ambiente na nuvem.
 

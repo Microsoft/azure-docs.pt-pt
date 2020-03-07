@@ -1,7 +1,7 @@
 ---
-title: Conceitos de análises, fluxos de trabalho e trabalhos – Content Moderator
+title: Opiniões, Fluxos de Trabalho e Conceitos de Emprego - Moderador de Conteúdo
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, você aprenderá sobre os principais conceitos da ferramenta de revisão; análises, fluxos de trabalho e trabalhos.
+description: Neste artigo, você vai aprender sobre os conceitos fundamentais da ferramenta Review; avaliações, fluxos de trabalho e empregos.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,35 +11,35 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744418"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379057"
 ---
-# <a name="content-moderation-reviews-workflows-and-jobs"></a>Análises, fluxos de trabalho e trabalhos de moderação de conteúdo
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>Avaliações de moderação de conteúdos, fluxos de trabalho e empregos
 
-O Content Moderator combina moderação assistida por computador com recursos humanos no loop para criar um processo de moderação ideal para cenários do mundo real. Ele faz isso por meio da ferramenta de [revisão](https://contentmoderator.cognitive.microsoft.com)baseada em nuvem. Neste guia, você aprenderá sobre os principais conceitos da ferramenta de revisão: análises, fluxos de trabalho e trabalhos.
+O Moderador de Conteúdo combina moderação assistida por máquinas com capacidades humanas no loop para criar um processo de moderação ideal para cenários do mundo real. Fá-lo através da [ferramenta](https://contentmoderator.cognitive.microsoft.com)de revisão baseada em nuvem. Neste guia, você aprenderá sobre os conceitos fundamentais da ferramenta Review: avaliações, fluxos de trabalho e empregos.
 
 ## <a name="reviews"></a>Revisões
 
-Em uma revisão, o conteúdo é carregado para a ferramenta de revisão e aparece na guia **revisão** . A partir daqui, os usuários podem alterar as marcas aplicadas e aplicar suas próprias marcas personalizadas, conforme apropriado. Quando um usuário envia uma revisão, os resultados são enviados para um ponto de extremidade de retorno de chamada especificado e o conteúdo é removido do site.
+Numa análise, o conteúdo é enviado para a ferramenta 'Rever' e aparece sob o separador **'Rever'.** A partir daqui, os utilizadores podem alterar as etiquetas aplicadas e aplicar as suas próprias etiquetas personalizadas conforme apropriado. Quando um utilizador submete uma revisão, os resultados são enviados para um ponto final de chamada especificado, e o conteúdo é removido do site.
 
-![Examinar o site da ferramenta aberto em um navegador, na guia revisão](./Review-Tool-user-Guide/images/image-workflow-review.png)
+![Site de ferramentas de revisão aberto em um navegador, no separador Review](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-Consulte o [Guia de ferramentas de revisão](./review-tool-user-guide/review-moderated-images.md) para começar a criar revisões ou consulte o [guia da API REST](./try-review-api-review.md) para saber como fazer isso programaticamente.
+Consulte o guia da [ferramenta Review](./review-tool-user-guide/review-moderated-images.md) para começar a criar comentários, ou consulte o guia [REST API](./try-review-api-review.md) para aprender a fazê-lo programáticamente.
 
 ## <a name="workflows"></a>Fluxos de trabalho
 
-Um fluxo de trabalho é um filtro personalizado baseado em nuvem para conteúdo. Os fluxos de trabalho podem se conectar a uma variedade de serviços para filtrar conteúdo de maneiras diferentes e, em seguida, executar a ação apropriada. Com o conector de Content Moderator, um fluxo de trabalho pode aplicar automaticamente marcas de moderação e criar revisões com conteúdo enviado.
+Um fluxo de trabalho é um filtro personalizado baseado em nuvem para conteúdo. Os fluxos de trabalho podem ligar-se a uma variedade de serviços para filtrar o conteúdo de diferentes maneiras e, em seguida, tomar as medidas adequadas. Com o conector Moderador de Conteúdo, um fluxo de trabalho pode aplicar automaticamente etiquetas de moderação e criar avaliações com conteúdo submetido.
 
-### <a name="view-workflows"></a>Exibir fluxos de trabalho
+### <a name="view-workflows"></a>Ver fluxos de trabalho
 
-Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione **configurações** > fluxos de **trabalho**.
+Para visualizar os fluxos de trabalho existentes, vá à [ferramenta 'Rever'](https://contentmoderator.cognitive.microsoft.com/) e selecione **Definições** > **Fluxos de Trabalho**.
 
 ![Fluxo de trabalho padrão](images/default-workflow-listed.PNG)
 
-Os fluxos de trabalho podem ser completamente descritos como cadeias de caracteres JSON, o que os torna acessíveis programaticamente. Se você selecionar a opção **Editar** para seu fluxo de trabalho e, em seguida, selecionar a guia **JSON** , verá uma expressão JSON semelhante à seguinte:
+Os fluxos de trabalho podem ser completamente descritos como cordas JSON, o que as torna acessíveis programáticamente. Se selecionar a opção **Editar** para o seu fluxo de trabalho e, em seguida, selecionar o separador **JSON,** verá uma expressão JSON como a seguinte:
 
 ```json
 {
@@ -64,16 +64,16 @@ Os fluxos de trabalho podem ser completamente descritos como cadeias de caracter
 }
 ```
 
-Consulte o [Guia de ferramentas de revisão](./review-tool-user-guide/workflows.md) para começar a criar e usar fluxos de trabalho ou consulte o [guia da API REST](./try-review-api-workflow.md) para saber como fazer isso programaticamente.
+Consulte o guia da [ferramenta Review](./review-tool-user-guide/workflows.md) para começar a criar e utilizar fluxos de trabalho, ou consulte o guia [REST API](./try-review-api-workflow.md) para aprender a fazê-lo programáticamente.
 
 ## <a name="jobs"></a>Tarefas
 
-Um trabalho de moderação serve como um tipo de wrapper para a funcionalidade de moderação de conteúdo, fluxos de trabalho e revisões. O trabalho examina seu conteúdo usando a API de moderação de imagem Content Moderator ou a API de moderação de texto e, em seguida, verifica-o no fluxo de trabalho designado. Com base nos resultados do fluxo de trabalho, pode ou não criar uma revisão para o conteúdo da [ferramenta de revisão](./review-tool-user-guide/human-in-the-loop.md). Embora as revisões e os fluxos de trabalho possam ser criados e configurados com suas respectivas APIs, a API de trabalhos permite que você obtenha um relatório detalhado de todo o processo (que pode ser enviado para um ponto de extremidade de retorno de chamada especificado).
+Um trabalho de moderação serve como uma espécie de invólucro para a funcionalidade de moderação de conteúdos, fluxos de trabalho e revisões. O trabalho digitaliza o seu conteúdo utilizando a API de moderação de imagem moderadora de conteúdo ou a API de moderação de texto e, em seguida, verifica-o contra o fluxo de trabalho designado. Com base nos resultados do fluxo de trabalho, pode ou não criar uma revisão para o conteúdo na [ferramenta Revisão](./review-tool-user-guide/human-in-the-loop.md). Embora tanto as revisões como os fluxos de trabalho possam ser criados e configurados com as respetivas APIs, o trabalho API permite-lhe obter um relatório detalhado de todo o processo (que pode ser enviado para um ponto final de chamada especificado).
 
-Consulte o [guia da API REST](./try-review-api-job.md) para começar a usar os trabalhos.
+Consulte o [guia REST API](./try-review-api-job.md) para começar a usar trabalhos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Teste o [console da API de trabalho](try-review-api-job.md)e use os exemplos de código da API REST. Se você estiver familiarizado com o Visual Studio C#e também Confira o [início rápido dos trabalhos .net](moderation-jobs-quickstart-dotnet.md). 
-* Para revisões, comece com o [console de API de revisão](try-review-api-review.md)e use os exemplos de código da API REST. Em seguida, consulte a seção de revisões do [início rápido do .net](dotnet-sdk-quickstart.md).
-* Para revisões de vídeo, use o guia de [início rápido de revisão de vídeo](video-reviews-quickstart-dotnet.md)e saiba como [Adicionar transcrições à revisão de vídeo](video-transcript-reviews-quickstart-dotnet.md).
+* Teste a [consola Job API](try-review-api-job.md)e utilize as amostras de código REST API. Se estiver familiarizado com o C#Visual Studio e , consulte também o [Arranque Rápido Jobs .NET](moderation-jobs-quickstart-dotnet.md). 
+* Para comentários, inicie-se com a [consola API review](try-review-api-review.md)e utilize as amostras de código REST API. Em seguida, consulte a secção de comentários do [arranque rápido .NET](dotnet-sdk-quickstart.md).
+* Para análises de vídeo, utilize a análise de [vídeo quickstart](video-reviews-quickstart-dotnet.md), e aprenda a [adicionar transcrições à análise de vídeo](video-transcript-reviews-quickstart-dotnet.md).

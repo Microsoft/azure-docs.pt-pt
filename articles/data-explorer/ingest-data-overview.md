@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 4846a19c403cce16bed704ed4e7c70499f3b5d13
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187986"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78379870"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Explorador de Dados azure
 
@@ -136,7 +136,7 @@ O mapeamento de schema ajuda a ligar os campos de dados de origem às colunas de
 * [O Mapeamento CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona com todos os formatos baseados em ordinal. Pode ser realizado utilizando o parâmetro de comando ingerir ou [pré-criado na mesa](/azure/kusto/management/create-ingestion-mapping-command) e referenciado a partir do parâmetro de comando ingerir.
 * O [Mapeamento JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obrigatório) e o [mapeamento Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obrigatório) podem ser realizados utilizando o parâmetro de comando ingerir. Também podem ser [pré-criados na mesa](/azure/kusto/management/create-ingestion-mapping-command) e referenciados a partir do parâmetro de comando ingerir.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Ingerir dados do Event Hub no Azure Data Explorer](ingest-data-event-hub.md)

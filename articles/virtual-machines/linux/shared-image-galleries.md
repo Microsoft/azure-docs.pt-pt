@@ -1,6 +1,6 @@
 ---
-title: Compartilhar imagens de VM com galerias compartilhadas
-description: Saiba como usar galerias de imagens compartilhadas para compartilhar imagens de VM em sua organização.
+title: Partilhe imagens vm com galerias partilhadas
+description: Aprenda a usar galerias de imagem partilhadas para partilhar imagens VM em toda a sua organização.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: axayjo
@@ -16,17 +16,17 @@ ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
 ms.openlocfilehash: b79abeffffd7dc1bb54e828823aa909216508496
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035037"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78390380"
 ---
-# <a name="shared-image-galleries-overview"></a>Visão geral das galerias de imagens compartilhadas
+# <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagem Partilhada
 
 [!INCLUDE [virtual-machines-common-shared-image-galleries](../../../includes/virtual-machines-common-shared-image-galleries.md)]
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [implantar imagens compartilhadas](shared-images.md).
+Saiba como [implementar imagens partilhadas.](shared-images.md)
