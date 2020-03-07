@@ -5,11 +5,11 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.openlocfilehash: 42a7034c586f4e01066e989dcb2b9fae4eebfa85
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250833"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78372029"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Passagem da API de Monitorização Azure
 

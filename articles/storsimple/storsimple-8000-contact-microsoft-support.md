@@ -1,111 +1,111 @@
 ---
-title: Criar tíquete de suporte ou caso para a série StorSimple 8000
-description: Saiba como registrar em log a solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple da série 8000.
+title: Criar bilhete de suporte ou caso para a série StorSimple 8000
+description: Saiba como registar o pedido de suporte e inicie uma sessão de suporte no seu dispositivo da série StorSimple 8000.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277180"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384914"
 ---
 # <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 
-O Device Manager do StorSimple fornece a capacidade de **registrar uma nova solicitação de suporte** dentro da folha de resumo do serviço. Se você encontrar problemas com sua solução StorSimple, poderá criar uma solicitação de serviço para suporte técnico. Em uma sessão online com seu engenheiro de suporte, talvez você também precise iniciar uma sessão de suporte em seu dispositivo StorSimple. Este artigo orienta você pelo seguinte:
+O StorSimple Device Manager fornece a capacidade de **registar um novo pedido** de suporte dentro da lâmina de resumo do serviço. Se encontrar algum problema com a sua solução StorSimple, pode criar um pedido de serviço de suporte técnico. Numa sessão online com o seu engenheiro de suporte, poderá também ter de iniciar uma sessão de suporte no seu dispositivo StorSimple. Este artigo acompanha-o através de:
 
-* Como criar uma solicitação de suporte.
-* Como gerenciar um ciclo de vida de solicitação de suporte de dentro do Portal.
-* Como iniciar uma sessão de suporte na interface do Windows PowerShell de seu dispositivo StorSimple.
+* Como criar um pedido de apoio.
+* Como gerir um suporte solicitar ciclo de vida dentro do portal.
+* Como iniciar uma sessão de suporte na interface Windows PowerShell do seu dispositivo StorSimple.
 
-Examine os [SLAs e as informações de suporte da série 8000 do StorSimple](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar uma solicitação de suporte.
+Reveja o [StorSimple 8000 Series Support SLAs e informações](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar um pedido de suporte.
 
 ## <a name="create-a-support-request"></a>Criar um pedido de suporte
 
-Dependendo do plano de [suporte](https://azure.microsoft.com/support/plans/), você pode criar tíquetes de suporte para um problema em seu dispositivo storsimple diretamente da folha de resumo do serviço storsimple Device Manager. Execute as seguintes etapas para criar uma solicitação de suporte:
+Dependendo do seu plano de [suporte,](https://azure.microsoft.com/support/plans/)pode criar bilhetes de suporte para um problema no seu dispositivo StorSimple diretamente a partir da lâmina de resumo do serviço StorSimple Device Manager. Execute os seguintes passos para criar um pedido de apoio:
 
-#### <a name="to-create-a-support-request"></a>Para criar uma solicitação de suporte
+#### <a name="to-create-a-support-request"></a>Para criar um pedido de apoio
 
-1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple. Nas configurações da folha de resumo do serviço, vá para a seção **suporte + solução de problemas** e clique em **nova solicitação de suporte**.
+1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple. Nas definições de lâmina de resumo de serviço, vá para a secção **SUPORTE + RESOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Novo pedido**de suporte .
      
-    ![Entre em contato com o suporte MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport1.png)
+    ![Contacte o Suporte de MS através de um novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport1.png)
    
-2. Na folha **nova solicitação de suporte** , selecione **básico**. Na folha **noções básicas** , execute as seguintes etapas:
-   1. Na lista suspensa **tipo de problema** , selecione **técnico**.
-   2. A **assinatura**atual, o tipo de **serviço** e o **recurso** (serviço StorSimple Device Manager) são escolhidos automaticamente. 
-   3. Selecione um **plano de suporte** na lista suspensa se você tiver vários planos associados à sua assinatura. Você precisa de um plano de suporte pago para habilitar o suporte técnico.
+2. Na nova lâmina de pedido de **suporte,** selecione **Basics**. Na lâmina Basics, faça os **seguintes passos:**
+   1. A partir da lista de drop-down do **tipo Emissão,** selecione **Técnico**.
+   2. A **subscrição**atual, o tipo de **serviço** e o **recurso** (serviço StorSimple Device Manager) são automaticamente escolhidos. 
+   3. Selecione um plano de **suporte** da lista de drop-down se tiver vários planos associados à sua subscrição. Precisa de um plano de apoio pago para permitir o Apoio Técnico.
    4. Clique em **Seguinte**.
 
-       ![Entre em contato com o suporte MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![Contacte o Suporte de MS através de um novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
-3. Na folha **nova solicitação de suporte** , selecione **etapa 2 problema**. Na folha **problema** , execute as seguintes etapas:
+3. Na nova lâmina de pedido de **suporte,** selecione **Problema passo 2**. Na lâmina **Problema,** faça os seguintes passos:
     
-    1. Escolha a **severidade**.
-    2. Especifique se o problema está relacionado ao dispositivo ou ao serviço StorSimple Device Manager.
-    3. Escolha uma **categoria** para esse problema e forneça mais **detalhes** sobre o problema.
+    1. Escolha a **Gravidade.**
+    2. Especifique se o problema está relacionado com o aparelho ou com o serviço StorSimple Device Manager.
+    3. Escolha uma **Categoria** para esta edição e forneça mais **detalhes** sobre o assunto.
     4. Forneça a data e a hora de início para o problema.
-    5. No **upload do arquivo**, clique no ícone de pasta para navegar até seu pacote de suporte.
-    6. Marque **compartilhar informações de diagnóstico**.
+    5. No upload do **Ficheiro,** clique no ícone da pasta para navegar no seu pacote de suporte.
+    6. Verifique **partilhar informações de diagnóstico**.
     7. Clique em **Seguinte**.
 
-       ![Entre em contato com o suporte MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![Contacte o Suporte de MS através de um novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
-4. Na folha **nova solicitação de suporte** , clique em **etapa 3 informações de contato**. Na folha **informações de contato** , execute as seguintes etapas:
+4. Na nova lâmina de pedido de **suporte,** clique em **informações de contacto do Passo 3**. Na lâmina de informação do **Contacto,** faça os seguintes passos:
 
-   1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
-   2. Nas informações de contato, forneça seu nome, email, contato opcional, país/região. Marque a caixa de seleção **salvar alterações de contato para futuras solicitações de suporte** .
+   1. Nas **opções**de Contacto, forneça o seu método de contacto preferido (telefone ou e-mail) e o idioma. O tempo de resposta é automaticamente selecionado com base no seu plano de subscrição.
+   2. Nas informações de Contacto, forneça o seu nome, e-mail, contacto opcional, país/região. Selecione as alterações de **contacto Save para futuros pedidos de suporte,** verifique a caixa.
    3. Clique em **Criar**.
    
-       ![Entre em contato com o suporte MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Contacte o Suporte de MS através de um novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
-      Suporte da Microsoft usará essas informações para entrar em contato com você para obter mais informações, diagnósticos e resolução.
-      Depois de ter enviado sua solicitação, um engenheiro de suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
+      O Microsoft Support utilizará estas informações para lhe contactar para mais informações, diagnóstico e resolução.
+      Depois de ter apresentado o seu pedido, um engenheiro de suporte entrará em contacto consigo o mais rapidamente possível para prosseguir com o seu pedido.
 
-## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
+## <a name="manage-a-support-request"></a>Gerir um pedido de apoio
 
 Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no portal.
 
-#### <a name="to-manage-your-support-requests"></a>Para gerenciar suas solicitações de suporte
+#### <a name="to-manage-your-support-requests"></a>Para gerir os seus pedidos de apoio
 
-1. Para acessar a página ajuda e suporte, navegue até **procurar > ajuda + suporte**.
+1. Para chegar à página de ajuda e suporte, navegue para **Navegar > Ajuda + suporte**.
 
-    ![Gerenciar solicitações de suporte](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
+    ![Gerir pedidos de apoio](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
 
-2. Uma listagem tabular de todas as solicitações de suporte é exibida na folha **ajuda + suporte** .
+2. Uma listagem tabular de todos os pedidos de suporte é exibida na lâmina **de suporte Ajuda +.**
 
-    ![Gerenciar solicitações de suporte](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Gerir pedidos de apoio](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
-3. Selecione e clique em uma solicitação de suporte. Você pode exibir o status e os detalhes dessa solicitação. Clique em **+ nova mensagem** se desejar acompanhar essa solicitação.
+3. Selecione e clique num pedido de suporte. Pode ver o estado e os detalhes para este pedido. Clique **+ Nova mensagem** se quiser acompanhar este pedido.
 
-    ![Gerenciar solicitações de suporte](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Gerir pedidos de apoio](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
-## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Iniciar uma sessão de suporte no Windows PowerShell para StorSimple
+## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Inicie uma sessão de suporte no Windows PowerShell para storSimple
 
-Para solucionar quaisquer problemas que possam ocorrer com o dispositivo StorSimple, você precisará entrar com a equipe de Suporte da Microsoft. Suporte da Microsoft pode precisar usar uma sessão de suporte para fazer logon em seu dispositivo.
+Para resolver problemas que possa experimentar com o dispositivo StorSimple, terá de se envolver com a equipa de Suporte do Microsoft. O Microsoft Support poderá ter de utilizar uma sessão de suporte para iniciar sessão no seu dispositivo.
 
-Execute as seguintes etapas para iniciar uma sessão de suporte:
+Execute os seguintes passos para iniciar uma sessão de apoio:
 
-#### <a name="to-start-a-support-session"></a>Para iniciar uma sessão de suporte
+#### <a name="to-start-a-support-session"></a>Para iniciar uma sessão de apoio
 
-1. Acesse o dispositivo diretamente usando o console serial ou por meio de uma sessão Telnet de um computador remoto. Para fazer isso, siga as etapas em [usar a saída para se conectar ao console serial do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. Na sessão que é aberta, pressione a tecla **Enter** para obter um prompt de comando.
-3. No menu do console serial, selecione a opção 1, **faça logon com acesso completo**.
-4. No prompt, digite a seguinte senha:
+1. Aceda diretamente ao dispositivo utilizando a consola em série ou através de uma sessão de telnet a partir de um computador remoto. Para isso, siga os passos em [Use PuTTY para ligar à consola em série do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+2. Na sessão que abre, prima a tecla **Enter** para obter um pedido de comando.
+3. No menu de consola em série, selecione a opção 1, **inicie sessão com acesso total**.
+4. No momento, digite a seguinte palavra-passe:
    
     `Password1`
 5. Na linha de comandos, escreva o seguinte comando:
    
     `Enable-HcsSupportAccess`
-6. Uma cadeia de caracteres criptografada será apresentada a você. Copie essa cadeia de caracteres em um editor de texto como o bloco de notas.
-7. Salve essa cadeia de caracteres e envie-a em uma mensagem de email para Suporte da Microsoft.
+6. Será-lhe apresentada uma corda encriptada. Copie esta cadeia num editor de texto como o Notepad.
+7. Guarde esta corda e envie-a numa mensagem de e-mail para o Microsoft Support.
 
 > [!IMPORTANT]
-> Você pode desabilitar o acesso de suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desabilitar o acesso de suporte 8 horas após o início da sessão. É uma prática recomendada alterar as credenciais do dispositivo StorSimple depois de iniciar uma sessão de suporte.
+> Pode desativar o acesso ao suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desativar o acesso ao suporte 8 horas após o início da sessão. É uma boa prática alterar as credenciais do seu dispositivo StorSimple depois de ter dado início a uma sessão de suporte.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [diagnosticar e resolver problemas relacionados ao seu dispositivo StorSimple da série 8000](storsimple-8000-troubleshoot-deployment.md)
+Saiba diagnosticar [e resolver problemas relacionados com o seu dispositivo da série StorSimple 8000](storsimple-8000-troubleshoot-deployment.md)

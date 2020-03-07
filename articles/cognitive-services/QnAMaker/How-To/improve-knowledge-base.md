@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: diberry
 ms.openlocfilehash: dea2bf3b34ca336f3932dd85bf587184ab6881db
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914998"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389386"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
 
@@ -159,20 +159,20 @@ Content-Type: application/json
 
 |HTTP solicitar propriedade|Nome|Tipo|Objetivo|
 |--|--|--|--|
-|Parâmetro de rota URL|ID base de conhecimento|string|O GUID para a sua base de conhecimento.|
-|Subdomínio personalizado|Nome de recurso QnAMaker|string|O nome do recurso é usado como subdomínio personalizado para o seu Fabricante QnA. Isto está disponível na página Definições depois de publicar a base de conhecimentos. Está listado como o `host`.|
-|Cabeçalho|Tipo de conteúdo|string|O tipo de mídia do corpo enviado para a API. O valor predefinido é: `application/json`|
-|Cabeçalho|Autorização|string|A sua chave de ponto final (EndpointKey xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx).|
+|Parâmetro de rota URL|ID base de conhecimento|Cadeia de caracteres|O GUID para a sua base de conhecimento.|
+|Subdomínio personalizado|Nome de recurso QnAMaker|Cadeia de caracteres|O nome do recurso é usado como subdomínio personalizado para o seu Fabricante QnA. Isto está disponível na página Definições depois de publicar a base de conhecimentos. Está listado como o `host`.|
+|Cabeçalho|Tipo de conteúdo|Cadeia de caracteres|O tipo de mídia do corpo enviado para a API. O valor predefinido é: `application/json`|
+|Cabeçalho|Autorização|Cadeia de caracteres|A sua chave de ponto final (EndpointKey xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx).|
 |Corpo pós|Objeto JSON|JSON|O feedback de treino|
 
 O corpo jSON tem várias configurações:
 
 |Propriedade corporal JSON|Tipo|Objetivo|
 |--|--|--|--|
-|`feedbackRecords`|array|Lista de comentários.|
-|`userId`|string|A identificação do utilizador da pessoa que aceita as perguntas sugeridas. O formato ID do utilizador depende de si. Por exemplo, um endereço de e-mail pode ser um ID de utilizador válido na sua arquitetura. Opcional.|
-|`userQuestion`|string|Texto exato da consulta do utilizador. Necessário.|
-|`qnaID`|número|Id de pergunta, encontrado na [resposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`feedbackRecords`|matriz|Lista de comentários.|
+|`userId`|Cadeia de caracteres|A identificação do utilizador da pessoa que aceita as perguntas sugeridas. O formato ID do utilizador depende de si. Por exemplo, um endereço de e-mail pode ser um ID de utilizador válido na sua arquitetura. Opcional.|
+|`userQuestion`|Cadeia de caracteres|Texto exato da consulta do utilizador. Necessário.|
+|`qnaID`|number|Id de pergunta, encontrado na [resposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo do corpo jSON parece:
 
@@ -373,7 +373,7 @@ Ao reimportar esta aplicação, a aprendizagem ativa continua a recolher informa
 
 Para obter as melhores práticas ao utilizar a aprendizagem ativa, consulte [as melhores práticas.](../Concepts/best-practices.md#active-learning)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Utilize metadados com API GenerateAnswer](metadata-generateanswer-usage.md)

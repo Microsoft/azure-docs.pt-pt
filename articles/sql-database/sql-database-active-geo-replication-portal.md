@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: replicação geográfica & failover no portal'
-description: Configure a replicação geográfica para um banco de dados individual ou em pool no banco de dados SQL do Azure usando o portal do Azure e inicie o failover.
+title: 'Tutorial: Geo-replicação e falha no portal'
+description: Configure a geo-replicação para uma única ou piscina de base de dados na Base de Dados Azure SQL utilizando o portal Azure e inicie a falha.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,87 +12,87 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348884"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78396876"
 ---
-# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a replicação geográfica ativa para o banco de dados SQL do Azure no portal do Azure e iniciar o failover
+# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configure a geo-replicação ativa para a Base de Dados Azure SQL no portal Azure e inicie a falha
 
-Este artigo mostra como configurar a [replicação geográfica ativa para bancos de dados individuais e em pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) no banco de dados SQL do Azure usando o [portal do Azure](https://portal.azure.com) e para iniciar o failover.
+Este artigo mostra-lhe como configurar a [geo-replicação ativa para bases de dados únicas e agrofadas](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) na Base de Dados Azure SQL utilizando o [portal Azure](https://portal.azure.com) e iniciar a falha.
 
-Para obter informações sobre grupos de failover automático com bancos de dados únicos e em pool, consulte [práticas recomendadas de uso de grupos de failover com bancos de dados individuais e em pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para obter informações sobre grupos de failover automático com instâncias gerenciadas, consulte [práticas recomendadas de uso de grupos de failover com instâncias gerenciadas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+Para obter informações sobre grupos de auto-failover com bases de dados individuais e agrupadas, consulte [as melhores práticas de utilização de grupos failover com bases de dados individuais e agrupadas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para obter informações sobre grupos de falha automática com Instâncias Geridas, consulte [as melhores práticas de utilização de grupos de failover com instâncias geridas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a replicação geográfica ativa usando o portal do Azure, você precisará do seguinte recurso:
+Para configurar a geo-replicação ativa utilizando o portal Azure, precisa do seguinte recurso:
 
-* Um banco de dados SQL do Azure: o banco de dados primário que você deseja replicar para uma região geográfica diferente.
+* Uma base de dados Azure SQL: A base de dados primária que pretende replicar para uma região geográfica diferente.
 
 > [!Note]
-> Ao usar portal do Azure, você só pode criar um banco de dados secundário dentro da mesma assinatura que o primário. Se for necessário que o banco de dados secundário esteja em uma assinatura diferente, use [criar API REST de banco de dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou [API Transact-SQL ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> Ao utilizar o portal Azure, só é possível criar uma base de dados secundária dentro da mesma subscrição que a principal. Se for necessária uma base de dados secundária para estar numa subscrição diferente, utilize a [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou [alter DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
-## <a name="add-a-secondary-database"></a>Adicionar um banco de dados secundário
+## <a name="add-a-secondary-database"></a>Adicione uma base de dados secundária
 
-As etapas a seguir criam um novo banco de dados secundário em uma parceria de replicação geográfica.  
+Os passos seguintes criam uma nova base de dados secundária numa parceria de geo-replicação.  
 
-Para adicionar um banco de dados secundário, você deve ser o proprietário ou o coproprietário da assinatura.
+Para adicionar uma base de dados secundária, deve ser o proprietário ou coproprietário da subscrição.
 
-O banco de dados secundário tem o mesmo nome que o banco de dados primário e tem, por padrão, a mesma camada de serviço e tamanho de computação. O banco de dados secundário pode ser um banco de dados individual ou um banco de dados em pool. Para obter mais informações, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
-Depois que o secundário é criado e propagado, os dados começam a ser replicados do banco de dados primário para o novo banco de dados secundário.
+A base de dados secundária tem o mesmo nome que a base de dados primária e tem, por padrão, o mesmo nível de serviço e tamanho de cálculo. A base de dados secundária pode ser uma única base de dados ou uma base de dados agrinada. Para obter mais informações, consulte [o modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o modelo de compra baseado em [vCore](sql-database-service-tiers-vcore.md).
+Após a criação e semeado do secundário, os dados começam a replicar-se da base de dados primária para a nova base de dados secundária.
 
 > [!NOTE]
-> Se o banco de dados parceiro já existir (por exemplo, como resultado do encerramento de uma relação de replicação geográfica anterior), o comando falhará.
+> Se a base de dados do parceiro já existir (por exemplo, como resultado do fim de uma relação de geo-replicação anterior) o comando falha.
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até o banco de dados que você deseja configurar para a replicação geográfica.
-2. Na página banco de dados SQL, selecione **replicação geográfica**e, em seguida, selecione a região para criar o banco de dados secundário. Você pode selecionar qualquer região que não seja a região que hospeda o banco de dados primário, mas recomendamos a [região emparelhada](../best-practices-availability-paired-regions.md).
+1. No [portal Azure,](https://portal.azure.com)navegue até à base de dados que pretende configurar para a geo-replicação.
+2. Na página de base de dados SQL, **selecione geo-replicação**e, em seguida, selecione a região para criar a base de dados secundária. Pode selecionar qualquer outra região que não a região que acolhe a base de dados primária, mas recomendamos a [região emparelhada.](../best-practices-availability-paired-regions.md)
 
     ![Configurar georreplicação](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
-3. Selecione ou configure o servidor e o tipo de preço para o banco de dados secundário.
+3. Selecione ou configure o servidor e o nível de preços para a base de dados secundária.
 
     ![Configurar secundário](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. Opcionalmente, você pode adicionar um banco de dados secundário a um pool elástico. Para criar o banco de dados secundário em um pool, clique em **pool elástico** e selecione um pool no servidor de destino. Um pool já deve existir no servidor de destino. Este fluxo de trabalho não cria um pool.
-5. Clique em **criar** para adicionar o secundário.
-6. O banco de dados secundário é criado e o processo de propagação começa.
+4. Opcionalmente, pode adicionar uma base de dados secundária a uma piscina elástica. Para criar a base de dados secundária numa piscina, clique em **piscina elástica** e selecione uma piscina no servidor alvo. Uma piscina já deve existir no servidor alvo. Este fluxo de trabalho não cria uma piscina.
+5. Clique em **Criar** para adicionar o secundário.
+6. A base de dados secundária é criada e o processo de sementeing começa.
 
     ![Configurar secundário](./media/sql-database-geo-replication-portal/seeding0.png)
-7. Quando o processo de propagação for concluído, o banco de dados secundário exibirá seu status.
+7. Quando o processo de sementeira estiver concluído, a base de dados secundária mostra o seu estado.
 
-    ![Propagação concluída](./media/sql-database-geo-replication-portal/seeding-complete.png)
+    ![Sementeing completo](./media/sql-database-geo-replication-portal/seeding-complete.png)
 
-## <a name="initiate-a-failover"></a>Iniciar um failover
+## <a name="initiate-a-failover"></a>Iniciar uma falha
 
-O banco de dados secundário pode ser alternado para se tornar o primário.  
+A base de dados secundária pode ser trocada para se tornar a principal.  
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até o banco de dados primário na parceria de replicação geográfica.
-2. Na folha banco de dados SQL, selecione **todas as configurações** > **replicação geográfica**.
-3. Na lista **secundários** , selecione o banco de dados que você deseja tornar o novo primário e clique em **failover**.
+1. No [portal Azure,](https://portal.azure.com)navegue até à base de dados primária na parceria de geo-replicação.
+2. Na lâmina de base de dados SQL, selecione **Todas as definições** > **geo-replicação**.
+3. Na lista **SECONDARIES,** selecione a base de dados que pretende tornar-se a nova primária e clique em **Failover**.
 
-    ![pós-falha](./media/sql-database-geo-replication-failover-portal/secondaries.png)
-4. Clique em **Sim** para iniciar o failover.
+    ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+4. Clique **sim** para começar a falha.
 
-O comando alterna imediatamente o banco de dados secundário para a função primária. Esse processo normalmente deve ser concluído dentro de 30 segundos ou menos.
+O comando muda imediatamente a base de dados secundária para a função principal. Este processo normalmente deve estar concluído dentro de 30 segundos ou menos.
 
-Há um curto período durante o qual os dois bancos de dados ficam indisponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. Se o banco de dados primário tiver vários bancos de dados secundários, o comando reconfigurará automaticamente os outros secundários para se conectar ao novo primário. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais.
+Há um curto período durante o qual ambas as bases de dados não estão disponíveis (na ordem dos 0 a 25 segundos) enquanto as funções são trocadas. Se a base de dados primária tiver várias bases de dados secundárias, o comando reconfigura automaticamente os outros secundários para se ligar às novas primárias. Toda a operação deve demorar menos de um minuto a ser concluída em circunstâncias normais.
 
 > [!NOTE]
-> Esse comando foi projetado para recuperação rápida do banco de dados em caso de uma interrupção. Ele dispara failover sem sincronização de dados (failover forçado).  Se o primário estiver online e confirmando transações quando o comando for emitido, poderá ocorrer alguma perda de dados.
+> Este comando foi concebido para uma rápida recuperação da base de dados em caso de paragem. Desencadeia a falha sem sincronização de dados (falha forçada).  Se o primário estiver on-line e cometer transações quando o comando for emitido, poderá ocorrer alguma perda de dados.
 
-## <a name="remove-secondary-database"></a>Remover banco de dados secundário
+## <a name="remove-secondary-database"></a>Remover base de dados secundária
 
-Essa operação encerra permanentemente a replicação para o banco de dados secundário e altera a função do secundário para um banco de dados de leitura/gravação normal. Se a conectividade com o banco de dados secundário for interrompida, o comando terá sucesso, mas o secundário não se tornará de leitura/gravação até que a conectividade seja restaurada.  
+Esta operação termina permanentemente a replicação para a base de dados secundária e altera o papel do secundário para uma base de dados regular de leitura. Se a conectividade com a base de dados secundária for quebrada, o comando tem sucesso, mas o secundário só se torna read-write depois de a conectividade ser restaurada.  
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até o banco de dados primário na parceria de replicação geográfica.
-2. Na página banco de dados SQL, selecione **replicação geográfica**.
-3. Na lista **secundários** , selecione o banco de dados que você deseja remover da parceria de replicação geográfica.
-4. Clique em **parar replicação**.
+1. No [portal Azure,](https://portal.azure.com)navegue até à base de dados primária na parceria de geo-replicação.
+2. Na página de base de dados SQL, **selecione geo-replicação**.
+3. Na lista **SECONDARIES,** selecione a base de dados que pretende remover da parceria de geo-replicação.
+4. Clique na **replicação**stop .
 
     ![Remover secundário](./media/sql-database-geo-replication-portal/remove-secondary.png)
-5. Uma janela de confirmação é aberta. Clique em **Sim** para remover o banco de dados da parceria de replicação geográfica. (Defina-o como um banco de dados de leitura/gravação que não faz parte de qualquer replicação.)
+5. Abre-se uma janela de confirmação. Clique em **Sim** para remover a base de dados da parceria de geo-replicação. (Desloque-o para uma base de dados de leitura e escrita não parte de qualquer replicação.)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre a replicação geográfica ativa, consulte [replicação geográfica ativa](sql-database-active-geo-replication.md).
-* Para saber mais sobre grupos de failover automático, consulte [grupos de failover automático](sql-database-auto-failover-group.md)
-* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)
+* Para saber mais sobre a geo-replicação ativa, consulte a [geo-replicação ativa.](sql-database-active-geo-replication.md)
+* Para aprender sobre grupos de auto-failover, consulte [grupos de falha automática](sql-database-auto-failover-group.md)
+* Para uma visão geral da continuidade do negócio e cenários, consulte a [visão geral da continuidade do Negócio.](sql-database-business-continuity.md)

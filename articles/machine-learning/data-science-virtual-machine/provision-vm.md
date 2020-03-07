@@ -9,11 +9,11 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
 ms.openlocfilehash: 1fdf8eae5d19a2d43499d1984f4dea834d8a61d8
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525877"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397302"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Quickstart: Configurar a máquina virtual de ciência de dados para windows
 
@@ -65,7 +65,7 @@ Também pode anexar um DSVM aos Cadernos Azure para executar cadernos Jupyter no
 <a name="tools"></a>
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Explore as ferramentas no DSVM abrindo o menu **Iniciar.**
 * Saiba mais sobre o Azure Machine Learning lendo o [](../index.yml) [que é Azure Machine Learning?](../overview-what-is-azure-ml.md)

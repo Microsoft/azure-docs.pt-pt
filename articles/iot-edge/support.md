@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 3f1f4efc13e2d11e7111264564a227a484d611d5
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760101"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395663"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas de suporte do Azure IoT Edge
 
@@ -21,11 +21,11 @@ Este artigo fornece detalhes sobre quais os sistemas e componentes suportados pe
 
 Se tiver problemas ao utilizar o serviço Azure IoT Edge, existem várias formas de procurar apoio. Experimente um dos seguintes canais de apoio:
 
-**Relatório de bugs** – a maior parte do desenvolvimento que vai para o produto do Azure IoT Edge acontece no projeto de código-fonte aberto do IoT Edge. Bugs podem ser comunicados sobre o [página problemas](https://github.com/azure/iotedge/issues) do projeto. Correções rapidamente se tornam do projeto para atualizações de produtos.
+**Reportar bugs** – A maioria do desenvolvimento que entra no produto Azure IoT Edge acontece no projeto ioT Edge open-source. Bugs podem ser relatados na página de [problemas](https://github.com/azure/iotedge/issues) do projeto. Correções rapidamente se tornam do projeto para atualizações de produtos.
 
-**Equipa de suporte ao cliente da Microsoft** – os utilizadores que têm um [plano de suporte](https://azure.microsoft.com/support/plans/) pode envolver a equipe de suporte ao cliente da Microsoft através da criação de um pedido de suporte diretamente a partir do [portal do Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
+**Equipa de Suporte ao Cliente** da Microsoft – Os utilizadores que tenham um [plano](https://azure.microsoft.com/support/plans/) de suporte podem contratar a equipa de Suporte ao Cliente da Microsoft, criando um bilhete de suporte diretamente a partir do [portal Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Pedidos de funcionalidades** – produto o Azure IoT Edge controla as solicitações de recursos através do produto [página de voz do utilizador](https://feedback.azure.com/forums/907045-azure-iot-edge).
+Pedidos de **funcionalidades** – O produto Azure IoT Edge rastreia pedidos através da [página user voice](https://feedback.azure.com/forums/907045-azure-iot-edge)do produto .
 
 ## <a name="container-engines"></a>Mecanismos de contentor
 
@@ -97,7 +97,7 @@ Os sistemas listados na tabela seguinte são considerados compatíveis com o Azu
 sudo apt-get install libssl1.0.2
 ```
 
-## <a name="virtual-machines"></a>Máquinas Virtuais
+## <a name="virtual-machines"></a>Virtual Machines
 
 O Azure IoT Edge pode ser executado em máquinas virtuais. Usar uma máquina virtual como um dispositivo IoT Edge é comum quando os clientes querem aumentar a infraestrutura existente com inteligência de ponta. A família do hospedeiro VM OS deve corresponder à família do oss o si convidado usado dentro do recipiente de um módulo. Este requisito é o mesmo que quando o Azure IoT Edge é executado diretamente num dispositivo. O Azure IoT Edge é agnóstico da tecnologia de virtualização subjacente e trabalha em VMs alimentados por plataformas como Hyper-V e vSphere.
 

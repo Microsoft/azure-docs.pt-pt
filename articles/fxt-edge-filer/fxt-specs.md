@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227483"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78391301"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificações de filete de borda Azure FXT
 
@@ -67,7 +67,7 @@ O Ficheiro de Borda Azure FXT foi concebido para caber num equipamento padrão d
 | Dimensão do pacote | Milímetros | centímetros |
 |-------------------|-------------|--------|
 | Altura            | 311.2       | 12.25" |
-| Pulsação             | 642.8       | 25.31" |
+| Largura             | 642.8       | 25.31" |
 | Comprimento            | 1,051.1     | 41.38" |
 
 ## <a name="power-and-thermal-specifications"></a>Especificações de energia e térmicas

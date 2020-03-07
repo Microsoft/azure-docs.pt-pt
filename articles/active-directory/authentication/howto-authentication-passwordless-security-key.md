@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d5ff722d4a035113af8528ed8adb396b01c81eb
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77504941"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378222"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Ativar o sinal de entrada da chave de segurança sem palavras-passe (pré-visualização)
 
@@ -52,7 +52,7 @@ As funcionalidades de registo dos métodos de autenticação sem palavras-passe 
 
 ### <a name="enable-fido2-security-key-method"></a>Ativar o método da chave de segurança FIDO2
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Consulte o **Diretório Ativo** do Diretório ativo do Azure > **métodos** de **autenticação** >  > a política do método de **autenticação (Pré-visualização)** .
 1. No método **FIDO2 Security Key,** escolha as seguintes opções:
    1. **Habilitar** - Sim ou Não

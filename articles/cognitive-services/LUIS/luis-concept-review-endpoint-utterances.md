@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: diberry
 ms.openlocfilehash: 375d4b4e7c3fcafbdfde1ff447bedc3e16aff2f2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710534"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393751"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para ativar a aprendizagem ativa, revendo os discursos de ponto final
 Aprendizagem ativa é uma das três estratégias para melhorar a exatidão da previsão e o mais fácil de implementar. Com a aprendizagem ativa, seus discursos de ponto final de revisão para intenção correta e de entidade. LUIS escolhe expressões de ponto final é verificá-lo.
@@ -39,9 +39,9 @@ Rever expressões sugeridas com não precisa ser feito a todos os dias, mas deve
 ## <a name="delete-review-items-programmatically"></a>Eliminar itens de revisão através de programação
 Utilize as declarações a **[eliminar não etiquetadas](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API. Faça o reforço destas declarações antes da eliminação **[exportando os ficheiros](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** de registo .
 
-## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
+## <a name="enable-active-learning"></a>Ativar a aprendizagem ativa
 
-Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isto é conseguido chamando a [consulta de ponto final](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro de corda de `log=true` e valor.
+Para permitir a aprendizagem ativa, deve registar as consultas dos utilizadores. Isto é conseguido chamando a [consulta de ponto final](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro de corda de `log=true` e valor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

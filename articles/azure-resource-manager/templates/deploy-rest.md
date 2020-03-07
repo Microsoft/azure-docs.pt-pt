@@ -1,60 +1,60 @@
 ---
-title: Implantar recursos com a API REST e o modelo
-description: Use Azure Resource Manager e a API REST do Gerenciador de recursos para implantar recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
+title: Implementar recursos com API rest e modelo
+description: Utilize o Gestor de Recursos Azure e o Gestor de Recursos REST API para mobilizar recursos para o Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.openlocfilehash: fc386f51073c256fd083a04bbed39316784827b1
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152515"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384171"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementar recursos com modelos do Resource Manager e API REST do Resource Manager
 
-Este artigo explica como usar a API REST do Gerenciador de recursos com modelos do Resource Manager para implantar seus recursos no Azure.
+Este artigo explica como usar a API REST API do Gestor de Recursos com modelos de Gestor de Recursos para implantar os seus recursos para o Azure.
 
-Você pode incluir seu modelo no corpo da solicitação ou vincular a um arquivo. Ao usar um arquivo, ele pode ser um arquivo local ou um arquivo externo que está disponível por meio de um URI. Quando o modelo estiver em uma conta de armazenamento, você poderá restringir o acesso ao modelo e fornecer um token de SAS (assinatura de acesso compartilhado) durante a implantação.
+Pode incluir o seu modelo no corpo de pedido ou ligar-se a um ficheiro. Ao utilizar um ficheiro, pode ser um ficheiro local ou um ficheiro externo que está disponível através de um URI. Quando o seu modelo está numa conta de armazenamento, pode restringir o acesso ao modelo e fornecer um símbolo de assinatura de acesso partilhado (SAS) durante a implementação.
 
-## <a name="deployment-scope"></a>Escopo da implantação
+## <a name="deployment-scope"></a>Âmbito de implantação
 
-Você pode direcionar sua implantação para um grupo de gerenciamento, uma assinatura do Azure ou um grupo de recursos. Na maioria dos casos, você direcionará as implantações para um grupo de recursos. Use implantações de grupo de gerenciamento ou assinatura para aplicar políticas e atribuições de função no escopo especificado. Você também usa implantações de assinatura para criar um grupo de recursos e implantar recursos nele. Dependendo do escopo da implantação, você usará comandos diferentes.
+Pode direcionar a sua implementação para um grupo de gestão, uma subscrição Azure ou um grupo de recursos. Na maioria dos casos, você vai direcionar as implementações para um grupo de recursos. Utilize implementações de grupos de gestão ou subscrições para aplicar políticas e atribuições de funções em todo o âmbito especificado. Também utiliza implementações de subscrição para criar um grupo de recursos e implementar recursos para o mesmo. Dependendo do alcance da implantação, utiliza-se comandos diferentes.
 
-Para implantar em um **grupo de recursos**, use [implantações-criar](/rest/api/resources/deployments/createorupdate). A solicitação é enviada para:
+Para implantar num grupo de **recursos,** utilize [implantações - Criar](/rest/api/resources/deployments/createorupdate). O pedido é enviado para:
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
-Para implantar em uma **assinatura**, use [implantações-criar no escopo da assinatura](/rest/api/resources/deployments/createorupdateatsubscriptionscope). A solicitação é enviada para:
+Para implementar para uma **subscrição**, use [Implementações - Criar no Âmbito](/rest/api/resources/deployments/createorupdateatsubscriptionscope)de Subscrição . O pedido é enviado para:
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
-Para obter mais informações sobre implantações de nível de assinatura, consulte [criar grupos de recursos e recursos no nível de assinatura](deploy-to-subscription.md).
+Para obter mais informações sobre implementações de nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição](deploy-to-subscription.md).
 
-Para implantar em um **grupo de gerenciamento**, use [implantações-criar no escopo do grupo de gerenciamento](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). A solicitação é enviada para:
+Para implantar num grupo de **gestão,** use [Implantações - Criar no Âmbito do Grupo de Gestão](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). O pedido é enviado para:
 
 ```HTTP
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
-Para obter mais informações sobre implantações de nível de grupo de gerenciamento, consulte [criar recursos no nível do grupo de gerenciamento](deploy-to-management-group.md).
+Para obter mais informações sobre as implementações a nível do grupo de gestão, consulte Criar recursos ao nível do grupo de [gestão.](deploy-to-management-group.md)
 
-Os exemplos neste artigo usam implantações de grupo de recursos.
+Os exemplos deste artigo utilizam as implantações de grupos de recursos.
 
-## <a name="deploy-with-the-rest-api"></a>Implantar com a API REST
+## <a name="deploy-with-the-rest-api"></a>Implementar com a API REST
 
-1. Defina os [parâmetros e os cabeçalhos comuns](/rest/api/azure/), incluindo os tokens de autenticação.
+1. Defina [parâmetros e cabeçalhos comuns,](/rest/api/azure/)incluindo fichas de autenticação.
 
-1. Se você não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça sua ID de assinatura, o nome do novo grupo de recursos e o local de que você precisa para sua solução. Para obter mais informações, consulte [criar um grupo de recursos](/rest/api/resources/resourcegroups/createorupdate).
+1. Se não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça o seu ID de subscrição, o nome do novo grupo de recursos e a localização que necessita para a sua solução. Para mais informações, consulte [Criar um grupo de recursos](/rest/api/resources/resourcegroups/createorupdate).
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-05-01
    ```
 
-   Com um corpo de solicitação como:
+   Com um corpo de pedido como:
 
    ```json
    {
@@ -65,17 +65,17 @@ Os exemplos neste artigo usam implantações de grupo de recursos.
    }
    ```
 
-1. Valide sua implantação antes de executá-la executando a operação [validar um modelo de implantação](/rest/api/resources/deployments/validate) . Ao testar a implantação, forneça parâmetros exatamente como você faria ao executar a implantação (mostrada na próxima etapa).
+1. Valide a sua implantação antes de executá-la executando a operação de implementação do [modelo.](/rest/api/resources/deployments/validate) Ao testar a implementação, forneça parâmetros exatamente como faria ao executar a implementação (mostrada no passo seguinte).
 
-1. Para implantar um modelo, forneça sua ID de assinatura, o nome do grupo de recursos, o nome da implantação no URI de solicitação.
+1. Para implementar um modelo, forneça o seu ID de subscrição, o nome do grupo de recursos, o nome da implementação no pedido URI.
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
    ```
 
-   No corpo da solicitação, forneça um link para seu modelo e arquivo de parâmetro. Para obter mais informações sobre o arquivo de parâmetro, consulte [criar arquivo de parâmetro do Resource Manager](parameter-files.md).
+   No organismo de pedido, forneça um link para o seu modelo e ficheiro de parâmetro. Para obter mais informações sobre o ficheiro do parâmetro, consulte o [ficheiro de parâmetro sinuoso Do Gestor de Recursos](parameter-files.md).
 
-   Observe que o **modo** está definido como **incremental**. Para executar uma implantação completa, defina o **modo** como **concluído**. Tenha cuidado ao usar o modo completo, pois você pode excluir inadvertidamente os recursos que não estão em seu modelo.
+   Note que o **modo** está definido para **Incremental**. Para executar uma implementação completa, deset o **modo** para **completar**. Tenha cuidado ao utilizar o modo completo, pois pode eliminar inadvertidamente recursos que não estão no seu modelo.
 
    ```json
    {
@@ -93,7 +93,7 @@ Os exemplos neste artigo usam implantações de grupo de recursos.
    }
    ```
 
-    Se você quiser registrar em log o conteúdo da resposta, o conteúdo da solicitação ou ambos, inclua **debugSetting** na solicitação.
+    Se pretender registar conteúdo de resposta, solicite conteúdo ou ambos, inclua **depuração** no pedido.
 
    ```json
    {
@@ -114,11 +114,11 @@ Os exemplos neste artigo usam implantações de grupo de recursos.
    }
    ```
 
-    Você pode configurar sua conta de armazenamento para usar um token SAS (assinatura de acesso compartilhado). Para obter mais informações, consulte [delegando acesso com uma assinatura de acesso compartilhado](/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
+    Pode configurar a sua conta de armazenamento para utilizar um símbolo de assinatura de acesso partilhado (SAS). Para mais informações, consulte [Delegar acesso com uma Assinatura de Acesso Partilhado](/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-    Se você precisar fornecer um valor confidencial para um parâmetro (como uma senha), adicione esse valor a um cofre de chaves. Recupere o cofre de chaves durante a implantação, conforme mostrado no exemplo anterior. Para obter mais informações, consulte [transmitir valores seguros durante a implantação](key-vault-parameter.md).
+    Se precisar de fornecer um valor sensível para um parâmetro (como uma palavra-passe), adicione esse valor a um cofre chave. Recupere o cofre da chave durante a implantação, como mostrado no exemplo anterior. Para mais informações, consulte [o Passe valores seguros durante a implementação](key-vault-parameter.md).
 
-1. Em vez de vincular a arquivos para o modelo e parâmetros, você pode incluí-los no corpo da solicitação. O exemplo a seguir mostra o corpo da solicitação com o modelo e o parâmetro embutido:
+1. Em vez de se ligar aos ficheiros para o modelo e parâmetros, pode incluí-los no corpo de pedido. O exemplo seguinte mostra o corpo de pedido com o modelo e o parâmetro inline:
 
    ```json
    {
@@ -181,7 +181,7 @@ Os exemplos neste artigo usam implantações de grupo de recursos.
    }
    ```
 
-1. Para obter o status da implantação do modelo, use [implantações-Get](/rest/api/resources/deployments/get).
+1. Para obter o estado da implementação do modelo, utilize [implementações - Obter](/rest/api/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
@@ -189,8 +189,8 @@ Os exemplos neste artigo usam implantações de grupo de recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para reverter para uma implantação bem-sucedida quando você receber um erro, consulte [reverter em caso de erro para a implantação bem-sucedida](rollback-on-error.md).
-- Para especificar como lidar com recursos que existem no grupo de recursos, mas que não estão definidos no modelo, consulte [Azure Resource Manager modos de implantação](deployment-modes.md).
-- Para saber mais sobre como lidar com operações REST assíncronas, consulte [rastrear operações assíncronas do Azure](../management/async-operations.md).
-- Para saber mais sobre modelos, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+- Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Rollback no erro para uma implementação bem sucedida](rollback-on-error.md).
+- Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os modos de implementação do Gestor de [Recursos Do Azure](deployment-modes.md).
+- Para aprender sobre como lidar com operações de REST assíncronos, consulte as operações de [Track assíncronos Azure](../management/async-operations.md).
+- Para saber mais sobre os modelos, consulte [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure.](template-syntax.md)
 

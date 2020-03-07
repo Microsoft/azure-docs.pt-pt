@@ -4,11 +4,11 @@ description: Saiba como usar a REST API para apoiar as ações de ficheiros azur
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444748"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78393167"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Backup Azure partilha de ficheiros usando backup Azure via Rest API
 
@@ -447,7 +447,7 @@ Corpo de Resposta da Amostra:
 
 Isto confirma que a proteção está ativada para a partilha de ficheiros e a primeira cópia de segurança será desencadeada de acordo com o calendário de apólices.
 
-## <a name="trigger-an-on-demand-backup-for-file-share"></a>Disparar um backup sob demanda para compartilhamento de arquivos
+## <a name="trigger-an-on-demand-backup-for-file-share"></a>Desencadear uma cópia de segurança a pedido para a partilha de ficheiros
 
 Uma vez configurada uma partilha de ficheiros Azure para backup, as cópias de segurança são executadas de acordo com o calendário de apólices. Pode esperar pelo primeiro backup agendado ou acionar um reforço a qualquer momento.
 

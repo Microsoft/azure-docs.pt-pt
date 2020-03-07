@@ -1,6 +1,6 @@
 ---
-title: Clonar um volume em série StorSimple 8000 | Documentos da Microsoft
-description: Descreve os tipos de clone diferentes e a utilização e explica como pode usar uma cópia de segurança definida para clonar um volume individual num dispositivo da série StorSimple 8000.
+title: Clone um volume na série StorSimple 8000  Microsoft Docs
+description: Descreve os diferentes tipos de clones e utilização e explica como pode usar um conjunto de cópias de segurança para clonar um volume individual num dispositivo da série StorSimple 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,109 +15,109 @@ ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60637905"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78381873"
 ---
-# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Utilizar o serviço StorSimple Device Manager no portal do Azure para clonar um volume
+# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Utilize o serviço StorSimple Device Manager no portal Azure para clonar um volume
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial descreve como pode utilizar uma cópia de segurança definida para clonar um volume individual através da **catálogo de cópia de segurança** painel. Também explica a diferença entre *transitório* e *permanente* clona. As orientações neste tutorial aplica-se para todos os dispositivos de série 8000 do StorSimple que executam a atualização 3 ou posterior.
+Este tutorial descreve como pode utilizar um conjunto de cópias de segurança para clonar um volume individual através da lâmina do **catálogo de backup.** Também explica a diferença entre clones *transitórios* e *permanentes.* A orientação neste tutorial aplica-se a todo o dispositivo da série StorSimple 8000 que executa o Update 3 ou mais tarde.
 
-O serviço de Gestor de dispositivos do StorSimple **catálogo de cópia de segurança** painel apresenta todos os conjuntos de cópia de segurança que são criados quando backups manuais ou automáticos são feitos. Em seguida, pode selecionar um volume em conjunto para clonar uma cópia de segurança.
+O serviço StorSimple Device Manager A lâmina de **catálogo de cópias** de segurança apresenta todos os conjuntos de backup que são criados quando as cópias de segurança manuais ou automáticas são tomadas. Em seguida, pode selecionar um volume num conjunto de cópia de segurança para clonar.
 
- ![Lista de conjuntos de cópia de segurança](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+ ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
 
 ## <a name="considerations-for-cloning-a-volume"></a>Considerações para a clonagem de um volume
 
 Considere as seguintes informações ao clonar um volume.
 
-- Um clone se comporta da mesma forma como um volume normal. Qualquer operação que é possível num volume está disponível para o clone.
+- Um clone comporta-se da mesma forma que um volume normal. Qualquer operação possível num volume está disponível para o clone.
 
-- Padrão de monitorização e cópia de segurança automaticamente estão desativadas num volume clonado. Terá de configurar um volume clonado para quaisquer cópias de segurança.
+- A monitorização e a cópia de segurança por defeito são automaticamente desativadas num volume clonado. Precisaria de configurar um volume clonado para quaisquer cópias de segurança.
 
-- Um volume localmente afixado é clonado como um volume em camadas. Se precisar do volume clonado para ser afixado localmente, pode converter o clone para um volume localmente afixado após a operação de clonagem é concluída com êxito. Para informações sobre como converter um volume em camadas num volume localmente afixado, aceda a [alterar o tipo de volume](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+- Um volume fixado localmente é clonado como um volume hierárquico. Se necessitar que o volume clonado seja fixado localmente, pode converter o clone num volume fixado localmente após a operação do clone ser concluída com sucesso. Para obter informações sobre a conversão de um volume hierárquico num volume fixado localmente, vá alterar [o tipo](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)de volume .
 
-- Se tentar converter um volume clonado de camadas para localmente afixado imediatamente após a clonagem (quando ainda é um clone transitório), a conversão falhar com a seguinte mensagem de erro:
+- Se tentar converter um volume clonado de camadas para fixações locais imediatamente após a clonagem (quando ainda é um clone transitório), a conversão falha com a seguinte mensagem de erro:
 
     `Unable to modify the usage type for volume {0}. This can happen if the volume being modified is a transient clone and hasn’t been made permanent. Take a cloud snapshot of this volume and then retry the modify operation.`
 
-    Este erro é recebido apenas se estiver a clonagem para um dispositivo diferente. Pode converter com êxito o volume afixado localmente se converter primeiro o clone transitório para um clone permanente. Tire um instantâneo de cloud do clone transitório convertê-lo num clone permanente.
+    Este erro só é recebido se estiver a clonar num dispositivo diferente. Pode converter o volume com sucesso para fixação local se converter primeiro o clone transitório para um clone permanente. Tire uma imagem em nuvem do clone transitório para convertê-lo num clone permanente.
 
 ## <a name="create-a-clone-of-a-volume"></a>Criar um clone de um volume
 
-Pode criar um clone no mesmo dispositivo, outro dispositivo ou até mesmo uma aplicação da cloud com um local ou um instantâneo de cloud.
+Pode criar um clone no mesmo dispositivo, noutro dispositivo ou até mesmo num aparelho de nuvem utilizando um instantâneo local ou em nuvem.
 
-O procedimento a seguir descreve como criar um clone a partir do catálogo de cópia de segurança.  Um método alternativo para iniciar clone é ir para **Volumes**, selecione um volume, em seguida, clique com o botão direito para invocar o menu de contexto e selecione **Clone**.
+O procedimento abaixo descreve como criar um clone a partir do catálogo de cópias de segurança.  Um método alternativo para iniciar o clone é ir a **Volumes,** selecionar um volume e, em seguida, clicar à direita para invocar o menu de contexto e selecionar **Clone**.
 
-Execute os seguintes passos para criar um clone do seu volume a partir do catálogo de cópia de segurança.
+Execute os seguintes passos para criar um clone do seu volume a partir do catálogo de cópias de segurança.
 
 #### <a name="to-clone-a-volume"></a>Para clonar um volume
 
-1. Aceda ao seu serviço StorSimple Device Manager e, em seguida, clique em **catálogo de cópia de segurança**.
+1. Vá ao serviço StorSimple Device Manager e, em seguida, clique no **catálogo de backup**.
 
-2. Selecione uma cópia de segurança definida da seguinte forma:
+2. Selecione um conjunto de backup da seguinte forma:
    
    1. Selecione o dispositivo apropriado.
-   2. Na lista pendente, escolha a política de cópia de segurança ou de volume para a cópia de segurança que pretende selecionar.
+   2. Na lista de recaídas, escolha a política de volume ou cópia de segurança para o backup que pretende selecionar.
    3. Especifique o intervalo de tempo.
-   4. Clique em **aplicar** para executar esta consulta.
+   4. Clique **Em Aplicar** para executar esta consulta.
 
-      As cópias de segurança associadas com o volume selecionado ou política de cópia de segurança deverá aparecer na lista de conjuntos de cópia de segurança.
+      As cópias de segurança associadas à política de volume ou cópia de segurança selecionada devem figurar na lista de conjuntos de backup.
    
-      ![Lista de conjuntos de cópia de segurança](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. Expanda a cópia de segurança definida para ver os volumes associados e selecionar um volume num conjunto de cópia de segurança. Com o botão direito e, em seguida, no menu de contexto, selecione **Clone**.
+3. Expanda o conjunto de backup para visualizar o volume associado e selecione um volume num conjunto de backup. Clique à direita e, em seguida, a partir do menu de contexto, **selecione Clone**.
 
-   ![Lista de conjuntos de cópia de segurança](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
+   ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
-3. Na **Clone** painel, siga os passos abaixo:
+3. Na lâmina **Clone,** faça os seguintes passos:
    
-   1. Identifica um dispositivo de destino. Esta é a localização onde será criado o clone. Pode escolher o mesmo dispositivo ou especifique outro dispositivo.
+   1. Identifique um dispositivo alvo. Este é o local onde o clone será criado. Pode escolher o mesmo dispositivo ou especificar outro dispositivo.
 
       > [!NOTE]
-      > Certifique-se de que a capacidade necessária para o clone é menor do que a capacidade disponível no dispositivo de destino.
+      > Certifique-se de que a capacidade necessária para o clone é inferior à capacidade disponível no dispositivo-alvo.
        
-   2. Especifique um nome de volume exclusivo para seu clone. O nome tem de conter entre 3 e 127 carateres.
+   2. Especifique um nome de volume único para o seu clone. O nome deve conter entre 3 e 127 caracteres.
       
        > [!NOTE]
-       > O **Clone Volume como** campo será **em camadas** mesmo que a clonagem de um volume afixado localmente. Não é possível alterar esta definição; No entanto, se precisar do volume clonado para ser afixado localmente, bem, pode converter o clone para um volume localmente afixado, depois de criar com êxito o clone. Para informações sobre como converter um volume em camadas num volume localmente afixado, aceda a [alterar o tipo de volume](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+       > O campo **Clone Volume As** será **nivelado** mesmo que esteja a clonar um volume fixado localmente. Não é possível alterar este cenário; no entanto, se precisar do volume clonado para ser fixado localmente também, pode converter o clone num volume localmente fixado após criar com sucesso o clone. Para obter informações sobre a conversão de um volume hierárquico num volume fixado localmente, vá alterar [o tipo](storsimple-8000-manage-volumes-u2.md#change-the-volume-type)de volume .
           
-   3. Sob **anfitriões ligados**, especifique um registo de controlo de acesso (ACR) para o clone. Pode adicionar um novo ACR ou escolha a partir da lista existente. O ACR irá determinar os anfitriões que podem aceder a este clone.
+   3. Nos **anfitriões ligados,** especifique um registo de controlo de acesso (ACR) para o clone. Pode adicionar um novo ACR ou escolher entre a lista existente. O ACR determinará quais os anfitriões que podem aceder a este clone.
       
-       ![Lista de conjuntos de cópia de segurança](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
-   4. Clique em **Clone** para concluir a operação.
+   4. Clique em **Clone** para completar a operação.
 
-4. Uma tarefa de clonagem é iniciada e será notificado quando o clone for criado com êxito. Clique na notificação da tarefa ou aceda ao **tarefas** painel para monitorizar a tarefa de clone.
+4. Um trabalho de clone é iniciado e você é notificado quando o clone é criado com sucesso. Clique na notificação de emprego ou vá à lâmina **Jobs** para monitorizar o trabalho de clone.
 
-    ![Lista de conjuntos de cópia de segurança](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
+    ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
-7. Depois da tarefa de clone estiver concluída, vá para o seu dispositivo e, em seguida, clique em **Volumes**. Na lista de volumes, deverá ver o clone que acabou de ser criado no mesmo contentor de volume que tem o volume de origem.
+7. Depois de o trabalho do clone estar completo, vá ao seu dispositivo e, em seguida, clique em **Volumes**. Na lista de volumes, deve ver-se o clone que acabou de ser criado no mesmo recipiente de volume que tem o volume de origem.
 
-    ![Lista de conjuntos de cópia de segurança](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
+    ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
-Um clone criado dessa forma é um clone transitório. Para obter mais informações sobre os tipos de clone, consulte [transitório versus clones permanentes](#transient-vs-permanent-clones).
+Um clone que é criado desta forma é um clone transitório. Para obter mais informações sobre os tipos de clones, consulte [Transiente vs. clones permanentes](#transient-vs-permanent-clones).
 
 
-## <a name="transient-vs-permanent-clones"></a>Transitório versus clones permanentes
-Clones transitórias são criados apenas quando clona para outro dispositivo. Pode clonar um volume específico de uma cópia de segurança definido para um dispositivo diferente gerenciado pelo Gestor de dispositivos do StorSimple. O clone transitório tem referências aos dados do volume original e usa esses dados para ler e escrever localmente no dispositivo de destino.
+## <a name="transient-vs-permanent-clones"></a>Transitóriovs. clones permanentes
+Os clones transitórios só são criados quando se clona para outro dispositivo. Pode clonar um volume específico de um conjunto de backup para um dispositivo diferente gerido pelo StorSimple Device Manager. O clone transitório tem referências aos dados no volume original e utiliza esses dados para ler e escrever localmente no dispositivo-alvo.
 
-Depois de tirar um instantâneo de cloud de um clone transitório, o clone resultante é uma *permanente* clone. Durante este processo, é criada uma cópia dos dados na cloud e a hora para copiar esses dados é determinada pelo tamanho dos dados e as latências do Azure (isto é uma cópia do Azure para o Azure). Este processo pode demorar dias, semanas. O clone transitório se torna um clone permanente e não tem quaisquer referências para os dados originais do volume que foi clonado a partir de.
+Depois de tirar uma imagem em nuvem de um clone transitório, o clone resultante é um clone *permanente.* Durante este processo, é criada uma cópia dos dados na nuvem e o tempo para copiar estes dados é determinado pelo tamanho dos dados e pelas latenciências Azure (esta é uma cópia Azure-to-Azure). Este processo pode levar dias a semanas. O clone transitório torna-se um clone permanente e não tem qualquer referência aos dados originais de volume de que foi clonado.
 
 ## <a name="scenarios-for-transient-and-permanent-clones"></a>Cenários para clones transitórios e permanentes
-As secções seguintes descrevem as situações de exemplo em que podem ser utilizados clones transitórias e permanentes.
+As seguintes secções descrevem situações de exemplo em que podem ser utilizados clones transitórios e permanentes.
 
 ### <a name="item-level-recovery-with-a-transient-clone"></a>Recuperação ao nível do item com um clone transitório
-Tem de recuperar um arquivo de apresentação do Microsoft PowerPoint um anos. O administrador de TI identifica a cópia de segurança específica a contar dessa hora e, em seguida, filtra o volume. Em seguida, o administrador clona o volume, localiza o arquivo que está procurando e fornece-lhe. Neste cenário, é utilizado um clone transitório.
+Tens de recuperar um ficheiro de apresentação do Microsoft PowerPoint com um ano de idade. O seu administrador de TI identifica a cópia de segurança específica desse tempo e, em seguida, filtra o volume. Em seguida, o administrador clona o volume, localiza o ficheiro que procura e fornece-o a si. Neste cenário, é utilizado um clone transitório.
 
-### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Testar no ambiente de produção com um clone permanente
-Tem de validar um bug de teste no ambiente de produção. Criar um clone do volume no ambiente de produção e, em seguida, tire um instantâneo de cloud deste clone para criar um volume clonado independente. Neste cenário, é utilizado um clone permanente.
+### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Ensaios no ambiente de produção com um clone permanente
+Tens de verificar um bug de teste no ambiente de produção. Cria-se um clone do volume no ambiente de produção e, em seguida, tira-se uma imagem em nuvem deste clone para criar um volume clonado independente. Neste cenário, é utilizado um clone permanente.
 
-## <a name="next-steps"></a>Passos Seguintes
-* Saiba como [restaurar um volume StorSimple a partir de um conjunto de cópia de segurança](storsimple-8000-restore-from-backup-set-u2.md).
-* Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+## <a name="next-steps"></a>Passos seguintes
+* Aprenda a [restaurar um volume StorSimple a partir de um conjunto](storsimple-8000-restore-from-backup-set-u2.md)de backup .
+* Aprenda a [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

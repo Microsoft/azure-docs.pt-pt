@@ -1,5 +1,5 @@
 ---
-title: Criar um data factory do Azure usando o modelo do Resource Manager
+title: Criar uma fábrica de dados Azure usando o modelo de Gestor de Recursos
 description: Neste tutorial, vai criar um exemplo de pipeline do Azure Data Factory com um modelo do Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440064"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386690"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar uma fábrica de dados do Azure com o modelo do Azure Resource Manager
 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versão atual](quickstart-create-data-factory-resource-manager-template.md)
 
@@ -36,17 +36,17 @@ Este início rápido descreve como utilizar um modelo do Azure Resource Manager 
 
 Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
 
-## <a name="resource-manager-templates"></a>Modelos do Gestor de Recursos
+## <a name="resource-manager-templates"></a>Modelos do Resource Manager
 
 Para saber mais sobre os modelos do Azure Resource Manager, veja [Authoring Azure Resource Manager Template](../azure-resource-manager/templates/template-syntax.md) (Criar Modelos do Azure Resource Manager).
 
 A secção seguinte disponibiliza o modelo do Resource Manager completo para a definição de entidades do Data Factory, para que possa rapidamente dar uma vista de olhos pelo tutorial e testar o modelo. Para compreender como cada entidade do Data Factory está definida, consulte a secção [Data Factory entities in the template (Entidades do Data Factory no modelo)](#data-factory-entities-in-the-template).
 
-Para saber mais sobre a sintaxe JSON e as propriedades para Data Factory recursos em um modelo, consulte [tipos de recurso Microsoft. datafactory](/azure/templates/microsoft.datafactory/allversions).
+Para conhecer a sintaxe jSON e propriedades para recursos da Fábrica de Dados num modelo, consulte os tipos de [recursos Microsoft.DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>JSON do Data Factory
 
-Crie um arquivo JSON chamado **ADFTutorialARM. JSON** na pasta **C:\ADFTutorial** (crie a pasta ADFTutorial se ela ainda não existir) com o seguinte conteúdo:
+Crie um ficheiro JSON denominado **ADFTutorialARM.json** na pasta **C:\ADFTutorial** (Crie a pasta ADFTutorial se ainda não existir) com o seguinte conteúdo:
 
 ```json
 {  
@@ -323,7 +323,7 @@ Crie um ficheiro JSON com o nome **ADFTutorialARM Parameters.json** que contém 
 
 ## <a name="deploy-data-factory-entities"></a>Implementar entidades do Data Factory
 
-No PowerShell, execute o comando a seguir para implantar Data Factory entidades em seu grupo de recursos (nesse caso, use ADFTutorialResourceGroup como exemplo) usando o modelo do Resource Manager criado anteriormente neste guia de início rápido.
+Na PowerShell, execute o seguinte comando para implementar entidades da Fábrica de Dados no seu grupo de recursos (neste caso, tome o ADFTutorialResourceGroup como exemplo) utilizando o modelo de Gestor de Recursos que criou anteriormente neste quickstart.
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
@@ -361,9 +361,9 @@ O modelo implementa as seguintes entidades do Data Factory:
 - Pipeline com uma atividade de cópia
 - Acionador para acionar o pipeline
 
-O acionador implementado está no estado parado. Uma das maneiras de iniciar o gatilho é usar o cmdlet **Start-AzDataFactoryV2Trigger** do PowerShell. O procedimento seguinte mostra os passos detalhados:
+O acionador implementado está no estado parado. Uma das formas de iniciar o gatilho é utilizar o cmdlet **Start-AzDataFactoryV2Trigger** PowerShell. O procedimento seguinte mostra os passos detalhados:
 
-1. Na janela do PowerShell, crie uma variável para conter o nome do grupo de recursos. Copie o comando seguinte na janela do PowerShell e prima ENTER. Se você tiver especificado um nome de grupo de recursos diferente para o comando New-AzResourceGroupDeployment, atualize o valor aqui.
+1. Na janela do PowerShell, crie uma variável para conter o nome do grupo de recursos. Copie o comando seguinte na janela do PowerShell e prima ENTER. Se tiver especificado um nome de grupo de recursos diferente para o comando New-AzResourceGroupDeployment, atualize o valor aqui.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -396,7 +396,7 @@ O acionador implementado está no estado parado. Uma das maneiras de iniciar o g
     ```
     
     Repare que o estado do runtime do acionador é **Parado**.
-5. **Inicie o acionador**. O acionador executa o pipeline definido no modelo à hora certa. Ou seja, se tiver executado o comando às 14:25, o acionador executa o pipeline pela primeira vez às 15:00. Em seguida, ele executa o pipeline por hora até a hora de término especificada para o gatilho.
+5. **Inicie o acionador**. O acionador executa o pipeline definido no modelo à hora certa. Ou seja, se tiver executado o comando às 14:25, o acionador executa o pipeline pela primeira vez às 15:00. Em seguida, executa o gasoduto de hora a hora até ao tempo final especificado para o gatilho.
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
@@ -410,7 +410,7 @@ O acionador implementado está no estado parado. Uma das maneiras de iniciar o g
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Confirme se o gatilho foi iniciado executando o comando Get-AzDataFactoryV2Trigger novamente.
+6. Confirme que o gatilho foi iniciado com o comando Get-AzDataFactoryV2Trigger novamente.
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
@@ -432,21 +432,21 @@ O acionador implementado está no estado parado. Uma das maneiras de iniciar o g
 
 2. Na página **Fábricas de Dados**, clique na fábrica de dados que criou. Se for necessário, filtre a lista com o nome da fábrica de dados.
 
-3. Na página data Factory, clique em **criar &** bloco de monitor.
+3. Na página da fábrica de Dados, clique em azulejo **author & Monitor.**
 
-4. Na página **vamos** começar, selecione a **guia Monitor**. ](media/doc-common-process/get-started-page-monitor-button.png) de ![monitorar execução de pipeline
+4. Na página **Let's start,** selecione o **separador Monitor**.  ![Monitor de gasoduto seleções](media/doc-common-process/get-started-page-monitor-button.png)
 
     > [!IMPORTANT]
     > Só vai ver as execuções do pipeline à hora certa (por exemplo, 4:00, 5:00, 6:00, etc.). Clique em **Atualizar**, na barra de ferramentas, para atualizar a lista quando a for atingida a hora seguinte.
 
-5. Clique no link **Exibir execuções de atividade** na coluna **ações** .
+5. Clique no link **'Ver Atividade Corre'** na coluna **Ações.**
 
     ![Ligação de ações do pipeline](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
 6. Verá as execuções de atividade associadas à execução do pipeline. Neste início rápido, o pipeline só tem uma atividade do tipo Cópia. Por conseguinte, verá uma execução dessa atividade.
 
     ![Execuções de atividade](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-7. Clique no link **saída** na coluna ações. Verá a saída da operação de cópia numa janela de **Saída**. Clique no botão de maximizar para ver a saída completa. Pode fechar a janela de saída maximizada ou fechar a saída.
+7. Clique no link **Saída** sob a coluna Ações. Verá a saída da operação de cópia numa janela de **Saída**. Clique no botão de maximizar para ver a saída completa. Pode fechar a janela de saída maximizada ou fechar a saída.
 
 8. Quando vir uma execução com êxito/falha, pare o acionador. O acionador executa o pipeline uma vez por hora. Em cada execução, o pipeline copia o mesmo ficheiro da pasta de entrada para a pasta de saída. Para parar o acionador, execute o comando seguinte na janela do PowerShell.
     
@@ -462,7 +462,7 @@ As seguintes entidades do Data Factory são definidas no modelo JSON:
 
 - [Serviço ligado do Armazenamento do Azure](#azure-storage-linked-service)
 - [Conjunto de dados de entrada binária](#binary-input-dataset)
-- [Conjunto de uma saída binária](#binary-output-dataset)
+- [Conjunto de dados de saída binária](#binary-output-dataset)
 - [Pipeline de dados com uma atividade de cópia](#data-pipeline)
 - [Acionador](#trigger)
 
@@ -490,11 +490,11 @@ O AzureStorageLinkedService liga a sua conta do Armazenamento do Azure à fábri
 }
 ```
 
-A connectionString utiliza os parâmetros storageAccountName e storageAccountKey. Os valores para estes parâmetros foram transmitidos através da utilização de um ficheiro de configuração. A definição também usa variáveis: azureStorageLinkedService e datafactoryname definidos no modelo.
+A connectionString utiliza os parâmetros storageAccountName e storageAccountKey. Os valores para estes parâmetros foram transmitidos através da utilização de um ficheiro de configuração. A definição também utiliza variáveis: azureStorageLinkedService e dataFactoryName definido no modelo.
 
 #### <a name="binary-input-dataset"></a>Conjunto de dados de entrada binária
 
-O serviço ligado do armazenamento do Azure especifica a cadeia de ligação que o serviço Data Factory utiliza no tempo de execução para ligar à sua conta de armazenamento do Azure. Em definição de conjunto de dados binário, você especifica os nomes do contêiner de BLOB, da pasta e do arquivo que contém os dados de entrada. Consulte [Propriedades do conjunto](format-binary.md#dataset-properties) de informações binária para obter detalhes sobre as propriedades JSON usadas para definir um conjunto de um DataSet binário.
+O serviço ligado do armazenamento do Azure especifica a cadeia de ligação que o serviço Data Factory utiliza no tempo de execução para ligar à sua conta de armazenamento do Azure. Na definição de conjunto de dados binário, especifice nomes de recipiente, pasta e ficheiro blob que contenham os dados de entrada. Consulte [as propriedades binárias](format-binary.md#dataset-properties) do conjunto de dados para obter detalhes sobre as propriedades JSON usadas para definir um conjunto de dados binário.
 
 ```json
 {  
@@ -526,9 +526,9 @@ O serviço ligado do armazenamento do Azure especifica a cadeia de ligação que
 }
 ```
 
-#### <a name="binary-output-dataset"></a>Conjunto de uma saída binária
+#### <a name="binary-output-dataset"></a>Conjunto de dados de saída binária
 
-Especifique o nome da pasta no Armazenamento de Blobs do Azure que contém os dados copiados a partir da pasta de entrada. Consulte [Propriedades do conjunto](format-binary.md#dataset-properties) de informações binária para obter detalhes sobre as propriedades JSON usadas para definir um conjunto de um DataSet binário.
+Especifique o nome da pasta no Armazenamento de Blobs do Azure que contém os dados copiados a partir da pasta de entrada. Consulte [as propriedades binárias](format-binary.md#dataset-properties) do conjunto de dados para obter detalhes sobre as propriedades JSON usadas para definir um conjunto de dados binário.
 
 ```json
 {  
@@ -561,7 +561,7 @@ Especifique o nome da pasta no Armazenamento de Blobs do Azure que contém os da
 
 #### <a name="data-pipeline"></a>Pipeline de dados
 
-Você define um pipeline que copia os dados de um DataSet binário para outro DataSet binário. Veja [Pipeline JSON (JSON do Pipeline)](concepts-pipelines-activities.md#pipeline-json) para obter descrições dos elementos JSON utilizados para definir um pipeline neste exemplo.
+Define um pipeline que copia dados de um conjunto de dados binário para outro conjunto de dados binário. Veja [Pipeline JSON (JSON do Pipeline)](concepts-pipelines-activities.md#pipeline-json) para obter descrições dos elementos JSON utilizados para definir um pipeline neste exemplo.
 
 ```json
 {  
@@ -636,7 +636,7 @@ Você define um pipeline que copia os dados de um DataSet binário para outro Da
 
 #### <a name="trigger"></a>Acionador
 
-Defina um acionador que executa o pipeline uma vez por hora. O acionador implementado está no estado parado. Inicie o gatilho usando o cmdlet **Start-AzDataFactoryV2Trigger** . Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).
+Defina um acionador que executa o pipeline uma vez por hora. O acionador implementado está no estado parado. Inicie o gatilho utilizando o **cmdlet Start-AzDataFactoryV2Trigger.** Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
 {  

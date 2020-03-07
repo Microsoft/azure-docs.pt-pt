@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77911819"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380293"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utilize o portal Azure para administrar o seu Disco de Caixa de Dados
 
