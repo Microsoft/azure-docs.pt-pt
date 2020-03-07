@@ -4,11 +4,11 @@ description: Descreve a estrutura e as propriedades dos modelos do Gestor de Rec
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 08c688da3e812a4a67070c926cf11512bfc60667
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622888"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78388138"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure
 

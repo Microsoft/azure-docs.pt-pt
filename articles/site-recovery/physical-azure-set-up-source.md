@@ -1,6 +1,6 @@
 ---
-title: Configurar o servidor de configuração para recuperação após desastre de servidores físicos no Azure com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo descreve como configurar o servidor de configuração no local para a recuperação após desastre de servidores físicos no local para o Azure.
+title: Configurar o servidor de configuração para recuperação de desastres de servidores físicos para o Azure utilizando a Recuperação do Site Azure  Microsoft Docs'
+description: Este artigo descreve como configurar o servidor de configuração no local para a recuperação de desastres de servidores físicos no local para o Azure.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -9,56 +9,56 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589046"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367109"
 ---
-# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação após desastre de servidores físicos no Azure
+# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação de desastres de servidores físicos para o Azure
 
-Este artigo descreve como configurar o seu ambiente no local para começar a replicar servidores físicos que executem Windows ou Linux no Azure.
+Este artigo descreve como configurar o seu ambiente no local para começar a replicar servidores físicos que executam o Windows ou o Linux no Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O artigo pressupõe que já tem:
-- O Cofre dos serviços de recuperação no [portal do Azure](https://portal.azure.com "portal do Azure").
-- Um computador físico em que pretende instalar o servidor de configuração.
-- Se tiver desativado o TLS 1.0 no computador no qual está a instalar o servidor de configuração, certifique-se de que o TLs 1.2 está ativado e que o .NET Framework versão 4.6 ou posterior está instalado no computador (com criptografia segura ativada). [Saiba mais](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+O artigo assume que já tem:
+- Um cofre dos Serviços de Recuperação no [portal Azure.](https://portal.azure.com "Portal do Azure")
+- Um computador físico para instalar o servidor de configuração.
+- Se desativou o TLS 1.0 na máquina em que está a instalar o servidor de configuração, certifique-se de que os TLs 1.2 estão ativados e que a versão 4.6 ou mais posterior da .NET Framework está instalada na máquina (com encriptação forte ativada). [Saiba mais](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisitos mínimos do servidor de configuração
-A tabela seguinte lista os mínimos de hardware, software e requisitos de rede para um servidor de configuração.
+A tabela seguinte lista os requisitos mínimos de hardware, software e rede para um servidor de configuração.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
-> Servidores proxy baseado em HTTPS não são suportadas pelo servidor de configuração.
+> Os servidores proxy baseados em HTTPS não são suportados pelo servidor de configuração.
 
 ## <a name="choose-your-protection-goals"></a>Escolha os seus objetivos de proteção
 
-1. No portal do Azure, vá para o **serviços de recuperação** cofres dos painel e selecione o cofre.
-2. Na **Resource** menu do cofre, clique em **introdução** > **Site Recovery** > **passo 1: Preparar infraestrutura** > **objetivo de proteção**.
+1. No portal Azure, vá à lâmina dos **cofres dos Serviços** de Recuperação e selecione o seu cofre.
+2. No menu **de recursos** do cofre, clique em **Começar** > **Recuperação** do Site > **Passo 1: Preparar a infraestrutura** > objetivo de **proteção**.
 
     ![Selecione os objetivos](./media/physical-azure-set-up-source/choose-goals.png)
-3. Na **objetivo de proteção**, selecione **para o Azure** e **não virtualizado/outro**e, em seguida, clique em **OK**.
+3. No **objetivo de Proteção**, selecione **Para Azure** e **Não virtualizado/Outros,** e, em seguida, clique **OK**.
 
     ![Selecione os objetivos](./media/physical-azure-set-up-source/physical-protection-goal.png)
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-1. Na **preparar origem**, se não tiver um servidor de configuração, clique em **+ servidor de configuração** para adicionar um.
+1. Na **fonte prepare-** se não tiver um servidor de configuração, clique em **+Configuração do servidor** para adicionar um.
 
    ![Configurar a origem](./media/physical-azure-set-up-source/plus-config-srv.png)
-2. Na **Adicionar servidor** painel, verifique se **servidor de configuração** aparece no **tipo de servidor**.
-4. Transfira o ficheiro de instalação do Site Recovery Unified Setup.
-5. Transferir a chave de registo do cofre. Terá da chave de registo ao executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
+2. Na lâmina **do Servidor adicionar,** verifique se o Servidor de **Configuração** aparece no **tipo servidor**.
+4. Descarregue o ficheiro de instalação unificada de recuperação do site.
+5. Transfira a chave de registo do cofre. Precisa da chave de registo quando executar a Configuração Unificada. A chave é válida durante cinco dias depois de gerá-la.
 
     ![Configurar a origem](./media/physical-azure-set-up-source/set-source2.png)
-6. No computador que está a utilizar como o servidor de configuração, execute **do Azure Site Recovery Unified Setup** para instalar o servidor de configuração, o servidor de processos e o servidor de destino mestre.
+6. Na máquina que está a utilizar como servidor de configuração, execute a **Configuração Unificada de Recuperação** do Site Azure para instalar o servidor de configuração, o servidor de processos e o servidor de alvo principal.
 
-#### <a name="run-azure-site-recovery-unified-setup"></a>Configuração unificada de execução do Azure Site Recovery
+#### <a name="run-azure-site-recovery-unified-setup"></a>Run Azure Site Recovery Unified Setup
 
 > [!TIP]
-> Registo do servidor de configuração falha se a hora no relógio do sistema do seu computador estiver mais de cinco minutos da hora local. Sincronizar o seu relógio do sistema com um [servidor de horas](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) antes de iniciar a instalação.
+> O registo do servidor de configuração falha se a hora do relógio do computador estiver a mais de cinco minutos da hora local. Sincronizao o relógio do sistema com um servidor de [tempo](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) antes de iniciar a instalação.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
@@ -73,4 +73,4 @@ A tabela seguinte lista os mínimos de hardware, software e requisitos de rede p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Próxima etapa envolve [como configurar o ambiente de destino](physical-azure-set-up-target.md) no Azure.
+O próximo passo passa por [criar o seu ambiente alvo](physical-azure-set-up-target.md) em Azure.

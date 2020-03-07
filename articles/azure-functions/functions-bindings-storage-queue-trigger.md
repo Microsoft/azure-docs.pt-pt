@@ -7,11 +7,11 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 74ca984232bef979062221a451d0ee10a6965bc6
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492802"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356892"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento de fila azure para funções azure
 
@@ -301,9 +301,9 @@ public class QueueTriggerDemo {
 
 | Propriedade    | Descrição |
 |-------------|-----------------------------|
-|`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é disparada, o valor desse parâmetro tem o conteúdo da mensagem da fila. |
+|`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é ativada, o valor deste parâmetro tem o conteúdo da mensagem de fila. |
 |`queueName`  | Declara o nome da fila na conta de armazenamento. |
-|`connection` | Aponta para a cadeia de conexão da conta de armazenamento. |
+|`connection` | Aponta para o fio de ligação da conta de armazenamento. |
 
 ---
 
@@ -313,8 +313,8 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d| deve ser definido para `queueTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
-|**direção**| n/d | Apenas no ficheiro *função.json.* deve ser definido para `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
+|**tipo** | n/d| Deve ser definido para `queueTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**direção**| n/d | Apenas no ficheiro *função.json.* Deve ser definido para `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
 |**nome** | n/d |O nome da variável que contém a carga útil do item da fila no código de função.  |
 |**queueName** | **Nome da fila**| O nome da fila para a sondagem. |
 |**conexão** | **Conexão** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução das Funções procura uma definição de aplicação que se chama "MyStorage". Se deixar `connection` vazio, o tempo de funcionamento das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação que é denominada `AzureWebJobsStorage`.|
@@ -347,7 +347,7 @@ Se tentar ligar-se a `CloudQueueMessage` e obter uma mensagem de erro, certifiqu
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A carga útil do item da fila está disponível através de `context.bindings.<NAME>` onde `<NAME>` corresponde ao nome definido na *função.json*. Se a carga for JSON, o valor será desserializado em um objeto.
+A carga útil do item da fila está disponível através de `context.bindings.<NAME>` onde `<NAME>` corresponde ao nome definido na *função.json*. Se a carga útil for JSON, o valor é desserializado num objeto.
 
 # <a name="python"></a>[python](#tab/python)
 
@@ -406,7 +406,7 @@ O gatilho da fila impede automaticamente uma função de processar uma mensagem 
 
 O ficheiro [host.json](functions-host-json.md#queues) contém definições que controlam o comportamento do gatilho da fila. Consulte a secção de [definições host.json](functions-bindings-storage-queue-output.md#hostjson-settings) para obter mais detalhes sobre as definições disponíveis.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Escreva mensagens de armazenamento de fila (encadernação de saída)](./functions-bindings-storage-blob-output.md)
 

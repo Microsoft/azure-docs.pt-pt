@@ -4,11 +4,11 @@ description: Aprenda a utilizar funcionalidades de segurança no Azure Backup pa
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: 3435b9455af3362cdce2dceb20e183a8b05a15dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660840"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395538"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger cargas de trabalho em nuvem que usam Backup Azure
 

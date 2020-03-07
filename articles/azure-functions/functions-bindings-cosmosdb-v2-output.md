@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: 9360a90b457f99cb9c15deda80dce8233069100d
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606558"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356419"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Ligação de saída Azure Cosmos DB para funções Azure 2.x
 
@@ -565,8 +565,8 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     | n/d | deve ser definido para `cosmosDB`.        |
-|**direção**     | n/d | deve ser definido para `out`.         |
+|**tipo**     | n/d | Deve ser definido para `cosmosDB`.        |
+|**direção**     | n/d | Deve ser definido para `out`.         |
 |**nome**     | n/d | Nome do parâmetro de enlace que representa o documento na função.  |
 |**nome da base de dados** | **Nome da base de dados**|A base de dados que contém a coleção onde o documento é criado.     |
 |**coleçãoNome** |**Nome de coleção**  | O nome da coleção em que o documento é criado. |

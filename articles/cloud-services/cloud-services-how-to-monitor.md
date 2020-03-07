@@ -1,6 +1,6 @@
 ---
-title: Monitorar um serviço de nuvem do Azure | Microsoft Docs
-description: Descreve o que o monitoramento de um serviço de nuvem do Azure envolve e quais são algumas das suas opções.
+title: Monitor ize um Serviço de Nuvem Azure  Microsoft Docs
+description: Descreve o que a monitorização de um Serviço Azure Cloud envolve e quais são algumas das suas opções.
 services: cloud-services
 documentationcenter: ''
 author: tgore03
@@ -9,58 +9,58 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972949"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384127"
 ---
-# <a name="introduction-to-cloud-service-monitoring"></a>Introdução ao monitoramento do serviço de nuvem
+# <a name="introduction-to-cloud-service-monitoring"></a>Introdução à Monitorização do Serviço de Nuvem
 
-Você pode monitorar as principais métricas de desempenho para qualquer serviço de nuvem. Cada função de serviço de nuvem coleta dados mínimos: uso de CPU, uso de rede e utilização de disco. Se o serviço de nuvem tiver a extensão de `Microsoft.Azure.Diagnostics` aplicada a uma função, essa função poderá coletar pontos de dados adicionais. Este artigo fornece uma introdução ao Diagnóstico do Azure para serviços de nuvem.
+Pode monitorizar as métricas de desempenho das teclas para qualquer serviço na nuvem. Cada função de serviço na nuvem recolhe dados mínimos: utilização de CPU, utilização da rede e utilização do disco. Se o serviço de nuvem tiver a extensão `Microsoft.Azure.Diagnostics` aplicada a uma função, essa função pode recolher pontos adicionais de dados. Este artigo fornece uma introdução ao Azure Diagnostics for Cloud Services.
 
-Com o monitoramento básico, os dados do contador de desempenho das instâncias de função são amostrados e coletados em intervalos de 3 minutos. Esses dados básicos de monitoramento não são armazenados em sua conta de armazenamento e não têm nenhum custo adicional associado a ele.
+Com monitorização básica, os dados do contador de desempenho das instâncias de funções são recolhidos e recolhidos em intervalos de 3 minutos. Estes dados básicos de monitorização não são armazenados na sua conta de armazenamento e não têm custos adicionais associados a ele.
 
-Com o monitoramento avançado, métricas adicionais são amostradas e coletadas em intervalos de 5 minutos, 1 hora e 12 horas. Os dados agregados são armazenados em uma conta de armazenamento, em tabelas e são limpos após 10 dias. A conta de armazenamento usada é configurada por função; Você pode usar contas de armazenamento diferentes para funções diferentes. Isso é configurado com uma cadeia de conexão nos arquivos [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) .
+Com monitorização avançada, métricas adicionais são amostradas e recolhidas em intervalos de 5 minutos, 1 hora e 12 horas. Os dados agregados são armazenados numa conta de armazenamento, em tabelas, e são purgados após 10 dias. A conta de armazenamento utilizada é configurada por função; pode utilizar diferentes contas de armazenamento para diferentes funções. Isto é configurado com uma cadeia de ligação nos [ficheiros .csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [.cscfg.](cloud-services-model-and-package.md#serviceconfigurationcscfg)
 
 
 ## <a name="basic-monitoring"></a>Monitorização básica
 
-Conforme mencionado na introdução, um serviço de nuvem coleta automaticamente dados de monitoramento básicos da máquina virtual do host. Esses dados incluem percentual de CPU, entrada/saída de rede e leitura/gravação de disco. Os dados de monitoramento coletados são exibidos automaticamente nas páginas visão geral e métricas do serviço de nuvem, na portal do Azure. 
+Tal como indicado na introdução, um serviço na nuvem recolhe automaticamente dados básicos de monitorização da máquina virtual do hospedeiro. Estes dados incluem percentagem de CPU, rede dentro/fora e leitura/escrita em disco. Os dados de monitorização recolhidos são automaticamente apresentados na visão geral e nas páginas métricas do serviço de nuvem, no portal Azure. 
 
-O monitoramento básico não requer uma conta de armazenamento. 
+A monitorização básica não requer uma conta de armazenamento. 
 
-![blocos de monitoramento de serviço de nuvem básico](media/cloud-services-how-to-monitor/basic-tiles.png)
+![azulejos básicos de monitorização do serviço de nuvem](media/cloud-services-how-to-monitor/basic-tiles.png)
 
 ## <a name="advanced-monitoring"></a>Monitorização avançada
 
-O monitoramento avançado envolve o uso da extensão **diagnóstico do Azure** (e, opcionalmente, o SDK do Application insights) na função que você deseja monitorar. A extensão de diagnóstico usa um arquivo de configuração (por função) chamado **Diagnostics. wadcfgx** para configurar as métricas de diagnóstico monitoradas. A extensão de diagnóstico do Azure coleta e armazena dados em uma conta de armazenamento do Azure. Essas configurações são definidas nos arquivos **. wadcfgx**, [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef)e [. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) . Isso significa que há um custo extra associado ao monitoramento avançado.
+A monitorização avançada envolve a utilização da extensão de Diagnóstico Sinuoso **(e** opcionalmente o SDK de Insights de Aplicação) sobre a função que pretende monitorizar. A extensão de diagnóstico utiliza um ficheiro config (por função) chamado **diagnostics.wadcfgx** para configurar as métricas de diagnóstico monitorizadas. A extensão Azure Diagnostic recolhe e armazena dados numa conta de Armazenamento Azure. Estas definições estão configuradas nos ficheiros **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef)e [.cscfg.](cloud-services-model-and-package.md#serviceconfigurationcscfg) Isto significa que existe um custo extra associado à monitorização avançada.
 
-À medida que cada função é criada, o Visual Studio adiciona a extensão de Diagnóstico do Azure a ela. Essa extensão de diagnóstico pode coletar os seguintes tipos de informações:
+À medida que cada função é criada, o Visual Studio adiciona-lhe a extensão de Diagnóstico Sacana. Esta extensão de diagnóstico pode recolher os seguintes tipos de informação:
 
 * Contadores de desempenho personalizados
-* Logs de aplicativo
+* Registos de aplicação
 * Registos de eventos do Windows
-* Origem do evento .NET
-* Registos IIS
+* .NET fonte de evento
+* Registos do IIS
 * ETW com base em manifesto
 * Informações de falha de sistema
-* Logs de erros do cliente
+* Registos de erros do cliente
 
 > [!IMPORTANT]
-> Embora todos esses dados sejam agregados na conta de armazenamento, o portal não **fornece uma** maneira nativa de gráfico dos dados. É altamente recomendável que você integre outro serviço, como Application Insights, em seu aplicativo.
+> Embora todos estes dados sejam agregados na conta de armazenamento, o portal **não** fornece uma forma nativa de traçar os dados. É altamente recomendável que integre outro serviço, como o Application Insights, na sua aplicação.
 
-## <a name="setup-diagnostics-extension"></a>Extensão de diagnóstico de instalação
+## <a name="setup-diagnostics-extension"></a>Extensão de diagnóstico de configuração
 
-Primeiro, se você não tiver uma conta de armazenamento **clássico** , [crie uma](../storage/common/storage-account-create.md). Verifique se a conta de armazenamento foi criada com o **modelo de implantação clássico** especificado.
+Primeiro, se não tiver uma conta de armazenamento **clássica,** [crie uma](../storage/common/storage-account-create.md). Certifique-se de que a conta de armazenamento é criada com o modelo de **implementação Classic** especificado.
 
-Em seguida, navegue até o recurso **conta de armazenamento (clássico)** . Selecione **configurações** > **chaves de acesso** e copie o valor da **cadeia de conexão primária** . Você precisa desse valor para o serviço de nuvem. 
+Em seguida, navegue para o recurso **da conta de Armazenamento (clássico).** Selecione **Definições** > **Teclas de acesso** e copie o valor de cadeia de **ligação primária.** Precisa deste valor para o serviço de nuvem. 
 
-Há dois arquivos de configuração que você deve alterar para que os diagnósticos avançados sejam habilitados, o **indefinition. csdef** e o **inconfiguration. cscfg**.
+Existem dois ficheiros config que deve alterar para que os diagnósticos avançados sejam ativados, **ServiceDefinition.csdef** e **ServiceConfiguration.cscfg**.
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
-No arquivo de **imdefinição. csdef** , adicione uma nova configuração chamada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` para cada função que usa diagnóstico avançado. O Visual Studio adiciona esse valor ao arquivo quando você cria um novo projeto. Caso ele esteja ausente, você pode adicioná-lo agora. 
+No ficheiro **ServiceDefinition.csdef,** adicione uma nova definição chamada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` para cada função que utilize diagnósticos avançados. O Visual Studio adiciona este valor ao ficheiro quando cria um novo projeto. Caso falte, pode adicioná-lo agora. 
 
 ```xml
 <ServiceDefinition name="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -69,9 +69,9 @@ No arquivo de **imdefinição. csdef** , adicione uma nova configuração chamad
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-Isso define uma nova configuração que deve ser adicionada a cada arquivo **. cscfg do onconfiguration** . 
+Isto define uma nova definição que deve ser adicionada a todos os ficheiros **ServiceConfiguration.cscfg.** 
 
-É muito provável que você tenha dois arquivos **. cscfg** , um chamado de nome de arquivo **. Cloud. cscfg** para implantação no Azure, e um nome de **Reconfiguration. local. cscfg** que é usado para implantações locais no ambiente emulado. Abra e altere cada arquivo **. cscfg** . Adicione uma configuração chamada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Defina o valor para a **cadeia de conexão primária** da conta de armazenamento clássica. Se você quiser usar o armazenamento local em seu computador de desenvolvimento, use `UseDevelopmentStorage=true`.
+Provavelmente tem dois **ficheiros .cscfg,** um chamado **ServiceConfiguration.cloud.cscfg** para implantação para Azure, e um chamado **ServiceConfiguration.local.cscfg** que é usado para implementações locais no ambiente emulado. Abra e altere cada ficheiro **.cscfg.** Adicione uma definição com o nome `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Delineie o valor para a cadeia de **ligação primária** da conta de armazenamento clássica. Se quiser utilizar o armazenamento local na sua máquina de desenvolvimento, utilize `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -85,16 +85,16 @@ Isso define uma nova configuração que deve ser adicionada a cada arquivo **. c
       -->
 ```
 
-## <a name="use-application-insights"></a>Usar Application Insights
+## <a name="use-application-insights"></a>Utilizar insights de aplicação
 
-Ao publicar o serviço de nuvem do Visual Studio, você terá a opção de enviar os dados de diagnóstico para Application Insights. Você pode criar o Application Insights recurso do Azure nesse momento ou enviar os dados para um recurso existente do Azure. Seu serviço de nuvem pode ser monitorado por Application Insights para disponibilidade, desempenho, falhas e uso. Gráficos personalizados podem ser adicionados a Application Insights para que você possa ver os dados mais importantes. Os dados da instância de função podem ser coletados usando o SDK do Application Insights em seu projeto de serviço de nuvem. Para obter mais informações sobre como integrar Application Insights, consulte [Application insights com serviços de nuvem](../azure-monitor/app/cloudservices.md).
+Ao publicar o Serviço cloud do Estúdio Visual, é-lhe dada a opção de enviar os dados de diagnóstico para A Aplicação Insights. Pode criar o recurso Application Insights Azure nessa altura ou enviar os dados para um recurso Azure existente. O seu serviço na nuvem pode ser monitorizado por Informações de Aplicação para disponibilidade, desempenho, falhas e utilização. Os gráficos personalizados podem ser adicionados aos Insights de Aplicação para que possa ver os dados que mais importam. Os dados da instância de função podem ser recolhidos utilizando o SDK de Insights de Aplicação no seu projeto de serviço na nuvem. Para obter mais informações sobre como integrar os Insights de Aplicação, consulte [os Insights de Aplicação com serviços na nuvem.](../azure-monitor/app/cloudservices.md)
 
-Observe que, embora você possa usar Application Insights para exibir os contadores de desempenho (e as outras configurações) que você especificou por meio da extensão do Windows Diagnóstico do Azure, você obtém uma experiência mais rica integrando o SDK do Application Insights ao seu funções Web e de trabalho.
+Note que, embora possa utilizar os Insights de Aplicação para exibir os contadores de desempenho (e as outras definições) especificado através da extensão de Diagnóstico do Windows Azure, só obtém uma experiência mais rica integrando o SDK de Insights de Aplicação na sua funções de trabalhador e web.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba mais sobre Application Insights com os serviços de nuvem](../azure-monitor/app/cloudservices.md)
+- [Saiba mais sobre insights de aplicação com serviços na nuvem](../azure-monitor/app/cloudservices.md)
 - [Configurar contadores de desempenho](diagnostics-performance-counters.md)
 
 

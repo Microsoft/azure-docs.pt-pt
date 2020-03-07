@@ -1,7 +1,7 @@
 ---
-title: Usar o portal para habilitar Área de Trabalho Remota para uma função
+title: Utilize o portal para ativar o Ambiente de Trabalho Remoto para uma Função
 titleSuffix: Azure Cloud Services
-description: Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota
+description: Como configurar a sua aplicação de serviço em nuvem azul para permitir ligações remotas de ambiente de trabalho
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
@@ -10,58 +10,58 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
 ms.openlocfilehash: d65f4b55be317234c10a0e90cfe413d9e38a6a90
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360604"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397080"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitar Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Ativar a ligação remota de ambiente de trabalho para uma função nos serviços de nuvem azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
-Área de Trabalho Remota permite que você acesse a área de trabalho de uma função em execução no Azure. Você pode usar uma conexão Área de Trabalho Remota para solucionar e diagnosticar problemas com seu aplicativo enquanto ele está em execução.
+O Remote Desktop permite-lhe aceder ao ambiente de trabalho de uma função em funcionamento no Azure. Pode utilizar uma ligação Remote Desktop para resolver problemas e diagnosticar problemas com a sua aplicação enquanto esta estiver em execução.
 
-Você pode habilitar uma conexão Área de Trabalho Remota em sua função durante o desenvolvimento, incluindo os módulos Área de Trabalho Remota em sua definição de serviço ou pode optar por habilitar Área de Trabalho Remota por meio da extensão Área de Trabalho Remota. A abordagem preferida é usar a extensão Área de Trabalho Remota, pois você pode habilitar Área de Trabalho Remota mesmo depois que o aplicativo é implantado sem a necessidade de reimplantar o aplicativo.
+Pode ativar uma ligação remota de ambiente de trabalho durante o desenvolvimento, incluindo os módulos de ambiente de trabalho remoto na definição de serviço ou pode optar por ativar o Ambiente de Trabalho Remoto através da extensão remota do ambiente de trabalho. A abordagem preferida é utilizar a extensão Remote Desktop, uma vez que pode ativar o Remote Desktop mesmo depois de a aplicação ser implementada sem ter de reimplantar a sua aplicação.
 
-## <a name="configure-remote-desktop-from-the-azure-portal"></a>Configurar Área de Trabalho Remota do portal do Azure
+## <a name="configure-remote-desktop-from-the-azure-portal"></a>Configure o ambiente de trabalho remoto do portal Azure
 
-O portal do Azure usa a abordagem de extensão de Área de Trabalho Remota para que você possa habilitar Área de Trabalho Remota mesmo depois que o aplicativo for implantado. As configurações de **área de trabalho remota** para seu serviço de nuvem permitem que você habilite área de trabalho remota, altere a conta de administrador local usada para se conectar às máquinas virtuais, o certificado usado na autenticação e defina a data de validade.
+O portal Azure utiliza a abordagem de extensão remota do ambiente de trabalho para que possa ativar o Ambiente de Trabalho Remoto mesmo depois de a aplicação ser implementada. As definições **do Ambiente de Trabalho Remoto** para o seu serviço na nuvem permitem ativar o Ambiente de Trabalho Remoto, alterar a conta de Administrador local utilizada para ligar às máquinas virtuais, o certificado utilizado na autenticação e definir a data de validade.
 
-1. Clique em **serviços de nuvem**, selecione o nome do serviço de nuvem e, em seguida, selecione **área de trabalho remota**.
+1. Clique em **Serviços cloud,** selecione o nome do serviço cloud e, em seguida, selecione **Remote Desktop**.
 
-    ![Área de trabalho remota dos serviços de nuvem](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
+    ![Serviços de nuvem ambiente de trabalho remoto](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
 
-2. Escolha se deseja habilitar Área de Trabalho Remota para uma função individual ou para todas as funções e, em seguida, altere o valor do alternador para **habilitado**.
+2. Escolha se pretende ativar o Remote Desktop para uma função individual ou para todas as funções e, em seguida, altere o valor do comutador para **Ativado**.
 
-3. Preencha os campos obrigatórios para nome de usuário, senha, expiração e certificado.
+3. Preencha os campos necessários para o nome do utilizador, senha, caducidade e certificado.
 
-    ![Área de trabalho remota dos serviços de nuvem](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
+    ![Serviços de nuvem ambiente de trabalho remoto](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > Todas as instâncias de função serão reiniciadas quando você habilitar o Área de Trabalho Remota pela primeira vez e selecionar **OK** (marca de seleção). Para evitar uma reinicialização, o certificado usado para criptografar a senha deve ser instalado na função. Para evitar uma reinicialização, [carregue um certificado para o serviço de nuvem](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) e, em seguida, retorne a esta caixa de diálogo.
+   > Todas as instâncias de função serão reiniciadas quando ativar primeiro o Remote Desktop e selecionar **OK** (marca de verificação). Para evitar um reboot, o certificado utilizado para encriptar a palavra-passe deve ser instalado na função. Para evitar o reinício, [faça o upload de um certificado para o serviço de nuvem](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) e, em seguida, volte a este diálogo.
 
-4. Em **funções**, selecione a função que você deseja atualizar ou selecione **tudo** para todas as funções.
+4. Em **Funções,** selecione o papel que pretende atualizar ou selecionar **All** para todas as funções.
 
-5. Ao concluir as atualizações de configuração, selecione **salvar**. Levará alguns minutos para que as instâncias de função estejam prontas para receber conexões.
+5. Quando terminar as atualizações de configuração, selecione **Guardar**. Levará alguns momentos até que as suas instâncias de papel estejam prontas para receber ligações.
 
-## <a name="remote-into-role-instances"></a>Remoto em instâncias de função
+## <a name="remote-into-role-instances"></a>Remota em instâncias de papéis
 
-Quando Área de Trabalho Remota estiver habilitado nas funções, você poderá iniciar uma conexão diretamente do portal do Azure:
+Uma vez ativado o Ambiente de Trabalho Remoto nas funções, pode iniciar uma ligação diretamente a partir do portal Azure:
 
-1. Clique em **instâncias** para abrir as configurações de **instâncias** .
-2. Selecione uma instância de função que tenha Área de Trabalho Remota configurada.
-3. Clique em **conectar** para baixar um arquivo RDP para a instância de função.
+1. Clique em **Instâncias** para abrir as definições **de Instâncias.**
+2. Selecione uma instância de função que tenha o Remote Desktop configurado.
+3. Clique em **Connect** para descarregar um ficheiro RDP para a instância de funções.
 
-    ![Área de trabalho remota dos serviços de nuvem](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
+    ![Serviços de nuvem ambiente de trabalho remoto](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
 
-4. Clique em **abrir** e **Conecte-se** para iniciar a conexão área de trabalho remota.
+4. Clique em **Abrir** e, em seguida, **ligar** para iniciar a ligação Remote Desktop.
 
 >[!NOTE]
-> Se seu serviço de nuvem estiver atrás de um NSG, talvez seja necessário criar regras que permitam o tráfego nas portas **3389** e **20000**.  Área de Trabalho Remota usa a porta **3389**.  As instâncias de serviço de nuvem têm balanceamento de carga, portanto, não é possível controlar diretamente a instância à qual se conectar.  Os agentes *RemoteForwarder* e *RemoteAccess* gerenciam o tráfego RDP e permitem que o cliente envie um cookie RDP e especifique uma instância individual à qual se conectar.  Os agentes *RemoteForwarder* e *RemoteAccess* exigem que a porta **20000*** esteja aberta, o que poderá ser bloqueado se você tiver um NSG.
+> Se o seu serviço na nuvem estiver sentado atrás de um NSG, poderá ter de criar regras que permitam o tráfego nos portos **3389** e **20000**.  O Ambiente de Trabalho Remoto utiliza a porta **3389**.  As instâncias do Serviço cloud são equilibradas em carga, por isso não pode controlar diretamente a que instância ligar.  Os agentes *RemoteForwarder* e *RemoteAccess* gerem o tráfego rdp e permitem ao cliente enviar um cookie RDP e especificar uma instância individual para se conectar.  Os agentes *RemoteForwarder* e *RemoteAccess* exigem que a porta **20000*** esteja aberta, que pode ser bloqueada se tiver um NSG.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: cf71f051b014c6ce56290acda5c4b931c23934e2
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
-ms.translationtype: MT
+ms.openlocfilehash: b971176909a9956cd674116963e8ca02fa60e8b3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208953"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356109"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Quickstart: Criar um projeto de funções Azure usando o Código de Estúdio Visual
 
@@ -32,7 +32,7 @@ Antes de começar, certifique-se de que tem os seguintes requisitos no lugar:
 + [Node.js,](https://nodejs.org/)versões Ative LTS e Manutenção LTS (10.14.1 recomendado). Use o comando `npm --version` para verificar a sua versão.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
-+ [Python 3.7](https://www.python.org/downloads/release/python-375/) ou [Python 3.6,](https://www.python.org/downloads/release/python-368/)que apoiado por Funções Azure. Python 3.8 ainda não foi apoiado. 
++ [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) são suportados por Funções Azure.
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
 + [Núcleo PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows)
@@ -63,7 +63,7 @@ Nesta secção, você usa o Código de Estúdio Visual para criar um projeto loc
 1. Escolha um local de diretório para o seu espaço de trabalho do projeto e escolha **Select**.
 
     > [!NOTE]
-    > Essas etapas foram projetadas para serem concluídas fora de um espaço de trabalho. Neste caso, não selecione uma pasta de projeto que faz parte de uma área de trabalho.
+    > Estes passos foram concebidos para serem concluídos fora de um espaço de trabalho. Neste caso, não selecione uma pasta de projeto que faz parte de uma área de trabalho.
 
 1. Forneça as seguintes informações nas instruções:
 
@@ -121,7 +121,7 @@ Depois de verificar que a função funciona corretamente no seu computador local
 
 1. De volta à área **Azure: Funções** na barra lateral, expanda a nova aplicação de funções sob a sua subscrição. Expandir **funções,** clicar à direita (Windows) ou Ctrl + clicar (MacOS) em **HttpExample**e, em seguida, escolher **Copy function URL**.
 
-    ![Copiar a URL da função para o novo gatilho HTTP](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
+    ![Copiar o URL de função para o novo gatilho HTTP](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 
 1. Colá-lo este URL para o pedido http na barra de endereços do seu navegador, adicione a cadeia de consulta `name` como `?name=Functions` ao final deste URL e, em seguida, execute o pedido. O URL que chama a função acionada por HTTP deve estar no seguinte formato:
 

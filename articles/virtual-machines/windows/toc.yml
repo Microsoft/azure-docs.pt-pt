@@ -508,11 +508,13 @@
     - name: Monitorizar VMs
       items:
         - name: Azure Monitor para VMs
-          href: ../../azure-monitor/insights/vminsights-overview.md
+          href: ../../azure-monitor/insights/vminsights-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Criar alertas de métricas
-          href: ../../azure-monitor/platform/alerts-metric.md
+          href: ../../azure-monitor/platform/alerts-metric.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Criar alertas de registos
-          href: ../../azure-monitor/platform/alerts-log.md
+          href: ../../azure-monitor/platform/alerts-log.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Obter métricas de utilização com o REST
+          href: ../linux/metrics-vm-usage-rest.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Utilizar Imagens
       items:
         - name: Imagens partilhadas

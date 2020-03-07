@@ -1,6 +1,6 @@
 ---
-title: Conceitos de dispositivo no provisionamento de dispositivos do Azure | Microsoft Docs
-description: Descreve os conceitos de provisionamento de dispositivos específicos para dispositivos com o DPS (serviço de provisionamento de dispositivos) e o Hub IoT
+title: Conceitos de dispositivos no fornecimento de dispositivos Azure / Microsoft Docs
+description: Descreve conceitos de aprovisionamento de dispositivos específicos de dispositivos com serviço de provisionamento de dispositivos (DPS) e Hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 11/06/2019
@@ -9,53 +9,53 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f5f931622f793a1146c04403e8c5e1a5ef7a7d62
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975317"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78389770"
 ---
-# <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceitos de dispositivo do serviço de provisionamento de dispositivos no Hub IoT
+# <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceitos de dispositivo de provisionamento de dispositivos de hub iot
 
-O serviço de provisionamento de dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que você usa para configurar o provisionamento de dispositivos sem toque para um hub IoT especificado. Com o Serviço de Aprovisionamento de Dispositivos, pode aprovisionar milhões de dispositivos de forma segura e dimensionável.
+O Serviço de Provisionamento de Dispositivos IoT Hub é um serviço de ajuda para o IoT Hub que utiliza para configurar o fornecimento de dispositivos de toque zero a um hub IoT especificado. Com o Serviço de Aprovisionamento de Dispositivos, pode aprovisionar milhões de dispositivos de forma segura e dimensionável.
 
-Este artigo fornece uma visão geral dos conceitos de *dispositivo* envolvidos no provisionamento de dispositivos. Este artigo é mais relevante para as pessoas envolvidas na [etapa de fabricação](about-iot-dps.md#manufacturing-step) de preparar um dispositivo para implantação.
+Este artigo dá uma visão geral dos conceitos do *dispositivo* envolvidos no fornecimento de dispositivos. Este artigo é mais relevante para as pessoas envolvidas na etapa de [fabrico](about-iot-dps.md#manufacturing-step) de obter um dispositivo pronto para a implantação.
 
 ## <a name="attestation-mechanism"></a>Mecanismo de atestado
 
-O mecanismo de atestado é o método usado para confirmar a identidade de um dispositivo. O mecanismo de atestado também é relevante para a lista de registro, que informa ao serviço de provisionamento qual método de atestado usar com um determinado dispositivo.
+O mecanismo de atestado é o método utilizado para confirmar a identidade de um dispositivo. O mecanismo de atestado também é relevante para a lista de inscrições, que indica ao serviço de provisionamento qual o método de atestado a utilizar com um determinado dispositivo.
 
 > [!NOTE]
-> O Hub IoT usa "esquema de autenticação" para obter um conceito semelhante nesse serviço.
+> O IoT Hub utiliza o "esquema de autenticação" para um conceito semelhante nesse serviço.
 
-O serviço de provisionamento de dispositivos dá suporte às seguintes formas de atestado:
-* **Certificados x. 509** com base no fluxo de autenticação de certificado x. 509 padrão.
-* **Trusted Platform Module (TPM)** com base em um desafio de nonce, usando o padrão do TPM para que as chaves apresentem um token de assinatura de acesso compartilhado (SAS) assinado. Isso não requer um TPM físico no dispositivo, mas o serviço espera atestar usando a chave de endosso de acordo com a [especificação do TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
-* **Chave simétrica** baseada em [tokens de segurança](../iot-hub/iot-hub-devguide-security.md#security-tokens)SAS (assinatura de acesso compartilhado), que incluem uma assinatura com hash e uma expiração incorporada. Para obter mais informações, consulte [atestado de chave simétrica](concepts-symmetric-key-attestation.md).
+O Serviço de Provisionamento de Dispositivos suporta as seguintes formas de atestado:
+* **Certificados X.509 baseados** no fluxo padrão de autenticação do certificado X.509.
+* **Módulo de Plataforma Fidedigna (TPM)** baseado num desafio nonce, utilizando a norma TPM para as teclas apresentarem um símbolo assinado de Assinatura de Acesso Partilhado (SAS). Isto não requer um TPM físico no dispositivo, mas o serviço espera atestar a utilização da chave de averbamento de acordo com a [especificação TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Chave simétrica** baseada em [fichas](../iot-hub/iot-hub-devguide-security.md#security-tokens)de segurança de assinatura de acesso partilhado (SAS), que incluem uma assinatura de hashed e uma expiração incorporada. Para mais informações, consulte o atestado da [chave simétrica](concepts-symmetric-key-attestation.md).
 
 ## <a name="hardware-security-module"></a>Módulo de segurança de hardware
 
-O módulo de segurança de hardware, ou HSM, é usado para armazenamento seguro baseado em hardware de segredos de dispositivo e é a forma mais segura de armazenamento secreto. Os certificados X. 509 e os tokens SAS podem ser armazenados no HSM. Os HSMs podem ser usados com ambos os mecanismos de atestado aos quais o serviço de provisionamento dá suporte.
+O módulo de segurança de hardware, ou HSM, é usado para armazenamento seguro e baseado em hardware de segredos do dispositivo, e é a forma mais segura de armazenamento secreto. Tanto os certificados X.509 como as fichas SAS podem ser armazenados no HSM. Os HSMs podem ser utilizados com ambos os mecanismos de atestação que os suportes de serviço de fornecimento.
 
 > [!TIP]
-> É altamente recomendável usar um HSM com dispositivos para armazenar segredos com segurança em seus dispositivos.
+> Recomendamos vivamente a utilização de um HSM com dispositivos para armazenar segredos de forma segura nos seus dispositivos.
 
-Os segredos do dispositivo também podem ser armazenados em software (memória), mas é uma forma menos segura de armazenamento do que um HSM.
+Os segredos do dispositivo também podem ser armazenados em software (memória), mas é uma forma de armazenamento menos segura do que um HSM.
 
-## <a name="registration-id"></a>ID de Registo
+## <a name="registration-id"></a>ID de registo
 
-A ID de registro é usada para identificar exclusivamente um dispositivo no serviço de provisionamento de dispositivos. A ID do dispositivo deve ser exclusiva no [escopo da ID](#id-scope)do serviço de provisionamento. Cada dispositivo deve ter uma ID de registro. A ID de registro é alfanumérica, não diferencia maiúsculas de minúsculas e pode conter caracteres especiais, incluindo dois pontos, ponto, sublinhado e hífen.
+O ID de registo é utilizado para identificar de forma única um dispositivo no Serviço de Provisionamento de Dispositivos. O ID do dispositivo deve ser único no âmbito de [ID](#id-scope)do serviço de provisionamento . Cada dispositivo deve ter uma identificação de registo. O ID de registo é alfanumérico, caso insensível, e pode conter caracteres especiais, incluindo cólon, período, sublinhado e hífen.
 
-* No caso do TPM, a ID de registro é fornecida pelo próprio TPM.
-* No caso do atestado baseado em X. 509, a ID de registro é fornecida como o nome da entidade do certificado.
+* No caso da TPM, o ID de registo é fornecido pelo próprio TPM.
+* No caso do atestado baseado em X.509, o ID de registo é fornecido como nome de assunto do certificado.
 
 ## <a name="device-id"></a>ID do dispositivo
 
-A ID do dispositivo é a ID como ela aparece no Hub IoT. A ID de dispositivo desejada pode ser definida na entrada de registro, mas não é necessário defini-la. A configuração da ID de dispositivo desejada só tem suporte em registros individuais. Se nenhuma ID de dispositivo desejada for especificada na lista de registro, a ID de registro será usada como a ID do dispositivo ao registrar o dispositivo. Saiba mais sobre as [IDs de dispositivo no Hub IOT](../iot-hub/iot-hub-devguide-identity-registry.md).
+O ID do dispositivo é o ID tal como aparece no IoT Hub. O ID do dispositivo pretendido pode ser definido na entrada de inscrição, mas não é necessário ser definido. A definição do ID do dispositivo desejado só é suportada em matrículas individuais. Se não for especificado o ID do dispositivo desejado na lista de inscrições, o ID de registo é utilizado como ID do dispositivo ao registar o dispositivo. Saiba mais sobre [iDs de dispositivo no IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
-## <a name="id-scope"></a>Escopo da ID
+## <a name="id-scope"></a>Âmbito de identificação
 
-O escopo de ID é atribuído a um serviço de provisionamento de dispositivos quando ele é criado pelo usuário e é usado para identificar exclusivamente o serviço de provisionamento específico pelo qual o dispositivo será registrado. O escopo de ID é gerado pelo serviço e é imutável, o que garante a exclusividade.
+O âmbito de identificação é atribuído a um Serviço de Provisionamento de Dispositivos quando é criado pelo utilizador e é utilizado para identificar de forma única o serviço de fornecimento específico através do qual o dispositivo irá registar. O âmbito de ID é gerado pelo serviço e é imutável, o que garante uma singularidade.
 
 > [!NOTE]
-> A exclusividade é importante para operações de implantação de longa execução e cenários de fusão e aquisição.
+> A singularidade é importante para operações de implantação a longo prazo e cenários de fusão e aquisição.

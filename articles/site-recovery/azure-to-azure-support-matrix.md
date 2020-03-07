@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
 ms.openlocfilehash: d278f96acf8d8efc57a9ae7fb57f9a758339162a
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444082"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362839"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres do Azure VM entre as regiões de Azure
 
@@ -68,9 +68,9 @@ Esta tabela resume o suporte para a conta de armazenamento de cache utilizada pe
 
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
-Contas de armazenamento V2 de propósito geral (nível quente e fresco) | Suportado | O uso do GPv2 não é recomendado porque os custos de transação para V2 são substancialmente superiores às contas de armazenamento V1.
+Contas de armazenamento V2 de propósito geral (nível quente e fresco) | Suportadas | O uso do GPv2 não é recomendado porque os custos de transação para V2 são substancialmente superiores às contas de armazenamento V1.
 Armazenamento Premium | Não suportado | As contas de armazenamento padrão são usadas para armazenamento de cache, para ajudar a otimizar os custos.
-Firewalls de armazenamento azure para redes virtuais  | Suportado | Se estiver a utilizar uma conta de armazenamento de cache ativada por firewall ou uma conta de armazenamento de alvos, certifique-se de [que "permite serviços microsoft fidedignos".](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)<br></br>Além disso, certifique-se de que permite o acesso a pelo menos uma sub-rede de fonte Vnet.
+Firewalls de armazenamento azure para redes virtuais  | Suportadas | Se estiver a utilizar uma conta de armazenamento de cache ativada por firewall ou uma conta de armazenamento de alvos, certifique-se de [que "permite serviços microsoft fidedignos".](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)<br></br>Além disso, certifique-se de que permite o acesso a pelo menos uma sub-rede de fonte Vnet.
 
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemas operativos de máquinas replicados
@@ -82,7 +82,7 @@ A Recuperação do Site suporta a replicação de VMs Azure que executam os sist
 
 **Sistema operativo** | **Detalhes**
 --- | ---
-Windows Server 2019 | Suportado para Server Core, Server com Experiência de Ambiente de Trabalho.
+Windows Server de 2019 | Suportado para Server Core, Server com Experiência de Ambiente de Trabalho.
 Windows Server 2016  | Núcleo de servidor suportado, servidor com experiência de ambiente de trabalho.
 Windows Server 2012 R2 | Suportado.
 Windows Server 2012 | Suportado.
@@ -168,14 +168,14 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Todos os [núcleos SUSE 15 e 1
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
 Tamanho | Qualquer tamanho De VM Azure com pelo menos 2 núcleos CPU e RAM de 1-GB | Verifique o [tamanho da máquina virtual Azure.](../virtual-machines/windows/sizes.md)
-Conjuntos de disponibilidade | Suportado | Se ativar a replicação de um VM Azure com as opções predefinidas, um conjunto de disponibilidade é criado automaticamente, com base nas definições da região de origem. Pode modificar estas definições.
-Zonas de disponibilidade | Suportado |
-Benefício de Utilização Híbrida (HUB) | Suportado | Se a VM de origem tiver uma licença HUB ativada, um teste failover ou falhou sobre vM também usa a licença HUB.
+Conjuntos de disponibilidade | Suportadas | Se ativar a replicação de um VM Azure com as opções predefinidas, um conjunto de disponibilidade é criado automaticamente, com base nas definições da região de origem. Pode modificar estas definições.
+Zonas de disponibilidade | Suportadas |
+Benefício de Utilização Híbrida (HUB) | Suportadas | Se a VM de origem tiver uma licença HUB ativada, um teste failover ou falhou sobre vM também usa a licença HUB.
 Conjuntos de dimensionamento de máquinas virtuais | Não suportado |
-Imagens da galeria Azure - Microsoft publicada | Suportado | Suportado se o VM funcionar num sistema operativo suportado.
-Imagens da Galeria Azure - Terceiro publicado | Suportado | Suportado se o VM funcionar num sistema operativo suportado.
-Imagens personalizadas - Terceiro publicado | Suportado | Suportado se o VM funcionar num sistema operativo suportado.
-VMs migraram usando a recuperação do site | Suportado | Se um VMware VM ou uma máquina física foi migrado para O T.A. usando a Recuperação do Site, é necessário desinstalar a versão mais antiga do serviço mobility que funciona na máquina e reiniciar a máquina antes de a replicar para outra região do Azure.
+Imagens da galeria Azure - Microsoft publicada | Suportadas | Suportado se o VM funcionar num sistema operativo suportado.
+Imagens da Galeria Azure - Terceiro publicado | Suportadas | Suportado se o VM funcionar num sistema operativo suportado.
+Imagens personalizadas - Terceiro publicado | Suportadas | Suportado se o VM funcionar num sistema operativo suportado.
+VMs migraram usando a recuperação do site | Suportadas | Se um VMware VM ou uma máquina física foi migrado para O T.A. usando a Recuperação do Site, é necessário desinstalar a versão mais antiga do serviço mobility que funciona na máquina e reiniciar a máquina antes de a replicar para outra região do Azure.
 Políticas rbac | Não suportado | As políticas de controlo de acesso (RBAC) baseadas em funções não são replicadas para o VM failover na região-alvo.
 Extensões | Não suportado | As extensões não são replicadas ao VM failover na região-alvo. Tem de ser instalado manualmente após a falha.
 
@@ -184,7 +184,7 @@ Extensões | Não suportado | As extensões não são replicadas ao VM failover 
 **Ação** | **Detalhes**
 -- | ---
 Redimensionar o disco em VM replicado | Suportado na fonte VM antes da falha. Não é necessário desativar/reativar a replicação.<br/><br/> Se alterar a fonte de VM após a falha, as alterações não são capturadas.<br/><br/> Se alterar o tamanho do disco no VM Azure após a falha, as alterações não são captadas pela Recovery do Site, e o failback será para o tamanho original do VM.
-Adicione um disco a um VM replicado | Suportado
+Adicione um disco a um VM replicado | Suportadas
 
 ## <a name="replicated-machines---storage"></a>Máquinas replicadas - armazenamento
 
@@ -202,31 +202,31 @@ Tamanho máximo do disco de dados | 8192 GB para discos geridos<br></br>4095 GB 
 Tamanho mínimo do disco de dados | Sem restrições para discos não geridos. 2 GB para discos geridos | 
 Número máximo do disco de dados | Até 64, de acordo com o apoio a um tamanho de VM Azure específico | [Saiba mais](../virtual-machines/windows/sizes.md) sobre tamanhos vm.
 Taxa de alteração do disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento Standard. | Se a taxa média de variação de dados no disco for continuamente superior à máxima, a replicação não alcança.<br/><br/>  No entanto, se o máximo for ultrapassado esporadicamente, a replicação pode recuperar, mas pode ver pontos de recuperação ligeiramente atrasados.
-Disco de dados - conta de armazenamento padrão | Suportado |
-Disco de dados - conta de armazenamento premium | Suportado | Se um VM tiver discos distribuídos por contas de armazenamento premium e standard, pode selecionar uma conta de armazenamento de destino diferente para cada disco, para garantir que tem a mesma configuração de armazenamento na região alvo.
+Disco de dados - conta de armazenamento padrão | Suportadas |
+Disco de dados - conta de armazenamento premium | Suportadas | Se um VM tiver discos distribuídos por contas de armazenamento premium e standard, pode selecionar uma conta de armazenamento de destino diferente para cada disco, para garantir que tem a mesma configuração de armazenamento na região alvo.
 Disco gerido - padrão | Apoiado nas regiões de Azure em que a Recuperação do Sítio Azure é apoiada. |
 Disco gerido - premium | Apoiado nas regiões de Azure em que a Recuperação do Sítio Azure é apoiada. |
-SSD padrão | Suportado |
+SSD padrão | Suportadas |
 Redundância | LRS e GRS são apoiados.<br/><br/> O ZRS não é apoiado.
 Armazenamento fresco e quente | Não suportado | Os discos VM não são suportados em armazenamento fresco e quente
-Espaços de Armazenamento | Suportado |
-Encriptação em repouso (SSE) | Suportado | SSE é a definição padrão nas contas de armazenamento.   
-Encriptação em repouso (CMK) | Suportado | Tanto as teclas Software como HSM são suportadas para discos geridos    
+Espaços de Armazenamento | Suportadas |
+Encriptação em repouso (SSE) | Suportadas | SSE é a definição padrão nas contas de armazenamento.   
+Encriptação em repouso (CMK) | Suportadas | Tanto as teclas Software como HSM são suportadas para discos geridos    
 Encriptação de disco azure (ADE) para Windows OS | Suportado para VMs com discos geridos. VMs que usam discos não geridos não são suportados |
-Encriptação de disco azure (ADE) para Linux OS | Suportado |
-Hot add | Suportado | Permitir a replicação de um disco de dados que adicione a um VM Azure replicado é suportado para VMs que utilizam discos geridos.
+Encriptação de disco azure (ADE) para Linux OS | Suportadas |
+Hot add | Suportadas | Permitir a replicação de um disco de dados que adicione a um VM Azure replicado é suportado para VMs que utilizam discos geridos.
 Disco de remoção a quente | Não suportado | Se remover o disco de dados no VM, tem de desativar a replicação e ativar novamente a replicação para o VM.
 Excluir o disco | Apoio, apoio. Tem de usar o [Powershell](azure-to-azure-exclude-disks.md) para configurar. |  Os discos temporários são excluídos por defeito.
 Espaços de Armazenamento Direto  | Apoiado para pontos de recuperação consistentes de acidentes. Não são apoiados pontos de recuperação consistentes de aplicação. |
 Servidor de Ficheiros de Escalamento Horizontal  | Apoiado para pontos de recuperação consistentes de acidentes. Não são apoiados pontos de recuperação consistentes de aplicação. |
-LRS | Suportado |
-GRS | Suportado |
-RA-GRS | Suportado |
+LRS | Suportadas |
+GRS | Suportadas |
+RA-GRS | Suportadas |
 ZRS | Não suportado |
 Armazenamento fresco e quente | Não suportado | Os discos de máquinas virtuais não são suportados em armazenamento fresco e quente
-Firewalls de armazenamento azure para redes virtuais  | Suportado | Se restringir o acesso virtual à rede a contas de armazenamento, ative [permitir serviços microsoft fidedignos](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Contas de armazenamento V2 de propósito geral (nível quente e fresco) | Suportado | Os custos de transação aumentam substancialmente em comparação com as contas de armazenamento V1 de finalidade geral
-Geração 2 (bota UEFI) | Suportado
+Firewalls de armazenamento azure para redes virtuais  | Suportadas | Se restringir o acesso virtual à rede a contas de armazenamento, ative [permitir serviços microsoft fidedignos](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Contas de armazenamento V2 de propósito geral (nível quente e fresco) | Suportadas | Os custos de transação aumentam substancialmente em comparação com as contas de armazenamento V1 de finalidade geral
+Geração 2 (bota UEFI) | Suportadas
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de que segue os alvos de escalabilidade e desempenho do disco VM para Os VMs [linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows.](../virtual-machines/windows/disk-scalability-targets.md) Se utilizar as definições predefinidas, a Recuperação do Site cria os discos e contas de armazenamento necessárias, com base na configuração de origem. Se personalizar e selecionar as suas próprias definições, siga os alvos de escalabilidade e desempenho do disco para os seus VMs de origem.
@@ -252,26 +252,26 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |20 MB/s | 1684 GB po
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
 NIC | Número máximo suportado para um tamanho de VM Azure específico | Os NICs são criados quando o VM é criado durante a failover.<br/><br/> O número de NICs no VM failover depende do número de NICs na fonte VM quando a replicação foi ativada. Se adicionar ou remover um NIC após a replicação, não afeta o número de NICs no VM replicado após a falha. Note também que a ordem dos NICs após a falha não é garantida como a ordem original.
-Balanceador de Carga de Externo | Suportado | Associe o equilibrador de carga reconfigurado utilizando um script de Automação Azure num plano de recuperação.
-Equilibrador de Carga Interna | Suportado | Associe o equilibrador de carga reconfigurado utilizando um script de Automação Azure num plano de recuperação.
-Endereço IP público | Suportado | Associe um endereço IP público existente com o NIC. Ou criar um endereço IP público e associá-lo ao NIC usando um script de Automação Azure num plano de recuperação.
-NSG em NIC | Suportado | Associe o NSG ao NIC utilizando um script de Automação Azure num plano de recuperação.
-NSG na sub-rede | Suportado | Associe o NSG à subnet utilizando um script de Automação Azure num plano de recuperação.
-Endereço IP reservado (estático) | Suportado | Se o NIC na fonte VM tiver um endereço IP estático, e a sub-rede alvo tiver o mesmo endereço IP disponível, é atribuído ao VM falhado.<br/><br/> Se a sub-rede alvo não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na subnet está reservado para o VM.<br/><br/> Também pode especificar um endereço IP fixo e uma sub-rede em **itens replicados** > **Definições** > **Interfaces** **computacionais e de rede** > rede .
-Endereço IP dinâmico | Suportado | Se o NIC na fonte tiver um endereço IP dinâmico, o NIC no VM falhado também é dinâmico por padrão.<br/><br/> Pode modificá-lo para um endereço IP fixo, se necessário.
+Balanceador de Carga de Externo | Suportadas | Associe o equilibrador de carga reconfigurado utilizando um script de Automação Azure num plano de recuperação.
+Equilibrador de Carga Interna | Suportadas | Associe o equilibrador de carga reconfigurado utilizando um script de Automação Azure num plano de recuperação.
+Endereço IP público | Suportadas | Associe um endereço IP público existente com o NIC. Ou criar um endereço IP público e associá-lo ao NIC usando um script de Automação Azure num plano de recuperação.
+NSG em NIC | Suportadas | Associe o NSG ao NIC utilizando um script de Automação Azure num plano de recuperação.
+NSG na sub-rede | Suportadas | Associe o NSG à subnet utilizando um script de Automação Azure num plano de recuperação.
+Endereço IP reservado (estático) | Suportadas | Se o NIC na fonte VM tiver um endereço IP estático, e a sub-rede alvo tiver o mesmo endereço IP disponível, é atribuído ao VM falhado.<br/><br/> Se a sub-rede alvo não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na subnet está reservado para o VM.<br/><br/> Também pode especificar um endereço IP fixo e uma sub-rede em **itens replicados** > **Definições** > **Interfaces** **computacionais e de rede** > rede .
+Endereço IP dinâmico | Suportadas | Se o NIC na fonte tiver um endereço IP dinâmico, o NIC no VM falhado também é dinâmico por padrão.<br/><br/> Pode modificá-lo para um endereço IP fixo, se necessário.
 Vários endereços IP | Não suportado | Quando falha um VM que tem um NIC com vários endereços IP, apenas o endereço IP primário do NIC na região de origem é mantido. Para atribuir vários endereços IP, pode adicionar VMs a um plano de [recuperação](recovery-plan-overview.md) e anexar um script para atribuir endereços IP adicionais ao plano, ou pode fazer a alteração manualmente ou com um script após a falha. 
-Gestor de Tráfego     | Suportado | Pode configurar regularmente o Traffic Manager para que o tráfego seja encaminhado para o ponto final da região de origem e para o ponto final na região alvo em caso de falha.
-DNS do Azure | Suportado |
-DNS Personalizado  | Suportado |
-Procuração não autenticada | Suportado | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
+Gestor de Tráfego     | Suportadas | Pode configurar regularmente o Traffic Manager para que o tráfego seja encaminhado para o ponto final da região de origem e para o ponto final na região alvo em caso de falha.
+DNS do Azure | Suportadas |
+DNS Personalizado  | Suportadas |
+Procuração não autenticada | Suportadas | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
 Procuração Autenticada | Não suportado | Se o VM estiver a utilizar um proxy autenticado para a conectividade de saída, não pode ser replicado utilizando a Recuperação do Site Azure.    
-VPN ligação site-to-site para as instalações<br/><br/>(com ou sem ExpressRoute)| Suportado | Certifique-se de que os UDRs e NSGs estão configurados de modo a que o tráfego de recuperação do site não seja encaminhado para as instalações. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
-Ligação VNET a VNET | Suportado | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  
-Pontos Finais de Serviço de Rede Virtual | Suportado | Se estiver a restringir o acesso à rede virtual às contas de armazenamento, certifique-se de que os serviços confiáveis da Microsoft têm acesso à conta de armazenamento.
-Redes aceleradas | Suportado | A ligação acelerada deve ser ativada no VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
+VPN ligação site-to-site para as instalações<br/><br/>(com ou sem ExpressRoute)| Suportadas | Certifique-se de que os UDRs e NSGs estão configurados de modo a que o tráfego de recuperação do site não seja encaminhado para as instalações. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
+Ligação VNET a VNET | Suportadas | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  
+Pontos Finais de Serviço de Rede Virtual | Suportadas | Se estiver a restringir o acesso à rede virtual às contas de armazenamento, certifique-se de que os serviços confiáveis da Microsoft têm acesso à conta de armazenamento.
+Redes aceleradas | Suportadas | A ligação acelerada deve ser ativada no VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Leia [orientação de networking](site-recovery-azure-to-azure-networking-guidance.md) para replicar VMs Azure.
 - Implementar a recuperação de desastres [replicando VMs Azure](site-recovery-azure-to-azure.md).

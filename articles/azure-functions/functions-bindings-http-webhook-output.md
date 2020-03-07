@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210908"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356793"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Ligações de saída do Azure Functions HTTP
 
@@ -27,8 +27,8 @@ A tabela que se segue explica as propriedades de configuração de ligação que
 
 |Propriedade  |Descrição  |
 |---------|---------|
-| **tipo** |deve ser definido para `http`. |
-| **direção** | deve ser definido para `out`. |
+| **tipo** |Deve ser definido para `http`. |
+| **direção** | Deve ser definido para `out`. |
 | **nome** | O nome variável utilizado no código de função para a resposta, ou `$return` utilizar o valor de devolução. |
 
 ## <a name="usage"></a>Utilização
