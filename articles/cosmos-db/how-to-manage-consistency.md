@@ -1,27 +1,27 @@
 ---
-title: Gerenciar a consistência no Azure Cosmos DB
-description: Saiba como configurar e gerenciar níveis de consistência no Azure Cosmos DB usando portal do Azure, SDK do .net, SDK do Java e vários outros SDKs
+title: Gerir a consistência em Azure Cosmos DB
+description: Saiba como configurar e gerir níveis de consistência em Azure Cosmos DB utilizando o portal Azure, .Net SDK, Java SDK e vários outros SDKs
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 68be15e1ffd9093ab67fc046edaad991d633ca7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445373"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385705"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
 
-Este artigo explica como gerenciar níveis de consistência no Azure Cosmos DB. Você aprende como configurar o nível de consistência padrão, substituir a consistência padrão, gerenciar manualmente os tokens de sessão e entender a métrica do PBS (Probabilistic Bounded desatualização).
+Este artigo explica como gerir os níveis de consistência no Azure Cosmos DB. Aprende-se a configurar o nível de consistência predefinido, a anular a consistência predefinida, a gerir manualmente os tokens da sessão e a compreender a métrica Probabilistly Bounded Staleness (PBS).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-the-default-consistency-level"></a>Configurar o nível de consistência predefinido
 
-O [nível de consistência padrão](consistency-levels.md) é o nível de consistência que os clientes usam por padrão. Os clientes sempre podem substituí-lo.
+O [nível de consistência padrão](consistency-levels.md) é o nível de consistência que os clientes usam por padrão. Os clientes podem sempre anular.
 
 ### <a name="cli"></a>CLI
 
@@ -35,7 +35,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-Este exemplo cria uma nova conta do Azure cosmos com várias regiões de gravação habilitadas, nas regiões leste dos EUA e oeste dos EUA. O nível de consistência padrão é definido como consistência da *sessão* .
+Este exemplo cria uma nova conta Azure Cosmos com múltiplas regiões de escrita habilitadas, nas regiões leste dos EUA e dos EUA Ocidentais. O nível de consistência padrão é definido para a consistência da *sessão.*
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -61,15 +61,15 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para exibir ou modificar o nível de consistência padrão, entre no portal do Azure. Localize sua conta do Azure Cosmos e abra o painel de **consistência padrão** . Selecione o nível de consistência desejado como o novo padrão e, em seguida, selecione **salvar**. O portal do Azure também fornece uma visualização de diferentes níveis de consistência com notas musicais. 
+Para visualizar ou modificar o nível de consistência predefinido, inscreva-se no portal Azure. Encontre a sua conta Azure Cosmos e abra o painel de **consistência Padrão.** Selecione o nível de consistência que deseja como o novo padrão e, em seguida, selecione **Guardar**. O portal Azure também fornece uma visualização de diferentes níveis de consistência com notas musicais. 
 
-![Menu de consistência no portal do Azure](./media/how-to-manage-consistency/consistency-settings.png)
+![Menu de consistência no portal Azure](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>Substituir o nível de consistência predefinido
 
-Os clientes podem substituir o nível de consistência predefinido que está definido pelo serviço. O nível de consistência pode ser definido em um por solicitação, que substitui o nível de consistência padrão definido no nível da conta.
+Os clientes podem substituir o nível de consistência predefinido que está definido pelo serviço. O nível de consistência pode ser definido a cada pedido, que sobrepõe o nível de consistência predefinido estabelecido ao nível da conta.
 
-### <a id="override-default-consistency-dotnet"></a>SDK DO .NET V2
+### <a id="override-default-consistency-dotnet"></a>.NET SDK V2
 
 ```csharp
 // Override consistency at the client level
@@ -81,7 +81,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a id="override-default-consistency-dotnet-v3"></a>SDK DO .NET V3
+### <a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
 // Override consistency at the request level via request options
@@ -140,11 +140,11 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 ## <a name="utilize-session-tokens"></a>Utilizar tokens de sessões
 
-Um dos níveis de consistência no Azure Cosmos DB é a consistência da *sessão* . Esse é o nível padrão aplicado às contas do cosmos por padrão. Ao trabalhar com consistência de *sessão* , o cliente usará um token de sessão internamente com cada solicitação de leitura/consulta para garantir que o nível de consistência definido seja mantido.
+Um dos níveis de consistência no Azure Cosmos DB é a consistência da *sessão.* Este é o nível padrão aplicado às contas da Cosmos por padrão. Ao trabalhar com a consistência da *Sessão,* o cliente utilizará um token de sessão internamente com cada pedido de leitura/consulta para garantir que o nível de consistência definido seja mantido.
 
-Para gerenciar os tokens de sessão manualmente, obtenha o token de sessão da resposta e defina-os por solicitação. Se você não precisar gerenciar os tokens de sessão manualmente, não precisará usar esses exemplos. O SDK mantém o controle de tokens de sessão automaticamente. Se você não definir o token de sessão manualmente, por padrão, o SDK usará o token de sessão mais recente.
+Para gerir os tokens da sessão manualmente, obtenha o token da sessão da resposta e despeça-os por pedido. Se não precisa de gerir os tokens da sessão manualmente, não precisa de usar estas amostras. O SDK acompanha automaticamente as fichas de sessão. Se não definir a sessão de forma manual, por padrão, o SDK utiliza o token de sessão mais recente.
 
-### <a id="utilize-session-tokens-dotnet"></a>SDK DO .NET V2
+### <a id="utilize-session-tokens-dotnet"></a>.NET SDK V2
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -157,7 +157,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a id="utilize-session-tokens-dotnet-v3"></a>SDK DO .NET V3
+### <a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -231,18 +231,18 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorizar a métrica de Estagnação Limitada Probabilisticamente (PBS)
 
-Como a eventualidade é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização em relação ao histórico e à hora da versão. A métrica do PBS (desatualização [**vinculada) do Probabilistic**](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de desatualização e a mostra como uma métrica. Para exibir a métrica do PBS, vá para sua conta do cosmos do Azure no portal do Azure. Abra o painel **métricas** e selecione a guia **consistência** . Examine o grafo chamado **probabilidade de leituras altamente consistentes com base em sua carga de trabalho (consulte PBS)** .
+Como eventual é a consistência? Para o caso médio, podemos oferecer limites de estagnação no que diz respeito à história e tempo da versão. A métrica [**Probabilistly Bounded Staleness (PBS)** ](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de estagnação e mostra-a como uma métrica. Para ver a métrica da PBS, vá à sua conta Azure Cosmos no portal Azure. Abra o painel de **Métricas** e selecione o separador **Consistência.** Veja o gráfico denominado **Probabilidade de leituras fortemente consistentes com base na sua carga de trabalho (ver PBS)** .
 
-![Grafo do PBS no portal do Azure](./media/how-to-manage-consistency/pbs-metric.png)
+![Gráfico PBS no portal Azure](./media/how-to-manage-consistency/pbs-metric.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre como gerenciar conflitos de dados ou vá para o próximo conceito de chave em Azure Cosmos DB. Consulte os seguintes artigos:
+Saiba mais sobre como gerir conflitos de dados, ou passar para o próximo conceito chave em Azure Cosmos DB. Consulte os seguintes artigos:
 
-* [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
-* [Gerenciar conflitos entre regiões](how-to-manage-conflicts.md)
+* [Níveis de consistência em Azure Cosmos DB](consistency-levels.md)
+* [Gerir conflitos entre regiões](how-to-manage-conflicts.md)
 * [Criação de partições e distribuição de dados](partition-data.md)
-* [Compensações de consistência no design de sistemas de bancos de dados distribuídos modernos](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Trocas de consistência no design moderno de sistemas de base de dados distribuídos](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Elevada disponibilidade](high-availability.md)
-* [SLA de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

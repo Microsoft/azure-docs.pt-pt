@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
 ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562365"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395063"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos Finais de Streaming (Origem) nos Serviços De Mídia Azure
 
@@ -150,7 +150,7 @@ Um único ponto final de streaming pode transmitir vídeos ao vivo e a pedido e 
 
     Considere um cenário em que os seus clientes estão principalmente a ver conteúdos ao vivo, mas apenas ocasionalmente estão a ver conteúdos on-demand e é servido a partir do mesmo Streaming Endpoint. O baixo uso de conteúdo sonoro ocuparia um espaço de cache que seria melhor guardado para o conteúdo ao vivo. Neste cenário, recomendamos servir os conteúdos ao vivo a partir de um Streaming Endpoint e o conteúdo de cauda longa de outro Streaming Endpoint. Isto melhorará o desempenho do conteúdo do evento ao vivo.
     
-## <a name="scaling-streaming-with-cdn"></a>Streaming de escala com CDN
+## <a name="scaling-streaming-with-cdn"></a>Dimensionar Transmissão em Fluxo com CDN
 
 Consulte os seguintes artigos:
 

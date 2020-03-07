@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: victorh
 ms.openlocfilehash: dc5a05c672df1b4f9db764b58db93279c4be7570
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227439"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359222"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 

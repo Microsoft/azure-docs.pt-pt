@@ -1,50 +1,50 @@
 ---
-title: Sobre repositórios & imagens
-description: Introdução aos principais conceitos de registros de contêiner do Azure, repositórios e imagens de contêiner.
+title: Sobre repositórios e imagens
+description: Introdução a conceitos-chave de registos de contentores Azure, repositórios e imagens de contentores.
 ms.topic: article
 ms.date: 09/10/2019
 ms.openlocfilehash: 9de0c344b226a0b13e76c7f02977ba3c91ba2d2a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455287"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362363"
 ---
-# <a name="about-registries-repositories-and-images"></a>Sobre registros, repositórios e imagens
+# <a name="about-registries-repositories-and-images"></a>Sobre registos, repositórios e imagens
 
-Este artigo apresenta os principais conceitos de registros de contêiner, repositórios e imagens de contêiner e artefatos relacionados. 
+Este artigo introduz os conceitos-chave de registos de contentores, repositórios e imagens de contentores e artefactos relacionados. 
 
 ## <a name="registry"></a>Registo
 
-Um *registro* de contêiner é um serviço que armazena e distribui imagens de contêiner. O Hub do Docker é um registro de contêiner público que dá suporte à comunidade de software livre e serve como um catálogo geral de imagens. O registro de contêiner do Azure fornece aos usuários o controle direto de suas imagens, com autenticação integrada, [replicação geográfica](container-registry-geo-replication.md) com suporte à distribuição global e confiabilidade para implantações de fechamento de rede, [configuração de rede virtual e firewall](container-registry-vnet.md), [bloqueio de marca](container-registry-image-lock.md)e muitos outros recursos avançados. 
+Um *registo* de contentores é um serviço que armazena e distribui imagens de contentores. Docker Hub é um registo público de contentores que apoia a comunidade de código aberto e serve como um catálogo geral de imagens. O Registo de Contentores Azure fornece aos utilizadores o controlo direto das suas imagens, com autenticação integrada, [geo-replicação](container-registry-geo-replication.md) que suporta a distribuição e fiabilidade globais para implementações de proximidade de rede, configuração de [rede virtual e firewall,](container-registry-vnet.md)bloqueio de [etiquetas,](container-registry-image-lock.md)e muitas outras funcionalidades melhoradas. 
 
-Além das imagens de contêiner do Docker, o registro de contêiner do Azure dá suporte a [artefatos de conteúdo](container-registry-image-formats.md) relacionados, incluindo formatos de imagem de OCI (Open container Initiative).
+Além das imagens de contentores do Docker, o Registo de Contentores Azure suporta artefactos de [conteúdo relacionados,](container-registry-image-formats.md) incluindo formatos de imagem open container initiative (OCI).
 
-## <a name="content-addressable-elements-of-an-artifact"></a>Elementos endereçáveis de conteúdo de um artefato
+## <a name="content-addressable-elements-of-an-artifact"></a>Elementos endereçáveis de conteúdo de um artefacto
 
-O endereço de um artefato em um registro de contêiner do Azure inclui os elementos a seguir. 
+O endereço de um artefacto num registo de contentores Azure inclui os seguintes elementos. 
 
 ```
 [loginUrl]/[namespace]/[artifact:][tag]
 ```
 
-* **LoginUrl** -o nome totalmente qualificado do host do registro. O host do registro em um registro de contêiner do Azure está no formato *myregistry*. azurecr.IO (todas as letras minúsculas). Você deve especificar o loginUrl ao usar o Docker ou outras ferramentas de cliente para efetuar pull ou enviar artefatos por push para um registro de contêiner do Azure. 
-* **namespace** – agrupamento lógico delimitado por barra de imagens ou artefatos relacionados – por exemplo, para um grupo de trabalho ou aplicativo
-* **artefato** -o nome de um repositório para uma imagem ou um artefato específico
-* **marca** -uma versão específica de uma imagem ou um artefato armazenado em um repositório
+* **loginUrl** - O nome totalmente qualificado do anfitrião do registo. O registo num registo de contentores Azure encontra-se no formato *myregistry*.azurecr.io (todos minúsculos). Deve especificar o loginUrl ao utilizar o Docker ou outras ferramentas de cliente para puxar ou empurrar artefactos para um registo de contentores Azure. 
+* **espaço de nome** - Agrupamento lógico de slash-delimitado de imagens ou artefactos relacionados - por exemplo, para um grupo de trabalho ou app
+* **artefacto** - O nome de um repositório para uma determinada imagem ou artefacto
+* **etiqueta** - Uma versão específica de uma imagem ou artefacto armazenado num repositório
 
 
-Por exemplo, o nome completo de uma imagem em um registro de contêiner do Azure pode parecer com o seguinte:
+Por exemplo, o nome completo de uma imagem num registo de contentores Azure pode parecer:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
 ```
 
-Consulte as seções a seguir para obter detalhes sobre esses elementos.
+Consulte as seguintes secções para obter detalhes sobre estes elementos.
 
-## <a name="repository-name"></a>Nome do repositório
+## <a name="repository-name"></a>Nome repositório
 
-Os registros de contêiner gerenciam *repositórios*, coleções de imagens de contêiner ou outros artefatos com o mesmo nome, mas marcas diferentes. Por exemplo, as três imagens a seguir estão no repositório "ACR-HelloWorld":
+Os registos de contentores gerem *repositórios,* coleções de imagens de contentores ou outros artefactos com o mesmo nome, mas etiquetas diferentes. Por exemplo, as três seguintes imagens estão no repositório "acr-helloworld":
 
 ```
 acr-helloworld:latest
@@ -52,7 +52,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-Os nomes de repositório também podem incluir [namespaces](container-registry-best-practices.md#repository-namespaces). Os namespaces permitem que você agrupe imagens usando nomes de repositório delimitados por barra, por exemplo:
+Os nomes de repositórios também podem incluir espaços de [nome.](container-registry-best-practices.md#repository-namespaces) Os espaços de nome permitem-lhe agrupar imagens utilizando nomes de repositórios delimitados por corte, por exemplo:
 
 ```
 marketing/campaign10-18/web:v2
@@ -64,33 +64,33 @@ product-returns/legacy-integrator:20180715
 
 ## <a name="image"></a>Imagem
 
-Uma imagem de contêiner ou outro artefato dentro de um registro é associado a uma ou mais marcas, tem uma ou mais camadas e é identificado por um manifesto. Entender como esses componentes se relacionam entre si pode ajudá-lo a gerenciar seu registro com eficiência.
+Uma imagem de recipiente ou outro artefacto dentro de um registo está associado a uma ou mais etiquetas, tem uma ou mais camadas, e é identificado por um manifesto. Compreender como estes componentes se relacionam uns com os outros pode ajudá-lo a gerir eficazmente o seu registo.
 
 ### <a name="tag"></a>Etiqueta
 
-A *marca* para uma imagem ou outro artefato especifica sua versão. Um único artefato dentro de um repositório pode ser atribuído a uma ou várias marcas e também pode ser "não marcado". Ou seja, você pode excluir todas as marcas de uma imagem, enquanto os dados da imagem (suas camadas) permanecem no registro.
+A *etiqueta* para uma imagem ou outro artefacto especifica a sua versão. Um único artefacto dentro de um repositório pode ser atribuído uma ou muitas etiquetas, e também pode ser "não marcado". Ou seja, pode eliminar todas as etiquetas de uma imagem, enquanto os dados da imagem (as suas camadas) permanecem no registo.
 
-O repositório (ou repositório e namespace) mais uma marca define o nome de uma imagem. Você pode enviar e extrair uma imagem especificando seu nome na operação de envio por Push ou pull.
+O repositório (ou repositório e espaço de nome) mais uma etiqueta define o nome de uma imagem. Pode empurrar e puxar uma imagem especificando o seu nome na operação de empurrar ou puxar.
 
-A maneira como você marca as imagens de contêiner é guiada por seus cenários para desenvolver ou implantá-las. Por exemplo, marcas estáveis são recomendadas para manter suas imagens base e marcas exclusivas para a implantação de imagens. Para obter mais informações, consulte [recomendações para marcação e controle de versão de imagens de contêiner](container-registry-image-tag-version.md).
+A forma como marca as imagens do contentor é guiada pelos seus cenários para as desenvolver ou implementar. Por exemplo, são recomendadas etiquetas estáveis para manter as suas imagens base e etiquetas únicas para a implementação de imagens. Para mais informações, consulte [recomendações para marcar e verter imagens](container-registry-image-tag-version.md)de contentores .
 
 ### <a name="layer"></a>Camada
 
-As imagens de contêiner são constituídas de uma ou mais *camadas*, cada uma correspondendo a uma linha no Dockerfile que define a imagem. As imagens em um registro compartilham camadas comuns, aumentando a eficiência do armazenamento. Por exemplo, várias imagens em repositórios diferentes podem compartilhar a mesma camada base do Alpine Linux, mas apenas uma cópia dessa camada é armazenada no registro.
+As imagens do recipiente são compostas por uma ou mais *camadas,* cada uma correspondendo a uma linha no Dockerfile que define a imagem. As imagens num registo partilham camadas comuns, aumentando a eficiência de armazenamento. Por exemplo, várias imagens em diferentes repositórios podem partilhar a mesma camada base alpine Linux, mas apenas uma cópia dessa camada é armazenada no registo.
 
-O compartilhamento de camada também otimiza a distribuição de camadas para nós com várias imagens compartilhando camadas comuns. Por exemplo, se uma imagem que já está em um nó incluir a camada Alpine Linux como base, a extração subsequente de uma imagem diferente que faz referência à mesma camada não transferirá a camada para o nó. Em vez disso, ele faz referência à camada já existente no nó.
+A partilha de camadas também otimiza a distribuição da camada para os nódosos com múltiplas imagens que partilham camadas comuns. Por exemplo, se uma imagem já em um nó inclui a camada Alpine Linux como base, o puxão subsequente de uma imagem diferente referenciando a mesma camada não transfere a camada para o nó. Em vez disso, refere a camada já existente no nó.
 
-Para fornecer isolamento seguro e proteção contra possíveis manipulações de camada, as camadas não são compartilhadas entre registros.
+Para proporcionar isolamento seguro e proteção contra a potencial manipulação da camada, as camadas não são partilhadas através dos registos.
 
 ### <a name="manifest"></a>Manifesto
 
-Cada imagem de contêiner ou artefato enviado por push para um registro de contêiner é associado a um *manifesto*. O manifesto, gerado pelo registro quando a imagem é enviada por push, identifica exclusivamente a imagem e especifica suas camadas. Você pode listar os manifestos para um repositório com o comando de CLI do Azure [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests]:
+Cada imagem ou artefacto do recipiente empurrado para um registo de contentores está associado a um *manifesto*. O manifesto, gerado pelo registo quando a imagem é empurrada, identifica exclusivamente a imagem e especifica as suas camadas. Pode enumerar os manifestos para um repositório com o comando Azure CLI [az repositório show-manifests:][az-acr-repository-show-manifests]
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
 ```
 
-Por exemplo, liste os manifestos para o repositório "ACR-HelloWorld":
+Por exemplo, enumerar os manifestos para o repositório "acr-helloworld":
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -120,24 +120,24 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-### <a name="manifest-digest"></a>Resumo do manifesto
+### <a name="manifest-digest"></a>Manifesta digestão
 
-Os manifestos são identificados por um hash SHA-256 exclusivo ou um *Resumo de manifesto*. Cada imagem ou artefato – se marcado ou não, é identificado por seu resumo. O valor de Digest é exclusivo mesmo que os dados da camada da imagem sejam idênticos aos de outra imagem. Esse mecanismo é o que permite que você envie por push imagens marcadas de forma idêntica a um registro. Por exemplo, você pode enviar por push `myimage:latest` repetidamente para o registro sem erro porque cada imagem é identificada por seu resumo exclusivo.
+Os manifestos são identificados por um hash SHA-256 único, ou *manifesta digestão.* Cada imagem ou artefacto- quer marcado ou não - é identificado pela sua digestão. O valor de digestão é único mesmo que os dados da camada da imagem sejam idênticos aos de outra imagem. Este mecanismo é o que lhe permite empurrar repetidamente imagens marcadas de forma idêntica para um registo. Por exemplo, pode empurrar repetidamente `myimage:latest` para o seu registo sem erros porque cada imagem é identificada pela sua digestão única.
 
-Você pode extrair uma imagem de um registro especificando seu resumo na operação de pull. Alguns sistemas podem ser configurados para efetuar pull por Resumo porque garantem a versão da imagem que está sendo puxada, mesmo se uma imagem com marca idêntica for subseqüentemente enviada ao registro.
+Pode retirar uma imagem de um registo especificando a sua digestão na operação de puxar. Alguns sistemas podem ser configurados para puxar por digestão porque garante que a versão de imagem está a ser puxada, mesmo que uma imagem com etiqueta idêntica seja posteriormente empurrada para o registo.
 
-Por exemplo, receba uma imagem do repositório "ACR-HelloWorld" pelo resumo do manifesto:
+Por exemplo, puxe uma imagem do repositório "acr-helloworld" através da digestão manifesta:
 
 ```console
 $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
 ```
 
 > [!IMPORTANT]
-> Se você enviar por push imagens modificadas com marcas idênticas, poderá criar imagens órfãs – imagens não marcadas, mas ainda consumir espaço no registro. As imagens não marcadas não são mostradas no CLI do Azure ou no portal do Azure quando você lista ou exibe imagens por marca. No entanto, suas camadas ainda existem e consomem espaço no registro. A exclusão de uma imagem não marcada libera o espaço do registro quando o manifesto é o único, ou o último, apontando para uma camada específica. Para obter informações sobre como liberar espaço usado por imagens não marcadas, consulte [Excluir imagens de contêiner no registro de contêiner do Azure](container-registry-delete.md).
+> Se empurrar repetidamente imagens modificadas com etiquetas idênticas, poderá criar imagens órfãs-- imagens que não estão marcadas, mas que ainda consomem espaço no seu registo. As imagens não marcadas não são mostradas no Azure CLI ou no portal Azure quando lista ou vê imagens por etiqueta. No entanto, as suas camadas ainda existem e consomem espaço no seu registo. A libertação de uma imagem não marcada liberta espaço de registo quando o manifesto é o único, ou o último, apontando para uma determinada camada. Para obter informações sobre a libertação do espaço utilizado por imagens não marcadas, consulte Apagar imagens de contentores no Registo de [Contentores de Azure](container-registry-delete.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o [armazenamento de imagem](container-registry-storage.md) e os formatos de [conteúdo com suporte](container-registry-image-formats.md) no registro de contêiner do Azure.
+Saiba mais sobre [o armazenamento de imagem](container-registry-storage.md) e [formatos de conteúdo suportado](container-registry-image-formats.md) no Registo de Contentores Azure.
 
 <!-- LINKS - Internal -->
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests

@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
 ms.openlocfilehash: 08a1ca0c85d69d1a5262f1dcac5d46fb82b1c22b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191797"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78385100"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Crie um modelo de construtor de imagem Azure 
 

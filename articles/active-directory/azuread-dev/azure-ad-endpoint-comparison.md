@@ -12,14 +12,14 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.openlocfilehash: 56a5221504a3905855fa5dc713707f34ae357aea
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: MT
+ms.openlocfilehash: d910a76397a40a14d960b59f60561cbee470f5c4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165140"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357223"
 ---
-# <a name="why-update-to-microsoft-identity-platform-v20"></a>Porquê atualizar para a plataforma de identidade da Microsoft (v2.0)?
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>Porquê atualizar a plataforma de identidade da Microsoft (v2.0)?
 
 Ao desenvolver uma nova aplicação, é importante conhecer as diferenças entre a plataforma de identidade da Microsoft (v2.0) e os pontos finais do Azure Ative Directory (v1.0). Este artigo aborda as principais diferenças entre os pontos finais e algumas limitações existentes para a plataforma de identidade da Microsoft.
 
@@ -34,7 +34,7 @@ Ao desenvolver uma nova aplicação, é importante conhecer as diferenças entre
 * O ponto final da plataforma de identidade da Microsoft permite que contas de trabalho e escola a partir de contas Da AD E pessoais da Microsoft (MSA), como hotmail.com, outlook.com e msn.com, se inscrevam.
 * Ambos os pontos finais também aceitam inscrições de *[utilizadores convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório Azure AD para aplicações configuradas como *[inquilino único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicações *multi-arrendatárias* configuradas para apontar para o ponto final específico do inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-O ponto final da plataforma de identidade da Microsoft permite-lhe escrever apps que aceitam inscrições a partir de contas pessoais da Microsoft e contas de trabalho e escola. Isto dá-lhe a capacidade de escrever a sua app completamente agnóstica. Por exemplo, se a sua aplicação ligar para o [Microsoft Graph,](https://graph.microsoft.io)alguma funcionalidade adicional e dados estarão disponíveis para contas de trabalho, como os seus sites do SharePoint ou dados de diretório. Mas para muitas ações, como ler o [correio de um utilizador,](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages)o mesmo código pode aceder ao e-mail para contas pessoais e laborais e escolares.
+O ponto final da plataforma de identidade da Microsoft permite-lhe escrever apps que aceitam inscrições a partir de contas pessoais da Microsoft e contas de trabalho e escola. Isto dá-lhe a capacidade de escrever a sua app completamente agnóstica. Por exemplo, se a sua aplicação ligar para o [Microsoft Graph,](https://graph.microsoft.io)alguma funcionalidade adicional e dados estarão disponíveis para contas de trabalho, como os seus sites do SharePoint ou dados de diretório. Mas para muitas ações, como ler o [correio de um utilizador,](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0)o mesmo código pode aceder ao e-mail para contas pessoais e laborais e escolares.
 
 Para o ponto final da plataforma de identidade microsoft, você pode usar a Microsoft Authentication Library (MSAL) para ter acesso aos mundos do consumidor, educacional e empresarial. O ponto final da Azure AD v1.0 aceita inscrições apenas a partir de contas de trabalho e escolares.
 
@@ -70,7 +70,7 @@ Para o ponto final v1.0, um pedido de autorização oAuth 2.0 para Azure AD pode
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&resource=https://graph.windows.net/
+&resource=https://graph.microsoft.com/
 ...
 ```
 
@@ -81,7 +81,7 @@ Para aplicações que utilizem o ponto final da plataforma de identidade da Micr
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https://graph.windows.net/directory.read%20https://graph.windows.net/directory.write
+&scope=https://graph.microsoft.com/directory.read%20https://graph.microsoft.com/directory.write
 ...
 ```
 

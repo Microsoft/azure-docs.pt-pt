@@ -1,7 +1,7 @@
 ---
-title: Conversão de texto em fala-serviço de fala
+title: Texto-a-voz - Serviço de fala
 titleSuffix: Azure Cognitive Services
-description: O recurso de conversão de texto em fala no serviço de fala permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada semelhante à humana. Escolha vozes predefinidas ou crie sua própria voz personalizada.
+description: A funcionalidade de texto-a-fala no serviço Da fala permite que as suas aplicações, ferramentas ou dispositivos convertam texto em discurso sintetizado natural como o humano. Escolha vozes predefinidas ou crie a sua própria voz personalizada.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,73 +11,73 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: erhopf
 ms.openlocfilehash: d076d2520bda4d6209fbdd991df57c4eedaa3938
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379883"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78394795"
 ---
 # <a name="what-is-text-to-speech"></a>O que é a conversão de texto em voz?
 
-A conversão de texto em fala do serviço de fala permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada por meio do tipo humano. Escolha entre vozes padrão e neural ou crie uma voz personalizada exclusiva para seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, e 5 vozes neurais estão disponíveis em um número selecionado de idiomas e localidades. Para obter uma lista completa de vozes, idiomas e localidades com suporte, consulte [idiomas com suporte](language-support.md#text-to-speech).
+O texto-a-voz do serviço speech permite que as suas aplicações, ferramentas ou dispositivos convertam texto em discurso sintetizado semelhante ao humano. Escolha entre vozes padrão e neurais, ou crie uma voz personalizada única para o seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, e 5 vozes neurais estão disponíveis em um número selecionado de idiomas e locais. Para uma lista completa de vozes, línguas e locais apoiados, consulte [línguas apoiadas.](language-support.md#text-to-speech)
 
 > [!NOTE]
-> Fala do Bing foi encerrado em 15 de outubro de 2019. Se seus aplicativos, ferramentas ou produtos estiverem usando o Fala do Bing APIs ou Fala Personalizada, criamos guias para ajudá-lo a migrar para o serviço de fala.
-> - [Migrar do Fala do Bing para o serviço de fala](how-to-migrate-from-bing-speech.md)
+> Bing Speech foi desativado a 15 de outubro de 2019. Se as suas aplicações, ferramentas ou produtos estiverem usando as APIs ou Discurso Personalizado do Bing Speech, criamos guias para ajudá-lo a migrar para o serviço de Fala.
+> - [Migrar do Discurso de Bing para o serviço de discurso](how-to-migrate-from-bing-speech.md)
 
-## <a name="core-features"></a>Principais recursos 
+## <a name="core-features"></a>Características do núcleo 
 
-* Síntese de fala – use o [SDK de fala](quickstarts/text-to-speech-audio-file.md) ou a [API REST](rest-text-to-speech.md) para converter conversão de texto em fala usando vozes padrão, neural ou personalizadas.
+* Síntese da fala - Use o [SDK](quickstarts/text-to-speech-audio-file.md) de Fala ou [a API DO REST](rest-text-to-speech.md) para converter texto-a-fala usando vozes padrão, neurais ou personalizadas.
 
-* Síntese assíncrona de longo áudio – Use a [API de áudio longo](long-audio-api.md) para sintetizar de forma assíncrona arquivos de texto para fala por mais de 10 minutos (por exemplo, livros de áudio ou palestras). Ao contrário da síntese executada usando o SDK de fala ou a API REST de fala em texto, as respostas não são retornadas em tempo real. A expectativa é que as solicitações sejam enviadas de forma assíncrona, que as respostas sejam sondadas e que o áudio sintetizado seja baixado quando disponibilizado a partir do serviço. Somente as vozes neurais têm suporte.
+* Síntese assíncrona de áudio longo - Utilize a [API](long-audio-api.md) de áudio longo para sincronizar sincronicamente ficheiros de texto-a-fala superiores a 10 minutos (por exemplo, livros de áudio ou palestras). Ao contrário da síntese realizada usando o SDK do Discurso ou a API do REST de fala-a-texto, as respostas não são devolvidas em tempo real. A expectativa é que os pedidos sejam enviados assincronicamente, as respostas são inquiridas e que o áudio sintetizado é descarregado quando disponibilizado a partir do serviço. Apenas vozes neurais são apoiadas.
 
-* Vozes padrão-criadas usando as técnicas de síntese paramétricas estatística e/ou síntese de concatenação. Essas vozes são altamente inteligível e sólidas. Você pode facilmente permitir que seus aplicativos falem em mais de 45 idiomas, com uma ampla gama de opções de voz. Essas vozes fornecem alta precisão de pronúncia, incluindo suporte para abreviações, expansões de acrônimo, interpretações de data/hora, telefones e muito mais. Para obter uma lista completa de vozes padrão, consulte [idiomas com suporte](language-support.md#text-to-speech).
+* Vozes padrão - Criadas utilizando técnicas de síntese paramétrica estatística e/ou síntese de concatenação. Estas vozes são altamente inteligíveis e sãs naturais. Pode facilmente permitir que as suas aplicações falem em mais de 45 línguas, com uma ampla gama de opções de voz. Estas vozes fornecem uma elevada precisão de pronúncia, incluindo suporte para abreviaturas, expansões de siglas, interpretações data/hora, polífos e muito mais. Para obter uma lista completa de vozes padrão, consulte [línguas apoiadas](language-support.md#text-to-speech).
 
-* Vozes neurais-as redes neurais profundas são usadas para superar os limites da síntese de fala tradicional com relação a estresse e intonation na linguagem falada. A previsão de Prosody e a síntese de voz são executadas simultaneamente, o que resulta em saídas mais suaves e de som natural. As vozes neurais podem ser usadas para fazer interações com os assistentes de voz e chatbots mais naturais e envolventes, converter textos digitais, como livros eletrônicos em Audiobooks, e aprimorar os sistemas de navegação no carro. Com a Prosody natural humana e a clara Articulation de palavras, as vozes neurais reduzem significativamente a escuta de fadiga quando você interage com sistemas de ia. Para obter uma lista completa de vozes neurais, consulte [idiomas com suporte](language-support.md#text-to-speech).
+* Vozes neurais - Redes neuronais profundas são usadas para ultrapassar os limites da síntese tradicional da fala no que diz respeito ao stress e entoação na língua falada. A previsão da prosody e a síntese de voz são realizadas simultaneamente, o que resulta em saídas mais fluidas e naturais. As vozes neurais podem ser usadas para tornar as interações com chatbots e assistentes de voz mais naturais e envolventes, converter textos digitais como livros eletrónicos em audiolivros e melhorar os sistemas de navegação no carro. Com a prosódia natural humana e a clara articulação das palavras, as vozes neurais reduzem significativamente a fadiga auditiva quando interagecom sistemas de IA. Para obter uma lista completa de vozes neurais, consulte [línguas apoiadas.](language-support.md#text-to-speech)
 
-* Linguagem de marcação de síntese de fala (SSML) – uma linguagem de marcação baseada em XML usada para personalizar saídas de fala para texto. Com o SSML, você pode ajustar o timbre, adicionar pausas, melhorar a pronúncia, acelerar ou diminuir a taxa de fala, aumentar ou diminuir o volume e atribuir várias vozes a um único documento. Consulte [SSML](speech-synthesis-markup.md).
+* Linguagem de marcação da síntese da fala (SSML) - Uma linguagem de marcação baseada em XML usada para personalizar saídas de fala-a-texto. Com o SSML, pode ajustar o pitch, adicionar pausas, melhorar a pronúncia, acelerar ou abrandar a taxa de fala, aumentar ou diminuir o volume e atribuir várias vozes a um único documento. Ver [SSML](speech-synthesis-markup.md).
 
-## <a name="get-started"></a>Começar
+## <a name="get-started"></a>Introdução
 
-O serviço de conversão de texto em fala está disponível por meio do [SDK de fala](speech-sdk.md). Há vários cenários comuns disponíveis como guias de início rápido, em várias linguagens e plataformas:
+O serviço de texto-a-fala está disponível através do [SDK](speech-sdk.md)do Discurso . Existem vários cenários comuns disponíveis como quickstarts, em vários idiomas e plataformas:
 
-* [Sintetizar a fala em um arquivo de áudio](quickstarts/text-to-speech-audio-file.md)
-* [Sintetizar a fala para um palestrante](quickstarts/text-to-speech.md)
-* [Sintetizar de forma assíncrona o áudio de formato longo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+* [Sintetizar o discurso num ficheiro áudio](quickstarts/text-to-speech-audio-file.md)
+* [Sintetizar o discurso a um orador](quickstarts/text-to-speech.md)
+* [Sincronicamente sintetizam áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 
-Se preferir, o serviço de conversão de texto em fala pode ser acessado via [REST](rest-text-to-speech.md).
+Se preferir, o serviço de texto à fala é acessível via [REST](rest-text-to-speech.md).
 
 ## <a name="sample-code"></a>Código de exemplo
 
-O código de exemplo para conversão de texto em fala está disponível no GitHub. Esses exemplos abordam a conversão de texto em fala nas linguagens de programação mais populares.
+O código de amostra para texto-a-fala está disponível no GitHub. Estas amostras cobrem a conversão texto-a-fala nas línguas de programação mais populares.
 
-- [Exemplos de conversão de texto em fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-- [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+- [Amostras de texto para a fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+- [Amostras de texto para a fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="customization"></a>Personalização 
 
-Além das vozes padrão e neural, você pode criar e ajustar vozes personalizadas exclusivas para seu produto ou marca. Tudo o que é necessário para começar são alguns arquivos de áudio e as transcrições associadas. Para obter mais informações, consulte Introdução [à voz personalizada](how-to-custom-voice.md)
+Além de vozes standard e neurais, pode criar e afinar vozes personalizadas exclusivas do seu produto ou marca. Tudo o que é preciso para começar são um punhado de ficheiros áudio e as transcrições associadas. Para mais informações, consulte [Começar com Voz Personalizada](how-to-custom-voice.md)
 
 ## <a name="pricing-note"></a>Nota de preços
 
-Ao usar o serviço de conversão de texto em fala, você será cobrado por cada caractere convertido em fala, incluindo pontuação. Embora o documento SSML em si não seja Faturável, elementos opcionais usados para ajustar como o texto é convertido em fala, como fonemas e pitch, são contados como caracteres faturáveis. Aqui está uma lista do que é Faturável:
+Ao utilizar o serviço de texto para a fala, é cobrado por cada personagem que é convertido em discurso, incluindo pontuação. Embora o documento SSML em si não seja faturado, os elementos opcionais que são usados para ajustar a forma como o texto é convertido para a fala, como fonés e pitch, são contados como caracteres de billable. Aqui está uma lista do que é cobrado:
 
-- Texto passado para o serviço de conversão de texto em fala no corpo de SSML da solicitação
-- Toda a marcação dentro do campo de texto do corpo da solicitação no formato SSML, com exceção das marcas `<speak>` e `<voice>`
-- Letras, pontuação, espaços, tabulações, marcação e todos os caracteres de espaço em branco
-- Todos os pontos de código definidos em Unicode
+- Texto transmitido para o serviço de texto-a-fala no corpo SSML do pedido
+- Todas as marcações no campo de texto do organismo de pedido no formato SSML, com exceção das etiquetas `<speak>` e `<voice>`
+- Letras, pontuação, espaços, separadores, marcação, e todos os caracteres do espaço branco
+- Cada ponto de código definido no Unicode
 
-Para obter informações detalhadas, consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+Para obter informações detalhadas, consulte [O Preço](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
-> Cada caractere de idioma chinês, japonês e coreano é contado como dois caracteres para cobrança.
+> Cada personagem de língua chinesa, japonesa e coreana é contada como dois caracteres para faturação.
 
-## <a name="reference-docs"></a>Documentos de referência
+## <a name="reference-docs"></a>Doutorados de referência
 
 - [SDK de Voz](speech-sdk.md)
-- [API REST: conversão de texto em fala](rest-text-to-speech.md)
+- [REST API: Texto-a-falar](rest-text-to-speech.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Obtenha uma assinatura gratuita do serviço de fala](get-started.md)
-- [Obtenha o SDK de fala](speech-sdk.md)
+- [Obtenha uma subscrição gratuita do serviço De fala](get-started.md)
+- [Obtenha o SDK do Discurso](speech-sdk.md)
