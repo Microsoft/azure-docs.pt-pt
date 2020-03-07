@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
 ms.openlocfilehash: 9c907052f10fa7d1cfd1ff79e981fdccef874ee5
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367332"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383642"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
 

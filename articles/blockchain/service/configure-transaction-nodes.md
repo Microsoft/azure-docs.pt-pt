@@ -1,137 +1,137 @@
 ---
-title: Configurar nós de transação do serviço Blockchain do Azure
-description: Como configurar os nós de transação do serviço Blockchain do Azure
+title: Configure Azure Blockchain Service nódosos de transação
+description: Como configurar os nódosos de transação do Serviço Blockchain Azure
 ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326310"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395244"
 ---
-# <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar nós de transação do serviço Blockchain do Azure
+# <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configure Azure Blockchain Service nódosos de transação
 
-Nós de transação são usados para enviar transações blockchain para o serviço Blockchain do Azure por meio de um ponto de extremidade público. O nó de transação padrão contém a chave privada da conta Ethereum registrada no blockchain e, como tal, não pode ser excluída.
+Os nódosos de transação são usados para enviar transações blockchain para o Serviço Blockchain Azure através de um ponto final público. O nó de transação predefinido contém a chave privada da conta Ethereum registada na blockchain, e como tal não pode ser eliminada.
 
-Para exibir os detalhes do nó de transação padrão:
+Para ver os detalhes do nó de transação por defeito:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue até o membro do serviço Blockchain do Azure. Selecione **nós de transação**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Navegue para o seu membro do Serviço Azure Blockchain. Selecione **os nódosos de transação**.
 
-    ![Selecionar nó de transação padrão](./media/configure-transaction-nodes/nodes.png)
+    ![Selecione o nó de transações por defeito](./media/configure-transaction-nodes/nodes.png)
 
-    Os detalhes da visão geral incluem endereços de ponto de extremidade públicos e chave pública.
+    Os detalhes da visão geral incluem endereços finais públicos e chave pública.
 
 ## <a name="create-transaction-node"></a>Criar nó de transação
 
-Você pode adicionar até nove nós de transação adicionais ao seu membro blockchain, para um total de 10 nós de transação. Ao adicionar nós de transação, você pode aumentar a escalabilidade ou distribuir a carga. Por exemplo, você poderia ter um ponto de extremidade de nó de transação para diferentes aplicativos cliente.
+Pode adicionar até nove nós de transação adicionais ao seu membro blockchain, num total de 10 nós de transação. Adicionando nós de transação, pode aumentar a escalabilidade ou distribuir carga. Por exemplo, você poderia ter um ponto final de nó de transação para diferentes aplicações de clientes.
 
 Para adicionar um nó de transação:
 
-1. Na portal do Azure, navegue até o membro do serviço Blockchain do Azure e selecione **nós de transação > adicionar**.
-1. Conclua as configurações para o novo nó de transação.
+1. No portal Azure, navegue para o seu membro do Serviço Azure Blockchain e selecione os nós de **transação > Add**.
+1. Preencha as definições para o novo nó de transações.
 
     ![Adicionar nó de transação](./media/configure-transaction-nodes/add-node.png)
 
     | Definição | Descrição |
     |---------|-------------|
-    | Nome | Nome do nó de transação. O nome é usado para criar o endereço DNS para o ponto de extremidade do nó de transação. Por exemplo, `newnode-myblockchainmember.blockchain.azure.com`. O nome do nó não pode ser alterado depois de ser criado. |
-    | Palavra-passe | Defina uma senha forte. Use a senha para acessar o ponto de extremidade do nó de transação com a autenticação básica.
+    | Nome | Nome do nó de transações. O nome é usado para criar o endereço DNS para o ponto final do nó de transação. Por exemplo, `newnode-myblockchainmember.blockchain.azure.com`. O nome do nó não pode ser alterado uma vez que é criado. |
+    | Palavra-passe | Detete uma senha forte. Utilize a palavra-passe para aceder ao ponto final do nó de transação com autenticação básica.
 
 1. Selecione **Criar**.
 
-    O provisionamento de um novo nó de transação leva cerca de 10 minutos. Os nós de transação adicionais incorrem no custo. Para obter mais informações sobre os custos, consulte [preços do Azure](https://aka.ms/ABSPricing).
+    Providenciar um novo nó de transações leva cerca de 10 minutos. Os nódos de transação adicionais incorrem em custos. Para obter mais informações sobre os custos, consulte [os preços do Azure.](https://aka.ms/ABSPricing)
 
 ## <a name="endpoints"></a>Pontos Finais
 
-Os nós de transação têm um nome DNS exclusivo e pontos de extremidade públicos.
+Os nódosos de transações têm um nome dNS único e pontos finais públicos.
 
-Para exibir os detalhes do ponto de extremidade de um nó de transação:
+Para ver os detalhes finais de um nó de transações:
 
-1. Na portal do Azure, navegue até um dos nós de transação de membro do serviço Blockchain do Azure e selecione **visão geral**.
+1. No portal Azure, navegue para um dos seus nós de transação do Serviço Azure Blockchain e selecione **Overview**.
 
     ![Pontos Finais](./media/configure-transaction-nodes/endpoints.png)
 
-Os pontos de extremidade do nó de transação são seguros e exigem autenticação. Você pode se conectar a um ponto de extremidade de transação usando a autenticação do Azure AD, autenticação básica de HTTPS e usando uma chave de acesso sobre HTTPS ou WebSocket sobre SSL.
+Os pontos finais do nó de transação são seguros e requerem autenticação. Pode ligar-se a um ponto final de transação utilizando a autenticação Azure AD, autenticação básica HTTPS e utilizando uma chave de acesso através de HTTPS ou Websocket através do SSL.
 
-### <a name="azure-active-directory-access-control"></a>Controlo de acesso do Azure Active Directory
+### <a name="azure-active-directory-access-control"></a>Controlo de acesso ao Diretório Ativo Azure
 
-Os pontos de extremidade do nó de transação do serviço Blockchain do Azure dão suporte à autenticação do Azure Active Directory (Azure AD). Você pode conceder acesso de usuário, grupo e entidade de serviço do Azure AD ao seu ponto de extremidade.
+O nó de transações do Azure Blockchain Service suporta a autenticação do Azure Ative Directory (Azure AD). Pode conceder ao utilizador, grupo e ao serviço do Azure AD o acesso principal ao seu ponto final.
 
-Para conceder o controle de acesso do AD do Azure ao seu ponto de extremidade:
+Para conceder o controlo de acesso da AD Azure ao seu ponto final:
 
-1. Na portal do Azure, navegue até o membro do serviço Blockchain do Azure e selecione **nós de transação > controle de acesso (iam) > adicionar > atribuição de função adicionar**.
-1. Crie uma nova atribuição de função para um usuário, grupo ou entidade de serviço (funções de aplicativo).
+1. No portal Azure, navegue para o seu membro do Serviço Azure Blockchain e selecione Os nós de **transação > Controlo de acesso (IAM) > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add > Add &**
+1. Criar uma nova atribuição de funções para um utilizador, grupo ou diretor de serviço (funções de aplicação).
 
-    ![Adicionar função IAM](./media/configure-transaction-nodes/add-role.png)
+    ![Adicionar papel IAM](./media/configure-transaction-nodes/add-role.png)
 
     | Definição | Ação |
     |---------|-------------|
-    | Função | Selecione **proprietário**, **colaborador**ou **leitor**.
-    | Atribuir acesso a | Selecione **usuário, grupo ou entidade de serviço do Azure ad**.
-    | Selecione | Pesquise pelo usuário, grupo ou entidade de serviço que você deseja adicionar.
+    | Função | Selecione **Proprietário,** **Colaborador**ou **Leitor**.
+    | Atribuir acesso a | Selecione utilizador, grupo ou diretor de **serviço Azure AD**.
+    | Selecione | Procure o utilizador, grupo ou diretor de serviço que pretende adicionar.
 
-1. Selecione **salvar** para adicionar a atribuição de função.
+1. Selecione **Guardar** para adicionar a atribuição de funções.
 
-Para obter mais informações sobre o controle de acesso do AD do Azure, consulte [gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+Para obter mais informações sobre o controlo de acesso da AD Azure, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC e o portal Azure](../../role-based-access-control/role-assignments-portal.md)
 
-Para obter detalhes sobre como se conectar usando a autenticação do Azure AD, consulte [conectar-se ao seu nó usando a autenticação do AAD](configure-aad.md).
+Para mais informações sobre como se conectar utilizando a autenticação Azure AD, consulte [a ligação ao seu nó utilizando a autenticação AAD](configure-aad.md).
 
 ### <a name="basic-authentication"></a>Autenticação básica
 
-Para autenticação básica HTTPS, as credenciais de nome de usuário e senha são passadas no cabeçalho HTTPS da solicitação para o ponto de extremidade.
+Para autenticação básica HTTPS, o nome do utilizador e as credenciais de palavra-passe são passados no cabeçalho HTTPS do pedido para o ponto final.
 
-Você pode exibir os detalhes do ponto de extremidade de autenticação básica de um nó de transação no portal do Azure. Navegue até um dos nós de transação de membro do serviço Blockchain do Azure e selecione **autenticação básica** em configurações.
+Pode ver os detalhes básicos de autenticação de um nó de audação no portal Azure. Navegue para um dos seus nódosos de transação do Serviço Blockchain Azure e selecione **Autenticação Básica** em definições.
 
 ![Autenticação básica](./media/configure-transaction-nodes/basic.png)
 
-O nome de usuário é o nome do seu nó e não pode ser alterado.
+O nome do utilizador é o nome do seu nó e não pode ser alterado.
 
-Para usar a URL, substitua \<senha\> com a senha definida quando o nó foi provisionado. Você pode atualizar a senha selecionando **Redefinir senha**.
+Para utilizar o URL, substitua \<palavra-passe\> com o conjunto de palavra-passe quando o nó foi provisionado. Pode atualizar a palavra-passe selecionando a **palavra-passe Reset**.
 
 ### <a name="access-keys"></a>Chaves de acesso
 
-Para a autenticação de chave de acesso, a chave de acesso é incluída na URL do ponto de extremidade. Quando o nó de transação é provisionado, duas chaves de acesso são geradas. A chave de acesso pode ser usada para autenticação. Duas chaves permitem que você altere e gire as chaves.
+Para autenticação da chave de acesso, a chave de acesso está incluída no URL final. Quando o nó de transações é provisionado, são geradas duas chaves de acesso. Qualquer uma das teclas de acesso pode ser utilizada para autenticação. Duas teclas permitem-lhe alterar e rodar as teclas.
 
-Você pode exibir os detalhes da chave de acesso de um nó de transação e copiar os endereços de ponto de extremidade que incluem as chaves de acesso. Navegue até um dos nós de transação de membro do serviço Blockchain do Azure e selecione **chaves de acesso** em configurações.
+Pode visualizar os principais detalhes da chave de acesso de um nó de transação e copiar endereços finais que incluem as chaves de acesso. Navegue para um dos seus nódosos de transação do Serviço Blockchain Azure e selecione **Access Keys** em definições.
 
 ### <a name="firewall-rules"></a>Regras da firewall
 
-As regras de firewall permitem limitar os endereços IP que podem tentar autenticar em seu nó de transação.  Se nenhuma regra de firewall estiver configurada para o nó de transação, ela não poderá ser acessada por nenhuma entidade.  
+As regras de firewall permitem-lhe limitar os endereços IP que podem tentar autenticar o seu nó de transações.  Se não estiverem configuradas regras de firewall para o seu nó de transações, não pode ser acedida por nenhuma parte.  
 
-Para exibir as regras de firewall de um nó de transação, navegue até um dos nós de transação de membro do serviço Blockchain do Azure e selecione **regras de firewall** em configurações.
+Para ver as regras de firewall de um nó de transações, navegue para um dos seus nós de transação do Membro do Serviço Blockchain Azure e selecione regras de **Firewall** em definições.
 
-Você pode adicionar regras de firewall inserindo um nome de regra, endereço IP inicial e um endereço IP final na grade **regras de firewall** .
+Pode adicionar regras de firewall inserindo um nome de regra, iniciando o endereço IP e um endereço IP final na grelha de regras da **Firewall.**
 
 ![Regras da firewall](./media/configure-transaction-nodes/firewall-rules.png)
 
-Para habilitar:
+Para permitir:
 
-* **Endereço IP único:** Configure o mesmo endereço IP para os endereços IP inicial e final.
-* **Intervalo de endereços IP:** Configure o intervalo de endereços IP inicial e final. Por exemplo, um intervalo começando em 10.221.34.0 e terminando em 10.221.34.255 habilitaria toda a sub-rede 10.221.34.xxx.
+* **Endereço IP único:** Configure o mesmo endereço IP para os endereços IP intitular e finais.
+* **Intervalo de endereços IP:** Configure a gama de endereços IP inicial e final. Por exemplo, uma gama a partir de 10.221.34.0 e terminando em 10.221.34.255 permitiria a totalidade da 10.221.34.xxx sub-rede.
 * **Permitir todos os endereços IP:** Configure o endereço IP inicial para 0.0.0.0 e o endereço IP final para 255.255.255.255.
 
 ## <a name="connection-strings"></a>Cadeias de ligação
 
-A sintaxe de cadeia de conexão para seu nó de transação é fornecida para a autenticação básica ou para o uso de chaves de acesso. São fornecidas cadeias de conexão, incluindo chaves de acesso sobre HTTPS e WebSockets.
+A sintaxe de cadeia de ligação para o nó de transações está prevista para autenticação básica ou utilização de chaves de acesso. São fornecidas cordas de ligação, incluindo chaves de acesso sobre HTTPS e WebSockets.
 
-Você pode exibir as cadeias de conexão de um nó de transação e copiar os endereços de ponto de extremidade. Navegue até um dos nós de transação de membro do serviço Blockchain do Azure e selecione **cadeias de conexão** em configurações.
+Pode ver as cordas de ligação de um nó de transações e copiar endereços finais. Navegue para um dos seus nódosos de transação do membro do Serviço Blockchain Azure e selecione **as cordas de Ligação** nas definições.
 
 ![Cadeias de ligação](./media/configure-transaction-nodes/connection-strings.png)
 
 ## <a name="sample-code"></a>Código de exemplo
 
-O código de exemplo é fornecido para habilitar rapidamente a conexão com o nó de transação por meio de Web3, netaqui, Web3js e Truffle.
+O código da amostra é fornecido para permitir a ligação ao seu nó de transação via Web3, Nethereum, Web3js e Truffle.
 
-Você pode exibir o código de conexão de exemplo de um nó de transação e copiá-lo para usar com ferramentas de desenvolvedor populares. Vá para um dos nós de transação de membro do serviço Blockchain do Azure e selecione o **código de exemplo** em configurações.
+Pode ver o código de ligação de um nó de transação e copiá-lo para usar com ferramentas de desenvolvimento populares. Vá a um dos seus nódosos de transação do Serviço Blockchain Azure e selecione **Código de Amostra** em definições.
 
-Escolha a guia Web3, myhere, Truffle ou Web3j para exibir o exemplo de código que você deseja usar.
+Escolha o separador Web3, Nethereum, Truffle ou Web3j para ver a amostra de código que pretende utilizar.
 
 ![Código de exemplo](./media/configure-transaction-nodes/sample-code.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Configurar nós de transação usando CLI do Azure](manage-cli.md)
+> [Configure os nódosdeos de transação usando o Azure CLI](manage-cli.md)

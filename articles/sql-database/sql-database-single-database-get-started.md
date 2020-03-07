@@ -12,11 +12,11 @@ ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 02/14/2020
 ms.openlocfilehash: 2dacdfaa5443707ab82ae53922ac439319375276
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252161"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359767"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Quickstart: Criar uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure, PowerShell e Azure CLI
 

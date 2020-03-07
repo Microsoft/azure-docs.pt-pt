@@ -4,11 +4,11 @@ description: Como interpretar gráficos sobre exploradormétrico e como personal
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670190"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368272"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas em insights de aplicação
 As métricas em Insights de [Aplicação][start] são valores medidos e contagens de eventos que são enviados em telemetria a partir da sua aplicação. Ajudam-no a detetar problemas de desempenho e a observar as tendências na forma como a sua aplicação está a ser utilizada. Há uma grande variedade de métricas padrão, e você também pode criar suas próprias métricas e eventos personalizados.

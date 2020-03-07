@@ -10,11 +10,11 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 74539a7ed74d0216f1a4bb2d719983895d8b320f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209635"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359720"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Quickstart: Criar um mapa de pesquisa interativo usando o Azure Maps
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>
 

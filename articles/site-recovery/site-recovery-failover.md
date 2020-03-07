@@ -1,151 +1,151 @@
 ---
-title: Executar um failover durante a recuperação de desastre com Azure Site Recovery
-description: Como fazer failover de VMs/servidores físicos para o Azure com Azure Site Recovery.
+title: Executar uma falha durante recuperação de desastres com recuperação do site Azure
+description: Como falhar sobre VMs/servidores físicos para Azure com recuperação do site Azure.
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
 ms.openlocfilehash: 514f1d6631a70301589943ddb7920ca3c9c46062
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609226"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78363018"
 ---
-# <a name="run-a-failover-from-on-premises-to-azure"></a>Executar um failover do local para o Azure
+# <a name="run-a-failover-from-on-premises-to-azure"></a>Executar uma falha de entrada no local para Azure
 
-Este artigo descreve como fazer failover de computadores locais para o Azure no [Azure site Recovery](site-recovery-overview.md)
+Este artigo descreve como falhar as máquinas no local para Azure em [Azure Site Recovery](site-recovery-overview.md)
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- [Saiba mais](failover-failback-overview.md) sobre o processo de failover na recuperação de desastre.
-- Se você quiser fazer failover de vários computadores, [Aprenda](recovery-plan-overview.md) a reunir computadores em um plano de recuperação.
-- Antes de fazer um failover completo, execute uma [análise de recuperação de desastre](site-recovery-test-failover-to-azure.md) para garantir que tudo esteja funcionando conforme o esperado.
+- [Conheça](failover-failback-overview.md) o processo de failover na recuperação de desastres.
+- Se quiser falhar em várias máquinas, [aprenda](recovery-plan-overview.md) a juntar máquinas num plano de recuperação.
+- Antes de fazer uma falha completa, faça um exercício de recuperação de [desastres](site-recovery-test-failover-to-azure.md) para garantir que tudo esteja funcionando como esperado.
 
-## <a name="prepare-to-connect-after-failover"></a>Preparar para conectar após o failover
+## <a name="prepare-to-connect-after-failover"></a>Prepare-se para ligar após a falha
 
-Para garantir que você possa se conectar às VMs do Azure criadas após o failover, aqui estão várias coisas que você precisa fazer no local antes do failover.
+Para se certificar de que pode ligar-se aos VMs Azure que são criados após a falha, aqui estão uma série de coisas que você precisa fazer no local antes de falhar.
 
 
-### <a name="prepare-on-premises-to-connect-after-failover"></a>Preparar local para se conectar após o failover
+### <a name="prepare-on-premises-to-connect-after-failover"></a>Prepare-se no local para se ligar após a falha
 
-Se você quiser se conectar a VMs do Azure usando o RDP/SSH após o failover, há várias coisas que você precisa fazer no local antes do failover.
+Se quiser ligar-se aos VMs Azure utilizando RDP/SSH após a falha, há uma série de coisas que precisa de fazer no local antes de falhar.
 
-**Após o failover** | **Localização** | **Ações**
+**Depois do fracasso** | **Localização** | **Ações**
 --- | --- | ---
-**VM do Azure executando o Windows** | Computador local antes do failover | Para acessar a VM do Azure pela Internet, habilite o RDP e verifique se as regras de TCP e UDP foram adicionadas para o **público**e se o RDP é permitido para todos os perfis no **Firewall do Windows** > **aplicativos permitidos**.<br/><br/> Para acessar a VM do Azure em uma conexão site a site, habilite o RDP no computador e verifique se o RDP é permitido no **Firewall do Windows** -> **aplicativos e recursos permitidos**, para redes de **domínio e privadas** .<br/><br/> <br/><br/> Remova todas as rotas persistentes estáticas e o proxy WinHTTP. Verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não haja nenhuma atualização do Windows pendente na VM quando você disparar um failover. O Windows Update pode ser iniciado durante o failover e você não poderá fazer logon na VM até que a atualização seja concluída.
-**VM do Azure executando Linux** | Computador local antes do failover | Verifique se o serviço de Secure Shell na VM está definido para iniciar automaticamente na inicialização do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
+**Vitrina Azure VM executando janelas** | Máquina no local antes da falha | Para aceder ao Azure VM através da internet, ativar o RDP e certificar-se de que as regras de TCP e UDP são adicionadas para **publicamente**, e que o RDP é permitido para todos os perfis no **Windows Firewall** > **Permitidas Apps**.<br/><br/> Para aceder ao Azure VM sobre uma ligação site-to-site, ative rdP na máquina e certifique-se de que o RDP é permitido no **Windows Firewall** -> **permitidas aplicações e funcionalidades**, para redes **De domínio e privadas.**<br/><br/> <br/><br/> Remova quaisquer rotas estáticas persistentes e procuração WinHTTP. Certifique-se de que a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando acionar uma falha. A atualização do Windows poderá começar quando falhar novamente e não poderá entrar no VM até que a atualização esteja concluída.
+**Azure VM executando Linux** | Máquina no local antes da falha | Certifique-se de que o serviço Secure Shell no VM está programado para começar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
 
 
 ## <a name="run-a-failover"></a>Executar uma ativação pós-falha
 
-Este procedimento descreve como executar um failover para um [plano de recuperação](site-recovery-create-recovery-plans.md). Se você quiser executar um failover para uma única VM, siga as instruções para uma [VM VMware](vmware-azure-tutorial-failover-failback.md), um [servidor físico](physical-to-azure-failover-failback.md)ou uma [VM Hyper-V](hyper-v-azure-failover-failback-tutorial.md).
+Este procedimento descreve como executar uma falha para um plano de [recuperação](site-recovery-create-recovery-plans.md). Se pretender executar uma falha para um único VM, siga as instruções para um [VMware VM](vmware-azure-tutorial-failover-failback.md), um [servidor físico](physical-to-azure-failover-failback.md)ou um [VM Hiper-V](hyper-v-azure-failover-failback-tutorial.md).
 
 
-Execute o failover do plano de recuperação da seguinte maneira:
+Executar o plano de recuperação failover da seguinte forma:
 
-1. No cofre Site Recovery, selecione **planos de recuperação** > *recoveryplan_name*.
-2. Clique em **failover**.
+1. No cofre de recuperação do local, selecione Planos de **Recuperação** > *recoveryplan_name*.
+2. Clique em **Failover**.
 
-    ![Ativação Pós-Falha](./media/site-recovery-failover/Failover.png)
+    ![Ativação pós-falha](./media/site-recovery-failover/Failover.png)
 
-3. Em **failover** > **direção do failover**, deixe o padrão se você estiver replicando para o Azure.
-4. Em **failover**, selecione um **ponto de recuperação** para o qual fazer failover.
+3. Na direção **Failover** > **Failover,** deixe o padrão se estiver a replicar-se para o Azure.
+4. Em **Failover,** selecione um **Ponto de Recuperação** para falhar.
 
-    - **Mais recente**: Use o ponto mais recente. Isso processa todos os dados que foram enviados para Site Recovery serviço e cria um ponto de recuperação para cada computador. Essa opção fornece o RPO mais baixo (objetivo de ponto de recuperação) porque a VM criada após o failover tem todos os dados que foram replicados para Site Recovery quando o failover foi disparado.
-   - **Mais recente processado**: Use essa opção para fazer failover de VMs para o ponto de recuperação mais recente já processado pelo site Recovery. Você pode ver o ponto de recuperação processado mais recentemente nos **pontos de recuperação mais recentes**da VM. Essa opção fornece um RTO baixo, uma vez que nenhum tempo é gasto para processar os dados não processados
-   - **Consistente com o aplicativo mais recente**: Use essa opção para fazer failover de VMs para o ponto de recuperação consistente do aplicativo mais recente que foi processado pelo site Recovery.
-   - **Várias VMs processadas mais recentemente**: com essa opção, as VMs que fazem parte de um failover de grupo de replicação para o ponto de recuperação consistente de várias VMs comum mais recente. Outras máquinas virtuais fazem failover para o último ponto de recuperação processado. Essa opção é apenas para planos de recuperação que têm pelo menos uma VM com consistência de várias VMs habilitada.
-   - **Várias VMs mais recentes consistentes**com o aplicativo: com essa opção, as VMs que fazem parte de um grupo de replicação fazem failover para o ponto de recuperação consistente mais recente do aplicativo de várias VMs comum. Outros failover de máquinas virtuais para seu ponto de recuperação consistente com o aplicativo mais recente. Somente para planos de recuperação que têm pelo menos uma VM com consistência de várias VMs habilitada.
-   - **Personalizado**: não disponível para planos de recuperação. Essa opção é apenas para failover de VMs individuais.
+    - **Mais recente**: Use o último ponto. Isto processa todos os dados que foram enviados para o serviço de Recuperação do Site, e cria um ponto de recuperação para cada máquina. Esta opção fornece o RPO mais baixo (Objetivo do Ponto de Recuperação) porque o VM criado após a falha tem todos os dados que foram replicados para a Recuperação do Local quando a falha foi desencadeada.
+   - **Mais recente processado**: Utilize esta opção para falhar sobre os VMs até ao mais recente ponto de recuperação já processado pela Recovery do Site. Pode ver o mais recente ponto de recuperação processado nos pontos de **recuperação mais recentes**da VM . Esta opção fornece um RTO baixo, uma vez que não é gasto tempo para processar os dados não processados
+   - **Mais recente:** Use esta opção para falhar VMs até ao mais recente ponto de recuperação consistente da aplicação que foi processado pela Recovery do Site.
+   - **Mais recente multi-VM processado**: Com esta opção VMs que fazem parte de um grupo de replicação falha para o mais recente ponto de recuperação consistente multi-VM comum. Outras máquinas virtuais falham até ao seu mais recente ponto de recuperação processado. Esta opção é apenas para planos de recuperação que tenham pelo menos um VM com consistência multi-VM ativada.
+   - **Mais recente aplicação multi-VM consistente**: Com esta opção VMs que fazem parte de um grupo de replicação falha mato para o mais recente ponto de recuperação consistente com vários VM comum. Outras máquinas virtuais falham no seu mais recente ponto de recuperação consistente com aplicações. Apenas para planos de recuperação que tenham pelo menos um VM com consistência multi-VM habilitado.
+   - **Personalizado**: Não disponível para planos de recuperação. Esta opção é apenas para falhas de VMs individuais.
 
-5. Selecione **desligar computador antes de iniciar o failover** se desejar site Recovery desligar as VMs de origem antes de iniciar o failover. A ativação pós-falha continua, mesmo que o encerramento falhe.  
+5. Selecione a **máquina de desligar antes** de iniciar a falha se pretender que a Recuperação do Site desligue os VMs da fonte antes de iniciar a falha. A ativação pós-falha continua, mesmo que o encerramento falhe.  
 
     > [!NOTE]
-    > Se você fizer failover de VMs do Hyper-V, o desligamento tentará sincronizar e replicar os dados locais que ainda não foram enviados para o serviço, antes de disparar o failover. 
+    > Se falhar em Hiper-V VMs, o encerramento tenta sincronizar e replicar os dados no local que ainda não foram enviados para o serviço, antes de desencadear a falha. 
 
-6. Siga o progresso do failover na página **trabalhos** . Mesmo se ocorrerem erros, o plano de recuperação será executado até que seja concluído.
-7. Após o failover, entre na VM para validá-la. 
-8. Se você quiser alternar para o ponto de recuperação diferente a ser usado para o failover, use **alterar ponto de recuperação**.
-9. Quando estiver pronto, você poderá confirmar o failover. A ação **confirmar** exclui todos os pontos de recuperação disponíveis com o serviço. A opção **alterar ponto de recuperação** não estará mais disponível.
+6. Acompanhe os progressos na página **Jobs.** Mesmo que ocorram erros, o plano de recuperação decorre até estar concluído.
+7. Depois da falha, assine no VM para validá-lo. 
+8. Se quiser mudar para diferentes pontos de recuperação para utilizar para a falha, utilize o ponto de **recuperação da alteração**.
+9. Quando estiver pronto, pode cometer o fracasso. A ação **'Cometer'** elimina todos os pontos de recuperação disponíveis com o serviço. A opção ponto de **recuperação change** deixará de estar disponível.
 
-## <a name="run-a-planned-failover-hyper-v"></a>Executar um failover planejado (Hyper-V)
+## <a name="run-a-planned-failover-hyper-v"></a>Executar uma falha planeada (Hyper-V)
 
-Você pode executar um failover planejado para VMs do Hyper-V.
+Pode executar uma falha planeada para os VMs hiper-V.
 
-- Um failover planejado é uma opção de failover de perda de dados zero.
-- Quando um failover planejado é disparado, primeiro as máquinas virtuais de origem são desligadas, os dados mais recentes são sincronizados e, em seguida, um failover é disparado.
-- Você executa um failover planejado usando a opção de **failover planejado** . Ele é executado de forma semelhante a um failover regular.
+- Uma falha planeada é uma opção de falha de dados zero.
+- Quando uma falha planeada é desencadeada, primeiro as máquinas virtuais de origem são desligadas, os dados mais recentes são sincronizados e, em seguida, uma falha é desencadeada.
+- Executa uma falha planeada usando a opção **de failover planeada.** Funciona de forma semelhante a uma falha regular.
  
-## <a name="track-failovers"></a>Acompanhar failovers
+## <a name="track-failovers"></a>Falhas na pista
 
-Há vários trabalhos associados ao failover.
+Há uma série de empregos associados à falha.
 
-![Ativação Pós-Falha](./media/site-recovery-failover/FailoverJob.png)
+![Ativação pós-falha](./media/site-recovery-failover/FailoverJob.png)
 
-- **Verificação de pré-requisitos**: garante que todas as condições necessárias para o failover sejam atendidas.
-- **Failover**: processa os dados para que uma VM do Azure possa ser criada a partir dele. Se você tiver escolhido o ponto de recuperação **mais recente** , um ponto de recuperação será criado a partir dos dados que foram enviados para o serviço.
-- **Iniciar**: cria uma VM do Azure usando os dados processados na etapa anterior.
+- **Verificação prévia**: Assegura-se de que todas as condições necessárias para a falha são satisfeitas.
+- **Failover**: Processa os dados para que um VM Azure possa ser criado a partir dele. Se escolheu o **último** ponto de recuperação, é criado um ponto de recuperação a partir dos dados que foram enviados para o serviço.
+- **Início**: Cria um VM Azur e utilizando os dados tratados no passo anterior.
 
 > [!WARNING]
-> **Não cancelar um failover em andamento**: antes de o failover ser iniciado, a replicação s parou para a VM. Se você cancelar um trabalho em andamento, o failover será interrompido, mas a VM não começará a ser replicada. A replicação não pode ser iniciada novamente.
+> **Não cancele uma falha em curso**: Antes do início da falha, a replicação parou para o VM. Se cancelar estoque de um trabalho em curso, o fracasso para, mas o VM não começará a replicar-se. A replicação não pode ser reiniciada.
 
 
-### <a name="extra-failover-time"></a>Tempo de failover extra
+### <a name="extra-failover-time"></a>Tempo extra de failover
 
-Em alguns casos, o failover de VM requer uma etapa intermediária que geralmente leva cerca de oito a 10 minutos para ser concluído. Estes são os computadores afetados por esta etapa/tempo adicional:
+Em alguns casos, a falha da VM requer um passo intermédio que normalmente demora cerca de 8 a 10 minutos a ser concluído. Estas são as máquinas que são afetadas por este passo/tempo adicional:
 
-* Máquinas virtuais VMware que executam uma versão do serviço de mobilidade com mais de 9,8.
-* Servidores físicos e VMs do Hyper-V protegidos como servidores físicos.
-* VMs VMware Linux.
-* VMs VMware nas quais esses drivers não estão presentes como drivers de inicialização:
+* Máquinas virtuais VMware executando uma versão de serviço de Mobilidade com mais de 9.8.
+* Servidores físicos e VMs hiper-V protegidos como servidores físicos.
+* VMware Linux VMs.
+* VMware VMs em que estes condutores não estão presentes como condutores de botas:
     * storvsc
-    * VMBus
+    * vmbus
     * storflt
     * intelide
     * atapi
-* VMs do VMware que não têm o DHCP habilitado, independentemente de estarem usando endereços IP estáticos ou DHCP.
+* VMware VMs que não têm DHCP ativado, independentemente de estarem a usar endereços IP DHCP ou estáticos.
 
 
-## <a name="automate-actions-during-failover"></a>Automatizar ações durante o failover
+## <a name="automate-actions-during-failover"></a>Automatizar ações durante a failover
 
-Talvez você queira automatizar ações durante o failover. Para fazer isso, você pode usar scripts ou runbooks de automação do Azure em planos de recuperação.
+Talvez queira automatizar ações durante a falha. Para isso, pode utilizar scripts ou livros de automação Azure em planos de recuperação.
 
-- [Saiba mais](site-recovery-create-recovery-plans.md) sobre como criar e personalizar planos de recuperação, incluindo a adição de scripts.
-- [Saiba](site-recovery-runbook-automation.md) está confinado no adicionando Runbooks de automação do Azure aos planos de recuperação.
+- [Aprenda](site-recovery-create-recovery-plans.md) sobre a criação e personalização de planos de recuperação, incluindo a adição de scripts.
+- [Aprenda](site-recovery-runbook-automation.md) a adicionar livros de execução da Azure Automation aos planos de recuperação.
 
 
-## <a name="configure-settings-after-failover"></a>Definir configurações após o failover
+## <a name="configure-settings-after-failover"></a>Configurar as definições após a falha
 
-### <a name="retain-drive-letters-after-failover"></a>Reter as letras da unidade após o failover
+### <a name="retain-drive-letters-after-failover"></a>Reter cartas de unidade após falha
 
-Site Recovery lida com a retenção de letras de unidade. Se você estiver excluindo discos durante a replicação da VM, [examine um exemplo](exclude-disks-replication.md#example-1-exclude-the-sql-server-tempdb-disk) de como isso funciona.
+A Recuperação do Site trata da retenção de cartas de unidade. Se estiver a excluir discos durante a replicação vm, [reveja um exemplo](exclude-disks-replication.md#example-1-exclude-the-sql-server-tempdb-disk) de como isto funciona.
 
-### <a name="prepare-in-azure-to-connect-after-failover"></a>Preparar no Azure para se conectar após o failover
+### <a name="prepare-in-azure-to-connect-after-failover"></a>Prepare-se em Azure para ligar após falha
 
-Se você quiser se conectar às VMs do Azure que são criadas após o failover usando RDP ou SSH, siga os requisitos resumidos na tabela.
+Se pretender ligar-se aos VMs Azure que são criados após a falha utilizando RDP ou SSH, siga os requisitos resumidos na tabela.
 
 **Ativação pós-falha** | **Localização** | **Ações**
 --- | --- | ---
-**VM do Azure executando o Windows** | VM do Azure após o failover |  [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras do grupo de segurança de rede na VM com failover (e a sub-rede do Azure à qual ela está conectada) precisam permitir conexões de entrada para a porta RDP.<br/><br/> Verifique o **diagnóstico de inicialização** para verificar uma captura de tela da VM.<br/><br/> Se você não conseguir se conectar, verifique se a VM está em execução e examine essas [dicas de solução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
-**VM do Azure executando Linux** | VM do Azure após o failover | As regras do grupo de segurança de rede na VM com failover (e a sub-rede do Azure à qual ela está conectada) precisam permitir conexões de entrada para a porta SSH.<br/><br/> [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> Verifique o **diagnóstico de inicialização** para obter uma captura de tela da VM.<br/><br/>
+**Vitrina Azure VM executando janelas** | VM Azure após falha |  [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras do grupo de segurança da rede sobre o VM falhado (e a subnet Azure a que está ligada) precisam de permitir a entrada de ligações à porta RDP.<br/><br/> Verifique os **diagnósticos da Boot** para verificar uma imagem do VM.<br/><br/> Se não conseguir ligar, verifique se o VM está em execução e reveja estas dicas de resolução de [problemas.](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+**Azure VM executando Linux** | VM Azure após falha | As regras do grupo de segurança da rede sobre o VM falhado (e a subnet Azure a que está ligada) precisam de permitir a entrada de ligações à porta SSH.<br/><br/> [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> Verifique os **diagnósticos** da Boot para obter uma imagem do VM.<br/><br/>
 
 Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver quaisquer problemas de conectividade após a ativação pós-falha.
 
-## <a name="set-up-ip-addressing"></a>Configurar endereçamento IP
+## <a name="set-up-ip-addressing"></a>Configurar endereçoip
 
-- **Endereços IP internos**: para definir o endereço IP interno de uma VM do Azure após o failover, você tem algumas opções:
-    - Manter o mesmo endereço IP: você pode usar o mesmo endereço IP na VM do Azure como aquele alocado para o computador local.
-    - Usar endereço IP diferente: você pode usar um endereço IP diferente para a VM do Azure.
-    - [Saiba mais](concepts-on-premises-to-azure-networking.md#assign-an-internal-address) sobre como configurar endereços IP internos.
-- **Endereços IP externos**: você pode reter endereços IP públicos no failover. As VMs do Azure criadas como parte do processo de failover devem ser atribuídos a um endereço IP público do Azure disponível na região do Azure. Você pode atribuir um endereço IP público manualmente ou automatizando o processo com um plano de recuperação. [Saiba mais](concepts-public-ip-address-with-site-recovery.md).
+- **Endereços IP internos**: Para definir o endereço IP interno de um VM Azure após a falha, tem algumas opções:
+    - Reter o mesmo endereço IP: Pode utilizar o mesmo endereço IP no VM Azure que o atribuído à máquina no local.
+    - Utilize um endereço IP diferente: Pode utilizar um endereço IP diferente para o VM Azure.
+    - [Saiba mais](concepts-on-premises-to-azure-networking.md#assign-an-internal-address) sobre a criação de endereços IP internos.
+- **Endereços IP externos:** Pode reter endereços IP públicos no failover. Os VMs Azure criados no âmbito do processo de failover devem ser atribuídos a um endereço IP público Azure disponível na região de Azure. Pode atribuir um endereço IP público manualmente ou automatizando o processo com um plano de recuperação. [Saiba mais](concepts-public-ip-address-with-site-recovery.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Após o failover, você precisará proteger novamente para iniciar a replicação das VMs do Azure de volta para o site local. Depois que a replicação estiver em funcionamento, você poderá fazer failback no local quando estiver pronto.
+Depois de ter falhado, precisa de se reproteger para começar a replicar os VMs Azure de volta ao local. Depois da replicação estar a funcionar, podes voltar a falhar no local quando estiveres pronto.
 
-- [Saiba mais](failover-failback-overview.md#reprotectionfailback) sobre a nova proteção e o failback.
-- [Prepare-se](vmware-azure-reprotect.md) para a nova proteção e failback do VMware.
-- [Failback](hyper-v-azure-failback.md) VMs do Hyper-V.
-- [Saiba mais sobre](physical-to-azure-failover-failback.md) o processo de failover e failback para servidores físicos.
+- [Saiba mais](failover-failback-overview.md#reprotectionfailback) sobre reproteção e recuo.
+- [Prepare-se](vmware-azure-reprotect.md) para a reproteção da VMware e para o recuo.
+- [Falhar de volta](hyper-v-azure-failback.md) VMs hiper-V.
+- [Conheça](physical-to-azure-failover-failback.md) o processo de failover e failback para servidores físicos.
 

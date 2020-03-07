@@ -1,5 +1,5 @@
 ---
-title: Autenticação do Windows e servidor do Azure MFA-Azure Active Directory
+title: Autenticação do Windows e Servidor Azure MFA - Diretório Ativo Azure
 description: A implementar a autenticação Windows e Servidor Multi-Factor Authentication do Azure
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: faab28a714b1a62e1e34de5b07119aa3018db24e
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847974"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78378037"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação do Windows e Servidor Multi-Factor Authentication do Azure
 
@@ -27,15 +27,15 @@ Utilize a secção Autenticação do Windows do Servidor Multi-Factor Authentica
 * Os IPs Fidedignos dependem do facto de a aplicação poder fornecer o IP do cliente na autenticação. Atualmente, apenas os Serviços de Terminal são suportados.  
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1 de julho de 2019, a Microsoft deixará de oferecer o MFA Server para novas implementações. Os novos clientes que pretendam exigir a autenticação de vários fatores dos seus utilizadores devem utilizar a autenticação multi-factor Azure baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes do dia 1 de julho poderão descarregar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 > [!NOTE]
 > Esta funcionalidade não é suportada para proteger os Serviços de Terminal no Windows Server 2012 R2.
 
-## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Para proteger um aplicativo com a autenticação do Windows, use o procedimento a seguir
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Para garantir uma aplicação com autenticação do Windows, utilize o seguinte procedimento
 
 1. No Servidor Multi-Factor Authentication do Azure, clique no ícone Autenticação do Windows.
-   ![a autenticação do Windows no servidor MFA](./media/howto-mfaserver-windows/windowsauth.png)
+   ![autenticação do Windows no](./media/howto-mfaserver-windows/windowsauth.png) do Servidor MFA
 2. Selecione a caixa de verificação **Ativar Autenticação do Windows**. Por predefinição, esta caixa está desmarcada.
 3. O separador Aplicações permite ao administrador configurar uma ou mais aplicações para a Autenticação do Windows.
 4. Selecione um servidor ou uma aplicação e especifique se o servidor/aplicação está ativado. Clique em **OK**.
