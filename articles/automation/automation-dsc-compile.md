@@ -6,11 +6,11 @@ ms.subservice: dsc
 ms.date: 09/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: a4a46837e366caf2860aa0d6597ec7aebc94905a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650015"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78373536"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação de configurações dSC na configuração do Estado da Automação Azure
 

@@ -4,11 +4,11 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: aef520a26124a85f414c4f4aa1a3e307d383c29b
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
-ms.translationtype: MT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207218"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357357"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos de Gestor de Recursos Azure
 
@@ -179,8 +179,8 @@ A saída do exemplo anterior é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| simOutput | Cadeia | sim |
-| noOutput | Cadeia | não |
+| simOutput | String | sim |
+| noOutput | String | não |
 | objectOutput | Object | { "teste": "value1" } |
 
 O [seguinte modelo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) de exemplo mostra como usar esta função com expressões que são apenas condicionalmente válidas.

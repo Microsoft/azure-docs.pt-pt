@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: rohink
 ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938458"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371949"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
 
@@ -123,7 +123,7 @@ O Gestor de Tráfego lê o endereço IP de origem da consulta do DNS e decide de
 
 Como explicado em Como funciona o Gestor de [Tráfego,](traffic-manager-how-it-works.md)o Gestor de Tráfego não recebe consultas de DNS diretamente dos clientes. Pelo contrário, as consultas dNS provêm do serviço DNS recursivo que os clientes estão configurados para usar. Portanto, o endereço IP utilizado para determinar a região não é o endereço IP do cliente, mas é o endereço IP do serviço DNS recursivo. Na prática, este endereço IP é um bom representante para o cliente.
 
-### <a name="faqs"></a>FAQ
+### <a name="faqs"></a>Perguntas mais frequentes
 
 * [Quais são os casos de uso em que o encaminhamento geográfico é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
 
@@ -148,7 +148,7 @@ Como explicado em Como funciona o Gestor de [Tráfego,](traffic-manager-how-it-w
 ## <a name = "multivalue"></a>Método de encaminhamento de tráfego multivalorizado
 O método de encaminhamento de tráfego **Multivalue** permite-lhe obter múltiplos pontos finais saudáveis numa única resposta de consulta dNS. Isto permite ao ouvinte fazer repetições do lado do cliente com outros pontos finais em caso de um ponto final devolvido não ser respondido. Este padrão pode aumentar a disponibilidade de um serviço e reduzir a latência associada a uma nova consulta de DNS para obter um ponto final saudável. O método de encaminhamento MultiValue só funciona se todos os pontos finais do tipo 'Externo' e forem especificados como endereços IPv4 ou IPv6. Quando uma consulta é recebida para este perfil, todos os pontos finais saudáveis são devolvidos e estão sujeitos a uma contagem máxima de retorno configurável.
 
-### <a name="faqs"></a>FAQ
+### <a name="faqs"></a>Perguntas mais frequentes
 
 * [Quais são os casos de utilização em que o encaminhamento MultiValue é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
 
@@ -164,7 +164,7 @@ Se definir um ponto final sem alcance de endereço, isso funciona como um recuo 
 
 O encaminhamento de sub-redes pode ser usado para proporcionar uma experiência diferente para os utilizadores que se conectam a partir de um espaço IP específico. Por exemplo, utilizando o encaminhamento de sub-rede, um cliente pode fazer com que todos os pedidos do seu escritório corporativo sejam encaminhados para um ponto final diferente, onde podem estar a testar uma versão interna apenas da sua app. Outro cenário é se pretender proporcionar uma experiência diferente aos utilizadores que se conectam a partir de um ISP específico (por exemplo, bloqueie os utilizadores de um determinado ISP).
 
-### <a name="faqs"></a>FAQ
+### <a name="faqs"></a>Perguntas mais frequentes
 
 * [Quais são os casos de utilização em que o encaminhamento de sub-rede é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
 

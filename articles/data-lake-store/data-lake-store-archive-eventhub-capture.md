@@ -1,6 +1,6 @@
 ---
-title: Capturar dados dos Hubs de eventos em Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft
-description: Utilize a geração 1 de armazenamento do Azure Data Lake para capturar dados dos Hubs de eventos
+title: Capture dados dos Hubs de Eventos em Azure Data Lake Storage Gen1  Microsoft Docs
+description: Use o Azure Data Lake Storage Gen1 para capturar dados dos Centros de Eventos
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,116 +12,116 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60879582"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78397203"
 ---
-# <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Utilize a geração 1 de armazenamento do Azure Data Lake para capturar dados dos Hubs de eventos
+# <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Use o Azure Data Lake Storage Gen1 para capturar dados dos Centros de Eventos
 
-Saiba como utilizar o Azure Data Lake Storage Gen1 para capturar os dados recebidos pelo Event Hubs do Azure.
+Saiba como usar o Azure Data Lake Storage Gen1 para capturar os dados recebidos pelo Azure Event Hubs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma subscrição do Azure**. Veja [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Uma conta de geração 1 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* Uma conta De Armazenamento de **Lago Azure Gen1.** Para obter instruções sobre como criar um, consulte Iniciar com [Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 
-*  **Um espaço de nomes de Hubs de eventos**. Para obter instruções, consulte [criar um espaço de nomes de Hubs de eventos](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Certifique-se de que a conta de geração 1 do Data Lake Storage e o espaço de nomes de Hubs de eventos estão na mesma subscrição do Azure.
+*  **Um espaço de nome de Hubs de Eventos.** Para obter instruções, consulte Criar um espaço de [nome sinuoso](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)do Event Hubs . Certifique-se de que a conta Data Lake Storage Gen1 e o espaço de nome sem nome do Event Hubs estão na mesma subscrição do Azure.
 
 
-## <a name="assign-permissions-to-event-hubs"></a>Atribuir permissões aos Hubs de eventos
+## <a name="assign-permissions-to-event-hubs"></a>Atribuir permissões aos Centros de Eventos
 
-Nesta secção, vai criar uma pasta dentro da conta em que pretende capturar os dados dos Hubs de eventos. Também atribuir permissões aos Hubs de eventos para que possa escrever dados para uma conta de geração 1 de armazenamento do Data Lake. 
+Nesta secção, cria-se uma pasta dentro da conta onde pretende capturar os dados dos Centros de Eventos. Também atribui permissões aos Centros de Eventos para que possa escrever dados numa conta gen1 de armazenamento de data lake. 
 
-1. Abra a conta de geração 1 de armazenamento do Data Lake onde pretende capturar dados dos Hubs de eventos e, em seguida, clique em **Data Explorer**.
+1. Abra a conta Data Lake Storage Gen1 onde pretende capturar dados dos Centros de Eventos e, em seguida, clique no **Data Explorer**.
 
-    ![Explorador de dados do Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Explorador de dados de geração 1 de armazenamento do Data Lake")
+    ![Explorador de dados gen1 de armazenamento de lago de dados](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Explorador de dados gen1 de armazenamento de lago de dados")
 
-1.  Clique em **nova pasta** e, em seguida, introduza um nome para a pasta onde pretende capturar os dados.
+1.  Clique em **New Folder** e, em seguida, introduza um nome para pasta onde pretende capturar os dados.
 
-    ![Criar uma nova pasta no Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "criar uma nova pasta na geração 1 de armazenamento do Data Lake")
+    ![Criar uma nova pasta no Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Criar uma nova pasta no Data Lake Storage Gen1")
 
-1. Atribua permissões na raiz de geração 1 de armazenamento do Data Lake. 
+1. Atribua permissões na raiz do Data Lake Storage Gen1. 
 
-    a. Clique em **Data Explorer**, selecione a raiz da conta do Data Lake Storage Gen1 e, em seguida, clique em **acesso**.
+    a. Clique no **Data Explorer,** selecione a raiz da conta Gen1 de Armazenamento de Data Lake e, em seguida, clique em **Access**.
 
-    ![Atribuir permissões para a raiz de geração 1 de armazenamento do Data Lake](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "atribuir permissões para a raiz de geração 1 de armazenamento do Data Lake")
+    ![Atribua permissões para a raiz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Atribua permissões para a raiz de Data Lake Storage Gen1")
 
-    b. Sob **acesso**, clique em **Add**, clique em **selecionar utilizador ou grupo**e, em seguida, procure `Microsoft.EventHubs`. 
+    b. Em **'Acesso',** clique em **Adicionar,** clique em **Selecionar utilizador ou grupo,** e depois procure `Microsoft.EventHubs`. 
 
-    ![Atribuir permissões para a raiz de geração 1 de armazenamento do Data Lake](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "atribuir permissões para a raiz de geração 1 de armazenamento do Data Lake")
+    ![Atribua permissões para a raiz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Atribua permissões para a raiz de Data Lake Storage Gen1")
     
     Clique em **Selecionar**.
 
-    c. Sob **atribuir permissões**, clique em **selecione permissões**. Definir **permissões** ao **executar**. Definir **adicionar ao** ao **esta pasta e todos os filhos**. Definir **adicionar como** ao **uma entrada de permissão de acesso e uma entrada de permissão predefinida**.
+    c. Em **permissões**de atribuição, clique em **Selecionar Permissões**. Definir **permissões** para **executar**. **Desloque-se a** **esta pasta e a todas as crianças**. Definir **Adicionar quanto** a uma entrada de permissão de acesso e uma entrada de **permissão por defeito**.
 
     > [!IMPORTANT]
-    > Ao criar uma nova hierarquia de pasta para capturar os dados recebidos pelo Event Hubs do Azure, esta é uma forma fácil de garantir o acesso para a pasta de destino.  No entanto, a adicionar permissões a todos os filhos de uma pasta de nível superior com muitos ficheiros e pastas subordinados poderá demorar muito tempo.  Se a sua pasta de raiz contém um grande número de ficheiros e pastas, talvez seja mais rápido adicionar **Execute** permissões para `Microsoft.EventHubs` individualmente para cada pasta no caminho para a pasta de destino final. 
+    > Ao criar uma nova hierarquia de pastas para capturar dados recebidos pelo Azure Event Hubs, esta é uma forma fácil de garantir o acesso à pasta de destino.  No entanto, adicionar permissões a todas as crianças de uma pasta de alto nível com muitos ficheiros e pastas infantis pode demorar muito tempo.  Se a sua pasta de raiz contiver um grande número de ficheiros e pastas, pode ser mais rápido adicionar permissões **executar** para `Microsoft.EventHubs` individualmente a cada pasta no caminho para a sua pasta de destino final. 
 
-    ![Atribuir permissões para a raiz de geração 1 de armazenamento do Data Lake](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "atribuir permissões para a raiz de geração 1 de armazenamento do Data Lake")
+    ![Atribua permissões para a raiz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Atribua permissões para a raiz de Data Lake Storage Gen1")
 
     Clique em **OK**.
 
-1. Atribua permissões para a pasta com a conta do Data Lake Storage Gen1 onde pretende capturar os dados.
+1. Atribuir permissões para a pasta sob a conta Data Lake Storage Gen1 onde pretende capturar dados.
 
-    a. Clique em **Data Explorer**, selecione a pasta na conta do Data Lake Storage Gen1 e, em seguida, clique em **acesso**.
+    a. Clique no **Data Explorer,** selecione a pasta na conta Data Lake Storage Gen1 e, em seguida, clique em **Access**.
 
-    ![Atribuir permissões para a pasta de geração 1 de armazenamento do Data Lake](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "atribuir permissões para a pasta de geração 1 de armazenamento do Data Lake")
+    ![Atribuir permissões para a pasta Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Atribuir permissões para a pasta Data Lake Storage Gen1")
 
-    b. Sob **acesso**, clique em **Add**, clique em **selecionar utilizador ou grupo**e, em seguida, procure `Microsoft.EventHubs`. 
+    b. Em **'Acesso',** clique em **Adicionar,** clique em **Selecionar utilizador ou grupo,** e depois procure `Microsoft.EventHubs`. 
 
-    ![Atribuir permissões para a pasta de geração 1 de armazenamento do Data Lake](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "atribuir permissões para a pasta de geração 1 de armazenamento do Data Lake")
+    ![Atribuir permissões para a pasta Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Atribuir permissões para a pasta Data Lake Storage Gen1")
     
     Clique em **Selecionar**.
 
-    c. Sob **atribuir permissões**, clique em **selecione permissões**. Definir **permissões** ao **ler, escrever,** e **executar**. Definir **adicionar ao** ao **esta pasta e todos os filhos**. Por fim, defina **adicionar como** ao **uma entrada de permissão de acesso e uma entrada de permissão predefinida**.
+    c. Em **permissões**de atribuição, clique em **Selecionar Permissões**. Definir **permissões** para **ler, escrever** e **executar.** **Desloque-se a** **esta pasta e a todas as crianças**. Por fim, despemos **quanto** a uma entrada de autorização de **acesso e uma entrada de permissão por defeito**.
 
-    ![Atribuir permissões para a pasta de geração 1 de armazenamento do Data Lake](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "atribuir permissões para a pasta de geração 1 de armazenamento do Data Lake")
+    ![Atribuir permissões para a pasta Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Atribuir permissões para a pasta Data Lake Storage Gen1")
     
     Clique em **OK**. 
 
-## <a name="configure-event-hubs-to-capture-data-to-data-lake-storage-gen1"></a>Configurar a Hubs de eventos para capturar dados para a geração 1 de armazenamento do Data Lake
+## <a name="configure-event-hubs-to-capture-data-to-data-lake-storage-gen1"></a>Configure Hubs de eventos para capturar dados para Data Lake Storage Gen1
 
-Nesta secção, vai criar um Hub de eventos dentro de um espaço de nomes de Hubs de eventos. Também é configurar o Hub de eventos para capturar dados para uma conta de geração 1 de armazenamento do Azure Data Lake. Esta secção assume que já criou um espaço de nomes de Hubs de eventos.
+Nesta secção, você cria um Event Hub dentro de um espaço de nome de Event Hubs. Também configura o Hub de Eventos para capturar dados para uma conta De armazenamento de lagos Azure Data Gen1. Esta secção pressupõe que já criou um espaço de nome sinuoso do Event Hubs.
 
-1. Partir do **descrição geral** painel de espaço de nomes dos Hubs de eventos, clique em **+ Hub de eventos**.
+1. A partir do painel **de visão geral** do espaço de nome do Event Hubs, clique em + Centro de **Eventos**.
 
-    ![Criar Hub de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "criar Hub de eventos")
+    ![Criar hub de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Criar Hub de Eventos")
 
-1. Forneça os valores seguintes para configurar a Hubs de eventos para capturar dados para a geração 1 de armazenamento do Data Lake.
+1. Forneça os seguintes valores para configurar os Centros de Eventos para capturar dados para data Lake Storage Gen1.
 
-    ![Criar Hub de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "criar Hub de eventos")
+    ![Criar hub de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Criar Hub de Eventos")
 
-    a. Forneça um nome para o Hub de eventos.
+    a. Forneça um nome para o Centro de Eventos.
     
-    b. Para este tutorial, defina **contagem de partições** e **retenção de mensagens** para os valores predefinidos.
+    b. Para este tutorial, coloque a **Contagem de Partição** e a **Retenção de Mensagens** nos valores predefinidos.
     
-    c. Definir **capturar** ao **no**. Definir o **janela de tempo** (como com frequência capturar) e **janela de tamanho** (tamanho de dados para capturar). 
+    c. Definir **a captura** para **on**. Detete a **Janela** do Tempo (com que frequência capturar) e **a Janela de Tamanho** (tamanho de dados para capturar). 
     
-    d. Para **capturar fornecedor**, selecione **do Azure Data Lake Store** e, em seguida, selecione a conta de geração 1 do Data Lake armazenamento que criou anteriormente. Para **caminho do Data Lake**, introduza o nome da pasta que criou na conta de geração 1 de armazenamento do Data Lake. Apenas terá de fornecer o caminho relativo para a pasta.
+    d. Para **capturar fornecedor,** selecione **Azure Data Lake Store** e, em seguida, selecione a conta Data Lake Storage Gen1 que criou anteriormente. Para **Data Lake Path,** introduza o nome da pasta que criou na conta Data Lake Storage Gen1. Basta fornecer o caminho relativo para a pasta.
 
-    e. Deixe o **formatos de nome de arquivo de captura de exemplo** para o valor predefinido. Esta opção controla a estrutura de pastas criada sob a pasta de captura.
+    e. Deixe os **formatos** de nome de ficheiro de captura da Amostra para o valor predefinido. Esta opção rege a estrutura da pasta que é criada sob a pasta de captura.
 
     f. Clique em **Criar**.
 
-## <a name="test-the-setup"></a>A configuração de teste
+## <a name="test-the-setup"></a>Testar a configuração
 
-Agora pode testar a solução ao enviar dados para o Hub de eventos do Azure. Siga as instruções em [enviar eventos para Hubs de eventos](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md). Depois de começar a enviar os dados, ver os dados serão refletidas na geração 1 de armazenamento do Data Lake com a pasta de estrutura que especificou. Por exemplo, verá uma estrutura de pastas, como mostrado na captura de ecrã seguinte, na sua conta de geração 1 de armazenamento do Data Lake.
+Agora pode testar a solução enviando dados para o Azure Event Hub. Siga as instruções no Enviar eventos para Os Centros de [Eventos Azure](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md). Assim que começar a enviar os dados, vê os dados refletidos no Data Lake Storage Gen1 utilizando a estrutura da pasta que especificou. Por exemplo, vê uma estrutura de pasta, como mostra a seguinte imagem, na sua conta Data Lake Storage Gen1.
 
-![Exemplo de dados de EventHub na geração 1 de armazenamento do Data Lake](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "dados de exemplo EventHub na geração 1 de armazenamento do Data Lake")
+![Dados do EventHub da amostra em Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Dados do EventHub da amostra em Data Lake Storage Gen1")
 
 > [!NOTE]
-> Mesmo que não tem mensagens recebidas nos Hubs de eventos, os Hubs de eventos escreve ficheiros vazios com apenas os cabeçalhos para a conta de geração 1 de armazenamento do Data Lake. Os ficheiros são escritos no mesmo intervalo de tempo que forneceu ao criar os Hubs de eventos.
+> Mesmo que não tenha mensagens a entrar em Centros de Eventos, o Event Hubs escreve ficheiros vazios apenas com os cabeçalhos na conta Data Lake Storage Gen1. Os ficheiros são escritos ao mesmo tempo que forneceu durante a criação dos Centros de Eventos.
 > 
 >
 
-## <a name="analyze-data-in-data-lake-storage-gen1"></a>Analisar dados de geração 1 de armazenamento do Data Lake
+## <a name="analyze-data-in-data-lake-storage-gen1"></a>Analisar dados em Data Lake Storage Gen1
 
-Quando os dados estiverem na geração 1 de armazenamento do Data Lake, pode executar tarefas analíticas para o processo e processe os dados. Ver [u-SQL Avro exemplo](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) sobre como fazer isto com o Azure Data Lake Analytics.
+Uma vez que os dados estão em Data Lake Storage Gen1, você pode executar trabalhos analíticos para processar e recolher os dados. Consulte o [USQL Avro Exemplo](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) sobre como fazê-lo usando o Azure Data Lake Analytics.
   
 
 ## <a name="see-also"></a>Consulte também
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
-* [Copiar dados dos Blobs de armazenamento do Azure para a geração 1 de armazenamento do Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
+* [Copiar dados de Blobs de Armazenamento Azure para Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

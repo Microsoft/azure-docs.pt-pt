@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mjbrown
 ms.openlocfilehash: a9de9435c0e2fb2b67733a995ff412978ea02d89
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250300"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78387005"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave em Azure Cosmos DB
 Este artigo detalha palavras-chave que podem ser usadas em consultas De SQL do Azure Cosmos DB.

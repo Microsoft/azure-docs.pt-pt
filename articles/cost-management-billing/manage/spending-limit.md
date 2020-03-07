@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: ef1ed399f2ed3401612543b3dcaf94dfbafb6715
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200559"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78361023"
 ---
 # <a name="azure-spending-limit"></a>Limite de gastos do Azure
 

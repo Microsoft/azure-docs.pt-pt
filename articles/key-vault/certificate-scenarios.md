@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 32a453678fe3702fcb4b77f0b04a8ed5c889ef59
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197628"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78386073"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Começar com certificados key vault
 Os seguintes cenários descrevem vários dos principais usos do serviço de gestão de certificados da Key Vault, incluindo os passos adicionais necessários para a criação do seu primeiro certificado no seu cofre chave.

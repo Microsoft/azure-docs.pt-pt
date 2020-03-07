@@ -10,15 +10,15 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: cfb9f54f5ba219a4db87144ab1e7ebff2b72b69e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: HT
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514447"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78380247"
 ---
 ::: zone target = "docs"
 
-# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box Heavy e verificar os dados carregados para o Azure
+# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>Tutorial: Devolver caixa de dados Azure Heavy e verificar o upload de dados para o Azure
 
 ::: zone-end
 
@@ -45,7 +45,7 @@ Neste tutorial, irá obter informações sobre tópicos, como:
 
 Antes de começar, confirme que:
 
-- Concluiu o [Tutorial: Copiar dados para o Azure Data Box e verificar](data-box-heavy-deploy-copy-data.md).
+- Completou o [Tutorial: copiar dados para a Caixa](data-box-heavy-deploy-copy-data.md)de Dados Do Azure e verificar .
 - As tarefas de cópia foram concluídas. A preparação para envio não poderá ser executada se as tarefas de cópia estiverem em curso.
 
 

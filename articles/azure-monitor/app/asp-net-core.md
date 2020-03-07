@@ -4,11 +4,11 @@ description: Monitorize ASP.NET aplicações web Core para disponibilidade, dese
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 5028d95ef784b0d309880d0d05371cd42f627d7d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78269218"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362294"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de aplicação para aplicações ASP.NET Core
 

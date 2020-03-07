@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.openlocfilehash: edeafb5730f06dac22fd9919ca42ea388d5fd0f6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915627"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78371109"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Encadernações de armazenamento de mesa seletiva para funções azure
 
@@ -556,8 +556,8 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | deve ser definido para `table`. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
-|**direção** | n/d | deve ser definido para `in`. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
+|**tipo** | n/d | Deve ser definido para `table`. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
+|**direção** | n/d | Deve ser definido para `in`. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
 |**nome** | n/d | O nome da variável que representa a tabela ou entidade no código de função. | 
 |**nome da tabela** | **Nome de mesa** | O nome da tabela.| 
 |**partiçãoChave** | **Chave da Partilha** |Opcional. A chave de partição da entidade de mesa para ler. Consulte a secção de [utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
@@ -943,8 +943,8 @@ A tabela seguinte explica as propriedades de configuração de ligação que def
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | deve ser definido para `table`. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
-|**direção** | n/d | deve ser definido para `out`. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
+|**tipo** | n/d | Deve ser definido para `table`. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure.|
+|**direção** | n/d | Deve ser definido para `out`. Esta propriedade é definida automaticamente quando cria a ligação no portal Azure. |
 |**nome** | n/d | O nome variável utilizado no código de função que representa a tabela ou entidade. Definir para `$return` para referenciar o valor de devolução da função.| 
 |**nome da tabela** |**Nome de mesa** | O nome da tabela.| 
 |**partiçãoChave** |**Chave da Partilha** | A chave de partição da entidade de mesa para escrever. Consulte a secção de [utilização](#output---usage) para obter orientações sobre como utilizar esta propriedade.| 

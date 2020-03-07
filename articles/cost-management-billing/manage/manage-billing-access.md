@@ -10,11 +10,11 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 5a4d725d88ee38bb68ea3da4f3e2a6a9bfc7e201
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200698"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344649"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerir o acesso às informações de faturação do Azure
 
