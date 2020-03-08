@@ -1,36 +1,36 @@
 ---
-title: Usar tokens de recurso Azure Cosmos DB com o SDK do Gremlin
-description: Saiba como criar tokens de recurso e usá-los para acessar o banco de dados de grafo.
+title: Use fichas de recurso Azure Cosmos DB com o Gremlin SDK
+description: Aprenda a criar fichas de recursos e use-as para aceder à base de dados do Graph.
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 443b6ea2583c7c8a1c633cf1825e83cc02bd168c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756074"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897838"
 ---
-# <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Usar tokens de recurso Azure Cosmos DB com o SDK do Gremlin
+# <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Use fichas de recurso Azure Cosmos DB com o Gremlin SDK
 
-Este artigo explica como usar [Azure Cosmos DB tokens de recurso](secure-access-to-data.md) para acessar o banco de dados de grafo por meio do SDK do Gremlin.
+Este artigo explica como usar fichas de [recursos Da Azure Cosmos DB](secure-access-to-data.md) para aceder à base de dados do Graph através do Gremlin SDK.
 
-## <a name="create-a-resource-token"></a>Criar um token de recurso
+## <a name="create-a-resource-token"></a>Criar um símbolo de recurso
 
-O SDK do Gremlin do Apache TinkerPop não tem uma API a ser usada para criar tokens de recurso. O termo *token de recurso* é um conceito de Azure Cosmos DB. Para criar tokens de recurso, baixe o [SDK do Azure Cosmos DB](sql-api-sdk-dotnet.md). Se seu aplicativo precisar criar tokens de recurso e usá-los para acessar o banco de dados de grafo, ele exigirá dois SDKs separados.
+O Apache TinkerPop Gremlin SDK não tem uma API para usar para criar tokens de recursos. O termo *recurso é* um conceito De Db Azure Cosmos. Para criar tokens de recursos, descarregue o [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md). Se a sua aplicação precisar de criar tokens de recursos e usá-los para aceder à base de dados do Graph, requer dois SDKs separados.
 
-A hierarquia de modelo de objeto acima dos tokens de recurso é ilustrada na seguinte estrutura de tópicos:
+A hierarquia do modelo de objeto acima das fichas de recurso é ilustrada no seguinte esboço:
 
-- **Conta de Azure Cosmos DB** -a entidade de nível superior que tem um DNS associado a ela (por exemplo, `contoso.gremlin.cosmos.azure.com`).
-  - **Banco de dados Azure Cosmos DB**
-    - **Usuário**
+- **Conta Azure Cosmos DB** - A entidade de alto nível que tem um DNS associado a ele (por exemplo, `contoso.gremlin.cosmos.azure.com`).
+  - **Base de dados Azure Cosmos DB**
+    - **Utilizador**
       - **Permissão**
-        - **Token** -uma propriedade de objeto de permissão que denota quais ações são permitidas ou negadas.
+        - **Token** - Uma propriedade de objeto de permissão que denota que ações são permitidas ou negadas.
 
-Um token de recurso usa o seguinte formato: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Essa cadeia de caracteres é opaca para os clientes e deve ser usada como está, sem modificação ou interpretação.
+Um token de recurso utiliza o seguinte formato: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Esta cadeia é opaca para os clientes e deve ser usada como está, sem modificação ou interpretação.
 
 ```csharp
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
@@ -54,8 +54,8 @@ DocumentClient client = new DocumentClient(
 }
 ```
 
-## <a name="use-a-resource-token"></a>Usar um token de recurso
-Você pode usar tokens de recurso diretamente como uma propriedade de "senha" ao construir a classe GremlinServer.
+## <a name="use-a-resource-token"></a>Use um símbolo de recurso
+Pode utilizar fichas de recurso diretamente como uma propriedade "password" quando construir a classe GremlinServer.
 
 ```csharp
 // The Gremlin application needs to be given a resource token. It can't discover the token on its own.
@@ -78,7 +78,7 @@ GremlinServer server = new GremlinServer(
   }
 ```
 
-A mesma abordagem funciona em todos os SDKs do TinkerPop Gremlin.
+A mesma abordagem funciona em todos os SDKs TinkerPop Gremlin.
 
 ```java
 Cluster.Builder builder = Cluster.build();
@@ -95,12 +95,12 @@ builder.authProperties(authenticationProperties);
 
 ## <a name="limit"></a>Limite
 
-Com uma única conta do Gremlin, você pode emitir um número ilimitado de tokens. No entanto, você pode usar apenas até 100 tokens simultaneamente dentro de 1 hora. Se um aplicativo exceder o limite de token por hora, uma solicitação de autenticação será negada e você receberá a seguinte mensagem de erro: "limite de token de recurso permitido excedido de 100 que pode ser usado simultaneamente". Ele não funciona para fechar conexões ativas que usam tokens específicos para liberar slots para novos tokens. O mecanismo de banco de dados do Azure Cosmos DB Gremlin mantém o controle de tokens exclusivos durante a hora imediatamente antes da solicitação de autenticação.
+Com uma única conta Gremlin, pode emitir um número ilimitado de fichas. No entanto, só pode utilizar até 100 fichas em simultâneo dentro de 1 hora. Se uma aplicação exceder o limite do token por hora, um pedido de autenticação é negado e recebe a seguinte mensagem de erro: "Limite de recurso de 100 que pode ser usado simultaneamente." Não funciona para fechar ligações ativas que usam fichas específicas para libertar slots para novos tokens. O motor de base de dados Azure Cosmos DB Gremlin regista fichas únicas durante a hora imediatamente anterior ao pedido de autenticação.
 
 ## <a name="permission"></a>Permissão
 
-Um erro comum que os aplicativos encontram enquanto estão usando tokens de recurso é "permissões insuficientes fornecidas no cabeçalho de autorização para a solicitação correspondente. Tente novamente com outro cabeçalho de autorização. " Esse erro é retornado quando uma passagem Gremlin tenta gravar uma borda ou um vértice, mas o token de recurso concede somente permissões de *leitura* . Inspecione sua passagem para ver se ela contém qualquer uma das seguintes etapas: *. addV ()* , *. Adde ()* , *. Drop ()* ou *. Property ()* .
+Um erro comum que as aplicações encontram enquanto usam fichas de recurso é: "Permissões insuficientes fornecidas no cabeçalho de autorização para o pedido correspondente. Por favor, tente novamente com outro cabeçalho de autorização. Este erro é devolvido quando um Gremlin tenta escrever uma borda ou um vértice, mas o recurso *concede* apenas permissões. Inspecione a sua travessia para ver se contém algum dos seguintes passos: *.addV()* *.addE()* , *.drop() ou* *.property()* .
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Controle de acesso baseado em função](role-based-access-control.md) no Azure Cosmos DB
-* [Saiba como proteger o acesso aos dados](secure-access-to-data.md) no Azure Cosmos DB
+* [Controlo de acesso baseado em funções](role-based-access-control.md) em Azure Cosmos DB
+* [Saiba como garantir o acesso aos dados](secure-access-to-data.md) no Azure Cosmos DB

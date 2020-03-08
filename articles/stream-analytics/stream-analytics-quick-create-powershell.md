@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 8fb4d50a4ba56efd9087a829c7d54c3010fc671e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 5fd38a781a58da530ad805bbeee352858eb33b41
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382030"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892886"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Quickstart: Criar um trabalho de Stream Analytics usando o Azure PowerShell
 
@@ -28,7 +28,7 @@ O trabalho de exemplo lê dados de streaming de um dispositivo IoT Hub. Os dados
 
 * Este arranque rápido requer o módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada no computador local. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell).
 
-* Algumas ações do IoT Hub não são suportadas pelo Azure PowerShell e devem ser concluídas utilizando a versão Azure CLI 2.0.24 ou posterior e a extensão IoT para o Azure CLI. [Instale o AZURI CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e utilize `az extension add --name azure-cli-iot-ext` para instalar a extensão IoT.
+* Algumas ações do IoT Hub não são suportadas pelo Azure PowerShell e devem ser concluídas utilizando a versão 2.0.70 do Azure CLI ou posterior e a extensão IoT para o Azure CLI. [Instale o AZURI CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e utilize `az extension add --name azure-iot` para instalar a extensão IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure

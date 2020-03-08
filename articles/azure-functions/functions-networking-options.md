@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: f06c50c35e25f2f64948c5f18672e00382d4ef42
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370335"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892969"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de networking de funções Azure
 
@@ -34,7 +34,7 @@ Você pode hospedar aplicativos de função de várias maneiras:
 |[Integração da rede virtual](#virtual-network-integration)|❌Não|✅Sim (Regional)|✅Sim (Regional e Gateway)|✅Sim|
 |[Gatilhos de rede virtuais (não HTTP)](#virtual-network-triggers-non-http)|❌Não| ✅Sim |✅Sim|✅Sim|
 |[Ligações híbridas](#hybrid-connections) (apenas janelas)|❌Não|✅Sim|✅Sim|✅Sim|
-|[Restrições ip de saída](#outbound-ip-restrictions)|❌Não| ❌Não|❌Não|✅Sim|
+|[Restrições ip de saída](#outbound-ip-restrictions)|❌Não| ✅Sim|✅Sim|✅Sim|
 
 ## <a name="inbound-ip-restrictions"></a>Restrições ip de entrada
 
@@ -57,65 +57,34 @@ O acesso ao site privado refere-se a tornar a sua aplicação acessível apenas 
 
 ## <a name="virtual-network-integration"></a>Integração da rede virtual
 
-A integração virtual da rede permite que a sua aplicação de funções aceda a recursos dentro de uma rede virtual. Esta funcionalidade está disponível tanto no plano Premium como no plano de Serviço de Aplicações. Se a sua aplicação estiver num Ambiente de Serviço de Aplicações, já se encontra numa rede virtual e não necessita de integração virtual de rede para chegar a recursos na mesma rede virtual.
+A integração virtual da rede permite que a sua aplicação de funções aceda a recursos dentro de uma rede virtual. A Azure Functions suporta dois tipos de integração virtual da rede:
 
-Pode utilizar a integração de redes virtuais para permitir o acesso de apps a bases de dados e serviços web que estão a funcionar na sua rede virtual. Com a integração virtual da rede, não precisa de expor um ponto final público para aplicações no seu VM. Em vez disso, pode utilizar endereços privados e não-internet.
-
-Existem duas formas de integração virtual da rede:
-
-+ **Integração regional da rede virtual (pré-visualização)** : Permite a integração com redes virtuais na mesma região. Este tipo de integração requer uma subrede numa rede virtual na mesma região. Esta funcionalidade ainda se encontra em pré-visualização, mas é suportada para aplicações de funções que funcionam no Windows, com as ressalvas descritas após a seguinte tabela Problem/Solution.
-+ **Gateway exigiu integração virtual da rede**: Permite a integração com redes virtuais em regiões remotas, ou com redes virtuais clássicas. Este tipo de integração requer a implementação de uma porta de entrada de rede virtual no seu VNet. Esta é uma funcionalidade baseada em VPN, que é suportada apenas para aplicações de funções que funcionam no Windows.
-
-Uma aplicação pode usar apenas um tipo da funcionalidade de integração de rede virtual de cada vez. Embora ambos sejam úteis para muitos cenários, a tabela seguinte indica onde cada um deve ser usado:
-
-| Problema  | Solução |
-|----------|----------|
-| Quer chegar a um endereço RFC 1918 (10.0.0.0.0/8, 172.16.0.0/12, 192.168.0.0.0/16) na mesma região | Integração regional da rede virtual |
-| Quer chegar a recursos numa rede virtual clássica ou numa rede virtual noutra região | Gateway exigiu integração virtual da rede |
-| Quer chegar aos pontos finais do RFC 1918 através do Azure ExpressRoute | Integração regional da rede virtual |
-| Quer chegar a recursos através de pontos finais de serviço | Integração regional da rede virtual |
-
-Nenhuma das funcionalidades permite chegar a endereços não RFC 1918 através do ExpressRoute. Para isso, tem de utilizar um Ambiente de Serviço de Aplicações.
-
-A utilização da integração da rede virtual regional não liga a sua rede virtual a pontos finais no local ou a configurar pontos finais de serviço. É uma configuração separada de rede. A integração regional da rede virtual apenas permite que a sua app faça chamadas através desses tipos de conexão.
-
-Independentemente da versão utilizada, a integração de redes virtuais dá à sua app de funções acesso aos recursos da sua rede virtual, mas não concede acesso ao site privado à sua aplicação de funções a partir da rede virtual. Acesso ao site privado significa tornar a sua aplicação acessível apenas a partir de uma rede privada como uma rede virtual Azure. A integração virtual da rede é apenas para fazer chamadas de saída da sua app para a sua rede virtual.
-
-A funcionalidade de integração de rede virtual:
-
-* Requer um plano de serviço de aplicações Standard, Premium ou PremiumV2
-* Suporta TCP e UDP
-* Funciona com apps de Serviço de Aplicações e aplicações de função
-
-Há algumas coisas que a integração virtual da rede não suporta, incluindo:
-
-* A montagem de drives
-* Integração com o Active Directory
-* NetBIOS
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 A integração virtual da rede em Funções Azure utiliza infraestruturapartilhada com aplicações web do App Service. Para saber mais sobre os dois tipos de integração virtual da rede, consulte:
 
 * [Integração da rede virtual regional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [Gateway exigiu integração virtual da rede](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
-Para saber mais sobre a utilização da integração de redes virtuais, consulte [Integrar uma aplicação de função com uma rede virtual Azure.](functions-create-vnet.md)
+Para aprender a configurar a integração de redes virtuais, consulte [Integrar uma aplicação de função com uma rede virtual Azure.](functions-create-vnet.md)
+
+## <a name="regional-virtual-network-integration"></a>Integração regional da rede virtual
+
+[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
 
 ## <a name="connecting-to-service-endpoint-secured-resources"></a>Ligação a recursos garantidos de ponto final de serviço
-
-> [!NOTE]
-> Por enquanto, pode levar até 12 horas para que novos pontos finais do serviço fiquem disponíveis para a sua aplicação de funções depois de configurar as restrições de acesso no recurso a jusante. Durante este período, o recurso ficará completamente indisponível na sua aplicação.
 
 Para fornecer um nível de segurança mais elevado, pode restringir uma série de serviços Azure a uma rede virtual utilizando pontos finais de serviço. Em seguida, deve integrar a sua aplicação de funções com essa rede virtual para aceder ao recurso. Esta configuração é suportada em todos os planos que suportam a integração de redes virtuais.
 
 [Saiba mais sobre os pontos finais do serviço de rede virtual.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
-### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual
+## <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual
 
 Quando criar uma aplicação de função, deve criar ou ligar-se a uma conta de Armazenamento Azure de uso geral que suporta o armazenamento de Blob, Queue e Mesa. Não pode utilizar atualmente quaisquer restrições de rede virtuais nesta conta. Se configurar um ponto final do serviço de rede virtual na conta de armazenamento que está a usar para a sua aplicação de função, isso irá quebrar a sua aplicação.
 
 [Saiba mais sobre os requisitos da conta de armazenamento.](./functions-create-function-app-portal.md#storage-account-requirements)
 
-### <a name="using-key-vault-references"></a>Usando referências chave vault 
+## <a name="using-key-vault-references"></a>Usando referências chave vault 
 
 As referências do Cofre chave permitem-lhe utilizar segredos do Cofre de Chaves Azure na aplicação Funções Azure sem exigir alterações de código. Azure Key Vault é um serviço que fornece gestão centralizada de segredos, com total controlo sobre políticas de acesso e histórico de auditoria.
 
@@ -171,9 +140,13 @@ Para saber mais, consulte a documentação do Serviço de [Aplicações para Lig
 
 ## <a name="outbound-ip-restrictions"></a>Restrições ip de saída
 
-As restrições IP de saída estão disponíveis apenas para funções implementadas num Ambiente de Serviço de Aplicações. Pode configurar restrições de saída para a rede virtual onde o seu Ambiente de Serviço de Aplicações está implantado.
+As restrições ip de saída estão disponíveis num plano Premium, plano de serviço de aplicações ou ambiente de serviço de aplicações. Pode configurar restrições de saída para a rede virtual onde o seu Ambiente de Serviço de Aplicações está implantado.
 
-Quando integra uma aplicação de função num plano Premium ou num plano de Serviço de Aplicações com uma rede virtual, a aplicação ainda pode fazer chamadas de saída para a internet.
+Quando integra uma aplicação de função num plano Premium ou num plano de Serviço de Aplicações com uma rede virtual, a aplicação ainda pode fazer chamadas de saída para a internet por padrão. Ao adicionar uma definição de aplicação `WEBSITE_VNET_ROUTE_ALL=1`, força todo o tráfego de saída a ser enviado para a sua rede virtual, onde as regras do grupo de segurança da rede podem ser usadas para restringir o tráfego.
+
+## <a name="troubleshooting"></a>Resolução de problemas 
+
+[!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

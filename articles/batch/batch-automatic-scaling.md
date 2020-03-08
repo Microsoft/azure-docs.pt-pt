@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 46be210ead3816356b63293b910e1c0e7ffc087b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 9f4831fd60038a2265990c0774106a5ea2f98a5a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200100"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672100"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para a escala de cafés de computação em uma piscina de lote
 
@@ -135,7 +135,7 @@ Você pode obter o valor destas variáveis definidas pelo serviço para fazer aj
 | $FailedTasks |O número de tarefas que falharam. |
 | $CurrentDedicatedNodes |O número atual de nós de computação dedicados. |
 | $CurrentLowPriorityNodes |O número atual de nós de computação de baixa prioridade, incluindo quaisquer nós que tenham sido antecipados. |
-| $PreemptedNodeCount | O número de nós na piscina que estão em estado de preoptação. |
+| $PreemptedNodeCount | O número de nós na piscina que estão em estado preempted. |
 
 > [!TIP]
 > As variáveis apenas de leitura, definidas pelo serviço que são mostradas na tabela anterior são *objetos* que fornecem vários métodos de acesso aos dados associados a cada um. Para mais informações, consulte [Obter dados](#getsampledata) da amostra mais tarde neste artigo.

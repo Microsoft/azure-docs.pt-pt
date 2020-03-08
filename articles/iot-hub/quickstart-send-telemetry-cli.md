@@ -1,6 +1,6 @@
 ---
-title: Enviar telemetria para o início rápido do Hub IoT do Azure (CLI)
-description: Este guia de início rápido mostra os desenvolvedores novos para o Hub IoT como começar usando o CLI do Azure para criar um hub IoT, enviar telemetria e exibir mensagens entre um dispositivo e o Hub.
+title: Envie telemetria para Azure IoT Hub (CLI) quickstart
+description: Este quickstart mostra aos desenvolvedores novos no IoT Hub como começar usando o Azure CLI para criar um hub IoT, enviar telemetria e ver mensagens entre um dispositivo e o hub.
 ms.service: iot-hub
 ms.topic: quickstart
 ms.custom:
@@ -9,188 +9,194 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 948dfd25881a6a90dd441ad640091d88812cc298
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 711e15986265324bbb353fb2b4404cbfeb48dc84
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931824"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851412"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Início rápido: enviar telemetria de um dispositivo para um hub IoT e monitorá-lo com o CLI do Azure
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Quickstart: Envie a telemetria de um dispositivo para um hub IoT e monitorize-a com o Azure CLI
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de telemetria dos seus dispositivos IoT para a cloud para armazenamento ou processamento. Neste guia de início rápido, você usa o CLI do Azure para criar um hub IoT e um dispositivo simulado, enviar telemetria do dispositivo para o Hub e enviar uma mensagem da nuvem para o dispositivo. Você também usa o portal do Azure para visualizar as métricas do dispositivo. Esse é um fluxo de trabalho básico para desenvolvedores que usam a CLI para interagir com um aplicativo de Hub IoT.
+O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de telemetria dos seus dispositivos IoT para a cloud para armazenamento ou processamento. Neste arranque rápido, utiliza-se o Azure CLI para criar um Hub IoT e um dispositivo simulado, enviar telemetria do dispositivo para o hub e enviar uma mensagem cloud-to-device. Também utiliza o portal Azure para visualizar as métricas do dispositivo. Este é um fluxo de trabalho básico para desenvolvedores que usam o CLI para interagir com uma aplicação IoT Hub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Se você não tiver uma assinatura do Azure, [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- CLI do Azure. Você pode executar todos os comandos neste guia de início rápido usando o Azure Cloud Shell, um shell de CLI interativo que é executado em seu navegador. Se você usar o Cloud Shell, não precisará instalar nada. Se você preferir usar a CLI localmente, este início rápido exigirá CLI do Azure versão 2.0.76 ou posterior. Execute az --version para localizar a versão. Para instalar ou atualizar, consulte [instalar CLI do Azure]( /cli/azure/install-azure-cli).
+- Se não tiver uma subscrição Azure, [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Azure CLI. Você pode executar todos os comandos neste quickstart usando a Azure Cloud Shell, uma concha CLI interativa que corre no seu navegador. Se utilizar a Cloud Shell, não precisa de instalar nada. Se preferir utilizar o CLI localmente, este quickstart requer a versão Azure CLI 2.0.76 ou posterior. Execute az --version para localizar a versão. Para instalar ou atualizar, consulte [Instalar o Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-Independentemente de você executar a CLI localmente ou na Cloud Shell, mantenha o portal aberto em seu navegador.  Você o usará posteriormente neste guia de início rápido.
+Independentemente de executar o CLI localmente ou na Cloud Shell, mantenha o portal aberto no seu navegador.  Usa-o mais tarde neste início rápido.
 
-## <a name="launch-the-cloud-shell"></a>Iniciar o Cloud Shell
-Nesta seção, você inicia uma instância do Azure Cloud Shell. Se você usar a CLI localmente, pule para a seção [preparar duas sessões da CLI](#prepare-two-cli-sessions).
+## <a name="launch-the-cloud-shell"></a>Lançar a Cloud Shell
+Nesta secção, você lança uma instância da Casca de Nuvem Azure. Se utilizar o CLI localmente, salte para a secção [Prepare duas sessões CLI](#prepare-two-cli-sessions).
 
-Para iniciar o Cloud Shell:
-1. Selecione o botão **Cloud Shell** na barra de menus superior direita na portal do Azure. 
+Para lançar a Cloud Shell:
 
-    ![Botão de Cloud Shell de portal do Azure](media/quickstart-send-telemetry-cli/cloud-shell-button.png)
+1. Selecione o botão **Cloud Shell** na barra de menu salinos no portal Azure. 
+
+    ![Botão Cloud Shell portal Azure](media/quickstart-send-telemetry-cli/cloud-shell-button.png)
 
     > [!NOTE]
-    > Se esta for a primeira vez que você usou o Cloud Shell, ele solicitará que você crie o armazenamento, que é necessário para usar o Cloud Shell.  Selecione uma assinatura para criar uma conta de armazenamento e Microsoft Azure compartilhamento de arquivos. 
+    > Se esta é a primeira vez que usa a Cloud Shell, isso leva-o a criar armazenamento, que é necessário para usar a Cloud Shell.  Selecione uma subscrição para criar uma conta de armazenamento e partilhar o Microsoft Azure Files. 
 
-1. Selecione o ambiente da CLI preferencial na lista suspensa **selecionar ambiente** . Este guia de início rápido usa o ambiente **bash** . Todos os comandos da CLI a seguir também funcionam no ambiente do PowerShell. 
+2. Selecione o seu ambiente CLI preferido no **downdown ambiente Select.** Este quickstart usa o ambiente **Bash.** Todos os comandos CLI seguintes também funcionam no ambiente Powershell. 
 
-    ![Selecionar ambiente da CLI](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
+    ![Selecione ambiente CLI](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
-## <a name="prepare-two-cli-sessions"></a>Preparar duas sessões da CLI
-Nesta seção, você prepara duas sessões de CLI do Azure. Se estiver usando o Cloud Shell, você executará as duas sessões em guias separadas do navegador. Se estiver usando um cliente CLI local, você executará duas instâncias separadas da CLI. Você usará a primeira sessão como um dispositivo simulado e a segunda sessão para monitorar e enviar mensagens. Para executar um comando, selecione **copiar** para copiar um bloco de código neste guia de início rápido, Cole-o na sessão do Shell e execute-o.
+## <a name="prepare-two-cli-sessions"></a>Preparar duas sessões de CLI
 
-CLI do Azure exige que você esteja conectado à sua conta do Azure. Toda a comunicação entre a sessão do CLI do Azure Shell e o Hub IoT é autenticada e criptografada. Como resultado, este guia de início rápido não precisa de autenticação adicional que você usaria com um dispositivo real, como uma cadeia de conexão.
+Nesta secção, prepare duas sessões Azure CLI. Se estiver a utilizar a Cloud Shell, executará as duas sessões em separados. Se utilizar um cliente CLI local, executará duas instâncias CLI separadas. Utilizará a primeira sessão como um dispositivo simulado e a segunda sessão para monitorizar e enviar mensagens. Para executar um comando, selecione **Copy** para copiar um bloco de código neste arranque rápido, cole-o na sua sessão de concha e execute-o.
 
-1. Execute o comando [AZ Extension Add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) para adicionar a extensão Microsoft Azure IoT para CLI do Azure ao Shell da CLI. A extensão de IOT adiciona comandos específicos do serviço de provisionamento de dispositivos IOT, IoT Edge e do Hub IoT a CLI do Azure.
+O Azure CLI exige que esteja registado na sua conta Azure. Toda a comunicação entre a sua sessão de concha Seleção Azure CLI e o seu hub IoT é autenticada e encriptada. Como resultado, este arranque rápido não necessita de autenticação adicional que utilizaria com um dispositivo real, como uma cadeia de ligação.
+
+*  Executar o comando [de adição de extensão az](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua concha CLI. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
    ```azurecli
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
-    Depois de instalar a extensão de IOT do Azure, você não precisará instalá-la novamente em nenhuma sessão de Cloud Shell. 
+   
+   Depois de instalar a extensão Azure IOT, não precisa de a instalar novamente em nenhuma sessão da Cloud Shell. 
 
-1. Abra uma segunda sessão da CLI.  Se você estiver usando o Cloud Shell, selecione **abrir nova sessão**. Se você estiver usando a CLI localmente, abra uma segunda instância. 
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-    ![Abrir nova sessão de Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
+*  Abra uma segunda sessão do CLI.  Se estiver a utilizar a Cloud Shell, **selecione Open new session**. Se estiver a usar o CLI localmente, abra uma segunda instância. 
+
+    >[!div class="mx-imgBorder"]
+    >![Open nova sessão cloud shell](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
 
 ## <a name="create-an-iot-hub"></a>Criar um Hub IoT
-Nesta seção, você usa o CLI do Azure para criar um grupo de recursos e um hub IoT.  Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um hub IoT atua como um hub de mensagens central para comunicação bidirecional entre o aplicativo IoT e os dispositivos. 
+Nesta secção, você usa o AZURE CLI para criar um grupo de recursos e um Hub IoT.  Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um IoT Hub funciona como um centro de mensagens central para a comunicação bidirecional entre a sua aplicação IoT e os dispositivos. 
 
 > [!TIP]
-> Opcionalmente, você pode criar um grupo de recursos do Azure, um hub IoT e outros recursos usando o [portal do Azure](iot-hub-create-through-portal.md), [Visual Studio Code](iot-hub-create-use-iot-toolkit.md)ou outros métodos programáticos.  
+> Opcionalmente, pode criar um grupo de recursos Azure, um Hub IoT, e outros recursos utilizando o [portal Azure,](iot-hub-create-through-portal.md) [Visual Studio Code,](iot-hub-create-use-iot-toolkit.md)ou outros métodos programáticos.  
 
-1. Execute o comando [AZ Group Create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) para criar um grupo de recursos. O comando a seguir cria um grupo de recursos chamado *MyResource* Group na localização *lesteus* . 
+1. Executar o [grupo AZ criar](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) comando para criar um grupo de recursos. O seguinte comando cria um grupo de recursos chamado *MyResourceGroup* na localização *oriental.* 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Execute o comando [AZ IOT Hub Create](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) para criar um hub IOT. Pode levar alguns minutos para criar um hub IoT. 
+1. Executar o [hub az iot criar](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) comando para criar um hub IoT. Pode levar alguns minutos para criar um centro de iot. 
 
-    *Nomedoseuhubiot*. Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT. Um nome de Hub IoT deve ser globalmente exclusivo no Azure. Esse espaço reservado é usado no restante deste guia de início rápido para representar o nome do Hub IoT.
+    *YourIotHubName*. Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. Um nome de hub IoT deve ser globalmente único em Azure. Este espaço reservado é utilizado no resto deste quickstart para representar o seu nome de hub IoT.
 
     ```azurecli
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
     ```
 
-## <a name="create-and-monitor-a-device"></a>Criar e monitorar um dispositivo
-Nesta seção, você criará um dispositivo simulado na primeira sessão da CLI. O dispositivo simulado envia telemetria de dispositivo para o Hub IoT. Na segunda sessão da CLI, você monitora eventos e telemetria e envia uma mensagem da nuvem para o dispositivo para o dispositivo simulado.
+## <a name="create-and-monitor-a-device"></a>Criar e monitorizar um dispositivo
+Nesta secção, cria-se um dispositivo simulado na primeira sessão do CLI. O dispositivo simulado envia telemetria do dispositivo para o seu hub IoT. Na segunda sessão do CLI, monitoriza eventos e telemetria e envia uma mensagem cloud-to-device para o dispositivo simulado.
 
 Para criar e iniciar um dispositivo simulado:
-1. Execute o comando [AZ IOT Hub Device-Identity Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) na primeira sessão da CLI. Isso cria a identidade do dispositivo simulado. 
+1. Executar o [dispositivo-identidade do hub az iot criar](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) comando na primeira sessão CLI. Isto cria a identidade do dispositivo simulado. 
 
-    *Nomedoseuhubiot*. Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT. 
+    *YourIotHubName*. Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
-    *simDevice*. Você pode usar esse nome diretamente para o dispositivo simulado no restante deste guia de início rápido. Opcionalmente, use um nome diferente. 
+    *simDevice*. Pode utilizar este nome diretamente para o dispositivo simulado no resto deste arranque rápido. Opcionalmente, use um nome diferente. 
 
     ```azurecli
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Execute o comando [AZ IOT Device Simulate](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-simulate) na primeira sessão da CLI.  Isso inicia o dispositivo simulado. O dispositivo envia telemetria para o Hub IoT e recebe mensagens dele.  
+1. Executar o [dispositivo az iot simular](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-simulate) o comando na primeira sessão CLI.  Isto inicia o dispositivo simulado. O dispositivo envia telemetria para o seu hub IoT e recebe mensagens dele.  
 
-    *Nomedoseuhubiot*. Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT. 
+    *YourIotHubName*. Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
     ```azurecli
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-Para monitorar um dispositivo:
-1. Na segunda sessão da CLI, execute o comando [AZ IOT Hub monitor-Events](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) . Isso inicia o monitoramento do dispositivo simulado. A saída mostra a telemetria que o dispositivo simulado envia para o Hub IoT.
+Para monitorizar um dispositivo:
+1. Na segunda sessão do CLI, execute o comando de [monitores de eventos do centro az iot.](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) Isto começa a monitorizar o dispositivo simulado. A saída mostra a telemetria que o dispositivo simulado envia para o centro IoT.
 
-    *Nomedoseuhubiot*. Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT. 
+    *YourIotHubName*. Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
     ```
 
-    ![Eventos do monitor de Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-monitor.png)
+    ![Cloud Shell monitoriza eventos](media/quickstart-send-telemetry-cli/cloud-shell-monitor.png)
 
-1. Depois de monitorar o dispositivo simulado na segunda sessão da CLI, pressione CTRL + C para interromper o monitoramento. 
+1. Depois de monitorizar o dispositivo simulado na segunda sessão CLI, prima Ctrl+C para parar a monitorização. 
 
-## <a name="use-the-cli-to-send-a-message"></a>Usar a CLI para enviar uma mensagem
-Nesta seção, você usará a segunda sessão da CLI para enviar uma mensagem ao dispositivo simulado.
+## <a name="use-the-cli-to-send-a-message"></a>Use o CLI para enviar uma mensagem
+Nesta secção, utiliza a segunda sessão CLI para enviar uma mensagem para o dispositivo simulado.
 
-1. Na primeira sessão da CLI, confirme se o dispositivo simulado está em execução. Se o dispositivo tiver sido interrompido, execute o seguinte comando para iniciá-lo:
+1. Na primeira sessão do CLI, confirme se o dispositivo simulado está em funcionamento. Se o dispositivo tiver parado, execute o seguinte comando para o iniciar:
 
-    *Nomedoseuhubiot*. Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT. 
+    *YourIotHubName*. Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
     ```azurecli
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. Na segunda sessão da CLI, execute o comando [AZ IOT Device C2D-Message Send](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device/c2d-message?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-c2d-message-send) . Isso envia uma mensagem da nuvem para o dispositivo do Hub IoT para o dispositivo simulado. A mensagem inclui uma cadeia de caracteres e dois pares chave-valor.  
+1. Na segunda sessão do CLI, execute o comando de envio de [mensagens c2d do dispositivo az iot.](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device/c2d-message?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-c2d-message-send) Isto envia uma mensagem cloud-to-device do seu hub IoT para o dispositivo simulado. A mensagem inclui uma corda e dois pares de valor-chave.  
 
-    *Nomedoseuhubiot*. Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT. 
+    *YourIotHubName*. Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT. 
 
     ```azurecli
     az iot device c2d-message send -d simDevice --data "Hello World" --props "key0=value0;key1=value1" -n {YourIoTHubName}
     ```
-    Opcionalmente, você pode enviar mensagens da nuvem para o dispositivo usando o portal do Azure. Para fazer isso, navegue até a página Visão geral do Hub IoT, selecione **dispositivos IOT**, selecione o dispositivo simulado e selecione **mensagem para dispositivo**. 
+    Opcionalmente, pode enviar mensagens cloud-to-device utilizando o portal Azure. Para isso, navegue na página de visão geral para o seu Hub IoT, selecione **Dispositivos IoT,** selecione o dispositivo simulado e selecione **Mensagem para Dispositivo**. 
 
-1. Na primeira sessão da CLI, confirme se o dispositivo simulado recebeu a mensagem. 
+1. Na primeira sessão do CLI, confirme que o dispositivo simulado recebeu a mensagem. 
 
-    ![Cloud Shell mensagem da nuvem para o dispositivo](media/quickstart-send-telemetry-cli/cloud-shell-receive-message.png)
+    ![Mensagem cloud-to-device da Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-receive-message.png)
 
-1. Depois de exibir a mensagem, feche a segunda sessão da CLI. Mantenha a primeira sessão da CLI aberta. Você o usa para limpar recursos em uma etapa posterior.
+1. Depois de ver a mensagem, feche a segunda sessão do CLI. Mantenha a primeira sessão do CLI aberta. Usa-o para limpar recursos num passo posterior.
 
-## <a name="view-messaging-metrics-in-the-portal"></a>Exibir métricas de mensagens no portal
-O portal do Azure permite que você gerencie todos os aspectos de seu hub IoT e dispositivos. Em um aplicativo de Hub IoT típico que ingere telemetria de dispositivos, talvez você queira monitorar dispositivos ou exibir métricas na telemetria do dispositivo. 
+## <a name="view-messaging-metrics-in-the-portal"></a>Ver métricas de mensagens no portal
+O portal Azure permite-lhe gerir todos os aspetos do seu Hub IoT e dispositivos. Numa aplicação típica do IoT Hub que ingere a telemetria a partir de dispositivos, é melhor monitorizar dispositivos ou visualizar métricas na telemetria do dispositivo. 
 
-Para visualizar as métricas de mensagens no portal do Azure:
-1. No menu de navegação à esquerda no portal, selecione **todos os recursos**. Isso lista todos os recursos em sua assinatura, incluindo o Hub IoT que você criou. 
+Para visualizar as métricas de mensagens no portal Azure:
+1. No menu de navegação à esquerda no portal, selecione **Todos os Recursos.** Isto lista todos os recursos na sua subscrição, incluindo o hub IoT que criou. 
 
-1. Selecione o link no Hub IoT que você criou. O portal exibe a página Visão geral do Hub.
+1. Selecione o link no hub IoT que criou. O portal exibe a página de visão geral para o centro.
 
-1. Selecione **métricas** no painel esquerdo do Hub IOT. 
+1. Selecione **Métricas** no painel esquerdo do seu Hub IoT. 
 
-    ![Métricas de mensagens do Hub IoT](media/quickstart-send-telemetry-cli/iot-hub-portal-metrics.png)
+    ![Métricas de mensagens IoT Hub](media/quickstart-send-telemetry-cli/iot-hub-portal-metrics.png)
 
-1. Insira o nome do Hub IoT no **escopo**.
+1. Introduza o seu nome de hub IoT no **Scope**.
 
-2. Selecione *métricas padrão do Hub IOT* no **namespace de métrica**.
+2. Selecione *Iot Hub Standard Metrics* in **Metric Namespace**.
 
-3. Selecione o *número total de mensagens usadas* na **métrica**. 
+3. Selecione *o número total de mensagens utilizadas* em **Métricas**. 
 
-4. Passe o ponteiro do mouse sobre a área da linha do tempo na qual o dispositivo enviou mensagens. O número total de mensagens em um ponto no tempo é exibido no canto inferior esquerdo da linha do tempo.
+4. Passe o ponteiro do rato sobre a área da linha do tempo em que o seu dispositivo enviou mensagens. O número total de mensagens num momento aparece no canto inferior esquerdo da linha do tempo.
 
-    ![Exibir métricas do Hub IoT do Azure](media/quickstart-send-telemetry-cli/iot-hub-portal-view-metrics.png)
+    ![Ver métricas do Hub Azure IoT](media/quickstart-send-telemetry-cli/iot-hub-portal-view-metrics.png)
 
-5. Opcionalmente, use a lista suspensa **métrica** para exibir outras métricas em seu dispositivo simulado. Por exemplo, *entregas de mensagens C2d concluídas* ou *total de dispositivos (visualização)* . 
+5. Opcionalmente, utilize a queda **métrica** para exibir outras métricas no seu dispositivo simulado. Por exemplo, entregas de *mensagens C2d concluídas* ou *dispositivos Totais (pré-visualização)* . 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se você não precisar mais dos recursos do Azure criados neste guia de início rápido, poderá usar o CLI do Azure para excluí-los.
+Se já não precisar dos recursos Azure criados neste arranque rápido, pode utilizar o Azure CLI para os apagar.
 
-Se você continuar com o próximo artigo recomendado, poderá manter os recursos já criados e reutilizá-los. 
+Se continuar com o próximo artigo recomendado, pode manter os recursos que já criou e reutilizá-los. 
 
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 
 
 Para eliminar um grupo de recursos por nome:
-1. Execute o comando [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Isso remove o grupo de recursos, o Hub IoT e o registro de dispositivo que você criou.
+1. Executar o [grupo AZ eliminar](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) o comando. Isto remove o grupo de recursos, o IoT Hub e o registo do dispositivo que criou.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. Execute o comando [AZ Group List](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-list) para confirmar se o grupo de recursos foi excluído.  
+1. Executar o comando da lista de [grupos AZ](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-list) para confirmar que o grupo de recursos é eliminado.  
 
     ```azurecli
     az group list
     ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste guia de início rápido, você usou o CLI do Azure para criar um hub IoT, criar um dispositivo simulado, enviar telemetria, monitorar a telemetria, enviar uma mensagem da nuvem para o dispositivo e limpar os recursos. Você usou o portal do Azure para visualizar as métricas de mensagens em seu dispositivo.
+Neste arranque rápido, usou o Azure CLI para criar um hub IoT, criar um dispositivo simulado, enviar telemetria, monitorizar a telemetria, enviar uma mensagem cloud-to-device e limpar recursos. Usou o portal Azure para visualizar métricas de mensagens no seu dispositivo.
 
-Se você for um desenvolvedor de dispositivos, a próxima etapa sugerida será ver o início rápido de telemetria que usa o SDK do dispositivo IoT do Azure para C. opcionalmente, consulte um dos artigos de início rápido da telemetria do Hub IoT do Azure disponíveis em seu idioma ou SDK preferido.
+Se for um desenvolvedor de dispositivos, o próximo passo sugerido é ver o quickstart de telemetria que utiliza o Dispositivo Azure IoT SDK para C. Opcionalmente, consulte um dos artigos de telemetria do Azure IoT Hub disponíveis na sua língua preferida ou SDK.
 
 > [!div class="nextstepaction"]
-> [Início rápido: enviar telemetria de um dispositivo para um hub IoT (C)](quickstart-send-telemetry-c.md)
+> [Quickstart: Enviar telemetria de um dispositivo para um hub IoT (C)](quickstart-send-telemetry-c.md)

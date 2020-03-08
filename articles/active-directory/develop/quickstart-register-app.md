@@ -1,6 +1,6 @@
 ---
-title: Registe uma aplicação com a plataforma de identidade microsoft / Azure
-description: Saiba como adicionar e registar uma aplicação na plataforma de identidade da Microsoft.
+title: 'Quickstart: Registe aplicações com plataforma de identidade microsoft / Azure'
+description: Neste arranque rápido, aprende-se a adicionar e registar uma aplicação com a plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,60 +8,69 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/09/2019
+ms.date: 03/09/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bb741fe36e00c3d528470866669e64e9b0b221ae
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: dc719064166be917d868c7b7fee6b126b4099840
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377241"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78893200"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Quickstart: Registe uma aplicação com a plataforma de identidade da Microsoft
 
-Os programadores empresariais e os fornecedores de software como serviço (SaaS) podem desenvolver serviços cloud comerciais ou aplicações de linha de negócio que podem ser integrados na plataforma de identidade da Microsoft, de modo a proporcionar início de sessão protegido e autorização para os serviços que oferecem.
+Neste arranque rápido, regista uma aplicação utilizando a experiência de **registos** da App no portal Azure. A sua aplicação está integrada na plataforma de identidade da Microsoft. Os desenvolvedores empresariais e fornecedores de software como um serviço (SaaS) podem desenvolver serviços de nuvem comercial ou aplicações de linha de negócio que podem ser integradas com a plataforma de identidade da Microsoft. A integração fornece um sinal de inscrição e autorização seguros para tais serviços.
 
-Este quickstart mostra-lhe como adicionar e registar uma aplicação utilizando a experiência de **registos** da App no portal Azure para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Para saber mais sobre as novas funcionalidades e melhorias na experiência de registo de novas aplicações, consulte [esta publicação de blog.](https://developer.microsoft.com/graph/blogs/new-app-registration/)
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuitamente.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registar uma nova aplicação através do portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino do Azure AD que pretende.
-1. Procure e selecione **Azure Ative Directory**. Na página **'Diretório Ativo',** selecione registos de **Aplicações** e, em seguida, selecione **Nova inscrição**.
-1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
+1. Se a sua conta lhe der acesso a mais de um inquilino, selecione a sua conta no canto superior direito. Detete a sua sessão de portal para o inquilino da AD Azure que quiser.
+1. Procure e selecione **Azure Ative Directory**. Under **Manage**, selecione **Registos de Aplicações**.
+1. Selecione **Novo registo**.
+1. No **Registo de uma aplicação,** introduza um nome de aplicação significativo para exibir aos utilizadores.
+1. Especifique quem pode utilizar a aplicação, da seguinte forma:
 
-   - **Nome** - Introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação.
-   - **Tipos de conta suportados** - Selecione as contas que quer que a sua aplicação suporte.
+    | Tipos de conta suportados | Descrição |
+    |-------------------------|-------------|
+    | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a criar uma aplicação de linha de negócio (LOB). Esta opção não está disponível se não estiver a registar a candidatura num diretório.<br><br>Esta opção mapeia para o inquilino único do Azure AD.<br><br>Esta opção é o padrão a menos que esteja a registar a app fora de um diretório. Nos casos em que a aplicação é registada fora de um diretório, a predefinição é contas da Microsoft pessoais e de multi-inquilino do Azure AD. |
+    | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser visar todos os clientes comerciais ou pedagógicos.<br><br>Esta opção mapeia para um multi-inquilino único do Azure AD.<br><br>Se registou a aplicação como Azure AD apenas um único inquilino, pode atualizá-la para ser multi-inquilino da Azure AD e voltar a inquilino único através da página **de Autenticação.** |
+    | **Contas em qualquer diretório organizacional e contas Microsoft pessoais** | Selecione esta opção para visar o maior conjunto de clientes.<br><br>Esta opção mapeia para contas da Microsoft pessoais e de multi-inquilino do Azure AD.<br><br>Se registou a aplicação como multi-inquilino e contas pessoais da Microsoft, não pode alterar esta definição na UI. Em vez disso, tem de utilizar o editor de manifesto de aplicação para alterar os tipos de conta suportados. |
 
-       | Tipos de conta suportados | Descrição |
-       |-------------------------|-------------|
-       | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a criar uma aplicação de linha de negócio (LOB). Esta opção não está disponível se não estiver a registar a aplicação num diretório.<br><br>Esta opção mapeia para o inquilino único do Azure AD.<br><br>Esta é a opção predefinida, a menos que esteja a registar a aplicação fora de um diretório. Nos casos em que a aplicação é registada fora de um diretório, a predefinição é contas da Microsoft pessoais e de multi-inquilino do Azure AD. |
-       | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser visar todos os clientes comerciais ou pedagógicos.<br><br>Esta opção mapeia para um multi-inquilino único do Azure AD.<br><br>Se registou a aplicação como inquilino único do Azure AD, pode atualizá-la para multi-inquilino do Azure AD e voltar ao inquilino único através do painel **Autenticação**. |
-       | **Contas em qualquer diretório organizacional e contas Microsoft pessoais** | Selecione esta opção para visar o maior conjunto de clientes.<br><br>Esta opção mapeia para contas da Microsoft pessoais e de multi-inquilino do Azure AD.<br><br>Se registou a aplicação como conta da Microsoft pessoal e de multi-inquilino do Azure AD, não pode alterar esta definição na IU. Em vez disso, tem de utilizar o editor de manifesto de aplicação para alterar os tipos de conta suportados. |
+1. Em **Redirect URI (opcional)** , selecione o tipo de aplicação que está a construir: **Web** ou Cliente **Público (mobile & desktop)** . Em seguida, introduza o URI redirecionamento, ou URL de resposta, para a sua aplicação.
 
-   - **URI de Redirecionamento (opcional)** - Selecione o tipo de aplicação que está a criar, **Web** ou **Cliente público (móvel e ambiente de trabalho)** e, em seguida, introduza o URI de redirecionamento (ou URL de resposta) para a sua aplicação.
-       - Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, `https://localhost:31544` pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web.
-       - Para aplicações cliente públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Introduza um valor específico para a aplicação, por exemplo `myapp://auth`.
+    * Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, `https://localhost:31544` pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web.
+    * Para aplicações cliente públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Introduza um valor específico para a aplicação, por exemplo `myapp://auth`.
 
-     Para ver exemplos específicos de aplicações Web ou nativas, veja os nossos [inícios rápidos](https://docs.microsoft.com/azure/active-directory/develop).
+    Por exemplo, para aplicações web ou aplicações nativas, consulte os quickstarts na [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop).
 
 1. Quando terminar, selecione **Registar**.
 
-    [![Mostra o ecrã para registar uma nova aplicação no portal Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    ![Mostra o ecrã para registar uma nova aplicação no portal Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration.png)
 
-O Azure AD atribui um ID de aplicação (cliente) exclusivo à sua aplicação e será encaminhado para a página **Descrição Geral** da sua aplicação. Para adicionar mais capacidades à aplicação, pode selecionar outras opções de configuração, incluindo imagem corporativa, certificados e segredos, permissões de API e muito mais.
+A Azure AD atribui uma aplicação única, ou cliente, ID para a sua aplicação. O portal abre a página **de visão geral** da sua aplicação. Para adicionar capacidades à sua aplicação, pode selecionar outras opções de configuração, incluindo branding, certificados e segredos, permissões API e muito mais.
 
-[![Exemplo da página geral de uma aplicação recém-registada](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+![Exemplo de uma página de visão geral de aplicações recém-registada](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [permissões e consentimentos](v2-permissions-and-consent.md).
-- Para ativar funcionalidades de configuração adicionais no registo da aplicação, como credenciais e permissões, e ativar o início de sessão para os utilizadores de outros inquilinos, veja os seguintes inícios rápidos:
-    - [Configurar uma aplicação cliente para aceder a APIs Web](quickstart-configure-app-access-web-apis.md)
-    - [Configurar uma aplicação para expor APIs Web](quickstart-configure-app-expose-web-apis.md)
-    - [Modificar as contas suportadas por uma aplicação](quickstart-modify-supported-accounts.md)
-- Escolha um [início rápido](https://docs.microsoft.com/azure/active-directory/develop) para criar uma aplicação e adicionar funcionalidades rapidamente, como obter tokens, atualizar tokens, iniciar a sessão de um utilizador, apresentar algumas informações de utilizador e muito mais.
-- Saiba mais sobre os dois objetos do Azure AD que representam uma aplicação registada e o relacionamento entre eles, consulte [Objetos da aplicação e objetos principais de serviço](app-objects-and-service-principals.md).
-- Para saber mais sobre as diretrizes de imagem corporativa que deve seguir quando desenvolver aplicações, veja [Diretrizes de imagem corporativa para aplicações](howto-add-branding-in-azure-ad-apps.md).
+Avance para o próximo artigo para aprender a aceder a APIs web.
+> [!div class="nextstepaction"]
+> [Quickstart: Configure uma aplicação de cliente para aceder a APIs web](quickstart-configure-app-access-web-apis.md)
+
+* Para saber mais sobre as permissões, consulte [Permissões e consentimento no ponto final da plataforma de identidade da Microsoft](v2-permissions-and-consent.md).
+
+* Para expor apis web, consulte [Quickstart: Configure uma aplicação para expor APIs web](quickstart-configure-app-expose-web-apis.md).
+
+* Para gerir contas suportadas, consulte [Quickstart: Modificar as contas suportadas por uma aplicação](quickstart-modify-supported-accounts.md).
+
+* Para construir uma aplicação e adicionar funcionalidade, consulte os quickstarts na [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop).
+
+* Para saber mais sobre os dois objetos do Azure AD que representam uma aplicação registada e o relacionamento entre os mesmos, veja [Application objects and service principal objects](app-objects-and-service-principals.md) (Objetos da aplicação e objetos do principal de serviço).
+
+* Para saber mais sobre as diretrizes de marca que deve utilizar no desenvolvimento de apps, consulte as diretrizes de [Branding para aplicações.](howto-add-branding-in-azure-ad-apps.md)

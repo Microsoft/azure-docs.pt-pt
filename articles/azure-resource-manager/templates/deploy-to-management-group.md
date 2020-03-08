@@ -2,23 +2,29 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implementar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: 3b2eeaf2c63a50cda1a32fee94c1e5b99822075d
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.date: 03/06/2020
+ms.openlocfilehash: ae561468531b0c3fa584a02793c58ee64ca3610f
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228109"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894880"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos ao nível do grupo de gestão
 
-Normalmente, você implementa recursos Azure para um grupo de recursos na sua subscrição Azure. No entanto, também pode criar recursos a nível de grupo de gestão. Utiliza-se implementações de nível de grupo de gestão para tomar medidas que façam sentido a esse nível, tais como a atribuição de controlo de [acesso baseado em papéis](../../role-based-access-control/overview.md) ou a aplicação de [políticas.](../../governance/policy/overview.md)
+Normalmente, você implementa recursos Azure para um grupo de recursos na sua subscrição Azure. No entanto, também pode criar recursos no:
+
+* [nível de subscrição](deploy-to-subscription.md)
+* nível de grupo de gestão (abrangido por este artigo)
+* [nível de inquilino](deploy-to-tenant.md)
+
+Utiliza-se implementações de nível de grupo de gestão para tomar medidas que façam sentido a esse nível, tais como a atribuição de controlo de [acesso baseado em papéis](../../role-based-access-control/overview.md) ou a aplicação de [políticas.](../../governance/policy/overview.md)
 
 ## <a name="supported-resources"></a>Recursos suportados
 
 Pode implementar os seguintes tipos de recursos a nível do grupo de gestão:
 
-* [implementações](/azure/templates/microsoft.resources/deployments)
+* [implementações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que se implantam em subscrições ou grupos de recursos.
 * [políticasAtribuis](/azure/templates/microsoft.authorization/policyassignments)
 * [definições políticas](/azure/templates/microsoft.authorization/policydefinitions)
 * [definições políticasSetDefinições](/azure/templates/microsoft.authorization/policysetdefinitions)

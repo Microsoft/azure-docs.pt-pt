@@ -6,19 +6,23 @@ ms.author: lcozzens
 ms.date: 03/05/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
-ms.custom: mvc
-ms.openlocfilehash: 7c6f4b2ea9494c004067a8b19df2c2f098ac2b7f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.custom:
+- mvc
+- subject-armqs
+ms.openlocfilehash: 702c03aec1980b12debeef3afeb84e0cbaef55b6
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274957"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671594"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration"></a>Quickstart: Implementação automática de VM com configuração de app
+# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Quickstart: Implementação automática de VM com configuração de aplicativos e modelo de gestor de recursos
 
 O módulo Azure PowerShell é utilizado para criar e gerir recursos Azure utilizando cmdlets ou scripts PowerShell. Este quickstart mostra-lhe como usar modelos Azure PowerShell e Azure Resource Manager para implementar uma loja de configuração de aplicações Azure. Em seguida, aprende-se a usar os valores-chave da loja para implementar um VM.
 
 Utiliza o modelo pré-requisito para criar uma loja de configuração de aplicações e, em seguida, adicione valores-chave na loja utilizando o portal Azure ou o Azure CLI. O modelo primário refere as configurações de valor-chave existentes a partir de uma loja de configuração existente. Os valores recuperados são usados para definir propriedades dos recursos criados pelo modelo, como um VM neste exemplo.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 

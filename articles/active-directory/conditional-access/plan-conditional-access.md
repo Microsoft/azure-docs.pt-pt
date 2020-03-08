@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: e1c75d5022432a9a57b30aabec4dd2c4f76f2f29
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468442"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671820"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como: Planear a sua implantação de Acesso Condicional no Diretório Ativo Azure
 
@@ -163,13 +163,13 @@ O plano de teste é importante para ter uma comparação entre os resultados esp
 
 |Política |Cenário |Resultado esperado | Resultado |
 |---|---|---|---|
-|[Exigir MFA quando não estiver no trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Utilizador autorizado assina na *App* enquanto está numa localização/trabalho confiável|Utilizador não é solicitado ao MFA| |
-|[Exigir MFA quando não estiver no trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Utilizador autorizado assina na *App* sem localização/trabalho confiável|O utilizador é solicitado ao MFA e pode iniciar sessão com sucesso| |
-|[Exigir MFA (para administrador)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Global Admin assina na *App*|Administrador é solicitado ao MFA| |
-|[Inícios de sessão de risco](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|User assina na *App* usando um [navegador Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Administrador é solicitado ao MFA| |
-|[Gestão de Dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Utilizador autorizado tenta iniciar sessão a partir de um dispositivo autorizado|Acesso Concedido| |
-|[Gestão de Dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Utilizador autorizado tenta iniciar sessão a partir de um dispositivo não autorizado|Acesso bloqueado| |
-|[Alteração de palavra-passe para utilizadores de risco](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|Utilizador autorizado tenta iniciar sessão com credenciais comprometidas (sinal de alto risco)|O utilizador é solicitado a alterar a palavra-passe ou o acesso é bloqueado com base na sua política| |
+|[Exigir MFA quando não estiver no trabalho](/azure/active-directory/conditional-access/untrusted-networks)|Utilizador autorizado assina na *App* enquanto está numa localização/trabalho confiável|Utilizador não é solicitado ao MFA| |
+|[Exigir MFA quando não estiver no trabalho](/azure/active-directory/conditional-access/untrusted-networks)|Utilizador autorizado assina na *App* sem localização/trabalho confiável|O utilizador é solicitado ao MFA e pode iniciar sessão com sucesso| |
+|[Exigir MFA (para administrador)](/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Global Admin assina na *App*|Administrador é solicitado ao MFA| |
+|[Inícios de sessão de risco](/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|User assina na *App* usando um [navegador Tor](/azure/active-directory/active-directory-identityprotection-playbook)|Administrador é solicitado ao MFA| |
+|[Gestão de Dispositivos](/azure/active-directory/conditional-access/require-managed-devices)|Utilizador autorizado tenta iniciar sessão a partir de um dispositivo autorizado|Acesso Concedido| |
+|[Gestão de Dispositivos](/azure/active-directory/conditional-access/require-managed-devices)|Utilizador autorizado tenta iniciar sessão a partir de um dispositivo não autorizado|Acesso bloqueado| |
+|[Alteração de palavra-passe para utilizadores de risco](/azure/active-directory/identity-protection/howto-user-risk-policy)|Utilizador autorizado tenta iniciar sessão com credenciais comprometidas (sinal de alto risco)|O utilizador é solicitado a alterar a palavra-passe ou o acesso é bloqueado com base na sua política| |
 
 ### <a name="configure-the-policy"></a>Configurar a política
 
@@ -217,7 +217,7 @@ Como uma boa prática, crie pelo menos uma conta de utilizador que seja:
 - Dedicado à administração de políticas
 - Excluído de todas as suas políticas
 
-## <a name="rollback-steps"></a>Etapas de reversão
+## <a name="rollback-steps"></a>Passos de retrocesso
 
 Caso precise de reverter as suas políticas recentemente implementadas, use uma ou mais das seguintes opções para reverter:
 

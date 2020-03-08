@@ -11,24 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: a206ef6eb529fc396ec4ecb82d468c19f9e54b8a
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 1f10a577f681d1df4ba99c987df457ea1ca09470
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108252"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671609"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal de desenvolvimento da Azure API Management
 
 O portal de desenvolvimento é um website gerado automaticamente e totalmente personalizável com a documentação das suas APIs. É onde os consumidores de API podem descobrir as suas APIs, aprender a usá-las, solicitar acesso e experimentá-las.
 
 Este artigo descreve as diferenças entre versões auto-hospedadas e geridas do portal de desenvolvimento em Gestão API. Também explica a sua arquitetura e fornece respostas a perguntas frequentes.
-
-> [!WARNING]
->
-> Saiba como migrar da versão de [pré-visualização para a versão geralmente disponível](#preview-to-ga) do portal de desenvolvimento.
 
 ![Portal de desenvolvimento de gestão api](media/api-management-howto-developer-portal/cover.png)
 
@@ -39,7 +35,7 @@ Este artigo descreve as diferenças entre versões auto-hospedadas e geridas do 
 Pode construir o seu portal de desenvolvimento de duas formas:
 
 - **Versão gerida** - editando e personalizando o portal, que está integrado na sua instância de Gestão API e é acessível através do URL `<your-api-management-instance-name>.developer.azure-api.net`. Consulte [este artigo de documentação](api-management-howto-developer-portal-customize.md) para saber como aceder e personalizar o portal gerido.
-- **Versão auto-hospedada** - implantando e auto-hospedando o seu portal fora de uma instância de Gestão API. Esta abordagem permite-lhe editar a base de códigos do portal e alargar a funcionalidade central fornecida. Também precisa de atualizar o portal para a versão mais recente. Para mais detalhes e instruções, consulte o [repositório GitHub com o código fonte do portal][1] e o tutorial sobre a [implementação de um widget][3]. O [tutorial para a versão gerida](api-management-howto-developer-portal-customize.md) percorre o painel administrativo do portal, que também está em destaque na versão auto-hospedada.
+- **Versão auto-hospedada** - implantando e auto-hospedando o seu portal fora de uma instância de Gestão API. Esta abordagem permite-lhe editar a base de códigos do portal e alargar a funcionalidade central fornecida - por exemplo, implementar widgets personalizados para integrações com sistemas de terceiros. Neste cenário, é o responsável pela atualização do portal para a versão mais recente. Para mais detalhes e instruções, consulte o [repositório GitHub com o código fonte do portal][1] e o tutorial sobre a [implementação de um widget][3]. O [tutorial para a versão gerida](api-management-howto-developer-portal-customize.md) percorre o painel administrativo do portal, que é comum para as versões geridas e auto-hospedadas.
 
 ## <a name="portal-architectural-concepts"></a>Conceitos arquitetónicos do portal
 
@@ -70,7 +66,7 @@ O portal baseia-se numa bifurcação adaptada da [estrutura dos Paperbits.](http
 
 ## <a name="faq"></a>Perguntas frequentes
 
-Nesta secção, respondemos a perguntas comuns sobre o novo portal de desenvolvimento, que são de natureza geral. Para questões específicas da versão auto-hospedada, consulte [a secção wiki do repositório GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
+Nesta secção, respondemos a perguntas comuns sobre o portal de desenvolvimento, que são de natureza geral. Para questões específicas da versão auto-hospedada, consulte [a secção wiki do repositório GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
 ### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> Como posso migrar da versão de pré-visualização do portal?
 
@@ -86,13 +82,13 @@ Se não quiser redefinir o conteúdo do portal, poderá considerar utilizar widg
 
 Se o seu portal foi aprovisionado após o anúncio de disponibilidade geral, já deverá apresentar o novo conteúdo predefinido. Não é necessária nenhuma ação do seu lado.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>Como posso migrar do antigo portal de desenvolvimento para o novo portal de desenvolvimento?
+### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>Como posso migrar do antigo portal de desenvolvimento para o portal de desenvolvimento?
 
 Os portais são incompatíveis e é necessário migrar o conteúdo manualmente.
 
-### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>O novo portal tem todas as características do antigo portal?
+### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>O portal tem todas as características do antigo portal?
 
-O novo portal de desenvolvedores não suporta Aplicações e *Problemas.* Se usou *Questões* no antigo portal e precisa deles no novo, publique um comentário numa edição dedicada do [GitHub.](https://github.com/Azure/api-management-developer-portal/issues/122)
+O portal de desenvolvimento já não suporta Aplicações e *Problemas.*
 
 A autenticação com o OAuth na consola de desenvolvimento interativo ainda não é suportada. Pode acompanhar o progresso através [da edição do GitHub.](https://github.com/Azure/api-management-developer-portal/issues/208)
 
@@ -102,25 +98,27 @@ Os antigos portais de desenvolvimento e editor estiveram agora em funcionalidade
 
 A depreciação dos portais do legado será anunciada separadamente. Se tiver dúvidas, preocupações ou comentários, levante-as numa edição dedicada do [GitHub.](https://github.com/Azure/api-management-developer-portal/issues/121)
 
-### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>A funcionalidade necessária não tem suporte no portal
+### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>A funcionalidade de que preciso não é suportada no portal
 
-Use a versão auto-hospedada e [implemente o seu próprio widget][3].
+Você pode abrir um pedido de [funcionalidade](https://aka.ms/apimwish) ou [implementar a funcionalidade em falta por si mesmo][3]. Se implementar a funcionalidade por si mesmo, pode auto-hospedar o portal de desenvolvimento ou abrir um pedido de pull no GitHub para incluir as alterações na versão gerida.
 
 ### <a name="how-can-i-automate-portal-deployments"></a>Como posso automatizar as implementações do portal?
 
 Pode aceder programaticamente e gerir o conteúdo do portal de desenvolvimento através da API REST, independentemente de estar a utilizar uma versão gerida ou auto-hospedada.
 
-A API está documentada na [secção wiki do repositório GitHub][2]. Também pode ser utilizado para automatizar migrações de conteúdos de portal entre ambientes - por exemplo, de um ambiente de teste para o ambiente de produção. Pode saber mais sobre este processo neste artigo de [documentação](https://aka.ms/apimdocs/migrateportal) no GitHub.
+A API está documentada na [secção wiki do repositório GitHub][2]. Pode ser utilizado para automatizar migrações de conteúdos de portais entre ambientes - por exemplo, de um ambiente de teste ao ambiente de produção. Pode saber mais sobre este processo neste artigo de [documentação](https://aka.ms/apimdocs/migrateportal) no GitHub.
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>O portal suporta modelos de Gestor de Recursos Azure e/ou é compatível com o Kit de Recursos DevOps de Gestão aPi?
 
 Não.
 
-### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>Preciso de permitir uma conectividade VNet adicional para as novas dependências geridas do portal?
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>Preciso de permitir uma conectividade VNet adicional para as dependências geridas do portal?
 
 Na maioria dos casos- não.
 
 Se o seu serviço de Gestão API estiver num VNet interno, o portal de desenvolvimento só está acessível a partir da rede. O nome de anfitrião do ponto final da gestão deve ser resolvido com o VIP interno do serviço a partir da máquina que utiliza para aceder à interface administrativa do portal. Certifique-se de que o ponto final da gestão está registado no DNS. Em caso de configuração errada, verá um erro: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+
+Se o seu serviço de Gestão API estiver num VNet interno e estiver a aceder-lhe através do Gateway de Aplicação a partir da Internet, certifique-se de permitir a conectividade ao portal de desenvolvimento e aos pontos finais de gestão da API Management.
 
 ### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>Atribuí um domínio personalizado de Gestão aPI e o portal publicado não funciona
 
@@ -138,7 +136,7 @@ Depois de configurar a delegação, precisa de [reeditar o portal](api-managemen
 
 A maioria das alterações de configuração (por exemplo, VNet, sign-in e termos do produto) exigem [a republicação do portal](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>Estou a ter um erro cors ao usar a consola interativa.
+### <a name="cors"></a>Estou a ter um erro cors ao usar a consola interativa.
 
 A consola interativa faz um pedido de API do lado do cliente do navegador. Pode resolver o problema do CORS adicionando [uma política CORS](api-management-cross-domain-policies.md#CORS) nos seus API(s). Pode especificar todos os parâmetros manualmente ou utilizar valores de `*` wildcard. Por exemplo:
 

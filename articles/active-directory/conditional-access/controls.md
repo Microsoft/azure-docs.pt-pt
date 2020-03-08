@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1df037b66c72177a96f77231cee70782d04992
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 3fff08690eb2807fbbd50f297761c57d3fef88fe
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620717"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671850"
 ---
 # <a name="custom-controls-preview"></a>Controlos personalizados (pré-visualização)
 
@@ -67,22 +67,10 @@ Para eliminar um controlo personalizado, tem primeiro de garantir que não está
 
 Para editar um controlo personalizado, deve eliminar o controlo atual e criar um novo controlo com as informações atualizadas.
 
-## <a name="session-controls"></a>Controlos de sessão
-
-Os controlos de sessão permitem uma experiência limitada dentro de uma aplicação na nuvem. Os controlos da sessão são aplicados por aplicações na nuvem e contam com informações adicionais fornecidas pela Azure AD à app sobre a sessão.
-
-![Controlo](./media/controls/31.png)
-
-### <a name="use-app-enforced-restrictions"></a>Use restrições impostas por aplicações
-
-Pode utilizar este controlo para exigir que o Azure AD passe informações do dispositivo para as aplicações em nuvem selecionadas. A informação do dispositivo permite que as aplicações em nuvem saibam se uma ligação é iniciada a partir de um dispositivo compatível ou unido. Este controlo apenas suporta o SharePoint Online e o Exchange Online como aplicações em nuvem selecionadas. Quando selecionada, a aplicação cloud utiliza as informações do dispositivo para fornecer aos utilizadores, dependendo do estado do dispositivo, com uma experiência limitada ou completa.
-
-Para saber mais, consulte:
-
-- [Permitindo acesso limitado com O SharePoint Online](https://aka.ms/spolimitedaccessdocs)
-- [Permitir o acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
-
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se quiser saber configurar uma política de Acesso Condicional, consulte [RequireM para aplicações específicas com Acesso Condicional de Diretório Ativo Azure](app-based-mfa.md).
-- Se estiver pronto para configurar as políticas de Acesso Condicional para o seu ambiente, consulte as [melhores práticas de Acesso Condicional no Diretório Ativo Azure](best-practices.md).
+- [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+
+- [Modo apenas de relatório](concept-conditional-access-report-only.md)
+
+- [Simular o sinal de comportamento usando a ferramenta de acesso condicional O que se a ferramenta](troubleshoot-conditional-access-what-if.md)

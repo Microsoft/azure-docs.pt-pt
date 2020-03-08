@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral da proteção do servidor dPM/
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: b766c0401dde10fdc257044e004de3dbf8a7b84c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6640690f725c84899babef6825f817bad447b40f
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586483"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673274"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Volte a subir uma quinta SharePoint para Azure com DPM
 
@@ -69,7 +69,7 @@ Pode encontrar **ConfigureSharePoint.exe** na pasta [DPM Installation Path]\bin 
 
 1. No servidor WFE, a uma solicitação de comando, vá para [localização de instalação DPM]\bin\
 2. Introduza configuração -EnableSharePointProtection.
-3. Insira as credenciais do administrador da fazenda. Esta conta deve ser um membro do grupo de administrador local no servidor WFE. Se o administrador do farm não for um administrador local, conceda as seguintes permissões no servidor WFE:
+3. Insira as credenciais do administrador da fazenda. Esta conta deve ser um membro do grupo de administrador local no servidor WFE. Se o administrador da fazenda não for um administrador local conceder as seguintes permissões no servidor WFE:
    * Conceda o WSS_Admin_WPG controlo total do grupo à pasta DPM (%Program Files%\Microsoft Data Protection Manager\DPM).
    * Conceda o WSS_Admin_WPG grupo ler o acesso à chave de registo dPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
@@ -133,7 +133,7 @@ Depois de configurar o DPM e a quinta SharePoint, como explicado anteriormente, 
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > A DPM fornece um máximo de duas cópias de segurança diárias ao Azure em momentos diferentes. O Azure Backup também pode controlar a quantidade de largura de banda WAN que pode ser usada para backups em horas de pico e off-peak usando a Rede de [Backup Azure Throttling](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > A DPM fornece um máximo de duas cópias de segurança diárias ao Azure em momentos diferentes. O Azure Backup também pode controlar a quantidade de largura de banda WAN que pode ser usada para backups em horas de pico e off-peak usando a Rede de [Backup Azure Throttling](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Dependendo da programação de backup que selecionou, na página **'Especificar Política de Retenção Online',** selecione a política de retenção para pontos de backup diários, semanais, mensais e anuais.

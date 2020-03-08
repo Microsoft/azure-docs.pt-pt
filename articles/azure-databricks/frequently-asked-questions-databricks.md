@@ -1,6 +1,6 @@
 ---
-title: 'Azure Databricks: perguntas e ajuda comuns'
-description: Obtenha respostas para perguntas comuns e informações de solução de problemas sobre Azure Databricks.
+title: 'Azure Databricks: Questões comuns e ajuda'
+description: Obtenha respostas a perguntas comuns e informações sobre os Databricks Azure.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -9,118 +9,126 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: c2cb7a90f0fe57efcd8f4d75aff3b5ee375abd07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8d7aab43641c6c594ff60368ccb3810e0c060dd7
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971504"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671570"
 ---
-# <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas mais frequentes sobre o Azure Databricks
+# <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas frequentes sobre os Tijolos de Dados Azure
 
-Este artigo lista as principais perguntas que você pode ter relacionadas a Azure Databricks. Ele também lista alguns problemas comuns que você pode ter ao usar o databricks. Para obter mais informações, consulte [o que é Azure Databricks](what-is-azure-databricks.md). 
+Este artigo lista as principais questões que pode ter relacionadas com os Bricks Azure. Também enumera alguns problemas comuns que pode ter ao usar databricks. Para mais informações, consulte [o que é Azure Databricks](what-is-azure-databricks.md). 
 
-## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>Posso usar Azure Key Vault para armazenar chaves/segredos a serem usados no Azure Databricks?
-Sim. Você pode usar Azure Key Vault para armazenar chaves/segredos para uso com Azure Databricks. Para obter mais informações, consulte [escopos com suporte Azure Key Vault](/azure/databricks/security/secrets/secret-scopes).
+## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>Posso usar o Cofre chave Azure para armazenar chaves/segredos para serem usados em Tijolos de Dados Azure?
+Sim. Pode utilizar o Cofre de Chaves Azure para armazenar chaves/segredos para uso com tijolos de dados Azure. Para mais informações, consulte [os âmbitos apoiados pelo Cofre de Chaves do Azure](/azure/databricks/security/secrets/secret-scopes).
 
 
-## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Posso usar redes virtuais do Azure com o databricks?
-Sim. Você pode usar uma rede virtual do Azure (VNET) com Azure Databricks. Para obter mais informações, consulte [Implantando Azure Databricks em sua rede virtual do Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
+## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Posso usar redes virtuais Azure com databricks?
+Sim. Pode utilizar uma Rede Virtual Azure (VNET) com tijolos de dados Azure. Para mais informações, consulte a implementação de tijolos de [dados Azure na sua Rede Virtual Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
-## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>Como fazer Azure Data Lake Storage de acesso de um bloco de anotações? 
+## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>Como posso aceder ao Armazenamento do Lago De Dados Azure a partir de um caderno? 
 
 Siga estes passos.
-1. No Azure Active Directory (AD do Azure), Provisione uma entidade de serviço e registre sua chave.
-1. Atribua as permissões necessárias à entidade de serviço no Data Lake Storage.
-1. Para acessar um arquivo no Data Lake Storage, use as credenciais da entidade de serviço no bloco de anotações.
+1. No Azure Ative Directory (Azure AD), prestaum diretor de serviço, e regista a sua chave.
+1. Atribua as permissões necessárias ao diretor de serviço no Armazenamento de Data Lake.
+1. Para aceder a um ficheiro no Data Lake Storage, utilize as credenciais principais de serviço no Notebook.
 
-Para obter mais informações, consulte [usar Azure data Lake Storage com Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake).
+Para mais informações, consulte Utilize o Armazenamento do [Lago De Dados Azure com tijolos](/azure/databricks/data/data-sources/azure/azure-datalake)de dados Azure .
 
 ## <a name="fix-common-problems"></a>Corrigir problemas comuns
 
-Aqui estão alguns problemas que você pode encontrar com o databricks.
+Aqui estão alguns problemas que pode encontrar com databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problema: esta assinatura não está registrada para usar o namespace ' Microsoft. databricks '
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problema: Esta subscrição não está registada para utilizar o espaço de nome 'Microsoft.Databricks'
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Esta assinatura não está registrada para usar o namespace ' Microsoft. databricks '. Consulte https://aka.ms/rps-not-found para saber como registrar assinaturas. (Código: MissingSubscriptionRegistration) "
+"Esta subscrição não está registada para usar o espaço de nome 'Microsoft.Databricks'. Consulte https://aka.ms/rps-not-found para saber como registar subscrições. (Código: Falta de registo de subscrições)"
 
 #### <a name="solution"></a>Solução
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
-1. Selecione **assinaturas**, a assinatura que você está usando e, em seguida, **provedores de recursos**. 
-1. Na lista de provedores de recursos, em relação a **Microsoft. databricks**, selecione **registrar**. Você deve ter a função colaborador ou proprietário na assinatura para registrar o provedor de recursos.
+1. Selecione **Subscrições,** a subscrição que está a utilizar e, em seguida, **os fornecedores**de Recursos. 
+1. Na lista de fornecedores de recursos, contra **microsoft.Databricks,** **selecione Register**. Deve ter a função de contribuinte ou proprietário na subscrição para registar o fornecedor de recursos.
 
 
-### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Problema: sua conta {email} não tem a função proprietário ou colaborador no recurso de espaço de trabalho do databricks no portal do Azure
-
-#### <a name="error-message"></a>Mensagem de erro
-
-"Sua conta {email} não tem a função proprietário ou colaborador no recurso de espaço de trabalho do databricks no portal do Azure. Esse erro também pode ocorrer se você for um usuário convidado no locatário. Peça ao administrador para conceder acesso ou adicioná-lo como um usuário diretamente no espaço de trabalho do databricks. " 
-
-#### <a name="solution"></a>Solução
-
-A seguir estão algumas soluções para esse problema:
-
-* Para inicializar o locatário, você deve estar conectado como um usuário normal do locatário, não como um usuário convidado. Você também deve ter uma função de colaborador no recurso de espaço de trabalho do databricks. Você pode conceder a um usuário acesso a partir da guia **controle de acesso (iam)** no seu espaço de trabalho do databricks no portal do Azure.
-
-* Esse erro também pode ocorrer se o seu nome de domínio de email for atribuído a vários diretórios no Azure AD. Para contornar esse problema, crie um novo usuário no diretório que contém a assinatura com seu espaço de trabalho do databricks.
-
-    a. Na portal do Azure, vá para Azure AD. Selecione **usuários e grupos** > **Adicionar um usuário**.
-
-    b. Adicione um usuário com um email `@<tenant_name>.onmicrosoft.com` em vez de `@<your_domain>` email. Você pode encontrar essa opção em **domínios personalizados**, no Azure AD na portal do Azure.
-    
-    c. Conceda a esse novo usuário a função de **colaborador** no recurso de espaço de trabalho do databricks.
-    
-    d. Entre no portal do Azure com o novo usuário e localize o espaço de trabalho do databricks.
-    
-    e. Inicie o espaço de trabalho do databricks como este usuário.
-
-
-### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problema: sua conta {email} não foi registrada no databricks 
-
-#### <a name="solution"></a>Solução
-
-Se você não criou o espaço de trabalho e foi adicionado como um usuário, entre em contato com a pessoa que criou o espaço de trabalho. Peça a ela para adicioná-lo usando o console do administrador do Azure Databricks. Para obter instruções, consulte [adicionando e gerenciando usuários](/azure/databricks/administration-guide/users-groups/users). Se você criou o espaço de trabalho e ainda recebe esse erro, tente selecionar **inicializar espaço de trabalho** novamente no portal do Azure.
-
-### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Problema: falha ao iniciar o provedor de nuvem durante a configuração do cluster (PublicIPCountLimitReached)
+### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Problema: A sua conta {email} não tem o papel do proprietário ou colaborador no recurso espaço de trabalho Databricks no portal Azure
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Falha ao iniciar o provedor de nuvem: foi encontrado um erro no provedor de nuvem durante a configuração do cluster. Para obter mais informações, consulte o guia do databricks. Código de erro do Azure: PublicIPCountLimitReached. Mensagem de erro do Azure: não é possível criar mais de 60 endereços IP públicos para esta assinatura nesta região. "
+"A sua conta {email} não tem função de Proprietário ou Colaborador no recurso espaço de trabalho databricks no portal Azure. Este erro também pode ocorrer se for um utilizador convidado no inquilino. Peça ao seu administrador que lhe conceda acesso ou adicione-o diretamente no espaço de trabalho dos Databricks." 
 
 #### <a name="solution"></a>Solução
 
-Os clusters do Databricks utilizam um endereço IP público por nó. Se sua assinatura já tiver usado todos os seus IPs públicos, você deverá [solicitar o aumento da cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Escolha **cota** como o **tipo de problema**e **rede: ARM** como o **tipo de cota**. Em **detalhes**, solicite um aumento de cota de endereço IP público. Por exemplo, se o limite for atualmente 60 e você quiser criar um cluster de 100 nós, solicite um aumento de limite para 160.
+Seguem-se algumas soluções para esta questão:
 
-### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problema: um segundo tipo de falha de inicialização do provedor de nuvem durante a configuração do cluster (MissingSubscriptionRegistration)
+* Para inicializar o inquilino, deve ser inscrito como utilizador regular do inquilino, e não como utilizador convidado. Deve também ter um papel contributivo no recurso espaço de trabalho databricks. Pode conceder a um utilizador acesso a partir do separador Controlo de **Acesso (IAM)** dentro do seu espaço de trabalho Databricks no portal Azure.
+
+* Este erro também pode ocorrer se o seu nome de domínio de e-mail for atribuído a vários diretórios em Azure AD. Para resolver este problema, crie um novo utilizador no diretório que contenha a subscrição com o seu espaço de trabalho Databricks.
+
+    a. No portal Azure, vá ao Azure AD. Selecione **Utilizadores e Grupos** > **Adicionar um utilizador**.
+
+    b. Adicione um utilizador com um e-mail `@<tenant_name>.onmicrosoft.com` em vez de `@<your_domain>` e-mail. Pode encontrar esta opção em **Domínios Personalizados,** em Azure AD no portal Azure.
+    
+    c. Conceda a este novo utilizador o papel de **Colaborador** no recurso espaço de trabalho Databricks.
+    
+    d. Inscreva-se no portal Azure com o novo utilizador e encontre o espaço de trabalho databricks.
+    
+    e. Lance o espaço de trabalho databricks como este utilizador.
+
+
+### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problema: A sua conta {email} não foi registada em Databricks 
+
+#### <a name="solution"></a>Solução
+
+Se não criou o espaço de trabalho, e é adicionado como utilizador, contacte a pessoa que criou o espaço de trabalho. Faça com que essa pessoa o adicione utilizando a Consola de Administração de Tijolos De Dados Azure. Para obter instruções, consulte [Adicionar e gerir os utilizadores](/azure/databricks/administration-guide/users-groups/users). Se criou o espaço de trabalho e ainda obtém este erro, tente selecionar o Espaço de **Trabalho Inicialize** novamente a partir do portal Azure.
+
+### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Problema: Falha de lançamento do fornecedor de nuvem ao configurar o cluster (PublicIPCountLimitReached)
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Falha ao iniciar o provedor de nuvem: foi encontrado um erro no provedor de nuvem durante a configuração do cluster. Para obter mais informações, consulte o guia do databricks.
-Código de erro do Azure: mensagem de erro do MissingSubscriptionRegistration Azure: a assinatura não está registrada para usar o namespace ' Microsoft. Compute '. Consulte https://aka.ms/rps-not-found para saber como registrar assinaturas ".
-
-#### <a name="solution"></a>Solução
-
-1. Aceda ao [Portal do Azure](https://portal.azure.com).
-1. Selecione **assinaturas**, a assinatura que você está usando e, em seguida, **provedores de recursos**. 
-1. Na lista de provedores de recursos, em relação a **Microsoft. Compute**, selecione **registrar**. Você deve ter a função colaborador ou proprietário na assinatura para registrar o provedor de recursos.
-
-Para obter instruções mais detalhadas, consulte [provedores de recursos e tipos](../azure-resource-manager/management/resource-providers-and-types.md).
-
-### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problema: Azure Databricks precisa de permissões para acessar recursos em sua organização que apenas um administrador pode conceder.
+"Falha de lançamento do fornecedor de nuvem: Foi encontrado um erro do fornecedor de nuvem durante a instalação do cluster. Para mais informações, consulte o guia Databricks. Código de erro azure: PublicIPCountLimitReached. Mensagem de erro do Azure: Não pode criar mais de 10 endereços IP públicos para esta subscrição nesta região."
 
 #### <a name="background"></a>Segundo plano
 
-O Azure Databricks é integrado ao Azure Active Directory. Você pode definir permissões dentro de Azure Databricks (por exemplo, em blocos de anotações ou clusters) especificando usuários do Azure AD. Para que Azure Databricks seja capaz de listar os nomes dos usuários do Azure AD, é necessário ter permissão de leitura para que as informações e o consentimento sejam fornecidos. Se o consentimento ainda não estiver disponível, você verá o erro.
+Os clusters de tijolos de dados utilizam um endereço IP público por nó (incluindo o nó do condutor). As assinaturas Azure têm [limites de endereços IP públicos](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) por região. Assim, a criação de clusters e as operações de escala podem falhar se fizerem com que o número de endereços IP públicos atribuídos a essa subscrição nessa região exceda o limite. Este limite também inclui endereços IP públicos atribuídos para uso não databricks, tais como VMs definidos pelo utilizador personalizados.
+
+Em geral, os clusters consomem apenas endereços IP públicos enquanto estão ativos. No entanto, `PublicIPCountLimitReached` erros podem continuar a ocorrer por um curto período de tempo, mesmo após o fim de outros clusters. Isto porque os Databricks caches temporariamente os recursos Azure quando um cluster é terminado. O caching de recursos é por design, uma vez que reduz significativamente a latência do arranque do cluster e autoscalcificação em muitos cenários comuns.
 
 #### <a name="solution"></a>Solução
 
-Faça logon como um administrador global para a portal do Azure. Para Azure Active Directory, vá para a guia **configurações de usuário** e verifique se **os usuários podem dar consentimento a aplicativos que acessam dados da empresa em seu nome** está definido como **Sim**.
+Se a sua subscrição já atingiu o seu limite de endereço IP público para uma determinada região, então deve fazer um ou outro dos seguintes.
+
+- Crie novos clusters num espaço de trabalho diferente dos Databricks. O outro espaço de trabalho deve estar localizado numa região em que não tenha atingido o limite de endereço IP público da sua subscrição.
+- [Pedido para aumentar o seu limite de endereço IP público](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Escolha **quota** como tipo de **emissão**e **Networking: ARM** como o Tipo de **Quota**. Em **Detalhes,** solicite um aumento da quota de endereço IP público. Por exemplo, se o seu limite for atualmente de 60, e quiser criar um cluster de 100 nós, solicite um aumento limite para 160.
+
+### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problema: Um segundo tipo de falha de lançamento do fornecedor de nuvem ao configurar o cluster (MissingSubscriptionRegistration)
+
+#### <a name="error-message"></a>Mensagem de erro
+
+"Falha de lançamento do fornecedor de nuvem: Foi encontrado um erro do fornecedor de nuvem durante a instalação do cluster. Para mais informações, consulte o guia Databricks.
+Código de erro Azure: Mensagem de erro Do Registo de Registo sem querer: A subscrição não está registada para utilizar o espaço de nome 'Microsoft.Compute'. Veja https://aka.ms/rps-not-found como registar subscrições."
+
+#### <a name="solution"></a>Solução
+
+1. Aceda ao [Portal do Azure](https://portal.azure.com).
+1. Selecione **Subscrições,** a subscrição que está a utilizar e, em seguida, **os fornecedores**de Recursos. 
+1. Na lista de fornecedores de recursos, contra **microsoft.Compute,** **selecione Register**. Deve ter a função de contribuinte ou proprietário na subscrição para registar o fornecedor de recursos.
+
+Para obter instruções mais detalhadas, consulte [os fornecedores e tipos](../azure-resource-manager/management/resource-providers-and-types.md)de recursos.
+
+### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Emissão: A Azure Databricks necessita de permissões para aceder a recursos na sua organização que só um administrador pode conceder.
+
+#### <a name="background"></a>Segundo plano
+
+A Azure Databricks está integrada com o Azure Ative Directory. Pode definir permissões dentro de Bricks Azure (por exemplo, em cadernos ou clusters) especificando os utilizadores da Azure AD. Para que os Tijolos de Dados Da Azure possam listar os nomes dos utilizadores do seu Anúncio Azure, requer que seja dada permissão para essa informação e consentimento. Se o consentimento ainda não estiver disponível, verá o erro.
+
+#### <a name="solution"></a>Solução
+
+Inicie sessão como administrador global do portal Azure. Para o Diretório Ativo do Azure, aceda ao separador **Definições** do Utilizador e certifique-se de que **os Utilizadores podem consentir que o acesso a aplicações que acedam aos dados** da empresa em seu nome está definido para **Sim**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Início rápido: introdução ao Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+- [Quickstart: Comece com os Tijolos de Dados Azure](quickstart-create-databricks-workspace-portal.md)
 - [O que é Azure Databricks?](what-is-azure-databricks.md)
-

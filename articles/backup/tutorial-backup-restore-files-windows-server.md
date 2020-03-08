@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial: recuperar itens para o Windows Server'
-description: Neste tutorial, saiba como usar o agente MARS (agente de Serviços de Recuperação do Microsoft Azure) para recuperar itens do Azure para um Windows Server.
+title: 'Tutorial: Recuperar itens para o Windows Server'
+description: Neste tutorial, aprenda a usar o agente do Agente de Serviços de Recuperação do Microsoft Azure (MARS) para recuperar itens do Azure para um Servidor Windows.
 ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
-ms.openlocfilehash: 5958f6574f8c559bae8f500b1cb555e96e007d0e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c9258b7f95337330e4f1de36e389f6b8f2276976
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171810"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672950"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperar ficheiros do Azure para um Servidor Windows
 
@@ -21,7 +21,7 @@ O Azure Backup permite a recuperação dos itens individuais de cópias de segur
 > * Selecione um ponto de recuperação
 > * Restaurar itens a partir de um ponto de recuperação
 
-Este tutorial assume que já executou os passos para [Realizar a cópia de segurança um Servidor Windows{b> <b}para o Azure](backup-configure-vault.md) e tem, pelo menos, uma cópia de segurança dos ficheiros do Servidor Windows no Azure.
+Este tutorial assume que já executou os passos para [Realizar a cópia de segurança um Servidor Windows](backup-windows-with-mars-agent.md){3}para o Azure{4} e tem, pelo menos, uma cópia de segurança dos ficheiros do Servidor Windows no Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Iniciar recuperação de itens individuais
 

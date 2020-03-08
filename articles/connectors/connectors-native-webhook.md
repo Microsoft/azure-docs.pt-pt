@@ -1,42 +1,42 @@
 ---
-title: Aguardar e responder a eventos
-description: Automatizar fluxos de trabalho que disparam, pausam e retomam com base em eventos em um ponto de extremidade de serviço usando aplicativos lógicos do Azure
+title: Aguarde e responda aos eventos
+description: Automatizar fluxos de trabalho que desencadeiam, pausam e retomam com base em eventos num ponto final de serviço utilizando apps da Azure Logic
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 03/06/2020
 tags: connectors
-ms.openlocfilehash: 24746b7bbbbf3985a9801139b301a829c51a14da
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030076"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674122"
 ---
-# <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho baseados em eventos automatizados usando WebHooks HTTP em aplicativos lógicos do Azure
+# <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho automatizados baseados em eventos utilizando webhooks HTTP em Aplicações lógicas azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o conector de webhook http interno, você pode automatizar fluxos de trabalho que esperam e executam com base em eventos específicos que acontecem em um ponto de extremidade http ou HTTPS criando aplicativos lógicos. Por exemplo, você pode criar um aplicativo lógico que monitora um ponto de extremidade de serviço aguardando um evento específico antes de disparar o fluxo de trabalho e executar as ações especificadas, em vez de verificar regularmente ou *sondar* o ponto de extremidade.
+Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o conector http Webhook incorporado, pode automatizar fluxos de trabalho que esperam e funcionam com base em eventos específicos que ocorrem num ponto final HTTP ou HTTPS através da construção de aplicações lógicas. Por exemplo, pode criar uma aplicação lógica que monitorize um ponto final de serviço esperando por um evento específico antes de desencadear o fluxo de trabalho e executar as ações especificadas, em vez de verificar ou *votar* regularmente esse ponto final.
 
-Aqui estão alguns exemplos de fluxos de trabalho baseados em eventos:
+Aqui estão alguns fluxos de trabalho baseados em eventos:
 
-* Aguarde até que um item chegue a partir de um [Hub de eventos do Azure](https://github.com/logicappsio/EventHubAPI) antes de disparar uma execução de aplicativo lógico.
+* Aguarde que um item chegue de um [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) antes de desencadear uma aplicação lógica.
 * Aguarde uma aprovação antes de continuar um fluxo de trabalho.
 
-## <a name="how-do-webhooks-work"></a>Como os WebHooks funcionam?
+## <a name="how-do-webhooks-work"></a>Como funcionam os webhooks?
 
-Um gatilho de webhook HTTP é baseado em evento, o que não depende da verificação ou sondagem regular de novos itens. Quando você salva um aplicativo lógico que começa com um gatilho de webhook ou quando você altera seu aplicativo lógico de desabilitado para habilitado, o gatilho de webhook *assina* um serviço ou ponto de extremidade específico registrando uma *URL de retorno de chamada* com esse serviço ou ponto de extremidade. Em seguida, o gatilho aguarda esse serviço ou ponto de extremidade para chamar a URL, que começa a executar o aplicativo lógico. Semelhante ao [gatilho de solicitação](connectors-native-reqres.md), o aplicativo lógico é acionado imediatamente quando o evento especificado ocorre. O gatilho *cancela a assinatura* do serviço ou do ponto de extremidade se você remover o gatilho e salvar seu aplicativo lógico, ou quando você alterar seu aplicativo lógico de habilitado para desabilitado.
+Um gatilho http webhook é baseado em eventos, o que não depende de verificação ou sondagem regular para novos itens. Quando guarda uma aplicação lógica que começa com um gatilho de webhook, ou quando muda a sua aplicação lógica de desativada para ativada, o gatilho do webhook *subscreve* um serviço ou ponto final específico, registando um URL de *callback* com esse serviço ou ponto final. O gatilho aguarda então que esse serviço ou ponto final ligue para o URL, que começa a executar a aplicação lógica. Semelhante ao [gatilho do Pedido,](connectors-native-reqres.md)a aplicação lógica dispara imediatamente quando o evento especificado acontece. O gatilho *desliga-se* do serviço ou do ponto final se remover o gatilho e guardar a sua aplicação lógica, ou quando alterar a sua aplicação lógica de ativada para desativar.
 
-Uma ação de webhook HTTP também é baseada em evento e *assina* um serviço ou ponto de extremidade específico registrando uma *URL de retorno de chamada* com esse serviço ou ponto de extremidade. A ação de webhook pausa o fluxo de trabalho do aplicativo lógico e aguarda até que o serviço ou ponto de extremidade chame a URL antes que o aplicativo lógico reinicie a execução. O aplicativo lógico de ação *cancela a assinatura* do serviço ou ponto de extremidade nestes casos:
+Uma ação de webhook HTTP também é baseada em eventos e *subscreve* um serviço ou ponto final específico, registando um URL de *callback* com esse serviço ou ponto final. A ação do webhook interrompe o fluxo de trabalho da aplicação lógica e aguarda até que o serviço ou ponto final ligue para o URL antes que a aplicação lógica retome em funcionamento. A aplicação lógica de ação *desabre subscrições* do serviço ou ponto final nestes casos:
 
-* Quando a ação de webhook for concluída com êxito
-* Se a execução do aplicativo lógico for cancelada enquanto aguarda uma resposta
-* Antes de o aplicativo lógico atingir o tempo limite
+* Quando a ação do webhook terminar com sucesso
+* Se a aplicação lógica for cancelada enquanto espera por uma resposta
+* Antes que a aplicação lógica se estem
 
-Por exemplo, a ação [**Enviar email de aprovação**](connectors-create-api-office365-outlook.md) do conector do Outlook do Office 365 é um exemplo de ação de webhook que segue esse padrão. Você pode estender esse padrão para qualquer serviço usando a ação de webhook.
+Por exemplo, a ação de email de [**envio**](connectors-create-api-office365-outlook.md) do conector Do Office 365 Outlook é um exemplo de ação webhook que segue este padrão. Pode estender este padrão a qualquer serviço utilizando a ação webhook.
 
 > [!NOTE]
-> Os aplicativos lógicos imponham o protocolo TLS 1,2 ao receber a chamada de volta para o gatilho ou ação de webhook HTTP. Se você vir erros de handshake SSL, certifique-se de usar o TLS 1,2. Para chamadas de entrada, aqui estão os conjuntos de codificação com suporte:
+> Logic Apps aplica a Segurança da Camada de Transporte (TLS) 1.2 ao receber a chamada de volta para o gatilho ou ação do webhook HTTP. Se vir erros de aperto de mão SSL, certifique-se de que utiliza TLS 1.2. Para chamadas recebidas, aqui estão as suítes de cifra suportadas:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -47,93 +47,119 @@ Por exemplo, a ação [**Enviar email de aprovação**](connectors-create-api-of
 > * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-Para obter mais informações, veja estes tópicos:
+Para mais informações, consulte estes tópicos:
 
-* [Parâmetros de gatilho de webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
-* [WebHooks e assinaturas](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
-* [Criar APIs personalizadas que dão suporte a um webhook](../logic-apps/logic-apps-create-api-app.md)
+* [PARÂMETROS do gatilho http Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
+* [Webhooks e subscrições](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
+* [Crie APIs personalizados que suportem um webhook](../logic-apps/logic-apps-create-api-app.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* A URL de um ponto de extremidade ou API já implantado que dá suporte ao padrão de assinatura e cancelamento de assinante para [gatilhos de webhook em aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) ou [ações de webhook em aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-actions) , conforme apropriado
+* O URL para um ponto final ou API já implantado que suporta o padrão de subscrição e cancelamento de subscrição de webhook para [gatilhos webhook em aplicações lógicas](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) ou [ações de webhook em aplicações lógicas](../logic-apps/logic-apps-create-api-app.md#webhook-actions) conforme apropriado
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+* Conhecimento básico sobre [como criar aplicações lógicas.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Se é novo em aplicações lógicas, reveja [o que são as Aplicações Lógicas Azure?](../logic-apps/logic-apps-overview.md)
 
-* O aplicativo lógico em que você deseja aguardar eventos específicos no ponto de extremidade de destino. Para começar com o gatilho de webhook HTTP, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar a ação de webhook HTTP, inicie seu aplicativo lógico com qualquer gatilho desejado. Este exemplo usa o gatilho HTTP como a primeira etapa.
+* A aplicação lógica onde você quer esperar por eventos específicos no ponto final do alvo. Para começar com o gatilho HTTP Webhook, [crie uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar a ação HTTP Webhook, inicie a sua aplicação lógica com qualquer gatilho que pretenda. Este exemplo utiliza o gatilho HTTP como primeiro passo.
 
-## <a name="add-an-http-webhook-trigger"></a>Adicionar um gatilho de webhook HTTP
+## <a name="add-an-http-webhook-trigger"></a>Adicione um gatilho http Webhook
 
-Esse gatilho interno registra uma URL de retorno de chamada com o serviço especificado e aguarda que esse serviço envie uma solicitação HTTP POST para essa URL. Quando esse evento acontece, o gatilho é acionado e executa imediatamente o aplicativo lógico.
+Este gatilho incorporado chama o ponto final de subscrição no serviço alvo e regista um URL de callback com o serviço alvo. A sua aplicação lógica aguarda então que o serviço alvo envie um pedido de `HTTP POST` para o URL de callback. Quando este evento acontece, o gatilho dispara e passa quaisquer dados no pedido junto ao fluxo de trabalho.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
 
-1. No designer, na caixa de pesquisa, digite "http webhook" como filtro. Na lista de **gatilhos** , selecione o gatilho de **webhook http** .
+1. Na caixa de pesquisa do designer, introduza `http webhook` como filtro. A partir da lista **de Gatilhos,** selecione o gatilho **HTTP Webhook.**
 
-   ![Selecionar gatilho de webhook HTTP](./media/connectors-native-webhook/select-http-webhook-trigger.png)
+   ![Selecione o gatilho http Webhook](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
-   Este exemplo renomeia o gatilho para "gatilho de webhook HTTP" para que a etapa tenha um nome mais descritivo. Além disso, o exemplo posteriormente adiciona uma ação de webhook HTTP e ambos os nomes devem ser exclusivos.
+   Este exemplo renomea o gatilho para `HTTP Webhook trigger` para que o passo tenha um nome mais descritivo. Além disso, o exemplo adiciona mais tarde uma ação http Webhook, e ambos os nomes devem ser únicos.
 
-1. Forneça os valores para os [parâmetros de gatilho de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que você deseja usar para as chamadas assinar e cancelar assinatura, por exemplo:
+1. Forneça os valores para os parâmetros do [gatilho http Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que pretende utilizar para as chamadas de subscrição e cancelamento de subscrição.
 
-   ![Inserir parâmetros de gatilho de webhook HTTP](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
+   Neste exemplo, o gatilho inclui os métodos, URIs e organismos de mensagem a utilizar durante a realização das operações de subscrição e cancelamento de subscrição.
 
-1. Para adicionar outros parâmetros disponíveis, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros desejados.
+   ![Introduza os parâmetros do gatilho http Webhook](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
 
-   Para obter mais informações sobre os tipos de autenticação disponíveis para webhook HTTP, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   | Propriedade | Necessário | Descrição |
+   |----------|----------|-------------|
+   | **Subscrição - Método** | Sim | O método a utilizar ao subscrever o ponto final do alvo |
+   | **Inscreva-se - URI** | Sim | O URL a utilizar para subscrever o ponto final do alvo |
+   | **Subscrever - Corpo** | Não | Qualquer organismo de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de callback que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão `@listCallbackUrl()` para recuperar o URL de callback da sua aplicação lógica. |
+   | **Cancelar a subscrição - Método** | Não | O método a utilizar ao cancelar a subscrição do ponto final-alvo |
+   | **Cancelar a subscrição - URI** | Não | O URL a utilizar para dessubscrever a partir do ponto final do alvo |
+   | **Cancelar a subscrição - Corpo** | Não | Um organismo de mensagem opcional para incluir no pedido de cancelamento de subscrição <p><p>**Nota:** Esta propriedade não suporta utilizando a função `listCallbackUrl()`. No entanto, o gatilho inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e `x-ms-workflow-operation-name`, que o serviço-alvo pode usar para identificar exclusivamente o assinante. |
+   ||||
 
-1. Continue criando o fluxo de trabalho do aplicativo lógico com ações que são executadas quando o gatilho é acionado.
+1. Para adicionar outras propriedades do gatilho, abra a **lista de novos parâmetros Adicionar.**
 
-1. Quando tiver terminado, lembre-se de salvar seu aplicativo lógico. Na barra de ferramentas do designer, selecione **salvar**.
+   ![Adicione mais propriedades de gatilho](./media/connectors-native-webhook/http-webhook-trigger-add-properties.png)
 
-   Salvar o aplicativo lógico chama o ponto de extremidade de assinatura e registra a URL de retorno de chamada para disparar esse aplicativo lógico.
+   Por exemplo, se precisar de utilizar a autenticação, pode adicionar as propriedades **Subscrever - Autenticação** e Cancelar A **autenticação** . Para obter mais informações sobre os tipos de autenticação disponíveis para http Webhook, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. Agora, sempre que o serviço de destino envia uma solicitação de `HTTP POST` para a URL de retorno de chamada, o aplicativo lógico é acionado e inclui todos os dados que são transmitidos pela solicitação.
+1. Continue a construir o fluxo de trabalho da sua aplicação lógica com ações que funcionam quando o gatilho dispara.
 
-## <a name="add-an-http-webhook-action"></a>Adicionar uma ação de webhook HTTP
+1. Quando terminar, pronto, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
 
-Essa ação interna registra uma URL de retorno de chamada com o serviço especificado, pausa o fluxo de trabalho do aplicativo lógico e aguarda que esse serviço envie uma solicitação HTTP POST para essa URL. Quando esse evento acontece, a ação retoma a execução do aplicativo lógico.
+   Salvar a sua aplicação lógica chama o ponto final de subscrição no serviço alvo e regista o URL de callback. A sua aplicação lógica aguarda então que o serviço alvo envie um pedido de `HTTP POST` para o URL de callback. Quando este evento acontece, o gatilho dispara e passa quaisquer dados no pedido junto ao fluxo de trabalho. Se esta operação terminar com sucesso, o gatilho desabre a partir do ponto final, e a sua aplicação lógica continua o fluxo de trabalho restante.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no designer de aplicativo lógico.
+## <a name="add-an-http-webhook-action"></a>Adicione uma ação http Webhook
 
-   Este exemplo usa o gatilho de webhook HTTP como a primeira etapa.
+Esta ação incorporada chama o ponto final de subscrição no serviço alvo e regista um URL de callback com o serviço alvo. A sua aplicação lógica faz então uma pausa e aguarda que o serviço alvo envie um pedido de `HTTP POST` para o URL de chamada. Quando este evento acontece, a ação passa quaisquer dados no pedido junto ao fluxo de trabalho. Se a operação terminar com sucesso, a ação desabre a partir do ponto final, e a sua aplicação lógica continua a executar o fluxo de trabalho restante.
 
-1. Na etapa em que você deseja adicionar a ação de webhook HTTP, selecione **nova etapa**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
 
-   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Este exemplo utiliza o gatilho HTTP Webhook como primeiro passo.
 
-1. No designer, na caixa de pesquisa, digite "http webhook" como filtro. Na lista **ações** , selecione a ação **webhook http** .
+1. Sob o passo onde pretende adicionar a ação HTTP Webhook, selecione **Novo passo**.
 
-   ![Selecionar ação de webhook HTTP](./media/connectors-native-webhook/select-http-webhook-action.png)
+   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal plus **(+** ) que aparece e, em seguida, **selecione Adicionar uma ação**.
 
-   Este exemplo renomeia a ação como "ação de webhook HTTP" para que a etapa tenha um nome mais descritivo.
+1. Na caixa de pesquisa do designer, introduza `http webhook` como filtro. Na lista **de Ações,** selecione a ação **HTTP Webhook.**
 
-1. Forneça os valores para os parâmetros de ação de webhook HTTP, que são semelhantes aos [parâmetros de gatilho de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que você deseja usar para as chamadas inscrever e cancelar assinatura, por exemplo:
+   ![Selecione ação http Webhook](./media/connectors-native-webhook/select-http-webhook-action.png)
 
-   ![Inserir parâmetros de ação de webhook HTTP](./media/connectors-native-webhook/http-webhook-action-parameters.png)
+   Este exemplo renomea a ação para "HTTP Webhook action" de modo a que o passo tenha um nome mais descritivo.
 
-   Durante o tempo de execução, o aplicativo lógico chama o ponto de extremidade de assinatura ao executar esta ação. Em seguida, seu aplicativo lógico pausa o fluxo de trabalho e aguarda o serviço de destino enviar uma solicitação de `HTTP POST` para a URL de retorno de chamada. Se a ação for concluída com êxito, a ação cancelará a assinatura do ponto de extremidade e seu aplicativo lógico retomará a execução do fluxo de trabalho.
+1. Forneça os valores para os parâmetros de ação HTTP Webhook, semelhantes aos parâmetros do [gatilho http Webhook,](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)que pretende utilizar para as chamadas de subscrição e cancelamento de subscrição.
 
-1. Para adicionar outros parâmetros disponíveis, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros desejados.
+   Neste exemplo, a ação inclui os métodos, URIs e organismos de mensagens a utilizar no momento da realização das operações de subscrição e cancelamento de subscrição.
 
-   Para obter mais informações sobre os tipos de autenticação disponíveis para webhook HTTP, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   ![Introduza os parâmetros de ação http Webhook](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
-1. Quando tiver terminado, lembre-se de salvar seu aplicativo lógico. Na barra de ferramentas do designer, selecione **salvar**.
+   | Propriedade | Necessário | Descrição |
+   |----------|----------|-------------|
+   | **Subscrição - Método** | Sim | O método a utilizar ao subscrever o ponto final do alvo |
+   | **Inscreva-se - URI** | Sim | O URL a utilizar para subscrever o ponto final do alvo |
+   | **Subscrever - Corpo** | Não | Qualquer organismo de mensagem a incluir no pedido de subscrição. Este exemplo inclui o URL de callback que identifica exclusivamente o assinante, que é a sua aplicação lógica, utilizando a expressão `@listCallbackUrl()` para recuperar o URL de callback da sua aplicação lógica. |
+   | **Cancelar a subscrição - Método** | Não | O método a utilizar ao cancelar a subscrição do ponto final-alvo |
+   | **Cancelar a subscrição - URI** | Não | O URL a utilizar para dessubscrever a partir do ponto final do alvo |
+   | **Cancelar a subscrição - Corpo** | Não | Um organismo de mensagem opcional para incluir no pedido de cancelamento de subscrição <p><p>**Nota:** Esta propriedade não suporta utilizando a função `listCallbackUrl()`. No entanto, a ação inclui e envia automaticamente os cabeçalhos, `x-ms-client-tracking-id` e `x-ms-workflow-operation-name`, que o serviço-alvo pode usar para identificar exclusivamente o assinante. |
+   ||||
+
+1. Para adicionar outras propriedades de ação, abra a **lista adicionar novo parâmetro.**
+
+   ![Adicione mais propriedades de ação](./media/connectors-native-webhook/http-webhook-action-add-properties.png)
+
+   Por exemplo, se precisar de utilizar a autenticação, pode adicionar as propriedades **Subscrever - Autenticação** e Cancelar A **autenticação** . Para obter mais informações sobre os tipos de autenticação disponíveis para http Webhook, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+
+1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas de design, selecione **Guardar**.
+
+   Agora, quando esta ação corre, a sua aplicação lógica chama o ponto final de subscrição no serviço alvo e regista o URL de callback. A aplicação lógica interrompe então o fluxo de trabalho e aguarda que o serviço alvo envie um pedido de `HTTP POST` para o URL de callback. Quando este evento acontece, a ação passa quaisquer dados no pedido junto ao fluxo de trabalho. Se a operação terminar com sucesso, a ação desabre a partir do ponto final, e a sua aplicação lógica continua a executar o fluxo de trabalho restante.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter mais informações sobre parâmetros de ação e gatilho, que são semelhantes entre si, consulte [parâmetros de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
+Para obter mais informações sobre os parâmetros de disparo e de ação, semelhantes uns aos outros, consulte os [parâmetros HTTP Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
 
 ### <a name="output-details"></a>Detalhes da saída
 
-Aqui estão mais informações sobre as saídas de um gatilho ou ação de webhook HTTP, que retorna essas informações:
+Aqui está mais informações sobre as saídas de um gatilho ou ação http Webhook, que devolve esta informação:
 
 | Nome da propriedade | Tipo | Descrição |
 |---------------|------|-------------|
-| conector | objeto | Os cabeçalhos da solicitação |
-| body | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
-| código de estado | int | O código de status da solicitação |
+| cabeçalhos | objeto | Os cabeçalhos do pedido |
+| corpo | objeto | Objeto JSON | O objeto com o conteúdo do corpo a partir do pedido |
+| código de estado | int | O código de estado do pedido |
 |||
 
 | Código de estado | Descrição |
@@ -144,9 +170,9 @@ Aqui estão mais informações sobre as saídas de um gatilho ou ação de webho
 | 401 | Não autorizado |
 | 403 | Proibido |
 | 404 | Não foi encontrado |
-| 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
+| 500 | Erro interno do servidor. Erro desconhecido ocorreu. |
 |||
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de Aplicações Lógicas](../connectors/apis-list.md)

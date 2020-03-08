@@ -8,15 +8,15 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 01/25/2019
-ms.openlocfilehash: ac5656a8efe1dee932bfe753f8bdc06b787e20af
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 03/05/2020
+ms.openlocfilehash: e289cf7aea6e0ea46ff049f3ea8bf9e1517e8aaf
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529797"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673605"
 ---
-1. [Crie um espaço de trabalho Azure Machine Learning](../articles/machine-learning/how-to-manage-workspace.md).
+1. [Crie um espaço de trabalho azure machine learning.](../articles/machine-learning/how-to-manage-workspace.md)
 
 1. Clone o [repositório do GitHub](https://aka.ms/aml-notebooks).
 
@@ -24,13 +24,13 @@ ms.locfileid: "75529797"
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
-1. Adicione um arquivo de configuração do espaço de trabalho ao diretório clonado usando um destes métodos:
+1. Adicione um ficheiro de configuração do espaço de trabalho ao diretório clonado utilizando qualquer um destes métodos:
 
-    * No [portal do Azure](https://ms.portal.azure.com), selecione **baixar config. JSON** na seção **visão geral** do seu espaço de trabalho. 
+    * No [portal Azure,](https://ms.portal.azure.com)selecione **Download config.json** da secção **de visão geral** do seu espaço de trabalho. 
 
-    ![Baixar config. JSON](./media/aml-dsvm-server/download-config.png)
+    ![Baixar config.json](./media/aml-dsvm-server/download-config.png)
 
-    * Crie um novo espaço de trabalho usando código no bloco de anotações [Configuration. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) no diretório clonado.
+    * Crie um novo espaço de trabalho utilizando código no caderno [configuração.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) no seu diretório clonado.
 
 1. Inicie o servidor de blocos de notas a partir do diretório clonado.
 

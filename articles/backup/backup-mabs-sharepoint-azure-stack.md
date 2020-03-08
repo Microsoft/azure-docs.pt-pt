@@ -3,12 +3,12 @@ title: Back up a SharePoint farm on Azure Stack
 description: Utilize o Servidor de Backup Azure para fazer backup e restaurar os seus dados do SharePoint no Azure Stack. Este artigo fornece as informações para configurar a sua quinta SharePoint para que os dados desejados possam ser armazenados em Azure. Pode restaurar os dados do SharePoint protegidos a partir do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: c503ac7a76872e71d1920765656610dd462d4db3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d080605022cadf121fa6be99c9758fe9c0d878ef
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583219"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673046"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Back up a SharePoint farm on Azure Stack
 
@@ -123,7 +123,7 @@ Depois de configurar o MABS e a quinta SharePoint, como explicado anteriormente,
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > O MABS fornece um máximo de duas cópias de segurança diárias ao Azure a partir do último ponto de backup do disco disponível. O Azure Backup também pode controlar a quantidade de largura de banda WAN que pode ser usada para backups em horas de pico e off-peak usando a Rede de [Backup Azure Throttling](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > O MABS fornece um máximo de duas cópias de segurança diárias ao Azure a partir do último ponto de backup do disco disponível. O Azure Backup também pode controlar a quantidade de largura de banda WAN que pode ser usada para backups em horas de pico e off-peak usando a Rede de [Backup Azure Throttling](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Dependendo da programação de backup que selecionou, na página **'Especificar Política de Retenção Online',** selecione a política de retenção para pontos de backup diários, semanais, mensais e anuais.

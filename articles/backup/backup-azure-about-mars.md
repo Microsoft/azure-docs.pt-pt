@@ -1,66 +1,66 @@
 ---
-title: Sobre o agente MARS
-description: Saiba como o agente MARS dá suporte aos cenários de backup
+title: Sobre o Agente MARS
+description: Saiba como o Agente MARS suporta os cenários de backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 348980b840b814c09ce46627f286489d4caa9f8f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d2cc8e32152f6930c9c250e2811668cc2c924616
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023961"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673281"
 ---
-# <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente de Serviços de Recuperação do Microsoft Azure (MARS)
+# <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente microsoft Azure Recovery Services (MARS)
 
-Este artigo descreve como o serviço de backup do Azure usa o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup e restaurar arquivos, pastas e o volume ou o estado do sistema de um computador local para o Azure.
+Este artigo descreve como o serviço de backup Azure utiliza o agente microsoft Azure Recovery Services (MARS) para fazer backup e restaurar ficheiros, pastas e o estado de volume ou sistema de um computador no local para o Azure.
 
-O agente MARS dá suporte aos seguintes cenários de backup:
+O agente MARS suporta os seguintes cenários de backup:
 
-![Cenários de backup MARS](./media/backup-try-azure-backup-in-10-mins/backup-scenarios.png)
+![Cenários de backup mars](./media/backup-try-azure-backup-in-10-mins/backup-scenarios.png)
 
-- **Arquivos e pastas**: proteger seletivamente arquivos e pastas do Windows.
-- **Nível de volume**: Proteja todo o volume do Windows de seu computador.
-- **Nível do sistema**: proteger todo o estado do sistema do Windows.
+- **Ficheiros e Pastas**: Proteja seletivamente ficheiros e pastas do Windows.
+- **Nível de Volume:** Proteja todo o volume do Windows da sua máquina.
+- **Nível do sistema:** Proteja todo o estado do sistema Windows.
 
-O agente MARS dá suporte aos seguintes cenários de restauração:
+O agente MARS suporta os seguintes cenários de restauro:
 
-![Cenários de recuperação MARS](./media/backup-try-azure-backup-in-10-mins/restore-scenarios.png)
+![Cenários de recuperação de MARS](./media/backup-try-azure-backup-in-10-mins/restore-scenarios.png)
 
--   **Mesmo servidor**: o servidor no qual o backup foi criado originalmente.
-    -    **Arquivos e pastas**: escolha os arquivos e as pastas individuais que você deseja restaurar.
-    -    **Nível de volume**: escolha o volume e o ponto de recuperação que deseja restaurar e, em seguida, restaure-o no mesmo local ou em um local alternativo no mesmo computador.  Crie uma cópia dos arquivos existentes, substitua os arquivos existentes ou ignore a recuperação de arquivos existentes.
-    -    **Nível do sistema**: escolha o estado do sistema e o ponto de recuperação para restaurar no mesmo computador em um local especificado.
+- **Mesmo Servidor**: O servidor no qual a cópia de segurança foi originalmente criada.
+  - **Ficheiros e Pastas**: Escolha os ficheiros e pastas individuais que pretende restaurar.
+  - **Nível de Volume:** Escolha o ponto de volume e recuperação que pretende restaurar e, em seguida, restaurá-lo para o mesmo local ou para uma localização alternativa na mesma máquina.  Crie uma cópia dos ficheiros existentes, sobrepor ficheiros existentes ou ignore a recuperação dos ficheiros existentes.
+  - **Nível do sistema:** Escolha o estado do sistema e o ponto de recuperação para restaurar a mesma máquina num local determinado.
 
-
--   **Servidor alternativo**: um servidor que não seja o servidor onde o backup foi feito.
-    -    **Arquivos e pastas**: escolha os arquivos e as pastas individuais cujo ponto de recuperação você deseja restaurar em um computador de destino.
-    -    **Nível de volume**: escolha o volume e o ponto de recuperação que você deseja restaurar para outro local. Crie uma cópia dos arquivos existentes, substitua os arquivos existentes ou ignore a recuperação de arquivos existentes.
-    -    **Nível do sistema**: escolha o estado do sistema e o ponto de recuperação para restaurar como um arquivo de estado do sistema para um computador alternativo.
+- **Servidor Alternativo**: Um servidor diferente do servidor onde a cópia de segurança foi tomada.
+  - **Ficheiros e Pastas**: Escolha os ficheiros e pastas individuais cujo ponto de recuperação pretende restaurar para uma máquina-alvo.
+  - **Nível de Volume:** Escolha o ponto de volume e recuperação que pretende restaurar para outro local. Crie uma cópia dos ficheiros existentes, sobrepor ficheiros existentes ou ignore a recuperação dos ficheiros existentes.
+  - **Nível do sistema:** Escolha o estado do sistema e o ponto de recuperação para restaurar como ficheiro System State para uma máquina alternativa.
 
 ## <a name="backup-process"></a>Processo de backup
 
-1. No portal do Azure, crie um [cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-configure-vault#create-a-recovery-services-vault)e escolha arquivos, pastas e o estado do sistema de metas de backup.
-2. [Baixe as credenciais do cofre dos serviços de recuperação e o instalador do agente](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) em um computador local. 
+1. A partir do portal Azure, crie um cofre de Serviços de [Recuperação](install-mars-agent.md#create-a-recovery-services-vault), e escolha ficheiros, pastas e o estado do sistema a partir dos objetivos de Backup.
+2. [Descarregue as credenciais do cofre dos Serviços](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) de Recuperação e o instalador de agentes para uma máquina no local.
 
-    Para proteger o computador local selecionando a opção de backup, escolha arquivos, pastas e o estado do sistema e, em seguida, baixe o agente MARS.
+    Para proteger a máquina no local selecionando a opção 'Backup', escolha ficheiros, pastas e o estado do sistema e, em seguida, baixe o agente MARS.
 
 3. Preparar a infraestrutura:
 
-    a. Execute o instalador para [instalar o agente](https://docs.microsoft.com/azure/backup/backup-configure-vault#install-and-register-the-agent).
+    a. Executar o instalador para [instalar o agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent).
 
-    b. Use as credenciais do cofre baixado para registrar o computador no cofre dos serviços de recuperação.
-4. No console do agente no cliente, [Configure o backup](https://docs.microsoft.com/azure/backup/backup-configure-vault#create-a-backup-policy). Especifique a política de retenção de seus dados de backup para começar a protegê-lo.
+    b. Use as suas credenciais de cofre descarregadas para registar a máquina no cofre dos Serviços de Recuperação.
+4. A partir da consola do agente no cliente, [configure a cópia](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy)de segurança . Especifique a política de retenção dos seus dados de backup para começar a protegê-los.
 
-![Diagrama do agente de backup do Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
+![Diagrama de agente de backup Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
 ### <a name="additional-scenarios"></a>Cenários adicionais
--   **Fazer backup de arquivos e pastas específicos em máquinas virtuais do Azure**: o método principal para fazer backup de VMs (máquinas virtuais) do Azure é usar uma extensão de backup do Azure na VM. A extensão faz o backup de toda a VM. Se desejar fazer backup de arquivos e pastas específicos em uma VM, você poderá instalar o agente MARS nas VMs do Azure. Para obter mais informações, consulte [arquitetura: backup de VM do Azure interno](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
 
--   **Propagação offline**: backups completos iniciais de dados no Azure normalmente transferem grandes quantidades de dados e exigem mais largura de banda de rede. Os backups subsequentes transferem apenas o Delta, ou incrementais, a quantidade de dados. O backup do Azure compacta os backups iniciais. Por meio do processo de *propagação offline*, o backup do Azure pode usar discos para carregar os dados de backup inicial compactados offline no Azure. Para mais informações, consulte [o Backup Azure backup offline utilizando](offline-backup-azure-data-box.md)a Caixa de Dados Azure .
+- **Backup de ficheiros e pastas específicos dentro de máquinas virtuais Azure**: O método principal para apoiar as máquinas virtuais Azure (VMs) é utilizar uma extensão de backup Azure no VM. A extensão apoia todo o VM. Se pretender fazer o back-up de ficheiros e pastas específicos dentro de um VM, pode instalar o agente MARS nos VMs Azure. Para mais informações, consulte Arquitetura: Backup [Azure VM incorporado](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
+
+- **Sementeira offline**: Cópias de segurança completas iniciais de dados para o Azure normalmente transferem grandes quantidades de dados e requerem mais largura de banda da rede. As cópias de segurança subsequentes transferem apenas a quantidade de dados delta, ou incremental. O Azure Backup comprime as cópias de segurança iniciais. Através do processo de *sementeira offline,* o Azure Backup pode utilizar discos para carregar os dados iniciais de backup comprimidos offline para o Azure. Para mais informações, consulte [o Backup Azure backup offline utilizando](offline-backup-azure-data-box.md)a Caixa de Dados Azure .
 
 ## <a name="next-steps"></a>Passos seguintes
+
 [Matriz de suporte do agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
 
-[FAQ do agente MARS](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
+[AGENTE MARS FAQ](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)

@@ -1,144 +1,206 @@
 ---
-title: Implementar proteção de senha seletiva Azure - Diretório Ativo Azure
-description: Implementar proteção de senha seletiva azure para proibir senhas erradas no local
+title: Implementar no local a Proteção de Passwords AD Azure
+description: Saiba como planear e implementar a Proteção de Passwords Azure AD num ambiente de Serviços de Domínio de Diretório Ativo no local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 03/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a3eb121b68311084fd516c6abb7e00ad70eba8b
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: a977eac19128886dd3c379e200f7cb78066a06af
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226834"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671765"
 ---
-# <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
+# <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planear e implementar no local a Proteção de Palavras-passe de Diretório Ativo azure
 
-Agora que compreende como impor a proteção de [palavras-passe Da AD Azure para o Diretório Ativo](concept-password-ban-bad-on-premises.md)do Windows Server, o próximo passo é planear e executar a sua implementação.
+Os utilizadores geralmente criam senhas que usam palavras locais comuns, como uma escola, equipe de esportes ou pessoa famosa. Estas palavras-passe são fáceis de adivinhar, e fracas contra ataques baseados no dicionário. Para impor senhas fortes na sua organização, a Azure Ative Directory (Azure AD) Password Protection fornece uma lista de senhas proibidas global e personalizada. Um pedido de alteração de senha falha se houver uma correspondência nesta lista de senhas proibidas.
+
+Para proteger o ambiente de Serviços de Domínio ativo do Diretório Ativo (AD DS) no local, pode instalar e configurar a Proteção de Passwords Azure AD para trabalhar com o seu em prem DC. Este artigo mostra-lhe como instalar e registar o serviço de proxy de proteção de passwords Azure AD e o agente DC de proteção de senhas Azure AD no seu ambiente no local.
+
+Para obter mais informações sobre como a Proteção de Passwords Azure AD funciona num ambiente no local, consulte como impor a Proteção de [Passwords AD Azure para](concept-password-ban-bad-on-premises.md)o Diretório Ativo do Servidor do Windows .
 
 ## <a name="deployment-strategy"></a>Estratégia de implantação
 
-Recomendamos que inicie as implementações no modo de auditoria. O modo de auditoria é a definição inicial predefinida, onde as palavras-passe podem continuar a ser definidas. As palavras-passe que seriam bloqueadas são registadas no registo do evento. Depois de implementar os servidores proxy e agentes de DC no modo de auditoria, deve monitorizar o impacto que a política de passwords terá nos utilizadores e no ambiente quando a política for aplicada.
+O diagrama seguinte mostra como os componentes básicos da Proteção de Passwords Azure AD funcionam em conjunto num ambiente de Diretório Ativo no local:
 
-Durante a fase de auditoria, muitas organizações descobrem que:
+![Como os componentes de proteção de senha seletiva saem em conjunto](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+É uma boa ideia rever como o software funciona antes de o implementares. Para mais informações, consulte a [visão geral conceptual da Proteção de Passwords Azure AD](concept-password-ban-bad-on-premises.md).
+
+Recomendamos que inicie as implementações no modo de *auditoria.* O modo de auditoria é a definição inicial predefinida, onde as palavras-passe podem continuar a ser definidas. As palavras-passe que seriam bloqueadas são registadas no registo do evento. Depois de implementar os servidores proxy e os agentes DED no modo de auditoria, monitorize o impacto que a política de passwords terá nos utilizadores quando a política for aplicada.
+
+Durante a fase de auditoria, muitas organizações constatam que as seguintes situações se aplicam:
 
 * Precisam de melhorar os processos operacionais existentes para utilizarem senhas mais seguras.
 * Os utilizadores usam frequentemente senhas não seguras.
 * Precisam de informar os utilizadores sobre a próxima alteração na aplicação da segurança, possível impacto sobre eles e como escolher palavras-passe mais seguras.
 
-Também é possível que uma validação mais forte da palavra-passe afete a automatização de implementação do controlador de domínio Ative Directory existente. Recomendamos que pelo menos uma promoção em DC e uma despromoção em DC ocorram durante a avaliação do período de auditoria, a fim de ajudar a desvendar antecipadamente tais questões.  Para obter mais informações, consulte:
+Também é possível que uma validação de palavra-passe mais forte afete a automatização de implementação do controlador de domínio Ative Directory existente. Recomendamos que pelo menos uma promoção em DC e uma despromoção em DC ocorram durante a avaliação do período de auditoria para ajudar a desvendar tais questões. Para obter mais informações, veja os artigos seguintes:
 
 * [Ntdsutil.exe é incapaz de definir uma senha fraca do Modo de Reparação de Serviços de Diretório](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [A promoção da réplica do controlador de domínio falha devido a uma fraca senha do Modo de Reparação de Serviços de Diretório](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [A despromoção do controlador de domínio falha devido a uma fraca senha do Administrador Local](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
-Depois de a funcionalidade ter estado em execução no modo de auditoria durante um período razoável, pode mudar a configuração da *Auditoria* para *a Aplicação* para exigir senhas mais seguras. A monitorização focalizada durante este tempo é uma boa ideia.
+Depois de a funcionalidade ter estado em execução no modo de auditoria durante um período razoável, pode mudar a configuração da *Auditoria* para *a Aplicação* para exigir senhas mais seguras. Uma monitorização adicional durante este tempo é uma boa ideia.
+
+### <a name="multiple-forest-considerations"></a>Múltiplas considerações florestais
+
+Não existem requisitos adicionais para implementar a Proteção de Passwords Azure AD em várias florestas.
+
+Cada floresta é configurada independentemente, como descrito na secção seguinte para implantar a proteção de [senhas ad-prem Azure AD](#download-required-software). Cada representante de proteção de senhas Azure AD só pode suportar controladores de domínio da floresta a que está unida.
+
+O software de proteção de passwords Azure AD em qualquer floresta desconhece o software de proteção de passwords que é implantado noutras florestas, independentemente das configurações de confiança do Ative Directory.
+
+### <a name="read-only-domain-controller-considerations"></a>Considerações de controlador de domínio apenas de leitura
+
+Os eventos de alteração de palavra-passe ou de conjunto não são processados e persistem em controladores de domínio apenas de leitura (RODCs). Em vez disso, são encaminhados para controladores de domínio supreendáveis. Não é necessário instalar o software de agente DC de proteção de senhas Azure AD em RODCs.
+
+Além disso, não é suportado para executar o serviço de proxy de proteção de senhas Azure AD num controlador de domínio apenas para leitura.
+
+### <a name="high-availability-considerations"></a>Considerações de elevada disponibilidade
+
+A principal preocupação para a proteção de passwords é a disponibilidade de servidores de proxy de proteção de senhas Azure AD quando os DCs numa floresta tentam descarregar novas políticas ou outros dados do Azure. Cada agente azure AD Password Protection DC usa um algoritmo simples de estilo robin redondo ao decidir qual servidor proxy ligar. O agente ignora servidores de procuração que não estão a responder.
+
+Para as implementações de Diretório Ativo mais conectadas que possuem replicação saudável tanto do estado de pastagem de diretório como de sysvol, dois servidores de proxy de proteção de passwords Azure AD são suficientes para garantir a disponibilidade. Esta configuração resulta no download atempada de novas políticas e outros dados. Pode implementar servidores adicionais de proxy de proteção de passwords Azure AD, se desejar.
+
+O design do software de agente DC de proteção de senhas Azure AD atenua os problemas habituais que estão associados com elevada disponibilidade. O agente DC de proteção de senhas Azure AD mantém uma cache local da política de senha mais recentemente descarregada. Mesmo que todos os servidores proxy registados fiquem indisponíveis, os agentes DC de Proteção de Passwords AD do Azure continuam a aplicar a sua política de senha seletiva.
+
+Uma frequência de atualização razoável para as políticas de senha numa grande implementação é geralmente dias, não horas ou menos. Assim, breves interrupções dos servidores proxy não impactam significativamente a Proteção de Passwords Azure AD.
 
 ## <a name="deployment-requirements"></a>Requisitos de implementação
 
-* Os requisitos de licenciamento para a proteção de senhas Azure AD podem ser encontrados no artigo [Eliminar palavras-passe más na sua organização](concept-password-ban-bad.md#license-requirements).
-* Todas as máquinas onde o software de proteção de senhas Azure AD será instalado devem executar o Windows Server 2012 ou mais tarde. Este requisito não implica que o domínio ou a floresta do Diretório Ativo também deva estar no domínio do Windows Server 2012 ou nível funcional florestal. Como mencionado nos princípios de [design,](concept-password-ban-bad-on-premises.md#design-principles)não existe um DFL ou FFL mínimo necessários para que o agente DC ou o software proxy sejam executados.
-* Todas as máquinas que tenham o serviço de agente DC instalado devem ter .NET 4.5 instaladas.
-* Todas as máquinas onde o serviço de proxy de proteção de senhas Azure AD será instalado devem executar o Windows Server 2012 R2 ou mais tarde.
-   > [!NOTE]
-   > A implementação do serviço Proxy é um requisito obrigatório para a implementação da proteção de senhas Azure AD, mesmo que o controlador de domínio possa ter conectividade direta de internet. 
-   >
-* Todas as máquinas onde o serviço de procuração de passwords Azure AD será instalado devem ter .NET 4.7 instaladas.
-  .NET 4.7 já deve ser instalado num Servidor Windows totalmente atualizado. Se necessário, faça o download e execute o instalador encontrado no [instalador offline .NET Framework 4.7 para windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-* Todas as máquinas, incluindo controladores de domínio, que tenham componentes de proteção de senhas Azure AD instalados devem ter o Tempo de Execução Universal C instalado. Pode obter o tempo de execução, certificando-se de que tem todas as atualizações a partir do Windows Update. Ou pode obtê-lo num pacote de atualização específico para o OS. Para mais informações, consulte [Atualização para o Tempo de Execução Universal C no Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
-* A conectividade da rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que acolhe o serviço proxy para proteção de palavras-passe. Esta conectividade deve permitir ao controlador de domínio aceder à porta de mapa de ponto final RPC 135 e à porta do servidor RPC no serviço proxy. Por predefinição, a porta do servidor RPC é uma porta RPC dinâmica, mas pode ser configurada para [utilizar uma porta estática](#static).
+Para obter informações sobre o licenciamento, consulte os requisitos de licenciamento de proteção de [senhas da Azure AD](concept-password-ban-bad.md#license-requirements).
+
+Aplicam-se os seguintes requisitos fundamentais:
+
+* Todas as máquinas, incluindo controladores de domínio, que tenham componentes de proteção de senhas Azure AD instalados devem ter o Tempo de Execução Universal C instalado.
+    * Pode obter o tempo de execução, certificando-se de que tem todas as atualizações a partir do Windows Update. Ou pode obtê-lo num pacote de atualização específico para o OS. Para mais informações, consulte [Atualização para o Tempo de Execução Universal C no Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
+* Precisa de uma conta que tenha privilégios de administrador de domínio ative diretório no domínio da raiz da floresta para registar a floresta de Diretório Ativo do Windows Server com a AD Azure.
+* O Serviço de Distribuição de Chaves deve ser ativado em todos os controladores de domínio do domínio que executam o Windows Server 2012. Por predefinição, este serviço é ativado através do arranque manual do gatilho.
+* A conectividade da rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que acolhe o serviço proxy para a Proteção de Passwords AD Azure. Esta conectividade deve permitir ao controlador de domínio aceder à porta de mapa de ponto final RPC 135 e à porta do servidor RPC no serviço proxy.
+    * Por predefinição, a porta do servidor RPC é uma porta RPC dinâmica, mas pode ser configurada para [utilizar uma porta estática](#static).
 * Todas as máquinas onde o serviço de procuração de passwords Azure AD será instalado devem ter acesso à rede aos seguintes pontos finais:
 
     |**Ponto final**|**Objetivo**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Pedidos de autenticação|
-    |`https://enterpriseregistration.windows.net`|Funcionalidade de proteção de senha seletiva Azure AD|
- 
-* Pré-requisitos do AD Connect Agent da Microsoft Azure
+    |`https://enterpriseregistration.windows.net`|Funcionalidade de Proteção de Passwords Azure AD|
 
-  O serviço de atualização do Agente de Ligação AD Microsoft Azure é instalado lado a lado com o serviço de proxy de proteção de passwords Azure AD. É necessária uma configuração adicional para que o serviço de atualização do Agente de Ligação AD da Microsoft Azure seja capaz de funcionar:
+### <a name="azure-ad-password-protection-dc-agent"></a>Agente DC de proteção de senha da AD Azure
 
-  Se o seu ambiente utilizar um servidor http proxy, deve seguir as diretrizes especificadas no [Trabalho com servidores proxy existentes no local](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
+Os seguintes requisitos aplicam-se ao agente DC de proteção de senhas da AD Azure:
 
-  O serviço de atualização do Agente de Ligação AD Microsoft Azure também requer as etapas TLS 1.2 especificadas nos [requisitos do TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
+* Todas as máquinas onde o software de agente DC de proteção de senhas Azure AD será instalado devem executar o Windows Server 2012 ou mais tarde.
+    * O domínio ou floresta de Diretório Ativo não precisa de estar ao nível funcional do domínio Do Windows Server 2012 (DFL) ou ao nível funcional da floresta (FFL). Como mencionado nos princípios de [design,](concept-password-ban-bad-on-premises.md#design-principles)não há dFL ou FFL mínimo necessários para que o agente DC ou o software proxy sejam executados.
+* Todas as máquinas que executam o agente DC de proteção de senhas Azure AD devem ter .NET 4.5 instaladas.
+* Qualquer domínio de Diretório Ativo que execute o serviço de agente DC de proteção de passwords Azure AD deve utilizar a replicação do sistema de ficheiros distribuídos (DFSR) para a replicação de sysvol.
+   * Se o seu domínio ainda não estiver a utilizar o DFSR, tem de migrar antes de instalar a Proteção de Passwords Azure AD. Para mais informações, consulte Guia de [Migração de Replicação SYSVOL: FRS para replicação dfs](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
-  O acesso à rede deve ser ativado para o conjunto de portas e urls especificados nos procedimentos de configuração do ambiente proxy de [aplicação](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+    > [!WARNING]
+    > O software do agente DC de proteção de passwords Azure AD irá atualmente instalar em controladores de domínio em domínios que ainda estão a utilizar FRS (a tecnologia antecessora para DFSR) para a replicação de sysvol, mas o software NÃO funcionará corretamente neste ambiente.
+    >
+    > Efeitos colaterais negativos adicionais incluem ficheiros individuais que não se replicam, e os procedimentos de restauro sysvol parecem ter sucesso, mas falhando silenciosamente em replicar todos os ficheiros.
+    >
+    > Migrar o seu domínio para utilizar o DFSR o mais rapidamente possível, tanto para os benefícios inerentes da DFSR como para desbloquear a implementação da Proteção de Passwords Azure AD. As futuras versões do software serão automaticamente desativadas quando estiverem a funcionar num domínio que ainda está a utilizar FRS.
 
-  > [!WARNING]
-  > O Proxy de Proteção de Passwords Azure AD e o Proxy de Aplicação instalam diferentes versões do serviço de atualização do agente de ligação addato do Microsoft Azure, razão pela qual as instruções se referem ao conteúdo proxy da aplicação. Estas diferentes versões são incompatíveis quando instaladas lado a lado, pelo que não é aconselhável instalar o Proxy de Proteção de Passwords Azure AD e proxy de aplicação lado a lado na mesma máquina.
+### <a name="azure-ad-password-protection-proxy-service"></a>Serviço de proxy de proteção de senhas Azure AD
 
-* Todas as máquinas que acolhem o serviço proxy para proteção por palavra-passe devem ser configuradas para conceder aos controladores de domínio a capacidade de iniciar sessão no serviço proxy. Esta capacidade é controlada através da atribuição de privilégios "Access this computer from the network".
-* Todas as máquinas que acolhem o serviço proxy para proteção por palavra-passe devem ser configuradas para permitir o tráfego de saída TLS 1.2 HTTP.
-* Uma conta de Administrador Global para registar o serviço proxy para proteção de passwords e floresta com Azure AD.
-* Uma conta que tem privilégios de administrador de domínio ative diretório no domínio da raiz da floresta para registar a floresta de Diretório Ativo do Windows Server com a AD Azure.
-* Qualquer domínio de Diretório Ativo que execute o software de serviço do Agente DC deve utilizar a replicação do sistema de ficheiros distribuídos (DFSR) para a replicação sysvol.
+Os seguintes requisitos aplicam-se ao serviço de proxy de proteção de passwords Azure AD:
 
-  Se o seu domínio ainda não estiver a utilizar o DFSR, deve migrar para utilizar o DFSR antes de instalar a Proteção de Passwords Azure AD. Para mais informações, consulte o seguinte link:
+* Todas as máquinas onde o serviço de proxy de proteção de senhas Azure AD será instalado devem executar o Windows Server 2012 R2 ou mais tarde.
 
-  [Guia de migração de replicação SYSVOL: FRS para replicação DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+    > [!NOTE]
+    > A implementação do serviço de proxy de proteção por palavra-passe Azure AD é um requisito obrigatório para a implementação da Proteção de Passwords Azure AD, mesmo que o controlador de domínio possa ter uma conectividade direta de internet.
 
-  > [!WARNING]
-  > O software Azure AD Password Protection DC Agent irá atualmente instalar em controladores de domínio em domínios que ainda estão a usar FRS (a tecnologia antecessora para DFSR) para replicação sysvol, mas o software NÃO funcionará corretamente neste ambiente. Efeitos colaterais negativos adicionais incluem ficheiros individuais que não se replicam, e os procedimentos de restauro sysvol parecem ter sucesso, mas falhando silenciosamente em replicar todos os ficheiros. Deve migrar o seu domínio para utilizar o DFSR o mais rapidamente possível, tanto para os benefícios inerentes da DFSR como para desbloquear a implementação da Proteção de Passwords Azure AD. As futuras versões do software serão automaticamente desativadas quando estiverem a funcionar num domínio que ainda está a utilizar frs.
+* Todas as máquinas onde o serviço de proteção por palavra-passe Azure AD será instalado devem ter .NET 4.7 instaladas.
+    * .NET 4.7 já deve ser instalado num Servidor Windows totalmente atualizado. Se necessário, faça o download e execute o instalador encontrado no [instalador offline .NET Framework 4.7 para windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+* Todas as máquinas que acolhem o serviço de proxy de proteção de passwords Azure AD devem ser configuradas para conceder aos controladores de domínio a capacidade de iniciar sessão no serviço proxy. Esta capacidade é controlada através da atribuição de privilégios "Access this computer from the network".
+* Todas as máquinas que acolhem o serviço de proxy de proteção de senhas Azure AD devem ser configuradas para permitir o tráfego de saída TLS 1.2 HTTP.
+* Uma conta *de Administrador Global* para registar o serviço de proxy de proteção de senhas Azure AD e floresta com AD Azure.
+* O acesso à rede deve ser ativado para o conjunto de portas e URLs especificados nos procedimentos de configuração do ambiente proxy de [aplicação](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
 
-* O Serviço de Distribuição de Chaves deve ser ativado em todos os controladores de domínio do domínio que executam o Windows Server 2012. Por predefinição, este serviço é ativado através do arranque manual do gatilho.
+### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Pré-requisitos do AD Connect Agent da Microsoft Azure
 
-## <a name="single-forest-deployment"></a>Implantação de uma única floresta
+O serviço de atualização do Agente de Ligação AD Microsoft Azure é instalado lado a lado com o serviço de proxy de proteção de passwords Azure AD. É necessária uma configuração adicional para que o serviço de atualização do Agente de Ligação AD da Microsoft Azure seja capaz de funcionar:
 
-O diagrama seguinte mostra como os componentes básicos da proteção da palavra-passe Azure AD funcionam em conjunto num ambiente de Diretório Ativo no local.
+* Se o seu ambiente utilizar um servidor proxy HTTP, siga as diretrizes especificadas no [Trabalho com servidores proxy existentes no local](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
+* O serviço de atualização do Agente de Ligação AD Microsoft Azure também requer as etapas TLS 1.2 especificadas nos [requisitos do TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
 
-![Como os componentes de proteção de senha seletiva Azure funcionam em conjunto](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+> [!WARNING]
+> O representante de proteção de passwords Azure AD e o Proxy de Aplicação AD Azure instalam diferentes versões do serviço de atualização do agente de ligação ad da Microsoft Azure, razão pela qual as instruções se referem ao conteúdo proxy da aplicação. Estas diferentes versões são incompatíveis quando instaladas lado a lado, pelo que não é recomendado instalar o Proxy de Proteção de Passwords Azure AD e proxy de aplicação na mesma máquina.
 
-É uma boa ideia rever como o software funciona antes de o implementares. Consulte [a visão geral conceptual da proteção de senhas Azure AD](concept-password-ban-bad-on-premises.md).
+## <a name="download-required-software"></a>Descarregar software necessário
 
-### <a name="download-the-software"></a>Descarregue o software
+Existem dois instaladores necessários para uma implementação de proteção de senhas Azure AD no local:
 
-Existem dois instaladores necessários para a proteção de senhas Azure AD. Estão disponíveis no [Microsoft Download Center.](https://www.microsoft.com/download/details.aspx?id=57071)
+* Agente DC de proteção de senha seletiva*AzureADPasswordProtectionDCAgentSetup.msi*)
+* Procuração de proteção de senha seletiva Azure AD *(AzureADPasswordProtectionProxySetup.exe*)
 
-### <a name="install-and-configure-the-proxy-service-for-password-protection"></a>Instale e configure o serviço proxy para proteção de passwords
+Descarregue ambos os instaladores do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
-1. Escolha um ou mais servidores para hospedar o serviço proxy para proteção de palavras-passe.
-   * Cada serviço deste tipo só pode fornecer políticas de senha para uma única floresta. A máquina hospedeira deve ser unida a um domínio naquela floresta. Os domínios raiz e infantil são ambos apoiados. Precisa de conectividade de rede entre pelo menos um DC em cada domínio da floresta e a máquina de proteção de senhas.
-   * Pode executar o serviço proxy num controlador de domínio para ser testado. Mas esse controlador de domínio requer então conectividade de internet, o que pode ser uma preocupação de segurança. Recomendamos esta configuração apenas para testes.
-   * Recomendamos pelo menos dois servidores proxy para despedimento. Ver [Alta disponibilidade](howto-password-ban-bad-on-premises-deploy.md#high-availability).
-   * Não é suportado para executar o serviço proxy em um controlador de domínio apenas de leitura.
+## <a name="install-and-configure-the-proxy-service"></a>Instale e configure o serviço proxy
 
-1. Instale o serviço de proxy de proteção de passwords Azure AD utilizando o instalador de software `AzureADPasswordProtectionProxySetup.exe`.
-   * A instalação do software não requer um reboot. A instalação do software pode ser automatizada utilizando procedimentos mSI padrão, por exemplo:
+O serviço de proxy de proteção por palavra-passe Azure AD está normalmente num servidor membro no seu ambiente AD DS no local. Uma vez instalado, o serviço de proxy de proteção de senhas Azure AD comunica com a Azure AD para manter uma cópia das listas de senhas banidas global e de cliente para o seu inquilino Azure AD.
 
-      `AzureADPasswordProtectionProxySetup.exe /quiet`
+Na secção seguinte, instala os agentes DC de proteção de senhas Azure AD em controladores de domínio no seu ambiente AD DS no local. Estes agentes de DC comunicam com o serviço proxy para obter as mais recentes listas de senhas proibidas para uso ao processar eventos de mudança de palavra-passe dentro do domínio.
 
-      > [!NOTE]
-      > O serviço Windows Firewall deve estar a funcionar antes de instalar o pacote AzureADPasswordProtectionProxySetup.msi para evitar um erro de instalação. Se o Windows Firewall estiver configurado para não funcionar, a suposição é ativar e executar temporariamente o serviço Firewall durante a instalação. O software proxy não tem nenhuma dependência específica do Windows Firewall após a instalação. Se estiver a utilizar uma firewall de terceiros, deve ainda ser configurada para satisfazer os requisitos de implementação. Estes incluem permitir o acesso de entrada à porta 135 e a porta de servidor proxy RPC. Consulte [os requisitos de implantação](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements).
+Escolha um ou mais servidores para acolher o serviço de proxy de proteção de senhas Azure AD. As seguintes considerações aplicam-se para os servidores( s):
 
-1. Abra uma janela PowerShell como administrador.
-   * O software proxy de proteção de passwords inclui um novo módulo PowerShell, *AzureADPasswordProtection*. Os passos seguintes são executados vários cmdlets deste módulo PowerShell. Importar o novo módulo da seguinte forma:
+* Cada serviço deste tipo só pode fornecer políticas de senha para uma única floresta. A máquina hospedeira deve ser unida a um domínio naquela floresta. Os domínios raiz e infantil são ambos apoiados. Precisa de conectividade de rede entre pelo menos um DC em cada domínio da floresta e a máquina de proteção de senhas.
+* Pode executar o serviço de proxy de proteção de palavras-passe Azure AD num controlador de domínio para testes, mas esse controlador de domínio necessita de conectividade de internet. Esta conectividade pode ser uma preocupação de segurança. Recomendamos esta configuração apenas para testes.
+* Recomendamos pelo menos dois servidores de proxy de proteção de senhas Azure AD para despedimento, como notado na secção anterior sobre [considerações](#high-availability-considerations)de alta disponibilidade .
+* Não é suportado para executar o serviço de proxy de proteção de senhas Azure AD num controlador de domínio apenas para leitura.
 
-      ```powershell
-      Import-Module AzureADPasswordProtection
-      ```
+Para instalar o serviço de proxy de proteção por palavra-passe Azure AD, preencha os seguintes passos:
 
-   * Para verificar se o serviço está em funcionamento, utilize o seguinte comando PowerShell:
+1. Para instalar o serviço de proxy de proteção de senhas AD Azure, execute o instalador de software `AzureADPasswordProtectionProxySetup.exe`.
 
-      `Get-Service AzureADPasswordProtectionProxy | fl`.
+    A instalação do software não requer um reboot e pode ser automatizada utilizando procedimentos msi padrão, como no exemplo seguinte:
+    
+    ```console
+    AzureADPasswordProtectionProxySetup.exe /quiet
+    ```
+    
+    > [!NOTE]
+    > O serviço Windows Firewall deve estar a funcionar antes de instalar a `AzureADPasswordProtectionProxySetup.exe` embalagem para evitar um erro de instalação.
+    >
+    > Se o Windows Firewall estiver configurado para não funcionar, a suposição é ativar e executar temporariamente o serviço Firewall durante a instalação. O software proxy não tem nenhuma dependência específica do Windows Firewall após a instalação.
+    >
+    > Se estiver a utilizar uma firewall de terceiros, deve ainda ser configurada para satisfazer os requisitos de implementação. Estes incluem permitir o acesso de entrada à porta 135 e a porta de servidor proxy RPC. Para mais informações, consulte a secção anterior sobre [os requisitos](#deployment-requirements)de implementação .
 
-     O resultado deve mostrar um **estado** de "Corrida".
+1. O software de proxy de proteção de senhas Azure AD inclui um novo módulo PowerShell, `AzureADPasswordProtection`. Os passos seguintes são executados vários cmdlets deste módulo PowerShell.
 
-1. Registe o representante.
-   * Após a conclusão do passo 3, o serviço proxy está em funcionamento na máquina, mas ainda não tem as credenciais necessárias para comunicar com a Azure AD. É necessária a inscrição com a AD Azure:
+    Para utilizar este módulo, abra uma janela PowerShell como administrador e importe o novo módulo da seguinte forma:
+    
+    ```powershell
+    Import-Module AzureADPasswordProtection
+    ```
 
-     `Register-AzureADPasswordProtectionProxy`
+1. Para verificar se o serviço de proxy de proteção por palavra-passe AD Azure está em funcionamento, utilize o seguinte comando PowerShell:
 
-     Este cmdlet requer credenciais de administrador global para o seu inquilino Azure. Você também precisa de privilégios de administrador de domínio de diretório ativo no domínio da raiz da floresta. Este cmdlet também deve ser executado utilizando uma conta com privilégios de administrador local.
+    ```powershell
+    Get-Service AzureADPasswordProtectionProxy | fl
+    ```
 
-     Depois deste comando ter sucesso uma vez para um serviço de procuração, as invocações adicionais dele terão sucesso, mas são desnecessárias.
+    O resultado deve mostrar um **Estado** de *Execução*.
 
-      O `Register-AzureADPasswordProtectionProxy` cmdlet suporta os seguintes três modos de autenticação. Os dois primeiros modos suportam a autenticação Azure Multi-Factor, mas o terceiro modo não. Consulte os comentários abaixo para mais detalhes.
+1. O serviço de procuração está a funcionar na máquina, mas não tem credenciais para comunicar com a Azure AD. Registe o servidor de proxy de proteção de senhas Azure AD com a AD Azure utilizando o `Register-AzureADPasswordProtectionProxy` cmdlet.
+
+    Este cmdlet requer credenciais de administrador global para o seu inquilino Azure. Você também precisa de privilégios de administrador de domínio de diretório ativo no domínio da raiz da floresta. Este cmdlet também deve ser executado utilizando uma conta com privilégios de administrador local:
+
+    Depois deste comando ter sucesso uma vez para um serviço de proxy de proteção de senhas Azure AD, as invocações adicionais do mesmo têm sucesso, mas são desnecessárias.
+
+    O `Register-AzureADPasswordProtectionProxy` cmdlet suporta os seguintes três modos de autenticação. Os dois primeiros modos suportam a autenticação Azure Multi-Factor, mas o terceiro modo não.
+
+    > [!TIP]
+    > Pode haver um atraso notável antes de terminar a primeira vez que este cmdlet é executado para um inquilino Azure específico. A menos que uma falha seja reportada, não se preocupe com este atraso.
 
      * Modo de autenticação interativa:
 
@@ -153,10 +215,9 @@ Existem dois instaladores necessários para a proteção de senhas Azure AD. Est
 
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
-        To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
 
-        Em seguida, completa a autenticação seguindo as instruções visualizadas num dispositivo diferente.
+        Quando solicitado, seguindo o link para abrir um navegador web e introduzir o código de autenticação.
 
      * Modo de autenticação silencioso (baseado em palavra-passe):
 
@@ -168,23 +229,27 @@ Existem dois instaladores necessários para a proteção de senhas Azure AD. Est
         > [!NOTE]
         > Este modo falha se a autenticação de multifactor do Azure for necessária para a sua conta. Nesse caso, utilize um dos dois modos de autenticação anteriores ou utilize uma conta diferente que não exija MFA.
         >
-        > Também pode ver o MFA necessário se o Registo de Dispositivos Azure (que é utilizado sob as capas pela Azure AD Password Protection) tiver sido configurado para exigir globalmente mFA. Para contornar esta situação poderá utilizar uma conta diferente que suporta o MFA com um dos dois modos de autenticação anteriores, ou poderá também relaxar temporariamente o requisito de MFA de Registo de Dispositivos Azure. Para isso, vá ao portal de gestão Azure, depois vá ao Diretório Ativo Azure, depois dispositivos, depois Definições de Dispositivos, em seguida, definir "Requerer multi-factor Auth para unir dispositivos" para No. Certifique-se de reconfigurar esta definição para Sim uma vez que o registo esteja completo.
+        > Também pode ver o MFA necessário se o Registo de Dispositivos Azure (que é utilizado sob as capas pela Azure AD Password Protection) tiver sido configurado para exigir globalmente mFA. Para contornar este requisito poderá utilizar uma conta diferente que suporta o MFA com um dos dois modos de autenticação anteriores, ou poderá também relaxar temporariamente o requisito de MFA de Registo de Dispositivos Azure.
+        >
+        > Para efazer esta alteração, procure e selecione **O Diretório Ativo Azure** no portal Azure, em seguida, selecione **Dispositivos > Configurações**do Dispositivo . O conjunto **requer a Auth multi-factor para unir dispositivos** a *No*. Certifique-se de reconfigurar esta definição para *Sim* uma vez que o registo esteja completo.
         >
         > Recomendamos que os requisitos de MFA sejam ignorados apenas para efeitos de teste.
 
-       Atualmente não é preciso especificar o parâmetro *-ForestCredential,* que está reservado para futuras funcionalidades.
+    Atualmente não é preciso especificar o parâmetro *-ForestCredential,* que está reservado para futuras funcionalidades.
 
-   O registo do serviço proxy para proteção de senhas só é necessário uma vez na vida útil do serviço. Depois disso, o serviço proxy realizará automaticamente qualquer outra manutenção necessária.
+    O registo do serviço de procuração de senhas Azure AD só é necessário uma vez na vida útil do serviço. Depois disso, o serviço de proxy de proteção por palavra-passe Azure AD realizará automaticamente qualquer outra manutenção necessária.
 
-   > [!TIP]
-   > Pode haver um atraso notável antes de terminar a primeira vez que este cmdlet é executado para um inquilino Azure específico. A menos que uma falha seja reportada, não se preocupe com este atraso.
+1. Registe agora a floresta de Diretório Ativo no local com as credenciais necessárias para comunicar com o Azure utilizando o `Register-AzureADPasswordProtectionForest` cmdlet PowerShell.
 
-1. Registe a floresta.
-   * Inicialize a floresta de Diretório Ativo no local com as credenciais necessárias para comunicar com o Azure utilizando o `Register-AzureADPasswordProtectionForest` cmdlet PowerShell.
+    > [!NOTE]
+    > Se vários servidores de proxy de proteção de senhas Azure AD estiverem instalados no seu ambiente, não importa qual servidor proxy que utilize para registar a floresta.
 
-      O cmdlet requer credenciais de administrador global para o seu inquilino Azure.  Também deve executar este cmdlet usando uma conta com privilégios de administrador local. Também requer privilégios de administrador de empresa de diretório ativo no local. Este passo é executado uma vez por floresta.
+    O cmdlet requer credenciais de administrador global para o seu inquilino Azure. Também deve executar este cmdlet usando uma conta com privilégios de administrador local. Também requer privilégios de administrador de empresa de diretório ativo no local. Este passo é executado uma vez por floresta.
 
-      O `Register-AzureADPasswordProtectionForest` cmdlet suporta os seguintes três modos de autenticação. Os dois primeiros modos suportam a autenticação Azure Multi-Factor, mas o terceiro modo não. Consulte os comentários abaixo para mais detalhes.
+    O `Register-AzureADPasswordProtectionForest` cmdlet suporta os seguintes três modos de autenticação. Os dois primeiros modos suportam a autenticação Azure Multi-Factor, mas o terceiro modo não.
+
+    > [!TIP]
+    > Pode haver um atraso notável antes de terminar a primeira vez que este cmdlet é executado para um inquilino Azure específico. A menos que uma falha seja reportada, não se preocupe com este atraso.
 
      * Modo de autenticação interativa:
 
@@ -199,10 +264,9 @@ Existem dois instaladores necessários para a proteção de senhas Azure AD. Est
 
         ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
-        To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
 
-        Em seguida, completa a autenticação seguindo as instruções visualizadas num dispositivo diferente.
+        Quando solicitado, seguindo o link para abrir um navegador web e introduzir o código de autenticação.
 
      * Modo de autenticação silencioso (baseado em palavra-passe):
 
@@ -214,147 +278,141 @@ Existem dois instaladores necessários para a proteção de senhas Azure AD. Est
         > [!NOTE]
         > Este modo falha se a autenticação de multifactor do Azure for necessária para a sua conta. Nesse caso, utilize um dos dois modos de autenticação anteriores ou utilize uma conta diferente que não exija MFA.
         >
-        > Também pode ver o MFA necessário se o Registo de Dispositivos Azure (que é utilizado sob as capas pela Azure AD Password Protection) tiver sido configurado para exigir globalmente mFA. Para contornar esta situação poderá utilizar uma conta diferente que suporta o MFA com um dos dois modos de autenticação anteriores, ou poderá também relaxar temporariamente o requisito de MFA de Registo de Dispositivos Azure. Para isso, vá ao portal de gestão Azure, depois vá ao Diretório Ativo Azure, depois dispositivos, depois Definições de Dispositivos, em seguida, definir "Requerer multi-factor Auth para unir dispositivos" para No. Certifique-se de reconfigurar esta definição para Sim uma vez que o registo esteja completo.
+        > Também pode ver o MFA necessário se o Registo de Dispositivos Azure (que é utilizado sob as capas pela Azure AD Password Protection) tiver sido configurado para exigir globalmente mFA. Para contornar este requisito poderá utilizar uma conta diferente que suporta o MFA com um dos dois modos de autenticação anteriores, ou poderá também relaxar temporariamente o requisito de MFA de Registo de Dispositivos Azure.
+        >
+        > Para efazer esta alteração, procure e selecione **O Diretório Ativo Azure** no portal Azure, em seguida, selecione **Dispositivos > Configurações**do Dispositivo . O conjunto **requer a Auth multi-factor para unir dispositivos** a *No*. Certifique-se de reconfigurar esta definição para *Sim* uma vez que o registo esteja completo.
         >
         > Recomendamos que os requisitos de MFA sejam ignorados apenas para efeitos de teste.
 
        Estes exemplos só têm sucesso se o utilizador atualmente assinado for também um administrador de domínio de Diretório Ativo para o domínio raiz. Se não for esse o caso, pode fornecer credenciais de domínio alternativas através do parâmetro *-ForestCredential.*
 
-   > [!NOTE]
-   > Se vários servidores proxy estiverem instalados no seu ambiente, não importa qual servidor proxy que usa para registar a floresta.
-   >
-   > [!TIP]
-   > Pode haver um atraso notável antes de terminar a primeira vez que este cmdlet é executado para um inquilino Azure específico. A menos que uma falha seja reportada, não se preocupe com este atraso.
+    O registo da floresta de Diretório Ativo só é necessário uma vez na vida da floresta. Depois disso, os agentes DC de proteção de senhas AD Azure na floresta realizam automaticamente qualquer outra manutenção necessária. Depois de `Register-AzureADPasswordProtectionForest` corre com sucesso para uma floresta, as invocações adicionais do cmdlet têm sucesso, mas são desnecessárias.
+    
+    Para `Register-AzureADPasswordProtectionForest` para ter sucesso, pelo menos um DC que executa o Windows Server 2012 ou mais tarde deve estar disponível no domínio do servidor proxy de proteção de passwords Azure AD. O software do agente DC de proteção de senhas Azure AD não tem de ser instalado em quaisquer controladores de domínio antes deste passo.
 
-   O registo da floresta de Diretório Ativo só é necessário uma vez na vida da floresta. Depois disso, os agentes controladores de domínio na floresta realizarão automaticamente qualquer outra manutenção necessária. Depois de `Register-AzureADPasswordProtectionForest` corre com sucesso para uma floresta, as invocações adicionais do cmdlet têm sucesso, mas são desnecessárias.
+### <a name="configure-the-proxy-service-to-communicate-through-an-http-proxy"></a>Configure o serviço proxy para comunicar através de um proxy HTTP
 
-   Para `Register-AzureADPasswordProtectionForest` para ter sucesso, pelo menos um controlador de domínio que executa o Windows Server 2012 ou mais tarde deve estar disponível no domínio do servidor proxy. O software dc agent não tem de ser instalado em quaisquer controladores de domínio antes deste passo.
+Se o seu ambiente necessitar da utilização de um representante http específico para comunicar com o Azure, utilize os seguintes passos para configurar o serviço de proteção de passwords Azure AD.
 
-1. Configure o serviço proxy para a proteção de palavras-passe para comunicar através de um proxy HTTP.
+Crie um ficheiro *AzureADPasswordProtectionProxy.exe.config* na pasta `%ProgramFiles%\Azure AD Password Protection Proxy\Service`. Incluir os seguintes conteúdos:
 
-   Se o seu ambiente necessitar da utilização de um proxy HTTP específico para comunicar com o Azure, utilize este método: Crie um ficheiro *AzureADPasswordProtectionProxy.exe.config* na pasta %ProgramFiles%\Azure AD Password Protection Proxy\Service. Incluir os seguintes conteúdos:
+   ```xml
+   <configuration>
+      <system.net>
+         <defaultProxy enabled="true">
+         <proxy bypassonlocal="true"
+            proxyaddress="http://yourhttpproxy.com:8080" />
+         </defaultProxy>
+      </system.net>
+   </configuration>
+   ```
 
-      ```xml
-      <configuration>
-        <system.net>
-          <defaultProxy enabled="true">
-           <proxy bypassonlocal="true"
-               proxyaddress="http://yourhttpproxy.com:8080" />
-          </defaultProxy>
-        </system.net>
-      </configuration>
-      ```
+Se o seu proxy HTTP necessitar de autenticação, adicione a etiqueta *useDefaultCredentials:*
 
-   Se o seu proxy HTTP necessitar de autenticação, adicione a etiqueta *useDefaultCredentials:*
+   ```xml
+   <configuration>
+      <system.net>
+         <defaultProxy enabled="true" useDefaultCredentials="true">
+         <proxy bypassonlocal="true"
+            proxyaddress="http://yourhttpproxy.com:8080" />
+         </defaultProxy>
+      </system.net>
+   </configuration>
+   ```
 
-      ```xml
-      <configuration>
-        <system.net>
-          <defaultProxy enabled="true" useDefaultCredentials="true">
-           <proxy bypassonlocal="true"
-               proxyaddress="http://yourhttpproxy.com:8080" />
-          </defaultProxy>
-        </system.net>
-      </configuration>
-      ```
+Em ambos os casos, substitua `http://yourhttpproxy.com:8080` pelo endereço e porta do seu servidor proxy HTTP específico.
 
-   Em ambos os casos, substitua `http://yourhttpproxy.com:8080` pelo endereço e porta do seu servidor proxy HTTP específico.
+Se o seu representante HTTP estiver configurado para utilizar uma política de autorização, deve conceder acesso à conta de computador do Diretório Ativo da máquina que acolhe o serviço proxy para proteção de palavras-passe.
 
-   Se o seu representante HTTP estiver configurado para utilizar uma política de autorização, deve conceder acesso à conta de computador do Diretório Ativo da máquina que acolhe o serviço proxy para proteção de palavras-passe.
+Recomendamos que pare e reinicie o serviço de proxy de proteção de senhas Azure AD depois de criar ou atualizar o ficheiro *AzureADPasswordProtectionProxy.exe.config.*
 
-   Recomendamos que pare e reinicie o serviço proxy depois de criar ou atualizar o ficheiro *AzureADPasswordProtectionProxy.exe.cofig.*
+O serviço proxy não suporta o uso de credenciais específicas para a ligação a um proxy HTTP.
 
-   O serviço proxy não suporta o uso de credenciais específicas para a ligação a um proxy HTTP.
+### <a name="configure-the-proxy-service-to-listen-on-a-specific-port"></a>Configure o serviço de procuração para ouvir numa porta específica
 
-1. Opcional: Configure o serviço proxy para a proteção da palavra-passe para ouvir numa porta específica.
-   * O software dc agent para proteção de palavras-passe nos controladores de domínio utiliza RPC sobre TCP para comunicar com o serviço proxy. Por predefinição, o serviço proxy ouve qualquer ponto final dinâmico rPC disponível. Pode configurar o serviço para ouvir uma porta TCP específica, se necessário devido aos requisitos de topoologia de rede ou firewall no seu ambiente.
-      * <a id="static" /></a>Para configurar o serviço para funcionar sob uma porta estática, utilize o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+O software de agente DC de proteção de senhas Azure AD utiliza RPC sobre TCP para comunicar com o serviço proxy. Por predefinição, o serviço de proxy de proteção por palavra-passe Azure AD ouve qualquer ponto final dinâmico rPC disponível. Pode configurar o serviço para ouvir uma porta TCP específica, se necessário devido aos requisitos de topoologia de rede ou firewall no seu ambiente.
 
-         ```powershell
-         Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
-         ```
+<a id="static" /></a>Para configurar o serviço para funcionar sob uma porta estática, utilize o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet da seguinte forma:
 
-         > [!WARNING]
-         > Tem de parar e reiniciar o serviço para que estas alterações entrem em vigor.
+```powershell
+Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
+```
 
-      * Para configurar o serviço para funcionar sob uma porta dinâmica, utilize o mesmo procedimento, mas volte a colocar *a StaticPort* a zero:
+> [!WARNING]
+> Tem de parar e reiniciar o serviço de proxy de proteção de senhas Azure AD para que estas alterações entrem em vigor.
 
-         ```powershell
-         Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
-         ```
+Para configurar o serviço para funcionar sob uma porta dinâmica, utilize o mesmo procedimento, mas volte a colocar *a StaticPort* a zero:
 
-         > [!WARNING]
-         > Tem de parar e reiniciar o serviço para que estas alterações entrem em vigor.
+```powershell
+Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
+```
 
-   > [!NOTE]
-   > O serviço proxy para proteção de palavras-passe requer um reinício manual após qualquer alteração na configuração da porta. Mas não é preciso reiniciar o software de serviço do Agente DC nos controladores de domínio depois de fazer estas alterações de configuração.
+> [!WARNING]
+> Tem de parar e reiniciar o serviço de proxy de proteção de senhas Azure AD para que estas alterações entrem em vigor.
 
-   * Para consultar a configuração atual do serviço, utilize o `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet:
+O serviço de proxy de proteção por palavra-passe Azure AD requer um reinício manual após qualquer alteração na configuração da porta. Não é necessário reiniciar o serviço de agente DC de proteção de senhas Azure AD nos controladores de domínio depois de então fazer estas alterações de configuração.
 
-      ```powershell
-      Get-AzureADPasswordProtectionProxyConfiguration | fl
+Para consultar a configuração atual do serviço, utilize o `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet, como mostra o seguinte exemplo
 
-      ServiceName : AzureADPasswordProtectionProxy
-      DisplayName : Azure AD password protection Proxy
-      StaticPort  : 0
-      ```
+```powershell
+Get-AzureADPasswordProtectionProxyConfiguration | fl
+```
 
-### <a name="install-the-dc-agent-service"></a>Instale o serviço de Agente DC
+A saída de exemplo seguinte mostra que o serviço de proxy de proteção de senhas Azure AD está a utilizar uma porta dinâmica:
 
-   Instale o serviço DC Agent para proteção de senhas utilizando o pacote `AzureADPasswordProtectionDCAgentSetup.msi`.
+```output
+ServiceName : AzureADPasswordProtectionProxy
+DisplayName : Azure AD password protection Proxy
+StaticPort  : 0
+```
 
-   A instalação do software, ou desinstalação, requer um reinício. Este requisito deve-se ao dever-se ao dLLs do filtro de senha somente carregado soro ou descarregado por um reinício.
+## <a name="install-the-dc-agent-service"></a>Instale o serviço de agente DC
 
-   Pode instalar o serviço de agente DC numa máquina que ainda não é controlador de domínio. Neste caso, o serviço começará e funcionará, mas permanecerá inativo até que a máquina seja promovida para ser um controlador de domínio.
+Para instalar o serviço de agente DC de proteção de senhas Azure AD, execute o pacote `AzureADPasswordProtectionDCAgentSetup.msi`.
 
-   Pode automatizar a instalação do software utilizando procedimentos MSI padrão. Por exemplo:
+Pode automatizar a instalação do software utilizando procedimentos MSI padrão, como mostra o seguinte exemplo:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
+```console
+msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart
+```
 
-   Pode omitir a bandeira `/norestart` se preferir que o instalador reinicie automaticamente a máquina.
+A bandeira `/norestart` pode ser omitida se preferir que o instalador reinicie automaticamente a máquina.
 
-A instalação fica completa após a instalação do software DC Agent num controlador de domínio e este computador é reiniciado. Não é necessária qualquer outra configuração ou possível.
+A instalação do software, ou desinstalação, requer um reinício. Este requisito deve-se ao dever-se ao dLLs do filtro de senha somente carregado soro ou descarregado por um reinício.
 
-## <a name="upgrading-the-proxy-agent"></a>Modernização do agente Proxy
+A instalação de proteção de palavra-passe ad azure em prem é completa da dona do software do agente DC num controlador de domínio, e esse computador é reiniciado. Não é necessária qualquer outra configuração ou possível. Os eventos de alteração de palavra-passe contra os DCs on-prem utilizam as listas de senhas proibidas configuradas a partir de Azure AD.
 
-Quando uma versão mais recente do software Proxy de Proteção de Passwords Azure AD está disponível, a atualização é realizada executando a versão mais recente do instalador de software `AzureADPasswordProtectionProxySetup.exe`. A versão mais recente do software está disponível no [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+Para ativar a proteção de palavras-passe ad azure on-prem do portal Azure ou configurar senhas proibidas personalizadas, consulte [Enable on-premise Azure AD Password Protection](howto-password-ban-bad-on-premises-operations.md).
 
-Não é necessário desinstalar a versão atual do software Proxy - o instalador irá realizar uma atualização no local. Não deve ser necessário reiniciar durante a atualização do software Proxy. A atualização do software pode ser automatizada utilizando procedimentos mSI padrão, por exemplo: `AzureADPasswordProtectionProxySetup.exe /quiet`.
+> [!TIP]
+> Pode instalar o agente DC de proteção de senhas Azure AD numa máquina que ainda não seja um controlador de domínio. Neste caso, o serviço começa e funciona, mas permanece inativo até que a máquina seja promovida para ser um controlador de domínio.
 
-O agente Proxy suporta a atualização automática. A atualização automática utiliza o serviço de atualização do Agente de Ligação AD Microsoft Azure, que é instalado lado a lado com o serviço Proxy. A atualização automática está por defeito e pode ser ativada ou desativada utilizando o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet. A regulação atual pode ser consultada utilizando o `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet. A Microsoft recomenda que a definição de atualização automática esteja sempre ativada.
+## <a name="upgrading-the-proxy-service"></a>Modernização do serviço de procuração
 
-O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser usado para consultar a versão de software de todos os agentes Proxy atualmente instalados numa floresta.
+O serviço de proxy de proteção por palavra-passe Azure AD suporta a atualização automática. A atualização automática utiliza o serviço de atualização do Agente de Ligação AD Microsoft Azure, que é instalado lado a lado com o serviço proxy. A atualização automática está por defeito e pode ser ativada ou desativada utilizando o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+
+A regulação atual pode ser consultada utilizando o `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet. Recomendamos que a definição de atualização automática esteja sempre ativada.
+
+O `Get-AzureADPasswordProtectionProxy` cmdlet pode ser usado para consultar a versão de software de todos os servidores de proxy de proteção de senhas AD atualmente instalados numa floresta.
+
+### <a name="manual-upgrade-process"></a>Processo de atualização manual
+
+Uma atualização manual é realizada executando a versão mais recente do instalador de software `AzureADPasswordProtectionProxySetup.exe`. A versão mais recente do software está disponível no [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+
+Não é necessário desinstalar a versão atual do serviço de proxy de proteção de passwords Azure AD - o instalador realiza uma atualização no local. Não deve ser necessário reiniciar durante a atualização do serviço de procuração. A atualização do software pode ser automatizada utilizando procedimentos mSI padrão, tais como `AzureADPasswordProtectionProxySetup.exe /quiet`.
 
 ## <a name="upgrading-the-dc-agent"></a>Modernização do agente dc
 
-Quando uma versão mais recente do software Azure AD Password Protection DC Agent está disponível, a atualização é realizada executando a versão mais recente do pacote de software `AzureADPasswordProtectionDCAgentSetup.msi`. A versão mais recente do software está disponível no [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+Quando uma versão mais recente do software de agente DC de proteção de senhas azure AD está disponível, a atualização é realizada executando a versão mais recente do pacote de software `AzureADPasswordProtectionDCAgentSetup.msi`. A versão mais recente do software está disponível no [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
-Não é necessário desinstalar a versão atual do software do agente DC - o instalador irá realizar uma atualização no local. É sempre necessário reiniciar na atualização do software do agente DC - este requisito é causado pelo comportamento do Windows. 
+Não é necessário desinstalar a versão atual do software do agente DC - o instalador realiza uma atualização no local. É sempre necessário reiniciar na atualização do software do agente DC - este requisito é causado pelo comportamento do Windows.
 
-A atualização do software pode ser automatizada utilizando procedimentos mSI padrão, por exemplo: `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`.
+A atualização do software pode ser automatizada utilizando procedimentos mSI padrão, tais como `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`.
 
 Pode omitir a bandeira `/norestart` se preferir que o instalador reinicie automaticamente a máquina.
 
-O `Get-AzureADPasswordProtectionDCAgent` cmdlet pode ser usado para consultar a versão de software de todos os agentes DC atualmente instalados numa floresta.
-
-## <a name="multiple-forest-deployments"></a>Múltiplas implantações florestais
-
-Não existem requisitos adicionais para implementar a proteção de senhas Azure AD em várias florestas. Cada floresta é configurada independentemente como descrito na secção "Implantação de uma única floresta". Cada representante de proteção de senhas só pode suportar controladores de domínio da floresta a que está unida. O software de proteção de passwords em qualquer floresta desconhece o software de proteção de passwords que é implantado noutras florestas, independentemente das configurações de confiança do Ative Directory.
-
-## <a name="read-only-domain-controllers"></a>Controladores de domínio apenas de leitura
-
-As alterações/conjuntos de palavra-passe não são processadas e persistem nos controladores de domínio apenas de leitura (RODCs). São encaminhados para controladores de domínio supreendáveis. Então, não tens de instalar o software do Agente DC nos RODCs.
-
-Não é suportado para executar o serviço proxy em um controlador de domínio apenas de leitura.
-
-## <a name="high-availability"></a>Elevada disponibilidade
-
-A principal preocupação de disponibilidade para a proteção de passwords é a disponibilidade de servidores proxy quando os controladores de domínio numa floresta tentam descarregar novas políticas ou outros dados do Azure. Cada agente dc usa um algoritmo simples de estilo robin redondo ao decidir qual servidor proxy ligar. O Agente ignora servidores de procuração que não estão a responder. Para as implementações de Diretório Ativo mais conectadas que têm replicação saudável tanto do estado de pastagem de diretório como de sysvol, dois servidores proxy são suficientes para garantir a disponibilidade. Isto resulta no download atempada de novas políticas e outros dados. Mas pode implementar servidores adicionais de procuração.
-
-O design do software dc agent atenua os problemas habituais que estão associados com alta disponibilidade. O Agente DC mantém uma cache local da política de senhamais recentemente descarregada. Mesmo que todos os servidores proxy registados fiquem indisponíveis, os Agentes DC continuam a aplicar a sua política de senha seleto. Uma frequência de atualização razoável para as políticas de senha numa grande implementação é geralmente dias, não horas ou menos. Assim, breves interrupções dos servidores proxy não impactam significativamente a proteção de senhas da AD Azure.
+O `Get-AzureADPasswordProtectionDCAgent` cmdlet pode ser usado para consultar a versão de software de todos os agentes dc de proteção de senha seletivas atualmente instalados numa floresta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que instalou os serviços de que necessita para a proteção de passwords Azure AD nos seus servidores no local, execute a [configuração pós-instalação e recolha informações](howto-password-ban-bad-on-premises-operations.md) de reporte para completar a sua implementação.
-
-[Visão geral conceptual da proteção de senhas azure AD](concept-password-ban-bad-on-premises.md)
+Agora que instalou os serviços de que necessita para a Proteção de Passwords Azure AD nos seus servidores no local, ative a proteção de [palavras-passe ad-ad-in-prem Azure no portal Azure](howto-password-ban-bad-on-premises-operations.md) para completar a sua implementação.

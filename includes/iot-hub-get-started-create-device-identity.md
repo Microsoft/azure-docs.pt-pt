@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 1e919f22d5dd7975f055f262ec9ba69230aebd17
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 68260bf8aafbbe5afd46ec7dfb763eb88ee2123e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780830"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892791"
 ---
-Nesta seção, você usa o CLI do Azure para criar uma identidade de dispositivo para este artigo. Os IDs dos dispositivos são sensíveis às maiúsculas e minúsculas.
+Nesta secção, utiliza o Azure CLI para criar uma identidade de dispositivo para este artigo. Os IDs dos dispositivos são sensíveis às maiúsculas e minúsculas.
 
 1. Abra o [Azure Cloud Shell](https://shell.azure.com/).
 
-1. No Azure Cloud Shell, execute o seguinte comando para instalar a extensão de IoT Microsoft Azure para CLI do Azure:
+1. No Azure Cloud Shell, execute o seguinte comando para instalar a extensão Microsoft Azure IoT para o Azure CLI:
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     ```
 
-2. Crie uma nova identidade de dispositivo `myDeviceId` chamada e recupere a cadeia de conexão do dispositivo com estes comandos:
+2. Criar uma nova identidade de dispositivo chamada `myDeviceId` e recuperar a cadeia de ligação do dispositivo com estes comandos:
 
     ```azurecli-interactive
     az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}
@@ -34,6 +34,6 @@ Nesta seção, você usa o CLI do Azure para criar uma identidade de dispositivo
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-Anote a cadeia de conexão do dispositivo do resultado. Essa cadeia de conexão de dispositivo é usada pelo aplicativo do dispositivo para se conectar ao Hub IoT como um dispositivo.
+Tome nota da cadeia de ligação do dispositivo a partir do resultado. Esta cadeia de ligação do dispositivo é utilizada pela aplicação do dispositivo para se ligar ao seu IoT Hub como dispositivo.
 
 <!-- images and links -->

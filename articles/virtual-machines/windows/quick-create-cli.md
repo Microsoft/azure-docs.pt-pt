@@ -1,6 +1,6 @@
 ---
-title: Início rápido-criar uma VM do Windows usando o CLI do Azure
-description: Neste guia de início rápido, você aprende a usar o CLI do Azure para criar uma máquina virtual do Windows
+title: Quickstart - Criar um VM Windows utilizando o Azure CLI
+description: Neste arranque rápido, aprende-se a usar o AZURE CLI para criar uma máquina virtual Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a3ad81091fa93993f71c6d65175e50f6ee216757
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: fd74b3fad7f0b26eff2fdedddae171a1b7297dcd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073475"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898907"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Guia de Início Rápido: Criar uma máquina virtual do Windows com a CLI do Azure
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **copiar** para copiar os blocos de código, Cole-o na Cloud Shell e pressione **Enter** para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o na Cloud Shell e prima **Enter** para o executar.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
@@ -44,18 +44,17 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria uma VM com o nome *myVM*. Este exemplo usa *azureuser* para um nome de usuário administrativo. 
+Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria uma VM com o nome *myVM*. Este exemplo utiliza *o azureuser* para um nome de utilizador administrativo. 
 
-Você deve alterar o valor de `--admin-password` ou ele falhará. Altere-o para uma senha que atenda aos [requisitos de senha para VMs do Azure](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
-). O nome de usuário e a senha serão usados posteriormente, quando você se conectar à VM.
+Terá de fornecer uma palavra-passe que satisfaça os requisitos de [senha para VMs Azure](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). Utilizando o exemplo abaixo, será solicitado a introduzir uma palavra-passe na linha de comando. Também pode adicionar o parâmetro de `--admin-password` com um valor para a sua palavra-passe. O nome do utilizador e a palavra-passe serão utilizados posteriormente, quando se ligar ao VM.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image win2016datacenter \
-    --admin-username azureuser \
-    --admin-password myPassword
+    --admin-username azureuser 
 ```
 
 São necessários alguns minutos para criar a VM e os recursos de suporte. O seguinte resultado de exemplo mostra que a operação de criação da VM foi concluída com êxito.
@@ -103,7 +102,7 @@ Quando terminar, feche a ligação RDP para a VM.
 
 ## <a name="view-the-web-server-in-action"></a>Ver o servidor Web em ação
 
-Com o IIS instalado e a porta 80 aberta na VM a partir da Internet, utilize um browser à sua escolha para ver a página de boas-vindas do IIS predefinida. Utilize o endereço IP público da VM que obteve no passo anterior. O seguinte exemplo mostra o site do IIS predefinido:
+Com o IIS instalado e a porta 80 aberta na VM a partir da Internet, utilize um browser à sua escolha para ver a página de boas-vindas do IIS predefinida. Utilize o endereço IP público da VM que obteve no passo anterior. O exemplo seguinte mostra o site do IIS predefinido:
 
 ![Site predefinido do IIS](./media/quick-create-powershell/default-iis-website.png)
 

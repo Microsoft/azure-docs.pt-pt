@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: fa1651e88226080cca970cc756f2c0522b39f1be
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: ef46b86186d1f5e26360de891b3a090ab0ece66b
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670632"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894820"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -24,10 +24,10 @@ Este quickstart guia-o através da adição do SDK de Insights de Aplicação a 
 
 Para concluir este guia de início rápido:
 
-- [Instale o Estúdio Visual 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+- [Instale o Estúdio Visual 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) com as seguintes cargas de trabalho:
   - Desenvolvimento ASP.NET e Web
   - Desenvolvimento do Azure
-- [Instale o SDK .NET Core 2.0](https://www.microsoft.com/net/core)
+- [Instale o SDK .NET Core 2.0](https://dotnet.microsoft.com/download)
 - Irá precisar de uma subscrição do Azure e de uma aplicação Web .NET Core existente.
 
 Se não tiver uma aplicação web ASP.NET Core, pode usar o nosso guia passo a passo para criar uma aplicação ASP.NET Core e adicionar Insights de [Aplicação.](../../azure-monitor/app/asp-net-core.md)

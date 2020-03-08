@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 2477d91ac885d4ef39df7b9246f7272d66c3f7ee
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251868"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898838"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um Balancer de carga para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -34,7 +34,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-load-balancer"></a>Criar um Balancer de Carga
 
-Nesta secção, cria-se um Balancer de carga que ajuda a carregar máquinas virtuais de equilíbrio. Pode criar um Balancer de Carga público ou um Balancer de Carga interna. Quando cria um Balancer de Carga público, e também deve criar um novo endereço IP público que esteja configurado como o frontend (nomeado como *LoadBalancerFrontend* por padrão) para o Balancer de Carga.
+Nesta secção, cria-se um Balancer de carga que ajuda a carregar máquinas virtuais de equilíbrio. Pode criar um Balancer de Carga público ou um Balancer de Carga interna. Quando criar um Balancer de Carga público, também deve criar um novo endereço IP público que esteja configurado como o frontend (nomeado como *LoadBalancerFrontend* por padrão) para o Balancer de Carga.
 
 1. No lado superior esquerdo do ecrã, selecione **Criar um recurso** > **Networking** > **Load Balancer**.
 2. No separador **Basics** da página **'Criar balanceor de carga',** introduzir ou selecionar as seguintes informações, aceitar as predefinições para as restantes definições e, em seguida, selecionar **Rever + criar**:

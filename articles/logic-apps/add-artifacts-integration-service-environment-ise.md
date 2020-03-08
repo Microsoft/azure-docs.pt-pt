@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d6e5eb8875e6b7d930a002708079dab0e357297f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 7b9ce8be4ffc306417dd836e28127641f6100321
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250932"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899194"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicione recursos ao seu ambiente de serviço de integração (ISE) em Aplicações Lógicas Azure
 
@@ -51,7 +51,7 @@ Para construir aplicações lógicas que funcionam no seu ambiente de serviço d
 
 1. Continue a [criar a sua aplicação lógica da forma habitual.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-   Para diferenças na forma como os gatilhos e as ações funcionam e como são rotulados quando se usa um ISE em comparação com o serviço global de Aplicações Lógicas, consulte [Isolado versus global na visão geral do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
+   Para diferenças na forma como os gatilhos e as ações funcionam e como são rotulados quando se usa um ISE em comparação com o serviço de Aplicações Lógicas multi-inquilinos, consulte [Isolado contra multi-inquilinos na visão geral do ISE.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference)
 
 1. Para gerir aplicações lógicas e conexões API no seu ISE, consulte Gerir o seu ambiente de serviço de [integração.](../logic-apps/ise-manage-integration-service-environment.md)
 

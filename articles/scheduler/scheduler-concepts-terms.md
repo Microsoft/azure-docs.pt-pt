@@ -1,26 +1,27 @@
 ---
-title: Conceitos, termos e entidades – Azure Scheduler | Microsoft Docs
+title: Conceitos, termos e entidades
 description: Conheça os conceitos, a terminologia e a hierarquia de entidades, incluindo as tarefas e as coleções de tarefas, no Azure Scheduler
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
+ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300955"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898578"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível.
+> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Programador Azure, que está [a ser reformado.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Para continuar a trabalhar com os trabalhos que criou no Scheduler, por [favor, emigre para as Aplicações Lógicas Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) o mais rapidamente possível. 
+>
+> O agendador já não está disponível no portal Azure, mas os cmdlets Rest [API](/rest/api/scheduler) e [Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que possa gerir os seus empregos e recolhas de emprego.
 
 ## <a name="entity-hierarchy"></a>Hierarquia de entidades
 
@@ -39,7 +40,7 @@ A um nível elevado, a API REST do Scheduler expõe estas operações para a ges
 
 ### <a name="job-management"></a>Gestão de tarefas
 
-Suporta operações de criação e edição de tarefas. Todas as tarefas têm de pertencer a uma coleção de tarefas existente, pelo que não existe nenhuma criação implícita. Para obter mais informações, veja [API REST do Scheduler – Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs). Aqui está o endereço URI para essas operações:
+Suporta operações de criação e edição de tarefas. Todas as tarefas têm de pertencer a uma coleção de tarefas existente, pelo que não existe nenhuma criação implícita. Para obter mais informações, veja [API REST do Scheduler – Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs). Aqui está o endereço URI para estas operações:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -47,7 +48,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Gestão de coleções de tarefas
 
-Suporta operações de criação e edição de tarefas e coleções de tarefas, que são mapeadas para quotas e definições partilhadas. Por exemplo, as quotas especificam o número máximo de tarefas e o intervalo de periodicidade mais pequeno. Para obter mais informações, veja [API REST do Scheduler – Coleções de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Aqui está o endereço URI para essas operações:
+Suporta operações de criação e edição de tarefas e coleções de tarefas, que são mapeadas para quotas e definições partilhadas. Por exemplo, as quotas especificam o número máximo de tarefas e o intervalo de periodicidade mais pequeno. Para obter mais informações, veja [API REST do Scheduler – Coleções de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Aqui está o endereço URI para estas operações:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -75,13 +76,13 @@ O Azure Scheduler suporta vários tipos de tarefas:
 A um nível elevado, uma tarefa do Scheduler tem estas partes básicas:
 
 * A ação que é executada quando é acionado o temporizador da tarefa
-* Opcional: A hora para executar o trabalho
-* Opcional: Quando e com que frequência repetir o trabalho
-* Opcional: Uma ação de erro que é executada se a ação principal falhar
+* Opcional: o tempo para executar a tarefa
+* Opcional: quando repetir a tarefa e com que frequência
+* Opcional: uma ação de erro que será executada se a ação principal falhar
 
 A tarefa também inclui os dados fornecidos pelo sistema, como o próximo tempo de execução agendado da tarefa. A definição do código da tarefa é um objeto no formato JavaScript Object Notation (JSON), que tem estes elementos:
 
-| Elemento | Requerido | Descrição | 
+| Elemento | Necessário | Descrição | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Não | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Sim | Os detalhes da ação principal, que pode incluir um objeto **errorAction** | 
@@ -227,7 +228,7 @@ Tal como a **ação** primária, a ação de erro pode utilizar uma lógica simp
 
 <a name="recurrence"></a>
 
-## <a name="recurrence"></a>periodicidade
+## <a name="recurrence"></a>recurrence
 
 Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto **recurrence**, por exemplo:
 
@@ -245,7 +246,7 @@ Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto *
 },
 ```
 
-| Propriedade | Requerido | Value | Descrição | 
+| Propriedade | Necessário | Valor | Descrição | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sim, quando a **periodicidade** é utilizada | “Minuto”, “Hora”, “Dia”, “Semana”, “Mês”, “Ano” | A unidade de tempo entre ocorrências | 
 | **interval** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
@@ -275,7 +276,7 @@ Para o caso de uma tarefa do Scheduler poder falhar, pode configurar uma políti
 },
 ```
 
-| Propriedade | Requerido | Value | Descrição | 
+| Propriedade | Necessário | Valor | Descrição | 
 |----------|----------|-------|-------------| 
 | **retryType** | Sim | **Determinado**, **Nenhum** | Determina se especificou uma política de repetição (**determinado**) ou não (**nenhum**). | 
 | **retryInterval** | Não | PT30S | Especifica o intervalo e a frequência entre tentativas de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O valor mínimo é 15 segundos e o valor máximo é 18 meses. | 
@@ -319,11 +320,9 @@ Por exemplo:
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Passos seguintes
 
-* [O que é o Microsoft Azure Scheduler?](scheduler-intro.md)
-* [Conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
 * [Criar agendas complexas e periodicidade avançada](scheduler-advanced-complexity.md)
-* [Limites, quotas, valores predefinidos e códigos de erro](scheduler-limits-defaults-errors.md)
 * [Referência da API REST do Azure Scheduler](/rest/api/scheduler)
 * [Referência de cmdlets do PowerShell do Azure Scheduler](scheduler-powershell-reference.md)
+* [Limites, quotas, valores predefinidos e códigos de erro](scheduler-limits-defaults-errors.md)

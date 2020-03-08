@@ -3,12 +3,12 @@ title: De volta a uma fazenda SharePoint para Azure com MABS
 description: Utilize o Servidor de Backup Azure para fazer backup e restaurar os seus dados do SharePoint. Este artigo fornece as informações para configurar a sua quinta SharePoint para que os dados desejados possam ser armazenados em Azure. Pode restaurar os dados do SharePoint protegidos a partir do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: ba9d79270da839cf99574322d68ccdba27fe2d93
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 441a896f2faa67a1380007ebb9474d7c311a4842
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584256"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673127"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>De volta a uma fazenda SharePoint para Azure com MABS
 
@@ -63,7 +63,7 @@ Pode encontrar **ConfigureSharePoint.exe** na pasta [MABS Installation Path]\bin
 
 1. No servidor WFE, a uma solicitação de comando, vá para [localização de instalação MABS]\bin\
 2. Introduza configuração -EnableSharePointProtection.
-3. Insira as credenciais do administrador da fazenda. Esta conta deve ser um membro do grupo de administrador local no servidor WFE. Se o administrador do farm não for um administrador local, conceda as seguintes permissões no servidor WFE:
+3. Insira as credenciais do administrador da fazenda. Esta conta deve ser um membro do grupo de administrador local no servidor WFE. Se o administrador da fazenda não for um administrador local conceder as seguintes permissões no servidor WFE:
    * Conceda o WSS_Admin_WPG controlo total do grupo à pasta DPM (%Program Files%\Microsoft Azure Backup\DPM).
    * Conceda o WSS_Admin_WPG grupo ler o acesso à chave de registo dPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
@@ -127,7 +127,7 @@ Depois de configurar o MABS e a quinta SharePoint, como explicado anteriormente,
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > O MABS fornece um máximo de duas cópias de segurança diárias ao Azure a partir do último ponto de backup do disco disponível. O Azure Backup também pode controlar a quantidade de largura de banda WAN que pode ser usada para backups em horas de pico e off-peak usando a Rede de [Backup Azure Throttling](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > O MABS fornece um máximo de duas cópias de segurança diárias ao Azure a partir do último ponto de backup do disco disponível. O Azure Backup também pode controlar a quantidade de largura de banda WAN que pode ser usada para backups em horas de pico e off-peak utilizando o estrangulamento da [rede Azure Backup](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Dependendo da programação de backup que selecionou, na página **'Especificar Política de Retenção Online',** selecione a política de retenção para pontos de backup diários, semanais, mensais e anuais.

@@ -3,12 +3,12 @@ title: Sobre repositórios e imagens
 description: Introdução a conceitos-chave de registos de contentores Azure, repositórios e imagens de contentores.
 ms.topic: article
 ms.date: 09/10/2019
-ms.openlocfilehash: 9de0c344b226a0b13e76c7f02977ba3c91ba2d2a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362363"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669231"
 ---
 # <a name="about-registries-repositories-and-images"></a>Sobre registos, repositórios e imagens
 
@@ -24,9 +24,7 @@ Além das imagens de contentores do Docker, o Registo de Contentores Azure supor
 
 O endereço de um artefacto num registo de contentores Azure inclui os seguintes elementos. 
 
-```
-[loginUrl]/[namespace]/[artifact:][tag]
-```
+`[loginUrl]/[namespace]/[artifact:][tag]`
 
 * **loginUrl** - O nome totalmente qualificado do anfitrião do registo. O registo num registo de contentores Azure encontra-se no formato *myregistry*.azurecr.io (todos minúsculos). Deve especificar o loginUrl ao utilizar o Docker ou outras ferramentas de cliente para puxar ou empurrar artefactos para um registo de contentores Azure. 
 * **espaço de nome** - Agrupamento lógico de slash-delimitado de imagens ou artefactos relacionados - por exemplo, para um grupo de trabalho ou app
@@ -36,9 +34,7 @@ O endereço de um artefacto num registo de contentores Azure inclui os seguintes
 
 Por exemplo, o nome completo de uma imagem num registo de contentores Azure pode parecer:
 
-```
-myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
-```
+*myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2*
 
 Consulte as seguintes secções para obter detalhes sobre estes elementos.
 
@@ -46,21 +42,18 @@ Consulte as seguintes secções para obter detalhes sobre estes elementos.
 
 Os registos de contentores gerem *repositórios,* coleções de imagens de contentores ou outros artefactos com o mesmo nome, mas etiquetas diferentes. Por exemplo, as três seguintes imagens estão no repositório "acr-helloworld":
 
-```
-acr-helloworld:latest
-acr-helloworld:v1
-acr-helloworld:v2
-```
+
+- *acr-helloworld:mais recente*
+- *acr-helloworld:v1*
+- *acr-helloworld:v2*
 
 Os nomes de repositórios também podem incluir espaços de [nome.](container-registry-best-practices.md#repository-namespaces) Os espaços de nome permitem-lhe agrupar imagens utilizando nomes de repositórios delimitados por corte, por exemplo:
 
-```
-marketing/campaign10-18/web:v2
-marketing/campaign10-18/api:v3
-marketing/campaign10-18/email-sender:v2
-product-returns/web-submission:20180604
-product-returns/legacy-integrator:20180715
-```
+- *marketing/campanha10-18/web:v2*
+- *marketing/campanha10-18/api:v3*
+- *marketing/campanha10-18/e-mail-remetente:v2*
+- *retornos de produtos/submissão web:20180604*
+- *produto-retornos/legacy-integrator:20180715*
 
 ## <a name="image"></a>Imagem
 
@@ -92,8 +85,11 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName>
 
 Por exemplo, enumerar os manifestos para o repositório "acr-helloworld":
 
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
+```azurecli
+az acr repository show-manifests --name myregistry --repository acr-helloworld
+```
+
+```output
 [
   {
     "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
@@ -128,9 +124,7 @@ Pode retirar uma imagem de um registo especificando a sua digestão na operaçã
 
 Por exemplo, puxe uma imagem do repositório "acr-helloworld" através da digestão manifesta:
 
-```console
-$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
-```
+`docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
 
 > [!IMPORTANT]
 > Se empurrar repetidamente imagens modificadas com etiquetas idênticas, poderá criar imagens órfãs-- imagens que não estão marcadas, mas que ainda consomem espaço no seu registo. As imagens não marcadas não são mostradas no Azure CLI ou no portal Azure quando lista ou vê imagens por etiqueta. No entanto, as suas camadas ainda existem e consomem espaço no seu registo. A libertação de uma imagem não marcada liberta espaço de registo quando o manifesto é o único, ou o último, apontando para uma determinada camada. Para obter informações sobre a libertação do espaço utilizado por imagens não marcadas, consulte Apagar imagens de contentores no Registo de [Contentores de Azure](container-registry-delete.md).

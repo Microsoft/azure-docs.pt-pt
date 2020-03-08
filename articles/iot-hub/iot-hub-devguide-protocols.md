@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 7082ebc4ca3066f84ca9790797cfa04e437f78a3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396368"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669064"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referência - escolha um protocolo de comunicação
 
@@ -48,7 +48,7 @@ Considere os seguintes pontos quando escolher o seu protocolo para comunicaçõe
 * **Tamanho da carga útil.** MQTT e AMQP são protocolos binários, que resultam em cargas mais compactas do que HTTPS.
 
 > [!WARNING]
-> Ao utilizar https, cada dispositivo deve fazer uma pesquisa para mensagens cloud-to-device a cada 25 minutos ou mais. No entanto, durante o desenvolvimento, é aceitável fazer sondagens com mais frequência do que a cada 25 minutos.
+> Ao utilizar https, cada dispositivo deve fazer uma pesquisa para mensagens cloud-to-device não mais do que uma vez a cada 25 minutos. Em desenvolvimento, cada dispositivo pode fazer sondagens com mais frequência, se desejar.
 
 ## <a name="port-numbers"></a>Números de porta
 

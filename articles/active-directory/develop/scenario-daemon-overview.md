@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9465b77d03fb3dbb668bd40bf2c7e6ded6891a05
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 5718a23e5669de6ba16354a718d72b68d14bbf49
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962067"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894541"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicação Daemon que chama APIs web
 
@@ -30,7 +30,7 @@ Aprenda tudo o que precisa para construir uma aplicação daemon que chama APIs 
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 A sua aplicação pode adquirir um símbolo para chamar uma API web em nome de si mesma (não em nome de um utilizador). Este cenário é útil para aplicações daemon. Usa a bolsa padrão de [credenciais](v2-oauth2-client-creds-grant-flow.md) de clientes OAuth 2.0.
 
@@ -42,14 +42,14 @@ Aqui estão alguns exemplos de casos de uso para aplicações daemon:
 - Aplicações de desktop (como serviços Windows em processos Windows ou Daemon no Linux) que realizam trabalhos de lote, ou um serviço de sistema operativo que funciona em segundo plano
 - APIs web que precisam manipular diretórios, não utilizadores específicos
 
-Há outro caso comum em que as aplicações não-daemon usam credenciais de cliente: mesmo quando atuam em nome dos utilizadores, precisam de aceder a uma API web ou a um recurso sob a sua identidade por razões técnicas. Um exemplo é o acesso a segredos no Cofre de Chaves Azure ou uma base de dados Azure SQL para uma cache.
+Há outro caso comum em que as aplicações não-daemon usam credenciais de cliente: mesmo quando atuam em nome dos utilizadores, precisam de aceder a uma API web ou a um recurso sob a sua própria identidade por razões técnicas. Um exemplo é o acesso a segredos no Cofre de Chaves Azure ou uma base de dados Azure SQL para uma cache.
 
 Aplicações que adquirem um símbolo para as suas próprias identidades:
 
 - São pedidos confidenciais de clientes. Estas aplicações, dado que acedem a recursos independentemente dos utilizadores, precisam de provar a sua identidade. Também são aplicações bastante sensíveis. Têm de ser aprovados pelos administradores de inquilinos do Azure Ative Directory (Azure AD).
 - Tenha registado um segredo (palavra-passe de candidatura ou certificado) com a AD Azure. Este segredo é passado durante a chamada para a AD Azure para obter um símbolo.
 
-## <a name="specifics"></a>Especificações
+## <a name="specifics"></a>Especificidades
 
 > [!IMPORTANT]
 >

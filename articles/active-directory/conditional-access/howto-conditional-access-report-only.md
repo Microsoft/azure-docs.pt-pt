@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63aaa0103715a928cdd5332de738a473b329f2e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: da44e8482e335c209f45db478797efa5461bbfe1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186075"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671864"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configure uma política de acesso condicional no modo apenas para relatórios (Pré-visualização)
 
@@ -48,8 +48,8 @@ Ver o resultado de uma política apenas de relatório para um determinado sign-i
 
 Para ver o impacto agregado das políticas de Acesso Condicional utilizando o novo livro de informação de acesso condicional, deve integrar o Monitor Azure com a AD Azure e exportar os registos de entrada. Há dois passos para estabelecer esta integração: 
 
-1. [Inscreva-se para uma subscrição do Monitor Azure e crie um espaço de trabalho.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
-1. [Exportar os registos de entrada de Azure AD para o Monitor Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Inscreva-se para uma subscrição do Monitor Azure e crie um espaço de trabalho.](/azure/azure-monitor/learn/quick-create-workspace)
+1. [Exportar os registos de entrada de Azure AD para o Monitor Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
 Mais informações sobre os preços do Monitor Azure podem ser encontradas na página de preços do [Monitor Do Azure](https://azure.microsoft.com/pricing/details/monitor/). Os recursos para estimar os custos, definir um limite diário, ou personalizar o período de retenção de dados, podem ser encontrados no artigo, Gerir o [uso e os custos com os Registos do Monitor Do Azure.](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment)
 

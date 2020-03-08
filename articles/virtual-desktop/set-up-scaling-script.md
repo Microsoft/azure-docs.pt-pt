@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: f38fc45411c89351eb9a50a48f22d22905ee34e6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 353501912836e0f6706f20deed1c1d9d416f1ce6
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367246"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894505"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Anfitriões de sessão de escala usando a Automação Azure
 
@@ -37,7 +37,7 @@ Durante o tempo de utilização máxima, o trabalho verifica o número atual de 
 >[!NOTE]
 >*SessionThresholdPerCPU* não restringe o número de sessões no VM. Este parâmetro só determina quando é necessário começar a carregar as ligações. Para restringir o número de sessões, é necessário seguir as instruções [Set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) para configurar o parâmetro *MaxSessionLimit* em conformidade.
 
-Durante o tempo de utilização fora do pico, o trabalho determina quais os VMs hospedeiros da sessão devem desligar-se com base no parâmetro *NúmeroDeRDSH mínimo.* O trabalho definirá os VMs hospedeiros da sessão para drenar o modo de drenagem para evitar que novas sessões se liguem aos anfitriões. Se definir o parâmetro *LimitSecondsToForceLogOffUser* para um valor positivo não nulo, o script notificará qualquer pessoa atualmente assinada nos utilizadores para salvar o seu trabalho, aguardar o tempo configurado e, em seguida, forçar os utilizadores a assinar. Uma vez assinadas todas as sessões de utilizador da sessão vM, o script desligará o VM.
+Durante o tempo de utilização fora do pico, o trabalho determina quais os VMs hospedeiros da sessão devem desligar-se com base no parâmetro *NúmeroDeRDSH mínimo.* O trabalho definirá os VMs hospedeiros da sessão para drenar o modo de drenagem para evitar que novas sessões se liguem aos anfitriões. Se definir o parâmetro *LimitSecondsToForceLogOffUser* para um valor positivo não nulo, o trabalho notificará qualquer pessoa atualmente assinada nos utilizadores para salvar o seu trabalho, aguardar o tempo configurado e, em seguida, forçar os utilizadores a assinar. Uma vez assinadas todas as sessões de utilizador da sessão de vm anfitrião, o trabalho encerrará o VM.
 
 Se definir o parâmetro *LimitSecondsToForceLogOffUser* para zero, o trabalho permitirá a definição de configuração da sessão em políticas específicas do grupo para lidar com a assinatura de sessões de utilizador. Para ver estas políticas de grupo, vá às **políticas** de **configuração** de computador >  > **modelos administrativos** > componentes do Windows > **Serviços** **de Terminal** > servidor **de terminais** > prazo de **sessão**. Se houver sessões ativas numa vm anfitriã de sessão, o trabalho deixará a vm anfitriã da sessão em funcionamento. Se não houver sessões ativas, o trabalho encerrará a vm anfitriã da sessão.
 

@@ -1,6 +1,6 @@
 ---
-title: Configurar o roteamento de mensagens para o Hub IoT do Azure usando o CLI do Azure
-description: Configure o roteamento de mensagens para o Hub IoT do Azure usando o CLI do Azure. Dependendo das propriedades da mensagem, encaminhe para uma conta de armazenamento ou para uma fila do barramento de serviço.
+title: Configure o encaminhamento de mensagens para o Hub Azure IoT utilizando o Azure CLI
+description: Configure o encaminhamento de mensagens para o Hub Azure IoT utilizando o Azure CLI. Dependendo das propriedades na mensagem, arota para uma conta de armazenamento ou uma fila de ônibus de serviço.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,37 +9,37 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 340ea35bc3ed0c889a1a851da47f7e955116e103
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 056dac7977115f97892d8dbfde0710e00237804e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084472"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674350"
 ---
-# <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutorial: usar o CLI do Azure para configurar o roteamento de mensagens do Hub IoT
+# <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutorial: Use o CLI Azure para configurar o encaminhamento de mensagens IoT Hub
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
 [!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
-## <a name="download-the-script-optional"></a>Baixar o script (opcional)
+## <a name="download-the-script-optional"></a>Descarregue o script (opcional)
 
-Para a segunda parte deste tutorial, você baixa e executa um aplicativo do Visual Studio para enviar mensagens para o Hub IoT. Há uma pasta no download que contém o modelo de Azure Resource Manager e o arquivo de parâmetros, bem como os scripts do CLI do Azure e do PowerShell.
+Para a segunda parte deste tutorial, você descarrega e executa uma aplicação do Estúdio Visual para enviar mensagens para o IoT Hub. Há uma pasta no download que contém o modelo de gestor de recursos azure e o ficheiro de parâmetros, bem como os scripts Azure CLI e PowerShell.
 
-Se você quiser exibir o script concluído, baixe os [exemplos de IOT C# do Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Descompacte o arquivo. zip mestre. O script CLI do Azure está em/iot-hub/Tutorials/Routing/SimulatedDevice/resources/como **iothub_routing_cli. azcli**.
+Se quiser ver o script acabado, descarregue as [amostras Azure C# IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Desaperte o ficheiro master.zip. O script Azure CLI está em /iot-hub/Tutoriais/Routing/SimuladoDispositivo/recursos/ como **iothub_routing_cli.azcli**.
 
-## <a name="use-the-azure-cli-to-create-your-resources"></a>Use o CLI do Azure para criar seus recursos
+## <a name="use-the-azure-cli-to-create-your-resources"></a>Use o Azure CLI para criar os seus recursos
 
-Copie e cole o script abaixo em Cloud Shell e pressione Enter. Ele executa o script uma linha por vez. Esta primeira seção do script criará os recursos base para este tutorial, incluindo a conta de armazenamento, o Hub IoT, o namespace do barramento de serviço e a fila do barramento de serviço. À medida que você passar pelo restante do tutorial, copie cada bloco de script e cole-o em Cloud Shell para executá-lo.
+Copie e cole o script abaixo na Cloud Shell e prima Enter. Corre o guião uma linha de cada vez. Esta primeira secção do script criará os recursos base para este tutorial, incluindo a conta de armazenamento, IoT Hub, Service Bus Namespace e service bus queue. Ao percorrer o resto do tutorial, copie cada bloco de script e cole-o na Cloud Shell para executá-lo.
 
 > [!TIP]
-> Uma dica sobre a depuração: esse script usa o símbolo de continuação (a barra invertida `\`) para tornar o script mais legível. Se você tiver um problema ao executar o script, verifique se sua sessão de Cloud Shell está em execução `bash` e se não há espaços após qualquer uma das barras invertidas.
+> Uma dica sobre depuração: este script usa o símbolo de continuação (o backslash `\`) para tornar o guião mais legível. Se tiver algum problema em executar o script, certifique-se de que a sua sessão cloud Shell está a decorrer `bash` e que não há espaços depois de qualquer uma das pestanas.
 > 
 
-Há vários nomes de recursos que devem ser globalmente exclusivos, como o nome do Hub IoT e o nome da conta de armazenamento. Para tornar isso mais fácil, esses nomes de recursos são anexados com um valor alfanumérico aleatório chamado *randomValue*. O randomValue é gerado uma vez na parte superior do script e acrescentado aos nomes de recursos conforme necessário em todo o script. Se você não quiser que ele seja aleatório, você pode defini-lo como uma cadeia de caracteres vazia ou como um valor específico. 
+Existem vários nomes de recursos que devem ser globalmente únicos, como o nome IoT Hub e o nome da conta de armazenamento. Para facilitar isto, esses nomes de recursos são anexados com um valor alfanumérico aleatório chamado *RandomValue*. O RandomValue é gerado uma vez no topo do script e anexado aos nomes de recursos conforme necessário ao longo do script. Se não quiser que seja aleatório, pode defini-lo numa corda vazia ou num valor específico. 
 
 > [!IMPORTANT]
-> As variáveis definidas no script inicial também são usadas pelo script de roteamento, portanto, execute todo o script na mesma sessão de Cloud Shell. Se você abrir uma nova sessão para executar o script para configurar o roteamento, várias das variáveis terão valores ausentes.
+> As variáveis definidas no script inicial também são usadas pelo script de encaminhamento, por isso executa todo o script na mesma sessão cloud Shell. Se abrir uma nova sessão para executar o guião para a configuração do encaminhamento, várias das variáveis estarão faltando valores.
 >
 
 ```azurecli-interactive
@@ -55,7 +55,7 @@ randomValue=$RANDOM
 # This command installs the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that 
 #   don't have to be globally unique.
@@ -141,45 +141,45 @@ az iot hub device-identity show --device-id $iotDeviceName \
     --hub-name $iotHubName
 ```
 
-Agora que os recursos base estão configurados, você pode configurar o roteamento de mensagens.
+Agora que os recursos base estão configurados, pode configurar o encaminhamento da mensagem.
 
 ## <a name="set-up-message-routing"></a>Configurar o encaminhamento de mensagens
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Para criar um ponto de extremidade de roteamento, use [AZ IOT Hub Routing-Endpoint Create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Para criar a rota de mensagem para o ponto de extremidade, use [AZ IOT Hub Route Create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
+Para criar um ponto final de encaminhamento, utilize a criação de ponto final de [encaminhamento do hub az iot](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Para criar a rota da mensagem para o ponto final, utilize a criação da [rota do hub az iot](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
 
-### <a name="route-to-a-storage-account"></a>Rotear para uma conta de armazenamento
+### <a name="route-to-a-storage-account"></a>Rota para uma conta de armazenamento
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-Primeiro, configure o ponto de extremidade para a conta de armazenamento e, em seguida, configure a rota. 
+Primeiro, configurar o ponto final para a conta de armazenamento, em seguida, configurar a rota. 
 
-Essas são as variáveis usadas pelo script que devem ser definidas dentro de sua sessão de Cloud Shell:
+Estas são as variáveis utilizadas pelo script que deve ser definida sessão cloud Shell:
 
-**storageConnectionString**: esse valor é recuperado da conta de armazenamento configurada no script anterior. Ele é usado pelo roteamento de mensagens para acessar a conta de armazenamento.
+**armazenamentoConnectionString**: Este valor é recuperado da conta de armazenamento criada no script anterior. É utilizado pelo encaminhamento de mensagens para aceder à conta de armazenamento.
 
-  **resourcegroup**: há duas ocorrências do grupo de recursos – defina-as para seu grupo de recursos.
+  **recursosGroup**: Existem duas ocorrências de grupo de recursos -- detetetá-las para o seu grupo de recursos.
 
-**Endpoint SubscriptionId**: esse campo é definido como a SubscriptionId do Azure para o ponto de extremidade. 
+id de **subscrição**de ponto final : Este campo está definido para o ID de subscrição Azure para o ponto final. 
 
-**EndpointType**: esse campo é o tipo de ponto de extremidade. Esse valor deve ser definido como `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para suas finalidades aqui, defina-a como `azurestoragecontainer`.
+**ponto finalType**: Este campo é o tipo de ponto final. Este valor deve ser fixado para `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para os seus propósitos aqui, coloque-o para `azurestoragecontainer`.
 
-**iotHubName**: esse campo é o nome do Hub que fará o roteamento.
+**iotHubName**: Este campo é o nome do hub que fará o encaminhamento.
 
-**ContainerName**: esse campo é o nome do contêiner na conta de armazenamento na qual os dados serão gravados.
+**nome**do recipiente : Este campo é o nome do recipiente na conta de armazenamento para onde serão escritos os dados.
 
-**codificação**: esse campo será `avro` ou `json`. Isso denota o formato dos dados armazenados.
+**codificação**: Este campo será `avro` ou `json`. Isto denota o formato dos dados armazenados.
 
-**RouteName**: esse campo é o nome da rota que você está configurando. 
+**nome**de rota : Este campo é o nome da rota que está a configurar. 
 
-**EndpointName**: esse campo é o nome que identifica o ponto de extremidade. 
+**nome final**: Este campo é o nome que identifica o ponto final. 
 
-**habilitado**: esse campo usa como padrão `true`, indicando que a rota da mensagem deve ser habilitada depois de ser criada.
+**ativado**: Este campo descorre para `true`, indicando que a rota da mensagem deve ser ativada após a criação.
 
-**condição**: esse campo é a consulta usada para filtrar as mensagens enviadas para esse ponto de extremidade. A condição de consulta para as mensagens que estão sendo roteadas para o armazenamento é `level="storage"`.
+**condição**: Este campo é a consulta utilizada para filtrar as mensagens enviadas para este ponto final. A condição de consulta para as mensagens que estão a ser encaminhadas para o armazenamento é `level="storage"`.
 
-Copie esse script e cole-o na janela Cloud Shell e execute-o.
+Copie este script e cole-o na janela da Cloud Shell e execute-o.
 
 ```azurecli
 ##### ROUTING FOR STORAGE ##### 
@@ -195,7 +195,7 @@ storageConnectionString=$(az storage account show-connection-string \
   --name $storageAccountName --query connectionString -o tsv)
 ```
 
-A próxima etapa é criar o ponto de extremidade de roteamento para a conta de armazenamento. Você também especifica o contêiner no qual os resultados serão armazenados. O contêiner foi criado anteriormente quando a conta de armazenamento foi criada.
+O próximo passo é criar o ponto final de encaminhamento para a conta de armazenamento. Especifica também o recipiente no qual os resultados serão armazenados. O contentor foi criado anteriormente quando a conta de armazenamento foi criada.
 
 ```azurecli
 # Create the routing endpoint for storage.
@@ -211,7 +211,7 @@ az iot hub routing-endpoint create \
   --encoding avro
 ```
 
-Em seguida, crie a rota para o ponto de extremidade de armazenamento. A rota de mensagem designa para onde enviar as mensagens que atendem à especificação de consulta. 
+Em seguida, crie a rota para o ponto final de armazenamento. A rota da mensagem designa para onde enviar as mensagens que cumprem a especificação de consulta. 
 
 ```azurecli
 # Create the route for the storage endpoint.
@@ -225,9 +225,9 @@ az iot hub route create \
   --condition $condition
 ```
 
-### <a name="route-to-a-service-bus-queue"></a>Rotear para uma fila do barramento de serviço
+### <a name="route-to-a-service-bus-queue"></a>Rota para uma fila de ônibus de serviço
 
-Agora configure o encaminhamento para a fila do Service Bus. Para recuperar a cadeia de conexão da fila do barramento de serviço, você deve criar uma regra de autorização que tenha os direitos corretos definidos. O script a seguir cria uma regra de autorização para a fila do barramento de serviço chamada `sbauthrule`e define os direitos para `Listen Manage Send`. Depois que essa regra de autorização for definida, você poderá usá-la para recuperar a cadeia de conexão para a fila.
+Agora configure o encaminhamento para a fila do Service Bus. Para recuperar a cadeia de ligação para a fila do Ônibus de serviço, deve criar uma regra de autorização que tenha os direitos corretos definidos. O seguinte guião cria uma regra de autorização para a fila de ônibus de serviço chamada `sbauthrule`, e define os direitos de `Listen Manage Send`. Uma vez definida esta regra de autorização, pode usá-la para recuperar a corda de ligação para a fila.
 
 ```azurecli
 # Create the authorization rule for the Service Bus queue.
@@ -240,7 +240,7 @@ az servicebus queue authorization-rule create \
   --subscription $subscriptionID
 ```
 
-Agora, use a regra de autorização para recuperar a cadeia de conexão para a fila do barramento de serviço.
+Agora use a regra de autorização para recuperar a corda de ligação à fila do Ônibus de serviço.
 
 ```azurecli
 # Get the Service Bus queue connection string.
@@ -257,17 +257,17 @@ sbqConnectionString=$(az servicebus queue authorization-rule keys list \
 echo "service bus queue connection string = " $sbqConnectionString
 ```
 
-Agora, configure o ponto de extremidade de roteamento e a rota de mensagem para a fila do barramento de serviço. Essas são as variáveis usadas pelo script que devem ser definidas dentro de sua sessão de Cloud Shell:
+Agora, instale o ponto final de encaminhamento e a rota de mensagem para a fila do Autocarro de Serviço. Estas são as variáveis utilizadas pelo script que deve ser definida sessão cloud Shell:
 
-**EndpointName**: esse campo é o nome que identifica o ponto de extremidade. 
+**nome final**: Este campo é o nome que identifica o ponto final. 
 
-**EndpointType**: esse campo é o tipo de ponto de extremidade. Esse valor deve ser definido como `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para suas finalidades aqui, defina-a como `servicebusqueue`.
+**ponto finalType**: Este campo é o tipo de ponto final. Este valor deve ser fixado para `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para os seus propósitos aqui, coloque-o para `servicebusqueue`.
 
-**RouteName**: esse campo é o nome da rota que você está configurando. 
+**nome**de rota : Este campo é o nome da rota que está a configurar. 
 
-**condição**: esse campo é a consulta usada para filtrar as mensagens enviadas para esse ponto de extremidade. A condição de consulta para as mensagens que estão sendo roteadas para a fila do barramento de serviço é `level="critical"`.
+**condição**: Este campo é a consulta utilizada para filtrar as mensagens enviadas para este ponto final. A condição de consulta para as mensagens que estão a ser encaminhadas para a fila do Autocarro de Serviço é `level="critical"`.
 
-Aqui está a CLI do Azure para o ponto de extremidade de roteamento e a rota de mensagem para a fila do barramento de serviço.
+Aqui está o Azure CLI para o ponto final de encaminhamento e a rota de mensagem para a fila de ônibus de serviço.
 
 ```azurecli
 endpointName="ContosoSBQueueEndpoint"
@@ -296,13 +296,13 @@ az iot hub route create --name $routeName \
   --condition $condition
   ```
 
-### <a name="view-message-routing-in-the-portal"></a>Exibir o roteamento de mensagens no portal
+### <a name="view-message-routing-in-the-portal"></a>Ver encaminhamento de mensagem no portal
 
 [!INCLUDE [iot-hub-include-view-routing-in-portal](../../includes/iot-hub-include-view-routing-in-portal.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você tem os recursos configurados e as rotas de mensagens definidas, avance para o próximo tutorial para saber como enviar mensagens para o Hub IoT e vê-las roteadas para os diferentes destinos. 
+Agora que tem os recursos configurados e as rotas de mensagens configuradas, avance para o próximo tutorial para aprender a enviar mensagens para o centro ioT e vê-los ser encaminhados para os diferentes destinos. 
 
 > [!div class="nextstepaction"]
-> [Parte 2-exibir os resultados de roteamento de mensagens](tutorial-routing-view-message-routing-results.md)
+> [Parte 2 - Veja os resultados do encaminhamento da mensagem](tutorial-routing-view-message-routing-results.md)

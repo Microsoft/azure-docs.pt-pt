@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f17192e738bb82fb348c660488e6296aa550bd25
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913485"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671980"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Resolução de problemas comum de erros e avisos de indexantes em Pesquisa Cognitiva Azure
 
@@ -48,7 +48,7 @@ O indexante não conseguiu ler o documento a partir da fonte de dados. Isto pode
 
 | Razão | Detalhes/Exemplo | Resolução |
 | --- | --- | --- |
-| tipos de campo inconsistentes em diferentes documentos | O tipo de valor tem um desfasamento com o tipo de coluna. Não consegui `'{47.6,-122.1}'` na coluna de autores.  O tipo esperado é JArray. | Certifique-se de que o tipo de cada campo é o mesmo em diferentes documentos. Por exemplo, se o primeiro documento `'startTime'` campo for um DateTime, e no segundo documento for uma sequência, este erro será atingido. |
+| tipos de campo inconsistentes em diferentes documentos | "O tipo de valor tem um desfasamento com o tipo de coluna. Não consegui `'{47.6,-122.1}'` na coluna de autores.  O tipo esperado é JArray."  "Erro de conversão de nvarchar tipo de dados para flutuar."  "A conversão falhou na conversão do valor nvarchar '12 meses' para o tipo de dados int."  "Erro de transbordo aritmético convertendo expressão em int tipo de dados." | Certifique-se de que o tipo de cada campo é o mesmo em diferentes documentos. Por exemplo, se o primeiro documento `'startTime'` campo for um DateTime, e no segundo documento for uma sequência, este erro será atingido. |
 | erros do serviço subjacente da fonte de dados | (de Cosmos DB) `{"Errors":["Request rate is large"]}` | Verifique a sua instância de armazenamento para se certificar de que está saudável. Pode ser necessário ajustar a sua escala/partição. |
 | questões transitórias | Ocorreu um erro ao nível de transporte ao receber resultados do servidor. (fornecedor: Fornecedor tCP, erro: 0 - Uma ligação existente foi fechada à força pelo hospedeiro remoto | Ocasionalmente, há problemas de conectividade inesperados. Tente passar o documento pelo seu indexante novamente mais tarde. |
 

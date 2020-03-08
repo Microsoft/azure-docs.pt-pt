@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: b7aa90bd19e52059319570f1e7f6e64b90dee6e4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: f0ad8d503b5280b8cba89d940b99dcd81da71ffc
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390269"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78892802"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas da AKS
 
@@ -384,7 +384,7 @@ Definições recomendadas:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 e mais tarde | 0777 |
 
-Se utilizar um cluster com a versão Kuberetes 1.8.5 ou maior e criar dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem podem ser especificadas no objeto da classe de armazenamento. O exemplo que se segue é o *0777:*
+Se utilizar um cluster com a versão Kubernetes 1.8.5 ou maior e criar dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem podem ser especificadas no objeto da classe de armazenamento. O exemplo que se segue é o *0777:*
 
 ```yaml
 kind: StorageClass
@@ -491,6 +491,10 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 ```
 
 Este erro deve-se a uma condição de corrida autoscaler de cluster a montante, onde o autoscaler do cluster termina com um valor diferente daquele que está realmente no cluster. Para sair deste estado, simplesmente desative e reative o [autoescalador][cluster-autoscaler]do cluster .
+
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Acessório de disco lento, GetAzureDiskLun demora 10 a 15 minutos e recebe um erro
+
+Nas versões Kubernetes com mais de **1.15.0** poderá receber um erro como **o Error WaitForAttach Não pode encontrar Lun para o disco**.  A suposição para isto é esperar aproximadamente 15 minutos e voltar a tentar.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

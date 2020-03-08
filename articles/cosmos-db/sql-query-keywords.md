@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: a9de9435c0e2fb2b67733a995ff412978ea02d89
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 711e961bd5eb1607e2e6f11b0b5762423d78c0e7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387005"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898770"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave em Azure Cosmos DB
 Este artigo detalha palavras-chave que podem ser usadas em consultas De SQL do Azure Cosmos DB.
@@ -108,7 +108,7 @@ Não são suportadas consultas com uma função de sistema agregado e uma subque
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
 
-## <a name="in"></a>EM
+## <a name="in"></a>IN
 
 Utilize a palavra-chave IN para verificar se um valor especificado corresponde a qualquer valor numa lista. Por exemplo, a seguinte consulta devolve todos os itens familiares onde o `id` é `WakefieldFamily` ou `AndersenFamily`.
 
@@ -126,7 +126,9 @@ O exemplo seguinte devolve todos os itens em que o estado é um dos valores espe
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-A SQL API fornece suporte para [iterar sobre matrizes JSON,](sql-query-object-array.md#Iteration)com uma nova construção adicionada através da palavra-chave na fonte DA. 
+A SQL API fornece suporte para [iterar sobre matrizes JSON,](sql-query-object-array.md#Iteration)com uma nova construção adicionada através da palavra-chave na fonte DA.
+
+Se incluir a chave de partição no filtro `IN`, a sua consulta filtrará automaticamente apenas as divisórias relevantes.
 
 ## <a name="top"></a>Início
 

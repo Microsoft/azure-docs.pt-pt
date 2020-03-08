@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 6c7981d15acf2b2b71dfb4234f85b738efe62ce0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 138e077f7b47fa9f38a4710db95eb7208cef78e3
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767955"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675320"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizar dados de sensores em tempo real do seu hub Azure IoT numa aplicação web
 
@@ -25,7 +25,7 @@ ms.locfileid: "76767955"
 
 Neste tutorial, aprende a visualizar dados de sensores em tempo real que o seu hub IoT recebe com uma aplicação web node.js a funcionar no seu computador local. Depois de executar a aplicação web localmente, você pode opcionalmente seguir passos para hospedar a aplicação web no Azure App Service. Se quiser visualizar os dados no seu hub IoT utilizando o Power BI, consulte [o Use Power BI para visualizar dados de sensores em tempo real a partir do Hub Azure IoT](iot-hub-live-data-visualization-in-power-bi.md).
 
-## <a name="what-you-do"></a>O que você faz
+## <a name="what-you-do"></a>O que faz
 
 * Adicione um grupo de consumidores ao seu hub IoT que a aplicação web usará para ler dados de sensores
 * Descarregue o código da aplicação web a partir do GitHub
@@ -49,13 +49,13 @@ Neste tutorial, aprende a visualizar dados de sensores em tempo real que o seu h
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Execute o comando a seguir para adicionar a extensão de IoT Microsoft Azure para CLI do Azure à sua instância de Cloud Shell. A extensão de IOT adiciona comandos específicos do serviço de provisionamento de dispositivos IOT, IoT Edge e do Hub IoT a CLI do Azure.
+Execute o seguinte comando para adicionar a extensão Microsoft Azure IoT para Azure CLI à sua instância Cloud Shell. A extensão IOT adiciona comandos específicos do IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) ao Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao Hub IoT
+## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicione um grupo de consumidores ao seu hub IoT
 
 [Os grupos de consumidores](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) fornecem pontos de vista independentes para o fluxo de eventos que permitem que apps e serviços Azure consumam dados independentemente do mesmo ponto final do Event Hub. Nesta secção, você adiciona um grupo de consumidores ao ponto final incorporado do seu ioT hub que a aplicação web usará para ler dados a partir de.
 
@@ -186,7 +186,7 @@ Nesta secção, você disponibiliza uma aplicação web no Serviço de Aplicaç�
 
 5. Para implementar o código para o Serviço de Aplicações, utilizará [as suas credenciais de implementação ao nível do utilizador](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). As suas credenciais de implementação ao nível do utilizador são diferentes das suas credenciais Azure e são utilizadas para implementações locais e FTP git para uma aplicação web. Uma vez definidos, são válidos em todas as suas aplicações do App Service em todas as subscrições da sua conta Azure. Se tiver definido previamente credenciais de implementação ao nível do utilizador, pode utilizá-las.
 
-   Se não tiver definido previamente as credenciais de implementação ao nível do utilizador ou se não se lembrar da sua palavra-passe, execute o seguinte comando. O seu nome de utilizador de implementação deve ser único dentro do Azure, e não deve conter o símbolo '@' para os pushs git locais. Quando for solicitado, insira e confirme a sua nova senha. A senha deve ter pelo menos oito caracteres de comprimento, com dois dos três elementos a seguir: letras, números e símbolos.
+   Se não tiver definido previamente as credenciais de implementação ao nível do utilizador ou se não se lembrar da sua palavra-passe, execute o seguinte comando. O seu nome de utilizador de implementação deve ser único dentro do Azure, e não deve conter o símbolo '@' para os pushs git locais. Quando for solicitado, insira e confirme a sua nova senha. A palavra-passe deve ter pelo menos oito caracteres de comprimento, com dois dos seguintes três elementos: letras, números e símbolos.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>

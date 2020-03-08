@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: dbdc13b8c861c620bfdbaaf53c0901a51bb9ce08
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399208"
+ms.locfileid: "78674164"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma ligação de gateway VPN de VNet a VNet com o portal do Azure
 
@@ -127,7 +127,7 @@ Se já tiver uma VNet, certifique-se de que as definições são compatíveis co
 ### <a name="to-create-a-virtual-network"></a>Para criar uma rede virtual
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="create-a-virtual-network-gateway"></a>Criar um gateway de rede virtual
+## <a name="create-the-vnet1-gateway"></a>Criar o gateway VNet1
 Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muitas vezes, pode demorar 45 minutos ou mais, dependendo do SKU de gateway selecionado. Se estiver a criar esta configuração como exercício, consulte as [definições](#example-settings)do Exemplo .
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
@@ -138,7 +138,7 @@ Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muit
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="create-and-configure-vnet4"></a>Criar e configurar VNet4
-Depois de configurar o VNet1, crie o VNet4 repetindo os passos anteriores e substituindo os valores por valores VNet4. Não precisa de esperar até que a porta de entrada de rede virtual para VNet1 termine de criar antes de configurar o VNet4. Se estiver usando seus próprios valores, certifique-se de que os espaços de endereços não se sobrepõe a qualquer uma das VNets para o qual pretende ligar.
+Depois de configurar o VNet1, crie o VNet4 e o gateway VNet4 repetindo os passos anteriores e substituindo os valores por valores VNet4. Não precisa de esperar até que a porta de entrada de rede virtual para VNet1 termine de criar antes de configurar o VNet4. Se estiver usando seus próprios valores, certifique-se de que os espaços de endereços não se sobrepõe a qualquer uma das VNets para o qual pretende ligar.
 
 ## <a name="configure-the-vnet1-gateway-connection"></a>Configure a ligação de gateway VNet1
 Quando os gateways de rede virtuais tanto para VNet1 como VNet4 estiverem concluídos, pode criar as suas ligações de gateway de rede virtual. Nesta secção, vai criar uma ligação da VNet1 à VNet4. Estes passos só funcionam em VNets na mesma subscrição. Se os seus VNets estiverem em subscrições diferentes, tem de utilizar o [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) para efazer a ligação. No entanto, se as suas VNets estiverem em grupos de recursos diferentes na mesma subscrição, pode ligá-las com o portal.
@@ -148,7 +148,7 @@ Quando os gateways de rede virtuais tanto para VNet1 como VNet4 estiverem conclu
    ![Página de ligações](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png "Página de ligações")
 2. Selecione **+Adicionar** para abrir a página de **ligação Adicionar.**
 
-   ![Adicionar ligação](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-to-vnet4.png "adicionar uma ligação")
+   ![Adicionar ligação](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png "adicionar uma ligação")
 3. Na página de **ligação Adicionar,** preencha os valores para a sua ligação:
 
    - **Nome**: Insira um nome para a sua ligação. Por exemplo, *VNet1toVNet4*.

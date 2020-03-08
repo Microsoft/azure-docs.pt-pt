@@ -4,14 +4,14 @@ description: Conheça a cláusula SQL WHERE para Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982234"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898788"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>ONDE a cláusula em Azure Cosmos DB
 
@@ -35,10 +35,11 @@ WHERE <filter_condition>
   
    Expressão que representa o valor a ser calculada. Consulte [expressões scalar](sql-query-scalar-expressions.md) para mais detalhes.  
   
-
 ## <a name="remarks"></a>Observações
   
-  Para que o documento a ser devolvida uma expressão especificada como filtro de condição deve ser avaliado como true. Apenas o valor booleano true satisfaça a condição, qualquer outro valor: indefinido, nulo, FALSO, número, matriz ou objeto não satisfaçam a condição. 
+  Para que o documento a ser devolvida uma expressão especificada como filtro de condição deve ser avaliado como true. Apenas o valor booleano `true` satisfizerá a condição, qualquer outro valor: indefinido, nulo, falso, número, matriz ou objeto não satisfará a condição.
+
+  Se incluir a sua chave de partição na cláusula `WHERE` como parte de um filtro de igualdade, a sua consulta filtrará automaticamente apenas para as divisórias relevantes.
 
 ## <a name="examples"></a>Exemplos
 
@@ -71,10 +72,10 @@ Pode utilizar os seguintes operadores binários suportados:
 |**Tipo de operador**  | **Valores** |
 |---------|---------|
 |Operações aritméticas | +,-,*,/,% |
-|bit a bit    | \|, &, ^, <<>>,, >>> (shift direita do preenchimento de zero) |
+|bit a bit    | \|, &, ^, <<, >>, >>> (turno direito de preenchimento zero) |
 |Lógica    | E, EM ALTERNATIVA, NÃO      |
 |Comparação | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|Cadeia     |  \|\| (concatenar) |
+|String     |  \|\| (concatenato) |
 
 As seguintes consultas utilizam operadores binários:
 
@@ -110,4 +111,4 @@ Também pode usar referências de propriedade em consultas. Por exemplo, `SELECT
 
 - [Introdução](sql-query-getting-started.md)
 - [Na palavra-chave](sql-query-keywords.md#in)
-- [Cláusula FROM](sql-query-from.md)
+- [Da cláusula](sql-query-from.md)

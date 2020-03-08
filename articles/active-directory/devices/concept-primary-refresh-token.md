@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b9240b863eef4d460cd8d3a47304fb96ffb4bc8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9a237ad35d9d5d8abee784926563d972d0ee95f9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917786"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672638"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token De Refresco Primário?
 
@@ -33,7 +33,7 @@ Os seguintes componentes do Windows desempenham um papel fundamental na solicita
 * **Plugin Azure AD CloudAP**: Um plugin específico da AD Azure construído sobre a estrutura CloudAP, que verifica as credenciais do utilizador com a AD Azure durante o início do windows.
 * **Plugin Azure AD WAM**: Um plugin específico Azure AD construído sobre a estrutura WAM, que permite ao SSO aplicações que dependem da AD Azure para autenticação.
 * **Dsreg**: Um componente específico da AD Azure no Windows 10, que trata do processo de registo do dispositivo para todos os estados do dispositivo.
-* **Módulo de Plataforma Fidedigna** (TPM): Um TPM é um componente de hardware incorporado num dispositivo, que fornece funções de segurança baseadas em hardware para segredos de utilizador e dispositivo. Mais detalhes podem ser encontrados no artigo Visão geral da tecnologia do [módulo de plataforma fidedigna.](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview)
+* **Módulo de Plataforma Fidedigna** (TPM): Um TPM é um componente de hardware incorporado num dispositivo, que fornece funções de segurança baseadas em hardware para segredos de utilizador e dispositivo. Mais detalhes podem ser encontrados no artigo Visão geral da tecnologia do [módulo de plataforma fidedigna.](/windows/security/information-protection/tpm/trusted-platform-module-overview)
 
 ## <a name="what-does-the-prt-contain"></a>O que o PrT contém?
 
@@ -48,7 +48,7 @@ Um PRT é uma bolha opaca enviada da Azure AD cujo conteúdo não é do conhecim
 
 ## <a name="how-is-a-prt-issued"></a>Como é emitida uma PrT?
 
-O registo do dispositivo é um pré-requisito para a autenticação baseada em dispositivos em Azure AD. É emitido um PRT para utilizadores apenas em dispositivos registados. Para mais detalhes sobre o registo do dispositivo, consulte o artigo Windows Hello para registo de [negócios e dispositivos.](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration) Durante o registo do dispositivo, o componente dsreg gera dois conjuntos de pares de chaves criptográficas:
+O registo do dispositivo é um pré-requisito para a autenticação baseada em dispositivos em Azure AD. É emitido um PRT para utilizadores apenas em dispositivos registados. Para mais detalhes sobre o registo do dispositivo, consulte o artigo Windows Hello para registo de [negócios e dispositivos.](/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration) Durante o registo do dispositivo, o componente dsreg gera dois conjuntos de pares de chaves criptográficas:
 
 * Chave do dispositivo (dkpub/dkpriv)
 * Chave de transporte (tkpub/tkpriv)

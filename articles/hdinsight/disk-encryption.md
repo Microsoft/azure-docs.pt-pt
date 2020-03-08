@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c22ee0ef0393c0dae64674d18bae5a2e92969b4c
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: fd5308574e84ab6d2e30b9352254683b2d1d6fdd
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206073"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403575"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Encriptação de discos chave gerida pelo cliente
 
@@ -34,7 +34,7 @@ Pode utilizar o portal Azure ou o Azure CLI para rodar com segurança as chaves 
 
 |Tipo de cluster |Disco OS (Disco Gerido) |Disco de dados (disco gerido) |Disco de dados temporário (SSD Local) |
 |---|---|---|---|
-|Kafka, HBase com escritos acelerados|Encriptação SSE|Encriptação SSE + Encriptação OPCIONAL CMK|Encriptação opcional da CMK|
+|Kafka, HBase com escritos acelerados|[Encriptação SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Encriptação SSE + Encriptação OPCIONAL CMK|Encriptação opcional da CMK|
 |Todos os outros clusters (Spark, Interactive, Hadoop, HBase sem escritos acelerados)|Encriptação SSE|N/D|Encriptação opcional da CMK|
 
 ## <a name="get-started-with-customer-managed-keys"></a>Começar com chaves geridas pelo cliente

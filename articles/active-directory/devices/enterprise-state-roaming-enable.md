@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6887edacafb4fd4a68cfbe7d97e788c71dc68522
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 8c44d6266f5ea8cdd4f75d0449cb49852e71c905
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194454"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672401"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
 
@@ -25,13 +25,13 @@ Enterprise State Roaming está disponível para qualquer organização com licen
 Ao ativar o Enterprise State Roaming, a sua organização recebe automaticamente uma licença de utilização limitada gratuita para a proteção da Segurança dos Direitos do Azure da Proteção de Informação azure. Esta subscrição gratuita limita-se a encriptar e desencriptar as configurações da empresa e os dados de aplicação sincronizados pelo Enterprise State Roaming. Deve ter [uma subscrição paga](https://azure.microsoft.com/pricing/details/information-protection/) para utilizar todas as capacidades do serviço de Gestão de Direitos do Azure.
 
 > [!NOTE]
-> Este artigo aplica-se ao navegador baseado no Microsoft Edge Legacy HTML lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado em Crómio microsoft Edge, lançado a 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
+> Este artigo aplica-se ao navegador baseado no Microsoft Edge Legacy HTML lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado em Crómio microsoft Edge, lançado a 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Para permitir o roaming do Estado Da Empresa
 
 1. Inscreva-se no [centro de administração da Azure AD](https://aad.portal.azure.com/).
 1. Selecione **Azure Ative Directory** &gt; **Devices** &gt; **Enterprise State Roaming**.
-1. Selecione **Os Utilizadores podem sincronizar as definições e os dados das aplicações através dos dispositivos.** Para mais informações, consulte [como configurar as definições](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)do dispositivo .
+1. Selecione **Os Utilizadores podem sincronizar as definições e os dados das aplicações através dos dispositivos.** Para mais informações, consulte [como configurar as definições](/azure/active-directory/device-management-azure-portal)do dispositivo .
   
    ![imagem da definição de dispositivo Utilizadores rotulados podem sincronizar definições e dados de aplicações em todos os dispositivos](./media/enterprise-state-roaming-enable/device-settings.png)
   

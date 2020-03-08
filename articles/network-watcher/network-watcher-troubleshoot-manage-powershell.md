@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 478b6cffb6fbb2be7a87b9b61d5b7e2ee71a74c2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0723ddc9b0e2f15d5c8e51c96d51f58f1313493a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840711"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673657"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Troubleshoot Virtual Network Gateway e Connections usando O Observador de Rede Azure PowerShell
 
@@ -34,11 +34,11 @@ O Network Watcher fornece muitas capacidades no que diz respeito à compreensão
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você já seguiu as etapas em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
+Este cenário pressupõe que já seguiu os passos na [Create a Network Watcher](network-watcher-create.md) para criar um Observador de Rede.
 
 Para uma lista de visitas de tipos de gateway suportados, os tipos de [Gateway suportados](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Descrição geral
 
 A resolução de problemas de recursos fornece os problemas de resolução de problemas de capacidade que surgem com Gateways e Conexões de Rede Virtual. Quando é feito um pedido para a resolução de problemas de recursos, os registos estão a ser consultados e inspecionados. Quando a inspeção estiver concluída, os resultados são devolvidos. Os pedidos de resolução de problemas de recursos são pedidos de longa duração, que podem demorar vários minutos a devolver um resultado. Os registos de resolução de problemas são guardados num recipiente numa conta de armazenamento especificada.
 
@@ -47,7 +47,7 @@ A resolução de problemas de recursos fornece os problemas de resolução de pr
 O primeiro passo é recuperar a instância do Observador da Rede. A variável `$networkWatcher` é passada para o `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet no passo 4.
 
 ```powershell
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Location "WestCentralUS" 
 ```
 
 ## <a name="retrieve-a-virtual-network-gateway-connection"></a>Recuperar uma ligação de gateway de rede virtual
@@ -58,7 +58,7 @@ Neste exemplo, a resolução de problemas de recursos está a ser remeter-se num
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 A resolução de problemas de recursos devolve dados sobre a saúde do recurso, também guarda registos para uma conta de armazenamento a ser revista. Neste passo, criamos uma conta de armazenamento, se existir uma conta de armazenamento existente, pode utilizá-la.
 

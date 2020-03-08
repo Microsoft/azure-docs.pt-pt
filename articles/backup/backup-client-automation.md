@@ -3,12 +3,12 @@ title: Use o PowerShell para fazer o back-up do Windows Server para o Azure
 description: Neste artigo, aprenda a utilizar o PowerShell para configurar o Azure Backup no Windows Server ou num cliente windows, e gerir a cópia de segurança e recuperação.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 85006a318864aed537b70a97fb38f89746d2878c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: efe0b93fe1e37990422ffbd2256e38c12401dca5
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622813"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673204"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 
@@ -138,7 +138,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 > [!NOTE]
 > Um bug com geração de certificado de cofre é fixado em lançamento az 3.5.0. Utilize a versão de lançamento az 3.5.0 ou maior para descarregar um certificado de cofre.
 
-No mais recente módulo Az da Powershell, devido às limitações subjacentes à plataforma, o download das credenciais do cofre requer um certificado auto-assinado. O exemplo que se segue mostra como fornecer um certificado auto-assinado e baixar as credenciais do cofre.
+No mais recente módulo Az da PowerShell, devido às limitações subjacentes à plataforma, o download das credenciais do cofre requer um certificado auto-assinado. O exemplo que se segue mostra como fornecer um certificado auto-assinado e baixar as credenciais do cofre.
 
 ```powershell
 $dt = $(Get-Date).ToString("M-d-yyyy")
@@ -740,4 +740,4 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 Para mais informações sobre o Backup Azure para Windows Server/Cliente:
 
 * [Introdução ao Azure Backup](backup-introduction-to-azure-backup.md)
-* [Back up Windows Servers](backup-configure-vault.md)
+* [Back up Windows Servers](backup-windows-with-mars-agent.md)

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 99f255d9991b51897ee31671835dabb5f3e359fd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9e5b3e633bf35a25a68eb513d0ec691c3254bde4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916511"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674205"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço Azure Cosmos DB
 
@@ -186,6 +186,20 @@ A tabela seguinte enumera os limites para o [teste Try Azure Cosmos DB para test
 | Armazenamento total máximo por conta | 10 GB |
 
 A Try Cosmos DB apoia a distribuição global apenas nas regiões centro dos EUA, Norte da Europa e Sudeste Asiático. Os bilhetes de apoio Azure não podem ser criados para as contas Do Try Azure Cosmos DB. No entanto, é prestado apoio aos assinantes com planos de apoio existentes.
+
+## <a name="free-tier-account-limits"></a>Limites de conta de nível livre
+A tabela seguinte enumera os limites para [as contas de nível livre Azure Cosmos DB.](optimize-dev-test.md#azure-cosmos-db-free-tier)
+
+| Recurso | Limite predefinido |
+| --- | --- |
+| Número de contas de nível livre por subscrição do Azure | 1 |
+| Duração do desconto de nível livre | A vida útil da conta. Deve optar por participar durante a criação de conta. |
+| Máximo ru/s grátis | 400 RU/s |
+| Armazenamento máximo gratuitamente | 5 GB |
+| Número máximo de bases de dados de entrada partilhada | 5 |
+| Número máximo de contentores numa base de dados de entrada partilhada | 25 <br>Nas contas de nível livre, o mínimo de RU/s para uma base de dados de entrada partilhada com até 25 contentores é de 400 RU/s. |
+
+  Para além do que precede, os [limites por conta aplicam-se](#per-account-limits) igualmente às contas de nível livre.
 
 ## <a name="next-steps"></a>Passos seguintes
 

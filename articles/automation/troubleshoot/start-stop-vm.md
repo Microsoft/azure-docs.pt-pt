@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44de5878dcc39e09adf24f69b883a29370f00b48
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505720"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851393"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Resolução de problemas dos VMs de arranque/paragem durante a solução de horas de folga
 
@@ -203,7 +203,7 @@ Este problema pode ser causado por uma conta de Execução indevidamente configu
 
 Para verificar a sua conta Executar Como a conta está devidamente configurada, vá à sua Conta de Automação no portal Azure e selecione **Executar como contas** em **Definições de Conta**. Aqui você verá o estado da sua execução como contas, se uma Conta Run As estiver configurada ou expirada, o estado mostrará isso.
 
-Se a sua conta Executar As is [misconfigurada,](../manage-runas-account.md#misconfiguration)deve eliminar e recriar a sua Conta 'Executar'.
+Se a sua conta Executar As estiver mal configurada, deve eliminar e recriar a sua conta 'Executar As'. Ver Gerir a Execução de [Automação Azure Como contas](../manage-runas-account.md).
 
 Se o certificado estiver caducada para a sua Conta Run As, siga os passos listados na [renovação do certificado auto-assinado](../manage-runas-account.md#cert-renewal) para renovar o certificado.
 
@@ -226,7 +226,7 @@ Muitas vezes os erros podem ser causados através da utilização de uma versão
 
 Para resolver muitos erros, é aconselhável remover e atualizar a solução. Para aprender a atualizar a solução, consulte [Atualizar os VMs iniciar/parar durante a solução fora](../automation-solution-vm-management.md#update-the-solution)de horas . Além disso, pode verificar os [fluxos](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) de trabalho para procurar erros. No portal, vá à sua Conta de Automação e selecione **Jobs** no âmbito **da Automatização de Processos.**
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não consegue resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

@@ -4,83 +4,85 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: 1225a1e528b32401f350374fb9393c52225c49e8
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
-ms.translationtype: MT
+ms.openlocfilehash: b58ca353bffb99b21b1049dd23620f575bde687b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942645"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668912"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [Criar um projeto de exemplo vazio](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
-> * [Criar um recurso de fala do Azure](../../../../get-started.md)
-> * [Carregar um arquivo de origem em um blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
+> * [Criar um projeto de amostra vazia](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
+> * [Criar um recurso azure speech](../../../../get-started.md)
+> * [Faça upload de um ficheiro fonte para uma bolha Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 
-## <a name="open-your-project-in-eclipse"></a>Abra seu projeto no Eclipse
+## <a name="open-your-project-in-eclipse"></a>Abra o seu projeto em Eclipse
 
-A primeira etapa é certificar-se de que seu projeto esteja aberto no Eclipse.
+O primeiro passo é garantir que tem o seu projeto aberto no Eclipse.
 
 1. Inicie o Eclipse
-2. Carregue seu projeto e abra `Main.java`.
+2. Carregue o seu projeto e abra `Main.java`.
 
-## <a name="add-a-reference-to-gson"></a>Adicionar uma referência a Gson
-Vamos usar um serializador/desserializador JSON externo neste guia de início rápido. Para Java, escolhemos [Gson](https://github.com/google/gson).
+## <a name="add-a-reference-to-gson"></a>Adicione uma referência a Gson
+Vamos usar um serializador/desserializador externo da JSON neste arranque rápido. Para Java escolhemos [Gson.](https://github.com/google/gson)
 
-Abra o pom. xml e adicione a seguinte referência: [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
+Abra o seu pom.xml e adicione a seguinte referência.
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com algum código clichê
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
-Vamos adicionar um código que funciona como um esqueleto para nosso projeto.
+## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+
+Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=1-13,95-105,206-207)]
 
 [!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
-## <a name="json-wrappers"></a>Wrappers JSON
+## <a name="json-wrappers"></a>Invólucros JSON
 
-Como as solicitações de API REST no formato JSON e também retornam resultados em JSON, poderíamos interagir com elas usando apenas cadeias de caracteres, mas isso não é recomendado.
-Para facilitar o gerenciamento das solicitações e das respostas, vamos declarar algumas classes a serem usadas para serializar/desserializar o JSON.
+À medida que os pedidos da API rest's tomam em formato JSON e também devolvem resultados em JSON poderíamos interagir com eles usando apenas cordas, mas isso não é recomendado.
+Para facilitar a gestão dos pedidos e respostas, declararemos algumas classes para serializar/desserializar o JSON.
 
-Vá em frente e coloque suas declarações antes de `Main`.
+Vá em frente e ponha as suas declarações antes `Main`.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=15-93)]
 
-## <a name="create-and-configure-an-http-client"></a>Criar e configurar um cliente http
-A primeira coisa que precisaremos é de um cliente http que tenha uma URL base correta e um conjunto de autenticação.
-Insira este código em `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
+## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente http
+A primeira coisa que precisamos é de um Cliente Http que tenha um URL base correto e conjunto de autenticação.
+Insira este código na [!code-java`Main` [](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
 
-## <a name="generate-a-transcription-request"></a>Gerar uma solicitação de transcrição
-Em seguida, geraremos a solicitação de transcrição. Adicione este código a `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
+## <a name="generate-a-transcription-request"></a>Gerar um pedido de transcrição
+Em seguida, vamos gerar o pedido de transcrição. Adicione este código a `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
 
-## <a name="send-the-request-and-check-its-status"></a>Enviar a solicitação e verificar seu status
-Agora, lançamos a solicitação para o serviço de fala e verificamos o código de resposta inicial. Esse código de resposta simplesmente indicará se o serviço recebeu a solicitação. O serviço retornará uma URL nos cabeçalhos de resposta que é o local onde ele armazenará o status de transcrição.
+## <a name="send-the-request-and-check-its-status"></a>Envie o pedido e verifique o seu estado
+Agora publicamos o pedido no serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta indicará simplesmente se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde armazenará o estado da transcrição.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=118-129)]
 
-## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a conclusão da transcrição
-Como o serviço processa a transcrição de forma assíncrona, precisamos Pesquisar seu status a cada frequência. Verificaremos a cada 5 segundos.
+## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a transcrição para completar
+Uma vez que o serviço processa a transcrição assincronicamente, precisamos de fazer sondagens para o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
 
-Podemos verificar o status recuperando o conteúdo na URL que recebemos quando o postou a solicitação. Quando obtemos o conteúdo de volta, desserializamos-o em uma de nossas classes auxiliares para facilitar a interação com o.
+Podemos verificar o estado recuperando o conteúdo no Url que obtivemos quando o pedido publicou. Quando recuperarmos o conteúdo, desserializámo-lo numa das nossas aulas de ajuda para facilitar a interação.
 
-Aqui está o código de sondagem com o status exibição para tudo, exceto uma conclusão bem-sucedida, faremos isso em seguida.
+Aqui está o código de votação com o status display para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=131-159,192-204)]
 
-## <a name="display-the-transcription-results"></a>Exibir os resultados da transcrição
-Depois que o serviço tiver concluído com êxito a transcrição, os resultados serão armazenados em outra URL que pode ser obtida da resposta de status.
+## <a name="display-the-transcription-results"></a>Mostrar os resultados da transcrição
+Uma vez concluído o serviço com sucesso, os resultados serão armazenados em outro Url que podemos obter da resposta do estado.
 
-Vamos baixar o conteúdo dessa URL, desserializar o JSON e fazer um loop pelos resultados imprimindo o texto de exibição à medida que vamos.
+Vamos descarregar o conteúdo desse URL, desserializar o JSON e dar a volta aos resultados, imprimindo o texto do ecrã à medida que avançamos.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=6-160-190)]
 
-## <a name="check-your-code"></a>Verifique seu código
-Neste ponto, seu código deve ter a seguinte aparência: (adicionamos alguns comentários a esta versão) [! Code-Java [] (~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java]
+## <a name="check-your-code"></a>Verifique o seu código
+Neste ponto, o seu código deve ser assim: (Adicionámos alguns comentários a esta versão) [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java]
 
-## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
+## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Agora você está pronto para criar seu aplicativo e testar nosso reconhecimento de fala usando o serviço de fala.
+Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço de Discurso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

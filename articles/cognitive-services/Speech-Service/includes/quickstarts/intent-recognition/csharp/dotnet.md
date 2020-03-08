@@ -6,12 +6,12 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 7faf4a029168c12a3213bc9a06891200e9ac6142
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
-ms.translationtype: MT
+ms.openlocfilehash: d6d75e47edc5cb759e28098a5932e62bc0ed4678
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445599"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669380"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -76,7 +76,9 @@ Precisa associar um `LanguageUnderstandingModel` com o reconhecimento de intenç
 
 Pelo `IntentRecognizer` objeto, vai chamar o método `RecognizeOnceAsync()`. Este método permite ao serviço da Fala saber que está a enviar uma única frase para reconhecimento, e que assim que a frase é identificada para parar de reconhecer o discurso.
 
-Dentro da declaração de utilização, adicione este código abaixo do seu modelo: [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
+Dentro da declaração de utilização, adicione este código abaixo do seu modelo.
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
 
 ## <a name="display-recognition-results-or-errors"></a>Resultados de reconhecimento de visualização (ou erros)
 

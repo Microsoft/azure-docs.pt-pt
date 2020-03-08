@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics funções definidas pelo usuário do JavaScript
+title: Funções definidas pelo utilizador do Azure Stream Analytics JavaScript
 description: Neste tutorial, vai realizar mecânicas de consulta avançada com as funções definidas pelo utilizador do JavaScript
 author: rodrigoamicrosoft
 ms.author: rodrigoa
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: f82add78eef418e3644a5961d984708d3721a8dd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: feb0361b460f5b18b5a8aaa585332e2179023458
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426052"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851175"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics
  
@@ -45,16 +45,16 @@ Eis algumas coisas que não pode fazer com uma função definida pelo utilizador
 Embora as funções como **Date.GetDate()** ou **Math.random()** não estejam bloqueadas na definição das funções, deve evitar utilizá-las. Estas funções **não** devolvem o mesmo resultado sempre que as chamar e o serviço Azure Stream Analytics não mantém um diário das invocações de função e dos resultados devolvidos. Se uma função devolve diferentes resultados nos mesmos eventos, não é garantida repetibilidade quando uma tarefa for reiniciada por si ou pelo serviço do Stream Analytics.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Adicionar uma função definida pelo utilizador do JavaScript no portal do Azure
-Para criar uma função definida pelo usuário do JavaScript simples em um trabalho de Stream Analytics existente, siga estas etapas:
+Para criar uma função simples definida pelo utilizador JavaScript sob um trabalho de Stream Analytics existente, siga estes passos:
 
 > [!NOTE]
-> Essas etapas funcionam na Stream Analytics trabalhos configurados para serem executados na nuvem. Se seu trabalho de Stream Analytics estiver configurado para ser executado em Azure IoT Edge, use o Visual Studio e [escreva a função definida pelo C#usuário usando ](stream-analytics-edge-csharp-udf.md).
+> Estes passos funcionam nos trabalhos do Stream Analytics configurados para funcionar na nuvem. Se o seu trabalho de Stream Analytics estiver configurado para funcionar no Azure IoT Edge, em vez disso use o Visual Studio e [escreva a C#função definida pelo utilizador utilizando ](stream-analytics-edge-csharp-udf.md).
 
 1.  No portal do Azure, encontre a tarefa do Stream Analytics.
 
-2. No título **topologia do trabalho** , selecione **funções**. É apresentada uma lista vazia das funções.
+2. Sob a rubrica **de topologia** de trabalho, selecione **Funções**. É apresentada uma lista vazia das funções.
 
-3.  Para criar uma nova função definida pelo usuário, selecione **+ Adicionar**.
+3.  Para criar uma nova função definida pelo utilizador, selecione **+ Adicione**.
 
 4.  No painel **Nova Função**, para **Tipo de Função**, selecione **JavaScript**. É apresentado um modelo de função predefinido no editor.
 
@@ -70,12 +70,12 @@ Para criar uma função definida pelo usuário do JavaScript simples em um traba
 6.  Selecione **Guardar**. A função é apresentada na lista das funções.
 7.  Selecione a nova função **hex2Int** e marque a definição da função. Todas as funções têm um prefixo **UDF** adicionado ao alias da função. Tem de *incluir o prefixo* quando chama a função na sua consulta do Stream Analytics. Neste caso, tem de chamar **UDF.hex2Int**.
 
-## <a name="testing-javascript-udfs"></a>Testando UDFs de JavaScript 
-Você pode testar e depurar a lógica de UDF do JavaScript em qualquer navegador. Atualmente, não há suporte para a depuração e o teste da lógica dessas funções definidas pelo usuário no portal Stream Analytics. Depois que a função funcionar conforme o esperado, você poderá adicioná-la ao trabalho de Stream Analytics conforme mencionado acima e, em seguida, chamá-la diretamente da sua consulta.
+## <a name="testing-javascript-udfs"></a>Testar UDFs JavaScript 
+Pode testar e desinserm a lógica javaScript UDF em qualquer navegador. Depuração e teste da lógica destas funções definidas pelo utilizador não é atualmente suportada no portal Stream Analytics. Uma vez que a função funcione como esperado, pode adicioná-la ao trabalho de Stream Analytics como mencionado acima e, em seguida, invocá-la diretamente a partir da sua consulta.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chamar uma função definida pelo utilizador do JavaScript numa consulta
 
-1. No editor de consultas, no cabeçalho **topologia do trabalho** , selecione **consulta**.
+1. No editor de consulta, sob o título de **topologia de trabalho,** selecione **Consulta**.
 2.  Edite a consulta e, em seguida, chame a função definida pelo utilizador, da seguinte forma:
 
     ```SQL
@@ -99,31 +99,31 @@ As funções definidas pelo utilizador do JavaScript do Stream Analytics suporta
 
 Existem diferenças nos tipos que a linguagem de consulta do Stream Analytics e do JavaScript suportam. Esta tabela lista os mapeamentos de conversão entre os dois:
 
-Stream Analytics | Javascript
+Stream Analytics | JavaScript
 --- | ---
 bigint | Number (o JavaScript só pode representar números inteiros até precisamente 2^53)
 DateTime | Date (o JavaScript só suporta milissegundos)
-double | Número
-nvarchar(MAX) | Cadeia
-Record | Objeto
-Matriz | Matriz
+double | Number
+nvarchar(MAX) | String
+Record | Object
+Array | Array
 NULL | Null
 
 
 Seguem-se conversões do JavaScript para o Stream Analytics:
 
 
-Javascript | Stream Analytics
+JavaScript | Stream Analytics
 --- | ---
-Número | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
-Date | DateTime
-Cadeia | nvarchar(MAX)
-Objeto | Record
-Matriz | Matriz
+Number | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
+Data | DateTime
+String | nvarchar(MAX)
+Object | Record
+Array | Array
 Null, Undefined | NULL
 Qualquer outro tipo (por exemplo, uma função ou erro) | Não suportado (resultados num erro de runtime)
 
-A linguagem JavaScript diferencia maiúsculas de minúsculas e maiúsculas e minúsculas dos campos de objeto no código JavaScript devem corresponder à capitalização dos campos nos dados de entrada. Observe que os trabalhos com nível de compatibilidade 1,0 converterão os campos da instrução SQL SELECT para que sejam minúsculos. No nível de compatibilidade 1,1 e superior, os campos da instrução SELECT terão a mesma maiúsculas e minúsculas especificados na consulta SQL.
+A linguagem JavaScript é sensível a casos e o invólucro dos campos de objetos no código JavaScript deve corresponder ao invólucro dos campos nos dados que chegam. Por favor, note que os postos de trabalho com compatibilidade nível 1.0 converterão campos da declaração do SQL SELECT para serem minúsculos. Sob o nível de compatibilidade 1.1 e superior, os campos da declaração SELECT terão o mesmo invólucro especificado na consulta SQL.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 Os erros de runtime do JavaScript são considerados fatais e são apresentados no Registo de atividades. Para obter o registo, no portal do Azure, aceda à sua tarefa e selecione **Registo de atividades**.
@@ -147,7 +147,7 @@ SELECT
     DataString,
     DataValue,
     HexValue,
-    UDF.json_stringify(input) As InputEvent
+    UDF.jsonstringify(input) As InputEvent
 INTO
     output
 FROM

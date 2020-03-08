@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
 ms.openlocfilehash: c5a413a4fe8d9ac9b7aac59ca78cedc6d5a7a313
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206179"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899442"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte de língua e região para a API de Análise de Texto
 
@@ -77,7 +77,7 @@ O suporte linguístico é inicialmente lançado em pré-visualização, graduand
 
 \** Também disponível nas pré-visualizações públicas de Reconhecimento de [Sentimentos v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) e/ou Nomeados de Reconhecimento de [Entidades V3.](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 Página de [documentação de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/)   
 [Página de Produto dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)

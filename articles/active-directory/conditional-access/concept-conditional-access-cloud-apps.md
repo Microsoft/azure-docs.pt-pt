@@ -11,27 +11,27 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d2780e09c099d76aa2ef4ec2638a410793481d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 69bdd2d6825427597e9030a03aae7d219361ba25
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186393"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671936"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicações ou ações em nuvem
 
-As aplicações ou ações em nuvem são um sinal chave numa política de Acesso Condicional. As políticas de acesso condicional permitem que os administradores atribuam controles a aplicativos ou ações específicas.
+As aplicações ou ações em nuvem são um sinal chave numa política de Acesso Condicional. As políticas de Acesso Condicional permitem que os administradores atribuam controlos a aplicações ou ações específicas.
 
 - Os administradores podem escolher entre a lista de aplicações que incluem aplicações incorporadas da Microsoft e quaisquer [aplicações integradas da Azure AD,](../manage-apps/what-is-application-management.md) incluindo galeria, não galeria e aplicações publicadas através do [Application Proxy.](../manage-apps/what-is-application-proxy.md)
-- Os administradores podem optar por definir a política não com base em um aplicativo de nuvem, mas em uma ação do usuário. A única ação apoiada é registar informações de segurança (pré-visualização), permitindo o Acesso Condicional para impor controlos em torno da experiência combinada de registo de informações de [segurança.](../authentication/howto-registration-mfa-sspr-combined.md)
+- Os administradores podem optar por definir a política não com base numa aplicação na nuvem, mas numa ação do utilizador. A única ação apoiada é registar informações de segurança (pré-visualização), permitindo o Acesso Condicional para impor controlos em torno da experiência combinada de registo de informações de [segurança.](../authentication/howto-registration-mfa-sspr-combined.md)
 
-![Definir uma política de acesso condicional e especificar aplicativos de nuvem](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
+![Defina uma política de acesso condicional e especifique aplicações na nuvem](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
 ## <a name="microsoft-cloud-applications"></a>Aplicações na nuvem da Microsoft
 
-Muitos dos aplicativos de nuvem da Microsoft existentes estão incluídos na lista de aplicativos que você pode selecionar. 
+Muitas das aplicações em nuvem da Microsoft existentes estão incluídas na lista de aplicações que pode selecionar. 
 
-Os administradores podem atribuir uma política de acesso condicional aos seguintes aplicativos de nuvem da Microsoft. Alguns aplicativos como o Office 365 (visualização) e o gerenciamento de Microsoft Azure incluem vários aplicativos ou serviços filho relacionados. A lista a seguir não é exaustiva e está sujeita a alterações.
+Os administradores podem atribuir uma política de Acesso Condicional às seguintes aplicações na nuvem da Microsoft. Algumas aplicações como o Office 365 (pré-visualização) e a Microsoft Azure Management incluem várias aplicações ou serviços relacionados com crianças. A lista que se segue não é exaustiva e está sujeita a alterações.
 
 - [Escritório 365 (pré-visualização)](#office-365-preview)
 - Azure Analysis Services
@@ -39,7 +39,7 @@ Os administradores podem atribuir uma política de acesso condicional aos seguin
 - [Base de Dados EArmazém de Dados Azure SQL](../../sql-database/sql-database-conditional-access.md)
 - Dinâmica CRM Online
 - Microsoft Application Insights Analytics
-- [Proteção de Informação do Microsoft Azure](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- [Proteção de Informação do Microsoft Azure](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Gestão Microsoft Azure](#microsoft-azure-management)
 - Gestão de Subscrição do Microsoft Azure
 - Microsoft Cloud App Security
@@ -48,7 +48,7 @@ Os administradores podem atribuir uma política de acesso condicional aos seguin
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- [Inscrição intune da Microsoft](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)
+- [Inscrição intune da Microsoft](/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
 - Microsoft PowerApps
 - Pesquisa do Microsoft em Bing
@@ -69,11 +69,11 @@ Os administradores podem atribuir uma política de acesso condicional aos seguin
 
 ### <a name="office-365-preview"></a>Escritório 365 (pré-visualização)
 
-O Office 365 fornece serviços de produtividade e colaboração baseados na nuvem, como Exchange, SharePoint e Microsoft Teams. Os serviços de nuvem do Office 365 estão profundamente integrados para garantir experiências suaves e colaborativas. Essa integração pode causar confusão ao criar políticas, já que alguns aplicativos, como o Microsoft Teams, têm dependências em outras pessoas, como o SharePoint ou o Exchange.
+O Office 365 fornece serviços de produtividade e colaboração baseados na nuvem, como Exchange, SharePoint e Microsoft Teams. Os serviços de nuvem do Office 365 estão profundamente integrados para garantir experiências suaves e colaborativas. Esta integração pode causar confusão ao criar políticas, uma vez que algumas aplicações como as Microsoft Teams têm dependências de outras, como o SharePoint ou o Exchange.
 
-A aplicação Office 365 (pré-visualização) permite direcionar estes serviços de uma só vez. É recomendável usar o novo aplicativo Office 365 (versão prévia), em vez de direcionar aplicativos de nuvem individuais. Direcionar esse grupo de aplicativos ajuda a evitar problemas que podem surgir devido a políticas e dependências inconsistentes.
+A aplicação Office 365 (pré-visualização) permite direcionar estes serviços de uma só vez. Recomendamos a utilização da nova aplicação Office 365 (pré-visualização), em vez de direcionar as aplicações individuais para a nuvem. Direcionar este grupo de aplicações ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
 
-Os administradores podem optar por excluir aplicativos específicos da política se quiserem incluindo o aplicativo Office 365 (versão prévia) e excluindo os aplicativos específicos de sua escolha na política.
+Os administradores podem optar por excluir aplicações específicas da política, se assim o desejarem, incluindo a aplicação Office 365 (pré-visualização) e excluindo as aplicações específicas da sua escolha na política.
 
 Aplicações-chave que estão incluídas na aplicação de clientes office 365 (pré-visualização):
 
@@ -84,7 +84,7 @@ Aplicações-chave que estão incluídas na aplicação de clientes office 365 (
    - Microsoft Teams
    - Escritório 365 Exchange Online
    - Office 365 SharePoint Online
-   - Serviço de Pesquisa do Office 365
+   - Serviço de Pesquisa do Escritório 365
    - Escritório 365 Yammer
    - Office Delve
    - Office Online
@@ -96,22 +96,22 @@ Aplicações-chave que estão incluídas na aplicação de clientes office 365 (
 
 ### <a name="microsoft-azure-management"></a>Microsoft Azure Management
 
-O aplicativo de gerenciamento de Microsoft Azure inclui vários serviços subjacentes. 
+A aplicação Microsoft Azure Management inclui vários serviços subjacentes. 
 
    - Portal do Azure
-   - Provedor de Azure Resource Manager
-   - APIs do modelo de implantação clássica
+   - Fornecedor de Gestor de Recursos Azure
+   - Modelo de implementação clássico APIs
    - Azure PowerShell
-   - Portal do administrador de assinaturas do Visual Studio
+   - Portal de administrador de subscrições do Estúdio Visual
    - DevOps do Azure
-   - Portal de Azure Data Factory
+   - Portal azure data factory
 
 > [!NOTE]
-> O aplicativo de gerenciamento de Microsoft Azure aplica-se a Azure PowerShell, que chama a API Azure Resource Manager. Ele não se aplica ao Azure AD PowerShell, que chama Microsoft Graph.
+> A aplicação Microsoft Azure Management aplica-se ao Azure PowerShell, que chama a API do Gestor de Recursos Azure. Não se aplica ao Azure AD PowerShell, que chama microsoft graph.
 
 ## <a name="other-applications"></a>Outras aplicações
 
-Além dos aplicativos da Microsoft, os administradores podem adicionar qualquer aplicativo registrado do Azure AD às políticas de acesso condicional. Esses aplicativos podem incluir: 
+Além das aplicações da Microsoft, os administradores podem adicionar qualquer aplicação registada do Azure AD às políticas de Acesso Condicional. Estas aplicações podem incluir: 
 
 - Aplicações publicadas através do [Procurador de Aplicação da AD Azure](../manage-apps/what-is-application-proxy.md)
 - [Candidaturas adicionadas a partir da galeria](../manage-apps/add-application-portal.md)
@@ -120,7 +120,7 @@ Além dos aplicativos da Microsoft, os administradores podem adicionar qualquer 
 
 ## <a name="user-actions"></a>Ações do utilizador
 
-As ações do usuário são tarefas que podem ser executadas por um usuário. A única ação atualmente suportada é o Registo de informações de **segurança (pré-visualização),** que permite que a política de Acesso Condicional aplique quando os utilizadores que estão habilitados para uma tentativa de registo combinado de registo de informações de segurança. Mais informações podem ser encontradas no artigo, Registo combinado de informações de [segurança (pré-visualização)](../authentication/concept-registration-mfa-sspr-combined.md).
+As ações do utilizador são tarefas que podem ser executadas por um utilizador. A única ação atualmente suportada é o Registo de informações de **segurança (pré-visualização),** que permite que a política de Acesso Condicional aplique quando os utilizadores que estão habilitados para uma tentativa de registo combinado de registo de informações de segurança. Mais informações podem ser encontradas no artigo, Registo combinado de informações de [segurança (pré-visualização)](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

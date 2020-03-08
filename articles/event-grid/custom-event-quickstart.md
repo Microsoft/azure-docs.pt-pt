@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: enviar eventos personalizados com a grade de eventos e CLI do Azure'
-description: Início rápido use a grade de eventos do Azure e CLI do Azure para publicar um tópico personalizado e assinar eventos para esse tópico. Os eventos são tratados por um aplicativo Web.
+title: 'Quickstart: Envie eventos personalizados com Grid de Eventos e Azure CLI'
+description: Quickstart Use Azure Event Grid e Azure CLI para publicar um tópico personalizado, e subscrever eventos para esse tema. Os eventos são processados por um aplicativo web.
 services: event-grid
 keywords: ''
 author: spelluru
@@ -12,14 +12,14 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: cc9af86833fc74d0927a1cfb5c1084f39418605a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: eee6c453b4e30880034a048a3d2b63388927a753
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720682"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674533"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Início rápido: rotear eventos personalizados para o ponto de extremidade da Web com CLI do Azure e a grade de eventos
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Início rápido: Encaminhar eventos personalizados para o ponto final da web com a CLI do Azure e o Event Grid
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado.
 
@@ -27,17 +27,17 @@ Normalmente, envia eventos para um ponto final que processa os dados de eventos 
 
 Quando tiver terminado, verá que os dados do evento foram enviados para a aplicação Web.
 
-![Exibir resultados no Visualizador de grade de eventos do Azure](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
+![Ver resultados no Espectador da Grelha de Eventos Azure](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão mais recente da CLI do Azure (2.0.24 ou posterior). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão mais recente do Azure CLI (2.0.70 ou mais tarde). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 Se não estiver a utilizar o Cloud Shell, primeiro tem de iniciar sessão com `az login`.
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
 
 Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num grupo de recursos do Azure. Um grupo de recursos é uma coleção lógica na qual os recursos do Azure são implementados e geridos.
 
@@ -53,7 +53,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico personalizado deve ser exclusivo, porque faz parte da entrada DNS. Além disso, ele deve ter entre 3-50 caracteres e conter apenas os valores de a-z, A-Z, 0-9 e "-"
+Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico personalizado deve ser exclusivo, porque faz parte da entrada DNS. Além disso, tem de ter entre 3 e 50 carateres e conter apenas valores-z, A-Z, 0-9, e "-"
 
 ```azurecli-interactive
 topicname=<your-topic-name>
@@ -98,7 +98,7 @@ az eventgrid event-subscription create \
 
 Verifique a aplicação Web novamente e repare que um evento de validação de subscrição foi enviado para a mesma. Selecione o ícone do olho para expandir os dados do evento. O Event Grid envia o evento de validação para que o ponto final possa verificar que pretende receber dados de eventos. A aplicação Web inclui código para validar a subscrição.
 
-![Exibir o evento de assinatura no Visualizador de grade de eventos do Azure](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+![Ver o evento de subscrição no Espectador da Grelha de Eventos Azure](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
 
 
 ## <a name="send-an-event-to-your-custom-topic"></a>Enviar um evento para o tópico personalizado

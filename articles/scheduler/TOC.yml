@@ -6,8 +6,8 @@
       href: scheduler-intro.md
 - name: Introdução
   items:
-    - name: Criar e gerir tarefas - portal
-      href: scheduler-get-started-portal.md
+    - name: Criar e gerir agendas - Azure PowerShell
+      href: scheduler-powershell-reference.md
     - name: Migrar do Scheduler para o Logic Apps
       href: migrate-from-scheduler-to-logic-apps.md
 - name: Conceitos

@@ -72,7 +72,7 @@
       items:
         - name: Descrição geral
           href: encoding-concept.md
-          displayName: 'encoding, presets, jobs, adaptive, bitrate'
+          displayName: 'encoding, presets, jobs, adaptive, bitrate, billing'
         - name: Codificador de Codificador Standard
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
@@ -186,9 +186,14 @@
               href: live-event-error-codes.md
             - name: Códigos de erro das tarefas
               href: job-error-codes.md
-    - name: Orientações de elevada disponibilidade
-      displayName: 'failover, bcdr'
-      href: media-services-high-availability-guidance.md
+    - name: Elevada disponibilidade
+      items:
+        - name: Codificação
+          displayName: 'failover, bcdr'
+          href: media-services-high-availability-encoding.md
+        - name: Transmissão em Fluxo
+          displayName: 'failover, bcdr'
+          href: media-services-high-availability-streaming.md
     - name: Guia de migração de v2 para v3
       href: migrate-from-v2-to-v3.md
       displayName: naming

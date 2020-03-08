@@ -3,12 +3,12 @@ title: Tutorial - Agendar uma tarefa ACR
 description: Neste tutorial, aprenda a executar uma Tarefa de Registo de Contentores Azure num horário definido, definindo um ou mais gatilhos temporizadores
 ms.topic: article
 ms.date: 06/27/2019
-ms.openlocfilehash: 4c0962a38cca73e4a03a7417baaa595cf0d97009
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617448"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402876"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Executar uma tarefa ACR em um horário definido
 
@@ -56,8 +56,11 @@ az acr task create \
 
 Executar o comando de [show de tarefas az acr][az-acr-task-show] para ver se o gatilho do temporizador está configurado. Por defeito, o gatilho de atualização de imagem base também está ativado.
 
-```console
-$ az acr task show --name mytask --registry registry --output table
+```azurecli
+az acr task show --name mytask --registry registry --output table
+```
+
+```output
 NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 --------  ----------  --------  -------------------     -----------------
 mytask    linux       Enabled                           BASE_IMAGE, TIMER
@@ -71,7 +74,7 @@ az acr task run --name mytask --registry myregistry
 
 Se o recipiente correr com sucesso, a saída é semelhante à seguinte:
 
-```console
+```output
 Queued a run with ID: cf2a
 Waiting for an agent...
 2019/06/28 21:03:36 Using acb_vol_2ca23c46-a9ac-4224-b0c6-9fde44eb42d2 as the home volume
@@ -92,7 +95,7 @@ az acr task list-runs --name mytask --registry myregistry --output table
 
 Quando o temporizador é bem sucedido, a saída é semelhante à seguinte:
 
-```console
+```output
 RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURATION
 --------  -------- ----------  ---------  ---------  --------------------  ----------
 [...]
@@ -201,7 +204,7 @@ Cada campo pode ter um dos seguintes tipos de valores:
 
 Para remover todos os recursos que criou nesta série tutorial, incluindo o registo de contentores ou registos, instância de contentores, cofre chave e diretor de serviço, emita os seguintes comandos:
 
-```azurecli-interactive
+```azurecli
 az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```

@@ -1,8 +1,8 @@
 ---
-title: 'Tutorial 3: implantar o modelo de risco de crédito'
+title: 'Tutorial 3: Implementar modelo de risco de crédito'
 titleSuffix: Azure Machine Learning Studio (classic)
-description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio (clássico). Este tutorial é a parte três de uma série de tutoriais de três partes. Ele mostra como implantar um modelo como um serviço Web.
-keywords: risco de crédito, solução de análise preditiva, avaliação de risco, implantação, serviço Web
+description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio (clássico). Este tutorial é a terceira parte de uma série tutorial em três partes. Mostra como implementar um modelo como um serviço web.
+keywords: risco de crédito, solução de análise preditiva,avaliação de risco, implantação, serviço web
 author: sdgilley
 ms.author: sgilley
 services: machine-learning
@@ -10,31 +10,31 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 9353e5749906aca1f0c91b622c93ba6028cd3bef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ab6904a2569e508c0697cc273af4fd40a1767de
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432202"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898738"
 ---
-# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: implantar o modelo de risco de crédito-Azure Machine Learning Studio (clássico)
+# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implementar modelo de risco de crédito - Azure Machine Learning Studio (clássico)
 
-Neste tutorial, você tem uma visão detalhada do processo de desenvolvimento de uma solução de análise preditiva. Você desenvolve um modelo simples no Machine Learning Studio (clássico).  Em seguida, você implanta o modelo como um serviço Web Azure Machine Learning.  Esse modelo implantado pode fazer previsões usando novos dados. Este tutorial é a **parte três de uma série de tutoriais de três partes**.
+Neste tutorial, você olha para o processo de desenvolvimento de uma solução de análise preditiva. Desenvolve-se um modelo simples no Machine Learning Studio (clássico).  Em seguida, implementa o modelo como um serviço web Azure Machine Learning.  Este modelo implementado pode fazer previsões usando novos dados. Este tutorial é **a terceira parte de uma série tutorial em três partes.**
 
 Suponhamos que precisa de prever o risco de crédito de um indivíduo com base nas informações fornecidas sobre uma aplicação de crédito.  
 
-A avaliação de risco de crédito é um problema complexo, mas este tutorial vai simplificar um pouco. Você o usará como um exemplo de como é possível criar uma solução de análise preditiva usando Microsoft Azure Machine Learning Studio (clássico). Você usará Azure Machine Learning Studio (clássico) e um serviço Web Machine Learning para esta solução. 
+A avaliação do risco de crédito é um problema complexo, mas este tutorial vai simplificar um pouco. Vais usá-lo como um exemplo de como podes criar uma solução de análise preditiva utilizando o Microsoft Azure Machine Learning Studio (clássico). Você usará o Azure Machine Learning Studio (clássico) e um serviço web machine learning para esta solução. 
 
-Neste tutorial de três partes, você começa com dados de risco de crédito disponíveis publicamente.  Em seguida, você desenvolve e treina um modelo de previsão.  Por fim, você implanta o modelo como um serviço Web.
+Neste tutorial em três partes, começa com dados de risco de crédito disponíveis ao público.  Depois desenvolves e treinas um modelo preditivo.  Finalmente implementa o modelo como um serviço web.
 
-Na [parte um do tutorial](tutorial-part1-credit-risk.md), você criou um espaço de trabalho Machine Learning Studio (clássico), carregou dados e criou um experimento.
+Na [primeira parte do tutorial,](tutorial-part1-credit-risk.md)criou um espaço de trabalho do Machine Learning Studio (clássico), carregou dados e criou uma experiência.
 
-Na [parte dois do tutorial](tutorial-part2-credit-risk-train.md), você treinou e avaliou modelos.
+Na [segunda parte do tutorial,](tutorial-part2-credit-risk-train.md)treinou e avaliou modelos.
 
-Nesta parte do tutorial, você:
+Nesta parte do tutorial:
 
 > [!div class="checklist"]
-> * Preparar para implementar
+> * Preparar para a implementação
 > * Implementar o serviço web
 > * Testar o serviço web
 > * Gerir o serviço web
@@ -42,72 +42,72 @@ Nesta parte do tutorial, você:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua [a parte dois do tutorial](tutorial-part2-credit-risk-train.md).
+Complete a [segunda parte do tutorial.](tutorial-part2-credit-risk-train.md)
 
-## <a name="prepare-for-deployment"></a>Preparar para implementar
-Para dar aos outros a oportunidade de usar o modelo de previsão que você desenvolveu neste tutorial, você pode implantá-lo como um serviço Web no Azure.
+## <a name="prepare-for-deployment"></a>Preparar para a implementação
+Para dar a outros a oportunidade de usar o modelo preditivo que desenvolveu neste tutorial, pode implantá-lo como um serviço web no Azure.
 
-Até este ponto, você experimentou o treinamento de nosso modelo. Mas o serviço implementado já não vai fazer o treinamento - vai gerar novas predições, a entrada do usuário com base no nosso modelo de classificação. Então, vamos fazer uma preparação para converter esta experiência de um ***treinamento*** experimentar para um ***preditiva*** experimentar. 
+Até agora tens andado a experimentar treinar o nosso modelo. Mas o serviço implementado já não vai fazer o treinamento - vai gerar novas predições, a entrada do usuário com base no nosso modelo de classificação. Vamos preparar-nos para converter esta experiência de uma experiência de ***treino*** para uma experiência ***preditiva.*** 
 
-A preparação para a implantação é um processo de três etapas:  
+A preparação para a implantação é um processo em três etapas:  
 
 1. Remover um dos modelos
-1. Converter o *teste de treinamento* que você criou em um *experimento de previsão*
+1. Converta a experiência de *treino* que criou numa *experiência preditiva*
 1. Implementar a experimentação preditiva como um serviço web
 
 ### <a name="remove-one-of-the-models"></a>Remover um dos modelos
 
-Primeiro, você precisa cortar esse experimento um pouco. Atualmente, você tem dois modelos diferentes no experimento, mas só deseja usar um modelo ao implantá-lo como um serviço Web.  
+Primeiro, tens de reduzir um pouco esta experiência. atualmente tem dois modelos diferentes na experiência, mas só quer usar um modelo quando implementa este como um serviço web.  
 
-Digamos que você tenha decidido que o modelo de árvore ampliado foi executado melhor do que o modelo SVM. Portanto, a primeira coisa a fazer é remover o módulo [máquina de vetor de suporte de duas classes][two-class-support-vector-machine] e os módulos que foram usados para treinamento. Talvez queira fazer uma cópia da experimentação primeiro clicando **guardar como** na parte inferior da tela de experimentação.
+Digamos que decidiu que o modelo de árvore impulsionado teve um desempenho melhor do que o modelo SVM. Portanto, a primeira coisa a fazer é remover o módulo de máquina de [vetoria][two-class-support-vector-machine] de suporte de duas classes e os módulos que foram usados para treiná-lo. É possível que queira fazer uma cópia da experiência primeiro clicando em **Guardar como** na parte inferior da tela da experiência.
 
-Você precisa excluir os seguintes módulos:  
+é necessário eliminar os seguintes módulos:  
 
-* [Computador de vetor de suporte de duas classes][two-class-support-vector-machine]
-* Módulos [treinar modelo][train-model] e [modelo de Pontuação][score-model] que estavam conectados a ele
-* [Normalizar dados][normalize-data] (ambos)
-* [Avaliar o modelo][evaluate-model] (porque terminamos de avaliar os modelos)
+* [Máquina vetorial de suporte de duas classes][two-class-support-vector-machine]
+* [Modelo de comboio][train-model] e módulos de modelo de [pontuação][score-model] que estavam ligados a ele
+* [Normalizar os dados][normalize-data] (ambos)
+* [Avaliar Modelo][evaluate-model] (porque estamos acabados de avaliar os modelos)
 
-Selecione cada módulo e prima a tecla Delete, ou o módulo com o botão direito e selecione **eliminar**. 
+Selecione cada módulo e prima a tecla Eliminar ou clique no módulo e selecione **Delete**. 
 
-![Realça quais módulos excluir para remover o modelo de máquina de vetor de suporte](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
+![Destaques quais os módulos a eliminar para remover o modelo da máquina de vetores de suporte](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 O nosso modelo deverá agora ser semelhante ao seguinte:
 
-![Teste resultante quando o modelo de máquina do vetor de suporte é excluído](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Experiência resultante quando o modelo da máquina de vetor de suporte é eliminado](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
-Agora estamos prontos para implantar esse modelo usando a [árvore de decisão aumentada de duas classes][two-class-boosted-decision-tree].
+Agora estamos prontos para implementar este modelo usando a [Árvore de Decisão Impulsionada de Duas Classes.][two-class-boosted-decision-tree]
 
 ### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Converter a experimentação de preparação para uma experimentação preditiva
 
-Para preparar esse modelo para implantação, você precisa converter este teste de treinamento em um experimento de previsão. Isto envolve três passos:
+Para preparar este modelo para a implantação, precisa converter esta experiência de treino numa experiência preditiva. Isto envolve três passos:
 
-1. Salve o modelo treinado e, em seguida, substitua nossos módulos de treinamento
+1. Guarde o modelo que treinou e, em seguida, substitua os nossos módulos de treino
 1. Cortar a experimentação para remover módulos que eram necessários apenas para formação
 1. Definir em que o serviço web aceitará a entrada e em que gera a saída
 
-Você pode fazer isso manualmente, mas felizmente as três etapas podem ser realizadas clicando em **configurar serviço Web** na parte inferior da tela do experimento (e selecionando a opção **serviço Web de previsão** ).
+poderia fazê-lo manualmente, mas felizmente todos os três passos podem ser realizados clicando em **Configurar** o Serviço Web na parte inferior da tela de experiência (e selecionando a opção **Predictive Web Service).**
 
 > [!TIP]
-> Se você quiser obter mais detalhes sobre o que acontece quando você converte um teste de treinamento em um experimento de previsão, consulte [como preparar seu modelo para implantação no Azure Machine Learning Studio (clássico)](convert-training-experiment-to-scoring-experiment.md).
+> Se quiser mais detalhes sobre o que acontece quando converte uma experiência de treino para uma experiência preditiva, veja [como preparar o seu modelo para implantação no Azure Machine Learning Studio (clássico)](convert-training-experiment-to-scoring-experiment.md).
 
-Quando clica em **no serviço de Web**, várias coisas acontecem:
+Quando clica em **Configurar o Serviço Web,** várias coisas acontecem:
 
-* O modelo preparado é convertido numa única **modelo preparado** módulo e armazenado na paleta do módulo para a esquerda da tela de experimentação (pode encontrá-lo sob **modelos de formação**)
+* O modelo treinado é convertido num único módulo **Modelo Treinado** e armazenado na paleta de módulos à esquerda da tela de experiência (pode encontrá-lo em **Modelos Treinados)**
 * Módulos que eram usados para treinamento são removidos; especificamente:
-  * [Árvore de decisão aumentada de duas classes][two-class-boosted-decision-tree]
-  * [Modelo de treinamento][train-model]
-  * [Dividir dados][split]
-  * o segundo módulo [Executar script R][execute-r-script] que foi usado para dados de teste
+  * [Árvore de decisão impulsionada por duas classes][two-class-boosted-decision-tree]
+  * [Modelo de comboio][train-model]
+  * [Dados divididos][split]
+  * o segundo módulo [execute R Script][execute-r-script] que foi usado para dados de teste
 * O modelo treinado guardado é adicionado novamente para a experimentação
-* **Entrada do serviço da Web** e **saída de serviço da Web** módulos são adicionados (estes identificam onde os dados do utilizador irão introduzir o modelo e quais dados são retornados, quando o serviço web é acessado)
+* Os módulos de entrada de **serviço web** e de saída do **serviço Web** são adicionados (estes identificam onde os dados do utilizador vão introduzir o modelo, e que dados são devolvidos, quando o serviço web é acedido)
 
 > [!NOTE]
-> Pode ver que a experimentação é guardada em duas partes dentro de separadores que foram adicionados na parte superior da tela de experimentação. A experimentação de preparação original é no separador **experimentação de preparação**, e a experimentação preditiva recentemente criada está sob **experimentação preditiva**. O experimento de previsão é aquele que você implantará como um serviço Web.
+> Pode ver que a experimentação é guardada em duas partes dentro de separadores que foram adicionados na parte superior da tela de experimentação. A experiência de treino original está sob a experiência de **treino**do separador , e a experiência preditiva recém-criada está sob **experiência preditiva.** A experiência preditiva é aquela que vai supor como um serviço web.
 
-Você precisa executar uma etapa adicional com esse experimento específico.
-Você adicionou dois módulos [Executar script R][execute-r-script] para fornecer uma função de ponderação aos dados. Esse era apenas um truque necessário para treinamento e teste, para que você possa retirar esses módulos no modelo final.
-Machine Learning Studio (clássico) removeu um módulo [Executar script R][execute-r-script] quando ele removeu o módulo [dividir][split] . Agora você pode remover o outro e conectar o [Editor de metadados][metadata-editor] diretamente ao modelo de [Pontuação][score-model].    
+precisa dar um passo adicional com esta experiência em particular.
+adicionou dois módulos [execute R Script][execute-r-script] para fornecer uma função de ponderação aos dados. Era só um truque que precisavas para treinar e testar, para que pudesses eliminar esses módulos no modelo final.
+O Machine Learning Studio (clássico) removeu um módulo [execute R Script][execute-r-script] quando removeu o módulo [Split.][split] Agora pode remover o outro e ligar o Editor de [Metadados][metadata-editor] diretamente ao [Modelo de Pontuação][score-model].    
 
 Nossa experiência deve agora ter um aspeto semelhante a esta:  
 
@@ -115,25 +115,25 @@ Nossa experiência deve agora ter um aspeto semelhante a esta:
 
 
 > [!NOTE]
-> Você deve estar se perguntando por que saiu do conjunto de dados do cartão de crédito do UCI alemão no experimento de previsão. O serviço vai classificar os dados do utilizador, não o conjunto de dados original, por isso, por que motivo, deixe o conjunto de dados original no modelo?
+> Pode estar a perguntar-se por que deixou o conjunto de dados do Cartão de Crédito Alemão UCI na experiência preditiva. O serviço vai classificar os dados do utilizador, não o conjunto de dados original, por isso, por que motivo, deixe o conjunto de dados original no modelo?
 > 
-> É verdade que o serviço não tem dos dados originais do cartão de crédito. Mas é necessário o esquema para esses dados, que inclui informações como o número de colunas existem e quais colunas são numéricas. Estas informações de esquema são necessárias para interpretar os dados do utilizador. Deixe esses componentes conectados para que o módulo de Pontuação tenha o esquema do conjunto de módulos quando o serviço estiver em execução. Os dados não for usados, apenas o esquema.  
+> É verdade que o serviço não tem dos dados originais do cartão de crédito. Mas é necessário o esquema para esses dados, que inclui informações como o número de colunas existem e quais colunas são numéricas. Estas informações de esquema são necessárias para interpretar os dados do utilizador. deixa estes componentes ligados de modo a que o módulo de pontuação tenha o esquema de conjunto de dados quando o serviço está em execução. Os dados não for usados, apenas o esquema.  
 > 
 >Uma coisa importante a observar é que se o conjunto de dados original contido a etiqueta, em seguida, o schema esperado da entrada web será também esperar que uma coluna com a etiqueta! Uma maneira de evitar isso é remover a etiqueta e quaisquer outros dados que estava a ser o conjunto de dados de treinamento, mas não será nas entradas de web, antes de ligar a entrada de web e o conjunto de dados de treinamento num módulo comum. 
 > 
 
-Execute o experimento uma última vez (clique em **executar**.) Se você quiser verificar se o modelo ainda está funcionando, clique na saída do módulo [modelo de Pontuação][score-model] e selecione **exibir resultados**. Pode ver que os dados originais são apresentados, juntamente com o valor de risco de crédito ("etiquetas classificadas") e o valor de probabilidade de classificação ("classificada probabilidades".) 
+Executar a experiência uma última vez (clique **em Executar**.) Se quiser verificar se o modelo ainda está a funcionar, clique na saída do módulo ['Modelo de Pontuação'][score-model] e selecione Resultados de **Visualização**. Pode ver que os dados originais são apresentados, juntamente com o valor de risco de crédito ("etiquetas classificadas") e o valor de probabilidade de classificação ("classificada probabilidades".) 
 
 ## <a name="deploy-the-web-service"></a>Implementar o serviço web
 Pode implementar a experimentação, como a um serviço web clássico ou como um novo serviço web baseado no Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Implementar como um serviço web clássico
-Para implementar um serviço da web clássico derivado a partir de nossa experiência, clique em **implementar serviço Web** abaixo de tela e selecione **implementar o serviço Web [clássica]** . Machine Learning Studio (clássico) implanta o teste como um serviço Web e o leva para o painel desse serviço Web. Nessa página, você pode retornar ao experimento (**Exibir instantâneo** ou **Exibir mais recente**) e executar um teste simples do serviço Web (consulte **testar o serviço Web** abaixo). Também há informações aqui para criar aplicativos que podem acessar o serviço Web (mais sobre isso na próxima etapa deste tutorial).
+Para implementar um serviço web clássico derivado da nossa experiência, clique em Implementar o **Serviço Web** abaixo da tela e selecione Deploy Web **Service [Classic]** . O Machine Learning Studio (clássico) implementa a experiência como um serviço web e leva-o ao painel de instrumentos para esse serviço web. A partir desta página, pode voltar à experiência **(Ver snapshot** ou **Ver mais recente)** e fazer um teste simples do serviço web (ver **Testar o serviço web** abaixo). Há também aqui informação para a criação de aplicações que possam aceder ao serviço web (mais sobre isso no próximo passo deste tutorial).
 
 ![Dashboard de serviço da Web](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
 
-Você pode configurar o serviço clicando na guia **configuração** . Aqui você pode modificar o nome do serviço (ele recebe o nome do experimento por padrão) e dar a ele uma descrição. Pode também dar mais etiquetas amigáveis para os dados de entrada e saídos.  
+Pode configurar o serviço clicando no separador **CONFIGURAÇÃO.** Aqui pode modificar o nome de serviço (é dado o nome da experiência por padrão) e dar-lhe uma descrição. Pode também dar mais etiquetas amigáveis para os dados de entrada e saídos.  
 
 ![Configurar o serviço web](./media/tutorial-part3-credit-risk-deploy/publish5.png)
 
@@ -141,97 +141,93 @@ Você pode configurar o serviço clicando na guia **configuração** . Aqui voc�
 ### <a name="deploy-as-a-new-web-service"></a>Implementar como um serviço web novo
 
 > [!NOTE] 
-> Para implementar um novo serviço web tem de ter permissões suficientes na subscrição que pretende implementar o serviço web. Para obter mais informações, consulte [gerir um serviço web através do portal do Azure Machine Learning Web Services](manage-new-webservice.md). 
+> Para implementar um novo serviço web tem de ter permissões suficientes na subscrição que pretende implementar o serviço web. Para mais informações, consulte [Gerir um serviço web utilizando o portal Azure Machine Learning Web Services](manage-new-webservice.md). 
 
 Para implementar um novo serviço web derivado de nossa experiência:
 
-1. Clique em **implementar serviço Web** abaixo de tela e selecione **implementar o Web Service [novo]** . Machine Learning Studio (clássico) transfere para a página de teste do Azure Machine Learning Web Services **Deploy** .
+1. Clique em implementar o **Serviço Web** abaixo da tela e selecione Implementar o Serviço **Web [Novo]** . O Machine Learning Studio (clássico) transfere-o para a página de implementação de experiências de implementação de serviços web De implantação de serviços de **aprendizagem** automática do Azure Machine Learning.
 
 1. Introduza um nome para o serviço web. 
 
-1. Para **plano de preços**, pode selecionar um plano de preços existente, ou selecione "Criar nova" e dê um nome ao novo plano e selecione a opção de plano mensal. A predefinição de escalões do plano para os planos para a sua região predefinida e o seu serviço web é implementada nessa região.
+1. Para **o Plano de Preços,** pode selecionar um plano de preços existente, ou selecionar "Criar novo" e dar um nome ao novo plano e selecionar a opção de plano mensal. A predefinição de escalões do plano para os planos para a sua região predefinida e o seu serviço web é implementada nessa região.
 
-1. Clique em **implementar**.
+1. Clique em **Implementar**.
 
-Após alguns minutos, o **guia de introdução** é aberta a página do web Service.
+Após alguns minutos, abre a página **Quickstart** para o seu serviço web.
 
-Você pode configurar o serviço clicando na guia **Configurar** . Aqui você pode modificar o título do serviço e dar a ele uma descrição. 
+Pode configurar o serviço clicando no separador **Configure.** Aqui pode modificar o título de serviço e dar-lhe uma descrição. 
 
-Para testar o serviço web, clique nas **testar** separador (consulte **testar o serviço web** abaixo). Para obter informações sobre como criar aplicativos que podem acessar o serviço Web, clique na guia **consumir** (a próxima etapa neste tutorial entrará em mais detalhes).
+Para testar o serviço web, clique no separador **Teste** (ver **Testar o serviço web** abaixo). Para obter informações sobre a criação de aplicações que possam aceder ao serviço web, clique no separador **Consumir** (o próximo passo neste tutorial entrará em mais detalhes).
 
 > [!TIP]
-> Depois de implementar isso, é possível atualizar o serviço web. Por exemplo, se pretender alterar o seu modelo, em seguida, pode editar a experimentação de preparação, ajustar os parâmetros de modelo e clique em **implementar serviço Web**, ao selecionar **implementar o serviço Web [clássica]** ou **Implementar serviço da Web [novo]** . Quando implementar novamente a experimentação, ele substitui o serviço web, agora a utilizar o seu modelo atualizado.  
+> Depois de implementar isso, é possível atualizar o serviço web. Por exemplo, se quiser alterar o seu modelo, pode editar a experiência de treino, ajustar os parâmetros do modelo e clicar em **Implementar o Web Service,** selecionando o **Deploy Web Service [Classic]** ou **implementar o Web Service [Novo]** . Quando implementar novamente a experimentação, ele substitui o serviço web, agora a utilizar o seu modelo atualizado.  
 > 
 > 
 
 ## <a name="test-the-web-service"></a>Testar o serviço web
 
-Quando o serviço Web é acessado, os dados do usuário entram no módulo de **entrada do serviço Web** , onde ele é passado para o módulo [modelo de Pontuação][score-model] e pontuado. Da maneira como você configurou o experimento de previsão, o modelo espera dados no mesmo formato que o conjunto de dado de risco de crédito original.
-Os resultados são devolvidos ao utilizador do serviço web através da **saída de serviço da Web** módulo.
+Quando o serviço web é acedido, os dados do utilizador entram através do módulo de entrada do **serviço Web** onde é passado para o módulo ['Modelo de Pontuação'][score-model] e pontuado. Da forma como configuraste a experiência preditiva, o modelo espera dados no mesmo formato que o conjunto original de dados de risco de crédito.
+Os resultados são devolvidos ao utilizador a partir do serviço web através do módulo de saída do **serviço Web.**
 
 > [!TIP]
-> Da maneira como você tem o experimento de previsão configurado, todos os resultados do módulo [modelo de Pontuação][score-model] são retornados. Isto inclui todos os dados de entrada e o valor de risco de crédito e a probabilidade de classificação. Mas pode retornar algo diferente se pretender que, por exemplo, pode devolver apenas o valor de risco de crédito. Para fazer isso, insira um módulo [selecionar colunas][select-columns] entre o [modelo de Pontuação][score-model] e a saída do **serviço Web** para eliminar as colunas que você não deseja que o serviço Web retorne. 
+> A forma como tem a experiência preditiva configurada, os resultados completos do módulo [Score Model][score-model] são devolvidos. Isto inclui todos os dados de entrada e o valor de risco de crédito e a probabilidade de classificação. Mas pode retornar algo diferente se pretender que, por exemplo, pode devolver apenas o valor de risco de crédito. Para tal, insira um módulo [Select Columns][select-columns] entre o [Score Model][score-model] e a saída do serviço **Web** para eliminar colunas que não deseja que o serviço web regresse. 
 > 
 > 
 
-Você pode testar um serviço Web clássico em **Machine Learning Studio (clássico)** ou no portal de **serviços Azure Machine Learning Web** .
-Pode testar uma nova web service apenas na **serviços Web Machine Learning** portal.
+Pode testar um serviço web Clássico, quer no **Machine Learning Studio (clássico)** quer no portal **Azure Machine Learning Web Services.**
+Só pode testar um novo serviço web no portal **machine learning Web Services.**
 
 > [!TIP]
-> Ao testar no portal do Azure Machine Learning Web Services, pode fazer com o portal criar dados de exemplo que pode utilizar para testar o serviço de solicitação-resposta. Sobre o **configurar** , selecione "Sim" para **ativada de dados de exemplo?** . Ao abrir o separador de solicitação-resposta sobre o **teste** página, o portal preenche os dados de exemplo retirados do conjunto de dados de risco de crédito original.
+> Ao testar no portal do Azure Machine Learning Web Services, pode fazer com o portal criar dados de exemplo que pode utilizar para testar o serviço de solicitação-resposta. Na página **Configure,** selecione "Sim" para **dados de amostra ativados?** Ao abrir o separador Request-Response na página **de Teste,** o portal preenche os dados da amostra recolhidos do conjunto original de dados de risco de crédito.
 
 ### <a name="test-a-classic-web-service"></a>Testar um serviço web clássico
 
-Você pode testar um serviço Web clássico no Machine Learning Studio (clássico) ou no portal de serviços Machine Learning Web. 
+Pode testar um serviço web Clássico no Machine Learning Studio (clássico) ou no portal machine learning Web Services. 
 
-#### <a name="test-in-machine-learning-studio-classic"></a>Testar em Machine Learning Studio (clássico)
+#### <a name="test-in-machine-learning-studio-classic"></a>Teste em Machine Learning Studio (clássico)
 
-1. Sobre o **DASHBOARD** para o serviço web, clique no **teste** botão sob **ponto final predefinido**. Uma caixa de diálogo será exibida e solicita os dados de entrada para o serviço. Estas são as mesmas colunas que apareceu do conjunto de dados de risco de crédito original.  
+1. Na página **DASHBOARD** para o serviço web, clique no botão **Teste** em **predefinição**. Uma caixa de diálogo será exibida e solicita os dados de entrada para o serviço. Estas são as mesmas colunas que apareceu do conjunto de dados de risco de crédito original.  
 
-1. Introduza um conjunto de dados e, em seguida, clique em **OK**. 
+1. Introduza um conjunto de dados e, em seguida, clique **OK**. 
 
 #### <a name="test-in-the-machine-learning-web-services-portal"></a>Testar no portal do serviços Web Machine Learning
 
-1. Na **DASHBOARD** para o serviço web, clique no **pré-visualização de teste** ligação sob **ponto final predefinido**. A página de teste no portal do Azure Machine Learning Web Services para o ponto de final de serviço web é aberto e solicita os dados de entrada para o serviço. Estas são as mesmas colunas que apareceu do conjunto de dados de risco de crédito original.
+1. Na página **DASHBOARD** para o serviço web, clique no link de **pré-visualização do Teste** em **predefinição**. A página de teste no portal do Azure Machine Learning Web Services para o ponto de final de serviço web é aberto e solicita os dados de entrada para o serviço. Estas são as mesmas colunas que apareceu do conjunto de dados de risco de crédito original.
 
-2. Clique em **teste de solicitação-resposta**. 
+2. Clique no **teste de resposta ao pedido**. 
 
 ### <a name="test-a-new-web-service"></a>Testar um serviço web novo
 
 Pode testar um novo serviço web apenas no portal de serviços Web Machine Learning.
 
-1. Na [serviços da Web do Azure Machine Learning](https://services.azureml.net/quickstart) portal, clique **teste** na parte superior da página. O **teste** é aberta a página e pode inserir dados para o serviço. Os campos de entrada apresentados correspondem às colunas que apareceu do conjunto de dados de risco de crédito original. 
+1. No portal [Azure Machine Learning Web Services,](https://services.azureml.net/quickstart) clique em **Testar** no topo da página. A página **de Teste** abre e pode inserir dados para o serviço. Os campos de entrada apresentados correspondem às colunas que apareceu do conjunto de dados de risco de crédito original. 
 
-1. Introduza um conjunto de dados e, em seguida, clique em **teste de solicitação-resposta**.
+1. Introduza um conjunto de dados e, em seguida, clique em **Teste pedido-resposta**.
 
 Os resultados do teste são exibidos no lado direito da página da coluna de saída. 
 
 
 ## <a name="manage-the-web-service"></a>Gerir o serviço web
 
-Assim que tiver implantado o serviço da web, se novos ou clássico, pode geri-lo a partir da [serviços de Web do Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) portal.
+Depois de ter implementado o seu serviço web, seja Classic ou New, pode geri-lo a partir do portal [microsoft Azure Machine Learning Web Services.](https://services.azureml.net/quickstart)
 
 Para monitorizar o desempenho do seu serviço web:
 
-1. Inicie sessão para o [serviços de Web do Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) portal
+1. Inscreva-se no portal [de Serviços Web](https://services.azureml.net/quickstart) de Aprendizagem automática do Microsoft Azure
 1. Clique em **serviços Web**
 1. Clique em seu serviço web
 1. Clique no **Dashboard**
 
 ## <a name="access-the-web-service"></a>Aceder ao serviço web
 
-Na etapa anterior deste tutorial, você implantou um serviço Web que usa seu modelo de previsão de risco de crédito. Agora os utilizadores podem enviar dados para o mesmo e receba resultados. 
+No passo anterior neste tutorial, implementou um serviço web que utiliza o seu modelo de previsão de risco de crédito. Agora os utilizadores podem enviar dados para o mesmo e receba resultados. 
 
 O serviço Web é um serviço web do Azure que possa receber e devolver dados com REST APIs de uma de duas formas:  
 
-* **Pedido/resposta** - o utilizador envia uma ou mais linhas de dados de crédito para o serviço utilizando um protocolo HTTP e o serviço responde com um ou mais conjuntos de resultados.
-* **Execução de lote** – o utilizador armazena um ou mais linhas de dados de crédito no Azure blob e, em seguida, envia a localização do blob para o serviço. O serviço pontua todas as linhas de dados no blob de entrada, armazena os resultados em outro blob e devolve o URL nesse contentor.  
+* **Pedido/Resposta** - O utilizador envia uma ou mais linhas de dados de crédito para o serviço utilizando um protocolo HTTP, e o serviço responde com um ou mais conjuntos de resultados.
+* **Execução de Lote** - O utilizador armazena uma ou mais linhas de dados de crédito numa bolha Azure e envia a localização blob para o serviço. O serviço pontua todas as linhas de dados no blob de entrada, armazena os resultados em outro blob e devolve o URL nesse contentor.  
 
-A forma mais rápida e fácil para aceder a um serviço web clássico é através da [aplicação de Web do serviço de solicitação-resposta do Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) ou [modelo de aplicação ao Web do serviço de execução do Azure ML Batch](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
-
-Estes modelos de aplicação web podem criar uma aplicação web personalizado que sabe que os dados de entrada do seu serviço da web e o que irá devolver. Tudo o que precisa fazer é fornecer acesso ao serviço web e aos dados e o modelo faz o resto.
-
-Para obter mais informações sobre como utilizar os modelos de aplicação web, consulte [consumir um serviço Web do Azure Machine Learning com um modelo de aplicação web](/azure/machine-learning/studio/consume-web-services).
+Para obter mais informações sobre o acesso e o consumo do serviço web, consulte [Consumir um serviço Web de Aprendizagem Automática Azure com um modelo de aplicação web](/azure/machine-learning/studio/consume-web-services).
 
 
 
@@ -241,10 +237,10 @@ Para obter mais informações sobre como utilizar os modelos de aplicação web,
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você concluiu estas etapas:
+Neste tutorial, completou estes passos:
 
 > [!div class="checklist"]
-> * Preparar para implementar
+> * Preparar para a implementação
 > * Implementar o serviço web
 > * Testar o serviço web
 > * Gerir o serviço web
@@ -253,7 +249,7 @@ Neste tutorial, você concluiu estas etapas:
 Também pode desenvolver um aplicativo personalizado para aceder ao serviço da web usando o código de inicialização que lhe é fornecido em R, C#, e linguagens de programação Python.
 
 > [!div class="nextstepaction"]
-> [Consumir um serviço Web Azure Machine Learning](consume-web-services.md)
+> [Consumir um serviço Web de aprendizagem automática Azure](consume-web-services.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

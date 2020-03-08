@@ -1,6 +1,6 @@
 ---
-title: Como gerenciar administradores locais em dispositivos ingressados no Azure AD
-description: Saiba como atribuir funções do Azure ao grupo de administradores locais de um dispositivo Windows.
+title: Como gerir administradores locais em dispositivos aderes ao Azure AD
+description: Saiba como atribuir funções ao Azure ao grupo de administradores locais de um dispositivo Windows.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,86 +11,86 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8087e9eaa11ced5da9b445af9d33377b4391c0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 613c5e9f153f2e3f02ab35d3be16ef3b29d15634
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379666"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672732"
 ---
-# <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais em dispositivos ingressados no Azure AD
+# <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerir o grupo de administradores locais em Azure AD aderiu a dispositivos
 
-Para gerenciar um dispositivo Windows, você precisa ser um membro do grupo Administradores local. Como parte do processo de ingresso do Azure Active Directory (Azure AD), o Azure AD atualiza a associação desse grupo em um dispositivo. Você pode personalizar a atualização de associação para atender às suas necessidades de negócios. Uma atualização de associação é, por exemplo, útil se você quiser permitir que sua equipe de suporte técnico realize tarefas que exijam direitos de administrador em um dispositivo.
+Para gerir um dispositivo Windows, é necessário ser membro do grupo de administradores locais. Como parte do processo de adesão do Azure Ative Directory (Azure AD), a Azure AD atualiza a adesão deste grupo a um dispositivo. Pode personalizar a atualização de adesão para satisfazer os seus requisitos de negócio. Uma atualização de membros é, por exemplo, útil se pretender permitir que o seu pessoal de helpdesk faça tarefas que requerem direitos de administrador num dispositivo.
 
-Este artigo explica como a atualização de associação funciona e como você pode personalizá-la durante uma junção do Azure AD. O conteúdo deste artigo não se aplica a uma junção **híbrida** do Azure AD.
+Este artigo explica como funciona a atualização de adesão e como pode personalizá-la durante um Azure AD Join. O conteúdo deste artigo não se aplica a um anúncio **híbrido** azure.
 
 ## <a name="how-it-works"></a>Como funciona
 
-Quando você conecta um dispositivo Windows com o Azure AD usando uma junção do Azure AD, o Azure AD adiciona os seguintes princípios de segurança ao grupo local de administradores no dispositivo:
+Quando liga um dispositivo Windows com a Azure AD utilizando uma adesão ao Azure AD, o Azure AD adiciona os seguintes princípios de segurança ao grupo de administradores locais no dispositivo:
 
-- A função de administrador global do Azure AD
-- A função de administrador de dispositivos do Azure AD 
-- O usuário que está executando a junção do Azure AD   
+- O papel de administrador global da AD Azure
+- A função de administrador de dispositivos Azure AD 
+- O utilizador que executa o Azure AD junta-se   
 
-Ao adicionar funções do Azure AD ao grupo local de administradores, você pode atualizar os usuários que podem gerenciar um dispositivo a qualquer momento no Azure AD sem modificar nada no dispositivo. No momento, não é possível atribuir grupos a uma função de administrador.
-O AD do Azure também adiciona a função de administrador de dispositivos do Azure AD ao grupo local de administradores para dar suporte ao princípio de privilégios mínimos (PoLP). Além dos administradores globais, você também pode habilitar os usuários que *só* receberam a função de administrador de dispositivos para gerenciar um dispositivo. 
+Ao adicionar funções de AD Azure ao grupo de administradores locais, pode atualizar os utilizadores que podem gerir um dispositivo a qualquer momento no Azure AD sem modificar nada no dispositivo. Atualmente, não é possível atribuir grupos a um papel de administrador.
+A Azure AD também adiciona o papel de administrador de dispositivos Azure AD ao grupo de administradores locais para apoiar o princípio do menor privilégio (PoLP). Além dos administradores globais, também pode ativar utilizadores que tenham sido atribuídos *apenas* a função de administrador de dispositivopara gerir um dispositivo. 
 
-## <a name="manage-the-global-administrators-role"></a>Gerenciar a função de administradores globais
+## <a name="manage-the-global-administrators-role"></a>Gerir o papel de administradores globais
 
-Para exibir e atualizar a associação da função de administrador global, consulte:
+Para visualizar e atualizar a adesão ao papel de administrador global, consulte:
 
-- [Exibir todos os membros de uma função de administrador no Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
-- [Atribuir um usuário a funções de administrador no Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
+- [Ver todos os membros de um papel de administrador no Diretório Ativo Azure](../users-groups-roles/directory-manage-roles-portal.md)
+- [Atribuir um utilizador a funções de administrador no Diretório Ativo do Azure](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 
-## <a name="manage-the-device-administrator-role"></a>Gerenciar a função de administrador do dispositivo 
+## <a name="manage-the-device-administrator-role"></a>Gerir a função de administrador do dispositivo 
 
-No portal do Azure, você pode gerenciar a função de administrador do dispositivo na página **dispositivos** . Para abrir a página **dispositivos** :
+No portal Azure, pode gerir a função de administrador de dispositivos na página **dispositivos.** Para abrir a página **Dispositivos:**
 
-1. Entre em seu [portal do Azure](https://portal.azure.com) como administrador global ou administrador de dispositivo.
-1. Procure e selecione *Azure Active Directory*.
-1. Na seção **gerenciar** , clique em **dispositivos**.
-1. Na página **dispositivos** , clique em **configurações do dispositivo**.
+1. Inscreva-se no seu [portal Azure](https://portal.azure.com) como administrador global ou administrador de dispositivos.
+1. Procure e selecione *Azure Ative Directory*.
+1. Na secção **Gerir,** clique em **Dispositivos**.
+1. Na página **Dispositivos,** clique nas **definições do Dispositivo**.
 
-Para modificar a função de administrador do dispositivo, configure **Administradores locais adicionais em dispositivos ingressados no Azure ad**.  
+Para modificar a função de administrador do dispositivo, configure **administradores locais adicionais em dispositivos ligados ao Azure AD**.  
 
 ![Administradores locais adicionais](./media/assign-local-admin/10.png)
 
 >[!NOTE]
-> Esta opção requer um locatário Azure AD Premium. 
+> Esta opção requer um inquilino Azure AD Premium. 
 
-Os administradores de dispositivo são atribuídos a todos os dispositivos ingressados no Azure AD. Você não pode definir o escopo de administradores de dispositivo para um conjunto específico de dispositivos. A atualização da função de administrador do dispositivo não tem necessariamente um impacto imediato nos usuários afetados. Em dispositivos em que um usuário já está conectado, a atualização de privilégio ocorre quando *ambas* as ações abaixo acontecem:
+Os administradores de dispositivos são atribuídos a todos os dispositivos azure AD. Não é possível examinar os administradores de dispositivos para um conjunto específico de dispositivos. Atualizar a função de administrador do dispositivo não tem necessariamente um impacto imediato nos utilizadores afetados. Nos dispositivos em que um utilizador já está assinado, a atualização de privilégios ocorre quando *ambas as* ações abaixo acontecem:
 
-- 4 horas passaram para o Azure AD emitir um novo token de atualização primário com os privilégios apropriados. 
-- O usuário sai e faz logon, não bloqueia/desbloqueie, para atualizar seu perfil.
+- Passaram-se 4 horas para que a AD Azure emita um novo Token De Refresco Primário com os privilégios apropriados. 
+- O utilizador assina e volta a entrar, não bloqueia/desbloqueia, para refrescar o seu perfil.
 
-## <a name="manage-regular-users"></a>Gerenciar usuários regulares
+## <a name="manage-regular-users"></a>Gerir utilizadores regulares
 
-Por padrão, o Azure AD adiciona o usuário que está executando a junção do Azure AD ao grupo de administradores no dispositivo. Se você quiser impedir que usuários regulares se tornem administradores locais, terá as seguintes opções:
+Por predefinição, a Azure AD adiciona ao utilizador que executa o AD Azure a juntar-se ao grupo de administradores no dispositivo. Se pretender evitar que utilizadores regulares se tornem administradores locais, tem as seguintes opções:
 
-- [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) -o Windows AutoPilot fornece uma opção para impedir que o usuário primário execute o join de se tornar um administrador local. Você pode fazer isso [criando um perfil do AutoPilot](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Registro em massa](https://docs.microsoft.com/intune/windows-bulk-enroll) – uma junção do Azure ad executada no contexto de um registro em massa ocorre no contexto de um usuário criado automaticamente. Os usuários que se conectarem depois que um dispositivo tiver sido ingressado não serão adicionados ao grupo de administradores.   
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) - O Windows Autopilot oferece-lhe uma opção para evitar que o utilizador primário realize a adesão a um administrador local. Pode fazê-lo [criando um perfil Autopilot](/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Inscrição](/intune/windows-bulk-enroll) a granel - Uma adesão a Azure AD que é realizada no contexto de uma inscrição a granel acontece no contexto de um utilizador criado automaticamente. Os utilizadores que saem depois de um dispositivo ter sido aderido não são adicionados ao grupo de administradores.   
 
-## <a name="manually-elevate-a-user-on-a-device"></a>Elevar um usuário manualmente em um dispositivo 
+## <a name="manually-elevate-a-user-on-a-device"></a>Elevar manualmente um utilizador num dispositivo 
 
-Além de usar o processo de ingresso no Azure AD, você também pode elevar manualmente um usuário normal para se tornar um administrador local em um dispositivo específico. Esta etapa exige que você já seja um membro do grupo local de administradores. 
+Além de utilizar o processo de adesão ao Azure AD, também pode elevar manualmente um utilizador regular para se tornar um administrador local num dispositivo específico. Este passo requer que já seja membro do grupo de administradores locais. 
 
-A partir da versão **10 1709 do Windows** , você pode executar essa tarefa em **Configurações-> contas-> outros usuários**. Selecione **Adicionar um usuário corporativo ou de estudante**, insira o UPN do usuário **em conta de usuário** e selecione *administrador* em **tipo de conta**  
+A partir do lançamento do **Windows 10 1709,** pode executar esta tarefa a partir de **Definições -> Contas -> Outros utilizadores**. **Selecione Adicionar um trabalho ou utilizador escolar,** insira a UPN do utilizador sob conta de **utilizador** e selecione *Administrador* sob o tipo de **conta**  
  
-Além disso, você também pode adicionar usuários usando o prompt de comando:
+Além disso, também pode adicionar utilizadores usando o pedido de comando:
 
-- Se os usuários do locatário estiverem sincronizados do Active Directory local, use `net localgroup administrators /add "Contoso\username"`.
-- Se os usuários do locatário forem criados no Azure AD, use `net localgroup administrators /add "AzureAD\UserUpn"`
+- Se os utilizadores dos seus inquilinos estiverem sincronizados a partir do Diretório Ativo no local, utilize `net localgroup administrators /add "Contoso\username"`.
+- Se os utilizadores do seu inquilino forem criados em Azure AD, use `net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Considerações 
 
-Você não pode atribuir grupos à função de administrador do dispositivo, somente usuários individuais são permitidos.
+Não é possível atribuir grupos à função de administrador do dispositivo, sendo permitido apenas utilizadores individuais.
 
-Os administradores de dispositivo são atribuídos a todos os dispositivos ingressados no Azure AD. Eles não podem ter o escopo definido para um conjunto específico de dispositivos.
+Os administradores de dispositivos são atribuídos a todos os dispositivos Azure AD Joined. Não podem ser examinados para um conjunto específico de dispositivos.
 
-Quando você remove usuários da função de administrador do dispositivo, eles ainda têm o privilégio de administrador local em um dispositivo, desde que eles estejam conectados a ele. O privilégio é revogado durante a próxima entrada ou após 4 horas quando um novo token de atualização primário é emitido.
+Quando remove os utilizadores da função de administrador do dispositivo, eles ainda têm o privilégio do administrador local num dispositivo desde que sejam inscritos no mesmo. O privilégio é revogado durante o próximo início de sessão, ou após 4 horas quando um novo token primário é emitido.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma descrição geral sobre como gerir dispositivos no portal do Azure, veja [Managing devices using the Azure portal](device-management-azure-portal.md) (Gerir dispositivos no portal do Azure)
-- Para saber mais sobre o acesso condicional baseado em dispositivo, confira [configurar Azure Active Directory políticas de acesso condicional com base no dispositivo](../conditional-access/require-managed-devices.md).
+- Para saber mais sobre o Acesso Condicional baseado no dispositivo, consulte as políticas de acesso condicional baseadas em [dispositivos Azure Ative Diretórios](../conditional-access/require-managed-devices.md).

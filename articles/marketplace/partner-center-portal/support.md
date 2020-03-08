@@ -1,95 +1,83 @@
 ---
-title: Obtenha suporte para o portal do Marketplace comercial no Partner Center
-description: Saiba mais sobre suas opções de suporte no Partner Center, incluindo como arquivar uma solicitação de suporte.
-author: ChJenk
+title: Obtenha suporte para o portal Mercado Comercial no Partner Center
+description: Conheça as suas opções de suporte no Partner Center, incluindo como apresentar um pedido de suporte.
+author: qianw211
 manager: evansma
 ms.author: jamwall
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.openlocfilehash: 53d6b5b43a028d552c95c58aebf7268353621759
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/07/2020
+ms.openlocfilehash: 032d4793576e2fb9b8de9e36666548e5bffb9460
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827891"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898276"
 ---
-# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte para o programa do Marketplace comercial no Partner Center
+# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte ao programa Mercado Comercial no Partner Center
 
-A Microsoft oferece suporte a uma ampla variedade de produtos e serviços. Encontrar a equipe de suporte correta é importante para garantir uma resposta apropriada e oportuna. Considere os seguintes cenários, que devem ajudá-lo a rotear sua consulta para a equipe apropriada: 
+A Microsoft fornece suporte para uma grande variedade de produtos e serviços. Encontrar a equipa de apoio certa é importante para garantir uma resposta adequada e oportuna. Considere os seguintes cenários, que devem ajudá-lo a encaminhar a sua consulta para a equipa apropriada: 
 
-- Se você for um Publicador e tiver uma pergunta de um cliente, peça ao cliente para solicitar suporte usando os links de suporte no [portal do Azure](https://portal.azure.com/). 
+- Se é editor e tem uma pergunta de um cliente, peça ao seu cliente para solicitar apoio utilizando os links de suporte no [portal Azure](https://portal.azure.com/). 
 
-- Se você for um Publicador e tiver uma pergunta relacionada ao seu aplicativo ou serviço, examine as opções de suporte a seguir.
+- Se é um editor e tem uma pergunta relacionada com a sua app ou serviço, reveja as seguintes opções de suporte.
 
-## <a name="support-options-for-publishers"></a>Opções de suporte para Publicadores
+## <a name="support-options-for-publishers"></a>Opções de suporte para editores
 
-1. Entre no programa do [Marketplace comercial no Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com sua conta corporativa. (Se você ainda não tiver feito isso, será necessário [criar uma conta do Partner Center](./create-account.md).)
+1. Inscreva-se [no programa Mercado Comercial no Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com a sua conta de trabalho. (Se ainda não o fez, terá de [criar uma conta partner center](./create-account.md).)
 
-1. No menu superior no lado direito da página, selecione o ícone de **suporte** . 
+1. No menu superior do lado direito da página, selecione o ícone **suporte.** 
  
-   ![Ícone de suporte](./media/commercial-marketplace-support.png)
-
-1. O painel **ajuda e suporte** será exibido no lado direito da página. Haverá uma lista suspensa para cada programa no Partner Center para o qual sua conta está registrada. Selecione o menu suspenso **Marketplace comercial** . 
+1. O painel **de ajuda e suporte** aparecerá do lado direito da página. 
  
-   ![Menu suspenso de suporte](./media/commercial-marketplace-support-pane.png)
+   ![Menu de apoio drop-down](./media/commercial-marketplace-support-pane.png)
 
-1. Selecione a **[documentação](../index.md)** para examinar as respostas abrangentes para perguntas e recursos. 
+    Ou vá ao painel da **página inicial** e selecione Ajuda **e suporte**.
 
-1. Selecione **[Fórum da comunidade de parceiros do Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder suas perguntas, aproveitando o conhecimento de outros publicadores da Microsoft. 
+   ![Ajuda e apoio da página inicial](./media/homepage-help-support.png)
 
-1. Selecione **[ajuda adicional](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** para abrir um **novo** tíquete de solicitação de suporte. 
+1. Selecione **[Documentação](../index.md)** para rever respostas abrangentes a perguntas e recursos. 
 
-## <a name="how-to-open-a-support-ticket"></a>Como abrir um tíquete de suporte
+1. Selecione **[marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder às suas perguntas, aproveitando o conhecimento de outras editoras da Microsoft. 
 
-A seleção de **ajuda adicional** no menu de suporte do Marketplace comercial no Partner Center o direcionará para a página suporte da Microsoft for Business. Você verá vários menus suspensos. Os primeiros menus suspensos são preenchidos automaticamente para você. Para obter suporte ao Marketplace, identifique a família de produtos como **serviços de nuvem e online**, o produto como **Publicador do Marketplace**e a versão do produto como **publicação no Marketplace**. Não altere essas seleções de menu suspenso preenchidas previamente. 
+1. Selecione **[ajuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir um novo bilhete de pedido de **apoio.**  
 
-- **Selecione uma categoria que melhor descreva o problema**: escolha a categoria que melhor se alinha com sua pergunta ou problema. A seleção de uma categoria fará com que um menu suspenso adicional seja exibido, solicitando que você selecione o problema que melhor descreva seu problema.
+## <a name="how-to-open-a-support-ticket"></a>Como abrir um bilhete de apoio
 
-- **Selecione um problema que melhor descreva o problema**: escolha o problema nas opções listadas que melhor se alinham com o problema. Dependendo do problema, uma nova seção pode parecer dizendo "aqui estão algumas informações que podem ajudar" com os links relevantes para o seu problema. Examine esses links antes de selecionar o botão **Avançar** para ver se sua pergunta ou problema foi resolvido.
+Agora está pronto para abrir um bilhete de apoio no ecrã **de Ajuda e Suporte.**
 
-Ao selecionar o botão **Avançar** , você será direcionado para a página **detalhes do problema** . 
+![Ajuda e suporte](./media/help-and-support.png)
 
-#### <a name="tell-us-more-about-your-issue"></a>Fale-nos mais sobre o seu problema
+>[!Note]
+>Se estiver registado no Partner Center, receberá uma melhor experiência com suporte.
 
-Na seção **detalhes do problema** , explique o que você precisa de ajuda.
+**Opção 1:** Introduza palavras-chave como: Marketplace, app Azure, oferta SaaS, gestão de conta, gestão de chumbo, emissão de implementação, pagamento, etc.
 
-- Selecione seu país.
-- Selecione o idioma no qual você gostaria de receber suporte.
-- Insira um título para o problema (de 3 a 200 caracteres).  
-- Insira uma breve descrição do seu problema (máximo de 2000 caracteres).
-- Selecione **Seguinte**.
+**Opção 2:** Navegue nos tópicos -> selecione **Categoria** = mercado comercial -> selecione o **tópico** apropriado e depois **Subtópico**.
 
-#### <a name="select-a-support-plan"></a>Selecionar um plano de suporte
+Depois de ter encontrado o tópico à sua escolha, selecione **Review Solutions**.
 
-Nenhuma informação é necessária na seção **plano de suporte** . Selecione **Seguinte**. 
+![Passo seguinte](./media/next-step.png)
 
-#### <a name="select-the-severity-of-your-issue"></a>Selecione a severidade do problema
+As seguintes opções ficarão disponíveis:
 
-Nenhuma informação é necessária na seção de **severidade** . Selecione **Seguinte**. 
+* Para selecionar um tópico diferente, selecione um link de tópico diferente sob **a edição selecionada**.
+* Reveja a descrição desta edição, se disponível.  É o texto mostrado acima dos **passos recomendados**.
+* Reveja **os passos recomendados,** se disponível.
+* Reveja **os documentos recomendados,** se disponível.
 
-#### <a name="who-should-we-contact"></a>Quem devemos entrar em contato com
+![Soluções recomendadas](./media/recommended-solutions.png)
 
-Na seção **informações de contato** , verifique se o nome do contato principal, o número de telefone e o email estão corretos. 
-- Atualize essas informações se você vir algo incorreto
-- Você pode adicionar outros contatos da sua empresa a essa solicitação de suporte, se desejado
-- Selecione **Seguinte**
+Caso não encontre a sua resposta em **soluções recomendadas,** clique em **fornecer detalhes sobre o problema**.  Preencha o formulário e todos os campos necessários para ajudar a acelerar o processo de resolução.  Em seguida, clique em **submeter**.
 
-#### <a name="review-and-submit-your-support-request"></a>Revisar e enviar sua solicitação de suporte
+>[!Note]
+>Se não tiver registado no Partner Center e o tópico necessitar de autenticação, será solicitado que faça login antes de poder prosseguir.  Para temas públicos, a autenticação não é necessária.
 
-Examine as informações de solicitação de suporte na seção **revisão** . 
-- Se todas as informações estiverem corretas, selecione **Enviar**. 
-- Se alguma informação precisar ser atualizada, selecione o botão **alterar** ao lado da seção em necessidade de atualizações.
+## <a name="track-your-existing-support-requests"></a>Acompanhe os seus pedidos de apoio existentes 
 
-## <a name="track-your-existing-support-requests"></a>Acompanhe suas solicitações de suporte existentes 
-
-Para acompanhar sua solicitação de suporte, visite a [página de suporte do Marketplace comercial](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). 
-
-Na barra de menus azul superior, ao lado de "suporte para negócios", selecione o link **solicitações de suporte** . 
-
-Examine todas as solicitações de suporte abertas e fechadas na seção de **suporte profissional da Microsoft** . 
+Para rever todos os seus bilhetes abertos e fechados, vá ao **Mercado Comercial** na barra de navegação esquerda e, em seguida, selecione **suporte**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)
+- [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

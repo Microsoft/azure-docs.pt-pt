@@ -1,40 +1,43 @@
 ---
-title: Limites, cotas e limites no Agendador do Azure
-description: Saiba mais sobre limites, cotas, valores padrão e limites de limitação para o Agendador do Azure
+title: Limites, quotas e limiares no Programador Azure
+description: Conheça limites, quotas, valores predefinidos e limites de aceleração para o Programador Azure
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 293cd956f8270a4863fcc657f58c970096cec1e3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 610232dab776648bb3dcc7c301ec292e9acad9fc
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300910"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898533"
 ---
-# <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Limites, cotas e limites de limitação no Agendador do Azure
+# <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Limites, quotas e limites de aceleração no Programador Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível.
+> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Programador Azure, que está [a ser reformado.](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date) Para continuar a trabalhar com os trabalhos que criou no Scheduler, por [favor, emigre para as Aplicações Lógicas Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) o mais rapidamente possível. 
+>
+> O agendador já não está disponível no portal Azure, mas os cmdlets Rest [API](/rest/api/scheduler) e [Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que possa gerir os seus empregos e recolhas de emprego.
 
-## <a name="limits-quotas-and-thresholds"></a>Limites, cotas e limites
+## <a name="limits-quotas-and-thresholds"></a>Limites, quotas e limiares
 
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="x-ms-request-id-header"></a>cabeçalho x-MS-Request-ID
+## <a name="x-ms-request-id-header"></a>cabeçalho x-ms-request-id
 
-Cada solicitação feita no serviço de Agendador retorna um cabeçalho de resposta chamado **x-MS-Request-ID**. Esse cabeçalho contém um valor opaco que identifica exclusivamente a solicitação. Portanto, se uma solicitação falhar de forma consistente e você tiver confirmado que a solicitação está formatada corretamente, você poderá relatar o erro à Microsoft fornecendo o valor do cabeçalho de resposta **x-MS-Request-ID** e incluindo estes detalhes: 
+Todos os pedidos feitos contra o serviço Scheduler devolvem um cabeçalho de resposta chamado **x-ms-request-id**. Este cabeçalho contém um valor opaco que identifica exclusivamente o pedido. Assim, se um pedido falhar de forma consistente, e confirmar que o pedido está devidamente formatado, pode reportar o erro à Microsoft fornecendo o valor do cabeçalho de resposta **x-ms-request-id** e incluindo estes detalhes: 
 
-* O valor **x-MS-Request-ID**
-* A hora aproximada em que a solicitação foi feita 
-* Os identificadores para a assinatura do Azure, a coleção de trabalhos e o trabalho 
-* O tipo de operação que a solicitação tentou
+* O valor **x-ms-request-id**
+* O tempo aproximado quando o pedido foi feito 
+* Os identificadores para a subscrição, recolha de emprego e emprego do Azure 
+* O tipo de operação que o pedido tentou
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Passos seguintes
 
-* [O que é o Microsoft Azure Scheduler?](scheduler-intro.md)
 * [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)
+* [Planos e faturação para O Scheduler Azure](scheduler-plans-billing.md)
+* [Referência da API REST do Azure Scheduler](/rest/api/scheduler)
+* [Referência de cmdlets do PowerShell do Azure Scheduler](scheduler-powershell-reference.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a9c9b808e737f8e72da803085bfebd8263319a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194352"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672376"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 
@@ -35,7 +35,7 @@ Este artigo responde a algumas questões que os administradores de TI podem ter 
 * *Outras definições do Windows*, tais como definições do rato.
 
 > [!NOTE]
-> Este artigo aplica-se ao navegador baseado no Microsoft Edge Legacy HTML lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado em Crómio microsoft Edge, lançado a 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
+> Este artigo aplica-se ao navegador baseado no Microsoft Edge Legacy HTML lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado em Crómio microsoft Edge, lançado a 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 **Dados da aplicação**: As aplicações do Universal Windows podem escrever dados de definições para uma pasta de roaming, e quaisquer dados escritos para esta pasta serão automaticamente sincronizados. Cabe ao desenvolvedor de aplicações individual desenhar uma app para tirar partido desta capacidade. Para obter mais informações sobre como desenvolver uma aplicação Universal Windows que utiliza roaming, consulte o blog de armazenamento de dados de [aplicações API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o blog de desenvolvimento de [roaming de dados de aplicações do Windows 8.](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)
 

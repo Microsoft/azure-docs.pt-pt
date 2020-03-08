@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 10/11/2019
-ms.openlocfilehash: 10e4ba16e00a37d532a2eceb69fedb8f5b62be8b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
-ms.translationtype: HT
+ms.date: 03/05/2020
+ms.openlocfilehash: 7cc2e346a35cd1cdf1278b527dc451a903d60f89
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301663"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402834"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração git para Azure Machine Learning
 

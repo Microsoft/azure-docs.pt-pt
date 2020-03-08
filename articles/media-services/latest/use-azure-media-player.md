@@ -1,6 +1,6 @@
 ---
-title: Reprodução com Player de Mídia do Azure-Azure | Microsoft Docs
-description: Player de Mídia do Azure é um player de vídeo da Web criado para reproduzir conteúdo de mídia de Serviços de Mídia do Microsoft Azure em uma ampla variedade de navegadores e dispositivos.
+title: Reprodução com Azure Media Player - Azure Microsoft Docs
+description: O Azure Media Player é um leitor de vídeo web construído para reproduzir conteúdos de media da Microsoft Azure Media Services numa grande variedade de navegadores e dispositivos.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,51 +11,49 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: a0b0a4e89242103811f20071b7235c825c9d8bd2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d9e42e809443a2dd6cdeb989f692b96d63269f79
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967529"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673585"
 ---
-# <a name="azure-media-player-overview"></a>Visão geral de Player de Mídia do Azure
+# <a name="azure-media-player-overview"></a>Visão geral do Azure Media Player
 
-Player de Mídia do Azure é um player de vídeo da Web criado para reproduzir conteúdo de mídia de Serviços de Mídia do Microsoft Azure em uma ampla variedade de navegadores e dispositivos. O Player de Mídia do Azure utiliza padrões do setor, como HTML5, extensões de origem de mídia (MSE) e EME (extensões de mídia criptografada) para fornecer uma experiência de streaming adaptável aprimorada. Quando esses padrões não estão disponíveis em um dispositivo ou em um navegador, o Player de Mídia do Azure usa o flash e o Silverlight como tecnologia de fallback. Independentemente da tecnologia de reprodução usada, os desenvolvedores terão uma interface de JavaScript unificada para acessar APIs. Isso permite que o conteúdo servido pelos serviços de mídia do Azure seja reproduzido em uma ampla gama de dispositivos e navegadores sem nenhum esforço extra.
+O Azure Media Player é um leitor de vídeo web construído para reproduzir conteúdos de media da Microsoft Azure Media Services numa grande variedade de navegadores e dispositivos. O Azure Media Player utiliza padrões industriais, tais como HTML5, Extensões de Fonte de Media (MSE) e Extensões de Meios Encriptados (EME) para proporcionar uma experiência de streaming adaptável enriquecida. Quando estes padrões não estão disponíveis num dispositivo ou num browser, o Azure Media Player utiliza flash e Silverlight como tecnologia de recuo. Independentemente da tecnologia de reprodução utilizada, os desenvolvedores terão uma interface JavaScript unificada para aceder a APIs. Isto permite que os conteúdos servidos pela Azure Media Services sejam reproduzidos através de uma vasta gama de dispositivos e navegadores sem qualquer esforço extra.
 
-Serviços de Mídia do Microsoft Azure permite que o conteúdo seja servido com formatos de streaming HLS, DASH Smooth Streaming para reproduzir conteúdo. Player de Mídia do Azure leva em conta esses vários formatos e desempenha automaticamente o melhor link com base nos recursos de plataforma/navegador. Os serviços de mídia também permitem a criptografia dinâmica de ativos com criptografia PlayReady ou criptografia de envelope AES-128 bits. Player de Mídia do Azure permite a descriptografia de conteúdo criptografado do PlayReady e do AES-128, quando configurado adequadamente. 
+O Microsoft Azure Media Services permite que os conteúdos sejam servidos com formatos HLS, DASH, Smooth Streaming para reproduzir conteúdos. O Azure Media Player tem em conta estes vários formatos e reproduz automaticamente o melhor link com base nas capacidades da plataforma/navegador. Os Serviços de Media também permitem encriptação dinâmica de ativos com encriptação PlayReady ou encriptação de envelope sonante AES-128. O Azure Media Player permite a desencriptação do conteúdo encriptado da BitReady e AES-128 quando devidamente configurado. 
 
 > [!NOTE]
-> A reprodução de HTTPS é necessária para conteúdo criptografado Widevine.
+> A reprodução HTTPS é necessária para conteúdo encriptado da Widevine.
 
-[Inicie sua avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)
-
-## <a name="use-azure-media-player-demo-page"></a>Usar Player de Mídia do Azure página de demonstração
+## <a name="use-azure-media-player-demo-page"></a>Use a página de demonstração do Azure Media Player
 
 ### <a name="start-using"></a>Começar a usar
 
-Você pode usar a [página de demonstração player de mídia do Azure](https://aka.ms/azuremediaplayer) para reproduzir exemplos dos serviços de mídia do Azure ou seu próprio fluxo.  
+Pode utilizar a [página de demonstração do Azure Media Player](https://aka.ms/azuremediaplayer) para reproduzir amostras do Azure Media Services ou do seu próprio fluxo.  
 
-Para reproduzir um novo vídeo, Cole uma URL diferente e pressione **Atualizar**.
+Para reproduzir um novo vídeo, colhe um URL diferente e prima **Update**.
 
-Para configurar várias opções de reprodução (por exemplo, Tech, Language ou Encryption), pressione **Opções avançadas**.
+Para configurar várias opções de reprodução (por exemplo, tecnologia, linguagem ou encriptação), prima **Opções Avançadas**.
 
-![Leitor de Multimédia do Azure](./media/azure-media-player/home-page.png)
+![Media Player do Azure](./media/azure-media-player/home-page.png)
 
-### <a name="monitor-diagnostics-of-a-video-stream"></a>Monitorar o diagnóstico de um fluxo de vídeo
+### <a name="monitor-diagnostics-of-a-video-stream"></a>Monitorize diagnósticos de um fluxo de vídeo
 
-Você pode usar a [página de demonstração de player de mídia do Azure](https://aka.ms/azuremediaplayer) para monitorar o diagnóstico de um fluxo de vídeo. 
+Pode utilizar a [página de demonstração do Azure Media Player](https://aka.ms/azuremediaplayer) para monitorizar os diagnósticos de um fluxo de vídeo. 
 
-![Diagnóstico de Player de Mídia do Azure](./media/azure-media-player/diagnostics.png)
+![Diagnósticos de Azure Media Player](./media/azure-media-player/diagnostics.png)
 
-## <a name="set-up-azure-media-player-in-your-html"></a>Configurar Player de Mídia do Azure em seu HTML
+## <a name="set-up-azure-media-player-in-your-html"></a>Instale o Azure Media Player no seu HTML
 
-Player de Mídia do Azure é fácil de configurar. Leva apenas alguns minutos para obter a reprodução básica do conteúdo de mídia da sua conta de serviços de mídia. Consulte a [documentação player de mídia do Azure](https://aka.ms/ampdocs) para obter detalhes sobre como configurar e configurar player de mídia do Azure. 
+Azure Media Player é fácil de configurar. Basta maquete sem estôver os conteúdos dos media na sua conta de Media Services. Consulte a [documentação do Azure Media Player](https://aka.ms/ampdocs) para obter detalhes sobre como configurar e configurar o Azure Media Player. 
 
 ## <a name="additional-notes"></a>Notas adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* A Widevine é um serviço prestado pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Media Player documentation](https://aka.ms/ampdocs) (Documentação do Leitor de Multimédia do Azure)
-- [Exemplos de Player de Mídia do Azure](https://aka.ms/ampsamples)
+- [Amostras de Azure Media Player](https://aka.ms/ampsamples)

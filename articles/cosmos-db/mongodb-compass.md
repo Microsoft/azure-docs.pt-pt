@@ -1,56 +1,56 @@
 ---
-title: Conectar-se a Azure Cosmos DB usando a bússola
-description: Saiba como usar a bússola do MongoDB para armazenar e gerenciar dados no Azure Cosmos DB.
+title: Ligue-se ao Azure Cosmos DB usando a Bússola
+description: Aprenda a usar a Bússola MongoDB para armazenar e gerir dados em Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/24/2019
 author: LuisBosquez
 ms.author: lbosq
-ms.openlocfilehash: 5c01bd02b1fef7c7b27a3119465cad53155b9bbf
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 0924476a81027e2979616036cd828593e320a3fe
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940981"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898167"
 ---
-# <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Usar a bússola do MongoDB para se conectar à API do Azure Cosmos DB para MongoDB 
+# <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Use a Bússola MongoDB para ligar à API da Azure Cosmos DB para o MongoDB 
 
-Este tutorial demonstra como usar a [bússola do MongoDB](https://www.mongodb.com/products/compass) ao armazenar e/ou gerenciar dados no cosmos DB. Usamos a API do Azure Cosmos DB para MongoDB para este passo a passo. Para aqueles de sua familiaridade, a bússola é uma GUI para MongoDB. Normalmente, ele é usado para visualizar seus dados, executar consultas ad hoc, juntamente com o gerenciamento de seus dados. 
+Este tutorial demonstra como usar a [Bússola MongoDB](https://www.mongodb.com/products/compass) ao armazenar e/ou gerir dados em Cosmos DB. Utilizamos a API do Azure Cosmos DB para o MongoDB para este walk-through. Para aqueles que não são familiares, a Bússola é um GUI para o MongoDB. É comumente usado para visualizar os seus dados, executar consultas ad-hoc, juntamente com a gestão dos seus dados. 
 
-Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Você pode criar e consultar rapidamente documentos, chave/valor e bancos de dados de grafo, todos beneficiando-se dos recursos de escala horizontal e distribuição global no núcleo de Cosmos DB.
+Cosmos DB é o serviço de base de dados multimodelo distribuído globalmente pela Microsoft. Você pode rapidamente criar e consultar documentos, bases de dados chave/valor e gráficos, que beneficiam da distribuição global e capacidades de escala horizontal no núcleo da Cosmos DB.
 
 
 ## <a name="pre-requisites"></a>Pré-requisitos 
-Para se conectar à sua conta do Cosmos DB usando Robo 3T, você deve:
+Para se ligar à sua conta Cosmos DB usando robo 3T, deve:
 
-* Baixar e instalar a [bússola](https://www.mongodb.com/download-center/compass?jmp=hero)
-* Ter suas informações de [cadeia de conexão](connect-mongodb-account.md) Cosmos DB
+* Descarregue e instale [a Bússola](https://www.mongodb.com/download-center/compass?jmp=hero)
+* Tenha a sua informação de cadeia de [conexão](connect-mongodb-account.md) Cosmos DB
 
-## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>Conectar-se à API do Cosmos DB para MongoDB 
-Para conectar sua conta do Cosmos DB à bússola, você pode seguir as etapas abaixo:
+## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>Ligue-se à API da Cosmos DB para o MongoDB 
+Para ligar a sua conta Cosmos DB à Bússola, pode seguir os passos abaixo:
 
-1. Recupere as informações de conexão para sua conta do cosmos configurada com a API do MongoDB Azure Cosmos DB usando as instruções [aqui](connect-mongodb-account.md).
+1. Recupere as informações de ligação para a sua conta Cosmos configuradas com o API MongoDB da Azure Cosmos DB utilizando as instruções [aqui](connect-mongodb-account.md).
 
-    ![Captura de tela da folha cadeia de conexão](./media/mongodb-compass/mongodb-compass-connection.png)
+    ![Screenshot da lâmina de corda de ligação](./media/mongodb-compass/mongodb-compass-connection.png)
 
-2. Clique no botão que diz **copiar para a área de transferência** ao lado de sua **cadeia de conexão primária/secundária** no cosmos DB. Clicar nesse botão copiará toda a cadeia de conexão para a área de transferência. 
+2. Clique no botão que diz **Copiar para recortar** ao lado da sua cadeia de **ligação primária/secundária** em Cosmos DB. Clicar neste botão irá copiar toda a sua cadeia de ligação à sua área de redação. 
 
-    ![Captura de tela do botão Copiar para área de transferência](./media/mongodb-compass/mongodb-connection-copy.png)
+    ![Screenshot da cópia para botão de clipboard](./media/mongodb-compass/mongodb-connection-copy.png)
 
-3. Abra a bússola em sua área de trabalho/computador e clique em **conectar** e, em seguida, **conectar-se a...** . 
+3. Abra a Bússola no seu ambiente de trabalho/máquina e clique em **Connect** e, em seguida, **Ligue para...** . 
 
-4. A bússola detectará automaticamente uma cadeia de conexão na área de transferência e solicitará que você queira usá-la para se conectar. Clique em **Sim** , conforme mostrado na captura de tela abaixo.
+4. A bússola detetará automaticamente uma cadeia de ligação na área de sobre-a-bordo e irá solicitar-lhe que pergunte se pretende utilizá-la para se ligar. Clique em **Sim** como mostrado na imagem abaixo.
 
-    ![Captura de tela do prompt da bússola para se conectar](./media/mongodb-compass/mongodb-compass-detect.png)
+    ![Screenshot da bússola pronta para ligar](./media/mongodb-compass/mongodb-compass-detect.png)
 
-5. Depois de clicar em **Sim** na etapa anterior, os detalhes da cadeia de conexão serão preenchidos automaticamente. Remova o valor preenchido automaticamente no campo **nome do conjunto de réplicas** para garantir que ele seja deixado em branco. 
+5. Ao clicar **Sim** no passo acima, os seus detalhes da cadeia de ligação serão automaticamente povoados. Retire o valor automaticamente povoado no campo **'Nome** do Conjunto de Réplicas' para garantir que fica em branco. 
 
-    ![Captura de tela do prompt da bússola para se conectar](./media/mongodb-compass/mongodb-compass-replica.png)
+    ![Screenshot da bússola pronta para ligar](./media/mongodb-compass/mongodb-compass-replica.png)
 
-6. Clique em **conectar** na parte inferior da página. Sua conta de Cosmos DB e os bancos de dados agora devem estar visíveis na bússola do MongoDB.
+6. Clique em **Connect** na parte inferior da página. A sua conta Cosmos DB e as bases de dados devem agora ser visíveis dentro da Bússola MongoDB.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [usar o Studio 3T](mongodb-mongochef.md) com a API do Azure Cosmos DB para MongoDB.
-- Explore os [exemplos](mongodb-samples.md) do MongoDB com a API do Azure Cosmos DB para MongoDB.
+- Aprenda a usar o [Studio 3T](mongodb-mongochef.md) com a API da Azure Cosmos DB para MongoDB.
+- Explore [as amostras](mongodb-samples.md) de MongoDB com a API da Azure Cosmos DB para o MongoDB.

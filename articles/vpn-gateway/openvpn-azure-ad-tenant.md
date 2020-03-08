@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 03/05/2020
 ms.author: alzam
-ms.openlocfilehash: b9627862002a70dc84b0e268128c53a97df0ebe8
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: f4092f651a3058c8a2e738c81d9db7e296386bfa
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472303"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402889"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um inquilino de Diretório Ativo Azure para ligações ao protocolo P2S OpenVPN
 
@@ -22,9 +22,10 @@ Ao ligar-se ao seu VNet, pode utilizar autenticação baseada em certificado ou 
 > A autenticação Azure AD é suportada apenas para ligações de protocolo openVPN®.
 >
 
-## <a name="tenant"></a>1. Criar o inquilino da AD Azure
 
-Crie um inquilino DaD Azure usando os passos no [Artigo criar um novo inquilino:](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+## <a name="tenant"></a>1. Verificar inquilino da AD Azure
+
+Verifique se tem um inquilino da AD Azure. Se você não tem um inquilino Azure AD, você pode criar um usando os passos no [artigo criar um novo inquilino:](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 * Nome organizacional
 * Nome inicial de domínio
@@ -35,7 +36,7 @@ Exemplo:
 
 ## <a name="users"></a>2. Criar utilizadores de inquilinos da AD Azure
 
-Em seguida, crie duas contas de utilizador. Crie uma conta Global Admin e uma conta de utilizador principal. A conta de utilizador principal é utilizada como conta de incorporação principal (conta de serviço). Quando cria uma conta de utilizador de inquilinos Azure AD, ajusta a função de Diretório para o tipo de utilizador que pretende criar.
+O seu inquilino Azure AD precisa das seguintes contas: uma conta Global Admin e uma conta de utilizador principal. A conta de utilizador principal é utilizada como conta de incorporação principal (conta de serviço). Quando cria uma conta de utilizador de inquilinos Azure AD, ajusta a função de Diretório para o tipo de utilizador que pretende criar.
 
 Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-active-directory.md) para criar pelo menos dois utilizadores para o seu inquilino Azure AD. Certifique-se de alterar a **Função de Diretório** para criar os tipos de conta:
 

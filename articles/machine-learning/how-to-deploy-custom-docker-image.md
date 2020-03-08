@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 8c55fec08f05352d4587a8821c10600b7d7fad07
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 24ca37f5610589ae675a47a1dd966871b3004800
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396156"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851267"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementar um modelo usando uma imagem de base personalizada do Docker
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -155,6 +155,9 @@ Os passos nesta secção walk-through criando uma imagem personalizada do Docker
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
+    > [!TIP]
+    > Neste exemplo, uma etiqueta de `:v1` é aplicada à imagem. Se não for fornecida qualquer etiqueta, é aplicada uma etiqueta de `:latest`.
+
     Durante o processo de construção, a informação é transmitida para trás para a linha de comando. Se a construção for bem sucedida, recebe uma mensagem semelhante ao seguinte texto:
 
     ```text
@@ -170,6 +173,10 @@ Para obter mais informações sobre o upload de imagens existentes para um Regis
 Para utilizar uma imagem personalizada, necessita das seguintes informações:
 
 * O nome da __imagem.__ Por exemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` é o caminho para uma Imagem De Docker básica fornecida pela Microsoft.
+
+    > [!IMPORTANT]
+    > Para imagens personalizadas que criou, não se esqueça de incluir todas as etiquetas que foram usadas com a imagem. Por exemplo, se a sua imagem foi criada com uma etiqueta específica, como `:v1`. Se não usou uma etiqueta específica na criação da imagem, foi aplicada uma etiqueta de `:latest`.
+
 * Se a imagem estiver num __repositório privado,__ necessita das seguintes informações:
 
     * O __endereço__do registo. Por exemplo, `myregistry.azureecr.io`.

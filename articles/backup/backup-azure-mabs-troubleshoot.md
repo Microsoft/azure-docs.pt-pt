@@ -4,12 +4,12 @@ description: Instalação de resolução de problemas, registo do Servidor de Ba
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 018a6cee3f00531752684b12f4988cac174d3d26
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: cc0cf7e91c1aacbc637d33ab1e5546cc54836b28
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617579"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673122"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -76,7 +76,7 @@ Recomendamos que execute a validação abaixo, antes de começar a resolver prob
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
 | Empurrar agentes para servidores protegidos | As credenciais especificadas para o servidor são inválidas. | **Se a ação recomendada que é mostrada no produto não funcionar, tome as seguintes medidas:** <br> Tente instalar o agente de proteção manualmente no servidor de produção, conforme especificado [neste artigo](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).|
-| O Agente de Backup Azure não conseguiu ligar-se ao serviço de backup Azure (ID: 100050) | O Agente de Apoio Azure não conseguiu ligar-se ao serviço de backup Azure. | **Se a ação recomendada que é mostrada no produto não funcionar, tome as seguintes medidas:** <br>1. Executar o seguinte comando a partir de um pedido elevado: **psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**. Isto abre a janela do Internet Explorer. <br/> 2. Vá às **ferramentas** > **Opções** de Internet > **Ligações** > **definições LAN**. <br/> 3. Altere as definições para utilizar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy.<br/> 4. Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as definições de firewall na máquina ou proxy permitem estes [URLs](backup-configure-vault.md#verify-internet-access) e [endereço IP](backup-configure-vault.md#verify-internet-access).|
+| O Agente de Backup Azure não conseguiu ligar-se ao serviço de backup Azure (ID: 100050) | O Agente de Apoio Azure não conseguiu ligar-se ao serviço de backup Azure. | **Se a ação recomendada que é mostrada no produto não funcionar, tome as seguintes medidas:** <br>1. Executar o seguinte comando a partir de um pedido elevado: **psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**. Isto abre a janela do Internet Explorer. <br/> 2. Vá às **ferramentas** > **Opções** de Internet > **Ligações** > **definições LAN**. <br/> 3. Altere as definições para utilizar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy.<br/> 4. Se a sua máquina tiver acesso limitado à Internet, certifique-se de que as definições de firewall na máquina ou proxy permitem estes [URLs](install-mars-agent.md#verify-internet-access) e [endereço IP](install-mars-agent.md#verify-internet-access).|
 | Instalação do Agente de Backup Azure falhou | A instalação dos Serviços de Recuperação do Microsoft Azure falhou. Todas as alterações que foram feitas no sistema pela instalação dos Serviços de Recuperação do Microsoft Azure foram revertidas. (ID: 4024) | Instale manualmente o Agente Azure.
 
 ## <a name="configuring-protection-group"></a>Grupo de proteção de configuração

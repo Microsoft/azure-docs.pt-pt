@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/7/2020
 tags: connectors
-ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0f62fb835fdd2353557a4aff47128bb94ba91a31
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161879"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851514"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorize, crie e gere os ficheiros SFTP utilizando aplicações lógicas SSH e Azure
 
@@ -36,29 +36,34 @@ Para as diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a secç�
   > [!NOTE]
   > Para aplicações lógicas num ambiente de serviço de [integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão do conector com o rótulo ISE utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
+  Pode anular este comportamento adaptativo quando [especifica um tamanho constante](#change-chunk-size) para usar. Este tamanho pode variar entre 5 MB e 50 MB. Por exemplo, suponha que tenha um ficheiro de 45 MB e uma rede que possa suportar esse tamanho de ficheiro sem latência. Chunking adaptativo resulta em várias chamadas, em vez de uma chamada. Para reduzir o número de chamadas, pode tentar definir um tamanho de 50 MB. Em cenários diferentes, se a sua aplicação lógica estiver a cronometrar, por exemplo, ao utilizar pedaços de 15 MB, pode tentar reduzir o tamanho para 5 MB.
+
   O tamanho do pedaço está associado a uma ligação, o que significa que você pode usar a mesma conexão para ações que suportam chunking e, em seguida, para ações que não suportam chunking. Neste caso, o tamanho do pedaço para ações que não suportam os pedaços varia entre 5 MB e 50 MB. Esta tabela mostra quais as ações SFTP-SSH que suportam a chunking:
 
-  | Ação | Suporte de chunking |
-  |--------|------------------|
-  | **Arquivo de cópia** | Não |
-  | **Criar ficheiro** | Sim |
-  | **Criar pasta** | Não aplicável |
-  | **Eliminar ficheiro** | Não aplicável |
-  | **Extrair arquivo para pasta** | Não aplicável |
-  | **Obtenha conteúdo de ficheiro** | Sim |
-  | **Obtenha conteúdo de ficheiro usando o caminho** | Sim |
-  | **Obtenha metadados de ficheiros** | Não aplicável |
-  | **Obtenha metadados de ficheiros usando caminho** | Não aplicável |
-  | **Lista rés-da-lista na pasta** | Não aplicável |
-  | **Arquivo de renome** | Não aplicável |
-  | **Atualizar ficheiro** | Não |
-  |||
+  | Ação | Suporte de chunking | Suporte de tamanho de pedaço de substituição |
+  |--------|------------------|-----------------------------|
+  | **Arquivo de cópia** | Não | Não aplicável |
+  | **Criar ficheiro** | Sim | Sim |
+  | **Criar pasta** | Não aplicável | Não aplicável |
+  | **Eliminar ficheiro** | Não aplicável | Não aplicável |
+  | **Extrair arquivo para pasta** | Não aplicável | Não aplicável |
+  | **Obtenha conteúdo de ficheiro** | Sim | Sim |
+  | **Obtenha conteúdo de ficheiro usando o caminho** | Sim | Sim |
+  | **Obtenha metadados de ficheiros** | Não aplicável | Não aplicável |
+  | **Obtenha metadados de ficheiros usando caminho** | Não aplicável | Não aplicável |
+  | **Lista rés-da-lista na pasta** | Não aplicável | Não aplicável |
+  | **Arquivo de renome** | Não aplicável | Não aplicável |
+  | **Atualizar ficheiro** | Não | Não aplicável |
+  ||||
 
-* Os gatilhos SFTP-SSH não suportam o chunking. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros superiores a 15 MB, siga este padrão em vez disso:
+  > [!NOTE]
+  > Para fazer o upload de ficheiros grandes, precisa de ler e escrever permissões para a pasta raiz no seu servidor SFTP.
 
-  * Utilize um gatilho SFTP-SSH que desliga propriedades de ficheiros, como **quando um ficheiro é adicionado ou modificado (apenas propriedades)** .
+* Os gatilhos SFTP-SSH não suportam o corte da mensagem. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros superiores a 15 MB, siga este padrão em vez disso:
 
-  * Siga o gatilho com a ação de conteúdo de ficheiro SFTP-SSH **Get,** que lê o ficheiro completo e utiliza implicitamente a utilização de peças de texto.
+  1. Utilize um gatilho SFTP-SSH que retorna apenas as propriedades de ficheiros, como **quando um ficheiro é adicionado ou modificado (apenas propriedades)** .
+
+  1. Siga o gatilho com a ação de conteúdo de ficheiro SFTP-SSH **Get,** que lê o ficheiro completo e utiliza implicitamente a utilização de peças de texto.
 
 <a name="comparison"></a>
 
@@ -153,13 +158,13 @@ Se a sua chave privada estiver no formato PuTTY, que utiliza a extensão do nome
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica no Logic App Designer, se ainda não estiver aberta.
 
-1. Para aplicações lógicas em branco, na caixa de pesquisa, introduza "sftp ssh" como filtro. Na lista de gatilhos, selecione o gatilho que deseja.
+1. Para aplicações lógicas em branco, na caixa de pesquisa, introduza `sftp ssh` como filtro. Na lista de gatilhos, selecione o gatilho que deseja.
 
    -ou-
 
-   Para aplicações lógicas existentes, sob o último passo em que pretende adicionar uma ação, escolha **novo passo**. Na caixa de pesquisa, introduza "sftp ssh" como filtro. Na lista de ações, selecione a ação que deseja.
+   Para aplicações lógicas existentes, sob o último passo onde pretende adicionar uma ação, selecione **Novo passo**. Na caixa de pesquisa, introduza `sftp ssh` como filtro. Na lista de ações, selecione a ação que deseja.
 
-   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Escolha o sinal plus **(+)** que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Para adicionar uma ação entre passos, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal plus **(+** ) que aparece e, em seguida, **selecione Adicionar uma ação**.
 
 1. Forneça os detalhes necessários para a sua ligação.
 
@@ -177,9 +182,25 @@ Se a sua chave privada estiver no formato PuTTY, que utiliza a extensão do nome
 
    1. No gatilho ou ação SFTP-SSH adicionado, cola a chave *completa* que copiou na propriedade **chave privada SSH,** que suporta várias linhas.  ***Certifique-se de colar*** a chave. ***Não introduza manualmente ou edite a tecla***.
 
-1. Quando terminar de introduzir os detalhes da ligação, escolha **Criar**.
+1. Quando terminar de introduzir os detalhes da ligação, selecione **Criar**.
 
 1. Agora forneça os detalhes necessários para o seu gatilho ou ação selecionados e continue a construir o fluxo de trabalho da sua aplicação lógica.
+
+<a name="change-chunk-size"></a>
+
+## <a name="override-chunk-size"></a>Tamanho do pedaço de sobreposição
+
+Para anular o comportamento adaptativo padrão que o chunking utiliza, pode especificar um tamanho constante de pedaço de 5 MB a 50 MB.
+
+1. No canto superior direito da ação, selecione o botão elipses **(... )** e, em seguida, selecione **Definições**.
+
+   ![Abrir definições SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+
+1. No âmbito **da Transferência de Conteúdos,** na propriedade do tamanho do **pedaço,** insira um valor inteiro de `5` a `50`, por exemplo: 
+
+   ![Especificar o tamanho do pedaço para usar em vez disso](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+
+1. Quando tiver terminado, selecione **Concluído**.
 
 ## <a name="examples"></a>Exemplos
 

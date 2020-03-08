@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 530eebea19d9e53f85a0079d6fba91c615ee6dd1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 86dbcdc24c90ba8b161b041af96cbdd0665ad827
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375465"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78669395"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configure alertas de segurança para funções da AD Azure na Gestão de Identidade Privilegiada
 
@@ -87,13 +87,13 @@ Esta secção lista todos os alertas de segurança para funções da AD Azure, j
 | **Como consertar?** | Reveja as contas da lista. Se já não precisarem de acesso, retirem-nos dos seus papéis privilegiados. |
 | **Prevenção** | Certifique-se de que as contas partilhadas estão a rodar senhas fortes quando houver uma alteração nos utilizadores que conheçam a palavra-passe. </br>Reveja regularmente as contas com funções privilegiadas utilizando [avaliações](pim-how-to-start-security-review.md) de acesso e remova atribuições de funções que já não sejam necessárias. |
 | **Ação de mitigação no portal** | Remove a conta do seu papel privilegiado. |
-| **Melhores práticas** | As contas partilhadas, de serviço e de acesso de emergência que autenticam usando uma palavra-passe e que são atribuídas a funções administrativas altamente privilegiadas, como administrador global ou administrador de segurança, devem ter as suas palavras-passe rodadas para os seguintes casos:<ul><li>Após um incidente de segurança envolvendo uso indevido ou compromisso de direitos de acesso administrativo</li><li>Depois de os privilégios de qualquer utilizador serem alterados para que deixem de ser administradores (por exemplo, depois de um funcionário que foi administrador deixar a TI ou deixar a organização)</li><li>Em intervalos regulares (por exemplo, trimestral ou anual), mesmo que não tenha havido violação ou alteração do pessoal de TI</li></ul>Uma vez que várias pessoas têm acesso às credenciais destas contas, as credenciais devem ser giradas para garantir que as pessoas que abandonaram as suas funções já não possam aceder às contas. [Saiba mais](https://aka.ms/breakglass) |
+| **Melhores práticas** | As contas partilhadas, de serviço e de acesso de emergência que autenticam usando uma palavra-passe e que são atribuídas a funções administrativas altamente privilegiadas, como administrador global ou administrador de segurança, devem ter as suas palavras-passe rodadas para os seguintes casos:<ul><li>Após um incidente de segurança envolvendo uso indevido ou compromisso de direitos de acesso administrativo</li><li>Depois de os privilégios de qualquer utilizador serem alterados para que deixem de ser administradores (por exemplo, depois de um funcionário que foi administrador deixar a TI ou deixar a organização)</li><li>Em intervalos regulares (por exemplo, trimestral ou anual), mesmo que não tenha havido violação ou alteração do pessoal de TI</li></ul>Uma vez que várias pessoas têm acesso às credenciais destas contas, as credenciais devem ser giradas para garantir que as pessoas que abandonaram as suas funções já não possam aceder às contas. [Saiba mais sobre a obtenção de contas](../users-groups-roles/directory-admin-roles-secure.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>As funções estão a ser atribuídas fora da Gestão de Identidade Privilegiada
 
 | | |
 | --- | --- |
-| **Gravidade** | Alta |
+| **Gravidade** | High |
 | **Por que recebo este alerta?** | As atribuições de funções privilegiadas feitas fora da Gestão de Identidade Privilegiada não são devidamente monitorizadas e podem indicar um ataque ativo. |
 | **Como consertar?** | Reveja os utilizadores da lista e remova-os das funções privilegiadas atribuídas fora da Gestão de Identidade Privilegiada. |
 | **Prevenção** | Investigue onde os utilizadores estão a ser atribuídos papéis privilegiados fora da Gestão de Identidade Privilegiada e proíba futuras atribuições a partir daí. |
@@ -120,7 +120,7 @@ Esta secção lista todos os alertas de segurança para funções da AD Azure, j
 | **Por que recebo este alerta?** | Múltiplas ativações para o mesmo papel privilegiado pelo mesmo utilizador é um sinal de um ataque. |
 | **Como consertar?** | Reveja os utilizadores da lista e certifique-se de que a [duração de ativação](pim-how-to-change-default-settings.md) para a sua função privilegiada é definida o tempo suficiente para que eles executem as suas tarefas. |
 | **Prevenção** | Certifique-se de que a [duração de ativação](pim-how-to-change-default-settings.md) para funções privilegiadas é definida o tempo suficiente para que os utilizadores executem as suas tarefas.</br>[Requerer a autenticação de vários fatores](pim-how-to-change-default-settings.md) para funções privilegiadas que tenham contas partilhadas por vários administradores. |
-| **Ação de mitigação no portal** | N/A |
+| **Ação de mitigação no portal** | N/D |
 | **Acionador** | Acionado se um utilizador ativar a mesma função privilegiada várias vezes num período especificado. Pode configurar tanto o período de tempo como o número de ativações. |
 | **Prazo de renovação da ativação** | Esta definição especifica em dias, horas, minutos e segundo o período de tempo que pretende utilizar para rastrear renovações suspeitas. |
 | **Número de renovações de ativação** | Esta definição especifica o número de ativações, de 2 a 100, nas quais gostaria de ser notificada, dentro do prazo que escolheu. Pode alterar esta definição movendo o slider ou digitando um número na caixa de texto. |
@@ -192,7 +192,7 @@ Esta secção lista todos os alertas de segurança para funções da AD Azure, j
 
 | | |
 | --- | --- |
-| **Gravidade** | Alta |
+| **Gravidade** | High |
 | **Por que recebo este alerta?** | As atribuições de funções privilegiadas feitas fora da Gestão de Identidade Privilegiada não são devidamente monitorizadas e podem indicar um ataque ativo. |
 | **Como consertar?** | Reveja os utilizadores da lista e remova-os das funções privilegiadas atribuídas fora da Gestão de Identidade Privilegiada. |
 | **Prevenção** | Investigue onde os utilizadores estão a ser atribuídos papéis privilegiados fora da Gestão de Identidade Privilegiada e proíba futuras atribuições a partir daí. |
@@ -219,7 +219,7 @@ Esta secção lista todos os alertas de segurança para funções da AD Azure, j
 | **Por que recebo este alerta?** | Múltiplas ativações para o mesmo papel privilegiado pelo mesmo utilizador é um sinal de um ataque. |
 | **Como consertar?** | Reveja os utilizadores da lista e certifique-se de que a [duração de ativação](pim-how-to-change-default-settings.md) para a sua função privilegiada é definida o tempo suficiente para que eles executem as suas tarefas. |
 | **Prevenção** | Certifique-se de que a [duração de ativação](pim-how-to-change-default-settings.md) para funções privilegiadas é definida o tempo suficiente para que os utilizadores executem as suas tarefas.</br>[Requerer a autenticação de vários fatores](pim-how-to-change-default-settings.md) para funções privilegiadas que tenham contas partilhadas por vários administradores. |
-| **Ação de mitigação no portal** | N/A |
+| **Ação de mitigação no portal** | N/D |
 | **Acionador** | Acionado se um utilizador ativar a mesma função privilegiada várias vezes num período especificado. Pode configurar tanto o período de tempo como o número de ativações. |
 | **Prazo de renovação da ativação** | Esta definição especifica em dias, horas, minutos e segundo o período de tempo que pretende utilizar para rastrear renovações suspeitas. |
 | **Número de renovações de ativação** | Esta definição especifica o número de ativações, de 2 a 100, nas quais gostaria de ser notificada, dentro do prazo que escolheu. Pode alterar esta definição movendo o slider ou digitando um número na caixa de texto. |
@@ -242,6 +242,6 @@ Pode personalizar alguns dos alertas de segurança na Gestão de Identidade Priv
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure definições de funções de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-change-default-settings.md)

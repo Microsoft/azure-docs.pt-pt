@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação texto-a-fala
+title: Documentação da conversão de texto em voz
 summary: O texto-a-voz do serviço speech permite que as suas aplicações, ferramentas ou dispositivos convertam texto em discurso sintetizado semelhante ao humano.
 metadata:
   title: Documentação texto-a-voz - Tutoriais, Referência API - Serviços Cognitivos Azure  Microsoft Docs
@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/11/2020
   ms.author: dapine
-  ms.openlocfilehash: 64d8c636aa4b0f8b75ba3a6f92d7792c91a9271d
-  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.openlocfilehash: 11fbb549409afd78f77e194fe45fa0d7626f75a7
+  ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/22/2020
-  ms.locfileid: "77562902"
+  ms.lasthandoff: 03/06/2020
+  ms.locfileid: "78674462"
 landingContent:
 - title: Introdução
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
       url: quickstarts/text-to-speech.md
     - text: Sintetizar a voz num ficheiro de áudio
       url: quickstarts/text-to-speech-audio-file.md
-    - text: Discurso sintetizador com áudio de forma longa
+    - text: Sintetizar a voz com áudio de formato longo
       url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
 - title: Guias passo a passo
   linkLists:
@@ -79,6 +79,8 @@ landingContent:
       url: language-support.md#text-to-speech
     - text: Preços
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Conjuntos fonéticos SSML
+      url: speech-ssml-phonetic-sets.md
     - text: Código de conduta
       url: https://aka.ms/custom-neural-code-of-conduct
     - text: Divulgação para talento de voz

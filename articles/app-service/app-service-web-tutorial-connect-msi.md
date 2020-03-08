@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: edea7a7b4dcb5ed18adcbab973f9f351543c6422
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: af44f4a96567cc86c9f884cdfe5e28ff6b7bd8f3
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330877"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897675"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
@@ -127,6 +127,9 @@ Em *Web.config,* trabalhando a partir da parte superior do ficheiro e efetuando 
 
 - Encontre a cadeia de ligação chamada `MyDbConnection` e substitua o seu valor `connectionString` por `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Substitua _\<nome do servidor>_ e _\<db-name>_ com o nome do seu servidor e nome de base de dados.
 
+> [!NOTE]
+> O SqlAuthenticationProvider que acabou de registar baseia-se na biblioteca appAuthentication que instalou anteriormente. Por padrão, utiliza uma identidade atribuída ao sistema. Para alavancar uma identidade atribuída ao utilizador, terá de fornecer uma configuração adicional. Consulte o suporte de cordas de [ligação](../key-vault/service-to-service-authentication.md#connection-string-support) para a biblioteca AppAuthentication.
+
 É tudo o que precisas para ligar à Base de Dados SQL. Ao depurar-se no Estúdio Visual, o seu código utiliza o utilizador Azure AD configurado no [set up Visual Studio](#set-up-visual-studio). Mais tarde, irá configurar o servidor De base de dados SQL para permitir a ligação a partir da identidade gerida da sua aplicação App Service.
 
 Digite `Ctrl+F5` para executar novamente a aplicação. A mesma aplicação CRUD no seu navegador está agora a ligar-se diretamente à Base de Dados Azure SQL, utilizando a autenticação Azure AD. Esta configuração permite-lhe executar migrações de base de dados do Estúdio Visual.
@@ -189,6 +192,9 @@ Digite `Ctrl+F5` para executar novamente a aplicação. A mesma aplicação CRUD
 
 Em seguida, configura a sua aplicação App Service para se ligar à Base de Dados SQL com uma identidade gerida atribuída pelo sistema.
 
+> [!NOTE]
+> Embora as instruções nesta secção sejam para uma identidade atribuída ao sistema, uma identidade atribuída ao utilizador pode facilmente ser utilizada. Para fazer isto. precisaria da alteração do `az webapp identity assign command` para atribuir a identidade atribuída ao utilizador pretendido. Em seguida, ao criar o utilizador SQL, certifique-se de usar o nome do recurso de identidade atribuído ao utilizador em vez do nome do site.
+
 ### <a name="enable-managed-identity-on-app"></a>Ativar identidade gerida na app
 
 Para ativar uma identidade gerida na sua aplicação do Azure, utilize o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) no Cloud Shell. No comando seguinte, substitua *\<nome de aplicação>* .
@@ -237,7 +243,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<nome de identidade>* é o nome da identidade gerida em Azure AD. Uma vez que é atribuído ao sistema, é sempre o mesmo que o nome da sua aplicação App Service. Para conceder permissões a um grupo Azure AD, utilize o nome de exibição do grupo (por exemplo, *myAzureSQLDBAccessGroup*).
+*\<nome de identidade>* é o nome da identidade gerida em Azure AD. Se a identidade for atribuída ao sistema, o nome é sempre o mesmo que o nome da sua aplicação App Service. Para conceder permissões a um grupo Azure AD, utilize o nome de exibição do grupo (por exemplo, *myAzureSQLDBAccessGroup*).
 
 Escreva `EXIT` para regressar à linha de comandos do Cloud Shell.
 

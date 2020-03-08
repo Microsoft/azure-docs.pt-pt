@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84c794e6fe751bc1c12b90353ef7b285f31a2331
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192145"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671892"
 ---
 # <a name="conditional-access-session"></a>Acesso Condicional: Sessão
 
@@ -30,12 +30,12 @@ As organizações podem usar este controlo para exigir que o Azure AD passe info
 
 Para obter mais informações sobre a utilização e configuração de restrições impostas pela aplicação, consulte os seguintes artigos:
 
-- [Permitindo acesso limitado com O SharePoint Online](https://docs.microsoft.com/sharepoint/control-access-from-unmanaged-devices)
+- [Permitindo acesso limitado com O SharePoint Online](/sharepoint/control-access-from-unmanaged-devices)
 - [Permitir o acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="conditional-access-application-control"></a>Controlo de aplicações de acesso condicional
 
-O Controle de Aplicativos de Acesso Condicional usa uma arquitetura de proxy reverso e é exclusivamente integrado ao acesso condicional do Azure AD. O acesso condicional do Azure AD permite que você aplique controles de acesso nos aplicativos da sua organização com base em determinadas condições. As condições definem quem (utilizador ou grupo de utilizadores) e o que (quais aplicações na nuvem) e onde (quais localizações e redes) é aplicada uma política de Acesso Condicional. Depois de ter determinado as condições, pode direcionar os utilizadores para o [Microsoft Cloud App Security,](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) onde pode proteger dados com controlo de aplicações de acesso condicional aplicando controlos de acesso e sessão.
+O Controlo de Aplicações de Acesso Condicional utiliza uma arquitetura de procuração inversa e está exclusivamente integrado com o Azure AD Conditional Access. O Azure AD Conditional Access permite-lhe impor controlos de acesso nas aplicações da sua organização com base em determinadas condições. As condições definem quem (utilizador ou grupo de utilizadores) e o que (quais aplicações na nuvem) e onde (quais localizações e redes) é aplicada uma política de Acesso Condicional. Depois de ter determinado as condições, pode direcionar os utilizadores para o [Microsoft Cloud App Security,](/cloud-app-security/what-is-cloud-app-security) onde pode proteger dados com controlo de aplicações de acesso condicional aplicando controlos de acesso e sessão.
 
 Controlo de aplicação de acesso condicional permite acesso de aplicação do utilizador e as sessões a ser monitorizados e controlados em tempo real com base nas políticas de acesso e de sessão. Políticas de acesso e de sessão são utilizadas no portal do Cloud App Security para refinar os filtros e definir ações a executar num utilizador. Com as políticas de acesso e de sessão, pode:
 
@@ -46,7 +46,7 @@ Controlo de aplicação de acesso condicional permite acesso de aplicação do u
 - Acesso ao bloco: Pode bloquear granularmente o acesso a aplicações específicas e utilizadores dependendo de vários fatores de risco. Por exemplo, pode bloqueá-los se estiverem a usar certificados de cliente como forma de gestão do dispositivo.
 - Atividades personalizadas de bloco: Algumas aplicações têm cenários únicos que carregam risco, por exemplo, enviando mensagens com conteúdo sensível em apps como Microsoft Teams ou Slack. Neste tipo de cenários, pode digitalizar mensagens para conteúdos sensíveis e bloqueá-las em tempo real.
 
-Para mais informações, consulte o artigo Implementar controlo de aplicações de [acesso condicional para aplicações em destaque.](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Para mais informações, consulte o artigo Implementar controlo de aplicações de [acesso condicional para aplicações em destaque.](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="sign-in-frequency-preview"></a>Frequência de inversição (Pré-visualização)
 
